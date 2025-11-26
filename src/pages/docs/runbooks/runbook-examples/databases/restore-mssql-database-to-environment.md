@@ -25,7 +25,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 | ------------- | ------------- | ------------- |
 | Server | Name database server | SQLserver1 |
 | Database | Name of the database to restore | MyDatabase |
-| Backup Directory | Location of where the backup file resides | \\\mybackupserver\backupfolder |
+| Backup Directory | Location of where the backup file resides | `\\\mybackupserver\backupfolder` |
 | SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
 | SQL password | Password for the SQL Account | MyPassword |
 | Compression Option | Use compression for this backup | Enabled |
@@ -45,7 +45,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 | Database Name | Name of the database for the account | MyDatabase |
 | SQL Login | Name of the account to be fixed | MyOrphanedAccount |
 
-After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
+After adding all required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
 
 You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
 

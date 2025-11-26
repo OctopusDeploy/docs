@@ -33,7 +33,7 @@ If you don't see an account that you're expecting in this list, the app probably
 ### Editing GitHub Connections
 When you first open the GitHub connection page, you will be in view mode. This will show the connection details and the currently connected repositories. To edit the connection, click the edit button at the top of the screen. This will put the connection in edit mode, and load the GitHub repositories that you are able to connect.
 
-You will not be able to save the connection unless you have at least 1 repository selected. To remove all of the repositories, disconnect the account completely using the Disconnect button in the overflow menu.
+You will not be able to save the connection unless you have at least 1 repository selected. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
 
 :::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop connection with overflow menu expanded showing disconnect button](/docs/img/api-and-integration/github/github-connection-disconnect.png)

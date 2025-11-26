@@ -28,11 +28,11 @@ If you have just completed an in-place upgrade from **Octopus 2.6** to a modern 
 
 ## What does the Tentacle MSI do? {#ManuallyuninstallTentacle-WhatdoestheTentacleMSIactuallydo?}
 
-The MSI will stop the Tentacle Windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all of the configuration required to run Tentacle just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Tentacle knowing your configuration, data, and applications preserved.
+The MSI will stop the Tentacle windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all configuration required to run Tentacle just like before you run the uninstaller. The installer behaves this way because this makes it easier for you to upgrade the application files for Tentacle knowing your configuration, data, and applications preserved.
 
 ## Manually removing Tentacle {#ManuallyuninstallTentacle-ManuallyremovingTentacle}
 
-Since Tentacle is usually installed on the server hosting your deployed applications you may want to remove Tentacle without impacting those applications. Otherwise you may want to remove Tentacle and all of the applications it has deployed. The following sections should give you the information you need to clean Tentacle based on your scenario.
+Since Tentacle is usually installed on the server hosting your deployed applications you may want to remove Tentacle without impacting those applications. Otherwise you may want to remove Tentacle and all applications it has deployed. The following sections should give you the information you need to clean Tentacle based on your scenario.
 
 :::div{.hint}
 **What are all these files anyhow?**
@@ -47,7 +47,7 @@ These steps will remove all traces of Octopus Tentacle from your computer:
    - This will stop and uninstall the Tentacle Windows service.
 2. Now uninstall the MSI.
    - This will remove the application files.
-3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
+3. Find and delete the Octopus Home folder. By default, this is in **`%SYSTEMDRIVE%\Octopus`**.
    :::div{.problem}
 
    This will also remove your deployed applications if you have not configured Tentacle to use a different Application folder. See below for more details.

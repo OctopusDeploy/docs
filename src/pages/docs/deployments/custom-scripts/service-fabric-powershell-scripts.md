@@ -9,7 +9,7 @@ navOrder: 100
 ---
 
 :::div{.success}
-You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
+You can use all features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 :::
 
 :::div{.hint}

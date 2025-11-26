@@ -85,7 +85,7 @@ Once both Tentacles are installed and configured ensure that neither node has th
 
 Ensure each node that will be participating in the Tentacle Cluster is joined to the Active Directory Domain and has the **Failover Clustering** feature installed in Windows. For more information on installing the Failover Clustering feature in Windows please see the  [Microsoft Failover Clustering documentation](https://blogs.msdn.microsoft.com/clustering/2012/04/06/installing-the-failover-cluster-feature-and-tools-in-windows-server-2012/ "installing the failover cluster service feature and tools in Windows Server 2012").
 
-Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right click **Failover Cluster Manager** and select **New Cluster**
+Open the **Failover Cluster Manager** console on one of the nodes. If there is no cluster configured yet, you can right-click **Failover Cluster Manager** and select **New Cluster**
 
 On the **Select Servers** page, enter the Fully Qualified Domain Name of each node that will be in this cluster.
 
@@ -146,7 +146,7 @@ Complete the wizard, then navigate to the roles view to ensure the Tentacle serv
 
 ## Connect Octopus Server to a clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
 
-Login to the Octopus Portal and go to the **environments** page. Under the desired environment, click **Add Deployment Target**.
+Log into the Octopus Portal and go to the **environments** page. Under the desired environment, click **Add Deployment Target**.
 
 For the target type, choose **Listening Tentacle**.
 

@@ -694,7 +694,7 @@ Write-OctopusVerbose "    1) In Azure: create an Azure Service Principal and ass
 Write-OctopusVerbose "    2) In Octopus Deploy: create an Azure Account using the credentials created in step 1"
 
 Write-OctopusVerbose "For this to work you will need to have the following installed.  If it is not installed, then this script will it install it for you from the PowerShell Gallery."
-Write-OctopusVerbose "    1)  Azure Az Powershell Modules"
+Write-OctopusVerbose "    1)  Azure Az PowerShell Modules"
 
 $answer = Read-Host -Prompt "Do you wish to continue? y/n"
 if ($answer.ToLower() -ne "y")

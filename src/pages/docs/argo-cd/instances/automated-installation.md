@@ -34,7 +34,7 @@ It should be noted that the gateway self-registers with Octopus Deploy Server wh
 
 ## Scripted helm
 The Octopus Server webUI offers a process to aid in the creation of the required helm command to install the Gateway chart.
-However it can also be scripted, using a command similar to the following:
+However, it can also be scripted using a command similar to the following:
 ```
 helm upgrade --install --atomic \
 --create-namespace --namespace octo-argo-gateway-release-name \

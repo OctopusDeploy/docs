@@ -29,7 +29,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 | ------------- | ------------- | ------------- |
 | Server | Name database server | SQLserver1 |
 | Database | Name of the database to restore | MyDatabase |
-| Backup Directory | Location of where the backup file resides | \\\mybackupserver\backupfolder |
+| Backup Directory | Location of where the backup file resides | `\\\mybackupserver\backupfolder` |
 | SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
 | SQL password | Password for the SQL Account | MyPassword |
 | Compression Option | Use compression for this backup | Enabled |
@@ -42,7 +42,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 Use variables where possible so you can assign scopes to values. This will ensure credentials and database connections are correct for the environment you're deploying to.
 :::
 
-After adding all of the required parameters, click **Save**, and you have a basic runbook to restore your SQL database. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
+After adding all required parameters, click **Save**, and you have a basic runbook to restore your SQL database. You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
 
 ## Samples
 

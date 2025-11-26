@@ -66,7 +66,7 @@ See the [Migrating data from Octopus 2.6.5 to 2018.10 LTS](/docs/administration/
 
 :::div{.hint}
 **Migration taking a long time?**
-By default we migrate everything from your backup including historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
+By default, we migrate everything from your backup including historical data. You can use the `maxage=` argument when executing the migrator to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
 To see the command syntax click the **Show script** link in the wizard
 :::
