@@ -9,6 +9,8 @@ ALLUSERSPROFILE
 anglin
 anotherdir
 Antiforgery
+antipattern
+antipatterns
 apikey
 apikeys
 appcmd
@@ -33,8 +35,10 @@ australiaeast
 australiasoutheast
 Authentik
 auths
+autoconfigured
 autodeployoverride
 autologin
+autopopulate
 awsaccount
 azureaccount
 azureactivedirectory
@@ -286,7 +290,9 @@ msiexec
 mssqldb
 MSSQLSERVER
 MTTR
+multifactor
 Multipath
+multistep
 myagent
 myapplication
 Myatt
@@ -507,6 +513,7 @@ storyblok
 strconv
 struct
 stylesheet
+subcomponent
 subcontext
 sunsetting
 swaggerui
