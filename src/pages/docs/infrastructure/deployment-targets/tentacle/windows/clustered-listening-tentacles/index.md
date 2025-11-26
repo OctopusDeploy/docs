@@ -146,7 +146,7 @@ Complete the wizard, then navigate to the roles view to ensure the Tentacle serv
 
 ## Connect Octopus Server to a clustered Tentacle {#ClusteringTentacles-ConnectOctopusServer}
 
-Login to the Octopus Portal and go to the **environments** page. Under the desired environment, click **Add Deployment Target**.
+Log into the Octopus Portal and go to the **environments** page. Under the desired environment, click **Add Deployment Target**.
 
 For the target type, choose **Listening Tentacle**.
 

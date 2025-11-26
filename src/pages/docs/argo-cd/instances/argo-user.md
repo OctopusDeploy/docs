@@ -24,7 +24,7 @@ To do this, the following must be performed:
 ## Create a new User
 To create a new user in Argo, you must update the `argocd-cm` configmap (typically in the argo-cd namespace).
 
-The following shows a configmap with a new user called `octopus` which is able to generate an apiKey, but cannot login
+The following shows a configmap with a new user called `octopus` which is able to generate an apiKey, but cannot log in
 via Argo's web-ui.
 ```
 apiVersion: v1
