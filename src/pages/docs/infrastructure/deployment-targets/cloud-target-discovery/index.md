@@ -55,15 +55,15 @@ From **Octopus 2022.3**, Azure steps that support target discovery will allow yo
 
 Once the variables for target discovery have been configured the **Azure** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
-#### Disabling Azure cloud target discovery
+#### Switching off Azure cloud target discovery
 
-To disable cloud target discovery for Azure:
+To switch off cloud target discovery for Azure:
 
 1. Navigate to your project's **Variables** screen.
 2. Find and delete the `Octopus.Azure.Account` variable.
 3. Click **SAVE**.
 
-Once the variable is removed, cloud target discovery will be disabled for Azure resources in this project. The **Azure** tile in the **Cloud Connections** section of your Azure deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
+Once the variable is removed, cloud target discovery will be switched off for Azure resources in this project. The **Azure** tile in the **Cloud Connections** section of your Azure deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
 
 ### AWS
 
@@ -93,9 +93,9 @@ From **Octopus 2022.3**, AWS steps that support target discovery will allow you 
 
 Once the variables for target discovery have been configured the **Amazon Web Services** tile will say **Cloud target discovery enabled** and clicking the tile will redirect you to the Variables screen for the project where the target discovery variables can be edited if required.
 
-#### Disabling AWS cloud target discovery
+#### Switching off AWS cloud target discovery
 
-To disable cloud target discovery for AWS:
+To switch off cloud target discovery for AWS:
 
 1. Navigate to your project's **Variables** screen.
 2. Find and delete the following variables:
@@ -105,7 +105,7 @@ To disable cloud target discovery for AWS:
    - Any `Octopus.Aws.AssumedRole.*` variables (if configured)
 3. Click **SAVE**.
 
-Once the variables are removed, cloud target discovery will be disabled for AWS resources in this project. The **Amazon Web Services** tile in the **Cloud Connections** section of your AWS deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
+Once the variables are removed, cloud target discovery will be switched off for AWS resources in this project. The **Amazon Web Services** tile in the **Cloud Connections** section of your AWS deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
 
 ## Tag cloud resources
 
@@ -151,7 +151,7 @@ If you have an existing project or environment, enable it with the following ste
 To discover targets for an environment, dynamic infrastructure needs to be enabled. To enable for an existing environment:
 
 1. Navigate to **Infrastructure ➜ Environments**.
-1. Click the overflow menu (`...`) for the environment you want to enable or disable dynamic infrastructure on and select **Edit**.
+1. Click the overflow menu (`...`) for the environment you want to enable or switch off dynamic infrastructure on and select **Edit**.
 1. Expand the **Dynamic infrastructure** section and tick the check-box to enable dynamic infrastructure.
 1. Click **SAVE**.
 
