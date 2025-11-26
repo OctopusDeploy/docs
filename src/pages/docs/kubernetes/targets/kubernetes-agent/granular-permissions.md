@@ -35,6 +35,15 @@ Octopus Permissions Controller is a standalone component that is installed via H
 
 Only a single Octopus Permissions Controller is required per cluster.
 
+The below Helm command will install Octopus Permissions Controller.
+```
+helm upgrade --install --atomic \
+--create-namespace --namespace octopus-permissions-controller-system \
+--reset-then-reuse-values \
+octopus-permissions-controller \
+oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
+```
+
 :::div{.info}
 **Pre-requisites:**
 - Kubernetes agent v2.28.1+
