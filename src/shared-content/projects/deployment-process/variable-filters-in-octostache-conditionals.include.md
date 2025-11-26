@@ -11,7 +11,7 @@ If you wanted to include a variable run condition to run a step *only* when the 
 ```
 However, the evaluation of the statement would always return `False` as the syntax is not supported.
 
-Instead, you need to create a variable that includes the variable filter you want to use. For this example, lets assume it's named `PreReleaseBranch` with the value:
+Instead, you need to create a variable that includes the variable filter you want to use. For this example, let's assume it's named `PreReleaseBranch` with the value:
 
 ```
 #{Octopus.Release.Number | VersionPreReleasePrefix}
