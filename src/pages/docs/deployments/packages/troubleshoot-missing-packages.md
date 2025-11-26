@@ -27,7 +27,7 @@ Try manually deploying the same release again (in other words retry the exact sa
 
 - **If retrying the deployment fails** the most likely problems are the package wasn't pushed, or there is a mismatch in Package ID and/or Version somewhere.  
   - Make sure the correct package is [pushed to the built-in repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) and try the deployment again.  
-  - Double check the package version and any metadata match what you expect. The index for the built-in repository will use embedded package metadata in preference to the file name of the package when determining the Package ID and Version.  
+  - Double-check the package version and any metadata match what you expect. The index for the built-in repository will use embedded package metadata in preference to the file name of the package when determining the Package ID and Version.  
 - **If retrying the deployment succeeds** the most likely problem is that the package wasn't pushed to the built-in feed before the deployment started.  
   - The built-in feed has no indexing delay, packages are immediately available after being pushed.  
   - By default Octopus will attempt several times to locate the package in the built-in feed over a period of time, just in case.  
@@ -45,7 +45,7 @@ If you are using an external feed you may see a message explaining the package c
   - **If retrying the deployment fails** the most likely problems are the package wasn't pushed, or there is a mismatch in Package ID and/or Version somewhere.
     - Make sure the package is pushed successfully to your external feed.
       - If the package exists in the external feed, check it hasn't been hidden/removed from the package feed's index. For example, in NuGet.org you cannot delete packages, you can only hide them from the index so it doesn't appear in search results.
-      - Double check the package version and any metadata inside the package actually match what you expect. The index for your external feed will usually read the embedded package metadata in preference to the file name of the package when determining the Package ID and Version.
+      - Double-check the package version and any metadata inside the package actually match what you expect. The index for your external feed will usually read the embedded package metadata in preference to the file name of the package when determining the Package ID and Version.
   - **If retrying the deployment succeeds** the most likely problem is that the external feed didn't index the package quickly enough after the package was pushed.
     - By default Octopus will attempt several times to download the package from your external feed over a period of time.
     - Try to improve the indexing performance of your external feed by cleaning up old packages. Most external feeds provide automatic retention policies to help keep your feeds clean.
