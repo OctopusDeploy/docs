@@ -81,17 +81,15 @@ For Argo CD, all of these data fields are fetched on demand from your Argo insta
 #### Manifest Diffs
 Octopus presents manifest diffs in the _opposite order_ to that shown in Argo.
 
-In Argo, the left panel shows the manifest which is currently executing in the cluster, and the right-panel shows the manifest
-that will be deployed when the application/resource is synced.
+In Argo, the left panel shows the live manifest in the cluster, and the right-panel shows the manifest that will be deployed when the application/resource is synced.
 
-In Octopus, the left panel indicates "what was mostly recently written to the git repository", while the right shows what is currently
-in the live system (i.e. installed in the cluster).
+In Octopus, the left panel indicates "what was most recently written to the git repository", while the right shows the live manifest.
 
 
 |         | Left                                                         | Right                                                             |
 |---------|--------------------------------------------------------------|-------------------------------------------------------------------|
-| Octopus | Manifest written to git repository as part of last release   | The current content of the application's resource in cluster      |
-| Argo CD | The current content of the application's resource in cluster | The manifest in the git repository, which will be applied on sync |
+| Octopus | Manifest written to git repository as part of last release   | The live manifest in the cluster      |
+| Argo CD | The live manifest in the cluster | The manifest in the git repository, which will be applied on sync |
 
 As an example, In the following images, the date of deployment was updated in a configmap by an Octopus deployment.
 
