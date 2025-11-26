@@ -41,7 +41,7 @@ If the Octopus Server is not currently listening on the binding/port, it will re
 
 Octopus will then register with Let's Encrypt, handle the domain validation, request a new certificate and apply it to the Portal. If need be, the server will be restarted. Once available, you will be able to access your server on the new HTTPS URL.
 
-The **Configuration ➜ Let's Encrypt** page will now show when the SSL certificate was last renewed, and when it is due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if its due to expire in the next 21 days.
+The **Configuration ➜ Let's Encrypt** page will now show when the SSL certificate was last renewed, and when it's due to expire. Every 24 hours, Octopus will check the certificate, and will automatically renew if it's due to expire in the next 21 days.
 
 At this point, we recommend enabling [Force SSL](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#ForcingHTTPS) and [HSTS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https/#hsts).
 
@@ -90,7 +90,7 @@ There are a few gotchas involved with Let's Encrypt.
 
 ### HTTP challenge failure
 
-If you find that the HTTP challenge fails with a message similar to `The Let's Encrypt HTTP challenge failed with status 'invalid'`, check that the HTTP endpoint is publicly accessible. Find the URL that Let's Encrypt is requesting from the log and ensure its publicly available from the Internet.
+If you find that the HTTP challenge fails with a message similar to `The Let's Encrypt HTTP challenge failed with status 'invalid'`, check that the HTTP endpoint is publicly accessible. Find the URL that Let's Encrypt is requesting from the log and ensure it's publicly available from the Internet.
 
 Be careful if you have previously enabled HSTS - this can cause browser redirects while testing that are hard to spot. The server **must** respond on HTTP, not redirect to HTTPS.
 
