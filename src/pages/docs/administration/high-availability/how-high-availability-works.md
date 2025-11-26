@@ -71,7 +71,7 @@ The task queue is a first-in, first-out (FIFO) queue.  The node does not conside
 
 ### Restarting the server during an active deployment
 
-Restarting the Octopus Deploy windows service or the underlying host OS will (eventually) cause any active tasks to fail.  At first, the tasks will look like they are still in process.  Once the node comes back online, it will cancel all active tasks.  If the node doesn't come back online within an hour, one of the other nodes will cancel those tasks.
+Restarting the Octopus Deploy Windows service or the underlying host OS will (eventually) cause any active tasks to fail.  At first, the tasks will look like they are still in process.  Once the node comes back online, it will cancel all active tasks.  If the node doesn't come back online within an hour, one of the other nodes will cancel those tasks.
 
 For planned outages, the recommendation is to enable drain mode.  That will tell the node to finish up all active tasks and not pick up any new ones.  That can be achieved by:
 

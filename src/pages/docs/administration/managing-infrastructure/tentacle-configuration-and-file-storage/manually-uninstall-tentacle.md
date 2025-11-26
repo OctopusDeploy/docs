@@ -28,7 +28,7 @@ If you have just completed an in-place upgrade from **Octopus 2.6** to a modern 
 
 ## What does the Tentacle MSI do? {#ManuallyuninstallTentacle-WhatdoestheTentacleMSIactuallydo?}
 
-The MSI will stop the Tentacle windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all of the configuration required to run Tentacle just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Tentacle knowing your configuration, data, and applications preserved.
+The MSI will stop the Tentacle Windows service and remove the application files which are normally stored in your `%ProgramFiles%` folder. The MSI will leave all of the configuration required to run Tentacle just like before you run the uninstaller. The installer behaves this way because the makes it easier for you to upgrade the application files for Tentacle knowing your configuration, data, and applications preserved.
 
 ## Manually removing Tentacle {#ManuallyuninstallTentacle-ManuallyremovingTentacle}
 
@@ -44,7 +44,7 @@ Learn about [Tentacle configuration and file storage](/docs/administration/manag
 These steps will remove all traces of Octopus Tentacle from your computer:
 
 1. Before uninstalling the MSI, use the Octopus Tentacle Manager to delete the Tentacle instance from the computer.
-   - This will stop and uninstall the Tentacle windows service.
+   - This will stop and uninstall the Tentacle Windows service.
 2. Now uninstall the MSI.
    - This will remove the application files.
 3. Find and delete the Octopus Home folder. By default this is in **`%SYSTEMDRIVE%\Octopus`**.
@@ -77,8 +77,8 @@ Removing entries from the registry can have serious implications. Please make su
    - **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
 6. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
-   - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle windows service
-7. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog) associated with the Tentacle windows service
+   - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle Windows service
+7. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog) associated with the Tentacle Windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 
