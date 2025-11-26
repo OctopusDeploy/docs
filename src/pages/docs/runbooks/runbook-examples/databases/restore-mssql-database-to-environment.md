@@ -45,7 +45,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 | Database Name | Name of the database for the account | MyDatabase |
 | SQL Login | Name of the account to be fixed | MyOrphanedAccount |
 
-After adding all of the required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
+After adding all required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
 
 You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
 
