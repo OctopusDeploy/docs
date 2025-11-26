@@ -81,8 +81,31 @@ The drawer contains up-to-date information regarding the selected object:
 For Argo CD, all of these data fields are fetched on demand from your Argo instance. We do not currently support tailing logs.
 
 #### Manifest Diffs
-Octopus treats manifest diffs in the _opposite direction_ to that shown in Argo.
+Octopus presents manifest diffs in the _opposite direction_ to that shown in Argo.
 
-In Octopus, the left panel indicates "what was previously written to the applications git repository", while the right shows
+In Argo, the left panel shows the manifest which is currently executing in the cluster, and the right-panel shows the manifest
+that will be deployed when the application/resource is synced.
+Left = Current Cluster content
+Right = Current git-repository content
 
-Whereas, in argo, the left panel
+In Octopus, the left panel indicates "what was mostly recently written to the git repository", while the right shows what is currently
+in the live system (i.e. installed in the cluster).
+
+
+| Position | Octopus                                                    | Argo CD                                                           |
+|---|------------------------------------------------------------|-------------------------------------------------------------------|
+| Left| Manifest written to git repository as part of last release | The current manifest in the cluster                               |
+| Right | The current content of the application's resource in cluster | The manifest in the git repository, which will be applied on sync |
+
+
+As an example, In the following images, the date of deployment was updated in a configmap by an Octopus deployment.
+
+:::figure
+![ArgoCD Diff View](/docs/img/argo-cd/argo-cd-diff.png)
+:::
+
+The same change, in Octopus will appear - note how the changes appear in opposite columns.
+
+:::figure
+![Octopus Diff View](/docs/img/argo-cd/octopus-argo-cd-diff.png)
+:::
