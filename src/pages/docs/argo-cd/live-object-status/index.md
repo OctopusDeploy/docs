@@ -14,7 +14,7 @@ to the project.
 This allows you to monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
 
 :::div{.info}
-Outwardly this is an identical capability to that available for [Kubernetes based projects](/docs/kubernetes/live-object-status/index.md).
+Outwardly this is an identical capability to that available for [Kubernetes based projects](/docs/kubernetes/live-object-status).
 However when used with Argo CD, the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) is *not* required.
 :::
 
