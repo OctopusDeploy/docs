@@ -4,7 +4,7 @@ pubDate: 2025-03-28
 modDate: 2025-05-16
 navSection: Live Object Status
 title: Argo CD Live Object Status
-navTitle: Overview
+navTitle: Live Object Status
 description: Argo CD Live Object Status guide.
 navOrder: 45
 hideInThisSectionHeader: true
@@ -32,13 +32,13 @@ Once the prerequisites have been fulfilled, simply toggle the switch on the  das
 ![Octopus Argo CD Live Status Dashboard](/docs/img/argo-cd/argo-cd-live-status-dashboard.png)
 :::
 
-Octopus displays individual status at an object level, as well as a summarized status for an application.
+Octopus displays individual status at both the object and application level, along with a rolled-up summary at the Argo Instance.
 
-Each kubernetes object created by directly by the Argo CD Application will indicate its name, kind, namespace, sync and health status.
-Derived kubernetes objects
+Each kubernetes object created directly by the Argo CD Application will indicate its name, kind, namespace, sync and health status.
+Derived kubernetes objects (eg Pods created as part of a deployment) don't have a sync-status, so will present a blank field.
 
 :::figure
-![Octopus Argo CD Live Status Objects](/docs/image/argo-cd/argo-cd-live-status-objects.png)
+![Octopus Argo CD Live Status Objects](/docs/img/argo-cd/argo-cd-live-status-objects.png)
 :::
 
 ### Application status
@@ -69,8 +69,8 @@ Derived kubernetes objects
 
 
 
-### Details object information
-Selecting an object's name in the table will cause an information drawer to slide in from the right screen edge.
+### Detailed object information
+Selecting an object's (or application's) name in the table will open a drawer containing detailed information.
 
 The drawer contains up-to-date information regarding the selected object:
 * Summary
