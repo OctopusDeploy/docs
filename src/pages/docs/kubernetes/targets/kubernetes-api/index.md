@@ -81,7 +81,7 @@ users:
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
 5. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 6. Select the authentication method. Kubernetes targets support multiple [account types](https://oc.to/KubernetesAuthentication):
-    - **Usernames/Password**: In the example YAML above, the user name is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
+    - **Usernames/Password**: In the example YAML above, the username is found in the `username` field, and the password is found in the `password` field. These values can be added as an Octopus  [Username and Password](/docs/infrastructure/accounts/username-and-password) account.
     - **Tokens**: In the example YAML above, the token is defined in the `token` field. This value can be added as an Octopus [Token](/docs/infrastructure/accounts/tokens) account.
     - **Azure Service Principal**: When using an AKS cluster, [Azure Service Principal accounts](/docs/infrastructure/accounts/azure) allow Azure Active Directory accounts to be used.
 
@@ -154,7 +154,7 @@ users:
 7. Enter the Kubernetes cluster URL. Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
 8. Optionally, select the certificate authority if you've added one. Kubernetes clusters are often protected with self-signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
 
-To communicate with a Kubernetes cluster with a self signed certificate over HTTPS, you can either select the **Skip TLS verification** option, or supply the certificate in `The optional cluster certificate authority` field.
+To communicate with a Kubernetes cluster with a self-signed certificate over HTTPS, you can either select the **Skip TLS verification** option, or supply the certificate in `The optional cluster certificate authority` field.
 
 Decoding the `certificate-authority-data` field results in a string that looks something like this (the example has been truncated for readability):
 
@@ -283,7 +283,7 @@ From Kubernetes version 1.29, a warning will be displayed when using automatical
 
 ## Kubectl
 
-Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
+Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise, the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Vendor Authentication Plugins {#vendor-authentication-plugins}
 Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubectl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.

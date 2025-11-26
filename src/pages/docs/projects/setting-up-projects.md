@@ -91,7 +91,7 @@ For custom images, in addition to supporting .jpg and .png files, we also suppor
 Project groups are a great way to organize your deployment projects. They have many uses; not only do they visually separate the projects, but you can also configure the dashboard to hide/show specific project groups and configure permissions to restrict access to them.
 
 :::div{.hint}
-The *Default Project* group contains all of the projects that have not been added to another group.
+The *Default Project* group contains all projects that have not been added to another group.
 :::
 ## Add a project group
 

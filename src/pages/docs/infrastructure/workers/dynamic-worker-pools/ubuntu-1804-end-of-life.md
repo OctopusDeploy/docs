@@ -76,7 +76,7 @@ It is not possible to give a complete and definitive answer as this depends on y
 * [20.04 to 22.04 release notes](https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668)
 
 ### What are the breaking changes between the .NET releases?
-It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore please refer to the following release notes:
+It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore, please refer to the following release notes:
 * [.NET Core 3.1 release notes](https://github.com/dotnet/core/tree/main/release-notes/3.1)
 * [.NET 5 release notes](https://github.com/dotnet/core/tree/main/release-notes/5.0)
 * [.NET 6 release notes](https://github.com/dotnet/core/tree/main/release-notes/6.0)

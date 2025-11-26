@@ -98,7 +98,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 6. Make sure that the feed and package references only use variables which are **able to be evaluated at release creation time.** For example, the environment name variable is not available, because it is only known at the time of deployment.
 
-7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise some of the packages required for the release may be missing.
+7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise, some of the packages required for the release may be missing.
 
 8. As [mentioned above](/docs/projects/project-triggers/external-feed-triggers#trigger-sources), for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 

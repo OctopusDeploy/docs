@@ -31,7 +31,7 @@ Give the repository a name in the **Repository Key** field, and fill out any oth
 ![Artifactory local repository settings](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-repo-initial-settings.png)
 :::
 
-When you've entered all of the settings, click **Save & Finish**.
+When you've entered all settings, click **Save & Finish**.
 
 ### Configure repository authentication
 
@@ -49,13 +49,13 @@ From the Artifactory web portal, navigate to **Administration ➜ Identity and A
 ![Artifactory Add user](/docs/img/packaging-applications/package-repositories/guides/nuget-repositories/images/artifactory-local-nuget-add-user.png)
 :::
 
-Fill out the **User Name**, **Email Address**, **Password** and any other settings.
+Fill out the **Username**, **Email Address**, **Password** and any other settings.
 
 :::div{.hint}
 If you have an existing group to add the user to, you can do that here. Alternatively you can add the user account when creating a new group.
 :::
 
-When you've entered all of the settings, click **Save**.
+When you've entered all settings, click **Save**.
 
 Next, we need to ensure the user is in a [group](https://jfrog.com/help/r/jfrog-platform-administration-documentation/manage-groups) which can access our new repository.
 
@@ -67,7 +67,7 @@ From the Artifactory web portal, navigate to **Administration ➜ Identity and A
 
 Fill out the **Group Name** and any other settings. Ensure the user you created earlier is included in the group (in the right hand column).
 
-When you've entered all of the settings, click **Save**.
+When you've entered all settings, click **Save**.
 
 Lastly, we need to ensure the group has [permissions](https://jfrog.com/help/r/jfrog-platform-administration-documentation/permissions) for Octopus to retrieve package information.
 
@@ -107,7 +107,7 @@ Finally, choose the permissions to grant the group on the included repositories:
 Octopus needs `Read` permissions as a minimum on the Local repository in order to search and download packages.
 :::
 
-When you've entered all of the settings, review your permissions are configured how you want, and click **Create**.
+When you've entered all settings, review your permissions are configured how you want, and click **Create**.
 
 :::div{.hint}
 You can also choose individual users to assign this permission to.

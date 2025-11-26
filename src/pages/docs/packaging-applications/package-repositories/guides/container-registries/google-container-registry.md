@@ -38,8 +38,8 @@ To set up an OpenID Connect GCR feed:
     - **URL:** `https://[REGION]-docker.pkg.dev`
     - **Credentials:** OpenID Connect
     - **Subject:** *Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) for how to customize the **Subject** value*
-    - **Audience**  _{{The audience set on the workload identity provider}}_ *This should match the audience set on the Workload Identity Federation. By default this is* `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}`
+    - **Audience**  _{{The audience set on the workload identity provider}}_ *This should match the audience set on the Workload Identity Federation. By default, this is* `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}`
 
 :::div{.warning}
-At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers. This is because the short lived credentials they generate are not suitable for long running workloads.
+At this time, OpenID Connect external feeds are not supported for use with Kubernetes containers. This is because the short-lived credentials they generate are not suitable for long-running workloads.
 :::

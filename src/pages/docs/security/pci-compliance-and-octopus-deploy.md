@@ -7,7 +7,7 @@ description: Using Octopus Deploy in PCI compliant environments.
 navOrder: 90
 ---
 
-We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
+We have a lot of customers running Octopus Deploy in their PCI-compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
 
 ## Try not to give up too much automation
 
@@ -18,7 +18,7 @@ Pessimistic approaches to PCI compliance controls will, at first glance, make it
 PCI Compliance is primarily concerned with implementing "controls" or "practices" which help ensure the safety and security of sensitive information, and the ability to audit that those practices are being enforced and followed. In many ways, full end-to-end automation helps with that since the interaction with your secure systems is tightly controlled: everything is scripted!
 
 - In Octopus Deploy, everything is scripted which leaves less room for human error or uncontrolled activities.
-- Octopus Deploy supports authentication with Active Directory and other external identity providers which can be used to enforce multi-factor authentication. Learn about [authentication providers](/docs/security/authentication).
+- Octopus Deploy supports authentication with Active Directory and other external identity providers which can be used to enforce multifactor authentication. Learn about [authentication providers](/docs/security/authentication).
 - You can implement strict, fine-grained, environment-aware security permissions. Learn about [managing users and teams](/docs/security/users-and-teams).
 - Every activity is carefully audited. Learn more about [auditing](/docs/security/users-and-teams/auditing).
 - You can control how long you retain data and packages. Learn about [Retention Policies](/docs/administration/retention-policies).
@@ -41,7 +41,7 @@ We conduct independent security analysis and penetration testing for Octopus Dep
 
 ### Network security considerations
 
-Octopus supports a wide range of networking features to help fit into your PCI compliant network design.
+Octopus supports a wide range of networking features to help fit into your PCI-compliant network design.
 
 - You can use a VPN between your network security zones. A VPN is a transparent network tunnel between two zones, and you can happily use our Tentacle or SSH connections through a VPN tunnel in the same way you can use them on a local network.
 - You can use a networking proxy for Tentacle or SSH communication, where the proxy controls and monitors access from your Octopus Server to your workers and deployment targets. [Learn about proxy support](/docs/infrastructure/deployment-targets/proxy-support)

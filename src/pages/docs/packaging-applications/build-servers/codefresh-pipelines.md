@@ -16,7 +16,7 @@ Codefresh pipelines allow you to customize steps to create, deploy and promote r
 
 Octopus Deploy has several custom pipeline steps available: 
 
-- [Login to Octopus](https://codefresh.io/steps/step/octopusdeploy-login)
+- [Log into Octopus](https://codefresh.io/steps/step/octopusdeploy-login)
 - [Create a package](https://codefresh.io/steps/step/octopusdeploy-create-package)
 - [Push a package](https://codefresh.io/steps/step/octopusdeploy-push-package)
 - [Create a release](https://codefresh.io/steps/step/octopusdeploy-create-release)
@@ -53,7 +53,7 @@ The following steps require Octopus server authentication:
 
 There are two options for authentication. You can:
 
-1. Use the [Login to Octopus step](https://codefresh.io/steps/step/octopusdeploy-login) and provide `OCTOPUS_ACCESS_TOKEN` as an argument for each step.
+1. Use the [Log into Octopus step](https://codefresh.io/steps/step/octopusdeploy-login) and provide `OCTOPUS_ACCESS_TOKEN` as an argument for each step.
 2. Skip the login step and provide an `OCTOPUS_API_KEY` as an argument for each step.
 
 ## Codefresh variables 
@@ -320,7 +320,7 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
-## Login to Octopus
+## Log into Octopus
 The **octopusdeploy-login** step authenticates to Octopus via OIDC, so your Octopus server needs a [service account with OIDC enabled](/docs/octopus-rest-api/openid-connect/other-issuers).
 To allow connections from Codefresh, the service account's OIDC identity should have **Issuer** `https://oidc.codefresh.io` and a **Subject** matching the [Codefresh subject claim for your preferred pipeline trigger](https://codefresh.io/docs/docs/integrations/oidc-pipelines/#codefresh-trigger-types-for-subject-claims).
 

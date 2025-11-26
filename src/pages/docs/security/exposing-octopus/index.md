@@ -7,7 +7,7 @@ description: You can keep your Octopus installation inside your corporate networ
 navOrder: 20
 ---
 
-Your entire Octopus installation and all of the targets you deploy to could be contained safely within your corporate network. This is nice from a security perspective, however you may want your team to access Octopus from outside your corporate network, or you may need to deploy to servers outside your corporate network. This section will help you plan your Octopus installation and help you understand the security implications of different network topologies.
+Your entire Octopus installation and all targets you deploy to could be contained safely within your corporate network. This is nice from a security perspective, however you may want your team to access Octopus from outside your corporate network, or you may need to deploy to servers outside your corporate network. This section will help you plan your Octopus installation and help you understand the security implications of different network topologies.
 
 ## Security and encryption
 
@@ -40,7 +40,7 @@ If you do not want to expose your Octopus Server to the public Internet, but wan
 However, you may want to provide access for your users, or external services which leverage Octopus, and using a VPN is impractical. If you decide to expose the HTTP API and Octopus Web Portal of your Octopus Server to the public Internet, here are some things you should consider:
 
 1. Always enable HTTPS using SSL. We also recommend forcing all requests to use HTTPS, and enabling HSTS. Learn about [exposing Octopus Server over HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https). Avoid exposing your Octopus Server via HTTP without SSL.
-1. Consider how your users authenticate with your Octopus Server. You should use an authentication provider which supports multi-factor authentication (MFA). Learn about [authentication providers](/docs/security/authentication).
+1. Consider how your users authenticate with your Octopus Server. You should use an authentication provider which supports multifactor authentication (MFA). Learn about [authentication providers](/docs/security/authentication).
 1. Consider setting up a routine security scan of your Octopus Server using a tool of your choice. This will provide further insights into the security precautions you should take.
 1. Octopus enables certain security-related HTTP headers by default, however some of them are optional. Learn about [security headers](/docs/security/http-security-headers).
 

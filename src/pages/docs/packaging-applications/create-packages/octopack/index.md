@@ -131,13 +131,13 @@ Learn more about the [NuSpec file format](http://docs.nuget.org/docs/reference/n
 
 OctoPack only packages the files in your .Net applications that are required to deploy the application.
 
-If you are packaging a .NET application, OctoPack will **automatically package all of the files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug`, or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
+If you are packaging a .NET application, OctoPack will **automatically package all files in the build output directory for the project**. In most cases this will be the `bin`, `bin\Debug`, or `bin\Release` folder, depending on the build configuration and whether you have [changed the build output directory for your project in Visual Studio](https://msdn.microsoft.com/en-us/library/ms165410.aspx).
 
 If you have customized the output directory, and you have added a custom files element to your custom nuspec file, the paths you specify must be relative to the nuspec file's location. This means that for the binaries files that are being built by the project you will have to use some combination of `..\` style prefix to refer to the assemblies.
 
 For Windows Service or Console applications, and many Windows Forms or WPF applications, the build output directory contains everything you need to deploy your application.
 
-The example below shows a Windows Service called `OctoFX.RateService.exe` and all of the files required to run the application, including libraries and configuration files.
+The example below shows a Windows Service called `OctoFX.RateService.exe` and all files required to run the application, including libraries and configuration files.
 
 :::figure
 ![An example of a Windows Service package](/docs/img/packaging-applications/create-packages/octopack/images/sample-package.png)
@@ -183,13 +183,13 @@ NuGet packages have version numbers. When you use OctoPack, the NuGet package ve
 4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
 5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
 6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
-7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+7. Otherwise, we take the `[assembly: AssemblyInformationalVersion]`.
 
 During the build, messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
 
 ### Version numbers are preserved as-is
 
-NuGet 3 started removing leading zeros and the fourth digit if it is zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning).
+NuGet 3 started removing leading zeros and the fourth digit if it's zero. These are affectionately known as "NuGet zero quirks" and can be surprising when working with tooling outside the NuGet ecosystem. We have made a choice to preserve the version as-is when working with Octopus tooling to create packages of any kind. Learn more about [versioning in Octopus Deploy](/docs/packaging-applications/create-packages/versioning).
 
 To make this work for NuGet packages we have forked NuGet.
 
@@ -268,7 +268,7 @@ In addition to the common arguments above, OctoPack has a number of other parame
 | `OctoPackPublishPackageToFileShare`    | `\\server\packages`                     | OctoPack can publish packages to a file share or local directory after packaging |
 | `OctoPackPublishPackageToHttp`         | `http://my-nuget-server/api/v2/package` | OctoPack can publish packages to a HTTP/HTTPS NuGet repository (or the [Octopus built-in repository](/docs/packaging-applications/package-repositories)) after packaging. |
 | `OctoPackReleaseNotesFile`             | `my-release-notes.txt`                    | Use this parameter to have the package release notes read from a file. |
-| `OctoPackProjectName`                  | `YourProjectName`                       | Use this parameter to override the name of your package so its not necessarily identical to your Visual Studio Project. This will only work when building a single Project/Package. For multiple projects you do not use this parameter and instead set the below property on your project's csproj file `<PropertyGroup><OctoPackProjectName>Foo</OctoPackProjectName></PropertyGroup>` |
+| `OctoPackProjectName`                  | `YourProjectName`                       | Use this parameter to override the name of your package, so it's not necessarily identical to your Visual Studio Project. This will only work when building a single Project/Package. For multiple projects you do not use this parameter and instead set the below property on your project's csproj file `<PropertyGroup><OctoPackProjectName>Foo</OctoPackProjectName></PropertyGroup>` |
 | `OctoPackUseFileVersion`               | `true`                                  | Use this parameter to use `[assembly: AssemblyFileVersion]` (Assembly File Version) as the package version (see [version numbers](#version-numbers)) |
 | `OctoPackUseProductVersion`            | `true`                                  | Use this parameter to use `[assembly: AssemblyInformationalVersion]` (Assembly Product Version) as the package version (see [version numbers](#version-numbers)). Introduced in OctoPack `3.5.0` |
 | `OctoPackAppendProjectToFeed`          | `true`                                  | Append the project name onto the feed so you can nest packages under folders on publish |

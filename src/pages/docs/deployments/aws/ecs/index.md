@@ -159,7 +159,7 @@ Specify additional options for the running container, such as `Entry Point`, `Wo
 
 In this section, you can specify mount points for the running container. Mount points can refer to the volumes specified in the **Volumes** section of the ECS step.
 
-For container logging the step can either auto-configure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs auto-configured, please ensure that you have specified a Task Execution Role ARN for this step. 
+For container logging the step can either autoconfigure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs autoconfigured, please ensure that you have specified a Task Execution Role ARN for this step. 
 
 :::figure
 ![ECS Step Container Definition Storage and Logging](/docs/img/deployments/aws/ecs/images/ecs-container-storage-and-logging.png)
@@ -278,7 +278,7 @@ If a deployment failure is detected, the step will attempt to extract error mess
 This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed. 
 
 :::div{.hint}
-CloudFormation stack only owns the task definition and the service. Therefore this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
+CloudFormation stack only owns the task definition and the service. Therefore, this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
 :::
 
 We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK, some presented events could be related to previous deployments.

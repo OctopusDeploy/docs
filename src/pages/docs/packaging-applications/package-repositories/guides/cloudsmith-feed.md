@@ -190,7 +190,7 @@ docker login docker.cloudsmith.io
 
 ### Publish Package {#publish-package}
 
-Finally you can publish (or upload) your package to Cloudsmith using one of the following commands:
+Finally, you can publish (or upload) your package to Cloudsmith using one of the following commands:
 
 <details data-group="publish-package">
 <summary>NuGet</summary>

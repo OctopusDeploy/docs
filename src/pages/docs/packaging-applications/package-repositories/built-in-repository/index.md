@@ -82,7 +82,7 @@ You can upload packages using npm.exe or using our grunt or gulp tasks. Take a l
 
 ## Using Curl {#UsingCurl}
 
-You can upload packages using **curl**. Like all the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multi-part form data.
+You can upload packages using **curl**. Like all the other examples you will need your Octopus Server URL and an API Key. This will perform a POST uploading the file contents as multipart form data.
 
 ```powershell
 curl -X POST https://demo.octopus.app/api/packages/raw -H "X-Octopus-ApiKey: API-YOUR-API-KEY" -F "data=@Demo.1.0.0.zip"

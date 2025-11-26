@@ -76,7 +76,7 @@ The terminal Kubernetes context must have enough permissions to create namespace
 :::
 
 :::div{.warning}
-By default the Octopus Argo CD Gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the Gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install. 
+By default, the Octopus Argo CD Gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the Gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install. 
 ```bash
 # For self-signed certificates - Disables TLS certificate verification
 gateway.argocd.insecure="true"

@@ -244,4 +244,4 @@ http {
 }
 ```
 
-By default, NGINX uses round robin.  The Octopus Deploy UI is stateless; round robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.
+By default, NGINX uses round-robin.  The Octopus Deploy UI is stateless; round-robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.

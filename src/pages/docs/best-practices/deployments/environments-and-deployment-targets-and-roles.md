@@ -84,7 +84,7 @@ Our recommendations for environments are:
 - If you have between one and five data centers (including cloud regions), it's okay to have an environment per data center. For example, **Production - AU** for a data center in Australia and **Production - Central US** for the Azure Central US region. If you have more than five data centers, consider [tenants](/docs/tenants) where each data center is a tenant.
 - It's okay to have team-specific environments, similar to data center environments. Although if you have more than five or six teams, consider [tenants](//docs/tenants/) where each team is a tenant.
 
-Anti-patterns to avoid are:
+Antipatterns to avoid are:
 
 - Project names in your environments. An environment name of **QA - OctoPetShop** indicates you need to either have more specific target tags on your deployment targets or you need to leverage spaces to isolate that application. Project-specific environments are a good indicator to consider [spaces](/docs/administration/spaces).
 - Branch names in your environment names. Consider using temporary [tenants](/docs/tenants) for your branch names or storing your branch name in a pre-release tag in the release version.

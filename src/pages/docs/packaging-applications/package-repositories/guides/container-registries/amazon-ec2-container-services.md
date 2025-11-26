@@ -10,7 +10,7 @@ navOrder: 30
 AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . Support for EC2 Container registries is provided as a special feed type itself.
 
 :::div{.warning}
-The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). This may not be suitable for long lived container workloads.
+The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). This may not be suitable for long-lived container workloads.
 :::
 
 ## Configuring an AWS Elastic Container Registry (ECR)

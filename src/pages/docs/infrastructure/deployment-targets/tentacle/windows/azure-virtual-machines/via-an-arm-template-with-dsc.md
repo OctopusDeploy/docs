@@ -499,7 +499,7 @@ az deployment group create \
 
 ## Troubleshooting 
 
-To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
+To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the PowerShell session to a file.
 
 If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 

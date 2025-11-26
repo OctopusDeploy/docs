@@ -10,7 +10,7 @@ navOrder: 80
 
 Octopus can help you to run scripts on targets within Microsoft Azure.
 
-Within your Azure scripts, you can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
+Within your Azure scripts, you can use all features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [using variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables) and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
 These scripts typically rely on tools being available when they execute.
 
@@ -21,7 +21,7 @@ The easiest way to achieve this is to use an [execution container](/docs/project
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
 :::div{.warning}
-Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
+Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager PowerShell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 
 We recommend you configure Octopus Deploy to use your own [version of the Azure PowerShell cmdlets](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-powershell-modules/) and [version of the Azure CLI](/docs/deployments/azure/running-azure-powershell/configuring-the-version-of-the-azure-cli).
 :::
@@ -45,10 +45,10 @@ Learn more about [configuring the right Azure Account](/docs/infrastructure/acco
 
 Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the Azure tools on them.
 
-To use your own version of the Azure CLI or Azure Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+To use your own version of the Azure CLI or Azure PowerShell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
-- Configure your step to run in an execution container with a [compatible Docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible Docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the Azure CLI or Azure PowerShell cmdlets that you would like to use.
 
 These scripts are executed on the Octopus Server and will be pre-authenticated using the selected Azure Account. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 

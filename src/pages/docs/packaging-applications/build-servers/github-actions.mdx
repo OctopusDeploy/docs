@@ -17,7 +17,7 @@ Integrating GitHub Actions with Octopus Deploy allows you to trigger events in O
 ## Octopus Deploy Actions
 
 Octopus Deploy provides GitHub Actions which enable you to:
-- [Login to Octopus Deploy](https://github.com/marketplace/actions/login-to-octopus-deploy)
+- [Log into Octopus Deploy](https://github.com/marketplace/actions/login-to-octopus-deploy)
 - [Install Octopus CLI](https://github.com/marketplace/actions/install-octopus-cli)
 - [Create a Release](https://github.com/marketplace/actions/create-release-in-octopus-deploy)
 - [Deploy a Release](https://github.com/marketplace/actions/deploy-a-release-in-octopus-deploy)
@@ -62,8 +62,8 @@ jobs:
     - name: Your build ✨
       run: echo "Your build steps!"
 
-    # Action to Login to Octopus Deploy
-    - name: Login to Octopus Deploy 🐙
+    # Action to log into Octopus Deploy
+    - name: Log into Octopus Deploy 🐙
       uses: OctopusDeploy/login@v1
       with: 
         server: https://acme.octopus.app 
@@ -149,8 +149,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Action to Login to Octopus Deploy
-      - name: Login to Octopus Deploy 🐙
+      # Action to log into Octopus Deploy
+      - name: Log into Octopus Deploy 🐙
         uses: OctopusDeploy/login@v1
         with: 
           server: ${{ secrets.SERVER }}
@@ -225,8 +225,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Action to Login to Octopus Deploy
-      - name: Login to Octopus Deploy 🐙
+      # Action to log into Octopus Deploy
+      - name: Log into Octopus Deploy 🐙
         uses: OctopusDeploy/login@v1
         with: 
           server: ${{ secrets.SERVER }}

@@ -216,7 +216,7 @@ If you find a previously working Jira integration has stopped working after upgr
 
 ### Map Jira environments to Octopus environments {#troubleshooting-map-your-environments}
 
-If your deployments aren't being displayed in Jira, this likely means you will need to double check that your Octopus environments are correctly mapped to your Jira environments.
+If your deployments aren't being displayed in Jira, this likely means you will need to double-check that your Octopus environments are correctly mapped to your Jira environments.
 
 Navigate to **Infrastructure ➜ Environments**, and next to each environment click on the overflow menu (`...`) and click **Edit**. From here, you can map each Octopus environment to your corresponding Jira environment.
 

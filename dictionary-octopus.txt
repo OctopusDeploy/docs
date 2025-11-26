@@ -9,6 +9,8 @@ ALLUSERSPROFILE
 anglin
 anotherdir
 Antiforgery
+antipattern
+antipatterns
 apikey
 apikeys
 appcmd
@@ -33,8 +35,10 @@ australiaeast
 australiasoutheast
 Authentik
 auths
+autoconfigured
 autodeployoverride
 autologin
+autopopulate
 awsaccount
 azureaccount
 azureactivedirectory
@@ -74,6 +78,7 @@ comms
 COMPUTERNAME
 configmap
 Conjur
+connstrings
 contextpath
 contoso
 cooldown
@@ -285,7 +290,9 @@ msiexec
 mssqldb
 MSSQLSERVER
 MTTR
+multifactor
 Multipath
+multistep
 myagent
 myapplication
 Myatt
@@ -293,6 +300,7 @@ myfeature
 myfile
 mykey
 myoctoregistry
+mytransform.config
 namespacing
 Nartac
 navigationid
@@ -308,6 +316,7 @@ newguid
 NEWID
 Newtonsoft
 nfsadmin
+nlog
 nmap
 noconsolelogging
 nologo
@@ -478,6 +487,7 @@ Signup
 skiplinks
 snapshotted
 snapshotting
+SNMP
 SonaType
 sourcedata
 SOURCEKEY
@@ -503,6 +513,7 @@ storyblok
 strconv
 struct
 stylesheet
+subcomponent
 subcontext
 sunsetting
 swaggerui
@@ -591,6 +602,7 @@ workerpools
 workertools
 writeheader
 writerow
+XACML
 xcopy
 xlarge
 xmark
