@@ -465,7 +465,7 @@ CAIQ ID: **MOS-03.1**
 
 > Do you have a policy enforcement capability (e.g., XACML) to ensure that only approved applications and those from approved application stores can be loaded onto a mobile device?
 
-No. We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.
+No. We haven't implemented an MDM solution, for a few reasons: our size, the fact that we discourage our employees from using their mobile devices for work and that most of our systems require a full size screen in order to be useful. However, this is an area that we're looking to make improvements on. We'll review the status of this at our next security compliance review.
 
 ## Security Incident Management, E-Discovery, & Cloud Forensics
 

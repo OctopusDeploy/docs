@@ -84,7 +84,7 @@ poll-server --instance MyInstance --server "https://example.com/"  --server-web-
 
 ## Certificate
 Windows will need to be configured with a SSL certificate on the selected address and port. Usually this is done by the other application sharing the port.
-The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
+The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore, [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
 The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) on that address and port.

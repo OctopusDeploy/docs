@@ -183,7 +183,7 @@ NuGet packages have version numbers. When you use OctoPack, the NuGet package ve
 4. If you pass `/p:OctoPackUseFileVersion=true` as an MSBuild parameter, `[assembly: AssemblyFileVersion]` (AKA Assembly's file version) is used.
 5. If the `[assembly: AssemblyInformationalVersion]` value is not valid, the `[assembly: AssemblyFileVersion]` is used.
 6. If the `[assembly: AssemblyFileVersion]` is the same as the `[assembly: AssemblyInformationalVersion]` (AKA ProductVersion), then we'll use the `[assembly: AssemblyVersion]` attribute in your `AssemblyInfo.cs` file.
-7. Otherwise we take the `[assembly: AssemblyInformationalVersion]`.
+7. Otherwise, we take the `[assembly: AssemblyInformationalVersion]`.
 
 During the build, messages are output at the `Normal` msbuild logging level which may help diagnose version retrieval problems.
 

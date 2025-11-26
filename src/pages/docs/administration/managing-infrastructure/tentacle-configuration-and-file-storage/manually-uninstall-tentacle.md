@@ -32,7 +32,7 @@ The MSI will stop the Tentacle windows service and remove the application files 
 
 ## Manually removing Tentacle {#ManuallyuninstallTentacle-ManuallyremovingTentacle}
 
-Since Tentacle is usually installed on the server hosting your deployed applications you may want to remove Tentacle without impacting those applications. Otherwise you may want to remove Tentacle and all of the applications it has deployed. The following sections should give you the information you need to clean Tentacle based on your scenario.
+Since Tentacle is usually installed on the server hosting your deployed applications you may want to remove Tentacle without impacting those applications. Otherwise, you may want to remove Tentacle and all of the applications it has deployed. The following sections should give you the information you need to clean Tentacle based on your scenario.
 
 :::div{.hint}
 **What are all these files anyhow?**

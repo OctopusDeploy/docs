@@ -9,7 +9,7 @@ navOrder: 30
 
 With a growing number of applications being provided with Helm charts as a primary method of installation, often all that needs to be done is a `helm install` against your cluster and the application will be up and running.
 
-However managing updates can be a more involved process. Not only do you need to know when a new release is available, but you also need to have someone with credentials to run the `helm upgrade` against your cluster. Meaning you'll either need to share important credentials among everyone performing updates or have only a few people busy performing these updates.
+However, managing updates can be a more involved process. Not only do you need to know when a new release is available, but you also need to have someone with credentials to run the `helm upgrade` against your cluster. Meaning you'll either need to share important credentials among everyone performing updates or have only a few people busy performing these updates.
 
 Octopus Deploy provides a full workflow to manage updates, either hands on or fully hands off.
 

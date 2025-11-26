@@ -37,7 +37,7 @@ By the time your deployment starts, the Octopus HTTP API and database are no lon
 
 ## Tips
 
-We don't offer a one-size-fits-all approach to optimizing your deployments using Octopus; every deployment scenario is unique. Instead we recommend taking an experimental approach to optimization: measure-then-cut. Record your deployments, make an adjustment, then measure again, etc. These tips should give you enough information to get started.
+We don't offer a one-size-fits-all approach to optimizing your deployments using Octopus; every deployment scenario is unique. Instead, we recommend taking an experimental approach to optimization: measure-then-cut. Record your deployments, make an adjustment, then measure again, etc. These tips should give you enough information to get started.
 
 ### Optimize the connection to your deployment targets {#optimize-connection-to-targets}
 

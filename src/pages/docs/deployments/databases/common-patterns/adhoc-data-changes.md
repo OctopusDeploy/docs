@@ -22,7 +22,7 @@ Just like database deployments, it is possible to automate this. Automation has 
 
 [Runbooks](/docs/runbooks) were added to Octopus Deploy in version: **2019.11**.
 
-Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. Typically we find this process is a good starting point:
+Runbooks provide an excellent way to run ad-hoc data change scripts. Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. We typically find this process is a good starting point:
 
 1. The runbook run is created, and the script to run and the database information is provided via [prompted variables](/docs/projects/variables/prompted-variables).
 2. The script to run is analyzed for any schema change commands, and it is run and immediately rolled back in a transaction.  
