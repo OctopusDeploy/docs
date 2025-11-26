@@ -87,7 +87,7 @@ Let's consider that we have UsernamePassword enabled and we create some users, a
 
 This scenario would work equally with Microsoft Entra ID or Google Workspace in place of Active Directory.
 
-You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using Google Workspace. Whichever option is actually used to login, Octopus will identify them as the same user.
+You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could log in using a specific account/email address using Google Workspace. Whichever option is actually used to log in, Octopus will identify them as the same user.
 
 ### Matching external identities to Octopus users {#matching-external-identities}
 
