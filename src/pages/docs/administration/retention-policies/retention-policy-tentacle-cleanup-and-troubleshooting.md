@@ -17,7 +17,7 @@ The deployment journal on the Tentacle is the source of truth for what Octopus w
 
 If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
-By default your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
+By default, your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
 - For Windows Tentacles, the default directory is: `C:\Octopus`
 - For Linux Tentacles, the default directory is: `/etc/octopus`
 
@@ -121,7 +121,7 @@ Tentacle instances on one machine.
 ![](/docs/img/administration/retention-policies/images/3278387.png)
 :::
 
-By default your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
+By default, your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
 
 If you have multiple packages, you will have multiple directories.
 

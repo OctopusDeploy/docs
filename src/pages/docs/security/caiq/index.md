@@ -157,7 +157,7 @@ CAIQ ID: **DSI-07.2**
 
 > Can you provide a published procedure for exiting the service arrangement, including assurance to sanitize all computing resources of tenant data once a customer has exited your environment or has vacated a resource?
 
-Yes. If customers would like to stop using our product, our website makes it easy to cancel or deactivate their instance. By default deactivated instances will be archived for 90 days from the deactivation date, to allow convenient reactivation if required. Customers are able to request deletion of their data at any time by contacting support. See our documentation for more details.
+Yes. If customers would like to stop using our product, our website makes it easy to cancel or deactivate their instance. By default, deactivated instances will be archived for 90 days from the deactivation date, to allow convenient reactivation if required. Customers are able to request deletion of their data at any time by contacting support. See our documentation for more details.
 
 ## Datacenter Security
 

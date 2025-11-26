@@ -31,7 +31,7 @@ The scheduled task's name for the above will be **Octopus Watchdog Tentacle**.
 
 :::div{.hint}
 **Tips:**
-- By default the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
+- By default, the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
 - If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
 
 - To specify only the default instance, use the name **Tentacle**. For example:
