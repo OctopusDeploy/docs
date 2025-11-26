@@ -22,7 +22,10 @@
     "whilst->while"
   ],
   "ignoreRegExpList": [
-    "/\\{#(\\w|-)+\\}/g"
+    "/{#[^}]+}/g",
+    "/\\([^\\)]*#[\\w-]+/g",
+    "/href=\"[^\"]*#[\\w-]+/g",
+    "`[^`]+`"
   ],
   "suggestWords": [
     "allow->let",
