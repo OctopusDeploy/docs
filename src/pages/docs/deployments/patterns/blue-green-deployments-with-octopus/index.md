@@ -19,7 +19,7 @@ When deploying, you can then choose which environment to deploy to - either blue
 ![](/docs/img/deployments/patterns/blue-green-deployments/images/blue-green-dashboard.png)
 :::
 
-Configuring your [lifecycle](/docs/releases/lifecycles) will need to be done accordingly. Typically you would have both your blue and green environments in a shared "Production/Staging" phase.
+Configuring your [lifecycle](/docs/releases/lifecycles) will need to be done accordingly. You would typically have both your blue and green environments in a shared "Production/Staging" phase.
 
 :::figure
 ![](/docs/img/deployments/patterns/blue-green-deployments/images/blue-green-lifecycle.png)

@@ -33,7 +33,7 @@ To do this, you'll need the following:
 2. The DNS prefix that your Octopus Cloud instance uses.
 3. A virtual network, subnet and resource group for the Azure Private Endpoint to reside in.
 
-With all of the above available, you can create your Private Endpoint by:
+With all above steps satisfied, you can create your Private Endpoint by:
 
 1. In the Azure Portal, navigate to your target resource group.
 2. Click "Create" and search for "Private Endpoint", clicking the result from Microsoft.

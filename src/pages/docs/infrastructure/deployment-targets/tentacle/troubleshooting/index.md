@@ -7,7 +7,7 @@ description: How to troubleshoot problems with Octopus Tentacles.
 navOrder: 60
 ---
 
-All of the 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus Server, or a previously working machine fails a health-check with errors from the networking stack.
+All 'classic' problems of TCP networking: firewalls, proxies, timeouts, DNS issues, and so-on can affect Octopus Tentacles. This guide will help to track down these issues when either a machine cannot be "Discovered" (Listening Tentacles) or "Registered" (Polling Tentacles) with the Octopus Server, or a previously working machine fails a health-check with errors from the networking stack.
 
 :::div{.problem}
 **WARNING**
