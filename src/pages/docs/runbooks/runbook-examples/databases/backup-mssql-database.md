@@ -28,8 +28,8 @@ In this example, we'll use SQL Authentication and provide both a SQL username an
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| Server | Database connection string | dbserver01 |
-| Database | Name of database to backup | mydatabase |
+| Server | Database connection string | `dbserver01` |
+| Database | Name of database to backup | `mydatabase` |
 | Backup Directory | Path to backup data file to | C:\backups\ |
 | SQL Login | SQL Username | admin |
 | SQL Password | SQL Password | Pa$$word |
