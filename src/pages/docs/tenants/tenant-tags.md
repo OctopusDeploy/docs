@@ -108,7 +108,7 @@ Either create a new tenant or configure an existing tenant. Tag your test tenant
 
 ### Step 4: Deploy {#deploy-step-4-deployment}
 
-Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy version **1.0.1** to all of the tenants tagged with **Tester** who are connected to the **Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios.
+Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy version **1.0.1** to all tenants tagged with **Tester** who are connected to the **Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios.
 
 :::figure
 ![](/docs/img/tenants/images/multi-tenant-deploy-test.png)

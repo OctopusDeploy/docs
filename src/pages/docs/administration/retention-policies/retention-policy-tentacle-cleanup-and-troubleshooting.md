@@ -7,7 +7,7 @@ icon: fa-solid fa-bug
 description: Reviewing and troubleshooting why some files aren't cleaned up by Octopus retention policies.
 ---
 
-We get a lot of questions asking why the retention policy isn't deleting all of the files on the Tentacle, or reporting a bug because files weren't deleted.
+We get a lot of questions asking why the retention policy isn't deleting all files on the Tentacle, or reporting a bug because files weren't deleted.
 
 This page will show what is checked, what is deleted and why something might not be deleted.
 

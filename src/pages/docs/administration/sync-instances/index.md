@@ -8,7 +8,7 @@ navOrder: 45
 hideInThisSection: true
 ---
 
-Syncing instances involves copying projects and all of the required scaffolding data between Octopus Deploy instances with different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.
+Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.
 
 Keeping multiple instances in sync is a complex task involving dozens if not hundreds of decisions across all the projects.  This guide will walk you through suitable scenarios, unsuitable scenarios, tooling available, and how to design a syncing process.  
 
@@ -74,7 +74,7 @@ Do not split an instance and sync it for any of the following use cases.
 
 Syncing is not the same as cloning.  Cloning an instance will result in an exact replica (or copy) of data from the source.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the Server thumbprint and database master key.  Cloning is typically a one-time operation, such as standing up a new server.  
 
-Syncing instances involves copying projects and all of the required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.   
+Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.   
 
 ## Tools and features to avoid 
 

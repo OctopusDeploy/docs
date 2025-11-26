@@ -31,7 +31,7 @@ Sometimes a variable used during deployment may have a different value from the 
 :::
 
 :::div{.success}
-Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
+Did you know you can sort filter all variables grids? Click **Show Advanced filters** and select your filter type.
 :::
 
 ## Write the variables to the deployment log {#write-variables-to-deployment-log}

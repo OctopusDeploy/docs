@@ -79,7 +79,7 @@ After Let's Encrypt [retired the v1 APIs](https://community.letsencrypt.org/t/en
 
 Let's Encrypt is only supported in single node Octopus Server configurations, due to a few considerations that apply in High Availability contexts:
 
-- The load balancer can handle SSL termination and this is usually preferable, rather than involving all of the Octopus Server nodes.
+- The load balancer can handle SSL termination and this is usually preferable, rather than involving all Octopus Server nodes.
 - Octopus Server needs to restart to switch certificates, which needs to be coordinated in a High Availability context.
 - The load balancer complicates connecting to specific Octopus Server nodes to perform domain validation.
 - A longer lived SSL certificate is often warranted at this scale.
