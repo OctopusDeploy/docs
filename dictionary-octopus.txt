@@ -74,6 +74,7 @@ comms
 COMPUTERNAME
 configmap
 Conjur
+connstrings
 contextpath
 contoso
 cooldown
@@ -293,6 +294,7 @@ myfeature
 myfile
 mykey
 myoctoregistry
+mytransform.config
 namespacing
 Nartac
 navigationid
@@ -308,6 +310,7 @@ newguid
 NEWID
 Newtonsoft
 nfsadmin
+nlog
 nmap
 noconsolelogging
 nologo
@@ -478,6 +481,7 @@ Signup
 skiplinks
 snapshotted
 snapshotting
+SNMP
 SonaType
 sourcedata
 SOURCEKEY
@@ -591,6 +595,7 @@ workerpools
 workertools
 writeheader
 writerow
+XACML
 xcopy
 xlarge
 xmark

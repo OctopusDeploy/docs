@@ -19,7 +19,7 @@ When deploying straight from Visual Studio, the profile and parameters files are
 
 ## Packaging options
 
-There are a couple of options available to bring all of the required files together for the package. Illustrated below are two possible options. Both options are based off a build process that starts with the following MSBuild call (assumed to be executed from the solution's folder).
+There are a couple of options available to bring all required files together for the package. Illustrated below are two possible options. Both options are based off a build process that starts with the following MSBuild call (assumed to be executed from the solution's folder).
 
 ```
 msbuild -t:Package MyFabricApplication\MyFabricApplication.sfproj

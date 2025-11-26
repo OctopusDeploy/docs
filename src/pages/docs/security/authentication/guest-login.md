@@ -38,7 +38,7 @@ As with any standard user, you can [assign the guest account to different teams]
 **Guest is read-only**
 The guest user is designed to be used by multiple people, so it has one additional limitation that other users do not have: the account is completely read-only, despite any roles it might be granted.
 
-For example, you could assign the guest user to your **Octopus Administrators** team, which normally gives the user full access to everything. However for the guest account, this will be read-only - they will be able to view all settings, but they won't be able to change anything. They can't even change their profile settings! Any attempt to make any changes will result in the following message:
+For example, you could assign the guest user to your **Octopus Administrators** team, which normally gives the user full access to everything. However, for the guest account, this will be read-only - they will be able to view all settings, but they won't be able to change anything. They can't even change their profile settings! Any attempt to make any changes will result in the following message:
 
 ![](/docs/img/security/authentication/images/guestuserpermissions.png)
 :::

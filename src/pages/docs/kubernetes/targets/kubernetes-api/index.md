@@ -283,7 +283,7 @@ From Kubernetes version 1.29, a warning will be displayed when using automatical
 
 ## Kubectl
 
-Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise the `kubectl` executable must be in the path on the Octopus Server itself.
+Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise, the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Vendor Authentication Plugins {#vendor-authentication-plugins}
 Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubectl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.

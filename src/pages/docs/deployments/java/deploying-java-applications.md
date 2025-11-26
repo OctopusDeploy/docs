@@ -75,7 +75,7 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 :::
 
 :::div{.hint}
-The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.
+The application must be launched in a new process or session so that control returns to the shell. Otherwise, the deployment will wait until the application is terminated.
 :::
 
 ### Step 3: Deploy
