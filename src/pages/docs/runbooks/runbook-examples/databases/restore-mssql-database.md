@@ -29,7 +29,7 @@ In this example, we'll use SQL authentication and provide both a SQL username an
 | ------------- | ------------- | ------------- |
 | Server | Name database server | SQLserver1 |
 | Database | Name of the database to restore | MyDatabase |
-| Backup Directory | Location of where the backup file resides | \\\mybackupserver\backupfolder |
+| Backup Directory | Location of where the backup file resides | `\\\mybackupserver\backupfolder` |
 | SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
 | SQL password | Password for the SQL Account | MyPassword |
 | Compression Option | Use compression for this backup | Enabled |
