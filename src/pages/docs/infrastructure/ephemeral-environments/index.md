@@ -39,4 +39,4 @@ Parent environments can be selected alongside existing long-lived environments i
 
 ## Availability
 
-Ephemeral environments is available to all cloud and self hosted customers from version `2025.4`
+Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`.
