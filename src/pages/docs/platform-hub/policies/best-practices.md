@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-11
+modDate: 2025-09-25
 title: Policies best practices
 subtitle: Best practices for creating policies within Platform Hub
 icon: fa-solid fa-lock
@@ -63,3 +63,14 @@ The resulting policy will have two conditions.
 :::figure
 ![An example of a policy that has both the existence and that isn't skipped](/docs/img/platform-hub/policies/example-of-policy-with-two-conditions.png)
 :::
+
+### Check for parallel execution
+
+Steps can be configured to run in parallel or sequentially. If your organization requires sequential execution for compliance or troubleshooting purposes, create a policy to check the `Execution` array in the input schema.
+
+Each execution phase has a `StartTrigger` property that indicates when it should run:
+
+- `StartAfterPrevious` - Steps run sequentially
+- `StartWithPrevious` - Steps run in parallel
+
+To enforce sequential execution, check that no execution phases have `StartTrigger` set to `StartWithPrevious`. See the [examples page](/docs/platform-hub/policies/examples) for a sample policy.
