@@ -245,4 +245,4 @@ The following limitations currently apply to the use of the Ephemeral Environmen
 
 ## Availability
 
- Ephemeral environments is available for both cloud and self hosted customers in version `2025.4`
+Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`
