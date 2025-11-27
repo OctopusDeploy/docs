@@ -103,7 +103,7 @@ docker build -t octopusbob/nginx:1.0.0 -t octopusbob/nginx:latest .
 ```
 
 ### Running the NGINX Container
-Then you can run the docker image in a container by running the command.  
+Then you can run the Docker image in a container by running the command.  
 
 ```
 docker run --name octopus-reverse-proxy -p 443:443 -e OCTOPUS_SERVER=servername:8080 octopusbob/nginx:latest

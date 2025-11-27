@@ -88,7 +88,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 1. **Inspect the task list** for errors in the **Task** menu - Octopus will log the reason why external feed triggers failed as errors or warnings. Note that external feed triggers are system tasks, and do not display in the list by default. Use the **Show advanced filters** option and select **Include system tasks** to show them.
 
-2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major docker providers, compatibility is not guaranteed - please contact Octopus Deploy support if you encounter any problems.
+2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major Docker providers, compatibility is not guaranteed - please contact Octopus Deploy support if you encounter any problems.
 
 3. Ensure that packages in the external feed match the [channel rules](/docs/releases/channels#version-rules) if defined for the trigger's channel (or the default channel if your project doesn't have multiple channels). **Triggers will only create a new release if the packages match channel rules.**
 
