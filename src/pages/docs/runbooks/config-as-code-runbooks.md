@@ -1,16 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2025-02-18
+modDate: 2025-11-27
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
 icon: fa-brands fa-git-alt
 ---
 
-:::div{.success}
-Support for CaC Runbooks is rolling out to Octopus Cloud as of Q1 2025 and will be available in Octopus Server in a future release.
-:::
 
 Config as Code (or CaC) Runbooks stores your runbook process as code in your project repository. This means that you can now use version control to track changes to your runbook processes alongside changes to your project code.
 
