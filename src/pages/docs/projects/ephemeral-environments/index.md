@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-17
-modDate: 2025-10-17
+modDate: 2025-11-27
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -10,10 +10,6 @@ navOrder: 41
 ---
 
 Ephemeral environments in Octopus Deploy allow you to automatically create test environments on-demand to gain confidence in your changes while helping to keep your infrastructure costs down.
-
-:::div{.hint}
-Support for Ephemeral Environments is rolling out as an Early Access Preview to Octopus Cloud.
-:::
 
 Ephemeral environments integrate smoothly into your existing development workflows by building on existing Octopus features such as [Releases](/docs/releases), [Channels](/docs/releases/channels) and [Runbooks](/docs/runbooks).
 
@@ -246,3 +242,7 @@ The following limitations currently apply to the use of the Ephemeral Environmen
 - Ephemeral environments cannot be deployed to tenants.
 - Parent environments cannot be connected to tenants.
 - Ephemeral environments and parent environments cannot be used within lifecycles, deployment freezes and insights reports.
+
+## Availability
+
+Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`
