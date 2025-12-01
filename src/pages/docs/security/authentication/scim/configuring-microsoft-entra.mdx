@@ -1,0 +1,163 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-12-02
+modDate: 2025-12-02
+title: Microsoft Entra ID
+description: Microsoft Entra ID can manage Octopus Users and Teams using the SCIM API.
+navTitle: Microsoft Entra ID
+navOrder: 10
+---
+
+:::div{.hint}
+
+Support for Entra ID with SCIM is rolling out as an Early Access Preview to enterprise customers in Octopus Cloud.
+
+:::
+
+Octopus Deploy supports [SCIM](./) 2 as a feature of the Azure AD authentication provider. This allows users and groups created and managed in Entra ID to be synchronized with users and teams in Octopus Deploy, rather than manually provisioning users or provisioning them just-in-time via **Allow Auto User Creation**.
+
+There are a few steps involved in this process, so we recommend confirming that each step works before proceeding with the next step.
+
+## Requirements
+
+- [Entra ID authentication](../azure-ad-authentication) configured and working
+- An Octopus Deploy license that includes the SCIM feature, such as an Enterprise license
+- Network access to allow inbound HTTPS API requests from Entra ID to Octopus Deploy.
+
+    :::div{.info}
+
+    If you're using Octopus Cloud, we don't recommend using [IP allow listing](../../../octopus-cloud/ip-address-allow-list) with SCIM, as there are [a large number of IP addresses used by Entra ID](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges) and they can change regularly.
+
+    :::
+
+## Configuring Octopus
+
+### Review existing Octopus users
+
+The implementation of Entra ID authentication in Octopus Deploy matches against existing users by email address, so review your existing users in Octopus Deploy and make sure that their email addresses are up-to-date matching with the details recorded in Entra ID. If you skip this step, you may find that new users get created, instead adopting the existing users.
+
+    :::div{.info}
+    
+    Once users have been linked to their Entra ID accounts via SCIM we recommend that no user edits are made within Octopus Deploy, as they'll be overridden by Entra ID when it next updates the user.
+
+    SCIM makes Entra ID the source-of-truth for your users and teams, so make any edits in Entra ID itself.
+    
+    :::
+
+### Configure user authentication and enable SCIM support
+
+1. Configure [Entra ID authentication](../azure-ad-authentication) in Octopus Deploy. Don't configure any [external group mappings](../azure-ad-authentication#mapping-microsoft-entra-id-users-into-octopus-teams-optional) as SCIM will allow Entra ID to create internal groups within Octopus Deploy.
+1. Ensure that you can authenticate as an Entra ID user to Octopus Deploy, by using the **Sign in with Microsoft** button on the Octopus Deploy login page.
+1. Navigate to **Configuration** -> **Settings** -> **Azure AD** in Octopus Deploy.
+1. Change **Allow Auto User Creation** to `No` by unchecking the box. Users will be automatically created by Entra ID, so there's no need to create users on-the-fly when they login for the first time.
+1. Change **Enable SCIM** to `Yes` by checking the box and clicking **Save**. This allows Octopus Deploy to receive SCIM requests, but we'll need to configure Entra ID to send them next.
+
+    :::div{.hint}
+
+    If you can't see an option for **Enable SCIM** in the **Azure AD** settings, check that you're running a recent version of Octopus Deploy and that you have an enterprise license.
+
+    If you have any questions about licensing, reach out to us at [sales@octopus.com](mailto:sales@octopus.com).
+
+    :::
+
+### Configure Machine-to-Machine authentication
+
+Create a dedicated [Service Account](../../users-and-teams/service-accounts) for Entra ID SCIM, and add it to the **Octopus Managers** team, so that it has sufficient permissions. Once the **Service Account** has been created, create a new API key for the account ready to provide to Entra ID.
+
+    :::div{.info}
+
+    The Octopus Deploy account used by Entra ID needs to have Octopus permissions of the same level or greater than the permissions of the users that it is managing. This is required by Octopus Deploy to avoid escalation of privilege, for example to prevent a low-privilege user from creating an administrator account.
+    
+    :::
+
+## Configuring Entra ID
+
+### Create new provisioning configuration
+
+1. Open the **Azure Portal** and navigate to the **Enterprise Application** you created for Octopus Deploy when you configured Azure AD authentication for your instance. If you're on the **App Registration Overview** page, you can click the **Managed application in local directory** link to navigate to the matching **Enterprise Application**.
+1. Navigate to the **Provisioning** section and click **New configuration**
+    - For **Select authentication method** choose **Bearer authentication**
+    - Enter the **Tenant URL** of `https://your-octopus-url/api/scim/v2/entraid/` (replacing `https://your-octopus-url` with the URL of your Octopus Server).
+    - For **Secret token**, paste in the Octopus Deploy API key that you created for your Entra ID SCIM service account.
+1. Click **Test connection** to get Entra ID to issue a request to the SCIM API
+
+    :::div{.hint}
+
+    If the test is not successful, double-check that:
+    - you enabled SCIM in the Azure AD authentication provider settings and saved the changes
+    - the Octopus Deploy URL has the `/api/scim/v2/entraid/` suffix on it
+    - your Octopus Deploy instance is reachable from the Entra ID IP addresses
+    - the Octopus Deploy API key is valid and has sufficient permissions
+
+    :::
+
+1. Click **Create** to save the new provisioning configuration.
+
+### Map group attributes
+
+1. Within the new provisioning configuration, navigate to **Manage** -> **Attribute mapping**.
+1. Click on **Provision Microsoft Entra ID Groups**, then under **Attribute Mappings** delete `externalId` so that just `displayName` and `members` are shown in the list, then click **Save**.
+
+### Map user attributes
+
+1. Within the new provisioning configuration, navigate to **Manage** -> **Attribute mapping**.
+1. Click on **Provision Microsoft Entra ID Users**. There are a lot of attributes here that aren't relevant for Octopus Deploy, such as phone numbers, addresses, job titles, etc. Delete all of those, keeping only the following attributes:
+    - `userName`
+    - `active`
+    - `displayName`
+    - `emails[type eq "work"].value`
+    - `externalId`
+1. Edit `userName` to change the **Matching precedence** to `2`, then click **Save**.
+1. Edit `externalId` to change the mapping to the source attribute of `objectId`. This is the identifier used by the Azure AD authentication provider, so using it for SCIM allows Octopus Deploy to easily find the same user. Change **Match objects using this attribute** to `Yes` and set **Matching precedence** to `1`, then click **Save**.
+1. The completed user mappings should look like this:
+
+    !!!! SCREENSHOT !!!!
+
+    :::div{.warning}
+
+    The SCIM functionality expects this specific user attribute mapping from Entra ID and may not work correctly if the configured attribute mapping differs.
+
+    :::
+
+### Review settings and scope
+
+1. Navigate back to the provisioning configuration page, then **Manage** -> **Provisioning**, then expand the **Settings** group and review the settings. You may wish to enable email notifications on failure or change the **Scope**.
+1. If the scope is set to `Sync only assigned users and groups`, navigate to **Users and groups** to specify which users and groups should be provisioned in Octopus Deploy.
+
+### Test the configuration
+
+1. Within the new provisioning configuration, navigate to **Provision on demand**, then select a single Entra ID user to be provisioned in Octopus Deploy. Click **Provision**. The results page should show that the provisioning was successful.
+1. Within Octopus Deploy, navigate to **Configuration** -> **Users** and you should see the newly provisioned user. If the user was an existing user, you should see that they now have an **Azure AD** login in their user profile.
+
+    :::div{.warning}
+
+    If there were any issues with provisioning the single user, review the Entra ID provisioning configuration before proceeding. It's much easier to fix any issues now, rather than when there are a large number of users and groups that have been incorrectly provisioned.
+
+    :::
+
+### Start provisioning
+
+1. Once you have verified that everything is correctly configured, navigate to the **Overview** page of the provisioning configuration.
+1. Click **Start provisioning**. This will queue up a job in Entra ID to perform the initial sync, which may take a few minutes to start. Progress is shown on the **Overview** page.
+1. Entra ID will now reach out to Octopus Deploy regularly via the SCIM API whenever a user or group needs to be created, updated or deleted.
+
+    :::div{.info}
+
+    The default provisioning interval in Entra ID is 40 minutes, so any changes to users or groups may take up to this long to be applied to Octopus Deploy.
+
+    :::
+
+## Troubleshooting
+
+- Entra ID displays provisioning progress on the **Overview** page of the provisioning configuration. Provisioning can also be paused and restarted from this page, if you want to encourage Entra ID to try again.
+- Entra ID keeps detailed logs of all provisioning operations, accessible under **Monitor** -> **Provisioning logs**. Use the **Status** filter on this page to find any recorded failures. Please download the logs in JSON format and provide them to Octopus Support if you need any assistance.
+- You can review the actions taken within Octopus by looking at the **Audit Trail** for [the Entra ID service account](#configure-machine-to-machine-authentication). Navigate to **Configuration** -> **Users** and select the service account. Click the kebab menu in the top right, then click **Audit Trail** and check the box for **Include system events**.
+
+## Known Limitations
+
+- SCIM does not provide a way for Octopus Deploy to push changes back into Entra ID. Avoid making any modifications in Octopus Deploy to any users or teams that are provisioned via SCIM, as these may get overwritten when Entra ID updates them in future. If you need to make changes, perform these changes in the source-of-truth which is Entra ID.
+- Octopus Deploy does not support nested groups. Any requests from Entra ID to add a group as a member of another group will be ignored.
+- Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Azure AD authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
+- Octopus Deploy only supports a single email address for each user, whereas Entra ID supports many. Octopus Deploy will ignore any email addresses other than the **Work** email address, ie: `emails[type eq "work"].value`.
+- Entra ID has a [Provisioning Expression builder](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/expression-builder) feature in preview, which depends on APIs that are not yet implemented in Octopus Deploy. As such, you may see errors if you try to use the Provisioning Expression builder in the Azure Portal.
+
