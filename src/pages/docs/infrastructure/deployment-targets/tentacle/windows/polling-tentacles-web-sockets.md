@@ -61,7 +61,7 @@ The setup of a WebSocket Tentacle is the same as a TCP Polling Tentacle, except 
 When issuing the `register-with` command during Tentacle setup, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. The address to use is the listen prefix (replacing `+` with the hostname) and `https` replaced with `wss` (e.g. `wss://example.com:443/OctopusComms`). For example:
 
 ```powershell
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "<API-KEY>" --environment "Test" --role "Web"
 ```
 
 ### Changing an existing Tentacle
@@ -71,7 +71,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 ```powershell
 .\Tentacle.exe service --instance MyInstance --stop
 .\Tentacle.exe configure --reset-trust
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "<API-KEY>" --environment "Test" --role "Web"
 .\Tentacle.exe service --instance MyInstance --start
 ```
 
@@ -79,7 +79,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 When issuing the `poll-server` command to add additional nodes to poll, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. For example:
 
 ```powershell
-poll-server --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
+poll-server --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --apikey "<API-KEY>"
 ```
 
 ## Certificate
