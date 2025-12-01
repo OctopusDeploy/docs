@@ -214,3 +214,12 @@ Octopus Permissions Controller will report it's status via the health check each
 
 If the permissions controller is reported as not found, try running a new health check and monitor the Octopus Permissions Controller pod logs in Kubernetes to confirm that the script pod is being discovered.
 
+### Deployment fails during verification
+
+When using [deployment verification](/docs/kubernetes/deployment-verification) with granular permissions, your deployment may fail during the verification phase even though the resources were created successfully. This occurs because the script pod that performs the deployment also needs to read the deployed resources to verify they reached the desired state.
+
+To resolve this issue, update your `WorkloadServiceAccount` to include read permissions:
+- The `get` verb for parent resources (such as Deployments)
+- The `list` verb for child resources (such as Pods and ReplicaSets)
+
+You can further troubleshoot permission related deployment failures by adding `kubectl auth whoami` to and `kubectl auth can-i` commands to your deployment process using the "Run a kubectl script" step.
