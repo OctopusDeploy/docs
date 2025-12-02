@@ -1,13 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-12-01
 title: Bamboo
 description: Octopus Deploy and Bamboo can work together to make automated, continuous delivery easy.
 navOrder: 30
 ---
 
-The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
+:::div{.warning}
+As of December 2025 the Octopus Deploy add-on for Bamboo has reached end of life (EOL), in line with Atlassian's end of life timeline plans for [Data Center products](https://www.atlassian.com/software/bamboo/download-archives).
+
+Alternative features to flow artifacts from your CI system into Octopus are; [external feed triggers](/docs/projects/project-triggers/external-feed-triggers) and [Built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers).
+
+If you are an Atlassian Data Center user and Octopus customer and need help reach out to [Octopus Support](https://octopus.com/support).
+:::
+
+The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
 
 ## Getting started
 
