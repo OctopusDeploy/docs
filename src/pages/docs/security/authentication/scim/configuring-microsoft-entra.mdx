@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-12-02
-modDate: 2025-12-02
+pubDate: 2025-12-03
+modDate: 2025-12-03
 title: Microsoft Entra ID
 description: Microsoft Entra ID can manage Octopus Users and Teams using the SCIM API.
 navTitle: Microsoft Entra ID
@@ -64,6 +64,10 @@ The implementation of Entra ID authentication in Octopus Deploy matches against 
 
 Create a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) for Entra ID SCIM, and add it to the **Octopus Managers** team, so that it has sufficient permissions. Once the **Service Account** has been created, create a new API key for the account ready to provide to Entra ID.
 
+    :::figure
+    ![Service account](/docs/img/security/authentication/scim/entraid/service-account.png)
+    :::
+
     :::div{.info}
 
     The Octopus Deploy account used by Entra ID needs to have Octopus permissions of the same level or greater than the permissions of the users that it is managing. This is required by Octopus Deploy to avoid escalation of privilege, for example to prevent a low-privilege user from creating an administrator account.
@@ -79,6 +83,11 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
     - For **Select authentication method** choose **Bearer authentication**
     - Enter the **Tenant URL** of `https://your-octopus-url/api/scim/v2/entraid/` (replacing `https://your-octopus-url` with the URL of your Octopus Server).
     - For **Secret token**, paste in the Octopus Deploy API key that you created for your Entra ID SCIM service account.
+
+    :::figure
+    ![New provisioning configuration](/docs/img/security/authentication/scim/entraid/new-provisioning-configuration.png)
+    :::
+
 1. Click **Test connection** to get Entra ID to issue a request to the SCIM API
 
     :::div{.hint}
@@ -98,6 +107,10 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
 1. Within the new provisioning configuration, navigate to **Manage** -> **Attribute mapping**.
 1. Click on **Provision Microsoft Entra ID Groups**, then under **Attribute Mappings** delete `externalId` so that just `displayName` and `members` are shown in the list, then click **Save**.
 
+    :::figure
+    ![Group Attribute Mapping](/docs/img/security/authentication/scim/entraid/attribute-mapping-groups.png)
+    :::
+
 ### Map user attributes
 
 1. Within the new provisioning configuration, navigate to **Manage** -> **Attribute mapping**.
@@ -111,7 +124,9 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
 1. Edit `externalId` to change the mapping to the source attribute of `objectId`. This is the identifier used by the Azure AD authentication provider, so using it for SCIM allows Octopus Deploy to easily find the same user. Change **Match objects using this attribute** to `Yes` and set **Matching precedence** to `1`, then click **Save**.
 1. The completed user mappings should look like this:
 
-    !!!! SCREENSHOT !!!!
+    :::figure
+    ![User Attribute Mapping](/docs/img/security/authentication/scim/entraid/attribute-mapping-users.png)
+    :::
 
     :::div{.warning}
 
@@ -138,8 +153,7 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
 ### Start provisioning
 
 1. Once you have verified that everything is correctly configured, navigate to the **Overview** page of the provisioning configuration.
-1. Click **Start provisioning**. This will queue up a job in Entra ID to perform the initial sync, which may take a few minutes to start. Progress is shown on the **Overview** page.
-1. Entra ID will now reach out to Octopus Deploy regularly via the SCIM API whenever a user or group needs to be created, updated or deleted.
+1. Click **Start provisioning**. This will queue up a job in Entra ID to perform the initial sync, which may take a few minutes to start.
 
     :::div{.info}
 
@@ -147,11 +161,25 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
 
     :::
 
+1. Once the initial sync has completed, the status on the **Overview** page will update accordingly.
+
+    :::figure
+    ![Provisioning sync completed](/docs/img/security/authentication/scim/entraid/provisioning-sync-complete.png)
+    :::
+
+Entra ID will now reach out to Octopus Deploy regularly via the SCIM API whenever a user or group needs to be created, updated or deleted.
+
+
+
 ## Troubleshooting
 
 - Entra ID displays provisioning progress on the **Overview** page of the provisioning configuration. Provisioning can also be paused and restarted from this page, if you want to encourage Entra ID to try again.
 - Entra ID keeps detailed logs of all provisioning operations, accessible under **Monitor** -> **Provisioning logs**. Use the **Status** filter on this page to find any recorded failures. Please download the logs in JSON format and provide them to Octopus Support if you need any assistance.
 - You can review the actions taken within Octopus by looking at the **Audit Trail** for [the Entra ID service account](#configure-machine-to-machine-authentication). Navigate to **Configuration** -> **Users** and select the service account. Click the kebab menu in the top right, then click **Audit Trail** and check the box for **Include system events**.
+
+    :::figure
+    ![Service account audit trail](/docs/img/security/authentication/scim/entraid/service-account-audit-trail.png)
+    :::
 
 ## Known Limitations
 
