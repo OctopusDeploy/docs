@@ -47,6 +47,7 @@ oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 :::div{.info}
 **Pre-requisites:**
 - Kubernetes agent v2.28.1+
+- [Cert Manager](https://cert-manager.io)
 :::
 
 ### Workload Service Accounts
