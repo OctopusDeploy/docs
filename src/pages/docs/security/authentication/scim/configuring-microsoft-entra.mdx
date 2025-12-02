@@ -20,13 +20,13 @@ There are a few steps involved in this process, so we recommend confirming that 
 
 ## Requirements
 
-- [Entra ID authentication](../azure-ad-authentication) configured and working
+- [Entra ID authentication](/docs/security/authentication/azure-ad-authentication) configured and working
 - An Octopus Deploy license that includes the SCIM feature, such as an Enterprise license
 - Network access to allow inbound HTTPS API requests from Entra ID to Octopus Deploy.
 
     :::div{.info}
 
-    If you're using Octopus Cloud, we don't recommend using [IP allow listing](../../../octopus-cloud/ip-address-allow-list) with SCIM, as there are [a large number of IP addresses used by Entra ID](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges) and they can change regularly.
+    If you're using Octopus Cloud, we don't recommend using [IP allow listing](/docs/octopus-cloud/ip-address-allow-list) with SCIM, as there are [a large number of IP addresses used by Entra ID](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges) and they can change regularly.
 
     :::
 
@@ -46,7 +46,7 @@ The implementation of Entra ID authentication in Octopus Deploy matches against 
 
 ### Configure user authentication and enable SCIM support
 
-1. Configure [Entra ID authentication](../azure-ad-authentication) in Octopus Deploy. Don't configure any [external group mappings](../azure-ad-authentication#mapping-microsoft-entra-id-users-into-octopus-teams-optional) as SCIM will allow Entra ID to create internal groups within Octopus Deploy.
+1. Configure [Entra ID authentication](/docs/security/authentication/azure-ad-authentication) in Octopus Deploy. Don't configure any [external group mappings](/docs/security/authentication/azure-ad-authentication#mapping-microsoft-entra-id-users-into-octopus-teams-optional) as SCIM will allow Entra ID to create internal groups within Octopus Deploy.
 1. Ensure that you can authenticate as an Entra ID user to Octopus Deploy, by using the **Sign in with Microsoft** button on the Octopus Deploy login page.
 1. Navigate to **Configuration** -> **Settings** -> **Azure AD** in Octopus Deploy.
 1. Change **Allow Auto User Creation** to `No` by unchecking the box. Users will be automatically created by Entra ID, so there's no need to create users on-the-fly when they login for the first time.
@@ -62,7 +62,7 @@ The implementation of Entra ID authentication in Octopus Deploy matches against 
 
 ### Configure Machine-to-Machine authentication
 
-Create a dedicated [Service Account](../../users-and-teams/service-accounts) for Entra ID SCIM, and add it to the **Octopus Managers** team, so that it has sufficient permissions. Once the **Service Account** has been created, create a new API key for the account ready to provide to Entra ID.
+Create a dedicated [Service Account](/docs/security/users-and-teams/service-accounts) for Entra ID SCIM, and add it to the **Octopus Managers** team, so that it has sufficient permissions. Once the **Service Account** has been created, create a new API key for the account ready to provide to Entra ID.
 
     :::div{.info}
 
