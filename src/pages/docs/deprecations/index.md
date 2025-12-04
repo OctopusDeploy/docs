@@ -18,7 +18,7 @@ We aim to follow the deprecation lifecycle below:
 - (+6 months) Remove deprecated functionality
 
 :::div{.warning}
-Deprecations are subject to change in detail or time frame
+Deprecations are subject to change in detail or time frame.
 
 While Octopus strives to follow the deprecation lifecycle, there are cases where we must act more quickly. Examples that may affect the deprecation lifecycle include:
 - Security fixes
