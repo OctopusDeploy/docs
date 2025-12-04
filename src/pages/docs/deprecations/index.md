@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-10-15
+modDate: 2025-12-04
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -11,14 +11,20 @@ navOrder: 300
 
 Occasionally, Octopus will deprecate features that will no longer be supported. These features are eventually removed.
 
-Deprecations have the following lifecycle:
+We aim to follow the deprecation lifecycle below:
 
 - Announce deprecation
 - (+6 months) Toggle off deprecated functionality
 - (+6 months) Remove deprecated functionality
 
 :::div{.warning}
-Deprecations are subject to change in detail or time frame. If you need help assessing the impact of the deprecation of a feature on your particular Octopus Server configuration, please contact our [support team](https://octopus.com/support).
+Deprecations are subject to change in detail or time frame
+
+While Octopus strives to follow the deprecation lifecycle, there are cases where we must act more quickly. Examples that may affect the deprecation lifecycle include:
+- Security fixes
+- External dependencies
+
+If you have questions or need help assessing the impact of a deprecation on your Octopus instance, please contact our [support team](https://octopus.com/support).
 :::
 
 ## Planned Deprecations
