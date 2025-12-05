@@ -4,7 +4,7 @@ pubDate: 2024-07-31
 modDate: 2025-03-25
 navSection: Deployment Verification
 title: Deployment verification in Octopus
-navTitle: Kubernetes Object Status
+navTitle: Step Verification
 description: Verifying your Kubernetes deployments in Octopus
 navOrder: 30
 ---
@@ -14,12 +14,12 @@ Octopus can leverage information from a Kubernetes cluster to make step executio
 Octopus will also show a snapshot (from the moment of deployment) of deployed object status on a deployment screen — the `Object Snapshot` view on the `KUBERNETES` tab.
 
 :::figure
-![A screenshot of the Kubernetes Object Snapshot tab](/docs/img/deployments/kubernetes/object-status/kubernetes-tab-object-snapshot.png)
+![A screenshot of the Object Snapshot tab](/docs/img/deployments/kubernetes/object-status/kubernetes-tab-object-snapshot.png)
 :::
 
 ## Where it is available
 
-Kubernetes Object status is available for these steps.
+Step Verification is available for these steps.
 
 * Deploy Kubernetes YAML
 * Deploy a Helm Chart
@@ -47,13 +47,13 @@ Enabling the option will add the Helm [`--wait`](https://helm.sh/docs/helm/helm_
 
 ### Other steps
 
-Use the `Kubernetes Object Status Check` section on the step configuration page.
+Use the `Step Verification` section on the step configuration page.
 
 :::figure
-![A screenshot of the Kubernetes Object Status configuration section](/docs/img/deployments/kubernetes/object-status/kubernetes-object-status-check-configuration.png)
+![A screenshot of the Step Verification configuration section](/docs/img/deployments/kubernetes/object-status/step-verification-configuration.png)
 :::
 
-Use the first option to enable the feature (`Check that Kubernetes objects are running successfully`). Choosing `Don't do any verification checks` will disable the feature.
+Use the first option to enable the feature (`Verify that Kubernetes objects reached their desired state`). Choosing `Don't do any verification checks` will disable the feature.
 
 One can configure two extra parameters:
 
@@ -86,12 +86,12 @@ The only exception to this rule is for a stand-alone pod (without a ReplicaSet a
 
 ## How to use
 
-Octopus will change the meaning of step execution status after enabling Kubernetes Object Status; no additional actions are required. One can interpret the new step status as that Octopus ensured the desired configuration was achieved on the target cluster and was stable for a given number of seconds (Status stabilization timeout value).
+Octopus will change the meaning of step execution status after enabling Step Verification; no additional actions are required. One can interpret the new step status as that Octopus ensured the desired configuration was achieved on the target cluster and was stable for a given number of seconds (Status stabilization timeout value).
 
 Users can also observe live updates from the cluster on the Kubernetes tab (Deployment page).
 
 :::figure
-![A screenshot of the Kubernetes Object Status tab](/docs/img/deployments/kubernetes/object-status/kubernetes-tab.png)
+![A screenshot of the Object Status tab](/docs/img/deployments/kubernetes/object-status/kubernetes-tab.png)
 :::
 
 Octopus displays resource status in a respected table for each deployed resource. The table is live during the step execution (till the end of the stabilization period). After that, the table will not get any updates and will remain a snapshot for future reference.
@@ -112,13 +112,13 @@ If there are multiple steps in deploying Kubernetes resources, each step will ha
 The manifest that deployed a particular resource can be viewed if the name of the resource is a link. Resources that are created by other resources , such as `ReplicaSets` or `Pods` from `Deployments` will not have a viewable manifest.
 
 :::figure
-![A screenshot of the Kubernetes Object Status resource name link](/docs/img/deployments/kubernetes/object-status/resource-drawer-link.png)
+![A screenshot of the Object Status resource name link](/docs/img/deployments/kubernetes/object-status/resource-drawer-link.png)
 :::
 
 Clicking the name will open a drawer showing the manifest for the resource.
 
 :::figure
-![A screenshot of the Kubernetes Object Status resource drawer](/docs/img/deployments/kubernetes/object-status/resource-drawer.png)
+![A screenshot of the Object Status resource drawer](/docs/img/deployments/kubernetes/object-status/resource-drawer.png)
 :::
 
 ## Useful links
