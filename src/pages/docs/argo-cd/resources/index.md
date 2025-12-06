@@ -37,7 +37,7 @@ Kustomize | &#x2705; Will replace image tag values in the kustomize file        
 Helm Chart | &#x2705; Will update image-tag fields in the values file, requires [helm-annotations](/docs/argo-cd/annotations/helm-annotations) |
 
 ## Update Argo Manifest Step
-The Update Argo Manifest step's behaviour is agnostic of the application source repository "content type".
+The Update Argo Manifest step's behavior is agnostic of the application source repository "content type".
 Regardless of the content of the source-repository, the step is responsible for writing the populated templates
 to the source-path specified in the argo application.
 
