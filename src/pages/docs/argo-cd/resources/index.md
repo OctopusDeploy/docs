@@ -22,7 +22,9 @@ There are a number of use cases which Octopus _cannot_ support due to data acces
     * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository
 * Octopus can create Pull Requests for GitHub, GitLab and Azure Devops based repositories.
   * At this time, only vendor-hosted repositories of these providers are available (eg *.github.com/*/*, *.gitlab.com/*/*).
-  * Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported. 
+  * Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+* Octopus requires and Argo CD version of 2.14.0 or above to support applications with multiple sources (introduction of named sources in Argo CD)
+  * Applications with a single source can be updated in all versions of Argo CD.
 
 
 ## Update Argo Image Tags
