@@ -41,11 +41,11 @@ You can read more about this step [here](/docs/argo-cd/steps/update-application-
 When these steps are executed, they each create a number of [output variables](/docs/projects/variables/output-variables) which contain information relating to the
 step's execution, these variables include:
 
-| Variable name     | Content                                                                                 |
-|-------------------|-----------------------------------------------------------------------------------------|
-| PullRequest.Title | The title of the PR created in thes tep, empty if no PR was created.                    |
+| Variable name      | Content                                                                                 |
+|--------------------|-----------------------------------------------------------------------------------------|
+| PullRequest.Title  | The title of the PR created in the step, empty if no PR was created.                    |
 | PullRequest.Number | The unique identifier of the PR within your git repository, empty if no PR was created. |
-| PullRquest.Url| The Url of the PR created, empty if no PR was created.|
+| PullRequest.Url    | The Url of the PR created, empty if no PR was created.                                  |
 
 These variables will be available for subsequent steps in your deployment process.
 
