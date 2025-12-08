@@ -33,6 +33,8 @@ Both of these methods use the [variable templates](/docs/projects/variables/vari
 
 Project variables allow you to specify a variable that a tenant can change. A perfect example would be a connection string or a database server. You define project variables using [project templates](/docs/projects/variables/variable-templates/#project-templates).
 
+Project templates can be scoped to zero or more environments. When a project template is not scoped to any environments (unscoped), it applies to all available environments connected to the tenant. This behavior is consistent with how common tenant variables can be scoped.
+
 :::figure
 ![](/docs/img/tenants/images/project-template-screen.png)
 :::
@@ -43,7 +45,7 @@ You can specify the variable type for the project template, just like regular va
 ![](/docs/img/tenants/images/project-template-edit.png)
 :::
 
-You can view and edit values for project's tenants and environments on a single screen
+You can view and edit values for project's tenants and environments on a single screen.
 
 :::figure
 ![](/docs/img/tenants/images/project-template-screen-edit.png)
@@ -60,6 +62,23 @@ The great thing about project template variables is that they are treated like a
 :::figure
 ![](/docs/img/tenants/images/project-template-variable-value-in-step.png)
 :::
+
+### Project variable scoping
+
+Project variables can be scoped by environment to control which tenant/environment combinations they apply to:
+
+- **Unscoped project variables**: When no environment scope is specified on the project template, the variable applies to all environments connected to the tenant
+- **Scoped project variables**: When one or more environments are specified in the project template scope, the variable only applies to those specific environments
+
+You can assign scopes to project variables using the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. The project variable can then be used across all projects that have a connection to that environment.
+
+For more information on assigning scopes, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
+
+### Project variable permissions
+
+When editing project variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as the specific project.
+
+For scoped project variables, a user will require variable editing permission for the tenant, the project, and all environments in the variable's scope. To view a project variable, a user will require view permissions to at least one environment in the variable's scope.
 
 ## Common variables \{#common-variables}
 
@@ -81,13 +100,16 @@ Just like project variables, common variable values are supplied at the tenant l
 ![](/docs/img/tenants/images/common-variable-tenant-value.png)
 :::
 
-:::hint
-Scoped common variables will be available for early access from Octopus Cloud version 2025.1 and available to on-premises customers from release v2025.2. Please contact michelle.obrien@octopus.com if you would like to turn this feature on.
+### Common variable scoping
+
+Common variables can be scoped by environment to control which environments they apply to:
+
+- **Unscoped common variables**: When no environment scope is specified, the variable applies to all environments connected to the tenant
+- **Scoped common variables**: When one or more environments are specified in the scope, the variable only applies to those specific environments
 
 To assign a scope to your common variable, use the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. The common variable can then be used across all projects that have a connection to that environment. 
 
-For more information on assigning scope, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
-:::
+For more information on assigning scopes, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
 
 ### Common variable permissions
 
