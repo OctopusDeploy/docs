@@ -25,6 +25,52 @@ If you haven't enabled Octopus Server's gRPC port before, the port Octopus Serve
 Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
 :::
 
+### gRPC connections via a load balancer
+
+Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor.
+
+When the Kubernetes monitor needs to connect to Octopus via a load balancer, there are two common methods to achieve this:
+1. Using TLS/SSL bridging, with verification disabled between the load balancer and Octopus
+2. Using TLS/SSL passthrough
+
+As an example for those using nginx, the following configuration will enable bridging.
+The `ssl_certificate` refers to your CA certificate used for the HTTPS configuration.
+
+```
+upstream octopusdeploy_grpc {
+    server servername:8443;
+}
+
+server {
+    listen 8443 ssl http2;
+
+    ssl_certificate     /etc/nginx/ssl/octopusdeploy.pem;
+    ssl_certificate_key /etc/nginx/ssl/octopusdeploy.key;
+
+    location / {
+        proxy_set_header Host $host;
+        grpc_pass grpcs://octopusdeploy_grpc;
+        grpc_ssl_verify off;
+    }
+}
+```
+
+TLS/SSL passthrough can be achieved with a full stream passthrough defined with:
+
+```
+stream {
+    upstream octopusdeploy_grpc {
+        server OctopusServer1:8443;
+        server OctopusServer2:8443;
+    }
+
+    server {
+        listen 8443;
+        proxy_pass octopusdeploy_grpc;
+    }
+}
+```
+
 ## Runtime
 
 ### Failed to establish connection with Kubernetes Monitor \{#failed-to-establish–connection-with-kubernetes-monitor}
