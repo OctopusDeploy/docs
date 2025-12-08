@@ -199,6 +199,7 @@ helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="true" \
+--set scriptPods.serviceAccount.clusterRole.rules=null \
 ${release_name) \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
