@@ -27,49 +27,9 @@ Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes
 
 ### gRPC connections via a load balancer
 
-Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor.
+Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
 
-When the Kubernetes monitor needs to connect to Octopus via a load balancer, there are two common methods to achieve this:
-1. Using TLS/SSL bridging, with verification disabled between the load balancer and Octopus
-2. Using TLS/SSL passthrough
-
-As an example for those using nginx, the following configuration will enable bridging.
-The `ssl_certificate` refers to your CA certificate used for the HTTPS configuration.
-
-```
-upstream octopusdeploy_grpc {
-    server servername:8443;
-}
-
-server {
-    listen 8443 ssl http2;
-
-    ssl_certificate     /etc/nginx/ssl/octopusdeploy.pem;
-    ssl_certificate_key /etc/nginx/ssl/octopusdeploy.key;
-
-    location / {
-        proxy_set_header Host $host;
-        grpc_pass grpcs://octopusdeploy_grpc;
-        grpc_ssl_verify off;
-    }
-}
-```
-
-TLS/SSL passthrough can be achieved with a full stream passthrough defined with:
-
-```
-stream {
-    upstream octopusdeploy_grpc {
-        server OctopusServer1:8443;
-        server OctopusServer2:8443;
-    }
-
-    server {
-        listen 8443;
-        proxy_pass octopusdeploy_grpc;
-    }
-}
-```
+Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.
 
 ## Runtime
 

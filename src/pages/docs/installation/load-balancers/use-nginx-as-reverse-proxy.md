@@ -13,7 +13,6 @@ This example assumes:
 
 - NGINX will terminate your SSL connections.
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) are not required.
-- [Kubernetes monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
 
 Our starting configuration:
 
@@ -57,6 +56,51 @@ server {
       proxy_set_header Host $host;
       proxy_pass http://octopusdeploy;
     }        
+}
+```
+
+### gRPC Communications
+
+Octopus generates a self signed certificate for gRPC communications. When the a gRPC client needs to connect to Octopus via a load balancer, there are two common methods to achieve this.
+
+#### TLS/SSL Bridging
+
+`grpc_ssl_verify off` allows us to use a self signed certificate outside of the CA chain of trust.
+
+The `ssl_certificate` refers to your CA certificate used for the HTTPS configuration.
+
+```
+upstream octopusdeploy_grpc {
+    server servername:8443;
+}
+
+server {
+    listen 8443 ssl http2;
+
+    ssl_certificate     /etc/nginx/ssl/octopusdeploy.pem;
+    ssl_certificate_key /etc/nginx/ssl/octopusdeploy.key;
+
+    location / {
+        proxy_set_header Host $host;
+        grpc_pass grpcs://octopusdeploy_grpc;
+        grpc_ssl_verify off;
+    }
+}
+```
+
+#### TLS/SSL Passthrough
+
+```
+stream {
+    upstream octopusdeploy_grpc {
+        server OctopusServer1:8443;
+        server OctopusServer2:8443;
+    }
+
+    server {
+        listen 8443;
+        proxy_pass octopusdeploy_grpc;
+    }
 }
 ```
 
