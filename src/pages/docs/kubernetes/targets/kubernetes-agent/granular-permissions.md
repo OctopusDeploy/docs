@@ -180,7 +180,7 @@ helm upgrade --install --atomic \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="false" \
 ${release_name) \
-oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
+oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
 ### Removing Octopus Permissions Controller
@@ -200,7 +200,7 @@ helm upgrade --install --atomic \
 --reset-then-reuse-values \
 --set scriptPods.serviceAccount.clusterRole.enabled="true" \
 ${release_name) \
-oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
+oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
 ## Troubleshooting
