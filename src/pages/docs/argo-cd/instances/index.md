@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2025-12-08
 navSection: Argo CD Instances
 navTitle: Overview
 title: Overview
@@ -76,12 +76,12 @@ The terminal Kubernetes context must have enough permissions to create namespace
 :::
 
 :::div{.warning}
-By default, the Octopus Argo CD Gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the Gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install. 
+By default, the Octopus Argo CD Gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install. 
 ```bash
 # For self-signed certificates - Disables TLS certificate verification
 gateway.argocd.insecure="true"
 
-# For no certificates - Disables TLS entirely, all traffic between the Gateway and Argo traffic will be unencrypted
+# For no certificates - Disables TLS entirely, all traffic between the gateway and Argo traffic will be unencrypted
 gateway.argocd.plaintext="true"
 ```
 :::
@@ -95,6 +95,64 @@ If left open, the installation dialog waits for the gateway to establish a conne
 :::div{.hint}
 A successful health check indicates that the gateway can successfully connect to the target Argo CD instance and is communicating with Octopus Server.
 :::
+
+### Advanced Configuration 
+
+#### Trusting Certificates 
+If your Octopus server or Argo CD instance are hosted using self signed certificates, the gateway will likely not be able to connect. To get the gateway application to trust your certificates you can provide them in two ways(Requires `>= v1.12.0` of the Octopus Argo CD Gateway Helm chart):
+
+**Passing certificates as Helm values:**
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set registration.octopus.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.octopus.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.argocd.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.octopus.serverThumbprint="" \
+--set gateway.argocd.insecure="false" \
+--set gateway.argocd.plaintext="false" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+``` 
+`registration.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its web portal and http API with. This certificate is verified during the automatic registration process.
+
+`gateway.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its gRPC web host with. 
+
+`gateway.argocd.serverCertificate` - Refers to the certificate that Argo CD server is using to host its web portal and API. [Read more about configuring TLS in Argo CD here](https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/#configuring-tls-for-argocd-server)
+
+These certificates are stored in a secret within your Kubernetes cluster `octopus-argocd-gateway-certificates` and are loaded into the gateway's trust store during startup.
+
+**Passing certificates via existing Kubernetes secret:**
+
+Certificates can be loaded by the gateway using an existing Kubernetes secret that exists in the same namespace as the gateway.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: your-certs
+  namespace: octo-argo-gateway
+data:
+  octopus-server-grpc-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  octopus-server-http-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  argo-cd-server-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  other-certificate-to-trust.pem: {{BASE64_ENCODED_CERTIFICATE}}
+type: Opaque
+```
+
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set gateway.serverCertificateSecretName="YOUR_KUBERNETES_SECRET_NAME" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
+All certificates included in the secret will be loaded into the trust store during the gateway's startup. If any of the keys in your secret are duplicates of the keys in `octopus-argocd-gateway-certificates` the values in your secret will take priority e.g. If you set `octopus-server-grpc-certificate.pem` in your own secret but then also pass a value to `gateway.octopus.serverCertificate` the certificate in your secret will overwrite the one in the helm values.
 
 ### Health Checks and Updating
 
@@ -118,13 +176,13 @@ See [Scoping Annotations](/docs/argo-cd/annotations) for more information
 ## Versioning
 The Octopus Argo CD Gateway Helm chart follows [Semantic Versioning](https://semver.org/). Generally, version updates can be interpreted as follows:
 
-- *major* - Breaking changes to the chart. This may include adding or removing of resources, breaking changes in the Octopus Argo CD Gateway application image, breaking changes to the structure of the `values.yaml`. Upgrading to a major version might involve modifying your Gateway's configuration or upgrading to a version of Octopus that supports the major version
+- *major* - Breaking changes to the chart. This may include adding or removing of resources, breaking changes in the Octopus Argo CD Gateway application image, breaking changes to the structure of the `values.yaml`. Upgrading to a major version might involve modifying your gateway's configuration or upgrading to a version of Octopus that supports the major version
 - *minor* - New non-breaking features. New features or improvements to the Octopus Argo CD Gateway application or helm chart itself.
 - *patch* - Minor non-breaking bug fixes or changes that do not introduce new features.
 
 ## Troubleshooting 
 ### Argo CD TLS Errors
-If your Gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
+If your gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
 
 #### Self Signed Certificate
 If you are getting an error that looks like this:
@@ -145,16 +203,16 @@ helm upgrade --atomic \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ``` 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.insecure="true"` TLS certificate verification will no longer be performed between the Gateway and the Argo CD instance ensure that it is necessary that you set this configuration to avoid potential security issues.
+**WARNING:** By setting `gateway.argocd.insecure="true"` TLS certificate verification will no longer be performed between the gateway and the Argo CD instance ensure that it is necessary that you set this configuration to avoid potential security issues.
 :::
 
 #### No Certificate
-If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the Gateway will likely fail to connect with the following error: 
+If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the gateway will likely fail to connect with the following error: 
 ```
 transport: authentication handshake failed: EOF
 ```
 
-This is because the Gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the Gateway and Argo CD by doing the following: 
+This is because the gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the gateway and Argo CD by doing the following: 
 ```bash
 helm upgrade --atomic \
 --version "1.0.0" \
@@ -166,12 +224,12 @@ helm upgrade --atomic \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ``` 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the Gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
+**WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
 :::
 
 
 ## Deleting an Octopus Argo CD Gateway
-When removing a Gateway two operations are required:
+When removing a gateway two operations are required:
 1. Deregister the gateway from Octopus Server
 2. Remove the application from your cluster
 
