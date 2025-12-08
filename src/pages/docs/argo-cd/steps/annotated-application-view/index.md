@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
-title: Deployment Preview
+title: Annotated Application View
 description: Query affected applications before triggering the change
 ---
 Argo CD Instances don't fall under the category of 'Deployment Target', and does not support the idea of 'Target Tags',
-instead - Argo CD _Application_ are annotated with [Scoping Annotations](/docs/argo-cd/annotations) to provide a similar
+instead - Argo CD _Applications_ are annotated with [Scoping Annotations](/docs/argo-cd/annotations) to provide a similar
 mapping between project/environment and an output location (in this case, an Argo Application's repository).
 
 As this data isn't readily visible during the step - we've added a drawer so you can see what applications will be updated
@@ -15,7 +15,7 @@ given current Argo CD Application annotations.
 This data is also visible via the Octopus Infrastructure pages - but having it on hand can make the process simpler.
 
 ## Argo App Configuration
-When you create a new Argo step, you'll see in the Output section, a field titled `Deployment Preview`.
+When you create a new Argo step, you'll see in the Output section, a field titled `Argo CD Applicstions`.
 The content of this field is dependent on the state of your system:
 * Have you already registered a gateway and Argo CD Instance?
 * If not, you will see the following - selecting the button will start the gateway registration process.

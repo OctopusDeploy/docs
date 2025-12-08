@@ -21,10 +21,9 @@ Server instance. This gateway means that no publicly accessible HTTP/gRPC URL is
 
 A gateway is required for each Argo CD Instance being connected to Octopus.
 
-
 :::div{.info}
-The Argo/Octopus integration does not require any external services other than the Octopus/Argo gateway. All aspects of the integration are available without
-requiring the [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) nor the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor).
+The Argo/Octopus integration requires only the Octopus/Argo gateway to enable all features. 
+The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
 :::
 
 ## Installing the Octopus Argo CD Gateway
