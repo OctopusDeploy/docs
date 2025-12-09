@@ -217,6 +217,7 @@ result := {"allowed": true} if {
 ```
 
 ### Check that a Process Template is present, and not skipped
+Process template can include multiple steps
 
 ```ruby
 package process_template_is_executed
@@ -224,14 +225,22 @@ package process_template_is_executed
 default result := {"allowed": false}
 
 result := {"allowed": true} if {
+    count(process_template_steps) > 0
+
+    every step in process_template_steps {
+        not step.Id in input.SkippedSteps
+    }
+}
+
+process_template_steps := [step |
     some step in input.Steps
     step.Source.Type == "Process Template"
     step.Source.SlugOrId == "<ProcessTemplate-slug>"
-    not step.Id in input.SkippedSteps
-}
+]
 ```
 
 ### Check that a Process Template is enabled
+Process template can include multiple steps
 
 ```ruby
 package process_template_is_enabled
@@ -239,11 +248,18 @@ package process_template_is_enabled
 default result := {"allowed": false}
 
 result := {"allowed": true} if {
+    count(process_template_steps) > 0
+
+    every step in process_template_steps {
+        step.Enabled
+    }
+}
+
+process_template_steps := [step |
     some step in input.Steps
     step.Source.Type == "Process Template"
     step.Source.SlugOrId == "<ProcessTemplate-slug>"
-    step.Enabled == true
-}
+]
 ```
 
 ### Check that a Process Template is at the beginning or end of a process
@@ -267,6 +283,7 @@ result := {"allowed": true} if {
 ```
 
 ### Check that a Process Template is of a certain version when deployments occur
+Process template can include multiple steps
 
 ```ruby
 package process_template_with_version_is_executed
@@ -274,13 +291,20 @@ package process_template_with_version_is_executed
 default result := {"allowed": false}
 
 result := {"allowed": true} if {
+    count(process_template_steps) > 0
+
+    every step in process_template_steps {
+        semver.compare(step.Source.Version, "<specific-version>") == 0
+        step.Enabled
+        not step.Id in input.SkippedSteps
+    }
+}
+
+process_template_steps := [step |
     some step in input.Steps
     step.Source.Type == "Process Template"
     step.Source.SlugOrId == "<ProcessTemplate-slug>"
-    semver.compare(step.Source.Version, "<specific-version>") == 0
-    not step.Id in input.SkippedSteps
-    step.Enabled == true
-}
+]
 ```
 
 ### Check that a Process Template exists before or after certain steps

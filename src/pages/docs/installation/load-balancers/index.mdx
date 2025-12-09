@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-22
+modDate: 2025-12-08
 title: Load Balancers
 navTitle: Overview
 navSection: Load Balancers
@@ -47,6 +47,13 @@ We recommend having a dedicated URL for each node in the primary region and rout
 Important! You must configure the traffic to be “pass through” with no SSL off-loading.  The tentacles and Octopus Deploy establish a two-way trust via certificates.  If a third unknown certificate is introduced, the tentacle and Octopus deploy will reject the connection.
 :::
 
+## gRPC Services
+
+Several Octopus features (eg. Kubernetes Live Object Status and Argo CD integration) rely on communications via gRPC that require specific configuration to account for certificate trust.
+
+Octopus generates a self signed certificate for gRPC communications. When the a gRPC client needs to connect to Octopus via a load balancer, there are two common methods to achieve this:
+1. Using TLS/SSL bridging, with verification disabled between the load balancer and Octopus
+2. Using TLS/SSL passthrough
 
 ## Third Party Load Balancers
 
