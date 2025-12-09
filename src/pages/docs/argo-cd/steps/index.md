@@ -8,12 +8,14 @@ navOrder: 10
 navTitle: Overview
 navSection: Deployment Steps
 ---
+
 Octopus offers two in-built steps which are able to modify a mapped Argo CD application in different ways:
 
 1. Update Argo CD Application Image Tags
 2. Update Argo CD Application Manifests
 
 ## Steps
+
 ### Update Argo CD Application Image Tags
 
 This step is responsible for identifying images referenced by an application, and updating their image-tags to the
@@ -23,7 +25,7 @@ For 'Basic Yaml' and 'Kustomize' based Argo CD Applications, the behavior for pe
 structure of the kubernetes/kustomize yaml to ensure the correct fields are updated.
 
 However, for Helm-based Argo CD Applications, where image-tags are specified within the `values.yaml` file, additional
-information is required to explicitly define _which_ fields in the values represent an image reference.
+information is required to explicitly define *which* fields in the values represent an image reference.
 
 See [Helm annotations](/docs/argo-cd/annotations/helm-annotations) for more information and examples.
 
@@ -36,8 +38,8 @@ templates with [Octopus Variables](/docs/projects/variables/getting-started).
 
 You can read more about this step [here](/docs/argo-cd/steps/update-application-manifests).
 
-
 ## Output Variables
+
 When these steps are executed, they each create a number of [output variables](/docs/projects/variables/output-variables) which contain information relating to the
 step's execution, these variables include:
 
@@ -48,4 +50,3 @@ step's execution, these variables include:
 | PullRequest.Url    | The Url of the PR created, empty if no PR was created.                                  |
 
 These variables will be available for subsequent steps in your deployment process.
-
