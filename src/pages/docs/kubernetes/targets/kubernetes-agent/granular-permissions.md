@@ -224,4 +224,4 @@ To resolve this issue, update your `WorkloadServiceAccount` to include read perm
 - The `get` verb for parent resources (such as Deployments)
 - The `list` verb for child resources (such as Pods and ReplicaSets)
 
-You can further troubleshoot permission related deployment failures by adding `kubectl auth whoami` to and `kubectl auth can-i` commands to your deployment process using the "Run a kubectl script" step.
+You can further troubleshoot permission related deployment failures by adding `kubectl auth whoami` and `kubectl auth can-i` commands to your deployment process using the "Run a kubectl script" step.
