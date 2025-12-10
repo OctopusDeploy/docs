@@ -19,15 +19,15 @@ This is done by adding "Scoping" annotations to the Argo CD Application definiti
 
 The three scoping annotations are (where `<source-name>` is the name of the source to be updated):
 
-| Annotation                     | Required | Value description                             |
-|--------------------------------|----------|-----------------------------------------------|
-| `argo.octopus.com/project[.<source-name>]`     | true     | This is the _slug_ of the Octopus Project     |
-| `argo.octopus.com/environment[.<source-name>]` | true     | This is the _slug_ of the Octopus Environment |
-| `argo.octopus.com/tenant[.<source-name>]`      | false    | This is the _slug_ of the Octopus Tenant      |
-
+| Annotation                                     | Required | Value description                             |
+| ---------------------------------------------- | -------- | --------------------------------------------- |
+| `argo.octopus.com/project[.<source-name>]`     | true     | This is the *slug* of the Octopus Project     |
+| `argo.octopus.com/environment[.<source-name>]` | true     | This is the *slug* of the Octopus Environment |
+| `argo.octopus.com/tenant[.<source-name>]`      | false    | This is the *slug* of the Octopus Tenant      |
 
 ## Single source
-If the Argo CD Application contains a single source, the `name` property is optional. 
+
+If the Argo CD Application contains a single source, the `name` property is optional.
 
 If the source is not named, the annotations must be unscoped.
 
@@ -66,8 +66,8 @@ spec:
     name: guestbook-source
 ```
 
-
 ## Multiple sources
+
 If there are multiple sources, the sources being updated must be named and the annotations must also be source-scoped.
 
 ```yaml

@@ -23,6 +23,7 @@ agent:
     tagSuffix: ""
 ...
 ```
+
 In this case, the `agent.image.tag` contains the tag of the image to be updated. However, consider the image fields in this example:
 
 ```yaml
@@ -33,26 +34,24 @@ global:
     repositoryAndTag: octopusdeploy/kubernetes-agent-tentacle:8.3.3244
 ...
 ```
+
 In this case, the `global.image.repositoryAndTag` contains the tag to be updated.
 
 As the structure of Helm values files can vary widely between charts, it's necessary to require you to specify custom annotations on the Argo CD Applications.
 
 The annotation is as follows:
 
-| Annotation                                                  | Value description                                                                             |
-|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Annotation                                                  | Value description                                                                              |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `argo.octopus.com/image-replace-paths[.<helm source name>]` | A comma-delimited Helm-template style string that builds a list of fully qualified image names |
 
 Note that while the scoping annotation for the project/environment is defined for the source to be *updated*, the path annotation is defined for the chart/helm source. All value files for a given chart are assumed to have the same structure.
 
 ## Details
 
-For Octopus to be able to update the tag of a container image, it must know the fully qualified name, including the registry. An example of a fully qualified name is: `docker.io/nginx/nginx:1.29.1`.
-This is important so that Octopus doesn't erroneously update an image from a different registry. For example: images may be set to be sourced from a company-managed registry, where only vetted & tested tags are added. 
-In this case, we don't want to update an image that looks like this: `my-company-registry.com/nginx/nginx:1.18.1`.
+For Octopus to be able to update the tag of a container image, it must know the fully qualified name, including the registry. An example of a fully qualified name is: `docker.io/nginx/nginx:1.29.1`. This is important so that Octopus doesn't erroneously update an image from a different registry. For example: images may be set to be sourced from a company-managed registry, where only vetted & tested tags are added. In this case, we don't want to update an image that looks like this: `my-company-registry.com/nginx/nginx:1.18.1`.
 
-As described above however, the structure of Helm values files can vary significantly. Rather than Octopus guessing (and possibly making a mistake), the onus is on you to specify a Helm-template string that builds a fully qualified name.
-Octopus can then use this to match on containers being updated and can then use this information to update the specific Helm value that contains the image tag. 
+As described above however, the structure of Helm values files can vary significantly. Rather than Octopus guessing (and possibly making a mistake), the onus is on you to specify a Helm-template string that builds a fully qualified name. Octopus can then use this to match on containers being updated and can then use this information to update the specific Helm value that contains the image tag.
 
 ## Examples
 
@@ -60,9 +59,9 @@ Octopus can then use this to match on containers being updated and can then use 
 
 The following is some examples of how to format the Helm-templated string to put into the `argo.octopus.com/image-replace-paths[.<helm source name>]` annotation based on different values file structures.
 
-#### Example 1
+#### Image path example 1
 
-**values.yaml**
+File: **values.yaml**
 
 ```yaml
 ...
@@ -75,7 +74,7 @@ agent:
 ...
 ```
 
-**annotation value**
+File: **annotation value**
 
 ```yaml
 metadata:
@@ -83,9 +82,9 @@ metadata:
     argo.octopus.com/image-replace-paths: "docker.io/{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}"
 ```
 
-#### Example 2
+#### Image path example 2
 
-**values.yaml**
+File: **values.yaml**
 
 ```yaml
 ...
@@ -98,7 +97,7 @@ global:
 ...
 ```
 
-**annotation value**
+File: **annotation value**
 
 ```yaml
 metadata:
@@ -110,11 +109,12 @@ metadata:
 
 The following is a list of example Argo CD Application structures, the required annotations and sample values files.
 
-#### Example 1
+#### Application example 1
 
 With a single Helm source, the Helm source can be unnamed and the paths annotation is unscoped. The same path is applied to all value files belonging to the chart/Helm source.
 
-**application manifest**
+File: **application manifest**
+
 ```yaml
 ...
 metadata:
@@ -135,7 +135,8 @@ spec:
           - values.yaml
 ```
 
-**values.yaml**
+File: **values.yaml**
+
 ```yaml
 image:
   name: nginx/nginx
@@ -145,7 +146,7 @@ another-image:
   name: busybox:1
 ```
 
-#### Example 2
+#### Application example 2
 
 A single Ref source used to source the values.yaml for the Helm source. In this scenario, both sources need to be named and the paths annotation must explicitly specify the helm source.
 
@@ -175,7 +176,8 @@ spec:
       name: ref-source
 ```
 
-**values.yaml**
+File: **values.yaml**
+
 ```yaml
 image:
   name: nginx/nginx
@@ -216,20 +218,22 @@ spec:
       name: ref-source
 ```
 
-**app-files/values.yaml**
+File: **app-files/values.yaml**
+
 ```yaml
 image:
   name: nginx/nginx
   version: 1.19.0
 ```
-**$remote-values/values.yaml**
+
+File: **$remote-values/values.yaml**
+
 ```yaml
 different:
   structure:
     here:
       image: busybox:1
 ```
-
 
 #### Example 4
 
@@ -268,13 +272,16 @@ spec:
       name: helm-source
 ```
 
-**$remote-values/values.yaml**
+File: **$remote-values/values.yaml**
+
 ```yaml
 image:
   name: nginx/nginx
   version: 1.19.0
 ```
-**$other-values/values.yaml**
+
+File: **$other-values/values.yaml**
+
 ```yaml
 another-image:
   name: busybox:1
@@ -318,13 +325,16 @@ spec:
       name: service-2-source
 ```
 
-**$shared-values/some-path/values.yaml**
+File: **$shared-values/some-path/values.yaml**
+
 ```yaml
 image:
   name: nginx/nginx
   version: 1.19.0
 ```
-**$shared-values/another-path/values.yaml**
+
+File: **$shared-values/another-path/values.yaml**
+
 ```yaml
 different:
   structure:
