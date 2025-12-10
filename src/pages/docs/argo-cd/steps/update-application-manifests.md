@@ -20,7 +20,7 @@ Add the `Update Argo CD Application Manifests` step to the project, and provide 
 ## Provide the required configuration
 
 1. Specify an execution location
-  - This step will execute on a worker of your choosing, if required it can run within a container on the worker, though this should not be necessary.
+   - This step will execute on a worker of your choosing, if required it can run within a container on the worker, though this should not be necessary.
 
 ### Inputs
 

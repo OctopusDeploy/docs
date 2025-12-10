@@ -17,8 +17,8 @@ means:
 
 The Gateway requires the following configuration items which define how it connects to both OctopusDeploy an Argo CD:
 
-| Value                                  | Type | Required                  | Description                                                                                                                                                     |
-|----------------------------------------|---|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Value                                  | Type   | Required                  | Description                                                                                                                                                     |
+| -------------------------------------- | ------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | registration.octopus.name              | string | Required                  | The unique name of this gateway, used within Octopus Deploy                                                                                                     |
 | registration.octopus.serverApiUrl      | string | Required                  | The URL of the Octopus Server that the gateway will register                                                                                                    |
 | registration.octopus.serverAccessToken | string | Required                  | The bearer or API token used for authentication during initial registration process with Octopus Server                                                         |

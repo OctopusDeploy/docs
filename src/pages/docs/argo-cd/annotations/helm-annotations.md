@@ -41,8 +41,8 @@ As the structure of Helm values files can vary widely between charts, it's neces
 
 The annotation is as follows:
 
-| Annotation                                                  | Value description                                                                             |
-|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| Annotation                                                  | Value description                                                                              |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `argo.octopus.com/image-replace-paths[.<helm source name>]` | A comma-delimited Helm-template style string that builds a list of fully qualified image names |
 
 Note that while the scoping annotation for the project/environment is defined for the source to be *updated*, the path annotation is defined for the chart/helm source. All value files for a given chart are assumed to have the same structure.
