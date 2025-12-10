@@ -61,7 +61,7 @@ resource "helm_release" "argo_gateway" {
   version          = "1.3.0"
   atomic           = true
   create_namespace = true
-  namespace        = "octopus-argo-gateway-your-namespace)}"
+  namespace        = "octopus-argo-gateway-your-namespace"
   timeout = 60 
     set = [
     {

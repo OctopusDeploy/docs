@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-05-16
+modDate: 2025-12-08
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -24,6 +24,12 @@ If you haven't enabled Octopus Server's gRPC port before, the port Octopus Serve
 :::div{.info}
 Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
 :::
+
+### gRPC connections via a load balancer
+
+Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
+
+Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.
 
 ## Runtime
 

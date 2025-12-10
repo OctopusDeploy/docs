@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-03-08
-modDate: 2024-08-29
+modDate: 2025-12-09
 title: Tenant variables
 icon: fa-solid fa-house-chimney-user
 description: Tenant variables allow you to specify variables that can have different values for each tenant.
@@ -11,7 +11,7 @@ import TenantsWhichVariableTemplatesApply from 'src/shared-content/tenants/tenan
 
 Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination. 
 
-![](/docs/img/projects/variables/images/tenant-variables.png)
+![](/docs/img/tenants/images/project-template-screen.png)
 
 Tenant variables are provided using variable templates which map a single variable name to different values for each tenant. Each variable template can define the data type, name, label, help text, and default value.
 
@@ -27,6 +27,8 @@ View a working example on our [samples instance](https://oc.to/samples-tenant-va
 ## Project templates \{#project-templates}
 
 Project templates allow you to specify variables that can have different values per tenant/environment combination. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
+
+Project templates can be scoped to zero or more environments. When a project template is not scoped to any environments (unscoped), it applies to all available environments. This behavior is consistent with how common tenant variables can be scoped.
 
 To add a project template:
 1. Navigate to the **Tenant Variables** page in any project.
@@ -44,6 +46,17 @@ To add a project template:
 
 Values for your newly created templates will be displayed for each tenant/environment combination. If you don't see any values, make sure you've [connected tenants](/docs/projects/tenants/bulk-connection) to the project. You can filter the displayed values to a specific template by selecting it from the list on the side, or to specific tenants and environments using the provided filter options.
 
+### Scoping project templates
+
+Project templates can be scoped by environment to control which tenant/environment combinations they apply to:
+
+- **Unscoped templates**: When no environment scope is specified, the template applies to all environments connected to the tenant
+- **Scoped templates**: When one or more environments are specified in the scope, the template only applies to those specific environments
+
+Use the Scope column of the Project Template table to add scopes to your templates. The project template can then be used across all tenants connected to the environments in the template's scope.
+
+For more information on assigning scopes, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
+
 To set the variable value for a tenant/environment, simply click the value and make your update. You can change multiple variable values at once. Then click **Save** to save your changes.
 
 ![](/docs/img/projects/variables/images/tenant-variables-edit.png)
@@ -57,6 +70,17 @@ To manage common template values, navigate to the **Tenant Variables** page in a
 The variable management experience for common templates is similar to project templates, however the side list will show included variable sets and the values will be grouped by variable set.
 
 To edit a variable value, click the **Edit** icon on the right-side of a table row, update the value, then click **Update** to save the new value. Since the same variable set may be included in multiple projects, any change to a tenant's value will also affect other projects the tenant is connected to.
+
+### Scoping common templates
+
+Common templates can be scoped by environment to control which environments they apply to:
+
+- **Unscoped common templates**: When no environment scope is specified, the template applies to all environments connected to the tenant
+- **Scoped common templates**: When one or more environments are specified in the scope, the template only applies to those specific environments
+
+Use the Scope column of the Common Template table to add scopes to your templates. The common template can then be used across all projects that have a connection to the environments in the template's scope.
+
+For more information on assigning scopes, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
 
 ## Which variable templates apply to a tenant \{#which-variable-templates-apply-tenants}
 
