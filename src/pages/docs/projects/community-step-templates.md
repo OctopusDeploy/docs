@@ -47,7 +47,7 @@ After the step template has been installed, it will be available alongside the b
 
 ## Add a community step template from the Octopus library
 
-1. In the Octopus Web Portal, navigate to **Library ➜ Step Templates**.
+1. In the Octopus Web Portal, navigate to **Deploy ➜ Manage ➜ Step Templates**.
 2. Click **BROWSE LIBRARY**.
 3. Find the Community Step Template you want either by choosing from the available technologies or clicking **SHOW ALL**.
 4. Before you install the template you can click **VIEW DETAILS** to view the parameters of the step and the source code.

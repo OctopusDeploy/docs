@@ -24,7 +24,7 @@ If you're attempting to configure access for your organization, and you would pr
 
 ## Adding a GitHub feed
 
-Create a GitHub package feed through **Library ➜ External feeds**. You can add as many GitHub feeds as you need. Each can have different credentials if required.
+Create a GitHub package feed through **Deploy ➜ Manage ➜ External Feeds**. You can add as many GitHub feeds as you need. Each can have different credentials if required.
 
 In most cases the `FeedUri` that you will need to provide is the standard public GitHub endpoint `https://api.github.com`. You would only need to provide a different url if you have self-hosted GitHub Enterprise (in which case you would provide `https://my-github-repo.com/api/v3`) or if you access GitHub via a proxy.
 

@@ -118,7 +118,7 @@ An alternative to configuring a user is to enable [anonymous access](https://jfr
 
 ## Adding an Artifactory Local Maven repository as an Octopus External Feed
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `Maven Feed` Feed type. 
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type. 
 
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the feed for your Artifactory Local repository in the format:
 

@@ -95,7 +95,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 ## Creating the SSH key pair account {#create-ssh-account}
 
-1. Navigate to **Infrastructure ➜ Accounts** and click **ADD ACCOUNT**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts** and click **ADD ACCOUNT**.
 1. Select **SSH key pair** from the drop-down menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.

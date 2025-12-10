@@ -232,7 +232,7 @@ docker push docker.cloudsmith.io/OWNER/REGISTRY/IMAGE_NAME:TAG
 
 Now that we have created our repository we can add our Cloudsmith repository as an external feed in our Octopus instance.
 
-From the Octopus Web Portal, create a new external feed by navigating to **Library ➜ External Feeds** and selecting **ADD FEED**:
+From the Octopus Web Portal, create a new external feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting **ADD FEED**:
 
 - Select the Feed type (NuGet, Helm, Docker, Maven), 
 - Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of your Cloudsmith repository. Refer to the [URLs for Feeds](#urls-for-feeds) section for more information.
@@ -248,7 +248,7 @@ This section contains information about what Cloudsmith feed URL to use for your
  
 ### NuGet {#cloudsmith-nuget}
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *NuGet* Feed type.
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting the *NuGet* Feed type.
 
 :::figure
 ![NuGet Feed Type](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus2.png)
@@ -275,7 +275,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 
 ### Docker {#cloudsmith-docker}
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Docker Container Registry* Feed type.
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting the *Docker Container Registry* Feed type.
 ![Docker Feed Type](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus3.png)
 
 - Give the Docker feed a name
@@ -289,7 +289,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 
 ### Maven {#cloudsmith-maven}
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Maven* Feed type.
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting the *Maven* Feed type.
 ![Maven Feed Type](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus4.png)
 
 - Give the feed a name
@@ -313,7 +313,7 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 
 ### Helm {#cloudsmith-helm}
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and selecting the *Helm* Feed type.
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting the *Helm* Feed type.
 
 :::figure
 ![Helm Feed Type](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus5.png)

@@ -149,7 +149,7 @@ users:
 
       This file can then be uploaded to the [Octopus certificate management area](/docs/deployments/certificates), after which, it will be made available to the Kubernetes target.
 
-      The Certificates Library can be accessed via **Library ➜ Certificates**.
+      The Certificates Library can be accessed via **Deploy ➜ Manage ➜ Certificates**.
 
 7. Enter the Kubernetes cluster URL. Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
 8. Optionally, select the certificate authority if you've added one. Kubernetes clusters are often protected with self-signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
