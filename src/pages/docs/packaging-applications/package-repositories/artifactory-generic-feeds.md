@@ -15,7 +15,7 @@ From version **Octopus 2024.1.4058** we support Artifactory Generic Repositories
 To use the Artifactory Generic Feeds feature you will need a PRO or higher license of Artifactory
 :::
 
-If you're using an Artifactory Generic Repository, you can create a feed in Octopus and use artifacts as part of your deployments. To create a feed go to **Library ➜ External feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
+If you're using an Artifactory Generic Repository, you can create a feed in Octopus and use artifacts as part of your deployments. To create a feed go to **Deploy ➜ Manage ➜ External Feeds**. Select the **Add feed** button and selecting the _Artifactory Generic Repository_ feed type.
 
 You will then need to provide a feed name, the Artifactory repository name, an [access token](https://oc.to/ArtifactoryAccessToken) and the repository [Artifact Path regex](https://jfrog.com/help/r/jfrog-artifactory-documentation/layout-configuration).
 

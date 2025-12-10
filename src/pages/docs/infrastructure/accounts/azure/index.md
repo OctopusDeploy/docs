@@ -373,7 +373,7 @@ Now that you have the following values, you can add your account to Octopus:
 - Tenant ID
 - Application Password/Key
 
-1. Navigate to **Infrastructure ➜ Account**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**.
 1. Select **ADD ACCOUNT ➜ Azure Subscriptions**.
 1. Give the account the name you want it to be known by in Octopus.
 1. Give the account a description.

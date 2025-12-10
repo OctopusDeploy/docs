@@ -118,7 +118,7 @@ For this guide the following step templates will be used:
 - [Redgate - Create Database Release (Worker Friendly)](https://library.octopus.com/step-templates/47d29b57-5bca-4205-ac62-ce10cdf8bab9/actiontemplate-redgate-create-database-release-(worker-friendly))
 - [Redgate - Deploy from Database Release (Worker Friendly)](https://library.octopus.com/step-templates/adf9a009-8bbb-4b82-8f3b-6fb12ef4ba18/actiontemplate-redgate-deploy-from-database-release-(worker-friendly))
 
-To install the steps from the library, navigate to **Library ➜ Step Templates** and click **Browse**.
+To install the steps from the library, navigate to **Deploy ➜ Manage ➜ Step Templates** and click **Browse**.
 
 The list of categories is alphabetical.  Find the **Redgate** category, and select the first template, **Redgate - Create Database Release (Worker Friendly)**.
 
