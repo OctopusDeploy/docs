@@ -57,7 +57,7 @@ The most common issues are captured here along with the steps to be followed to 
 ## Errors During Step Configuration
 
 - Failure Symptom
-  - In Octopus, Argo Application in Step shows "You don't have any Aego CD instance to preview yet"
+  - In Octopus, Argo Application in Step shows "You don't have any Argo CD instance to preview yet"
 - Underlying Issue
   - No Argo CD instances are registered in the current space
 - Resolution
@@ -94,12 +94,15 @@ The most common issues are captured here along with the steps to be followed to 
 
 - Failure Symptom
   - Deployment Fails
-  - Octopus deployment task log contains "http status code: 403" (raised from libgit2sharp)
+  - Octopus deployment task log contains "http status code: 403"
 - Underlying Issue
   - Octopus Git credential associated with mapped Argo CD Application Source has insufficient privileges to read/write the git repository
 - Resolution
   - Create a new credential in your git provider, store it in an Octopus Git Credential, and ensure the "Allow List" includes your Application Source repository
 
+-Failure Symptom
+  - Deployment Fails
+  - Octopus deployment task log contains `
 ## Errors During Live Object View
 
 - Failure Symptom
