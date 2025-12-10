@@ -19,8 +19,8 @@ This is done by adding "Scoping" annotations to the Argo CD Application definiti
 
 The three scoping annotations are (where `<source-name>` is the name of the source to be updated):
 
-| Annotation                     | Required | Value description                             |
-|--------------------------------|----------|-----------------------------------------------|
+| Annotation                                     | Required | Value description                             |
+| ---------------------------------------------- | -------- | --------------------------------------------- |
 | `argo.octopus.com/project[.<source-name>]`     | true     | This is the *slug* of the Octopus Project     |
 | `argo.octopus.com/environment[.<source-name>]` | true     | This is the *slug* of the Octopus Environment |
 | `argo.octopus.com/tenant[.<source-name>]`      | false    | This is the *slug* of the Octopus Tenant      |
