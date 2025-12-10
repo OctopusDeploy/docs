@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2025-12-08
 navSection: Argo CD Instances
 navTitle: Overview
 title: Overview
@@ -72,7 +72,7 @@ kubectl config view
 At the end of the wizard, Octopus generates a Helm command that you copy and paste into a terminal connected to the target cluster. After it's executed, Helm installs all the required resources and starts the gateway.
 
 :::div{.hint}
-Full documentation for the Octopus Argo CD Gateway Helm chart values can be found in this [Github repository](https://github.com/OctopusDeploy/octopus-argocd-gateway-chart-docs/tree/main)
+Full documentation for the Octopus Argo CD gateway Helm chart values can be found in this [Github repository](https://github.com/OctopusDeploy/octopus-argocd-gateway-chart-docs/tree/main)
 :::
 
 :::figure
@@ -89,13 +89,13 @@ The terminal Kubernetes context must have enough permissions to create namespace
 
 :::div{.warning}
 
-By default, the Octopus Argo CD Gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the Gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install.
+By default, the Octopus Argo CD gateway will verify TLS certificates before making a connection, if your Argo CD instance is hosted with a self-signed TLS certificate or isn't using a TLS certificate at all the gateway will fail to connect, this can be prevented by setting one of the following value on the Helm install.
 
 ```bash
 # For self-signed certificates - Disables TLS certificate verification
 gateway.argocd.insecure="true"
 
-# For no certificates - Disables TLS entirely, all traffic between the Gateway and Argo traffic will be unencrypted
+# For no certificates - Disables TLS entirely, all traffic between the gateway and Argo traffic will be unencrypted
 gateway.argocd.plaintext="true"
 ```
 
@@ -133,18 +133,17 @@ After the gateway has been configured, you need to define the relationships betw
 See [Scoping Annotations](/docs/argo-cd/annotations) for more information
 
 ## Versioning
+The Octopus Argo CD gateway Helm chart follows [Semantic Versioning](https://semver.org/). Generally, version updates can be interpreted as follows:
 
-The Octopus Argo CD Gateway Helm chart follows [Semantic Versioning](https://semver.org/). Generally, version updates can be interpreted as follows:
-
-- *major* - Breaking changes to the chart. This may include adding or removing of resources, breaking changes in the Octopus Argo CD Gateway application image, breaking changes to the structure of the `values.yaml`. Upgrading to a major version might involve modifying your Gateway's configuration or upgrading to a version of Octopus that supports the major version
-- *minor* - New non-breaking features. New features or improvements to the Octopus Argo CD Gateway application or helm chart itself.
+- *major* - Breaking changes to the chart. This may include adding or removing of resources, breaking changes in the Octopus Argo CD gateway application image, breaking changes to the structure of the `values.yaml`. Upgrading to a major version might involve modifying your gateway's configuration or upgrading to a version of Octopus that supports the major version
+- *minor* - New non-breaking features. New features or improvements to the Octopus Argo CD gateway application or helm chart itself.
 - *patch* - Minor non-breaking bug fixes or changes that do not introduce new features.
 
 ## Troubleshooting
 
 ### Argo CD TLS Errors
 
-If your Gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
+If your gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
 
 #### Self Signed Certificate
 
@@ -170,18 +169,18 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.insecure="true"` TLS certificate verification will no longer be performed between the Gateway and the Argo CD instance ensure that it is necessary that you set this configuration to avoid potential security issues.
+**WARNING:** By setting `gateway.argocd.insecure="true"` TLS certificate verification will no longer be performed between the gateway and the Argo CD instance ensure that it is necessary that you set this configuration to avoid potential security issues.
 :::
 
 #### No Certificate
 
-If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the Gateway will likely fail to connect with the following error:
+If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the gateway will likely fail to connect with the following error:
 
 ```text
 transport: authentication handshake failed: EOF
 ```
 
-This is because the Gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the Gateway and Argo CD by doing the following:
+This is because the gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the gateway and Argo CD by doing the following:
 
 ```bash
 helm upgrade --atomic \
@@ -195,12 +194,12 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the Gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
+**WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
 :::
 
 ## Deleting an Octopus Argo CD Gateway
 
-When removing a Gateway two operations are required:
+When removing a gateway two operations are required:
 
 1. Deregister the gateway from Octopus Server
 2. Remove the application from your cluster
