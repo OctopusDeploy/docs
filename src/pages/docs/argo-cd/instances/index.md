@@ -133,6 +133,7 @@ After the gateway has been configured, you need to define the relationships betw
 See [Scoping Annotations](/docs/argo-cd/annotations) for more information
 
 ## Versioning
+
 The Octopus Argo CD gateway Helm chart follows [Semantic Versioning](https://semver.org/). Generally, version updates can be interpreted as follows:
 
 - *major* - Breaking changes to the chart. This may include adding or removing of resources, breaking changes in the Octopus Argo CD gateway application image, breaking changes to the structure of the `values.yaml`. Upgrading to a major version might involve modifying your gateway's configuration or upgrading to a version of Octopus that supports the major version
