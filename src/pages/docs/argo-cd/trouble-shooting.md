@@ -100,9 +100,6 @@ The most common issues are captured here along with the steps to be followed to 
 - Resolution
   - Create a new credential in your git provider, store it in an Octopus Git Credential, and ensure the "Allow List" includes your Application Source repository
 
--Failure Symptom
-  - Deployment Fails
-  - Octopus deployment task log contains `
 ## Errors During Live Object View
 
 - Failure Symptom
