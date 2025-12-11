@@ -36,7 +36,8 @@ Octopus Permissions Controller is a standalone component that is installed via H
 Only a single Octopus Permissions Controller is required per cluster.
 
 The below Helm command will install Octopus Permissions Controller.
-```
+
+```sh
 helm upgrade --install --atomic \
 --create-namespace --namespace octopus-permissions-controller-system \
 --reset-then-reuse-values \
@@ -46,8 +47,10 @@ oci://registry-1.docker.io/octopusdeploy/octopus-permissions-controller-chart
 
 :::div{.info}
 **Pre-requisites:**
+
 - Kubernetes agent v2.28.1+
 - [Cert Manager](https://cert-manager.io)
+
 :::
 
 ### Workload Service Accounts
@@ -99,6 +102,7 @@ For more examples and common scenarios, have a look at the [Octopus Permissions 
 ##### Scope
 
 Each `WorkloadServiceAccount` is assigned a scope with the following fields
+
 - Spaces
 - Projects
 - Environments
@@ -108,6 +112,7 @@ Each `WorkloadServiceAccount` is assigned a scope with the following fields
 These fields are matched against the corresponding slug within Octopus.
 
 Each field adheres to the following rules to match:
+
 - A field that is omitted entirely is treated as a wildcard, it will match any value
 - A field with one or more values will match exactly to one or more slugs
 - Each value must be a complete slug, partial matches are not supported
@@ -117,6 +122,7 @@ Each `WorkloadServiceAccount` must have at least one non-empty field. You cannot
 ##### Permissions
 
 The permissions applied for each scope can be configured a couple of ways:
+
 - Directly reference permissions on the `WorkloadServiceAccount`
 - Reference existing `Roles` or `ClusterRoles`
 
@@ -145,6 +151,7 @@ We recommend restricting the default permissions to be completely empty so that 
 ### How does it work under the covers
 
 Octopus Permissions Controller is in charge of several duties:
+
 - Managing the lifecycle of `WSAs`
 - Creating roles, role bindings and service accounts as defined by your `WSAs`
 - Applying service accounts to your Kubernetes agent script pods that run your deployment workloads
@@ -174,7 +181,8 @@ Octopus Permissions Controller can be installed on a cluster with existing Kuber
 It is highly recommended that you update each of your agents default script pod permissions to be more restrictive. If a matching `WorkloadServiceAccount` is found, it will correctly apply restricted permissions, but any misconfiguration that results in no matching `WorkloadServiceAccount` could result in your deployment having more permissive permissions than intended.
 
 For basic installations of the Kubernetes agent, this command will remove default permissions.
-```
+
+```sh
 helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
@@ -187,14 +195,16 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 
 If the Octopus Permissions Controller is no longer desired, it can be removed in two steps.
 
-1. Uninstall the Helm chart from your cluster. If you installed the permissions controller with the default parameters the commands below will do this.
-```
+- Uninstall the Helm chart from your cluster. If you installed the permissions controller with the default parameters the commands below will do this.
+
+```sh
 helm uninstall --namespace octopus-permissions-controller-system octopus-permissions-controller
 kubectl delete namespace octopus-permissions-controller-system
 ```
 
-2. Update your Kubernetes agent default permissions if required. This command below will allow for unrestricted deployments.
-```
+- Update your Kubernetes agent default permissions if required. This command below will allow for unrestricted deployments.
+
+```sh
 helm upgrade --install --atomic \
 --create-namespace --namespace ${agent_namespace} \
 --reset-then-reuse-values \
@@ -221,6 +231,7 @@ If the permissions controller is reported as not found, try running a new health
 When using [deployment verification](/docs/kubernetes/deployment-verification) with granular permissions, your deployment may fail during the verification phase even though the resources were created successfully. This occurs because the script pod that performs the deployment also needs to read the deployed resources to verify they reached the desired state.
 
 To resolve this issue, update your `WorkloadServiceAccount` to include read permissions:
+
 - The `get` verb for parent resources (such as Deployments)
 - The `list` verb for child resources (such as Pods and ReplicaSets)
 
