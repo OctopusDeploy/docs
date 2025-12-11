@@ -10,7 +10,7 @@ navOrder: 35
 Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants and environments, with support for additional resource types planned for the future.
 
 :::figure
-![](/docs/img/tenants/images/tag-sets.png)
+![An example set of tenant tags](/docs/img/tenants/images/tag-sets.png)
 :::
 
 :::div{.warning}
@@ -29,8 +29,8 @@ There are three types of tag sets that can be created:
 
 Tag sets can be scoped to specific resource types:
 
-- **Tenant** 
-- **Environment** 
+- **Tenant**
+- **Environment**
 - **Project**
 
 A tag set can be scoped to multiple resource types (Tenant, Environment, and/or Project), allowing you to use the same tag set across different resources.
@@ -40,7 +40,7 @@ A tag set can be scoped to multiple resource types (Tenant, Environment, and/or 
 Go to **Deploy ➜ Tag Sets** to create, modify and reorder tag sets and tags.
 
 :::figure
-![](/docs/img/tenants/images/tenant-importance.png)
+![The tenant tag set edit screen](/docs/img/tenants/images/tenant-importance.png)
 :::
 
 ### Design your tag sets carefully {#design-tag-sets-carefully}
@@ -60,7 +60,7 @@ Grouping tag sets makes it easier for each different class of Octopus user to un
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
 :::figure
-![](/docs/img/tenants/images/tag-set-order.png)
+![Ordering of tenant tags shown in the deployment target restrictions section](/docs/img/tenants/images/tag-set-order.png)
 :::
 
 ### Removing tags
@@ -74,6 +74,7 @@ For projects using Config as Code, there are fewer guardrails in place. It's up 
 Tags are referenced using their **canonical name** which looks like this: `Tag Set Name/Tag Name`
 
 For example:
+
 - `Release Ring/Alpha` - References the predefined "Alpha" tag in the "Release Ring" tag set
 - `Importance/VIP` - References the predefined "VIP" tag in the "Importance" tag set
 - `Region/us-west-2` - For FreeText tag sets, the tag set name "Region" must match exactly, but "us-west-2" can be any arbitrary value
