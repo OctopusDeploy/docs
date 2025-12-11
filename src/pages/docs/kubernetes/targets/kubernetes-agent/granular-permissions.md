@@ -225,3 +225,15 @@ To resolve this issue, update your `WorkloadServiceAccount` to include read perm
 - The `list` verb for child resources (such as Pods and ReplicaSets)
 
 You can further troubleshoot permission related deployment failures by adding `kubectl auth whoami` and `kubectl auth can-i` commands to your deployment process using the "Run a kubectl script" step.
+
+### Validating assigned permissions
+
+While developing your deployment processes and configuring `WorkloadServiceAccounts`, it can be easy to accidentally create an unexpected set of permissions through multiple `WorkloadServiceAccount` interactions.
+
+If you have access to the Kubernetes cluster, we recommend directly querying the service account assigned to the script pod during your deployment. For any permissions issues, you will find the service account name output in verbose logs in the Octopus deployment task.
+
+If you do not have access to query the Kubernetes cluster, we recommend you make use of the [`kubectl can-i`](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_auth/kubectl_auth_can-i/) command by adding a "Run a kubectl script" step within your deployment process.
+
+:::div{.hint}
+To list all the permissions you have within a particular namespace, add `kubectl auth can-i --list -n <your-namespace>` to your script.
+:::
