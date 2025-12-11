@@ -61,20 +61,22 @@ Only tags from tag sets that have been configured with the **Project** scope can
 Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
 
 ## Deployment settings
+
 - Package re-deployment
-   - Specify to always deploy all packages or to skip any package steps that are already installed.
+  - Specify to always deploy all packages or to skip any package steps that are already installed.
 - Deployment targets
-   - Specify if deployments are allowed if there are no deployment targets:
-      - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
-      - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
+  - Specify if deployments are allowed if there are no deployment targets:
+    - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
+    - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
-   - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
+  - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
 - [Deployment changes template](/docs/releases/deployment-changes#templates)
-   - Specify a template for each deployment's changes.
+  - Specify a template for each deployment's changes.
 - Default failure mode
-   - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
+  - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
 
 ## Project logo \{#project-logo}
+
 Customize your project logo to make it easily identifiable amongst other projects.
 
 1. From the project's main page, select **Settings**.
@@ -93,6 +95,7 @@ Project groups are a great way to organize your deployment projects. They have m
 :::div{.hint}
 The *Default Project* group contains all projects that have not been added to another group.
 :::
+
 ## Add a project group
 
 1. From the **Projects** tab, click **ADD GROUP**.
@@ -124,13 +127,13 @@ Projects can be cloned.
 1. From the project's menu, select **Settings**.
 2. Click the overflow menu (...), and select **Clone**.
 
-:::figure
-![Clone a project](/docs/img/projects/images/clone-project.png)
-:::
+    :::figure
+    ![Clone a project](/docs/img/projects/images/clone-project.png)
+    :::
 
-:::div{.warning}
-**Version-controlled projects are not currently supported**
-:::
+    :::div{.warning}
+    **Version-controlled projects are not currently supported**
+    :::
 
 3. Give the new project you are cloning from the original project a name.
 4. Review the settings for the new project and when you are satisfied, click **SAVE**.
