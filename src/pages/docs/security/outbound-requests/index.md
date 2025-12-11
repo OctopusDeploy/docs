@@ -25,7 +25,7 @@ It's possible that scripts in your packages may make outbound requests; in this 
 The Octopus Server makes the following outbound requests:
 
 1. Pushing packages and deployment instructions, and checking the health, of Tentacles.
-2. Downloading packages from the [external package repositoriess](/docs/packaging-applications/package-repositories) that you configure.
+2. Downloading packages from the [external package repositories](/docs/packaging-applications/package-repositories) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
