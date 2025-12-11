@@ -11,7 +11,7 @@ navOrder: 40
 
 :::div{.hint}
 This page covers how to use tags with tenants. For general information about tag sets, types, and scopes, see [Tag sets](/docs/tenants/tag-sets).
-From Octopus Cloud version **2025.4.3897** we've introduced **SingleSelect** and **FreeText** tag set types. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
+From Octopus Cloud version **2025.4.3897** we've introduced **SingleSelect** and **FreeText** tag set types.
 :::
 
 Tenant tags allow you to:

@@ -15,8 +15,6 @@ Tag sets provide the structure for grouping similar tags together, resulting in 
 
 :::div{.warning}
 From Octopus Cloud version **2025.4.3897** we have extended the functionality of tag sets to include the type and scope of a tag set.
-
-This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 ## Tag set types {#tag-set-types}

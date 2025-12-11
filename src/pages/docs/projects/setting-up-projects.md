@@ -13,7 +13,7 @@ You can manage your projects by navigating to the **Projects** tab in the Octopu
 ![Octopus Dashboard](/docs/img/projects/octopus-projects-list.png)
 :::
 
-If you have already created projects, or are joining an existing team, you’ll see the existing projects on the projects page.
+If you have already created projects, or are joining an existing team, you'll see the existing projects on the projects page.
 
 ## Add a project
 
@@ -25,14 +25,14 @@ Before you can define your deployment processes or runbooks, you must create a p
 4. Add a description for the project.
 5. If you want to change the [Project group](#project-group) select an existing project group from the drop-down menu.
 6. If you want to change the [Lifecycle](/docs/releases/lifecycles) select an existing lifecycle from the drop down menu.
-7. Click **SHOW LIFECYCLE** if you’d like to see a visual representation of the selected lifecycle.
-8. Click **SAVE** and you will be taken to the newly created project’s overview page.
+7. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
+8. Click **SAVE** and you will be taken to the newly created project's overview page.
 
-Now that you’ve created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks).
+Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks).
 
 ## Project settings
 
-You can change the projects settings by accessing the settings menu on the project’s main page. The settings you can change are:
+You can change the projects settings by accessing the settings menu on the project's main page. The settings you can change are:
 
 - Name
 - Enable or disable the project to allow or prevent releases and deployments from being created
@@ -45,7 +45,7 @@ You can change the projects settings by accessing the settings menu on the proje
 ## Project tags {#project-tags}
 
 :::div{.warning}
-From Octopus Cloud version **2025.4.3897** we support tagging projects. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
+From Octopus Cloud version **2025.4.3897** we support tagging projects.
 :::
 
 You can apply tags to projects to classify and organize them with custom metadata. This allows you to:
@@ -70,14 +70,14 @@ Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, sc
 - Deployment target status
    - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
 - [Deployment changes template](/docs/releases/deployment-changes#templates)
-   - Specify a template for each deployment’s changes.
+   - Specify a template for each deployment's changes.
 - Default failure mode
    - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
 
 ## Project logo \{#project-logo}
 Customize your project logo to make it easily identifiable amongst other projects.
 
-1. From the project’s main page, select **Settings**.
+1. From the project's main page, select **Settings**.
 2. Click the **Logo** section of the settings page.
 3. Select from our built-in icon library paired with your choice of color or upload a custom image.
 4. Click **Save**.
