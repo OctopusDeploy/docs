@@ -31,7 +31,7 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Octopus Tentacle TLS specification deprecation
 
-From **9.0.0 onward**s, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted. 
+From **9.0.0 onward**s, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
 
 Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. Tthis behaviour will change so that TLS version is fully controlled by the operating system by default. TA feature flag will be available to restore the previous behaviour temporarily, but it will be removed in a future release.
 
@@ -53,6 +53,7 @@ We're removing support for TLS 1.0 and 1.1 to improve security. This affects bot
 Most customers won't be affected since TLS 1.2+ support is already widely adopted. For detailed information, timeline, and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
 
 ## No longer available December, 2025
+
 As of December 2025 the Octopus Deploy add-on for Bamboo has been removed from the Atlassian marketplace. If you are using the add-on in your Atlassian Data Center it will continue to work, the removal prevents new installations of the add-on. This is in response to Atlassian's end of life decision on Bamboo and Data Center.
 
 ## Deprecations for 2025.3
