@@ -36,6 +36,7 @@ From **9.0.0 onward**s, Octopus Tentacle will no longer explicitly specify suppo
 Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. Tthis behaviour will change so that TLS version is fully controlled by the operating system by default. TA feature flag will be available to restore the previous behaviour temporarily, but it will be removed in a future release.
 
 Potential impacts include:
+
 - Newer Tentacle host operating systems may not connect to Octopus Server using older TLS versions
 - Older Tentacle host operating systems may not connect to Octopus Server if newer TLS versions are not enabled
 
