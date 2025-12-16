@@ -1548,6 +1548,14 @@ Octopus will run one task at a time for a given concurrency tag. Set the variabl
 
 Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}
 
+### Kubernetes
+
+`Octopus.Action.Kubernetes.VerboseOutput`
+
+Set to `True` to log successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) at the Info level instead of Verbose. This is useful when debugging deployments to see the full output of these tools without needing to enable verbose logging for the entire deployment.
+
+Example: True
+
 ## Older versions {#older-versions}
 * `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash` and `Octopus.Release.Git.Ref` is available from Octopus Deploy **2021.3** onwards.
 * `Octopus.Web.ServerUri` is available from Octopus Deploy **2019.4.0** onwards.
