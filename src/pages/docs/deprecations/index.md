@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-12-04
+modDate: 2025-12-16
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -28,6 +28,18 @@ If you have questions or need help assessing the impact of a deprecation on your
 :::
 
 ## Planned Deprecations
+
+## Octopus Tentacle TLS specification deprecation
+
+From **9.0.0 onward**s, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted. 
+
+Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. Tthis behaviour will change so that TLS version is fully controlled by the operating system by default. TA feature flag will be available to restore the previous behaviour temporarily, but it will be removed in a future release.
+
+Potential impacts include:
+- Newer Tentacle host operating systems may not connect to Octopus Server using older TLS versions
+- Older Tentacle host operating systems may not connect to Octopus Server if newer TLS versions are not enabled
+
+We expect minimal impact from this change due to the stability and long lifespan of TLS versions.
 
 ## TLS 1.0-1.1 Support Deprecation
 
