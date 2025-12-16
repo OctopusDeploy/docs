@@ -21,6 +21,7 @@ We aim to follow the deprecation lifecycle below:
 Deprecations are subject to change in detail or time frame.
 
 While Octopus strives to follow the deprecation lifecycle, there are cases where we must act more quickly. Examples that may affect the deprecation lifecycle include:
+
 - Security fixes
 - External dependencies
 
@@ -70,7 +71,7 @@ For background, migration guidance, and a detailed timeline, please see our blog
 
 ### Defaulting C# scripting to dotnet-script
 
-We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [here](https://g.octopushq.com/ScriptCSDeprecation).
+We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [on our blog](https://g.octopushq.com/ScriptCSDeprecation).
 
 ScriptCS is still supported in 2025.2 by setting the `OCTOPUS__FeatureToggles__UseDotnetScriptCSharpExecutorFeatureToggle` environment variable to false or at the project level using the variable `Octopus.Action.Script.CSharp.UseDotnetScript`. This is not recommended as support for ScriptCS will be removed in 2025.3.
 
@@ -100,8 +101,7 @@ The AzureRM PowerShell modules were Microsoft's way of integrating PowerShell wi
 
 AzureRM was [deprecated by Microsoft](https://learn.microsoft.com/en-us/powershell/azure/azurerm-retirement-overview) as of February 29, 2024.
 
-AzureRm will remain available until July 2024 (with an in-app warning). After this, you'll need to move to either `az cli` or the `az module for PowerShell` 
-for Azure authentication.
+AzureRm will remain available until July 2024 (with an in-app warning). After this, you'll need to move to either `az cli` or the `az module for PowerShell` for Azure authentication.
 
 ## Deprecations for 2024.2
 
@@ -125,13 +125,13 @@ An official [Helm V2 to V3 migration guide](https://helm.sh/docs/topics/v2_v3_mi
 
 ### Azure Cloud Services (Classic)
 
-Azure has announced the sunsetting of the original _Cloud Services_ resource, renamed _Cloud Services (Classic)_, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams still relying on this cloud service will be unable to deploy to them, with Octopus Deploy or otherwise.
+Azure has announced the sunsetting of the original **Cloud Services** resource, renamed **Cloud Services (Classic)**, with the [final retirement date set as August 31, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-cloud-services-classic). In a little over 6 months, teams still relying on this cloud service will be unable to deploy to them, with Octopus Deploy or otherwise.
 
-In the lead-up, Octopus workloads using Azure Cloud Service Targets, Azure Cloud Service Steps, or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`. 
+In the lead-up, Octopus workloads using Azure Cloud Service Targets, Azure Cloud Service Steps, or Management Certificates in Octopus Deploy will start to see in-app and in-task warnings appear in Octopus Server `2024.1`.
 
 When Azure removes support for these resources, these warnings will become errors. We will then remove these resources from Octopus.
 
-The recommended migration path outlined by Azure is to make use of the separate [_Azure Cloud Services (extended support)_](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/overview) product. There are no plans to support this feature in Octopus.
+The recommended migration path outlined by Azure is to make use of the separate [**Azure Cloud Services (extended support)**](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/overview) product. There are no plans to support this feature in Octopus.
 
 ### Mono-based SSH Deployment Targets
 
