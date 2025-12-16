@@ -32,9 +32,9 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Octopus Tentacle TLS specification deprecation
 
-From **9.0.0 onward**s, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
+From **9.0.0 onwards**, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
 
-Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. This behavior will change so that TLS version is fully controlled by the operating system by default. TA feature flag will be available to restore the previous behavior temporarily, but it will be removed in a future release.
+Currently, Tentacle specifies supported TLS versions within Halibut, Octopus’s custom RPC library. This behavior will change so that TLS version is fully controlled by the operating system by default. A feature flag will be available to restore the previous behavior temporarily, but it will be removed in a future release.
 
 Potential impacts include:
 
