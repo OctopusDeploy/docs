@@ -42,8 +42,7 @@ This step will execute on a worker of your choosing - if required it can run wit
 
 The output section allows you to configure how changes are to be merged into your repository.
 
-1. "Argo CD Applications View" is an aid to help determine which instances, and which applications are going to be updated when executing this step
-   - Read more about the [annotated application view step](/docs/argo-cd/steps/annotated-application-view)
+1. [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view) is an aid to help determine which instances, and which applications are going to be updated when executing this step
 2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
    - The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
      :::div{.warning}
