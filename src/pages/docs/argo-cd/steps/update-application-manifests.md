@@ -43,8 +43,7 @@ Add the `Update Argo CD Application Manifests` step to the project, and provide 
 
 The output section allows you to configure how changes are to be merged into your repository.
 
-1. Deployment Preview is an aid to help determine which instances, and which applications are going to be updated when executing this step
-    - More information can be found [here](/docs/argo-cd/steps/annotated-application-view)
+1. [Annotated Application View](/docs/argo-cd/steps/annotated-application-view) is an aid to help determine which instances, and which applications are going to be updated when executing this step
 2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
     - The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
 

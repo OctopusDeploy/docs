@@ -7,6 +7,8 @@ navTitle: Cluster Annotations
 hideInThisSectionHeader: true
 ---
 
+# Defining cluster based parameters
+
 By default, a Kubernetes cluster will use `docker.io` as the image registry when none is defined. This means that if an image is defined without the registry, for example `nginx/nginx:latest`, then this image will be resolved from the `docker.io` registry.
 
 This default registry can be changed via the [kubeadm init --image-repository](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/) command & flag. When executing the [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) step, Octopus will exactly match the specified image using the registry and name.
@@ -18,6 +20,7 @@ If the cluster default registry has not been changed, then you do not need to do
 :::
 
 ## Setting the default container registry annotation
+---
 
 To make Octopus aware of a clusters default registry, an annotation needs to be added to each cluster object in Argo CD instance.
 
