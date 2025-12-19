@@ -1,3 +1,4 @@
+---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2025-09-15
@@ -6,7 +7,6 @@ description: Cluster annotations to support operations
 navTitle: Cluster Annotations
 hideInThisSectionHeader: true
 ---
-# Defining cluster level parameters
 
 By default, a Kubernetes cluster will use `docker.io` as the image registry when none is defined. This means that if an image is defined without the registry, for example `nginx/nginx:latest`, then this image will be resolved from the `docker.io` registry.
 
@@ -19,7 +19,6 @@ If the cluster default registry has not been changed, then you do not need to do
 :::
 
 ## Setting the default container registry annotation
----
 
 To make Octopus aware of a clusters default registry, an annotation needs to be added to each cluster object in Argo CD instance.
 
