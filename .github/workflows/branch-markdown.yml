@@ -1,0 +1,91 @@
+name: Markdown
+
+on: pull_request
+
+# Allow this job to clone the repo
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for comparison
+
+      - name: Get changed markdown files
+        id: changed-files
+        run: |
+          # Fetch the base branch
+          git fetch origin ${{ github.base_ref }}
+          
+          # Get changed .md and .mdx files
+          CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRT origin/${{ github.base_ref }}...HEAD | grep -E '\.(md|mdx)$' || true)
+          
+          # Store the files
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          # Count files
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "count=0" >> $GITHUB_OUTPUT
+          else
+            echo "count=$(echo "$CHANGED_FILES" | wc -l)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install pnpm
+        if: steps.changed-files.outputs.count > 0
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.13.1
+          run_install: false
+
+      - name: Setup Node
+        if: steps.changed-files.outputs.count > 0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: 'pnpm-lock.yaml'
+
+      - name: Get pnpm store directory
+        if: steps.changed-files.outputs.count > 0
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        if: steps.changed-files.outputs.count > 0
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: PNPM install
+        if: steps.changed-files.outputs.count > 0
+        run: |
+          echo; echo "cd to workspace"
+          cd $GITHUB_WORKSPACE
+          echo; echo "listing"
+          ls
+          echo; echo "PNPM install"
+          pnpm install
+
+      - uses: DavidAnson/markdownlint-cli2-action@v22
+        if: steps.changed-files.outputs.count > 0
+        with:
+          config: '.markdownlint.json'
+          globs: ${{ steps.changed-files.outputs.files }}
