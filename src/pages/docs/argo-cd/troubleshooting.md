@@ -122,7 +122,7 @@ Resolution:
 
 - Add/Update a Git Credential to Octopus, specifying a repository-allowlist which includes the url specified in the error message.
 
-### Deployment fails on Argo CD Step (source is not a git repository)
+### Deployment fails on Argo CD step (source is not a git repository)
 
 Behavior:
 
@@ -138,7 +138,7 @@ Resolution:
 - Octopus cannot update charts sourced from a help repository or OCI feed - contact support to determine way forward.
 - Ensure the associated git credential has appropriate permissions
 
-## Deploment Fails on Argo CD Step (insufficient permissions)
+## Deployment fails on Argo CD step (insufficient permissions)
 
 Behavior:
 
@@ -152,7 +152,7 @@ Resolution:
 
 - Create a new credential in your git provider, store it in an Octopus Git Credential, and ensure the "Allow List" includes your Application Source repository
 
-## Argo CD Live View not visible on dashboard
+## Argo CD live view not visible on dashboard
 
 Behavior:
 
