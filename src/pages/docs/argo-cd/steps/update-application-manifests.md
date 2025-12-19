@@ -91,7 +91,7 @@ This ensures sensitive data is not persisted in the target Git repository in pla
 
 ### Config Map
 
-The following represents a template of a configuration map.
+The following represents a template of a configmap.
 The database_url is set via the user-specified project variable `DB_NAME`, whose value can change based on Octopus variable scoping mechanisms (e.g. via environment or tenant).
 
 The time of the deployment, defined in the inbuilt `Octopus.Deployment.Created`, is written to the `deployment_created_at` field.
@@ -104,7 +104,7 @@ metadata:
 data:
   # Key-value pairs for configuration data
   log_level: INFO
-  directory: "development"
+  directory: "#{Octopus.Environment.Name}"
   feature_flag_enabled: "true"
   database_url: "jdbc:postgresql://mydb.example.com:5432/#{DB_NAME}"
   deployment_created_at: "#{Octopus.Deployment.Created}"
