@@ -18,7 +18,7 @@ The most common issues encountered while setting up Argo CD integration are list
 
 ### Argo CD Gateway install dialog stuck in progressing
 
-Behaviour:
+Behavior:
 
 - Helm install dialog stuck in progressing (Waiting for <name> to establish a connection)
 - Helm command halted showing chart pulled for >= 5 minutes
@@ -38,7 +38,7 @@ Resolution:
 
 ### Argo CD Gateway install fails initial health check
 
-Behaviour:
+Behavior:
 
 - Install Argo CD Gateway dialog states:
   - "established a connection" was successful
@@ -62,7 +62,7 @@ Resolution:
 
 ### No applications are listed on the Argo CD Instance --> Applications page
 
-Behaviour
+Behavior
 
 - Argo CD web UI shows existing applications, however they do not appear in the Octopus UI
   
@@ -78,7 +78,7 @@ Resolution:
 
 ### Argo Applications in step shows "You don't have any Argo CD instance to preview yet"
 
-Behaviour:
+Behavior:
 
 - The "Argo Applications" section on the step indicates that no Argo CD instances exist
 
@@ -95,7 +95,7 @@ Resolution:
 
 ### No Applications are updated during a deployment
 
-Behaviour:
+Behavior:
 
 - Deployment Passes with warnings
 - Octopus deployment task log contains `No annotated Argo CD applications could be found for this deployment.`
@@ -110,7 +110,7 @@ Resolution:
 
 ### Deployment fails on an Argo CD step (no git credentials)
 
-Behaviour:
+Behavior:
 
 - Octopus deployment task log contains "Could not find a Git Credential associated with <url>"
 
@@ -124,7 +124,7 @@ Resolution:
 
 ### Deployment fails on Argo CD Step (source is not a git repository)
 
-Behaviour:
+Behavior:
 
 - Octopus deployment task log contains `Failed to clone Git repository at <url>`
 
@@ -140,7 +140,7 @@ Resolution:
 
 ## Deploment Fails on Argo CD Step (insufficient permissions)
 
-Behaviour:
+Behavior:
 
 - Octopus deployment task log contains "http status code: 403"
 
@@ -154,7 +154,7 @@ Resolution:
 
 ## Argo CD Live View not visible on dashboard
 
-Behaviour:
+Behavior:
 
 - Live Status Panel is not visible on the project/space dashboard
 
