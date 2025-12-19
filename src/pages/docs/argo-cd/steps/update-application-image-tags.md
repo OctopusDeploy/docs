@@ -61,7 +61,7 @@ Currently, Pull Requests can only be created for GitHub-based repositories. Plea
 
 :::div{.info}
 The step will fail to execute if no git credentials exist for repositories references by your Argo CD Applications.
-As such, prior to execution, it is recommended to use the [Argo CD Applications View](/docs/argo-cd/steps/annotated-application-view) to ensure
+As such, prior to execution, it is recommended to use the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view) to ensure
 no outstanding configuration is required.
 :::
 
