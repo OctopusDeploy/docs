@@ -25,7 +25,7 @@ A gateway is required for each Argo CD Instance being connected to Octopus.
 
 The Argo/Octopus integration requires only the Octopus/Argo gateway to enable all features.
 
-The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
+The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required when monitoring Argo CD applications. The Octopus Argo CD Gateway has the equivalent capabilities.
 
 :::
 
