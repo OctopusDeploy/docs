@@ -33,7 +33,7 @@ Add the `Update Argo CD Application Manifests` step to the project, and provide 
    - If the string entered is a single file - only that file will be considered a template.
 
     :::div{.info}
-    A single file will be copied into the _root_ directory of the Path defined in the mapped Argo CD Application.
+    A single file will be copied into the *root* directory of the Path defined in the mapped Argo CD Application.
     When a directory is specified, the structure below the specified path is maintained when moving files into the Argo CD Application's repository.
     :::
 
