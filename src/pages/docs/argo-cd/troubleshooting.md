@@ -9,6 +9,7 @@ navSection: Argo CD
 navOrder: 50
 hideInThisSectionHeader: true
 ---
+
 Minor issues in your configuration can prevent Octopus from integrating effectively with Argo CD.
 
 The most common issues encountered while setting up Argo CD integration are listed below along with the steps to be followed to reach a resolution.
@@ -44,7 +45,7 @@ Behaviour:
   - Health check failed
 - The Gateway pod is in a CrashLoopBackoff
 - In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "*error validating connection to Argo CD*"
-- In Octopus, the healthcheck task log contains: "The Argo CD Gateway has not established a gRPC connection to Octopus Server" 
+- In Octopus, the healthcheck task log contains: "The Argo CD Gateway has not established a gRPC connection to Octopus Server"
 
 Cause:
 
