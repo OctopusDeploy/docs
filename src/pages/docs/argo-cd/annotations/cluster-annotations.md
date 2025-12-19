@@ -6,8 +6,7 @@ description: Cluster annotations to support operations
 navTitle: Cluster Annotations
 hideInThisSectionHeader: true
 ---
-
-# Defining cluster based parameters
+# Defining cluster level parameters
 
 By default, a Kubernetes cluster will use `docker.io` as the image registry when none is defined. This means that if an image is defined without the registry, for example `nginx/nginx:latest`, then this image will be resolved from the `docker.io` registry.
 
