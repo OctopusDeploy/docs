@@ -114,9 +114,11 @@ A successful health check indicates that the gateway can successfully connect to
 ### Advanced Configuration
 
 #### Trusting Certificates
+
 If your Octopus server or Argo CD instance are hosted using self signed certificates, the gateway will likely not be able to connect. To get the gateway application to trust your certificates you can provide them in two ways(Requires `>= v1.12.0` of the Octopus Argo CD gateway Helm chart):
 
 **Passing certificates as Helm values:**
+
 ```bash
 helm upgrade --atomic \
 --version "1.0.0" \
@@ -130,7 +132,8 @@ helm upgrade --atomic \
 --set gateway.argocd.plaintext="false" \
 {{EXISTING_HELM_RELEASE_NAME}} \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
-``` 
+```
+
 `registration.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its web portal and http API with. This certificate is verified during the automatic registration process.
 
 `gateway.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its gRPC web host with.
