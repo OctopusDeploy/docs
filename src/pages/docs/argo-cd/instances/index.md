@@ -111,6 +111,64 @@ If left open, the installation dialog waits for the gateway to establish a conne
 A successful health check indicates that the gateway can successfully connect to the target Argo CD instance and is communicating with Octopus Server.
 :::
 
+### Advanced Configuration
+
+#### Trusting Certificates
+If your Octopus server or Argo CD instance are hosted using self signed certificates, the gateway will likely not be able to connect. To get the gateway application to trust your certificates you can provide them in two ways(Requires `>= v1.12.0` of the Octopus Argo CD gateway Helm chart):
+
+**Passing certificates as Helm values:**
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set registration.octopus.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.octopus.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.argocd.serverCertificate="{{BASE64_ENCODED_CERTIFICATE}}" \
+--set gateway.octopus.serverThumbprint="" \
+--set gateway.argocd.insecure="false" \
+--set gateway.argocd.plaintext="false" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+``` 
+`registration.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its web portal and http API with. This certificate is verified during the automatic registration process.
+
+`gateway.octopus.serverCertificate` - Refers to the certificate that Octopus is hosting its gRPC web host with.
+
+`gateway.argocd.serverCertificate` - Refers to the certificate that Argo CD server is using to host its web portal and API. [Read more about configuring TLS in Argo CD here](https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/#configuring-tls-for-argocd-server)
+
+These certificates are stored in a secret within your Kubernetes cluster `octopus-argocd-gateway-certificates` and are loaded into the gateway's trust store during startup.
+
+**Passing certificates via existing Kubernetes secret:**
+
+Certificates can be loaded by the gateway using an existing Kubernetes secret that exists in the same namespace as the gateway.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: your-certs
+  namespace: octo-argo-gateway
+data:
+  octopus-server-grpc-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  octopus-server-http-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  argo-cd-server-certificate.pem: {{BASE64_ENCODED_CERTIFICATE}}
+  other-certificate-to-trust.pem: {{BASE64_ENCODED_CERTIFICATE}}
+type: Opaque
+```
+
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set gateway.serverCertificateSecretName="YOUR_KUBERNETES_SECRET_NAME" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
+All certificates included in the secret will be loaded into the trust store during the gateway's startup. If any of the keys in your secret are duplicates of the keys in `octopus-argocd-gateway-certificates` the values in your secret will take priority e.g. If you set `octopus-server-grpc-certificate.pem` in your own secret but then also pass a value to `gateway.octopus.serverCertificate` the certificate in your secret will overwrite the one in the helm values.
+
 ### Health Checks and Updating
 
 Octopus performs health checks on the gateway in a manner similar to that used for workers and deployment targets.
