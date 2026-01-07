@@ -93,8 +93,7 @@ Don't forget to allow access not just in Windows Firewall, but also any intermed
 
 ## Windows Server 2008 Limited Support
 
-From Octopus Server release `2026.1` there will be [limited support](https://octopus.com/docs/deprecations#dropping-capability-for-windows-server-2008-workers-and-targets-in-20251) for executing workloads on targets or workers running Windows Server 2008. As the version of [Calamari](https://octopus.com/docs/octopus-rest-api/calamari) shipped with later version of Octopus Server will no longer be compatible with Windows Server 2008, the capability has been made available to pin the version of Calamari used on the target itself. 
-
+From Octopus Server release `2026.1` there will be [limited support](https://octopus.com/docs/deprecations#dropping-capability-for-windows-server-2008-workers-and-targets-in-20251) for executing workloads on targets or workers running Windows Server 2008. As the version of [Calamari](https://octopus.com/docs/octopus-rest-api/calamari) shipped with later version of Octopus Server will no longer be compatible with Windows Server 2008, the capability has been made available to pin the version of Calamari used on the target itself.
 
 To allow this:
 
@@ -104,5 +103,3 @@ To allow this:
 4. Restart the Tentacle process to ensure that it has access to this new variable.
 
 The next time a deployment is run, Octopus Server will ignore the embedded Calamari version and instead use the one available on the Tentacle. Warnings will continue to be logged to provide a clear signal that this limited support is considered a temporary stop-gap, as we are likely to drop support entirely for this workaround from `2026.3`.
-
-
