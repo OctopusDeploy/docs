@@ -67,7 +67,6 @@ Further notes about this pending change can be found in the [2024.1 deprecation 
 
 **Note that this change was originally planned to take place in 2025.1 however this was instead pushed back until this later major release.**
 
-
 ## Atlassian Bamboo EOL - December 2025
 
 As of December 2025 the Octopus Deploy add-on for Bamboo has been removed from the Atlassian marketplace. If you are using the add-on in your Atlassian Data Center it will continue to work, the removal prevents new installations of the add-on. This is in response to Atlassian's end of life decision on Bamboo and Data Center.
@@ -89,7 +88,6 @@ For background, migration guidance, and a detailed timeline, please see our blog
 We announced the deprecation of ScriptCS back in 2022, with pathways for migrating added in 2024. As of 2025.2 we have switched the default C# scripting library over to dotnet-script. A migration guide is available [on our blog](https://g.octopushq.com/ScriptCSDeprecation).
 
 ScriptCS is still supported in 2025.2 by setting the `OCTOPUS__FeatureToggles__UseDotnetScriptCSharpExecutorFeatureToggle` environment variable to false or at the project level using the variable `Octopus.Action.Script.CSharp.UseDotnetScript`. This is not recommended as support for ScriptCS will be removed in 2025.3.
-
 
 ## Deprecations for 2024.4
 
