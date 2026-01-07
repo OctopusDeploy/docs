@@ -91,14 +91,15 @@ Using polling mode, you won't typically need to make any firewall changes on the
 Don't forget to allow access not just in Windows Firewall, but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
 ## Windows Server 2008 Limited Support
-From Octopus Server release `2025.1` there will be [limited support](https://octopus.com/docs/deprecations#dropping-capability-for-windows-server-2008-workers-and-targets-in-20251) for executing workloads on targets or workers running Windows Server 2008. As the version of [Calamari](https://octopus.com/docs/octopus-rest-api/calamari) shipped with later version of Octopus Server will no longer be compatible with Windows Server 2008, the capability has been made available to pin the version of Calamari used on the target itself. 
+From Octopus Server release `2026.1` there will be [limited support](https://octopus.com/docs/deprecations#dropping-capability-for-windows-server-2008-workers-and-targets-in-20251) for executing workloads on targets or workers running Windows Server 2008. As the version of [Calamari](https://octopus.com/docs/octopus-rest-api/calamari) shipped with later version of Octopus Server will no longer be compatible with Windows Server 2008, the capability has been made available to pin the version of Calamari used on the target itself. 
 
 
 To allow this:
-1. Download the [most recent version of Calamari](https://download.octopusdeploy.com/calamari/Calamari.Legacy.zip) (verify with [sha256](https://download.octopusdeploy.com/calamari/Calamari.Legacy.sha256) or [md5](https://download.octopusdeploy.com/calamari/Calamari.Legacy.md5) checksum). This is version of Calamari is unlikely to be updated unless there are significant vulnerabilities discovered so it may be missing new capabilities that are released later than `2025.1`.
+1. Download the [most recent version of Calamari](https://download.octopusdeploy.com/calamari/Calamari.Legacy.zip) (verify with [sha256](https://download.octopusdeploy.com/calamari/Calamari.Legacy.sha256) or [md5](https://download.octopusdeploy.com/calamari/Calamari.Legacy.md5) checksum). This is version of Calamari is unlikely to be updated unless there are significant vulnerabilities discovered so it may be missing new capabilities that are released later than `2026.1`.
 
 2. Extract the zip contents to a location on the Tentacle. 
 3. Set an environment variable `CalamariDirectoryPath` with a value of the extracted location. This variable should be provided in a context that will be available to the Tentacle process.
 4. Restart the Tentacle process to ensure that it has access to this new variable.
 
-The next time a deployment is run, Octopus Server will ignore the embedded Calamari version and instead use the one available on the Tentacle. Warnings will continue to be logged to provide a clear signal that this limited support is considered a temporary stop-gap, as we are likely to drop support entirely for this workaround from `2026.1`.
+The next time a deployment is run, Octopus Server will ignore the embedded Calamari version and instead use the one available on the Tentacle. Warnings will continue to be logged to provide a clear signal that this limited support is considered a temporary stop-gap, as we are likely to drop support entirely for this workaround from `2026.3`.
+
