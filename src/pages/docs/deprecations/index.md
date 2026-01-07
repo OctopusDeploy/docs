@@ -53,7 +53,22 @@ We're removing support for TLS 1.0 and 1.1 to improve security. This affects bot
 
 Most customers won't be affected since TLS 1.2+ support is already widely adopted. For detailed information, timeline, and migration guidance, see our blog post: [Deprecating support for TLS 1.0 and 1.1](https://octopus.com/blog/deprecating-tls-1-0-and-1-1)
 
-## No longer available December, 2025
+## Deprecations for 2026.1
+
+### Dropping capability for Windows Server 2008 Workers and Targets in 2026.1
+
+Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, one of the languages used to build Octopus Deploy. The complexity required to support this legacy platform outweighs the value to our customers.
+
+It has been [noted for several years](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/requirements) that Octopus no longer actively tests against or supports Windows Server 2008. The planned change in `2026.1` will make this operating system requirement more definitive by introducing changes that may prevent standard deployment and runbook tasks from executing on this operating system.
+
+To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. We urge you to upgrade your targets to a later version of Windows Server before `2026.1` to prepare for the removal of functionality.
+
+Further notes about this pending change can be found in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
+
+**Note that this change was originally planned to take place in 2025.1 however this was instead pushed back until this later major release.**
+
+
+## Atlassian Bamboo EOL - December 2025
 
 As of December 2025 the Octopus Deploy add-on for Bamboo has been removed from the Atlassian marketplace. If you are using the add-on in your Atlassian Data Center it will continue to work, the removal prevents new installations of the add-on. This is in response to Atlassian's end of life decision on Bamboo and Data Center.
 
@@ -75,15 +90,6 @@ We announced the deprecation of ScriptCS back in 2022, with pathways for migrati
 
 ScriptCS is still supported in 2025.2 by setting the `OCTOPUS__FeatureToggles__UseDotnetScriptCSharpExecutorFeatureToggle` environment variable to false or at the project level using the variable `Octopus.Action.Script.CSharp.UseDotnetScript`. This is not recommended as support for ScriptCS will be removed in 2025.3.
 
-### Dropping capability for Windows Server 2008 Workers and Targets in 2025.1
-
-Microsoft [dropped extended support](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2008) for the Windows Server 2008 family in January 2020. This operating system is also the last Windows OS that does not support .NET Core, one of the languages used to build Octopus Deploy. The complexity required to support this legacy platform outweighs the value to our customers.
-
-It has been [noted for several years](https://octopus.com/docs/infrastructure/deployment-targets/tentacle/windows/requirements) that Octopus no longer actively tests against or supports Windows Server 2008. The planned change in `2025.1` will make this operating system requirement more definitive by introducing changes that may prevent standard deployment and runbook tasks from executing on this operating system.
-
-To provide ample time to act, from Octopus Server `2024.1`, workloads that run on Windows 2008 Servers will begin logging warnings. We urge you to upgrade your targets to a later version of Windows Server before `2025.1` to prepare for the removal of functionality.
-
-Further notes about this pending change can be found in the [2024.1 deprecation blog post](https://octopus.com/blog/2024-deprecated-features#windows-server-2008)
 
 ## Deprecations for 2024.4
 
