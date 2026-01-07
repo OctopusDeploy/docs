@@ -10,7 +10,7 @@ navOrder: 20
 
 This page lists built-in [variables](/docs/projects/variables/) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts).
 
-Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. See [Older versions](#older-versions) for more detail on when variables became available. 
+Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. See [Older versions](#older-versions) for more detail on when variables became available.
 
 :::div{.warning}
 **All variables are strings**
@@ -62,12 +62,12 @@ Packages, including changes, associated with the release. See below. This is a c
 
 Build and version control details associated with the release. This is a collection.
 
-:::div{.hint} 
+:::div{.hint}
 
 The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
 
-* will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.  
-* is only available to be used by the project [release notes](/docs/releases/release-notes), it is not accessible from the project deployment steps.
+- will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.  
+- is only available to be used by the project [release notes](/docs/releases/release-notes), it is not accessible from the project deployment steps.
 
 :::
 
@@ -101,7 +101,7 @@ public class Commit
 
 The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
 
-```
+```text
 #{each package in Octopus.Release.Package}
     This release contains #{package.PackageId} #{package.Version}
 #{/each}
@@ -109,22 +109,22 @@ The packages in a release are available as a collection which can be [iterated o
 
 A particular package can be selected by indexing on the package ID:
 
-```
+```text
 #{Octopus.Release.Package[Acme.Web].Version}
 ```
 
 The variables available for packages are:
 
-| Name | Example|
-| -------------------- | -------|
-|`PackageId`| `#{package.PackageId}` |
-|`Version`| `#{package.Version}` |
-|`Commits`| This is a collection.  See below. |
-|`WorkItems`| This is a collection.  See below. |
+| Name        | Example                           |
+| ----------- | --------------------------------- |
+| `PackageId` | `#{package.PackageId}`            |
+| `Version`   | `#{package.Version}`              |
+| `Commits`   | This is a collection.  See below. |
+| `WorkItems` | This is a collection.  See below. |
 
 On each package, the commits associated with that package are available as a collection which can be iterated over. e.g.:
 
-```
+```text
 #{each package in Octopus.Release.Package}
 #{each commit in package.Commits}
 - [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
@@ -134,21 +134,21 @@ On each package, the commits associated with that package are available as a col
 
 A particular commit can be selected by indexing on the commit ID (when using git the commit ID is the commit hash):
 
-```
+```text
 package.Commits[685afd4161d085e6e5f56a66e72e2298e402b114].Comment
 ```
 
 The variables available for commits are:
 
-| Name | Example|
-| -------------------- | -------|
-|`CommitId`| `#{commit.CommitId}` |
-|`LinkUrl`| `#{commit.LinkUrl}` |
-|`Comment`| `#{commit.Comment}` |
+| Name       | Example              |
+| ---------- | -------------------- |
+| `CommitId` | `#{commit.CommitId}` |
+| `LinkUrl`  | `#{commit.LinkUrl}`  |
+| `Comment`  | `#{commit.Comment}`  |
 
 If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
-```
+```text
 #{each issue in package.WorkItems}
 - [#{issue.Id}](#{issue.LinkUrl})
 #{/each}
@@ -156,20 +156,20 @@ If the Octopus instance has one or more of the [Issue Tracker integrations](/doc
 
 A particular issue can be selected by indexing on the ID:
 
-```
+```text
 package.WorkItems[4465].LinkUrl
 ```
 
 The variables available for issues are:
 
-| Name | Example|
-| -------------------- | -------|
-|`Id`| `#{issue.Id}` |
-|`LinkUrl`| `#{issue.LinkUrl}` |
+| Name      | Example            |
+| --------- | ------------------ |
+| `Id`      | `#{issue.Id}`      |
+| `LinkUrl` | `#{issue.LinkUrl}` |
 
 There is also a distinct list of issues across all packages available in:
 
-```
+```text
 #{each workItem in Octopus.Release.WorkItems}
 - [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
 #{/each}
@@ -202,7 +202,7 @@ public class BuildPackage
 
 The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
 
-```
+```text
 #{each build in Octopus.Release.Builds}
     This release contains resources contributed by the build #{build.BuildUrl}
 #{/each}
@@ -210,7 +210,7 @@ The builds in a release are available as a collection which can be [iterated ove
 
 Builds have a zero-based integer index, meaning the first build can be selected at index 0:
 
-```
+```text
 Octopus.Release.Builds[0].BuildUrl
 ```
 
@@ -289,21 +289,21 @@ Example: `#{build.Packages[0].Version}`
 For projects that have [version control](/docs/projects/version-control) enabled, information about the branch and commit from which the release was created is also available.
 
  `Octopus.Release.Git.BranchName`
- 
+
  The branch name.
- 
+
  Example: *features/some-new-feature*
 
  `Octopus.Release.Git.CommitHash`
- 
- The commit hash. 
- 
+
+ The commit hash.
+
  Example: *0c708fdec272bc4446c6cabea4f0022c2b616eba*
 
  `Octopus.Release.Git.Ref`
- 
+
  The git reference.
- 
+
  Example: *Version 1*
 
 ## Deployment
@@ -432,15 +432,15 @@ Example: *Tenant type/External, Upgrade ring/Early adopter*
 
 `Octopus.Deployment.Trigger.Id`
 
-The ID of the Trigger that created the deployment.  It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of _one_ of the triggers.
+The ID of the Trigger that created the deployment.  It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of *one* of the triggers.
 
 Example: *ProjectTriggers-522*
 
 `Octopus.Deployment.Trigger.Name`
 
-The name of the Trigger that created the deployment. It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of _one_ of the triggers.
+The name of the Trigger that created the deployment. It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of *one* of the triggers.
 
-*Nightly Deploy to Dev*
+Example: *Nightly Deploy to Dev*
 
 `Octopus.Deployment.WorkerLeaseCap`
 
@@ -748,11 +748,12 @@ public class CommitDetails
     public string Comment { get; set; }
 }
 ```
+
 There is an entry per release and it includes the release notes (**in markdown format**) and the build information for each of the packages in that release.
 
 **Example:** The following iterates the changes in the deployment, printing the release version and the issues contained.
 
-```
+```text
 #{each change in Octopus.Deployment.Changes}
     #{change.Version}
     #{each issue in change.WorkItems}
@@ -1109,7 +1110,7 @@ Example: *True*
 
 The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service.
 
-Example: https://my-storage-account/container/my-cloudservice.web.cspkg
+Example: `https://my-storage-account/container/my-cloudservice.web.cspkg`
 
 `Octopus.Action.Azure.UseCurrentInstanceCount`
 
@@ -1209,7 +1210,7 @@ Example: *alice*
 
 `Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`
 
-The ID of the completed Azure Cloud Service deployment. 
+The ID of the completed Azure Cloud Service deployment.
 
 Example: *c9f52da2b00a4313b3b64bb2ad0f409f*
 
@@ -1217,7 +1218,7 @@ Example: *c9f52da2b00a4313b3b64bb2ad0f409f*
 
 The Url of the completed Azure Cloud Service deployment.
 
-Example: *http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/*
+Example: `http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/`
 
 ## Step
 
@@ -1258,7 +1259,6 @@ Example: *The server could not be contacted*
 If the step failed because of an error, a full description of the error.
 
 Example: *System.Net.SocketException: The server could not be contacted (at ...)*
-
 
 ## Agent
 
@@ -1316,7 +1316,7 @@ Example: *[https://my-octopus](https://my-octopus)*
 
 `Octopus.Web.ServerUri`
 
-The default URL at which the server portal can be accessed, as configured in the **Configuration ➜ Nodes** settings. 
+The default URL at which the server portal can be accessed, as configured in the **Configuration ➜ Nodes** settings.
 
 *[https://my-octopus](https://my-octopus)*
 
@@ -1382,7 +1382,7 @@ Example: *3/13/20 6:23:38 AM +00:00*
 
 The branch name if the runbook run was created from a branch
 
-*branch-abc*
+Example: *branch-abc*
 
 `Octopus.RunbookRun.Git.CommitHash`
 
@@ -1424,7 +1424,7 @@ Example: *RunbookSnapshots-123*
 
 The name of the snapshot.
 
-*Snapshot EXAMPLE3*
+Example: *Snapshot EXAMPLE3*
 
 `Octopus.RunbookSnapshot.Notes`
 
@@ -1480,10 +1480,9 @@ Example: True
 
 `OctopusFreeDiskSpaceOverrideInMegaBytes`
 
-The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available. 
+The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available.
 
 Example: 100
-
 
 `OctopusShouldFailDeploymentOnSubstitutionFails`
 
@@ -1505,7 +1504,7 @@ Example: False
 
 `Octopus.Action.Script.SuppressEnvironmentLogging`
 
-To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging. 
+To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging.
 
 Example: True
 
@@ -1523,7 +1522,7 @@ Example: True
 
 `Octopus.Action.Package.RunScripts`
 
-Set to `false` to prevent scripts inside packages from executing. 
+Set to `false` to prevent scripts inside packages from executing.
 
 Example: True
 
@@ -1557,9 +1556,10 @@ Set to `True` to log successful output from Kubernetes CLI tools (`kubectl`, `he
 Example: True
 
 ## Older versions {#older-versions}
-* `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash` and `Octopus.Release.Git.Ref` is available from Octopus Deploy **2021.3** onwards.
-* `Octopus.Web.ServerUri` is available from Octopus Deploy **2019.4.0** onwards.
-* `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name` and `Octopus.Deployment.Tenant.Tags` is available from Octopus Deploy **3.4** onwards.
+
+- `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash` and `Octopus.Release.Git.Ref` is available from Octopus Deploy **2021.3** onwards.
+- `Octopus.Web.ServerUri` is available from Octopus Deploy **2019.4.0** onwards.
+- `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name` and `Octopus.Deployment.Tenant.Tags` is available from Octopus Deploy **3.4** onwards.
 
 ## Learn more
 
