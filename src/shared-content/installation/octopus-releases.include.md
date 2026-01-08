@@ -1,5 +1,7 @@
-From **Octopus 2020.6**, we ship a new release of Octopus Deploy Server once a quarter. Each release receives *six months support*, including critical patches. The releases are rolled out to Octopus Cloud instances before being made available to download for self-hosted instances of the Octopus Server.
+Each self-hosted release of Octopus Deploy will receive critical patches and support for a period of six months.
 
-We highly recommend using the latest release for your self-hosted installation of Octopus. Please see the [Octopus.com/downloads](https://octopus.com/downloads) page to download the latest version of Octopus Deploy.
+All new releases of Octopus Deploy will run in Octopus Cloud first for at least one quarter.  As a result, Octopus Cloud is always at least one version ahead of the self-hosted version.
 
-For more details about the changes to the way we release Octopus, check out the blog post [Octopus releases and Long Term Support (LTS)](https://octopus.com/blog/releases-and-lts).
+Because of that, we always recommend using the latest available release for your self-hosted installation of Octopus. Please see the [Octopus.com/downloads](https://octopus.com/downloads) to download the latest version of Octopus Deploy.
+
+For more details, please refer to our [blog post announcement from 2020](https://octopus.com/blog/releases-and-lts), when we introduced this release cadence.

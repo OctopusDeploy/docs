@@ -8,6 +8,7 @@ navOrder: 10
 hideInThisSection: true
 ---
 import OctopusInstanceMixedOSWarning from 'src/shared-content/administration/octopus-instance-mixed-os-warning.include.md'
+import OctopusReleases from 'src/shared-content/installation/octopus-releases.include.md';
 
 Octopus Deploy supports two hosting options:
 
@@ -21,6 +22,10 @@ There are three components to an Octopus Deploy instance:
 - **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database and are stored on the file system instead.  This can be a local folder, a network file share, or a cloud provider's storage.  
 
 This document will provide you with guidelines and recommendations for self-hosting Octopus Deploy.
+
+## Supported Octopus Deploy Server Versions
+
+<OctopusReleases />
 
 ## Host Octopus on Windows Server or as a Linux Container
 
