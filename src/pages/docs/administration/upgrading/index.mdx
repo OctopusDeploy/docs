@@ -29,7 +29,7 @@ When running on Windows, the typical (manual) upgrade process is:
 - Run the MSI to install the latest binaries.
 - After the MSI finishes, it will close, and the **Octopus Manager** is launched to update each instance.
 
-Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take longer than an upgrade from 2020.4.1 to 2020.5.1.  
+Once the **Octopus Manager** starts the upgrade process, downtime *will* occur.  The upgrade should take anywhere from a minute to 30 minutes to complete depending on the number of database changes, the database's size, and compute resources.  A good rule of thumb is: the greater the delta between versions, the longer the downtime.  An upgrade from 2019.2.1 to 2020.5.1 will generally take longer than an upgrade from 2020.4.1 to 2020.5.1.  
 
 :::div{.hint}
 [Automating your upgrade process](/docs/administration/upgrading/guide/automate-upgrades) will help reduce the total upgrade time.  Automation also mitigates risk, as all steps, including backups, will be followed.  We've found companies who automate their upgrade process are much more likely to stay up to date.  The smaller the delta between versions, the faster the upgrade.
@@ -37,7 +37,7 @@ Once the **Octopus Manager** starts the upgrade process, downtime _will_ occur. 
 
 #### Upgrades and the Service Watchdog
 
-If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Documentation on canceling the watchdog can be found [here](/docs/administration/managing-infrastructure/service-watchdog/#ServiceWatchdog-CancelingTheWatchdog).
+If you are using the [Service Watchdog](/docs/administration/managing-infrastructure/service-watchdog), you will need to cancel it before you start your upgrade and recreate it after the upgrade is finished. Please see [documentation on canceling the watchdog](/docs/administration/managing-infrastructure/service-watchdog/#ServiceWatchdog-CancelingTheWatchdog).
 
 ### Upgrading a highly available Octopus Deploy instance
 
@@ -60,7 +60,7 @@ The Windows Service is split across multiple folders to make upgrading easy and 
 - **Home Folder**: The home folder stores configuration, logs, and other items unique to your instance.  The home folder is separate from the install location to make it easier to upgrade, downgrade, uninstall/reinstall without affecting your instance.  The default location of the home folder is `C:\Octopus`.  Except in rare cases, this folder is left unchanged by the upgrade process.
 - **Instance Information**: The Octopus Deploy Manager allows you to configure 1 to N instances per Windows Server.  The **Octopus Manager** stores a list of all the instances in the `C:\ProgramData\Octopus\OctopusServer\Instances` folder.   Except in rare cases, this folder is left unchanged by the upgrade process.  
 - **Server Folders**: Logs, artifacts, packages, and event exports are too big for Octopus Deploy to store in a SQL Server database.  The server folders are sub-folders in `C:\Octopus\`.  Except in rare cases, these folders are left unchanged by an upgrade.  
-- **Tentacles**: Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until _after_ the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](/docs/support/compatibility).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
+- **Tentacles**: Octopus Deploy connects to deployment targets via the Tentacle service.  Each version of Octopus Deploy includes a specific Tentacle version.  Tentacle upgrades do not occur until *after* the Octopus Deploy server is upgraded.  Tentacle upgrades are optional; any Tentacle greater than 4.x will work [with any modern version of Octopus Deploy](/docs/support/compatibility).  We recommend you upgrade them to get the latest bug fixes and security patches when convenient.  
 - **Calamari**: The Tentacles facilitate communication between Octopus Deploy and the deployment targets.  Calamari is the software that does the actual deployments.  Calamari and Octopus Deploy are coupled together.  Calamari is upgraded automatically during the first deployment to a target.
 
 ## Supported Octopus Deploy Server Versions
