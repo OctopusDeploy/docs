@@ -43,11 +43,12 @@ We are confident in the Octopus Server Linux Container's reliability and perform
 
 ## Create a single production instance
 
-One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions. We recommend this to avoid the maintenance overhead involved with having an instance per environment. 
+One question we get asked a lot is "should we have a single instance to deploy to all environments or have an Octopus Deploy instance per environment?"  Unless there is a business requirement, our recommendation is to have a single instance to deploy to all environments and use Octopus Deploy's RBAC controls to manage permissions. We recommend this to avoid the maintenance overhead involved with having an instance per environment.
 
-Of the customers who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments. 
+Of the customers who opt for an instance per environment, we see them have an instance for **development** and **test** environments with another instance for **staging** and **production** environments.
 
 If you chose this instance configuration, you would need a process to:
+
 - Clone all the variable sets and project variables, and notify you when a new scoped variable is added.
 - Sync the deployment and runbook processes, but skip over steps assigned to **development** and **test**.
 - Update any user step templates to the latest version.
@@ -60,7 +61,7 @@ Using the Octopus Deploy API, all of that is possible; however, it will require 
 
 ## Run the Octopus Service, SQL server, and files on separate infrastructure
 
-It is possible to run the Octopus Deploy service, SQL Server, and file storage on the same Windows Server or container orchestrator. That is not recommended for production instances of Octopus Deploy. Aside from having a single point of failure, it can lead to performance issues. 
+It is possible to run the Octopus Deploy service, SQL Server, and file storage on the same Windows Server or container orchestrator. That is not recommended for production instances of Octopus Deploy. Aside from having a single point of failure, it can lead to performance issues.
 
 The database should run on a dedicated SQL Server, or using a managed SQL Server like AWS RDS, or Azure SQL. The files should be stored on a NAS, SAN, or on a managed file storage platform like Azure File Storage that supports SMB/CIFS. Shared services like these are managed by dedicated individuals, such as DBAs or Network Admins. They provide common day 2 maintenance such as backups, restoring, and performance monitoring.
 
@@ -68,7 +69,7 @@ While it is possible to run SQL Server in container, we do not recommend it for 
 
 ## Use a load balancer for the Octopus Deploy UI
 
-The Octopus Deploy UI is a stateless React single-page application that leverages a RESTful API for its data. We recommend using a load balancer for Octopus Deploy as soon as possible. This will make it much easier to move to high availability. In addition, it'll be easy to rebuild or change the underlying Windows Server or to move to Linux Containers in the future. 
+The Octopus Deploy UI is a stateless React single-page application that leverages a RESTful API for its data. We recommend using a load balancer for Octopus Deploy as soon as possible. This will make it much easier to move to high availability. In addition, it'll be easy to rebuild or change the underlying Windows Server or to move to Linux Containers in the future.
 
 Any standard load balancer, be it F5, Netscaler, or provided via a cloud provider, will work. If you need a small load balancer, NGINX will provide all the functionality you’ll need.
 
