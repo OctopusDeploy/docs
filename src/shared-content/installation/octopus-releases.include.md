@@ -1,13 +1,6 @@
----
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: octopus release and supported versions include
-description: Include the octopus deploy release and supported versions
-navOrder: 666
----
+## Supported Octopus Deploy Server Versions
 
-Each self-hosted major.minor release of Octopus Deploy will receive critical patches and support for a period of six months.  For example, 2025.4 was released in December 2025 and will be supported for six months.
+Each self-hosted major.minor release of Octopus Deploy will receive *critical patches and support* for a period of **six months.**  For example, 2025.4 was released in December 2025 and will be supported through May 2026.
 
 All new releases of Octopus Deploy will run in Octopus Cloud first for at least one quarter.  As a result, Octopus Cloud is always at least one version ahead of the self-hosted version.
 
