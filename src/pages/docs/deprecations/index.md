@@ -22,7 +22,7 @@ Deprecations are subject to change in detail or time frame.
 
 While Octopus strives to follow the deprecation lifecycle, there are cases where we must act more quickly.
 
-Security fixes or changes to services and dependencies used by Octopus Server but not managed by Octopus Deploy, may necessitate in accelerated timeframes outside of our control. In these cases we will endeavor to provide as much early warning and mitigation as feasible however it is possible that the timelines for change may occur much quicker than our state target of 1 year.
+Security fixes or changes to services and dependencies used by Octopus Server, but not managed by Octopus Deploy, may need accelerated timeframes outside of our control. In these cases, we will provide as much notice and mitigation as we can. However, the timelines for change may be earlier than our target of a year's notice.
 
 If you have questions or need help assessing the impact of a deprecation on your Octopus instance, please contact our [support team](https://octopus.com/support).
 :::
