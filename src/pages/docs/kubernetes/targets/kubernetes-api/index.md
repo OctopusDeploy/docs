@@ -13,15 +13,14 @@ Kubernetes API targets are used by the [Kubernetes steps](/docs/deployments/kube
 Conceptually, a Kubernetes API target represent a permission boundary and an endpoint. Kubernetes [permissions](https://oc.to/KubernetesRBAC) and [quotas](https://oc.to/KubernetesQuotas) are defined against a namespace, and both the account and namespace are captured as a Kubernetes API target, along with the cluster endpoint URL.  A namespace is required when registering the Kubernetes API target with Octopus Deploy. By default, the namespace used in the registration is used in health checks and deployments. The namespace can be overwritten in the deployment process.
 
 :::div{.hint}
-From **Octopus 2022.2**, AKS target discovery has been added to the 
-Kubernetes Target Discovery Early Access Preview and is enabled via **Configuration ➜ Features**.
+From **Octopus 2022.2**, AKS target discovery has been added to the Kubernetes Target Discovery Early Access Preview and is enabled via **Configuration ➜ Features**.
 
 From **Octopus 2022.3** will include EKS cluster support.
 :::
 
 ## Discovering Kubernetes targets
 
-Octopus can discover Kubernetes API targets in _Azure Kubernetes Service_ (AKS) or _Amazon Elastic Container Service for Kubernetes_ (EKS) as part of your deployment using tags on your AKS or EKS resource. 
+Octopus can discover Kubernetes API targets in *Azure Kubernetes Service* (AKS) or *Amazon Elastic Container Service for Kubernetes* (EKS) as part of your deployment using tags on your AKS or EKS resource.
 
 :::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover Kubernetes targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
@@ -87,7 +86,7 @@ users:
 
       The Azure Service Principal is only used with AKS clusters. To log into ACS or ACS-Engine clusters, standard Kubernetes credentials like certificates or service account tokens must be used.
 
-      :::div{.hint}      
+      :::div{.hint}
       From Kubernetes 1.26, [the default azure auth plugin has been removed from kubectl](https://github.com/kubernetes/kubernetes/blob/ad18954259eae3db51bac2274ed4ca7304b923c4/CHANGELOG/CHANGELOG-1.26.md#deprecation) so clusters targeting Kubernetes 1.26+ that have [Local Account Access disabled](https://oc.to/AKSDisableLocalAccount) in Azure, will require the worker or execution container to have access to the [kubelogin](https://oc.to/Kubelogin) CLI tool, as well as the Octopus Deployment Target setting **Login with administrator credentials** disabled. This requires **Octopus 2023.3*.
 
       If Local Account access is enabled on the AKS cluster, the Octopus Deployment Target setting Login with administrator credentials will also need to be enabled so that the Local Accounts are used instead of the default auth plugin.
@@ -95,7 +94,7 @@ users:
 
     - **AWS Account**: When using an EKS cluster, [AWS accounts](/docs/infrastructure/accounts/aws) allow IAM accounts and roles to be used.
 
-      The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).    
+      The interaction between AWS IAM and Kubernetes Role Based Access Control (RBAC) can be tricky. We highly recommend reading the [AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html).
 
       :::div{.hint}
       **Common issues:**
@@ -135,6 +134,7 @@ users:
         -in certificate.crt `
         -inkey private.key
       ```
+
       ```bash
       #!/bin/bash
       echo $1 | base64 --decode > certificate.crt
@@ -154,29 +154,31 @@ users:
 7. Enter the Kubernetes cluster URL. Each Kubernetes target requires the cluster URL, which is defined in the `Kubernetes cluster URL` field. In the example YAML about, this is defined in the `server` field.
 8. Optionally, select the certificate authority if you've added one. Kubernetes clusters are often protected with self-signed certificates. In the YAML example above the certificate is saved as a base 64 encoded string in the `certificate-authority-data` field.
 
-To communicate with a Kubernetes cluster with a self-signed certificate over HTTPS, you can either select the **Skip TLS verification** option, or supply the certificate in `The optional cluster certificate authority` field.
+    To communicate with a Kubernetes cluster with a self-signed certificate over HTTPS, you can either select the **Skip TLS verification** option, or supply the certificate in `The optional cluster certificate authority` field.
 
-Decoding the `certificate-authority-data` field results in a string that looks something like this (the example has been truncated for readability):
+    Decoding the `certificate-authority-data` field results in a string that looks something like this (the example has been truncated for readability):
 
-```
------BEGIN CERTIFICATE-----
-XXXXXXXXXXXXXXXX...
------END CERTIFICATE-----
-```
+    ```text
+    -----BEGIN CERTIFICATE-----
+    XXXXXXXXXXXXXXXX...
+    -----END CERTIFICATE-----
+    ```
 
-Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](https://oc.to/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
+    Save this text to a file called `ca.pem`, and upload it to the [Octopus certificate management area](https://oc.to/CertificatesDocumentation). The certificate can then be selected in the `cluster certificate authority` field.
 
 9. Enter the Kubernetes Namespace.
-When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `my-application-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
+    When a single Kubernetes cluster is shared across environments, resources deployed to the cluster will often be separated by environment and by application, team, or service. In this situation, the recommended approach is to create a namespace for each application and environment (e.g., `my-application-development` and `my-application-production`), and create a Kubernetes service account that has permissions to just that namespace.
 
-Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `my-application`).
+    Where each environment has its own Kubernetes cluster, namespaces can be assigned to each application, team or service (e.g. `my-application`).
 
-In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is set to the application name (e.g. `my-application`), and the `Environments` are set to the matching environment.
+    In both scenarios, a target is then created for each Kubernetes cluster and namespace. The `Target Role` tag is set to the application name (e.g. `my-application`), and the `Environments` are set to the matching environment.
 
-When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
+    When a Kubernetes target is used, the namespace it references is created automatically if it does not already exist.
 
 10. Select a worker pool for the target.
-To make use of the Kubernetes steps, the Octopus Server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
+
+    To make use of the Kubernetes steps, the Octopus Server or workers that will run the steps need to have the `kubectl` executable installed. Linux workers also need to have the `jq`, `xargs` and `base64` applications installed.
+
 11. Click **SAVE**.
 
 :::div{.warning}
@@ -273,12 +275,15 @@ kubectl get secret $(kubectl get serviceaccount jenkins-deployer -o jsonpath="{.
 The token can then be saved as a Token Octopus account, and assigned to the Kubernetes target.
 
 :::div{.warning}
+
 Kubernetes versions 1.24+ no longer automatically create tokens for service accounts and they need to be manually created using the **create token** command:
+
 ```bash
 kubectl create token jenkins-deployer
 ```
 
-From Kubernetes version 1.29, a warning will be displayed when using automatically created Tokens. Make sure to rotate any Octopus Token Accounts to use manually created tokens via **create token** instead.   
+From Kubernetes version 1.29, a warning will be displayed when using automatically created Tokens. Make sure to rotate any Octopus Token Accounts to use manually created tokens via **create token** instead.
+
 :::
 
 ## Kubectl
@@ -286,14 +291,15 @@ From Kubernetes version 1.29, a warning will be displayed when using automatical
 Kubernetes targets use the `kubectl` executable to communicate with the Kubernetes cluster. This executable must be available on the path on the target where the step is run. When using workers, this means the `kubectl` executable must be in the path on the worker that is executing the step. Otherwise, the `kubectl` executable must be in the path on the Octopus Server itself.
 
 ## Vendor Authentication Plugins {#vendor-authentication-plugins}
+
 Prior to `kubectl` version 1.26, the logic for authenticating against various cloud providers (eg Azure Kubernetes Services, Google Kubernetes Engine) was included "in-tree" in `kubectl`. From version 1.26 onward, the cloud-vendor specific authentication code has been removed from `kubectl`, in favor of a plugin approach.
 
 What this means for your deployments:
 
-* Amazon Elastic Container Services (ECS): No change required. Octopus already supports using either the AWS CLI or the `aws-iam-authenticator` plugin.
-* Azure Kubernetes Services (AKS): No change required. The way Octopus authenticates against AKS clusters never used the in-tree Azure authentication code, and will continue to function as normal.
-    - From **Octopus 2023.3**, you will need to ensure that the [kubelogin](https://oc.to/Kubelogin) CLI tool is also available if you have disabled local Kubernetes accounts.
-* Google Kubernetes Engine (GKE): If you upgrade to `kubectl` 1.26 or higher, you will need to ensure that the `gke-gcloud-auth-plugin` tool is also available. More information can be found on [Google's announcement about this change](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke).
+- Amazon Elastic Container Services (ECS): No change required. Octopus already supports using either the AWS CLI or the `aws-iam-authenticator` plugin.
+- Azure Kubernetes Services (AKS): No change required. The way Octopus authenticates against AKS clusters never used the in-tree Azure authentication code, and will continue to function as normal.
+  - From **Octopus 2023.3**, you will need to ensure that the [kubelogin](https://oc.to/Kubelogin) CLI tool is also available if you have disabled local Kubernetes accounts.
+- Google Kubernetes Engine (GKE): If you upgrade to `kubectl` 1.26 or higher, you will need to ensure that the `gke-gcloud-auth-plugin` tool is also available. More information can be found on [Google's announcement about this change](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke).
 
 ## Helm
 
@@ -312,6 +318,8 @@ If you're running into issues with your Kubernetes targets, it's possible you'll
 ### Debugging
 
 Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
+
+Setting the Octopus variable `Octopus.Action.Kubernetes.VerboseOutput` to `True` will cause successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) to be logged at the Info level instead of Verbose. This is useful when debugging deployments to see the full output of these tools without needing to enable verbose logging for the entire deployment.
 
 If Kubernetes targets fail their health checks, the best way to diagnose the issue to to run a `Run a kubectl CLI Script` step with a script that can inspect the various settings that must be in place for a Kubernetes target to function correctly. Octopus deployments will run against unhealthy targets by default, so the fact that the target failed its health check does not prevent these kinds of debugging steps from running.
 

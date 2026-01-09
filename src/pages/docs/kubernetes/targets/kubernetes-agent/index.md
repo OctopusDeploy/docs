@@ -98,17 +98,20 @@ The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopus
 To simplify this, there is an installation wizard in Octopus to generate the required values.
 
 :::div{.warning}
+
 Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
 You can see the current kubectl config by executing:
+
 ```bash
 kubectl config view
 ```
+
 :::
 
 ### Configuration
 
 1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **Add Deployment Target**.
-2. Select **KUBERNETES** and click **ADD** on the Kubernetes Agent card.    
+2. Select **KUBERNETES** and click **ADD** on the Kubernetes Agent card.
 3. This launches the Add New Kubernetes Agent dialog
 
 :::figure
@@ -133,7 +136,7 @@ If you do want a Kubernetes agent and Kubernetes worker to have the same name, T
 ![Kubernetes Agent default namespace](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-default-namespace.png)
 :::
 
-You can choose a default Kubernetes namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don’t specify a namespace.
+You can choose a default Kubernetes namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don't specify a namespace.
 
 ### NFS CSI driver
 
@@ -146,10 +149,13 @@ A requirement of using the NFS pod is the installation of the [NFS CSI Driver](h
 :::
 
 :::div{.warning}
+
 If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
+
 ```bash
 helm repo update
 ```
+
 :::
 
 ### Installation helm command
@@ -184,13 +190,14 @@ While the wizard doesn't support selecting Tenants or Tenant tags, the agent can
 
 1. Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required. This is done after the agent has successfully installed and registered.
 
-:::figure
-![Kubernetes Agent ](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
-:::
+    :::figure
+    ![Kubernetes Agent ](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
+    :::
 
 2. Set additional variables in the helm command to allow the agent to register itself with associated Tenants or Tenant tags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
 
 example to add these values:
+
 ```bash
 --set agent.tenants="{<tenant1>,<tenant2>}" \
 --set agent.tenantTags="{<tenantTag1>,<tenantTag2>}" \
@@ -202,6 +209,7 @@ You don't need to provide both Tenants and Tenant Tags, but you do need to provi
 :::
 
 In a full command:
+
 ```bash
 helm upgrade --install --atomic \
 --set agent.acceptEula="Y" \
@@ -229,7 +237,7 @@ Server certificate support was added in Kubernetes agent 1.7.0
 
 It is common for organizations to have their Octopus Deploy server hosted in an environment where it has an SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
 
-```
+```text
 2024-06-21 04:12:01.4189 | ERROR | The following certificate errors were encountered when establishing the HTTPS connection to the server: RemoteCertificateNameMismatch, RemoteCertificateChainErrors
 Certificate subject name: CN=octopus.corp.domain
 Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
@@ -237,7 +245,7 @@ Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
 
 To resolve this, you need to provide the Kubernetes agent with a base64-encoded string of the public key of either the self-signed certificate or root organization CA certificate in either `.pem` or `.crt` format. When viewed as text, this will look similar to this:
 
-```
+```text
 -----BEGIN CERTIFICATE-----
 MII...
 -----END CERTIFICATE-----
@@ -277,7 +285,7 @@ For the `Run a kubectl script` step, if there is a [container image](/docs/proje
 To override these automatically resolved tooling images, you can set the helm chart values of `scriptPods.worker.image.repository` and `scriptPods.worker.image.tag` for the agent running as a worker, or `scriptPods.deploymentTarget.image` and `scriptPods.deploymentTarget.tag` when running the agent as a deployment target.
 
 :::div{.warning}
-In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in _all_ Kubernetes steps, not just the `Run a kubectl script` step.
+In Octopus Server versions prior to `2024.3.7669`, the Kubernetes agent erroneously used container images defined in *all* Kubernetes steps, not just the `Run a kubectl script` step.
 :::
 
 This image contains the minimum required tooling to run Kubernetes workloads for Octopus Deploy, namely:
@@ -311,22 +319,23 @@ To check if a Kubernetes agent can be manually upgraded, navigate to the **Infra
 ### Helm upgrade command
 
 To upgrade a Kubernetes agent via `helm`, note the following fields from the **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Connectivity** page:
-* Helm Release Name
-* Namespace
+
+- Helm Release Name
+- Namespace
 
 Then, from a terminal connected to the cluster containing the instance, execute the following command:
 
 ```bash
 helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
-__Replace NAMESPACE and HELM_RELEASE_NAME with the values noted__
+
+Note: Replace `NAMESPACE` and `HELM_RELEASE_NAME` with your own values.
 
 If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
 
 ```bash
 helm rollback --namespace NAMESPACE HELM_RELEASE_NAME
 ```
-
 
 ## Uninstalling the Kubernetes agent
 
