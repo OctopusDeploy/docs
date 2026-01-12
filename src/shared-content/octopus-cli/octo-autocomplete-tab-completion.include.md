@@ -1,5 +1,5 @@
 ## Tab completion for commands and options {#OctopusCLI-TabCompletion}
-Tab completion is available for the following shell environments: `powershell`, `pwsh` (PowerShell Core), `bash` & `zsh`. This feature requires that `octo` or `Octo` is available from your $PATH, which is the default state if installed via a package manager or Chocolatey. If you've manually installed the CLI, please ensure your $PATH is also updated if you wish to use this feature. This is an optional feature that requires additional [installation steps](#OctopusCLI-TabCompletionInstallation) on a per user basis, since this feature relies on built-in shell auto completion facilities.
+Tab completion is available for the following shell environments: `powershell`, `pwsh` (PowerShell Core), `bash` & `zsh`. This feature requires that `octo` or `Octo` is available from your $PATH, which is the default state if installed via a package manager or Chocolatey. If you've manually installed the CLI, please ensure your $PATH is also updated if you wish to use this feature. This is an optional feature that requires additional [installation steps](#OctopusCLI-TabCompletionInstallation) on a per-user basis, since this feature relies on built-in shell auto-completion facilities.
 
 ### Additional installation steps for tab completion. {#OctopusCLI-TabCompletionInstallation}
 

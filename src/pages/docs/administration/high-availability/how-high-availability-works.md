@@ -53,7 +53,7 @@ A node will not pick up pending tasks when:
 
 The last item in that list needs a deeper dive to understand.  For this example, we have a cluster with three nodes, each with a task cap set to ten (10).  Thus, making the HA cluster's total task capacity 30.  There are 12 pending tasks in the queue and 10 active tasks.
 
-Lets assume all three nodes check the task queue at the same time.  The prospective cluster workload ratio is **73.34%** (12 pending tasks + 10 active tasks / 30 task capacity).
+Let's assume all three nodes check the task queue at the same time.  The prospective cluster workload ratio is **73.34%** (12 pending tasks + 10 active tasks / 30 task capacity).
 
 - One node is currently processing eight tasks making the current node workload ratio **80%** (8/10).  While this node can pick up two more tasks, it will not because **80%** > **73.34%**.
 - One node is currently processing three tasks making the current node workload ratio **30%** (3/10).  It can pick up seven more tasks but will only pick up five more tasks.  It picks up tasks until its current node workload ratio is greater than the prospective cluster workload ratio.
@@ -71,7 +71,7 @@ The task queue is a first-in, first-out (FIFO) queue.  The node does not conside
 
 ### Restarting the server during an active deployment
 
-Restarting the Octopus Deploy windows service or the underlying host OS will (eventually) cause any active tasks to fail.  At first, the tasks will look like they are still in process.  Once the node comes back online, it will cancel all active tasks.  If the node doesn't come back online within an hour, one of the other nodes will cancel those tasks.
+Restarting the Octopus Deploy Windows service or the underlying host OS will (eventually) cause any active tasks to fail.  At first, the tasks will look like they are still in process.  Once the node comes back online, it will cancel all active tasks.  If the node doesn't come back online within an hour, one of the other nodes will cancel those tasks.
 
 For planned outages, the recommendation is to enable drain mode.  That will tell the node to finish up all active tasks and not pick up any new ones.  That can be achieved by:
 

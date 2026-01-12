@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-11-24
 title: Preparing your Terraform environment
 description: Configuring remote state, backends, and cloud accounts using Terraform with Octopus
 navOrder: 10
@@ -23,10 +23,10 @@ By default, Terraform stores state files [locally](https://developer.hashicorp.c
 
 ### Basic Example
 
-```ruby
+```hcl
 terraform {
   cloud {
-	organization = "my-org" 
+    organization = "my-org" 
     workspaces {
       project = "Default Project"
       name = "base_layer"
@@ -36,15 +36,16 @@ terraform {
 ```
 ### Common Example
 
-A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherited from an ENV variable in Octopus, the HCP Terraform project is derived from a combination of Octopus project name and environment name, and the workspace name is hardcoded. 
+A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherited from an ENV variable in Octopus, the HCP Terraform project is derived from the Octopus project name, and the workspace name is derived from the project, environment, and a unique string. 
 
-```ruby
+```hcl
 # organization is inherited from ENV variable TF_CLOUD_ORGANIZATION
 terraform {
   cloud {
     workspaces {
-      project = "#{Octopus.Project.Name}-#{Octopus.Environment.Name}"
-      name = "base_layer"
+      project = "#{Octopus.Project.Name}"
+      # Workspace names must be unique across an entire HCP Terraform organization
+      name = "#{Octopus.Project.Name}-base-layer-#{Octopus.Environment.Name}"
     }
   }
 }
@@ -61,7 +62,9 @@ _note: if you set all 3 environment variables, a empty cloud block **must** exis
 
 You can add environment Variables to your Octopus project like this:
 
-![setting environment variables in octopus project](environment_variables.png)
+:::figure
+![setting environment variables in octopus project](/docs/img/deployments/terraform/preparing-your-terraform-environment/environment_variables.png)
+:::
 
 ## Managed cloud accounts
 
@@ -75,7 +78,7 @@ You can optionally prepare the environment that Terraform runs in using the deta
 
 You can query Terraform Enterprise for values from a remote state file using a data source referencing the `tfe_outputs` backend. A token is required and should be set as an ENV variable (`TFE_TOKEN`)
 
-```ruby
+```hcl
 data "tfe_outputs" "previous_step_outputs" {
   organization = var.organization
   workspace    = var.workspace

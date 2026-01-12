@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-23
+modDate: 2025-11-20
 title: Platform Hub
 subtitle: An overview of Platform Hub
 icon: fa-solid fa-landmark
@@ -13,15 +13,15 @@ navOrder: 32
 
 [Platform Hub](https://octopus.com/blog/introducing-platform-hub) is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 
-:::div{.warning}
-- Policies is currently in Alpha for all Enterprise Tier Customers. The feature is not finished or fully tested, and may change drastically as we iterate and build more functionality.
-- Process Templates is in Public Preview for all Enterprise Tier Customers. The feature is mostly complete, and mostly tested. Expect some changes between Public Preview and the Generally Available release.
-:::
-
 You can create and manage your process templates and policies from Platform Hub.
 
 - [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
+
+:::div{.hint}
+To access Platform Hub users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams. 
+[System administrators](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemAdministrator) and [system managers](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemManager) have **PlatformHubEdit** and **PlatformHubView** permissions enabled by default.
+:::
 
 To get started, configure your version control.
 

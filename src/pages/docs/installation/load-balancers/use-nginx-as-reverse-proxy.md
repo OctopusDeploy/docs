@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-12-08
 title: Use NGINX as a reverse proxy for Octopus Deploy
 description: How to set up NGINX as a Reverse Proxy for Octopus Deploy
 navOrder: 10
@@ -13,7 +13,6 @@ This example assumes:
 
 - NGINX will terminate your SSL connections.
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) are not required.
-- [Kubernetes monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
 
 Our starting configuration:
 
@@ -60,6 +59,51 @@ server {
 }
 ```
 
+### gRPC Communications
+
+Octopus generates a self signed certificate for gRPC communications. When the a gRPC client needs to connect to Octopus via a load balancer, there are two common methods to achieve this.
+
+#### TLS/SSL Bridging
+
+`grpc_ssl_verify off` allows us to use a self signed certificate outside of the CA chain of trust.
+
+The `ssl_certificate` refers to your CA certificate used for the HTTPS configuration.
+
+```
+upstream octopusdeploy_grpc {
+    server servername:8443;
+}
+
+server {
+    listen 8443 ssl http2;
+
+    ssl_certificate     /etc/nginx/ssl/octopusdeploy.pem;
+    ssl_certificate_key /etc/nginx/ssl/octopusdeploy.key;
+
+    location / {
+        proxy_set_header Host $host;
+        grpc_pass grpcs://octopusdeploy_grpc;
+        grpc_ssl_verify off;
+    }
+}
+```
+
+#### TLS/SSL Passthrough
+
+```
+stream {
+    upstream octopusdeploy_grpc {
+        server OctopusServer1:8443;
+        server OctopusServer2:8443;
+    }
+
+    server {
+        listen 8443;
+        proxy_pass octopusdeploy_grpc;
+    }
+}
+```
+
 ## NGINX hosted in a Docker Container
 
 NGINX 1.19 added support for environment variables.  Instead of modifying the `nginx.conf` file, you'll create a `default.conf.template` file.  The environment variable is `${OCTOPUS_SERVER}`.  That value will be replaced when the Docker container starts up.
@@ -103,7 +147,7 @@ docker build -t octopusbob/nginx:1.0.0 -t octopusbob/nginx:latest .
 ```
 
 ### Running the NGINX Container
-Then you can run the docker image in a container by running the command.  
+Then you can run the Docker image in a container by running the command.  
 
 ```
 docker run --name octopus-reverse-proxy -p 443:443 -e OCTOPUS_SERVER=servername:8080 octopusbob/nginx:latest
@@ -244,4 +288,4 @@ http {
 }
 ```
 
-By default, NGINX uses round robin.  The Octopus Deploy UI is stateless; round robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.
+By default, NGINX uses round-robin.  The Octopus Deploy UI is stateless; round-robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.

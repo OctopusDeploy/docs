@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
-modDate: 2025-10-21
+modDate: 2025-11-20
 title: Troubleshooting
 subtitle: Known issues that you may run into
 icon: fa-solid fa-layer-group
@@ -14,10 +14,6 @@ navOrder: 151
 ## Troubleshooting common issues
 
 You may run into a few issues when setting up your process templates. We've put together this page to help you diagnose and fix common issues.
-
-:::div{.warning}
-Process Templates is in Public Preview for all Enterprise Tier Customers. Below are known limitations with the public preview.
-:::
 
 ### Step support
 
@@ -146,12 +142,16 @@ Platform Hub accounts cannot be used in the following situations:
 
 ### Public API
 
-We do not currently have support for creating or managing process templates through the API, CLI or the Terraform provider.  
+Process templates can be created and managed through our [public API](/docs/octopus-rest-api).
 
-- Process templates are stored as code in the configured Git repository.  The OCL files store all relevant information about the template - including the parameters, the steps, name, description and other settings.  
+- Process templates are stored as code in the configured Git repository.  The OCL files store all relevant information about the template - including the parameters, the steps, name, description and other settings.
 - The published versions and Spaces configured are stored and managed via the database.
 
-We recommend all users use the Octopus Deploy UI to manage process templates during the public preview.  Any processes or workflows you build outside of the Octopus Deploy UI is subject to change and without warning.  
+:::div{.warning}
+We do not currently support creating or managing process templates through the CLI or the Terraform provider.
+:::
+
+See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/octopus-rest-api/octopus.client).
 
 ### GitHub Connections
 
@@ -174,3 +174,72 @@ Process templates and all Platform Hub features are restricted to customers who 
 - Process templates cannot be modified inside a project.
 - Process templates will no longer receive updates and automatically roll forward to a later version.
 - Projects that contain process templates cannot be cloned until the process template is removed.
+
+### Output Variables
+
+To reference output variables from process template steps, add `.ProcessTemplate` to the standard output variable syntax.
+
+When referencing an output variable in a step **inside a process template**, use the format:
+
+```
+Octopus.ProcessTemplate.Action[StepName].Output.PropertyName
+```
+
+<br>
+
+When referencing an output variable in a step **outside a process template**, include the name of the process template usage step as it appears in the project.
+
+```
+Octopus.ProcessTemplate[ProcessTemplateUsageStepName].Action[StepName].Output.PropertyName
+```
+
+#### Example
+Consider a process template named **Build and Create Web App** containing a step that runs a script and publishes an output variable `FilePath`:
+
+```
+name = "Build and Create Web App"
+description = ""
+
+step "run-a-script" {
+    name = "Collect Details"
+    
+    action {
+        action_type = "Octopus.Script"
+            ...
+        }
+        ...
+}
+```
+
+Reference the variable from another step **inside** the process template using:
+
+```
+Octopus.ProcessTemplate.Action[Collect Details].Output.FilePath
+```
+
+<br>
+
+When this process template is used in a project with a process template usage step named **Create Web App**:
+
+```
+process_template "run-a-process-template" {
+    name = "Create Web App"
+    process_template_slug = "build-and-create-web-app"
+    version_mask = "1.X"
+
+    parameter "linux worker" {
+        value = "WorkerPools-1"
+    }
+    ...
+}
+```
+
+Reference the variable from any other step in the process, which is **outside** the process template, using:
+
+```
+Octopus.ProcessTemplate[Create Web App].Action[Collect Details].Output.FilePath
+```
+
+:::div{.hint}
+Use the name of the process template usage step from the project, not the name of the process template itself, when referencing output variables outside a process template.
+:::

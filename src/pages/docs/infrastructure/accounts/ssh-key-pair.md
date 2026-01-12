@@ -83,7 +83,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 ### Generating a key pair on Windows {#generate-key-pair-windows}
 
-The easiest way to generate valid keys on windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
+The easiest way to generate valid keys on Windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
 :::figure
 ![](/docs/img/infrastructure/accounts/ssh-key-create-putty.png)
@@ -95,7 +95,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 ## Creating the SSH key pair account {#create-ssh-account}
 
-1. Navigate to **Infrastructure ➜ Accounts** and click **ADD ACCOUNT**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts** and click **ADD ACCOUNT**.
 1. Select **SSH key pair** from the drop-down menu.
 1. Give the account a name so you can easily identify it when you need to use the account.
 1. Add a description.

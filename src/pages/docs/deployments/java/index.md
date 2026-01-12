@@ -111,7 +111,7 @@ Here is an example of a `$CATALINA_HOME/conf/tomcat-users.xml` file that defines
 See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.
 
 :::div{.hint}
-By default you can only upload files of around 50MB through the manager. This is often not large enough for big packages, so you can set a higher limit by editing the `webapps/manager/WEB-INF/web.xml` file. Inside you will find a `<multipart-config>` element whose child elements define the maximum file upload size.
+By default, you can only upload files of around 50MB through the manager. This is often not large enough for big packages, so you can set a higher limit by editing the `webapps/manager/WEB-INF/web.xml` file. Inside you will find a `<multipart-config>` element whose child elements define the maximum file upload size.
 
 This example sets the maximum file upload size to 250MB.
 
@@ -133,7 +133,7 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 * If you want to take advantage of [Tomcat's parallel deployment](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment) features, you need to define the populate `Deployment Version` field. To be effective, these values are required to increase with each deployment . Common values are the Octopus release number, which is defined in the `#{Octopus.Release.Number}` variable. The package version number can also be used, and is defined in the `#{Octopus.Action.Package.NuGetPackageVersion}` variable.
 * Define the path to the [Tomcat Manager](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html). The path is relative to the target machine that is running the step, and includes the manager application context path. In most cases the target machine is also the machine hosting Tomcat, so this URL will typically point to `localhost`. Common examples of the manager URL are `http://localhost:8080/manager`.
 * Supply the `Management User` and `Management Password` of the user was defined using the instructions from [Configure Tomcat](#configure_tomcat).
-* The `Start/Stop the Deployment` option allows you to deploy the application in a started or stopped state. Typically you will deploy in a started state.
+* The `Start/Stop the Deployment` option allows you to deploy the application in a started or stopped state. You will typically deploy in a started state.
 
 ## Deploying to Tomcat via Manager step details
 
@@ -142,7 +142,7 @@ The `Deploy to Tomcat via Manager` step is used to deploy a package from the Oct
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
 | Context Path | No | Defaults to the deployment file name e.g. `myapplication.1.0.0`. | The context path that the application will be deployed to. Set this value to `/` to deploy to the root context. Set it to a value like `myapplication` to deploy to the `/myapplication` context. Nested contexts are also allowed, such as `myapplication/v1.0`.<br/><br/>Leading slashes are optional;  `/myapplication` and  `myapplication` will both deploy to the  `/myapplication` context path.  |
-| Deployment Version | No | By default no Tomcat version is assigned to the deployment. | An optional field that defines the Tomcat version that the deployment will be assigned when deployed. Versions are most often used with [Tomcat parallel deployments](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment). The version can be set to match the version of the package from Octopus, can be set to a custom version, or the deployment can have no version.<br/><br/>It is common to use either the Octopus release number as the Tomcat version using the variable `#{Octopus.Release.Number}`, or to use the version number of the package with the variable `#{Octopus.Action.Package.NuGetPackageVersion}`.|
+| Deployment Version | No | By default, no Tomcat version is assigned to the deployment. | An optional field that defines the Tomcat version that the deployment will be assigned when deployed. Versions are most often used with [Tomcat parallel deployments](https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Parallel_deployment). The version can be set to match the version of the package from Octopus, can be set to a custom version, or the deployment can have no version.<br/><br/>It is common to use either the Octopus release number as the Tomcat version using the variable `#{Octopus.Release.Number}`, or to use the version number of the package with the variable `#{Octopus.Action.Package.NuGetPackageVersion}`.|
 | Tomcat Manager URL | Yes | | This field defines the URL of the Tomcat manager application. This is relative to the target machine performing the deployment. When the Tentacle is on the same machine as the Tomcat instance, this URL will typically reference localhost i.e. `http://localhost:8080/manager`. |
 | Management User | Yes | | The user that is supplied when logging into the Tomcat manager API. Note that this user is required to be part of the `manager-script` group. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for more details on the groups used by the manager application.|
 | Management Password | Yes | | The password that is supplied when logging into the Tomcat manager API. |
@@ -158,7 +158,7 @@ You have two options for authenticating with WildFly and JBoss EAP servers.
 
 The easiest solution is to use [silent authentication](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/how_to_configure_server_security/securing_the_server_and_its_interfaces#silent-auth). Silent authentication allows local users to log into the management API without supplying any credentials, and because Octopus typically executes a deployment from the same machine that is hosting the application server, it is treated as a local user.
 
-To take advantage of silent authentication, the user running the Octopus deployment on the target machine (i.e the user assigned to the Tentacle service in Windows or the SSH user in Linux or MacOS) must have access to the `auth`  directory inside the directory defined by the `jboss.server.temp.dir` variable. By default this directory will be located at `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth`.
+To take advantage of silent authentication, the user running the Octopus deployment on the target machine (i.e the user assigned to the Tentacle service in Windows or the SSH user in Linux or MacOS) must have access to the `auth`  directory inside the directory defined by the `jboss.server.temp.dir` variable. By default, this directory will be located at `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth`.
 
 The second option is to use the application server `add-user` script to create a new user, and use these credentials in the Octopus deployment steps.
 
@@ -173,7 +173,7 @@ The `Deploy to WildFly or Red Hat JBoss EAP` step is used to deploy a package fr
 * The `Management Protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
 * If you wish to use silent authentication, and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management User` and `Management Password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 * If you are deploying to a standalone server, the deployment can be enabled or disabled using the `Enable/Disable the Deployment` field. This field has no effect when deploying to a domain controller.
-* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
+* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise, the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 <a name="context_path"></a>
 #### Defining context paths
@@ -263,7 +263,7 @@ The `Enable/Disable deployment in WildFly` step is used to modify the state of a
 * The `Management Protocol` field defines the protocol to be used when interacting with the management interface. For WildFly 10+ and JBoss EAP 7+, this will default to `http-remoting` or `remote+http` (the two are equivalent). For JBoss EAP 6, this will default to `remoting`.
 * If you wish to use silent authentication, and have configured the required permissions for the `$JBOSS_HOME/standalone/tmp/auth` or `$JBOSS_HOME/domain/tmp/auth` directory, then the `Management User` and `Management Password` fields can be left blank. Alternatively these fields can hold the credentials that were configured via the `add-user` script.
 * If you are deploying to a standalone server, the deployment can be enabled or disabled using the `Enable/Disable the Deployment` field. This field has no effect when deploying to a domain controller.
-* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
+* If you are deploying to a domain controller, the server groups that will have the deployment enabled must be specified in the `Enabled Server Groups` field. Likewise, the server groups that will have the deployment disabled must be specified in the `Disabled Server Groups`. Multiple server groups can be specified separated by a comma. These fields has no effect when deploying to a standalone server.
 
 ## Enabling/Disabling WildFly and EAP applications step details
 
@@ -301,8 +301,8 @@ The following steps can be used to deploy an application via a file copy to an a
 | -------- | -------- | ---------------- | ---------------- |
 | Package feed | Yes | | The feed to use to source the Java package from. |
 | Package ID | Yes | | The Java package to deploy. |
-| Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |
-| Custom Deploy Directory   | No  |   | By default the package will be deployed to the target's application directory. This options allows setting a custom deployment directory.   |
+| Explode  | No  |   | If selected, the package will be deployed extracted. Note that the package is always extracted as part of the deployment process, to allow features such as substituting variables in files. By default, the package is re-created before deploying to the destination. If the `Explode` option is selected it remains extracted.  |
+| Custom Deploy Directory   | No  |   | By default, the package will be deployed to the target's application directory. This options allows setting a custom deployment directory.   |
 | Deploy Directory | No | The package will be copied into the local Octopus Applications directory by default e.g. `C:\Octopus\Applications\Local\myapplication\0.0.1-SNAPSHOT_8\myapplication.0.0.1-SNAPSHOT.war` | The installed package will be copied to this location on the remote machine. |
 | Deployed Package File Name | No | The file will default to the original filename from the feed. | Defines the name of the file that is copied into the destination directory. |
 | Purge  | No  |   | If selected, all files in this location will be removed before the package is copied.  |

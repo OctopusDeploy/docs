@@ -17,16 +17,19 @@ While a new token could be generated for an existing user, it is recommended tha
 represent the Octopus interactions.
 
 To do this, the following must be performed:
+
 1. Create a new user in Argo CD
 2. Create RBAC policies to allow the new user read-access to required resources
 3. Generate an authentication token for the new user
 
 ## Create a new User
+
 To create a new user in Argo, you must update the `argocd-cm` configmap (typically in the argo-cd namespace).
 
-The following shows a configmap with a new user called `octopus` which is able to generate an apiKey, but cannot login
+The following shows a configmap with a new user called `octopus` which is able to generate an apiKey, but cannot log in
 via Argo's web-ui.
-```
+
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -41,22 +44,27 @@ data:
   accounts.octopus: apiKey
   accounts.octopus.enabled: "true"
 ```
+
 For more information see [Argo User docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/).
 
 The newly created account will appear in Argo's webUI under Settings --> Accounts.
 Alternatively, from the command line, the Argo CD Cli can be executed to confirm the user creation was successful:
-```
+
+```bash
 argocd account list
 ```
+
 Ensure the terminal output includes the `octopus` user, with an apiKey capability.
 
 ## Add Required Permissions
+
 With the user created, an RBAC policy must be created allowing the new user to access required data.
 
 The RBAC policies are stored within the `argocd-rbac-cm` configmap.
 
 The following shows an Octopus user which has read only access to all applications, cluster and log data.
-```
+
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -75,37 +83,55 @@ list for the connected Argo CD instance (as Octopus had insufficient permissions
 For more information see [Argo RBAC docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/).
 
 ## Generate Authentication Token
+
 There are two methods for creating an new authentication tokens in ArgoCD:
+
 1. Via the webUI under Settings --> Accounts --> octopus
 2. Via the `Argo CD Cli` tool.
 
 To generate the authentication token for Octopus via the `Argo CD CLI` tool:
+
 1. Login as a user with permission to create API Keys:
-```
-argocd account login <your argo web ui>
-```
-You will be prompted for a username and password - select a user with the apiKey-creation capability.
+
+    ```bash
+    argocd account login <your argo web ui>
+    ```
+
+    You will be prompted for a username and password - select a user with the apiKey-creation capability.
+
 2. Create the API token for the Octopus user by executing:
-```
-argocd account generate-token --account octopus
-```
-The authentication token will be echoed to the terminal, and must be copied into the Gateway's installation mechanism (either
+
+    ```bash
+    argocd account generate-token --account octopus
+    ```
+
+    The authentication token will be echoed to the terminal, and must be copied into the Gateway's installation mechanism (either
 the Octopus UI, or helm installation).
 
 For more information see see [Argo CD Cli docs](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
 
 ## Verify Permissions
+
 To ensure the octopus user has the correct permissions, the following argocd cli commands can be executed:
 
-* ```argocd account can-i --auth-token <octopus-apikey> get clusters '*'```
+```bash
+argocd account can-i --auth-token <octopus-apikey> get clusters '*'
+```
 
-* ```argocd account can-i --auth-token <octopus-apikey> get applications '*'```
+```bash
+argocd account can-i --auth-token <octopus-apikey> get applications '*'
+```
 
-* ```argocd account can-i --auth-token <octopus-apikey> get logs '*/*'```
+```bash
+argocd account can-i --auth-token <octopus-apikey> get logs '*/*'
+```
 
 These commands should all respond `yes`.
 
 To confirm the account's access is limited, execute:
-* ```argocd account can-i --auth-token <octopus-apikey> delete applications '*'```
+
+```bash
+argocd account can-i --auth-token <octopus-apikey> delete applications '*'
+```
 
 Which should respond `no`.

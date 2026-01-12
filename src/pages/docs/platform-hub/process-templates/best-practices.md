@@ -98,7 +98,7 @@ A large all-in-one template requires significant complexity to account for multi
 2. More use cases are encountered and additional steps are added.  Steps solely focused on business logic and creating output variables become the norm.  
 3. Conditional run conditions for multiple steps become the default.  The template becomes very brittle as people need to “hold it just right” for everything to work.  
 4. Conditional steps start to fail randomly, or steps are skipped randomly because of a configuration change.  
-5. Consumers are forced to update the templates repeatedly to fix the ever growing list of bugs.  
+5. Consumers are forced to update the templates repeatedly to fix the ever-growing list of bugs.  
 6. Consumers start asking for the ability to cherry-pick steps when running the template.
 
 Eventually, the template becomes unusable, and users want a complete rewrite or ask how they can get out of using the templates.

@@ -7,7 +7,7 @@ description: How to add Artifactory as an Octopus Deploy feed for use in Docker 
 navOrder: 20
 ---
 
-Artifactory offers both self hosted and cloud instances, both of which are capable of hosting [Docker registries](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-container-registry). The process for adding a Docker registry for either type is the same.
+Artifactory offers both self-hosted and cloud instances, both of which are capable of hosting [Docker registries](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-container-registry). The process for adding a Docker registry for either type is the same.
 
 ## Adding Artifactory as an Octopus External Feed
 

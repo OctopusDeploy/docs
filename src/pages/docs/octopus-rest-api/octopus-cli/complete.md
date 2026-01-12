@@ -7,7 +7,7 @@ description: Supports command line auto completion.
 navOrder: 100
 ---
 
-Supports command line auto completion.
+Supports command line auto-completion.
 
 **complete options**
 

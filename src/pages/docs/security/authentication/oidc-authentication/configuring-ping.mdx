@@ -1,20 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-10
-modDate: 2025-11-10
+modDate: 2025-12-10
 title: Configuring Ping Identity
 description: How to configure Octopus Deploy and Ping Identity to authenticate and identify users with OpenID Connect authentication.
 navTitle: Ping Identity
-navSection: OpenID Connect
-navOrder: 5
+navOrder: 8
 ---
 import AdminUser from 'src/shared-content/installation/admin-user.include.md';
-
-:::div{.info}
-Support for OIDC authentication is currently being rolled out to Octopus Cloud customers.
-
-It will be included in the **Octopus 2025.4** release for self-hosted customers.
-:::
 
 Authentication using [Ping Identity](https://www.pingidentity.com/en.html), a cloud-based identity management service.
 
@@ -109,7 +102,7 @@ If you already have Octopus user accounts and you want to enable external authen
 
 If you are having difficulty configuring Octopus to authenticate with Ping Identity, check your [server logs](/docs/support/log-files) for warnings.
 
-### Double and triple check your configuration
+### Double- and triple-check your configuration
 
 Unfortunately security-related configuration is sensitive to everything. Make sure:
 

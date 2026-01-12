@@ -228,7 +228,7 @@ When configuring ConfigMap and Secret volumes types, an optional Default Mode ca
 
 **Note:** Kubernetes converts and stores Octal permission values to Decimals when applying. Other areas of Octopus UI will reflect this conversion, but editing remains in the more broadly adopted Octal format.
 
-Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
+Kubernetes provides a wide range of Volume resource types. The common, cloud-agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
 #### Common values
 
@@ -469,7 +469,7 @@ Each Volume Mount requires a unique `Name`.
 
 The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/my-app/config`.
 
-The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
+The `Sub Path` field is optional, and can be used to mount a subdirectory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
 
 ```
  - webserver

@@ -38,12 +38,12 @@ You should now be ready to deploy Docker containers to your Ubuntu machine using
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
-1. Go to **Library ➜ External feeds ➜ Add Feed**.
+1. Go to **Deploy ➜ Manage ➜ External Feeds ➜ Add Feed**.
 2. For *Feed Type*, select **Docker Container Registry**.
 3. Set the *Name* to something meaningful like **DockerHub**.
 4. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io)**.
 5. Since the registry is accessible from both the Octopus Server and the Linux deployment target using the same URL, we can leave the *RegistryPath* field blank.
-6. Similarly since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
+6. Similarly, since we will only be using **public official images** from Docker Hub we don't need to provide any credentials.
  *If you wanted to access any **private Docker images** you would need to provide your Docker Hub login details.*
 7. Click **Save and Test** to make sure the connection to the Docker Hub registry is working.
 ![](/docs/img/deployments/docker/images/add-dockerhub-feed.png)
@@ -62,7 +62,7 @@ In a newly created project, click **Add Step ➜ Create a Docker network**. This
 ![](/docs/img/deployments/docker/images/add-docker-network-step.png)
 
 :::div{.hint}
-**docker network support**
+**Docker network support**
 Keep in mind that as the Docker Network Octopus step simply wraps the `docker network` command, you will need to ensure your installed version of docker-engine supports this command. This was provided as of the [1.9.0 Docker Engine release](https://github.com/docker/docker/blob/master/CHANGELOG/#networking-10).
 
 For detailed information about Docker networking and additional arguments you can provide, we suggest reading the [Understand Docker container networks](https://docs.docker.com/network/) and the [network create](https://docs.docker.com/engine/reference/commandline/network_create/) Docker documentation.
@@ -88,7 +88,7 @@ Once Octopus creates the network in the previous step, it invokes the [docker ne
 
 :::div{.hint}
 **Container entry point**
-The command itself is arbitrary. What is important is that we start a process that keeps running to keep the container alive. Since Octopus starts these containers in [detached mode](https://docs.docker.com/engine/reference/run/#detached--d), the containers by default are configured to exit when the root process used to run the container exits. This ping command will be treated as the root process and by not stopping, means that the container itself will keep running until we tell it to stop (or the pinging itself fails and terminates). Typically you would be less likely to actually supply [this command argument](https://docs.docker.com/engine/reference/run/#cmd-default-command-or-options) through Octopus as you would probably supply a startup command or entry point in your [DockerFile](https://docs.docker.com/engine/reference/builder/) when you create your image.
+The command itself is arbitrary. What is important is that we start a process that keeps running to keep the container alive. Since Octopus starts these containers in [detached mode](https://docs.docker.com/engine/reference/run/#detached--d), the containers by default are configured to exit when the root process used to run the container exits. This ping command will be treated as the root process and by not stopping, means that the container itself will keep running until we tell it to stop (or the pinging itself fails and terminates). Typically, you would be less likely to actually supply [this command argument](https://docs.docker.com/engine/reference/run/#cmd-default-command-or-options) through Octopus as you would probably supply a startup command or entry point in your [DockerFile](https://docs.docker.com/engine/reference/builder/) when you create your image.
 :::
 8. Save the first container configuration and move on to creating the second container step.
 
@@ -98,7 +98,7 @@ The command itself is arbitrary. What is important is that we start a process th
 
 ### Step 3: Creating container 2 {#step3-create-container2}
 
-Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a docker network.
+Now we will create a second container, exactly the same as the first using busybox, but this container will connect to the first container to demonstrate how containers can communicate in a Docker network.
 
 1. Create a new Run Docker Container step (very much like the first one, but notice some subtle differences):
     * Set the *Name* to **Second Server**.
@@ -151,7 +151,7 @@ echo "Second Server Logs: " $(docker logs #{Octopus.Action[Second Server].Output
 
 :::div{.hint}
 **Advanced variable parsing and inspection**
-Note that to access the IP address of the two containers we are using the results of the inspect information that is extracted right after they are created. This also means that if your container configuration changes after they were created, the inspect information may be outdated. In addition since containers can be added to multiple networks, to get the IP address corresponding to the network we have created, we also need to index the network using an inner variable that resolves to the network name.
+Note that to access the IP address of the two containers we are using the results of the inspect information that is extracted right after they are created. This also means that if your container configuration changes after they were created, the inspect information may be outdated. In addition, since containers can be added to multiple networks, to get the IP address corresponding to the network we have created, we also need to index the network using an inner variable that resolves to the network name.
 
 To see the full results of the inspect command try echoing out the variable just up to the *Inspect* section (i.e. `#{Octopus.Action[First Server].Output.Docker.Inspect}` ). This will return a large JSON blob that the variable parser, [Octostache](https://github.com/OctopusDeploy/Octostache), is [now able to traverse.](https://octopus.com/blog/octostache-json-formatting)
 :::
@@ -185,7 +185,7 @@ Looking at the results of a deployment you will see some logging indicating the 
 **Having problems deploying to Docker?**
 Usually this will come down to problems with the Octopus Account you configured accessing the Docker daemon with messages like this:
 
-`Cannot connect to the Docker daemon. Is the docker daemon running on this host?`
+`Cannot connect to the Docker daemon. Is the Docker daemon running on this host?`
 
 For steps to grant the Octopus Account the ability to manage the Docker daemon, refer to the [Docker post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
 :::
@@ -202,7 +202,7 @@ The Docker equivalent of the "Package Acquisition" phase involves retrieving the
 ![](/docs/img/deployments/docker/images/acquire-package-steps.png)
 :::
 
-When creating a network or container, the name and Id as simply echoed to the standard logs. The verbose logs will show the docker version on the target, the full docker command being called and if successful, the results of the inspect command that are passed to an output variable.
+When creating a network or container, the name and Id as simply echoed to the standard logs. The verbose logs will show the Docker version on the target, the full Docker command being called and if successful, the results of the inspect command that are passed to an output variable.
 
 :::figure
 ![](/docs/img/deployments/docker/images/first-and-second-server-task-output.png)

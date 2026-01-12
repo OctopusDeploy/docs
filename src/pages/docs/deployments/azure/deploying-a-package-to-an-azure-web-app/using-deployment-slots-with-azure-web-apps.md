@@ -21,7 +21,7 @@ Deployment Slots are only available to Azure Web Apps running in Standard or Pre
 ## Walk-Through {#UsingDeploymentSlotsWithAzureWebApps-Walk-Through}
 
 Here we will give an example of how to setup a Blue-Green deployment for an Azure Web App using Deployment Slots.
-The scripts below assume you have a variable named 'WebSite' that contains the name of your Azure Web Site and 'ResourceGroup' that contains the Azure Resource Group Name.
+The scripts below assume you have a variable named 'WebSite' that contains the name of your Azure Web App and 'ResourceGroup' that contains the Azure Resource Group Name.
 
 ### Step 1: Create an Azure Web App Deployment Target
 

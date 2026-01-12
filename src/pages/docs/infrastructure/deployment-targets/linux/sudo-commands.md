@@ -70,7 +70,7 @@ Defaults: !requiretty
 ```
 
 Alternatively you can make this configuration more precise by targeting specific users or groups as outlined at [How to disable requiretty for a single command in sudoers](http://unix.stackexchange.com/questions/79960/how-to-disable-requiretty-for-a-single-command-in-sudoers).
-(By default the Ubuntu does not contain this configuration and this modification should not be required)
+(By default, the Ubuntu does not contain this configuration and this modification should not be required)
 
 :::div{.problem}
 
@@ -80,7 +80,7 @@ Ideally your Octopus Deploy SSH endpoint should be configured with a special use
 
 ## Different Distributions use Different Conventions
 
-While the above instructions should work on common platforms like Ubuntu or RedHat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many Linux based distributions, some of which have their own unique way of doing things. For this reason, we cannot guarantee that these instructions will work in every case.
+While the above instructions should work on common platforms like Ubuntu or RedHat, you may need to double-check the details for specific instructions relating to SSH authentication on target operating system. There are many Linux based distributions, some of which have their own unique way of doing things. For this reason, we cannot guarantee that these instructions will work in every case.
 
 ## Learn more
 

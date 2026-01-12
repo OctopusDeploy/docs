@@ -444,9 +444,9 @@ The name of the Trigger that created the deployment. It is possible for a deploy
 
 `Octopus.Deployment.WorkerLeaseCap`
 
-This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default, this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
 
-Example: `1` - achieves a similar effect to round robin.  
+Example: `1` - achieves a similar effect to round-robin.  
 Example: `5` - a balance between reducing package transfer and distributing load.
 
 Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
@@ -811,7 +811,7 @@ Example: *teams-123,teams-124*
 
 `Octopus.Action.MaxParallelism`
 
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
+The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally, you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
 
 **Note:** Some built-in steps have their own concurrent limit and will ignore this value if set.
 
@@ -1456,7 +1456,7 @@ Example: 3
 
 `Octopus.Action.MaxParallelism`
 
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
+The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally, you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
 
 Example: *5*
 
@@ -1493,7 +1493,7 @@ Example: True
 
 `Octopus.Action.PowerShell.CustomPowerShellVersion`
 
-If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.
+If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell Core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.
 
 Example: 2.0
 
@@ -1535,9 +1535,9 @@ Example: `c:\temp\octopus-debug`
 
 `Octopus.Deployment.WorkerLeaseCap`
 
-This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
+This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default, this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
 
-Example: `1` - achieves a similar effect to round robin.  
+Example: `1` - achieves a similar effect to round-robin.  
 Example: `5` - a balance between reducing package transfer and distributing load.
 
 Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.

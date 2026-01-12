@@ -31,7 +31,7 @@ The scheduled task's name for the above will be **Octopus Watchdog Tentacle**.
 
 :::div{.hint}
 **Tips:**
-- By default the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
+- By default, the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
 - If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
 
 - To specify only the default instance, use the name **Tentacle**. For example:
@@ -56,7 +56,7 @@ If you have scheduled the watchdog to monitor all instances on a server but you 
 
 ### Recreating the Watchdog {#ServiceWatchdog-RecreatingTheWatchdog}
 
-As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all of the other settings you can easily combine the delete and create, for example
+As mentioned above, running create again can be used to change the instances and interval for the watchdog, but all other settings will remain unchanged.  If you do want to reset all other settings you can easily combine the delete and create, for example
 
 ```powershell
 Tentacle.exe watchdog --delete --create --instances * --interval 10
@@ -70,7 +70,7 @@ Octopus Server and Tentacle will generally endeavor to write all log entries to 
 The default log file location is therefore **C:\Windows\System32\config\systemprofile\AppData\Local\Octopus\Logs**
 :::
 
-This is only for information related to which instances the watchdog attempted to start, and any errors it received while trying to start the windows services.  Any instance specific errors will still be located in the instance's log file.
+This is only for information related to which instances the watchdog attempted to start, and any errors it received while trying to start the Windows services.  Any instance specific errors will still be located in the instance's log file.
 
 ### Tentacle vs Octopus Server {#ServiceWatchdog-TentacleVsOctopusServer}
 

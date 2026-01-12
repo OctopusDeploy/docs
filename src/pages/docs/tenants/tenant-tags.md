@@ -11,7 +11,7 @@ navOrder: 40
 
 :::div{.hint}
 This page covers how to use tags with tenants. For general information about tag sets, types, and scopes, see [Tag sets](/docs/tenants/tag-sets).
-From Octopus Cloud version **2025.4.3897** we've introduced **SingleSelect** and **FreeText** tag set types. This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
+From Octopus Cloud version **2025.4.3897** we've introduced **SingleSelect** and **FreeText** tag set types.
 :::
 
 Tenant tags allow you to:
@@ -23,7 +23,7 @@ Tenant tags allow you to:
 - Scope project variables to tenant tags.
 - Design a multi-tenant hosting model - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 - Design a multi-tenant deployment process for SaaS applications, regions and more - for further details, see our [guides](/docs/tenants/guides/#guides).
-- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section. 
+- Control which releases can be deployed to tenants using [channels](/docs/releases/channels/) - read more in our [tenant lifecycle](/docs/tenants/tenant-lifecycles) section.
 
 ## Tag-based filters {#tag-based-filters}
 
@@ -38,7 +38,7 @@ When filtering tenants, Octopus will combine tags within the same tag set using 
 Let's take a look at an example:
 
 :::figure
-![](/docs/img/tenants/images/tag-based-filters.png)
+![A dialog showing a Tenant preview when selecting different tenant tags](/docs/img/tenants/images/tag-based-filters.png)
 :::
 
 In this example Octopus will execute a query like the one shown below:
@@ -55,6 +55,7 @@ When paired with a well-structured tag design, this logic will enable you to tai
 - Only specify a tenant "by name" (explicitly) if you absolutely want that tenant included in the result, otherwise leave it blank
 - A filter with tags in the same tag set will be more inclusive since they are combined using **`OR`**
 - A filter with tags across different tag sets will become more reductive since they are combined using **`AND`**
+
 :::
 
 ## Referencing tenant tags {#referencing-tenant-tags}
@@ -64,7 +65,7 @@ If you want to use tenant tags to automate Octopus Deploy you should use the **c
 Consider an example deploying a release to the tenants tagged with the **Alpha** tag in the **Release Ring** tag set.
 
 :::figure
-![](/docs/img/tenants/images/release-ring.png)
+![A tenant tag of Alpha from the Release Ring tag set is shown highlighting how you should reference it in automation scenarios](/docs/img/tenants/images/release-ring.png)
 :::
 
 ```powershell
@@ -95,7 +96,7 @@ First, create a tag set called **Upgrade Ring** with tags that allow each tenant
 Learn more about [creating and managing tag sets](/docs/tenants/tag-sets#managing-tag-sets).
 
 :::figure
-![](/docs/img/tenants/images/multi-tenant-upgrade-ring.png)
+![A dialog showing the creation of a tenant tag set called Upgrade Ring](/docs/img/tenants/images/multi-tenant-upgrade-ring.png)
 :::
 
 ### Step 2: Configure a test tenant {#deploy-step-2-configure-test-tenant}
@@ -108,16 +109,16 @@ Either create a new tenant or configure an existing tenant. Tag your test tenant
 
 ### Step 4: Deploy {#deploy-step-4-deployment}
 
-Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy version **1.0.1** to all of the tenants tagged with **Tester** who are connected to the **Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios.
+Now it's time to deploy using tenant tags as a way to select multiple tenants easily. In this example, we will deploy version **1.0.1** to all tenants tagged with **Tester** who are connected to the **Test** environment. You can use multiple tags and complex tag queries to achieve other interesting scenarios.
 
 :::figure
-![](/docs/img/tenants/images/multi-tenant-deploy-test.png)
+![A screenshot showing the deployment preview when selecting tenants tagged with Tester](/docs/img/tenants/images/multi-tenant-deploy-test.png)
 :::
 
 You can also use the project overview to deploy to groups of tenants by grouping the dashboard, selecting a release, and clicking the **Deploy all...** button.
 
 :::figure
-![](/docs/img/tenants/images/multi-tenant-deploy-all.png)
+![A screenshot showing how you can use the project dashboard to select tenants to deploy using a tenant tag](/docs/img/tenants/images/multi-tenant-deploy-all.png)
 :::
 
 ## Learn more

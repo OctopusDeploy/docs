@@ -255,7 +255,7 @@
 
 /docs/deployments/databases/ @OctopusDeploy/team-modern-deployments
 
-# updates to the deployments docker section are reviewed by team-modern-deployments
+# updates to the deployments Docker section are reviewed by team-modern-deployments
 
 /docs/deployments/docker/ @OctopusDeploy/team-modern-deployments
 

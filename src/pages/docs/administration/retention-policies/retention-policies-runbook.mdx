@@ -1,0 +1,39 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-12-05
+modDate: 2025-12-05
+title: Configuring runbook retention policy
+icon: fa-solid fa-bug
+description: How to configure run retention policy for runbooks
+---
+
+## Set runbook retention policies \{#set-runbook-retention-policies}
+
+Under **Project ➜ Runbooks** you select the Runbook you want to define or edit your retention policy for. Retention settings for the runbook is located under **Runbook ➜ Settings ➜ Retention Policy**:
+:::figure
+![](/docs/img/administration/retention-policies/images/runbook-retention-policy.png)
+:::
+
+In Octopus Server, you can keep all runbook runs, or keep a limited number of runbook runs per environment.
+
+If you select _"Keep a limited number"_ you can either specify the number of runs per environment to keep, or specify the number of days to keep runbook runs. The runbook runs that are kept are the most recently created runbook runs.
+
+By default, the runbook retention policies are set to keep 100 runs.
+
+### Updating the default retention policy
+
+:::div{.info}
+From Octopus version 2025.4, the default runbook retention policy for a space can be customized. This feature is being rolled out gradually behind a feature toggle. If you would like to request this functionality early, please contact [support](https://octopus.com/support).
+:::
+
+:::figure
+![](/docs/img/administration/retention-policies/images/centralized-retention-runbook.png)
+:::
+
+You can update the default retention settings used by runbooks under **Manage ➜ Retention ➜ Runbook Retention**.
+
+The default retention policy for a space can be set to keep all runbook runs or keep a limited number of runbook runs per environment, like you can for the individual runbook retention policies.
+
+:::div{.info}
+Updating this retention policy will update all Runbooks in the space that is set to _"Use default retention policy"_.
+:::
