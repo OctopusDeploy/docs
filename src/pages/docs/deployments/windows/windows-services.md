@@ -17,7 +17,7 @@ To deploy a Windows Service, add a *Deploy a Windows Service* step. For informat
 ## Configuring the step {#WindowsServices-ConfiguringTheStep}
 
 :::figure
-![Windows service configuration](/docs/deployments/windows/images/windows-service-configuration.png)
+![Windows service configuration](/docs/img/deployments/windows/images/windows-service-configuration.png)
 :::
 
 ### Step 1: Select a package {#WindowsServices-Step1-SelectAPackage}
@@ -40,7 +40,7 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowDoesOctopusActuallyDeployMyWindowsService?}
 
-Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
+Out of the box, Octopus will do the right thing to deploy your Windows Service, and the conventions we have chosen will eliminate a lot of problems with file locks, and leaving stale files behind. By default, Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
 :::div{.success}
 Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.
@@ -174,7 +174,7 @@ To configure the Windows Service to use a Managed Service Account:
 3. Bind the **Custom account password** to an **empty value** to ensure no password is set for this account - after all, we want the password managed by the server, not us.
 
 :::figure
-![Windows service startup](/docs/deployments/windows/images/windows-service-startup.png)
+![Windows service startup](/docs/img/deployments/windows/images/windows-service-startup.png)
 :::
 
 :::div{.hint}

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-16
+modDate: 2025-06-13
 title: Managing Octopus subscriptions
 description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
 navOrder: 40
@@ -108,7 +108,7 @@ Invite a user to manage a subscription group and access all current and future s
 6. Click **Invite**.
 
 :::figure
-![Invite users to a subscription group in Control Center](/docs/getting-started/managing-octopus-subscriptions/images/subscription-group-access.png)
+![Invite users to a subscription group in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/subscription-group-access.png)
 :::
 
 #### Email invitation
@@ -135,10 +135,10 @@ Otherwise, they will first need to **Register** a new account using the email ad
 |              | Administrator            | Technical Manager              | Billing Manager         |
 | ------------ | ------------------------ | ------------------------------ | ----------------------- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview <br>Manage Configuration</br> Manage User Access | View Overview <br>Manage Billing</br> |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Administrators" team | “Octopus Managers” team | -  |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers" team | “Space Managers” team | -  |
 
 :::div{.hint}
-Octopus uses teams and user roles to manage permissions. The “Octopus Administrators” and “Octopus Managers” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+Octopus uses teams and user roles to manage permissions. The “Octopus Managers” and “Space Managers” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 :::
 
 </details>
@@ -177,7 +177,7 @@ Invite a user to access a specific subscription.
 6. Click **Invite**.
 
 :::figure
-![Invite users to a specific subscription in Control Center](/docs/getting-started/managing-octopus-subscriptions/images/direct-access.png)
+![Invite users to a specific subscription in Control Center](/docs/img/getting-started/managing-octopus-subscriptions/images/direct-access.png)
 :::
 
 #### Email invitation \{#email-invitation}
@@ -197,13 +197,13 @@ Otherwise, they will first need to **Register** a new account using the email ad
 <details data-group="subscription-level">
 <summary>Cloud</summary>
 
-|              | Cloud Subscription Owner           | Cloud Subscription User         |
-| ------------ | ---------------------------------- | --------------------------------|
-| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers” team <div class="table-hint">By default, this team includes full permissions – a user can sign in and see and do everything.</div>| “Everyone” team  <div class="table-hint">By default, this team includes no permissions – a user can sign in but can’t see or do anything.</div> |
+|                             | Cloud Subscription Owner                 | Cloud Subscription User (Contributor)            | Cloud Subscription User (Base)                   |
+| --------------------------- | ---------------------------------------- | ------------------------------------------------ | ------------------------------------------------ |
+| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview | View Overview |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers” team <div class="table-hint">By default, the user has full permissions across all spaces.</div>| “Space Managers” team  <div class="table-hint">By default, the user has full permissions in the “Default” space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the “Default” space, the user will be added to the “Everyone” team.</div> | “Everyone” team  <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
 
 :::div{.hint}
-Octopus uses teams and user roles to manage permissions. The “Octopus Managers” and “Everyone” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+Octopus uses teams and user roles to manage permissions. The “Octopus Managers”, “Space Managers”, and “Everyone” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 :::
 
 </details>

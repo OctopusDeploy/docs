@@ -1,19 +1,27 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-12-01
 title: Bamboo
 description: Octopus Deploy and Bamboo can work together to make automated, continuous delivery easy.
 navOrder: 30
 ---
 
-The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
+:::div{.warning}
+As of December 2025 the Octopus Deploy add-on for Bamboo has reached end of life (EOL), in line with Atlassian's end of life timeline plans for [Data Center products](https://www.atlassian.com/software/bamboo/download-archives).
+
+Alternative features to flow artifacts from your CI system into Octopus are; [external feed triggers](/docs/projects/project-triggers/external-feed-triggers) and [Built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers).
+
+If you are an Atlassian Data Center user and Octopus customer and need help reach out to [Octopus Support](https://octopus.com/support).
+:::
+
+The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
 
 ## Getting started
 
 The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
-Note that while the command line tool package is largely self contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
+Note that while the command line tool package is largely self-contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
 To verify that the command line tool can be run, execute it from a terminal. When run with no arguments, the `Octo` executable will display a list of available commands.
 
@@ -79,7 +87,7 @@ For .NET applications you would typically be packing all application files like 
 Selecting the `Overwrite existing package` option means that any existing local packages will be overwritten. It is useful to select this option because it means that packages can be repacked without error if the Bamboo build plan is rerun.
 
 :::figure
-![Create a package](/docs/packaging-applications/build-servers/images/create-package.png)
+![Create a package](/docs/img/packaging-applications/build-servers/images/create-package.png)
 :::
 
 ## 3. Push the packages
@@ -101,7 +109,7 @@ Note that it is recommended that the package paths defined here are specific to 
 The `Overwrite mode` option can be used to control what should happen if the package already exists in the repository; the default behavior is to reject the new package being pushed (`FailIfExists`). You can override this behavior by using either the `OverwriteExisting` or `IgnoreIfExists` overwrite mode.
 
 :::figure
-![Push Package](/docs/packaging-applications/build-servers/images/push-package.png)
+![Push Package](/docs/img/packaging-applications/build-servers/images/push-package.png)
 :::
 
 ## 4. Create a release
@@ -130,10 +138,10 @@ It is recommended that this field be left blank, because the `Ignore existing re
 
 The `Ignore existing releases` option can be selected to skip the create release step if the release version already exists.
 
-Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
+Tick this option, as it allows builds to be rebuilt. Otherwise, rebuilds will attempt to recreate an existing environment and the step will fail.
 
 :::figure
-![Create Release](/docs/packaging-applications/build-servers/images/create-release.png)
+![Create Release](/docs/img/packaging-applications/build-servers/images/create-release.png)
 :::
 
 ## 5. Deploy a release
@@ -155,7 +163,7 @@ The `Environment(s)` field defines the [Octopus Deploy environments](/docs/infra
 The `Release Number` field defines the release version number to deploy. This should match the release number from the create release step i.e. `0.0.${bamboo.buildNumber}`.
 
 :::figure
-![Deploy release](/docs/packaging-applications/build-servers/images/deploy-release.png)
+![Deploy release](/docs/img/packaging-applications/build-servers/images/deploy-release.png)
 :::
 
 ## Promote a release (optional, and not recommended) 
@@ -184,7 +192,7 @@ This `Promote to` field defines the environment whose release will be promoted f
 
 ## Common configuration
 
-All of the Octopus Deploy tasks share a number of common configuration fields.
+All Octopus Deploy tasks share a number of common configuration fields.
 
 ### Octopus URL
 
@@ -200,7 +208,7 @@ The `Octopus CLI` field references a [Bamboo capability](https://confluence.atla
 Click the `Add new executable` link to specify the location of the command line tool. The `Executable label` can be anything you want, and the `Path` is the full path to the command line tool executable file.
 
 :::figure
-![Add new executable](/docs/packaging-applications/build-servers/images/executable.png)
+![Add new executable](/docs/img/packaging-applications/build-servers/images/executable.png)
 :::
 
 ### Enable debug logging
@@ -241,7 +249,7 @@ For this reason it is recommended that the promote release task not be used as p
 
 ### Octopus command line tool failed to run in Linux
 
-The Octopus Command Line tool packages for Linux are relatively self contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
+The Octopus Command Line tool packages for Linux are relatively self-contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
 
 For example, in Centos 7 you might see this error:
 
@@ -261,7 +269,7 @@ sudo yum install libunwind libicu
 The Bamboo build logs show how the command line tool is run. Look for log messages like this:
 
 ```
-running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................QGWUHKO --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
+running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................XXXXXX --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
 ```
 
 This is the command that was run to perform the actual interaction with the Octopus Server, with the exception of the

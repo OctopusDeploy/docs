@@ -8,10 +8,10 @@ description: Upload a X.509 certificate to be managed by Octopus Deploy
 navOrder: 10
 ---
 
-To add a certificate to Octopus, navigate to **Deploy ➜ Certificates ➜ Add Certificate**
+To add a certificate to Octopus, navigate to **Deploy ➜ Manage ➜ Certificates ➜ Add Certificate**
 
 :::figure
-![Add certificate](/docs/deployments/certificates/images/add-certificate.png)
+![Add certificate](/docs/img/deployments/certificates/images/add-certificate.png)
 :::
 
 When selecting your certificate file for upload, it must be one of the [supported file-formats](/docs/deployments/certificates).

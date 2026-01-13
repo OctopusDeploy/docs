@@ -18,10 +18,10 @@ The Generic OpenId Connect Account generates a JWT that can be used for [OpenID 
 ## Generic OpenId Connect Account
 Google Cloud steps can use a Generic OpenId Connect Account for authentication.
 
-1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **Generic Oidc Account**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **Generic Oidc Account**.
 1. Add a memorable name for the account.
 1. Set the [Deployments and Runbooks](/docs/infrastructure/accounts/openid-connect#subject-key-parts) subject generator
-1. set an audience, this should match the audience set on the Workload Identity Federation. By default this is `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}`
+1. set an audience, this should match the audience set on the Workload Identity Federation. By default, this is `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}`
 1. Click the **SAVE**, to test the account set it as the account on a gcloud script step.
 
 See the [Google cloud documentation](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) for instructions on creating and configuring a Workload Identity Federation.
@@ -49,7 +49,7 @@ The default audience format is `https://iam.googleapis.com/projects/PROJECT_NUMB
 
 Google Cloud steps can use a Google Cloud Account for authentication.
 
-1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **Google Cloud Account**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **Google Cloud Account**.
 1. Add a memorable name for the account.
 1. Provide a description for the account.
 1. Upload the JSON key file.

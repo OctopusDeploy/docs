@@ -11,7 +11,7 @@ Tasks in the Octopus extension use the [Octopus CLI](/docs/octopus-rest-api/octo
 1. Use the tool installer task, **Octopus CLI Installer** as part of a build pipeline definition
 2. Install the Octopus CLI into a [self-hosted agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents#install)
 
-Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build. This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to pre-load custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
+Using the tool installer task **Octopus CLI Installer** in a build pipeline definition is suitable for installing the Octopus CLI just in time for a build. This is required for builds executed on [Microsoft-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted), which do not offer the ability to preload custom software. Alternatively, the Octopus CLI may be installed on a self-hosted agent and expressed as a capability. Once configured, a pipeline may express demands of agents to ensure that the Octopus CLI is available when executing builds.
 
 ## Using the Octopus CLI Installer
 
@@ -24,7 +24,7 @@ Currently, the Octopus extension ships two versions of the **Octopus CLI Install
 In the Classic editor, version 4 of the **Octopus CLI Installer** task has a required field, `Octopus CLI Version` that is used to specify the version of the Octopus CLI to be installed:
 
 :::figure
-![Octopus CLI Installer v4 in Azure Pipelines](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/octopus-cli-installer-v4.png)
+![Octopus CLI Installer v4 in Azure Pipelines](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/octopus-cli-installer-v4.png)
 :::
 
 The accepted values for this field are:
@@ -52,7 +52,7 @@ The **Octopus CLI Installer** task may be used in a YAML-based build pipeline. U
 In the Classic editor, version 5 of the **Octopus CLI Installer** task has a required field, `Octopus CLI Version` that is used to specify the version of the Octopus CLI to be installed:
 
 :::figure
-![Octopus CLI Installer v5 in Azure Pipelines](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/octopus-cli-installer-v5.png)
+![Octopus CLI Installer v5 in Azure Pipelines](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/octopus-cli-installer-v5.png)
 :::
 
 This field accepts a limited set of values, specified as `MAJOR.MINOR.PATCH` with wildcard support that adheres to [Semantic Versioning](https://semver.org/) rules. For example:
@@ -106,7 +106,7 @@ Tasks in version 5 of the Octopus extension now assert [demands](https://docs.mi
 These task demands were introduced and mandated in version 5 to ensure the availability of the Octopus CLI.
 
 :::figure
-![Self-Hosted Agent User Capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/self-hosted-agent-user-capability.png)
+![Self-Hosted Agent User Capability](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/self-hosted-agent-user-capability.png)
 :::
 
 If this user-defined capability described above is not defined for self-hosted agents then jobs will fail with the following error:

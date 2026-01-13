@@ -15,7 +15,11 @@ import UpgradeHighAvailability from 'src/shared-content/upgrade/upgrade-high-ava
 import UpgradeRestoreBackup from 'src/shared-content/upgrade/upgrade-restore-backup.include.md';
 import UpgradeFindPreviousVersion from 'src/shared-content/upgrade/upgrade-find-previous-version.include.md';
 
-A minor release of Octopus Deploy is when the second number in the version is incremented.  For example, 2020.4.x to 2020.5.x.  A patch release is when the third number is incremented, from 2020.4.1 to 2020.4.2.
+A minor release of Octopus Deploy is when the second number in the version is incremented.  For example, 2025.1.x to 2025.2.x.  A patch release is when the third number is incremented, from 2025.2.1 to 2025.2.2.
+
+## System Integrity Check
+
+Before performing any upgrade steps, we highly recommend performing a [System Integrity Check](/docs/administration/managing-infrastructure/diagnostics) on your live instance database. This is so we can check that the Database Schema is in the expected condition for the upgrade. If the integrity check passes, you are good to start the upgrade process. If it fails, please contact [support](https://octopus.com/support) with the [raw output of the task](/docs/support/get-the-raw-output-from-a-task), and we can get that fixed for you.
 
 ## Prep Work
 

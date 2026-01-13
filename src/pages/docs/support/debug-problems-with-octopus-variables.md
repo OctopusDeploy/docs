@@ -18,7 +18,7 @@ Sometimes a variable used during deployment may have a different value from the 
     * Click the **Update variables** button - beware this will update **all** variables in the Snapshot to the latest values.
 
 :::figure
-![](/docs/support/images/3278466.png)
+![](/docs/img/support/images/3278466.png)
 :::
 
 ## Check the variable value in the all variables tab {#check-variable-value-in-all-variables-tab}
@@ -27,11 +27,11 @@ Sometimes a variable used during deployment may have a different value from the 
 2. Investigate the variables from all possible sources for the project including the project itself, [variable sets](/docs/projects/variables/library-variable-sets/), and [tenants](/docs/tenants).
 
 :::figure
-![](/docs/support/images/5865680.png)
+![](/docs/img/support/images/5865680.png)
 :::
 
 :::div{.success}
-Did you know you can sort filter all of the variables grids? Click **Show Advanced filters** and select your filter type.
+Did you know you can sort filter all variables grids? Click **Show Advanced filters** and select your filter type.
 :::
 
 ## Write the variables to the deployment log {#write-variables-to-deployment-log}
@@ -49,7 +49,7 @@ This will log the variables available at the beginning of each step in the deplo
 It should look like this. You can have as many extra variables as you want besides these two.
 
 :::figure
-![](/docs/support/images/evaluatedvars.png)
+![](/docs/img/support/images/evaluatedvars.png)
 :::
 
 3. **Create a new release** of the project or **Update the variable snapshot** for the release as shown above.

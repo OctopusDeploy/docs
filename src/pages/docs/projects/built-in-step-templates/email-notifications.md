@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-03-10
+modDate: 2025-08-11
 title: Email notification step
 icon: fa-solid fa-envelope
 description: Email notification steps allow you to notify team members and stakeholders of deployment activities.
@@ -34,13 +34,13 @@ To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set th
 Click **Save and test** to save the SMTP configuration and verify the values are valid:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/smtp-configuration.png)
+![](/docs/img/projects/built-in-step-templates/images/smtp-configuration.png)
 :::
 
 You will be prompted for an email address to send a test email to. Enter a test email address and click **Ok**. A *Send test email* task will start to verify your SMTP Configuration:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/smtp-verify-task.png)
+![](/docs/img/projects/built-in-step-templates/images/smtp-verify-task.png)
 :::
 
 ### Google OAuth 2.0 Credentials
@@ -68,6 +68,7 @@ Optionally for Microsoft SMTP authentication, you can use Federated Credentials 
 | Property           | Description                            | Example |
 | ------------------ | ------------------------------------   | ----------- |
 | Audience           | The audience set on the Federated Credential | Defaults to `api://AzureADTokenExchange` |
+| Permission Scopes  | The scopes to be included in the authentication token | Defaults to `https://outlook.office365.com/.default` |
 | Client ID          | The Azure Active Directory Application ID/Client ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | Tenant ID          | The Azure Active Directory Tenant ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
@@ -82,9 +83,15 @@ For OAuth 2.0 you will need to:
       - The Audience value can be left as the default, or set to a custom value if needed.
     - Set the `Audience` configuration property with the value from your federated credential.
 3. Configure Microsoft Exchange SMTP settings.
-    - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-entra-ad-application).
+    - Add SMTP permissions for your Entra AD application, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#add-the-pop-imap-or-smtp-permissions-to-your-microsoft-entra-application).
+      - For Exchange Online access, ensure you have added the `SMTP.SendAsApp` Office 365 Exchange Online application permission and granted admin consent.
     - Register your application's service principal in Exchange, see [documentation](https://learn.microsoft.com/en-gb/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#register-service-principals-in-exchange).
 
+:::div{.hint}
+From 2025.3, you can specify custom Permission Scopes to be included in the OAuth 2.0 authentication token.
+
+This supports the use of Azure Communication Services (ACS). To use this ensure your SMTP Username in Azure matches your specified `From Address`. More information can be found in the [ACS documentation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-smtp/send-email-smtp-oauth).
+:::
 
 
 ## Add an email step
@@ -151,7 +158,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of y
 The output of the template will be an HTML email like:
 
 :::figure
-![](/docs/projects/built-in-step-templates/images/email-output.png)
+![](/docs/img/projects/built-in-step-templates/images/email-output.png)
 :::
 
 ### Step status summary template

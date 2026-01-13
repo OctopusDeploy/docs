@@ -14,7 +14,7 @@ Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to 
 - [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation) allows you to create or update a CloudFormation stack. It offers more flexibility than the UI step.
 - [Delete an AWS CloudFormation stack](/docs/deployments/aws/removecloudformation) deletes existing CloudFormation stacks.
 - [Upload a package to an AWS S3 bucket](/docs/deployments/aws/s3) allows you to upload files and packages to S3 buckets.
-- [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts) runs a custom script with AWS credentials pre-loaded.
+- [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts) runs a custom script with AWS credentials preloaded.
 
 :::div{.hint}
 **Where do AWS Steps execute?**
@@ -28,7 +28,7 @@ The [Deploy Amazon ECS Service](/docs/deployments/aws/ecs) step makes it easier 
 The step guides you through the configuration of the task definition and service with built-in validation. Octopus generates and executes the CloudFormation templates, so you don't have to write any YAML or JSON.
 
 :::figure
-![A rocket links the Deploy Amazon ECS Service step in Octopus with tasks performed by Octopus in AWS to deploy the Octo Pet Shop website. Octopus generated the CloudFormation template and created and deployed the CloudFormation stack.](/docs/deployments/aws/octopus-ecs-integration-deploy-to-fargate.png)
+![A rocket links the Deploy Amazon ECS Service step in Octopus with tasks performed by Octopus in AWS to deploy the Octo Pet Shop website. Octopus generated the CloudFormation template and created and deployed the CloudFormation stack.](/docs/img/deployments/aws/octopus-ecs-integration-deploy-to-fargate.png)
 :::
 
 With the UI step, you can:
@@ -51,5 +51,5 @@ Flexible, [role-based security](/docs/security/users-and-teams/user-roles/) allo
 
 ## Learn more
 
-- [AWS blog posts](https://octopus.com/blog/tag/aws)
+- [AWS blog posts](https://octopus.com/blog/tag/aws/1)
 - [AWS runbook examples](/docs/runbooks/runbook-examples/aws)

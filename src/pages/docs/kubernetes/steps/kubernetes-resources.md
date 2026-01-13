@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-11-07
+modDate: 2025-10-29
 title: Configure and apply Kubernetes resources
 description: Configure and apply Kubernetes resources.
 navOrder: 50
@@ -224,7 +224,11 @@ The volumes can reference externally managed storage, such as disks hosted by a 
 
 The volumes can also reference ConfigMap and Secret resources created by the step. When created by the step, new ConfigMap and Secret resources are always created as new resources in Kubernetes with each deployment and their unique names are automatically referenced by the Deployment resource. This ensures that deployments see the data in their associated ConfigMap or Secret resource, and new deployments don't leave old deployments in an undefined state by overwriting their data. Once a deployment has successfully completed, old Secret and ConfigMap resources created by the step will be removed.
 
-Kubernetes provides a wide range of Volume resource types. The common, cloud agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
+When configuring ConfigMap and Secret volumes types, an optional Default Mode can be specified to tell Kubernetes what file permissions to apply to the mounted volume. These are specified in a standard Unix-style octal format. E.g. `0644`
+
+**Note:** Kubernetes converts and stores Octal permission values to Decimals when applying. Other areas of Octopus UI will reflect this conversion, but editing remains in the more broadly adopted Octal format.
+
+Kubernetes provides a wide range of Volume resource types. The common, cloud-agnostic Volume resource types can be configured directly by Octopus. Other Volume resource types are configured as raw YAML.
 
 #### Common values
 
@@ -465,7 +469,7 @@ Each Volume Mount requires a unique `Name`.
 
 The `Mount Path` is the path in the Container resource file system where the Volume resource will be mounted e.g. `/data` or `/etc/my-app/config`.
 
-The `Sub Path` field is optional, and can be used to mount a sub directory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
+The `Sub Path` field is optional, and can be used to mount a subdirectory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
 
 ```
  - webserver
@@ -715,7 +719,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/pod-annotations.png)
+![](/docs/img/deployments/kubernetes/deploy-container/pod-annotations.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -773,7 +777,7 @@ spec:
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/pod-annotation-deployed.png)
+![](/docs/img/deployments/kubernetes/deploy-container/pod-annotation-deployed.png)
 :::
 
 #### Deployment annotations
@@ -783,7 +787,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/deployments/kubernetes/deploy-container/deployment-annotation.png)
+![](/docs/img/deployments/kubernetes/deploy-container/deployment-annotation.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -1049,7 +1053,7 @@ For example, to change the name assigned to the ConfigMap resource to include th
 
 ## Learn more
 
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)
 
 :::div{.hint}
 **Step updates**

@@ -15,7 +15,7 @@ This approach is only supported for self-hosted Octopus. For Octopus Cloud you'l
 ::::
 
 :::figure
-![](/docs/administration/reporting/images/sql.png)
+![](/docs/img/administration/reporting/images/sql.png)
 :::
 
 A few notes about accessing the table directly:
@@ -42,4 +42,4 @@ You may want to look at [enabling HTTP logging](/docs/administration/managing-in
 
 ## Learn more
 
-- [Reporting blog posts](https://octopus.com/blog/tag/reporting)
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting/1)

@@ -25,13 +25,13 @@ It's possible that scripts in your packages may make outbound requests; in this 
 The Octopus Server makes the following outbound requests:
 
 1. Pushing packages and deployment instructions, and checking the health, of Tentacles.
-2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories) that you configure.
+2. Downloading packages from the [external package repositories](/docs/packaging-applications/package-repositories) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
-8. Email address is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
+8. Email address and behavioral data is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
 
 ### Built-in step templates
 
@@ -44,7 +44,6 @@ From **Octopus 2022.1** some built-in step templates can be automatically update
 
 Our community contributed step template integration queries `library.octopus.com` for updates.
 
-## What information is included when Octopus checks for updates?
 ## What information is included when Octopus checks for updates?
 
 By default, Octopus will periodically check for new releases. You can opt-out of checking for updates by navigating to **Configuration ➜ Settings ➜ Updates** in Octopus.
@@ -76,4 +75,4 @@ In isolated/air-gapped scenarios without access to the internet, it may prove be
 - Dynamic Extensions
   - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --dynamicExtensionsEnabled=false`
 - In-App Messaging via Chameleon
-  - Please contact [support@octopus.com](mailto:support@octopus.com) for assistance disabling In-App Messaging
+  - Via the CLI [configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure): `Octopus.Server.exe configure --experiencesEnabled=false`

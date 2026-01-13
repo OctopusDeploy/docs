@@ -8,7 +8,7 @@ navOrder: 45
 hideInThisSection: true
 ---
 
-Syncing instances involves copying projects and all of the required scaffolding data between Octopus Deploy instances with different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.
+Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, targets, tenants, or even variable values.  Each instance has a separate database, storage, and URL.
 
 Keeping multiple instances in sync is a complex task involving dozens if not hundreds of decisions across all the projects.  This guide will walk you through suitable scenarios, unsuitable scenarios, tooling available, and how to design a syncing process.  
 
@@ -51,7 +51,7 @@ In talking to users, the primary reason for splitting an instance is due to perm
 Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
 
 ### Performance improvement
-The final reason we hear about is to "speed up the deployment."  Typically we hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
+The final reason we hear about is to "speed up the deployment."  We typically hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
     - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers) to reduce the amount of data to transfer.  
@@ -74,7 +74,7 @@ Do not split an instance and sync it for any of the following use cases.
 
 Syncing is not the same as cloning.  Cloning an instance will result in an exact replica (or copy) of data from the source.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the Server thumbprint and database master key.  Cloning is typically a one-time operation, such as standing up a new server.  
 
-Syncing instances involves copying projects and all of the required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.   
+Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.   
 
 ## Tools and features to avoid 
 
@@ -173,7 +173,7 @@ That complexity is further exacerbated by the fact that some data is required, f
 
 ### Data that must be an exact match
 
-The following items must be an exact match between your instances.  Otherwise you'll get missing data errors, corrupted projects, 400 bad requests or unexpected results from deployments or runbook runs.
+The following items must be an exact match between your instances.  Otherwise, you'll get missing data errors, corrupted projects, 400 bad requests or unexpected results from deployments or runbook runs.
 
 - Script Modules
 - Step Templates

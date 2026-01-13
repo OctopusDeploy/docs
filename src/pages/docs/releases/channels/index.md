@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-18
+modDate: 2025-10-28
 title: Channels
 icon: fa-solid fa-arrows-split-up-and-left
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
@@ -33,15 +33,41 @@ Channels are managed from the Projects page by selecting the specific project yo
 
 As you add more channels, you'll notice that they are arranged in alphabetical order on the channels page.
 
-## Create a new channel
+### Channel Types
+
+There are two types of channel:
+- Lifecycle channels: Releases in this channel will progress through the lifecycle defined for the channel.
+- Ephemeral Environment channels: Releases in this channel will be deployed to ephemeral environments. The environment will be provisioned automatically when it is first deployed to. A project can only have one ephemeral environment channel.
+
+## Create a new lifecycle channel
 
 1. From the Channels page, click on the **Add Channel** button.
-2. Give the channel a name and add a description. The channel name must be unique within the project.
-3. Select the [lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [lifecycle docs](/docs/releases/lifecycles) for information about creating new lifecycles.
-4. If you want to make this the default channel for the project, click the **Default channel** check-box.
-5. Design the [version rules](#version-rules) that will be used to enforce which versions of your packages are deployed to this channel.
+2. Select **Lifecycle** for the channel type
+3. Give the channel a name and add a description. The channel name must be unique within the project.
+4. Select the [lifecycle](/docs/releases/lifecycles/) the channel will use, or allow the channel to inherit the default lifecycle for the project. See the [lifecycle docs](/docs/releases/lifecycles) for information about creating new lifecycles.
+5. If you want to make this the default channel for the project, click the **Default channel** check-box.
+6. Configure the [channel rules](#channel-rules).
+   - [Package version](#version-rules) will be used to enforce which versions of your packages are deployed to this channel
+   - [Git protection rules](#git-protection-rules) will be used to control the use of files from Git repositories during deployments
+7. Configure any [custom fields](#custom-fields) you want to require when creating releases in this channel.
 
-## Channel rules
+## Create a new ephemeral environment channel
+
+Ephemeral Environment channels are designed to work with [ephemeral environments](/docs/projects/ephemeral-environments). When a release is deployed to an ephemeral environment channel, the environment will be provisioned automatically if it does not already exist.
+
+1. From the Channels page, click on the **Add Channel** button.
+2. Select **Ephemeral Environment** for the channel type
+3. Give the channel a name and add a description. The channel name must be unique within the project.
+4. If you want to make this the default channel for the project, click the **Default channel** check-box.
+5. Select the [parent environment](/docs/projects/ephemeral-environments#parent-environment).
+6. Select whether you want to [automatically deploy](/docs/projects/ephemeral-environments#auto-deploy) to the environment when a release is created.
+7. Provide a [name template](/docs/projects/ephemeral-environments#naming) for the ephemeral environment.
+8. Configure the [channel rules](#channel-rules).
+    - [Package version](#version-rules) will be used to enforce which versions of your packages are deployed to this channel
+    - [Git protection rules](#git-protection-rules) will be used to control the use of files from Git repositories during deployments
+9. Configure any [custom fields](#custom-fields) you want to require when creating releases in this channel.
+
+### Channel rules
 
 Channels allow to you to configure rules to ensure that package versions and Git resources that meet specific criteria can be deployed using the channel.
 
@@ -63,7 +89,7 @@ You can use the full semantic version as part of your version range specificatio
 
 4. Enter any pre-release tags you want to include.
 
-Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alpha numeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
+Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alphanumeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
 
 | **Pattern** | **Description** | **Example use-case** |
 | --- | --- | --- |
@@ -85,7 +111,7 @@ If adding a pre-release tag to channels, you will also need to add the tag `^$` 
 The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
 :::figure
-![Design version rule](/docs/releases/channels/images/channel-design-version-rule.png)
+![Design version rule](/docs/img/releases/channels/images/channel-design-version-rule.png)
 :::
 
 6. Click **Save**.
@@ -104,7 +130,7 @@ You can use external repository rules to restrict which branches and tags can be
 4. Click **Save**.
 
 :::figure
-![External repository rules example](/docs/releases/channels/images/external-repository-rules.png)
+![External repository rules example](/docs/img/releases/channels/images/external-repository-rules.png)
 :::
 
 #### Project repository (version-controlled projects)
@@ -118,7 +144,7 @@ For [version-controlled](/docs/projects/version-control) projects, you can use r
 When patterns are entered, a sample of the matching branches/tags from the Git repository used by the project will be shown to help in configuring the rules.
 
 :::figure
-![Project repository example](/docs/releases/channels/images/project-repository.png)
+![Project repository example](/docs/img/releases/channels/images/project-repository.png)
 :::
 
 #### Glob patterns in Git protection rules {#git-rules-glob-patterns}
@@ -150,7 +176,23 @@ Some examples:
 | GitHub pull request | N/A | `refs/pulls/*/merge` |
 
 :::figure
-![Advanced patterns example](/docs/releases/channels/images/project-repository.png)
+![Advanced patterns example](/docs/img/releases/channels/images/project-repository.png)
+:::
+
+## Custom fields {#custom-fields}
+
+Channels allow you to define which custom fields are required when creating a release within the channel, ensuring you can use them within scripts and steps in the deployment process. A maximum of 10 custom fields can be defined on a channel.
+
+:::div{.hint}
+Support for custom fields in releases is rolling out to Octopus Cloud in Early Access Preview.
+:::
+
+1. When viewing a channel, click **Add Custom Field** in the Custom Fields section.
+2. Enter a name and description for the field.
+3. Click **Save**.
+
+:::figure
+![Screenshot of editing custom fields for a channel showing a custom field for a Pull Request Number](/docs/img/releases/channels/images/channel-custom-fields.png)
 :::
 
 ## Using channels {#using-channels}
@@ -164,7 +206,7 @@ Each channel defines which [lifecycle](/docs/releases/lifecycles) to use when pr
 For instance, when you ship pre-release software to your early access users, you can use an early access (or beta) channel which uses a lifecycle that deploys the software to an environment your early access users have access to.
 
 :::figure
-![Channel lifecycle](/docs/releases/channels/images/channel-lifecycle.png)
+![Channel lifecycle](/docs/img/releases/channels/images/channel-lifecycle.png)
 :::
 
 ### Modifying deployment process {#modify-deployment-process}
@@ -174,7 +216,7 @@ Deployment steps can be restricted to only run on specific channels.
 For instance, you might decide you'd like to notify your early access users by email when an update version of the software is available. This can be achieved by adding an email step to your deployment process and scoping the step to the early access channel. That way the step will only run when a release is deployed to the early access channel and your early access users will only receive emails about relevant releases.
 
 :::figure
-![Step channel condition](/docs/releases/channels/images/step-channel-condition.png)
+![Step channel condition](/docs/img/releases/channels/images/step-channel-condition.png)
 :::
 
 ### Variables {#variables}
@@ -182,7 +224,7 @@ For instance, you might decide you'd like to notify your early access users by e
 As you release software to different channels, it's likely that some of the variables in those channels will need to be different. [Variables](/docs/projects/variables) can be scoped to specific channels.
 
 :::figure
-![Variable channel scope](/docs/releases/channels/images/variable-channel-scope.png)
+![Variable channel scope](/docs/img/releases/channels/images/variable-channel-scope.png)
 :::
 
 ### Deploying to tenants {#deploy-to-tenants}
@@ -190,7 +232,7 @@ As you release software to different channels, it's likely that some of the vari
 You can control which releases will be deployed to certain tenants using channels. You can configure this under the **Tenants** section of a channel. In this example, releases in this channel will only be deployed to tenants tagged with `Early access program/2.x Beta`.
 
 :::figure
-![Channel tenants](/docs/releases/channels/images/channel-tenants.png)
+![Channel tenants](/docs/img/releases/channels/images/channel-tenants.png)
 :::
 
 ## Creating releases
@@ -202,7 +244,7 @@ Every release in Octopus Deploy must be placed into a channel. Wherever possible
 When you are creating a release, you can select a channel.
 
 :::figure
-![Channel release](/docs/releases/channels/images/channel-release.png)
+![Channel release](/docs/img/releases/channels/images/channel-release.png)
 :::
 
 Selecting the channel will cause the release to use the lifecycle associated with the channel (or the project default, if the channel does not have a lifecycle).  It will also cause the deployment process and variables to be modified as specified above.
@@ -222,7 +264,7 @@ Any releases created automatically will use the configured channel. Additionally
 In the following example, if version 3.1.0 of OctoFX is pushed to the built-in repository, no release will be created as the package version does not meet the version rule of the channel.
 
 :::figure
-![Channel package version rule](/docs/releases/channels/images/channel-package-version-rule.png)
+![Channel package version rule](/docs/img/releases/channels/images/channel-package-version-rule.png)
 :::
 
 ## Discrete channel releases {#discrete-channel-releases}
@@ -234,7 +276,7 @@ In the second mode of use, releases deployed via different channels are differen
 In **Project Settings** there's an option named _Discrete Channel Releases_, designed to model this scenario.
 
 :::figure
-![Discrete channel releases project setting](/docs/releases/channels/images/discrete-channel-release.png)
+![Discrete channel releases project setting](/docs/img/releases/channels/images/discrete-channel-release.png)
 :::
 
 Setting this to `Treat independently from other channels` will cause: 
@@ -244,7 +286,7 @@ Setting this to `Treat independently from other channels` will cause:
 
 The image below shows an example dashboard with discrete channel release enabled:
 
-![Discrete channel releases on dashboard](/docs/releases/channels/images/discrete-channels-dashboard.png)
+![Discrete channel releases on dashboard](/docs/img/releases/channels/images/discrete-channels-dashboard.png)
 
 ## Removing channels
 

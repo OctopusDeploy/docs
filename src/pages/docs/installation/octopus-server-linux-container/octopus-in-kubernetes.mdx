@@ -148,7 +148,7 @@ spec:
 
 Unlike the Octopus Web Portal, Polling Tentacles must be able to connect to each Octopus node individually to pick up new tasks. Our Octopus HA cluster assumes two nodes, therefore a load balancer is required for each node to allow direct access.
 
-The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80` and Polling Tentacle traffic on port `10943`.
+The following YAML creates load balancers with separate public IPs for each node. They direct web traffic to each node on port `80`, Polling Tentacle traffic on port `10943`, and gRPC traffic on port `8443`.
 
 The `octopus-0` load balancer:
 ```yaml
@@ -166,6 +166,10 @@ spec:
     - name: tentacle
       port: 10943
       targetPort: 10943
+      protocol: TCP
+    - name: gRPC
+      port: 8443
+      targetPort: 8443
       protocol: TCP
   selector:
     statefulset.kubernetes.io/pod-name: octopus-0
@@ -188,6 +192,10 @@ spec:
     - name: tentacle
       port: 10943
       targetPort: 10943
+      protocol: TCP
+    - name: gRPC
+      port: 8443
+      targetPort: 8443
       protocol: TCP
   selector:
     statefulset.kubernetes.io/pod-name: octopus-1
@@ -218,7 +226,7 @@ Most of the YAML in this guide can be used with any Kubernetes provider. However
 To find out more about storage classes, refer to the [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) documentation.
 :::
 
-Whilst it is possible to mount external storage by manually defining Persistent Volume definitions in YAML, Cloud providers offering Kubernetes managed services typically include the option to dynamically provision file storage based on persistent volume claim definitions. 
+While it's possible to mount external storage by manually defining Persistent Volume definitions in YAML, Cloud providers offering Kubernetes managed services typically include the option to dynamically provision file storage based on persistent volume claim definitions. 
 
 The next sections describe how to create file storage for use with Octopus running in Kubernetes using different Kubernetes providers to dynamically provision file storage.
 
@@ -685,7 +693,7 @@ kubectl logs octopus-0 -f
 kubectl logs octopus-1 -f
 ```
 
-Sometimes it can be useful to see all of the logs in one. For this you can use the `octopus` label selector:
+Sometimes it can be useful to see all logs in one. For this you can use the `octopus` label selector:
 
 ```bash
 kubectl logs -l app=octopus
@@ -760,7 +768,7 @@ Once the old Stateful Set has been deleted, the new fresh copy of the Stateful S
 
 It's recommended best practice to access your Octopus instance over a secure HTTPS connection.
 
-Whilst this guide doesn't include specific instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
+While this guide doesn't include specific instructions on how to configure access to Octopus Server in Kubernetes using an SSL/TLS certificate, there are many guides available.
 
 In Kubernetes, this can be configured using an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for example [NGINX](https://kubernetes.github.io/ingress-nginx/user-guide/tls/). 
 

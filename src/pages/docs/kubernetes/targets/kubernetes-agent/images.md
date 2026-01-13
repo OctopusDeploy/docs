@@ -106,7 +106,7 @@ The default image used for workloads when running as a worker.
 
 :::div{.hint}
 
-For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images). 
+For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom Docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images). 
 
 ### octopuslabs/k8s-workertools
 

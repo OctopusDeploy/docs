@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-22
+modDate: 2025-05-19
 title: Linux Tentacle
 description: How to install and configure Octopus Tentacles on Linux Servers in either listening or polling mode.
 navOrder: 20
@@ -24,15 +24,9 @@ Linux Tentacle is a .NET application distributed as a [self-contained deployment
 
 ## Known limitations
 
-Support for ScriptCS and F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
-
-ScriptCS has not been ported for .NET Core ([GitHub issue](https://github.com/scriptcs/scriptcs/issues/1183)).
+Support for F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
 
 Similarly, the F# interpreter has also not yet been ported for .NET Core ([GitHub issue](https://github.com/Microsoft/visualfsharp/issues/2407)).
-
-:::div{.warning}
-ScriptCS does not work on Mono **5.16** and higher. We recommend using Mono **5.14.x**.
-:::
 
 ## Downloads
 
@@ -119,7 +113,7 @@ Many instances of Tentacle can be configured on a single machine. To configure a
 /opt/octopus/tentacle/configure-tentacle.sh
 ```
 
-Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
+Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all commands listed here.
 
 :::div{.warning}
 The installer script does not make any adjustments to firewalls. Be sure to check any ports specified are open on your firewalls. For example port `10933` for listening tentacles.
@@ -276,4 +270,4 @@ To harden the TLS implementation used, review our documentation on [Disabling we
 
 ## Learn more
 
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

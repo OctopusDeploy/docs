@@ -28,9 +28,9 @@ The [Import/Export tool](https://octopus.com/docs/projects/export-import) is bui
 
 Typically, you would choose the Import/Export tool to perform a migration. However, there are cases where the Import/Export tool is not suitable:
 
-* You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects.
-* You wish to recreate targets, as the Import/Export tool does not migrate targets.
-* You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON format.
+- You wish to migrate Config-as-Code (CaC) projects, as the Import/Export tool does not support CaC projects.
+- You wish to recreate targets, as the Import/Export tool does not migrate targets.
+- You wish to "own" or modify the intermediate format used for the migration, as the Import/Export tool uses an undocumented JSON format.
 
 ## Limitations of Octoterra and migrating projects between instances
 
@@ -68,35 +68,35 @@ The recommended solution is to convert the projects in the destination space to 
 
 The following is a non-exhaustive list of settings that are not exported by Octoterra:
 
-* Users, teams, and roles
-* Authentication settings
-* Packages in the built-in feed
-* Audit logs
-* Releases and deployments
-* Runbook runs
-* Subscriptions
-* API Keys
-* SEIM settings
-* ITSM settings
-* GitHub app connections
-* License details
-* Node configuration
-* SMTP settings
-* Insights dashboards
-* OIDC accounts
+- Users, teams, and roles
+- Authentication settings
+- Packages in the built-in feed
+- Audit logs
+- Releases and deployments
+- Runbook runs
+- Subscriptions
+- API Keys
+- SEIM settings
+- ITSM settings
+- GitHub app connections
+- License details
+- Node configuration
+- SMTP settings
+- Insights dashboards
+- OIDC accounts
 
 ## Prerequisites
 
 These are the prerequisites for migrating an Octopus space with the Octoterra Wizard:
 
-* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
-* [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
-* Download the Octoterra Wizard from [GitHub](https://github.com/OctopusSolutionsEngineering/OctoterraWizard).
-* Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
-* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
-* [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
-* Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
-* Install any required local tools. See the "Local Tools vs Container Images" section for more details.
+- [Backup](https://octopus.com/docs/administration/data/backup-and-restore) and [update](https://octopus.com/docs/administration/upgrading) your Octopus instance.
+- [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
+- Download the Octoterra Wizard from [GitHub](https://github.com/OctopusSolutionsEngineering/OctoterraWizard).
+- Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
+- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
+- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
+- Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
+- Install any required local tools. See the "Local Tools vs Container Images" section for more details.
 
 ## Running the wizard
 
@@ -114,13 +114,13 @@ Each sensitive variable must have a unique name and no scopes in order for Octop
 
 However, it is common for sensitive variables to share a name and use scopes to define unique values for different contexts. For example, you may have two sensitive variables called `Database.Password`, with the first variable scoped to the `Dev` environment, and the second scoped to the `Production` environment. This is demonstrated in the screenshot below:
 
-![Sensitive project variables](/docs/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
+![Sensitive project variables](/docs/img/administration/migrate-spaces-with-octoterra/sensitive-variables.png)
 
 The process of renaming sensitive variables, removing their scopes, and recursively referencing them via regular variables that have the names and scopes of the original sensitive variables is called "variable spreading".
 
 Here is a screenshot that shows the spread variables:
 
-![Spread sensitive variables](/docs/administration/migrate-spaces-with-octoterra/spread-variables.png)
+![Spread sensitive variables](/docs/img/administration/migrate-spaces-with-octoterra/spread-variables.png)
 
 Existing steps that referenced the variable `Database.Password` continue to function, as the value of that variable is recursively resolved from the Octostache template syntax in the regular variable to return the value held by the referenced sensitive variable.
 
@@ -143,16 +143,16 @@ Container images require that the source server or the default worker pool used 
 Local tools are locally installed versions of the tools listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
 :::div{.hint}
-If you are migrating from an on-premises Windows server, you will likely select the `Local tools` options.
+If you are migrating from an on-premises Windows Server, you will likely select the `Local tools` options.
 :::
 
 ### Required local tools
 
 If you select the `Local tools` option, your on-premises server or default worker pool must have the following tools installed:
 
-* [Terraform](https://developer.hashicorp.com/terraform/install)
-* [Python](https://www.python.org/downloads/)
-* [PowerShell Core](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+- [Terraform](https://developer.hashicorp.com/terraform/install)
+- [Python](https://www.python.org/downloads/)
+- [PowerShell Core](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
 
 ## Space vs project level resources
 
@@ -181,9 +181,9 @@ Projects can typically be migrated independently of each other. However, some st
 
 Because the Octoterra Wizard serializes Octopus resources to Terraform modules, we can use Terraform's functionality to implement a number of strategies for migrating spaces:
 
-* Big bang migration, where the migration is done all at once.
-* Incremental migration, where projects are migrated over time.
-* Continual migration, where the destination server is updated as changes are made to the source server.
+- Big bang migration, where the migration is done all at once.
+- Incremental migration, where projects are migrated over time.
+- Continual migration, where the destination server is updated as changes are made to the source server.
 
 ### Big bang migration
 
@@ -193,9 +193,9 @@ To perform a big bang migration, run the wizard to completion. This will migrate
 
 Consider a big bang migration strategy when:
 
-* You can migrate the space and project level resources in one operation.
-* You are confident that the migrated resources work as expected.
-* You can perform all the post-migration steps before the destination server is put into operation.
+- You can migrate the space and project level resources in one operation.
+- You are confident that the migrated resources work as expected.
+- You can perform all the post-migration steps before the destination server is put into operation.
 
 ### Incremental migration
 
@@ -209,9 +209,9 @@ You may consider disabling the project on the source server once it has been mig
 
 Consider an incremental migration strategy when:
 
-* You need to break down the migration into multiple steps.
-* Your projects have different risk profiles i.e. you have low risk projects you can migrate first, and only when they are successful can you migrate high risk projects.
-* You wish to delegate the process of migrating projects to different teams who will perform the migration on their own schedule.
+- You need to break down the migration into multiple steps.
+- Your projects have different risk profiles i.e. you have low risk projects you can migrate first, and only when they are successful can you migrate high risk projects.
+- You wish to delegate the process of migrating projects to different teams who will perform the migration on their own schedule.
 
 ### Continual migration
 
@@ -225,9 +225,9 @@ The source server is considered the source of truth for space and project level 
 
 Consider a continual migration strategy when:
 
-* You wish to perform the bulk of the migration up front.
-* You need to test the destination server while the source server is still actively used.
-* You need to update the destination server with any changes made to the source server while testing the migration.
+- You wish to perform the bulk of the migration up front.
+- You need to test the destination server while the source server is still actively used.
+- You need to update the destination server with any changes made to the source server while testing the migration.
 
 #### Limitations of continual migration
 
@@ -262,7 +262,7 @@ The second approach is to delete any projects on the destination server and recr
 :::div{.hint}
 Projects are configured to ignore changes to the `project_group_id` and `name` with the following [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle):
 
-```
+```ruby
   lifecycle {
     ignore_changes = ["`project_group_id`", "name"]
   }
@@ -270,10 +270,10 @@ Projects are configured to ignore changes to the `project_group_id` and `name` w
 
 This allows projects on the destination server to be moved to a new project group and have their name updated while allowing other settings to be updated. This means you must do one of the following to reflect a change to a project group or project name on the source server:
 
-* Manually move the projects on the destination server to reflect the changes on the source server.
-* Manually update the project name to reflect the changes on the source server.
-* Use the second approach where the project on the destination server is deleted and recreated.
-* Manually edit the Terraform module to remove `project_group_id` from the list of ignored changes.
+- Manually move the projects on the destination server to reflect the changes on the source server.
+- Manually update the project name to reflect the changes on the source server.
+- Use the second approach where the project on the destination server is deleted and recreated.
+- Manually edit the Terraform module to remove `project_group_id` from the list of ignored changes.
 
 :::
 
@@ -293,9 +293,9 @@ You must determine if concurrent deployments have the potential to cause issues,
 
 There are a number of strategies you can implement to prevent or manage concurrent deployments:
 
-* Use a [named mutex](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously#named-mutex-for-shared-resources).
-* Disable projects to ensure only the source or destination server can run a migrated project.
-* Disable targets to ensure only the source or destination server can interact with a migrated target.
+- Use a [named mutex](https://octopus.com/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously#named-mutex-for-shared-resources).
+- Disable projects to ensure only the source or destination server can run a migrated project.
+- Disable targets to ensure only the source or destination server can interact with a migrated target.
 
 ### Duplicated triggers
 
@@ -309,12 +309,12 @@ The migration of space and project level resources will transfer most, but not a
 
 A number of sensitive values can not be migrated by Octoterra including:
 
-* Account credentials
-* Feed credentials
-* Git credentials
-* Certificates
-* Secret values define in steps such as the `Deploy to IIS` and `Deploy to Tomcat` steps
-* Sensitive values defined for sensitive step templates parameters
+- Account credentials
+- Feed credentials
+- Git credentials
+- Certificates
+- Secret values define in steps such as the `Deploy to IIS` and `Deploy to Tomcat` steps
+- Sensitive values defined for sensitive step templates parameters
 
 All these values must be manually reconfigured on the destination server.
 
@@ -370,7 +370,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 & "${TentacleExecutablePath}" poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
-![Script Console](/docs/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
+![Script Console](/docs/img/administration/migrate-spaces-with-octoterra/polling-tentacle-update.png)
 
 ### Reconfigure listening tentacles
 
@@ -404,7 +404,7 @@ Here is a sample PowerShell command for Windows tentacles (or Linux tentacles wh
 & "${TentacleExecutablePath}" configure --trust=D21887C5EB73D21DDC3DEAB3E8840A47E6279F21
 ```
 
-![Script Console](/docs/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
+![Script Console](/docs/img/administration/migrate-spaces-with-octoterra/listening-tentacle-update.png)
 
 ### Update CI servers
 
@@ -442,7 +442,7 @@ You must manually configure the [SMTP settings](https://octopus.com/docs/project
 
 You will increase the count of resources that impact licensing during the migration, including projects, tenants, and machines.
 
-Contact [sales@octopus.com](sales@octopus.com) to discuss any impacts to licensing while performing a migration. 
+Contact [sales@octopus.com](mailto:sales@octopus.com) to discuss any impacts to licensing while performing a migration.
 
 ## FAQ
 
@@ -473,4 +473,3 @@ A: No, Octoterra only supports the supported LTS versions of Octopus.
 Q: How do I fix the `unexpected token while parsing list: IDENT` error when applying Terraform modules.
 
 A: This is most likely caused by running an old version of Terraform. In particular, you will see this error if you rely on the version of Terraform bundled with Octopus (version 0.11.15) which is too old to apply the Terraform modules created by Octoterra. The Octopus logs capture the Terraform version used for the deployment and will display a message like `Your version of Terraform is out of date!` if using an old Terraform version.
-

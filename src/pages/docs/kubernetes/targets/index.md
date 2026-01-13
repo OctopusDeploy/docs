@@ -18,7 +18,7 @@ The Kubernetes API target allows the Octopus Server to connect to a cluster via 
 The Kubernetes agent target requires the installation of a small executable in a cluster (agent).  Octopus Server connects to the agent for deployments. In this scenario, your deployment tasks run inside the cluster.
 
 :::figure
-![Kubernetes agent and Kubernetes API diagram](/docs/infrastructure/deployment-targets/kubernetes/diagram-kubernetes-targets.png)
+![Kubernetes agent and Kubernetes API diagram](/docs/img/infrastructure/deployment-targets/kubernetes/diagram-kubernetes-targets.png)
 :::
 
 The following table summarizes the key differences between the two targets.

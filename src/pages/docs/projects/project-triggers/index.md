@@ -17,7 +17,7 @@ Choose from a subset of **events** that can occur in Octopus Deploy, apply a **f
 The example below is an automatic deployment trigger that fires when a [deployment target](/docs/infrastructure/) that belongs to the **Production** [environment](/docs/infrastructure/environments) becomes available and is tagged with the **web-server** [target tag](/docs/infrastructure/deployment-targets/target-tags).
 
 :::figure
-![](/docs/projects/project-triggers/images/octopus-triggers-diagram.png)
+![](/docs/img/projects/project-triggers/images/octopus-triggers-diagram.png)
 :::
 
 ## Types of triggers

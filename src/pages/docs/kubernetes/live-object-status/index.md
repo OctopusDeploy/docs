@@ -10,21 +10,17 @@ navOrder: 45
 hideInThisSectionHeader: true
 ---
 
-:::div{.hint}
-The Kubernetes Live Object Status feature is in early access, it is rolling out in Octopus Cloud now. This feature is coming to self-hosted customers in H2 2025.
-:::
-
 Kubernetes Live Object Status shows the live status of your Kubernetes objects after they have been deployed. This allows you to monitor and safely troubleshoot your Kubernetes application directly from within Octopus Deploy.
 
 :::figure
-![Live status page](/docs/kubernetes/live-object-status/live-status-page.png)
+![Live status page](/docs/img/kubernetes/live-object-status/live-status-page.png)
 :::
 
 ## Where it is available
 
 Using Kubernetes Live Object Status requires the following:
 
-- An Octopus Cloud instance
+- Octopus Deploy 2025.3+
 - A [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) target
 - A project with a deployment process containing Kubernetes steps
   - The kubectl script step is currently unsupported
@@ -34,13 +30,13 @@ Using Kubernetes Live Object Status requires the following:
 Once you have the Kubernetes monitor enabled on your [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent), simply toggle the switch on the dashboard to show live status in place of the deployment status.
 
 :::figure
-![A screenshot of the Space dashboard showing live status](/docs/kubernetes/live-object-status/live-status-space-dashboard.png)
+![A screenshot of the Space dashboard showing live status](/docs/img/kubernetes/live-object-status/live-status-space-dashboard.png)
 :::
 
 Octopus display individual status at an object level as well as summarized status for an Application.
 
 :::figure
-![Live status page](/docs/kubernetes/live-object-status/live-status-page.png)
+![Live status page](/docs/img/kubernetes/live-object-status/live-status-page.png)
 :::
 
 ### Application status
@@ -76,7 +72,7 @@ Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/t
 Each object reported back by the Kubernetes monitor can be selected to provide detailed information including events, logs and the manifest currently on the cluster
 
 :::figure
-![Object summary](/docs/kubernetes/live-object-status/live-status-drawer-summary.png)
+![Object summary](/docs/img/kubernetes/live-object-status/live-status-drawer-summary.png)
 :::
 
 #### Events
@@ -84,7 +80,7 @@ Each object reported back by the Kubernetes monitor can be selected to provide d
 Events are fetched on demand from the running object. Octopus reads and presents events in similar way to `kubectl`.
 
 :::figure
-![Object events](/docs/kubernetes/live-object-status/live-status-drawer-events.png)
+![Object events](/docs/img/kubernetes/live-object-status/live-status-drawer-events.png)
 :::
 
 #### Logs
@@ -92,7 +88,7 @@ Events are fetched on demand from the running object. Octopus reads and presents
 Logs are fetched on demand from the running object. We do not currently support tailing logs, but it is on the roadmap in the near future.
 
 :::figure
-![Object logs](/docs/kubernetes/live-object-status/live-status-drawer-logs.png)
+![Object logs](/docs/img/kubernetes/live-object-status/live-status-drawer-logs.png)
 :::
 
 #### Manifests
@@ -102,7 +98,7 @@ The first manifest shown is the live manifest as reported by the cluster back to
 When viewing an object that has been applied to your cluster, you are able to view the applied manifest and see any differences between them using the controls at the top of the drawer.
 
 :::figure
-![Object manifest](/docs/kubernetes/live-object-status/live-status-drawer-manifest.png)
+![Object manifest](/docs/img/kubernetes/live-object-status/live-status-drawer-manifest.png)
 :::
 
 ##### Diffs
@@ -111,7 +107,7 @@ When the show diff toggle is enabled, we compare the live manifest that we expec
 Read about [applied manifest diffs](/docs/kubernetes/deployment-verification/applied-manifests/diffs) for more details on how to interpret the diff viewer.
 
 :::figure
-![Object manifest diffs](/docs/kubernetes/live-object-status/live-status-drawer-manifest-diffs.png)
+![Object manifest diffs](/docs/img/kubernetes/live-object-status/live-status-drawer-manifest-diffs.png)
 :::
 
 ## How it works
@@ -149,7 +145,7 @@ The flexibility that Octopus variables provide mean that sensitive variables can
 
 ### Kubernetes secrets
 
-The well defined structure of Kubernetes secrets allow us to confidently redact secret data.
+The well-defined structure of Kubernetes secrets allow us to confidently redact secret data.
 
 To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
 

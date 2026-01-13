@@ -17,18 +17,18 @@ If you are reading this doc, odds are you already tried to run an Octopus-relate
 
 ### What happens when an Octopus Step is executed during the build process {#Octopus-Steps-What-happens-behind}
 
-The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/), [Teamcity](/docs/packaging-applications/build-servers/teamcity/) and [Bamboo](/docs/packaging-applications/build-servers/bamboo). All the steps provided by these extensions/plugins are nothing but wrappers of the Octopus CLI that provide a UI with fields whose values will be passed to this command line tool during the build.
+The Octopus Deploy team supports many of the most popular integration plugins/extensions our there, like the ones for [Azure DevOps/TFS](/docs/packaging-applications/build-servers/tfs-azure-devops/), [TeamCity](/docs/packaging-applications/build-servers/teamcity/) and [Bamboo](/docs/packaging-applications/build-servers/bamboo). All the steps provided by these extensions/plugins are nothing but wrappers of the Octopus CLI that provide a UI with fields whose values will be passed to this command line tool during the build.
 
-Lets take for example this TeamCity **Octopus Deploy: Create Release** step:
+Let's take for example this TeamCity **Octopus Deploy: Create Release** step:
 
 :::figure
-![](/docs/packaging-applications/build-servers/images/5672462.png)
+![](/docs/img/packaging-applications/build-servers/images/5672462.png)
 :::
 
 Each of the values marked on the fields above can be seen in the `octo` call made by the build server later on:
 
 :::figure
-![](/docs/packaging-applications/build-servers/images/5672463.png)
+![](/docs/img/packaging-applications/build-servers/images/5672463.png)
 :::
 
 *This is a screenshot of a TeamCity log fragment edited for visual purposes.*
@@ -36,11 +36,11 @@ Each of the values marked on the fields above can be seen in the `octo` call mad
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
 :::figure
-![](/docs/packaging-applications/build-servers/images/5672464.png)
+![](/docs/img/packaging-applications/build-servers/images/5672464.png)
 :::
 
 
-![](/docs/packaging-applications/build-servers/images/5672465.png)
+![](/docs/img/packaging-applications/build-servers/images/5672465.png)
 
 The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli).
 

@@ -20,11 +20,11 @@ To add Flyway to your project:
 The Flyway download comes with everything it needs to execute, including a version of the Java Runtime Environment (JRE):
 
 :::figure
-![Flyway included in a Visual Studio project](/docs/deployments/databases/mysql-flyway/images/visual-studio-code-add-flyway.png)
+![Flyway included in a Visual Studio project](/docs/img/deployments/databases/mysql-flyway/images/visual-studio-code-add-flyway.png)
 :::
 
 :::div{.hint}
-If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` sub-directory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
+If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` subdirectory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
 :::
 
 ## Add scripts to your Flyway project
@@ -62,6 +62,7 @@ The [Octopus Deploy Jenkins plugin](/docs/packaging-applications/build-servers/j
 :::
 
 Fill in the inputs:
+
 - Package ID: A unique name for this package like `petclinic.mysql.flyway`.
 - Version Number: The unique version number for this package.
 - Package format: Zip or nuget.
@@ -69,9 +70,10 @@ Fill in the inputs:
 - Package include paths:
 - Package output directory: `${WORKSPACE}`.
 
-### Jenkins build number formating
+### Jenkins build number formatting
 
 To configure Jenkins to produce build numbers in a format like yyyy.mm.dd.hhmmss (2020.03.25.145344), install the following plugins:
+
 - Build Name and Description Setter.
 - Date Parameter Plugin.
 
@@ -93,10 +95,10 @@ Then use the Date parameter to create some parameters:
   - **Default Value**: LocalDate.now();
 
 :::figure
-![An image showing the Jenkins' date parameters](/docs/deployments/databases/mysql-flyway/images/jenkins-build-date-parameters.png)
+![An image showing the Jenkins' date parameters](/docs/img/deployments/databases/mysql-flyway/images/jenkins-build-date-parameters.png)
 :::
 
-Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance: 
+Lastly, set the build name in the **Build Environment** section, by checking the `Set Build Name` checkbox and adding the build name, for instance:
 
 `${Year}.${Month}.${Day}.${Time}`
 
@@ -114,13 +116,13 @@ Those are the only two steps that are needed to package and push a Flyway projec
 The generated Date parameters will display.  Click **Build** to continue:
 
 :::figure
-![The generated date parameters](/docs/deployments/databases/mysql-flyway/images/jenkins-build-parameters.png)
+![The generated date parameters](/docs/img/deployments/databases/mysql-flyway/images/jenkins-build-parameters.png)
 :::
 
 When the build is complete, you should have something like this:
 
 :::figure
-![Jenkins console output](/docs/deployments/databases/mysql-flyway/images/jenkins-build-success.png)
+![Jenkins console output](/docs/img/deployments/databases/mysql-flyway/images/jenkins-build-success.png)
 :::
 
 Now that the build is complete, it's time to configure the Octopus Deploy project.
@@ -130,7 +132,7 @@ Now that the build is complete, it's time to configure the Octopus Deploy projec
 From the Octopus Web Portal, navigate to the **Projects** tab:
 
 :::figure
-![The Octopus project tab](/docs/deployments/databases/mysql-flyway/images/octopus-projects.png)
+![The Octopus project tab](/docs/img/deployments/databases/mysql-flyway/images/octopus-projects.png)
 :::
 
 Select the **Project Group** and click the **ADD PROJECT** button.
@@ -149,7 +151,7 @@ In the new project, click **Variables** to configure the following variables:
 - `Project.MySql.ConnectionString`: `jdbc:mysql://#{Project.MySql.Database.Server.Name}:#{Project.MySql.Database.Server.Port}/#{Project.MySql.Database.Name}?useUnicode=true`.
 
 :::figure
-![Variables defined in the Octopus Web Portal](/docs/deployments/databases/mysql-flyway/images/octopus-project-variables-defined.png)
+![Variables defined in the Octopus Web Portal](/docs/img/deployments/databases/mysql-flyway/images/octopus-project-variables-defined.png)
 :::
 
 ### Deployment process
@@ -175,6 +177,7 @@ This template is similar to the Flyway migrate step but uses a package parameter
 Choose the **Flyway Info from a Referenced Package** for whichever OS you intend to deploy.  This guide uses the Bash version for use with Linux Tentacles:
 
 Fill in the fields:
+
 - **Relative path to flyway.cmd (optional)**: Use if your flyway bash file isn't within the root of the package.
 - **Locations (relative path, optional)**: Use if your `sql` directory is not off the root directory.
 - **Target -url (required)**: Connection string to MySql - `#{Project.MySql.ConnectionString}`.
@@ -185,7 +188,7 @@ Fill in the fields:
 Add a `Manual Intervention` step and scope it to the **Production** environment.  This will pause the deployment so you can review what will be executed and determine whether or not to proceed when deploying to **Production**.
 
 :::figure
-![A manual intervention step in Octopus Deploy](/docs/deployments/databases/mysql-flyway/images/octopus-project-manual-intervention.png)
+![A manual intervention step in Octopus Deploy](/docs/img/deployments/databases/mysql-flyway/images/octopus-project-manual-intervention.png)
 :::
 
 Add the **Flyway Migrate** step.  The fields for this are identical to the **Flyway Info** step that was added previously:
@@ -205,7 +208,7 @@ Add the **Flyway Migrate** step.  The fields for this are identical to the **Fly
 When complete, the deployment process will look like this:
 
 :::figure
-![The complete deployment process in Octopus Deploy](/docs/deployments/databases/mysql-flyway/images/octopus-project-process.png)
+![The complete deployment process in Octopus Deploy](/docs/img/deployments/databases/mysql-flyway/images/octopus-project-process.png)
 :::
 
 ### Creating the release
@@ -227,5 +230,6 @@ If you receive an error message like the following:
 Your build server has converted line endings from LF to CRLF.  This typically happens on Windows-based build servers.
 
 Workarounds are:
+
 - Run the following command on your build agent `git config --global core.eol lf`
 - Set the `text eol=lf` setting within the `.gitattributes` of the git repo

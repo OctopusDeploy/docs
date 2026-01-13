@@ -19,17 +19,17 @@ Add the `Deploy an AWS CloudFormation template` step to the project, and provide
 Select the variable that references the `Amazon Web Services Account` under the `AWS Account` section or select whether you wish to execute using the service role of an EC2 instance. If you don't have an `AWS Account Variable` yet, check our [documentation on how to create one](/docs/projects/variables/aws-account-variables).
 
 :::figure
-![AWS Account](/docs/deployments/aws/cloudformation/images/step-aws-account.png)
+![AWS Account](/docs/img/deployments/aws/cloudformation/images/step-aws-account.png)
 :::
 
 The supplied account can optionally be used to assume a different AWS service role. This can be used to run the AWS commands with a role that limits the services that can be affected.
 
 :::figure
-![AWS Role](/docs/deployments/aws/cloudformation/images/step-aws-role.png)
+![AWS Role](/docs/img/deployments/aws/cloudformation/images/step-aws-role.png)
 :::
 
 :::div{.hint}
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead, the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### CloudFormation section
@@ -39,7 +39,7 @@ Under the `CloudFormation` section, the AWS region and stack name need to be def
 You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` check-box.
 
 :::div{.hint}
-Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
+Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However, unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
 If creating the CloudFormation stack, you can select `Disable rollback` to prevent a failed stack from being rolled back. This is useful if you need to debug the resources that were not created successfully.
@@ -57,7 +57,7 @@ If your template includes IAM resources, you can select `The template has IAM re
 If your template includes custom names for IAM resources, you must select `The template has IAM resources with custom names (CAPABILITY_NAMED_IAM)`.
 
 :::figure
-![AWS Region](/docs/deployments/aws/cloudformation/images/step-aws-region.png)
+![AWS Region](/docs/img/deployments/aws/cloudformation/images/step-aws-region.png)
 :::
 
 ### Template section
@@ -69,19 +69,19 @@ The CloudFormation template can come from two sources: directly entered source c
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
 :::figure
-![Source Code](/docs/deployments/aws/cloudformation/images/step-aws-sourcecode.png)
+![Source Code](/docs/img/deployments/aws/cloudformation/images/step-aws-sourcecode.png)
 :::
 
 This will present a dialog in which the CloudFormation template can be pasted, in either JSON or YAML.
 
 :::figure
-![Source Code Dialog](/docs/deployments/aws/cloudformation/images/step-aws-code-dialog.png)
+![Source Code Dialog](/docs/img/deployments/aws/cloudformation/images/step-aws-code-dialog.png)
 :::
 
 Once the `OK` button is clicked, the parameters defined in the template will be shown under the `Parameters` section.
 
 :::figure
-![Parameters](/docs/deployments/aws/cloudformation/images/step-parameters.png)
+![Parameters](/docs/img/deployments/aws/cloudformation/images/step-parameters.png)
 :::
 
 #### Package
@@ -89,7 +89,7 @@ Once the `OK` button is clicked, the parameters defined in the template will be 
 The second option is to reference a CloudFormation template and properties file from a package. This is done by selecting the `File inside a package` option, specifying the package, and the supplying the name of the template file (which can be a JSON or YAML file), and optionally the path to the parameters file (which [only supports JSON](https://github.com/aws/aws-cli/issues/2275)).
 
 :::figure
-![Package](/docs/deployments/aws/cloudformation/images/step-aws-package.png)
+![Package](/docs/img/deployments/aws/cloudformation/images/step-aws-package.png)
 :::
 
 #### Variable replacements
@@ -135,7 +135,7 @@ In addition to any outputs defined in your CloudFormation template, we also prov
 In order to use [change sets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html) you must first [enable](/docs/projects/steps/configuration-features) the change set feature on your `Deploy an AWS CloudFormation template` step.
 
 :::figure
-![Change Set Feature](/docs/deployments/aws/cloudformation/images/aws-changeset-feature.png)
+![Change Set Feature](/docs/img/deployments/aws/cloudformation/images/aws-changeset-feature.png)
 :::
 
 :::div{.hint}
@@ -148,14 +148,14 @@ All change sets have to be unique for a given stack, and Octopus will generate a
 
 #### Deferring execution and preview changes
 
-There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly, the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
 ## CloudFormation deployment workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
 
-Octopus takes a different approach. The CloudFormation steps are designed to be idempotent, which means you can run them multiple times and the result will be the same. This means that Octopus will create the stack if it doesn't exist, update the stack if it does exist, and ignore cases where the stack has no updates. Likewise deleting a stack will complete successfully if there is no stack to delete.
+Octopus takes a different approach. The CloudFormation steps are designed to be idempotent, which means you can run them multiple times and the result will be the same. This means that Octopus will create the stack if it doesn't exist, update the stack if it does exist, and ignore cases where the stack has no updates. , deleting a stack will complete successfully if there is no stack to delete.
 
 In addition, there are several states that a stack can be in where the only way to apply updates is to first delete the stack. A stack can enter one of these states for a variety of reasons, such as failing to be successfully created the first time.
 
@@ -181,7 +181,7 @@ The last `Status Reason` from the stack events is displayed in the Octopus logs,
 For example, in the screenshot below you can see that the specified instance type could only be used in a VPC, triggering the rollback of this particular CloudFormation deployment.
 
 :::figure
-![CloudFormation Events](/docs/deployments/aws/cloudformation/images/cloud-formation-error.png)
+![CloudFormation Events](/docs/img/deployments/aws/cloudformation/images/cloud-formation-error.png)
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0002
@@ -249,7 +249,7 @@ An unrecognized exception was thrown while creating a CloudFormation stack.
 If the text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabilities : [CAPABILITY_IAM]` appears in the error message, you will need to define these capabilities in the CloudFormation deployment step.
 
 :::figure
-![IAM Capabilities](/docs/deployments/aws/cloudformation/images/iam-capabilities.png)
+![IAM Capabilities](/docs/img/deployments/aws/cloudformation/images/iam-capabilities.png)
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0009
@@ -401,14 +401,14 @@ The role being assumed then needs trust relationship with the role or user that 
 ```
 
 :::figure
-![Trust Relationships](/docs/deployments/aws/cloudformation/images/trust-relationships.png)
+![Trust Relationships](/docs/img/deployments/aws/cloudformation/images/trust-relationships.png)
 :::
 
 ### AWS-LOGIN-ERROR-0005
 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
-This can be done by opening **Infrastructure ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+This can be done by opening **Deploy ➜ Manage ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.
 
@@ -416,7 +416,7 @@ This error can also be displayed if the proxy settings are incorrect.
 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
-This can be done by opening **Infrastructure ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+This can be done by opening **Deploy ➜ Manage ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.
 

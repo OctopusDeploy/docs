@@ -49,6 +49,7 @@ Where [<options>] is any of:
       --commsListenPort=VALUE
                              TCP port that the communications service should
                                listen on
+      --grpcListenPort=VALUE TCP port that the gRPC services should listen on
       --commsListenWebSocket=VALUE
                              WebSocket prefix that the communications service
                                should listen on (e.g.
@@ -118,6 +119,8 @@ Where [<options>] is any of:
       --cookieDomain=VALUE   Set a specific domain for issued cookies.
       --dynamicExtensionsEnabled=VALUE
                              Enable/disable dynamic extensions.
+      --experiencesEnabled=VALUE
+                             Enable/disable in-app messaging via [Chameleon](https://www.chameleon.io/)
       --azureADIsEnabled=VALUE
                              Set the azureAD IsEnabled, used for
                                authentication.

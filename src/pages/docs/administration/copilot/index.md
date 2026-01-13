@@ -28,7 +28,7 @@ The Octopus extension has 4 prerequisites:
 * The Octopus for GitHub Copilot application
 
 ### Creating an Octopus cloud instance
-The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/start) to sign up for a trial cloud Octopus instance.
+The Octopus extension is available for cloud Octopus instances. Click [here](https://octopus.com/free-signup) to sign up for a free Octopus Cloud account.
 
 ### Integrating an on-premises Octopus instance
 
@@ -73,7 +73,7 @@ To continue chatting please log in
 
 Click the `log in` link to open the Octopus extension login page. You will first be required to log in via GitHub. You must use the same GitHub credentials as the user logged into the GitHub Copilot chat. You are then prompted to enter the URL and API key of your Octopus instance:
 
-![The Octopus extension login page](/docs/administration/copilot/octopus-copilot-login.png)
+![The Octopus extension login page](/docs/img/administration/copilot/octopus-copilot-login.png)
 
 Click the `Submit` button to save your Octopus details. You can then return to the Copilot chat.
 
@@ -87,7 +87,7 @@ A [test website](https://aiagent.octopus.com/api/form) allows you to query Octop
 
 Queries entered into the test website do not need to mention `@octopus-ai-app`.
 
-![The Octopus extension web interface](/docs/administration/copilot/octopus-copilot-web.png)
+![The Octopus extension web interface](/docs/img/administration/copilot/octopus-copilot-web.png)
 
 ## Saving default values
 
@@ -127,11 +127,11 @@ The following are example queries you can use to test the Octopus extension:
 ## Prompts don't appear to work
 A response like `Sorry, I can't assist with that.` can occur if the prompt is not addressed to the Octopus extension, or if the user entering the prompt does not have permissions to use Copilot extensions. In the screenshot below you can see the response was provided by `GitHub Copilot` despite being addressed to the `@octopus-ai-app` extension:
 
-![Image of a failed request](/docs/administration/copilot/not-using-agent.png)
+![Image of a failed request](/docs/img/administration/copilot/not-using-agent.png)
 
 A successful request highlights the `@octopus-ai-app` extension as part of the prompt, and the response is delivered by `Octopus AI App`:
 
-![Image of a successful request](/docs/administration/copilot/valid-request.png)
+![Image of a successful request](/docs/img/administration/copilot/valid-request.png)
 
 You must ensure the Octopus Copilot extension is installed for your organization and that the required [policy settings](https://docs.github.com/en/copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions) are enabled.
 
@@ -139,11 +139,11 @@ You must ensure the Octopus Copilot extension is installed for your organization
 
 When you type the `@` character in the VSCode Copilot extension you should see a list of available extensions to "talk" to:
 
-![List of extensions in VSCode Copilot chat](/docs/administration/copilot/extension-list.png)
+![List of extensions in VSCode Copilot chat](/docs/img/administration/copilot/extension-list.png)
 
 If `@octopus-ai-app` is not in that list, try logging out:
 
-![VSCode logout](/docs/administration/copilot/vscode-logout.png)
+![VSCode logout](/docs/img/administration/copilot/vscode-logout.png)
 
 When you log back in, you will have an opportunity to authorize the Octopus Copilot extension.
 
@@ -151,7 +151,7 @@ When you log back in, you will have an opportunity to authorize the Octopus Copi
 
 Errors like `Prompt failed validation with the reason: Invalid response token parameter. Please file an issue.` can often be resolved by starting a new chat. Click the plus icon at the top of the chat window to start a new chat and enter your prompt again.
 
-![Chat error](/docs/administration/copilot/chat-error.png)
+![Chat error](/docs/img/administration/copilot/chat-error.png)
 
 ## Source code
 

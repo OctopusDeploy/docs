@@ -21,7 +21,7 @@ The details of these container images and Helm Charts are already known in Octop
 
   Create releases when any referenced images used in your Helm charts are updated.
 
-- [Tracking third party Helm charts](/docs/deployments/kubernetes/automatically-track-third-party-helm-charts)
+- [Tracking third party Helm charts](/docs/kubernetes/tutorials/automatically-track-third-party-helm-charts)
 
   Create releases whenever a third party releases a new Helm chart.
 
@@ -44,7 +44,7 @@ The versions used for those releases is guided by [release versioning](/docs/rel
 Unlike the existing [built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers) (formerly Automatic Release Creation), you can create multiple external feed triggers per project. This can enable you to automatically create releases for multiple channels.
 
 :::figure
-![Channel selection](/docs/projects/project-triggers/images/external-trigger-channel.png)
+![Channel selection](/docs/img/projects/project-triggers/images/external-trigger-channel.png)
 :::
 
 A preview of the [lifecycle](/docs/releases/lifecycles) used by the selected channel is displayed. You can modify the [lifecycle's phases](/docs/releases/lifecycles/#Lifecycles-LifecyclePhases) to have a release created and deployed to selected environments whenever a new package is pushed.
@@ -56,7 +56,7 @@ Any container images or Helm Charts referenced in your project's deployment proc
 Please note that for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 
 :::figure
-![Package selection](/docs/projects/project-triggers/images/external-feed-trigger-packages.png)
+![Package selection](/docs/img/projects/project-triggers/images/external-feed-trigger-packages.png)
 :::
 
 ## History
@@ -71,7 +71,7 @@ The history section contains information about the last time the trigger was eva
 If the trigger has created a release, a link to the created release will be shown alongside the date it was created.
 
 :::figure
-![Trigger history](/docs/projects/project-triggers/images/external-feed-trigger-history.png)
+![Trigger history](/docs/img/projects/project-triggers/images/external-feed-trigger-history.png)
 :::
 
 If required, more detailed information can be found in the system task logs.
@@ -88,7 +88,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 1. **Inspect the task list** for errors in the **Task** menu - Octopus will log the reason why external feed triggers failed as errors or warnings. Note that external feed triggers are system tasks, and do not display in the list by default. Use the **Show advanced filters** option and select **Include system tasks** to show them.
 
-2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major docker providers, compatibility is not guaranteed - please contact Octopus Deploy support if you encounter any problems.
+2. Ensure you are pushing the package to a **supported external feed type**. While capability has been verified against most major Docker providers, compatibility is not guaranteed - please contact Octopus Deploy support if you encounter any problems.
 
 3. Ensure that packages in the external feed match the [channel rules](/docs/releases/channels#version-rules) if defined for the trigger's channel (or the default channel if your project doesn't have multiple channels). **Triggers will only create a new release if the packages match channel rules.**
 
@@ -98,7 +98,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 6. Make sure that the feed and package references only use variables which are **able to be evaluated at release creation time.** For example, the environment name variable is not available, because it is only known at the time of deployment.
 
-7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise some of the packages required for the release may be missing.
+7. If you have a **chain of package dependencies** with your external feed packages, make sure your trigger uses the package which will be **pushed to its repository last**. Otherwise, some of the packages required for the release may be missing.
 
 8. As [mentioned above](/docs/projects/project-triggers/external-feed-triggers#trigger-sources), for [configuration as code](/docs/projects/version-control/config-as-code-reference) projects, only container images and Helm Charts in the deployment process from the **default branch** are able to be referenced. Any changes to the deployment process in other branches will not be available for use in external feed triggers.
 

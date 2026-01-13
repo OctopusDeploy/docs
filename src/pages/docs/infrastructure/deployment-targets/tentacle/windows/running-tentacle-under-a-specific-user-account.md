@@ -7,7 +7,7 @@ description: Information on how to run Tentacle under a specific user account.
 navOrder: 50
 ---
 
-Every process within a Tentacle is executed by the user account configured on the **OctopusDeploy Tentacle** service. By default this is the **Local System** account. There are times when you might need to run the Tentacle under a specific user account, for instance:
+Every process within a Tentacle is executed by the user account configured on the **OctopusDeploy Tentacle** service. By default, this is the **Local System** account. There are times when you might need to run the Tentacle under a specific user account, for instance:
 
 - Run a script that needs to be executed by a user with higher permissions.
 - Run a process that talks to a SQL database, and you want to use integrated authentication.
@@ -15,7 +15,7 @@ Every process within a Tentacle is executed by the user account configured on th
 To change this setting, go to **Services ➜ OctopusDeploy Tentacle ➜ Properties ➜ Log On**.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/tentacle/windows/images/3277918.jpg)
+![](/docs/img/infrastructure/deployment-targets/tentacle/windows/images/3277918.jpg)
 :::
 
 Making the user a local administrator will be the easiest path to full functionality. If this is not possible, the following table acts as a guide for the minimal permission set that Tentacle must have for successful operation.

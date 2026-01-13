@@ -1,28 +1,69 @@
 {
-    "version": "0.2",
-    "language": "en",
-    "dictionaries": ["dictionary-octopus"],
-    "dictionaryDefinitions": [{
-            "name": "dictionary-octopus",
-            "path": "./dictionary-octopus.txt",
-            "addWords": false
-    }],
-    "flagWords": [
-        "hte",
-        "Octostash"
-    ],
-    "ignorePaths": [
-        "cspell.json",
-        "package.json",
-        "package-lock.yaml",
-        "pnpm-lock.yaml",
-        "docs/credits.md",
-        ".octopus/**",
-        ".vscode/**",
-        ".github/**",
-        "src/pages/report/**",
-        "public/docs/js/**",
-        "node_modules/**",
-        "public/docs/css/fa/**"
-    ]
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": ["dictionary-octopus"],
+  "dictionaryDefinitions": [
+    {
+      "name": "dictionary-octopus",
+      "path": "./dictionary-octopus.txt",
+      "addWords": false
+    }
+  ],
+  "flagWords": [
+    "hte->the",
+    "octostash->octostache",
+    "on premise->on-premises",
+    "on-premise->on-premises",
+    "utilize->use",
+    "utilizes->uses",
+    "utilized->used",
+    "utilizing->using",
+    "utilization->use",
+    "whilst->while"
+  ],
+  "ignoreRegExpList": [
+    "/{#[^}]+}/g",
+    "/\\([^\\)]*#[\\w-]+/g",
+    "/href=\"[^\"]*#[\\w-]+/g",
+    "`[^`]+`"
+  ],
+  "suggestWords": [
+    "allow->let",
+    "allowing->letting",
+    "allows->lets",
+    "article->post",
+    "articles->posts",
+    "black list->block list",
+    "blacklist->block list",
+    "disable->deactivate",
+    "disabled->deactivated",
+    "disables->deactivates",
+    "disabling->deactivating",
+    "enable->let",
+    "enables->lets",
+    "enabling->letting",
+    "leverage->use",
+    "leverages->uses",
+    "leveraging->using",
+    "native->built-in",
+    "usage->use",
+    "white list->safe list",
+    "white-list->safe list",
+    "whitelist->safe list",
+    "within->in"
+  ],
+  "ignorePaths": [
+    "cspell.json",
+    "package.json",
+    "package-lock.yaml",
+    "pnpm-lock.yaml",
+    "docs/credits.md",
+    ".octopus/**",
+    ".vscode/**",
+    ".github/**",
+    "src/pages/report/**",
+    "public/docs/js/**",
+    "node_modules/**",
+    "public/docs/css/fa/**"
+  ]
 }

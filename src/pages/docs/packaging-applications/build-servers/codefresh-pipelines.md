@@ -12,11 +12,11 @@ Codefresh is a docker-native CI/CD platform
 [Codefresh Pipelines](https://codefresh.io/docs/docs/pipelines/introduction-to-codefresh-pipelines/) are workflows that form Codefresh's continuous integration (CI) platform. 
 
 # Integrating with Codefresh Pipelines
-Codefresh pipelines allow you to customize steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) inside a docker container.
+Codefresh pipelines allow you to customize steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) inside a Docker container.
 
 Octopus Deploy has several custom pipeline steps available: 
 
-- [Login to Octopus](https://codefresh.io/steps/step/octopusdeploy-login)
+- [Log into Octopus](https://codefresh.io/steps/step/octopusdeploy-login)
 - [Create a package](https://codefresh.io/steps/step/octopusdeploy-create-package)
 - [Push a package](https://codefresh.io/steps/step/octopusdeploy-push-package)
 - [Create a release](https://codefresh.io/steps/step/octopusdeploy-create-release)
@@ -53,7 +53,7 @@ The following steps require Octopus server authentication:
 
 There are two options for authentication. You can:
 
-1. Use the [Login to Octopus step](https://codefresh.io/steps/step/octopusdeploy-login) and provide `OCTOPUS_ACCESS_TOKEN` as an argument for each step.
+1. Use the [Log into Octopus step](https://codefresh.io/steps/step/octopusdeploy-login) and provide `OCTOPUS_ACCESS_TOKEN` as an argument for each step.
 2. Skip the login step and provide an `OCTOPUS_API_KEY` as an argument for each step.
 
 ## Codefresh variables 
@@ -65,7 +65,7 @@ These can be set by clicking **Add Variable** from the **Variable** menu of your
 Enter your variable name and value. To insert the variable in your workflow, use the Codefresh variable syntax `${{YOUR_VARIABLE_NAME}}`
 
 :::figure
-![Use variables in your Codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
+![Use variables in your Codefresh workflow](/docs/img/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables.png)
 :::
 
 For more details on Codefresh pipeline variables, see the Codefresh documentation on [Variables in pipelines](https://codefresh.io/docs/docs/pipelines/variables/).
@@ -75,7 +75,7 @@ For more details on Codefresh pipeline variables, see the Codefresh documentatio
 To store sensitive information such as Octopus Deploy API keys, you can use Codefresh's encrypted variables in your workflow. To encrypt the variable, click on the lock next to the variable value. 
 
 :::figure
-![Encrypt variables in your Codefresh workflow](/docs/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
+![Encrypt variables in your Codefresh workflow](/docs/img/packaging-applications/build-servers/codefresh-pipelines/codefresh-variables-encrypt.png)
 :::
 
 ## Triggering a build
@@ -320,7 +320,7 @@ Octopus Deploy steps and examples are available from the [Codefresh Marketplace]
 
 Each step includes one or two examples to help with setting up a workflow. Basic examples include only required arguments, and complex examples include both required and optional arguments.
 
-## Login to Octopus
+## Log into Octopus
 The **octopusdeploy-login** step authenticates to Octopus via OIDC, so your Octopus server needs a [service account with OIDC enabled](/docs/octopus-rest-api/openid-connect/other-issuers).
 To allow connections from Codefresh, the service account's OIDC identity should have **Issuer** `https://oidc.codefresh.io` and a **Subject** matching the [Codefresh subject claim for your preferred pipeline trigger](https://codefresh.io/docs/docs/integrations/oidc-pipelines/#codefresh-trigger-types-for-subject-claims).
 

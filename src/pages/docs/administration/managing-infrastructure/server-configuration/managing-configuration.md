@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-06-10
 title: Managing server configuration
 description: The Octopus Server configuration can be managed programmatically through the Octopus.Client library and the API
 navOrder: 1801
@@ -15,26 +15,15 @@ Octopus Deploy is made up of a number of different configuration sets and managi
 In the Octopus Web Portal, you can access configuration by navigating to **Configuration ➜ Settings**, this will show which configuration items are available.
 
 :::figure
-![Web Portal Configuration](/docs/administration/managing-infrastructure/server-configuration/octopus-v4-config-webportal.png)
+![Web Portal Configuration](/docs/img/administration/managing-infrastructure/server-configuration/octopus-v4-config-webportal.png)
 :::
 
 ## Octopus.Client
 
 Using [Octopus.Client](/docs/octopus-rest-api/octopus.client), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
-The class definitions for each of the configurations is available by referencing the relevant `Octopus.Client.Extensibility.*` library, which are available via NuGet:
-
-- [Octopus.Client.Extensibility.Authentication.Guest](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.Guest/)
-- [Octopus.Client.Extensibility.Authentication.DirectoryServices](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.DirectoryServices/)
-- [Octopus.Client.Extensibility.Authentication.UsernamePassword](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.UsernamePassword/)
-- [Octopus.Client.Extensibility.Authentication.AzureAD](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.AzureAD/)
-- [Octopus.Client.Extensibility.Authentication.GoogleApps](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.GoogleApps/)
-- [Octopus.Client.Extensibility.Authentication.Okta](https://www.nuget.org/packages/Octopus.Client.Extensibility.Authentication.Okta/)
-
-Web Portal and Authentication types are available in [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/)
-
 :::div{.hint}
-This requires version 4.27.0 or later of the client library.
+This requires version 15.2.0 or later of the client library.
 :::
 
 ### .Net / C#
@@ -58,22 +47,21 @@ var server = "http://myoctopusserver/";
 var apiKey = "API-XXXXXXXX";             // Get this from your 'profile' page in the Octopus Web Portal
 var endpoint = new OctopusServerEndpoint(server, apiKey);
 var repository = new OctopusRepository(endpoint);
-var webportalConfig = repository.Configuration.Get<WebPortalConfigResource>();
-webportalConfig.Security.HttpStrictTransportSecurityEnabled = true;
-webportalConfig = repository.Configuration.Modify(webportalConfig);
+var webPortalConfig = repository.Configuration.Get<WebPortalConfigResource>();
+webPortalConfig.Security.HttpStrictTransportSecurityEnabled = true;
+webPortalConfig = repository.Configuration.Modify(webPortalConfig);
 ```
 
 ### PowerShell
 
 ```powershell
 add-type -path 'C:\PathTo\Octopus.Client.dll'
-add-type -path 'C:\PathTo\Octopus.Client.Extensibility.Authentication.Guest.dll'
 $server = 'http://myoctopusserver/'
 $apikey = 'API-XXXXXXXX';
 $endpoint = New-Object Octopus.Client.OctopusServerEndpoint $server,$apikey
 $repo = New-Object Octopus.Client.OctopusRepository $endpoint
-$getMethod = $repo.Configuration.GetType().GetMethod("Get").MakeGenericMethod([Octopus.Client.Extensibility.Authentication.Guest.Configuration.GuestConfigurationResource])
-$modifyMethod = $repo.Configuration.GetType().GetMethod("Modify").MakeGenericMethod([Octopus.Client.Extensibility.Authentication.Guest.Configuration.GuestConfigurationResource])
+$getMethod = $repo.Configuration.GetType().GetMethod("Get").MakeGenericMethod([Octopus.Client.Model.Authentication.Guest.GuestConfigurationResource])
+$modifyMethod = $repo.Configuration.GetType().GetMethod("Modify").MakeGenericMethod([Octopus.Client.Model.Authentication.Guest.GuestConfigurationResource])
 $guestConfig = $getMethod.Invoke($repo.Configuration, $null)
 $guestConfig.IsEnabled = $true;
 $guestConfig = $modifyMethod.Invoke($repo.Configuration, $guestConfig)

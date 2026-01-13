@@ -12,7 +12,7 @@ import Card from 'src/components/Card.astro';
 You can manage the variables for your projects, by navigating to your project in Octopus and selecting Project Variables:
 
 :::figure
-![Project variables in Octopus Deploy](/docs/projects/variables/images/project-variables.png)
+![Project variables in Octopus Deploy](/docs/img/projects/variables/images/project-variables.png)
 :::
 
 ## Creating hello world variables \{#example}
@@ -26,7 +26,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **Add another value** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 :::figure
-![Adding a project variable in Octopus Deploy](/docs/projects/variables/images/add-project-variable.png)
+![Adding a project variable in Octopus Deploy](/docs/img/projects/variables/images/add-project-variable.png)
 :::
 7. Save the variable by clicking **Save**.
 8. In this example, we’ll reference this variable from a **Run a Script** step.
@@ -36,7 +36,7 @@ Write-Host
 ```
 10. Select the variable Greeting from the insert variable tool (**#\{\}**) in the script editor, and click **Save**.
 :::figure
-![Using a variable in a Hello World script in Octopus Deploy](/docs/projects/variables/images/hello-world-greeting-script.png)
+![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script.png)
 :::
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
@@ -67,7 +67,7 @@ During deployment, Octopus will try to select the most specifically scoped varia
 You can set the scope of variable values when you are creating or editing your variables, either from the **Project Variable** section of the project, or in the **Variable Sets** section. However, when you assign scope to variables that are part of a variable set, the variables cannot be scoped to deployment steps or channels.
 
 :::figure
-![Variable Sets in Octopus Deploy](/docs/projects/variables/images/library-variable-sets-scoping.png)
+![Variable Sets in Octopus Deploy](/docs/img/projects/variables/images/library-variable-sets-scoping.png)
 :::
 
 ### Using multiple scopes
@@ -113,6 +113,40 @@ Variable scoping also works like CSS rules; a value scoped twice is more specifi
 
 If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still doesn’t resolve the conflict, the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so they’re unlikely to conflict.
 
+### Process template parameter scoping \{#process-template-scoping}
+
+Project supplied values for parameters will always take precedence over process template supplied ones.
+
+A couple scenarios that demonstrate the scoping precedence:
+
+**1. Scoped value provided by the project and the process template.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | Development |
+
+When deploying to the **Development** environment, **Account-124** would be used.
+
+**2. Scoped value provided by the process template and an unscoped value provided by the project.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | |
+
+When deploying to the **Development** environment, **Account-124** would be used.
+
+**3. Scoped process template value and scoped project value for different environments.**
+
+| Origin           | Name         | Value            | Scope       |
+|------------------|--------------|------------------|-------------|
+| Process Template | AzureAccount | Account-123 | Development |
+| Project          | AzureAccount     | Account-124 | Staging |
+
+- When deploying to the **Development** environment, **Account-123** would be used.
+- When deploying to the **Staging** environment, **Account-124** would be used.
+
 ### Mutually exclusive scopes \{#mutually-exclusive-scopes}
 
 You can think of scopes of the same type as a grouping of logical `OR` expressions. Scopes of different types are evaluated as `AND` expressions between the groups of scopes. 
@@ -139,13 +173,13 @@ Let’s say you have the following targets with their respective tags:
 You want to deploy the same package on each server but the deployment path will be different between servers. In this case you can set the same variable (we'll call it *DeployPath*) with a different value for each tag:
 
 :::figure
-![Using variables to control the deployment path in Octopus Deploy](/docs/projects/variables/images/deploy-path-variable.png "width=500")
+![Using variables to control the deployment path in Octopus Deploy](/docs/img/projects/variables/images/deploy-path-variable.png)
 :::
 
 Then, on your deployment step, you can set the **[Custom Install Directory](/docs/projects/steps/configuration-features/custom-installation-directory)** to `#{DeployPath}`.
 
 :::figure
-![Using the DeployPath variable in Octopus Deploy](/docs/projects/variables/images/custom-install-path.png "width=500")
+![Using the DeployPath variable in Octopus Deploy](/docs/img/projects/variables/images/custom-install-path.png)
 :::
 
 ### Variables and permissions
@@ -161,6 +195,29 @@ It's important to understand how Octopus treats variables with regard to case se
 If you are using the [Structured configuration variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature, variable names are matched in a **case insensitive** way.
 
 ## Variable Recommendations
+
+### Use standard characters in variable names
+Prefer using standard characters when naming variables. While it's technically possible to include almost any character, **variable names** with non-standard characters can only be accessed in limited ways - such as via the `$OctopusParameters` dictionary. Variable values can include any character.
+
+| Variable name  | Value                                  |
+| ---------------| -------------------------------------- |
+| `WontWork`     | `#{Octopus.Action[StepA].Output.Foo!}` |
+| `Works`        | `#{Octopus.Action[StepA].Output.Ba-r}` |
+ 
+**Step A**
+```ps
+Set-OctopusVariable -name "Foo!" -value "FooValue"
+Set-OctopusVariable -name "Ba-r" -value "BarValue"
+```
+
+**Step B**
+```ps
+$OctopusParameters["Works"]                             # Returns: BarValue
+$OctopusParameters["WontWork"]                          # Returns: #{Octopus.Action[StepA].Output.Foo!}, not FooValue
+$OctopusParameters["Octopus.Action[StepA].Output.Foo!"] # Returns: FooValue
+```
+
+To ensure your variable can be accessed via Octostache expressions, stick to alphanumerics, periods (`.`), hyphens (`-`), underscores (`_`), and spaces for the **name** of the variable.
 
 ### Group variables into Variable Sets
 
@@ -188,7 +245,7 @@ If the answer to either question is yes, consider an external store for your var
 	<Card
 		imgAlt="Octopus Deploy logo"
 		imgSrc="/docs/img/octopus-deploy-logo.png"
-		link="https://octopus.com/blog/tag/variables"
+		link="https://octopus.com/blog/tag/variables/1"
 		title="Variable blog posts"
 		variant="related-topics"
 	/>

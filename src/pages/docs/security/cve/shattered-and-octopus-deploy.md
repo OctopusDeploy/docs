@@ -8,7 +8,7 @@ navOrder: 1
 ---
 
 :::figure
-![Shattered logo](/docs/security/cve/shattered-logo.png)
+![Shattered logo](/docs/img/security/cve/shattered-logo.png)
 :::
 
 _Extracted from our [blog post in 2017](https://octopus.com/blog/shattered)._
@@ -35,7 +35,7 @@ You'll want to check whether SHA1 is being used in other places. Common examples
 
 - The certificate used for the Octopus web frontend if you use HTTPS. Normally this is something people provide themselves.
 - Certificates used for authenticating with third party services, like Azure management certificates.
-- Certificates used to provide HTTPS for web sites that you deploy.
+- Certificates used to provide HTTPS for websites that you deploy.
 
 ## Detecting SHA1 certificates with PowerShell
 
@@ -43,7 +43,7 @@ Given an `X509Certificate2` object, here's a PowerShell function that checks whe
 
 ```powershell
 function Test-CertificateIsSha1{
-    [cmdletbinding()]
+    [CmdletBinding()]
     param(  
     [Parameter(
         Position=0,
@@ -146,4 +146,4 @@ foreach ($site in Get-ChildItem IIS:\Sites)
 
 You can easily run this in the [Octopus Script Console](/docs/administration/managing-infrastructure/script-console) across all of your machines:
 
-![Running the IIS SHA1 binding detection in the Octopus script console](/docs/security/cve/shattered-console.png)
+![Running the IIS SHA1 binding detection in the Octopus script console](/docs/img/security/cve/shattered-console.png)

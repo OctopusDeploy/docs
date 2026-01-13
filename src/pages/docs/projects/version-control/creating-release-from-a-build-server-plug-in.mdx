@@ -1,12 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2025-09-03
 title: Creating releases from a build server plugin on a version-controlled project
 description: Examples of how to ensure that the right branch is used to create the release when using a build server plugin.
 navOrder: 45 
 icon: fa-brands fa-git-alt
 ---
+
+:::div{.hint}
+Creating releases for version controlled projects using Octopus Deploy GitHub App authentication is not yet supported in some build server integrations. (Bamboo, BitBucket Pipelines, Jenkins, TeamCity)
+
+Consider using git credentials for version controlled projects that are integrating with these build servers.
+:::
+
 import BuildServerPluginVersionControlFields from 'src/shared-content/projects/version-control/build-server-plugin-version-control-fields.include.md';
 
 <BuildServerPluginVersionControlFields />

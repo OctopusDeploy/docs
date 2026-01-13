@@ -25,7 +25,13 @@ There are three components to an Octopus Deploy instance:
 - **SQL Server Database** Most data used by the Octopus Server nodes is stored in this database.  SQL Server 2016+ or Azure SQL is required.
 - **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database and are stored on the file system instead.  This can be a local folder, a network file share, or a cloud provider's storage.  
 
-All inbound traffic to Octopus Deploy is either http/https (ports 80/443) or polling tentacles (port 10943).  For production instances of Octopus Deploy, it is best to configure a [load balancer](/docs/installation/load-balancers) to route traffic to your instance.  Leveraging a load balancer offers numerous benefits, such as redirecting users to a maintenance page while the instance is down for upgrading, as well as making it much easier to configure High Availability later.
+All inbound traffic to Octopus Deploy is via:
+
+- HTTP/HTTPS (ports 80/443)
+- Polling tentacles (port 10943)  
+- gRPC (port 8443)
+
+For production instances of Octopus Deploy, it is best to configure a [load balancer](/docs/installation/load-balancers) to route traffic to your instance.  Leveraging a load balancer offers numerous benefits, such as redirecting users to a maintenance page while the instance is down for upgrading, as well as making it much easier to configure High Availability later.
 
 ## Self-hosted Octopus Server
 
@@ -39,30 +45,32 @@ When installed, the self-hosted Octopus Server:
 
 Before you install Octopus Deploy, review the software and hardware [requirements](/docs/installation/requirements/), and make sure you have access to an instance of [SQL Server Database](/docs/installation/sql-server-database) that you can use with Octopus Deploy.
 
+<OctopusReleases />
+
 ## Install Octopus as a Windows Service \{#install-octopus}
 
-1. [Download](https://Octopus.com/downloads/server) the Octopus installer.
-1. Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
-1. Accept the default **Destination Folder** or choose a different location and click **Next**.
-1. Click **Install**, and give the app permission to **make changes to your device**.
-1. Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Server.
-1. Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
-1. Accept the default **Home Directory** or enter a location of your choice and click **Next**.
-1. Decide whether to use a **Local System Account** or a **Custom Domain Account**.
+- [Download](https://Octopus.com/downloads/server) the Octopus installer.
+- Start the Octopus Installer, click **Next**, accept the **Terms in the License Agreement** and click **Next**.
+- Accept the default **Destination Folder** or choose a different location and click **Next**.
+- Click **Install**, and give the app permission to **make changes to your device**.
+- Click **Finish** to exit the installation wizard and launch the **Getting started wizard** to configure your Octopus Server.
+- Click **Get started...** and either enter your details to start a free trial of Octopus Deploy or enter your **license key** and click **Next**.
+- Accept the default **Home Directory** or enter a location of your choice and click **Next**.
+- Decide whether to use a **Local System Account** or a **Custom Domain Account**.
 
 Learn more about the [permissions required for the Octopus Windows Service](/docs/installation/permissions-for-the-octopus-windows-service/) or using a [Managed Service Account](/docs/installation/managed-service-account).
 
-9. On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database/#creating-the-database).
-10. Enter a name for the database, and click **Next** and **OK** to **create the database**.
+- On the **Database** page, click the drop-down arrow in the **Server Name** field to detect the SQL Server Database. Octopus will create the database for you which is the recommended process; however, you can also [create your own database](/docs/installation/sql-server-database/#creating-the-database).
+- Enter a name for the database, and click **Next** and **OK** to **create the database**.
 
   Be careful **not** to use the name of an existing database as the setup process will install Octopus into that pre-existing database.
 
-11. Accept the default port and directory or enter your own and click **Next**.
-12. If you're using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/security/authentication/active-directory), enter the active directory user details.
+- Accept the default port and directory or enter your own and click **Next**.
+- If you're using **username and passwords stored in Octopus** authentication mode, enter the username and password that will be used for the Octopus administrator. If you are using [active directory](/docs/security/authentication/active-directory), enter the active directory user details.
 
   You can configure additional [Authentication Providers](/docs/security/authentication) for the Octopus Server after the server has been installed.
 
-12. Click **Install**.
+- Click **Install**.
 
 When the installation has completed, click **Finish** to launch the **Octopus Manager**.
 
@@ -104,14 +112,9 @@ Click **Open in browser** to launch the **Octopus Web Portal** and log in using 
 
 The **Octopus Web Portal**  is where you'll manage your infrastructure, projects, deployment process, access the built-in repository, and manage your deployments and releases.
 
-## Releases of Octopus Deploy Server
-
-<OctopusReleases />
-
 ## Learn more
 
- - [Troubleshooting the Octopus installation](/docs/installation/troubleshooting)
- - [Configure your infrastructure](/docs/infrastructure)
- - [Upgrading guide](/docs/administration/upgrading)
- - [Automating Octopus installation](/docs/installation/automating-installation)
-
+- [Troubleshooting the Octopus installation](/docs/installation/troubleshooting)
+- [Configure your infrastructure](/docs/infrastructure)
+- [Upgrading guide](/docs/administration/upgrading)
+- [Automating Octopus installation](/docs/installation/automating-installation)

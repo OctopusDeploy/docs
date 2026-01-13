@@ -1,17 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-07
-modDate: 2025-03-07
+modDate: 2025-08-08
 title: Dynamic workers
-navOrder: 45
-description: Describes what dynamic workers are, how they work, their limitations and other worker type options available for Octopus Cloud
+navTitle: Dynamic workers
+navOrder: 50
+description: What dynamic workers are, how they work, their limitations and other worker options available for Octopus Cloud
 ---
 
-[Workers](docs/infrastructure/workers) are machines that can execute tasks that don’t need to be run on the Octopus Server or individual deployment targets.
+[Workers](/docs/infrastructure/workers) are machines that can execute tasks that don’t need to be run on the Octopus Server or individual deployment targets.
 
 There are 2 types of worker you can use in Octopus Cloud - external workers and dynamic workers.
 
-The most flexible type of worker are [external workers](docs/infrastructure/workers#external-workers), which are machines, provided by the customer, accessed from Octopus Cloud via Windows or Linux Tentacle, via SSH, or via [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker).
+The most flexible type of worker are [external workers](/docs/infrastructure/workers#external-workers), which are machines, provided by the customer, accessed from Octopus Cloud via Windows or Linux Tentacle, via SSH, or via [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker).
 
 External workers are recommended when the customer needs full control of
 
@@ -33,7 +34,7 @@ Self-hosted Octopus Server customers have access to a third type of worker, know
 
 Dynamic workers are isolated virtual machines, hosted and created on-demand by Octopus to run your deployments and runbook steps. Dynamic workers are provided as part of your Octopus Cloud subscription.
 
-Customers may choose between Windows and Ubuntu virtual machine images for their dynamic workers. Octopus provides a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) of these virtual machines from which, as required, your Octopus Cloud will lease a freshly provisioned dynamic worker VM. Leases are held for a maximum of 72 hours.
+Customers may choose between Windows and Ubuntu virtual machine images for their dynamic workers. Octopus provides a [dynamic worker pool](/docs/infrastructure/workers/dynamic-worker-pools) of these virtual machine image types from which, as required, your Octopus Cloud will lease a freshly provisioned dynamic worker VM. Leases are held for a maximum of 72 hours. Customers can lease one dynamic worker VM from each pool concurrently.
 
 ## Limitations of dynamic workers
 
@@ -66,7 +67,7 @@ We do not recommend installing additional software on dynamic workers. Instead, 
 
 ### IP addresses
 
-Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own external worker.
+Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud instance. If a known/static IP is required for your worker, please consider provisioning your own external worker.
 
 ## Let us know what you want for the future of dynamic workers
 

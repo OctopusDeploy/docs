@@ -33,7 +33,7 @@ If you operate in a highly secure environment, where it's not possible to open a
 
 There are additional dependency requirements to be aware of for both [SSH targets](/docs/infrastructure/deployment-targets/linux/ssh-requirements) and [Linux Tentacle](/docs/infrastructure/deployment-targets/tentacle/linux/#requirements).
 
-These dependencies are not required if exclusively utilizing [Raw Scripts](https://octopus.com/docs/deployments/custom-scripts/raw-scripting).
+These dependencies are not required if exclusively using [Raw Scripts](https://octopus.com/docs/deployments/custom-scripts/raw-scripting).
 
 ## Supported distributions
 
@@ -55,4 +55,4 @@ In addition to the .NET 6 requirement, Octopus will only support those Operating
 
 ## Learn more
 
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

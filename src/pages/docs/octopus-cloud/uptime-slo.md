@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-02-04
-title: Octopus Cloud Uptime SLO
-navOrder: 50
-description: The uptime SLO for Octopus Cloud instances
+modDate: 2026-01-06
+title: Uptime SLO
+navTitle: Uptime SLO
+navOrder: 70
+description: Information about Octopus Cloud's uptime SLO, including the last 12 month's historical uptime data
 ---
 
 Each Octopus Cloud customer has their own Octopus Server delivered as a highly available, scalable, secure SaaS application hosted for you. Octopus Deploy manages maintenance and resource provisioning for these hosted servers, letting our customers focus on happy deployments.  
@@ -23,22 +24,20 @@ This table lists Octopus Cloud's monthly uptime statistics for the last 12 month
 
 We list our achieved uptime percentage and weekly unplanned downtime duration. We also show these data points including planned maintenance. Data points measured at 95th percentile of all paid subscriptions.
 
-| Month  | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
+| Month | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| December 2025 | 100% | 0s | 99.9562% | 266s |
+| November 2025 | 99.9702% | 182s | 99.8925% | 651s |
+| October 2025 | 99.9851% | 91s | 99.8663% | 812s |
+| September 2025 | 99.9989% | 7s | 99.8722% | 777s |
+| August 2025 | 99.9989% | 7s | 99.9281% | 441s |
+| July 2025 | 99.9992% | 7s | 99.9207% | 483s |
+| June 2025 | 99.9974% | 21s | 99.9307% | 420s |
+| May 2025 | 100% | 0s | 99.9125% | 532s |
 | April 2025 | 99.9925% | 49s | 99.9479% | 315s |
 | March 2025 | 99.9809% | 119s | 99.9292% | 434s |
 | February 2025 | 100% | 0s | 99.9212% | 483s |
 | January 2025 | 99.9924% | 49s | 99.9397% | 371s |
-| December 2024 | 100% | 0s | 99.9666% | 203s |
-| November 2024 | 100% | 0s | 99.8895% | 672s |
-| October 2024 | 99.9973% | 21s | 99.917% | 504s |
-| September 2024 | 99.9977% | 14s | 99.9165% | 511s |
-| August 2024 | 99.9955% | 28s | 99.8978% | 623s |
-| July 2024 | 99.9978% | 14s | 99.8602% | 847s |
-| June 2024 | 99.9931% | 49s | 99.9196% | * 490s |
-| May 2024 | 99.9976% | 21s | - | - |
-
-\* We began capturing planned downtime metrics on June 10, 2024.
 
 ### How we calculate uptime
 

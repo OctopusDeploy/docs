@@ -10,7 +10,7 @@ navOrder: 10
 
 Octopus also allows you to run standalone scripts as part of your deployment process. You can run a script on the Octopus Server, on [workers](/docs/infrastructure/workers/) or across the deployment targets in [tags](/docs/infrastructure/deployment-targets/target-tags). You can run scripts contained in a [package](/docs/deployments/packages/), in a git repository, or ad-hoc scripts you've saved as part of the [step](/docs/projects/steps).
 
-You can use all of the features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
+You can use all features we provide for [custom scripts](/docs/deployments/custom-scripts/), like [variables](/docs/deployments/custom-scripts/using-variables-in-scripts/), [passing parameters](/docs/deployments/custom-scripts/passing-parameters-to-scripts/), publishing [output variables](/docs/deployments/custom-scripts/output-variables), and [collecting artifacts](/docs/deployments/custom-scripts/#Customscripts-Collectingartifacts).
 
 ## Choosing where the script will run
 
@@ -49,7 +49,7 @@ You may also select the source of the script, either:
 - A script file inside a package (shown below).
 
 :::figure
-![](/docs/deployments/custom-scripts/images/script-file-in-package.png)
+![](/docs/img/deployments/custom-scripts/images/script-file-in-package.png)
 :::
 
 :::div{.success}
@@ -72,7 +72,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 When you call external scripts (sourced from a file inside a package or git repository) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
 :::figure
-![](/docs/deployments/custom-scripts/images/5865636.png)
+![](/docs/img/deployments/custom-scripts/images/5865636.png)
 :::
 
 ## Referencing packages
@@ -86,7 +86,7 @@ In addition to being able to [source the custom script from a package](#choosing
     - Referencing multiple container images and performing `docker compose`
 
 :::figure
-![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-references.png)
+![Script Step Package References](/docs/img/deployments/custom-scripts/images/script-step-package-references.png)
 :::
 
 Package references can be added regardless of whether the script is sourced inline, from a git repository or from a package.
@@ -112,7 +112,7 @@ Whether the package should be extracted. See [below](#referencing-packages-packa
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
 :::figure
-![Script Step Package References](/docs/deployments/custom-scripts/images/script-step-package-reference-add.png)
+![Script Step Package References](/docs/img/deployments/custom-scripts/images/script-step-package-reference-add.png)
 :::
 
 ### Accessing package references from a custom script
@@ -141,7 +141,7 @@ Write-Host "ExtractedPath: $ExtractedPath"
 
 #### Package files {#referencing-packages-package-files}
 
-If the package reference was configured to be extracted, then the package will be extracted to a sub-directory in the working-directory of the script. This directory will be named the same as the package-reference.  For example, a package reference named `Acme` would be extracted to directory similar to `C:\Octopus\Work\20180821060923-7117-31\Acme` (this is obviously a Windows directory; a script executing on a Linux target may have a path such as `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme`).
+If the package reference was configured to be extracted, then the package will be extracted to a subdirectory in the working-directory of the script. This directory will be named the same as the package-reference.  For example, a package reference named `Acme` would be extracted to directory similar to `C:\Octopus\Work\20180821060923-7117-31\Acme` (this is obviously a Windows directory; a script executing on a Linux target may have a path such as `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme`).
 
 If the package reference was _not_ configured to be extracted, then the un-extracted package file will be placed in the working directory. The file will be named as the package reference name, with the same extension as the original package file.  For example, for a package reference named `Acme`, which resolved to a zip package, the file would be copied to a path such as `C:\Octopus\Work\20180821060923-7117-31\Acme.zip` (for Linux: `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme.zip`).
 

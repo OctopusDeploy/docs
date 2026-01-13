@@ -14,7 +14,7 @@ For stacks that are created, updated or deleted by Octopus, the following permis
 * `cloudformation:DescribeStackEvents`
 
 :::div{.hint}
-If these permissions are not available, Octopus will make some assumptions about the state of the CloudFormation stacks. However there are situations where these assumptions are not valid. For example, if Octopus can't determine if a stack that it is trying to deploy exists due to the lack of the `cloudformation:DescribeStacks` permission, it will assume the stack does not exist and attempt to create the it. This may not work if the stack does in fact already exist, as in this case it must be updated instead of created.
+If these permissions are not available, Octopus will make some assumptions about the state of the CloudFormation stacks. However, there are situations where these assumptions are not valid. For example, if Octopus can't determine if a stack that it is trying to deploy exists due to the lack of the `cloudformation:DescribeStacks` permission, it will assume the stack does not exist and attempt to create the it. This may not work if the stack does in fact already exist, as in this case it must be updated instead of created.
 
 For this reason it is recommended that both the `cloudformation:DescribeStacks` and `cloudformation:DescribeStackEvents` permissions be assigned to the AWS account performing any CloudFormation steps.
 :::
@@ -37,4 +37,4 @@ While the AWS cli makes a clear distinction between creating and updating CloudF
 For this reason it is recommended that the AWS account used to deploy a CloudFormation template have the permissions for both creating and updating stacks.
 :::
 
-In addition the AWS account used with the CloudFormation steps needs to have permissions to create, update and delete any of the resources referenced by the CloudFormation template. Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) for more information on which permissions are required and how to assign them.
+In addition, the AWS account used with the CloudFormation steps needs to have permissions to create, update and delete any of the resources referenced by the CloudFormation template. Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) for more information on which permissions are required and how to assign them.

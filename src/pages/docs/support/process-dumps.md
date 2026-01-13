@@ -25,10 +25,10 @@ We will also delete them as soon as they have been analyzed.
 ## Creating process dumps on Windows
 If you are capturing a process on your Octopus Server follow the below instructions:
 
-1. Right click on the task bar and select **Task Manager**.
+1. Right-click on the task bar and select **Task Manager**.
 1. Select the **Details** tab.
 1. Find the relevant process. In this case **Octopus.Server.exe**
-1. Right click on it and select **Create dump file**.
+1. Right-click on it and select **Create dump file**.
 1. Note where the file is saved (generally in your temp folder).
 
 :::div{.warning}
@@ -39,13 +39,13 @@ We recommend using [Process Explorer](https://docs.microsoft.com/en-us/sysintern
 
 1. On the Tentacle that is having the issues. Download and install [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 from Microsoft.
-1. Once installed you need to **run the program as an administrator** by right clicking on the relevant procexp.exe file and selecting `Run as Administrator`.
+1. Once installed you need to **run the program as an administrator** by right-clicking on the relevant procexp.exe file and selecting `Run as Administrator`.
 1. Once opened you need to make sure the process tree is shown by clicking on the `View` menu on the top navigation bar and selecting `Show Process Tree`.
 1. You will notice the program looks similar to task manager. Navigate to the **tentacle.exe** process in the list of tasks.
 1. Run the process that is causing the issue/fault in Octopus (ie run the deployment or task that is failing). 
 1. Once that task is running in Octopus go back to Process Explorer on the Tentacle and you will now see the tentacle.exe process can be expanded to show the Calamari process. This can be expanded further to see the powershell.exe processes associated with both the tentacle.exe and calamari.exe. 
 1. To capture the dump file for calamari.exe make sure your tentacle.exe process is expanded in process explorer and find calamari.exe.
-1. Right click on it and select `Create Dump` and then `Create Full Dump`.
+1. Right-click on it and select `Create Dump` and then `Create Full Dump`.
 1. Note where the file is saved (generally in your temp folder).
 
 :::div{.hint}
@@ -53,7 +53,7 @@ Sometimes the deployment in Octopus can complete or error out too quickly, which
 :::
 
 :::figure
-![Process explorer capturing child processes from Tentacle](/docs/support/images/processexplorer.png)
+![Process explorer capturing child processes from Tentacle](/docs/img/support/images/processexplorer.png)
 :::
 
 ## Creating process dumps on Linux

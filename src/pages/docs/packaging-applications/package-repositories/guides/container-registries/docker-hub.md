@@ -7,9 +7,9 @@ description: How to add Docker Hub as an Octopus Deploy feed for use in Docker s
 navOrder: 50
 ---
 
-The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by docker engine when it is first installed and you call `docker search`.
+The default Docker Registry, which is maintained by the Docker organization, is the cloud-hosted [Docker Hub Registry](https://hub.docker.com/). This is the Registry which is used by Docker engine when it is first installed and you call `docker search`.
 
-From September 5th 2022, the Docker Hub Registry is [deprecating v1 endpoints](https://www.docker.com/blog/docker-hub-v1-api-deprecation) to retrieve tags and images. The equivalent v2 endpoints require authentication. Therefore external feeds will require a username and password to access the Docker Hub API. Searching for repositories of a non-official repository will also require you to provide your Docker Hub username and password. Searching for official public repositories does not require credentials.
+From September 5th 2022, the Docker Hub Registry is [deprecating v1 endpoints](https://www.docker.com/blog/docker-hub-v1-api-deprecation) to retrieve tags and images. The equivalent v2 endpoints require authentication. Therefore, external feeds will require a username and password to access the Docker Hub API. Searching for repositories of a non-official repository will also require you to provide your Docker Hub username and password. Searching for official public repositories does not require credentials.
 
 :::div{.problem}
 
@@ -37,4 +37,4 @@ To use the Docker Hub registry in Octopus Deploy, create an external feed with t
 - **Registry Path:** *leave blank*
 - **Credentials:** Username and Password (Login for your DockerHub account, this is required for accessing public repositories)
 
-![Docker Hub Registry Feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/dockerhub-feed.png)
+![Docker Hub Registry Feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/dockerhub-feed.png)

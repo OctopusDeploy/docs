@@ -41,11 +41,11 @@ The next sections explains how to configure a service account to be authorized t
 
 #### Create project variables {#gcp-project-variables}
 
-We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the help of a Powershell function included in a [Script module](/docs/deployments/custom-scripts/script-modules).
+We'll use project [variables](/docs/projects/variables/) to authorize the gcloud CLI with Google Cloud with the help of a PowerShell function included in a [Script module](/docs/deployments/custom-scripts/script-modules).
 
 Create two [sensitive variables](/docs/projects/variables/sensitive-variables), one for the service account email, and the other will contain the service account key. This is a JSON payload you obtain when creating the service account in Google Cloud:
 
-![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-auth-project-variables.png)
+![Google Cloud Project variables](/docs/img/runbooks/runbook-examples/gcp/images/gcp-auth-project-variables.png)
 
 #### Create authorization function in script module
 
@@ -90,7 +90,7 @@ This script defines a function named `Set-GCPAuth` which uses the `auth activate
 
 Add the script module into your runbook process following [these instructions](/docs/deployments/custom-scripts/script-modules/#use-script-module-for-deployment):
 
-![Google Cloud Project variables](/docs/runbooks/runbook-examples/gcp/images/gcp-runbook-include-script-module.png)
+![Google Cloud Project variables](/docs/img/runbooks/runbook-examples/gcp/images/gcp-runbook-include-script-module.png)
 
 ## Create the runbook {#create-runbook}
 
@@ -410,5 +410,5 @@ And that's it! In a few steps, you have a network load balancer set up in Google
 We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. 
 You can sign in as `Guest` to take a look at these runbook steps in the `PetClinic Infrastructure` project:
 
-- The runbook named `Configure GCP NLB Target Pools` includes all of the steps to create the network load balancer. 
+- The runbook named `Configure GCP NLB Target Pools` includes all steps to create the network load balancer. 
 - The step to add machines to a target pool is included in the runbook named `Spin up GCP PetClinic Project Infrastructure`.

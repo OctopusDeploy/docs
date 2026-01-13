@@ -1,0 +1,32 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-12-10
+title: Configuring Microsoft Entra ID
+description: How to configure Octopus Deploy and Microsoft Entra to authenticate and identify users with OpenID Connect authentication.
+navTitle: Microsoft Entra ID
+navOrder: 6
+---
+
+## Configure Microsoft Entra ID
+
+[How to configure Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication#configure-microsoft-entra-id)
+
+## Configure Octopus Server
+
+1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
+     - **Enabled** should be set to `Yes`.
+     - **Role Claim Type** is optional, but set this to `roles` if you [want to automatically assign users to teams](/docs/security/authentication/azure-ad-authentication#assign-app-registration-roles-to-octopus-teams-optional).
+     - **Username Claim Type** set to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`.
+     - **Resource** should be left unset.
+     - **Scopes** should be left as the default of `openid profile email`.
+     - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+     - **Issuer** should be a URL like `https://login.microsoftonline.com/GUID` where the `GUID` is a particular GUID identifying your Microsoft Entra ID tenant. This is the **Directory (tenant) ID** in the Azure App Registration Portal.
+     - **Client ID** which should be a GUID. This is the **Application (client) ID** in the Azure App Registration Portal.
+     - **Client Secret** which should be a long string value. This is the **Value** of a client secret in the Azure App Registration Portal.
+         :::div{.hint}
+         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::
+     - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+2. Click **Save** to apply the changes.
+3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.

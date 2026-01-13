@@ -11,6 +11,8 @@ $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
 $tagsetName = "Upgrade Ring"
 $tagsetDescription = "Describes which upgrade ring the tenant belongs to"
+$tagsetType = "MultiSelect" # Options: MultiSelect, SingleSelect, FreeText
+$tagsetScopes = @("Tenant") # Options: Tenant, Environment, Project (can specify multiple)
 
 # Optional Tags to add in the format "Tag name", "Tag Color"
 $optionalTags = @{}
@@ -44,6 +46,8 @@ if($optionalTags.Count -gt 0)
 $jsonPayload = @{
     Name = $tagsetName
     Description = $tagsetDescription
+    Type = $tagsetType
+    Scopes = $tagsetScopes
     Tags = $tags
 }
 
@@ -65,6 +69,8 @@ $octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
 $tagsetName = "Upgrade Ring"
 $tagsetDescription = "Describes which upgrade ring the tenant belongs to"
+$tagsetType = "MultiSelect" # Options: MultiSelect, SingleSelect, FreeText
+$tagsetScopes = @("Tenant") # Options: Tenant, Environment, Project (can specify multiple)
 
 # Optional Tags to add in the format "Tag name", "Tag Color"
 $optionalTags = @{}
@@ -105,7 +111,7 @@ catch
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;
@@ -116,6 +122,8 @@ var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var tagsetName = "Upgrade Ring";
 var tagsetDescription = "Describes which upgrade ring the tenant belongs to";
+var tagsetType = "MultiSelect"; // Options: MultiSelect, SingleSelect, FreeText
+var tagsetScopes = new[] { "Tenant" }; // Options: Tenant, Environment, Project (can specify multiple)
 
 // Optional Tags to add in the format "Tag name", "Tag Color"
 var optionalTags = new Dictionary<string, string>();
@@ -196,6 +204,8 @@ headers = {'X-Octopus-ApiKey': octopus_api_key}
 space_name = "Default"
 tagset_name = "MyTagset"
 tagset_description = "My description"
+tagset_type = "MultiSelect"  # Options: MultiSelect, SingleSelect, FreeText
+tagset_scopes = ["Tenant"]  # Options: Tenant, Environment, Project (can specify multiple)
 tags = []
 tag = {
     'Id': None,
@@ -220,6 +230,8 @@ if len(tagsets) == 0:
     tagset = {
         'Name': tagset_name,
         'Description': tagset_description,
+        'Type': tagset_type,
+        'Scopes': tagset_scopes,
         'Tags': tags
     }
 

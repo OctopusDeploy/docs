@@ -35,6 +35,10 @@ It is generally safe to do an in-place upgrade from Octopus Deploy 4.x/2018.x to
 
 The upgrade should work without error, but there are integration concerns to consider.  This guide will step through the steps to mitigate those concerns.
 
+## System Integrity Check
+
+Before performing any upgrade steps, we highly recommend performing a [System Integrity Check](/docs/administration/managing-infrastructure/diagnostics) on your live instance database. This is so we can check that the Database Schema is in the expected condition for the upgrade. If the integrity check passes, you are good to start the upgrade process. If it fails, please contact [support](https://octopus.com/support) with the [raw output of the task](/docs/support/get-the-raw-output-from-a-task), and we can get that fixed for you.
+
 ## Prep work
 
 Before starting the upgrade, it is critical to back up the master key and license key.  If anything goes wrong, you might need these keys to do a restore.  It is better to have the backup and not need it than need the backup and not have it.  The master key doesn't change, while your license key changes, at most, once a year.  Back them up once to a secure location and move onto the next steps.

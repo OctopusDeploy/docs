@@ -12,7 +12,7 @@ When a release is deployed to an environment, you can think of this as deploying
 Deployment changes summarize these changes by rolling up the [release notes](/docs/releases/release-notes) from each release.  
 
 :::figure
-![Deployment changes](/docs/releases/images/deployment-notes.png)
+![Deployment changes](/docs/img/releases/images/deployment-notes.png)
 :::
 
 ## Versioning and pre-releases {#versioning}
@@ -35,7 +35,7 @@ It can be useful to access the changes associated with a deployment in the deplo
 A common usage of this is in the [email step](/docs/projects/built-in-step-templates/email-notifications).  
 
 :::figure
-![Deployment notes variables in email step](/docs/releases/images/deployment-notes-email-step.png)
+![Deployment notes variables in email step](/docs/img/releases/images/deployment-notes-email-step.png)
 :::
 
 In scenarios where you want to use release notes templates and email steps together, there can be some complications depending on the layout of the email content you need. The easiest option is to use the release notes directly from the releases:
@@ -128,12 +128,12 @@ The following template only shows the most recent change being deployed, includi
 This is achieved using the Octopus [special variables](https://octopus.com/docs/projects/variables/variable-substitutions#special-variables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
 
 :::figure
-![Deployment notes rendered using the Octopus.Template.Each.Last variable](/docs/releases/images/deployment-notes-template-each-last-example.png)
+![Deployment notes rendered using the Octopus.Template.Each.Last variable](/docs/img/releases/images/deployment-notes-template-each-last-example.png)
 :::
 
 ### Deployment changes and targets
 
-The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all of the targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
+The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
 
 ```
 #{each target in Octopus.Deployment.Targets}

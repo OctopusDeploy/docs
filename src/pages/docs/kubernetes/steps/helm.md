@@ -21,7 +21,7 @@ You can source your Helm charts from two different sources:
 A Helm Feed in Octopus refers to a [Helm Chart repository](https://helm.sh/docs/topics/chart_repository/). This repository is effectively just an HTTP server that houses an `index.yaml` which describes the charts available on that server. Octopus uses this index file to determine the available "packages" (Charts) and versions. A chart is a tarball that looks like `alpine-0.1.2.tgz` which for this example Octopus will interpret as having PackageID `alpine` and version `0.1.2`. There are various ways you can host a chart repository, including third-party tools like [ChartMuseum](https://github.com/chartmuseum/chartmuseum), [Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/kubernetes-helm-chart-repositories), [Cloudsmith](https://help.cloudsmith.io/docs/helm-chart-repository), or even hosting your own [static web server](https://helm.sh/docs/topics/chart_repository/#hosting-chart-repositories).
 
 :::figure
-![Helm Feed](/docs/deployments/kubernetes/helm-update/helm-feed.png)
+![Helm Feed](/docs/img/deployments/kubernetes/helm-update/helm-feed.png)
 :::
 
 :::div{.info}
@@ -52,7 +52,7 @@ The Open Container Initiative (OCI) is a lightweight, open governance structure 
 An OCI-based registry can contain zero or more Helm repositories and each of those repositories can contain zero or more packaged Helm charts.
 
 :::figure
-![OCI Registry Feed](/docs/deployments/kubernetes/helm-update/oci-registry-feed.png)
+![OCI Registry Feed](/docs/img/deployments/kubernetes/helm-update/oci-registry-feed.png)
 :::
 
 For more information about using OCI-based registries and how to run your own private repository, check out the living documentation on their [GitHub repo](https://helm.sh/docs/topics/registries/).
@@ -87,12 +87,12 @@ Remember that since the Kubernetes cluster connection context is available via t
 ### Upgrade options
 
 :::figure
-![Upgrade options](/docs/deployments/kubernetes/helm-update/upgrade-options.png)
+![Upgrade options](/docs/img/deployments/kubernetes/helm-update/upgrade-options.png)
 :::
 
 #### Kubernetes release
 
-The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.
+The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alphanumeric and dash (-) characters.
 
 :::div{.hint}
 Due to the design of Helm, the release names must be [unique across the entire cluster](https://github.com/helm/helm/issues/2060#issuecomment-287164881), not just namespaces.
@@ -100,7 +100,7 @@ Due to the design of Helm, the release names must be [unique across the entire c
 
 #### Reset values
 
-By default Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
+By default, Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
 
 #### Helm client tool
 
@@ -110,12 +110,12 @@ Helm performs some strict version checks when performing any commands against th
 Like the other Kubernetes steps, the Octopus Server or workers will run the Helm commands directly during execution and need to have the `helm` executable installed.
 :::
 
-Since it is quite common to have different versions of Helm across your deployment workers or even across different environments clusters, this option lets you override the helm client tool that is invoked. By default, Octopus will expect the helm command to be directly available to the execution context. Provide either the explicit full path to the desired version of the helm tool or include a version of helm as a package. The available version can be downloaded via the helm public [GitHub repository](https://github.com/helm/helm/releases). Unlike some other Octopus steps like [Azure Powershell Scripts](/docs/deployments/custom-scripts/azure-powershell-scripts), the helm client tools are not automatically embedded or installed by Octopus. This is due to the strict version requirements that would differ between Octopus Server installations, and the diverse number of different platform builds available.
+Since it is quite common to have different versions of Helm across your deployment workers or even across different environments clusters, this option lets you override the helm client tool that is invoked. By default, Octopus will expect the helm command to be directly available to the execution context. Provide either the explicit full path to the desired version of the helm tool or include a version of helm as a package. The available version can be downloaded via the helm public [GitHub repository](https://github.com/helm/helm/releases). Unlike some other Octopus steps like [Azure PowerShell Scripts](/docs/deployments/custom-scripts/azure-powershell-scripts), the helm client tools are not automatically embedded or installed by Octopus. This is due to the strict version requirements that would differ between Octopus Server installations, and the diverse number of different platform builds available.
 
 ### Template values
 
 :::figure
-![Template Values](/docs/deployments/kubernetes/helm-update/new-template-values.png)
+![Template Values](/docs/img/deployments/kubernetes/helm-update/new-template-values.png)
 :::
 
 The configuration for the Kubernetes resources required in a Helm Chart can be provided by making use of [Chart Templates](https://docs.helm.sh/chart_template_guide/). In each of the following options, the values files are passed into the `helm upgrade` command with the `-f` argument.
@@ -137,7 +137,7 @@ To reorder the sources, click the **Reorder** button.
 In the following figure, the **Key values** source value for the **drink** key will take precedence over the value for the same key in the **Inline YAML** source. The value for the **drink** key defined in the chart default `values.yaml` file will be overridden.
 
 :::figure
-![Ordering Template Values](/docs/deployments/kubernetes/helm-update/reorder-template-values.png)
+![Ordering Template Values](/docs/img/deployments/kubernetes/helm-update/reorder-template-values.png)
 :::
 
 
@@ -188,7 +188,7 @@ To ensure a smooth deployment experience, we recommend setting a larger Octopus 
 
 ## Learn more
 
-- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes)
+- [Kubernetes blog posts](https://octopus.com/blog/tag/kubernetes/1)
 
 :::div{.hint}
 **Step updates**

@@ -1,0 +1,66 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-04-04
+modDate: 2025-11-20
+title: AI-Powered DevOps with Octopus Deploy
+navTitle: Overview
+navSection: Octopus AI
+description: An overview of the AI powered devops capabilities provided by Octopus Deploy
+navOrder: 26
+---
+
+Artificial intelligence, and GenAI technologies in particular, are transforming our technology landscape.
+
+For continuous delivery, AI allows us to solve previously-unsolvable problems. Parsing complex log files and diagnosing root cause failures and providing intelligent remediation; natural-language exploration of your software landscape, simplifying auditing, compliance, and standardization; agentic workflows providing intelligent glue between your essential software services.
+
+At Octopus, we are bringing these capabilities to the best continuous delivery tool on the market, lowering risk, improving efficiency, and accelerating your software delivery.
+
+Our AI capabilities span three complementary areas, each designed to address different aspects of your deployment lifecycle - from interactive assistance and troubleshooting to fully autonomous DevOps operations.
+
+## Current Capabilities
+
+### Octopus AI Assistant
+
+The Octopus AI Assistant is your intelligent companion to your existing Octopus Deploy instance, providing context-aware guidance and automation directly where you work. Currently in Early Access, this feature offers immediate value through four core capabilities that streamline your deployment workflows.
+
+The AI Assistant excels at providing instant tier-0 support by drawing from comprehensive Octopus Deploy documentation to answer questions in natural language. Whether you're exploring the difference between environments and tenants or learning how to set up automated deployments, the Assistant provides immediate, contextual answers without disrupting your workflow.
+
+Beyond answering questions, the AI Assistant can generate complete deployment projects from simple text descriptions. Describe what you want to deploy - whether it's an Azure Web App or AWS Lambda function - and the Assistant creates fully configured projects following established best practices.
+
+When deployments encounter issues, the Assistant's failure analysis capability examines logs, configurations, and error details to provide specific troubleshooting guidance and actionable resolution steps.
+
+The Assistant also helps monitor your Octopus Deploy instance for optimization opportunities, identifying unused variables, suggesting organizational improvements through tenant tags, and helping maintain healthy configurations that scale with your needs.
+
+[Learn more about Octopus AI Assistant](/docs/octopus-ai/assistant)
+
+### Octopus MCP Server
+
+The Octopus MCP ([Model Context Protocol](https://modelcontextprotocol.io/)) server represents a significant leap forward in AI integration capabilities. Built on Anthropic's open standard for connecting AI assistants to external data sources and tools, the MCP server will enable AI assistants like Claude to interact directly with your Octopus Deploy infrastructure.
+
+The Octopus MCP server provides similar capabilities to the Octopus AI Assistant, but provides further benefits:
+
+- You can use it with your client and model of choice.
+- It can work alongside other MCP servers to accomplish more complex orchestrations across Octopus and your other essential software services.
+
+The MCP server provides tools designed to solve key use-cases within change management, troubleshooting, and administration audit & compliance.
+
+The MCP server architecture ensures that your deployment data remains secure while enabling powerful AI-assisted workflows. All interactions are logged and auditable, maintaining the compliance and governance standards your organization requires.
+
+[Learn more about Octopus MCP Server](/docs/octopus-ai/mcp)
+
+### Octopus AI Recovery Agent
+
+Rapid recovery is crucial for Continuous Delivery. The Recovery Agent helps you recover from failures fast by using AI to analyze causes, suggest fixes, and, in the future, execute remediation steps - keeping you in control while handling the heavy lifting.
+
+[Learn more about Octopus Recovery Agent](/docs/octopus-ai/recovery-agent)
+
+## Getting Started
+
+Begin your AI-powered DevOps journey today with the Octopus AI Assistant, or the Octopus MCP Server. As an Early Access participant, you'll help shape these features while gaining early access to capabilities that will transform how teams deploy software.
+
+- [Getting Started with Octopus AI Assistant](/docs/octopus-ai/assistant/getting-started)
+- [Getting Started with Octopus MCP Server](https://github.com/OctopusDeploy/mcp-server?tab=readme-ov-file#-installation)
+
+## Security and Privacy
+
+All AI capabilities in Octopus Deploy are built with security and privacy as foundational principles. We never use customer data to train AI models, all sensitive values remain protected through our existing security model, and AI features respect your current permission boundaries. The AI Assistant backend is [open source](https://github.com/OctopusSolutionsEngineering/OctopusCopilot) and has been independently audited, with results available through our [trust center](https://trust.octopus.com/).

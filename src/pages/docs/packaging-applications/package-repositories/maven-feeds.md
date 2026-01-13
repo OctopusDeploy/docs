@@ -13,7 +13,7 @@ Maven repositories can be configured as an external feed, allowing the artifacts
 
 The following steps can be followed to add an external Maven feed.
 
-1. Select **Library ➜ External feeds** and click the **ADD FEED** button.
+1. Select **Deploy ➜ Manage ➜ External Feeds** and click the **ADD FEED** button.
 2. Select **Maven Feed** from the **Feed Type** field.
 3. Enter the name of the feed in the **Feed name** field.
 4. In the **Feed url** field, enter the URL of the Maven feed. The URL must point to the directory under which the initial directory that makes up the Maven artifact group ids are found. For example, for the Maven central repo the URL is `https://repo.maven.apache.org/maven2` and the SonaType Snapshot repo URL is `https://oss.sonatype.org/content/repositories/snapshots`.
@@ -31,7 +31,7 @@ When referencing a Maven artifact, the package ID is in the format `group:artifa
 For example, to reference the Maven artifact with the group of `org.wildfly.swarm.testsuite` and artifact of `testsuite-https` (i.e. the artifacts found at https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/), you would enter a package ID of `org.wildfly.swarm.testsuite:testsuite-https`.
 
 :::figure
-![Maven Artifact Names](/docs/packaging-applications/package-repositories/images/maven-artifact-names.png)
+![Maven Artifact Names](/docs/img/packaging-applications/package-repositories/images/maven-artifact-names.png)
 :::
 
 Prior to 2020.3.0, the packaging type is determined automatically from the extensions supported by Octopus, which are:
@@ -44,7 +44,7 @@ Prior to 2020.3.0, the packaging type is determined automatically from the exten
 
 So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
 
-Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:myartifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `myartifact`, or `org.example:myartifact:jar:sources` will select the JAR package with the `sources` classification. 
+Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:my-artifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `my-artifact`, or `org.example:my-artifact:jar:sources` will select the JAR package with the `sources` classification. 
 
 The packaging must be defined when using a classifier.
 
@@ -55,7 +55,7 @@ If no packaging selection is specified, the first matching package is selected f
 As Maven repositories do not expose an API (repositories are just a filesystem structure), there is no way to search them in Octopus the way you might search a NuGet repository. The package ID for a Maven artifact must be complete for Octopus to identify it, and partial package IDs will not return a list of partial matches.
 
 :::figure
-![Maven Package Suggestion](/docs/packaging-applications/package-repositories/images/maven-package-suggestion.png)
+![Maven Package Suggestion](/docs/img/packaging-applications/package-repositories/images/maven-package-suggestion.png)
 :::
 
 ## Downloading SNAPSHOT releases
@@ -67,7 +67,7 @@ What this means is that if a new SNAPSHOT artifact is published to the Maven rep
 To force Octopus to download the newer SNAPSHOT release, select the **Re-download packages from feed** option when deploying.
 
 :::figure
-![Re-download packages from feed](/docs/packaging-applications/package-repositories/images/redownload-from-feed.png)
+![Re-download packages from feed](/docs/img/packaging-applications/package-repositories/images/redownload-from-feed.png)
 :::
 
 ## Versioning with Maven feeds
@@ -80,7 +80,7 @@ The following qualifiers in the version are used to indicate that it is a pre-re
 * `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`.
 * `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`.
 * `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
-* `SHAPSHOT` e.g. `1.0.0-SNAPSHOT`.
+* `SNAPSHOT` e.g. `1.0.0-SNAPSHOT`.
 
 ## Version ranges with Maven feeds
 

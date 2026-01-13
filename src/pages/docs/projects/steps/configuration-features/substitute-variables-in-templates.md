@@ -43,7 +43,7 @@ The following example shows you how to use the Substitute Variables in Templates
 6. Check the **Substitute Variables in Templates** check-box and click **Ok**.
 
 :::figure
-![Substitute Variables in Templates feature](/docs/projects/steps/configuration-features/images/substitute-variables.png)
+![Substitute Variables in Templates feature](/docs/img/projects/steps/configuration-features/images/substitute-variables.png)
 :::
 
 When you return to your deployment process, you will see the **Substitute Variables in Templates** option has been added to the **Features** section of the deployment process.
@@ -74,7 +74,7 @@ If you include a configuration file that you are also doing a [transformation](/
 :::
 
 :::div{.warning}
-By default **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment will not be marked as failed.
+By default, **warnings** will be treated as **errors** when replacing variables in files using this feature. To override this behavior, set the variable **Octopus.Action.Package.IgnoreVariableReplacementErrors** to **True** in your project. By doing this, warnings will be treated as such and the deployment will not be marked as failed.
 :::
 
 ## Examples {#SubstituteVariablesInFiles-SomeExamples}

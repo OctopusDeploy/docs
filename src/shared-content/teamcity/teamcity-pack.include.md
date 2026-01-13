@@ -7,10 +7,10 @@ You configure TeamCity to package your applications by creating a [build configu
 1. Give the step a name.
 2. Enter the [package ID](/docs/packaging-applications/#package-id).
 3. Select the type of **package format** you want to create, NuGet(default) or Zip.
-4. Enter the **package version**. The package version cannot be a single number (learn about [version numbers in Octopus](/docs/packaging-applications/#version-numbers)). Make sure this evaluates to a multi-part number, for instance, **1.1.3.**, or **1.0.%build.counter%** to include the build
+4. Enter the **package version**. The package version cannot be a single number (learn about [version numbers in Octopus](/docs/packaging-applications/#version-numbers)). Make sure this evaluates to a multipart number, for instance, **1.1.3.**, or **1.0.%build.counter%** to include the build
 5. Enter the **source path**.
 6. Enter the **output path**.
 
 With these options selected, your packages will automatically be created using the version number of the current build. OctoPack will ensure these packages appear in the artifacts tab of TeamCity:
 
-![](/docs/packaging-applications/build-servers/images/3278194.png)
+![](/docs/img/packaging-applications/build-servers/images/3278194.png)

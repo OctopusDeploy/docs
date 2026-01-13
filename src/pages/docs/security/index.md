@@ -28,7 +28,7 @@ Octopus Deploy has the responsibility of providing a secure and stable platform 
 You have the responsibility for how that platform is implemented and exposed to your infrastructure and users.
 
 :::figure
-![A diagram depicting the shared responsibility model for Octopus Deploy](/docs/security/shared-responsibility.png)
+![A diagram depicting the shared responsibility model for Octopus Deploy](/docs/img/security/shared-responsibility.png)
 :::
 
 ### Octopus Cloud
@@ -119,7 +119,7 @@ Learn about [HTTP security headers](/docs/security/http-security-headers).
 
 ## PCI/DSS compliance
 
-We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
+We have a lot of customers running Octopus Deploy in their PCI-compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
 
 Learn about [PCI/DSS compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
 

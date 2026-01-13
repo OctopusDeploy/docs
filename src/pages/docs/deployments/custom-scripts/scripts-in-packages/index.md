@@ -19,7 +19,7 @@ You can add any of the following script files in any of the scripting languages 
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
+Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case-sensitive on certain operating systems.
 
 Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering/) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables/) and [collecting artifacts](/docs/projects/deployment-process/artifacts).
 
@@ -48,7 +48,7 @@ However, not all package steps support script hooks. As a general rule, any of t
 :::
 
 :::figure
-![Custom Deployment scripts features screenshot](/docs/deployments/custom-scripts/scripts-in-packages/custom-deployment-scripts-feature.png)
+![Custom Deployment scripts features screenshot](/docs/img/deployments/custom-scripts/scripts-in-packages/custom-deployment-scripts-feature.png)
 :::
 
 ## Including the scripts in the package
@@ -82,8 +82,8 @@ If you are deploying the same package to multiple platforms, you can:
 
 The platform-specific priority order Octopus uses to select scripts is:
 
-- Linux: Bash, Python, C#, F#, Powershell
-- Windows: Powershell, Python, C#, F#, Bash
+- Linux: Bash, Python, C#, F#, PowerShell
+- Windows: PowerShell, Python, C#, F#, Bash
 
 Example: You are deploying an application to both Windows and Linux. You can write a single `PreDeploy.py` python script, making sure the python runtime is installed on both platforms. Alternatively, you can write both `PreDeploy.sh` and `PreDeploy.ps1`, and Octopus will run the Bash script on Linux and the PowerShell script on Windows.
 
@@ -104,13 +104,13 @@ Make sure the scripts are located in the root of your package.
 Make sure the scripts are actually included in your package. Extract your package and inspect the contents to make sure the scripts are included as you expect. For example, if you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action = Content**.
 
 :::figure
-![](/docs/deployments/custom-scripts/scripts-in-packages/3277766.png)
+![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277766.png)
 :::
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
 :::figure
-![](/docs/deployments/custom-scripts/scripts-in-packages/3277765.png)
+![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277765.png)
 :::
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack).

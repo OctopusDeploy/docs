@@ -10,29 +10,29 @@ navOrder: 30
 AWS provides a Docker Image registry, known as [Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) . Support for EC2 Container registries is provided as a special feed type itself.
 
 :::div{.warning}
-The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). This may not be suitable for long lived container workloads.
+The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html). This may not be suitable for long-lived container workloads.
 :::
 
 ## Configuring an AWS Elastic Container Registry (ECR)
 From the AWS Services dashboard go to `Elastic Container Registry`.
 
- ![AWS Services](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-services.png)
+ ![AWS Services](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-services.png)
 
 Under the `Repositories` area you need to create a repository to match the what in Octopus-speak would be the PackageId. This should map to your distinct application image. If you attempt to push an image during your build process to this registry without first creating the corresponding repository you will receive an error.
 
 :::figure
-![AWS Registries](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-registries.png)
+![AWS Registries](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-registries.png)
 :::
 
-With the repository configured, ensure that you also have an [AWS IAM](https://aws.amazon.com/iam/) user available that has at a minimum the permissions `ecr:GetAuthorizationToken`, `ecr:DescribeRepositories`, `ecr:DescribeImages` and `ecr:ListImages`. This user is the account which Octopus will use to retrieve the docker login token which is then used to perform the appropriate docker commands.
+With the repository configured, ensure that you also have an [AWS IAM](https://aws.amazon.com/iam/) user available that has at a minimum the permissions `ecr:GetAuthorizationToken`, `ecr:DescribeRepositories`, `ecr:DescribeImages` and `ecr:ListImages`. This user is the account which Octopus will use to retrieve the Docker login token which is then used to perform the appropriate Docker commands.
 
 Further links for getting your AWS registry set up are available in their [online docs](http://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)
 
 ## Adding AWS ECR as an Octopus External Feed
-Create a new Octopus Feed (**Library ➜ External Feeds**) and select the `AWS Elastic Container Registry` Feed type. With this selected you will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
+Create a new Octopus Feed (**Deploy ➜ Manage ➜ External Feeds**) and select the `AWS Elastic Container Registry` Feed type. With this selected you will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
 :::figure
-![AWS EC2 container service registry feed](/docs/packaging-applications/package-repositories/guides/container-registries/images/aws-ecr-feed.png)
+![AWS EC2 container service registry feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-ecr-feed.png)
 :::
 
 Save and test your registry to ensure that the connection is authorized successfully.
@@ -49,7 +49,7 @@ If your AWS credentials are not set up on server, package search and package ver
 Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
 
 
-1. Navigate to **Deploy ➜ External Feeds**, click the **Add Feed** and select **AWS Elastic Container Registry**.
+1. Navigate to **Deploy ➜ Manage ➜ External Feeds**, click the **Add Feed** and select **AWS Elastic Container Registry**.
 2. Add a memorable name for the account.
 3. Set the **Audience** to the audience of the identity provider in AWS.
 4. Set the **Role ARN** to the ARN from the identity provider associated role.

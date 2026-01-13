@@ -28,13 +28,13 @@ To create a runbook to renew your Let's Encrypt certificate:
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| Certificate Domain | Domain (TLD, CNAME or Wildcard) to create a certificate for. | *.domaintosecure.com|
-| PFX Password | Password to use when converting to / from PFX. | Sup3r5ecretPa$$w0rd |
-| Replace expiring certificate before N days | Replace the certificate if it expiries within N days. | 30 |
-| Azure account | An [Azure Account variable](/docs/projects/variables/azure-account-variables) that has API access to make DNS changes. | #{Project.Azure.Account} |
-| Octopus Deploy API key | An Octopus Deploy API key with access to change Certificates in the Certificate Store. | API-XXXXX |
-| Use Lets Encrypt Staging | Generate certificate using Let's Encrypt Staging? | False |
-| Contact Email Address | Email address associated with the TLS Certificate. | user@domain.com |
+| Certificate Domain | Domain (TLD, CNAME or Wildcard) to create a certificate for. | `*.example.com`|
+| PFX Password | Password to use when converting to / from PFX. | `your-secret-password` |
+| Replace expiring certificate before N days | Replace the certificate if it expiries within N days. | `30` |
+| Azure account | An [Azure Account variable](/docs/projects/variables/azure-account-variables) that has API access to make DNS changes. | `#{Project.Azure.Account}` |
+| Octopus Deploy API key | An Octopus Deploy API key with access to change Certificates in the Certificate Store. | `API-XXXXX` |
+| Use Lets Encrypt Staging | Generate certificate using Let's Encrypt Staging? | `False` |
+| Contact Email Address | Email address associated with the TLS Certificate. | `your-email@example.com` |
 
 Configure any other settings for the step and click **Save**, and you have a runbook step to create (or renew) a TLS certificate issued by Let's Encrypt, stored securely in the Octopus Certificate library.
 

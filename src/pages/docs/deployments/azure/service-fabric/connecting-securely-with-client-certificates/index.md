@@ -44,7 +44,7 @@ The following steps will need the DNS name of your Service Fabric cluster.
 
 The DNS name for Azure Service Fabric clusters can be found as the "Client connection endpoint" field on the "Overview" tab of your Azure Service Fabric cluster in the Azure portal.
 
-An example of a Service Fabric cluster's DNS name is: `democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
+An example of a Service Fabric cluster's DNS name is: `demo-octopus-sf1-secure.australiasoutheast.cloudapp.azure.com`
 
 ## Step 2: Generate the client certificate
 
@@ -54,18 +54,18 @@ Azure have recently updated their **Key vaults > Certificates** UI to allow gene
 
 Using PowerShell, you can easily generate a self-signed certificate for testing purposes.
 
-In this case, Octopus Server (the client) will be connecting to Service Fabric (the server) during a deployment. Therefore this client certificate will need to reside on your Octopus Server machine. If you do not install this certificate manually, Octopus will attempt to install it automatically as part of your [Server Fabric target's](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) health check.
+In this case, Octopus Server (the client) will be connecting to Service Fabric (the server) during a deployment. Therefore, this client certificate will need to reside on your Octopus Server machine. If you do not install this certificate manually, Octopus will attempt to install it automatically as part of your [Server Fabric target's](/docs/infrastructure/deployment-targets/azure/service-fabric-cluster-targets) health check.
 
 :::div{.hint}
 In this PowerShell, we print the value of the certificate's thumbprint. Be sure to remember this thumbprint value, as you will need to store it in your Azure Key Vault used by Service Fabric:
 :::
 
 ```powershell
-$dnsName = "democtopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
+$dnsName = "demo-octopus-sf1-secure.australiasoutheast.cloudapp.azure.com"
 $cert = New-SelfSignedCertificate -DnsName $dnsName -CertStoreLocation "cert:\LocalMachine\My"
 Write-Host $cert.Thumbprint
 $password = ConvertTo-SecureString -String "MySuperSecurePasswordGoesHere" -Force -AsPlainText
-Export-PfxCertificate -Cert $cert -FilePath "C:\_export\democtopus-sf1-secure-server-cert.pfx" -Password $password
+Export-PfxCertificate -Cert $cert -FilePath "C:\_export\demo-octopus-sf1-secure-server-cert.pfx" -Password $password
 ```
 
 We can then take the exported certificate and thumbprint, and complete the following steps.
@@ -84,7 +84,7 @@ To override certificate settings used when connecting to Service Fabric, the fol
 | Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
 | Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
 
-You do not need to override these variables by default. However, they _are_ available if you require more flexibility over the default client certificate connection parameters.
+You do not need to override these variables by default. However, they *are* available if you require more flexibility over the default client certificate connection parameters.
 
 ## Step 3: Install the client certificate
 
@@ -101,7 +101,7 @@ The client certificate should now be setup for your Octopus Server machine to co
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
 :::figure
-![](/docs/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png)
+![](/docs/img/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png)
 :::
 
 ## Connection troubleshooting

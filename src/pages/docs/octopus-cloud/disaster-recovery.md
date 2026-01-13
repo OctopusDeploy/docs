@@ -1,20 +1,20 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2025-06-06
 title: Disaster recovery for Octopus Cloud
 navTitle: Disaster recovery
-navOrder: 40
-description: How to work with your data and disaster recovery in an Octopus Cloud instance.
+navOrder: 90
+description: How to work with your data and disaster recovery in Octopus Cloud
 ---
 
 This page describes the disaster recovery procedure and data imports/exports for Octopus Cloud.
 
 ## Disaster Recovery Procedure
 
-Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure utilizing several Azure services. Octopus Deploy shall endeavor to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer's own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy's response may be limited to assisting customers and Azure support to restore service. 
+Octopus Deploy hosts the cloud offering (Octopus Cloud) on Microsoft Azure using several Azure services. Octopus Deploy shall endeavor to ensure business continuity of Octopus Cloud in the event of any disaster.  Octopus Cloud disaster resiliency and recovery are largely determined by the disaster recovery measures that are provided by these services, in addition to the Customer's own disaster recovery preparations such as determining which restore point to use for the recovery. Depending upon the nature of the event, Octopus Deploy's response may be limited to assisting customers and Azure support to restore service.
 
-Consequently, this information is provided as guidance information only and does not form part of our Customer Agreement, nor does it affect or limit the operation of any force majeure releases. Customers should ensure that they have their own disaster recovery procedures in place following disaster recovery best practice. 
+Consequently, this information is provided as guidance information only and does not form part of our Customer Agreement, nor does it affect or limit the operation of any force majeure releases. Customers should ensure that they have their own disaster recovery procedures in place following disaster recovery best practice.
 
 ### Customer instances
 
@@ -31,9 +31,9 @@ For further information, customers should refer to [Microsoft's disaster recover
 
 ### Octopus Cloud administration portal (internal system)
 
-The Octopus Cloud administration portal is used to manage customer instances. 
+The Octopus Cloud administration portal is used to manage customer instances.
 
-Note: The portal is hosted in a separate Azure region from customer instances and is not required to be online for continuity of service to customers. The disaster recovery measures taken, as detailed below, will allow the portal to be restored according to the following table: 
+Note: The portal is hosted in a separate Azure region from customer instances and is not required to be online for continuity of service to customers. The disaster recovery measures taken, as detailed below, will allow the portal to be restored according to the following table:
 
 | Level of Disaster                              | Impact                                 | Data Redundancy                        | Data durability | RTO | RPO | Parties involved             |
 |------------------------------------------------|----------------------------------------|----------------------------------------|-----------------|-------------------------------|---------------------------------------------|------------------------------|
@@ -48,7 +48,7 @@ For further information, customers should refer to [Microsoft's disaster recover
 
 ### Azure region failure
 
-In the case of an Azure region wide disaster the time to restore services will vary depending on the nature of the disaster. For short duration outages the best strategy may be to wait for Microsoft to restore services within the region. In the case of region wide disasters affecting customer instances, for longer duration disasters restoration of services will entail provisioning a new customer instance in a new Azure region (in the same PII jurisdiction) and restoring the customer's database from the geo-redundant backup. For customer instances and the Octopus Cloud portal the time to restore operations is estimated to be 24 hrs once a new region is made available by Microsoft. The RPO in is 1 hr or to the customer specified restore point, as applicable. Note that there is not a geo-redundant copy of the Octopus Cloud File store, and the customer will need to re-build, upload, and/or regenerate any required packages and artifacts, as required by their deployments. 
+In the case of an Azure region wide disaster the time to restore services will vary depending on the nature of the disaster. For short duration outages the best strategy may be to wait for Microsoft to restore services within the region. In the case of region wide disasters affecting customer instances, for longer duration disasters restoration of services will entail provisioning a new customer instance in a new Azure region (in the same PII jurisdiction) and restoring the customer's database from the geo-redundant backup. For customer instances and the Octopus Cloud portal the time to restore operations is estimated to be 24 hrs once a new region is made available by Microsoft. The RPO in is 1 hr or to the customer specified restore point, as applicable. Note that there is not a geo-redundant copy of the Octopus Cloud File store, and the customer will need to re-build, upload, and/or regenerate any required packages and artifacts, as required by their deployments.
 
 ### Definitions
 

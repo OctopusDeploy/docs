@@ -37,7 +37,7 @@ If instead you want to **dynamically** create you account during your deployment
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps).
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
+![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
 :::
 
 2. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
@@ -49,7 +49,7 @@ If instead you want to **dynamically** create you account during your deployment
 3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
 :::figure
-![](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)
+![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)
 :::
 
 4. On the **Deployment** section you can configure any of the below settings which are related to _how_ your files are going to be pushed to Azure.
@@ -91,7 +91,7 @@ The easiest way to achieve this is to use an [execution container](/docs/project
 If this is not an option in your scenario, we recommend that you provision your own tools on your worker.
 
 :::div{.warning}
-Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager Powershell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
+Using the Azure tools bundled with Octopus Deploy is not recommended. Octopus bundles versions of the Azure Resource Manager PowerShell modules (AzureRM) and Azure CLI. These were originally provided as convenience mechanisms for users wanting to run scripts against Azure targets. The versions bundled are now out of date, and we will not be updating them further.
 
 From **Octopus 2021.2**, a warning will also appear in the deployment logs if the Azure tools bundled with Octopus Deploy are used in a step.
 

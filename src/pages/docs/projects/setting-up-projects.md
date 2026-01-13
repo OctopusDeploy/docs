@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-03
+modDate: 2025-10-08
 title: Setting up projects and project groups
 description: How to setup projects and project groups
 navOrder: 10
@@ -10,10 +10,10 @@ navOrder: 10
 You can manage your projects by navigating to the **Projects** tab in the Octopus UI:
 
 :::figure
-![Octopus Dashboard](/docs/projects/octopus-projects-list.png)
+![Octopus Dashboard](/docs/img/projects/octopus-projects-list.png)
 :::
 
-If you have already created projects, or are joining an existing team, you’ll see the existing projects on the projects page.
+If you have already created projects, or are joining an existing team, you'll see the existing projects on the projects page.
 
 ## Add a project
 
@@ -25,14 +25,14 @@ Before you can define your deployment processes or runbooks, you must create a p
 4. Add a description for the project.
 5. If you want to change the [Project group](#project-group) select an existing project group from the drop-down menu.
 6. If you want to change the [Lifecycle](/docs/releases/lifecycles) select an existing lifecycle from the drop down menu.
-7. Click **SHOW LIFECYCLE** if you’d like to see a visual representation of the selected lifecycle.
-8. Click **SAVE** and you will be taken to the newly created project’s overview page.
+7. Click **SHOW LIFECYCLE** if you'd like to see a visual representation of the selected lifecycle.
+8. Click **SAVE** and you will be taken to the newly created project's overview page.
 
-Now that you’ve created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks).
+Now that you've created a project, you can define your [deployment process](/docs/projects/deployment-process/) or [runbooks](/docs/runbooks).
 
 ## Project settings
 
-You can change the projects settings by accessing the settings menu on the project’s main page. The settings you can change are:
+You can change the projects settings by accessing the settings menu on the project's main page. The settings you can change are:
 
 - Name
 - Enable or disable the project to allow or prevent releases and deployments from being created
@@ -42,24 +42,44 @@ You can change the projects settings by accessing the settings menu on the proje
 - [Release versioning](/docs/releases/release-versioning)
 - [Release notes template](/docs/releases/release-notes#templates)
 
+## Project tags {#project-tags}
+
+:::div{.warning}
+From Octopus Cloud version **2025.4.3897** we support tagging projects.
+:::
+
+You can apply tags to projects to classify and organize them with custom metadata. This allows you to:
+
+- Classify projects by attributes like team, application type, or technology stack.
+- Configure your deployment dashboard to display only projects with specific tags.
+- Use project tags in dashboard advanced filters to customize your view.
+
+:::div{.hint}
+Only tags from tag sets that have been configured with the **Project** scope can be used to tag projects.
+:::
+
+Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
+
 ## Deployment settings
+
 - Package re-deployment
-   - Specify to always deploy all packages or to skip any package steps that are already installed.
+  - Specify to always deploy all packages or to skip any package steps that are already installed.
 - Deployment targets
-   - Specify if deployments are allowed if there are no deployment targets:
-      - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
-      - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
+  - Specify if deployments are allowed if there are no deployment targets:
+    - Deployments with no target are allowed - There must be at least one enabled healthy target to deploy to in the environment.
+    - Allow deployments to be created when there are no deployment targets - Use this where no steps in the process have targets (or are all run on the Server), or you are dynamically adding targets during deployment.
 - Deployment target status
-   - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
+  - Choose to skip unavailable, or exclude unhealthy targets from the deployment.
 - [Deployment changes template](/docs/releases/deployment-changes#templates)
-   - Specify a template for each deployment’s changes.
+  - Specify a template for each deployment's changes.
 - Default failure mode
-   - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
+  - Specify whether or not to use [guided failure mode](/docs/releases/guided-failures).
 
 ## Project logo \{#project-logo}
+
 Customize your project logo to make it easily identifiable amongst other projects.
 
-1. From the project’s main page, select **Settings**.
+1. From the project's main page, select **Settings**.
 2. Click the **Logo** section of the settings page.
 3. Select from our built-in icon library paired with your choice of color or upload a custom image.
 4. Click **Save**.
@@ -73,8 +93,9 @@ For custom images, in addition to supporting .jpg and .png files, we also suppor
 Project groups are a great way to organize your deployment projects. They have many uses; not only do they visually separate the projects, but you can also configure the dashboard to hide/show specific project groups and configure permissions to restrict access to them.
 
 :::div{.hint}
-The *Default Project* group contains all of the projects that have not been added to another group.
+The *Default Project* group contains all projects that have not been added to another group.
 :::
+
 ## Add a project group
 
 1. From the **Projects** tab, click **ADD GROUP**.
@@ -106,13 +127,13 @@ Projects can be cloned.
 1. From the project's menu, select **Settings**.
 2. Click the overflow menu (...), and select **Clone**.
 
-:::figure
-![Clone a project](/docs/projects/images/clone-project.png "width=500")
-:::
+    :::figure
+    ![Clone a project](/docs/img/projects/images/clone-project.png)
+    :::
 
-:::div{.warning}
-**Version-controlled projects are not currently supported**
-:::
+    :::div{.warning}
+    **Version-controlled projects are not currently supported**
+    :::
 
 3. Give the new project you are cloning from the original project a name.
 4. Review the settings for the new project and when you are satisfied, click **SAVE**.

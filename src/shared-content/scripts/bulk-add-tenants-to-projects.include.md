@@ -404,7 +404,7 @@ foreach ($tenant in $tenants)
 <summary>C#</summary>
 
 ```csharp
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 using Octopus.Client;
 using Octopus.Client.Model;
 using System;

@@ -1,0 +1,331 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-09-11
+modDate: 2025-09-11
+title: Schema for Policies
+subtitle: A list of the inputs that are provided to the policy engine 
+icon: fa-solid fa-lock
+navTitle: Schema for policies
+navSection: Policies
+description: Schema for policies
+navOrder: 162
+---
+
+## Input Schema
+
+Octopus has a set number of inputs that are provided to evaluate policies against deployments. The following is the full schema that is passed into the engine to evaluate deployments:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Octopus Policy input schema",
+  "type": "object",
+  "properties": {
+    "Environment": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug",
+        "Tags"
+      ]
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug",
+        "Tags"
+      ]
+    },
+    "Space": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        },
+        "Tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug",
+        "Tags"
+      ]
+    },
+    "ProjectGroup": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Slug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Slug"
+      ]
+    },
+    "SkippedSteps": {
+      "type": "array",
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "Steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Slug": {
+            "type": "string"
+          },
+          "ActionType": {
+            "type": "string"
+          },
+          "Enabled": {
+            "type": "boolean"
+          },
+          "IsRequired": {
+            "type": "boolean"
+          },
+          "Source": {
+            "type": "object",
+            "properties": {
+              "Type": {
+                "type": "string"
+              },
+              "SlugOrId": {
+                "type": "string"
+              },
+              "Version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Type",
+              "SlugOrId"
+            ]
+          },
+          "Packages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Version": {
+                  "type": "string"
+                },
+                "GitRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Id",
+                "Name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "Id",
+          "Slug",
+          "ActionType",
+          "Enabled",
+          "IsRequired",
+          "Source"
+        ]
+      }
+    },
+    "Release": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Version"
+      ]
+    },
+    "Runbook": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Snapshot": {
+          "type": "string"
+        },
+        "GitRef": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id",
+        "Name",
+        "Snapshot"
+      ]
+    },
+    "Execution": {
+      "type": "array",
+      "items": {
+        "type": [
+          "object"
+        ],
+        "properties": {
+          "StartTrigger": {
+            "type": "string"
+          },
+          "Steps": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        },
+        "required": [
+          "StartTrigger",
+          "Steps"
+        ]
+      }
+    }
+  },
+  "required": [
+    "Environment",
+    "Project",
+    "Space",
+    "SkippedSteps",
+    "Steps", 
+    "ProjectGroup",
+    "Execution"
+  ]
+}
+```
+
+## Output Result Schema
+Octopus expects the conditions Rego code to define a result object that confirms to the following schema:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Policy Result Schema",
+  "type": "object",
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["block", "warn"]
+    }
+  },
+  "required": ["allowed"]
+}
+```

@@ -9,7 +9,7 @@ $octopusURL = "https://your-octopus-url"
 $octopusAPIKey = "API-YOUR-KEY"
 $header = @{ "X-Octopus-ApiKey" = $octopusAPIKey }
 $spaceName = "Default"
-$Description = "Health check started from Powershell script"
+$Description = "Health check started from PowerShell script"
 $TimeOutAfterMinutes = 5
 $MachineTimeoutAfterMinutes = 5
 
@@ -63,7 +63,7 @@ Add-Type -Path "path\to\Octopus.Client.dll"
 $octopusURL = "https://your-octopus-url"
 $octopusAPIKey = "API-YOUR-KEY"
 $spaceName = "Default"
-$Description = "Health check started from Powershell script"
+$Description = "Health check started from PowerShell script"
 $TimeOutAfterMinutes = 5
 $MachineTimeoutAfterMinutes = 5
 
@@ -110,7 +110,7 @@ catch
 
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
-#r "path\to\Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 
 using Octopus.Client;
 using Octopus.Client.Model;

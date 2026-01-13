@@ -1,10 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-13
-modDate: 2024-09-23
+modDate: 2025-06-06
 title: Octopus Cloud Task Cap
+navTitle: Task cap
 navOrder: 60
-description: How to increase the task cap on an Octopus Cloud Instance.
+description: How to increase the task cap on an Octopus Cloud Instance
 ---
 
 Every Octopus Deploy instance has set number of concurrent tasks it can process.  That number of concurrent tasks is known as the Octopus Task Cap.  
@@ -28,6 +29,7 @@ A task can be:
 The most common tasks are deployments and runbook runs.
 
 The default task cap for Octopus Cloud instances is based on the license tier:
+
 - Starter: 5
 - Professional: 5
 - Enterprise: 20
@@ -35,9 +37,11 @@ The default task cap for Octopus Cloud instances is based on the license tier:
 Self-hosted customers have more control over their task cap.  As such, every self-hosted instance starts out with a task cap of 5.  A higher task cap requires more hosting resources.  Self-hosted customers can change their instance's task cap via the Octopus Deploy UI.  That is because self-hosted customers take on the responsibility of allocating resources, and paying any additional Azure, AWS, or GCP fees.  
 
 ## Increasing the Task Cap for Octopus Cloud
-Octopus Cloud customers must reach out to sales@octopus.com to increase the task cap.  
+
+Octopus Cloud customers must [contact our Sales team](https://octopus.com/company/contact) to increase the task cap.  
 
 Octopus Cloud provides the following Task Cap options:
+
 - Starter: 5
 - Professional: 5, 10, 20
 - Enterprise: 20, 40, 80, 160
@@ -46,16 +50,18 @@ Increasing the task cap will incur a corresponding increase in platform fees.  D
 
 We assign resources to each Octopus Cloud instance based on the task cap.  Changing the task cap changes those resources.  That requires a small outage as the instance and database are reprovisioned.  We will wait until your next maintenance window to perform that reprovisioning.  You might not see a change in the task cap until the next day.
 
-**Please note:** If you need a task cap higher than 160 please reach out to sales@octopus.com to discuss your use case.  These options are meant to cover the majority of use cases.  
+**Please note:** If you need a task cap higher than 160 please [contact our Sales team](https://octopus.com/company/contact) to discuss your use case.  These options are meant to cover the majority of use cases.  
 
-**Important:** 5, 10, 20, 40, 80, and 160 are the only options we offer.  If you want an instance with a task cap above 160, again, reach out to sales@octopus.com.  There are no options between those tiers.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
+**Important:** 5, 10, 20, 40, 80, and 160 are the only options we offer.  If you want an instance with a task cap above 160, again, [contact our Sales team](https://octopus.com/company/contact). There are no options between those tiers.  For example, no Octopus Cloud instance can have a task cap of 15, 34, 45, or 68.  
 
 ## How to choose a task cap
+
 We recommend task caps based upon the number and duration of deployments required for a production deployment.  Deployments and runbook runs are the most common tasks.  Deployments typically take longer than runbook runs.  Production deployments are time constrained.  They are done off-hours during an outage window.
 
 **Important:** These tables represent the _MAX_ number of deployments.  Additional tasks such as runbook runs, retention policies, or health checks can reduce the number.  Use these tables as guidelines.
 
 ### Task Cap 5
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 60 Deployments        | 40 Deployments        | 20 Deployments        |
@@ -65,6 +71,7 @@ We recommend task caps based upon the number and duration of deployments require
 | 24 Hours          | 720 Deployments       | 480 Deployments       | 320 Deployments       |
 
 ### Task Cap 10
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 120 Deployments       | 80 Deployments        | 40 Deployments        |
@@ -74,6 +81,7 @@ We recommend task caps based upon the number and duration of deployments require
 | 24 Hours          | 1,440 Deployments     | 960 Deployments       | 640 Deployments       |
 
 ### Task Cap 20
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 240 Deployments       | 160 Deployments       | 80 Deployments        |
@@ -83,6 +91,7 @@ We recommend task caps based upon the number and duration of deployments require
 | 24 Hours          | 2,880 Deployments     | 1,920 Deployments     | 960 Deployments       |
 
 ### Task Cap 40
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 480 Deployments       | 320 Deployments       | 160 Deployments       |
@@ -92,6 +101,7 @@ We recommend task caps based upon the number and duration of deployments require
 | 24 Hours          | 5,760 Deployments     | 3,840 Deployments     | 1,920 Deployments     |
 
 ### Task Cap 80
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 960 Deployments       | 640 Deployments       | 320 Deployments       |
@@ -101,6 +111,7 @@ We recommend task caps based upon the number and duration of deployments require
 | 24 Hours          | 11,520 Deployments    | 7,680 Deployments     | 3,840 Deployments     |
 
 ### Task Cap 160
+
 | Deployment Window | 10 Minute Deployments | 15 Minute Deployments | 30 Minute Deployments |
 | ----------------- | --------------------- | --------------------- | --------------------- |
 | 2 Hours           | 1,920 Deployments     | 1,280 Deployments     | 640 Deployments       |

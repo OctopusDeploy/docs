@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-05-16
+modDate: 2025-12-08
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -11,11 +11,25 @@ navOrder: 70
 
 This page will help you diagnose and solve issues with Kubernetes Live Object Status.
 
-## Installation
+## Installation \{#installation}
 
 ### The Kubernetes monitor can't connect gRPC port 8443
 
 Some firewalls may prevent the applications from making outbound connections over non-standard ports. If this is preventing the Kubernetes monitor from connecting to your Octopus Server, configure your environment to allow outbound connections.
+
+For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443. If using a port other than 8443, ensure the Kubernetes monitor's `server-grpc-url` parameter has been updated to match.
+
+If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
+
+:::div{.info}
+Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
+:::
+
+### gRPC connections via a load balancer
+
+Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
+
+Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.
 
 ## Runtime
 

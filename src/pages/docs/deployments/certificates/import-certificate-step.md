@@ -23,7 +23,7 @@ If the certificate has a private-key, it can be marked as exportable, and access
 The Administrators group on the target machine will always be granted access to the private-key.
 
 :::figure
-![](/docs/deployments/certificates/images/import-certificate-step-edit.png)
+![](/docs/img/deployments/certificates/images/import-certificate-step-edit.png)
 :::
 
 ## Recommended practice

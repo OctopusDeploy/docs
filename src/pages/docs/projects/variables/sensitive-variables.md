@@ -23,7 +23,7 @@ For this, there are a number of Secret Manager and Key Vault tools available. Th
 Octopus supports the retrieval of sensitive values from a number of Secret Manager/Key Vaults through the use of [Community step templates](/docs/projects/community-step-templates) that extend the functionality of Octopus to integrate with them.
 
 :::figure
-![Azure Key Vault Retrieve Secrets step template](/docs/projects/variables/images/azure-keyvault-retrieve-secrets-step-in-process.png)
+![Azure Key Vault Retrieve Secrets step template](/docs/img/projects/variables/images/azure-keyvault-retrieve-secrets-step-in-process.png)
 :::
 
 Each of the community step templates work by retrieving secrets from the Secret Manager/Key Vault and create [sensitive output variables](/docs/projects/variables/output-variables/#sensitive-output-variables) for use in your executing deployments and runbooks.
@@ -55,13 +55,13 @@ To make a variable a **sensitive variable**, either select **Change Type** when 
 If using the variable editor, on the variable value, click **Open editor**:
 
 :::figure
-![Open Variable Editor](/docs/projects/variables/images/open-variable-editor.png)
+![Open Variable Editor](/docs/img/projects/variables/images/open-variable-editor.png)
 :::
 
 For variable type, select **Sensitive**.
 
 :::figure
-![Variable editor](/docs/projects/variables/images/variable-editor.png)
+![Variable editor](/docs/img/projects/variables/images/variable-editor.png)
 :::
 
 ### How Octopus handles your sensitive variables {#how-octopus-handles-sensitive-variables}
@@ -114,7 +114,7 @@ Here are some common pitfalls to avoid:
 ## Logging {#logging}
 
 :::div{.warning}
-Avoid logging sensitive values! Whilst Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
+Avoid logging sensitive values! While Octopus will attempt to mask sensitive values, it is better there is no value to mask in the first place!
 :::
 
 Octopus/Tentacle will do its best to prevent sensitive values from inadvertently appearing in any logs. For example, if a custom PowerShell script accidentally did this:
@@ -169,4 +169,4 @@ Of course, the best protection is not to `echo` potentially sensitive variables 
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

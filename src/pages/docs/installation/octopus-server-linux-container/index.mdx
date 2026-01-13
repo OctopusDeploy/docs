@@ -12,7 +12,7 @@ import OctopusServerInContainer from 'src/shared-content/installation/octopus-se
 <OctopusServerInContainer />
 
 :::figure
-![Introducing the Octopus Server Linux Docker image](/docs/installation/octopus-server-linux-container/octopus-linux-docker-image.png "width=500")
+![Introducing the Octopus Server Linux Docker image](/docs/img/installation/octopus-server-linux-container/octopus-linux-docker-image.png)
 :::
 
 This page describes how to run Octopus Server in the Linux Container.
@@ -92,6 +92,7 @@ Read Docker [docs](https://docs.docker.com/engine/reference/commandline/run/#pub
 |**8080**| Port for API and HTTP portal |
 |**443**| SSL Port for API and HTTP portal |
 |**10943**|Port for Polling Tentacles to contact the server|
+|**8443**|Port for gRPC clients to contact the server|
 
 
 ### Volume mounts
@@ -137,8 +138,8 @@ If you're having trouble with the Octopus Server Linux Container, please use our
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
- - [Linux blog posts](https://octopus.com/blog/tag/linux)
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+ - [Linux blog posts](https://octopus.com/blog/tag/linux/1)
  - [Introducing the Octopus Server Linux Docker image](https://octopus.com/blog/introducing-linux-docker-image)
  - [Octopus Deploy on Docker Hub](https://hub.docker.com/r/octopusdeploy/octopusdeploy)
  - [Octopus Tentacle on Docker Hub](https://hub.docker.com/r/octopusdeploy/tentacle/)

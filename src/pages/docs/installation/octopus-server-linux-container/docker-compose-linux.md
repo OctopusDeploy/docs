@@ -46,6 +46,7 @@ services:
     ports:
       - 8080:8080
       - 11111:10943
+      - 8443:8443
     depends_on:
       - db
     volumes:
@@ -164,5 +165,5 @@ For further information about the additional configuration of the SQL Server con
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
- - [Linux blog posts](https://octopus.com/blog/tag/linux)
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+ - [Linux blog posts](https://octopus.com/blog/tag/linux/1)

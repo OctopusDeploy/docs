@@ -35,7 +35,7 @@ A typical project may involve one step that first creates a network, and then cr
 ```
 
 :::figure
-![](/docs/deployments/docker/images/5865817.png)
+![](/docs/img/deployments/docker/images/5865817.png)
 :::
 
 ### Obtain container IP address inside custom network
@@ -302,4 +302,4 @@ The following JSON objects are real outputs from docker inspect commands to prov
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
+- [Docker blog posts](https://octopus.com/blog/tag/docker/1)

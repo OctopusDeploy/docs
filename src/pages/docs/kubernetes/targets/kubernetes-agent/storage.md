@@ -13,14 +13,14 @@ The following is applicable to both Kubernetes Agent and Kubernetes Worker.
 
 During a deployment, Octopus Server first sends any required scripts and packages to [Tentacle](https://octopus.com/docs/infrastructure/deployment-targets/tentacle) which writes them to the file system. The actual script execution then takes place in a different process called [Calamari](https://github.com/OctopusDeploy/Calamari), which retrieves the scripts and packages directly from the file system. 
 
-On a Kubernetes agent (or worker), scripts are executed in separate Kubernetes pods (script pod) as opposed to in a local shell (Bash/Powershell). This means the Tentacle pod and script pods don’t automatically share a common file system.
+On a Kubernetes agent (or worker), scripts are executed in separate Kubernetes pods (script pod) as opposed to in a local shell (Bash/PowerShell). This means the Tentacle pod and script pods don’t automatically share a common file system.
 
 Since the Kubernetes agent/worker is built on the Tentacle codebase,  it is necessary to configure shared storage so that the Tentacle Pod can write the files in a place that the script pods can read from.
 
 We offer two options for configuring the shared storage - you can use either the default NFS storage or specify a Storage Class name during setup:
 
 :::figure
-![Kubernetes Agent Wizard Config Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-config.png)
+![Kubernetes Agent Wizard Config Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-config.png)
 :::
 
 
@@ -80,7 +80,7 @@ helm list --namespace octopus-agent-nfs-to-pv
 
 The output should look like this:
 :::figure
-![Helm list command](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-helm-list.png)
+![Helm list command](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-helm-list.png)
 :::
 
 In this example, the release name is `nfs-to-pv` while the chart version is `1.0.1`.

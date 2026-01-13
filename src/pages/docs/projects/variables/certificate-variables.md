@@ -11,13 +11,13 @@ navOrder: 60
 In the variable-editor, selecting *Certificate* as the [variable](/docs/projects/variables) type allows you to create a variable with a certificate managed by Octopus as the value.
 
 :::figure
-![](/docs/projects/variables/images/certificate-variable-select.png)
+![](/docs/img/projects/variables/images/certificate-variable-select.png)
 :::
 
 Certificate variables can be [scoped](/docs/projects/variables/#scoping-variables), similar to regular text variables.
 
 :::figure
-![](/docs/projects/variables/images/certificate-variables-scoped.png)
+![](/docs/img/projects/variables/images/certificate-variables-scoped.png)
 :::
 
 ## Expanded properties
@@ -91,4 +91,4 @@ echo "$KEY" > ssl.key
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

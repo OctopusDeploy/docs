@@ -21,7 +21,7 @@ If you’re using **Octopus 2024.3** or newer, please refer to the updated [Kube
 
 To follow this tutorial, you need:
 
-* [Octopus Cloud instance](https://octopus.com/start)
+* [Octopus Cloud instance](https://octopus.com/free-signup)
 * Kubernetes cluster
 * [Docker Hub account](https://hub.docker.com/)
 * [GitHub account](https://github.com/)
@@ -33,7 +33,7 @@ To start quickly, you can fork our sample GitHub repository, which includes pre-
 1. Navigate to the **[OctoPetShop](https://github.com/OctopusSamples/OctoPetShop.git)** repository.
 
 :::figure
-![Sample OctoPetShop GitHub repository](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/octopetshop-repo.png)
+![Sample OctoPetShop GitHub repository](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/octopetshop-repo.png)
 :::
 
 2. In the top-right corner of the page, click **FORK**.
@@ -49,7 +49,7 @@ Now you're ready, let’s begin deploying your first application to Kubernetes.
 1. Log in to your Octopus instance and click **GET STARTED**.
 
 :::figure
-![Get started welcome screen](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/get-started.png)
+![Get started welcome screen](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/get-started.png)
 :::
 
 ## Add project
@@ -59,7 +59,7 @@ Projects let you manage software applications and services, each with its deploy
 2. Give your project a descriptive name and click **SAVE**.
 
 :::figure
-![Octopus Deploy 'Add New Project' form with fields for project details.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/new-project.png)
+![Octopus Deploy 'Add New Project' form with fields for project details.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/new-project.png)
 :::
 
 ## Add environments
@@ -71,7 +71,7 @@ Environments are how you organize your infrastructure into groups representing t
 3. Select the environments you’d like to create and click **SAVE**.
 
 :::figure
-![Environment selection options and deployment lifecycle visuals](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/select-environments.png)
+![Environment selection options and deployment lifecycle visuals](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/select-environments.png)
 :::
 
 ## Project questionnaire (optional)
@@ -81,7 +81,7 @@ You have the option to fill out a short survey. This helps our team learn about 
 4. Click **SUBMIT**, and you'll be taken to your project.
 
 :::figure
-![Octopus Deploy interface displaying a questionnaire](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/survey.png)
+![Octopus Deploy interface displaying a questionnaire](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/survey.png)
 :::
 
 ## Create deployment process
@@ -90,7 +90,7 @@ The next step is creating your deployment process. This is where you define the 
 1. Click **CREATE PROCESS** to see the available deployment steps.
 
 :::figure
-![Deployment process page with a button to create the process.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/create-process.png)
+![Deployment process page with a button to create the process.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/create-process.png)
 :::
 
 ### Configure Deploy Kubernetes YAML step
@@ -98,7 +98,7 @@ The next step is creating your deployment process. This is where you define the 
 2. Select the **Kubernetes** filter and then add the **Deploy Kubernetes YAML** step.
 
 :::figure
-![Kubernetes steps in the Octopus Deploy process editor.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/kubernetes-step.png)
+![Kubernetes steps in the Octopus Deploy process editor.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/kubernetes-step.png)
 :::
 
 #### Step name
@@ -118,7 +118,7 @@ Worker Pools are groups of Workers. When a task is assigned to a Worker, the tas
 4. Select **Hosted Ubuntu** from the dropdown menu.
 
 :::figure
-![Worker Pool expander with 'Hosted Ubuntu' selected.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/worker-pool.png)
+![Worker Pool expander with 'Hosted Ubuntu' selected.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/worker-pool.png)
 :::
 
 #### Target tags \{#on-behalf-of}
@@ -127,7 +127,7 @@ Worker Pools are groups of Workers. When a task is assigned to a Worker, the tas
 5. Add a new target tag by typing it into the field. For this example, we'll use `k8s`.
 
 :::figure
-![Target tag selection expander with 'k8s' tag currently added.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/on-behalf-of.png)
+![Target tag selection expander with 'k8s' tag currently added.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/on-behalf-of.png)
 :::
 
 After configuring your deployment process, you’ll assign deployment targets to this target tag. 
@@ -138,7 +138,7 @@ Next, you configure this step to run inside an execution container.
 6. Select **Runs inside a container, on a worker**.
 
 :::figure
-![Container image expander with 'Runs inside a container, on a worker selected'.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/container-image.png)
+![Container image expander with 'Runs inside a container, on a worker selected'.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/container-image.png)
 :::
 
 ### Add container image registry feed
@@ -150,7 +150,7 @@ Since you don’t have a Docker Container Registry available yet, you need to ad
 1. Click the **ADD FEED** button and select **Docker Container Registry** from the **Feed Type** dropdown.
 
 :::figure
-![Library section in Octopus with options to add external feeds.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/external-feeds.png)
+![Library section in Octopus with options to add external feeds.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/external-feeds.png)
 :::
 
 1. Provide a name for your feed, for example `Docker Hub`.
@@ -158,14 +158,14 @@ Since you don’t have a Docker Container Registry available yet, you need to ad
 1. You can leave the registry path blank for this example.
 
 :::figure
-![Form to create a Docker container registry external feed.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/create-docker-feed.png)
+![Form to create a Docker container registry external feed.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/create-docker-feed.png)
 :::
 
 1. Provide your credentials for Docker Hub.
 1. Click **SAVE AND TEST**, and then type `nginx` into the package name field to test your external feed.
 
 :::figure
-![A search interface in Octopus to test the Docker Hub repository.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/test-docker-feed.png)
+![A search interface in Octopus to test the Docker Hub repository.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/test-docker-feed.png)
 :::
 
 Close the window and return to configuring the **Deploy Kubernetes YAML** step.
@@ -175,7 +175,7 @@ Close the window and return to configuring the **Deploy Kubernetes YAML** step.
 1. Copy the latest **Ubuntu-based image** from the help text and paste it into the container image field.
 
 :::figure
-![Container image expander using the latest Ubuntu-based image.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/container-image-docker.png)
+![Container image expander using the latest Ubuntu-based image.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/container-image-docker.png)
 :::
 
 #### YAML source
@@ -190,7 +190,7 @@ Sourcing from a Git repository can streamline your deployment process by reducin
 9. Select **Git Repository** as your YAML source.
 
 :::figure
-![YAML source expander with Git repository selected](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/git-repository.png)
+![YAML source expander with Git repository selected](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/git-repository.png)
 :::
 
 #### Git repository details
@@ -200,7 +200,7 @@ Sourcing from a Git repository can streamline your deployment process by reducin
 1. Provide your GitHub username.
 
 :::figure
-![A section in the library interface that lets users create and manage Git credentials.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/git-credential.png)
+![A section in the library interface that lets users create and manage Git credentials.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/git-credential.png)
 :::
 
 ### Generate GitHub personal access token
@@ -221,7 +221,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 1. Click **Generate token** and copy the token.
 
 :::figure
-![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/generate-token.png)
+![A GitHub settings page where users can manage permissions for fine-grained tokens.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/generate-token.png)
 :::
 
 #### Git repository details
@@ -231,14 +231,14 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 1. Select the Git credential you created earlier.
 
 :::figure
-![Authentication expander with a Git repository selected from the library.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/completed-git-credential.png)
+![Authentication expander with a Git repository selected from the library.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/completed-git-credential.png)
 :::
 
 #### Repository URL
 18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example `https://github.com/your-user/OctoPetShop.git`.
 
 :::figure
-![Repository URL expander where the user's YAML files are stored.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/repository-url.png)
+![Repository URL expander where the user's YAML files are stored.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/repository-url.png)
 :::
 
 #### Branch settings
@@ -248,7 +248,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 20. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, the path will be `k8s/*.yaml`.
 
 :::figure
-![The Paths expander that lets users specify the paths to their YAML files using glob patterns.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/paths.png)
+![The Paths expander that lets users specify the paths to their YAML files using glob patterns.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/paths.png)
 :::
 
 #### Kubernetes object status check
@@ -257,7 +257,7 @@ This feature gives you live status updates during deployment for all the Kuberne
 21. Keep the default **Check that Kubernetes objects are running successfully** option selected with the default timeout of **180** seconds.
 
 :::figure
-![Kubernetes object status check expander with the default option and timeout selected.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/k8s-object-status-check.png)
+![Kubernetes object status check expander with the default option and timeout selected.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/k8s-object-status-check.png)
 :::
 
 #### Structured configuration variables
@@ -294,13 +294,13 @@ Wherever you’re deploying your software, these machines and services are known
 1. Navigate to **Infrastructure** ➜ **Deployment Targets**, and click **ADD DEPLOYMENT TARGET**.
 
 :::figure
-![Deployment targets page with no targets added.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-targets.png)
+![Deployment targets page with no targets added.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-targets.png)
 :::
 
 2. Select **KUBERNETES CLUSTER** and click **ADD** on the Kubernetes Cluster card.
 
 :::figure
-![A list of deployment target types with the Kubernetes cluster selected.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/add-k8s-target.png)
+![A list of deployment target types with the Kubernetes cluster selected.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/add-k8s-target.png)
 :::
 
 #### Display name
@@ -315,7 +315,7 @@ Wherever you’re deploying your software, these machines and services are known
 The target tag won’t be available to select from the dropdown list yet, because it gets created during this step.
 
 :::figure
-![User interface for setting up a Kubernetes Cluster deployment target.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/create-k8s-cluster.png)
+![User interface for setting up a Kubernetes Cluster deployment target.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/create-k8s-cluster.png)
 :::
 
 #### Authentication
@@ -334,19 +334,19 @@ Here are brief instructions on how to configure your cluster authentication in O
 1. Select the appropriate authentication method from the list.
 
 :::figure
-![Authentication methods for a Kubernetes Cluster deployment with various account options.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/target-authentication-methods.png)
+![Authentication methods for a Kubernetes Cluster deployment with various account options.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/target-authentication-methods.png)
 :::
 
 2. Add a new account with the authentication details needed to access your cluster (more detailed instructions are linked in the table above).
 
 :::figure
-![Create Account page with form in Octopus Deploy.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/create-account.png)
+![Create Account page with form in Octopus Deploy.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/create-account.png)
 :::
 
 3. Complete the target authentication configuration fields like cluster name, resource group, etc.
 
 :::figure
-![Kubernetes authentication details, including Azure Service Principal and cluster information.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/target-authentication.png)
+![Kubernetes authentication details, including Azure Service Principal and cluster information.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/target-authentication.png)
 :::
 
 Need more details on how to configure various authentication methods? Read the [Kubernetes cluster docs](https://octopus.com/docs/infrastructure/deployment-targets/kubernetes/kubernetes-api#add-a-kubernetes-target).
@@ -364,7 +364,7 @@ Need more details on how to configure various authentication methods? Read the [
 1. **SAVE** your deployment target.
 
 :::figure
-![Health check container image expander with the latest Ubuntu-based image.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/health-check-container-image.png)
+![Health check container image expander with the latest Ubuntu-based image.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/health-check-container-image.png)
 :::
 
 #### Health check
@@ -376,13 +376,13 @@ This process may take a few minutes since it’s acquiring the Worker and it nee
 1. Click the **CHECK HEALTH** button.
 
 :::figure
-![Deployment target connectivity status page with unknown state.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/health-check-connectivity.png)
+![Deployment target connectivity status page with unknown state.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/health-check-connectivity.png)
 :::
 
 You can create and deploy a release now that you have a healthy deployment target.
 
 :::figure
-![Logs indicating a healthy deployment target.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/healthy-target.png)
+![Logs indicating a healthy deployment target.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/healthy-target.png)
 :::
 
 ## Release and deploy
@@ -394,13 +394,13 @@ A release is a snapshot of the deployment process and the associated assets (Git
 1. Click the **CREATE RELEASE** button.
 
 :::figure
-![Deployment overview page with no deployments.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-overview.png)
+![Deployment overview page with no deployments.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-overview.png)
 :::
 
 You’ll see a summary of the Git resources you provided in the **Deploy Kubernetes YAML** step. 
 
 :::figure
-![Release summary showing Git resources](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/release-summary.png)
+![Release summary showing Git resources](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/release-summary.png)
 :::
 
 3. Click **SAVE**.
@@ -416,7 +416,7 @@ Your first deployment may take slightly longer because your Docker image won’t
 3. Navigate to the **KUBERNETES OBJECT STATUS** tab to see the live status of your Kubernetes objects as the deployment progresses.
 
 :::figure
-![Kubernetes Object Status dashboard showing a successful deployment.](/docs/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-success.png)
+![Kubernetes Object Status dashboard showing a successful deployment.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/deployment-success.png)
 :::
 
 You’ve successfully completed your first deployment to Kubernetes! 🎉

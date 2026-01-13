@@ -14,7 +14,7 @@ To check you can reach Microsoft cloud through your network, run this script on 
 :::div{.info}
 
 
-You might need to install Azure Powershell before running this script. For information, see [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.5.0).
+You might need to install Azure PowerShell before running this script. For information, see [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.5.0).
 
 :::
 
@@ -40,7 +40,7 @@ Get-AzResourceGroup
 If everything is working as expected, you will see output showing all the Azure Resource Groups you have access to:
 
 :::figure
-![Screenshot of Azure Resource Groups](/docs/deployments/azure/deploying-to-azure-via-a-firewall/image.png)
+![Screenshot of Azure Resource Groups](/docs/img/deployments/azure/deploying-to-azure-via-a-firewall/image.png)
 :::
 
 If you need to add firewall exclusions to an allow list, here are a few things to take into consideration:

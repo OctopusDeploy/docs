@@ -56,7 +56,7 @@ Multiple OIDC identities can be added for a service account, these could be for 
 :::
 
 :::figure
-![OIDC Identity for GitHub Actions](/docs/octopus-rest-api/images/oidc-identity-github-actions.png "width=500")
+![OIDC Identity for GitHub Actions](/docs/img/octopus-rest-api/images/oidc-identity-github-actions.png)
 :::
 
 ### Add the `OctopusDeploy/login` action to your workflow
@@ -64,7 +64,7 @@ Multiple OIDC identities can be added for a service account, these could be for 
 After the OIDC identity for GitHub Actions has been created, a snippet of the `OctopusDeploy/login` step will be provided which you can use in your workflow to configure the workflow run job to use OIDC authentication.
 
 :::figure
-!['OctopusDeploy/login' snippet](/docs/octopus-rest-api/images/oidc-github-actions-details.png "width=500")
+!['OctopusDeploy/login' snippet](/docs/img/octopus-rest-api/images/oidc-github-actions-details.png)
 :::
 
 1. Click Copy to Clipboard to copy the `OctopusDeploy/login` step.
@@ -99,7 +99,7 @@ jobs:
       id-token: write # This is required to obtain the ID token from GitHub Actions
       contents: read # For example: this is required to check out code, remove if not needed
     steps:
-      - name: Login to Octopus
+      - name: Log into Octopus
         uses: OctopusDeploy/login@v1
         with:
           server: https://my.octopus.app
@@ -135,7 +135,7 @@ Multiple OIDC identities can be added for a service account.
 :::
 
 :::figure
-![OIDC Identity for other issuer](/docs/octopus-rest-api/images/oidc-identity-other-issuer.png "width=500")
+![OIDC Identity for other issuer](/docs/img/octopus-rest-api/images/oidc-identity-other-issuer.png)
 :::
 
 ### Exchange an OIDC token for an Octopus access token
@@ -145,7 +145,7 @@ After the OIDC identity has been created it can be used as part of exchanging an
 A Service Account Id will be shown, this will be a GUID which must be supplied as the `aud` of the ID token, as well as in the token exchange request.
 
 :::figure
-![Other issuer audience details](/docs/octopus-rest-api/images/oidc-other-issuer-details.png "width=500")
+![Other issuer audience details](/docs/img/octopus-rest-api/images/oidc-other-issuer-details.png)
 :::
 
 1. Obtain an OIDC token from the issuer, the `aud` claim must be the Service Account Id. The process for obtaining the OIDC token from the issuer will differ by issuer, please consult your OIDC issuers documentation.

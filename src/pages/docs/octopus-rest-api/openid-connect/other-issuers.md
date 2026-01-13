@@ -35,7 +35,7 @@ Multiple OIDC identities can be added for a service account.
 :::
 
 :::figure
-![OIDC Identity for other issuer](/docs/octopus-rest-api/images/oidc-identity-other-issuer.png 'width=500')
+![OIDC Identity for other issuer](/docs/img/octopus-rest-api/images/oidc-identity-other-issuer.png 'width=500')
 :::
 
 ## OpenID discovery endpoints
@@ -116,10 +116,10 @@ Authorization: Bearer {the-access-token-obtained-from-octopus}
 
 Some issuers may not be able to generate an OIDC token with the id of the Octopus service account set in the audience (`aud`) field. Examples of this include when connecting to Octopus from a custom application running in Azure.
 
-When configuring an OIDC identity for an other issuer, the audience can be set to a custom string. Click the edit icon next to the Audience field to do this.
+When configuring an OIDC identity for another issuer, the audience can be set to a custom string. Click the edit icon next to the Audience field to do this.
 
 :::figure
-![OIDC Identity with custom audience](/docs/octopus-rest-api/images/oidc-identity-other-issuer-custom-audience.png 'width=500')
+![OIDC Identity with custom audience](/docs/img/octopus-rest-api/images/oidc-identity-other-issuer-custom-audience.png 'width=500')
 :::
 
 ## Older Versions

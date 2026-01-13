@@ -15,7 +15,7 @@ Octopus provides four built-in step templates for managing and interacting with 
 - `Plan a Terraform destroy`
 
 :::figure
-![Built-in Terraform step badges](/docs/deployments/terraform/working-with-built-in-steps/images/terraform-step-badges.png)
+![Built-in Terraform step badges](/docs/img/deployments/terraform/working-with-built-in-steps/images/terraform-step-badges.png)
 :::
 
 All four of the built-in Terraform steps provide common configuration points you can use to control how the steps execute your Terraform code.
@@ -44,19 +44,19 @@ The Terraform template can come from three sources:
 The first option is to paste the template directly into the step. This is done by selecting the `Source code` option, and clicking the `ADD SOURCE CODE` button.
 
 :::figure
-![Source Code](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-sourcecode.png)
+![Source Code](/docs/img/deployments/terraform/working-with-built-in-steps/images/step-aws-sourcecode.png)
 :::
 
 This will present a dialog in which the Terraform template can be pasted, in either JSON or HCL.
 
 :::figure
-![Source Code Dialog](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-code-dialog.png)
+![Source Code Dialog](/docs/img/deployments/terraform/working-with-built-in-steps/images/step-aws-code-dialog.png)
 :::
 
 Once the `OK` button is clicked, the input variables defined in the template will be shown under the `Variables` section.
 
 :::figure
-![Parameters](/docs/deployments/terraform/working-with-built-in-steps/images/step-parameters.png)
+![Parameters](/docs/img/deployments/terraform/working-with-built-in-steps/images/step-parameters.png)
 :::
 
 Terraform variables are either strings, lists or maps.
@@ -78,7 +78,7 @@ Given that Terraform templates and variable files are plain text, you may find i
 :::
 
 :::figure
-![Package](/docs/deployments/terraform/working-with-built-in-steps/images/step-aws-package.png)
+![Package](/docs/img/deployments/terraform/working-with-built-in-steps/images/step-aws-package.png)
 :::
 
 ### Git repository
@@ -134,6 +134,6 @@ See the [variable substitution](/docs/projects/variables/variable-substitutions)
 
 ### Additional variable files
 
-The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
+The `Additional variable files` option contains a new-line separated list of variable files to use with the deployment. All files called `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars` and `*.auto.tfvars.json` are automatically loaded by Terraform, and do not need to be listed here. However, you may want to reference environment specific variable files by referencing them with files names built around variable substitution such as `#{Octopus.Environment.Name}.tfvars`.
 
 Each line entered into this field will be passed to Terraform as `-var-file '<filename>'`.

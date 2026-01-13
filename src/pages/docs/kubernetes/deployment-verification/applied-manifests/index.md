@@ -14,7 +14,7 @@ As part of your deployment, Octopus also captures the Kubernetes manifests that 
 Octopus will show a list of all the applied manifests on a deployment screen — the `Applied Manifests` view on the `KUBERNETES` tab.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests tab](/docs/deployments/kubernetes/deployment-verification/applied-manifest-page.png)
+![A screenshot of the Kubernetes Applied Manifests tab](/docs/img/deployments/kubernetes/deployment-verification/applied-manifest-page.png)
 :::
 
 ## Where it is available
@@ -41,15 +41,15 @@ If the deployment step is a Helm deployment, Octopus retrieves the templated man
 For each step that performs a Kubernetes deployment, there is a navigation tree with all the manifests listed under their deployment target and in their deployed namespace. For non-namespaced resources, they are listed under the `Cluster-scoped` node.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests navigation tree](/docs/deployments/kubernetes/deployment-verification/navigation-tree.png)
+![A screenshot of the Kubernetes Applied Manifests navigation tree](/docs/img/deployments/kubernetes/deployment-verification/navigation-tree.png)
 :::
 
-If Kubernetes Object Status/Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
+If Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
 
 On the right-hand side, the individual manifests are displayed in collapsible sections.
 
 :::figure
-![A screenshot of the Kubernetes Applied Manifests manifests list](/docs/deployments/kubernetes/deployment-verification/manifests.png)
+![A screenshot of the Kubernetes Applied Manifests manifests list](/docs/img/deployments/kubernetes/deployment-verification/manifests.png)
 :::
 
 ## Kubernetes Secret resources and Octopus sensitive variables
@@ -57,7 +57,7 @@ On the right-hand side, the individual manifests are displayed in collapsible se
 To protect your Octopus sensitive values, Octopus will obfuscate these values if they are substituted into when displaying the manifest. For Kubernetes Secrets, we obfuscate _all_ values regardless of whether they came from Octopus sensitive variables or other sources.
 
 :::figure
-![A screenshot of an obfuscated Kubernetes Secret manifests ](/docs/deployments/kubernetes/deployment-verification/secret.png)
+![A screenshot of an obfuscated Kubernetes Secret manifests ](/docs/img/deployments/kubernetes/deployment-verification/secret.png)
 :::
 
 :::div{.warning}

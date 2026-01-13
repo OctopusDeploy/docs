@@ -31,11 +31,11 @@ For this guide, we will start with the following deployment process for the Octo
 1. Notify stakeholders
 
 :::figure
-![original windows deployment process](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
+![original Windows deployment process](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/original-windows-deployment-process.png)
 :::
 
 :::div{.success}
-View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please login as a guest.
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/01-octofx-original/deployments/process).  Please log in as a guest.
 :::
 
 ## Zero configuration rollback
@@ -58,11 +58,11 @@ The updated deployment process will be:
 1. Notify stakeholders
 
 :::figure
-![simple rollback for windows deployment](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
+![simple rollback for Windows deployment](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-simple-rollback-process.png)
 :::
 
 :::div{.success}
-View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please login as a guest.
+View the deployment process on our [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/02-octofx-simple-rollback/deployments/process).  Please log in as a guest.
 :::
 
 ### Calculate deployment mode
@@ -82,7 +82,7 @@ To skip these steps during a rollback, set the variable run condition to be:
 We also recommend adding or updating the notes field to indicate it will only run on deployments.
 
 :::figure
-![windows updating notes field](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
+![Windows updating notes field](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-updating-notes-field.png)
 :::
 
 ### Prevent release progression
@@ -91,7 +91,7 @@ We also recommend adding or updating the notes field to indicate it will only ru
 
 ## Complex rollback process
 
-As mentioned earlier, re-deploying the website and windows service involves re-extracting the package, running configuration transforms, and any embedded scripts.  Generally, those steps will finish within 60 seconds.  However, re-deploying those packages carries a small amount of risk because variable snapshots can be updated.  Or, the embedded scripts are complex and take time to finish.  
+As mentioned earlier, re-deploying the website and Windows service involves re-extracting the package, running configuration transforms, and any embedded scripts.  Generally, those steps will finish within 60 seconds.  However, re-deploying those packages carries a small amount of risk because variable snapshots can be updated.  Or, the embedded scripts are complex and take time to finish.  
 
 By default, Octopus Deploy will keep all releases on your Windows Server (this can be changed via [retention policies](/docs/administration/retention-policies)), which means the previously extracted and configured Windows Service or Website already exists.  Back in Octopus 3.x we added the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled`.  When that variable is set to `True`, Octopus Deploy will:
 
@@ -116,11 +116,11 @@ The resulting process will be:
 1. Notify stakeholders
 
 :::figure
-![windows complex rollbacks](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
+![Windows complex rollbacks](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-complex-rollbacks.png)
 :::
 
 :::div{.success}
-View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please login as a guest.
+View that deployment process on [samples instance](https://samples.octopus.app/app#/Spaces-762/projects/03-octofx-complex-rollback/deployments/process).  Please log in as a guest.
 :::
 
 ### Comparison to simple rollback process
@@ -143,7 +143,7 @@ Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will 
 ```
 
 :::figure
-![windows skip if already installed](/docs/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
+![Windows skip if already installed](/docs/img/deployments/patterns/rollbacks/dotnet-windows-rollbacks/images/windows-skip-if-already-installed.png)
 :::
 
 ### Windows Service rollback
@@ -153,7 +153,7 @@ Updating the existing Windows Service to point to an earlier version of the appl
 1. [Update Windows Service Binary Path](https://library.octopus.com/step-templates/b6860fcf-9dee-48a0-afac-85e2098df692/actiontemplate-windows-service-change-binary-path)
 1. [Restart Windows Service](https://library.octopus.com/step-templates/d1df734a-c0da-4022-9e70-8e1931b083da/actiontemplate-windows-service-restart)
 
-The binary path must include the application's .exe file.  For example, `#{Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath}\YOUREXEFILE.exe`. For this guide, that value will be:
+The binary path must include the application's .exe file.  For example, `#{Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath}\YOUR-EXE-FILE.exe`. For this guide, that value will be:
 
 ```
 #{Octopus.Action[Deploy OctoFX Windows Service].Output.Package.InstallationDirectoryPath}\OctoFX.RateService.exe

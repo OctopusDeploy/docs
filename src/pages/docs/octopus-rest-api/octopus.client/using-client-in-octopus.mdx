@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-05-19
 title: Using in an Octopus Step
 description: How to use the Octopus.Client library from inside Octopus, for example within a script step.
 navOrder: 50
@@ -22,7 +22,7 @@ Add-Type -Path 'Octopus.Client/lib/netstandard2.0/Octopus.Client.dll'
 <summary>C#</summary>
 
 ```csharp 
-#r "Octopus.Client/lib/netstandard2.0/Octopus.Client.dll"
+#r "nuget: Octopus.Client"
 using Octopus.Client;
 using Octopus.Client.Model;
 ```

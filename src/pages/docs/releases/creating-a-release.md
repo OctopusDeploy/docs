@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2024-06-25
+modDate: 2025-09-23
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
@@ -11,7 +11,7 @@ navOrder: 2
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
 
 :::figure
-![Create release](/docs/shared-content/releases/images/create-release.png)
+![Create release](/docs/img/shared-content/releases/images/create-release.png)
 :::
 
 2. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
@@ -43,10 +43,10 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 
 ### Schedule deployments with the Octopus CLI
 
-For everyone using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli), you can use the following option:
+For everyone using the [Octopus CLI](/docs/octopus-rest-api/cli), you can use the following option:
 
 ```powershell
-octo deploy-release --deployAt="2014-07-12 17:54:00 +11:00" --project=HelloWorld --releaseNumber=1.0.0 --deployto=Production --server=https://your-octopus-url --apiKey=API-YOUR-KEY
+octopus release deploy --deploy-at "2014-07-12 17:54:00 +11:00" --project HelloWorld -- version 1.0.0 --environment Production
 ```
 
 ### Exclude steps from releases
@@ -90,7 +90,7 @@ For each release you create, a snapshot is taken of the project variables. You c
 This lets you see the variables as they existed when the release was created.
 
 :::figure
-![](/docs/releases/images/release-variable-snapshot-section.png "width=500")
+![](/docs/img/releases/images/release-variable-snapshot-section.png)
 :::
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
@@ -108,7 +108,41 @@ The variable snapshot for Git projects is a combination of the variables on the 
 When updating the variable snapshot, the new snapshot is taken from the current tip of the Git reference that was used to create the release. If this reference no longer exists, the variable snapshot cannot be updated.
 
 :::figure
-![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/releases/git-variables-release-snapshot.png "width=400")
+![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/img/releases/git-variables-release-snapshot.png)
 :::
 
 Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+
+## Custom fields
+
+Releases can have custom fields added to them when being created. Custom fields are a set of key/value pairs of data that can be used:
+
+- As part of naming of ephemeral environments.
+- During deployments within scripts and other steps.
+
+:::div{.hint}
+Support for custom fields on releases is rolling out to Octopus Cloud in Early Access Preview.
+:::
+
+:::div{.hint}
+Support for custom fields on releases is available from v2.19.0 of the Octopus CLI.
+:::
+
+### Required custom fields
+
+Channels can define which custom fields are required when creating a release within the channel. The Octopus Web Portal will prompt you to provide the value for any required custom fields when creating a release. Learn more about [configuring custom fields in channels](/docs/releases/channels).
+
+:::figure
+![Screenshot of Octopus release page showing entering the value of a custom field for a Pull Request Number](/docs/img/releases/images/create-release-custom-fields.png)
+:::
+
+### Using custom fields in scripts and steps
+
+Custom fields can be used within scripts and steps with the variable `#{Octopus.Release.CustomFields[_name_]}`.
+
+### Restrictions
+
+The following restrictions apply to custom fields on releases:
+
+- A maximum of 10 custom fields can be added to each release.
+- The maximum length of the key and value of each custom field is 150 characters.

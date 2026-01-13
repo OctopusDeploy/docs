@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-10-04
 title: Hardening Octopus
-description: If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself. This includes things such as configuring malware protection (anti-virus), and utilizing allow lists.
+description: If you are hosting Octopus Deploy yourself, this guide will help you harden your network, host operating system, and Octopus Server itself. This includes things such as configuring malware protection (antivirus), and using allow lists.
 navOrder: 10
 ---
 import SecurityDisclaimer from 'src/shared-content/security-disclaimer.include.md';
@@ -216,7 +216,7 @@ Once the version of TLS is set in your config, you'll want to restart any Tentac
 
 #### Verification of disabling weak TLS protocols \{#disable-weak-tls-protocols-verify}
 
-Once you have performed changes to the available versions of TLS, you should verify that they have been disabled successfully. Tools such as [openssl](https://www.openssl.org/) and [nmap](https://nmap.org/), and web sites like [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) can be used to verify the TLS version and cipher suites available.
+Once you have performed changes to the available versions of TLS, you should verify that they have been disabled successfully. Tools such as [openssl](https://www.openssl.org/) and [nmap](https://nmap.org/), and websites like [Qualys SSL Labs](https://www.ssllabs.com/ssltest/) can be used to verify the TLS version and cipher suites available.
 
 ### Prevent user-provided scripts from doing harm
 
@@ -342,7 +342,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 
 If you run an [Octopus Deploy container](/docs/installation/octopus-server-linux-container), in addition to your usual security measure for running apps out of containers, take the following steps to secure it: 
 
-- Move your docker data directory (the default location is `/var/lib/docker`) so that your containers are stored on a separate partition. 
+- Move your Docker data directory (the default location is `/var/lib/docker`) so that your containers are stored on a separate partition. 
 - Assign resources carefully:
   - Consider pinning CPUs to namespaces in order to give them a boundary. 
   - Consider the amount of memory required, if you assign too much the container is susceptible to denial of service attacks, but if you assign too little or make use of memory ballooning performance will be impacted. 

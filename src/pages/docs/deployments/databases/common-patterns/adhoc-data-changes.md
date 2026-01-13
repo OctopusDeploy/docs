@@ -9,7 +9,7 @@ navOrder: 20
 
 Sometimes an application causes data to get into an odd state, but the bug can be hard to reproduce and the priority to fix the bug might be low. However, the data still needs to be fixed. It might only be one record in one environment in one database, and it doesn't make sense to send a script to fix the data through the standard automated database deployment pipeline.
 
-The majority of the time, the fix is a manual process and varies from company to company.  It could be as simple as emailing the script to a DBA to as complicated as submitting a lengthly request form.  
+The majority of the time, the fix is a manual process and varies from company to company.  It could be as simple as emailing the script to a DBA to as complicated as submitting a lengthy request form.  
 
 Just like database deployments, it is possible to automate this. Automation has multiple advantages over a manual process.
 
@@ -22,7 +22,7 @@ Just like database deployments, it is possible to automate this. Automation has 
 
 [Runbooks](/docs/runbooks) were added to Octopus Deploy in version: **2019.11**.
 
-Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. Typically we find this process is a good starting point:
+Runbooks provide an excellent way to run ad-hoc data change scripts. Runbooks don't require a release to be created, but they still have the same functionality as a typical Octopus Deployment, such as prompted variables and auditing. We typically find this process is a good starting point:
 
 1. The runbook run is created, and the script to run and the database information is provided via [prompted variables](/docs/projects/variables/prompted-variables).
 2. The script to run is analyzed for any schema change commands, and it is run and immediately rolled back in a transaction.  
@@ -34,25 +34,25 @@ Runbooks provide an excellent way to run ad-hoc data change scripts.  Runbooks d
 6. Notify the DBAs and the person who submitted the script that the script has finished running.
 
 :::figure
-![A sample ad-hoc script process](/docs/deployments/databases/common-patterns/images/adhoc_scripts_process.png)
+![A sample ad-hoc script process](/docs/img/deployments/databases/common-patterns/images/adhoc_scripts_process.png)
 :::
 
 For the example process, only the database name and script are prompted variables.  The prompted variables allow a person to enter values prior to running the runbook.  In this example, a `create table` command is also included in the data changes:
 
 :::figure
-![The prompted variables for the ad-hoc script process](/docs/deployments/databases/common-patterns/images/adhoc_scripts_submit.png)
+![The prompted variables for the ad-hoc script process](/docs/img/deployments/databases/common-patterns/images/adhoc_scripts_submit.png)
 :::
 
 The auto-approval script leverages the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command so important messages are shown on the task summary screen.  The `create table` command was detected, requiring a DBA to approve the script.  The DBA has a choice to accept the script or reject it.  There are some cases when a create table is necessary, for example, creating a temporary table:
 
 :::figure
-![Ad hoc script requires approval](/docs/deployments/databases/common-patterns/images/adhoc_approval_required.png)
+![Ad hoc script requires approval](/docs/img/deployments/databases/common-patterns/images/adhoc_approval_required.png)
 :::
 
 In another example, the same script, without the `create table` command is submitted.  This time it passes the auto-approval and is immediately executed:
 
 :::figure
-![Task progress for the ad-hoc script](/docs/deployments/databases/common-patterns/images/adhoc_auto_approval.png)
+![Task progress for the ad-hoc script](/docs/img/deployments/databases/common-patterns/images/adhoc_auto_approval.png)
 :::
 
 You can view this example on our [samples instance](https://samples.octopus.app/app#/Spaces-106/projects/ad-hoc-data-change-scripts/operations/runbooks/Runbooks-225/overview).

@@ -13,21 +13,21 @@ Step templates are effectively copied to projects using them. That means if you 
 If your project is using an out-of-date step template, you'll see a warning when editing that step in the deployment process of your project. You can click the **Update** button to start using the latest version.
 
 :::figure
-![Step Templates inline merge](/docs/projects/images/step-templates-inline-merge.png)
+![Step Templates inline merge](/docs/img/projects/images/step-templates-inline-merge.png)
 :::
 
-If you have a lot of projects using a step template, updating them one by one can be time consuming. Fortunately, there is a way to update all of them at once. To do that, navigate to **Deploy ➜ Step Templates ➜ Name of the Step Template ➜ Usage**.
+If you have a lot of projects using a step template, updating them one by one can be time-consuming. Fortunately, there is a way to update all of them at once. To do that, navigate to **Deploy ➜ Manage ➜ Step Templates ➜ Name of the Step Template ➜ Usage**.
 
 Once you are there you should see a list of steps that are using the step template. The steps that are not on the latest version will have an **Update...** button next to them. Steps can be updated individually or all at once by clicking the **Update all...** button.
 
 :::figure
-![Step Template Usage](/docs/projects/images/step-templates-usage.png)
+![Step Template Usage](/docs/img/projects/images/step-templates-usage.png)
 :::
 
 ## Merge conflicts
 
 :::figure
-![Steps that need default values](/docs/projects/images/step-templates-update-all-defaults.png)
+![Steps that need default values](/docs/img/projects/images/step-templates-update-all-defaults.png)
 :::
 
 Most of the time the steps will be updated automatically but there will be cases when the update process will need some input from you.  When this happens we will do our best to make sure you only have to update manually the steps that need it. All other steps will have an option to be updated automatically.
@@ -44,4 +44,4 @@ When you make a change to a step template that can't be applied automatically we
 
 The manual merge process shows you the current values of the properties and what we think the new values should be. The new values are editable and you can change them if they are incorrect.
 
-![Steps that need to update manually](/docs/projects/images/step-templates-update-all-manual-merge.png)
+![Steps that need to update manually](/docs/img/projects/images/step-templates-update-all-manual-merge.png)

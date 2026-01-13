@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-09-03
 title: ASP.NET Core webapp
 description: This guide covers everything you need to perform your first ASP.NET Core webapp deployment.
 navOrder: 0
@@ -24,7 +24,7 @@ When your application has been published you need to package it:
 
 ```powershell
 # Package the folder into a ZIP
-octo pack --id MyApp.Web --version 1.0.0 --basePath published-app
+octopus package zip create --id 'MyApp.Web' --version '1.0.0' --base-path 'published-app'
 ```
 
 For more information about packaging applications see [Creating packages using the Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
@@ -52,7 +52,7 @@ When running under IIS, ensure the .NET CLR Version is set to `No Managed Code`.
 
 ## Antiforgery cookie {#DeployingASP.NETCoreWebApplications-AntiforgeryCookie}
 
-The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate its hash. By default Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
+The `.AspNetCore.Antiforgery` cookie created by ASP.NET Core uses the application path to generate its hash. By default, Octopus will deploy to a new path every time, which causes a new cookie to be set every deploy. This results in many unneeded cookies in the browser. See this [blog post](http://blog.novanet.no/a-pile-of-anti-forgery-cookies/) for more details. To change this behavior, set the Antiforgery token in your `startup.cs` like this:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

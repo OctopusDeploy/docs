@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-20
+modDate: 2025-11-19
 title: How to automate Octopus Deploy upgrades
 description: A how-to guide on how to automate Octopus Deploy upgrades
 navOrder: 4
@@ -13,6 +13,10 @@ Automating the Octopus Deploy upgrade ensures all essential steps are executed d
 ## Overview
 
 This guide was written for upgrading Octopus Deploy on Windows. 
+
+## System Integrity Check
+
+Before performing any upgrade steps, we highly recommend performing a [System Integrity Check](/docs/administration/managing-infrastructure/diagnostics) on your live instance database. This is so we can check that the Database Schema is in the expected condition for the upgrade. If the integrity check passes, you are good to start the upgrade process. If it fails, please contact [support](https://octopus.com/support) with the [raw output of the task](/docs/support/get-the-raw-output-from-a-task), and we can get that fixed for you.
 
 ## Prep work
 
@@ -56,8 +60,8 @@ $serverExe = "$installPath\Octopus.Server.Exe"
 
 # Get the latest minor/patch version
 $currentVersion = (Invoke-RestMethod "$Url/api").Version
-$versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3"
-$upgradeVersion = $versions[-1].Version
+$versionInfo = Invoke-RestMethod "https://octopus.com/downloads/latest/WindowsX64/OctopusServer/version"
+$upgradeVersion = $versionInfo.Version
 
 if ($upgradeVersion -eq $currentVersion) {
     Write-Host "No new versions found. Quitting..."
@@ -67,7 +71,7 @@ if ($upgradeVersion -eq $currentVersion) {
 # Download the installer
 $msiFilename = "Octopus.$upgradeVersion-x64.msi"
 Write-Host "Downloading $msiFilename"
-Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -Destination "$downloadDirectory\$msiFilename"
+Start-BitsTransfer -source $versionInfo.DownloadUrl -Destination "$downloadDirectory\$msiFilename"
 
 # Place Octopus into maintenance mode
 if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{'X-Octopus-ApiKey' = $apiKey}).IsInMaintenanceMode) {
@@ -167,10 +171,10 @@ Remove-Item "$downloadDirectory\$msiFilename"
 
 Automating the upgrade of a Highly Available Octopus Deploy instance requires more than a single script.  A degree of coordination is required to update all the nodes.  In addition, specific actions, backing up the database, upgrading the database, enabling / disabling maintenance mode should only happen once.   
 
-The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get a 30-day trial license to do this with an [Octopus Cloud instance](https://octopus.com/start).
+The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get started with a [free Octopus Cloud account](https://octopus.com/free-signup) to do this.
 
 :::figure
-![](/docs/administration/upgrading/guide/images/upgrade-diagram.png "width=500")
+![](/docs/img/administration/upgrading/guide/images/upgrade-diagram.png)
 :::
 
 Each node will need a Tentacle installed on it.  You will need two roles for this to work.
@@ -181,7 +185,7 @@ Each node will need a Tentacle installed on it.  You will need two roles for thi
 The same sample script from above will be used, but it will be broken up into steps.  For example:
 
 :::figure
-![](/docs/administration/upgrading/guide/images/automated-upgrade-runbook-process.png "width=500")
+![](/docs/img/administration/upgrading/guide/images/automated-upgrade-runbook-process.png)
 :::
 
 ### Variables
@@ -204,7 +208,7 @@ The upgrade process itself is very similar to upgrading a single node instance. 
 :::div{.hint}
 Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
-![](/docs/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png "width=500")
+![](/docs/img/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png)
 :::
 
 **1. Check for a new version (HAServer-Primary).**
@@ -223,10 +227,8 @@ if ($upgradeMsiList.Count -gt 0)
 }
 
 $currentVersion = (Invoke-RestMethod "$Url/api").Version
-$currentMajorVersion = $currentVersion.Split('.')
-$versions = Invoke-RestMethod "https://octopus.com/download/upgrade/v3" `
-    | Where-Object { $_.Version.StartsWith($currentMajorVersion + '.') }
-$upgradeVersion = $versions[-1].Version
+$versionInfo = Invoke-RestMethod "https://octopus.com/downloads/latest/WindowsX64/OctopusServer/version"
+$upgradeVersion = $versionInfo.Version
 
 if ($upgradeVersion -eq $currentVersion) {
     Set-OctopusVariable -Name "UpgradeFound" -Value $false
@@ -247,7 +249,7 @@ if (Test-Path $outFile)
 }
 
 Write-Host "Downloading $msiFilename"
-Start-BitsTransfer -source "https://download.octopusdeploy.com/octopus/$msiFilename" -destination $outFile
+Start-BitsTransfer -source $versionInfo.DownloadUrl -destination $outFile
 Set-OctopusVariable -Name "UpgradeFound" -Value $true
 ```
 

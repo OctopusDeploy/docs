@@ -66,7 +66,7 @@ The `KeyStore alias` field defines a custom alias under which the certificate an
 
 ## Deploying a certificate to a domain
 
-Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two step process:
+Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two-step process:
 
 1. Deploying a KeyStore file to all slave instances.
 2. Configuring the profiles managed by the domain controller to reference the KeyStore files.
@@ -133,7 +133,7 @@ The default configuration for the `standard-sockets` socket binding group is sho
 The `Legacy security realm name` defines the name of the security realm that is configured in application servers that do not support the `Elytron` subsystem. If left blank, this value will default to `OctopusHttps`.
 
 :::figure
-![Security Realm](/docs/deployments/certificates/images/security-realm.png)
+![Security Realm](/docs/img/deployments/certificates/images/security-realm.png)
 :::
 
 :::div{.hint}
@@ -143,19 +143,19 @@ Elytron is the new security subsystem introduced with WildFly 11 and JBoss EAP 7
 The `Elytron key store name` defines the name of the Elytron Key Store in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKS`.
 
 :::figure
-![Elyton Key Store](/docs/deployments/certificates/images/elytron-keystore.png)
+![Elyton Key Store](/docs/img/deployments/certificates/images/elytron-keystore.png)
 :::
 
 The `Elytron key manager name` defines the name of the Elytron Key Manager in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsKM`.
 
 :::figure
-![Elyton Key Manager](/docs/deployments/certificates/images/elytron-keymanager.png)
+![Elyton Key Manager](/docs/img/deployments/certificates/images/elytron-keymanager.png)
 :::
 
 The `Elytron server SSL context name` defines the name of the Elytron SSL Context name in application servers that support the `Elytron` subsystem.  If left blank, this value defaults to `OctopusHttpsSSC`.
 
 :::figure
-![Elyton Server SSL Context](/docs/deployments/certificates/images/elytron-ssl-context.png)
+![Elyton Server SSL Context](/docs/img/deployments/certificates/images/elytron-ssl-context.png)
 :::
 
 :::div{.hint}

@@ -10,7 +10,7 @@ navOrder: 90
 The NGINX feature is one of the [configuration features](/docs/projects/steps/configuration-features/) you can enable as you define the [steps](/docs/projects/steps/) in your [deployment process](/docs/projects/deployment-process).
 
 :::figure
-![NGINX Web Server screenshot](/docs/projects/steps/configuration-features/images/nginx-web-server.png)
+![NGINX Web Server screenshot](/docs/img/projects/steps/configuration-features/images/nginx-web-server.png)
 :::
 
 The **NGINX web server** feature is available on **deploy a package** steps, however, there is also a **Deploy to NGINX** step which you can use to configure NGINX during deployment. See [NGINX on Linux deployment](/docs/deployments/nginx) for more details.
@@ -34,4 +34,4 @@ When configuring a `location` as a reverse proxy, you need to add the following 
 
 ### Supported operating systems
 
-Currently the **NGINX Web Server** feature only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.
+The **NGINX Web Server** feature currently only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.

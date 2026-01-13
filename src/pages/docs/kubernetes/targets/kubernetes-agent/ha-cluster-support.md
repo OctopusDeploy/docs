@@ -7,6 +7,7 @@ description: How to install/update the agent when running Octopus in an HA Clust
 navOrder: 50
 ---
 
+
 ## Octopus Deploy HA Cluster
 
 Similarly to Polling Tentacles, the Kubernetes agent must have a URL for each individual node in the HA Cluster so that it receive commands from all clusters. These URLs must be provided when registering the agent or some deployments may fail depending on which node the tasks are executing.
@@ -20,7 +21,7 @@ To read more about selecting the right URL for your nodes, see [Polling Tentacle
 To make things easier, Octopus will detect when it's running HA and show an extra configuration page in the Kubernetes agent creation wizard which asks you to give a unique URL for each cluster node.
 
 :::figure
-![Kubernetes Agent HA Cluster Configuration Page](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-ha-cluster-configuration-page.png)
+![Kubernetes Agent HA Cluster Configuration Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-ha-cluster-configuration-page.png)
 :::
 
 Once these values are provided the generated helm upgrade command will configure your new agent to receive commands from all nodes.
@@ -55,3 +56,9 @@ helm upgrade --atomic \
 <agent-release-name> \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+
+## Kubernetes Monitor
+
+:::div{.info}
+Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
+:::

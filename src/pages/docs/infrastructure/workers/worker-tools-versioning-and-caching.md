@@ -3,16 +3,16 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Worker Tools, Versioning and Caching
-description: How Octopus creates, versions, caches, and releases the worker-tools docker images for use with the execution containers for workers feature.
+description: How Octopus creates, versions, caches, and releases the worker-tools Docker images for use with the execution containers for workers feature.
 navOrder: 50
 ---
 
-Worker Tools are a set of docker images used as [execution containers for workers](https://octopus.com/docs/projects/steps/execution-containers-for-workers) to run deployment processes. Worker Tools include a wide range of software tools to support most deployment scenarios out of the box. This page focuses on how we create these Worker Tool images, version, cache on workers, and release them.
+Worker Tools are a set of Docker images used as [execution containers for workers](https://octopus.com/docs/projects/steps/execution-containers-for-workers) to run deployment processes. Worker Tools include a wide range of software tools to support most deployment scenarios out of the box. This page focuses on how we create these Worker Tool images, version, cache on workers, and release them.
 
 ## Versioning Worker Tools
 Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.22.04` or `windows.ltsc2022`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
 
-The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the docker files for [Windows](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2022/Dockerfile) and [Ubuntu](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile) Worker Tools.
+The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for [Windows](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2022/Dockerfile) and [Ubuntu](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile) Worker Tools.
 
 The tools pulling their latest releases for Ubuntu include `wget`, `python3-pip`, `groff`, `unzip`, `apt-utils`, `curl`, `software-properties-common`, `jq`, `yq`, `openssh-client`, `rsync`, `git`, `augeas-tools`, `maven`, `gradle`, `Node 14`, `istioctl`, `linkerd `, `umoci`.
 
@@ -39,14 +39,14 @@ In short, we recommend using the full `octopusdeploy/worker-tools:Major.Minor.Pa
 
 Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest five.
 
-To understand this cache, it's important to understand a worker's life cycle. Workers are acquired from a dynamic worker pool and leased to a single cloud instance. They are allocated in a round robin fashion to individual deployment steps, storing packages, docker images, and other data on disk. Workers are destroyed after either the worker has been idle for 60 minutes or has existed for 72 hours (3 days). 
+To understand this cache, it's important to understand a worker's life cycle. Workers are acquired from a dynamic worker pool and leased to a single cloud instance. They are allocated in a round robin fashion to individual deployment steps, storing packages, Docker images, and other data on disk. Workers are destroyed after either the worker has been idle for 60 minutes or has existed for 72 hours (3 days). 
 
 When a new worker is acquired, if a new set of Worker Tools has been released, the worker will no longer have the oldest version of Worker Tools, and any other images pulled on the old worker. This is important for the performance of deployments as pull times for uncached Worker Tools are ~1.5 minutes for Ubuntu and ~20 minutes for Windows. We recommend updating to the latest set of Worker Tools available to avoid these pull times. By Caching multiple versions of Worker Tools when using the latest version, any new release of Worker Tools will not result in degraded deployment performance.
 
 To update to the latest set of Worker Tools select the "Use latest Distro-based image" 
 
 :::figure
-![](/docs/infrastructure/workers/images/container-selector.png)
+![](/docs/img/infrastructure/workers/images/container-selector.png)
 :::
 
 ## Currently Cached Worker Tools
@@ -60,5 +60,5 @@ Using non-cached versions of these worker-tools can result in long downloads.
 
 ## Learn more
 
-- [Worker blog posts](https://octopus.com/blog/tag/workers)
-- [Custom docker images](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images)
+- [Worker blog posts](https://octopus.com/blog/tag/workers/1)
+- [Custom Docker images](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images)

@@ -1,26 +1,42 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Authentication providers
+modDate: 2025-07-21
+title: Authentication
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Microsoft Entra ID, Okta, and Google Workspace.
 navOrder: 50
 ---
 
-Octopus Deploy supports the most common authentication providers out-of-the-box, including special support for a Guest Login.
+Octopus Deploy supports a a range of Identity Providers (IdPs) and common authentication mechanisms out-of-the-box.
+
+### Your octopus.com account (Octopus ID)
+
+Octopus ID allows you to log in using the same account that you use to sign in at Octopus.com. This allows you to manage who is able to access Octopus from within your organization and saves you time when moving between our website, your billing console and your instance(s).
+
+- [Octopus ID](/docs/security/authentication/octopusid-authentication)
+
+### Identity Provider-based (IdP) Authentication
+
+The list below contains Identity Provider-specific integrations. These can be used with Octopus Server or [Octopus Cloud](/docs/octopus-cloud). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. Many are powered by OpenID Connect (OIDC), and therefore Octopus can support any OIDC compliant IdP. The Octopus Okta Authentication provider provides the most flexibility in configuration for generic IdP use.
+
+- [Microsoft Entra ID Authentication](/docs/security/authentication/azure-ad-authentication)
+- [Okta Authentication](/docs/security/authentication/okta-authentication)
+- [Google Workspace Authentication](/docs/security/authentication/googleapps-authentication)
+- [OpenID Connect Authentication](/docs/security/authentication/oidc-authentication)
+
+### Directory-based Authentication
+
+The list below contains Directory-based authentication mechanisms that are typically used with Octopus Server only. Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information.
+
+- [Active Directory Authentication](/docs/security/authentication/active-directory)
+- [LDAP Authentication](/docs/security/authentication/ldap)
+
+### Local Authentication
+
+The list below contains local authentication mechanisms that are convenient for evaluating, or initial configuration of Octopus Server. We recommend customers use IdP or directory-based authentication where possible.
 
 - [Username and Password](/docs/security/authentication/username-password)
-- [Active Directory Authentication](/docs/security/authentication/active-directory)
-- [Microsoft Entra ID Authentication](/docs/security/authentication/azure-ad-authentication)
-- [Google Workspace Authentication](/docs/security/authentication/googleapps-authentication)
-- [LDAP Authentication](/docs/security/authentication/ldap)
-- [Okta Authentication](/docs/security/authentication/okta-authentication)
-- [Octopus ID](/docs/security/authentication/octopusid-authentication)
 - [Guest Login](/docs/security/authentication/guest-login)
-
-:::div{.hint}
-Support for authentication providers differ between Octopus Server and [Octopus Cloud](/docs/octopus-cloud/). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. 
-:::
 
 ## Configuring authentication providers
 
@@ -46,6 +62,7 @@ You can manually manage the members of your teams, or you can configure certain 
 - Learn about [automatically managing teams with Active Directory](/docs/security/authentication/active-directory).
 - Learn about [automatically managing teams with Microsoft Entra ID](/docs/security/authentication/azure-ad-authentication).
 - Learn about [automatically managing teams with Okta](/docs/security/authentication/okta-authentication).
+- Learn about [automatically managing teams with OpenID Connect](/docs/security/authentication/oidc-authentication).
 
 ## Auto login
 
@@ -64,13 +81,13 @@ When using the Active Directory provider, auto login will only be active when th
 
 ## Associating users with multiple external identities
 
-In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider agnostic.  What does that mean?  Let's consider an example scenario.
+In versions up to 3.5, only a single Authentication Provider could be enabled at a time (either Domain or UsernamePassword).  In that scenario Users were managed based on the currently enabled provider and switching providers meant re-configuring Users.  With 3.5 comes the ability to have multiple Authentication Providers enabled simultaneously and as such the User management has been adjusted to be provider-agnostic.  What does that mean?  Let's consider an example scenario.
 
-Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all of the cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
+Let's consider that we have UsernamePassword enabled and we create some users, and we've set their email address to their Active Directory domain email address.  The users can now log in with the username and password stored against their user record.  If we now enable the Active Directory authentication provider, then the users can authenticate using either their original username and password, or they can use a username of user@domain or domain\user along with their domain password, or they can use the Integrated authentication button.  In the first scenario they are actually logging in via the UsernamePassword provider, in the latter 2 scenarios they are using the Active Directory provider, but in all cases they end up logged in as the same user (this is the driver behind the fallback checks described in the next section).
 
 This scenario would work equally with Microsoft Entra ID or Google Workspace in place of Active Directory.
 
-You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could login using a specific account/email address using Google Workspace. Whichever option is actually used to login, Octopus will identify them as the same user.
+You can also specify the details for multiple logins for each user. For example, you could specify that a user can log is as a specific UPN/SamAccountName from Active Directory or that they could log in using a specific account/email address using Google Workspace. Whichever option is actually used to log in, Octopus will identify them as the same user.
 
 ### Matching external identities to Octopus users {#matching-external-identities}
 

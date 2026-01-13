@@ -11,7 +11,7 @@ navOrder: 80
 [AWS accounts](/docs/infrastructure/accounts/aws/) are included in a project through a project [variable](/docs/projects/variables/) of the type **AWS Account**. Before you create an **AWS account variable**, you need to [create an AWS account](/docs/infrastructure/accounts/aws) in Octopus:
 
 :::figure
-![AWS account variable](/docs/projects/variables/images/aws-account-variable.png)
+![AWS account variable](/docs/img/projects/variables/images/aws-account-variable.png)
 :::
 
 The **Add Variable** window is then displayed and lists all the AWS accounts.
@@ -19,7 +19,7 @@ The **Add Variable** window is then displayed and lists all the AWS accounts.
 Select the AWS account you want to access from the project to assign it to the variable:
 
 :::figure
-![AWS account variable selection](/docs/projects/variables/images/aws-account-variable-selection.png)
+![AWS account variable selection](/docs/img/projects/variables/images/aws-account-variable-selection.png)
 :::
 
 
@@ -85,4 +85,4 @@ For instructions to set up an AWS account in Octopus, see [AWS accounts](/docs/i
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

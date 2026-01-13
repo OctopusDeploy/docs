@@ -60,7 +60,7 @@ If you build the ZIP file incorrectly the provisioning of the DSC extension and 
 :::
 
 :::figure
-![A brief description of the image](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
+![A brief description of the image](/docs/img/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
 :::
 
 4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
@@ -499,7 +499,7 @@ az deployment group create \
 
 ## Troubleshooting 
 
-To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the Powershell session to a file.
+To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the PowerShell session to a file.
 
 If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 

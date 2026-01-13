@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-10
+modDate: 2025-10-23
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -21,9 +21,9 @@ You can access the machine policies by navigating to **Infrastructure ➜ Machin
 [Getting Started - Machine Policies](https://www.youtube.com/watch?v=uEjXuPttRO4)
 
 ## Default machine policy
-By default Octopus Deploy comes with a default configured machine policy with the following rules:
+By default, Octopus Deploy comes with a default configured machine policy with the following rules:
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-default-policy.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-default-policy.png)
 :::
 
 This machine policy cannot be deleted however it can be edited and any new deployment targets without an explicitly assigned machine policy will use the default one. Other machine policies will also inherit the bash/powershell scripts used for health checking from the default policy unless they have one explicitly set.
@@ -44,7 +44,7 @@ A *healthy* deployment target completes a health check without any errors or war
 You can review the health status of you deployment targets by navigating to **Infrastructure ➜ Deployment Targets**.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-deployment-target-overview.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-deployment-target-overview.png)
 :::
 
 
@@ -64,7 +64,7 @@ After creating a new Tentacle or SSH Target, Octopus Deploy will automatically s
 2. Click the ... overflow menu and select **Check Health**. If you have multiple deployment targets that support health checking it will start health checks for each of them.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-check-health.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-check-health.png)
 :::
 
 However if you would like to check the health of a single deployment target you can do the following:
@@ -72,7 +72,7 @@ However if you would like to check the health of a single deployment target you 
 2. Click on the **Connectivity** tab then click on the **Check Health** button on the top right of the page.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-deployment-target-connectivity.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-deployment-target-connectivity.png)
 :::
 
 The first time you complete a health check on a Tentacle or SSH Target, you will see health warnings and that Calamari needs to be installed.
@@ -85,7 +85,7 @@ Octopus will automatically push the latest version of Calamari with your first d
 2. Click the ... overflow menu and select **Upgrade Calamari on Deployment Targets**.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-update-calamari.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-update-calamari.png)
 :::
 
 Like with the health check if you would rather just update Calamari on a single deployment target you can achieve this by:
@@ -100,21 +100,21 @@ A health check can be scheduled in the following ways:
 
 No automatic health checks will be scheduled, when this option is selected. Manual health checks can still be run when desired.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-never.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-never.png)
 :::
 
 **Interval**
 
 A health check will be scheduled after every X duration(X = days/hours/minutes)
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-interval.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-interval.png)
 :::
 
 **Cron expression**
 
 A health check will be scheduled in accordance to the valid cron expression. You can also choose the timezone the cron expression should adhere to.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-cron.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-cron.png)
 :::
 
 ### Health check type
@@ -124,15 +124,15 @@ You can configure health checks to run scripts on Tentacle or SSH deployment tar
 
 Machine policies allow the configuration of custom health check scripts for Tentacle and SSH deployment targets. While we do not expose the full underlying script that runs during health checks, we give you an entry point to inject your own custom scripts.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-script.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-script.png)
 :::
-By default machine policies will inherit the script from the default machine policy if one has not been defined. For more details on providing a custom script see the section [Custom health check script](#custom-health-check-script)
+By default, machine policies will inherit the script from the default machine policy if one has not been defined. For more details on providing a custom script see the section [Custom health check script](#custom-health-check-script)
 
 **Connection test**
 
 The health check will only perform a basic connection test to see if the deployment target is reachable. This option is recommended if you are using the raw scripting feature.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-connection.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-connection.png)
 :::
 
 ### Custom health check script \{#custom-health-check-scripts}
@@ -196,7 +196,7 @@ This setting controls what the expected behavior of machines should be during a 
 
 If a machine is unavailable during an attempted health check it will cause the check to be failed.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-default.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-default.png)
 :::
 
 **Ignore machines that are unavailable during health checks**
@@ -204,7 +204,7 @@ If a machine is unavailable during an attempted health check it will cause the c
 By default, health checks fail if any deployment targets are unavailable during the health check. Machine policies offer an option to ignore machines if they are unavailable during a health check:
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-ignore.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-ignore.png)
 :::
 
 By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
@@ -212,7 +212,7 @@ By selecting **Unavailable machines will not cause health checks to fail,** any 
 ### Connection timeout and retries
 Machine policies define rules for how long to wait for a connection to be established to a Tentacle or SSH target as well as how it should retry the connection if the initial attempts do not succeed.
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-timeout-retries.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-timeout-retries.png)
 :::
 
 **Connect timeout**
@@ -240,7 +240,7 @@ In this scenario only a maximum of 2 retries could be attempted before reaching 
 ### Polling request queue timeout
 This setting controls how long Octopus Deploy will wait before cancelling a task in a polling Tentacle's queue. For more details on what the Polling Tentacle queue is see the documentation on [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles)
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-polling-queue.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-polling-queue.png)
 :::
 
 ## Configure how Calamari, Tentacle and Kubernetes agents are updated \{#configure-machine-updates}
@@ -249,7 +249,7 @@ Brand new Tentacle, Kubernetes agent and SSH endpoints require the installation 
 When there is a Tentacle or Kubernetes agent update, Octopus can automatically update Tentacle and Kubernetes agent endpoints.  Machine policies allow the customization of when Calamari, Tentacle and Kubernetes agent updates occur.
 
 :::figure
-![Machine Policies - Machine Updates](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-machine-updates.png)
+![Machine Policies - Machine Updates](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-machine-updates.png)
 :::
 
 By default, Calamari will be installed or updated when a machine is involved in a deployment.  The other two options will update Calamari:
@@ -260,6 +260,8 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle and Kubernetes agents can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles and Kubernetes agents whenever Octopus detects that there is a pending Tentacle or Kubernetes agents upgrade (after health checks for example). 
 
 Conversely, Octopus will not automatically update Tentacle or Kubernetes agents but instead will display a prompt to begin a Tentacle and Kubernetes agents update on the Deployment Targets and Environments screens.
+
+Kubernetes also has a 3rd option: **Block** which disables both automatic and manual updates to keep the Agent on a static version.
 
 ### Maximum number of concurrent upgrades
 
@@ -297,7 +299,7 @@ You can configure the amount of time allowed for Octopus to re-attempt failed co
 - **Health Check** 
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-tentacle-error-recovery-retry-duration.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-tentacle-error-recovery-retry-duration.png)
 :::
 
 ### Step Retries and execution timeouts
@@ -308,7 +310,19 @@ If you would like to retry a particular step within the deployment process for o
 Machine policies can be configured to automatically remove unavailable machines after a time period.  When a health check runs, Octopus detects if machines are unavailable (cannot be contacted). When the **Automatically delete unavailable machines** option is set, Octopus checks how long a machine has been unavailable.  If the specified time period has elapsed, the machine is permanently deleted from Octopus.
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-clean-up-unavailable.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-clean-up-unavailable.png)
+:::
+
+## Package cache retention policy
+
+:::div{.hint}
+Configurable machine package cache retention was introduced in **Octopus 2025.3**. This feature will roll out to Octopus Cloud customers first, and will be available to Octopus Server customers in Q4 2025.
+:::
+
+The machine package cache retention policy ensures that packages are periodically removed from the machine cache. This is handled by Octopus by default, but can be configured per machine policy as required.
+
+:::figure
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
 :::
 
 ## Assign machine policies to machines
@@ -316,7 +330,7 @@ Machine policies can be configured to automatically remove unavailable machines 
 Assign a machine policy to a machine by selecting a machine from the *Deployment Targets* or *Workers* screen and using the *Policy* drop down to select the machine policy:
 
 :::figure
-![](/docs/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-assign-policy.png)
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-assign-policy.png)
 :::
 
 Machine policy can also be set from the command line by using the --policy argument:

@@ -24,7 +24,7 @@ When the deployment runs, Octopus will insert an "Acquire" step to execute as pa
 - Run another script
 - Deploy package C
 
-During the acquire packages stage, Octopus will upload all NuGet packages used in the deployment to all servers. We do this because package uploads can be time consuming, so we want to minimize the downtime between installing packages A and B in this example.
+During the acquire packages stage, Octopus will upload all NuGet packages used in the deployment to all servers. We do this because package uploads can be time-consuming, so we want to minimize the downtime between installing packages A and B in this example.
 
 If you have a small window for downtime, you might like to **pre-stage** your packages. An easy way to do this is to use a [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals). The deployment process would become:
 
@@ -41,4 +41,10 @@ When configuring your manual intervention step, take note:
 
 - Under the **Package Requirements** section, select **After package acquisition**.
 
-![](/docs/deployments/packages/images/package-acquisition.png)
+![](/docs/img/deployments/packages/images/package-acquisition.png)
+
+## Learn more
+
+- [Transferring packages with a separate environment](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-environment).
+- [Transferring packages with a separate project](/docs/deployments/patterns/transferring-packages-before-deployment/transferring-with-project).
+- [Wait for package acquisition with a manual intervention](/docs/deployments/packages/stage-package-uploads).

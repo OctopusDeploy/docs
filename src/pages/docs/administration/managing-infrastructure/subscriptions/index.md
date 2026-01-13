@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-16
+modDate: 2025-10-28
 title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 navOrder: 1600
@@ -17,7 +17,7 @@ For earlier versions of Octopus, Subscriptions can be accessed from the **Config
 :::
 
 :::figure
-![](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
+![](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
 :::
 
 ## Email notifications {#Subscriptions-EmailNotifications}
@@ -35,7 +35,7 @@ Let's say you have some critical projects and you want your administrators to re
 Consider the following example:
 
 :::figure
-![](/docs/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
+![](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
 :::
 
 We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
@@ -138,6 +138,7 @@ The following is a list of all options for subscriptions including Event Groups,
 | EVENT GROUPS                                  |
 |-----------------------------------------------|
 | API key expiry events                         |
+| Authentication banned events                  |
 | Auto-deploy events                            |
 | Auto-Deploy critical-events                   |
 | Certificate expiry events                     |
@@ -170,6 +171,8 @@ The following is a list of all options for subscriptions including Event Groups,
 | Certificate private-key exported                       |
 | Certificate replaced                                   |
 | Comment                                                |
+| Compliance Policy evaluated                            |
+| Deployment canceled                                    |
 | Deployment failed                                      |
 | Deployment precondition evaluated                      |
 | Deployment queued                                      |
@@ -187,7 +190,7 @@ The following is a list of all options for subscriptions including Event Groups,
 | License key expired \*                                 |
 | License key expiry 10-day warning \*                   |
 | License key expiry 20-day warning \*                   |
-| License usage at 80% warning \*\                       |
+| License usage at 80% warning \*\*                      |
 | License usage at 90% warning \*\*                      |
 | License usage at 95% warning \*\*                      |
 | License usage at limit \*\*                            |
@@ -205,6 +208,8 @@ The following is a list of all options for subscriptions including Event Groups,
 | Machine found to be unhealthy                          |
 | Machine found to have warnings                         |
 | Manual intervention interruption raised                |
+| Package added to built-in feed \*\*\*                  |
+| Package deleted from built-in feed \*\*\*              |
 | Package deleted by package repository index sync       |
 | Package deleted by package repository retention policy |
 | Package replaced                                       |
@@ -306,3 +311,5 @@ The following is a list of all options for subscriptions including Event Groups,
 \* License key expiry events are only available in Octopus Server version `2025.2.6402` and later.
 
 \*\* License usage events are only available in Octopus Server version `2025.2.7065` and later.
+
+\*\*\* Package added to/deleted from built-in feed events are only available in Octopus Server version `2025.3.9484` and later.

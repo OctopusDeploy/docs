@@ -13,7 +13,7 @@ import VersionControlRepositoryUrlFormat from 'src/shared-content/version-contro
 Git settings are configured per project and are accessed via the **Settings ➜ Version Control** link in the project navigation menu. This page will walk through how to convert a project to Git.
 
 :::figure
-![Version-control configuration UI](/docs/projects/version-control/converting/version-control-configuration.png)
+![Version-control configuration UI](/docs/img/projects/version-control/converting/version-control-configuration.png)
 :::
 
 ## Creating a new version-controlled project
@@ -23,7 +23,7 @@ To get a feel for the config-as-code feature, you may want to create a new proje
 Click the **New Project** button and select **Use version control for this project.**
 
 :::figure
-![adding a project using vcs](/docs/projects/version-control/converting/add-project-vcs.png)
+![adding a project using vcs](/docs/img/projects/version-control/converting/add-project-vcs.png)
 :::
 
 Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token. 
@@ -32,16 +32,16 @@ Once you click the **Save** button, you'll be sent to the version control screen
 
 Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
 
-Next, add the directory you would like Octopus to store the project configuration. You can connect multiple projects to the same repository if they all use a different sub-directory (e.g. `.octopus/acme` and `.octopus/another-project`).
+Next, add the directory you would like Octopus to store the project configuration. You can connect multiple projects to the same repository if they all use a different subdirectory (e.g. `.octopus/acme` and `.octopus/another-project`).
 
 :::div{.hint}
-You can have multiple deployment processes in the same repository if they all use a different sub-directory.
+You can have multiple deployment processes in the same repository if they all use a different subdirectory.
 :::
 
 Finally, add your default branch name in Branch Settings and click **Configure**. Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
 :::figure
-![configuring version control](/docs/projects/version-control/converting/configure-version-control.png)
+![configuring version control](/docs/img/projects/version-control/converting/configure-version-control.png)
 :::
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files and folders:
@@ -75,13 +75,13 @@ Enter the connection information for your Git repository. You need to provide:
 Learn more about [Git credentials in Octopus Deploy](/docs/projects/version-control/config-as-code-reference).
 
 :::div{.hint}
-You can have multiple deployment processes in the same repository if they all use a different sub-directory.
+You can have multiple deployment processes in the same repository if they all use a different subdirectory.
 :::
 
 Once you press the **Configure** button, a modal window will appear to confirm this change and give you the option to provide a summary and description for the first commit or cancel the conversion.
 
 :::figure
-![configuring version control](/docs/projects/version-control/converting/configure-version-control.png)
+![configuring version control](/docs/img/projects/version-control/converting/configure-version-control.png)
 :::
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files and folders:
@@ -101,7 +101,7 @@ If your repository has branch protection setup, see [Setting up in a repository 
 If your default branch is protected, you can select that option under Branch Settings. You will need to provide a different branch name for the initial commit. If the branch doesn't exist, it will be created. Once you click the **Configure** button, Octopus will commit the OCL file to the initial commit branch. 
 
 :::figure
-![initial commit branch and protected default branch](/docs/projects/version-control/converting/configure-initial-commit-branch.png)
+![initial commit branch and protected default branch](/docs/img/projects/version-control/converting/configure-initial-commit-branch.png)
 :::
 
 Next, you will need to merge your changes into the default branch in your Git provider using your usual workflow. You will not be able to use the default branch within the project until you have merged your changes from the initial commit branch to the default branch. However, you can continue to make changes to the initial commit branch until then.
@@ -111,7 +111,7 @@ Optionally, you can also nominate protected branches for your Project. This will
 *Note that this is independent of your branch protection rules in your Git Provider and does not offer any protection outside of the Octopus UI.*
 
 :::figure
-![protected branches](/docs/projects/version-control/converting/configure-protected-branches.png)
+![protected branches](/docs/img/projects/version-control/converting/configure-protected-branches.png)
 :::
 
 ## Migrating to config-as-code runbooks on an existing Git project

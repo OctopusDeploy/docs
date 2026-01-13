@@ -43,13 +43,13 @@ It is possible that the URI to the Docker Registry will be different for the Oct
 Docker images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/#supported-formats).
 
 :::figure
-![](/docs/packaging-applications/package-repositories/docker-registries/images/5865827.png)
+![](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865827.png)
 :::
 
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://oc.to/OctopusVersionRegex/).
 
 :::figure
-![](/docs/packaging-applications/package-repositories/docker-registries/images/5865828.png)
+![](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865828.png)
 :::
 
 :::div{.hint}
@@ -93,5 +93,5 @@ Try to connect to your registry directly through the browser from the same machi
 ## Learn more
 
  - Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
- - [Docker blog posts](https://octopus.com/blog/tag/docker).
- - [Linux blog posts](https://octopus.com/blog/tag/linux).
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1).
+ - [Linux blog posts](https://octopus.com/blog/tag/linux/1).
