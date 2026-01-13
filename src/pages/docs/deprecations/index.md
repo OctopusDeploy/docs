@@ -14,7 +14,7 @@ Occasionally, Octopus will deprecate features that will no longer be supported. 
 We aim to follow the deprecation lifecycle below:
 
 - Announce deprecation with in-app warnings, newsletters and/or blog posts
-- (+6 months) Disable deprecated functionality
+- (+6 months) Switch off deprecated functionality
 - (+6 months) Remove deprecated functionality
 
 :::div{.warning}
