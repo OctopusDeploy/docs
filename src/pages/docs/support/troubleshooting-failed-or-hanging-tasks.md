@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-01-13
 title: Troubleshooting failed or hanging tasks
 description: A guide for troubleshooting tasks that fail unexpectedly or are unresponsive
 navOrder: 8
@@ -27,7 +27,7 @@ If your task logs contain errors that indicate a networking issue, there could b
 
 ### Connections between Octopus Server and Tentacles
 
-The Octopus Server communicates with Tentacles in either Listening mode or Polling mode. Both modes require different configuration. 
+The Octopus Server communicates with Tentacles in either Listening mode or Polling mode. Both modes require different configuration.
 
 A common problem is that traffic on the appropriate ports (10933 by default for Listening Tentacles) is not allowed by your firewall. If you are encountering problems with your connections, then your Task log might show messages that indicate a connection timing out, or a connection that was rejected by the remote host.
 
@@ -47,11 +47,21 @@ Remember these connections are usually initiated by your deployment targets or w
 
 ## Hanging tasks
 
-Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being antivirus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference, [see below](#anti-virus-software). 
+Sometimes tasks appear to be unresponsive or "hanging". In most cases, this ends up being antivirus or anti-malware software interfering with the task, and the first step in diagnosing the problem is to eliminate this source of interference, [see below](#anti-virus-software).
 
 If you can completely rule out antivirus software as a source of interference, then the problem may lie in your [custom scripts](/docs/deployments/custom-scripts). The next step to diagnosing these problems is to examine your logs and determine the exact location that the task became unresponsive. If this occurs within the logs output by a custom script, then the bug likely originates from your script.
 
 If you are still unable to determine the cause of your hanging tasks, please contact support for further assistance.
+
+### Automatic failure of hanging tasks
+
+In some instances, Octopus will automatically trigger the failure of a task that has become unresponsive. When this occurs, the following will happen:
+
+- Your currently executing steps will be marked as failed with an error message saying that the "Operation has been unresponsive for {duration}"
+- Subsequent steps configured to always run will run
+- The overall task will be marked as failed
+
+This is generally indicative of an internal error in Octopus. In Octopus Cloud we actively monitor for these issues, but please reach out to support for further assistance, especially if the problem persists.
 
 ### Antivirus software {#anti-virus-software}
 
@@ -62,16 +72,16 @@ If this test shows that antivirus is interfering with your tasks, you may need t
 Some examples of directories (and their subdirectories) you could try adding to an allow-list are:
 
 - `<Tentacle Home>\Tools`
-    - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
+  - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Work`
-    - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
+  - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
 If you're still seeing issues you could also try including these additional directories (and their subdirectories):
 
 - `<Tentacle Home>\Files`
-    - This is the package cache used to store the most recent packages in case they need to be used again.
+  - This is the package cache used to store the most recent packages in case they need to be used again.
 - `<Tentacle Home>\Logs`
-    - This is where the Tentacle log files are stored.
+  - This is where the Tentacle log files are stored.
 
 :::div{.hint}
 We recommend including subdirectories in any allow list for the directories listed above as processes initiated by Octopus may also create new folders within them.
