@@ -37,7 +37,7 @@ In short, we recommend using the full `octopusdeploy/worker-tools:Major.Minor.Pa
 
 ## Caching Worker Tools
 
-Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest five.
+Worker Tools are cached on dynamic workers to help improve the performance of deployments. Windows workers cache the latest two sets of Worker Tools while Ubuntu workers cache the latest three.
 
 To understand this cache, it's important to understand a worker's life cycle. Workers are acquired from a dynamic worker pool and leased to a single cloud instance. They are allocated in a round robin fashion to individual deployment steps, storing packages, Docker images, and other data on disk. Workers are destroyed after either the worker has been idle for 60 minutes or has existed for 72 hours (3 days). 
 
@@ -52,7 +52,7 @@ To update to the latest set of Worker Tools select the "Use latest Distro-based 
 ## Currently Cached Worker Tools
 
 **Octopus worker-tools cached on Dynamic Workers**
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the three latest Ubuntu and two latest Windows images on a Dynamic Worker when it's created. This makes them an excellent choice over installing additional software on a Dynamic Worker.
 
 [View the latest versions of worker tools on DockerHub](https://hub.docker.com/r/octopusdeploy/worker-tools).
 
