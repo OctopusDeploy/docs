@@ -31,10 +31,10 @@ There are a number of use cases which Octopus *cannot* support due to data acces
 
 The Update Argo Image Tags step's behavior changes based on the content of the application's repository:
 
-Repository Content                 | Behavior                                                                                                                                  |
------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-Yaml Manifests                     | Will recursively update image-tag fields in k8s resource files                                                                            |
-Kustomize                          | Will replace image tag values in the `kustomization.yaml` or `kustomization.yml` file                                                     |
+Repository Content                 | Behavior                                                                                                                                                  |
+-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+Yaml Manifests                     | Will recursively update image-tag fields in k8s resource files                                                                                            |
+Kustomize                          | Will replace image tag values in the `kustomization.yaml` or `kustomization.yml` file                                                                     |
 Helm Chart                         | Will update image-tag fields specified in the `values.yaml` or `values.yml` file, requires [helm-annotations](/docs/argo-cd/annotations/helm-annotations) |
 
 ## Update Argo Manifest Step
