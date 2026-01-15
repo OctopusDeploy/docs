@@ -27,15 +27,21 @@ Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes
 
 ### gRPC connections via a load balancer
 
-Octopus generates a self signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
+Octopus generates a self-signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
 
 Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.
+
+### Certificate errors when trying to create gRPC connections
+
+The self-signed certificate is only useful for simple scenarios where the Kubernetes monitor can talk directly to Octopus server (or is proxied with TLS passthrough).
+
+Refer to the [agent installation docs](/docs/kubernetes/targets/kubernetes-agent#grpc-certificates) for more options when using custom certificates.
 
 ## Runtime
 
 ### Failed to establish connection with Kubernetes Monitor \{#failed-to-establish–connection-with-kubernetes-monitor}
 
-Some actions, such as logs and events, require per request communication with the Kubernetes monitor running in your cluster. 
+Some actions, such as logs and events, require per request communication with the Kubernetes monitor running in your cluster.
 
 If the Kubernetes monitor cannot be accessed, follow these steps to determine why:
 
@@ -45,7 +51,7 @@ If the Kubernetes monitor cannot be accessed, follow these steps to determine wh
 
 In almost all cases, we have found restarting the Kubernetes monitor pod will re-establish connection if there are no external factors at play. Please reach out to support if you are finding cases of repeated, unexpected failure.
 
-### We couldn’t find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
+### We couldn't find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
 
 Similar to the [error above](#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
 
@@ -71,10 +77,12 @@ The rate limit is not a hard stop to messages being sent between Octopus Server 
 Objects are reported out of sync when the manifest the Kubernetes cluster sends back to use does not match the one that Octopus applied in your deployment.
 
 This can happen for a number of reasons, including
+
 - Someone has made an update to the object outside of Octopus deployments
 - A controller is automatically making changes to the object on your cluster
 - There are additional fields that Kubernetes does not recognize in the applied manifest that Kubernetes automatically removes from the reported live manifest
 
 If possible, we recommend ensuring that
+
 - Octopus is the only entity to modify your deployments
 - You craft your Kubernetes manifests to ensure that there are no invalid fields
