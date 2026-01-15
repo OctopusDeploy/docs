@@ -243,7 +243,7 @@ Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
 
 To resolve this, you need to provide the Kubernetes agent with a base64-encoded string of the public key of either the self-signed certificate or root organization CA certificate in either `.pem` or `.crt` format. When viewed as text, this will look similar to this:
 
-```PEM
+```text
 -----BEGIN CERTIFICATE-----
 MII...
 -----END CERTIFICATE-----
