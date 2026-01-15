@@ -53,7 +53,7 @@ In almost all cases, we have found restarting the Kubernetes monitor pod will re
 
 ### We couldn't find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
 
-Similar to the [error above](troubleshooting#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
+Similar to the [error above](/docs/kubernetes/live-object-status/troubleshooting#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
 
 This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all. If the Kubernetes agent and monitor are both still running in your Kubernetes cluster, this means the Kubernetes monitor will need to be re-registered with Octopus.
 
