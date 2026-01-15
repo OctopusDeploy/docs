@@ -36,7 +36,7 @@ When upgrading to a new major version of the Agent, create a separate resource t
 :::div{.warning}
 It is recommended to completely delete the Kubernetes namespace when removing a Kubernetes agent.
 
-If possible, prefer replacing `create_namespace = true` with an explicit Kubernetes resource in your terraform configuration.
+If possible, prefer replacing `create_namespace = true` with an explicit Kubernetes namespace resource in your terraform configuration.
 :::
 
 ```ruby
