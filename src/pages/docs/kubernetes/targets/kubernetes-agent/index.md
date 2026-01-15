@@ -345,7 +345,9 @@ Then, from a terminal connected to the cluster containing the instance, execute 
 helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
-**Replace NAMESPACE and HELM_RELEASE_NAME with the values noted**
+:::div{.hint}
+Replace NAMESPACE and HELM_RELEASE_NAME with the values noted
+:::
 
 If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
 
