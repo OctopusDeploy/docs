@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-01-20
 title: Automated Installation
 description: How Octopus tracks your Argo CD Instances
 navOrder: 10
