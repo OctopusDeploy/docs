@@ -38,7 +38,7 @@ You should now be ready to deploy Docker containers to your Ubuntu machine using
 
 Next we are going to create a connection to the official Docker Hub registry so we can use those images for this demonstration.
 
-1. Go to **Library ➜ External feeds ➜ Add Feed**.
+1. Go to **Deploy ➜ Manage ➜ External Feeds ➜ Add Feed**.
 2. For *Feed Type*, select **Docker Container Registry**.
 3. Set the *Name* to something meaningful like **DockerHub**.
 4. Set the *URL* to the Docker Hub API url of **[https://index.docker.io](https://index.docker.io)**.

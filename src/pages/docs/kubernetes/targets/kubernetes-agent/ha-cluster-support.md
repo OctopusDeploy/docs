@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-05-14
-modDate: 2024-07-31
+modDate: 2026-01-15
 title: HA Cluster Support
 description: How to install/update the agent when running Octopus in an HA Cluster
 navOrder: 50
@@ -33,12 +33,14 @@ To install the agent with Octopus Deploy 2024.2 you need to adjust the Helm comm
 1. Use the wizard to produce the Helm command to install the agent.
    1. You may need to provide a ServerCommsAddress: you can just provide any valid URL to progress the wizard.
 2. Replace the `--set agent.serverCommsAddress="..."` property with
-```
+
+```bash
 --set agent.serverCommsAddresses="{https://<url1>:<port1>/,https://<url2>:<port2>/,https://<url3>:<port3>/}"
 ```
+
 where each `<url>:<port>` is a unique address for an individual node.
 
-3. Execute the Helm command in a terminal connected to the target cluster.
+1. Execute the Helm command in a terminal connected to the target cluster.
 
 :::div{.warning}
 The new property name is `agent.serverCommsAddresses`. Note that "Addresses" is plural.
@@ -59,6 +61,10 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 
 ## Kubernetes Monitor
 
-:::div{.warning}
-The [Kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
+:::div{.info}
+Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
 :::
+
+The Kubernetes monitor is able to avoid configuration for each individual Octopus server node. Instead, simply set up a single load balancer endpoint for gRPC and use that url.
+
+Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.

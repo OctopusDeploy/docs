@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-05-16
+modDate: 2025-12-08
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -21,15 +21,27 @@ For customers running a self-hosted instance, ensure that Octopus Server's `grpc
 
 If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
 
-:::div{.warning}
-The [Kubernetes monitor]() is not yet compatible with high availability Octopus clusters, trying to install the Kubernetes monitor may result in unexpected behavior.
+:::div{.info}
+Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
 :::
+
+### gRPC connections via a load balancer
+
+Octopus generates a self-signed certificate for gRPC communications like those between Octopus and Kubernetes monitor and requires specific configuration.
+
+Refer to the [load balancer documentation](/docs/installation/load-balancers#grpc-services) for further information.
+
+### Certificate errors when trying to create gRPC connections
+
+The self-signed certificate is only useful for simple scenarios where the Kubernetes monitor can talk directly to Octopus server (or is proxied with TLS passthrough).
+
+Refer to the [agent installation docs](/docs/kubernetes/targets/kubernetes-agent#grpc-certificates) for more options when using custom certificates.
 
 ## Runtime
 
 ### Failed to establish connection with Kubernetes Monitor \{#failed-to-establish–connection-with-kubernetes-monitor}
 
-Some actions, such as logs and events, require per request communication with the Kubernetes monitor running in your cluster. 
+Some actions, such as logs and events, require per request communication with the Kubernetes monitor running in your cluster.
 
 If the Kubernetes monitor cannot be accessed, follow these steps to determine why:
 
@@ -39,9 +51,9 @@ If the Kubernetes monitor cannot be accessed, follow these steps to determine wh
 
 In almost all cases, we have found restarting the Kubernetes monitor pod will re-establish connection if there are no external factors at play. Please reach out to support if you are finding cases of repeated, unexpected failure.
 
-### We couldn’t find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
+### We couldn't find a Kubernetes monitor associated with the deployment target \{#kubernetes-monitor-not-found}
 
-Similar to the [error above](#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
+Similar to the [error above](/docs/kubernetes/live-object-status/troubleshooting#failed-to-establish–connection-with-kubernetes-monitor), however more severe.
 
 This error will be shown when Octopus fails to find the registration of a Kubernetes monitor at all. If the Kubernetes agent and monitor are both still running in your Kubernetes cluster, this means the Kubernetes monitor will need to be re-registered with Octopus.
 
@@ -65,10 +77,12 @@ The rate limit is not a hard stop to messages being sent between Octopus Server 
 Objects are reported out of sync when the manifest the Kubernetes cluster sends back to use does not match the one that Octopus applied in your deployment.
 
 This can happen for a number of reasons, including
+
 - Someone has made an update to the object outside of Octopus deployments
 - A controller is automatically making changes to the object on your cluster
 - There are additional fields that Kubernetes does not recognize in the applied manifest that Kubernetes automatically removes from the reported live manifest
 
 If possible, we recommend ensuring that
+
 - Octopus is the only entity to modify your deployments
 - You craft your Kubernetes manifests to ensure that there are no invalid fields

@@ -60,6 +60,16 @@ To restrict the number of packages to keep, select `From the most recently used 
 ![Machine policy settings for package cache retention](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
 :::
 
+### Runbook runs \{#runbook-runs-whats-deleted}
+
+Octopus saves a new entry into the database whenever a runbook is run. Each runbook run has **logs**, **artifacts** and a snapshot of the **variables**, which will contribute to database usage on your instance. Additionally, runbook artifacts can contribute to disk usage for your instance. When expired runbook runs are cleaned up according to the retention policy, the attached logs, artifacts, and snapshots of the variables are also cleaned up. The retention policy for runbook runs can be configured in your runbook settings.
+
+#### Latest runbook runs
+
+It is worth noting that the latest run for a tenant + environment combination for each runbook is **never deleted**. This is true even if the runbook run matches a retention policy rule.
+
+These runbook runs are assumed to reflect the current condition of the environment/tenant that you are running against, therefore you can always observe the current state of your environments, regardless of when the last run was.
+
 ### Built-in repository \{#built-in-repo-whats-deleted}
 
 A retention policy can be applied to packages in the [built-in Octopus package repository](/docs/packaging-applications/package-repositories/built-in-repository). By default, the policy is set to keep all packages indefinitely. This policy is _separate_ from the [release retention policy](#releases-whats-deleted) described above and can be [configured in the built-in repository page.](/docs/administration/retention-policies/retention-policies-built-in-feed)

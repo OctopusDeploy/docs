@@ -94,8 +94,8 @@ function initializeSearch() {
     titleExact: 20,
     titleContains: 15,
     headingContains: 10,
-    contentContains: 1
-  }
+    contentContains: 1,
+  };
 
   var ready = false;
   var scrolled = false;
@@ -247,27 +247,30 @@ function initializeSearch() {
     return _synonyms ?? {};
   }
 
-    /**
-     * Replaces synonyms
-     * @param {string[]} queryTerms
-     * @returns {Promise<string[]>}
-     */
-    async function replaceSynonyms(queryTerms) {
-      const synonyms = await getSynonyms();
+  /**
+   * Replaces synonyms
+   * @param {string[]} queryTerms
+   * @returns {Promise<string[]>}
+   */
+  async function replaceSynonyms(queryTerms) {
+    const synonyms = await getSynonyms();
 
-      for (let i = 0; i < queryTerms.length; i++) {
-          const term = queryTerms[i];
-          if (synonyms[term] != null) {
-              if (synonyms[term].length === 0) {
-                  // @ts-ignore
-                  queryTerms[i] = null;
-              } else {
-                  queryTerms.push(synonyms[term]);
-              }
+    for (let i = 0; i < queryTerms.length; i++) {
+      const term = queryTerms[i];
+      if (synonyms[term] != null) {
+        if (synonyms[term].length === 0) {
+          // @ts-ignore
+          queryTerms[i] = null;
+        } else {
+          const synonym = synonyms[term].split(' ');
+          for (let s of synonym) {
+            queryTerms.push(s);
           }
+        }
       }
+    }
 
-      return queryTerms.filter((qt) => qt != null);
+    return queryTerms.filter((qt) => qt != null);
   }
 
   /**
@@ -360,7 +363,7 @@ function initializeSearch() {
           // Title
           if (contains(item.safeTitle, term)) {
             item.score = item.score + scoring.termTitle;
-            item.foundWords += (scores.headingContains / 2);
+            item.foundWords += scores.headingContains / 2;
             isTermFound = true;
           }
 
@@ -405,9 +408,7 @@ function initializeSearch() {
         });
 
         item.foundWords += foundWords;
-        item.foundTerms = item.foundTerms
-          .concat(foundTerms)
-          .filter(unique);
+        item.foundTerms = item.foundTerms.concat(foundTerms).filter(unique);
 
         if (item.score > 0) {
           needles.push(item);
@@ -431,7 +432,7 @@ function initializeSearch() {
     needles = needles.sort(function (a, b) {
       if (b.foundTerms.length === a.foundTerms.length) {
         if (b.foundWords === a.foundWords) {
-            return b.score - a.score;
+          return b.score - a.score;
         }
 
         return b.foundWords - a.foundWords;

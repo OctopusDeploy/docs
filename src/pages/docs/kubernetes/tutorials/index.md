@@ -270,10 +270,10 @@ Your first deployment may take slightly longer as we download and extract the ne
 ### Watch the deployment complete
 The **Task Summary** tab will show you in real-time how the deployment steps are progressing. You can also view the status of Kubernetes resources being deployed on the cluster itself.
 
-3. Navigate to the **Kubernetes Object Status** tab to see the live status of your Kubernetes objects as the deployment progresses.
+3. Navigate to the **Object Snapshot** view in the **Kubernetes** tab to see the real-time status of your Kubernetes objects as the deployment progresses.
 
 :::figure
-![Kubernetes Object Status dashboard showing a successful deployment](/docs/img/getting-started/first-kubernetes-deployment/images/deployment-success.png)
+![Object Status dashboard showing a successful deployment](/docs/img/getting-started/first-kubernetes-deployment/images/deployment-success.png)
 :::
 
 You successfully completed your first deployment to Kubernetes! 🎉
