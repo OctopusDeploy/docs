@@ -169,8 +169,6 @@ Create a dedicated [Service Account](/docs/security/users-and-teams/service-acco
 
 Entra ID will now reach out to Octopus Deploy regularly via the SCIM API whenever a user or group needs to be created, updated or deleted.
 
-
-
 ## Troubleshooting
 
 - Entra ID displays provisioning progress on the **Overview** page of the provisioning configuration. Provisioning can also be paused and restarted from this page, if you want to encourage Entra ID to try again.
@@ -188,4 +186,3 @@ Entra ID will now reach out to Octopus Deploy regularly via the SCIM API wheneve
 - Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Azure AD authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
 - Octopus Deploy only supports a single email address for each user, whereas Entra ID supports many. Octopus Deploy will ignore any email addresses other than the **Work** email address, ie: `emails[type eq "work"].value`.
 - Entra ID has a [Provisioning Expression builder](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/expression-builder) feature in preview, which depends on APIs that are not yet implemented in Octopus Deploy. As such, you may see errors if you try to use the Provisioning Expression builder in the Azure Portal.
-
