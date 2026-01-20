@@ -146,3 +146,42 @@ The following restrictions apply to custom fields on releases:
 
 - A maximum of 10 custom fields can be added to each release.
 - The maximum length of the key and value of each custom field is 150 characters.
+
+## Create a release based on a previous release
+
+Sometimes you may need to create a new release based on a previous release if a defect is discovered during testing which required changing and publishing a new version of one of the packages used in the release. This can be done from the release page of the release you want to copy.
+
+:::figure
+![Screenshot of Octopus release page showing an existing release and its selected packages](/docs/img/releases/images/octopus-existing-release-selected-packages.png)
+:::
+
+Creating a release from a previous release you select the **Copy** option, this will redirected you to the create release page.
+
+:::figure
+![Screenshot of Octopus release page showing new Copy option in the overflow menu](/docs/img/releases/images/octopus-releases-copy-release.png)
+:::
+
+With the following release properties pre-populated:
+
+- Channel of the source release
+- Version of the source release
+- Git reference from the source release, if it's a version-controlled project
+  - *If the source release is created from the `features/dark-mode` branch, then the new one should use the same (the head commit may be different in this case). If the source uses a specific commit, the new release should use the same commit.*
+- All package versions from the source release
+- All Git resources from the source release
+- Release notes from the source release
+- Custom fields from the source release
+
+:::figure
+![Screenshot of Octopus release page showing copied release with all existing package versions selected](/docs/img/releases/images/octopus-copied-release-with-package-versions-pre-selected.png)
+:::
+
+Before saving the new release, you need to update the release version as validation will prevent you from saving the release with a version that already exists.
+
+:::figure
+![Screenshot of Octopus release page showing copied release with updated version for a single package](/docs/img/releases/images/octopus-copied-release-with-package-versions-updated.png)
+:::
+
+## Older versions
+  
+- In versions earlier than **2026.1.4812**, there is no option to create a release from a previous release
