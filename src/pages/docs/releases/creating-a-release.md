@@ -149,19 +149,19 @@ The following restrictions apply to custom fields on releases:
 
 ## Create a release based on a previous release
 
-Sometimes you may need to create a new release based on a previous release if a defect is discovered during testing which required changing and publishing a new version of one of the packages used in the release. This can be done from the release page of the release you want to copy.
+Sometimes you may need to create a new release based on a previous release, for example, if a defect is discovered during testing which requires making changes to a package used by the release before publishing a new version. This can be done via the release summary page.
 
 :::figure
 ![Screenshot of Octopus release page showing an existing release and its selected packages](/docs/img/releases/images/octopus-existing-release-selected-packages.png)
 :::
 
-Creating a release from a previous release you select the **Copy** option, this will redirected you to the create release page.
+From your existing release, select the **Copy** option. You will be redirected to the create release page.
 
 :::figure
 ![Screenshot of Octopus release page showing new Copy option in the overflow menu](/docs/img/releases/images/octopus-releases-copy-release.png)
 :::
 
-With the following release properties pre-populated:
+The following release properties will be pre-populated:
 
 - Channel of the source release
 - Version of the source release
@@ -176,7 +176,7 @@ With the following release properties pre-populated:
 ![Screenshot of Octopus release page showing copied release with all existing package versions selected](/docs/img/releases/images/octopus-copied-release-with-package-versions-pre-selected.png)
 :::
 
-Before saving the new release, you need to update the release version as validation will prevent you from saving the release with a version that already exists.
+Before saving the new release, you will need to update the release version. Attempting to save the release with a version that already exists will encounter validation errors.
 
 :::figure
 ![Screenshot of Octopus release page showing copied release with updated version for a single package](/docs/img/releases/images/octopus-copied-release-with-package-versions-updated.png)
