@@ -6,13 +6,14 @@ title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
 ---
+
 ## How to create a release in Octopus Deploy
 
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
 
-:::figure
-![Create release](/docs/img/shared-content/releases/images/create-release.png)
-:::
+   :::figure
+   ![Create release](/docs/img/shared-content/releases/images/create-release.png)
+   :::
 
 2. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
 3. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
@@ -29,7 +30,7 @@ After creating the release, if the [lifecycle](/docs/releases/lifecycles) associ
 
 If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
-### Schedule a deployment
+### Schedule a deployment {#scheduling-a-deployment}
 
 1. Select the release you want to schedule for deployment.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
@@ -82,7 +83,7 @@ You can deploy releases to a specific subset of deployment targets.
 
 For each release you create, a snapshot is taken of the project variables. You can review the variables for a release from within a project:
 
-1. Using the project side menu, navigate to **Deployments ➜ Releases** 
+1. Using the project side menu, navigate to **Deployments ➜ Releases**
 1. Select the release that you wish to view the variable snapshot for
 1. On the release page scroll to the **Variable Snapshot** section
 1. Click **SHOW SNAPSHOT**
@@ -90,14 +91,14 @@ For each release you create, a snapshot is taken of the project variables. You c
 This lets you see the variables as they existed when the release was created.
 
 :::figure
-![](/docs/img/releases/images/release-variable-snapshot-section.png)
+![The Octopus release screen with variable snapshots highlighted](/docs/img/releases/images/release-variable-snapshot-section.png)
 :::
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
 
-* The release has not been deployed yet, but the variables have changed since the release was created.
-* The release needs to be **redeployed** and the variables have changed since the release was created.
-* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+- The release has not been deployed yet, but the variables have changed since the release was created.
+- The release needs to be **redeployed** and the variables have changed since the release was created.
+- The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
 After you've updated the variables, the release will use the updated variables when it is deployed.
 
@@ -111,7 +112,7 @@ When updating the variable snapshot, the new snapshot is taken from the current 
 ![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/img/releases/git-variables-release-snapshot.png)
 :::
 
-Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+Updating the variable snapshot *only* updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
 
 ## Custom fields
 
