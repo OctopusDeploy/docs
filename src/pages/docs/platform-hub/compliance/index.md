@@ -11,11 +11,13 @@ description: An overview of the Compliance Dashboard
 navOrder: 170
 ---
 
-The Compliance Dashboard is new to Platform Hub. Today, you can already access auditing information via the [Audit](/docs/security/users-and-teams/auditing) tab in the Configuration area and SIEM tools by leveraging our [audit stream](/docs/security/users-and-teams/auditing/audit-stream) capabilities.
+The Compliance Dashboard is a new addition to the Platform Hub, designed to transform raw audit data into actionable insights.
 
-We are focused on making it even easier to get to the information Governance, Risk and Compliance (GRC) teams are looking for. To start with, we are building reports to answer two questions:
+While you can already access granular logs via the [Audit](/docs/security/users-and-teams/auditing) tab or integrate with SIEM tools using the [audit stream](/docs/security/users-and-teams/auditing/audit-stream), the Compliance Dashboard streamlines reporting for Governance, Risk, and Compliance (GRC) teams.
 
-1. **Deployment Permissions**: Which users have permissions to deploy projects and to which environments?
-2. **Production Deployments**: Who deployed to Production and when did those deployments occur?
+Our initial reports focus on answering two critical questions:
 
-Find out more about our [Compliance reports](/docs/platform-hub/compliance/reports).
+1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?
+2. **Production Deployments**: Who initiated deployments to Production, and when did those events occur?
+
+Explore our available [Compliance reports](/docs/platform-hub/compliance/reports) to get started.
