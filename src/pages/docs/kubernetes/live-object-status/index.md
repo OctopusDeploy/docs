@@ -117,13 +117,20 @@ During a deployment, Octopus will capture any applied Kubernetes manifests and s
 
 ### Script steps
 
-The built in Kubernetes steps will automatically report the applied manifests for deployments, however Octopus needs a bit of help when you're making changes using plain script steps.
+The built in Kubernetes steps will automatically report the applied manifests for deployments, however Octopus needs a bit of help when you're making changes using kubectl script steps.
 
 To notify Octopus which Kubernetes resources you want tracked, we have bash and powershell helper functions available to use. You can choose between passing the manifest as a variable, or passing the file path directly instead.
+
+Only the "Run a kubectl script" step will correctly report manifests, regular "Run a script" steps are not supported.
 
 :::div{.info}
 You still need to apply the Kubernetes manifests to your cluster. These functions only notify Octopus that you expect the resources to be created.
 :::
+
+Available in Octopus server versions:
+
+- 2025.4.10333+
+- 2026.1.4557+
 
 #### Bash
 
