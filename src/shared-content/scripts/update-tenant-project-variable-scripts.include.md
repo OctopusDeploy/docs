@@ -252,7 +252,7 @@ catch
 </details>
 <details data-group="update-tenant-variable-scripts">
 <summary>C#</summary>
-    
+
 ```csharp
 // If using .net Core, be sure to add the NuGet package of System.Security.Permissions
 #r "nuget: Octopus.Client"
