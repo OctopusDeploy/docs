@@ -256,8 +256,8 @@ var octopusAPIKey = "API-YOUR-KEY";
 var spaceName = "Default";
 var tenantName = "TenantName";
 var commonVariableTemplateName = "CommonTemplateName";
-var variableNewValue = "NewValue";
-var valueBoundToOctoVariable = false;
+var newValue = "NewValue";
+var newValueIsBoundToOctopusVariable = false;
 
 // Create repository object
 var endpoint = new OctopusServerEndpoint(octopusURL, octopusAPIKey);
@@ -297,20 +297,20 @@ try
             if (variable.Template.DisplaySettings.ContainsKey("Octopus.ControlType") &&
                 variable.Template.DisplaySettings["Octopus.ControlType"] == "Sensitive")
             {
-                if (valueBoundToOctoVariable)
+                if (newValueIsBoundToOctopusVariable)
                 {
-                    newPropertyValue = new PropertyValueResource(variableNewValue, false);
+                    newPropertyValue = new PropertyValueResource(newValue, false);
                 }
                 else
                 {
-                    newPropertyValue = new PropertyValueResource(variableNewValue, true);
+                    newPropertyValue = new PropertyValueResource(newValue, true);
                 }
                 Console.WriteLine($"Updated sensitive variable for environments: {string.Join(", ", variable.Scope.EnvironmentIds)}");
             }
             else
             {
-                newPropertyValue = new PropertyValueResource(variableNewValue, false);
-                Console.WriteLine($"Updated variable value to '{variableNewValue}' for environments: {string.Join(", ", variable.Scope.EnvironmentIds)}");
+                newPropertyValue = new PropertyValueResource(newValue, false);
+                Console.WriteLine($"Updated variable value to '{newValue}' for environments: {string.Join(", ", variable.Scope.EnvironmentIds)}");
             }
 
             // Create new payload entry
@@ -355,20 +355,20 @@ try
                 if (missingVariable.Template.DisplaySettings.ContainsKey("Octopus.ControlType") &&
                     missingVariable.Template.DisplaySettings["Octopus.ControlType"] == "Sensitive")
                 {
-                    if (valueBoundToOctoVariable)
+                    if (newValueIsBoundToOctopusVariable)
                     {
-                        newPropertyValue = new PropertyValueResource(variableNewValue, false);
+                        newPropertyValue = new PropertyValueResource(newValue, false);
                     }
                     else
                     {
-                        newPropertyValue = new PropertyValueResource(variableNewValue, true);
+                        newPropertyValue = new PropertyValueResource(newValue, true);
                     }
                     Console.WriteLine("Created sensitive variable for missing template");
                 }
                 else
                 {
-                    newPropertyValue = new PropertyValueResource(variableNewValue, false);
-                    Console.WriteLine($"Created variable value '{variableNewValue}' for missing template");
+                    newPropertyValue = new PropertyValueResource(newValue, false);
+                    Console.WriteLine($"Created variable value '{newValue}' for missing template");
                 }
 
                 // Create new payload entry for missing variable
