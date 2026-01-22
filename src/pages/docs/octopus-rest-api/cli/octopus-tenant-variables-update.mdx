@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-01-20
 title: octopus tenant variables update
 description: Update the value of a tenant variable
 navOrder: 145
@@ -36,9 +36,23 @@ Global Flags:
 <SamplesInstance />
 
 ```
+# Interactive mode - prompts for all required values
 $ octopus tenant variables update
+
+# Update a project variable for a specific environment (single environment scope)
 $ octopus tenant variables update --tenant "Bobs Fish Shack" --name "site-name" --value "Bob's Fish Shack" --project "Awesome Web Site" --environment "Test"
-$ octopus tenant variables update --tenant "Sally's Tackle Truck" --name dbPassword --value "12345" --library-variable-set "Shared Variables"
+
+# Update a project variable for multiple environments (multiple environment scopes)
+$ octopus tenant variables update --tenant "Bobs Fish Shack" --name "database-server" --value "prod-db-01" --project "Awesome Web Site" --environment "Staging" --environment "Production"
+
+# Update a project variable for all environments (unscoped - omit --environment flag)
+$ octopus tenant variables update --tenant "Bobs Fish Shack" --name "app-name" --value "Bobs App" --project "Awesome Web Site"
+
+# Update a common variable from a library variable set
+$ octopus tenant variables update --tenant "Sally's Tackle Truck" --name "dbPassword" --value "12345" --library-variable-set "Shared Variables"
+
+# Update a common variable with environment scoping
+$ octopus tenant variables update --tenant "Sally's Tackle Truck" --name "api-key" --value "prod-key-123" --library-variable-set "API Config" --environment "Production"
 
 
 ```
