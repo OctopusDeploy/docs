@@ -94,7 +94,7 @@ To generate the authentication token for Octopus via the `Argo CD CLI` tool:
 1. Login as a user with permission to create API Keys:
 
     ```bash
-    argocd account login <your argo web ui>
+    argocd login <your argo web ui>
     ```
 
     You will be prompted for a username and password - select a user with the apiKey-creation capability.
