@@ -24,13 +24,13 @@ If you are using Active Directory Authentication with Octopus, there are two way
 1. Integrated authentication
 2. Forms-based
 
-## Authentication schemes
+## Web server implementations
 
-By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
+Octopus uses two web server implementations to process requests. You can choose between HTTP.sys and Kestrel implementations to run Octopus. The choice of web server implementations will have impacts on [what authentications Schemes are available under certain configurations](/docs/security/authentication/active-directory).
 
-If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
+You can switch between the web server implementations using the the Command Line:
 
-### Kernel Mode authentication via HTTP.sys (default) - Command Line
+### Use HTTP.sys web server implementation (default) - Command Line
 
 Select this mode if you require features of HTTP.sys, such as port sharing.
 
@@ -38,9 +38,9 @@ Select this mode if you require features of HTTP.sys, such as port sharing.
 Octopus.Server.exe configure --webServer=HttpSys
 ```
 
-### User Mode authentication via Kestrel - Command Line
+### Use Kestrel web server implementation - Command Line
 
-Select this mode for High Availability configurations.
+Select this mode for High Availability configurations with Kerberos.
 
 ```bash
 Octopus.Server.exe configure --webServer=Kestrel
@@ -135,12 +135,6 @@ These can be registered by running the following commands in an elevated command
 setspn.exe -S HTTP/od server1
 setspn.exe -S HTTP/od.domain.local server1 
 ```
-
-:::div{.hint}
-**HA Clusters**
-
-If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#supported-active-directory-setups)
-:::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
 
