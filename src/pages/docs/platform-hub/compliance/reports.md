@@ -1,0 +1,55 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2026-01-21
+modDate: 2026-01-21
+title: Compliance reports
+icon: fa-solid fa-clipboard-list-check
+navTitle: Reports
+navSection: Compliance
+description: Available reports within the Compliance section of Platform Hub
+navOrder: 172
+---
+
+Compliance reports in Octopus provide a centralized, audit-ready visibility into your software delivery lifecycle. They are designed to help Governance, Risk, and Compliance (GRC) teams quickly verify security controls and maintain a clear trail of deployment activity across your entire instance.
+
+:::div{.hint}
+Compliance reports are currently in Alpha. If you encounter any issues, please contact our [support team](https://octopus.com/support).
+:::
+
+## Deployment Permissions
+
+The Deployment Permissions report provides a comprehensive map of access across your instance, allowing you to audit which users and teams possess the authority to trigger deployments. By cross-referencing user roles with specific projects and environments, this report helps GRC teams validate that the principle of least privilege is being enforced and ensure that only authorized personnel can influence your release pipeline.
+
+### Running the report
+
+To run the Deployment Permissions report, navigate to **Platform Hub -> Reports**, and choose the **Deployment Permissions** tile:
+
+:::figure
+![The Compliance reports page where users select a report to run](/docs/img/platform-hub/compliance/compliance-reports-tiles.png)
+:::
+
+Select one or more environments from your Octopus Spaces to view Deployment permissions for:
+
+:::figure
+![The environment selector for the deployments permission report](/docs/img/platform-hub/compliance/deployment-permissions-report-choose-envs.png)
+:::
+
+Finally, click on the **Create Report** button and view the projects for the selected environments, and the users that can deploy to each project in that environment:
+
+:::figure
+![The deployments permission report once it has been run](/docs/img/platform-hub/compliance/deployment-permissions-report-executed.png)
+:::
+
+You can expand each project to see a list of the users that have permissions to deploy to that environment. You can also click the **Download CSV** button to generate a CSV file of the executed report.
+
+## Production Deployments
+
+:::div{.hint}
+The Production Deployments report is currently under development, and will be ready soon.
+:::
+
+This report is designed to provide a definitive audit trail of all activity within your most sensitive environments. It will offer a streamlined view of who initiated changes to Production and precisely when they occurred, facilitating effortless point-in-time compliance reviews.
+
+## Feedback
+
+We'd love to get [feedback on what reports you need](https://roadmap.octopus.com/submit-idea) to make compliance easier!
