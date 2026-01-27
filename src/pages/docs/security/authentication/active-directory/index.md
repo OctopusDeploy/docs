@@ -95,11 +95,14 @@ Octopus Deploy supports various options for Active Directory authentication.
 Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#configuring-kerberos) with our web server.
 :::
 
-|     Octopus Option              | Single Octopus Server | High-Availability |
-|---------------------------------|-----------------------|-------------------|
-| NTLM                            |         Yes           |       Yes         |
-| Negotiate                       |         Yes           |       No          |
-| IntegratedWindowsAuthentication |         Yes           |       No          |
+| Octopus Option                  | Single Octopus Server (HTTP.sys) | High-Availability (HTTP.sys) | Single Octopus Server (Kestrel) | High-Availability (Kestrel) |
+| ------------------------------- | -------------------------------- | ---------------------------- | ------------------------------- | --------------------------- |
+| NTLM                            | Yes                              | Yes                          | No                              | No                          |
+| Negotiate                       | Yes                              | No\*                         | Yes \*\*                        | Yes \*\*                    |
+| IntegratedWindowsAuthentication | Yes                              | No\*                         | No                              | No                          |
+
+\*Using Negotiate/IntegratedWindowsAuthentication may work with HTTP.sys in High Availability if only NTLM is available, but it is recommended to explicitly set your authentication scheme to NTLM.
+\*\* NTLM protocol is supported with Kestrel, but must be set to Negotiate to utilize the protocol. For more information see [Microsoft's documentation on Kerberos vs NTLM](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/windowsauth?#kerberos-vs-ntlm).
 
 ### Configuring Kerberos authentication for Active Directory {#configuring-kerberos}
 
