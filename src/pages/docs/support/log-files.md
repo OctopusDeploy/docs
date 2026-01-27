@@ -71,11 +71,12 @@ The format of log entries is controlled by NLog layout variables in the `octopus
 
 This produces log entries in the format:
 
-```
+```text
 2024-01-15 10:30:45.1234  12345  67890  INFO  Your log message here
 ```
 
 The layout components are:
+
 - `${longdate}` - Timestamp in `yyyy-MM-dd HH:mm:ss.ffff` format
 - `${processid}` - The process ID
 - `${threadid}` - The thread ID
@@ -95,11 +96,12 @@ The default `${longdate}` renderer does not include timezone information. To inc
 
 This produces timestamps like:
 
-```
+```text
 2024-01-15 10:30:45.1234 +10:00  12345  67890  INFO  Your log message here
 ```
 
 Common date format specifiers:
+
 - `zzz` - UTC offset with hours and minutes (e.g., `+10:00`, `-05:00`)
 - `zz` - UTC offset with hours only (e.g., `+10`, `-05`)
 - `K` - Timezone information in ISO 8601 format
