@@ -101,12 +101,6 @@ Not all high availability and Active Directory configurations are supported. The
 | Negotiate                       |         Yes           |       No          |
 | IntegratedWindowsAuthentication |         Yes           |       No          |
 
-:::div{.hint}
- **Service Accounts and Kerberos**
-
-From Octopus version 2020.1.0 and above, an upgrade to .Net Core 3.1 and usage of the HTTP.sys library, the Octopus Deploy Service running with Domain Service Account credentials, does not have the ability to read the HttpContext.User.Identity.Name property which is used for Kerberos authentication. There is a requirement to run the Octopus Deploy Service as Local System in order to allow for Kerberos to successfully Authenticate. You can read more about this here: https://github.com/OctopusDeploy/Issues/issues/6602
-:::
-
 ### Configuring Kerberos authentication for Active Directory {#configuring-kerberos}
 
 Here's a simple checklist to help you on your way to allowing Kerberos Authentication.
