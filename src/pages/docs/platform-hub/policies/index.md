@@ -58,7 +58,7 @@ To get started, navigate to the Platform Hub inside of your Octopus instance and
 :::
 
 ### 2. Give your policy a name
-You will be presented with the Create Policy modal. You can then set teh Name for you Policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Create` button.
+You will be presented with the Create Policy modal. You can then set the name of your policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Create` button.
 
 :::figure
 ![A modal to create a new policy](/docs/img/platform-hub/policies/policies-create-modal.png)
