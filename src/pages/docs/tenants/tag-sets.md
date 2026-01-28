@@ -7,7 +7,7 @@ description: Tag sets are a categorizing system that let you add custom metadata
 navOrder: 35
 ---
 
-Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants and environments, with support for additional resource types planned for the future.
+Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants, environments, projects, and runbooks, with support for additional resource types planned for the future.
 
 :::figure
 ![An example set of tenant tags](/docs/img/tenants/images/tag-sets.png)
@@ -32,8 +32,9 @@ Tag sets can be scoped to specific resource types:
 - **Tenant**
 - **Environment**
 - **Project**
+- **Runbook**
 
-A tag set can be scoped to multiple resource types (Tenant, Environment, and/or Project), allowing you to use the same tag set across different resources.
+A tag set can be scoped to multiple resource types (Tenant, Environment, Project, and/or Runbook), allowing you to use the same tag set across different resources.
 
 ## Managing tag sets {#managing-tag-sets}
 
@@ -67,7 +68,7 @@ Order is important for tag sets, and tags within those tag sets. Octopus will so
 
 If tags are in use by resources, included in project/runbook release [variable snapshots](/docs/releases#variable-snapshot) (via project/variable sets), or captured in published runbooks, you will not be able to delete the relevant tag(s) until these associations are removed.
 
-For projects using Config as Code, there are fewer guardrails in place. It's up to you to take care to avoid deleting any tags required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
+For projects using Config as Code, there are fewer guardrails in place. It's up to you to take care to avoid deleting any tags required by your deployments. Similarly, for runbooks stored in version control, tag usage tracking is not supported, so you must manually ensure tags used by your Config as Code runbooks are not deleted. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
 
 ## Referencing tags {#referencing-tags}
 
@@ -90,6 +91,7 @@ You can use canonical names when:
 - **[Tenant tags](/docs/tenants/tenant-tags):** Learn how to use tags to classify tenants, deploy to multiple tenants, and design multi-tenant deployment processes.
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
 - **[Project tags](/docs/projects/setting-up-projects#project-tags):** Learn how to use tags to classify and organize projects.
+- **[Runbook tags](/docs/runbooks#runbook-tags):** Learn how to use tags to organize and filter runbooks with custom metadata.
 
 ## Learn more
 
