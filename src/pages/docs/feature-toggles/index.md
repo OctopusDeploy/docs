@@ -36,7 +36,9 @@ Follow the [OpenFeature guide for installing the SDK for your language](https://
 
 Configure OpenFeature to use the [Octopus Provider](#providers).
 
-The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which specifies the Octopus Project, Environment, and Tenant (if applicable). This tells the Octopus Feature Toggle service which set of toggles to evaluate.
+### Client Identifier {#client-identifier} 
+
+The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which allows the Octopus Feature Toggle service to identify the Octopus Project, Environment, and Tenant (if applicable), and to supply the appropriate toggles to evaluate. 
 
 :::div{.hint}
 The Octopus Feature Toggle client identifier is available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier` or via the Feature Toggle UI (see below). 
@@ -193,3 +195,40 @@ The default value supplied in client code (the `false` argument in the example b
 ```cs
 var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", false);
 ```
+
+## Privacy and Security
+
+Octopus Feature Toggles are designed so that no personally identifiable information is passed between your applications and the Octopus Feature Toggle service. 
+
+**What happens if my Client Identifier is leaked?**
+
+The [Client Identifier](#client-identifier) does not contain personally identifiable information (PII).
+
+A Client Identifier can be used to query the Octopus Feature Toggle service, to retrieve the Feature Toggles for that context (Project, Environment, and Tenant). It can be only used to _read_ Feature Toggles, not create or modify. 
+
+Feature Toggles in general do not contain personally identifiable information. 
+
+However, [Segments](#segments) that you configure may include PII if you choose to use it. For example, if you create segments based on:
+- Email addresses
+- Usernames
+- Customer names  
+
+then that information becomes part of your Feature Toggle configuration and is sent from the Octopus Feature Toggle service to your applications.  
+
+### Client-side vs Server-side
+
+The privacy and security considerations differ depending on where you evaluate Feature Toggles.
+
+If you are evaluating Feature Toggles from a **server-side** application, running on your infrastructure or in a trusted cloud, then neither the Client Identifer or the Feature Toggles should be accessible by end users. There are no additional security or privacy concerns in this case. 
+
+If you are evaluation Feature Toggles from a **client-side** application, for example running in a browser or on a mobile device, then these applications can be inspected by an end user, for example by using browser development tools to inspect source code or network traffic.
+
+It is possible that someone uses this method to obtain your Client Identifier, and uses it to query the Octopus Feature Toggle service, obtaining your Feature Toggle configuration, including Segments.
+
+If this is a concern, we recommend having your client application call your backend, and have your backend perform the Feature Toggle evaluation.  
+
+This gives the convenience and power of Feature Toggles, while keeping the Client Identifier and evaluation within your trusted environment.  
+
+
+
+
