@@ -262,6 +262,7 @@ Linq
 Liquibase
 llms
 localport
+longdate
 lstrip
 ltsc
 Lucene
@@ -280,6 +281,7 @@ Metabase
 milli
 minidump
 minifier
+minlevel
 MITM
 Mkto
 Moines
@@ -541,6 +543,7 @@ tfvar
 tfvars
 TFVC
 thepassword
+threadid
 timespan
 tlsv1
 tmpfs
