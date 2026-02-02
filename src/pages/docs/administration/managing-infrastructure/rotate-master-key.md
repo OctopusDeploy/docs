@@ -23,6 +23,7 @@ Octopus [encrypts important and sensitive data](/docs/security/data-encryption) 
 - Sensitive variable values, wherever you have defined them.
 - Sensitive values in your deployment processes, like the password for a custom IIS App Pool user account.
 - Sensitive values in your deployment targets, like the password for creating [Offline Drops](/docs/infrastructure/deployment-targets/offline-package-drop).
+- Sensitive values in your process templates, like the default value for a sensitive/password box parameter.
 
 ## Rotating the Master Key
 

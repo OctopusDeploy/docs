@@ -68,6 +68,7 @@ Process Templates can manage the following as parameters.
 - Generic OIDC Account
 - Google Cloud Account
 - Multi-line text box
+- Sensitive/password box
 - Single-line text box
 - Target Tags
 - Teams
@@ -90,11 +91,16 @@ You can set an optional default value for these parameters:
 - Multi-line text
 - Dropdown
 - Checkbox
+- Sensitive/password box
 - AWS Account
 - Azure Account
 - Generic OIDC Account
 - Google Cloud Account
 - Username Password Account
+
+:::div{.hint}
+The ability to add default values for Sensitive/password box parameters is available from **Octopus 2026.1**. Unlike the other parameters, sensitive default values are stored securely in the database with a unique GUID identifier. This identifier is used in the process template to reference the default sensitive value in the database. Because of this approach, sensitive default values are supported in CaC workflows. Scoping for Sensitive/password box parameters is not currently supported.
+:::
 
 You cannot set a default value for these parameters, they must be set inside a project:
 
