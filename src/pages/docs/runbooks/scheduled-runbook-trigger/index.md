@@ -46,13 +46,13 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 4. Specify the target environments the runbook will run against.
 5. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
-If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment.
+   If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment.
 
-:::div{.hint}
-If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
-:::
+   :::div{.hint}
+   If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
+   :::
 
-1. Save the trigger.
+6. Save the trigger.
 
 :::div{.hint}
 All schedule options run based on CRON expressions. The other options provide a convenient way of setting up the schedule without worrying about the syntax. A custom CRON expression provides you with more fine-grained control over the exact schedule.
