@@ -26,6 +26,7 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 
 | Month | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| January 2026 | 99.9954% | 35s | 99.892% | 658s |
 | December 2025 | 100% | 0s | 99.9562% | 266s |
 | November 2025 | 99.9702% | 182s | 99.8925% | 651s |
 | October 2025 | 99.9851% | 91s | 99.8663% | 812s |
