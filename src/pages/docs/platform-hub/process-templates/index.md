@@ -147,7 +147,6 @@ When a process template is used inside a project, the project supplied values wi
 ![The account parameter allowing scoping to environments present across Octopus instance](/docs/img/platform-hub/process-templates-account-scoping.png)
 :::
 
-
 ## Saving a Process Template
 
 Once you've finished making changes to your process template you can commit them to save the changes to your Git repository. You can either **Commit** with a description or quick commit without one.
@@ -210,9 +209,9 @@ To define a simple deployment process in Octopus that executes a hello world scr
 10. Add the Worker Pool parameter to the **Worker Pool** field.
 11. Paste the following PowerShell script into the **Inline Source Code** editor:
 
-```powershell
-Write-Host "Hello, World!" 
-```
+    ```powershell
+    Write-Host "Hello, World!" 
+    ```
 
 12. Commit your template.
 13. Publish and Share your template.
