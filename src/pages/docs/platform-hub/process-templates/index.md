@@ -100,7 +100,6 @@ You can set an optional default value for these parameters:
 You cannot set a default value for these parameters, they must be set inside a project:
 
 - Certificate
-- Sensitive
 - Worker Pools
 - Package
 - Previous deployment step name
