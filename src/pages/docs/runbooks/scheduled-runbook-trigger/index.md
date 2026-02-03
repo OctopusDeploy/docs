@@ -29,6 +29,20 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
 1. In a project, select **Operations ➜ Triggers**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
 3. Select a runbook.
+
+   You can select runbooks in two ways:
+
+   - **Select specific runbooks**: Choose individual runbooks by name
+   - **Filter by tags**: Select all runbooks matching specific [runbook tags](/docs/runbooks#runbook-tags)
+
+   :::div{.warning}
+   Triggering runbooks by tags is supported from Octopus version **2026.1.xxxx**.
+   :::
+
+   :::div{.hint}
+   When using tags, the trigger will run against all runbooks that match the selected tags at the time the trigger fires. If you add or remove tags from runbooks later, the trigger will automatically include or exclude those runbooks.
+   :::
+
 4. Specify the target environments the runbook will run against.
 5. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
