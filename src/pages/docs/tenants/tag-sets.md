@@ -1,6 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-08
+modDate: 2026-02-05
 title: Tag sets
 icon: fa-solid fa-tags
 description: Tag sets are a categorizing system that let you add custom metadata to resources in Octopus Deploy.

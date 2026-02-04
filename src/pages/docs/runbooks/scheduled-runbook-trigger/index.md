@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-02-05
 title: Scheduled runbook triggers
 description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
 navOrder: 40
@@ -33,10 +33,10 @@ Scheduled runbook triggers provide a way to configure your runbooks to run on a 
    You can select runbooks in two ways:
 
    - **Select specific runbooks**: Choose individual runbooks by name
-   - **Filter by tags**: Select all runbooks matching specific [runbook tags](/docs/runbooks#runbook-tags)
+   - **Select by tags**: Select all runbooks matching specific [runbook tags](/docs/runbooks#runbook-tags)
 
    :::div{.warning}
-   Triggering runbooks by tags is supported from Octopus version **2026.1.xxxx**.
+   Triggering runbooks by tags is supported from Octopus version **2026.1.7523**.
    :::
 
    :::div{.hint}
