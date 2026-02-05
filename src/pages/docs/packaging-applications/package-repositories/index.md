@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-02-05
 title: Package repositories
-description: Octopus can consume package feeds from the built-in repository, local and remote NuGet feeds, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
+description: Octopus can consume package feeds from the built-in repository, local and remote NuGet feeds, NPM, Maven, JetBrains TeamCity, MyGet and Azure DevOps or TFS Package Management.
 navOrder: 30
 ---
 
@@ -14,6 +14,7 @@ The Octopus Server includes a [built-in repository](/docs/packaging-applications
  - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries).
  - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds).
  - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds).
+ - [NPM feeds](/docs/packaging-applications/package-repositories/npm-feeds).
  - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
  - [AWS S3 Bucket feeds](/docs/packaging-applications/package-repositories/s3-feeds).
  - Helm feeds.

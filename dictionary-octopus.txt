@@ -320,6 +320,8 @@ Newtonsoft
 nfsadmin
 nlog
 nmap
+NPM
+npmjs
 noconsolelogging
 nologo
 nologs
