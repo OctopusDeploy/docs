@@ -25,7 +25,7 @@ The following steps can be followed to add an external NPM feed.
 7. Click **Save and test** to verify the feed configuration.
 
 :::figure
-![](/docs/img/packaging-applications/package-repositories/images/add-external-feed.png)
+![Add External Feed Dialog](/docs/img/packaging-applications/package-repositories/images/npm-add-external-feed.png)
 :::
 
 ## Authentication
@@ -33,12 +33,15 @@ The following steps can be followed to add an external NPM feed.
 NPM feeds support several authentication methods:
 
 ### Public registries
+
 For public registries like npmjs.com, authentication is optional. You can leave the credentials fields blank to access public packages.
 
 ### Username/Password
+
 Most NPM registries support basic authentication with username and password. Enter these directly into the **Feed login** and **Feed password** fields.
 
 ### Nexus Repository Manager
+
 For Nexus repositories:
 
 1. Use your Nexus username in the **Feed login** field.
@@ -46,6 +49,7 @@ For Nexus repositories:
 3. Alternatively, you can use an [NPM Bearer Token](https://help.sonatype.com/repomanager3/nexus-repository-administration/user-authentication/user-tokens) generated from Nexus.
 
 ### JFrog Artifactory
+
 For Artifactory repositories:
 
 1. Use your Artifactory username in the **Feed login** field.
@@ -59,19 +63,17 @@ For Artifactory repositories:
 When referencing an NPM package in Octopus Deploy, use the package name as it appears in the NPM registry. For scoped packages, include the scope in the package name.
 
 Examples:
+
 - Unscoped package: `express`
 - Scoped package: `@octopusdeploy/example-package`
 - Organization scoped: `@myorg/my-package`
-
-:::figure
-![NPM Package Selection](/docs/img/packaging-applications/package-repositories/images/npm-package-selection.png)
-:::
 
 ## Versioning with NPM feeds
 
 NPM packages use [semantic versioning (SemVer)](https://semver.org/). Octopus Deploy supports the standard SemVer format: `MAJOR.MINOR.PATCH`.
 
 Pre-release versions are also supported, following the SemVer specification with identifiers such as:
+
 - `1.0.0-alpha`
 - `1.0.0-beta.1`
 - `1.0.0-rc.2`
@@ -85,12 +87,13 @@ After adding an NPM feed, you can verify it's working correctly:
 3. Verify that packages are displayed and version information is correct.
 
 :::figure
-![NPM Feed Test](/docs/img/packaging-applications/package-repositories/images/npm-feed-test.png)
+![NPM Feed Test](/docs/img/packaging-applications/package-repositories/images/npm-search-packages.png)
 :::
 
 ## Troubleshooting NPM feeds
 
 ### Connection issues
+
 If you cannot connect to your NPM registry:
 
 1. Verify the feed URL is correct and accessible from the Octopus Server.
@@ -99,6 +102,7 @@ If you cannot connect to your NPM registry:
 4. For Nexus or Artifactory, verify the repository is online and the repository path is correct.
 
 ### Authentication failures
+
 If authentication is failing:
 
 1. Confirm your credentials haven't expired.
@@ -112,6 +116,7 @@ npm view package-name
 ```
 
 ### Package not found
+
 If a package cannot be found:
 
 1. Verify the package name is spelled correctly, including any scope.
@@ -119,6 +124,7 @@ If a package cannot be found:
 3. For scoped packages, ensure you're using the full package name including the `@scope/` prefix.
 
 ### Performance considerations
+
 For large NPM registries or when dealing with many packages:
 
 1. Consider using a caching proxy or mirror closer to your Octopus Server.

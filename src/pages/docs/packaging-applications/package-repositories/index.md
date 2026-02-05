@@ -11,16 +11,15 @@ When planning your Octopus installation, you need to decide how to host your pac
 
 The Octopus Server includes a [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository) and supports the following external repositories:
 
- - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries).
- - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds).
- - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds).
- - [NPM feeds](/docs/packaging-applications/package-repositories/npm-feeds).
- - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
- - [AWS S3 Bucket feeds](/docs/packaging-applications/package-repositories/s3-feeds).
- - Helm feeds.
- - AWS ECR feeds.
- - OCI-based registry feeds.
- 
+- [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries).
+- [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds).
+- [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds).
+- [NPM feeds](/docs/packaging-applications/package-repositories/npm-feeds).
+- [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
+- [AWS S3 Bucket feeds](/docs/packaging-applications/package-repositories/s3-feeds).
+- Helm feeds.
+- AWS ECR feeds.
+- OCI-based registry feeds.
 Octopus can consume packages from multiple feeds at once if necessary.
 
 Your package repository will typically be:
