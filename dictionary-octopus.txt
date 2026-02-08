@@ -320,8 +320,6 @@ Newtonsoft
 nfsadmin
 nlog
 nmap
-NPM
-npmjs
 noconsolelogging
 nologo
 nologs
@@ -332,6 +330,8 @@ noreferrer
 nosniff
 notcontains
 notlike
+NPM
+npmjs
 NTDS
 NTFS
 NTLM
