@@ -330,6 +330,8 @@ noreferrer
 nosniff
 notcontains
 notlike
+NPM
+npmjs
 NTDS
 NTFS
 NTLM
