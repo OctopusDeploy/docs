@@ -29,7 +29,7 @@ The following steps can be followed to add an external NPM feed.
 7. Click **Save and test** to verify the feed configuration.
 
 :::figure
-![Add External Feed Dialog](/docs/img/packaging-applications/package-repositories/images/npm-add-external-feed.png)
+![NPM Feed configuration dialog showing feed name, URL, and authentication fields](/docs/img/packaging-applications/package-repositories/images/npm-add-external-feed.png)
 :::
 
 ## Authentication
@@ -91,7 +91,7 @@ After adding an NPM feed, you can verify it's working correctly:
 3. Verify that packages are displayed and version information is correct.
 
 :::figure
-![NPM Feed Test](/docs/img/packaging-applications/package-repositories/images/npm-search-packages.png)
+![NPM Feed test page displaying search results with package names and versions](/docs/img/packaging-applications/package-repositories/images/npm-search-packages.png)
 :::
 
 ## Troubleshooting NPM feeds
