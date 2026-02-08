@@ -7,6 +7,10 @@ description: Configuring NPM repositories as Octopus Feeds
 navOrder: 45
 ---
 
+:::div{.success}
+NPM feeds are supported from version **Octopus 2026.1.7997**.
+:::
+
 NPM repositories can be configured as an external feed in Octopus Deploy, allowing you to consume packages from npmjs.com or private NPM registries such as Nexus Repository Manager and JFrog Artifactory.
 
 ## Adding an external NPM feed
