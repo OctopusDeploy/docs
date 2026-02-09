@@ -44,7 +44,6 @@ Some steps look different inside a process template. They ask for a parameter ra
 ![The run a script step asks for a worker pool parameter instead of a worker pool](/docs/img/platform-hub/process-template-step-example.png)
 :::
 
-
 :::div{.warning}
 Our initial release of Process Templates does not include support for a few built-in steps.
 :::
@@ -68,6 +67,7 @@ Process Templates can manage the following as parameters.
 - Generic OIDC Account
 - Google Cloud Account
 - Multi-line text box
+- Sensitive/password box
 - Single-line text box
 - Target Tags
 - Teams
@@ -90,6 +90,7 @@ You can set an optional default value for these parameters:
 - Multi-line text
 - Dropdown
 - Checkbox
+- Sensitive/password box
 - AWS Account
 - Azure Account
 - Generic OIDC Account
@@ -99,7 +100,6 @@ You can set an optional default value for these parameters:
 You cannot set a default value for these parameters, they must be set inside a project:
 
 - Certificate
-- Sensitive
 - Worker Pools
 - Package
 - Previous deployment step name
@@ -109,6 +109,30 @@ You cannot set a default value for these parameters, they must be set inside a p
 - Environments
 - Container Feed
 - Channels
+
+### Sensitive parameter defaults
+
+:::div{.hint}
+The ability to add default values for Sensitive/password box parameters is available from **Octopus 2026.1**.
+:::
+
+Unlike the other parameters, sensitive default values are stored securely in the database with a unique GUID identifier. This identifier is used in the process template to reference the default sensitive value in the database. Because of this approach, sensitive default values are supported in CaC workflows. Scoping for Sensitive/password box parameters is not currently supported.
+
+You can set a default value for your sensitive parameter by navigating to the parameters tab of your process template and committing your changes. When the template is saved, sensitive default values are stored encrypted in the database with a unique identifier. In the OCL, the parameter block will look something like this:
+
+```hcl
+parameter "Example Sensitive Parameter" {
+    display_settings = {
+        Octopus.ControlType = "Sensitive"
+    }
+    help_text = "An Example Sensitive Parameter"
+    label = "An Example Sensitive Parameter"
+
+    value "10d00c16-c905-43fa-90cd-088e22b31751" {}
+}
+```
+
+The GUID value in the OCL is a reference to the database-stored sensitive value. When the process template is used in a project or runbook, it will retrieve the sensitive value from the database.
 
 ### Parameter scoping
 
@@ -121,7 +145,6 @@ When a process template is used inside a project, the project supplied values wi
 :::figure
 ![The account parameter allowing scoping to environments present across Octopus instance](/docs/img/platform-hub/process-templates-account-scoping.png)
 :::
-
 
 ## Saving a Process Template
 
@@ -185,9 +208,9 @@ To define a simple deployment process in Octopus that executes a hello world scr
 10. Add the Worker Pool parameter to the **Worker Pool** field.
 11. Paste the following PowerShell script into the **Inline Source Code** editor:
 
-```powershell
-Write-Host "Hello, World!" 
-```
+    ```powershell
+    Write-Host "Hello, World!" 
+    ```
 
 12. Commit your template.
 13. Publish and Share your template.
