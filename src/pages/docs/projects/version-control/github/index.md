@@ -75,8 +75,8 @@ There are specific GitHub permissions that the Octopus GitHub App requests in or
 - **Account Permissions**
   - **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when comitting the author information to a commmit.
 
- 
-Where viable, whenever Octopus uses a token to perform an action a minimal token is used, scoped down in accordance with the principle of least privilege.
+
+Whenever possible, Octopus uses a token scoped down to minimal permissions in accordance with the principle of least privilege.
 
 ## More information on installing and authorizing the Octopus GitHub App
 
