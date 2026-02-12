@@ -57,6 +57,18 @@ To connect a repository, you must be an administrator of the repository on GitHu
 ## Using GitHub App Connections
 You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
 
+## Requested Permissions
+There are specific GitHub permissions that the Octopus GitHub App requests in order to perform it's tasks.
+
+* **Repository Permissions**
+  * **Contents: Read and Write** Allows Octopus to access the files in your repositories for usage such as [Config As Code](https://octopus.com/docs/projects/version-control) projects or Git Project Dependencies.
+  * **Metadata: Read-only** Default permission required by all GitHub Apps in to lead basic repository information.
+  * **Pull Requests: Read and Write** Used by Octopus when executing some steps, for example deploying releases for [Argo CD](https://octopus.com/docs/argo-cd).
+* **Account Permissions**
+  * **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when comitting the author information to a commmit.
+ 
+Where viable, whenever Octopus uses a token to perform an action a minimal token is used, scoped down in accordance with the principle of least privilege.
+
 ## More information on installing and authorizing the Octopus GitHub App
 You install the Octopus GitHub App on an account (organization or user) to give the repositories or other content within that account. Authorizing gives the Octopus GitHub App permission to act on your behalf in any account that has the app installed.
 
