@@ -61,8 +61,8 @@ You can currently use GitHub App Connections to connect to Configuration as Code
 There are specific GitHub permissions that the Octopus GitHub App requests in order to perform it's tasks.
 
 * **Repository Permissions**
-  * **Contents: Read and Write** Allows Octopus to access the files in your repositories for usage such as [Config As Code](https://octopus.com/docs/projects/version-control) projects or Git Project Dependencies.
-  * **Metadata: Read-only** Default permission required by all GitHub Apps in to lead basic repository information.
+  * **Contents: Read and Write** Allows Octopus to access the files in the approved repositories for usage such as [Config As Code](https://octopus.com/docs/projects/version-control) projects or Git Project Dependencies.
+  * **Metadata: Read-only** Default permission required by all GitHub Apps in to load basic repository information.
   * **Pull Requests: Read and Write** Used by Octopus when executing some steps, for example deploying releases for [Argo CD](https://octopus.com/docs/argo-cd).
 * **Account Permissions**
   * **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when comitting the author information to a commmit.
