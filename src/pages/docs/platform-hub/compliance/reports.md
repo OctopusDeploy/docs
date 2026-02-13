@@ -18,11 +18,11 @@ Compliance reports are currently in Alpha. If you encounter any issues, please c
 
 ## Deployment Permissions
 
-The Deployment Permissions report provides a comprehensive map of access across your instance, allowing you to audit which users and teams possess the authority to trigger deployments. By cross-referencing user roles with specific projects and environments, this report helps GRC teams validate that the principle of least privilege is being enforced and ensure that only authorized personnel can influence your release pipeline.
+The Deployment Permissions report provides a comprehensive map of access across your instance, allowing you to audit which users possess the authority to trigger deployments. By cross-referencing user roles with specific projects and environments, this report helps GRC teams validate that the principle of least privilege is being enforced and ensure that only authorized personnel can deploy.
 
 ### Running the report
 
-To run the Deployment Permissions report, navigate to **Platform Hub -> Reports**, and choose the **Deployment Permissions** tile:
+To run the Deployment Permissions report, navigate to **Platform Hub -> Reports**, and choose the **Deployment Permissions** card:
 
 :::figure
 ![The Compliance reports page where users select a report to run](/docs/img/platform-hub/compliance/compliance-reports-tiles.png)
@@ -45,7 +45,7 @@ You can expand each project to see a list of the users that have permissions to 
 ## Production Deployments
 
 :::div{.hint}
-The Production Deployments report is currently under development, and will be ready soon.
+Development of the Production Deployments report is currently being planned.
 :::
 
 This report is designed to provide a definitive audit trail of all activity within your most sensitive environments. It will offer a streamlined view of who initiated changes to Production and precisely when they occurred, facilitating effortless point-in-time compliance reviews.
