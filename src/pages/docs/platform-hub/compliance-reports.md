@@ -2,19 +2,29 @@
 layout: src/layouts/Default.astro
 pubDate: 2026-01-21
 modDate: 2026-01-21
-title: Compliance reports
-icon: fa-solid fa-clipboard-list-check
-navTitle: Reports
-navSection: Compliance
-description: Available reports within the Compliance section of Platform Hub
-navOrder: 172
+title: Compliance Reports
+subtitle: An overview of Compliance Reports
+icon: fa-solid fa-shield-halved
+navTitle: Compliance Reports
+navSection: Platform Hub
+description: An overview of Compliance Reports in Platform Hub
+navOrder: 170
 ---
 
-Compliance reports in Octopus provide a centralized, audit-ready visibility into your software delivery lifecycle. They are designed to help Governance, Risk, and Compliance (GRC) teams quickly verify security controls and maintain a clear trail of deployment activity across your entire instance.
+The Compliance Reports area is a new addition to the Platform Hub, designed to transform raw audit data into actionable insights.
+
+While you can already access granular logs via the [Audit](/docs/security/users-and-teams/auditing) tab or integrate with SIEM tools using the [audit stream](/docs/security/users-and-teams/auditing/audit-stream), Compliance Reports streamline reporting for Governance, Risk, and Compliance (GRC) teams.
+
+They provide a centralized, audit-ready visibility into your software delivery lifecycle, and are designed to help Governance, Risk, and Compliance (GRC) teams quickly verify security controls and maintain a clear trail of deployment activity across your entire instance.
 
 :::div{.hint}
 Compliance reports are currently in Alpha. If you encounter any issues, please contact our [support team](https://octopus.com/support).
 :::
+
+Our reports focus on answering two critical questions:
+
+1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?
+2. **Production Deployments**: Who initiated deployments to Production, and when did those events occur?
 
 ## Deployment Permissions
 
