@@ -26,6 +26,10 @@ Our reports focus on answering two critical questions:
 1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?
 2. **Production Deployments**: Who initiated deployments to Production, and when did those events occur?
 
+3. :::div{.hint}
+The **Production Deployments** report is coming soon.
+:::
+
 ## Deployment Permissions
 
 The Deployment Permissions report provides a comprehensive map of access across your instance, allowing you to audit which users possess the authority to trigger deployments. By cross-referencing user roles with specific projects and environments, this report helps GRC teams validate that the principle of least privilege is being enforced and ensure that only authorized personnel can deploy.
