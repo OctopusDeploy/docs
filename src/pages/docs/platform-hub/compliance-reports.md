@@ -26,7 +26,7 @@ Our reports focus on answering two critical questions:
 1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?
 2. **Production Deployments**: Who initiated deployments to Production, and when did those events occur?
 
-3. :::div{.hint}
+:::div{.hint}
 The **Production Deployments** report is coming soon.
 :::
 
