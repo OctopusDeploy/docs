@@ -73,8 +73,7 @@ There are specific GitHub permissions that the Octopus GitHub App requests in or
   - **Metadata: Read-only** Default permission required by all GitHub Apps in to load basic repository information.
   - **Pull Requests: Read and Write** Used by Octopus when executing some steps, for example supporting pull requests for Argo CD deployments.
 - **Account Permissions**
-  - **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when comitting the author information to a commmit.
-
+  - **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when committing the author information to a commit.
 
 Whenever possible, Octopus uses a token scoped down to minimal permissions in accordance with the principle of least privilege.
 
@@ -90,7 +89,7 @@ Installing and authorizing are both GitHub concepts. If you want to find out mor
 
 ## Known limitations
 
-* Connecting to GitHub organizations with IP allow lists enabled is not currently supported with Octopus GitHub App Connections.
+- Connecting to GitHub organizations with IP allow lists enabled is not currently supported with Octopus GitHub App Connections.
 
 ## Older versions
 
