@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2026-02-17
 title: Variable substitutions
 icon: fa-solid fa-underline
 description: Variable substitutions are a flexible way to adjust configuration based on your variables and the context of your deployment.
@@ -29,6 +29,14 @@ If the file undergoing variable replacement includes a string that *shouldn't* b
 | Expression            | Value                |
 | --------------------- | -------------------- |
 | `##{NotToBeReplaced}` | `#{NotToBeReplaced}` |
+
+Variable substitution within a hash-delimited string looks like the following. Given the variable:
+
+| Name     | Value   |
+| -------- | ------- |
+| `Name`   | `title` |
+
+`###{Name}` would evaluate to `#title`.
 
 :::div{.info}
 
