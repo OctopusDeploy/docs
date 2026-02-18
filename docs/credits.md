@@ -4,7 +4,7 @@ description: Octopus is made possible thanks to many great third-party products.
 position: 200
 ---
 
-<!-- markdownlint-disable MD042 MD034 MD060 -->
+<!-- markdownlint-disable MD012 MD034 MD042 MD060 -->
 
 Octopus Deploy is made possible thanks to the following great third-party products.
 
