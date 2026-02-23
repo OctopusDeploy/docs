@@ -16,7 +16,7 @@ If your project is using an out-of-date step template, you'll see a warning when
 ![Step Templates inline merge](/docs/img/projects/images/step-templates-inline-merge.png)
 :::
 
-If you have a lot of projects using a step template, updating them one by one can be time consuming. Fortunately, there is a way to update all of them at once. To do that, navigate to **Deploy ➜ Step Templates ➜ Name of the Step Template ➜ Usage**.
+If you have a lot of projects using a step template, updating them one by one can be time-consuming. Fortunately, there is a way to update all of them at once. To do that, navigate to **Deploy ➜ Manage ➜ Step Templates ➜ Name of the Step Template ➜ Usage**.
 
 Once you are there you should see a list of steps that are using the step template. The steps that are not on the latest version will have an **Update...** button next to them. Steps can be updated individually or all at once by clicking the **Update all...** button.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-17
-modDate: 2025-10-17
+modDate: 2025-11-27
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -10,10 +10,6 @@ navOrder: 41
 ---
 
 Ephemeral environments in Octopus Deploy allow you to automatically create test environments on-demand to gain confidence in your changes while helping to keep your infrastructure costs down.
-
-:::div{.hint}
-Support for Ephemeral Environments is rolling out as an Early Access Preview to Octopus Cloud.
-:::
 
 Ephemeral environments integrate smoothly into your existing development workflows by building on existing Octopus features such as [Releases](/docs/releases), [Channels](/docs/releases/channels) and [Runbooks](/docs/runbooks).
 
@@ -130,9 +126,14 @@ Support for providing custom fields is not yet available in the Octopus CLI.
 
 ### Manually
 
-If automatic deployments is not selected, ephemeral environments can be created from the Ephemeral Environments page within the project.
+If automatic deployment is not selected, ephemeral environments can be created using the: 
 
-To create an ephemeral environment manually:
+- Octopus Web Portal
+- Octopus API
+- [`OctopusDeploy/create-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/create-ephemeral-environment)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+
+To manually create an ephemeral environment in the Octopus portal, visit the Ephemeral Environments page within the project then:
 - Select **Add Ephemeral Environment** from the Ephemeral Environments page.
 - Enter a name for the environment.
 
@@ -173,7 +174,14 @@ When an ephemeral environment is no longer needed it can be deprovisioned and an
 - For projects using runbooks stored in Octopus the published snapshot will be used to run the runbook.
 - For projects using runbooks stored in version control, the Git reference used to provision the environment will be used to run the runbook.
 
-To deprovision an environment:
+Ephemeral environments can be deprovisioned via the:
+
+- Octopus Web Portal
+- Octopus API
+- [`OctopusDeploy/deprovision-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/deprovision-ephemeral-environment)
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+
+To deprovision an ephemeral environment in the Octopus portal:
 
 - Select **Deploy** from the main navigation in the Octopus Web Portal and select your project.
 - Select the **Ephemeral Environments** navigation menu in the sidebar.
@@ -234,3 +242,7 @@ The following limitations currently apply to the use of the Ephemeral Environmen
 - Ephemeral environments cannot be deployed to tenants.
 - Parent environments cannot be connected to tenants.
 - Ephemeral environments and parent environments cannot be used within lifecycles, deployment freezes and insights reports.
+
+## Availability
+
+Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`

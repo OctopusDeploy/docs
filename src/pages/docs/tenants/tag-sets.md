@@ -1,22 +1,21 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-08
+modDate: 2026-02-05
 title: Tag sets
 icon: fa-solid fa-tags
 description: Tag sets are a categorizing system that let you add custom metadata to resources in Octopus Deploy.
 navOrder: 35
 ---
 
-Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants and environments, with support for additional resource types planned for the future.
+Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants, environments, projects, and runbooks, with support for additional resource types planned for the future.
 
 :::figure
-![](/docs/img/tenants/images/tag-sets.png)
+![An example set of tenant tags](/docs/img/tenants/images/tag-sets.png)
 :::
 
 :::div{.warning}
 From Octopus Cloud version **2025.4.3897** we have extended the functionality of tag sets to include the type and scope of a tag set.
-
-This functionality is behind the `Extended Tag Sets` feature toggle, to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 ## Tag set types {#tag-set-types}
@@ -31,18 +30,19 @@ There are three types of tag sets that can be created:
 
 Tag sets can be scoped to specific resource types:
 
-- **Tenant** 
-- **Environment** 
+- **Tenant**
+- **Environment**
 - **Project**
+- **Runbook**
 
-A tag set can be scoped to multiple resource types (Tenant, Environment, and/or Project), allowing you to use the same tag set across different resources.
+A tag set can be scoped to multiple resource types (Tenant, Environment, Project, and/or Runbook), allowing you to use the same tag set across different resources.
 
 ## Managing tag sets {#managing-tag-sets}
 
 Go to **Deploy ➜ Tag Sets** to create, modify and reorder tag sets and tags.
 
 :::figure
-![](/docs/img/tenants/images/tenant-importance.png)
+![The tenant tag set edit screen](/docs/img/tenants/images/tenant-importance.png)
 :::
 
 ### Design your tag sets carefully {#design-tag-sets-carefully}
@@ -62,20 +62,21 @@ Grouping tag sets makes it easier for each different class of Octopus user to un
 Order is important for tag sets, and tags within those tag sets. Octopus will sort tag sets and tags based on the order you define in the library. This allows you to tailor the Octopus user interface to your own situation.
 
 :::figure
-![](/docs/img/tenants/images/tag-set-order.png)
+![Ordering of tenant tags shown in the deployment target restrictions section](/docs/img/tenants/images/tag-set-order.png)
 :::
 
 ### Removing tags
 
 If tags are in use by resources, included in project/runbook release [variable snapshots](/docs/releases#variable-snapshot) (via project/variable sets), or captured in published runbooks, you will not be able to delete the relevant tag(s) until these associations are removed.
 
-For projects using Config as Code, there are fewer guardrails in place. It's up to you to take care to avoid deleting any tags required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
+For projects using Config as Code, there are fewer guardrails in place. It's up to you to take care to avoid deleting any tags required by your deployments. Similarly, for runbooks stored in version control, tag usage tracking is not supported, so you must manually ensure tags used by your Config as Code runbooks are not deleted. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
 
 ## Referencing tags {#referencing-tags}
 
 Tags are referenced using their **canonical name** which looks like this: `Tag Set Name/Tag Name`
 
 For example:
+
 - `Release Ring/Alpha` - References the predefined "Alpha" tag in the "Release Ring" tag set
 - `Importance/VIP` - References the predefined "VIP" tag in the "Importance" tag set
 - `Region/us-west-2` - For FreeText tag sets, the tag set name "Region" must match exactly, but "us-west-2" can be any arbitrary value
@@ -91,6 +92,7 @@ You can use canonical names when:
 - **[Tenant tags](/docs/tenants/tenant-tags):** Learn how to use tags to classify tenants, deploy to multiple tenants, and design multi-tenant deployment processes.
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
 - **[Project tags](/docs/projects/setting-up-projects#project-tags):** Learn how to use tags to classify and organize projects.
+- **[Runbook tags](/docs/runbooks#runbook-tags):** Learn how to use tags to organize and filter runbooks with custom metadata.
 
 ## Learn more
 

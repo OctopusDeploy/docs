@@ -17,7 +17,7 @@ A typical Octopus deployment requires that all deployment targets are available 
 
 ## Deploying to Targets that become unavailable during a deployment {#targets-become-unavailable}
 
-This example uses the OctoFX project that does a deployment to two [target tags](/docs/infrastructure/deployment-targets/target-tags): **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** tag and want to continue deploying the web site to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
+This example uses the OctoFX project that does a deployment to two [target tags](/docs/infrastructure/deployment-targets/target-tags): **RateServer** and **TradingWebServer**. We have decided to auto-scale the machines in the **TradingWebServer** tag and want to continue deploying the website to the available machines, ignoring any machines that are no longer available, perhaps due to being scaled down.
 
 1. Navigate to the OctoFX project overview page.
 2. Select the **Settings** option and expand the **Deployment Target** section.
@@ -39,7 +39,7 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
    ![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/healthcheck.png)
 
 4. Save the step.
-5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets with the **TradingWebServer** target tag are re-evaluated before the trading web site is deployed:
+5. Back at the deployment process, re-order the steps so that the **Health Check** step occurs before the **Trading Website** step.  This will ensure that deployment targets with the **TradingWebServer** target tag are re-evaluated before the trading website is deployed:
 
    ![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/evaluate.png)
 

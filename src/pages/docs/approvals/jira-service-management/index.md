@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-04-28
+modDate: 2025-11-18
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
@@ -223,6 +223,27 @@ e.g `Octopus: Deploy "Web Site" version 1.0.1-hotfix-001 to "Dev"`
 :::div{.hint}
 The title must match the format **exactly**, including the double-quotes.
 :::
+
+### Populating CR fields through Octopus
+
+:::div{.warning}
+This feature is only available for version 2025.4.9247 and later
+:::
+
+To control the content of the CRs the variable `Octopus.JiraServiceManagement.Field[jsm_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
+
+For example, to set a custom `Summary` or `Due Date`:
+
+| Field | Variable | Example Value |
+|--|--|--|
+| Summary | Octopus.JiraServiceManagement.Field[summary] | Custom Summary with #{SomeVariable} #{Octopus.Deployment.Id} |
+| Due Date | Octopus.JiraServiceManagement.Field[duedate] | 12-12-2025 |
+
+:::div{.hint}
+Setting a `Summary` will override the auto-generated Octopus summary. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved summary is unique. This can be done by including variables like the deployment or environment Id.
+:::
+
+For a full list of available fields and values refer to the [JIRA docs](https://docs.atlassian.com/jira-servicedesk/REST/3.6.2/#fieldformats).
 
 ### Respecting change windows
 

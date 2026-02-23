@@ -18,7 +18,7 @@ Learn more about [manual approvals](/docs/deployments/databases/common-patterns/
 
 ## Automatic approvals
 
-Manual approvals are a great starting point, when the number of projects that require approval is low.  The number of notifications will exponentially grow as time goes on.  It is common for the frequency of deployments to go from once a quarter to once a week, and it is important for the signal to noise ratio to remain high.  Having a DBA spend time approving minor stored procedure changes is not productive.  This section shows you how to take the manual approval process and add logic for automated approvals.
+Manual approvals are a great starting point, when the number of projects that require approval is low.  The number of notifications will exponentially grow as time goes on.  It is common for the frequency of deployments to go from once a quarter to once a week, and it is important for the signal-to-noise ratio to remain high.  Having a DBA spend time approving minor stored procedure changes is not productive.  This section shows you how to take the manual approval process and add logic for automated approvals.
 
 Learn more about [automatic approvals](/docs/deployments/databases/common-patterns/automatic-approvals).
 

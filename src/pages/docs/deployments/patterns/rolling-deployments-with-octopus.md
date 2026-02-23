@@ -9,7 +9,7 @@ navOrder: 0
 
 [Rolling deployments](https://octopus.com/devops/software-deployments/rolling-deployment/) are a pattern whereby, instead of deploying a package to all servers at once, we slowly roll out the release by deploying it to each server one-by-one. In load balanced scenarios, this allows us to reduce overall downtime.
 
-Normally, when executing a deployment process with multiple steps, Octopus runs all of the steps **sequentially**; it waits for the first step to finish before starting the second, and so on.
+Normally, when executing a deployment process with multiple steps, Octopus runs all steps **sequentially**; it waits for the first step to finish before starting the second, and so on.
 
 :::figure
 ![](/docs/img/deployments/patterns/images/normal-deployment.png)

@@ -120,7 +120,7 @@ Here's a simple checklist to help you on your way to allowing Kerberos Authentic
   
 - A valid Service Principal Name (SPN) for the `HTTP` service class for each Octopus host NETBIOS name. If you are accessing your Host via its FQDN then you will need to also add an FQDN also for the `HTTP` service class. (Please Note: Whether you've configured your Octopus host to use `HTTP` or `HTTPS`, you will only need to set an `HTTP` SPN.)
 - Included FQDNs of all Octopus Deploy Hosts and Octopus clusters within your trusted sites or Intranet zones.
-- Client Machines configured to allow auto logon with current user name and password.
+- Client Machines configured to allow auto logon with current username and password.
 
 **SPN Configuration**
 
@@ -287,7 +287,7 @@ Where `"CN=Users,DC=GPN,DC=COM"` should be replaced with your Container.
 
 Using Trusted Domains is supported by Octopus Deploy.  Users from the domain the Octopus Server is a member of will always be allowed to log in.  Users from domains that the Octopus Server's domain trusts will also be able to log in.
 
-The following diagram illustrates a typical configuration when there is a two way trust between the domains.
+The following diagram illustrates a typical configuration when there is a two-way trust between the domains.
 
 :::figure
 ![Two-way Trust](/docs/img/security/authentication/active-directory/images/domains-twoway.png)

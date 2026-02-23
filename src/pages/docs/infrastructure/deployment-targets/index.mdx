@@ -11,7 +11,7 @@ hideInThisSection: true
 import DeploymentTargets from "src/shared-content/infrastructure/deployment-targets.include.mdx";
 import TargetRoles from "src/shared-content/infrastructure/target-roles.include.md";
 
-These days, you can run your software practically anywhere. You might run software on:
+Locations that software may be deployed to and run can include:
 - Containers running in clusters
 - Cloud-managed services, platforms, or serverless functions
 - Virtual machines or infrastructure as a service
@@ -30,7 +30,7 @@ A deployment target is a location that will host your software. We've used the t
 - Serverless functions
 - SSH connections
 
-Deployment targets represent any intended destination for the contents in your package. You can also run day-2 operations tasks against the deployment targets you set up in Octopus.
+Deployment targets define where your software is deployed, and they also serve as the basis for Day-2 tasks and additional operational tasks that can be managed by Octopus.
 
 Deployments to Kubernetes clusters are performed by a lightweight agent that runs on the cluster. If you’re deploying to a Windows or Linux server or virtual machine, your deployment target will run a lightweight agent called a Tentacle. For cloud services, such as Amazon ECS or Azure Web Apps, the deployment is made through a worker instead.
 

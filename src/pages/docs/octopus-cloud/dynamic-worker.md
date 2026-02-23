@@ -67,7 +67,7 @@ We do not recommend installing additional software on dynamic workers. Instead, 
 
 ### IP addresses
 
-Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own external worker.
+Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud instance. If a known/static IP is required for your worker, please consider provisioning your own external worker.
 
 ## Let us know what you want for the future of dynamic workers
 

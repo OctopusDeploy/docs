@@ -25,7 +25,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time?
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all of the tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I control the order in which tenanted deployments execute?
 
@@ -71,7 +71,7 @@ You can achieve these behaviors using a custom script/application which leverage
 
 ## Can I have a combination of tenanted and untenanted projects?
 
-Yes! Each project can control its interaction with tenants. By default the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
+Yes! Each project can control its interaction with tenants. By default, the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
 :::figure
 ![](/docs/img/tenants/images/multi-tenant-project-settings.png)
@@ -144,7 +144,7 @@ Yes, simply connect the tenant to a project and any number of environments that 
 
 ## Can I configure a standard set of variables that are required by each tenant like an alias or contact details?
 
-Yes, we recommend creating some variable templates in a variable set, and connecting that variable set to all of the projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [tenant variables](/docs/tenants/tenant-variables) section.
+Yes, we recommend creating some variable templates in a variable set, and connecting that variable set to all projects where you require those variables. Now Octopus will prompt you for those standard variables, once for each tenant. We cover this in more detail in the [tenant variables](/docs/tenants/tenant-variables) section.
 
 ## Can I use tenants and channels together?
 

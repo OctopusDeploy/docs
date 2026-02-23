@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-02-05
 title: Scheduled runbook triggers
 description: Scheduled runbook triggers allow you to define unattended behavior for your runbook that will cause an automatic runbook run to environments of your choosing.
 navOrder: 40
@@ -17,26 +17,40 @@ Only published snapshots can be used to create a scheduled runbook trigger, draf
 
 Scheduled runbook triggers provide a way to configure your runbooks to run on a defined schedule. This can useful in different scenarios, for instance:
 
-* Run a database backup at 1:00am every day.
-* Run a health check on your service every 30 minutes.
-* Run a script to reset a test environment every 3 hours.
-* Run a streaming process every minute.
-* Run a maintenance script on the last Saturday of the month.
-* Run a script to provision more machines on the 1st day of the month and a script to deprovision them at a future date.
+- Run a database backup at 1:00am every day.
+- Run a health check on your service every 30 minutes.
+- Run a script to reset a test environment every 3 hours.
+- Run a streaming process every minute.
+- Run a maintenance script on the last Saturday of the month.
+- Run a script to provision more machines on the 1st day of the month and a script to deprovision them at a future date.
 
 ## Add a scheduled runbook trigger
 
 1. In a project, select **Operations ➜ Triggers**, then **Add Scheduled trigger**.
 2. Give the trigger a name.
 3. Select a runbook.
+
+   You can select runbooks in two ways:
+
+   - **Select specific runbooks**: Choose individual runbooks by name
+   - **Select by tags**: Select all runbooks matching specific [runbook tags](/docs/runbooks#runbook-tags)
+
+   :::div{.warning}
+   Triggering runbooks by tags is supported from Octopus version **2026.1.7523**.
+   :::
+
+   :::div{.hint}
+   When using tags, the trigger will run against all runbooks that match the selected tags at the time the trigger fires. If you add or remove tags from runbooks later, the trigger will automatically include or exclude those runbooks.
+   :::
+
 4. Specify the target environments the runbook will run against.
 5. Set the trigger schedule. The options give you control over how frequently the trigger will run and at what time. You can schedule a trigger based on either days of the week, or dates of the month. You can also use a [CRON expression](#cron-expression) to configure when the trigger will run.
 
-If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment. 
+   If you are using [tenants](/docs/tenants) you can select the tenants that the runbook will run against. For each tenant, the published runbook will run against the tenant's environment.
 
-:::div{.hint}
-If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
-:::
+   :::div{.hint}
+   If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
+   :::
 
 6. Save the trigger.
 

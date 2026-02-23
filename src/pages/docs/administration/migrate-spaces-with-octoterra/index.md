@@ -143,7 +143,7 @@ Container images require that the source server or the default worker pool used 
 Local tools are locally installed versions of the tools listed in the "Required local tools" section. Using this option does not require Docker to be installed on the source server.
 
 :::div{.hint}
-If you are migrating from an on-premises Windows server, you will likely select the `Local tools` options.
+If you are migrating from an on-premises Windows Server, you will likely select the `Local tools` options.
 :::
 
 ### Required local tools

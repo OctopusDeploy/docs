@@ -92,7 +92,7 @@ Remember that since the Kubernetes cluster connection context is available via t
 
 #### Kubernetes release
 
-The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alpha numeric and dash (-) characters.
+The Kubernetes release uniquely identifies the released chart in the cluster. Because of the unique naming requirements of the release name, the default value provided includes both the project and environment name to ensure that successive Octopus releases do not conflict with one another. When redeploying new versions of the chart, this name is what is used to uniquely identify the resources that are related to that Octopus deployment. Helm requires that this name consist of only lowercase alphanumeric and dash (-) characters.
 
 :::div{.hint}
 Due to the design of Helm, the release names must be [unique across the entire cluster](https://github.com/helm/helm/issues/2060#issuecomment-287164881), not just namespaces.
@@ -100,7 +100,7 @@ Due to the design of Helm, the release names must be [unique across the entire c
 
 #### Reset values
 
-By default Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
+By default, Helm will carry forward any existing configuration between deployments if not explicitly overridden. To ensure that the Octopus provided configuration acts as the source of truth, the `--reset-values` argument is set on the invoked command however this can be disabled if desired.
 
 #### Helm client tool
 
@@ -110,7 +110,7 @@ Helm performs some strict version checks when performing any commands against th
 Like the other Kubernetes steps, the Octopus Server or workers will run the Helm commands directly during execution and need to have the `helm` executable installed.
 :::
 
-Since it is quite common to have different versions of Helm across your deployment workers or even across different environments clusters, this option lets you override the helm client tool that is invoked. By default, Octopus will expect the helm command to be directly available to the execution context. Provide either the explicit full path to the desired version of the helm tool or include a version of helm as a package. The available version can be downloaded via the helm public [GitHub repository](https://github.com/helm/helm/releases). Unlike some other Octopus steps like [Azure Powershell Scripts](/docs/deployments/custom-scripts/azure-powershell-scripts), the helm client tools are not automatically embedded or installed by Octopus. This is due to the strict version requirements that would differ between Octopus Server installations, and the diverse number of different platform builds available.
+Since it is quite common to have different versions of Helm across your deployment workers or even across different environments clusters, this option lets you override the helm client tool that is invoked. By default, Octopus will expect the helm command to be directly available to the execution context. Provide either the explicit full path to the desired version of the helm tool or include a version of helm as a package. The available version can be downloaded via the helm public [GitHub repository](https://github.com/helm/helm/releases). Unlike some other Octopus steps like [Azure PowerShell Scripts](/docs/deployments/custom-scripts/azure-powershell-scripts), the helm client tools are not automatically embedded or installed by Octopus. This is due to the strict version requirements that would differ between Octopus Server installations, and the diverse number of different platform builds available.
 
 ### Template values
 

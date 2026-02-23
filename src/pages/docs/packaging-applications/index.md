@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-24
+modDate: 202-12-16
 title: Packaging applications
 subtitle: How to package your applications for deployment with Octopus
 icon: fa-solid fa-cubes
@@ -51,21 +51,22 @@ When you package your applications, you need to include all the binaries that ar
 
 ## Supported formats {#supported-formats}
 
-It is important that your packages have the correct **file extension** because Octopus uses the **file extension** to determine the correct extraction algorithm to use with your packages.
+It is important that your packages have the correct **file extension** because Octopus uses the **file extension** to determine the correct extraction algorithm to use with your packages. Only NuGet packages will have extra metadata like release notes and description extracted from the package metadata.
 
-| Package type          | File Extensions           | Notes                                    |
-| --------------------- | ------------------------- | ---------------------------------------- |
-| NuGet        | .nupkg                   | Compatible with any NuGet repository (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository)). Currently only NuGet packages will have extra metadata like release notes and description extracted from the package metadata. Learn about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).|
-| Zip          | .zip                     | Standard zip file as created through most common zip programs. Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |
-| JAR WAR EAR RAR | .jar, .war, .ear, .rar  | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository) and [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds). RAR files are Java Resource Adaptor Archives, not the .rar compressed archive format. |
-| Tar          | .tar                   | Compatible with the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |
-| Tar + Gzip   | .tgz, .tar.gz, .tar.Z | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |                                          |
-| Tar + Bzip2  | .tar.bz, .tar.bz2, .tbz* | Compatible with the [built-In repository](/docs/packaging-applications/package-repositories/built-in-repository) only. |                                          |
-| Docker Image |                            | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/). Learn about [Docker](/docs/deployments/docker) and Octopus Deploy. |
-| Helm Chart   | .tgz                       | [Helm Chart Repositories](https://helm.sh/docs/topics/chart_repository/) (including the [Built-In repository](/docs/packaging-applications/package-repositories/built-in-repository/)). Learn about [Helm](/docs/deployments/kubernetes/helm-update) and Octopus Deploy. |
+| Package type    | File Extensions          | Built-in repository | External feed | Notes on external feeds                                                                                                                                                        |
+| --------------- | ------------------------ | ------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| NuGet           | .nupkg                   | Yes                 | Yes           | Learn about NuGet on the [official NuGet website](http://docs.nuget.org/docs/start-here/overview).                                                                             |
+| Zip             | .zip                     | Yes                 | Yes           |                                                                                                                                                                                |
+| JAR WAR EAR RAR | .jar, .war, .ear, .rar   | Yes                 | Yes           | Learn about [Maven Feeds](/docs/packaging-applications/package-repositories/maven-feeds) and Octopus. RAR files a Java Resource Adaptor files, not compressed archive formats. |
+| Tar             | .tar                     | Yes                 | Yes           |                                                                                                                                                                                |
+| Tar + Gzip      | .tgz, .tar.gz, .tar.Z    | Yes                 | Yes           |                                                                                                                                                                                |
+| Tar + Bzip2     | .tar.bz, .tar.bz2, .tbz* | Yes                 |               |                                                                                                                                                                                |
+| NPM             | .tgz, .tar.gz            |                     | Yes           |                                                                                                                                                                                |
+| Docker Image    |                          |                     | Yes           | [Docker Registries](/docs/packaging-applications/package-repositories/docker-registries/). Learn about [Docker](/docs/deployments/docker) and Octopus.                         |
+| Helm Chart      | .tgz                     | Yes                 | Yes           | [Helm Chart Repositories](https://helm.sh/docs/topics/chart_repository/). Learn about [Helm](/docs/deployments/kubernetes/helm-update) and Octopus.                            |
 
 ## Learn more
 
- - [Create packages](/docs/packaging-applications/create-packages)
- - [Build servers](/docs/packaging-applications/build-servers)
- - [Package repositories](/docs/packaging-applications/package-repositories)
+- [Create packages](/docs/packaging-applications/create-packages)
+- [Build servers](/docs/packaging-applications/build-servers)
+- [Package repositories](/docs/packaging-applications/package-repositories)

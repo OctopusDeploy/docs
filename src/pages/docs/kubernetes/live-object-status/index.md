@@ -23,7 +23,6 @@ Using Kubernetes Live Object Status requires the following:
 - Octopus Deploy 2025.3+
 - A [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) target
 - A project with a deployment process containing Kubernetes steps
-  - The kubectl script step is currently unsupported
 
 ## How to use Live Status
 
@@ -45,7 +44,7 @@ Octopus display individual status at an object level as well as summarized statu
 | :---------- | :------------------------------------------------: | :-------------------------------------------------------------------------- |
 | Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | Objects in your application are currently in a progressing state            |
 | Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in your cluster match what was specified in the last deployment |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application       |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We're having trouble getting live status updates for this application       |
 | Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed              |
 | Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The objects on your cluster no longer match what you last deployed          |
 | Missing     |       <i class="fa-solid fa-ghost grey"></i>       | Objects in your application are currently in a missing state                |
@@ -116,6 +115,61 @@ The Kubernetes Agent has a new component called the Kubernetes monitor which als
 
 During a deployment, Octopus will capture any applied Kubernetes manifests and send them to the monitor. The monitor uses these manifests to track the deployed objects in the cluster, keeping track of their synchronization and health.
 
+### Script steps
+
+The built in Kubernetes steps will automatically report the applied manifests for deployments, however Octopus needs a bit of help when you're making changes using kubectl script steps.
+
+To notify Octopus which Kubernetes resources you want tracked, we have bash and powershell helper functions available to use. You can choose between passing the manifest as a variable, or passing the file path directly instead.
+
+Only the "Run a kubectl script" step will correctly report manifests, regular "Run a script" steps are not supported.
+
+:::div{.info}
+You still need to apply the Kubernetes manifests to your cluster. These functions only notify Octopus that you expect the resources to be created.
+:::
+
+Available in Octopus server versions:
+
+- 2025.4.10333+
+- 2026.1.4557+
+
+#### Bash
+
+```bash
+read -r -d '' manifest << EOM
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "example"
+labels:
+    name: "example"
+EOM
+
+report_kubernetes_manifest "$manifest"
+```
+
+```bash
+report_kubernetes_manifest_file "$ManifestFilePath"
+```
+
+#### Powershell
+
+```pwsh
+$manifest = @"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "example"
+labels:
+    name: "example"
+"@
+
+Report-KubernetesManifest -manifest $manifest
+```
+
+```pwsh
+Report-KubernetesManifestFile -path $ManifestFilePath
+```
+
 ## User permissions
 
 Viewing the data returned from the Kubernetes monitor from within Octopus requires `DeploymentView` permissions.
@@ -145,7 +199,7 @@ The flexibility that Octopus variables provide mean that sensitive variables can
 
 ### Kubernetes secrets
 
-The well defined structure of Kubernetes secrets allow us to confidently redact secret data.
+The well-defined structure of Kubernetes secrets allow us to confidently redact secret data.
 
 To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
 
@@ -168,10 +222,6 @@ This setting defaults to on for all projects, but may change in the future.
 The desired object list is compiled from objects that were applied during the last deployment. If steps are excluded during a deployment, then live status will not be shown for objects that were applied in those steps.
 
 Please avoid skipping steps that deploy Kubernetes objects.
-
-### Script steps are not supported
-
-Objects modified by script steps directly are not monitored. Support for script steps is planned for a future release.
 
 ### Runbooks are not supported
 

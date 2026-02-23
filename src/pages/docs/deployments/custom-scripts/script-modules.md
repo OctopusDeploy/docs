@@ -13,7 +13,7 @@ Script modules allow users to create collections of language specific functions 
 
 ## Creating a script module {#create-script-module}
 
-1.  Navigate to **Deploy ➜ Script Modules ➜ Add Script Module**.
+1.  Navigate to **Deploy ➜ Manage ➜ Script Modules ➜ Add Script Module**.
 
 :::figure
 ![](/docs/img/deployments/custom-scripts/images/script-modules-add.png)

@@ -30,7 +30,7 @@ When the Tentacle executes the script, it will print out instructions on how to 
 
 ```
 ...
-The Powershell execution engine is waiting for a PowerShell script debugger to attach.
+The PowerShell execution engine is waiting for a PowerShell script debugger to attach.
 Use the following commands to begin debugging this script:
 Enter-PSSession -ComputerName Server01 -Credential <credentials>
 Enter-PSHostProcess -Id 2284

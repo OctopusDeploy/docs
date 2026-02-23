@@ -53,12 +53,22 @@ Note that if you use the [Custom Installation Directory](/docs/projects/steps/co
 Packages that are transferred during the deployment are managed based on quantities of packages and version to keep. By default, Octopus keeps all packages, with a maximum of 2 versions of each.
 These options can be configured for each machine under the Machine Policy.
 
-To configure quantity to keep, create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies) and set the `Package Cache` policy to `Keep a limited number`. This will allow you to specify a number of versions to keep per package in the cache. By default this number of versions will be kept for all packages in the cache.
+To configure quantity to keep, create a custom [Machine Policy](/docs/infrastructure/deployment-targets/machine-policies) and set the `Package Cache` policy to `Keep a limited number`. This will allow you to specify a number of versions to keep per package in the cache. By default, this number of versions will be kept for all packages in the cache.
 To restrict the number of packages to keep, select `From the most recently used packages`, and enter your preferred number of packages to keep. Octopus will ensure that only the least recently used packages and versions are removed.
 
 :::figure
 ![Machine policy settings for package cache retention](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
 :::
+
+### Runbook runs \{#runbook-runs-whats-deleted}
+
+Octopus saves a new entry into the database whenever a runbook is run. Each runbook run has **logs**, **artifacts** and a snapshot of the **variables**, which will contribute to database usage on your instance. Additionally, runbook artifacts can contribute to disk usage for your instance. When expired runbook runs are cleaned up according to the retention policy, the attached logs, artifacts, and snapshots of the variables are also cleaned up. The retention policy for runbook runs can be configured in your runbook settings.
+
+#### Latest runbook runs
+
+It is worth noting that the latest run for a tenant + environment combination for each runbook is **never deleted**. This is true even if the runbook run matches a retention policy rule.
+
+These runbook runs are assumed to reflect the current condition of the environment/tenant that you are running against, therefore you can always observe the current state of your environments, regardless of when the last run was.
 
 ### Built-in repository \{#built-in-repo-whats-deleted}
 
