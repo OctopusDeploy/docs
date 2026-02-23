@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-02-22
 title: Argo CD deployments with Octopus
 navTitle: Overview
 description: Octopus Deploy can help you manage your Argo CD applications navigate lifecycle promotion
