@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-06-27
-modDate: 2024-06-27
+modDate: 2026-02-23
 title: Target tags
 description: Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets.
 navOrder: 20
@@ -36,5 +36,41 @@ You can check all the target tags assigned to your deployment targets from the *
 
 [Getting Started - Machine Roles](https://www.youtube.com/watch?v=AU8TBEOI-0M)
 
-## Older versions
-**Target roles** are **target tags** from Octopus Deploy 2024.2 onwards. The functionality remains the same. This is only a name change to make our terminology clearer.
+## Target tag sets \{#target-tag-sets}
+
+:::div{.warning}
+Target tag sets are supported from Octopus version **TODO**.
+:::
+
+Target tags are now organized into **target tag sets**, which are [tag sets](/docs/tenants/tag-sets) scoped to deployment targets. This gives you a structured way to group related target tags together, just as you can group tags for tenants, environments, projects, and runbooks.
+
+### The [System] Tag Set \{#system-tag-set}
+
+All existing target tags are automatically migrated into a built-in tag set called **[System] Tag Set**. This set is managed by Octopus and cannot be renamed or deleted.
+
+### Custom target tag sets \{#custom-target-tag-sets}
+
+In addition to the [System] Tag Set, you can create your own target tag sets to organize deployment targets by attributes relevant to your team. For example, you might create a tag set for cloud provider, region, or tier.
+
+To create a custom target tag set:
+
+1. Go to **Deploy ➜ Tag Sets** and click **Add Tag Set**.
+2. Give the tag set a name and select **Target** as the scope.
+3. Choose the tag set type:
+   - **MultiSelect:** Allow multiple tags from this set to be assigned to a target.
+   - **SingleSelect:** Allow only one tag from this set to be assigned to a target.
+4. Add the tags you want to include in the set.
+5. Save the tag set.
+
+Each tag set appears as its own field in the deployment target settings, where you can assign tags from that set to a target.
+
+Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
+
+### API compatibility \{#api-compatibility}
+
+The Octopus REST API represents target tags using a `roles` field on deployment target resources. This field continues to work as before — it returns and accepts the target tag values regardless of which tag set they belong to. No changes are required to existing API integrations.
+
+## Older versions \{#older-versions}
+
+- **Target roles** were renamed to **target tags** in Octopus Deploy 2024.2. The functionality was unchanged.
+- **Target tags** were migrated to **target tag sets** (with a built-in [System] Tag Set) in Octopus version **TODO**. Existing target tags were moved automatically with no action required.
