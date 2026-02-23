@@ -85,10 +85,6 @@ To free disk space without waiting for retention limits to apply:
 3. Disable the feature and click `Save`.
 4. Click the `Clear trace files` button.
 
-:::div{.hint}
-The `Clear trace files` button is only available when trace file export is disabled.
-:::
-
 ## Sending trace files to support
 
 If Octopus support needs your trace files to help diagnose an issue, they will guide you through how to provide them.
