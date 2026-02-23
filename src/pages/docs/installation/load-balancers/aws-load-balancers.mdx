@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-22
+modDate: 2026-02-23
 title: AWS Load Balancers
 description: Guidelines and recommendations for configuring Octopus Deploy to use load balancer options on AWS.
 navOrder: 20
@@ -10,10 +10,27 @@ hideInThisSection: true
 
 To distribute traffic to the Octopus web portal on multiple nodes, you need to use a HTTP load balancer. AWS provides a solution to distribute HTTP/HTTPS traffic to EC2 instances, Elastic Load Balancing is a highly available, secure, and elastic load balancer. There are three implementations of ELB;
 
-* [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
-* [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
-* [Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html)
+- [Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+- [Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
+- [Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html)
+- [Comparison Table](https://aws.amazon.com/elasticloadbalancing/features/#Product_comparisons)
+
+## Tentacle
 
 If you are *only* using [Listening Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended), we recommend using the Application Load Balancer.
 
 However, [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) don't work well with the Application Load Balancer, so instead, we recommend using the Network Load Balancer. To setup a Network Load Balancer for Octopus High Availability with Polling Tentacles take a look at this [knowledge base article](https://help.octopus.com/t/how-can-i-configure-my-polling-tentacles-to-hit-my-octopus-deploy-high-availability-instance-to-sitting-behind-an-aws-load-balancer/24890).
+
+## gRPC
+
+gRPC traffic can be routed with either the Application Load Balancer which provides first class support for gRPC or with the Network/Classic Load Balancer.
+
+If you choose to use the Application Load Balancer you might come across certain errors like the following from our gRPC clients(Kubernetes Monitor/Argo CD Gateway)
+
+```golang
+stream terminated by RST_STREAM with error code: PROTOCOL_ERROR
+```
+
+This is due to how AWS's Application Load Balancer ignores HTTP/2 PING Frames which causes the long lived gRPC streams we use to be ended after 60 seconds of idle time by default. [See the AWS docs for more details](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html#connection-idle-timeout).
+
+To prevent this error from occurring the Application Load Balancer needs to be configured with an increased idle timeout. This can be done by setting the following attribute `idle_timeout.timeout_seconds` to a value between 1-4000 seconds.
