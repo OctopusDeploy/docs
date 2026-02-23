@@ -1,6 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-01-01
+pubDate: 2026-02-23
 modDate: 2026-02-23
 title: OpenTelemetry trace files
 description: OpenTelemetry trace files saved to disk by Octopus Server for diagnostic purposes.
