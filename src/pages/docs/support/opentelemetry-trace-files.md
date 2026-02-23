@@ -7,7 +7,7 @@ description: OpenTelemetry trace files saved to disk by Octopus Server for diagn
 navOrder: 15
 ---
 
-Octopus Server records [OpenTelemetry](https://opentelemetry.io/) (OTEL) traces that capture internal operations like HTTP requests, task execution, and more. These traces are saved as `.tar` files to disk and can be sent to Octopus support to help diagnose issues with your Octopus installation.
+Octopus Server records [OpenTelemetry](https://opentelemetry.io/) (OTEL) traces that capture internal operations like HTTP requests, task execution, and more. These traces are saved as `.tar` files to disk and can be sent to Octopus support to help diagnose issues.
 
 :::div{.hint}
 OpenTelemetry trace files are available from **Octopus 2026.1**. This feature is disabled by default and can be enabled at **Configuration ➜ Diagnostics**.
