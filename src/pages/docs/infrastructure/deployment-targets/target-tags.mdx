@@ -1,13 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-06-27
-modDate: 2026-02-23
+modDate: 2026-02-24
 title: Target tags
 description: Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets.
 navOrder: 20
 ---
 
 Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets. Typical target tags include:
+
 - product-cluster
 - web-server
 - app-server
@@ -16,16 +17,19 @@ Before you can deploy software to your deployment targets, you need to associate
 Using target tags means the infrastructure in each of your environments doesn’t need to be identical and the deployment process will know which deployment targets to deploy your software to.
 
 Deployment targets:
+
 - Must have at least one tag
 - Can have multiple tags
 - Can share tags
 
 ## Add target tags \{#create-target-roles}
+
 Target tags are created and saved in the database as soon as you assign them to a deployment target.
 
 Decide on the naming convention you’ll use before creating your first target tag as you can’t change the case after the target tag has been created. For example, you can’t switch from all lowercase to camel case.
 
 To create a target tag:
+
 1. Register a deployment target or click on an already registered deployment target and go to Settings.
 2. In the Target Tags field, enter the target tag you’d like to use (no spaces).
 3. Save the target settings.
@@ -72,5 +76,5 @@ The Octopus REST API represents target tags using a `roles` field on deployment 
 
 ## Older versions \{#older-versions}
 
-- **Target roles** were renamed to **target tags** in Octopus Deploy 2024.2. The functionality was unchanged.
+- **Target roles** were renamed to **target tags** in Octopus Deploy 2024.2. The functionality was unchanged. This was only a name change to make our terminology clearer.
 - **Target tags** were migrated to **target tag sets** (with a built-in [System] Tag Set) in Octopus version **TODO**. Existing target tags were moved automatically with no action required.
