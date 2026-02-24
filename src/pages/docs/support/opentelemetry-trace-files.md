@@ -24,7 +24,7 @@ Viewing and changing the OpenTelemetry trace files configuration, and downloadin
 1. Navigate to **Configuration ➜ Diagnostics**.
 2. Under **Server Traces**, click `Configure`.
 3. Toggle **Enabled**.
-4. Optionally configure **Max storage size** (250 MB minimum and default) and **Retention days** (0 = unlimited, default).
+4. Optionally configure **Max storage size** and **Retention days**.
 5. Click `Save`.
 
 :::figure
@@ -37,7 +37,7 @@ Configuration changes take effect within about 1 minute as the server syncs sett
 
 ## What traces contain
 
-Traces are made up of *spans*, each representing a unit of work performed by the server. The spans captured include:
+Traces are made up of _spans_, each representing a unit of work performed by the server. The spans captured include:
 
 - **HTTP requests** - inbound and outbound HTTP requests with timing and status information.
 - **Task execution** - deployments, runbook runs, and other server tasks.
@@ -45,7 +45,7 @@ Traces are made up of *spans*, each representing a unit of work performed by the
 
 Each span includes attributes such as timing, status codes, and contextual metadata that help Octopus support engineers understand what the server was doing and where time was spent.
 
-Trace data is stored in OTLP JSON format, which is compatible with standard OpenTelemetry tooling if you wish to inspect the files yourself.
+Trace data is stored in OTLP JSON format, which is compatible with the open source [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) after decompression.
 
 ## File location
 
@@ -55,7 +55,7 @@ In a [High Availability (HA)](/docs/administration/high-availability) cluster, a
 
 ## Retention and disk usage
 
-Traces are written in 50 MB chunks with a default maximum total size of **250 MB**. The minimum configurable storage size is **250 MB**. When the total size approaches the configured limit, the oldest trace files are deleted first to make room.
+Traces are written to disk in 50 MB chunks. The configurable size limit controls how many of these chunk files will be written. When the total size approaches the configured size limit, the oldest trace files are deleted first to make room. The minimum configurable storage size is **250 MB**.
 
 Retention by age is **unlimited by default**, but you can configure a maximum number of days to keep trace files. Size-based and time-based retention work together - files are removed when they exceed either limit.
 
