@@ -25,17 +25,17 @@ configured and the JSM configuration is set up before deployments can be managed
 | Project                     | Environment                 | Outcome                          |
 | --------------------------- | --------------------------- | -------------------------------- |
 | Change controlled           | Change controlled           | Approval required for deployment |
-| **_Not_** Change controlled | Change controlled           | No approval required             |
-| Change controlled           | **_Not_** Change controlled | No approval required             |
+| ***Not*** Change controlled | Change controlled           | No approval required             |
+| Change controlled           | ***Not*** Change controlled | No approval required             |
 
 ### Runbooks
 
 | Project                     | Environment                 | Runbook           | Outcome              |
 | --------------------------- | --------------------------- | ----------------- | -------------------- |
 | Change controlled           | Change controlled           | Enabled           | Approval required    |
-| Change controlled           | Change controlled           | **_Not_** Enabled | No approval required |
-| **_Not_** Change controlled | Change controlled           | Enabled           | No approval required |
-| Change controlled           | **_Not_** Change controlled | Enabled           | No approval required |
+| Change controlled           | Change controlled           | ***Not*** Enabled | No approval required |
+| ***Not*** Change controlled | Change controlled           | Enabled           | No approval required |
+| Change controlled           | ***Not*** Change controlled | Enabled           | No approval required |
 
 ## Getting started
 
@@ -45,7 +45,7 @@ JSM Integration feature enabled.
 Before you can use the Octopus Deploy/JSM integration, you'll need to:
 
 1. Create a service account in JSM for use by Octopus
-1. In Jira, create or use an existing project of the _IT service management_ type.
+1. In Jira, create or use an existing project of the *IT service management* type.
 1. Request and install a new Octopus license required to enable the JSM feature.
 1. Configure a connection from Octopus to JSM.
 1. Configure which deployments require an approved CR.
@@ -199,8 +199,7 @@ When re-deploying a previous deployment, the same Issue will be used if it is st
 closed the above process will be followed again.
 
 Once an Issue has been found, the deployment will only proceed if the **State** of the CR is
-`Implementing`. If the **State** is either `Preview`, `Planning`, `Authorize`, or `Awaiting 
-Implementation` the deployment will wait. Any other **State** will cause the deployment task to fail. For deployments using Highly Available (HA) Octopus, the logs will be written to the server logs instead of the task logs.
+`Implementing`. If the **State** is either `Preview`, `Planning`, `Authorize`, or `Awaiting Implementation` the deployment will wait. Any other **State** will cause the deployment task to fail. For deployments using Highly Available (HA) Octopus, the logs will be written to the server logs instead of the task logs.
 
 :::div{.info}
 The only supported states are those defined in the default Issue lifecycle
@@ -259,8 +258,7 @@ For a full list of available fields and values refer to the [JIRA docs](https://
 ### Respecting change windows
 
 In addition to a change request being approved, a change must also be in its schedule change
-window in order for the deployment to execute. The change window is controlled by the `Planned 
-star` and `Planned end` on the linked Issue.
+window in order for the deployment to execute. The change window is controlled by the `Planned start` and `Planned end` on the linked Issue.
 
 :::div{.info}
 The following list assumes the linked change is in an **approved** state.
