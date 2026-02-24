@@ -37,7 +37,7 @@ Configuration changes take effect within about 1 minute as the server syncs sett
 
 ## What traces contain
 
-Traces are made up of _spans_, each representing a unit of work performed by the server. The spans captured include:
+Traces are made up of *spans*, each representing a unit of work performed by the server. The spans captured include:
 
 - **HTTP requests** - inbound and outbound HTTP requests with timing and status information.
 - **Task execution** - deployments, runbook runs, and other server tasks.
