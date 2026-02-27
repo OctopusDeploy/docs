@@ -54,8 +54,7 @@ The subject can be modified for the three different uses within Octopus:
     - **Type**
     - **Feed**
 
-
-### Deployments and Runbooks {#deployments-and-runbooks}
+## Deployments and Runbooks {#deployments-and-runbooks}
 
 The **Subject** claim for a deployment or a runbook supports the following parts:
 
@@ -85,7 +84,6 @@ The default format for a health check is `space:[space-slug]:target:[target-slug
 
 The value for the type is `health`.
 
-
 ## Account Test {#account-test}
 
 The Account Test **Subject** claim supports the **Space** slug, the **Account** slug and the **Type**
@@ -98,3 +96,31 @@ The Feed **Subject** claim supports the **Space** slug and the **Feed** slug. Th
 
 The default format for feeds is `space:[space-slug]:feed:[feed-slug]`.
 
+## Context specific value claims {#context-specific-value-claims}
+
+In addition to the customizable subject claim, the JWT token will also include specific single-value claims for the deployment or runbook execution.
+Each of these claims will be prefixed with `https://octopus.com/claims/` and will represent all the values that can be included in the subject configuration.
+
+```json
+{
+  "aud": "api://default",
+  "iss": "https://example.octopus.app/",
+  "exp": 1234567890,
+  "iat": 1234567890,
+  "nbf": 1234567890,
+  "jti": "abc",
+  "https://octopus.com/claims/space": "space-slug",
+  "https://octopus.com/claims/project": "project-slug",
+  "https://octopus.com/claims/runbook": "runbook-slug", // only on a runbook run
+  "https://octopus.com/claims/projectgroup": "project-group-slug",
+  "https://octopus.com/claims/environment": "environment-slug",
+  "https://octopus.com/claims/tenant": "teannt-slug",
+  "https://octopus.com/claims/type": "deployment", // or runbook for a runbook run
+  "https://octopus.com/claims/account": "account-slug",
+  "sub": "space:[space-slug]:project:[project-slug]:environment:[environment-slug]"
+}
+```
+
+:::div{.hint}
+These namespaced claims are only available in **Octopus 2026.1**.
+:::
