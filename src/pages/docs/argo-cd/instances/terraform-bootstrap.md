@@ -423,6 +423,7 @@ output "get_argocd_token" {
 ```
 
 <a name="terraform-tfvars"></a>
+
 ```yaml
 # terraform.tfvars.example
 # Copy this file to terraform.tfvars and fill in the values.
