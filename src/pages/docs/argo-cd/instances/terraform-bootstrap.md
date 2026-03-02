@@ -16,7 +16,7 @@ Here is a simplified example to make this happen:
 | [providers.tf](#providers) | Terraform + kubernetes, helm, null, time providers |
 | [variables.tf](#variables) | All inputs — kubeconfig, Argo CD URLs, Octopus credentials, gateway config |
 | [argocd.tf](#argo-cd) | Installs Argo CD via Helm; enables apiKey,login on the admin account |
-| [argocd-token.tf](#argocd-token) | Generates the Argo CD API key via the CLI and stores it in a k8s secret |
+| [argocd-token.tf](#argo-cd-token) | Generates the Argo CD API key via the CLI and stores it in a k8s secret |
 | [gateway.tf](#gateway) | Creates Octopus API key secret; installs the gateway Helm chart |
 | [outputs.tf](#outputs) | Useful one-liners and resource references |
 | [terraform.tfvars.example](#terraform-tfvars) | Copy → terraform.tfvars and fill in |
