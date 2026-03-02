@@ -391,7 +391,7 @@ resource "helm_release" "gateway" {
 }
 ```
 
-<a name="outputs"></a>
+## Outputs
 
 ```yaml
 # outputs.yaml
