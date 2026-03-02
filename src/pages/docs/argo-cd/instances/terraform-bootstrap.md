@@ -61,7 +61,7 @@ provider "helm" {
 }
 ```
 
-<a name="variables"></a>
+## Variables
 
 ```yaml
 # variables.yaml
