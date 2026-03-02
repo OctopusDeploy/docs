@@ -161,7 +161,7 @@ variable "gateway_chart_version" {
 }
 ```
 
-<a name="argocd"></a>
+## Argo CD
 
 ```yaml
 # argocd.yaml
