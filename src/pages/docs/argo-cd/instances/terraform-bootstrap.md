@@ -421,7 +421,7 @@ output "get_argocd_token" {
 }
 ```
 
-<a name="terraform-tfvars"></a>
+## Terraform tfvars
 
 ```yaml
 # terraform.tfvars.example
