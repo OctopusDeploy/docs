@@ -146,4 +146,5 @@ destination:
   server: https://kubernetes.default.svc
   namespace: octopus-argo-gateway-your-namespace
 ```
+
 the `serverAccessTokenSecretName/Key` and `authenticationTokenSecretName/Key` should match the Secret names and keys that contain the respective tokens, and those secret need to exist in the cluster.

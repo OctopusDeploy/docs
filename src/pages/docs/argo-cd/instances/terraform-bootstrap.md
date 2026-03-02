@@ -12,9 +12,8 @@ When provisioning a new cluster, it is possible to install Argo CD along with th
 
 Here is a simplified example to make this happen:
 
-
-| File	| Purpose |
-|-|-|
+| File | Purpose |
+| - | - |
 | [providers.tf](#providers) | Terraform + kubernetes, helm, null, time providers |
 | [variables.tf](#variables) | All inputs — kubeconfig, Argo CD URLs, Octopus credentials, gateway config |
 | [argocd.tf](#argocd) | Installs Argo CD via Helm; enables apiKey,login on the admin account |
@@ -24,6 +23,7 @@ Here is a simplified example to make this happen:
 | [terraform.tfvars.example](#terraform-tfvars) | Copy → terraform.tfvars and fill in |
 
 <a name="providers"></a>
+
 ```yaml
 # providers.yaml
 terraform {
@@ -63,6 +63,7 @@ provider "helm" {
 ```
 
 <a name="variables"></a>
+
 ```yaml
 # variables.yaml
 # ─── Kubernetes ───────────────────────────────────────────────────────────────
@@ -162,6 +163,7 @@ variable "gateway_chart_version" {
 ```
 
 <a name="argocd"></a>
+
 ```yaml
 # argocd.yaml
 locals {
@@ -215,6 +217,7 @@ resource "time_sleep" "wait_for_argocd" {
 ```
 
 <a name="argocd-token"></a>
+
 ```yaml
 # argocd-token.yaml
 locals {
@@ -305,6 +308,7 @@ resource "null_resource" "argocd_token" {
 ```
 
 <a name="gateway"></a>
+
 ```yaml
 # gateway.yaml
 resource "kubernetes_namespace" "gateway" {
@@ -389,6 +393,7 @@ resource "helm_release" "gateway" {
 ```
 
 <a name="outputs"></a>
+
 ```yaml
 # outputs.yaml
 output "argocd_namespace" {
