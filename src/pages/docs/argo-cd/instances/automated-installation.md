@@ -122,25 +122,28 @@ project: default
 source:
   repoURL: registry-1.docker.io/octopusdeploy
   chart: octopus-argocd-gateway-chart
-  targetRevision: 1.3.0
+  targetRevision: 1.18.0
   helm:
-    parameters:
-      - name: registration.octopus.name
-        value: <display name of gateway in Octopus>
-      - name: registration.octopus.serverAccessToken
-        value: API-XXXXXXXXXXXXXXXX
-      - name: registration.octopus.serverApiUrl
-        value: https://your-instance.octopus.app
-      - name: registration.octopus.spaceId
-        value: Spaces-1
-      - name: gateway.argocd.authenticationToken
-        value: >-
-          <Argo Api Token>
-      - name: gateway.argocd.serverGrpcUrl
-        value: grpc://argocd-server.argocd.svc.cluster.local"
-      - name: gateway.octopus.serverGrpcUrl
-        value: grpc://your-instance.octopus.app:8443
+    valuesObject:
+      registration:
+        octopus:
+          name: <display name of gateway in Octopus>
+          serverApiUrl: https://your-instance.octopus.app
+          serverAccessTokenSecretName: octopus-server-access-token
+          serverAccessTokenSecretKey: OCTOPUS_SERVER_ACCESS_TOKEN
+          spaceId: Spaces-1
+      gateway:
+        octopus:
+          serverGrpcUrl: grpc://your-instance.octopus.app:8443
+        argocd:
+          serverGrpcUrl: grpc://argocd-server.argocd.svc.cluster.local
+          authenticationTokenSecretName: argocd-auth-token
+          authenticationTokenSecretKey: ARGOCD_AUTH_TOKEN
+      autoUpdate:
+        # should be disabled, otherwise the auto-update job will keep trying to update the instance, while argo cd syncs it back to original state
+        enabled: false
 destination:
   server: https://kubernetes.default.svc
   namespace: octopus-argo-gateway-your-namespace
 ```
+the `serverAccessTokenSecretName/Key` and `authenticationTokenSecretName/Key` should match the Secret names and keys that contain the respective tokens, and those secret need to exist in the cluster.
