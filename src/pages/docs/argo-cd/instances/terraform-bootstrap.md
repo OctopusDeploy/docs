@@ -5,7 +5,6 @@ modDate: 2026-03-02
 title: Terraform Bootstrap
 description: How to bootstrap Argo CD + Argo CD Gateway using Terraform
 navOrder: 10
-hideInThisSectionHeader: true
 ---
 
 When provisioning a new cluster, it is possible to install Argo CD along with the Argo CD Gateway using terraform. In order to do that, you need to create an Argo CD token, and inject it to the Argo CD Gateway installation.
