@@ -306,7 +306,7 @@ resource "null_resource" "argocd_token" {
 }
 ```
 
-<a name="gateway"></a>
+## Gateway
 
 ```yaml
 # gateway.yaml
