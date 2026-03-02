@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-01-20
+modDate: 2026-03-03
 title: Automated Installation
 description: How Octopus tracks your Argo CD Instances
 navOrder: 10
@@ -117,34 +117,57 @@ The Octopus-Argo Gateway's helm chart can be installed via an Argo CD Applicatio
 
 The application yaml required to install the helm chart is as follows (replacing values as per previous examples):
 
-```yaml
-project: default
-source:
-  repoURL: registry-1.docker.io/octopusdeploy
-  chart: octopus-argocd-gateway-chart
-  targetRevision: 1.18.0
-  helm:
-    valuesObject:
-      registration:
-        octopus:
-          name: <display name of gateway in Octopus>
-          serverApiUrl: https://your-instance.octopus.app
-          serverAccessTokenSecretName: octopus-server-access-token
-          serverAccessTokenSecretKey: OCTOPUS_SERVER_ACCESS_TOKEN
-          spaceId: Spaces-1
-      gateway:
-        octopus:
-          serverGrpcUrl: grpc://your-instance.octopus.app:8443
-        argocd:
-          serverGrpcUrl: grpc://argocd-server.argocd.svc.cluster.local
-          authenticationTokenSecretName: argocd-auth-token
-          authenticationTokenSecretKey: ARGOCD_AUTH_TOKEN
-      autoUpdate:
-        # should be disabled, otherwise the auto-update job will keep trying to update the instance, while argo cd syncs it back to original state
-        enabled: false
-destination:
-  server: https://kubernetes.default.svc
-  namespace: octopus-argo-gateway-your-namespace
-```
+1. Create the namespace
+
+    ```shell
+    kubectl create ns octopus-argo-gateway-your-namespace
+    ```
+2. Generate Argo CD Authentication Token
+  2.1. Follow the instructions on the [Argo CD Authentication](argo-user) guide
+  2.2. Save the token in a secret
+
+    ```shell
+    kubectl create secret generic argocd-auth-token -n octopus-argo-gateway-your-namespace --from-literal=ARGOCD_AUTH_TOKEN=<token>
+    ```
+
+3. Generate Octopus Deploy Api-Key
+  3.1. Follow the instreuctions on the [How to Create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key) guide
+  3.2. Save the token in a secret
+
+    ```shell
+    kubectl create secret generic octopus-server-access-token -n octopus-argo-gateway-your-namespace --from-literal=OCTOPUS_SERVER_ACCESS_TOKEN=<token>
+    ```
+
+4. Apply the Argo CD application (or commit this manifest to your git-ops repository already synced by Argo CD)
+
+    ```yaml
+    project: default
+    source:
+      repoURL: registry-1.docker.io/octopusdeploy
+      chart: octopus-argocd-gateway-chart
+      targetRevision: 1.18.0
+      helm:
+        valuesObject:
+          registration:
+            octopus:
+              name: <display name of gateway in Octopus>
+              serverApiUrl: https://your-instance.octopus.app
+              serverAccessTokenSecretName: octopus-server-access-token
+              serverAccessTokenSecretKey: OCTOPUS_SERVER_ACCESS_TOKEN
+              spaceId: Spaces-1
+          gateway:
+            octopus:
+              serverGrpcUrl: grpc://your-instance.octopus.app:8443
+            argocd:
+              serverGrpcUrl: grpc://argocd-server.argocd.svc.cluster.local
+              authenticationTokenSecretName: argocd-auth-token
+              authenticationTokenSecretKey: ARGOCD_AUTH_TOKEN
+          autoUpdate:
+            # should be disabled, otherwise the auto-update job will keep trying to update the instance, while argo cd syncs it back to original state
+            enabled: false
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: octopus-argo-gateway-your-namespace
+    ```
 
 the `serverAccessTokenSecretName/Key` and `authenticationTokenSecretName/Key` should match the Secret names and keys that contain the respective tokens, and those secret need to exist in the cluster.
