@@ -21,7 +21,7 @@ Here is a simplified example to make this happen:
 | [outputs.tf](#outputs) | Useful one-liners and resource references |
 | [terraform.tfvars.example](#terraform-tfvars) | Copy → terraform.tfvars and fill in |
 
-<a name="providers"></a>
+## Providers
 
 ```yaml
 # providers.yaml
