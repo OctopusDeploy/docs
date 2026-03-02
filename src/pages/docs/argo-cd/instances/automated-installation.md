@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-01-20
+modDate: 2026-03-03
 title: Automated Installation
 description: Install Argo CD instances via scripting or IAC
 navOrder: 10
@@ -117,7 +117,28 @@ The Octopus-Argo Gateway's helm chart can be installed via an Argo CD Applicatio
 
 The application YAML required to install the helm chart is as follows (replacing values as per previous examples):
 
-Update `targetRevision` to the most recent tag found on [dockerhub](https://hub.docker.com/r/octopusdeploy/octopus-argocd-gateway-chart)
+1. Create the namespace
+
+    ```shell
+    kubectl create ns octopus-argo-gateway-your-namespace
+    ```
+2. Generate Argo CD Authentication Token
+  2.1. Follow the instructions on the [Argo CD Authentication](argo-user) guide
+  2.2. Save the token in a secret
+
+    ```shell
+    kubectl create secret generic argocd-auth-token -n octopus-argo-gateway-your-namespace --from-literal=ARGOCD_AUTH_TOKEN=<token>
+    ```
+
+3. Generate Octopus Deploy Api-Key
+  3.1. Follow the instreuctions on the [How to Create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key) guide
+  3.2. Save the token in a secret
+
+    ```shell
+    kubectl create secret generic octopus-server-access-token -n octopus-argo-gateway-your-namespace --from-literal=OCTOPUS_SERVER_ACCESS_TOKEN=<token>
+    ```
+
+4. Apply the Argo CD application (or commit this manifest to your git-ops repository already synced by Argo CD)
 
 ```yaml
 project: default
