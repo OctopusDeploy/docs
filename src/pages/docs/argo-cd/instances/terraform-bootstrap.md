@@ -215,7 +215,7 @@ resource "time_sleep" "wait_for_argocd" {
 }
 ```
 
-<a name="argocd-token"></a>
+## Argo CD Token
 
 ```yaml
 # argocd-token.yaml
