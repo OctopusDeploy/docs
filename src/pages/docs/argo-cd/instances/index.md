@@ -14,7 +14,7 @@ An Argo CD instance is represented in Octopus as a separate Infrastructure compo
 
 Each Argo CD instance in Octopus represents a connection to a running Argo CD instance and is used as the anchor in which Argo CD applications are retrieved.
 
-To connect Octopus Deploy to an Argo CD instance, a network gateway must first be installed in your Kubernetes cluster, the `Octopus Argo CD Gateway`.,
+To connect Octopus Deploy to an Argo CD instance, a network gateway must first be installed in your Kubernetes cluster, the Octopus Argo CD Gateway.
 
 The gateway creates a TLS-encrypted, outgoing gRPC connection from the host Kubernetes cluster to Octopus Server, and routes data from Argo CD to your Octopus
 Server instance. This gateway means that no publicly accessible HTTP/gRPC URL is required for communication, providing added security.
@@ -59,7 +59,7 @@ kubectl config view
     :::div{.warning}
     The gateway's name must be unique within a cluster. Otherwise the existing gateway's settings will be overwritten, causing deployment failures.
     :::
-2. Select at least one [environment](https://octopus.com/docs/infrastructure/environments) the instance will be responsible for servicing.
+2. Select at least one [environment](/docs/infrastructure/environments) the instance will be responsible for servicing.
 3. If required, change the [in-cluster](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services) URL of the Argo CD API Server service. In many cases the default value provided will work.
 4. Optionally, add the URL used to access Argo CD's web frontend. This will be used for linking from Octopus to Argo CD to aid with deployment investigations.
 5. A valid Argo CD JWT authentication token is required. To generate this, you can use the [Argo CD CLI](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
@@ -68,14 +68,14 @@ kubectl config view
     The JWT token must belong to an Argo CD user with permission to read Application and Cluster resources.
     :::
 
-6. Press "Next" to move to the next screen
+6. Press **Next** to move to the next screen
 
 #### Installation helm command
 
 At the end of the wizard, Octopus generates a Helm command that you copy and paste into a terminal connected to the target cluster. After it's executed, Helm installs all the required resources and starts the gateway.
 
 :::div{.hint}
-Full documentation for the Octopus Argo CD gateway Helm chart values can be found in this [Github repository](https://github.com/OctopusDeploy/octopus-argocd-gateway-chart-docs/tree/main)
+Full documentation for the Octopus Argo CD gateway Helm chart values can be found in this [GitHub repository](https://github.com/OctopusDeploy/octopus-argocd-gateway-chart-docs/tree/main).
 :::
 
 :::figure
@@ -83,7 +83,7 @@ Full documentation for the Octopus Argo CD gateway Helm chart values can be foun
 :::
 
 :::div{.hint}
-The helm command includes a 1 hour bearer token that is used when the gateway first initializes, to register itself with Octopus Server.
+The helm command includes a one-hour bearer token that is used when the gateway first initializes, to register itself with Octopus Server.
 :::
 
 :::div{.hint}
@@ -104,7 +104,7 @@ gateway.argocd.plaintext="true"
 
 :::
 
-If left open, the installation dialog waits for the gateway to establish a connection and run a health check. Once successful, the Octopus Argo CD gateway is ready for use!
+If left open, the installation dialog waits for the gateway to establish a connection and run a health check. Once successful, the Octopus Argo CD gateway is ready for use.
 
 :::figure
 ![Octopus Argo CD Gateway Wizard successful installation](/docs/img/argo-cd/gateway-wizard-success.png)
@@ -118,7 +118,7 @@ A successful health check indicates that the gateway can successfully connect to
 
 #### Trusting Certificates
 
-If your Octopus server or Argo CD instance are hosted using self signed certificates, the gateway will likely not be able to connect. To get the gateway application to trust your certificates you can provide them in two ways(Requires `>= v1.12.0` of the Octopus Argo CD gateway Helm chart):
+If your Octopus server or Argo CD instance are hosted using self signed certificates, the gateway will likely not be able to connect. To get the gateway application to trust your certificates you can provide them in two ways (requires `>= v1.12.0` of the Octopus Argo CD gateway Helm chart):
 
 **Passing certificates as Helm values:**
 
@@ -183,7 +183,7 @@ The gateway uses an internal cronjob to ensure it is always running the latest v
 
 ## Status Display
 
-Your connected 'Argo CD Instances' appear under the Octopus' Infrastructure menu.
+Your connected 'Argo CD Instances' appear under the Octopus's Infrastructure menu.
 These pages allow you to:
 
 - View and edit the Octopus-managed properties of your Argo CD Instance (eg permitted environments),
@@ -234,7 +234,7 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.insecure="true"` TLS certificate verification will no longer be performed between the gateway and the Argo CD instance ensure that it is necessary that you set this configuration to avoid potential security issues.
+By setting `gateway.argocd.insecure="true"`, TLS certificate verification will no longer be performed between the gateway and the Argo CD instance. Make sure this configuration is necessary to avoid potential security issues.
 :::
 
 #### No Certificate
@@ -259,7 +259,7 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
 
 :::div{.warning}
-**WARNING:** By setting `gateway.argocd.plaintext="true"` all traffic between the gateway and Argo CD will be unencrypted, ensure that it is necessary that you set this configuration to avoid potential security issues.
+By setting `gateway.argocd.plaintext="true"`, all traffic between the gateway and Argo CD will be unencrypted. Make sure this configuration is necessary to avoid potential security issues.
 :::
 
 ## Deleting an Octopus Argo CD Gateway
@@ -271,7 +271,7 @@ When removing a gateway two operations are required:
 
 The Octopus UI allows you to perform both of these operations.
 
-Navigate to Infrastructure --> Argo CD Instances, and select the instance whose gateway is to be removed.
+Navigate to **Infrastructure ➜ Argo CD Instances**, and select the instance whose gateway is to be removed.
 
 From the overflow menu, select "Delete" which will display a confirmation dialog containing the Helm command which when
 executed will remove the gateway from your cluster.

@@ -11,7 +11,7 @@ hideInThisSectionHeader: true
 ---
 Argo Live Object Status shows the live status of the Kubernetes resources deployed by the Argo CD Applications mapped
 to the project.
-This allows you to monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
+This lets you monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
 
 :::div{.info}
 Outwardly this is an identical capability to that available for [Kubernetes based projects](/docs/kubernetes/live-object-status).
@@ -19,14 +19,14 @@ However when used with Argo CD, neither the [Kubernetes agent](/docs/kubernetes/
 :::
 
 ## Where it is available
-Using Argo CD Live Objet Status requires the following:
+Using Argo CD Live Object Status requires the following:
 * Octopus Deploy 2025.4+
 * A registered [Argo CD Instance](/docs/argo-cd/instances/)
 * [Annotations](/docs/argo-cd/annotations) on your Argo CD Applications, mapping them onto Octopus Deploy projects
 * A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
 
 ## How to use Live Status
-Once the prerequisites have been fulfilled, simply toggle the switch on the  dashboard to show live status in place of deployment status.
+Once the prerequisites have been fulfilled, toggle the switch on the dashboard to show live status in place of deployment status.
 
 :::figure
 ![Octopus Argo CD Live Status Dashboard](/docs/img/argo-cd/argo-cd-live-status-dashboard.png)

@@ -55,6 +55,10 @@ Git commit method specifies *how* changes are applied to your target branch. Eit
 
 If you decide to open pull requests for your changes, you may choose to do so for all environments or only a specific selection. Environments not selected will commit directly to the target branch.
 
+:::div{.warning}
+Currently, pull requests can only be created for GitHub, GitLab, and Azure DevOps based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+:::
+
 #### Step Verification
 
 ![Step verification options in the process editor](/docs/img/argo-cd/steps/argocd-step-verification.png)

@@ -22,7 +22,7 @@ Behavior:
 
 - Helm install dialog stuck in progressing (Waiting for <name> to establish a connection)
 - Helm command halted showing chart pulled for >= 5 minutes
-- In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "Failed to register ArgoCD Gateway with Octopus Serer"
+- In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "Failed to register ArgoCD Gateway with Octopus Server"
 
 Cause:
 
@@ -60,7 +60,7 @@ Resolution:
 
 ## Application/Project mapping
 
-### No applications are listed on the Argo CD Instance --> Applications page
+### No applications are listed on the **Argo CD Instance ➜ Applications** page
 
 Behavior
 
@@ -88,7 +88,7 @@ Cause:
 
 Resolution:
 
-- Navigate to Infrastructure --> Argo CD Instances and confirm an instance is visible in this space
+- Navigate to **Infrastructure ➜ Argo CD Instances** and confirm an instance is visible in this space
 - If not - add a new Argo CD instance using the installation wizard
 
 ## Step Execution
@@ -135,10 +135,10 @@ Cause:
 
 Resolution:
 
-- Octopus cannot update charts sourced from a help repository or OCI feed - contact support to determine way forward.
+- Octopus cannot update charts sourced from a Helm repository or OCI feed - contact support to determine way forward.
 - Ensure the associated git credential has appropriate permissions
 
-## Deployment fails on Argo CD step (insufficient permissions)
+### Deployment fails on Argo CD step (insufficient permissions)
 
 Behavior:
 
@@ -164,4 +164,4 @@ Cause:
 
 Resolution:
 
-- Enable Live Status via the "live Status" toggle switch at the top of the dashboard.
+- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard.

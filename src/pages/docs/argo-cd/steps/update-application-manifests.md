@@ -43,8 +43,8 @@ Purging the source folder clears the `Path` directory of the Argo CD Application
 ## Creating and Deploying a Release
 
 :::div{.info}
-The step will fail to execute if no git credentials exist for repositories references by your Argo CD Applications.
-As such, prior to execution, it is recommended to use the [Deployment Preview](/docs/argo-cd/steps/deployment-preview) to ensure
+The step will fail to execute if no git credentials exist for repositories referenced by your Argo CD Applications.
+As such, prior to execution, it is recommended to use the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view) to ensure
 no outstanding configuration is required.
 :::
 
