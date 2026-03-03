@@ -16,7 +16,7 @@ The Octopus and Argo CD integration supports a variety of application configurat
   - If your application specifies a constant `TargetRevision`, Octopus treats it as a branch and will fail to push back to your repository.
 - Helm sources that directly reference a chart from a Helm repository or OCI feed are read-only and can't be updated by Octopus.
   - If your application is represented as a Helm chart *in a directory*, Octopus can update the directory content in the application's repository.
-- Pull requests can be created for GitHub, GitLab, and Azure DevOps hosted repositories (e.g. *.github.com, *.gitlab.com).
+- Pull requests can be created for GitHub, GitLab, and Azure DevOps hosted repositories (e.g. \*.github.com, \*.gitlab.com).
   - Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
 - Multiple source applications require Argo CD 2.14.0 or above (corresponding to the introduction of named sources in Argo CD).
   - Single source applications are supported in all versions of Argo CD.

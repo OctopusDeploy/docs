@@ -30,7 +30,7 @@ how it executes.
     When a directory is specified, the structure below the specified path is maintained when moving files into the Argo CD Application's repository.
     :::
 
-3. Container images can be defined, but are optional. These are included to allow automations, such as external feed triggers, to be attached to the project.
+3. Container images can be defined, but are optional. These let you attach automated processes, such as external feed triggers, to the project.
 
 ## Git Commit Settings
 

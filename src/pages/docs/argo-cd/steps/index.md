@@ -16,7 +16,6 @@ Octopus offers two in-built steps which are able to modify a mapped Argo CD appl
 1. Update Argo CD Application Image Tags
 2. Update Argo CD Application Manifests
 
-
 ### Update Argo CD Application Image Tags
 
 This step is responsible for identifying images referenced by an application, and updating their image-tags to the value defined in the Octopus release. This step lets you update the versions of your applications via Octopus, while maintaining the definition of the bulk of your manifests in your Git repository.
