@@ -169,5 +169,3 @@ The application yaml required to install the helm chart is as follows (replacing
       server: https://kubernetes.default.svc
       namespace: octopus-argo-gateway-your-namespace
     ```
-
-the `serverAccessTokenSecretName/Key` and `authenticationTokenSecretName/Key` should match the Secret names and keys that contain the respective tokens, and those secret need to exist in the cluster.
