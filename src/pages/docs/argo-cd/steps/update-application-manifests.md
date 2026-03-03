@@ -10,7 +10,9 @@ navOrder: 30
 The Update Argo CD Application Manifests step is responsible for generating a set of Argo CD Application manifests from
 a set of [Octostache](https://github.com/OctopusDeploy/Octostache) template files, which have been populated with Octopus variables.
 
-The following provides instructions around how to configure an Update Manifests step, constraints on its usage and
+This step is agnostic of the application source repository content. Regardless of what's in the source repository, the step writes populated templates to the path specified in the Argo CD application source.
+
+The following provides instructions on how to configure an Update Manifests step, constraints on its usage, and
 how it executes.
 
 ## Manifest Templates

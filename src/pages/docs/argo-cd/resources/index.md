@@ -22,17 +22,7 @@ The Octopus and Argo CD integration supports a variety of application configurat
 - Multiple source applications require Argo CD 2.14.0 or above (corresponding to the introduction of named sources in Argo CD).
   - Single source applications are supported in all versions of Argo CD.
 
-## Update Argo CD Application Image Tags
+For details on how each step behaves, see:
 
-The Update Argo CD Application Image Tags step's behavior changes based on the content of the application's repository:
-
-| Repository Content | Behavior                                                                                                                                                  |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yaml Manifests     | Will recursively update image-tag fields in k8s resource files                                                                                            |
-| Kustomize          | Will replace image tag values in the `kustomization.yaml` or `kustomization.yml` file                                                                     |
-| Helm Chart         | Will update image-tag fields specified in the `values.yaml` or `values.yml` file, requires [helm-annotations](/docs/argo-cd/annotations/helm-annotations) |
-
-## Update Argo CD Application Manifests
-
-The Update Argo CD Application Manifests step's behavior is agnostic of the application source repository content.
-Regardless of the content of the source repository, the step is responsible for writing the populated templates to the path specified in the Argo CD application source.
+- [Update Argo CD Application Image Tags](/docs/argo-cd/steps/update-application-image-tags)
+- [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests)
