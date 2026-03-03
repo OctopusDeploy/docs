@@ -178,8 +178,9 @@ resource "kubernetes_namespace" "argocd" {
 }
 
 # Install Argo CD via the official Helm chart.
-# The accounts.admin config enables API key generation for the admin account,
-# which is required for the token generation step in argocd-token.tf.
+# Creates a dedicated "octopus" service account with apiKey capability and the
+# permissions required by Octopus Deploy (applications, clusters, logs).
+# Admin retains login-only access so the bootstrap script can generate the octopus token.
 resource "helm_release" "argocd" {
   name       = "argocd"
   repository = null
@@ -191,12 +192,18 @@ resource "helm_release" "argocd" {
     yamlencode({
       configs = {
         cm = {
-          # Allow the admin account to generate API keys and log in interactively.
-          "accounts.admin" = "apiKey,login"
+          # Dedicated service account for Octopus Deploy — API key only, no interactive login.
+          "accounts.octopus" = "apiKey"
         }
         rbac = {
           "policy.default" = "role:readonly"
-          "policy.csv"     = "g, admin, role:admin"
+          "policy.csv"     = <<-EOT
+            g, admin, role:admin
+            p, octopus, applications, get, *, allow
+            p, octopus, applications, sync, *, allow
+            p, octopus, clusters, get, *, allow
+            p, octopus, logs, get, */*, allow
+          EOT
         }
       }
     })
@@ -229,7 +236,7 @@ locals {
 #   1. Wait for the Argo CD server deployment to be fully ready.
 #   2. Port-forward the Argo CD server locally.
 #   3. Log in with the argocd CLI using the auto-generated admin password.
-#   4. Generate an API key for the admin account.
+#   4. Generate an API key for the octopus account.
 #   5. Store that key in a Kubernetes secret in the gateway namespace.
 #
 # Prerequisites (must be available on the machine running `terraform apply`):
@@ -288,9 +295,9 @@ resource "null_resource" "argocd_token" {
         --insecure \
         --grpc-web
 
-      echo ">>> Generating API token for the admin account..."
+      echo ">>> Generating API token for the octopus account..."
       ARGOCD_TOKEN=$(argocd account generate-token \
-        --account admin \
+        --account octopus \
         --insecure \
         --grpc-web)
 
