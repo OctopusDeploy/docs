@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-04
 title: Overview
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 10

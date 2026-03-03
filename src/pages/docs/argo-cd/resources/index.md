@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-04
 title: Supported Use Cases
 description: Supported Argo CD Application configurations and constraints for use with Octopus
 navTitle: Supported Use Cases
