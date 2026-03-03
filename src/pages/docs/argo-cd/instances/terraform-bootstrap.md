@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-03-02
-modDate: 2026-03-02
+pubDate: 2026-03-03
+modDate: 2026-03-03
 title: Terraform Bootstrap
 description: How to bootstrap Argo CD + Argo CD Gateway using Terraform
 navOrder: 10
@@ -569,7 +569,7 @@ argocd_insecure = false
 
 # ─── Octopus Deploy ───────────────────────────────────────────────────────────
 octopus_api_url  = "https://my-instance.octopus.app"
-octopus_grpc_url = "my-instance.octopus.app:443"
+octopus_grpc_url = "my-instance.octopus.app:8443"
 octopus_api_key  = "API-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"   # sensitive
 octopus_space_id = "Spaces-1"
 
