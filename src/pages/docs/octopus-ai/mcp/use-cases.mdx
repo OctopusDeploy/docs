@@ -16,11 +16,12 @@ We are eager to hear how you use it and what features you would like to see incl
 Reason about what changes have been deployed where, to help you understand what your customers are using in production.
 
 ### Production Version Tracking
+
 Quickly find out what version of your software a customer, represented by a Tenant, is running in Production, and identify if there were any issues with their most recent deployment.
 
 #### 📝 Example Prompt
 
-```
+```text
 Customer X have submitted a support ticket complaining that there is a bug in the latest release of App. Can you tell me what release they are on, when it was deployed, and if there were any issues with the deployment?
 ```
 
@@ -32,9 +33,9 @@ Get to the root cause of failures or unhealthy deployment targets, allowing you 
 
 Check for failed deployments or unhealthy kubernetes workloads, analyze the failure reasons and suggest solutions.
 
-#### 📝 Example Prompt
+#### 📝 Example Prompt: Deployment Health
 
-```
+```text
 Check health of the {ServiceName} service in the {SpaceName} space and report any issues found, check status of kubernetes services to produce a comprehensive report
 ```
 
@@ -47,12 +48,12 @@ Check health of the {ServiceName} service in the {SpaceName} space and report an
 Ensure your Octopus instance is in optimal shape, and that deployments continue to execute happily and healthily.
 
 ### Certificate Expiry Monitoring
- 
+
 Identify unhealthy resources, expiring certificates or find unused projects in your Octopus instance.
 
-#### 📝 Example Prompt
+#### 📝 Example Prompt: Certificate Expiry
 
-```
+```text
 Find certificates soon set to expire in {SpaceName} space
 ```
 
@@ -60,8 +61,8 @@ Find certificates soon set to expire in {SpaceName} space
 
 Find configured resources in your Octopus instance and check if they have access to the desired targets.
 
-#### 📝 Example Prompt
+#### 📝 Example Prompt: Resource Access
 
-```
- Check accounts configured in {SpaceName} space in my Octopus instance, find the preproduction azure account and then check which resources are available in that subscription using the azure mcp
+```text
+Check accounts configured in {SpaceName} space in my Octopus instance, find the preproduction azure account and then check which resources are available in that subscription using the azure mcp
 ```
