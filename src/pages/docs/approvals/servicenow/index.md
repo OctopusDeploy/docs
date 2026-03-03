@@ -273,7 +273,6 @@ The expected ServiceNow value doesn't always align with the displayed value. In 
 
 For a full list of available fields and values refer to the [ServiceNow docs](https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/change-management-api).
 
-
 ### Respecting change windows
 
 :::div{.warning}
@@ -292,6 +291,24 @@ The following list assumes the linked change is in an **approved** state.
 - If `Planned start date` and `Planned end date` are specified the deployment will execute on or between the defined dates.
 
 **If at any time a `Planned end date` is exceeded and the linked change request is not approved, the deployment will be terminated.**
+
+## Available Variables in a Deployment or Runbook
+
+:::div{.info}
+The following variables are only available in version 2025.4 and later
+:::
+
+| Variable | Notes |
+|--|--|
+| `Octopus.ServiceNow.ChangeRequest.Number` | The number of the matched or created change request | 
+| `Octopus.ServiceNow.ChangeRequest.SysId` | The system identifier of the matched or created change request |
+| `Octopus.ServiceNow.Connection.Id` |  |
+| `Octopus.ServiceNow.Connection.Name` | |
+| `Octopus.ServiceNow.Connection.BaseUrl` | |
+| `Octopus.ServiceNow.Connection.OAuthClientId` | |
+| `Octopus.ServiceNow.Connection.OAuthClientSecret` | |
+| `Octopus.ServiceNow.Connection.Username` | |
+| `Octopus.ServiceNow.Connection.Password` | |
 
 ## Known Issues and limitations
 

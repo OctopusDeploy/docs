@@ -69,7 +69,7 @@ To supply the build information:
 2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/#build-information-step).
 
 :::div{.warning}
-If you had previously been using the older functionality on the Create Octopus Release step, you should disable all of the release note options on that step as they use different mechanics and will conflict with the new features.
+If you had previously been using the older functionality on the Create Octopus Release step, you should disable all release note options on that step as they use different mechanics and will conflict with the new features.
 
 ![Legacy create release settings](/docs/img/releases/issue-tracking/images/octo-azure-devops-create-release-notes-fields.png)
 :::

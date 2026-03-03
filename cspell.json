@@ -21,6 +21,12 @@
     "utilization->use",
     "whilst->while"
   ],
+  "ignoreRegExpList": [
+    "/{#[^}]+}/g",
+    "/\\([^\\)]*#[\\w-]+/g",
+    "/href=\"[^\"]*#[\\w-]+/g",
+    "`[^`]+`"
+  ],
   "suggestWords": [
     "allow->let",
     "allowing->letting",

@@ -1,0 +1,31 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-11-05
+modDate: 2025-12-10
+title: Configuring Okta
+description: How to configure Octopus Deploy and Okta to authenticate and identify users with OpenID Connect authentication.
+navTitle: Okta
+navOrder: 7
+---
+
+## Configure Okta
+
+[How to configure Okta](/docs/security/authentication/okta-authentication#configure-okta).
+
+## Configure Octopus Server
+
+1. Navigate to **Configuration ➜ Settings ➜ OpenID Connect** and populate the following fields:
+     - **Enabled** should be set to `Yes`.
+     - **Role Claim Type** should be `groups`.
+     - **Username Claim Type** should be `preferred_username`.
+     - **Resource** should be left unset.
+     - **Scopes** should be `openid profile email groups`.
+     - **Display Name** can be used to customize the appearance of the button on the Octopus Deploy login screen. Use a name that your users will recognize for this identity provider.
+     - **Issuer** should be a URL like `https://your-okta-poral.okta.com/oauth2/default`. You can also find it in the [OpenID Connect metadata](/docs/security/authentication/okta-authentication#check-openid-connect-metadata-is-working).
+     - **Client ID** and **Client secret** should be the values you noted when creating the application. You can also find them in the Okta portal page for your application.
+         :::div{.hint}
+         Note that the value of **Client Secret** cannot be retrieved once set - it can only be changed or deleted
+         :::
+     - **Allow Auto User Creation** determines if Octopus Deploy should automatically create user accounts, or only allow authentication for users that already exist in Octopus Deploy.
+2. Click **Save** to apply the changes.
+3. If you sign out of Octopus Deploy, you should now see a new button on the login screen to authenticate with the OIDC provider.

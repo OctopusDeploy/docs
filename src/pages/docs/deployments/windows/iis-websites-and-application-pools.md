@@ -86,7 +86,7 @@ The Virtual Path and Physical Path do not need to match which is one of the true
 
 ## How Octopus Deploys your web site {#IISWebsitesandApplicationPools-HowOctopusDeploysyourWebSite}
 
-Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
+Out of the box, Octopus will do the right thing to deploy your Web Site using IIS, and the conventions we have chosen will eliminate a lot of problems with file locks, leaving stale files behind, and causing multiple Application Pool restarts. By default, Octopus will follow the conventions described in [Deploying packages](/docs/deployments/packages/) and apply the different features you select in the order described in [Package deployment feature ordering](/docs/deployments/packages/package-deployment-feature-ordering).
 
 :::div{.success}
 Avoid using the [Custom Installation Directory](/docs/projects/steps/configuration-features/custom-installation-directory) feature unless you are absolutely required to put your packaged files into a specific physical location on disk.

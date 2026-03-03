@@ -28,6 +28,7 @@ When you need to use an example value in docs, please use the below:
 - Octopus API key: `API-YOUR-KEY`
 - Snapshot name: `Snapshot XXXXX`
 - SubscriptionId: `g3662re9njtelsyfhm7t`
+- Fake password: `your-secret-password`
 
 In general, try to use "your" rather than "my". For example, `your-value`.
 

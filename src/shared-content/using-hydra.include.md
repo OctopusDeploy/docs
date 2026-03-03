@@ -8,7 +8,7 @@ We strongly recommend testing Hydra against a small subset of "canary" machines 
 
 1. Create a new "canary" machine role and assign it to a few machines.
 2. Set the Update Octopus Tentacle step to run on machines with the "canary" role.
-3. Once you are confident the Tentacle upgrade works as expected, you can use Hydra to upgrade all of the remaining machines.
+3. Once you are confident the Tentacle upgrade works as expected, you can use Hydra to upgrade all remaining machines.
 :::
 
 #### How does Hydra work?

@@ -20,9 +20,9 @@ If there is an available port, we recommend using [TCP Polling Tentacles](/docs/
 The following prerequisites must be met to use this feature:
 
 - Octopus Server must be self-hosted, and not an [Octopus Cloud](/docs/octopus-cloud) instance.
-- Both the Octopus Server and Tentacle must be running windows 2012 or later.
+- Both the Octopus Server and Tentacle must be running Windows 2012 or later.
 - The server expects an SSL/TLS connection, so SSL offloading is not supported.
-- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that utilize non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
+- The other application using the port must be using the standard Windows networking library ([HTTP.sys](https://docs.microsoft.com/en-us/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys)). This includes IIS, .NET apps and Octopus itself. However, it does not include any applications that use non-HTTP.sys TCP/IP or HTTP stacks. Check your product's documentation for more information.
 - The other application must be using HTTPS on that port.
 
 ### Listen address
@@ -61,7 +61,7 @@ The setup of a WebSocket Tentacle is the same as a TCP Polling Tentacle, except 
 When issuing the `register-with` command during Tentacle setup, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. The address to use is the listen prefix (replacing `+` with the hostname) and `https` replaced with `wss` (e.g. `wss://example.com:443/OctopusComms`). For example:
 
 ```powershell
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-YOUR-KEY" --environment "Test" --role "Web"
 ```
 
 ### Changing an existing Tentacle
@@ -71,7 +71,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 ```powershell
 .\Tentacle.exe service --instance MyInstance --stop
 .\Tentacle.exe configure --reset-trust
-.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO" --environment "Test" --role "Web"
+.\Tentacle.exe register-with --instance MyInstance --server "https://example.com/" --server-web-socket "wss://example.com:443/OctopusComms" --comms-style TentacleActive --apikey "API-YOUR-KEY" --environment "Test" --role "Web"
 .\Tentacle.exe service --instance MyInstance --start
 ```
 
@@ -79,17 +79,17 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 When issuing the `poll-server` command to add additional nodes to poll, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. For example:
 
 ```powershell
-poll-server --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --apikey "API-CS0SW5SQJNLUBQCUBPK8LZY3KYO"
+poll-server --instance MyInstance --server "https://example.com/"  --server-web-socket "wss://example.com:443/OctopusComms" --apikey "API-YOUR-KEY"
 ```
 
 ## Certificate
 Windows will need to be configured with a SSL certificate on the selected address and port. Usually this is done by the other application sharing the port.
-The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
+The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore, [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
 The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) on that address and port.
 
-If you need to generate a self signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
+If you need to generate a self-signed certificate, this can be done by issuing the following PowerShell command. Take note of the thumbprint generated.
 
 ```powershell
 New-SelfSignedCertificate -Subject "CN=Example Website" -CertStoreLocation "Cert:\localMachine\My" -KeyExportPolicy Exportable

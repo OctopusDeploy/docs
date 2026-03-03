@@ -15,7 +15,7 @@ The 140 series of **Federal Information Processing Standards** ([FIPS](https://e
 
 ## How is FIPS enforced? {#FIPSandOctopusDeploy-HowisFIPSenforced?}
 
-You can configure a Windows Server to enforce the use of FIPS 140 compliant cryptographic algorithms by configuring the Security Policy for [System cryptography: Use FIPS 140 compliant cryptographic algorithms, including encryption, hashing and signing algorithms](https://technet.microsoft.com/en-us/library/jj852197.aspx) to **Enabled**. The effects of this security policy setting are far reaching, but the most common result you will see in .NET applications is where a **System.InvalidOperationException: This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms** being thrown whenever you attempt to use one of the non-FIPS compliant APIs.
+You can configure a Windows Server to enforce the use of FIPS 140 compliant cryptographic algorithms by configuring the Security Policy for [System cryptography: Use FIPS 140 compliant cryptographic algorithms, including encryption, hashing and signing algorithms](https://technet.microsoft.com/en-us/library/jj852197.aspx) to **Enabled**. The effects of this security policy setting are far-reaching, but the most common result you will see in .NET applications is where a **System.InvalidOperationException: This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms** being thrown whenever you attempt to use one of the non-FIPS compliant APIs.
 
 ## Known issues {#FIPSandOctopusDeploy-Knownissues}
 

@@ -339,4 +339,4 @@ Dog: 17.5
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variable/1)

@@ -1,0 +1,111 @@
+---
+type Props = {
+  formId: number;
+  dreamdataTrackingId?: string;
+};
+
+const { formId, dreamdataTrackingId } = Astro.props satisfies Props;
+---
+
+<form id={`mktoForm_${formId}`} class="newsletter__form"></form>
+
+<script define:vars={{ formId, dreamdataTrackingId }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // @ts-ignore - don't have a global type for MktoForms2
+    if (typeof MktoForms2 !== 'undefined' && MktoForms2.loadForm) {
+      // @ts-ignore
+      MktoForms2.loadForm(
+        '//get.octopus.com',
+        '271-BEX-827',
+        formId,
+        (form) => {
+          const formElem = form.getFormElem()[0];
+
+          if (formElem instanceof HTMLElement) {
+            const styles = formElem.querySelectorAll('style');
+            styles.forEach((style) => style.remove());
+
+            const baseStyle = document.getElementById('mktoForms2BaseStyle');
+            if (baseStyle) {
+              baseStyle.remove();
+            }
+
+            formElem.removeAttribute('style');
+
+            formElem
+              .querySelectorAll('.mktoTextField')
+              .forEach((el) => el.classList.add('form-control'));
+            formElem
+              .querySelectorAll('.mktoEmailField')
+              .forEach((el) => el.classList.add('form-control'));
+            formElem
+              .querySelectorAll('.mktoButton')
+              .forEach((el) => el.classList.add('button', 'button--primary'));
+
+            formElem
+              .querySelectorAll('.mktoAsterix')
+              .forEach((el) => el.remove());
+            formElem
+              .querySelectorAll('.mktoOffset')
+              .forEach((el) => el.remove());
+
+            formElem.querySelectorAll('.mktoFormCol').forEach((el) => {
+              el.removeAttribute('style');
+            });
+
+            formElem.querySelectorAll('.mktoField').forEach((el) => {
+              el.removeAttribute('style');
+            });
+
+            formElem.querySelectorAll('.mktoLabel').forEach((el) => {
+              el.removeAttribute('style');
+            });
+
+            // Add Dreamdata tracking if configured
+            if (dreamdataTrackingId) {
+              form.onSuccess(function (values, followUpUrl) {
+                const email = values.Email || values.email;
+
+                // Track with Dreamdata if available
+                if (typeof dreamdata !== 'undefined') {
+                  try {
+                    dreamdata.track(dreamdataTrackingId);
+                    if (email) {
+                      dreamdata.identify(null, {
+                        email: email,
+                      });
+                    }
+                  } catch (error) {
+                    console.warn('Dreamdata tracking failed:', error);
+                  }
+                } else {
+                  console.warn(
+                    'Dreamdata not available for tracking:',
+                    dreamdataTrackingId
+                  );
+                }
+
+                // Continue with normal form submission flow
+                if (followUpUrl) {
+                  location.href = followUpUrl;
+                }
+
+                // Return false to prevent default redirect
+                return followUpUrl ? false : true;
+              });
+            }
+          } else {
+            console.error(
+              'Expected a DOM element but got something else',
+              formElem
+            );
+          }
+        }
+      );
+    } else {
+      console.error(
+        'MktoForms2 is not available. Check if the script is correctly loaded.'
+      );
+    }
+  });
+</script>

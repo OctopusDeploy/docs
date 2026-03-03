@@ -24,7 +24,7 @@ There are various ways to respond to events within Octopus, which is useful for:
 - Triggering another process, for example, another deployment.
 - Verifying that some conditions have been met.
 
-The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples)).
+The simplest trigger is a periodic timer setup through a Windows schedules task, Azure Function, or as a Windows service. Alternatively, it can also be a project within Octopus as a project that re-queues itself when run (see the [samples](/docs/projects/coordinating-multiple-projects/project-coordination-code-samples)).
 
 [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) can call a web service or send an email when Octopus events occur.
 

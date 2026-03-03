@@ -46,7 +46,7 @@ Of note:
 
 | Value                         | Purpose                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------- |
-| scriptPods.worker.image       | Specifies the docker container image to be used when running an operation |
+| scriptPods.worker.image       | Specifies the Docker container image to be used when running an operation |
 | scriptPods.resources.requests | Specifies the average cpu/memory usage required to execute an operation   |
 
 If you are experiencing difficulties with your Kubernetes Cluster's autoscaling, modifying `scriptPods.resources.requests.*`
@@ -72,5 +72,5 @@ Which means certain operations which are typically valid, may not be possible.
 Specifically:
 
 - Creating an [inline execution container](/docs/projects/steps/execution-containers-for-workers#inline-execution-containers)
-- Fetching docker images (when used as secondary packages)
+- Fetching Docker images (when used as secondary packages)
 - Arbitrary scripts which use docker

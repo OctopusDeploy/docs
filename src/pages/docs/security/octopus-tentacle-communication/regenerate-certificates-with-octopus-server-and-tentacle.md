@@ -106,7 +106,7 @@ The new certificate has been written to C:\PathToCertificate\newcert.pfx.
 
 Take note of the new certificate's thumbprint (`1234567890123456789012345678901234567890` in the output above). We will use this thumbprint when we update the Tentacles to trust the new certificate.
 
-3. The next step is to update all of the Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command line.
+3. The next step is to update all Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command line.
 
 On each Tentacle machine, execute the following command to trust the thumbprint of the newly-created certificate in the directory that the Tentacle agent is installed (Defaults: `C:\Program Files\OctopusDeploy\Tentacle\` and `/opt/octopus/tentacle/`):
 

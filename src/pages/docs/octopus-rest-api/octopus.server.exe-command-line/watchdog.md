@@ -44,7 +44,7 @@ Comma separated:
 octopus.server watchdog --delete --instances="default,MyNewInstance"
 ```
 
-Semi-colon separated:
+Semicolon separated:
 
 ```
 octopus.server watchdog --delete --instances="default;MyNewInstance"

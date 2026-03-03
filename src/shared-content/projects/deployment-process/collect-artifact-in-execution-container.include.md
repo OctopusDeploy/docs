@@ -1,4 +1,4 @@
-The source file for the artifact must be saved and collected from the **fully qualified path** of one of the directories (or sub-directories) mapped into the execution container as a volume.
+The source file for the artifact must be saved and collected from the **fully qualified path** of one of the directories (or subdirectories) mapped into the execution container as a volume.
 
 The recommended volume to use is the temporary directory created within the `<Tentacle Home>/Work` workspace, for example, `/etc/octopus/Tentacle/Work/20221128114036-119427-56`. 
 

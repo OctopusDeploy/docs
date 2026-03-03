@@ -26,7 +26,7 @@ The original complete backup can always be retained if it is required for audit 
 
 ## Limit historical data
 
-By default we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line) to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
+By default, we migrate everything from your backup including all historical data. You can use the `maxage=` argument when executing the migrator via the [command-line](/docs/octopus-rest-api/octopus.migrator.exe-command-line) to limit the number of days to keep. For example: `maxage=90` will keep 90 days of historical data ignoring anything older.
 
 ## RAM
 

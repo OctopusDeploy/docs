@@ -119,7 +119,7 @@ Learn about [HTTP security headers](/docs/security/http-security-headers).
 
 ## PCI/DSS compliance
 
-We have a lot of customers running Octopus Deploy in their PCI compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
+We have a lot of customers running Octopus Deploy in their PCI-compliant environments. We don't claim to be experts in PCI compliance, especially since every situation is slightly different. What we can do is offer some recommendations primarily focused on your use of Octopus Deploy and different models you can achieve with it.
 
 Learn about [PCI/DSS compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
 

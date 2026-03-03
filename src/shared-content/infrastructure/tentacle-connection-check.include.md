@@ -1,4 +1,4 @@
-To help with diagnostics, we've include a welcome page you can connect to from your web browser. 
+To help with diagnostics, we've included a welcome page you can connect to from your web browser. 
 
 When you conduct these checks:
 

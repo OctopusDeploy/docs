@@ -39,7 +39,7 @@ The next screen allows you to set optional features for your registry, configure
 
 ## Adding a ProGet Maven as an Octopus External Feed
 
-Create a new Octopus Feed by navigating to **Library ➜ External Feeds** and select the `Maven Feed` Feed type. 
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type. 
 
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the ProGet server:
 

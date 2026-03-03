@@ -20,7 +20,7 @@ A typical scenario in Octopus Deploy is frequent deployments of small changes to
 
 ## A package deployment in Octopus Deploy now looks something like this
 
-1. Identify all of the versions of the package available on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
+1. Identify all versions of the package available on the target machine by calling [Calamari](https://octopus.com/blog/calamari).
 2. Calamari then attempts to match these packages with packages available on the Octopus Server. If the PackageId, Version and file hash are identical then create a signature file for the package.
 3. Build the delta file between the previous package and the package being transferred from the Octopus Server.
 4. If the delta file meets the size criteria (see note below), the server will upload the delta file to the Tentacle and call Calamari to apply the delta file to the transferred package. N.B. If any of [these issues](#delta-gone-wrong) are experienced during the creation or application of the delta, then the entire package will be uploaded to the tentacle.

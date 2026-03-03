@@ -55,4 +55,4 @@ In addition to the .NET 6 requirement, Octopus will only support those Operating
 
 ## Learn more
 
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

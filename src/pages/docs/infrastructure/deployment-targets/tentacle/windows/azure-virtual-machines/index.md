@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 
 Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [here](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc).
 
-An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However the VM extension has limited functionality, with no support for spaces or workers. 
+An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However, the VM extension has limited functionality, with no support for spaces or workers. 
 
 :::div{.problem}
 

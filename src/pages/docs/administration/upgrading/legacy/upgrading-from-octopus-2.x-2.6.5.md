@@ -47,7 +47,7 @@ After upgrading the Octopus Server, browse to the **Environments** tab in the Oc
 ![](/docs/img/administration/upgrading/legacy/images/3277990.png)
 :::
 
-Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all of the machines.
+Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all machines.
 
 ## Troubleshooting
 

@@ -31,5 +31,5 @@ All steps that target an Azure deployment target (including script steps) execut
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-- [Azure blog posts](https://octopus.com/blog/tag/azure).
+- [Azure blog posts](https://octopus.com/blog/tag/azure/1).
 - [Azure runbook examples](/docs/runbooks/runbook-examples/azure).

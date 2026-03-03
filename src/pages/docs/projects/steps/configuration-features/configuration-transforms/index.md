@@ -71,7 +71,7 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 
 1. Make sure you name your configuration transform files properly based on the target executable filename e.g., `YourService.exe.Release.config`, `YourService.exe.Production.config`.
 2. Set the **Copy to Output Directory** property for the configuration transform files to **Copy If Newer**.
-3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all of the expected configuration transform files.
+3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all expected configuration transform files.
 
 :::figure
 ![](/docs/img/projects/steps/configuration-features/configuration-transforms/images/console-support.png)

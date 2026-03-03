@@ -88,7 +88,7 @@ The release will deploy the *hello world* package to the *Hello world tutorial t
 
 You completed the first deployment tutorial, well done! 🎉  
 
-In this series you built a multi-step deployment process, used scoped variables, and deployed a sample package to a deployment target. It's now time to add your applications to Octopus Deploy.
+In this series you built a multistep deployment process, used scoped variables, and deployed a sample package to a deployment target. It's now time to add your applications to Octopus Deploy.
 
 ### All guides in this tutorial series
 

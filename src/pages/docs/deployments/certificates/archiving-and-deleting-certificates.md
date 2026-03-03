@@ -16,7 +16,7 @@ Archiving a certificate will prevent it from being selected as the value of a va
 ![](/docs/img/deployments/certificates/images/archive-certificate.png)
 :::
 
-Archived certificates can be viewed by navigating to **Deploy ➜ Certificates ➜ View Archive**.
+Archived certificates can be viewed by navigating to **Deploy ➜ Manage ➜ Certificates ➜ View Archive**.
 
 When a certificate is [replaced](/docs/deployments/certificates/replace-certificate), it is automatically archived if it is not already.
 

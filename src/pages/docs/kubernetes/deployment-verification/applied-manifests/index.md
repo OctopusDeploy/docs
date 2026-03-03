@@ -44,7 +44,7 @@ For each step that performs a Kubernetes deployment, there is a navigation tree 
 ![A screenshot of the Kubernetes Applied Manifests navigation tree](/docs/img/deployments/kubernetes/deployment-verification/navigation-tree.png)
 :::
 
-If Kubernetes Object Status/Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
+If Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
 
 On the right-hand side, the individual manifests are displayed in collapsible sections.
 

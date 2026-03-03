@@ -1,8 +1,13 @@
 ---
 import { Accelerator } from 'astro-accelerator-utils';
-import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
+
+// Extend Frontmatter with crumbTitle
+type Frontmatter = OriginalFrontmatter & {
+  crumbTitle?: string;
+};
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics(
@@ -30,12 +35,29 @@ const navPages = accelerator.navigation.breadcrumbs(
   breadcrumbs?.length ?? 0
 );
 
-for (let i = 0; i < navPages.length; i++) {
-  navPages[i].title = navPages[i].section || navPages[i].title;
-}
+const allPages = accelerator.posts.all();
 
-// The last breadcrumb should use the full name
-//navPages[navPages.length -1].title = navPages[navPages.length -1].fullTitle;
+// Apply crumbTitle from frontmatter if available
+for (let i = 0; i < navPages.length; i++) {
+  const matchingPage = allPages.find((p) => {
+    const pageUrl = accelerator.urlFormatter.addSlashToAddress(p.url ?? '/');
+    return pageUrl === navPages[i].url;
+  });
+
+  if (matchingPage) {
+    const fm = matchingPage.frontmatter as Frontmatter;
+    if (fm.crumbTitle) {
+      // Use crumbTitle if it's set in frontmatter
+      navPages[i].title = fm.crumbTitle;
+    } else {
+      // Fall back to original behavior
+      navPages[i].title = navPages[i].section || navPages[i].title;
+    }
+  } else {
+    // No matching page found, use original behavior
+    navPages[i].title = navPages[i].section || navPages[i].title;
+  }
+}
 
 let metaIndex = navPages.length;
 

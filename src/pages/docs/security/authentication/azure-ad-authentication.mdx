@@ -20,7 +20,7 @@ If your Octopus database is running in Azure SQL, it's also possible to configur
 
 ## Configure Microsoft Entra ID
 
-First, you need to configure your Microsoft ENtra ID to trust your instance of Octopus Deploy by configuring an App in your Microsoft Azure Portal.
+First, you need to configure your Microsoft Entra ID to trust your instance of Octopus Deploy by configuring an App in your Microsoft Azure Portal.
 
 ### Configure Octopus Deploy as an App in your Azure Portal
 
@@ -35,7 +35,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 ![Switch Azure Directories](/docs/img/security/authentication/images/aad-portal.png)
 :::
 
-2. Select the hamburger menu in the [Azure Portal](https://portal.azure.com)  and select **Microsoft Entra ID** from the Azure menu:
+1. Select "All services" in the [Azure Portal](https://portal.azure.com)  and select **Microsoft Entra ID** from the Azure menu:
 
 :::figure
 ![Open Microsoft Entra ID service](/docs/img/security/authentication/images/aad-service.png)
@@ -44,7 +44,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 1. In the top menu, select *Add** then choose **App registration**:
 
 :::figure
-![New App registration](/docs/img/security/authentication/images/aad-new-app-registration.png) -- FIX
+![New App registration](/docs/img/security/authentication/images/aad-new-app-registration.png)
 :::
 
 4. Choose a **Name** such as *Octopus Deploy*, select the correct **Supported account type** for Single or Multi-Tenant, choose **Web** from the drop down and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.

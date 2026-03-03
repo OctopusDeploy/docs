@@ -21,7 +21,7 @@ AWS steps can use an Octopus managed AWS account for authentication. There a two
 
 See the [AWS documentation](https://oc.to/aws-access-keys) for instructions to create the access and secret keys.
 
-1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
 1. Add a memorable name for the account.
 1. Provide a description for the account.
 1. Enter the **Access Key** and the secret **Key**.
@@ -47,7 +47,7 @@ When setting up the identity provider you need to use the host domain name of yo
 
 #### Configuring AWS OIDC Account
 
-1. Navigate to **Infrastructure ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
 2. Add a memorable name for the account.
 3. Provide a description for the account.
 4. Set the **Role ARN** to the ARN from the identity provider associated role. Note that this is different to the ARN of your Identity Provider.

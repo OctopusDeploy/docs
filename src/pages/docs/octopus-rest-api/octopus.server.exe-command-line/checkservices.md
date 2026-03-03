@@ -26,7 +26,7 @@ Or one of the common options:
 
 ## Basic example
 
-This example checks to see if all of the instances are running on the machine and start them if they are not:
+This example checks to see if all instances are running on the machine and start them if they are not:
 
 ```
 octopus.server checkservices --instances=*

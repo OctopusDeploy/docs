@@ -73,4 +73,4 @@ When Octopus renders prompted variables for a deployment or runbook, they are so
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)

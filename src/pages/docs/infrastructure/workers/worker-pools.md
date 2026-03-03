@@ -119,5 +119,5 @@ Not yet.  At the moment, the only time an exclusive lease is taken out is if a T
 
 ## Learn more
 
-- [Worker blog posts](https://octopus.com/blog/tag/workers)
+- [Worker blog posts](https://octopus.com/blog/tag/workers/1)
 - [Worker pool variables](/docs/projects/variables/worker-pool-variables)

@@ -49,7 +49,7 @@ javac PressAnyKey.java
 ```
 
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
-3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Library ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
+3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
 
 ### Step 2: Create the project and deployment process
 
@@ -75,7 +75,7 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 :::
 
 :::div{.hint}
-The application must be launched in a new process or session so that control returns to the shell. Otherwise the deployment will wait until the application is terminated.
+The application must be launched in a new process or session so that control returns to the shell. Otherwise, the deployment will wait until the application is terminated.
 :::
 
 ### Step 3: Deploy

@@ -16,3 +16,6 @@ All the scripts in this section will include:
 - A "limiter" parameter that will limit the number of changes per run.  If you have 25 items to change, and the limit is set to 5, it will only change five items per run.  You'd need to run the script five times to change all 25 items.  This was added so you can do some test runs and spot-check the results.
 
 Provided sample bulk operations are:
+
+- [Bulk add a project to a list of tenants](/docs/octopus-rest-api/examples/bulk-operations/bulk-add-projects-to-tenants)
+- [Rerun all canceled deployments and runbook runs after node shutdown](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown)

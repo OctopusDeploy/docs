@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-08
-modDate: 2025-09-08
+modDate: 2025-11-27
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -10,10 +10,6 @@ navOrder: 41
 ---
 
 Ephemeral environments in Octopus Deploy allow you to automatically create test environments on-demand to gain confidence in your changes while helping to keep your infrastructure costs down.
-
-:::div{.hint}
-Support for Ephemeral Environments is rolling out as an Early Access Preview to Octopus Cloud.
-:::
 
 Ephemeral environments are designed to be created and removed as part of testing changes within the development lifecycle.
 
@@ -40,3 +36,7 @@ Parent environments can be selected alongside existing long-lived environments i
 - Variable sets
 - Project variables
 - User roles assigned to teams
+
+## Availability
+
+Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`.

@@ -98,7 +98,7 @@ The Qualifier can hold any value, although some qualifiers have special meanings
 * (the empty string) or ga or final
 * sp
 
-Qualifiers are case insensitive, and some of the qualifiers have shorthand aliases, for instance, `alpha` and `a`. If you use an alias it must include a number, for instance, `a1`. If you do not include a number after the alias, it will be treated as an unrecognized qualifier which will be compared as a case insensitive string after the qualified versions.
+Qualifiers are case-insensitive, and some of the qualifiers have shorthand aliases, for instance, `alpha` and `a`. If you use an alias it must include a number, for instance, `a1`. If you do not include a number after the alias, it will be treated as an unrecognized qualifier which will be compared as a case-insensitive string after the qualified versions.
 
 Where version stings cannot be parsed as major.minor.patch.build and the qualifier is not recognized, the entire string is considered a qualifier.
 

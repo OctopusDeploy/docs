@@ -41,4 +41,4 @@ Octopus can execute Python scripts on SSH targets provided the following criteri
 ## Learn more
 
 - Configure your [SSH deployment targets](/docs/infrastructure/deployment-targets/linux/ssh-target)
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

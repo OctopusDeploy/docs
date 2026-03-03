@@ -91,7 +91,7 @@ When using a variable expression for the Package ID, you may lose the ability to
 ## Troubleshooting
 
 1. Older versions of `octo.exe` and the build server extension would fail to create releases if you are using a variable binding for your Package Feed. You would see an error message like this: `The version number for step 'Deploy' cannot be automatically resolved because the feed or package ID is dynamic.`
-    - The best way to work around this is to upgrade the Octopus CLI or your build server extension. Otherwise you can work around this by defining an unscoped/global variable with the same name referring to a valid package feed.
+    - The best way to work around this is to upgrade the Octopus CLI or your build server extension. Otherwise, you can work around this by defining an unscoped/global variable with the same name referring to a valid package feed.
       ![Working around but with older octo.exe](/docs/img/deployments/packages/images/dynamic-feed-variable-workaround.png)
 
 2. You haven't provided a version for each required package in your deployment process. You would see an error message like this: `Package versions could not be resolved for one or more of the package steps in this release. See the errors above for details. Either ensure the latest version of the package can be automatically resolved, or set the version to use specifically by using the --package argument.`

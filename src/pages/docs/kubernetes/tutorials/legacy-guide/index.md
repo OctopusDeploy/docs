@@ -21,7 +21,7 @@ If you’re using **Octopus 2024.3** or newer, please refer to the updated [Kube
 
 To follow this tutorial, you need:
 
-* [Octopus Cloud instance](https://octopus.com/start)
+* [Octopus Cloud instance](https://octopus.com/free-signup)
 * Kubernetes cluster
 * [Docker Hub account](https://hub.docker.com/)
 * [GitHub account](https://github.com/)

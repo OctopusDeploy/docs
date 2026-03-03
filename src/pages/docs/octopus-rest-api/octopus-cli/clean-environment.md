@@ -35,7 +35,7 @@ Cleanup:
                              default ignores Calamari state.
       --tentacle-outdated=VALUE
                              [Optional] State of Tentacle version to clean u-
-                             p. By default ignores Tentacle state.
+                             p. By default, ignores Tentacle state.
 
 Common options:
 

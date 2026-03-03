@@ -31,7 +31,7 @@ Lead times may also span multiple releases and deployments.  In the following ex
 ![Lead Time Example 1](/docs/img/insights/images/lead-time-example-1.png)
 :::
 
-Lead times may be calculated across environments.  In the example below, release 1.3 is never deployed to production due to a bug being found in testing. The deployment state is edited to reflect that it is now considered a failure.  Because of this, the lead times for release 1.4 start at the creation time of release 1.3.
+Lead times may be calculated across environments.  In the example below, release 1.3 is never deployed to production due to a bug being found in testing. The deployment state is edited to reflect that it's now considered a failure.  Because of this, the lead times for release 1.4 start at the creation time of release 1.3.
 
 :::figure
 ![Lead Time Example 2](/docs/img/insights/images/lead-time-example-2.png)
@@ -43,7 +43,7 @@ Failure rate is calculated by taking the total number of deployments, and dividi
 
 ## Mean time to recovery
 
-For a given failed deployment, its time to recovery is the time period from its completion time, to the completion time of the next successful deployment within the same scope.
+For a given failed deployment, time to recovery is from its completion time to the completion time of the next successful deployment within the same scope.
 
 This chart shows the simplest example of the time to recovery, where a failed deployment is successfully redeployed straight afterward.
 

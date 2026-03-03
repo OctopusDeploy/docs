@@ -7,7 +7,7 @@ description: Octopus Tentacle configuration command reference including how to s
 navOrder: 1200
 ---
 
-Occasionally it may be necessary to change the location at which Tentacle stores its configuration and data, called the **Tentacle Home Directory**. By default your applications will be deployed into a folder under the Tentacle Home Directory, but you can configure this to be at a different location. This page will explain what each of the folders used by Tentacle are, how you can change the Tentacle configuration, and how you can clean up after upgrading from an earlier version of Tentacle.
+Occasionally it may be necessary to change the location at which Tentacle stores its configuration and data, called the **Tentacle Home Directory**. By default, your applications will be deployed into a folder under the Tentacle Home Directory, but you can configure this to be at a different location. This page will explain what each of the folders used by Tentacle are, how you can change the Tentacle configuration, and how you can clean up after upgrading from an earlier version of Tentacle.
 
 :::div{.problem}
 

@@ -26,4 +26,4 @@ This page will help you diagnose and solve issues with multi-tenant deployments.
 
   ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-01-20
 title: octopus tenant variables
 description: Manage tenant variables
 navOrder: 143
@@ -10,7 +10,7 @@ import SamplesInstance from 'src/shared-content/samples/samples-instance.include
 
 Manage tenant variables in Octopus Deploy
 
-```
+```text
 Usage:
   octopus tenant variables [command]
 
@@ -36,11 +36,14 @@ Use "octopus tenant variables [command] --help" for more information about a com
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus tenant variables list "Bobs Wood Shop"
+
+# Update a project variable for a specific environment (single environment scope)
 $ octopus tenant variables update --tenant "Bobs Fish Shack" --name "site-name" --value "Bob's Fish Shack" --project "Awesome Web Site" --environment "Test"
 
-
+# Update a common variable from a library variable set for specific environments
+$ octopus tenant variables update --tenant "Bobs Fish Shack" --name "company-logo" --value "bobs-logo.png" --library-variable-set "Shared Assets" --environment "Production"
 ```
 
 ## Learn more

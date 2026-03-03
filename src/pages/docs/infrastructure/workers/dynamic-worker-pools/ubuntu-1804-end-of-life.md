@@ -76,7 +76,7 @@ It is not possible to give a complete and definitive answer as this depends on y
 * [20.04 to 22.04 release notes](https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668)
 
 ### What are the breaking changes between the .NET releases?
-It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore please refer to the following release notes:
+It is not possible to give a complete and definitive answer as this depends on your use cases. Therefore, please refer to the following release notes:
 * [.NET Core 3.1 release notes](https://github.com/dotnet/core/tree/main/release-notes/3.1)
 * [.NET 5 release notes](https://github.com/dotnet/core/tree/main/release-notes/5.0)
 * [.NET 6 release notes](https://github.com/dotnet/core/tree/main/release-notes/6.0)
@@ -92,5 +92,5 @@ Ubuntu 22.04 requires a later version of GCloud CLI. We have selected the earlie
 This change does not impact the Windows dynamic workers.
 
 ### How does this affect Execution Containers?
-Although Ubuntu 18.04 docker images, along with [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching), can still operate on Ubuntu 22.04 dynamic workers, we will no longer provide support for the ubuntu.18.04 Worker Tools. Instead, we have introduced a new [ubuntu.22.04](https://hub.docker.com/r/octopusdeploy/worker-tools/tags?page=1&name=22.04) image, which is recommended moving forward.
+Although Ubuntu 18.04 Docker images, along with [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching), can still operate on Ubuntu 22.04 dynamic workers, we will no longer provide support for the ubuntu.18.04 Worker Tools. Instead, we have introduced a new [ubuntu.22.04](https://hub.docker.com/r/octopusdeploy/worker-tools/tags?page=1&name=22.04) image, which is recommended moving forward.
 

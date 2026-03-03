@@ -29,7 +29,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 :::
 
 :::div{.hint}
-If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
+If you select `Yes` to `Execute using the AWS service role for an EC2 instance`, you do not need an AWS account or account variable. Instead, the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
 
 ### CloudFormation section
@@ -39,7 +39,7 @@ Under the `CloudFormation` section, the AWS region and stack name need to be def
 You can also optionally wait for the stack to complete before finishing the step by selecting the `Wait for completion` check-box.
 
 :::div{.hint}
-Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
+Unselecting the `Wait for completion` check-box will allow the step to complete once that CloudFormation process has been started. However, unselecting the option does mean that the output variables may be missing or outdated, because they will be read before the stack has finished deploying. It also means that the step will not fail if the CloudFormation deployment fails.
 :::
 
 If creating the CloudFormation stack, you can select `Disable rollback` to prevent a failed stack from being rolled back. This is useful if you need to debug the resources that were not created successfully.
@@ -148,14 +148,14 @@ All change sets have to be unique for a given stack, and Octopus will generate a
 
 #### Deferring execution and preview changes
 
-There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly the
+There are times when you may wish to preview changes before applying them. This is enabled by checking the `Defer Change Set Execution` check-box, which tells Octopus to create the change set, but not apply it. A [manual intervention step](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) can then be used in conjunction with the `AwsOutputs[Changes]` output variable from a `Deploy an AWS CloudFormation template` step to view the changes. Similarly, the
 `Apply an AWS CloudFormation Change Set` step can make use of the `AwsOutputs[StackId]` and `AwsOutputs[ChangeSetId]` output variables to apply the change set.
 
 ## CloudFormation deployment workflow
 
 The AWS CLI makes a clear distinction between creating and updating CloudFormation stacks. When using the CLI directly, it is up to you to know if the stack exists, and what state the stack is in, in order to know whether to create or update the stack.
 
-Octopus takes a different approach. The CloudFormation steps are designed to be idempotent, which means you can run them multiple times and the result will be the same. This means that Octopus will create the stack if it doesn't exist, update the stack if it does exist, and ignore cases where the stack has no updates. Likewise deleting a stack will complete successfully if there is no stack to delete.
+Octopus takes a different approach. The CloudFormation steps are designed to be idempotent, which means you can run them multiple times and the result will be the same. This means that Octopus will create the stack if it doesn't exist, update the stack if it does exist, and ignore cases where the stack has no updates. , deleting a stack will complete successfully if there is no stack to delete.
 
 In addition, there are several states that a stack can be in where the only way to apply updates is to first delete the stack. A stack can enter one of these states for a variety of reasons, such as failing to be successfully created the first time.
 
@@ -408,7 +408,7 @@ The role being assumed then needs trust relationship with the role or user that 
 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
-This can be done by opening **Infrastructure ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+This can be done by opening **Deploy ➜ Manage ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.
 
@@ -416,7 +416,7 @@ This error can also be displayed if the proxy settings are incorrect.
 
 Failed to verify the credentials. Please check the keys assigned to the Amazon Web Services Account associated with this step.
 
-This can be done by opening **Infrastructure ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
+This can be done by opening **Deploy ➜ Manage ➜ Accounts**, selecting the account, and clicking the `SAVE AND TEST` button. If the verification fails, it means the keys are not valid.
 
 This error can also be displayed if the proxy settings are incorrect.
 

@@ -133,7 +133,7 @@ This is achieved using the Octopus [special variables](https://octopus.com/docs/
 
 ### Deployment changes and targets
 
-The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all of the targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
+The `Octopus.Deployment.Targets` variable is available to the deployment changes template, but it is not available during the deployment. It contains a dictionary of `ID` and `Name` values for all targets in the scope of the deployment (keyed by ID). You can iterate over the targets in a template as follows
 
 ```
 #{each target in Octopus.Deployment.Targets}

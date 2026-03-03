@@ -23,12 +23,12 @@ If you experience problems connecting, it may help to try connecting directly to
 
 :::div{.warning}
 **Different distributions use different conventions**
-While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double check the details for specific instructions relating to SSH authentication on target operating system. There are many different Linux based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
+While the above instructions should work on common platforms like Ubuntu or Red Hat, you may need to double-check the details for specific instructions relating to SSH authentication on target operating system. There are many different Linux based distributions, and some of these have their own unique way of doing things. For this reason we cannot guarantee that these SSH instructions will work in every case.
 :::
 
 ## Create a username and password account {#UsernameandPassword-Creatingtheaccount}
 
-1. Navigate to **Infrastructure ➜ Accounts** and click **ADD ACCOUNT**.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts** and click **ADD ACCOUNT**.
 1. Select **Username/Password** from the drop-down menu.
 1. Give the account a name, for instance, **SSH backup server** or **Google**.
 1. Add a description.

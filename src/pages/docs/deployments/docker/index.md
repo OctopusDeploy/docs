@@ -27,7 +27,7 @@ With the introduction of support for Docker, a similar concept exists whereby a 
 ![](/docs/img/deployments/docker/images/5865811.png)
 :::
 
-The Octopus concepts of feeds, packages and versions can be mapped to the Docker concepts of registries, images and tags. There is a slight caveat to this similarity since Octopus does not currently intend to self-host a Docker registry in the server, so there is no Docker equivalent of the built-in feed. Also the targets currently need to have access to the repository to pull down images as there is no push process from the Octopus Server.
+The Octopus concepts of feeds, packages and versions can be mapped to the Docker concepts of registries, images and tags. There is a slight caveat to this similarity since Octopus does not currently intend to self-host a Docker registry in the server, so there is no Docker equivalent of the built-in feed. Also, the targets currently need to have access to the repository to pull down images as there is no push process from the Octopus Server.
 
 :::figure
 ![](/docs/img/deployments/docker/images/5865808.png)
@@ -36,6 +36,6 @@ The Octopus concepts of feeds, packages and versions can be mapped to the Docker
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker)
- - [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries)
- - [Accessing container details](/docs/deployments/docker/accessing-container-details)
+- [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+- [Docker registries as feeds](/docs/packaging-applications/package-repositories/docker-registries)
+- [Accessing container details](/docs/deployments/docker/accessing-container-details)

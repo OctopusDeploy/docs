@@ -12,7 +12,7 @@ Octopus was designed to be a single, central point of truth for application depl
 Of course, the real world and the ideal world don't always overlap, and you might need to have separate Octopus Servers. Common examples are:
 
 - Solution providers with an internal Octopus Server for pre-production deployments while developing a solution, and then Octopus Servers managed by the client for production deployments, on different networks
-- When company policies require production and pre-production environments to be on completely isolated networks, like PCI compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
+- When company policies require production and pre-production environments to be on completely isolated networks, like PCI-compliant environments. Learn about [PCI Compliance and Octopus Deploy](/docs/security/pci-compliance-and-octopus-deploy).
 
 On this page, we discuss two different scenarios, and the features and options that exist for dealing with them.
 
