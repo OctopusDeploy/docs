@@ -338,6 +338,122 @@ resource "kubernetes_secret" "octopus_api_key" {
   type = "Opaque"
 }
 
+# Deploy the Octopus Argo CD Gateway as an Argo CD Application so that Argo CD
+# owns the Helm lifecycle (sync, self-heal, pruning) rather than Terraform/Helm.
+#
+# NOTE: the argoproj.io/v1alpha1 CRD must already be present when Terraform plans
+# this resource.  If you are bootstrapping from scratch, run:
+#   terraform apply -target=helm_release.argocd -target=time_sleep.wait_for_argocd
+# before running a full `terraform apply`.
+resource "kubernetes_manifest" "gateway_application" {
+  depends_on = [
+    time_sleep.wait_for_argocd,
+    null_resource.argocd_token,
+    kubernetes_namespace.gateway,
+    kubernetes_secret.octopus_api_key,
+  ]
+
+  manifest = {
+    apiVersion = "argoproj.io/v1alpha1"
+    kind       = "Application"
+    metadata = {
+      name      = "octopus-argocd-gateway"
+      namespace = var.argocd_namespace
+    }
+    spec = {
+      project = "default"
+
+      source = {
+        # OCI chart: repoURL is the registry path, chart is the image name.
+        repoURL        = "registry-1.docker.io/octopusdeploy"
+        chart          = "octopus-argocd-gateway-chart"
+        targetRevision = var.gateway_chart_version
+
+        helm = {
+          valuesObject = {
+            gateway = {
+              argocd = {
+                # gRPC URL derived automatically from the Argo CD Helm release.
+                serverGrpcUrl = local.argocd_grpc_url
+                # Skip TLS verification if Argo CD is using a self-signed cert.
+                insecure = var.argocd_insecure
+                # Reference the secret created by null_resource.argocd_token.
+                authenticationTokenSecretName = local.argocd_token_secret_name
+                authenticationTokenSecretKey  = "ARGOCD_AUTH_TOKEN"
+              }
+              octopus = {
+                serverGrpcUrl = var.octopus_grpc_url
+                plaintext     = var.octopus_grpc_plaintext
+              }
+            }
+
+            registration = {
+              octopus = {
+                name             = var.gateway_name
+                serverApiUrl     = var.octopus_api_url
+                spaceId          = var.octopus_space_id
+                environments     = var.octopus_environments
+                # Reference the Octopus API key secret created above.
+                serverAccessTokenSecretName = "octopus-server-access-token"
+                serverAccessTokenSecretKey  = "OCTOPUS_SERVER_ACCESS_TOKEN"
+              }
+              argocd = {
+                webUiUrl = var.argocd_web_ui_url
+              }
+            }
+
+            autoUpdate = {
+              # should be disabled, otherwise the auto-update job will keep trying to update the instance, while argo cd syncs it back to original state
+              enabled = false
+            }
+          }
+        }
+      }
+
+      destination = {
+        server    = "https://kubernetes.default.svc"
+        namespace = var.gateway_namespace
+      }
+
+      syncPolicy = {
+        automated = {
+          prune    = true
+          selfHeal = true
+        }
+        syncOptions = ["CreateNamespace=false"]
+      }
+    }
+  }
+}
+```
+
+:::div{.hint}
+**Note**
+In order to deploy the Argo CD Gateway using helm directly, you can re-use the helm provider:
+
+```yaml
+# gateway.yaml
+resource "kubernetes_namespace" "gateway" {
+  metadata {
+    name = var.gateway_namespace
+  }
+}
+
+# Store the Octopus API key as a Kubernetes secret so it is never passed
+# as a plain-text Helm value. The chart reads it via serverAccessTokenSecretName.
+resource "kubernetes_secret" "octopus_api_key" {
+  metadata {
+    name      = "octopus-server-access-token"
+    namespace = kubernetes_namespace.gateway.metadata[0].name
+  }
+
+  data = {
+    OCTOPUS_SERVER_ACCESS_TOKEN = var.octopus_api_key
+  }
+
+  type = "Opaque"
+}
+
 # Install the Octopus Argo CD Gateway.
 # The chart is referenced from the published GitHub Pages Helm repository.
 # Both the Argo CD token and the Octopus API key are supplied via existing
@@ -397,6 +513,8 @@ resource "helm_release" "gateway" {
   wait    = true
 }
 ```
+
+:::
 
 ## Outputs
 
@@ -466,3 +584,4 @@ gateway_namespace     = "octopus-argocd-gateway"
 gateway_name          = "my-argocd-gateway"
 gateway_chart_version = "1.18.0"
 ```
+
