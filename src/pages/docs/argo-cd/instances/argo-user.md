@@ -62,7 +62,7 @@ With the user created, an RBAC policy must be created allowing the new user to a
 
 The RBAC policies are stored within the `argocd-rbac-cm` configmap.
 
-The following shows an Octopus user which has read only access to all applications, cluster and log data.
+The following shows an Octopus user which has read only access to all applications, cluster and log data, and sync permissions for applications.
 
 ```yaml
 apiVersion: v1
