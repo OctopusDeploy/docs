@@ -584,4 +584,3 @@ gateway_namespace     = "octopus-argocd-gateway"
 gateway_name          = "my-argocd-gateway"
 gateway_chart_version = "1.18.0"
 ```
-

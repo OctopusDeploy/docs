@@ -122,6 +122,7 @@ The application yaml required to install the helm chart is as follows (replacing
     ```shell
     kubectl create ns octopus-argo-gateway-your-namespace
     ```
+
 2. Generate Argo CD Authentication Token
   2.1. Follow the instructions on the [Argo CD Authentication](argo-user) guide
   2.2. Save the token in a secret
