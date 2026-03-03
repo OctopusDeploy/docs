@@ -67,6 +67,12 @@ This is generally indicative of an internal error in Octopus. In Octopus Cloud w
 
 If the task appears to hang after a log message output by the Octopus Server or Tentacle, then in most cases the cause is antivirus or anti-malware software interfering with the task. The first step is to determine if your antivirus software is actually affecting your Tasks, and this can easily be done by removing your antivirus protection and confirming whether the tasks continue to be unresponsive.
 
+#### "Bootstrapper did not return the bootstrapper service message" error
+
+If you see the error `Bootstrapper did not return the bootstrapper service message` in your task log, this typically indicates that antivirus or security software is interfering with the deployment. [Calamari](/docs/octopus-rest-api/calamari) is the lightweight bootstrapper that Tentacle invokes for each deployment step. It's installed and updated in the `Tools` folder and runs steps from the `Work` folder within your Tentacle home directory. When security software blocks or delays Calamari's execution, Tentacle can't receive the expected response, causing this error.
+
+To resolve this, configure your antivirus or endpoint protection software to exclude the Tentacle `Tools` and `Work` directories listed below. For detailed guidance, see [configuring malware protection exclusions](/docs/security/hardening-octopus#configure-malware-protection).
+
 If this test shows that antivirus is interfering with your tasks, you may need to configure your antivirus software with the appropriate exclusions to ensure that it does not lock any files owned by Octopus, or affect any running processes initiated by Octopus. Consult your antivirus provider's documentation for more information.
 
 Some examples of directories (and their subdirectories) you could try adding to an allow-list are:

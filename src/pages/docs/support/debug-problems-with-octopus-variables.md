@@ -9,6 +9,8 @@ navOrder: 1
 
 Sometimes a variable used during deployment may have a different value from the one you expect. Here are the first steps to debugging these issues.
 
+Project variables and [library variable set](/docs/projects/variables/library-variable-sets) variables are captured in a snapshot when you create a release or publish a runbook snapshot. If you update a variable after the snapshot is taken, the change won't apply to existing releases or snapshots. To pick up the new value, you'll need to either create a new release (or update the existing release's variable snapshot) for deployments, or create and publish a new runbook snapshot for runbooks.
+
 ## Check the variable snapshot for the release {#check-variable-snapshot-for-release}
 
 1. Open the **Project ➜ Releases ➜ Release** page for the Release you are debugging.
@@ -19,6 +21,10 @@ Sometimes a variable used during deployment may have a different value from the 
 
 :::figure
 ![](/docs/img/support/images/3278466.png)
+:::
+
+:::div{.hint}
+**Tenant variables are the exception.** Unlike project and library variable set variables, [tenant variables](/docs/tenants/tenant-variables) are not included in the snapshot. They take effect immediately without needing a new release or snapshot. For more details, see [Tenant variables and snapshots](/docs/tenants/tenant-variables#tenant-variables-and-snapshots).
 :::
 
 ## Check the variable value in the all variables tab {#check-variable-value-in-all-variables-tab}
@@ -63,3 +69,12 @@ When adding these variables to your project, Octopus will add the following warn
 `20:30:45   Warning  |       OctopusPrintVariables is enabled. This should only be used for debugging problems with variables, and then disabled again for normal deployments.`
 This is because printing variables increases the size of the task logs, and can make your deployments run slower. Don't forget to turn this off when you're finished debugging. These variables are false by default.
 :::
+
+## Use debug mode {#debug-mode}
+
+As an alternative to setting `OctopusPrintVariables` and `OctopusPrintEvaluatedVariables`, you can enable **Debug Mode** when creating a deployment or running a runbook. Debug mode writes detailed variable information to the task log without requiring you to add variables to your project.
+
+- For **project deployments**, you'll find the Debug Mode option on the deployment creation screen.
+- For **runbooks**, click **Show advanced** on the run screen to reveal the Debug Mode option.
+
+Debug mode is a convenient way to get variable diagnostics for a single run without modifying your project's variables.
