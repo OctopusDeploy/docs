@@ -115,7 +115,7 @@ resource "helm_release" "argo_gateway" {
 
 The Octopus-Argo Gateway's helm chart can be installed via an Argo CD Application.
 
-The application yaml required to install the helm chart is as follows (replacing values as per previous examples):
+The application YAML required to install the helm chart is as follows (replacing values as per previous examples):
 
 ```yaml
 project: default

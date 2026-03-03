@@ -19,7 +19,7 @@ how it executes.
 
 1. Specify the set of input template files which can be sourced from either:
    - A git repository (requires URL, credentials and branch-name), or a
-   - Package from a configured feed (eg a zip file, nuget package etc)
+   - Package from a configured feed (e.g. a zip file, NuGet package, etc.)
 2. Specify the path to your templates
    - A subfolder (or file) within the previously specified repository/package which contains the template files to be used
    - If the string entered is a directory, all files (recursively) within that directory are considered templates

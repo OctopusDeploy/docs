@@ -23,7 +23,7 @@ A gateway is required for each Argo CD Instance being connected to Octopus.
 
 :::div{.info}
 
-The Argo/Octopus integration requires only the Octopus/Argo gateway to enable all features.
+The Argo/Octopus integration requires only the Octopus/Argo gateway to support all features.
 
 The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required when monitoring Argo CD applications. The Octopus Argo CD Gateway has the equivalent capabilities.
 
@@ -184,9 +184,9 @@ The gateway uses an internal cronjob to ensure it is always running the latest v
 ## Status Display
 
 Your connected 'Argo CD Instances' appear under the Octopus's Infrastructure menu.
-These pages allow you to:
+These pages let you:
 
-- View and edit the Octopus-managed properties of your Argo CD Instance (eg permitted environments),
+- View and edit the Octopus-managed properties of your Argo CD Instance (e.g. permitted environments),
 - View known Argo Applications, and how they map to Octopus project/environment/tenants
 - View connectivity and health related data of the instance and gateway
 
@@ -194,7 +194,7 @@ These pages allow you to:
 
 After the gateway has been configured, you need to define the relationships between Argo CD Applications and Octopus Projects, Environments and/or Tenants.
 
-See [Scoping Annotations](/docs/argo-cd/annotations) for more information
+See [Scoping Annotations](/docs/argo-cd/annotations) for more information.
 
 ## Versioning
 

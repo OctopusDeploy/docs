@@ -49,7 +49,7 @@ The following options provide controls over how we apply the change via Git.
 
 #### Commit Message
 
-Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
+Commit message lets you specify the summary, and description of the change. The description will be automatically populated if left empty.
 
 The content here will be reused for pull request messages if you have selected for the change to merge via pull request.
 

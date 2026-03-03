@@ -33,7 +33,7 @@ Cause:
 
 Resolution:
 
-- Confirm serverUrl is set correctly, and is resolvable/reachable from with your cluster
+- Confirm serverUrl is set correctly, and is resolvable/reachable from inside your cluster
 - Re-execute the installation process, ensuring to complete within lifetime of supplied bearer token
 
 ### Argo CD Gateway install fails initial health check
@@ -62,7 +62,7 @@ Resolution:
 
 ### No applications are listed on the **Argo CD Instance ➜ Applications** page
 
-Behavior
+Behavior:
 
 - Argo CD web UI shows existing applications, however they do not appear in the Octopus UI
   
@@ -72,7 +72,7 @@ Cause:
 
 Resolution:
 
-- Create required RBAC entries for the account being used by the Octopus Gateway as per [this](/docs/argo-cd/instances/argo-user).
+- Create required RBAC entries for the account being used by the Octopus Gateway as per [Argo CD Authentication](/docs/argo-cd/instances/argo-user).
 
 ## Step Configuration
 
@@ -97,7 +97,7 @@ Resolution:
 
 Behavior:
 
-- Deployment Passes with warnings
+- Deployment passes with warnings
 - Octopus deployment task log contains `No annotated Argo CD applications could be found for this deployment.`
 
 Cause:
@@ -130,7 +130,7 @@ Behavior:
 
 Cause:
 
-- The mapped Argo Application source is not a git repository (eg helm-repository or OCI)
+- The mapped Argo Application source is not a git repository (e.g. Helm repository or OCI)
 - The provided git credentials for the url have insufficient privileges
 
 Resolution:

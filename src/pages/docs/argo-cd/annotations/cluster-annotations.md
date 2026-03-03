@@ -34,7 +34,7 @@ For example:
 argo.octopus.com/default-container-registry : my-company-registry.com
 ```
 
-This should be added via the Argo CD web UI by selecting from the menu Settings --> Clusters, then editing the annotations
+This should be added via the Argo CD web UI by navigating to **Settings ➜ Clusters**, then editing the annotations
 field on the cluster of interest.
 
 ![Default Registry Cluster Annotation](/docs/img/argo-cd/default-registry-annotation.png)

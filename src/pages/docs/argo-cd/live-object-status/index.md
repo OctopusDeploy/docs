@@ -74,9 +74,9 @@ The drawer contains up-to-date information regarding the selected object:
 * Summary
 * Events
 * Logs
-* Kubernetes yaml manifest
+* Kubernetes YAML manifest
 
-For Argo CD, all of these data fields are fetched on demand from your Argo instance. We do not currently support tailing logs.
+For Argo CD, all of these data fields are fetched on demand from your Argo instance. Tailing logs is not currently supported.
 
 #### Manifest Diffs
 Octopus presents manifest diffs in the _opposite order_ to that shown in Argo.
