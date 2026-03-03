@@ -124,7 +124,7 @@ The application yaml required to install the helm chart is as follows (replacing
     ```
 
 2. Generate Argo CD Authentication Token
-  2.1. Follow the instructions on the [Argo CD Authentication](/docs/argo-cd/instances/argo-user.md) guide
+  2.1. Follow the instructions on the [Argo CD Authentication](/docs/argo-cd/instances/argo-user) guide
   2.2. Save the token in a secret
 
     ```shell
