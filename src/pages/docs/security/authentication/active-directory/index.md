@@ -228,7 +228,7 @@ Users will receive the error "**Username not found.  UPN format may not be suppo
 
 Forms-based authentication can also be disabled:
 
-#### Disabling HTML form sign-in
+### Disabling HTML form sign-in
 
 ```bash
 Octopus.Server.exe configure --allowFormsAuthenticationForDomainUsers=false
