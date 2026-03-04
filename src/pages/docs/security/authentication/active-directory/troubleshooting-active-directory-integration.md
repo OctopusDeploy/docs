@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2026-03-05
 title: Troubleshooting Active Directory integration
 description: Information on troubleshooting common Active Directory integration issues.
 navOrder: 30
@@ -201,3 +201,29 @@ To resolve this issue, open Active Directory Administrative Center for the domai
 Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For configuration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory) guide.
 
 For users on a different domain to the domain the Octopus Server is a member of, the workaround is to use forms authentication instead of the `Sign in with a domain account` button. As of `2020.1.7` the server will detect this issue when users attempt to sign in across domains, and it will provide guidance to those users who are impacted.
+
+## Sign in with a domain account fails with no clear error
+
+When using HTTP.sys (Kernel Mode), certain server-side errors may not be surfaced in the response. Instead, you may see a generic 500 error or the message:
+
+> An error occurred with Windows authentication, possibly due to a known issue, please try using forms authentication.
+
+This can make the root cause difficult to diagnose. A useful diagnostic step is to temporarily switch to Kestrel (User Mode), which surfaces the full error response:
+
+```bash
+Octopus.Server.exe service --stop
+Octopus.Server.exe configure --webServer=Kestrel
+Octopus.Server.exe service --start
+```
+
+Reproduce the sign-in failure and note the error message returned. Once you have identified and resolved the underlying issue, you can switch back to HTTP.sys if desired. See [GitHub issue #9835](https://github.com/OctopusDeploy/Issues/issues/9835) for more detail.
+
+## Maximum Session Duration breaks Active Directory SSO
+
+Setting the **Maximum Session Duration** to a low value (for example, `3600` seconds) can prevent users from signing in via the **Sign in with a domain account** button. The underlying error is:
+
+> Expiration cannot exceed maximum session duration
+
+When using HTTP.sys, this error is not surfaced directly (see the section above), making it particularly difficult to diagnose.
+
+To resolve this, increase the Maximum Session Duration in **Configuration ➜ Settings ➜ Server** to a value greater than or equal to the session expiry configured in your environment. See [GitHub issue #9836](https://github.com/OctopusDeploy/Issues/issues/9836) for more detail.
