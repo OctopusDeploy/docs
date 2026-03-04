@@ -76,7 +76,7 @@ PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AW
 
 This means you can run scripts using a mix of the AWS CLI and PowerShell commands:
 
-```
+```powershell
 # This will write out information on the Get-AWSPowerShellVersion CmdLet.
 get-command Get-AWSPowerShellVersion | fl *
 
