@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2025-03-28
+modDate: 2026-01-15
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -98,7 +98,6 @@ The Kubernetes agent is installed using [Helm](https://helm.sh) via the [octopus
 To simplify this, there is an installation wizard in Octopus to generate the required values.
 
 :::div{.warning}
-
 Helm will use your current kubectl config, so make sure your kubectl config is pointing to the correct cluster before executing the following helm commands.
 You can see the current kubectl config by executing:
 
@@ -110,8 +109,8 @@ kubectl config view
 
 ### Configuration
 
-1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **Add Deployment Target**.
-2. Select **KUBERNETES** and click **ADD** on the Kubernetes Agent card.
+1. Navigate to **Infrastructure ➜ Deployment Targets**, and click **Add Deployment Target**
+2. Select **KUBERNETES** and click **ADD** on the Kubernetes Agent card
 3. This launches the Add New Kubernetes Agent dialog
 
 :::figure
@@ -121,8 +120,7 @@ kubectl config view
 1. Enter a unique display name for the target. This name is used to generate the Kubernetes namespace, as well as the Helm release name
 2. Select at least one [environment](/docs/infrastructure/environments) for the target.
 3. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
-4. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
-If no storage class name is added, the default Network File System (NFS) storage will be used.
+4. Optionally, set the default namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don't specify a namespace.
 
 :::div{.warning}
 As the display name is used for the Helm release name, this name must be unique for a given cluster. This means that if you have a Kubernetes agent and Kubernetes worker with the same name (e.g. `production`), then they will clash during installation.
@@ -130,13 +128,16 @@ As the display name is used for the Helm release name, this name must be unique 
 If you do want a Kubernetes agent and Kubernetes worker to have the same name, Then prepend the type to the name (e.g. `worker production` and `agent production`) during installation. This will install them with unique Helm release names, avoiding the clash. After installation, the worker & target names can then be changed in the Octopus Server UI to the desired name to remove the prefix.
 :::
 
-#### Advanced options
+#### Advanced settings
 
 :::figure
-![Kubernetes Agent default namespace](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-default-namespace.png)
+![Kubernetes Agent Advanced Settings Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-advanced-settings.png)
 :::
 
-You can choose a default Kubernetes namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don't specify a namespace.
+Choose if you want to install additional components, such as the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) or the [Permissions controller](/docs/kubernetes/targets/kubernetes-agent/granular-permissions)
+
+Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
+If no storage class name is added, the default Network File System (NFS) storage will be used.
 
 ### NFS CSI driver
 
@@ -149,7 +150,6 @@ A requirement of using the NFS pod is the installation of the [NFS CSI Driver](h
 :::
 
 :::div{.warning}
-
 If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
 
 ```bash
@@ -166,35 +166,33 @@ At the end of the wizard, Octopus generates a Helm command that you copy and pas
 ![Kubernetes Agent Wizard Helm command Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-helm-command.png)
 :::
 
-:::div{.hint}
 The helm command includes a 1 hour bearer token that is used when the agent first initializes, to register itself with Octopus Server.
-:::
 
-:::div{.hint}
 The terminal Kubernetes context must have enough permissions to create namespaces and install resources into that namespace. If you wish to install the agent into an existing namespace, remove the `--create-namespace` flag and change the value after `--namespace`
-:::
 
 If left open, the installation dialog waits for the agent to establish a connection and run a health check. Once successful, the Kubernetes agent target is ready for use!
-
-:::figure
-![Kubernetes Agent Wizard successful installation](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-success.png)
-:::
 
 :::div{.hint}
 A successful health check indicates that deployments can successfully be executed.
 :::
 
+### Customizing the Helm command
+
+Look at the Helm chart [values.yaml](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/values.yaml) file for all the available options.
+
+The Kubernetes monitor is deployed as a sub-chart to the Kubernetes agent. [Available values for the monitor are available here](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/kubernetes-monitor.md). All Kubernetes monitor values should be nested under a `kubernetesMonitor` key when deployed with the Kubernetes agent chart.
+
 ## Configuring the agent with Tenants
 
 While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
 
-1. Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required. This is done after the agent has successfully installed and registered.
+- Use the Deployment Target settings UI at **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings** to add a Tenant and set the Tenanted Deployment Participation as required. This is done after the agent has successfully installed and registered.
 
-    :::figure
-    ![Kubernetes Agent ](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
-    :::
+:::figure
+![Kubernetes Agent ](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-settings-page-tenants.png)
+:::
 
-2. Set additional variables in the helm command to allow the agent to register itself with associated Tenants or Tenant tags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
+- Set additional variables in the helm command to allow the agent to register itself with associated Tenants or Tenant tags. You also need to provider a value for the `TenantedDeploymentParticipation` value. Possible values are `Untenanted` (default), `Tenanted`, and `TenantedOrUntenanted`.
 
 example to add these values:
 
@@ -237,7 +235,7 @@ Server certificate support was added in Kubernetes agent 1.7.0
 
 It is common for organizations to have their Octopus Deploy server hosted in an environment where it has an SSL/TLS certificate that is not part of the global certificate trust chain. As a result, the Kubernetes agent will fail to register with the target server due to certificate errors. A typical error looks like this:
 
-```text
+```log
 2024-06-21 04:12:01.4189 | ERROR | The following certificate errors were encountered when establishing the HTTPS connection to the server: RemoteCertificateNameMismatch, RemoteCertificateChainErrors
 Certificate subject name: CN=octopus.corp.domain
 Certificate thumbprint:   42983C1D517D597B74CDF23F054BBC106F4BB32F
@@ -275,6 +273,24 @@ metadata:
 data:
   octopus-server-certificate.pem: "<base64-encoded-cert>"
 ```
+
+### gRPC certificates
+
+When installing the Kubernetes monitor, you will possibly encounter the same certificate issues for the gRPC communcations as you do for the Octopus server certificate.
+
+Depending on your load balancer configuration, you have several options for how to handle this.
+
+When using TLS/SSL passthrough, no additional configuration is required. The Kubernetes monitor will use the self signed certificate generated by Octopus server automatically.
+
+When using TLS/SSL bridging, the self-signed certificate or root organization CA certificate will need to be provided to the Helm command. This can be the same certificate as your HTTPS certificate, but it does not need to be. It must match the certificate configured in your load balancer.
+
+To include this in the installation command, add the following to the generated installation command:
+
+```bash
+--set kubernetesMonitor.monitor.customCaCertificate=<base64-encoded-cert>"
+```
+
+[See here](/docs/installation/load-balancers/use-nginx-as-reverse-proxy#grpc-communications) for some sample load balancer configurations for these configurations.
 
 ## Agent tooling
 
@@ -329,7 +345,9 @@ Then, from a terminal connected to the cluster containing the instance, execute 
 helm upgrade --atomic --namespace NAMESPACE HELM_RELEASE_NAME oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
 
-Note: Replace `NAMESPACE` and `HELM_RELEASE_NAME` with your own values.
+:::div{.hint}
+Replace NAMESPACE and HELM_RELEASE_NAME with the values noted
+:::
 
 If after the upgrade command has executed, you find that there is issues with the agent, you can rollback to the previous helm release by executing:
 

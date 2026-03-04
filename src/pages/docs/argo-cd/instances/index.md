@@ -56,6 +56,9 @@ kubectl config view
 :::
 
 1. Enter the unique name for the instance. This name is used to generate the Kubernetes namespace, as well as the Helm release name.
+    :::div{.warning}
+    The gateway's name must be unique within a cluster. Otherwise the existing gateway's settings will be overwritten, causing deployment failures.
+    :::
 2. Select at least one [environment](https://octopus.com/docs/infrastructure/environments) the instance will be responsible for servicing.
 3. If required, change the [in-cluster](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services) URL of the Argo CD API Server service. In many cases the default value provided will work.
 4. Optionally, add the URL used to access Argo CD's web frontend. This will be used for linking from Octopus to Argo CD to aid with deployment investigations.

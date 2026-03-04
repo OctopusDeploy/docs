@@ -11,7 +11,7 @@ One of the most important aspects of Continuous Delivery is being able to rapidl
 
 The Recovery Agent is designed to help you recover from failure, fast. In the current release the agent uses AI to analyze and diagnose the cause of deployment failures within the deployments you manage, and suggest potential steps to recover. In the future, the Agent will be able to execute those remediation steps for you. You will be in the loop and in control, but the Recovery Agent will take care of the heavy lifting in the heat of the moment.
 
-The Recovery Agent is now available to all Cloud Customers. We will continue to evolve and refine the Recovery Agent alongside customer feedback.
+The Recovery Agent is now available to all customers starting with version *2026.1*. We will continue to evolve and refine the Recovery Agent alongside customer feedback.
 
 :::figure
 ![A screenshot of Octopus Deploy's Recovery Agent showing suggestions on how to fix a deployment failure](/docs/img/octopus-ai-assistant/recovery-agent.gif)
@@ -19,23 +19,19 @@ The Recovery Agent is now available to all Cloud Customers. We will continue to 
 
 ## FAQ
 
-### Who is the Recovery Agent available to?
-
-The Recovery Agent is available to Octopus Cloud customers only. We do not yet have a specific date for when it will be available to self-hosted customers.
-
 ### Is my data being used to train AI?
 
-No. Octopus Agents leverage pre-trained foundational AI models from providers like OpenAI. We host these models in Azure, as we do with all of our Octopus Cloud resources.
+No. Octopus Agents leverage pre-trained foundation AI models from providers like OpenAI. We host these models in Azure, as we do with all of our Octopus Cloud resources.
 
-Interactions with foundational AI models are entirely stateless. Your data is not used to train the models. Your data is not stored by the models, and they do not retain a "history" of interactions.
+Interactions with foundation AI models are entirely stateless. Your data is not used to train the models. Your data is not stored by the models, and they do not retain a "history" of interactions.
 
 ### How is my data being processed?
 
-Our foundational models are hosted within Azure, which provides strong guarantees about how your data is processed and stored.
+Our foundation models are hosted within Azure, which provides strong guarantees about how your data is processed and stored.
 
 In short, your prompts (inputs) and completions (outputs) are not available to other customers and are not used to train the models.
 
-If your Octopus Cloud instance is hosted in the EU, it will work with a foundational model hosted in Sweden, ensuring all data transmission and processing happens within an EU member country. Octopus complies with the European Union's General Data Protection Regulation ([GDPR](https://octopus.com/legal/gdpr)).
+To ensure data residency requirements are met we use geo-based routing that will automatically assign requests from EU to foundation model hosted in Sweden, ensuring all data transmission and processing happens within an EU member country. Octopus complies with the European Union's General Data Protection Regulation ([GDPR](https://octopus.com/legal/gdpr)).
 
 It is important to note that Octopus never prints out or sends secrets to external services as long as they are clearly [identified as sensitive](https://octopus.com/docs/projects/variables/sensitive-variables).
 

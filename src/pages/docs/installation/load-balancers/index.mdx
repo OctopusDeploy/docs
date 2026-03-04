@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-12-08
+modDate: 2026-01-15
 title: Load Balancers
 navTitle: Overview
 navSection: Load Balancers
@@ -17,7 +17,7 @@ Octopus Deploy can work with any http/https load balancer technology.  There are
 Octopus Server provides a health check endpoint for your load balancer to ping: `/api/octopusservernodes/ping`.
 
 :::figure
-![](/docs/img/shared-content/administration/images/load-balance-ping.png)
+![Load balancer ping UI](/docs/img/shared-content/administration/images/load-balance-ping.png)
 :::
 
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
@@ -44,7 +44,7 @@ Polling tentacles deserve special attention due to how they work with Octopus De
 We recommend having a dedicated URL for each node in the primary region and routing all traffic through a load balancer or a traffic manager.  When you have to fail over to the secondary region, update the dedicated URLs to point to a corresponding node in the secondary region.
 
 :::div{.warning}
-Important! You must configure the traffic to be “pass through” with no SSL off-loading.  The tentacles and Octopus Deploy establish a two-way trust via certificates.  If a third unknown certificate is introduced, the tentacle and Octopus deploy will reject the connection.
+Important! You must configure the traffic to be "pass through" with no SSL off-loading.  The tentacles and Octopus Deploy establish a two-way trust via certificates.  If a third unknown certificate is introduced, the tentacle and Octopus deploy will reject the connection.
 :::
 
 ## gRPC Services
@@ -52,7 +52,8 @@ Important! You must configure the traffic to be “pass through” with no SSL o
 Several Octopus features (eg. Kubernetes Live Object Status and Argo CD integration) rely on communications via gRPC that require specific configuration to account for certificate trust.
 
 Octopus generates a self signed certificate for gRPC communications. When the a gRPC client needs to connect to Octopus via a load balancer, there are two common methods to achieve this:
-1. Using TLS/SSL bridging, with verification disabled between the load balancer and Octopus
+
+1. Using TLS/SSL bridging, with verification disabled between the load balancer and Octopus. Additional configuration will be required for the gRPC client to trust the load balancer certificate.
 2. Using TLS/SSL passthrough
 
 ## Third Party Load Balancers

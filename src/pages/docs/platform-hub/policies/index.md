@@ -11,7 +11,7 @@ description: Policies let you enforce standards across your Octopus instance wit
 navOrder: 160
 ---
 
-Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. 
+Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline.
 
 Using Rego, you can write custom policy checks that align with your requirements, block non-compliant deployments, and access detailed audit logs of policy evaluation events. This method ensures compliance is not an afterthought; it is embedded within every deployment pipeline, providing a seamless and efficient way to uphold governance standards across all activities.
 
@@ -58,14 +58,17 @@ To get started, navigate to the Platform Hub inside of your Octopus instance and
 :::
 
 ### 2. Give your policy a name
-You will be presented with the Create Policy modal. You can then set teh Name for you Policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Create` button.
+
+You will be presented with the Create Policy modal. You can then set the name of your policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Create` button.
 
 :::figure
 ![A modal to create a new policy](/docs/img/platform-hub/policies/policies-create-modal.png)
 :::
 
 :::div{.hint}
+
 - The slug can not be changed once a policy is created.
+
 :::
 
 ### 3. Update your policy details
@@ -84,14 +87,15 @@ This will create the Policy file in your Platform Hub repository and then take y
 :::
 
 :::div{.hint}
+
 - ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code.
 - ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
 
 Full details of output schema is available on the [schema page](/docs/platform-hub/policies/schema).
 
-See 
-:::
+See
 
+:::
 
 ### 4. Define the policy scope
 
@@ -136,8 +140,10 @@ evaluate := true if {
 After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason** and **action**. In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing. This conditions section of the policy defines the package name, which must match the slug for your policy. By default, the policy evaluates to false. The condition will evaluate to true if the deployment contains the required steps.
 
 :::div{.warning}
+
 - You cannot rename **result**, it must be called **result**.
 - The package name must be the same as your policy file name.
+
 :::
 
 ```ruby
@@ -216,8 +222,10 @@ You’ve now defined a basic policy to ensure a manual intervention step is pres
 <br>
 
 :::div{.hint}
+
 - If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](/docs/platform-hub/policies/examples).
 - If you wish to see the schema of inputs available for policies, please visit the [schemas page](/docs/platform-hub/policies/schema).
+
 :::
 
 ## Policy evaluation information
@@ -226,27 +234,27 @@ If you want to see what information was provided to the policy engine when it ev
 
 1. Task logs
 
-:::figure
-![The task logs showing policy audit records](/docs/img/platform-hub/policies-task-log.png)
-:::
+   :::figure
+   ![The task logs showing policy audit records](/docs/img/platform-hub/policies-task-log.png)
+   :::
 
-<br>
+   <br>
 
 2. Project dashboards
 
-:::figure
-![Dashboards showing policy errors](/docs/img/platform-hub/policies-dashboard-notification.png)
-:::
+   :::figure
+   ![Dashboards showing policy errors](/docs/img/platform-hub/policies-dashboard-notification.png)
+   :::
 
-<br>
+   <br>
 
 3. Audit records
 
-:::figure
-![Audit log containing policy evaluation records](/docs/img/platform-hub/policies-audit-log.png)
-:::
+   :::figure
+   ![Audit log containing policy evaluation records](/docs/img/platform-hub/policies-audit-log.png)
+   :::
 
-<br>
+   <br>
 
 You can see what information was evaluated at the time of policy evaluation by using the verbose option in the task logs. This is useful if you want to troubleshoot a policy and see if it is evaluating deployments correctly.
 

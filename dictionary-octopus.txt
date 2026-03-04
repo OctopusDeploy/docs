@@ -96,6 +96,7 @@ cscript
 cspkg
 Csvg
 customextension
+customfield
 customisation
 Customscripts
 cutover
@@ -262,6 +263,7 @@ Linq
 Liquibase
 llms
 localport
+longdate
 lstrip
 ltsc
 Lucene
@@ -280,6 +282,7 @@ Metabase
 milli
 minidump
 minifier
+minlevel
 MITM
 Mkto
 Moines
@@ -328,6 +331,8 @@ noreferrer
 nosniff
 notcontains
 notlike
+NPM
+npmjs
 NTDS
 NTFS
 NTLM
@@ -463,6 +468,7 @@ runtimes
 sakila
 SAMEORIGIN
 Schannel
+SCIM
 scopeduserroles
 Scregedit
 scriptcs
@@ -540,6 +546,7 @@ tfvar
 tfvars
 TFVC
 thepassword
+threadid
 timespan
 tlsv1
 tmpfs
