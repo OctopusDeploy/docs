@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-11-30
+modDate: 2026-03-05
 title: Active Directory authentication
 description: Octopus Deploy can use Windows credentials to identify users.
 navOrder: 5
@@ -28,11 +28,11 @@ If you are using Active Directory Authentication with Octopus, there are two way
 
 By default, Active Directory Authentication will use NTLM as the Authentication Scheme. In many circumstances, you can also configure Octopus to use Kerberos for authentication.
 
-If you would like to use Kerberos for authentication, you should consider if you require User Mode authentication. User Mode is required for Kerberos authentication when Octopus is in a [High Availability](/docs/administration/high-availability) configuration. By default, Kerberos authentication for Octopus Deploy runs in Kernel Mode. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
+If you would like to use Kerberos for authentication, you will need to use User Mode authentication (Kestrel). By default, Active Directory authentication for Octopus Deploy runs in Kernel Mode via HTTP.sys. The mode is dictated by the web server running Octopus Deploy, which can be configured using the `configure` command. Select HTTP.sys for Kernel Mode, or Kestrel for User Mode:
 
 ### Kernel Mode authentication via HTTP.sys (default) - Command Line
 
-Select this mode if you require features of HTTP.sys, such as port sharing.
+Select this mode if you require features of HTTP.sys, such as port sharing. This mode supports NTLM in both single server and High Availability configurations.
 
 ```bash
 Octopus.Server.exe configure --webServer=HttpSys
@@ -40,7 +40,7 @@ Octopus.Server.exe configure --webServer=HttpSys
 
 ### User Mode authentication via Kestrel - Command Line
 
-Select this mode for High Availability configurations.
+Select this mode if you require Kerberos authentication.
 
 ```bash
 Octopus.Server.exe configure --webServer=Kestrel
@@ -89,17 +89,13 @@ Without some additional configuration, AD authentication, whether forms-based or
 
 ### Supported setups for Active Directory authentication {#supported-active-directory-setups}
 
-Octopus Deploy supports various options for Active Directory authentication.
+Octopus Deploy supports various options for Active Directory authentication. Both HTTP.sys and Kestrel web server modes are compatible with High Availability configurations. The choice of web server determines which authentication protocols are available.
 
-:::div{.hint}
-Not all high availability and Active Directory configurations are supported. There are limitations on the use of Kerberos in high availability scenarios. This is due to a requirement to [use a machine level SPN in order to allow Kerberos to work](#configuring-kerberos) with our web server.
-:::
-
-|     Octopus Option              | Single Octopus Server | High-Availability |
-|---------------------------------|-----------------------|-------------------|
-| NTLM                            |         Yes           |       Yes         |
-| Negotiate                       |         Yes           |       No          |
-| IntegratedWindowsAuthentication |         Yes           |       No          |
+|     Octopus Option              | HTTP.sys (Kernel Mode) | Kestrel (User Mode)  |
+|---------------------------------|------------------------|----------------------|
+| NTLM                            |         Yes            |       Yes            |
+| Negotiate                       |      NTLM only         |   Kerberos, NTLM     |
+| IntegratedWindowsAuthentication |      NTLM only         |   Kerberos, NTLM     |
 
 :::div{.hint}
  **Service Accounts and Kerberos**
@@ -139,7 +135,7 @@ setspn.exe -S HTTP/od.domain.local server1
 :::div{.hint}
 **HA Clusters**
 
-If you are running a HA Octopus Deploy environment, Kerberos authentication is not currently supported. Please refer to our section on [Supported Setups for Active Directory Authentication](#supported-active-directory-setups)
+Kerberos authentication in a High Availability environment requires configuring Octopus to use Kestrel (User Mode). Please refer to our section on [Supported Setups for Active Directory Authentication](#supported-active-directory-setups).
 :::
 
 For more information about configuration of SPNs [please see this microsoft support article](https://support.microsoft.com/en-us/help/929650/how-to-use-spns-when-you-configure-web-applications-that-are-hosted-on).
