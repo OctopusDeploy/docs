@@ -4,7 +4,7 @@ pubDate: 2025-09-15
 modDate: 2026-02-22
 title: Argo CD deployments with Octopus
 navTitle: Overview
-description: Octopus Deploy manages your Argo CD applications environment promotion
+description: Octopus Deploy manages your Argo CD applications' environment promotion
 navSection: Argo CD
 navOrder: 28
 hideInThisSectionHeader: true

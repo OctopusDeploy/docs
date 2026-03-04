@@ -18,7 +18,7 @@ more information.
 
 ## Container Images
 
-Add package references for each container image you would like to update when you run your deployment. Unreferenced image references in your manifests will not be changed by Octopus if not included here.
+Add package references for each container image you would like to update when you run your deployment. Unreferenced container images in your manifests will not be changed by Octopus.
 
 If the application cluster's default registry has been changed, see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
@@ -39,7 +39,7 @@ When a release of the project is created, a snapshot of the versions of containe
 
 For each application with relevant scoping annotations found during a deployment, Octopus will checkout each repository using git credentials determined based on [repository restrictions](/docs/infrastructure/git-credentials#repository-restrictions).
 
-How Octopus updates image tags varies for each source type:
+### How Octopus updates image tags varies for each source type
 
 For Kubernetes YAML:
 
@@ -57,4 +57,4 @@ For Kustomize applications (i.e. supplied path contains  `kustomization.yaml`, `
   
 Finally, changed files are committed and pushed back to the repo/branch specified by the Argo CD Application
   
-- A PR will be created (rather than merging to the `targetRevision` branch) if configured in the step UI
+A PR will be created (rather than merging to the `targetRevision` branch) if configured in the step UI.
