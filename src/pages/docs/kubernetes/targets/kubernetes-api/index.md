@@ -319,7 +319,7 @@ If you're running into issues with your Kubernetes targets, it's possible you'll
 
 Setting the Octopus variable `Octopus.Action.Kubernetes.OutputKubeConfig` to `True` for any deployment or runbook using a Kubernetes target will cause the generated kube config file to be printed into the logs (with passwords masked). This can be used to verify the configuration file used to connect to the Kubernetes cluster.
 
-Setting the Octopus variable `Octopus.Action.Kubernetes.VerboseOutput` to `True` will cause successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) to be logged at the Info level instead of Verbose. This is useful when debugging deployments to see the full output of these tools without needing to enable verbose logging for the entire deployment.
+By default, successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) is logged at the Verbose level, which is only visible when the task log level is set to Verbose. Setting the Octopus variable `Octopus.Action.Kubernetes.LogCliOutputAsInfo` to `True` will promote this output to the Info level so it appears in the Standard task log. This is useful when debugging deployments to see the full output of these tools without needing to switch the log level to Verbose for the entire deployment.
 
 If Kubernetes targets fail their health checks, the best way to diagnose the issue to to run a `Run a kubectl CLI Script` step with a script that can inspect the various settings that must be in place for a Kubernetes target to function correctly. Octopus deployments will run against unhealthy targets by default, so the fact that the target failed its health check does not prevent these kinds of debugging steps from running.
 

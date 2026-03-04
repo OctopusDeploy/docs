@@ -1549,9 +1549,9 @@ Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environ
 
 ### Kubernetes
 
-`Octopus.Action.Kubernetes.VerboseOutput`
+`Octopus.Action.Kubernetes.LogCliOutputAsInfo`
 
-Set to `True` to log successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) at the Info level instead of Verbose. This is useful when debugging deployments to see the full output of these tools without needing to enable verbose logging for the entire deployment.
+By default, successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) is logged at the Verbose level, which is only visible when the task log level is set to Verbose. Set to `True` to promote this output to the Info level so it appears in the Standard task log. This is useful when debugging deployments to see the full output of these tools without needing to switch the log level to Verbose for the entire deployment.
 
 Example: True
 
