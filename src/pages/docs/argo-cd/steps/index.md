@@ -85,7 +85,7 @@ Octopus will ensure that the changes were successfully committed to Git, but per
 
 Octopus will pause the deployment task until all created pull requests are merged. For any environments that do not create pull requests, this will not wait.
 
-Octopus will review this status once every TODO seconds. While the task is paused, this deployment will not count towards your task cap.
+Octopus will review this status once every 60 seconds. While the task is paused, this deployment will not count towards your task cap.
 
 :::div{.info}
 Pull request merged verification is available from 2026.2.
