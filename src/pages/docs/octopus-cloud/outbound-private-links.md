@@ -40,7 +40,7 @@ Once your Private Link Service is ready, you will need its **alias** to complete
 Connecting your Octopus Cloud instance to your Private Link Service can be done in [Control Center](https://billing.octopus.com/). Users with `Cloud Subscription Owner` role can administer the feature from the **Configuration** menu.
 
 1. Click the **Configure** link in the Outbound Azure private links section
-2. Copy the Alias for your Private Link Service from Azure Portal and paste into the displayed field. Click "Submit".
+2. Copy the Alias for your Private Link Service from Azure Portal and paste into the displayed field. Click **Submit**.
 
 :::figure
 ![A screenshot of the Control Center outbound private links configuration UI showing the alias input field](/docs/img/octopus-cloud/images/outbound-private-links-control-center-alias.png)
