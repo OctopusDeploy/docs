@@ -70,6 +70,17 @@ Each tag set appears as its own field in the deployment target settings, where y
 
 Learn more about [tag sets](/docs/tenants/tag-sets), including tag set types, scopes, and how to create and manage them.
 
+### Tag validation in deployment steps \{#tag-validation}
+
+When you configure a deployment step, Octopus validates that each target tag referenced by the step exists in a tag set. If a tag does not exist in any tag set, it is displayed with a red **!** icon. Hovering over the icon shows a tooltip explaining that the tag does not exist in any tag set, and that you can remove it or recreate it by adding it to a tag set.
+
+This can happen if a tag was deleted from a tag set, or if the step references a tag that was never added to one. To resolve the warning, either:
+
+- Remove the tag from the step and replace it with a valid tag.
+- Add the tag to an existing tag set (or create a new one) so it becomes valid.
+
+The warning is informational — it does not prevent you from saving or deploying. However, a tag that doesn't exist in any tag set won't match any deployment targets.
+
 ### API compatibility \{#api-compatibility}
 
 The Octopus REST API represents target tags using a `roles` field on deployment target resources. This field continues to work as before — it returns and accepts the target tag values regardless of which tag set they belong to. No changes are required to existing API integrations.
