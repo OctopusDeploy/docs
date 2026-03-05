@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-04
 title: Overview
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 10
@@ -9,22 +9,16 @@ navTitle: Overview
 navSection: Deployment Steps
 ---
 
+## Steps
+
 Octopus offers two in-built steps which are able to modify a mapped Argo CD application in different ways:
 
 1. Update Argo CD Application Image Tags
 2. Update Argo CD Application Manifests
 
-## Steps
-
 ### Update Argo CD Application Image Tags
 
-This step is responsible for identifying images referenced by an application, and updating their image-tags to the value defined in the Octopus Deployment.
-
-For 'Basic Yaml' and 'Kustomize' based Argo CD Applications, the behavior for performing the update relies on the known structure of the kubernetes/kustomize yaml to ensure the correct fields are updated.
-
-However, for Helm-based Argo CD Applications, where image-tags are specified within the `values.yaml` file, additional information is required to explicitly define *which* fields in the values represent an image reference.
-
-See [Helm annotations](/docs/argo-cd/annotations/helm-annotations) for more information and examples.
+This step is responsible for identifying images referenced by an application, and updating their image-tags to the value defined in the Octopus release. This step lets you update the versions of your applications via Octopus, while maintaining the definition of the bulk of your manifests in your Git repository.
 
 You can read more about the [update application image tags step](/docs/argo-cd/steps/update-application-image-tags).
 
@@ -34,13 +28,100 @@ This step is responsible for populating an Argo CD Application's Git repository 
 
 You can read more about the [update application manifests step](/docs/argo-cd/steps/update-application-manifests).
 
+## Setting up Git Credentials
+
+Octopus needs to clone and push changes to the Git repositories backing your Argo CD applications. Unlike other Octopus features where you select a Git credential directly, the Argo CD steps automatically determine which credential to use by matching the repository URL from your Argo CD application against the [repository restrictions](/docs/infrastructure/git-credentials#repository-restrictions) configured on your Git credentials.
+
+Make sure your Git credentials have repository restrictions that include the URLs of the repositories used by your Argo CD applications.
+
+## Common Configuration
+
+Some configuration is shared between both of the steps mentioned above, these fields are explained below with the configuration specific to each step on their respective pages.
+
+### Argo CD Applications
+
+[Argo CD Applications](/docs/argo-cd/steps/argo-cd-applications-view) is an aid to help determine which instances, and which applications are going to be updated when executing this step.
+
+### Git Commit Settings
+
+The following options provide controls over how we apply the change via Git.
+
+#### Commit Message
+
+Commit message lets you specify the summary, and description of the change. The description will be automatically populated if left empty.
+
+The content here will be reused for pull request messages if you have selected for the change to merge via pull request.
+
+:::div{.warning}
+If the commit summary or description references a [Sensitive Variable](/docs/projects/variables/sensitive-variables) the deployment will fail.
+This ensures sensitive data is not leaked to Git via the commit/PR message.
+:::
+
+#### Git Commit Method
+
+Git commit method specifies *how* changes are applied to your target branch. Either directly committed, or merged via a pull request.
+
+If you decide to open pull requests for your changes, you may choose to do so for all environments or only a specific selection. Environments not selected will commit directly to the target branch.
+
+:::div{.warning}
+Currently, pull requests can only be created for GitHub, GitLab, and Azure DevOps based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+:::
+
+#### Step Verification
+
+![Step verification options in the process editor](/docs/img/argo-cd/steps/argocd-step-verification.png)
+
+:::div{.info}
+Step verification is available from 2026.1.
+:::
+
+There are 3 options for how Octopus will determine your step successfully resolved.
+
+##### Direct commit or pull request created
+
+Octopus will ensure that the changes were successfully committed to Git, but perform no further checks.
+
+##### Pull request merged
+
+Octopus will pause the deployment task until all created pull requests are merged. For any environments that do not create pull requests, this will not wait.
+
+Octopus will review this status once every 60 seconds. While the task is paused, this deployment will not count towards your task cap.
+
+:::div{.info}
+Pull request merged verification is available from 2026.2.
+:::
+
+##### Argo CD Application is healthy
+
+Octopus will wait until your Argo CD instance reports that all of the applications are in sync with the created commit and/or pull request, and also reports that all resources are created and healthy.
+
+You can check the current status of your deployment by looking at the Live Object Status page. If the health status is `Healthy` and the sync status is `In Sync`, then the deployment will resume after the next evaluation.
+
+Octopus will review this status once every 30 seconds. While the task is paused, this deployment will not count towards your task cap.
+
+###### Step Timeout (Optional)
+
+When set, this will cause the deployment step to fail if Argo does not report a healthy and in sync status before the timeout period.
+
+### Trigger Sync
+
+Enabling this option will cause Argo CD to explicitly sync applications with the changes committed to Git by this same step. This can be done for all environments, or just those specifically selected.
+
+This option is intended to be as close to clicking the sync button in the Argo CD UI as the API makes possible.
+
+#### Sync Policy
+
+The application sync will be applied using the pre-configured sync options/sync policy for your application.
+
+Information about Argo CD's sync policies can be found in the [official documentation](https://oc.to/argocd-sync-policy-docs).
+
 ## Output Variables
 
 When these steps are executed, they each create a number of [output variables](/docs/projects/variables/output-variables) which contain information relating to the
 step's execution, these variables include:
 
 | Variable name      | Content                                                                                 |
-|--------------------|-----------------------------------------------------------------------------------------|
+| ------------------ | --------------------------------------------------------------------------------------- |
 | PullRequest.Title  | The title of the PR created in the step, empty if no PR was created.                    |
 | PullRequest.Number | The unique identifier of the PR within your git repository, empty if no PR was created. |
 | PullRequest.Url    | The Url of the PR created, empty if no PR was created.                                  |
