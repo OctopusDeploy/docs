@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-12
+modDate: 2026-03-06
 title: System variables
 icon: fa-solid fa-desktop
 description: System variables are variables provided by Octopus that can be used in your deployments.
@@ -906,6 +906,12 @@ Example: *Write-Host 'Hello!'*
 The syntax of the script being run in a script step.
 
 Example: *PowerShell*
+
+`Octopus.Action.Script.CSharp.NuGetSource`
+
+Overrides the NuGet source used by the dotnet executor when running C# script steps.
+
+Example: *https://my-nuget-server/nuget*
 
 `Octopus.Action.SkipRemainingConventions`
 
