@@ -4,7 +4,7 @@ pubDate: 2025-09-15
 modDate: 2026-02-22
 title: Argo CD deployments with Octopus
 navTitle: Overview
-description: Octopus Deploy can help you manage your Argo CD applications navigate lifecycle promotion
+description: Octopus Deploy manages your Argo CD applications' environment promotion
 navSection: Argo CD
 navOrder: 28
 hideInThisSectionHeader: true
@@ -18,12 +18,12 @@ Octopus makes it easy to improve your Argo CD deployments with environment model
 
 Argo CD excels at synchronizing manifests to clusters and provides a powerful UI to verify and troubleshoot deployments.
 
-However, it treats each of your applications as independent entities, meaning there's no `codified` relationship between staging and production installations of your applications. Because of this, you need to manage this staging/production relationship and promotion between them through external mechanisms, eg:
+However, it treats each of your applications as independent entities, meaning there's no *codified* relationship between staging and production installations of your applications. Because of this, you need to manage this staging/production relationship and promotion between them through external mechanisms, e.g.:
 
 - Manual file manipulations
 - Custom scripts, run automatically or via Jenkins/CI tooling
 
-The Octopus/Argo integration means your Argo Applications can be updated and deployed via an Octopus Deployment Process (or runbook). Which in turn means your Applications can be safely promoted through a controlled lifecycle.
+The Octopus/Argo integration means your Argo Applications can be updated and deployed via an Octopus Deployment Process (or runbook), which in turn means your Applications can be safely promoted through a controlled lifecycle.
 
 Octopus makes integrating and deploying with Argo CD simple:
 
