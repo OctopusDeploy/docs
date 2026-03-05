@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-06-20
-modDate: 2025-10-08
+pubDate: 2026-03-06
+modDate: 2026-03-06
 title: Outbound Azure Private Links
 navOrder: 66
 description: Guides users through the Outbound Azure Private Links feature, including how to access and configure it
