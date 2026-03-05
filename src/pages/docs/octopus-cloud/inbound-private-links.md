@@ -11,7 +11,7 @@ Inbound Azure Private Links provide private connectivity from your virtual netwo
 They simplify network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public Internet.
 
 :::div{.hint}
-[Azure Private Link](https://azure.microsoft.com/en-us/products/private-link) is not a service provided by Octopus Deploy. It is a Microsoft service that Octopus Deploy enables for use with your Octopus Cloud instance. 
+[Azure Private Link](https://azure.microsoft.com/en-us/products/private-link) is not a service provided by Octopus Deploy. It is a Microsoft service that Octopus Deploy enables for use with your Octopus Cloud instance.
 
 Customers maintain configuration within their own network in order to use Azure Private Links. Octopus Deploy is not responsible for customer configuration. For issues with configuration, please contact Microsoft Support.
 :::
@@ -38,16 +38,16 @@ With all above steps satisfied, you can create your Private Endpoint by:
 3. Ensure the pre-filled Subscription and resource group are correct.
 4. Give the new Private Endpoint a name and either accept or customize the generated Network Interface Name. Click "Next".
 
-:::figure
-![An example of how to fill in the basics tab while creating a private endpoint in the Azure Portal](/docs/img/octopus-cloud/images/create-private-endpoint-basics.png)
-:::
+   :::figure
+   ![An example of how to fill in the basics tab while creating a private endpoint in the Azure Portal](/docs/img/octopus-cloud/images/create-private-endpoint-basics.png)
+   :::
 
 5. Select "Connect to an Azure resource by resource ID or alias" and paste the provided alias into the displayed field.
 6. Enter your Octopus Cloud instance's DNS prefix into the Request message field. Click "Next".
 
-:::figure
-![An example of how to fill in the resource tab while creating a private endpoint in the Azure Portal](/docs/img/octopus-cloud/images/create-private-endpoint-resource.png)
-:::
+   :::figure
+   ![An example of how to fill in the resource tab while creating a private endpoint in the Azure Portal](/docs/img/octopus-cloud/images/create-private-endpoint-resource.png)
+   :::
 
 7. Select the virtual network and subnet for the Private Endpoint to use. Click "Next".
 8. Complete the remainder of the Private Endpoint creation according to your requirements.
@@ -60,15 +60,15 @@ Retrieving this value can also be done through the Azure Portal by doing the fol
 1. Navigate to the newly created Private Endpoint.
 2. Click the "JSON View" button on the right of the page.
 
-:::figure
-![A screenshot of a Private Endpoint in the Azure Portal showing where the JSON View button is](/docs/img/octopus-cloud/images/private-endpoint-json-view-button.png)
-:::
+   :::figure
+   ![A screenshot of a Private Endpoint in the Azure Portal showing where the JSON View button is](/docs/img/octopus-cloud/images/private-endpoint-json-view-button.png)
+   :::
 
 3. In the Resource JSON pane that appears, the value you will want to retrieve is under `properties` and then `resourceGuid`
 
-:::figure
-![A screenshot of a Private Endpoint's JSON View in the Azure Portal highlighting the ResourceGuid field](/docs/img/octopus-cloud/images/private-endpoint-json-resource-guid.png)
-:::
+   :::figure
+   ![A screenshot of a Private Endpoint's JSON View in the Azure Portal highlighting the ResourceGuid field](/docs/img/octopus-cloud/images/private-endpoint-json-resource-guid.png)
+   :::
 
 With these details available, get in touch with [our support team](https://octopus.com/support) and ask that the Private Endpoint be approved.
 Once approved, you will be able to begin accessing your Octopus Cloud instance using your new Azure Private Link Endpoint.
@@ -93,11 +93,11 @@ When we configure your instance to allow access via Azure Private Links, client 
 
 ### Kubernetes cluster upgrades
 
-As part of keeping your Octopus Cloud fully maintained, we upgrade the Kubernetes cluster your instance is hosted within approximately quarterly. To ensure minimal disruption during the Kubernetes cluster upgrade, for a few minutes, we will proxy the Private Link service traffic through a load balancer with an Azure public IP address. During this short period traffic does not leave Azure. 
+As part of keeping your Octopus Cloud fully maintained, we upgrade the Kubernetes cluster your instance is hosted within approximately quarterly. To ensure minimal disruption during the Kubernetes cluster upgrade, for a few minutes, we will proxy the Private Link service traffic through a load balancer with an Azure public IP address. During this short period traffic does not leave Azure.
 
 ### Public access maintained
 
-Adding Azure Private Links makes it possible to privately and securely connect to your Octopus Cloud from your Azure virtual network without traversing the public internet. Access to your instance from the public internet is still permitted to ensure other use cases remain supported. 
+Adding Azure Private Links makes it possible to privately and securely connect to your Octopus Cloud from your Azure virtual network without traversing the public internet. Access to your instance from the public internet is still permitted to ensure other use cases remain supported.
 
 ## Outbound Azure Private Links
 

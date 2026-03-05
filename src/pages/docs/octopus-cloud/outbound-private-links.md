@@ -34,7 +34,6 @@ Once your Private Link Service is ready, you will need its **alias** to complete
 ![A screenshot of a Private Link Service in the Azure Portal showing where the alias is](/docs/img/octopus-cloud/images/private-link-service-alias.png)
 :::
 
-
 ## Connect your Octopus Cloud instance to your Private Link Service
 
 Connecting your Octopus Cloud instance to your Private Link Service can be done in [Control Center](https://billing.octopus.com/). Users with `Cloud Subscription Owner` role can administer the feature from the **Configuration** menu.
@@ -42,9 +41,9 @@ Connecting your Octopus Cloud instance to your Private Link Service can be done 
 1. Click the **Configure** link in the Outbound Azure private links section
 2. Copy the Alias for your Private Link Service from Azure Portal and paste into the displayed field. Click **Submit**.
 
-:::figure
-![A screenshot of the Control Center outbound private links configuration UI showing the alias input field](/docs/img/octopus-cloud/images/outbound-private-links-control-center-alias.png)
-:::
+   :::figure
+   ![A screenshot of the Control Center outbound private links configuration UI showing the alias input field](/docs/img/octopus-cloud/images/outbound-private-links-control-center-alias.png)
+   :::
 
 3. A request message will be displayed. This will be used to verify the incoming private endpoint request to your network. This value will remain visible in Control Center after the dialog is dismissed.
 
@@ -78,9 +77,9 @@ This is configured in [Control Center](https://billing.octopus.com/) from the sa
 1. Click **Add new DNS entry**.
 2. Enter the **Subdomain** and **Root Domain** of the hostname you want to route privately. Click **Add**.
 
-:::figure
-![A screenshot of the Add DNS Entry dialog in Control Center showing the subdomain and root domain fields](/docs/img/octopus-cloud/images/outbound-private-links-add-dns-entry.png)
-:::
+   :::figure
+   ![A screenshot of the Add DNS Entry dialog in Control Center showing the subdomain and root domain fields](/docs/img/octopus-cloud/images/outbound-private-links-add-dns-entry.png)
+   :::
 
 3. Repeat for any additional hostnames. Note that all entries must share the same root domain.
 
