@@ -36,7 +36,7 @@ The configuration as code feature is not designed to allow two or more projects 
 While it may work initially, it will be harder and harder to manage over time. You will need to keep *all* the scaffolding data in sync across multiple instances. That is [easier said than done](/docs/administration/sync-instances).  Step templates will be the most difficult, as having the same step template on all instances, the version has to match. Otherwise, you'll have to worry about settings such as parameters, scripts, package versions, feeds, and more.
 
 :::div{.warning}
-Configuration as Code currently supports storing the deployment process and non-sensitive variables for a project in the Git repo. It does not store sensitive variables.  
+Configuration as Code currently supports storing the deployment process, runbook processes and non-sensitive variables for a project in the Git repo. It does not store sensitive variables.  
 :::
 
 Typically, having two instances results from splitting an Octopus Deploy instance by environment (one instance has Dev/Test the other has Staging/Prod), by Tenant (one instance has test tenants, the other has customers), or both. Pointing multiple instances at the same folder will only work if they *are all exactly the same forever*.
