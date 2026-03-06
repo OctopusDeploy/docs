@@ -118,11 +118,10 @@ GitHub Connections are not supported in Platform Hub. Use a username and persona
 
 ## Public API
 
-Project templates can be created and managed through the [Octopus REST API](/docs/octopus-rest-api).
+Creating and managing project templates through the REST API is not yet supported in the Alpha release. REST API support is planned for a future release.
 
 - Each project template is stored as a folder in the configured Git repository, containing four OCL files: `template.ocl`, `deployment_process.ocl`, `parameters.ocl`, and `variables.ocl`.
 - Published versions and space sharing configurations are stored in the database.
-
 
 ## Losing access to an Octopus Enterprise license
 

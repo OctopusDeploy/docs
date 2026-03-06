@@ -23,7 +23,7 @@ To create or manage your process templates, navigate to Platform Hub. If you hav
 Before you can define the deployment process for your template, you must create the template first.
 
 1. Navigate to Process Templates in Platform Hub.
-2. Give the process template a **NAME** and an optional **DESCRIPTION**
+2. Give the process template a **Name** and an optional **Description**.
 3. Create your process template.
 
 :::figure

@@ -29,9 +29,9 @@ This document will be updated as additional step support is added.
 
 If you are migrating an existing process to be used as a process template, you may run into a few issues when using parameters and variables in scripts. When copying a script from a step in a project into a process template step, you must convert project variables to use process template parameters. System variables will still work as normal.
 
-For example, consider this script that directly references project and system variables via `OctopusParameters`.  
+For example, consider this script that directly references project and system variables via `OctopusParameters`.
 
-```
+```powershell
 $packagePath = $OctopusParameters["Octopus.Action.Package[Trident.Database].ExtractedPath"]
 $connectionString = $OctopusParameters["Project.Connection.String"]
 $environmentName = $OctopusParameters["Octopus.Environment.Name"]
@@ -52,9 +52,9 @@ The following variables should be updated to reference process templates paramet
 2. `$connectionString`
 3. `$reportPath`
 
-The `$environmentName` variable is fine, as system variables will continue to work as normal.  The updated script will be:
+The `$environmentName` variable is fine, as system variables will continue to work as normal. The updated script will be:
 
-```
+```powershell
 $packagePath = $OctopusParameters["Octopus.Action.Package[Template.Database.Package].ExtractedPath"]
 $connectionString = $OctopusParameters["Template.Database.ConnectionString"]
 $environmentName = $OctopusParameters["Octopus.Environment.Name"]
@@ -81,8 +81,8 @@ A couple scenarios that demonstrate the scoping precedence:
 
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
-| Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount     | Account-124 | Development |
+| Process Template | AzureAccount | Account-123      | Development |
+| Project          | AzureAccount | Account-124      | Development |
 
 When deploying to the **Development** environment, **Account-124** would be used.
 
@@ -92,8 +92,8 @@ When deploying to the **Development** environment, **Account-124** would be used
 
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
-| Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount     | Account-124 | |
+| Process Template | AzureAccount | Account-123      | Development |
+| Project          | AzureAccount | Account-124      |             |
 
 When deploying to the **Development** environment, **Account-124** would be used.
 
@@ -103,8 +103,8 @@ When deploying to the **Development** environment, **Account-124** would be used
 
 | Origin           | Name         | Value            | Scope       |
 |------------------|--------------|------------------|-------------|
-| Process Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount     | Account-124 | Staging |
+| Process Template | AzureAccount | Account-123      | Development |
+| Project          | AzureAccount | Account-124      | Staging     |
 
 - When deploying to the **Development** environment, **Account-123** would be used.
 - When deploying to the **Staging** environment, **Account-124** would be used.
@@ -181,7 +181,7 @@ To reference output variables from process template steps, add `.ProcessTemplate
 
 When referencing an output variable in a step **inside a process template**, use the format:
 
-```
+```text
 Octopus.ProcessTemplate.Action[StepName].Output.PropertyName
 ```
 
@@ -189,20 +189,21 @@ Octopus.ProcessTemplate.Action[StepName].Output.PropertyName
 
 When referencing an output variable in a step **outside a process template**, include the name of the process template usage step as it appears in the project.
 
-```
+```text
 Octopus.ProcessTemplate[ProcessTemplateUsageStepName].Action[StepName].Output.PropertyName
 ```
 
 #### Example
+
 Consider a process template named **Build and Create Web App** containing a step that runs a script and publishes an output variable `FilePath`:
 
-```
+```hcl
 name = "Build and Create Web App"
 description = ""
 
 step "run-a-script" {
     name = "Collect Details"
-    
+
     action {
         action_type = "Octopus.Script"
             ...
@@ -213,7 +214,7 @@ step "run-a-script" {
 
 Reference the variable from another step **inside** the process template using:
 
-```
+```text
 Octopus.ProcessTemplate.Action[Collect Details].Output.FilePath
 ```
 
@@ -221,7 +222,7 @@ Octopus.ProcessTemplate.Action[Collect Details].Output.FilePath
 
 When this process template is used in a project with a process template usage step named **Create Web App**:
 
-```
+```hcl
 process_template "run-a-process-template" {
     name = "Create Web App"
     process_template_slug = "build-and-create-web-app"
@@ -236,7 +237,7 @@ process_template "run-a-process-template" {
 
 Reference the variable from any other step in the process, which is **outside** the process template, using:
 
-```
+```text
 Octopus.ProcessTemplate[Create Web App].Action[Collect Details].Output.FilePath
 ```
 

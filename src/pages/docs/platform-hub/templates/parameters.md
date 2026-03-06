@@ -25,7 +25,7 @@ Templates can manage the following as parameters:
 - Channels
 - Checkbox
 - Container Feed
-- Drop down
+- Dropdown
 - Environments
 - Generic OIDC Account
 - Google Cloud Account
@@ -37,6 +37,7 @@ Templates can manage the following as parameters:
 - Tenant Tags
 - Username Password Account
 - Worker Pool
+- Package
 - A previous step name
 
 To create a parameter, navigate to the **Parameters** tab on a template and add a new parameter.
@@ -59,9 +60,9 @@ You can set an optional default value for these parameters:
 You cannot set a default value for these parameters, they must be set inside a project:
 
 - Certificate
-- Worker Pools
+- Worker Pool
 - Package
-- Previous deployment step name
+- A previous step name
 - Target Tags
 - Teams
 - Tenant Tags

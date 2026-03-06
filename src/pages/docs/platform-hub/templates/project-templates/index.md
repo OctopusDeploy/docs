@@ -77,7 +77,7 @@ Variables in a project template work the same way as project variables in a stan
 
 Variable values can reference parameters, letting you keep the template consistent while still allowing projects to supply their own inputs for specific values.
 
-You can scope variables to Environments, Channels, and Steps within the template. Scoping to Tenant Tags, Targets, Target Tags, and Deployment Process is not supported.
+Variable scoping is not supported in the Alpha release.
 
 :::div{.warning}
 In the Alpha release, the variable types you can use are limited to resources available in Platform Hub, such as Accounts and Git Credentials. Support for additional resource types is being added throughout Alpha. We'd love your [feedback](#feedback) on what you need.
@@ -91,7 +91,7 @@ In the Alpha release, the variable types you can use are limited to resources av
 
 Each project template is stored as a folder in the Platform Hub Git repository. The folder name is a slug derived from the template name. Inside each folder, there are four OCL files:
 
-```
+```text
 project-templates/<template-slug>/
     deployment_process.ocl
     parameters.ocl
@@ -115,7 +115,6 @@ When you publish a new version of the template, projects receive and can action 
 ## Saving, publishing, and sharing
 
 Once you've configured your project template, see [Publishing and sharing templates](/docs/platform-hub/templates/publishing-and-sharing) for how to commit, publish, and share it.
-
 
 ## Feedback
 

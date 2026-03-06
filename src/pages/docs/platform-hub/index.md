@@ -20,7 +20,7 @@ You can create and manage your templates and policies from Platform Hub.
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 :::div{.hint}
-To access Platform Hub users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams. 
+To access Platform Hub users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams.
 [System administrators](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemAdministrator) and [system managers](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemManager) have **PlatformHubEdit** and **PlatformHubView** permissions enabled by default.
 :::
 
@@ -34,7 +34,7 @@ To get started, configure your version control.
 This Git repository will be used for all features in Platform Hub.
 :::
 
-### Accounts in Platform Hub
+## Accounts in Platform Hub
 
 You can create and manage accounts in Platform Hub that can be used inside process templates.
 
@@ -52,7 +52,7 @@ To use these accounts inside a process template, you must create a parameter tha
 ![Accounts in Platform Hub](/docs/img/platform-hub/platform-hub-accounts.png)
 :::
 
-### Git Credentials in Platform Hub
+## Git Credentials in Platform Hub
 
 You can create and manage Git credentials in Platform Hub by visiting the Git credentials area in the Platform Hub navigation menu. You can use Git credentials inside your process templates by selecting them from a dropdown in the step field that requires them.
 
