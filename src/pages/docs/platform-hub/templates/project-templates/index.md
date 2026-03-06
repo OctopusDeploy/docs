@@ -12,7 +12,7 @@ navOrder: 170
 ---
 
 :::div{.warning}
-Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Do not use it for critical workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback as you test it.
+Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Do not use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback as you test it.
 :::
 
 ## Overview
