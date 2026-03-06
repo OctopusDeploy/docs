@@ -259,6 +259,7 @@ lifecycles
 linecap
 linejoin
 linkerd
+linkinator
 Linq
 Liquibase
 llms
