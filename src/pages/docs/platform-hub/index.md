@@ -13,9 +13,10 @@ navOrder: 32
 
 [Platform Hub](https://octopus.com/blog/introducing-platform-hub) is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 
-You can create and manage your process templates and policies from Platform Hub.
+You can create and manage your templates and policies from Platform Hub.
 
-- [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Process templates](/docs/platform-hub/templates/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Project templates](/docs/platform-hub/templates/project-templates) are reusable project blueprints that teams use as a starting point when creating new projects, supplying their own packages, accounts, and configuration
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 :::div{.hint}
