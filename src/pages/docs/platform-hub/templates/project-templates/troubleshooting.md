@@ -26,17 +26,10 @@ Project templates are in Alpha. The following features are not yet supported and
 - Project settings
 - Runbooks
 - Triggers
-- Import and export of project templates
+- Import and export of templated projects
 - Inline variable and parameter configuration within the deployment process editor
-- Updating template settings (name, logo, and description) after the template has been created
 
 This document will be updated as the feature evolves.
-
-## Known issues
-
-- **Template deletion**: When a project template is deleted, projects created from it become unusable. This experience is not currently handled gracefully.
-- **Unshared process templates**: Using a published but unshared process template inside a project template shows an error in the deployment process view.
-- **Template selection paging**: Paging is missing from the template selection UI when creating a project from a project template.
 
 ## Step support
 
