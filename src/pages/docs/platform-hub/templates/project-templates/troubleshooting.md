@@ -16,11 +16,27 @@ navOrder: 171
 Project templates are in Alpha. The following features are not yet supported and are planned for future releases:
 
 - Channels
+- Lifecycles
 - Environment templates
+- Ephemeral environments
 - Cloud target discovery on steps. Use project variables in the project instead
 - Cloning a project template through the Octopus UI
+- Creating and managing project templates through the REST API, CLI, or Terraform provider
+- Feeds
+- Project settings
+- Runbooks
+- Triggers
+- Import and export of project templates
+- Inline variable and parameter configuration within the deployment process editor
+- Updating template settings (name, logo, and description) after the template has been created
 
 This document will be updated as the feature evolves.
+
+## Known issues
+
+- **Template deletion**: When a project template is deleted, projects created from it become unusable. This experience is not currently handled gracefully.
+- **Unshared process templates**: Using a published but unshared process template inside a project template shows an error in the deployment process view.
+- **Template selection paging**: Paging is missing from the template selection UI when creating a project from a project template.
 
 ## Step support
 
@@ -114,9 +130,6 @@ Project templates can be created and managed through the [Octopus REST API](/doc
 - Each project template is stored as a folder in the configured Git repository, containing four OCL files: `template.ocl`, `deployment_process.ocl`, `parameters.ocl`, and `variables.ocl`.
 - Published versions and space sharing configurations are stored in the database.
 
-:::div{.warning}
-Creating and managing project templates through the CLI or Terraform provider is not currently supported.
-:::
 
 ## Losing access to an Octopus Enterprise license
 

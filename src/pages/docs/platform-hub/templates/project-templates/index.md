@@ -12,7 +12,7 @@ navOrder: 170
 ---
 
 :::div{.warning}
-Project templates are in Alpha and not ready for production workloads. We're actively developing this feature and would love your feedback as you test it.
+Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Do not use it for critical workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback as you test it.
 :::
 
 ## Overview
@@ -105,6 +105,12 @@ project-templates/<template-slug>/
 - **`variables.ocl`** contains the variables defined for the template.
 
 Published versions and space sharing configurations are stored in the database, not in the Git repository.
+
+## Using a project template
+
+Once a template is published and shared, users in a space can create a new project from it. When creating the project, they supply values for the parameters you've defined. These are referred to as **Template values** in the Octopus UI. Once the parameter values are set, they can create a release and deploy it. The deployment process cannot be modified.
+
+When you publish a new version of the template, projects receive and can action the update in the same way as process templates.
 
 ## Saving, publishing, and sharing
 
