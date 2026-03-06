@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-08
-modDate: 2026-02-05
+modDate: 2026-02-24
 title: Tag sets
 icon: fa-solid fa-tags
 description: Tag sets are a categorizing system that let you add custom metadata to resources in Octopus Deploy.
 navOrder: 35
 ---
 
-Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants, environments, projects, and runbooks, with support for additional resource types planned for the future.
+Tag sets provide the structure for grouping similar tags together, resulting in more orderly metadata. Currently, tags can be applied to tenants, environments, projects, runbooks, and deployment targets, with support for additional resource types planned for the future.
 
 :::figure
 ![An example set of tenant tags](/docs/img/tenants/images/tag-sets.png)
@@ -34,8 +34,9 @@ Tag sets can be scoped to specific resource types:
 - **Environment**
 - **Project**
 - **Runbook**
+- **Target**
 
-A tag set can be scoped to multiple resource types (Tenant, Environment, Project, and/or Runbook), allowing you to use the same tag set across different resources.
+A tag set can be scoped to multiple resource types, allowing you to use the same tag set across different resources.
 
 ## Managing tag sets {#managing-tag-sets}
 
@@ -93,6 +94,7 @@ You can use canonical names when:
 - **[Environment tags](/docs/infrastructure/environments#environment-tags):** Learn how to use tags to classify environments by attributes like cloud provider, region, or tier.
 - **[Project tags](/docs/projects/setting-up-projects#project-tags):** Learn how to use tags to classify and organize projects.
 - **[Runbook tags](/docs/runbooks#runbook-tags):** Learn how to use tags to organize and filter runbooks with custom metadata.
+- **[Target tag sets](/docs/infrastructure/deployment-targets/target-tags#target-tag-sets):** Learn how to use tag sets to group and assign target tags to deployment targets.
 
 ## Learn more
 
