@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-03
 title: Argo CD Authentication
 description: Limiting Octopus's access in Argo CD
 navOrder: 10
@@ -62,7 +62,7 @@ With the user created, an RBAC policy must be created allowing the new user to a
 
 The RBAC policies are stored within the `argocd-rbac-cm` configmap.
 
-The following shows an Octopus user which has read only access to all applications, cluster and log data.
+The following shows an Octopus user which has read only access to all applications, cluster and log data, and sync permissions for applications.
 
 ```yaml
 apiVersion: v1
@@ -73,6 +73,7 @@ metadata:
 data:
   policy.csv: |
     p, octopus, applications, get, *, allow
+    p, octopus, applications, sync, *, allow
     p, octopus, clusters, get, *, allow
     p, octopus, logs, get, */*, allow
 ```
