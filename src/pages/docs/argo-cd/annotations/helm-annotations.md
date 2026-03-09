@@ -49,7 +49,7 @@ Note that while the scoping annotation for the project/environment is defined fo
 
 ## Details
 
-For Octopus to be able to update the tag of a container image, it must know the fully qualified name, including the registry. An example of a fully qualified name is: `docker.io/nginx/nginx:1.29.1`. This is important so that Octopus doesn't erroneously update an image from a different registry. For example: images may be set to be sourced from a company-managed registry, where only vetted & tested tags are added. In this case, we don't want to update an image that looks like this: `my-company-registry.com/nginx/nginx:1.18.1`.
+For Octopus to be able to update the tag of a container image, it must know the fully qualified name, including the registry. An example of a fully qualified name is: `docker.io/nginx/nginx:1.29.1`. This is important so that Octopus doesn't erroneously update an image from a different registry. For example: images may be set to be sourced from a company-managed registry, where only vetted and tested tags are added. In this case, we don't want to update an image that looks like this: `my-company-registry.com/nginx/nginx:1.18.1`.
 
 As described above however, the structure of Helm values files can vary significantly. Rather than Octopus guessing (and possibly making a mistake), the onus is on you to specify a Helm-template string that builds a fully qualified name. Octopus can then use this to match on containers being updated and can then use this information to update the specific Helm value that contains the image tag.
 

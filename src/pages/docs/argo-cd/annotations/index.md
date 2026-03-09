@@ -47,7 +47,7 @@ spec:
     path: ./    
 ```
 
-If the source is named, then the annotations must also source-scoped.
+If the source is named, then the annotations must also be source-scoped.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -127,15 +127,15 @@ spec:
   ...
 ```
 
-### Generating the yaml annotations
+### Generating the YAML annotations
 
-To help generate the correct annotations, in the Octopus UI there is a form that allows for easy selection of projects, environments and/or tenants and the correct scoping annotations will be generated for you.
+To help generate the correct annotations, the Octopus UI provides a form that lets you select projects, environments, and/or tenants, and the correct scoping annotations will be generated for you.
 
 To find this form go to:
 
 1. Navigate to **Infrastructure ➜ Argo CD Instances**, then click the name of the relevant Argo CD instance
 2. On the Argo CD instance Settings page, click the **Generate Scoping Annotations** button
-3. In the drawer, you can select a **Project**, **Environment** and optionally a **Tenant**. The annotation yaml will be generated and can be copied directly into the manifest.
+3. In the drawer, you can select a **Project**, **Environment** and optionally a **Tenant**. The annotation YAML will be generated and can be copied directly into the manifest.
 
 :::figure
 ![Generate Scoping Annotations drawer](/docs/img/argo-cd/generate-scoping-annotations-drawer.png)

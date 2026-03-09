@@ -11,7 +11,7 @@ hideInThisSectionHeader: true
 ---
 Argo Live Object Status shows the live status of the Kubernetes resources deployed by the Argo CD Applications mapped
 to the project.
-This allows you to monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
+This lets you monitor and safely troubleshoot Argo CD controlled deployments from within Octopus Deploy
 
 :::div{.info}
 Outwardly this is an identical capability to that available for [Kubernetes based projects](/docs/kubernetes/live-object-status).
@@ -19,14 +19,17 @@ However when used with Argo CD, neither the [Kubernetes agent](/docs/kubernetes/
 :::
 
 ## Where it is available
-Using Argo CD Live Objet Status requires the following:
-* Octopus Deploy 2025.4+
-* A registered [Argo CD Instance](/docs/argo-cd/instances/)
-* [Annotations](/docs/argo-cd/annotations) on your Argo CD Applications, mapping them onto Octopus Deploy projects
-* A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
+
+Using Argo CD Live Object Status requires the following:
+
+- Octopus Deploy 2025.4+
+- A registered [Argo CD Instance](/docs/argo-cd/instances/)
+- [Annotations](/docs/argo-cd/annotations) on your Argo CD Applications, mapping them onto Octopus Deploy projects
+- A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
 
 ## How to use Live Status
-Once the prerequisites have been fulfilled, simply toggle the switch on the  dashboard to show live status in place of deployment status.
+
+Once the prerequisites have been fulfilled, toggle the switch on the dashboard to show live status in place of deployment status.
 
 :::figure
 ![Octopus Argo CD Live Status Dashboard](/docs/img/argo-cd/argo-cd-live-status-dashboard.png)
@@ -66,30 +69,31 @@ The project status is a roll-up of the status of all objects, in line with the f
 | In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status                  |
 | Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                                                |
 
-
 ### Detailed object information
+
 Selecting an object or application name in the table will open a drawer containing detailed information.
 
 The drawer contains up-to-date information regarding the selected object:
-* Summary
-* Events
-* Logs
-* Kubernetes yaml manifest
 
-For Argo CD, all of these data fields are fetched on demand from your Argo instance. We do not currently support tailing logs.
+- Summary
+- Events
+- Logs
+- Kubernetes YAML manifest
+
+For Argo CD, all of these data fields are fetched on demand from your Argo instance. Tailing logs is not currently supported.
 
 #### Manifest Diffs
-Octopus presents manifest diffs in the _opposite order_ to that shown in Argo.
+
+Octopus presents manifest diffs in the *opposite order* to that shown in Argo.
 
 In Argo, the left panel shows the live manifest in the cluster, and the right-panel shows the manifest that will be deployed when the application/resource is synced.
 
 In Octopus, the left panel indicates "what was most recently written to the git repository", while the right shows the live manifest.
 
-
 |         | Left                                                         | Right                                                             |
 |---------|--------------------------------------------------------------|-------------------------------------------------------------------|
-| Octopus | Manifest written to git repository as part of last release   | The live manifest in the cluster      |
-| Argo CD | The live manifest in the cluster | The manifest in the git repository, which will be applied on sync |
+| Octopus | Manifest written to git repository as part of last release   | The live manifest in the cluster                                  |
+| Argo CD | The live manifest in the cluster                             | The manifest in the git repository, which will be applied on sync |
 
 As an example, In the following images, the date of deployment was updated in a configmap by an Octopus deployment.
 
