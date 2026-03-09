@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-23
 modDate: 2026-03-05
-title: Process templates
+title: Process Templates
 subtitle: An overview of Process Templates
 icon: fa-solid fa-layer-group
 navTitle: Overview

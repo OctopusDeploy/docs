@@ -17,7 +17,7 @@ Platform Hub provides two types of templates that help you standardize and share
 
 **[Process templates](/docs/platform-hub/templates/process-templates)** are reusable sets of deployment steps. Instead of copying and pasting deployment processes across projects, you define the steps once and share them. Teams can opt into using a process template within their deployment process, and can remove it if it no longer fits their needs.
 
-**[Project templates](/docs/platform-hub/templates/project-templates)** give platform engineering teams a way to define a golden path for how projects are structured. The deployment process is set by the template and cannot be modified. Teams provide values for the parameters the platform team has exposed, such as packages, accounts, worker pools, target tags, and more, but the underlying process cannot be edited and remains consistent across every project created from the template.
+**[Project templates](/docs/platform-hub/templates/project-templates)** give platform engineering teams a way to define a golden path for how projects are structured. The deployment process is defined by the template and can't be modified in projects based on it. Through parameters exposed by the platform team, project teams can deploy using their own packages, accounts, worker pools, and target tags, while the underlying process stays consistent across every project based on the template.
 
 Both template types use [parameters](/docs/platform-hub/templates/parameters) to expose configurable inputs, letting you define what a project must supply while keeping the core template consistent across teams and spaces.
 
