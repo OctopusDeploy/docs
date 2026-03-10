@@ -66,7 +66,7 @@ Build and version control details associated with the release. This is a collect
 
 The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
 
-- will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.  
+- will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.
 - is only available to be used by the project [release notes](/docs/releases/release-notes), it is not accessible from the project deployment steps.
 
 :::
@@ -140,11 +140,11 @@ package.Commits[685afd4161d085e6e5f56a66e72e2298e402b114].Comment
 
 The variables available for commits are:
 
-| Name       | Example                |
-| ---------- | ---------------------- |
-| `CommitId` | `#{commit.CommitId}`   |
-| `LinkUrl`  | `#{commit.LinkUrl}`    |
-| `Comment`  | `#{commit.Comment}`    |
+| Name       | Example              |
+| ---------- | -------------------- |
+| `CommitId` | `#{commit.CommitId}` |
+| `LinkUrl`  | `#{commit.LinkUrl}`  |
+| `Comment`  | `#{commit.Comment}`  |
 
 If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
 
@@ -1116,7 +1116,7 @@ Example: *True*
 
 The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service.
 
-Example: <https://my-storage-account/container/my-cloudservice.web.cspkg>
+Example: `https://my-storage-account/container/my-cloudservice.web.cspkg`
 
 `Octopus.Action.Azure.UseCurrentInstanceCount`
 
@@ -1224,7 +1224,7 @@ Example: *c9f52da2b00a4313b3b64bb2ad0f409f*
 
 The Url of the completed Azure Cloud Service deployment.
 
-Example: *<http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/>*
+Example: `http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/`
 
 ## Step
 
@@ -1552,6 +1552,14 @@ Note: This value applies to both deployment processes and runbooks, as long as i
 Octopus will run one task at a time for a given concurrency tag. Set the variable to run tasks in parallel instead of serial or in serial instead of parallel. For example, tenanted deployments run in parallel by default. Removing tenants from the concurrency tag will run them serially: #{Octopus.Project.Id}/#{Octopus.Environment.Id}
 
 Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}
+
+### Kubernetes
+
+`Octopus.Action.Kubernetes.LogCliOutputAsInfo`
+
+By default, successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) is logged at the Verbose level, which is only visible when the task log level is set to Verbose. Set to `True` to promote this output to the Info level so it appears in the Standard task log. This is useful when debugging deployments to see the full output of these tools without needing to switch the log level to Verbose for the entire deployment.
+
+Example: True
 
 ## Older versions {#older-versions}
 
