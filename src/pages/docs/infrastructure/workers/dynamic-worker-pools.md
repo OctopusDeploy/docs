@@ -21,7 +21,7 @@ Octopus Cloud will automatically destroy dynamic workers as soon as one of these
 - The worker has been idle for 60 minutes.
 - The worker has existed for 72 hours (3 days).
 
-Please reach out to our [support team](https://octopus.com/support) if you need these values to be adjusted for your instance. 
+Please reach out to our [support team](https://octopus.com/support) if you need these values to be adjusted for your instance.
 :::
 
 Worker VMs are provisioned with at least 20GB of available disk space, which is persistent until the worker is destroyed.
@@ -36,7 +36,7 @@ Each dynamic worker pool uses a specific worker image. This is a VM image which 
 
 When you sign up to [Octopus Cloud](/docs/octopus-cloud) (or create a new [space](/docs/administration/spaces)), you automatically receive a worker pool for the `Ubuntu (default)` image, and a worker pool for the `Windows (default)` image.
 
-The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 22.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released. 
+The full list of available worker images includes both specific operating system versions (e.g., `Ubuntu Linux 22.04`), and also generic "default" options such as `Ubuntu (default)`. Choosing the default option means that your worker will use the latest stable worker image when it is released.
 
 The current default images are:
 
@@ -50,7 +50,7 @@ The default image is a good option to choose if you are:
 - Running a simple script that doesn't require specific tools or operating system versions
 - Running a step [inside a container](/docs/projects/steps/execution-containers-for-workers)
 
-If you're writing a script that relies on a specific version of tooling (e.g., Helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need. 
+If you're writing a script that relies on a specific version of tooling (e.g., Helm), then we recommend using [execution containers for workers](/docs/projects/steps/execution-containers-for-workers) to run the script in a Docker container with the tool versions you need.
 
 Alternatively, you can choose a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
@@ -69,7 +69,7 @@ If your Worker Pool is set to use the Operating System default, for example, `Ub
 
 You should validate that your deployments and runbooks work with the new version prior to the cutover date. The new image will be made available prior to the cutover date and we will notify you of the cutover date to give you time to undertaking any required testing.
 
-### Modifying the worker pool 
+### Modifying the worker pool
 
 If the worker pool has been configured to specifically use a deprecated worker type, you will need to update the worker image on the worker pool.
 
@@ -77,7 +77,7 @@ Navigate to your space, then go to **Infrastructure ➜ Worker Pools**. Worker p
 
 Click the overflow menu (`...`) and click **Edit**. You can then select a new worker image from the dropdown list, such as `Ubuntu (default)` or a specific operating system version.
 
-## Available Dynamic Worker Images 
+## Available Dynamic Worker Images
 
 Worker images are rebuilt on a regular basis, so that the operating system is up to date with the latest security patches.
 
@@ -96,7 +96,6 @@ Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools includ
 :::div{.hint}
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
-
 
 ### Windows Server Core 2022
 
@@ -121,18 +120,17 @@ Each `Windows Server Core 2022` worker is provisioned with a baseline of tools i
 - Python (3.14)
 - GCloud CLI (550.0.0)
 
-Windows 2022 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers). 
+Windows 2022 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers).
 
 :::div{.hint}
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
-
 ## kubectl on Windows Images
 
 Windows dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
+A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following:
 
 - `1.32.12`
 - `1.33.8`
@@ -141,9 +139,9 @@ A specific version can be used by [specifying a custom kubectl location](/docs/d
 
 ## Installing Software On Dynamic Workers
 
-Octopus does not recommend installing additional software on Dynamic Workers. 
+Octopus does not recommend installing additional software on Dynamic Workers.
 
-By default, every dynamic worker is destroyed after it has been idle for 60 minutes or allocated for over 72 hours. Additionally, Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run. 
+By default, every dynamic worker is destroyed after it has been idle for 60 minutes or allocated for over 72 hours. Additionally, Octopus cannot guarantee that the dynamic worker leased to run one step will be the same worker leased to other executing steps in a deployment or runbook run.
 
 For deployments and runbook runs that require additional software dependencies on a dynamic worker, our recommendation is to leverage [execution containers for workers](/docs/projects/steps/execution-containers-for-workers).  Octopus provides execution containers with a baseline of tools (`octopusdeploy/worker-tools`) pre-installed. These tools won't include every possible software combination you might need. If you require a specific set of software and tooling we recommend [building your own custom Docker images for use with execution containers](/docs/projects/steps/execution-containers-for-workers/#custom-docker-images).
 
