@@ -41,11 +41,9 @@ You can now define the deployment process, parameters, and variables for the tem
 
 ## Deployment process
 
-The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community steps, and process templates to define it.
+The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, Step Templates, Community Step Templates, and Process Templates to define it.
 
-:::div{.hint}
-Projects created from this template cannot modify the deployment process in any way. They cannot add steps, remove steps, reorder steps, or disable them. The only thing a project can configure is the parameter values the platform engineer has explicitly exposed. This ensures every project based on the template follows the same deployment process.
-:::
+Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values the platform engineer has explicitly exposed, ensuring every project based on the template follows the same deployment process.
 
 Some steps behave differently inside the project template editor. Instead of letting you set a value directly, they ask for parameters or variables. Parameters are required when a step requires a resource that Platform Hub can't define, such as a Worker Pool, and that resource must be supplied by the project. These fields accept parameters so projects can provide the right values for their context.
 
@@ -73,7 +71,7 @@ To create a parameter, navigate to the **Parameters** tab on your project templa
 
 Variables in a project template work the same way as project variables in a standard Octopus project. Any variable you define is available to the deployment and can be selected in steps.
 
-Unlike parameters, variables cannot be overridden by projects that use the template. This is useful when you want to fix a value (such as an account or credential) at the template level and ensure projects can't change it. If you want projects to supply their own value for something, expose it as a parameter instead.
+Unlike parameters, projects can't override the variables set in a template. Use this for values that must be the same across every project, like accounts or credentials. If you want projects to supply their own value for something, expose it as a parameter instead.
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
