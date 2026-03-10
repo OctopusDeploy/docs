@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2026-03-10
 title: Dynamic Worker pools
-description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
+description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks. This page describes how dynamic worker pools work.
 navOrder: 50
 ---
 
@@ -54,10 +54,10 @@ If you're writing a script that relies on a specific version of tooling (e.g., H
 
 Alternatively, you can choose a specific worker image, instead of the "default" options, to prevent worker image upgrades from impacting your deployments.
 
-|Type | Pros | Cons                                                                                                                                                                                                                         |
-|-----|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default (eg `Ubuntu (default)`) | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned.| The versions of dependencies (e.g. Helm) are not fixed. Deployments that rely on specific versions of dependencies or operating system specific features may break during upgrades.                                          |
-| Specific (e.g., `Ubuntu Linux 22.04`) | The version of the operating system and dependencies are fixed and can be relied upon. | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs. When a worker image is decommissioned, you will need to take action to update your worker pool or deployments will fail. |
+| Type                                 | Pros                                                                                                                                       | Cons                                                                                                                                                                                              |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default (eg `Ubuntu (default)`)      | Automatically uses the latest image. Deployments will continue to work even when a worker image is marked as deprecated or decommissioned. | The versions of dependencies (e.g. Helm) are not fixed; deployments that rely on specific versions of dependencies or operating system‑specific features may break during upgrades.               |
+| Specific (e.g., `Ubuntu Linux 22.04`)| The version of the operating system and dependencies are fixed and can be relied upon.                                                     | When a worker image is marked as deprecated, warnings will start to appear in your deployment logs; when it is decommissioned, you will need to update your worker pool or deployments will fail. |
 
 ### Deprecation
 
