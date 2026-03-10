@@ -76,7 +76,7 @@ Unlike parameters, projects can't override the variables set in a template. Use 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
 :::div{.warning}
-In the Alpha release, the variable types you can use are limited to resources available in Platform Hub, such as Accounts and Git Credentials. Variable scoping is also not supported. We're adding support for additional resource types throughout Alpha. We'd love your [feedback](#feedback) on what you need.
+In the Alpha release, the variable types you can use are limited to resources currently available in Platform Hub, such as Accounts and Git Credentials. Variable scoping is also not supported. We're adding support for additional resource types throughout Alpha. We'd love your [feedback](#feedback) on what you need.
 :::
 
 :::figure
@@ -102,15 +102,16 @@ project-templates/<template-slug>/
 
 Octopus stores published versions, sensitive variables, and space sharing configurations in the database, not in the Git repository.
 
+## Saving, publishing, and sharing
+
+After you've configured your project template, see [Publishing and sharing templates](/docs/platform-hub/templates/publishing-and-sharing) for how to commit, publish, and share it.
+
+
 ## Using a project template
 
 After you publish and share a template, users in a space can create a new project from it. When creating the project, they supply values for the parameters you've defined. Octopus calls these **Template values** in the UI. After setting their parameter values, they can create a release and deploy it. They can't modify the deployment process.
 
 When you publish a new version of the template, projects receive and can accept the update in the same way as process templates.
-
-## Saving, publishing, and sharing
-
-After you've configured your project template, see [Publishing and sharing templates](/docs/platform-hub/templates/publishing-and-sharing) for how to commit, publish, and share it.
 
 ## Feedback
 
