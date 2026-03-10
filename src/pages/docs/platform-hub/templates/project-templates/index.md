@@ -106,7 +106,6 @@ Octopus stores published versions, sensitive variables, and space sharing config
 
 After you've configured your project template, see [Publishing and sharing templates](/docs/platform-hub/templates/publishing-and-sharing) for how to commit, publish, and share it.
 
-
 ## Using a project template
 
 After you publish and share a template, users in a space can create a new project from it. When creating the project, they supply values for the parameters you've defined. Octopus calls these **Template values** in the UI. After setting their parameter values, they can create a release and deploy it. They can't modify the deployment process.
