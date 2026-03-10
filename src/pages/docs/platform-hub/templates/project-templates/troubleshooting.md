@@ -39,67 +39,7 @@ Project templates support most Octopus steps. The following step package framewo
 2. AWS S3 Create Bucket
 3. AWS ECS
 
-We'll update this list as we add support for more steps.
-
-## Parameters and variables
-
-If you're migrating an existing project's deployment process into a project template, you'll need to convert project variable references to use parameters instead. System variables will continue to work as normal.
-
-For example, a script that references project variables directly:
-
-```powershell
-$connectionString = $OctopusParameters["Project.Connection.String"]
-$reportPath = $OctopusParameters["Project.Database.Report.Path"]
-```
-
-Should be updated to reference template parameters instead:
-
-```powershell
-$connectionString = $OctopusParameters["Template.Database.ConnectionString"]
-$reportPath = $OctopusParameters["Template.Database.ChangeReportDirectory"]
-```
-
-## Parameter scoping
-
-Project-supplied values for parameters always take precedence over template-supplied values.
-
-A few scenarios that demonstrate the scoping precedence:
-
-<br>
-
-**1. Scoped value provided by both the project and the template.**
-
-| Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
-| Project Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount | Account-124 | Development |
-
-When deploying to the **Development** environment, **Account-124** is used.
-
-<br>
-
-**2. Scoped template value and an unscoped project value.**
-
-| Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
-| Project Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount | Account-124 |             |
-
-When deploying to the **Development** environment, **Account-124** is used.
-
-<br>
-
-**3. Scoped template value and scoped project value for different environments.**
-
-| Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
-| Project Template | AzureAccount | Account-123 | Development |
-| Project          | AzureAccount | Account-124 | Staging     |
-
-- When deploying to the **Development** environment, **Account-123** is used.
-- When deploying to the **Staging** environment, **Account-124** is used.
-
-<br>
+These steps are being migrated away from the step package framework and will be supported in the future.
 
 ## Cloning project templates
 
@@ -111,10 +51,6 @@ You can't clone a project template through the Octopus UI. To clone a template:
 4. Commit and push the changes.
 5. Refresh the project template list in the Octopus UI to find the newly created template.
 6. Publish the template and configure the spaces that have access to it.
-
-## Git connections
-
-Platform Hub doesn't support GitHub Connections. Use a username and personal access token (PAT) instead.
 
 ## Public API
 
