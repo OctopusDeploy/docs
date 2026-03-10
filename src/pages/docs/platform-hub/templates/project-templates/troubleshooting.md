@@ -29,7 +29,7 @@ Project templates are in Alpha. The following features are not yet supported and
 - Import and export of templated projects
 - Inline variable and parameter configuration within the deployment process editor
 
-This document will be updated as the feature evolves.
+We'll update this page as the feature evolves.
 
 ## Step support
 
@@ -39,7 +39,7 @@ Project templates support most Octopus steps. The following step package framewo
 2. AWS S3 Create Bucket
 3. AWS ECS
 
-This list will be updated as additional step support is added.
+We'll update this list as we add support for more steps.
 
 ## Parameters and variables
 
@@ -114,13 +114,13 @@ You can't clone a project template through the Octopus UI. To clone a template:
 
 ## Git connections
 
-GitHub Connections are not supported in Platform Hub. Use a username and personal access token (PAT) instead.
+Platform Hub doesn't support GitHub Connections. Use a username and personal access token (PAT) instead.
 
 ## Public API
 
-Creating and managing project templates through the REST API is not yet supported in the Alpha release. REST API support is planned for a future release.
+The Alpha release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
 
-- Each project template is stored as a folder in the configured Git repository, containing four OCL files: `template.ocl`, `deployment_process.ocl`, `parameters.ocl`, and `variables.ocl`.
+- Octopus stores each project template as a folder in the configured Git repository, containing four OCL files: `template.ocl`, `deployment_process.ocl`, `parameters.ocl`, and `variables.ocl`.
 - Published versions and space sharing configurations are stored in the database.
 
 ## Losing access to an Octopus Enterprise license
@@ -136,6 +136,6 @@ Project templates and all Platform Hub features require an Enterprise license. W
 ### What will no longer work
 
 - Users will lose access to Platform Hub, including the ability to create and manage project templates.
-- Project templates cannot be modified inside a project.
-- Projects created from a template will no longer receive automatic updates when a new template version is published.
-- Projects that were created from a template cannot be cloned until the template reference is removed.
+- You can no longer modify project templates in a project.
+- Projects created from a template will no longer receive automatic updates when you publish a new template version.
+- You can't clone projects created from a template until you remove the template reference.

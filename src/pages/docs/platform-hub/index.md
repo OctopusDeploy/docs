@@ -16,7 +16,7 @@ navOrder: 32
 You can create and manage your templates and policies from Platform Hub.
 
 - [Process templates](/docs/platform-hub/templates/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
-- [Project templates](/docs/platform-hub/templates/project-templates) are reusable project blueprints that teams use as a starting point when creating new projects, supplying their own packages, accounts, and configuration
+- [Project templates](/docs/platform-hub/templates/project-templates) are reusable project blueprints that teams use as a starting point for new projects. Teams supply the required parameter values but can't modify the deployment process.
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 :::div{.hint}

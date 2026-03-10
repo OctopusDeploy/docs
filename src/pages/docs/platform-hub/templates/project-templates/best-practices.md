@@ -3,11 +3,11 @@ layout: src/layouts/Default.astro
 pubDate: 2026-03-05
 modDate: 2026-03-06
 title: Project template best practices
-subtitle: Best practices for creating project templates within Platform Hub
+subtitle: Best practices for creating project templates in Platform Hub
 icon: fa-solid fa-lock
 navTitle: Best Practices
 navSection: Project Templates
-description: Best practices for creating project templates within Platform Hub
+description: Best practices for creating project templates in Platform Hub
 navOrder: 180
 ---
 
@@ -77,8 +77,8 @@ It's the producer's job to figure out how to take those inputs and run a reliabl
 
 ### Variables defined in the template are inherited
 
-When a project is created from a template, it inherits all variables defined in the template. Treat template variables as your baseline configuration. Use parameters for the values that will differ between projects. Don't hardcode them into variables directly.
+When you create a project from a template, it inherits all variables defined in the template. Treat template variables as your baseline configuration. Use parameters for the values that will differ between projects. Don't hardcode them into variables directly.
 
 ### Include notes for each step in the deployment process
 
-Step notes help consumers understand what each step is doing and why. If a deployment fails, clear notes make it much easier for them to self-diagnose. Don't assume that a step name alone provides enough context.
+Step notes help consumers understand what each step does and why. If a deployment fails, clear notes make it much easier for them to self-diagnose. Don't assume that a step name alone provides enough context.
