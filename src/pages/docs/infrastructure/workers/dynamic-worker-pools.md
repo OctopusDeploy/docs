@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-09-24
+modDate: 2026-03-10
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks.  This page describes how dynamic worker pools work.
 navOrder: 50
@@ -87,14 +87,14 @@ This is the default for the Ubuntu operating system, referenced as `Ubuntu (defa
 
 Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools including (but not limited to):
 
-- .NET 6
+- .NET (8.0, 6.0)
 - Docker (latest)
 - PowerShell Core (latest)
 - Python 3 (latest)
-- GCloud CLI (367.0.0)
+- GCloud CLI (550.0.0)
 
 :::div{.hint}
-Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling such as `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
 
@@ -104,22 +104,22 @@ This is the default for the Windows operating system, referenced as `Windows (de
 
 Each `Windows Server Core 2022` worker is provisioned with a baseline of tools including (but not limited to):
 
-- .NET Core (2.1, 3.1)
+- .NET (8.0, 6.0)
 - .NET Framework 3.5
 - .NET Framework 4.8
-- AWS IAM Authenticator (0.5.3)
+- AWS IAM Authenticator (0.7.10)
 - Chocolatey (latest)
 - Docker (latest)
-- Helm (2.9.1)
+- Helm (3.19.4)
 - Kubectl (multiple versions)
-- Microsoft Service Fabric (6.1.480.9494)
-- Microsoft Service Fabric SDK (3.0.480)
+- Microsoft Service Fabric (10.1.2338.9590)
+- Microsoft Service Fabric SDK (7.1.2338)
 - Nuget CLI (latest)
 - Octopus Client (latest)
 - Pip (latest)
 - PowerShell Core (latest)
-- Python (3.7.4)
-- GCloud CLI (339.0.0)
+- Python (3.14)
+- GCloud CLI (550.0.0)
 
 Windows 2022 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers). 
 
@@ -134,19 +134,10 @@ Windows dynamic worker images come with many versions of `kubectl` available.
 
 A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following: 
 
-- `1.11.1`
-- `1.11.3`
-- `1.12.1`
-- `1.13.12`
-- `1.14.9`
-- `1.15.6`
-- `1.16.10`
-- `1.17.5`
-- `1.18.0`
-- `1.19.9`
-- `1.20.5`
-- `1.21.9`
-- `1.22.6`
+- `1.32.12`
+- `1.33.8`
+- `1.34.4`
+- `1.35.1`
 
 ## Installing Software On Dynamic Workers
 
