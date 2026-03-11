@@ -1,12 +1,16 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-11
 title: Helm Image Tags Annotations
 description: What annotations are required to
-navTitle: Helm Annotations
+navTitle: Helm Annotations (deprecated)
 hideInThisSectionHeader: true
 ---
+
+:::div{.warning}
+**Deprecated:** Helm image path configuration via Argo CD Application annotations is deprecated. You should configure Helm image paths directly in the [Update Argo CD Application Image Tags step](/docs/argo-cd/steps/update-application-image-tags) instead.
+:::
 
 When executing the [Update Argo CD Application Image Tags step](/docs/argo-cd/steps#update-application-image-tags) against an Argo CD Application that is deploying a Helm chart,
 it is necessary to provide extra annotations to define which fields in the Helm values file represent an image to be updated.

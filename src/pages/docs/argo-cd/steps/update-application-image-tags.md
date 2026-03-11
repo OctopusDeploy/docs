@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-03-04
+modDate: 2026-03-11
 title: Update Argo CD Application Image Tags
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 30
@@ -19,6 +19,12 @@ more information.
 ## Container Images
 
 Add package references for each container image you would like to update when you run your deployment. Unreferenced container images in your manifests will not be changed by Octopus.
+
+When targeting a Helm-based application source, each referenced container image should have a populated **Helm image tag path** field. This is the YAML path to the specific field in your values file that contains the tag of the referenced container image (for example, `agent.image.tag`). This can be set in the **Reference a package** drawer when adding or editing a package reference. This is not required for directory or Kustomize sources.
+
+:::figure
+![The Helm image tag path field in the Reference a package drawer](/docs/img/argo-cd/update-application-image-tags-helm-values-tag.png)
+:::
 
 If the application cluster's default registry has been changed, see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
