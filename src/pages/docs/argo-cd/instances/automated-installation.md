@@ -117,12 +117,14 @@ The Octopus-Argo Gateway's helm chart can be installed via an Argo CD Applicatio
 
 The application YAML required to install the helm chart is as follows (replacing values as per previous examples):
 
+Update `targetRevision` to the most recent tag found on [dockerhub](https://hub.docker.com/r/octopusdeploy/octopus-argocd-gateway-chart)
+
 ```yaml
 project: default
 source:
   repoURL: registry-1.docker.io/octopusdeploy
   chart: octopus-argocd-gateway-chart
-  targetRevision: 1.3.0
+  targetRevision: <helm chart version>
   helm:
     parameters:
       - name: registration.octopus.name
