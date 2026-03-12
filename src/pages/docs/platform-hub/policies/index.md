@@ -59,7 +59,7 @@ To get started, navigate to the Platform Hub inside of your Octopus instance and
 
 ### 2. Select a starter policy
 
-You will be presented with the Create Policy modal. The first step is to select a starter policy to base your new policy on. To continue click the `Next` button. 
+You will be presented with the Create Policy modal. The first step is to select a starter policy to base your new policy on. To continue click the `Next` button.
 
 :::figure
 ![A modal to select a starter policy](/docs/img/platform-hub/policies/policies-create-starter-modal.png)
