@@ -51,7 +51,9 @@ Template changes should happen in a branch and be reviewed via a pull request. U
 
 ### Keep templates focused
 
-A project template should represent a clear type of project, not try to accommodate every variation your organization uses. If you find yourself adding conditional logic to handle different use cases, that's a sign you need more than one template.
+A project template should represent one clear type of project, not accommodate every variation your organization uses. If you find yourself adding conditional logic to handle different use cases, that's a sign you need more than one template.
+
+For example, a template for a Kubernetes microservice hosting an application and one that hosts a message queue may share similar infrastructure but have meaningfully different deployment processes. Separate templates are clearer for consumers and easier to maintain.
 
 ### Use parameters for everything consumer-specific
 
@@ -60,6 +62,7 @@ Parameters are the only way information should flow from a project into the temp
 - Don't hardcode space-specific values, account names, or resource identifiers in the template
 - Don't expect consumers to know internal variable names. Expose them as parameters
 - Any external reference such as secrets, feeds, Worker Pools, and target tags must come in via a parameter
+- Only expose parameters the consumer genuinely needs to provide. If the producer should control a value, use a variable instead
 
 ### Keep consumer decision-making to a minimum
 
@@ -69,16 +72,32 @@ A consumer should be able to say:
 
 > I want to deploy this service using these values:
 >
-> - The container URL
+> - The container image
 > - The target tag of the cluster to deploy to
-> - The connection string for the database
+ - The connection string for the database
 
 It's the producer's job to figure out how to take those inputs and run a reliable deployment.
 
-### Variables defined in the template are inherited
+### Lock values that must be consistent across projects
 
-When you create a project from a template, it inherits all variables defined in the template. Treat template variables as your baseline configuration. Use parameters for the values that will differ between projects. Don't hardcode them into variables directly.
+Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts, credentials, or environment-specific configuration the producer controls. If you want projects to supply their own value for something, expose it as a parameter instead.
+
+Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
 ### Include notes for each step in the deployment process
 
 Step notes help consumers understand what each step does and why. If a deployment fails, clear notes make it much easier for them to self-diagnose. Don't assume that a step name alone provides enough context.
+
+## Publishing and versioning
+
+### Test your template before publishing
+
+Before publishing a version, create a test project using the template in a development or sandbox space. Verify the deployment runs end-to-end with realistic parameter values. This is especially important for major versions, where consumers can't create new releases until they've applied the update.
+
+If you're testing a breaking change, use the pre-release feature so the new version is only visible to a specific space before you promote it.
+
+### Write release notes when publishing a new version
+
+Each published version can include release notes. Describe what changed, whether any parameters were added or removed, and what consumers need to do when updating. This information surfaces directly in the UI when consumers are deciding whether to apply the update.
+
+A concise, clear release note — *Added a required parameter for the image pull secret. Update your project before creating a new release.* — saves consumers time and reduces support requests.
