@@ -51,6 +51,10 @@ Some steps behave differently inside the project template editor. Instead of let
 ![A step in a project template asking for a Worker Pool parameter](/docs/img/platform-hub/project-templates/project-templates-process-editor.png)
 :::
 
+:::div{.hint}
+Unlike standard projects, project templates validates the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally — define the process first, then wire up parameters and variables as you go.
+:::
+
 ## Parameters
 
 Parameters let you define the inputs a project must supply when it's created from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
