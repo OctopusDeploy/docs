@@ -14,18 +14,17 @@ The Argo CD Gateway can be installed into an AWS EKS cluster and connect to an A
 
 AWS managed Argo CD instances differ from standard self-hosted installations in the following ways:
 
-**External URL**
+### External URL
 
 Standard installations connect to Argo CD using the in-cluster Kubernetes service DNS name (e.g. `argocd-server.argocd.svc.cluster.local`). AWS managed Argo CD instances are not accessible via in-cluster DNS, so the publicly accessible EKS capabilities URL must be used instead.
 
-**Valid TLS Certificate**
+### Valid TLS Certificate
 
 AWS managed Argo CD instances are served with a publicly trusted TLS certificate. Unlike self-hosted installations that may use self-signed certificates, the **Argo CD instance uses self-signed certificates** option should remain unchecked to keep certificate verification enabled.
 
-**gRPC-Web**
+### gRPC-Web
 
 AWS EKS Argo CD instances are exposed through a load balancer that does not support native gRPC (HTTP/2). The gateway must be configured to use gRPC-Web, which encapsulates gRPC communication over HTTP/1.1, by setting `gateway.argocd.grpcWeb="true"` or `gateway.argocd.grpcWebRootPath="/argo/api"`.
-
 
 ## Installation
 
@@ -54,4 +53,3 @@ helm install --atomic \
 <instance-name> \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
-
