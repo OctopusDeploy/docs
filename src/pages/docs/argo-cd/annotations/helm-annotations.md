@@ -4,16 +4,16 @@ pubDate: 2025-09-15
 modDate: 2026-03-11
 title: Helm Image Tags Annotations
 description: What annotations are required to
-navTitle: Helm Annotations (deprecated)
+navTitle: Helm Annotations
 hideInThisSectionHeader: true
 ---
 
-:::div{.warning}
-**Deprecated:** Helm image path configuration via Argo CD Application annotations is deprecated. You should configure Helm image paths directly in the [Update Argo CD Application Image Tags step](/docs/argo-cd/steps/update-application-image-tags) instead.
+:::div{.info}
+**Advanced Feature:** Helm image path configuration via Argo CD Application annotations is an advanced feature, and should only be utilized if configuring Helm image paths directly in the [Update Argo CD Application Image Tags step](/docs/argo-cd/steps/update-application-image-tags) is insufficient for your requirements.
 :::
 
 When executing the [Update Argo CD Application Image Tags step](/docs/argo-cd/steps#update-application-image-tags) against an Argo CD Application that is deploying a Helm chart,
-it is necessary to provide extra annotations to define which fields in the Helm values file represent an image to be updated.
+it is necessary to provide extra information to allow Octopus to find the appropriate entries in the Helm values file to update.
 
 This is because an image reference could be made up of multiple different values file entries. Consider the image fields in [values.yaml](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/values.yaml) for the Kubernetes agent Helm chart:
 
@@ -42,6 +42,8 @@ global:
 In this case, the `global.image.repositoryAndTag` contains the tag to be updated.
 
 As the structure of Helm values files can vary widely between charts, it's necessary to require you to specify custom annotations on the Argo CD Applications.
+
+Typically the value path to update would be provided via the **helm image value** field on the package/container defined during step configuration. However, for more complex use cases, you can define the fields to update via custom annotations.
 
 The annotation is as follows:
 
