@@ -44,7 +44,7 @@ In this case, the `global.image.repositoryAndTag` contains the tag to be updated
 Typically the value path to update would be provided via the **helm image value** field on the package/container defined during step configuration. However, for more complex use cases, you can define the fields to update via custom annotations.
 
 :::div{.info}
-Annotations will only be considered during step-execution if _none_ of the packages/containers defined for a step have a helm image value configured.
+Annotations will only be considered during step-execution if *none* of the packages/containers defined for a step have a helm image value configured.
 Thus, if any package/container in your step requires annotations, then all packages must be updated using annotations.
 :::
 
