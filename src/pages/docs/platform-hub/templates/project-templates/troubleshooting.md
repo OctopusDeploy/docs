@@ -21,7 +21,7 @@ Project templates are in Alpha. The following features are not yet supported and
 
 - Channels
 - Lifecycles
-- Environment templates
+- Environments
 - Ephemeral environments
 - Cloud target discovery on steps. Use project variables in the project instead
 - Cloning a project template through the Octopus UI
@@ -67,12 +67,9 @@ Project templates and all Platform Hub features require an Enterprise license. W
 ### What will continue to work
 
 - Existing deployments can be redeployed.
-- New releases for projects created from a project template can still be created.
 - Auto-scheduled deployments will continue to run.
 
 ### What will no longer work
 
 - Users will lose access to Platform Hub, including the ability to create and manage project templates.
-- You can no longer modify project templates in a project.
-- Projects created from a template will no longer receive automatic updates when you publish a new template version.
-- You can't clone projects created from a template until you remove the template reference.
+- You can no longer update or publish project templates.

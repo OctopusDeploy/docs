@@ -41,7 +41,7 @@ You can now define the deployment process, parameters, and variables for the tem
 
 The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, Step Templates, Community Step Templates, and Process Templates to define it.
 
-Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values the producer has explicitly exposed, ensuring every project based on the template follows the same deployment process.
+Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values explicitly exposed in the template, ensuring every project based on the template follows the same deployment process.
 
 Some steps behave differently inside the project template editor. Instead of letting you set a value directly, they ask for parameters or variables. Parameters are required when a step requires a resource that Platform Hub can't define, such as a Worker Pool, and that resource must be supplied by the project. These fields accept parameters so projects can provide the right values for their context.
 
@@ -50,11 +50,11 @@ Some steps behave differently inside the project template editor. Instead of let
 :::
 
 :::div{.hint}
-Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally: define the process first, then wire up parameters and variables as you go.
+Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline parameter and variable configuration to the deployment process editor.
 :::
 
 :::div{.hint}
-If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template. This means a consumer could create two releases on different days and find that different versions of the process template were used, without either the producer or consumer making any change to the project template itself. We're interested in your [feedback](https://roadmap.octopus.com/submit-idea) on whether this behavior meets your expectations.
+If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template. This means two releases created on different days could use different versions of the process template, without anyone making any change to the project template or the project itself. We're interested in your [feedback](#feedback) on whether this behavior meets your expectations.
 :::
 
 ## Parameters
@@ -101,21 +101,21 @@ project-templates/<template-slug>/
     variables.ocl
 ```
 
-- **`template.ocl`** contains the template name and description.
-- **`deployment_process.ocl`** contains the deployment process steps.
-- **`parameters.ocl`** contains the parameters defined for the template.
-- **`variables.ocl`** contains the variables defined for the template.
+- **`template.ocl`** contains the template settings
+- **`deployment_process.ocl`** contains the deployment process steps
+- **`parameters.ocl`** contains the parameters defined for the template
+- **`variables.ocl`** contains the variables defined for the template
 
 Octopus stores published versions, sensitive variables, and space sharing configurations in the database, not in the Git repository.
 
-## Saving, publishing, and sharing
+## Committing, publishing, and sharing
 
 After you've configured your project template, see [Publishing and sharing templates](/docs/platform-hub/templates/publishing-and-sharing) for how to commit, publish, and share it.
 
 ## Using a project template
 
-After you publish and share a template, users in a space can create a new project from it. For details on the consumer experience, see [Templated projects](/docs/platform-hub/templates/project-templates/using-project-templates).
+After you publish and share a template, users in a space can create a new project from it. For details on creating and managing templated projects, see [Templated projects](/docs/platform-hub/templates/project-templates/using-project-templates).
 
 ## Feedback
 
-Project templates are in Alpha and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://roadmap.octopus.com/submit-idea) to help us build this the right way.
+Project templates are in Alpha and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://oc.to/feedback) to help us build this the right way.

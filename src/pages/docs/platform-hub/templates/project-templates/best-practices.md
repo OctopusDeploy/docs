@@ -40,7 +40,7 @@ Project template versioning provides hints:
 - **Patch** (bug fixes)
 - **Pre-release**
 
-Without a shared definition of breaking vs. non-breaking, teams will interpret these differently. A starting point for a policy:
+Without a shared definition of breaking vs. non-breaking, teams will interpret these differently. A starting point for a versioning policy:
 
 - **Major**: The change fundamentally alters how the template works. Parameters have been added or removed. Consumers need to review and test the update before accepting it.
 - **Minor**: Parameters may have been added or adjusted, which could require a change in the consuming project, but the core behavior is preserved.
@@ -65,7 +65,7 @@ Parameters are the only way information should flow from a project into the temp
 
 - Don't hardcode space-specific values, account names, or resource identifiers in the template
 - Don't expect consumers to know internal variable names. Expose them as parameters
-- Any external reference such as secrets, feeds, Worker Pools, and target tags must come in via a parameter
+- Any external reference such as secrets, feeds, worker pools, and target tags must come in via a parameter
 - Only expose parameters the consumer genuinely needs to provide. If the producer should control a value, use a variable instead
 
 ### Keep consumer decision-making to a minimum
@@ -84,7 +84,7 @@ It's the producer's job to figure out how to take those inputs and run a reliabl
 
 ### Lock values that must be consistent across projects
 
-Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts, credentials, or environment-specific configuration the producer controls. If you want projects to supply their own value for something, expose it as a parameter instead.
+Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts, credentials, or environment-specific configuration the producer controls. If you want consumers to supply their own value for something, expose it as a parameter instead.
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
@@ -94,14 +94,12 @@ Step notes help consumers understand what each step does and why. If a deploymen
 
 ## Publishing and versioning
 
-### Test your template before publishing
+### Test your template before publishing a stable version
 
-Before publishing a version, create a test project using the template in a development or sandbox space. Verify the deployment runs end-to-end with realistic parameter values. This is especially important for major versions, where consumers can't create new releases until they've applied the update.
-
-If you're testing a breaking change, use the pre-release feature so the new version is only visible to a specific space before you promote it.
+Before publishing a stable version, create a test project using the template in a development or sandbox space. Verify the deployment runs end-to-end with realistic parameter values using pre-release versions.
 
 ### Write release notes when publishing a new version
 
-Each published version can include release notes. Describe what changed, whether any parameters were added or removed, and what consumers need to do when updating. This information surfaces directly in the UI when consumers are deciding whether to apply the update.
+Each published version can include release notes. Describe what changed, whether any parameters were added or removed, and what consumers need to do when updating.
 
 A concise, clear release note (for example, *Added a required parameter for the image pull secret. Update your project before creating a new release.*) saves consumers time and reduces support requests.

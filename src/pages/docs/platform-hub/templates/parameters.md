@@ -38,6 +38,7 @@ Templates can manage the following as parameters:
 - Username Password Account
 - Worker Pool
 - Package
+- Project
 - A previous step name
 
 To create a parameter, navigate to the **Parameters** tab on a template and add a new parameter.
@@ -50,7 +51,7 @@ You can set an optional default value for these parameters:
 - Multi-line text
 - Dropdown
 - Checkbox
-- Sensitive/password box
+- Sensitive/password box (process templates only)
 - AWS Account
 - Azure Account
 - Generic OIDC Account
@@ -69,6 +70,7 @@ You cannot set a default value for these parameters, they must be set inside a p
 - Environments
 - Container Feed
 - Channels
+- Project
 
 ## Template-specific behavior
 
@@ -79,5 +81,5 @@ Some parameter behavior differs between template types.
 :::
 
 :::div{.hint}
-**Project templates** do not support parameter scoping or sensitive parameter values in the Alpha release. For more information, see [Project template parameters](/docs/platform-hub/templates/project-templates#parameters).
+**Project templates** do not support parameter scoping or sensitive parameter values in the Alpha release. The following parameter types are not available for project templates: Multi-line text, Dropdown, Checkbox, and Sensitive/password box. For more information, see [Project template parameters](/docs/platform-hub/templates/project-templates#parameters).
 :::

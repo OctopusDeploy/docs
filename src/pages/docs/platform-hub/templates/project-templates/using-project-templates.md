@@ -21,8 +21,8 @@ A **templated project** is a project created from a project template. It inherit
 
 To use a project template, you create a new project based on it.
 
-1. Select **Projects** from the main navigation and click **ADD PROJECT**.
-2. If there are any published and shared project templates, you'll see them listed here. Select the template you want to use.
+1. Select **Projects** from the main navigation and click **Add Project**.
+2. If there are any available project templates, you'll see them listed here. Select the template you want to use.
 
 :::figure
 ![Selecting a project template when creating a new project](/docs/img/platform-hub/project-templates/project-template-selection.png)
@@ -81,7 +81,7 @@ When a major update is available, you'll need to review and apply it before you 
 
 ## Future direction
 
-We're still shaping what project templates can do, and there are a few areas we're actively thinking about. If any of these sound useful to you, we'd love to hear about it. [Share your feedback](https://roadmap.octopus.com/submit-idea).
+We're still shaping what project templates can do, and there are a few areas we're actively thinking about. If any of these sound useful to you, we'd love to hear about it. [Share your feedback](https://oc.to/feedback).
 
 ### Placeholders
 

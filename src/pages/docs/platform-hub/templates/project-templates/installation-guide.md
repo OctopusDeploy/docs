@@ -34,7 +34,7 @@ You should only install a preview version of Octopus Server if you are comfortab
 
 1. After downloading, upgrade your Octopus instance using the [upgrading guide](/docs/administration/upgrading).
 
-1. You should now see the Platform Hub icon in your instance. Navigate to **Platform Hub** and select **Project Templates** to get started.
+1. Navigate to **Platform Hub** and select **Project Templates** to get started.
 
 :::div{.hint}
 Users must have **PlatformHubEdit** and **PlatformHubView** permissions to access Platform Hub. These permissions can only be assigned to system teams. By default, system administrators and system managers have both permissions enabled.
