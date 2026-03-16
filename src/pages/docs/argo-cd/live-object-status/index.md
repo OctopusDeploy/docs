@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-05-16
+modDate: 2026-03-16
 navSection: Live Object Status
 title: Argo CD Live Object Status
 navTitle: Live Object Status
@@ -22,7 +22,7 @@ However when used with Argo CD, neither the [Kubernetes agent](/docs/kubernetes/
 
 Using Argo CD Live Object Status requires the following:
 
-- Octopus Deploy 2025.4+
+- Octopus Deploy 2025.4+ (Sync Status requires 2026.1+)
 - A registered [Argo CD Instance](/docs/argo-cd/instances/)
 - [Annotations](/docs/argo-cd/annotations) on your Argo CD Applications, mapping them onto Octopus Deploy projects
 - A deployment process containing an Argo CD step (either [Update Argo CD Image Tags](/docs/argo-cd/steps/update-application-image-tags) or [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests))
@@ -41,20 +41,33 @@ Octopus populates the Live Status Table with content taken directly from Argo.
 ![Octopus Argo CD Live Status Objects](/docs/img/argo-cd/argo-cd-live-status-objects.png)
 :::
 
-### Project Live Status
+### Project Health Status
 
-The project status is a roll-up of the status of all objects, in line with the following table:
+The project health status is a roll-up of the health of all objects:
 
-| Label       |                    Status Icon                     | Description                                                                                                               |
-| :---------- | :------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------|
-| Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | One or more objects of the mapped application are in a progressing state                                                  |
-| Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in the cluster match that specified in the applications' source git repositories, and are executing correctly |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application                                                     |
-| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed                                                            |
-| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | Argo CD has detected differences between the application's git repository, and the manifest in the cluster.               |
-| Missing     |       <i class="fa-solid fa-ghost grey"></i>       | One or more desired objects are missing from the cluster                                                                  |
-| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed                                                |
-| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes                                                   |
+| Label       |                    Status Icon                     | Description                                                                                                              |
+| :---------- | :------------------------------------------------: |:-------------------------------------------------------------------------------------------------------------------------|
+| Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | One or more objects of the mapped application are in a progressing state                                                 |
+| Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in the cluster match that specified in the applications’ source git repositories, and are executing correctly|
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application                                                    |
+| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed                                                           |
+| Missing     |       <i class="fa-solid fa-ghost grey"></i>       | One or more desired objects are missing from the cluster                                                                 |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed                                               |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes                                                  |
+
+### Project Sync Status
+
+Sync Status tracks whether the changes Octopus pushed to git still match what Argo CD has synced. Octopus recalculates this after each deployment and whenever Argo CD reports a sync event.
+
+| Label       |                    Status Icon                     | Description                                                                    |
+| :---------- | :------------------------------------------------: |:-------------------------------------------------------------------------------|
+| In Sync     |      <i class="fa-solid fa-check green"></i>       | The application configuration in git matches what Octopus last applied         |
+| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The desired state in the cluster differs from what was last applied            |
+| Git Drift   |   <i class="fa-solid fa-not-equal orange"></i>     | The application configuration in git has changed since Octopus last applied it |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting sync status updates for this application          |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed     |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes        |
+
 
 ### Object status
 
