@@ -10,7 +10,7 @@ hideInThisSectionHeader: true
 
 The Argo CD Gateway can be installed into an AWS EKS cluster and connect to an Argo CD instance managed by the Argo CD Capability.
 
-## Differences from a Standard Argo CD Instance
+## Differences from a standard Argo CD instance
 
 AWS managed Argo CD instances differ from standard self-hosted installations in the following ways:
 
@@ -18,7 +18,7 @@ AWS managed Argo CD instances differ from standard self-hosted installations in 
 
 Standard installations connect to Argo CD using the in-cluster Kubernetes service DNS name (e.g. `argocd-server.argocd.svc.cluster.local`). AWS managed Argo CD instances are not accessible via in-cluster DNS, so the publicly accessible EKS capabilities URL must be used instead.
 
-### Valid TLS Certificate
+### Valid TLS certificate
 
 AWS managed Argo CD instances are served with a publicly trusted TLS certificate. Unlike self-hosted installations that may use self-signed certificates, the **Argo CD instance uses self-signed certificates** option should remain unchecked to keep certificate verification enabled.
 
