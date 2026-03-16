@@ -74,7 +74,7 @@ A consumer should be able to say:
 >
 > - The container image
 > - The target tag of the cluster to deploy to
- - The connection string for the database
+> - The connection string for the database
 
 It's the producer's job to figure out how to take those inputs and run a reliable deployment.
 

@@ -28,13 +28,13 @@ To use a project template, you create a new project based on it.
 ![Selecting a project template when creating a new project](/docs/img/platform-hub/project-templates/project-template-selection.png)
 :::
 
-3. Give the project a **Name** and choose where its settings, non-sensitive variables, and template values will be stored.
+1. Give the project a **Name** and choose where its settings, non-sensitive variables, and template values will be stored.
 
 :::figure
 ![Naming a templated project and choosing storage settings](/docs/img/platform-hub/project-templates/templated-project-creation.png)
 :::
 
-4. Click **Next** to configure your versioning preferences. You can change these later in project settings.
+1. Click **Next** to configure your versioning preferences. You can change these later in project settings.
 
 If the template has pre-release versions, you'll also be asked to choose a version type:
 
@@ -45,7 +45,7 @@ If the template has pre-release versions, you'll also be asked to choose a versi
 ![Choosing between stable and pre-release template versions](/docs/img/platform-hub/project-templates/templated-project-version-selection.png)
 :::
 
-5. Select how you want the project to handle template updates:
+1. Select how you want the project to handle template updates:
 
    - **Accept minor changes**: automatically updates when a patch or minor version is published. Major versions require a manual update.
    - **Accept patches**: only automatically updates when a patch is published. Minor or major versions require a manual update.
@@ -54,7 +54,7 @@ If the template has pre-release versions, you'll also be asked to choose a versi
 ![Configuring template version update preferences](/docs/img/platform-hub/project-templates/templated-project-version-settings.png)
 :::
 
-6. Click **Create Project**. You'll be taken to the **Template values** page.
+1. Click **Create Project**. You'll be taken to the **Template values** page.
 
 ## Template values
 
