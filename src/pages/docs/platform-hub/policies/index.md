@@ -67,7 +67,7 @@ You will be presented with the Create Policy modal. The first step is to select 
 
 :::div{.hint}
 
-- If you want to start with the most basic policy, choose Create Blank Policy.
+If you want to start with the most basic policy, choose Create Blank Policy.
 
 :::
 
@@ -81,7 +81,7 @@ You can then set the name of your policy. Octopus will generate a valid slug for
 
 :::div{.hint}
 
-- The slug can not be changed once a policy is created.
+The slug can not be changed once a policy is created.
 
 :::
 
@@ -105,15 +105,13 @@ This will create the Policy file in your Platform Hub repository and then take y
 - ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code.
 - ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
 
-Full details of output schema is available on the [schema page](/docs/platform-hub/policies/schema).
-
 See
 
 :::
 
 ### 5. Define the policy scope
 
-You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
+You’ll now need to define the policy's scope, as Rego. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
 
 <br>
 
@@ -137,6 +135,13 @@ input.Environment.Name = "Development"
 ```
 
 Our example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. **All Rego code has to have a package defined, which is the policy slug.**
+
+:::div{.warning}
+
+- You cannot rename **evaluate**, it must be called **evaluate**.
+- The package name must be the same as your policy file name.
+
+:::
 
 ```ruby
 package manual_intervention_required 
