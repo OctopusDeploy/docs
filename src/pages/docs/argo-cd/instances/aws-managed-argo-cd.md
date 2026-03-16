@@ -1,6 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-09-15
+pubDate: 2026-03-13
 modDate: 2026-03-13
 title: AWS Managed Argo CD
 description: Install Argo CD Gateway on EKS with Argo CD Capability
