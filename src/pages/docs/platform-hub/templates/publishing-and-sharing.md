@@ -33,7 +33,7 @@ You can also publish a pre-release version to test the template before promoting
 The first time you publish a template, you can only publish a major or pre-release version.
 :::
 
-Selecting any option increments the version number following Semantic Versioning. For minor or patch updates, projects that accept these changes will automatically upgrade to the newly published version.
+Selecting any option increments the version number following [Semantic Versioning](https://semver.org). For minor or patch updates, projects that accept these changes will automatically upgrade to the newly published version.
 
 :::figure
 ![The publish experience for a template](/docs/img/platform-hub/process-templates-publishing.png)
