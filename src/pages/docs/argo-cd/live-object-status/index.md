@@ -68,7 +68,6 @@ Sync Status tracks whether the changes Octopus pushed to git still match what Ar
 | Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed     |
 | Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes        |
 
-
 ### Object status
 
 | Label       |                  Status Icon                  | Description                                                                                                 |
