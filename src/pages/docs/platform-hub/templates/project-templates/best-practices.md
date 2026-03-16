@@ -100,4 +100,4 @@ If you're testing a breaking change, use the pre-release feature so the new vers
 
 Each published version can include release notes. Describe what changed, whether any parameters were added or removed, and what consumers need to do when updating. This information surfaces directly in the UI when consumers are deciding whether to apply the update.
 
-A concise, clear release note — *Added a required parameter for the image pull secret. Update your project before creating a new release.* — saves consumers time and reduces support requests.
+A concise, clear release note (for example, *Added a required parameter for the image pull secret. Update your project before creating a new release.*) saves consumers time and reduces support requests.

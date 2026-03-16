@@ -8,7 +8,7 @@ icon: fa-solid fa-layer-group
 navTitle: Troubleshooting
 navSection: Project Templates
 description: Known issues and limitations for project templates
-navOrder: 171
+navOrder: 173
 ---
 
 ## Alpha limitations

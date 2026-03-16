@@ -52,7 +52,11 @@ Some steps behave differently inside the project template editor. Instead of let
 :::
 
 :::div{.hint}
-Unlike standard projects, project templates validates the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally — define the process first, then wire up parameters and variables as you go.
+Unlike standard projects, project templates validates the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally: define the process first, then wire up parameters and variables as you go.
+:::
+
+:::div{.hint}
+If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template. This means a consumer could create two releases on different days and find that different versions of the process template were used, without either the producer or consumer making any change to the project template itself. This is consistent with how process templates behave in standard projects, where release creation snapshots the steps at that point in time. We're interested in your [feedback](https://roadmap.octopus.com/submit-idea) on whether this behavior meets your expectations.
 :::
 
 ## Parameters
