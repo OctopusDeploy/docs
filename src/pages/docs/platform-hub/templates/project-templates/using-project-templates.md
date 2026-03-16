@@ -2,10 +2,10 @@
 layout: src/layouts/Default.astro
 pubDate: 2026-03-16
 modDate: 2026-03-16
-title: Using Project Templates
+title: Templated projects
 subtitle: How to create and manage projects from a project template
 icon: fa-solid fa-layer-group
-navTitle: Using project templates
+navTitle: Templated projects
 navSection: Project Templates
 description: How to create and manage projects from a project template
 navOrder: 171
