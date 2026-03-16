@@ -17,14 +17,14 @@ Project templates are in Alpha. The feature is incomplete and standard SLAs do n
 
 ## License requirements
 
-Project templates require an Octopus Enterprise license with the project templates entitlement. Please contact <sales@octopus.com> to confirm your license includes access before proceeding.
+Project templates require an Octopus Enterprise license with the project templates entitlement. Contact <sales@octopus.com> to confirm your license includes access before proceeding.
 
 ## How to install Octopus Server 2026.2
 
 Project templates are available to Cloud customers without any additional setup. Self-hosted customers can access project templates as an early preview by installing Octopus Server 2026.2.
 
 :::div{.warning}
-You should only install a preview version of Octopus Server if you are comfortable adopting a feature before it's fully complete. Any issues or bugs you encounter will not be fixed immediately. Please contact <sales@octopus.com> with any queries about whether this approach is right for you.
+You should only install a preview version of Octopus Server if you are comfortable adopting a feature before it's fully complete. Any issues or bugs you encounter will not be fixed immediately. Contact <sales@octopus.com> with any questions about whether this approach is right for you.
 :::
 
 1. Download Octopus Server 2026.2.

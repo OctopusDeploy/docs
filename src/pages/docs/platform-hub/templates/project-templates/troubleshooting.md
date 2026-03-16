@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-03-05
+modDate: 2026-03-16
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -10,6 +10,10 @@ navSection: Project Templates
 description: Known issues and limitations for project templates
 navOrder: 173
 ---
+
+:::div{.warning}
+Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Don't use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback.
+:::
 
 ## Alpha limitations
 
@@ -35,9 +39,9 @@ We'll update this page as the feature evolves.
 
 Project templates support most Octopus steps. The following step package framework steps are not supported:
 
-1. Deploy a Bicep Template
-2. AWS S3 Create Bucket
-3. AWS ECS
+- Deploy a Bicep Template
+- AWS S3 Create Bucket
+- AWS ECS
 
 These steps are being migrated away from the step package framework and will be supported in the future.
 
@@ -55,9 +59,6 @@ You can't clone a project template through the Octopus UI. To clone a template:
 ## Public API
 
 The Alpha release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
-
-- Octopus stores each project template as a folder in the configured Git repository, containing four OCL files: `template.ocl`, `deployment_process.ocl`, `parameters.ocl`, and `variables.ocl`.
-- Published versions and space sharing configurations are stored in the database.
 
 ## Losing access to an Octopus Enterprise license
 

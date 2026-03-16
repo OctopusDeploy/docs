@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-03-06
-title: Project Templates
-subtitle: An overview of Project Templates
+modDate: 2026-03-16
+title: Project templates
+subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
 navTitle: Overview
 navSection: Project Templates
-description: An overview of Project Templates
+description: An overview of project templates
 navOrder: 170
 ---
 
@@ -20,8 +20,6 @@ Project templates are in Alpha. The feature is incomplete and standard SLAs do n
 Project templates are reusable project blueprints that can be shared across multiple spaces in Octopus Deploy. Instead of manually configuring each new project from scratch, defining deployment steps and variables every time, you create a single template that any space can use as a starting point. This ensures teams follow the same standards and removes the risk of configuration drift.
 
 To create or manage your project templates, navigate to the Platform Hub. If you haven't set up your Git repository, you must do so before creating a project template.
-
-Before you can configure your template, you must create it.
 
 1. Navigate to **Project Templates** in Platform Hub.
 2. Give the project template a **Name** and an optional **Description**.
@@ -43,7 +41,7 @@ You can now define the deployment process, parameters, and variables for the tem
 
 The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, Step Templates, Community Step Templates, and Process Templates to define it.
 
-Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values the platform engineer has explicitly exposed, ensuring every project based on the template follows the same deployment process.
+Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values the producer has explicitly exposed, ensuring every project based on the template follows the same deployment process.
 
 Some steps behave differently inside the project template editor. Instead of letting you set a value directly, they ask for parameters or variables. Parameters are required when a step requires a resource that Platform Hub can't define, such as a Worker Pool, and that resource must be supplied by the project. These fields accept parameters so projects can provide the right values for their context.
 
@@ -52,7 +50,7 @@ Some steps behave differently inside the project template editor. Instead of let
 :::
 
 :::div{.hint}
-Unlike standard projects, project templates validates the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally, define the process first, then wire up parameters and variables as you go.
+Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This makes it easier to build your template incrementally: define the process first, then wire up parameters and variables as you go.
 :::
 
 :::div{.hint}
@@ -116,9 +114,7 @@ After you've configured your project template, see [Publishing and sharing templ
 
 ## Using a project template
 
-After you publish and share a template, users in a space can create a new project from it. When creating the project, they supply values for the parameters you've defined. Octopus calls these **Template values** in the UI. After setting their parameter values, they can create a release and deploy it. They can't modify the deployment process.
-
-When you publish a new version of the template, projects receive and can accept the update in the same way as process templates.
+After you publish and share a template, users in a space can create a new project from it. For details on the consumer experience, see [Templated projects](/docs/platform-hub/templates/project-templates/using-project-templates).
 
 ## Feedback
 

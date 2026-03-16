@@ -22,7 +22,7 @@ A **templated project** is a project created from a project template. It inherit
 To use a project template, you create a new project based on it.
 
 1. Select **Projects** from the main navigation and click **ADD PROJECT**.
-2. If there are any published and shared project templates you'll see a list of project templates shared to your space. Select the template you want to use.
+2. If there are any published and shared project templates, you'll see them listed here. Select the template you want to use.
 
 :::figure
 ![Selecting a project template when creating a new project](/docs/img/platform-hub/project-templates/project-template-selection.png)
@@ -64,7 +64,7 @@ Template values are the parameters the producer has defined to let you customize
 ![The Template values page for a templated project](/docs/img/platform-hub/project-templates/templated-project-values.png)
 :::
 
-Once you've provided the required values, you can create a release as usual.
+After you've provided the required values, you can create a release as usual.
 
 :::div{.hint}
 You can't modify the deployment process in a templated project. You can't add, remove, reorder, or disable steps. If you need to change the process, contact the template producer.

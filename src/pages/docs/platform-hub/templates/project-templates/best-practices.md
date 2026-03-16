@@ -1,15 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-03-06
+modDate: 2026-03-16
 title: Project template best practices
 subtitle: Best practices for creating project templates in Platform Hub
-icon: fa-solid fa-lock
-navTitle: Best Practices
+icon: fa-solid fa-layer-group
+navTitle: Best practices
 navSection: Project Templates
 description: Best practices for creating project templates in Platform Hub
 navOrder: 180
 ---
+
+:::div{.warning}
+Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Don't use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback.
+:::
 
 This document uses **Producer** and **Consumer** frequently. To avoid confusion, use these definitions:
 
