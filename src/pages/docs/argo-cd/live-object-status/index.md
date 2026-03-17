@@ -59,14 +59,14 @@ The project health status is a roll-up of the health of all objects:
 
 Sync Status tracks whether the changes Octopus pushed to git still match what Argo CD has synced. Octopus recalculates this after each deployment and whenever Argo CD reports a sync event.
 
-| Label       |                    Status Icon                     | Description                                                                    |
-| :---------- | :------------------------------------------------: |:-------------------------------------------------------------------------------|
-| In Sync     |      <i class="fa-solid fa-check green"></i>       | The application configuration in git matches what Octopus last applied         |
-| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The desired state in the cluster differs from what was last applied            |
-| Git Drift   |   <i class="fa-solid fa-not-equal orange"></i>     | The application configuration in git has changed since Octopus last applied it |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting sync status updates for this application          |
-| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed     |
-| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes        |
+| Label       |                    Status Icon                     | Description                                                                                                                  |
+| :---------- | :------------------------------------------------: |:-----------------------------------------------------------------------------------------------------------------------------|
+| In Sync     |      <i class="fa-solid fa-check green"></i>       | Argo CD reports the application is synced and the git configuration still matches what Octopus last applied                  |
+| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | Argo CD has detected that the desired state in the cluster differs from the application’s git repository                     |
+| Git Drift   |   <i class="fa-solid fa-not-equal orange"></i>     | Octopus has detected that the changes it applied to git have been modified since the last deployment (e.g. by a manual edit) |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting sync status updates for this application                                                        |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed                                                   |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes                                                      |
 
 ### Object status
 
