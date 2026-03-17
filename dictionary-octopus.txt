@@ -617,4 +617,5 @@ xmark
 xvzf
 xxlarge
 youtu
+Zstandard
 Zuora
