@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-03-16
+modDate: 2026-03-19
 navSection: Live Object Status
 title: Argo CD Live Object Status
 navTitle: Live Object Status
