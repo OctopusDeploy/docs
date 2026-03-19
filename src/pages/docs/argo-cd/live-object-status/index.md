@@ -54,7 +54,7 @@ The project health status is a roll-up of the health of all objects:
 | Missing     |       <i class="fa-solid fa-ghost grey"></i>       | One or more desired objects are missing from the cluster                                                                 |
 | Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed                                               |
 | Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes                                                  |
-| Stale       |     <i class="fa-solid fa-bolt grey"></i>     | Status information is stale. No data has been received in the last 10 minutes |
+| Stale       |     <img src="/docs/img/bolt-slash.svg" width="16px" height="16px">     | Status information is stale. No data has been received in the last 10 minutes |
 
 ### Project Sync Status
 
@@ -79,7 +79,7 @@ Sync Status tracks whether the changes Octopus pushed to git still match what Ar
 | Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                                    |
 | Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                                          |
 | Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                                                |
-| Stale       | <i class="fa-solid fa-bolt grey"></i>   | Status information is stale. No data has been received in the last 10 minutes |
+| Stale       | <img src="/docs/img/bolt-slash.svg" width="16px" height="16px">    | Status information is stale. No data has been received in the last 10 minutes |
 
 ### Object Sync Status
 
