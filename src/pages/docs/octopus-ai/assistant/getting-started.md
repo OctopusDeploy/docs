@@ -18,9 +18,13 @@ navOrder: 3
 2. Navigate to your Octopus Deploy instance. You will see a new icon in the bottom right corner of your Chrome browser
 3. Click the AI Assistant icon in your browser to start using the assistant
 
-## Using with on-premises instances
+## Using with on-premises instances or cloud instances
 
 For on-premises Octopus instances, ensure your server accepts HTTPS requests from IP address `51.8.40.170` to enable AI Assistant functionality.  The DNS entry of your Octopus Server will also need to be resolvable over the Internet for the IP address to be able to communicate with it.
+
+Cloud instances using the `IP address allow list` feature will need to add `51.8.40.170` to the allow list to enable AI Assistant functionality:
+
+![Control Centre](/docs/img/octopus-ai/assistant/cloud-portal.png)
 
 :::div{.warning}
 It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that cannot accept HTTP requests from this public IP address.
