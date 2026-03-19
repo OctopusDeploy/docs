@@ -9,7 +9,7 @@ navOrder: 3
 
 ## Prerequisites
 
-- An Octopus instance (cloud or on-premises with [public accessibility](#using-with-on-premises-instances))
+- An Octopus instance (cloud or on-premises with [public accessibility](#using-with-on-premises-instances-or-cloud-instance-allow-lists))
 - A Chromium-based browser (Chrome, Brave, Edge, etc.) that supports Chrome Web Store extensions
 
 ## Installation
