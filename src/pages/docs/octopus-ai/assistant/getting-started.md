@@ -22,7 +22,7 @@ navOrder: 3
 
 For on-premises Octopus instances, ensure your server accepts HTTPS requests from IP address `51.8.40.170` to enable AI Assistant functionality.  The DNS entry of your Octopus Server will also need to be resolvable over the Internet for the IP address to be able to communicate with it.
 
-Cloud instances using the `IP address allow list` feature will need to add `51.8.40.170` to the allow list to enable AI Assistant functionality:
+Cloud instances with the `IP address allow list` feature activated will need to add `51.8.40.170` to the allow list to enable AI Assistant functionality:
 
 ![Control Centre](/docs/img/octopus-ai/assistant/cloud-portal.png)
 
