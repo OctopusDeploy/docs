@@ -39,7 +39,7 @@ You can now define the deployment process, parameters, and variables for the tem
 
 ## Deployment process
 
-The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, Step Templates, Community Step Templates, and Process Templates to define it.
+The deployment process defines the steps Octopus orchestrates when deploying a project created from this template. Each project template has a single deployment process, and you can use Octopus's built-in steps, step templates, community step templates, and process templates to define it.
 
 Projects created from the template can't modify the deployment process. They can't add, remove, reorder, or disable steps. The only thing a project can configure is the parameter values explicitly exposed in the template, ensuring every project based on the template follows the same deployment process.
 
@@ -59,7 +59,7 @@ If your deployment process includes a process template configured to auto-update
 
 ## Parameters
 
-Parameters let you define the inputs a project must supply when it's created from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
+Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
 
 :::div{.warning}
 In the Alpha release, project templates don't support parameter scoping or sensitive parameter values. We're still working out how parameters, variables, and scoping should work in project templates and expect this to evolve throughout Alpha. We'd love your [feedback](#feedback).
@@ -77,7 +77,7 @@ To create a parameter, navigate to the **Parameters** tab on your project templa
 
 Variables in a project template work the same way as project variables in a standard Octopus project. Any variable you define is available to the deployment and can be selected in steps.
 
-Unlike parameters, projects can't override the variables set in a template. Use this for values that must be the same across every project, like accounts. If you want projects to supply their own value for something, expose it as a parameter instead.
+Unlike parameters, users can't change the variables defined in a template when creating a project from it. Use variables for values that must be consistent across every project, like accounts. If you need users to provide their own value, expose it as a parameter instead.
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
@@ -91,7 +91,7 @@ In the Alpha release, the variable types you can use are limited to text, sensit
 
 ## Git repository structure
 
-Octopus stores each project template as a folder in the Platform Hub Git repository. The folder name is a slug derived from the template name. Each folder contains four OCL files:
+Octopus stores each project template as a folder in the Platform Hub Git repository. The folder name is a slug derived from the template name. Each folder contains four [OCL](/docs/projects/version-control) files:
 
 ```text
 project-templates/<template-slug>/

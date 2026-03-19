@@ -54,7 +54,7 @@ If the template has pre-release versions, you'll also be asked to choose a versi
 ![Configuring template version update preferences](/docs/img/platform-hub/project-templates/templated-project-version-settings.png)
 :::
 
-1. Click **Create Project**. You'll be taken to the **Template values** page.
+Click **Create Project**. You'll be taken to the **Template values** page.
 
 ## Template values
 
