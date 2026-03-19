@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-09
 title: Argo CD Authentication
-description: Limiting Octopus' access in Argo CD
+description: Limiting Octopus's access in Argo CD
 navOrder: 10
 hideInThisSectionHeader: true
 ---
 
-OctopusDeploy fetches application, cluster and log data from your Argo CD Instance. This data is used in the Octopus UI to provide
+Octopus Deploy fetches application, cluster and log data from your Argo CD Instance. This data is used in the Octopus UI to provide
 a rich integration, and also during step execution to determine which applications are to be updated.
 
 To request this data, Octopus must authenticate with Argo CD as a user with appropriate permissions.
@@ -47,8 +47,8 @@ data:
 
 For more information see [Argo User docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/).
 
-The newly created account will appear in Argo's webUI under Settings --> Accounts.
-Alternatively, from the command line, the Argo CD Cli can be executed to confirm the user creation was successful:
+The newly created account will appear in the Argo CD web UI under **Settings ➜ Accounts**.
+Alternatively, from the command line, the Argo CD CLI can be executed to confirm the user creation was successful:
 
 ```bash
 argocd account list
@@ -73,6 +73,7 @@ metadata:
 data:
   policy.csv: |
     p, octopus, applications, get, *, allow
+    p, octopus, applications, sync, *, allow
     p, octopus, clusters, get, *, allow
     p, octopus, logs, get, */*, allow
 ```
@@ -84,10 +85,10 @@ For more information see [Argo RBAC docs](https://argo-cd.readthedocs.io/en/stab
 
 ## Generate Authentication Token
 
-There are two methods for creating an new authentication tokens in ArgoCD:
+There are two methods for creating a new authentication token in Argo CD:
 
-1. Via the webUI under Settings --> Accounts --> octopus
-2. Via the `Argo CD Cli` tool.
+1. Via the web UI under **Settings ➜ Accounts ➜ octopus**
+2. Via the `Argo CD CLI` tool.
 
 To generate the authentication token for Octopus via the `Argo CD CLI` tool:
 
@@ -108,11 +109,11 @@ To generate the authentication token for Octopus via the `Argo CD CLI` tool:
     The authentication token will be echoed to the terminal, and must be copied into the Gateway's installation mechanism (either
 the Octopus UI, or helm installation).
 
-For more information see see [Argo CD Cli docs](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
+For more information see [Argo CD CLI docs](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_account_generate-token/).
 
 ## Verify Permissions
 
-To ensure the octopus user has the correct permissions, the following argocd cli commands can be executed:
+To ensure the octopus user has the correct permissions, the following Argo CD CLI commands can be executed:
 
 ```bash
 argocd account can-i --auth-token <octopus-apikey> get clusters '*'

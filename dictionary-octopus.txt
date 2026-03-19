@@ -259,6 +259,7 @@ lifecycles
 linecap
 linejoin
 linkerd
+linkinator
 Linq
 Liquibase
 llms
@@ -616,4 +617,5 @@ xmark
 xvzf
 xxlarge
 youtu
+Zstandard
 Zuora

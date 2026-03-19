@@ -3,7 +3,7 @@ layout: src/layouts/Default.astro
 pubDate: 2025-09-15
 modDate: 2026-01-20
 title: Automated Installation
-description: How Octopus tracks your Argo CD Instances
+description: Install Argo CD instances via scripting or IAC
 navOrder: 10
 hideInThisSectionHeader: true
 ---
@@ -42,7 +42,7 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 
 ## Terraform
 
-The Gateway helm chart can be installed via a terraform - for a minimal install the following is required.
+The Gateway helm chart can be installed via Terraform. For a minimal install the following is required.
 
 Update the version line to the most recent tag found on [dockerhub](https://hub.docker.com/r/octopusdeploy/octopus-argocd-gateway-chart)
 
@@ -115,14 +115,16 @@ resource "helm_release" "argo_gateway" {
 
 The Octopus-Argo Gateway's helm chart can be installed via an Argo CD Application.
 
-The application yaml required to install the helm chart is as follows (replacing values as per previous examples):
+The application YAML required to install the helm chart is as follows (replacing values as per previous examples):
+
+Update `targetRevision` to the most recent tag found on [dockerhub](https://hub.docker.com/r/octopusdeploy/octopus-argocd-gateway-chart)
 
 ```yaml
 project: default
 source:
   repoURL: registry-1.docker.io/octopusdeploy
   chart: octopus-argocd-gateway-chart
-  targetRevision: 1.3.0
+  targetRevision: <helm chart version>
   helm:
     parameters:
       - name: registration.octopus.name
