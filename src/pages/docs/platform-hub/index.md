@@ -13,13 +13,14 @@ navOrder: 32
 
 [Platform Hub](https://octopus.com/blog/introducing-platform-hub) is a new capability in Octopus that helps platform teams standardize how software is delivered across teams using connected templates and enforceable policies. Together, these features create a governance layer for software delivery, making it easier for platform teams to scale best practices, reduce drift, and deliver with confidence.
 
-You can create and manage your process templates and policies from Platform Hub.
+You can create and manage your templates and policies from Platform Hub.
 
-- [Process templates](/docs/platform-hub/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Process templates](/docs/platform-hub/templates/process-templates) are reusable sets of deployment steps that can be shared across multiple spaces in Octopus Deploy
+- [Project templates](/docs/platform-hub/templates/project-templates) are reusable project blueprints that teams can use as a starting point for new projects. Teams supply the required parameter values but can't modify the deployment process.
 - [Policies](/docs/platform-hub/policies) in Octopus are designed to ensure compliance and governance by default, making enforcing pre- and post-deployment controls at scale easier.
 
 :::div{.hint}
-To access Platform Hub users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams. 
+To access Platform Hub, users must have **PlatformHubEdit** and **PlatformHubView** permissions enabled. These permissions can only be assigned to system teams.
 [System administrators](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemAdministrator) and [system managers](/docs/security/users-and-teams/default-permissions#DefaultPermissions-SystemManager) have **PlatformHubEdit** and **PlatformHubView** permissions enabled by default.
 :::
 
@@ -33,9 +34,9 @@ To get started, configure your version control.
 This Git repository will be used for all features in Platform Hub.
 :::
 
-### Accounts in Platform Hub
+## Accounts in Platform Hub
 
-You can create and manage accounts in Platform Hub that can be used inside process templates.
+You can create and manage accounts in Platform Hub that can be used inside templates.
 
 You can create the following account types by visiting the **Accounts** area in Platform Hub.
 
@@ -51,9 +52,9 @@ To use these accounts inside a process template, you must create a parameter tha
 ![Accounts in Platform Hub](/docs/img/platform-hub/platform-hub-accounts.png)
 :::
 
-### Git Credentials in Platform Hub
+## Git Credentials in Platform Hub
 
-You can create and manage Git credentials in Platform Hub by visiting the Git credentials area in the Platform Hub navigation menu. You can use Git credentials inside your process templates by selecting them from a dropdown in the step field that requires them.
+You can create and manage Git credentials in Platform Hub by visiting the Git credentials area in the Platform Hub navigation menu. You can use Git credentials inside your templates by selecting them from a dropdown in the step field that requires them.
 
 :::figure
 ![Platform Hub Git credentials area](/docs/img/platform-hub/platform-hub-git-credential.png)
