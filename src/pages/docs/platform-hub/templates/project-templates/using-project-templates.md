@@ -83,14 +83,6 @@ When a major update is available, you'll need to review and apply it before you 
 
 We're still shaping what project templates can do, and there are a few areas we're actively thinking about. If any of these sound useful to you, we'd love to hear about it. [Share your feedback](https://oc.to/feedback).
 
-### Placeholders
-
-Placeholders would let producers give consumers some flexibility to add their own steps to a templated project's deployment process. Rather than a fully fixed process, producers could mark specific points where consumers are permitted to insert their own steps.
-
-### Runbooks and triggers
-
-We're planning to support runbooks and triggers defined in the project template, so templated projects inherit them alongside the deployment process. This would let producers standardize operational runbooks and scheduled triggers across all projects created from the template. Projects would still be able to create and manage their own runbooks and triggers.
-
 ## Limitations
 
 Some features are not yet supported for templated projects. For a full list, see [Troubleshooting](/docs/platform-hub/templates/project-templates/troubleshooting).
