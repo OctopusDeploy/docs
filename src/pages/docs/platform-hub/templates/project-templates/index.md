@@ -77,12 +77,12 @@ To create a parameter, navigate to the **Parameters** tab on your project templa
 
 Variables in a project template work the same way as project variables in a standard Octopus project. Any variable you define is available to the deployment and can be selected in steps.
 
-Unlike parameters, projects can't override the variables set in a template. Use this for values that must be the same across every project, like accounts or credentials. If you want projects to supply their own value for something, expose it as a parameter instead.
+Unlike parameters, projects can't override the variables set in a template. Use this for values that must be the same across every project, like accounts. If you want projects to supply their own value for something, expose it as a parameter instead.
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
 :::div{.warning}
-In the Alpha release, the variable types you can use are limited to resources currently available in Platform Hub, such as Accounts and Git Credentials. Variable scoping is also not supported. We're adding support for additional resource types throughout Alpha. We'd love your [feedback](#feedback) on what you need.
+In the Alpha release, the variable types you can use are limited to text, sensitive, and resources currently available in Platform Hub, such as Accounts. Variable scoping is also not supported. We're adding support for additional resource types throughout Alpha. We'd love your [feedback](#feedback) on what you need.
 :::
 
 :::figure

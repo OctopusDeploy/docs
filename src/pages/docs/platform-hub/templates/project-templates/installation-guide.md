@@ -29,7 +29,7 @@ You should only install a preview version of Octopus Server if you are comfortab
 
 1. Download Octopus Server 2026.2.
 
-   - If you are running Octopus on Windows, you can download the [server release](https://octopus.com/downloads/previous). Project templates are available from build `2026.2.2311`.
+   - If you are running Octopus on Windows, you can [download the installer](https://download.octopusdeploy.com/octopus/Octopus.2026.2.2311-x64.msi) directly.
    - If you are running Octopus on Linux, you can pull the Docker image. The preview version is `2026.2.2311-PublicPreview` — see the [Docker Hub page](https://hub.docker.com/repository/docker/octopusdeploy/octopusdeploy/tags/2026.2.2311-PublicPreview/sha256-b81bd5d752b22f25137306086a4ea76168e9a7e17f7d573116c509c6bfa23469) for the full image details.
 
 1. After downloading, upgrade your Octopus instance using the [upgrading guide](/docs/administration/upgrading).

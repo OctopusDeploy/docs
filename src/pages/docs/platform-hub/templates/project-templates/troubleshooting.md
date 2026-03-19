@@ -31,6 +31,7 @@ Project templates are in Alpha. The following features are not yet supported and
 - Runbooks
 - Triggers
 - Import and export of templated projects
+- Git Credentials
 - Inline variable and parameter configuration within the deployment process editor
 
 We'll update this page as the feature evolves.
@@ -73,3 +74,4 @@ Project templates and all Platform Hub features require an Enterprise license. W
 
 - Users will lose access to Platform Hub, including the ability to create and manage project templates.
 - You can no longer update or publish project templates.
+- You can no longer create new projects from project templates.

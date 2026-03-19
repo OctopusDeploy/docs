@@ -84,7 +84,7 @@ It's the producer's job to figure out how to take those inputs and run a reliabl
 
 ### Lock values that must be consistent across projects
 
-Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts, credentials, or environment-specific configuration the producer controls. If you want consumers to supply their own value for something, expose it as a parameter instead.
+Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts. If you want consumers to supply their own value for something, expose it as a parameter instead.
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
