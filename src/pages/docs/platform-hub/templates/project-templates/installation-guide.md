@@ -21,7 +21,7 @@ Project templates require an Octopus Enterprise license with the project templat
 
 ## How to install Octopus Server 2026.2
 
-Project templates are available to Cloud customers without any additional setup. Self-hosted customers can access project templates as an early preview by installing Octopus Server 2026.2.
+Project templates are available to Cloud customers without any additional setup. Self-hosted customers can access project templates as an early preview by installing the latest Octopus Server 2026.2.
 
 :::div{.warning}
 You should only install a preview version of Octopus Server if you are comfortable adopting a feature before it's fully complete. Any issues or bugs you encounter will not be fixed immediately. Contact <sales@octopus.com> with any questions about whether this approach is right for you.
@@ -29,8 +29,8 @@ You should only install a preview version of Octopus Server if you are comfortab
 
 1. Download Octopus Server 2026.2.
 
-   - If you are running Octopus on Windows, you can download the [server release](https://g.octopushq.com/OctopusServer).
-   - If you are running Octopus on Linux, you can pull the [Docker image](https://g.octopushq.com/OctopusServerDockerHub).
+   - If you are running Octopus on Windows, you can download the [server release](https://octopus.com/downloads/previous). Project templates are available from build `2026.2.2311`.
+   - If you are running Octopus on Linux, you can pull the Docker image. The preview version is `2026.2.2311-PublicPreview` — see the [Docker Hub page](https://hub.docker.com/repository/docker/octopusdeploy/octopusdeploy/tags/2026.2.2311-PublicPreview/sha256-b81bd5d752b22f25137306086a4ea76168e9a7e17f7d573116c509c6bfa23469) for the full image details.
 
 1. After downloading, upgrade your Octopus instance using the [upgrading guide](/docs/administration/upgrading).
 
