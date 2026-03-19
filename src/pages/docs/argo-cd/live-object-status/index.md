@@ -71,15 +71,15 @@ Sync Status tracks whether the changes Octopus pushed to git still match what Ar
 
 ### Object Health Status
 
-| Label       |                  Status Icon                  | Description                                                                                                 |
-| :---------- | :-------------------------------------------: |:------------------------------------------------------------------------------------------------------------|
-| Progressing | <i class="fa-solid fa-circle-notch blue"></i> | Object is attempting to reach the desired state                                                             |
-| Healthy     |    <i class="fa-solid fa-heart green"></i>    | Object is in sync and reporting that it is running as expected                                              |
-| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                              |
-| Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                                    |
-| Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                                          |
-| Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                                                |
-| Stale       | <img src="/docs/img/bolt-slash.svg" alt="stale icon" width="16px" height="16px">    | Status information is stale. No data has been received in the last 10 minutes |
+| Label       |                  Status Icon                                                     | Description                                                                   |
+| :---------- | :------------------------------------------------------------------------------: |:------------------------------------------------------------------------------|
+| Progressing | <i class="fa-solid fa-circle-notch blue"></i>                                    | Object is attempting to reach the desired state                               |
+| Healthy     |    <i class="fa-solid fa-heart green"></i>                                       | Object is in sync and reporting that it is running as expected                |
+| Unknown     |   <i class="fa-solid fa-question grey"></i>                                      | We don't have information about the live status of this object                |
+| Degraded    |  <i class="fa-solid fa-heart-crack red"></i>                                     | Object has run into a problem, check the logs or events to find out more      |
+| Missing     |    <i class="fa-solid fa-ghost grey"></i>                                        | Object is missing from the cluster                                            |
+| Suspended   |    <i class="fa-solid fa-pause grey"></i>                                        | Job is not currently running                                                  |
+| Stale       | <img src="/docs/img/bolt-slash.svg" alt="stale icon" width="16px" height="16px"> | Status information is stale. No data has been received in the last 10 minutes |
 
 ### Object Sync Status
 
