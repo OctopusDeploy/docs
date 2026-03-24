@@ -122,7 +122,7 @@ Releases can have custom fields added to them when being created. Custom fields 
 - During deployments within scripts and other steps.
 
 :::div{.hint}
-Support for custom fields on releases is rolling out to Octopus Cloud in Early Access Preview.
+Support for custom fields on releases is available from version `2025.4`.
 :::
 
 :::div{.hint}
