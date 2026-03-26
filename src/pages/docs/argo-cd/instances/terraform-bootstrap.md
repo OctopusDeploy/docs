@@ -582,5 +582,5 @@ octopus_grpc_plaintext = false
 # ─── Gateway ──────────────────────────────────────────────────────────────────
 gateway_namespace     = "octopus-argocd-gateway"
 gateway_name          = "my-argocd-gateway"
-gateway_chart_version = "1.18.0"
+gateway_chart_version = "1.23.0"
 ```
