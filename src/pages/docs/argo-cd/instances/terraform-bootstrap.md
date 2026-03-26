@@ -24,7 +24,7 @@ Here is a simplified example to make this happen:
 ## Providers
 
 ```yaml
-# providers.yaml
+# providers.tf
 terraform {
   required_version = ">= 1.5.0"
 
@@ -64,7 +64,7 @@ provider "helm" {
 ## Variables
 
 ```yaml
-# variables.yaml
+# variables.tf
 # ─── Kubernetes ───────────────────────────────────────────────────────────────
 
 variable "kubeconfig_path" {
@@ -164,7 +164,7 @@ variable "gateway_chart_version" {
 ## Argo CD
 
 ```yaml
-# argocd.yaml
+# argocd.tf
 locals {
   # Derived from the Helm release name and namespace — no user input required.
   # The argo-cd chart names its server service as "<release-name>-server".
@@ -225,7 +225,7 @@ resource "time_sleep" "wait_for_argocd" {
 ## Argo CD Token
 
 ```yaml
-# argocd-token.yaml
+# argocd-token.tf
 locals {
   # Name of the Kubernetes secret that will hold the generated Argo CD token.
   # The secret is created in the gateway namespace so the gateway pod can mount it.
@@ -316,7 +316,7 @@ resource "null_resource" "argocd_token" {
 ## Gateway
 
 ```yaml
-# gateway.yaml
+# gateway.tf
 resource "kubernetes_namespace" "gateway" {
   metadata {
     name = var.gateway_namespace
@@ -432,7 +432,7 @@ resource "kubernetes_manifest" "gateway_application" {
 In order to deploy the Argo CD Gateway using helm directly, you can re-use the helm provider:
 
 ```yaml
-# gateway.yaml
+# gateway.tf
 resource "kubernetes_namespace" "gateway" {
   metadata {
     name = var.gateway_namespace
@@ -519,7 +519,7 @@ resource "helm_release" "gateway" {
 ## Outputs
 
 ```yaml
-# outputs.yaml
+# outputs.tf
 output "argocd_namespace" {
   description = "Namespace where Argo CD is installed."
   value       = kubernetes_namespace.argocd.metadata[0].name
