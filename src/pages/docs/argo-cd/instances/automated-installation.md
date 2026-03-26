@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-03-03
+modDate: 2026-03-26
 title: Automated Installation
 description: Install Argo CD instances via scripting or IAC
 navOrder: 10

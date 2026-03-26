@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-03-09
+modDate: 2026-03-26
 title: Argo CD Authentication
 description: Limiting Octopus's access in Argo CD
 navOrder: 10

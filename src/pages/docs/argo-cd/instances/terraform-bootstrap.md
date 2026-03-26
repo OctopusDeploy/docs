@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-03-03
-modDate: 2026-03-03
+pubDate: 2026-03-26
+modDate: 2026-03-26
 title: Terraform Bootstrap
 description: How to bootstrap Argo CD + Argo CD Gateway using Terraform
 navOrder: 10
