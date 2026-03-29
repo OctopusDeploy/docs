@@ -27,10 +27,10 @@ While these are the options common to each step, there are additional ways to in
 
 ## Managed Accounts
 
-You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
+You can optionally prepare the environment that Terraform runs in using the details defined in [accounts](/docs/infrastructure/accounts) managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
 
 :::div{.hint}
-Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts).
+Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step.
 :::
 
 ## Template section
