@@ -4,14 +4,15 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Terraform step configuration with Octopus
 navTitle: Terraform step configuration
-description: Configuring common Terraform options using the Octopus built in steps 
+description: Configuring common Terraform options using the Octopus built in steps
 navOrder: 20
 ---
 
-Octopus provides four built-in step templates for managing and interacting with your Terraform code: 
+Octopus provides four built-in step templates for managing and interacting with your Terraform code:
+
 - `Apply a Terraform template`
 - `Destroy Terraform resources`
-- `Plan to apply a Terraform template` 
+- `Plan to apply a Terraform template`
 - `Plan a Terraform destroy`
 
 :::figure
@@ -32,9 +33,10 @@ You can optionally prepare the environment that Terraform runs in using the deta
 Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts).
 :::
 
-## Template section 
+## Template section
 
 The Terraform template can come from three sources:
+
 - Directly entered source code
 - Files in a package
 - Files in a Git repository - *New!*
@@ -100,7 +102,7 @@ If you are storing your project configuration directly in Octopus (i.e. not in a
 - URL
 - Credentials (either anonymous or selecting a Git credential from the Library)
 
-When creating a Release, you choose the tip of a branch for your files. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+When creating a Release, you choose the tip of a branch for your files. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the *new* tip of the branch.
 
 #### Version-controlled projects
 
