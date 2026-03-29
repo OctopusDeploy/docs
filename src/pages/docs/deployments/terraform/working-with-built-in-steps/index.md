@@ -108,9 +108,9 @@ If you are storing your project configuration in a Git repository using the [Con
 
 ### Variable replacements
 
-Variable replacement is performed before the template is applied or destroyed when defined in either an inline script or a package.
+Variable replacement is performed before terraform is executed.
 
-When deploying a template from a package, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them. You can also have variable substitution applied to additional files by defining the file names in the `Target files` field.
+When deploying a template from a package or Git repository, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them by default. You can disable the automatic substitution by deselecting `Replace variables in default Terraform files`. You can also have variable substitution applied to additional files by defining file names in the `Target files` field.
 
 For example, if you were deploying from a package and your template file looked like this:
 
