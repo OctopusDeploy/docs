@@ -7,7 +7,7 @@ description: How to bootstrap Argo CD + Argo CD Gateway using Terraform
 navOrder: 10
 ---
 
-When provisioning a new cluster, it is possible to install Argo CD along with the Argo CD Gateway using terraform. In order to do that, you need to create an Argo CD token, and inject it to the Argo CD Gateway installation.
+When provisioning a new cluster, it is possible to install Argo CD while provisioning the required token secrets for the upcoming Argo CD Gateway installation. Once Argo CD is installed, the Argo CD Gateway can be installed using an Argo CD Application as described [here](/docs/argo-cd/instances/automatic-installation). Another approach would be to install the Argo CD Gateway as part of the terraform chart, as described under the Note [here](#gateway).
 
 Here is a simplified example to make this happen:
 
@@ -17,7 +17,7 @@ Here is a simplified example to make this happen:
 | [variables.tf](#variables) | All inputs — kubeconfig, Argo CD URLs, Octopus credentials, gateway config |
 | [argocd.tf](#argo-cd) | Installs Argo CD via Helm; enables apiKey,login on the admin account |
 | [argocd-token.tf](#argo-cd-token) | Generates the Argo CD API key via the CLI and stores it in a k8s secret |
-| [gateway.tf](#gateway) | Creates Octopus API key secret; installs the gateway Helm chart |
+| [gateway.tf](#gateway) | Creates Octopus API key secret; optionally installs the gateway Helm chart |
 | [outputs.tf](#outputs) | Useful one-liners and resource references |
 | [terraform.tfvars.example](#terraform-tfvars) | Copy → terraform.tfvars and fill in |
 
@@ -147,17 +147,6 @@ variable "gateway_namespace" {
   description = "Namespace to install the Octopus Argo CD Gateway into."
   type        = string
   default     = "octopus-argocd-gateway"
-}
-
-variable "gateway_name" {
-  description = "Display name for the gateway within Octopus Deploy."
-  type        = string
-}
-
-variable "gateway_chart_version" {
-  description = "Octopus Argo CD Gateway Helm chart version."
-  type        = string
-  default     = "1.18.0"
 }
 ```
 
@@ -337,94 +326,6 @@ resource "kubernetes_secret" "octopus_api_key" {
 
   type = "Opaque"
 }
-
-# Deploy the Octopus Argo CD Gateway as an Argo CD Application so that Argo CD
-# owns the Helm lifecycle (sync, self-heal, pruning) rather than Terraform/Helm.
-#
-# NOTE: the argoproj.io/v1alpha1 CRD must already be present when Terraform plans
-# this resource.  If you are bootstrapping from scratch, run:
-#   terraform apply -target=helm_release.argocd -target=time_sleep.wait_for_argocd
-# before running a full `terraform apply`.
-resource "kubernetes_manifest" "gateway_application" {
-  depends_on = [
-    time_sleep.wait_for_argocd,
-    null_resource.argocd_token,
-    kubernetes_namespace.gateway,
-    kubernetes_secret.octopus_api_key,
-  ]
-
-  manifest = {
-    apiVersion = "argoproj.io/v1alpha1"
-    kind       = "Application"
-    metadata = {
-      name      = "octopus-argocd-gateway"
-      namespace = var.argocd_namespace
-    }
-    spec = {
-      project = "default"
-
-      source = {
-        # OCI chart: repoURL is the registry path, chart is the image name.
-        repoURL        = "registry-1.docker.io/octopusdeploy"
-        chart          = "octopus-argocd-gateway-chart"
-        targetRevision = var.gateway_chart_version
-
-        helm = {
-          valuesObject = {
-            gateway = {
-              argocd = {
-                # gRPC URL derived automatically from the Argo CD Helm release.
-                serverGrpcUrl = local.argocd_grpc_url
-                # Skip TLS verification if Argo CD is using a self-signed cert.
-                insecure = var.argocd_insecure
-                # Reference the secret created by null_resource.argocd_token.
-                authenticationTokenSecretName = local.argocd_token_secret_name
-                authenticationTokenSecretKey  = "ARGOCD_AUTH_TOKEN"
-              }
-              octopus = {
-                serverGrpcUrl = var.octopus_grpc_url
-                plaintext     = var.octopus_grpc_plaintext
-              }
-            }
-
-            registration = {
-              octopus = {
-                name             = var.gateway_name
-                serverApiUrl     = var.octopus_api_url
-                spaceId          = var.octopus_space_id
-                environments     = var.octopus_environments
-                # Reference the Octopus API key secret created above.
-                serverAccessTokenSecretName = "octopus-server-access-token"
-                serverAccessTokenSecretKey  = "OCTOPUS_SERVER_ACCESS_TOKEN"
-              }
-              argocd = {
-                webUiUrl = var.argocd_web_ui_url
-              }
-            }
-
-            autoUpdate = {
-              # should be disabled, otherwise the auto-update job will keep trying to update the instance, while argo cd syncs it back to original state
-              enabled = false
-            }
-          }
-        }
-      }
-
-      destination = {
-        server    = "https://kubernetes.default.svc"
-        namespace = var.gateway_namespace
-      }
-
-      syncPolicy = {
-        automated = {
-          prune    = true
-          selfHeal = true
-        }
-        syncOptions = ["CreateNamespace=false"]
-      }
-    }
-  }
-}
 ```
 
 :::div{.hint}
@@ -581,6 +482,8 @@ octopus_grpc_plaintext = false
 
 # ─── Gateway ──────────────────────────────────────────────────────────────────
 gateway_namespace     = "octopus-argocd-gateway"
+
+# only used if deploying the octopus-argocd-gateway using the helm-provider
 gateway_name          = "my-argocd-gateway"
 gateway_chart_version = "1.23.0"
 ```
