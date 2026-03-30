@@ -114,7 +114,7 @@ Each of these claims will be prefixed with `https://octopus.com/claims/` and wil
   "https://octopus.com/claims/runbook": "runbook-slug", // only on a runbook run
   "https://octopus.com/claims/projectgroup": "project-group-slug",
   "https://octopus.com/claims/environment": "environment-slug",
-  "https://octopus.com/claims/tenant": "teannt-slug",
+  "https://octopus.com/claims/tenant": "tenant-slug",
   "https://octopus.com/claims/type": "deployment", // or runbook for a runbook run
   "https://octopus.com/claims/account": "account-slug",
   "sub": "space:[space-slug]:project:[project-slug]:environment:[environment-slug]"
