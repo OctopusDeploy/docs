@@ -4,14 +4,15 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Terraform step configuration with Octopus
 navTitle: Terraform step configuration
-description: Configuring common Terraform options using the Octopus built in steps 
+description: Configuring common Terraform options using the Octopus built in steps
 navOrder: 20
 ---
 
-Octopus provides four built-in step templates for managing and interacting with your Terraform code: 
+Octopus provides four built-in step templates for managing and interacting with your Terraform code:
+
 - `Apply a Terraform template`
 - `Destroy Terraform resources`
-- `Plan to apply a Terraform template` 
+- `Plan to apply a Terraform template`
 - `Plan a Terraform destroy`
 
 :::figure
@@ -26,15 +27,16 @@ While these are the options common to each step, there are additional ways to in
 
 ## Managed Accounts
 
-You can optionally prepare the environment that Terraform runs in using the details defined in accounts managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
+You can optionally prepare the environment that Terraform runs in using the details defined in [accounts](/docs/infrastructure/accounts) managed by Octopus. If an account is selected then those credentials do not need to be included in the Terraform template.
 
 :::div{.hint}
-Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step. You can learn more about creating managed cloud accounts using Octopus [here](/docs/infrastructure/accounts).
+Using credentials managed by Octopus is optional, and credentials defined in the Terraform template take precedence over any credentials defined in the step.
 :::
 
-## Template section 
+## Template section
 
 The Terraform template can come from three sources:
+
 - Directly entered source code
 - Files in a package
 - Files in a Git repository - *New!*
@@ -100,7 +102,7 @@ If you are storing your project configuration directly in Octopus (i.e. not in a
 - URL
 - Credentials (either anonymous or selecting a Git credential from the Library)
 
-When creating a Release, you choose the tip of a branch for your files. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+When creating a Release, you choose the tip of a branch for your files. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the *new* tip of the branch.
 
 #### Version-controlled projects
 
@@ -108,9 +110,9 @@ If you are storing your project configuration in a Git repository using the [Con
 
 ### Variable replacements
 
-Variable replacement is performed before the template is applied or destroyed when defined in either an inline script or a package.
+Variable replacement is performed before terraform is executed.
 
-When deploying a template from a package, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them. You can also have variable substitution applied to additional files by defining the file names in the `Target files` field.
+When deploying a template from a package or Git repository, all `*.tf`, `*.tfvar`, `*.tf.json` and `*.tfvar.json` files will have variable substitution applied to them by default. You can disable the automatic substitution by deselecting `Replace variables in default Terraform files`. You can also have variable substitution applied to additional files by defining file names in the `Target files` field.
 
 For example, if you were deploying from a package and your template file looked like this:
 
