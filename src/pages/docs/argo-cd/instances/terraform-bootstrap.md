@@ -7,7 +7,7 @@ description: How to bootstrap Argo CD + Argo CD Gateway using Terraform
 navOrder: 10
 ---
 
-When provisioning a new cluster, it is possible to install Argo CD while provisioning the required token secrets for the upcoming Argo CD Gateway installation. Once Argo CD is installed, the Argo CD Gateway can be installed using an Argo CD Application as described [here](/docs/argo-cd/instances/automatic-installation). Another approach would be to install the Argo CD Gateway as part of the terraform chart, as described under the Note [here](#gateway).
+When provisioning a new cluster, it is possible to install Argo CD while provisioning the required token secrets for the upcoming Argo CD Gateway installation. Once Argo CD is installed, the Argo CD Gateway can be installed using an Argo CD Application as described in [Automated Installation](/docs/argo-cd/instances/automatic-installation). Another approach would be to install the Argo CD Gateway as part of the terraform chart, as described under the [Note](#gateway).
 
 Here is a simplified example to make this happen:
 
