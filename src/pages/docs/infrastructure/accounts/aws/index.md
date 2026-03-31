@@ -86,7 +86,7 @@ For example, to lock an identity role to a specific Octopus environment, you can
 "Condition": {
   "StringEquals": {
         "example.octopus.app:sub": "space:default:project:aws-oidc-testing:environment:dev",
-        "example.octopus.app:aud": "example.octopus.app:"
+        "example.octopus.app:aud": "example.octopus.app"
   }
 }
 ```
@@ -101,7 +101,7 @@ For example, to lock an identity role to any Octopus environment, you can update
 "Condition": {
   "StringLike": {
         "example.octopus.app:sub": "space:default:project:aws-oidc-testing:environment:*",
-        "example.octopus.app:aud": "example.octopus.app:"
+        "example.octopus.app:aud": "example.octopus.app"
   }
 }
 ```
