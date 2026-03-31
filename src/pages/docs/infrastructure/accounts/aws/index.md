@@ -48,37 +48,39 @@ When setting up the identity provider you need to use the host domain name of yo
 #### Configuring AWS OIDC Account
 
 1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **AWS Account**.
-2. Add a memorable name for the account.
-3. Provide a description for the account.
-4. Set the **Role ARN** to the ARN from the identity provider associated role. Note that this is different to the ARN of your Identity Provider.
-5. Set the **Session Duration** to the Maximum session duration from the role, in seconds.
-6. Click **SAVE** to save the account.
-7. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+1. Add a memorable name for the account.
+1. Provide a description for the account.
+1. Set the **Role ARN** to the ARN from the identity provider associated role. Note that this is different to the ARN of your Identity Provider.
+1. Set the **Session Duration** to the Maximum session duration from the role, in seconds.
+1. Click **SAVE** to save the account.
+1. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
+
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {
-          "Federated": "arn:aws:iam::{aws-account}:oidc-provider/{your-identity-provider}"
-      },
-      "Action": "sts:AssumeRoleWithWebIdentity",
-      "Condition": {
-        "StringEquals": {
-          "example.octopus.app:sub": "space:[space-slug]:account:[slug-of-account-created-above]",
-          "example.octopus.app:aud": "example.octopus.app"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+              "Federated": "arn:aws:iam::{aws-account}:oidc-provider/{your-identity-provider}"
+          },
+          "Action": "sts:AssumeRoleWithWebIdentity",
+          "Condition": {
+            "StringEquals": {
+              "example.octopus.app:sub": "space:[space-slug]:account:[slug-of-account-created-above]",
+              "example.octopus.app:aud": "example.octopus.app"
+            }
+          }
         }
-      }
+      ]
     }
-  ]
-}
-```
-8. Go back to the AWS account in Octopus and click **SAVE AND TEST** to verify the credentials are valid.
+    ```
+
+1. Go back to the AWS account in Octopus and click **SAVE AND TEST** to verify the credentials are valid.
 
 Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.
 
-By default, the role trust policy does not have any conditions on the subject identifier. To lock the role down to particular usages you need to modify the [trust policy conditions](https://oc.to/aws-iam-policy-conditions) and add a condition for the `sub`.  
+By default, the role trust policy does not have any conditions on the subject identifier. To lock the role down to particular usages you need to modify the [trust policy conditions](https://oc.to/aws-iam-policy-conditions) and add a condition for the `sub`.
 
 For example, to lock an identity role to a specific Octopus environment, you can update the conditions:
 
@@ -91,9 +93,9 @@ For example, to lock an identity role to a specific Octopus environment, you can
 }
 ```
 
-`default`, `aws-oidc-testing` and `dev` are the slugs of their respective Octopus resources. 
+`default`, `aws-oidc-testing` and `dev` are the slugs of their respective Octopus resources.
 
-AWS policy conditions also support complex matching with wildcards and `StringLike` expressions. 
+AWS policy conditions also support complex matching with wildcards and `StringLike` expressions.
 
 For example, to lock an identity role to any Octopus environment, you can update the conditions:
 
@@ -105,7 +107,8 @@ For example, to lock an identity role to any Octopus environment, you can update
   }
 }
 ```
-`default` and `aws-oidc-testing` are the slugs of their respective Octopus resources. 
+
+`default` and `aws-oidc-testing` are the slugs of their respective Octopus resources.
 
 :::div{.hint}
 AWS steps can also defer to the IAM role assigned to the instance that hosts the Octopus Server for authentication. In this scenario there is no need to create the AWS account.
@@ -117,9 +120,10 @@ AWS Accounts can be configured to pass [session tags](https://docs.aws.amazon.co
 
 To pass session tags, use the `Custom Claims` field on the AWS OIDC Account.
 
-The Claim should be `https://aws.amazon.com/tags`, and the Value should be a JSON object with a `principal_tags` property as documented in the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp). 
+The Claim should be `https://aws.amazon.com/tags`, and the Value should be a JSON object with a `principal_tags` property as documented in the [AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_adding-assume-role-idp).
 
 The example below demonstrates supplying a session tag with a key of `octopus-project` and a value of the project name.
+
 ```json
 
 {
@@ -159,9 +163,9 @@ You will need to [allow the sts:TagSession action](https://docs.aws.amazon.com/I
 
 ```
 
-These session tags can then be used to control access to AWS resources by [tagging the AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources). 
+These session tags can then be used to control access to AWS resources by [tagging the AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources).
 
-For example, the policy below allows starting and stopping EC2 instances which are tagged with a key of `octopus-project` and a value matching the project supplied in the session tags supplied as shown above. 
+For example, the policy below allows starting and stopping EC2 instances which are tagged with a key of `octopus-project` and a value matching the project supplied in the session tags supplied as shown above.
 
 ```json
 {
@@ -186,6 +190,7 @@ For example, the policy below allows starting and stopping EC2 instances which a
     ]
 }
 ```
+
 ![AWS IAM Policy](./aws-iam-ec2-start-stop-policy.png)
 
 ## AWS account variables
@@ -214,7 +219,7 @@ The first login process attempts to inherit the role from a web identity token. 
 When the `Execute using the AWS service role for an EC2 instance` option is enabled, a worker will first attempt to inherit a pod web identity.
 :::
 
-The second login process queries the [Instance Metadata Service](https://oc.to/InstanceMetadataAndUserData) (IMDS), made available to EC2 instances. IMDS is exposed as an HTTP API accessed via http://169.254.169.254. The keys required to assume a service role associated with an EC2 instance are generated by calling the IMDS HTTP API.
+The second login process queries the [Instance Metadata Service](https://oc.to/InstanceMetadataAndUserData) (IMDS), made available to EC2 instances. IMDS is exposed as an HTTP API accessed via `http://169.254.169.254`. The keys required to assume a service role associated with an EC2 instance are generated by calling the IMDS HTTP API.
 
 IMDS has two versions, v1, and v2. [IMDSv2 is available to all EC2 instances](https://oc.to/UseIMDSv2) and is optionally required over IMDSv1. Octopus uses IMDSv2 to inherit IAM roles. The worker assumes that IAM role if the request to generate account tokens from the IMDSv2 HTTP API succeeds.
 
@@ -233,20 +238,22 @@ First, add the AWS Account as a variable. In the screenshot below, the account h
 The **OctopusPrintVariables** has been set to true to print the variables to the output logs. This is a handy way to view the available variables that can be consumed by a custom script. You can find more information on debugging variables at [Debug problems with Octopus variables](/docs/support/debug-problems-with-octopus-variables).
 
 :::figure
-![](/docs/img/infrastructure/accounts/aws/variables.png)
+![A project variables screen showing two variables. The first, OctopusPrintVariables, has a value of 'True'. The second, AWS Account, has a value with AWS Account type](/docs/img/infrastructure/accounts/aws/variables.png)
 :::
 
 When running a step, the available variables will be printed to the log. In this example, the following variables are shown:
 
-**Access Key Account**
-```
+For a Access Key Account:
+
+```txt
 [AWS Account] = 'amazon-web-services-account'
 [AWS Account.AccessKey] = 'YOUR_ACCESS_KEY'
 [AWS Account.SecretKey] = '********'
 ```
 
-**OpenID Connect Account**
-```
+For a OpenID Connect Account:
+
+```txt
 [AWS Account] = 'amazon-web-services-account'
 [AWS Account.RoleArn] = 'arn:aws:iam::123456789012:role/test-role'
 [AWS Account.SessionDuration] = '3600'
@@ -257,7 +264,7 @@ When running a step, the available variables will be printed to the log. In this
 
 You can then use these variables in your scripts or other step types. For example, the following PowerShell script would print the access key to the console.
 
-```
+```powershell
 Write-Host "$($OctopusParameters["AWS Account.AccessKey"])"
 ```
 
