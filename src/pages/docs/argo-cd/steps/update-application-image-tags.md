@@ -23,7 +23,7 @@ When targeting a Helm-based application source, each referenced container image 
 Depending on what the helm value contains:
 
 - Only the tag - it will be replaced with the package's version, with no further validation or checking.
-- Repository and optionally namespace, these fields will be validated against the step package's properties to ensure the correct data is being inserted.
+- Tag, ImageName and repository, these fields will be validated against the step package's properties to ensure the correct data is being inserted.
   - If the namespace/repository do not align with the step package, tag replacement will not be performed.
 
 :::div{.info}
