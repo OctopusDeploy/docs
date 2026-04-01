@@ -1,5 +1,9 @@
 ### Update the Instance ID
 
+:::div{.warning}
+**You must update the Installation ID after cloning.** Failing to do so means your cloned instance will report telemetry under the same ID as your original instance. This corrupts our usage data and prevents us from accurately understanding how many installations exist. Please do not skip this step.
+:::
+
 Cloning an instance includes the unique Installation ID of your original instance. This ID is used to identify the instance by a few integrations and sending telemetry reports.
 
 You can run this SQL Script on your cloned instance database to generate a new unique installation ID.

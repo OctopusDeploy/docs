@@ -2,10 +2,11 @@
 
 It will be possible to run both the old and cloned instances side by side.  Both of them can deploy to the same targets (assuming you are not using polling Tentacles).  But there are a few items to keep in mind.
 
-- The Octopus Server is tightly coupled with Calamari.  Deploying to the same target from both servers will result in Calamari getting upgraded/downgraded a lot.  
+- The Octopus Server is tightly coupled with Calamari.  Deploying to the same target from both servers will result in Calamari getting upgraded/downgraded a lot.
 - The newer Octopus Server will prompt you to upgrade the Tentacles.  While running both instances side by side, you will want to avoid this.
 - Unless the cloned instance has the same domain name, polling Tentacles will not connect to the cloned instance.  A clone of the polling Tentacles might need to be created.
 - The thumbprints for certificates and other sensitive items are stored in the Octopus Deploy database.  Cloning the database cloned those values.
+- **You must update the Installation ID on the cloned instance.** Cloning copies the Installation ID from the original, which means both instances will report [telemetry](/docs/security/outbound-requests/telemetry) under the same identifier. This corrupts usage data. See [Creating a test instance](/docs/administration/upgrading/guide/creating-test-instance) for the SQL script to generate a new Installation ID.
 
 ### Considerations
 
