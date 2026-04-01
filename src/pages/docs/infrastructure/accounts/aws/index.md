@@ -136,7 +136,7 @@ The example below demonstrates supplying a session tag with a key of `octopus-pr
 }
 ```
 
-![AWS OIDC Custom Claim](./aws-oidc-custom-claim.png)
+![AWS OIDC Custom Claim](/docs/img/infrastructure/accounts/aws/aws-oidc-custom-claim.png)
 
 You will need to [allow the sts:TagSession action](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_permissions-required) in the Trust relationships policy for the AWS role. For example:
 
@@ -191,7 +191,7 @@ For example, the policy below allows starting and stopping EC2 instances which a
 }
 ```
 
-![AWS IAM Policy](./aws-iam-ec2-start-stop-policy.png)
+![AWS IAM Policy](/docs/img/infrastructure/accounts/aws/aws-iam-ec2-start-stop-policy.png)
 
 ## AWS account variables
 
