@@ -20,12 +20,17 @@ When targeting a Helm-based application source, each referenced container image 
 ![The Helm image tag path field in the Reference a package drawer](/docs/img/argo-cd/update-application-image-tags-helm-values-tag.png)
 :::
 
+Depending on what the helm value contains:
+
+- Only the tag - it will be replaced with the package's version, with no further validation or checking.
+- Repository and optionally namespace, these fields will be validated against the step package's properties to ensure the correct data is being inserted.
+  - If the namespace/repository do not align with the step package, tag replacement will not be performed.
+
 :::div{.info}
 Using the step-based notation may not be appropriate for complex use cases (e.g. updating multiple sources from the one deployment). In such cases, [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) may be required.
-Note: Helm Annotations will only be considered during step execution when *no* helm-image-paths have been defined in the step directly.
+
+Note: Helm Annotations will only be considered during step execution when **no** helm-image-tag-paths have been defined in the step directly.
 :::
-
-
 
 If the application cluster's default registry has been changed, see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
