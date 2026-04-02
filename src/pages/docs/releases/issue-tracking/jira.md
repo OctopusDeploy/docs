@@ -116,6 +116,11 @@ This process is for Jira Cloud, if you are using Jira Server, see [Connecting Ji
       Please note: Jira Cloud only supports an **API Token** for authentication. An API token should be entered, rather than an actual password. You can create one from an Atlassian account in the **Security** area.
       :::
 
+      :::div{.warning}
+      **Scoped (granular) API tokens are not supported**
+      Octopus only supports classic (unscoped) Jira API tokens. Jira Cloud scoped API tokens use a different API base URL (`https://api.atlassian.com/ex/jira/<cloudid>/rest/api`) and authentication method that Octopus does not currently handle. When creating your API token, ensure you create a classic API token without granular scopes.
+      :::
+
     - **Release Note Prefix _(optional)_**: If specified, Octopus will look for a comment that starts with the given prefix text and use whatever text appears after the prefix as the release note, which will be available in the [build information](/docs/packaging-applications/build-servers/build-information) as the issue's description. If no comment is found with the prefix then Octopus will default back to using the title for that issue.
 
     For example, a prefix of `Release note:` can be used to identify a customer friendly issue title vs a technical feature or bug fix title.
