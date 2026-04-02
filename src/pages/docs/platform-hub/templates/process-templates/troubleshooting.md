@@ -155,7 +155,7 @@ See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDep
 
 ### GitHub Connections
 
-The GitHub Connection is not supported in Platform Hub. Only usernames and PATs.
+GitHub Connections is supported in Platform Hub, but it can only be used to configure Platform Hub version control. It can't be used on steps in templates.
 
 ### Losing access to an Octopus Enterprise license
 
@@ -181,7 +181,7 @@ To reference output variables from process template steps, add `.ProcessTemplate
 
 When referencing an output variable in a step **inside a process template**, use the format:
 
-```text
+```powershell
 Octopus.ProcessTemplate.Action[StepName].Output.PropertyName
 ```
 
