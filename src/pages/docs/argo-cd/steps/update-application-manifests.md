@@ -22,8 +22,7 @@ If a source has both a "ref" and "path" field, the step will take no action, due
 
 If required, the output path to which the templates are copied can be overridden via the `argo.octopus.com/path.<name>` annotation (where <name> is the name defined in the source to be updated, or blank if the application has only a single source). If provided, it should specify the path, from the root of the repository, into which the manifest-step should copy the populated templates.
 
-The following provides instructions on how to configure an Update Manifests step, constraints on its usage, and
-how it executes.
+The following provides instructions on how to configure an Update Manifests step, constraints on its usage, and how it executes.
 
 ## Manifest Templates
 
