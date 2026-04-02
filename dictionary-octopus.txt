@@ -589,6 +589,7 @@ VMSS
 vnet
 Voltron
 vserver
+waitlist
 WCAG
 webapps
 WEBDEPLOY
