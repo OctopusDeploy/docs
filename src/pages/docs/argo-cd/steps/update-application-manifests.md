@@ -12,6 +12,16 @@ a set of [Octostache](https://github.com/OctopusDeploy/Octostache) template file
 
 This step is agnostic of the application source repository content. Regardless of what's in the source repository, the step writes populated templates to the path specified in the Argo CD application source.
 
+The directory structure in the input template source is maintained when the populated templates are copied into your Argo CD application's path.
+
+If the target application source is has a "path" field set, the template directory structure will be copied under this path.
+
+If the target application source is a "ref" source (without a path field), the template directory strcture will be copied into the root directory of the repository.
+
+If a source has both a "ref" and "path" field, the step will take no action, due to ambiguity around desired output path.
+
+If required, the output path to which the templates are copied can be overriden via the `argo.octopus.com/path.<name>` annotation (where <name> is the name defined in the source to be updated, or blank if the application has only a single source). If provided, it should specify the path, from the root of the repository, into which the manifest-step should copy the populated templates.
+
 The following provides instructions on how to configure an Update Manifests step, constraints on its usage, and
 how it executes.
 
