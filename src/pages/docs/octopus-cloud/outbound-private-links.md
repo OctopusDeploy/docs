@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-06
-modDate: 2026-03-06
+modDate: 2026-04-02
 title: Outbound Azure Private Links
 navOrder: 66
 description: Guides users through the Outbound Azure Private Links feature, including how to access and configure it
@@ -9,6 +9,9 @@ description: Guides users through the Outbound Azure Private Links feature, incl
 
 Outbound Azure Private Links provide private connectivity from your Octopus Cloud instance to resources in your virtual network.
 They simplify network architecture and secure the connection between endpoints in Azure by eliminating data exposure to the public Internet.
+   :::figure
+   ![A diagram illustrating your Azure network connected to Octopus Cloud using Inbound Azure Private Link](/docs/img/octopus-cloud/images/outbound-private-link-network-diagram.png)
+   :::
 
 :::div{.hint}
 [Azure Private Link](https://azure.microsoft.com/en-us/products/private-link) is not a service provided by Octopus Deploy. It is a Microsoft service that Octopus Deploy enables for use with your Octopus Cloud instance.
@@ -18,9 +21,9 @@ Customers maintain configuration within their own network in order to use Azure 
 
 ## How to access this feature
 
-Outbound Azure Private Links are available to Octopus Cloud customers on an Enterprise plan.
+Outbound Azure Private Links are currently in Preview, available to a select group of customers.
 
-If you would like to access this feature, please reach out to [our support team](https://octopus.com/support) so we can discuss how best to meet your private networking requirements.
+If you would like to access this feature, please reach out to [our support team](https://octopus.com/support) so we can discuss how best to meet your private networking requirements. We are working through a waitlist and will be in touch when we are ready to onboard you.
 
 ## Prerequisites
 
