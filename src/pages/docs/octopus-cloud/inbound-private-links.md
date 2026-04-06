@@ -1,14 +1,17 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-06-20
-modDate: 2026-03-06
+modDate: 2026-04-02
 title: Inbound Azure Private Links
 navOrder: 65
 description: Guides users through the Inbound Azure Private Links feature, including how to access and configure it
 ---
 
-Inbound Azure Private Links provide private connectivity from your virtual network to your Octopus Cloud instance.
-They simplify network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public Internet.
+Inbound Azure Private Links provide private connectivity from your virtual network to your Octopus Cloud instance. They simplify network architecture and secure the connection between endpoints in Azure by eliminating data exposure to the public Internet.
+
+:::figure
+![A diagram illustrating your Azure network connected to Octopus Cloud using Inbound Azure Private Link](/docs/img/octopus-cloud/images/inbound-private-link-network-diagram.png)
+:::
 
 :::div{.hint}
 [Azure Private Link](https://azure.microsoft.com/en-us/products/private-link) is not a service provided by Octopus Deploy. It is a Microsoft service that Octopus Deploy enables for use with your Octopus Cloud instance.
@@ -18,13 +21,14 @@ Customers maintain configuration within their own network in order to use Azure 
 
 ## How to access this feature
 
-Inbound Azure Private Links are available to Octopus Cloud customers on an Enterprise plan.
+Inbound Azure Private Links are currently in Preview, available to a select group of customers.
 
-If you would like to access this feature, please reach out to [our support team](https://octopus.com/support) so we can discuss how best to meet your private networking requirements.
+If you would like to access this feature, please reach out to [our support team](https://octopus.com/support) so we can discuss how best to meet your private networking requirements. We are working through a waitlist and will be in touch when we are ready to onboard you.
 
 ## Configuring an Azure Private Endpoint
 
 Once you have the feature enabled for your account, you can start using your private link by getting your Azure Private Endpoint set up.
+
 To do this, you'll need the following:
 
 1. The alias previously provided by us when configuring the feature for your account.
@@ -71,6 +75,7 @@ Retrieving this value can also be done through the Azure Portal by doing the fol
    :::
 
 With these details available, get in touch with [our support team](https://octopus.com/support) and ask that the Private Endpoint be approved.
+
 Once approved, you will be able to begin accessing your Octopus Cloud instance using your new Azure Private Link Endpoint.
 
 ## Additional information

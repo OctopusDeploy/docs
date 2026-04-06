@@ -10,12 +10,6 @@ navOrder: 30
 The Update Argo CD Application Image Tags step is responsible for iterating over your Argo CD Application's repository, and
 updating the image tag for referenced container images.
 
-:::div{.info}
-When deploying a Helm Chart with multiple values files, specific annotations must be added to your Argo CD Application to
-ensure the correct sections of the relevant values files are updated. See [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) for
-more information.
-:::
-
 ## Container Images
 
 Add package references for each container image you would like to update when you run your deployment. Unreferenced container images in your manifests will not be changed by Octopus.
@@ -24,6 +18,18 @@ When targeting a Helm-based application source, each referenced container image 
 
 :::figure
 ![The Helm image tag path field in the Reference a package drawer](/docs/img/argo-cd/update-application-image-tags-helm-values-tag.png)
+:::
+
+Depending on what the helm value contains:
+
+- Only the tag - it will be replaced with the package's version, with no further validation or checking.
+- Tag, ImageName and repository, these fields will be validated against the step package's properties to ensure the correct data is being inserted.
+  - If the namespace/repository do not align with the step package, tag replacement will not be performed.
+
+:::div{.info}
+Using the step-based notation may not be appropriate for complex use cases (e.g. updating multiple sources from the one deployment). In such cases, [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) may be required.
+
+Note: Helm Annotations will only be considered during step execution when **no** helm-image-tag-paths have been defined in the step directly.
 :::
 
 If the application cluster's default registry has been changed, see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
