@@ -161,7 +161,7 @@ Branch and tag patterns used in Git protection rules support glob patterns and c
 
 #### Advanced patterns
 
-Some Git providers support Git references outside of branches and tags. For example when a pull request is created in a GitHub repository, a merge branch will be created with a Git reference of `refs/pulls/{id}/merge`, containing the merged code between the source and target branches of the pull request.
+Some Git providers support Git references outside of branches and tags. For example when a pull request is created in a GitHub repository, a merge branch will be created with a Git reference of `refs/pull/{id}/merge`, containing the merged code between the source and target branches of the pull request.
 
 To target these references in Git protection rules, you can click the **Advanced** button for project repository and external repository rules and enter advanced patterns to match on. These patterns must be fully-qualified, any existing branches or tags that were entered will be fully-qualified for you. 
 
@@ -173,7 +173,7 @@ Some examples:
 | --- | --- | --- |
 | Branch | `main` | `refs/heads/main` |
 | Tag | `v[0-9]` | `refs/tags/v[0-9]` |
-| GitHub pull request | N/A | `refs/pulls/*/merge` |
+| GitHub pull request | N/A | `refs/pull/*/merge` |
 
 :::figure
 ![Advanced patterns example](/docs/img/releases/channels/images/project-repository.png)
