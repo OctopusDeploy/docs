@@ -181,7 +181,7 @@ You can also nominate protected branches for your Project. This will prevent use
 
 ## Git repository cache {#git-repository-cache}
 
-Octopus Server caches Git repositories locally in the `Git` subdirectory of the server home directory. This cache has a default size limit of **20 GB**. When exceeded, Git operations (creating releases, listing branches, deploying) fail with:
+Octopus Server caches Git repositories locally in the `Git` subdirectory of the server home directory. This cache has a default size limit of **20 GB**. When exceeded, Git operations such as creating releases or deploying will fail with:
 
 > Unable to perform this operation as the local git cache is using more space than is available as set by the configured limit of 20 GB. Please use a smaller repository or remove any not in use.
 
