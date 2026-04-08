@@ -178,7 +178,7 @@ The Octopus configurations will be written to the initial commit branch instead 
 
 You can also nominate protected branches for your Project. This will prevent users from making direct commits to the nominated branches from the Octopus UI and encourage them to create a new branch instead. To nominate protected branches, type in the name or a wildcard pattern in the Protected Branches Pattern field under Branch Settings. This will apply to all existing and future branches.
 
-## Git repository cache {#git-repository-cache}
+## Git repository cache
 
 Octopus Server caches Git repositories locally in the `Git` subdirectory of the server home directory. This cache has a default size limit of **20 GB**. When exceeded, Git operations such as creating releases, deploying, or converting projects to version control will fail with:
 
