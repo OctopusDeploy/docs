@@ -25,7 +25,7 @@ Example:
 
 ```powershell
 New-OctopusAwsAccount -name "My AWS Account" `
-                      -secretKey "7U4MhdfjgcAk9niwPgXD81pTYY+fIvVsN3m" `
+                      -secretKey "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY" `
                       -accessKey "AKIAVY29QTUTKPJC3R5K" `
                       -region "us-east-1" `
                       -updateIfExisting
