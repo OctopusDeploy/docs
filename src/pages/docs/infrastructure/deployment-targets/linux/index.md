@@ -37,21 +37,21 @@ These dependencies are not required if exclusively using [Raw Scripts](https://o
 
 ## Supported distributions
 
-Since tooling used to invoke Octopus workloads is based on .NET 6, Octopus Server supports running workloads on the following distributions as per the [.NET 6 supported platform details](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md#linux).
+Since tooling used to invoke Octopus workloads is based on .NET 8, Octopus Server supports running workloads on the following distributions as per the [.NET 8 supported platform details](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md#linux).
 
 | OS                                                     | Versions               |
 |--------------------------------------------------------|------------------------|
-| [CentOS Stream](https://centos.org/)                   | 9                      |
-| [Debian](https://www.debian.org/)                      | 12, 11                 |
-| [Fedora](https://fedoraproject.org/)                   | 40, 39                 |
-| [openSUSE Leap](https://www.opensuse.org/)             | 15.6, 15.5             |
-| [Red Hat Enterprise Linux](https://access.redhat.com/) | 9, 8                   |
-| [SUSE Enterprise Linux](https://www.suse.com/)         | 15.6, 15.5, 12.5       |
-| [Ubuntu](https://ubuntu.com/)                          | 24.04, 22.04, 20.04    |
+| [CentOS Stream](https://centos.org/)                   | 10, 9                  |
+| [Debian](https://www.debian.org/)                      | 13, 12                 |
+| [Fedora](https://fedoraproject.org/)                   | 43, 42                 |
+| [openSUSE Leap](https://www.opensuse.org/)             | 16.0, 15.6             |
+| [Red Hat Enterprise Linux](https://access.redhat.com/) | 10, 9, 8               |
+| [SUSE Enterprise Linux](https://www.suse.com/)         | 16.0, 15.7      |
+| [Ubuntu](https://ubuntu.com/)                          | 25.10, 24.04, 22.04    |
 
 Although the tooling requires the platform to support .NET Core, since it runs as a self-contained .NET deployment there is no .NET _installation_ prerequisite.
 
-In addition to the .NET 6 requirement, Octopus will only support those Operating Systems which are themselves still considered as supported by the platform vendors themselves.
+In addition to the .NET 8 requirement, Octopus will only support those Operating Systems which are themselves still considered as supported by the platform vendors themselves.
 
 ## Learn more
 
