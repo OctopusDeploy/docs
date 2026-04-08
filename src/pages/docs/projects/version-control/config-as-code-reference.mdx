@@ -179,6 +179,14 @@ You can also nominate protected branches for your Project. This will prevent use
 
 
 
+## Git repository cache {#git-repository-cache}
+
+Octopus Server caches Git repositories locally in the `Git` subdirectory of the server home directory. This cache has a default size limit of **20 GB**. When exceeded, Git operations (creating releases, listing branches, deploying) fail with:
+
+> Unable to perform this operation as the local git cache is using more space than is available as set by the configured limit of 20 GB. Please use a smaller repository or remove any not in use.
+
+To change the limit, set the `OCTOPUS__Git__CacheFullThresholdMb` system environment variable to the desired value in **megabytes** (e.g. `30720` for 30 GB), then **restart the Octopus Server service**. Setting the value to `0` disables the limit.
+
 ## OCL files
 
 After successfully configuring a project to be version controlled, the specified Git repository will be populated with a set of Octopus Configuration Language (OCL) files. These files are created in the directory you define during setup. E.g. `./octopus/acme`
