@@ -36,6 +36,7 @@ As you add more channels, you'll notice that they are arranged in alphabetical o
 ### Channel Types
 
 There are two types of channel:
+
 - Lifecycle channels: Releases in this channel will progress through the lifecycle defined for the channel.
 - Ephemeral Environment channels: Releases in this channel will be deployed to ephemeral environments. The environment will be provisioned automatically when it is first deployed to. A project can only have one ephemeral environment channel.
 
@@ -85,34 +86,34 @@ Version rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)
 2. Select the package step(s) (and as such the packages) the version rule will be applied to.
 3. Enter the version range in the **Version range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
 
-You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
+    You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
 
 4. Enter any pre-release tags you want to include.
 
-Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alphanumeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
+    Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alphanumeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
 
-| **Pattern** | **Description** | **Example use-case** |
-| --- | --- | --- |
-| \^[\^\\+].* | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
-| ^(\|\\+.*)$ | matches any non pre-release, but allows build metadata | Ensure a script step only runs for non pre-release packages |
-| ^$ | matches versions with no pre-release or metadata components| Official releases are filtered to have nothing other than core version components (e.g. 1.0.0 )|
-| ^beta | matches pre-releases like `beta` and `beta0003` | Deploy pre-releases using a lifecycle that goes directly to a pre-release environment |
-| beta | matches pre-releases with beta anywhere in the tag like `beta` and `my-beta` | Deploy pre-releases using a lifecycle that goes directly to a pre-release environment |
-| ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
-| ^bugfix- | matches any with `*bugfix-*` prefix (e.g. `bugfix-sys-crash`) | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
-| ^beta | matches pre-releases which begin with `beta` but _not_ metadata containing `beta` | Prevent SemVer metadata from inadvertently matching the rule|
+    | **Pattern** | **Description** | **Example use-case** |
+    | --- | --- | --- |
+    | \^[\^\\+].* | matches any pre-release | Enforce inability to push to production by specifying lifecycle that stops at staging |
+    | ^(\|\\+.*)$ | matches any non pre-release, but allows build metadata | Ensure a script step only runs for non pre-release packages |
+    | ^$ | matches versions with no pre-release or metadata components | Official releases are filtered to have nothing other than core version components (e.g. 1.0.0 ) |
+    | ^beta | matches pre-releases like `beta` and `beta0003` | Deploy pre-releases using a lifecycle that goes directly to a pre-release environment |
+    | beta | matches pre-releases with beta anywhere in the tag like `beta` and `my-beta` | Deploy pre-releases using a lifecycle that goes directly to a pre-release environment |
+    | ^(?!beta).+ | matches pre-releases that don't start with beta | Consider anything other than 'beta' to be a feature branch package so you can provision short-term infrastructure and deploy to it |
+    | ^bugfix- | matches any with `*bugfix-*` prefix (e.g. `bugfix-sys-crash`) | Bypass Dev & UAT environments when urgent bug fixes are made to the mainline branch and to be released straight from Staging to Production |
+    | ^beta | matches pre-releases which begin with `beta` but *not* metadata containing `beta` | Prevent SemVer metadata from inadvertently matching the rule |
 
-:::div{.hint}
-If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
-:::
+    :::div{.hint}
+    If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
+    :::
 
 5. Click **Design rule**.
 
-The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
+    The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
-:::figure
-![Design version rule](/docs/img/releases/channels/images/channel-design-version-rule.png)
-:::
+    :::figure
+    ![Design version rule](/docs/img/releases/channels/images/channel-design-version-rule.png)
+    :::
 
 6. Click **Save**.
 
@@ -135,7 +136,7 @@ You can use external repository rules to restrict which branches and tags can be
 
 #### Project repository (version-controlled projects)
 
-For [version-controlled](/docs/projects/version-control) projects, you can use rules to restrict which branches and tags can be used as the source of the deployment process and variables when creating a release. 
+For [version-controlled](/docs/projects/version-control) projects, you can use rules to restrict which branches and tags can be used as the source of the deployment process and variables when creating a release.
 
 1. When viewing a channel, expand the **Project Repository** section.
 2. Enter patterns (separated by commas) to restrict which branches and/or tags can be selected when creating releases. Wildcard characters can be used, see [Glob patterns in Git rules](#git-rules-glob-patterns) for more information.
@@ -163,7 +164,7 @@ Branch and tag patterns used in Git protection rules support glob patterns and c
 
 Some Git providers support Git references outside of branches and tags. For example when a pull request is created in a GitHub repository, a merge branch will be created with a Git reference of `refs/pull/{id}/merge`, containing the merged code between the source and target branches of the pull request.
 
-To target these references in Git protection rules, you can click the **Advanced** button for project repository and external repository rules and enter advanced patterns to match on. These patterns must be fully-qualified, any existing branches or tags that were entered will be fully-qualified for you. 
+To target these references in Git protection rules, you can click the **Advanced** button for project repository and external repository rules and enter advanced patterns to match on. These patterns must be fully-qualified, any existing branches or tags that were entered will be fully-qualified for you.
 
 If the patterns entered in advanced section only contain branches or tags, then you can click the **Basic** button to return to entering branches and tags without needing to fully-qualify these.
 
@@ -269,20 +270,20 @@ In the following example, if version 3.1.0 of OctoFX is pushed to the built-in r
 
 ## Discrete channel releases {#discrete-channel-releases}
 
-The scenarios channels are used to model can be split into two categories. In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a _Hotfix_ channel, used to select a lifecycle designed to releases to production quickly.  
+The scenarios channels are used to model can be split into two categories. In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a *Hotfix* channel, used to select a lifecycle designed to releases to production quickly.
 
-In the second mode of use, releases deployed via different channels are different, and should be treated as such. As an example of this, imagine a company that makes a deployment tool available as both a downloadable self-hosted product and a cloud-hosted software-as-a-service product.  In this example, the `self-hosted` and `cloud` channels not only select different lifecycles and deployment steps, but it is also desirable to view them as individual versions on the dashboard. 
+In the second mode of use, releases deployed via different channels are different, and should be treated as such. As an example of this, imagine a company that makes a deployment tool available as both a downloadable self-hosted product and a cloud-hosted software-as-a-service product.  In this example, the `self-hosted` and `cloud` channels not only select different lifecycles and deployment steps, but it is also desirable to view them as individual versions on the dashboard.
 
-In **Project Settings** there's an option named _Discrete Channel Releases_, designed to model this scenario.
+In **Project Settings** there's an option named *Discrete Channel Releases*, designed to model this scenario.
 
 :::figure
 ![Discrete channel releases project setting](/docs/img/releases/channels/images/discrete-channel-release.png)
 :::
 
-Setting this to `Treat independently from other channels` will cause: 
+Setting this to `Treat independently from other channels` will cause:
 
-- Versions for each channel to be displayed on the dashboard 
-- Each channel to be treated independently when applying release [retention policies](/docs/administration/retention-policies) 
+- Versions for each channel to be displayed on the dashboard
+- Each channel to be treated independently when applying release [retention policies](/docs/administration/retention-policies)
 
 The image below shows an example dashboard with discrete channel release enabled:
 
@@ -290,4 +291,4 @@ The image below shows an example dashboard with discrete channel release enabled
 
 ## Removing channels
 
-For projects using Config as Code, it's up to you to take care to avoid deleting any channels required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using Config as Code, it's up to you to take care to avoid deleting any channels required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
