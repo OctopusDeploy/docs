@@ -1,41 +1,41 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-11-18
+modDate: 2026-02-24
 title: Jira Service Management Integration
 description: Octopus Deploy can integrate with your Jira Service Management instance for deployment control using Change Requests/Issues
 navOrder: 10
 ---
 
 :::div{.hint}
-The Jira Service Management (JSM) Integration is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing). [Contact us](https://octopus.com/company/contact) to request access to this feature. 
+The Jira Service Management (JSM) Integration is available from Octopus **2022.3** onwards and requires an [enterprise subscription](https://octopus.com/pricing). [Contact us](https://octopus.com/company/contact) to request access to this feature.
 :::
 
 ## Overview
 
-The Octopus Deploy/JSM integration allows users to block the execution of 
-specifically configured deployments unless they have a corresponding approved JSM **Change 
+The Octopus Deploy/JSM integration allows users to block the execution of
+specifically configured deployments unless they have a corresponding approved JSM **Change
 Request** (aka issue).
 
-To enable this behavior, both the Octopus Project and Environment you are deploying to must be 
+To enable this behavior, both the Octopus Project and Environment you are deploying to must be
 configured and the JSM configuration is set up before deployments can be managed.
 
 ### Deployments
 
-| Project | Environment | Outcome |
-|--|--|--|
-| Change controlled| Change controlled| Approval required for deployment |
-| **_Not_** Change controlled| Change controlled| No approval required |
-| Change controlled| **_Not_** Change controlled| No approval required |
+| Project                     | Environment                 | Outcome                          |
+| --------------------------- | --------------------------- | -------------------------------- |
+| Change controlled           | Change controlled           | Approval required for deployment |
+| ***Not*** Change controlled | Change controlled           | No approval required             |
+| Change controlled           | ***Not*** Change controlled | No approval required             |
 
 ### Runbooks
 
-| Project | Environment | Runbook | Outcome |
-|--|--|--|--|
-| Change controlled | Change controlled | Enabled | Approval required |
-| Change controlled | Change controlled | **_Not_** Enabled | No approval required |
-| **_Not_** Change controlled | Change controlled | Enabled | No approval required |
-| Change controlled | **_Not_** Change controlled | Enabled | No approval required |
+| Project                     | Environment                 | Runbook           | Outcome              |
+| --------------------------- | --------------------------- | ----------------- | -------------------- |
+| Change controlled           | Change controlled           | Enabled           | Approval required    |
+| Change controlled           | Change controlled           | ***Not*** Enabled | No approval required |
+| ***Not*** Change controlled | Change controlled           | Enabled           | No approval required |
+| Change controlled           | ***Not*** Change controlled | Enabled           | No approval required |
 
 ## Getting started
 
@@ -45,7 +45,7 @@ JSM Integration feature enabled.
 Before you can use the Octopus Deploy/JSM integration, you'll need to:
 
 1. Create a service account in JSM for use by Octopus
-1. In Jira, create or use an existing project of the _IT service management_ type.
+1. In Jira, create or use an existing project of the *IT service management* type.
 1. Request and install a new Octopus license required to enable the JSM feature.
 1. Configure a connection from Octopus to JSM.
 1. Configure which deployments require an approved CR.
@@ -58,7 +58,7 @@ The instructions in this section will require a JSM Administrator.
 
 The Octopus Deploy/JSM integration requires security configuration in your target JSM instance.
 
-The integration will require a user account in JSM. The recommendation is to create a 
+The integration will require a user account in JSM. The recommendation is to create a
 service account specifically for Octopus.
 
 Take note of the password assigned or generated for this user.
@@ -67,7 +67,7 @@ Take note of the password assigned or generated for this user.
 
 For the JSM approval checks to be performed as part of the deployment process, an appropriate Octopus license must be configured in your Octopus instance.
 
-A JSM enabled Octopus license must be requested from Octopus directly, and cannot be managed 
+A JSM enabled Octopus license must be requested from Octopus directly, and cannot be managed
 through the self-service process. To request a license register for the [JSM Early Access Program](https://octopusdeploy.typeform.com/jsm-eap)
 
 Once you have received your feature-enabled license, you can install it by navigating to **Configuration ➜ License**.
@@ -88,7 +88,7 @@ An enabled license will include a block similar to below:
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
-To connect your Octopus Deploy instance to JSM, navigate to **Configuration ➜ Settings ➜ 
+To connect your Octopus Deploy instance to JSM, navigate to **Configuration ➜ Settings ➜
 Jira Service Management Integration**.
 
 Check the **Enabled** option
@@ -103,7 +103,7 @@ The JSM Base Url should be the root URL and include the protocol e.g. `https://`
 
 Press **TEST** to ensure that the connection details are working.
 
-Multiple JSM connections are supported, however, each project can only use one JSM 
+Multiple JSM connections are supported, however, each project can only use one JSM
 connection.
 
 ### Configuring Issue Comments
@@ -112,10 +112,10 @@ connection.
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
-If enabled, this feature will result in a linked change request having one or more Comments added 
+If enabled, this feature will result in a linked change request having one or more Comments added
 during the deployment lifecycle which record details about the deployment and its execution status.
 
-To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service Management 
+To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service Management
 Integration**, click the **Customer Comments Enabled** checkbox show below then click **Save**.
 
 :::figure
@@ -132,7 +132,7 @@ To enable a project to enforce a requirement for an approved CR:
 
 1. Navigate to the project and then **Settings ➜ ITSM Providers**.
 2. Check the **Jira Service Management Integration ➜ Change Controlled** setting.
-3. Select your JSM connection in the **Jira Service Management Connection** setting and click 
+3. Select your JSM connection in the **Jira Service Management Connection** setting and click
    **SAVE**.
 
 :::figure
@@ -145,7 +145,7 @@ To enable a project to enforce a requirement for an approved CR:
 This feature is only available for version **2025.2.7878** and later
 :::
 
-To enforce a runbook run to require an approved CR, the runbook needs to be included in the **Enabled Runbooks** setting and the **Change Controlled** setting also needs to be enabled in **both** the project and the environment the runbook is run in. 
+To enforce a runbook run to require an approved CR, the runbook needs to be included in the **Enabled Runbooks** setting and the **Change Controlled** setting also needs to be enabled in **both** the project and the environment the runbook is run in.
 
 To enable a runbook to enforce a requirement for an approved CR:
 
@@ -160,13 +160,13 @@ To enable a runbook to enforce a requirement for an approved CR:
 
 ### Default behavior
 
-Deployments and runbook runs resulting in a CR creation will produce an issue with a Request Type of **Request a 
+Deployments and runbook runs resulting in a CR creation will produce an issue with a Request Type of **Request a
 change**
 
 ### Supplying the CR number to a deployment
 
 If you add a variable to your project named `Octopus.JiraServiceManagement.ChangeRequest.Number`,
-then an Issue will not be created, and instead, the supplied number will be used during the 
+then an Issue will not be created, and instead, the supplied number will be used during the
 approval check. This variable can also be [scoped](/docs/projects/variables/getting-started/#scoping-variables) or configured as a [Prompted variable](/docs/projects/variables/prompted-variables).
 
 From **2025.2** on this can be set under the `Jira Service Management Issue settings` section on the deployment or runbook run creation page. Setting the Issue number at the deployment or runbook run level will override any predefined variable.
@@ -174,7 +174,7 @@ From **2025.2** on this can be set under the `Jira Service Management Issue sett
 ### Setting up environments for CR approval
 
 To enable an environment to enforce a requirement for an approved CR, navigate to **{
-{Infrastructure,Environments}}**, edit the environment via the overflow menu and check the 
+{Infrastructure,Environments}}**, edit the environment via the overflow menu and check the
 **Jira Service Management Integration ➜ Change Controlled** setting, and then press **SAVE**.
 
 :::figure
@@ -183,7 +183,7 @@ To enable an environment to enforce a requirement for an approved CR, navigate t
 
 ## How it works
 
-Deployments where both the project and environment have **Change Controlled** enabled, will 
+Deployments where both the project and environment have **Change Controlled** enabled, will
 query JSM for an approved Issue before execution can begin.
 
 When a **Change Controlled** deployment is evaluated for approval, the following checks are performed:
@@ -192,22 +192,21 @@ When a **Change Controlled** deployment is evaluated for approval, the following
 - If there is an existing CR with the specifically formatted **Short Description** available. See [Title text matching](#title-text-matching) for more information, then this CR will be evaluated.
 - Create a new CR.
   - This will be a `Request a change" type Issue
-  - An Issue created by Octopus will have a **Short Description** in the format outlined in [Title 
+  - An Issue created by Octopus will have a **Short Description** in the format outlined in [Title
     text matching](#title-text-matching).
 
-When re-deploying a previous deployment, the same Issue will be used if it is still open. If it is 
+When re-deploying a previous deployment, the same Issue will be used if it is still open. If it is
 closed the above process will be followed again.
 
-Once an Issue has been found, the deployment will only proceed if the **State** of the CR is 
-`Implementing`. If the **State** is either `Preview`, `Planning`, `Authorize`, or `Awaiting 
-Implementation` the deployment will wait. Any other **State** will cause the deployment task to fail. For deployments using Highly Available (HA) Octopus, the logs will be written to the server logs instead of the task logs.
+Once an Issue has been found, the deployment will only proceed if the **State** of the CR is
+`Implementing`. If the **State** is either `Preview`, `Planning`, `Authorize`, or `Awaiting Implementation` the deployment will wait. Any other **State** will cause the deployment task to fail. For deployments using Highly Available (HA) Octopus, the logs will be written to the server logs instead of the task logs.
 
 :::div{.info}
 The only supported states are those defined in the default Issue lifecycle
 :::
 
-The number of the Issue created or found will appear in the Task Summary tab of the executing 
-Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in 
+The number of the Issue created or found will appear in the Task Summary tab of the executing
+Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in
 JSM.
 
 ![Deployment Task Summary awaiting JSM approval](/docs/img/approvals/jira-service-management/images/jsm-pending-issue-task-message.png)
@@ -234,22 +233,32 @@ To control the content of the CRs the variable `Octopus.JiraServiceManagement.Fi
 
 For example, to set a custom `Summary` or `Due Date`:
 
-| Field | Variable | Example Value |
-|--|--|--|
-| Summary | Octopus.JiraServiceManagement.Field[summary] | Custom Summary with #{SomeVariable} #{Octopus.Deployment.Id} |
-| Due Date | Octopus.JiraServiceManagement.Field[duedate] | 12-12-2025 |
+| Field    | Variable                                     | Example Value                                                |
+| -------- | -------------------------------------------- | ------------------------------------------------------------ |
+| Summary  | Octopus.JiraServiceManagement.Field[summary] | Custom Summary with #{SomeVariable} #{Octopus.Deployment.Id} |
+| Due Date | Octopus.JiraServiceManagement.Field[duedate] | 12-12-2025                                                   |
 
 :::div{.hint}
 Setting a `Summary` will override the auto-generated Octopus summary. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved summary is unique. This can be done by including variables like the deployment or environment Id.
 :::
 
+Custom fields can also be set once [your custom field ID is obtained for each field](https://confluence.atlassian.com/jirakb/get-custom-field-ids-for-jira-and-jira-service-management-744522503.html). For example, to set a `Labels custom field`, `Number custom field`, or `Multi-select custom field`:
+
+| Field        | Variable                                              | Example Value                                                    |
+| ------------ | ----------------------------------------------------- | ---------------------------------------------------------------- |
+| Labels       | Octopus.JiraServiceManagement.Field[customfield_1023] | ["yourUserDefinedLabel","anotherLabel"]                          |
+| Number       | Octopus.JiraServiceManagement.Field[customfield_1024] | 235                                                              |
+| Multi-select | Octopus.JiraServiceManagement.Field[customfield_1025] | [{"value":"yourFirstSelection"},{"value":"yourSecondSelection"}] |
+
+When adding `Multi-line text` custom fields, add line breaks using the plainText value editor dialog:
+![line breaks created by hitting return when value editor is open](image.png)
+
 For a full list of available fields and values refer to the [JIRA docs](https://docs.atlassian.com/jira-servicedesk/REST/3.6.2/#fieldformats).
 
 ### Respecting change windows
 
-In addition to a change request being approved, a change must also be in its schedule change 
-window in order for the deployment to execute.  The change window is controlled by the `Planned 
-star` and `Planned end` on the linked Issue.
+In addition to a change request being approved, a change must also be in its schedule change
+window in order for the deployment to execute. The change window is controlled by the `Planned start` and `Planned end` on the linked Issue.
 
 :::div{.info}
 The following list assumes the linked change is in an **approved** state.
@@ -268,20 +277,20 @@ The following list assumes the linked change is in an **approved** state.
 The following variables are only available in version 2025.4 and later
 :::
 
-| Variable | Notes |
-|--|--|
-| `Octopus.JiraServiceManagement.ChangeRequest.Number` | The number of the matched or created change request | 
-| `Octopus.JiraServiceManagement.ChangeRequest.Id` | The system identifier of the matched or created change request |
-| `Octopus.JiraServiceManagement.Connection.Id` |  |
-| `Octopus.JiraServiceManagement.Connection.Name` | |
-| `Octopus.JiraServiceManagement.Connection.BaseUrl` | |
-| `Octopus.JiraServiceManagement.Connection.Username` | |
-| `Octopus.JiraServiceManagement.Connection.Token` | |
+| Variable                                             | Notes                                                          |
+| ---------------------------------------------------- | -------------------------------------------------------------- |
+| `Octopus.JiraServiceManagement.ChangeRequest.Number` | The number of the matched or created change request            |
+| `Octopus.JiraServiceManagement.ChangeRequest.Id`     | The system identifier of the matched or created change request |
+| `Octopus.JiraServiceManagement.Connection.Id`        |                                                                |
+| `Octopus.JiraServiceManagement.Connection.Name`      |                                                                |
+| `Octopus.JiraServiceManagement.Connection.BaseUrl`   |                                                                |
+| `Octopus.JiraServiceManagement.Connection.Username`  |                                                                |
+| `Octopus.JiraServiceManagement.Connection.Token`     |                                                                |
 
 ## Known issues and limitations
 
-- Once an Issue is deemed to be related to a deployment, then only this Issue will be evaluated for 
-  the deployment to proceed. If the Issue is incorrect, you will need to cancel the deployment, 
+- Once an Issue is deemed to be related to a deployment, then only this Issue will be evaluated for
+  the deployment to proceed. If the Issue is incorrect, you will need to cancel the deployment,
   close the CR and try the deployment again.
 - Each project only supports a single JSM connection.
 

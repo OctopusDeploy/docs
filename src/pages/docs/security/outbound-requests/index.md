@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-13
+modDate: 2026-02-09
 title: Outbound requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 navOrder: 25
@@ -32,6 +32,7 @@ The Octopus Server makes the following outbound requests:
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
 8. Email address and behavioral data is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
+9. Requests are sent to `https://aiproxy.octopus.com` to communicate with foundation models for [AI features](/docs/octopus-ai) in Octopus Deploy.
 
 ### Built-in step templates
 

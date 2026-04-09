@@ -22,7 +22,7 @@ Behavior:
 
 - Helm install dialog stuck in progressing (Waiting for <name> to establish a connection)
 - Helm command halted showing chart pulled for >= 5 minutes
-- In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "Failed to register ArgoCD Gateway with Octopus Serer"
+- In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "Failed to register ArgoCD Gateway with Octopus Server"
 
 Cause:
 
@@ -33,7 +33,7 @@ Cause:
 
 Resolution:
 
-- Confirm serverUrl is set correctly, and is resolvable/reachable from with your cluster
+- Confirm serverUrl is set correctly, and is resolvable/reachable from inside your cluster
 - Re-execute the installation process, ensuring to complete within lifetime of supplied bearer token
 
 ### Argo CD Gateway install fails initial health check
@@ -60,9 +60,9 @@ Resolution:
 
 ## Application/Project mapping
 
-### No applications are listed on the Argo CD Instance --> Applications page
+### No applications are listed on the **Argo CD Instance ➜ Applications** page
 
-Behavior
+Behavior:
 
 - Argo CD web UI shows existing applications, however they do not appear in the Octopus UI
   
@@ -72,7 +72,7 @@ Cause:
 
 Resolution:
 
-- Create required RBAC entries for the account being used by the Octopus Gateway as per [this](/docs/argo-cd/instances/argo-user).
+- Create required RBAC entries for the account being used by the Octopus Gateway as per [Argo CD Authentication](/docs/argo-cd/instances/argo-user).
 
 ## Step Configuration
 
@@ -88,7 +88,7 @@ Cause:
 
 Resolution:
 
-- Navigate to Infrastructure --> Argo CD Instances and confirm an instance is visible in this space
+- Navigate to **Infrastructure ➜ Argo CD Instances** and confirm an instance is visible in this space
 - If not - add a new Argo CD instance using the installation wizard
 
 ## Step Execution
@@ -97,7 +97,7 @@ Resolution:
 
 Behavior:
 
-- Deployment Passes with warnings
+- Deployment passes with warnings
 - Octopus deployment task log contains `No annotated Argo CD applications could be found for this deployment.`
 
 Cause:
@@ -130,15 +130,15 @@ Behavior:
 
 Cause:
 
-- The mapped Argo Application source is not a git repository (eg helm-repository or OCI)
+- The mapped Argo Application source is not a git repository (e.g. Helm repository or OCI)
 - The provided git credentials for the url have insufficient privileges
 
 Resolution:
 
-- Octopus cannot update charts sourced from a help repository or OCI feed - contact support to determine way forward.
+- Octopus cannot update charts sourced from a Helm repository or OCI feed - contact support to determine way forward.
 - Ensure the associated git credential has appropriate permissions
 
-## Deployment fails on Argo CD step (insufficient permissions)
+### Deployment fails on Argo CD step (insufficient permissions)
 
 Behavior:
 
@@ -164,4 +164,4 @@ Cause:
 
 Resolution:
 
-- Enable Live Status via the "live Status" toggle switch at the top of the dashboard.
+- Enable Live Status via the "Live Status" toggle switch at the top of the dashboard.

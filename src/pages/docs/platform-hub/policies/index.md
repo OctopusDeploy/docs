@@ -57,9 +57,23 @@ To get started, navigate to the Platform Hub inside of your Octopus instance and
 ![A empty policies list in the Platform Hub](/docs/img/platform-hub/policies/policies-getting-started.png)
 :::
 
-### 2. Give your policy a name
+### 2. Select a starter policy
 
-You will be presented with the Create Policy modal. You can then set the name of your policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Create` button.
+You will be presented with the Create Policy modal. The first step is to select a starter policy to base your new policy on. To continue click the `Next` button.
+
+:::figure
+![A modal to select a starter policy](/docs/img/platform-hub/policies/policies-create-starter-modal.png)
+:::
+
+:::div{.hint}
+
+If you want to start with the most basic policy, choose Create Blank Policy.
+
+:::
+
+### 3. Give your policy a name
+
+You can then set the name of your policy. Octopus will generate a valid slug for your policy based on the name you provide. You can edit this slug before clicking the `Done` button.
 
 :::figure
 ![A modal to create a new policy](/docs/img/platform-hub/policies/policies-create-modal.png)
@@ -67,11 +81,11 @@ You will be presented with the Create Policy modal. You can then set the name of
 
 :::div{.hint}
 
-- The slug can not be changed once a policy is created.
+The slug can not be changed once a policy is created.
 
 :::
 
-### 3. Update your policy details
+### 4. Update your policy details
 
 This will create the Policy file in your Platform Hub repository and then take you to the edit Policy page, where you can update the following details for your policy.
 
@@ -91,15 +105,13 @@ This will create the Policy file in your Platform Hub repository and then take y
 - ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code.
 - ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
 
-Full details of output schema is available on the [schema page](/docs/platform-hub/policies/schema).
-
 See
 
 :::
 
-### 4. Define the policy scope
+### 5. Define the policy scope
 
-You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
+You’ll now need to define the policy's scope, as Rego. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
 
 <br>
 
@@ -124,6 +136,13 @@ input.Environment.Name = "Development"
 
 Our example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. **All Rego code has to have a package defined, which is the policy slug.**
 
+:::div{.warning}
+
+- You cannot rename **evaluate**, it must be called **evaluate**.
+- The package name must be the same as your policy file name.
+
+:::
+
 ```ruby
 package manual_intervention_required 
 
@@ -135,7 +154,7 @@ evaluate := true if {
 }
 ```
 
-### 5. Define the policy conditions
+### 6. Define the policy conditions
 
 After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason** and **action**. In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing. This conditions section of the policy defines the package name, which must match the slug for your policy. By default, the policy evaluates to false. The condition will evaluate to true if the deployment contains the required steps.
 
@@ -158,7 +177,7 @@ Full details on the data available for policy scoping and conditions can be foun
 
 <br>
 
-### 6. Check for a deployment step
+### 7. Check for a deployment step
 
 After you’ve set the default state, you’ll need to define the policy rules that will update the **result** state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
 
@@ -179,7 +198,7 @@ result := {"allowed": true} if {
 
 After your policy details have been finalized you will need to commit, publish and activate your policy for it to be available for evaluation.
 
-### 7. Saving a Policy
+### 8. Saving a Policy
 
 Once you've finished making changes to your policy you can commit them to save the changes to your Git repository. You can either **Commit** with a description or quick commit without one.
 
@@ -187,7 +206,7 @@ Once you've finished making changes to your policy you can commit them to save t
 ![The commit experience for a policy](/docs/img/platform-hub/policies/policies-commit-experience.png)
 :::
 
-### 8. Publishing a Policy
+### 9. Publishing a Policy
 
 Once you've made your changes, you will have to publish the policy to reflect the changes you've made. You will have three options to choose from when publishing changes:
 
@@ -203,7 +222,7 @@ The first time you publish a policy you can only publish a major version
 ![Publish experience for a policy](/docs/img/platform-hub/policies/policies-publishing.png)
 :::
 
-### 9. Activating a policy
+### 10. Activating a policy
 
 You must activate the policy before it can be evaluated. Policies can be deactivated after they are activated to stop a policy from being evaluated.
 
@@ -215,7 +234,7 @@ Activation settings can be updated anytime, from the Versions tab on the edit po
 ![Activation status for a policy](/docs/img/platform-hub/policies/policies-activation.png)
 :::
 
-### 10. Finalize and test your policy
+### 11. Finalize and test your policy
 
 You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by customizing the values in the scope block, and then deploying to an environment. If you choose not to include the manual intervention step in your process, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (**Configuration** → **Audit**) with the “Compliance Policy Evaluated” event group filter applied. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
 

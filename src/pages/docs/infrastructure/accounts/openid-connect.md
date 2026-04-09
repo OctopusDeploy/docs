@@ -13,14 +13,14 @@ navOrder: 70
 If you are using Octopus Cloud, you will not need to do anything to expose the instance to the public internet, this is already configured for you.
 :::
 
-To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet. 
+To use federated credentials, your Octopus instance will need to have two anonymous URLs exposed to the public internet.
 
 - `https://server-host/.well-known/openid-configuration`
 - `https://server-host/.well-known/jwks`
 
 These must be exposed with anonymous access on HTTPS. Without this, the OpenID Connect protocol will not be able to complete the authentication flow.
 
-The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration. 
+The hostname of the URL that these two endpoints are available on must either be configured under **Configuration->Nodes->Server Uri** or set as the first ListenPrefix in the server configuration.
 
 ## Authenticating using OpenID Connect with third party services and tools
 
@@ -43,19 +43,18 @@ The subject can be modified for the three different uses within Octopus:
 
 - Only the requested keys for a **Subject** claim will be include in the generated **Subject** claim
 - Any Octopus resource types included in the **Subject** claim will use the slug value for the Octopus resource. The slug value is generated from the name of the Octopus resource when it was created, it can be edited on the edit page of resource type.
-- The **Subject** claim parts will always be in the following order 
-    - **Space**
-    - **Project**
-    - **Runbook**
-    - **Tenant**
-    - **Environment**
-    - **Target**
-    - **Account**
-    - **Type**
-    - **Feed**
+- The **Subject** claim parts will always be in the following order:
+  - **Space**
+  - **Project**
+  - **Runbook**
+  - **Tenant**
+  - **Environment**
+  - **Target**
+  - **Account**
+  - **Type**
+  - **Feed**
 
-
-### Deployments and Runbooks {#deployments-and-runbooks}
+## Deployments and Runbooks {#deployments-and-runbooks}
 
 The **Subject** claim for a deployment or a runbook supports the following parts:
 
@@ -72,7 +71,7 @@ The default format for a deployment and runbook is `space:[space-slug]:project:[
 
 The value for the type is either `deployment` or `runbook`.
 
-When changing the **Subject** claim format for a deployment and runbook, the runbook value will not be included (if specified) when running a deployment. 
+When changing the **Subject** claim format for a deployment and runbook, the runbook value will not be included (if specified) when running a deployment.
 
 For example, in the **Default** space, you have a project called **Deploy Web App**, and a runbook called **Restart**. If you set the **Subject** claim format to `space`, `project`, `runbook` and `type`, when running a deployment the **Subject** claim will be `space:default:project:deploy-web-app:type:deployment` and for the run of the runbook the **Subject** claim would be `space:default:project:deploy-web-app:runbook:restart:type:runbook`.
 This is using the default generated slug values for the space, project and runbook.
@@ -84,7 +83,6 @@ The Health Check **Subject** claim supports the **Space** slug, the **Account** 
 The default format for a health check is `space:[space-slug]:target:[target-slug]:account:[account-slug]`.
 
 The value for the type is `health`.
-
 
 ## Account Test {#account-test}
 
@@ -98,3 +96,31 @@ The Feed **Subject** claim supports the **Space** slug and the **Feed** slug. Th
 
 The default format for feeds is `space:[space-slug]:feed:[feed-slug]`.
 
+## Context specific value claims {#context-specific-value-claims}
+
+In addition to the customizable subject claim, the JWT token will also include specific single-value claims for the deployment or runbook execution.
+Each of these claims will be prefixed with `https://octopus.com/claims/` and will represent all the values that can be included in the subject configuration.
+
+```json
+{
+  "aud": "api://default",
+  "iss": "https://example.octopus.app/",
+  "exp": 1234567890,
+  "iat": 1234567890,
+  "nbf": 1234567890,
+  "jti": "abc",
+  "https://octopus.com/claims/space": "space-slug",
+  "https://octopus.com/claims/project": "project-slug",
+  "https://octopus.com/claims/runbook": "runbook-slug", // only on a runbook run
+  "https://octopus.com/claims/projectgroup": "project-group-slug",
+  "https://octopus.com/claims/environment": "environment-slug",
+  "https://octopus.com/claims/tenant": "tenant-slug",
+  "https://octopus.com/claims/type": "deployment", // or runbook for a runbook run
+  "https://octopus.com/claims/account": "account-slug",
+  "sub": "space:[space-slug]:project:[project-slug]:environment:[environment-slug]"
+}
+```
+
+:::div{.hint}
+These namespaced claims are only available in **Octopus 2026.1**.
+:::

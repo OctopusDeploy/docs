@@ -87,3 +87,7 @@ Explore the REST API examples further in this section:
 - [Users and Teams](/docs/octopus-rest-api/examples/users-and-teams)
 - [Variables](/docs/octopus-rest-api/examples/variables)
 - [Bulk Operations](/docs/octopus-rest-api/examples/bulk-operations)
+
+## Get help from the community
+
+If you're looking for help with API scripts or want to share your own, join the [Octopus Community Slack channel](https://octopus.com/slack). It's a great place to get inspiration, ask questions, and connect with other Octopus users and employees.

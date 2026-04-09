@@ -96,6 +96,7 @@ cscript
 cspkg
 Csvg
 customextension
+customfield
 customisation
 Customscripts
 cutover
@@ -258,6 +259,7 @@ lifecycles
 linecap
 linejoin
 linkerd
+linkinator
 Linq
 Liquibase
 llms
@@ -587,6 +589,7 @@ VMSS
 vnet
 Voltron
 vserver
+waitlist
 WCAG
 webapps
 WEBDEPLOY
@@ -615,4 +618,5 @@ xmark
 xvzf
 xxlarge
 youtu
+Zstandard
 Zuora
