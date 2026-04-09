@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-06-27
-modDate: 2026-02-24
+modDate: 2026-04-09
 title: Target tags
 description: Before you can deploy software to your deployment targets, you need to associate them with target tags. This ensures you deploy the right software to the right deployment targets.
 navOrder: 20
@@ -43,7 +43,7 @@ You can check all the target tags assigned to your deployment targets from the *
 ## Target tag sets \{#target-tag-sets}
 
 :::div{.warning}
-Target tag sets are supported from Octopus version **TODO**.
+Target tag sets are supported from Octopus version 2026.2.2344.
 :::
 
 Target tags are now organized into **target tag sets**, which are [tag sets](/docs/tenants/tag-sets) scoped to deployment targets. This gives you a structured way to group related target tags together, just as you can group tags for tenants, environments, projects, and runbooks.
@@ -88,4 +88,4 @@ The Octopus REST API represents target tags using a `roles` field on deployment 
 ## Older versions \{#older-versions}
 
 - **Target roles** were renamed to **target tags** in Octopus Deploy 2024.2. The functionality was unchanged. This was only a name change to make our terminology clearer.
-- **Target tags** were migrated to **target tag sets** (with a built-in [System] Tag Set) in Octopus version **TODO**. Existing target tags were moved automatically with no action required.
+- **Target tags** were migrated to **target tag sets** (with a built-in [System] Tag Set) in Octopus version 2026.2.2344. Existing target tags were moved automatically with no action required.
