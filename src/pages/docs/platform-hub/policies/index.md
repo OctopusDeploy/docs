@@ -122,6 +122,7 @@ evaluate if {
 ```
 
 :::hint
+
 - The scope rule must be named `evaluate`. You can't rename it.
 - The package name must match your policy slug exactly.
 
@@ -136,6 +137,7 @@ The conditions define the rules a deployment or runbook run must meet. Octopus r
 Start by setting the default result. Because we're still testing this policy, set the `action` to `warn` rather than `block`. A warning lets the execution proceed but records the violation in the task log, dashboard, and audit log, so you can confirm the policy is evaluating correctly without risking broken deployments.
 
 :::warning
+
 - The result rule must be named `result`. You can't rename it.
 - The package name must match your policy slug exactly.
 
