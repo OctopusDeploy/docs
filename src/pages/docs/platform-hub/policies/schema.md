@@ -20,7 +20,7 @@ This page describes every field available in that input object, explains which f
 The table below summarizes every top-level field available to your policies.
 
 | Field | Type | Always present? | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Environment` | object | Yes | The environment the deployment or runbook run is targeting |
 | `Project` | object | Yes | The project being deployed |
 | `Space` | object | Yes | The space the deployment belongs to |
@@ -43,7 +43,7 @@ Because `Tenant`, `Release`, and `Runbook` are conditionally present, always che
 The environment the deployment or runbook run is targeting.
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Id` | string | The unique identifier for the environment |
 | `Name` | string | The display name of the environment |
 | `Slug` | string | The URL-safe slug for the environment |
@@ -66,7 +66,7 @@ input.Environment.Tags[_] == "regulated"
 The project being deployed.
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Id` | string | The unique identifier for the project |
 | `Name` | string | The display name of the project |
 | `Slug` | string | The URL-safe slug for the project |
@@ -77,7 +77,7 @@ The project being deployed.
 The Octopus space the deployment belongs to.
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Id` | string | The unique identifier for the space |
 | `Name` | string | The display name of the space |
 | `Slug` | string | The URL-safe slug for the space |
@@ -87,7 +87,7 @@ The Octopus space the deployment belongs to.
 The project group the project belongs to.
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Id` | string | The unique identifier for the project group |
 | `Name` | string | The display name of the project group |
 | `Slug` | string | The URL-safe slug for the project group |
@@ -97,7 +97,7 @@ The project group the project belongs to.
 The tenant for tenanted deployments. **This field is absent for non-tenanted deployments.** Always guard against its absence before using it.
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `Id` | string | The unique identifier for the tenant |
 | `Name` | string | The display name of the tenant |
 | `Slug` | string | The URL-safe slug for the tenant |
@@ -127,7 +127,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 **Steps array, each item contains:**
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Id` | string | Yes | The unique identifier for the step |
 | `Slug` | string | Yes | The URL-safe slug for the step |
 | `ActionType` | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
@@ -139,7 +139,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 **Source object:**
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Type` | string | Yes | The source type. Valid values: `"Step Template"`, `"Process Template"` |
 | `SlugOrId` | string | Yes | The slug or ID of the step or process template |
 | `Version` | string | No | The pinned version, if one is set |
@@ -147,7 +147,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 **Packages array, each item contains:**
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Id` | string | Yes | The unique identifier for the package reference |
 | `Name` | string | Yes | The name of the package |
 | `Version` | string | No | The resolved package version |
@@ -180,7 +180,7 @@ The `Execution` array describes the order steps run in and how each step relates
 Each item in the array contains:
 
 | Property | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `StartTrigger` | string | How this step starts. `"StartAfterPrevious"` runs sequentially; `"StartWithPrevious"` runs in parallel with the previous step |
 | `Steps` | array of strings | The IDs of the steps in this execution group |
 
@@ -200,7 +200,7 @@ result := {"allowed": true} if {
 Details about the release being deployed. **This field is absent for runbook runs.**
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Id` | string | Yes | The unique identifier for the release |
 | `Name` | string | Yes | The release name |
 | `Version` | string | Yes | The release version string |
@@ -228,7 +228,7 @@ See the [release version examples](/docs/platform-hub/policies/examples#check-th
 Details about the runbook run. **This field is absent for deployments.**
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `Id` | string | Yes | The unique identifier for the runbook |
 | `Name` | string | Yes | The display name of the runbook |
 | `Snapshot` | string | Yes | The snapshot name used for this run |
@@ -273,7 +273,7 @@ evaluate if {
 Your Rego conditions must define a `result` object that Octopus reads to determine what to do. The `result` object supports three properties:
 
 | Property | Type | Required | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `allowed` | boolean | Yes | Whether the policy permits the deployment to proceed |
 | `reason` | string | No | A message shown to the user when the policy fails |
 | `action` | string | No | Overrides the violation action. Valid values: `"block"` or `"warn"` |

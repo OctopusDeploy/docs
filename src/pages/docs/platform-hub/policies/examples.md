@@ -650,7 +650,7 @@ If you prefer to write policies directly in your Git repository instead of using
 
 ### OCL file format
 
-```
+```ocl
 name = "Policy Name"
 description = "Policy description"
 violation_reason = "Custom message shown when the policy fails"

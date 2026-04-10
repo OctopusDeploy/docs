@@ -20,7 +20,7 @@ A consistent naming standard makes it easy for everyone to understand what a pol
 Use the format **[Scope] - [Policy name]**, where the scope prefix reflects what type of execution the policy applies to:
 
 | Scope prefix | Use when |
-|---|---|
+| --- | --- |
 | `Deployments` | The policy only applies to deployments |
 | `Runbook Runs` | The policy only applies to runbook runs |
 | `Deployments and Runbook Runs` | The policy applies to both |
@@ -101,7 +101,7 @@ See the [steps and skipping examples](/docs/platform-hub/policies/examples#ensur
 Three input fields are not always present in the input object: `Tenant`, `Release`, and `Runbook`. Referencing them without checking for their existence first will cause a policy evaluation error.
 
 | Field | When it's present |
-|---|---|
+| --- | --- |
 | `Tenant` | Tenanted deployments only |
 | `Release` | Deployments only |
 | `Runbook` | Runbook runs only |
