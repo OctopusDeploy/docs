@@ -21,11 +21,11 @@ When a deployment or runbook run starts, Octopus passes a structured input objec
 
 Common things teams enforce with policies:
 
-* A manual intervention or approval step must be present in production deployments
-* All packages must come from an approved branch
-* Specific steps must not be skipped or disabled
-* Steps must run in a particular order
-* Projects and tenants must carry required tags
+- A manual intervention or approval step must be present in production deployments
+- All packages must come from an approved branch
+- Specific steps must not be skipped or disabled
+- Steps must run in a particular order
+- Projects and tenants must carry required tags
 
 By default, a policy applies to both deployments and runbook runs. You can scope a policy to one or the other in your Rego. For the full list of input fields available, see the [policy input schema](/docs/platform-hub/policies/schema).
 
@@ -71,10 +71,10 @@ The slug can't be changed after the policy is created. It becomes the package na
 
 Fill in the following fields:
 
-* **Name:** a short, memorable name for this policy.
-* **Description:** an optional summary of what the policy enforces.
-* **Violation reason:** the message shown to users when a deployment or runbook run fails this policy. Make this specific enough for users to understand what they need to fix.
-* **Violation action:** whether a failing policy blocks the execution or raises a warning. This default can be overridden per rule in your conditions Rego using the `action` property.
+- **Name:** a short, memorable name for this policy.
+- **Description:** an optional summary of what the policy enforces.
+- **Violation reason:** the message shown to users when a deployment or runbook run fails this policy. Make this specific enough for users to understand what they need to fix.
+- **Violation action:** whether a failing policy blocks the execution or raises a warning. This default can be overridden per rule in your conditions Rego using the `action` property.
 
 :::figure
 ![The form used to edit a policy](/docs/img/platform-hub/policies/policies-edit-getting-started.png)
@@ -122,8 +122,9 @@ evaluate if {
 ```
 
 :::hint
-* The scope rule must be named `evaluate`. You can't rename it.
-* The package name must match your policy slug exactly.
+- The scope rule must be named `evaluate`. You can't rename it.
+- The package name must match your policy slug exactly.
+
 :::
 
 For more scoping patterns, including scoping to tenants, project groups, or runbook runs only, see the [scoping examples](/docs/platform-hub/policies/examples#scoping-examples).
@@ -135,8 +136,9 @@ The conditions define the rules a deployment or runbook run must meet. Octopus r
 Start by setting the default result. Because we're still testing this policy, set the `action` to `warn` rather than `block`. A warning lets the execution proceed but records the violation in the task log, dashboard, and audit log, so you can confirm the policy is evaluating correctly without risking broken deployments.
 
 :::warning
-* The result rule must be named `result`. You can't rename it.
-* The package name must match your policy slug exactly.
+- The result rule must be named `result`. You can't rename it.
+- The package name must match your policy slug exactly.
+
 :::
 
 ```rego
@@ -174,9 +176,9 @@ Once you've finished writing your Rego, commit your changes to save them to your
 
 After committing, publish the policy to make the changes take effect. Choose the appropriate version type:
 
-* **Major:** breaking changes
-* **Minor:** non-breaking changes
-* **Patch:** bug fixes
+- **Major:** breaking changes
+- **Minor:** non-breaking changes
+- **Patch:** bug fixes
 
 :::hint
 The first time you publish a policy, you can only publish a major version.
@@ -218,6 +220,6 @@ See [Troubleshooting policies](/docs/platform-hub/policies/troubleshooting) if e
 
 ## What's next
 
-* [Policy examples](/docs/platform-hub/policies/examples): ready-to-use Rego for common enforcement scenarios
-* [Policy input schema](/docs/platform-hub/policies/schema): the full reference for fields available in your Rego
-* [Best practices](/docs/platform-hub/policies/best-practices): guidance on naming, rollout, and writing reliable policies
+- [Policy examples](/docs/platform-hub/policies/examples): ready-to-use Rego for common enforcement scenarios
+- [Policy input schema](/docs/platform-hub/policies/schema): the full reference for fields available in your Rego
+- [Best practices](/docs/platform-hub/policies/best-practices): guidance on naming, rollout, and writing reliable policies
