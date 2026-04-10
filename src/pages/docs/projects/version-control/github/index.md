@@ -64,6 +64,8 @@ To connect a repository, you must be an administrator of the repository on GitHu
 
 You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
 
+You can also define GitHub Connections in [Platform Hub](/docs/platform-hub). GitHub Connections defined in Platform Hub can only be used to configure Platform Hub's version control settings and can't be used in spaces.
+
 ## Requested Permissions
 
 There are specific GitHub permissions that the Octopus GitHub App requests in order to perform it's tasks.
