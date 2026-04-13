@@ -83,6 +83,12 @@ Whenever possible, Octopus uses a token scoped down to minimal permissions in ac
 
 The Octopus Deploy GitHub App can be used with the GitHub Enterprise allow list feature. To include the app in your allow list either enable "Enable IP allow list configuration for installed GitHub Apps" in the "Authentication security" section, or manually add the IP Address "172.182.208.68" to your allow list.
 
+:::div{.hint}
+**Note:**
+In order to use Octopus Deploy with GitHub allow lists, the IP address of your Octopus Deploy instance and any workers that require GitHub access will also need to be added. If you are using a Octopus Cloud instance of Octopus Deploy you can obtain your [staitc IP](/docs/octopus-cloud/static-ip) via the Control Center.
+:::
+
+
 ## More information on installing and authorizing the Octopus GitHub App
 
 You install the Octopus GitHub App on an account (organization or user) to give the repositories or other content within that account. Authorizing gives the Octopus GitHub App permission to act on your behalf in any account that has the app installed.
