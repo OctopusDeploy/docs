@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-07-21
+modDate: 2026-04-14
 title: Authentication
 description: Authentication options for Octopus Deploy including our internal provider, Active Directory, Microsoft Entra ID, Okta, and Google Workspace.
 navOrder: 50
@@ -33,7 +33,7 @@ The list below contains Directory-based authentication mechanisms that are typic
 
 ### Local Authentication
 
-The list below contains local authentication mechanisms that are convenient for evaluating, or initial configuration of Octopus Server. We recommend customers use IdP or directory-based authentication where possible.
+The list below contains local authentication mechanisms that are convenient for evaluating, or initial configuration of Octopus Server. We recommend customers use IdP or directory-based authentication where possible, as local authentication does not support password expiry, configurable lockout policies, or password history enforcement.
 
 - [Username and Password](/docs/security/authentication/username-password)
 - [Guest Login](/docs/security/authentication/guest-login)
