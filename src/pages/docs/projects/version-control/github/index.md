@@ -79,14 +79,16 @@ There are specific GitHub permissions that the Octopus GitHub App requests in or
 
 Whenever possible, Octopus uses a token scoped down to minimal permissions in accordance with the principle of least privilege.
 
-## Allow List
+## GitHub Allow List
 
-The Octopus Deploy GitHub App can be used with the GitHub Enterprise allow list feature. To include the app in your allow list manually add the IP Address `172.182.208.68`. Due to a limitation in the way that GitHub supports inheritance of IP addresses when performing actions on behalf of a user, the IP address for the GitHub App needs to be configured manually and cannot be inherited from the app settings. For more information please refer to [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app#about-ip-address-allow-lists-for-github-apps)
+The Octopus Deploy GitHub App can be used with the GitHub's allow list feature. To include the app in your allow list manually add the IP Address `172.182.208.68`. Information about adding IP addresses to GitHub's allow list can be found in [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#adding-an-allowed-ip-address) 
 
 :::div{.hint}
 **Note:**
 In order to use Octopus Deploy with GitHub allow lists, the IP address of your Octopus Deploy instance and any workers that require GitHub access will also need to be added. If you are using a Octopus Cloud instance of Octopus Deploy you can obtain your [static IP](/docs/octopus-cloud/static-ip) via the Control Center.
 :::
+
+Due to a limitation in the way that GitHub supports inheritance of IP addresses when performing actions on behalf of a user, the IP address for the GitHub App needs to be configured manually and cannot be inherited from the app settings. For more information please refer to [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app#about-ip-address-allow-lists-for-github-apps)
 
 ## More information on installing and authorizing the Octopus GitHub App
 
