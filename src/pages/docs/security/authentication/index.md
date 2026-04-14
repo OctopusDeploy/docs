@@ -9,13 +9,13 @@ navOrder: 50
 
 Octopus Deploy supports a a range of Identity Providers (IdPs) and common authentication mechanisms out-of-the-box.
 
-### Your octopus.com account (Octopus ID)
+## Your octopus.com account (Octopus ID)
 
 Octopus ID allows you to log in using the same account that you use to sign in at Octopus.com. This allows you to manage who is able to access Octopus from within your organization and saves you time when moving between our website, your billing console and your instance(s).
 
 - [Octopus ID](/docs/security/authentication/octopusid-authentication)
 
-### Identity Provider-based (IdP) Authentication
+## Identity Provider-based (IdP) Authentication
 
 The list below contains Identity Provider-specific integrations. These can be used with Octopus Server or [Octopus Cloud](/docs/octopus-cloud). Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. Many are powered by OpenID Connect (OIDC), and therefore Octopus can support any OIDC compliant IdP. The Octopus Okta Authentication provider provides the most flexibility in configuration for generic IdP use.
 
@@ -24,14 +24,14 @@ The list below contains Identity Provider-specific integrations. These can be us
 - [Google Workspace Authentication](/docs/security/authentication/googleapps-authentication)
 - [OpenID Connect Authentication](/docs/security/authentication/oidc-authentication)
 
-### Directory-based Authentication
+## Directory-based Authentication
 
 The list below contains Directory-based authentication mechanisms that are typically used with Octopus Server only. Please see our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information.
 
 - [Active Directory Authentication](/docs/security/authentication/active-directory)
 - [LDAP Authentication](/docs/security/authentication/ldap)
 
-### Local Authentication
+## Local Authentication
 
 The list below contains local authentication mechanisms that are convenient for evaluating, or initial configuration of Octopus Server. We recommend customers use IdP or directory-based authentication where possible, as local authentication does not support password expiry, configurable lockout policies, or password history enforcement.
 
