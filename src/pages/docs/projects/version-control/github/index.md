@@ -81,7 +81,7 @@ Whenever possible, Octopus uses a token scoped down to minimal permissions in ac
 
 ## GitHub Allow List
 
-The Octopus Deploy GitHub App can be used with the GitHub's allow list feature. To include the app in your allow list manually add the IP Address `172.182.208.68`. Information about adding IP addresses to GitHub's allow list can be found in [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#adding-an-allowed-ip-address) 
+The Octopus Deploy GitHub App can be used with the GitHub's allow list feature. To include the app in your allow list manually add the IP Address `172.182.208.68`. Information about adding IP addresses to GitHub's allow list can be found in [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#adding-an-allowed-ip-address)
 
 :::div{.hint}
 **Note:**
