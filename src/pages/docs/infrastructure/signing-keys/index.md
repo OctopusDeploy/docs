@@ -8,9 +8,9 @@ navOrder: 40
 hideInThisSection: true
 ---
 
-Octopus uses a Signing Key to sign the generated authorization request tokens used in the authentication flow for OpenID Connect. The public signing key is used by the resource server to validate the token supplied by Octopus.
+Octopus uses a signing key to sign the generated authorization request tokens used in the authentication flow for OpenID Connect. The public signing key is used by the resource server to validate the token supplied by Octopus.
 
-Depending on your security requirements, your public keys can either be hosted by your Octopus Deploy instance or delegated to a 3rd party.
+Depending on your security requirements, your public keys can either be hosted by your Octopus Deploy instance or delegated to a third party.
 
 ## Internally hosted
 
@@ -22,7 +22,7 @@ When externally hosting public keys, they will be available for download as a zi
 
 ### Rotating externally hosted keys
 
-Externally hosted public keys must be manually rotated. Upon clicking `Rotate`, a new set of keys will be downloaded as a zip file. The user will then need to upload the contents of this file to their chosen hosting provider. Octopus Deploy will poll the provided `OIDC Issuer URL` for the new keys. Once it successfully validates that the new keys are available at the issuer URL, it will start using the new signing key.
+Externally hosted public keys must be manually rotated. Upon clicking `Rotate`, a new set of keys will be downloaded as a zip file. The user will then need to upload the contents of this file to their chosen hosting provider. Octopus Deploy will poll the provided `OIDC Issuer URL` for the new keys. After it successfully validates that the new keys are available at the issuer URL, it will start using the new signing key.
 
 :::div{.info}
 The new key set will include your previous active key. This ensures that all OIDC services continue to function while the key rotation is underway. Octopus Deploy will start signing tokens with the new key only after validating that the new key is available at the issuer URL.
