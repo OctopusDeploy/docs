@@ -14,15 +14,15 @@ Depending on your security requirements, your public keys can either be hosted b
 
 ## Internally hosted
 
-When using internally hosted public keys, your Octopus Deploy instance will host and manage them. Octopus Deploy will automatically rotate and revoke the keys according to your preferences. Any tokens Octopus Deploy creates will include the current public address of your Octopus Deploy instance as the issuer. It is important to ensure your Octopus Deploy instance can be accessed at this address.
+When using internally hosted public keys, your Octopus Deploy instance will host and manage them. Octopus Deploy will automatically rotate and revoke the keys according to your preferences. Any tokens Octopus Deploy creates will include the current public address of your Octopus Deploy instance as the issuer. Ensure your Octopus Deploy instance is accessible at this address.
 
 ## Externally hosted
 
-When externally hosting public keys, they will be available for download as a zip file. The contents of this zip file can then be hosted on any hosting provider that publicly serves HTTPS. The location where the files are hosted must be provided as the `OIDC Issuer URL`. When Octopus Deploy creates a token, the issuer will point to the `OIDC Issuer URL`. While the location specified by the issuer URL must be publicly available, the Octopus Deploy instance can be isolated from public access.
+When externally hosting public keys, they will be available for download as a zip file. The contents of this zip file can then be hosted on any hosting provider that publicly serves HTTPS. The location where the files are hosted must be provided as the **OIDC Issuer URL**. When Octopus Deploy creates a token, the issuer will point to the **OIDC Issuer URL**. While the location specified by the issuer URL must be publicly available, the Octopus Deploy instance can be isolated from public access.
 
 ### Rotating externally hosted keys
 
-Externally hosted public keys must be manually rotated. Upon clicking `Rotate`, a new set of keys will be downloaded as a zip file. You will then need to upload the contents of this file to your chosen hosting provider. Octopus Deploy will poll the provided `OIDC Issuer URL` for the new keys. After it successfully validates that the new keys are available at the issuer URL, it will start using the new signing key.
+Externally hosted public keys must be manually rotated. Upon clicking **Rotate**, a new set of keys will be downloaded as a zip file. You will then need to upload the contents of this file to your chosen hosting provider. Octopus Deploy will poll the provided **OIDC Issuer URL** for the new keys. After it successfully validates that the new keys are available at the issuer URL, it will start using the new signing key.
 
 :::div{.info}
 The new key set will include your previous active key. This ensures that all OIDC services continue to function while the key rotation is underway. Octopus Deploy will start signing tokens with the new key only after validating that the new key is available at the issuer URL.
