@@ -27,23 +27,17 @@ Once Octopus Approvals is enabled, navigate to **Library ➜ Approvals ➜ Manag
 
 Navigate to **Library ➜ Approvals ➜ Manage Approvals** and select **Add Approval Policy**. Each policy includes the following settings:
 
-**Name**
-A short, memorable, unique name for this approval policy.
+- **Name**: A short, memorable, unique name for this approval policy.
+- **Description**: An optional description for this approval policy.
+- **Scope**: The projects and environments that this approval policy should apply to. Octopus will require approvals for deployments and runbook runs that match the selected project and environment combination.
 
-**Description**
-An optional description for this approval policy.
+  You can scope the approval policy by project and environment tags or individual project and environments.
 
-**Scope**
-The projects and environments that this approval policy should apply to. Octopus will require approvals for deployments and runbook runs that match the selected project and environment combination.
+- **Approvers**: Select the Octopus teams or individual users who are authorized to approve change requests under this policy. Any member of an approving team counts toward the minimum approvers total.
 
-You can scope the approval policy by project and environment tags or individual project and environments.
-**Approvers**
-Select the Octopus teams or individual users who are authorized to approve change requests under this policy. Any member of an approving team counts toward the minimum approvers total.
+  Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
 
-Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
-
-**Minimum approvers required**
-The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
+- **Minimum approvers required** The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
 
 ## How it works
 
@@ -72,9 +66,9 @@ Octopus surfaces change requests in several places so approvers can act on them 
 
 Navigate to **Library ➜ Approvals** for a complete list of all change requests. The list is divided into three tabs:
 
-- **Needs Approval** — change requests that are still pending the required number of approvals.
-- **Completed** — change requests that have been approved or rejected.
-- **All** — all change requests regardless of state.
+- **Needs Approval**: Change requests that are still pending the required number of approvals.
+- **Completed**: Change requests that have been approved or rejected.
+- **All**: All change requests regardless of state.
 
 Each row shows the **Change Request** number (as a link). Select the change request link to open the **Review change request** page, where you can see the full approval details and submit your approval or rejection.
 
