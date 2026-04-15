@@ -19,7 +19,7 @@ When a controlled deployment or runbook run triggers, Octopus automatically crea
 
 ## Getting started
 
-Enable Octopus Approvals on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and tick **Is Enabled** and save. `
+Enable Octopus Approvals on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and tick **Is Enabled** and save.
 
 Once Octopus Approvals is enabled, navigate to **Library ➜ Approvals ➜ Manage Approvals** to create your first approval policy, then configure scope to apply it to the relevant projects and environments.
 
@@ -50,7 +50,7 @@ When a deployment or runbook run triggers and it is in scope for an approval pol
 If multiple approval policies match, the policies are merged to a resultant policy.
 
 - Approvers are merged as a union of the approvers from each policy that has a matching scope.
-- The minimum approvers required will be equal to the highest value from all approval policy with matching scope.
+- The minimum approvers required will be equal to the highest value from all approval policies with matching scope.
 
 ### Change windows
 
@@ -58,7 +58,7 @@ Octopus supports change windows. Change windows are scheduled time periods durin
 
 ### Rejection
 
-If any designated approver rejects the change request, Octopus immediately terminates the task. You cannot retry a rejected task; you must trigger a new deployment or runbook run, which will create a fresh change request.
+If any designated approver rejects the change request, Octopus immediately terminates the task. You cannot retry a rejected task; you must trigger a deployment of a new release or runbook run, which will create a fresh change request.
 
 ## Reviewing change requests
 
@@ -76,13 +76,13 @@ Each row shows the **Change Request** number (as a link). Select the change requ
 
 ### Tasks Page
 
-Navigate to **Tasks** and select the **Needs Approval** tab for a filtered view of all tasks currently waiting on an approval. If the task is waiting for an Octopus Approval, the row will have button to review the change request associated with this task.
+Navigate to **Tasks** and select the **Needs Approval** tab for a filtered view of all tasks currently waiting on an approval. If the task is waiting for an Octopus Approval, the row will have a button to review the change request associated with this task.
 
 Select **Review** to open the drawer to view the change request details and submit your approval or rejection.
 
 ### Deployment or Runbook Run Page
 
-When viewing a deployment or runbook run is blocked on an Octopus Approval, a warning callout appears at the top of the task page:
+When a deployment or runbook run is blocked on an Octopus Approval, a warning callout appears at the top of the task page:
 
 > **Approval needed to continue this deployment**
 > This deployment is blocked by change request OCT-n and requires approval from N approvers.
@@ -91,6 +91,6 @@ Select **Review** to open the drawer to view the change request details and subm
 
 ### Release Page
 
-When viewing a release, under **Progression** you will see a list of deployments to the environments in your lifecycle and lifecycle phases. If a deployment to an environment is blocked on a Octopus Approval, the environment will have a button to review the change request associated with this task.
+When viewing a release, under **Progression** you will see a list of deployments to the environments in your lifecycle and lifecycle phases. If a deployment to an environment is blocked on an Octopus Approval, the environment will have a button to review the change request associated with this task.
 
 Select **Review** to open the drawer to view the change request details and submit your approval or rejection.
