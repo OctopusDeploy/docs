@@ -41,6 +41,8 @@ Navigate to **Library ➜ Approvals ➜ Manage Approvals** and select **Add Appr
 
 ## How it works
 
+Octopus will generate a change request depending on the configured approval policies. If the required number of approvals is reached, the deployment will continue according to change windows. If the change request is rejected, the task is terminated.
+
 ### Change request creation
 
 When a deployment or runbook run triggers and it is in scope for an approval policy, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`). Octopus immediately pauses execution and displays the change request status in the task log.
