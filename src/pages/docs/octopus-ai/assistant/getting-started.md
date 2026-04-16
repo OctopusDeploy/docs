@@ -29,3 +29,15 @@ Cloud instances with the `IP address allow list` feature activated will need to 
 :::div{.warning}
 It is not possible to integrate Octopus AI Assistant with an on-premises Octopus instance that cannot accept HTTP requests from this public IP address.
 :::
+
+## Restricting all outbound network access
+
+A subset of features provided by the Chrome Extension, such as some community dashboards, can operate without any external network access.
+
+To prevent the Chrome Extension from making any outbound requests, set the `Site access` option to `On specific sites` and add the address of your Octopus instance:
+
+![Chrome extension settings](/docs/img/octopus-ai/assistant/restrict-access.png)
+
+:::div{.warning}
+Restricting network access will prevent most features of the AI Assistant from working correctly. This setting is intended to be used for organizations that wish to use community dashboards and must prevent external network access.
+:::

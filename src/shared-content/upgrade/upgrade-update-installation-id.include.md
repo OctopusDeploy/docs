@@ -1,4 +1,8 @@
-### Update the Instance ID
+### Update the Instance ID {#update-the-instance-id}
+
+:::div{.warning}
+**You must update the Installation ID after cloning.** Failing to do so means your cloned instance will report telemetry under the same ID as your original instance. This corrupts our usage data and prevents us from accurately understanding how many installations exist. Please do not skip this step.
+:::
 
 Cloning an instance includes the unique Installation ID of your original instance. This ID is used to identify the instance by a few integrations and sending telemetry reports.
 
@@ -23,9 +27,9 @@ PRINT 'The old Installation Id is ' + @oldguid + ' - Save this value'
 PRINT 'The new Installation Id will be ' + @newguid
 
 IF @dryRun = 1
-	PRINT 'This is a dry run, no update is occurring. Set @dryrun to 0 to update the Installation Id.'
+    PRINT 'This is a dry run, no update is occurring. Set @dryrun to 0 to update the Installation Id.'
 ELSE
-	PRINT 'The Installation Id is being updated. Restart your Octopus Server service for this change to take effect.'
+    PRINT 'The Installation Id is being updated. Restart your Octopus Server service for this change to take effect.'
 
 UPDATE dbo.Configuration
 SET [JSON] = @config
