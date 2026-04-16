@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-30
+modDate: 2026-04-16
 title: Running a Runbook
 description: Step by step guide on how to run a runbook in Octopus Deploy.
 navOrder: 50
@@ -33,6 +33,7 @@ The next step will cover [how to configure and use variables in runbooks](/docs/
 
 For further reading on running a Runbook please see:
 
+- [Running a runbook](/docs/runbooks/running-a-runbook)
 - [Runbook vs Deployments](/docs/runbooks/runbooks-vs-deployments)
 - [Runbook Documentation](/docs/runbooks)
 - [Runbook Examples](/docs/runbooks/runbook-examples)
