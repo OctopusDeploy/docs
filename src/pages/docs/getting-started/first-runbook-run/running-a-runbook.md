@@ -18,8 +18,8 @@ This screen provides the details of the Runbook you are about to run.
 ![run runbook basic options](/docs/img/getting-started/first-runbook-run/images/run-runbook-basic-options.png)
 :::
 
-2. Select an environment.
-3. Click **RUN**.
+1. Select an environment.
+1. Click **RUN**.
 
 :::figure
 ![run runbook results](/docs/img/getting-started/first-runbook-run/images/run-hello-runbook-results.png)
@@ -29,7 +29,7 @@ Because we didn't define any deployment targets for the target environment, Octo
 
 The next step will cover [how to configure and use variables in runbooks](/docs/getting-started/first-runbook-run/runbook-specific-variables).
 
-**Further Reading**
+## Further reading
 
 For further reading on running a Runbook please see:
 
