@@ -66,8 +66,33 @@ const search =
 const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
 const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+const pagePath = accelerator.urlFormatter.formatAddress(Astro.url.pathname);
 
 const showSearch = !isSearchPage;
+const isRestApiPage = pagePath.startsWith('/docs/octopus-rest-api/');
+const isRestApiCliPage = pagePath.startsWith('/docs/octopus-rest-api/cli/');
+const isRestApiExamplePage = pagePath.startsWith('/docs/octopus-rest-api/examples/');
+const pagefindContentType = isRestApiCliPage
+  ? 'cli-reference'
+  : isRestApiExamplePage
+    ? 'api-example'
+    : isRestApiPage
+      ? 'api-reference'
+      : 'guide';
+const pagefindBodyWeight = isRestApiCliPage
+  ? '0.55'
+  : isRestApiExamplePage
+    ? '0.75'
+    : isRestApiPage
+      ? '0.9'
+      : '1.6';
+const pagefindTitleWeight = isRestApiCliPage
+  ? '0.75'
+  : isRestApiExamplePage
+    ? '0.9'
+    : isRestApiPage
+      ? '1'
+      : '3';
 ---
 
 <html dir={textDirection} lang={lang} class="initial">
@@ -88,15 +113,25 @@ const showSearch = !isSearchPage;
           lang={lang}
           breadcrumbs={breadcrumbs}
         />
-        <article itemscope itemtype="https://schema.org/Article">
+        <article
+          itemscope
+          itemtype="https://schema.org/Article"
+          data-pagefind-meta={`content_type:${pagefindContentType}`}
+        >
+          <div data-pagefind-body data-pagefind-weight={pagefindBodyWeight}>
           <ArticleHeader
             icon={icon}
             lang={lang}
+            pagefindWeight={pagefindTitleWeight}
             subtitle={subtitle}
             title={title}
           />
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <slot />
+            {metaImage && <meta itemprop="image" content={metaImage.src} />}
+          </div>
+          </div>
+          <div data-pagefind-ignore>
             <Feedback
               frontmatter={frontmatter}
               headings={headings}
@@ -119,7 +154,6 @@ const showSearch = !isSearchPage;
               headings={headings}
               lang={lang}
             />
-            {metaImage && <meta itemprop="image" content={metaImage.src} />}
           </div>
         </article>
       </main>

@@ -2,141 +2,198 @@
 
 import { qs } from './modules/query.js';
 import { raiseEvent } from './modules/events.js';
-import { contains, sanitise, explode, highlight } from './modules/string.js';
-import { stemmer } from './modules/stemmer.js';
+import { explode, highlight } from './modules/string.js';
 
 // @ts-ignore
 const f = window.site_features ?? {};
 
 /**
- *
  * @param {string[]} settings
  * @param {string} option
- * @returns
+ * @returns {boolean}
  */
 function enabled(settings, option) {
   return settings && settings.includes(option);
 }
 
 /**
- *
- * @param {any} value
- * @param {number} index
- * @param {any[]} array
- * @returns
+ * @param {string | null | undefined} value
+ * @returns {string}
  */
-function unique(value, index, array) {
-  return array.indexOf(value) === index;
+function normaliseQuery(value) {
+  return (value ?? '')
+    .trim()
+    .replace(/\.(?=\s|$)/g, ' ')
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
 }
 
 /**
-@typedef {
-    {
-        text: string;
-        safeText: string;
-        slug: string;
-    }
-} Heading
-
-@typedef {
-    {
-        foundWords: number;
-        foundTerms: string[];
-        score: number;
-        depth: number;
-        title: string;
-        keywords: string;
-        safeTitle: string;
-        description: string;
-        safeDescription: string;
-        headings: Heading[];
-        tags: string[];
-        url: string;
-        date: string;
-        matchedHeadings: Heading[];
-    }
-}  SearchEntry
-
-@typedef {
-    {
-        [ix: string]: string
-    }
-} Synonyms
+ * @param {string} query
+ * @returns {string[]}
  */
+function queryTerms(query) {
+  const terms = explode(query);
+  const expanded = [];
+
+  terms.forEach((term) => {
+    expanded.push(term);
+
+    if (term.includes('.')) {
+      expanded.push(...term.split('.').filter(Boolean));
+    }
+  });
+
+  return [...new Set(expanded)];
+}
+
+/**
+ * @param {string} url
+ * @returns {URL}
+ */
+function toUrl(url) {
+  if (/^https?:\/\//.test(url)) {
+    return new URL(url);
+  }
+
+  const absoluteUrl = (url.startsWith('/') ? url : `/${url}`).replace(
+    /^\/docs\/docs\//,
+    '/docs/'
+  );
+  return new URL(absoluteUrl, window.location.origin);
+}
+
+/**
+ * @param {URL} address
+ * @returns {string}
+ */
+function toDisplayUrl(address) {
+  return address.host === window.location.host
+    ? address.pathname + address.search + address.hash
+    : address.toString();
+}
+
+/**
+ * @param {URL} address
+ * @returns {HTMLDivElement}
+ */
+function buildPath(address) {
+  const path = document.createElement('div');
+  path.className = 'result-path';
+
+  const segments = address.pathname.split('/').filter(Boolean);
+
+  segments.forEach((segment, index) => {
+    const words = segment.replace(/-/g, ' ').split(' ');
+    const processedSegment = words
+      .map((word, wordIndex) =>
+        wordIndex === 0
+          ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          : word.toLowerCase()
+      )
+      .join(' ');
+
+    const segmentSpan = document.createElement('span');
+    segmentSpan.className = 'result-path__segment';
+    segmentSpan.textContent = processedSegment;
+    path.appendChild(segmentSpan);
+
+    if (index < segments.length - 1) {
+      const svgIcon = document.createElement('span');
+      svgIcon.className = 'result-path__icon';
+      svgIcon.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+          <path d="M1 9L5 5L1 1" stroke="#7C98B4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+      path.appendChild(svgIcon);
+    }
+  });
+
+  return path;
+}
 
 function initializeSearch() {
   const siteSearchInput = qs('[data-site-search-query]');
   const siteSearchWrapper = qs('[data-site-search-wrapper]');
   const siteSearchElement = qs('[data-site-search]');
-  const siteSearchResults = qs('[data-site-search-results');
+  const siteSearchResults = qs('[data-site-search-results]');
   const removeSearchButton = qs('[data-site-search-remove]');
 
-  /** @type {SearchEntry[]} */
-  var haystack = [];
-  var currentQuery = '';
-  var dataUrl = siteSearchElement.dataset.sourcedata;
+  if (
+    siteSearchInput == null ||
+    siteSearchWrapper == null ||
+    siteSearchElement == null ||
+    siteSearchResults == null ||
+    removeSearchButton == null
+  ) {
+    return;
+  }
 
-  // Legacy scoring
-  var scoring = {
-    depth: 5,
-    phraseTitle: 60,
-    phraseHeading: 20,
-    phraseDescription: 20,
-    termTitle: 40,
-    termHeading: 15,
-    termDescription: 15,
-    termTags: 15,
-    termKeywords: 15,
-  };
+  const pagefindModulePath =
+    siteSearchElement.dataset.pagefindPath ?? '/pagefind/pagefind.js';
 
-  // Found word scoring
-  const scores = {
-    titleExact: 20,
-    titleContains: 15,
-    headingContains: 10,
-    contentContains: 1,
-  };
+  /** @type {Promise<any> | null} */
+  let pagefindModulePromise = null;
+  /** @type {any[] | null} */
+  let currentResults = null;
+  let currentQuery = '';
+  let scrolled = false;
+  let debounceTimer = 0;
 
-  var ready = false;
-  var scrolled = false;
-
-  siteSearchInput.addEventListener('focus', () => activateInput());
-
-  // Close the dropdown upon clicking outside the search
-  document.addEventListener('click', function (e) {
-    if (
-      !siteSearchElement.contains(e.target) &&
-      !siteSearchResults.contains(e.target)
-    ) {
-      closeDropdown();
-
-      const duration = getComputedStyle(siteSearchWrapper).getPropertyValue(
-        '--search-dropdown-duration'
-      );
-
-      // Convert duration to milliseconds for setTimeout
-      const durationMs =
-        parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
-
-      setTimeout(() => {
-        deactivateInput();
-      }, durationMs);
+  async function getPagefind() {
+    if (pagefindModulePromise == null) {
+      pagefindModulePromise = import(pagefindModulePath);
     }
-  });
 
-  // Reopen the dropdown upon clicking the input after it has been closed
-  siteSearchInput.addEventListener('click', () => {
-    if (siteSearchInput.value.trim() !== '') {
-      activateInput();
-      openDropdown();
+    return pagefindModulePromise;
+  }
+
+  /**
+   * Softly demote REST API reference pages for broad documentation queries.
+   * Exact API-oriented queries keep Pagefind's natural ordering.
+   * @param {any[]} results
+   * @param {string[]} terms
+   * @param {string} query
+   * @returns {any[]}
+   */
+  function prioritiseResults(results, terms, query) {
+    const isReferenceQuery = terms.some((term) =>
+      ['api', 'apis', 'cli', 'command', 'commands', 'rest'].includes(term)
+    );
+    const isExecutableQuery =
+      /\w\.\w/.test(query) ||
+      terms.some((term) => term.endsWith('exe') || term.includes('.exe'));
+
+    if (isReferenceQuery && !isExecutableQuery) {
+      return results;
     }
-  });
 
-  // Clear the search input
-  removeSearchButton.addEventListener('click', () => clearInput());
+    /** @param {string} url */
+    function priority(url) {
+      const pathname = toUrl(url).pathname;
 
-  // Dropdown accessibility controls
-  document.addEventListener('keydown', handleDropdownKeyboardNavigation);
+      if (isExecutableQuery && pathname.includes('.exe-command-line/')) {
+        return -2;
+      }
+
+      if (pathname.startsWith('/docs/octopus-rest-api/cli/')) {
+        return 3;
+      }
+
+      if (pathname.startsWith('/docs/octopus-rest-api/examples/')) {
+        return 2;
+      }
+
+      if (pathname.startsWith('/docs/octopus-rest-api/')) {
+        return 1;
+      }
+
+      return 0;
+    }
+
+    return [...results].sort((a, b) => priority(a.url) - priority(b.url));
+  }
 
   function activateInput() {
     if (siteSearchWrapper.classList.contains('is-active')) return;
@@ -160,7 +217,6 @@ function initializeSearch() {
           '--search-dropdown-height'
         )
       );
-      // Convert vh to pixels
       const dropdownHeight =
         window.innerHeight * (dropdownHeightPercentage / 100) + 32;
       const siteSearchElementRect = siteSearchElement.getBoundingClientRect();
@@ -169,14 +225,11 @@ function initializeSearch() {
 
       if (offsetFromBottomToElement < dropdownHeight) {
         document.body.style.overflow = '';
-
-        // Scroll to the siteSearchElement
         siteSearchElement.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
         });
 
-        // Delay the overflow to allow for smooth scrolling
         setTimeout(() => {
           document.body.style.overflow = 'hidden';
         }, 300);
@@ -191,17 +244,18 @@ function initializeSearch() {
   function clearInput() {
     closeDropdown();
     siteSearchInput.value = '';
+    siteSearchResults.innerHTML = '';
+    currentQuery = '';
+    currentResults = null;
     siteSearchInput.focus();
   }
 
   function handleDropdownKeyboardNavigation(e) {
-    // Proceed only if search dropdown is active
     if (!siteSearchWrapper.classList.contains('is-active')) return;
 
     if (e.key === 'Escape') {
       closeDropdown();
       deactivateInput();
-
       return;
     }
 
@@ -214,464 +268,207 @@ function initializeSearch() {
         );
 
       if (e.shiftKey && document.activeElement === firstElement) {
-        // Shift + Tab: Move focus to the last element if the first element is currently focused
         e.preventDefault();
         if (lastElement) lastElement.focus();
       } else if (!e.shiftKey && document.activeElement === lastElement) {
-        // Tab: Move focus to the first element if the last element is currently focused
         e.preventDefault();
         firstElement.focus();
       }
     }
   }
 
-  /** @type{Synonyms | null} */
-  var _synonyms = null;
-
   /**
-   * Gets the list of synonyms if they exist
-   * @returns { Promise<Synonyms> }
+   * @param {any[]} results
+   * @param {string[]} terms
+   * @param {number} numberOfResults
+   * @param {string} cleanQuery
    */
-  async function getSynonyms() {
-    if (_synonyms != null) {
-      return _synonyms;
-    }
+  function renderResults(results, terms, numberOfResults, cleanQuery) {
+    const list = document.createElement('ul');
+    list.className = 'site-search-results__list';
 
-    try {
-      const synonymsModule = await import('./synonyms.js');
-      _synonyms = synonymsModule.synonyms;
-    } catch {
-      _synonyms = {};
-    }
+    results.slice(0, numberOfResults).forEach((result) => {
+      const url = toUrl(result.url);
+      const title = result.meta?.title ?? result.url;
+      const li = document.createElement('li');
+      li.classList.add('site-search-results__item');
 
-    return _synonyms ?? {};
-  }
+      const listElementWrapper = document.createElement('a');
+      listElementWrapper.href = toDisplayUrl(url);
+      listElementWrapper.className = 'result-wrapper';
 
-  /**
-   * Replaces synonyms
-   * @param {string[]} queryTerms
-   * @returns {Promise<string[]>}
-   */
-  async function replaceSynonyms(queryTerms) {
-    const synonyms = await getSynonyms();
+      const listElementTitle = document.createElement('span');
+      listElementTitle.className = 'result-title';
+      listElementTitle.innerHTML = highlight(title, terms);
 
-    for (let i = 0; i < queryTerms.length; i++) {
-      const term = queryTerms[i];
-      if (synonyms[term] != null) {
-        if (synonyms[term].length === 0) {
-          // @ts-ignore
-          queryTerms[i] = null;
-        } else {
-          const synonym = synonyms[term].split(' ');
-          for (let s of synonym) {
-            queryTerms.push(s);
+      const listElementDescription = document.createElement('p');
+      listElementDescription.className = 'result-description';
+      listElementDescription.innerHTML = result.excerpt ?? '';
+
+      listElementWrapper.appendChild(buildPath(url));
+      listElementWrapper.appendChild(listElementTitle);
+      listElementWrapper.appendChild(listElementDescription);
+      li.appendChild(listElementWrapper);
+
+      if (
+        enabled(f.search, 'headings') &&
+        Array.isArray(result.sub_results) &&
+        result.sub_results.length > 1
+      ) {
+        const headings = document.createElement('ul');
+        headings.className = 'result-headings';
+        headings.tabIndex = 0;
+
+        result.sub_results.slice(1, 4).forEach((subResult) => {
+          if (!subResult?.title || !subResult?.url) {
+            return;
           }
+
+          const item = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = toDisplayUrl(toUrl(subResult.url));
+          link.innerHTML = highlight(subResult.title, terms);
+          item.appendChild(link);
+          headings.append(item);
+        });
+
+        if (headings.children.length > 0) {
+          li.appendChild(headings);
         }
       }
+
+      list.appendChild(li);
+    });
+
+    siteSearchResults.innerHTML = '';
+    siteSearchResults.appendChild(list);
+
+    if (results.length === 0) {
+      const empty = document.createElement('h4');
+      empty.classList.add('search-results__heading');
+      empty.innerHTML = siteSearchResults.dataset.emptytitle || 'No Results';
+      siteSearchResults.appendChild(empty);
+    } else if (results.length > numberOfResults) {
+      const more = document.createElement('button');
+      more.className = 'show-more';
+      more.type = 'button';
+      more.innerHTML = 'See more';
+      more.addEventListener('click', (e) => {
+        e.stopPropagation();
+        renderResults(results, terms, numberOfResults + 12, cleanQuery);
+      });
+      siteSearchResults.appendChild(more);
     }
 
-    return queryTerms.filter((qt) => qt != null);
+    const address = window.location.href.split('?')[0];
+    const nextAddress =
+      cleanQuery.length > 0
+        ? address + '?q=' + encodeURIComponent(cleanQuery)
+        : address;
+
+    window.history.pushState({}, '', nextAddress);
+    raiseEvent('searched', { search: cleanQuery });
   }
 
   /**
-   * Search term `s` and number of results `r`
-   * @param {string} s
-   * @param {number|null} [r=12]
-   * @returns
+   * @param {string} query
    */
-  async function search(s, r) {
-    const numberOfResults = r ?? 12;
-
-    // Add 'is-active' class when search is performed
-    if (s && s.trim().length > 0) {
-      activateInput();
-      openDropdown();
-    } else if (siteSearchElement.classList.contains('is-active')) {
-      // Remove 'is-active' class when search is cleared
-      closeDropdown();
-    }
-
-    /** @type {SearchEntry[]} */
-    let needles = [];
-
-    // Clean the input
-    const cleanQuery = sanitise(s);
+  async function search(query) {
+    const cleanQuery = normaliseQuery(query);
+    const terms = queryTerms(cleanQuery);
 
     if (currentQuery === cleanQuery) {
       return;
     }
 
     currentQuery = cleanQuery;
-    /** @type {string[]} */
-    const stemmedTerms = [];
-    const queryTerms = await replaceSynonyms(explode(currentQuery));
 
-    for (const term of queryTerms) {
-      const stemmed = stemmer(term);
-      if (stemmed !== term) {
-        stemmedTerms.push(stemmed);
-      }
+    if (cleanQuery.length === 0) {
+      closeDropdown();
+      siteSearchResults.innerHTML = '';
+      currentResults = null;
+      const address = window.location.href.split('?')[0];
+      window.history.pushState({}, '', address);
+      return;
     }
 
-    const allTerms = queryTerms.concat(stemmedTerms);
+    activateInput();
+    openDropdown();
 
-    cleanQuery.length > 0 &&
-      haystack.forEach((item) => {
-        item.foundWords = 0;
-        item.foundTerms = [];
-        item.score = 0;
-        item.matchedHeadings = [];
-
-        // The user searches for "Kitchen Sink"
-
-        // Part 1 - Phrase Matches, i.e. "Kitchen Sink"
-
-        // Title
-        if (item.safeTitle === currentQuery) {
-          item.foundWords += scores.titleExact;
-        }
-
-        if (contains(item.safeTitle, currentQuery)) {
-          item.score = item.score + scoring.phraseTitle;
-          item.foundWords += scores.titleContains;
-        }
-
-        // Headings
-        item.headings.forEach((c) => {
-          if (contains(c.safeText, currentQuery)) {
-            item.score = item.score + scoring.phraseHeading;
-            item.matchedHeadings.push(c);
-            item.foundWords += scores.headingContains;
-          }
-        });
-
-        // Description
-        if (contains(item.description, currentQuery)) {
-          item.score = item.score + scoring.phraseDescription;
-          item.foundWords += scores.contentContains;
-        }
-
-        // Part 2 - Term Matches, i.e. "Kitchen" or "Sink"
-
-        let foundWords = 0;
-        /** @type{string[]} */
-        let foundTerms = [];
-
-        allTerms.forEach((term) => {
-          let isTermFound = false;
-
-          // Title
-          if (contains(item.safeTitle, term)) {
-            item.score = item.score + scoring.termTitle;
-            item.foundWords += scores.headingContains / 2;
-            isTermFound = true;
-          }
-
-          // Headings
-          item.headings.forEach((c) => {
-            if (contains(c.safeText, term)) {
-              item.score = item.score + scoring.termHeading;
-              isTermFound = true;
-
-              if (
-                item.matchedHeadings.filter((h) => h.slug == c.slug).length == 0
-              ) {
-                item.matchedHeadings.push(c);
-              }
-            }
-          });
-
-          // Description
-          if (contains(item.description, term)) {
-            isTermFound = true;
-            item.score = item.score + scoring.termDescription;
-          }
-
-          // Tags
-          item.tags.forEach((t) => {
-            if (contains(t, term)) {
-              isTermFound = true;
-              item.score = item.score + scoring.termTags;
-            }
-          });
-
-          // Keywords
-          if (contains(item.keywords, term)) {
-            isTermFound = true;
-            item.score = item.score + scoring.termKeywords;
-          }
-
-          if (isTermFound) {
-            foundWords++;
-            foundTerms.push(term);
-          }
-        });
-
-        item.foundWords += foundWords;
-        item.foundTerms = item.foundTerms.concat(foundTerms).filter(unique);
-
-        if (item.score > 0) {
-          needles.push(item);
-        }
-      });
-
-    needles.forEach((n) => {
-      // Bonus points for shallow results, i.e. /features over /features/something/something
-
-      if (n.depth < 5) {
-        n.score += scoring.depth;
-        n.foundWords++;
-      }
-
-      if (n.depth < 4) {
-        n.score += scoring.depth;
-        n.foundWords++;
-      }
-    });
-
-    needles = needles.sort(function (a, b) {
-      if (b.foundTerms.length === a.foundTerms.length) {
-        if (b.foundWords === a.foundWords) {
-          return b.score - a.score;
-        }
-
-        return b.foundWords - a.foundWords;
-      }
-
-      return b.foundTerms.length - a.foundTerms.length;
-    });
-
-    console.log(needles);
-
-    const total = needles.reduce(function (accumulator, needle) {
-      return accumulator + needle.score;
-    }, 0);
-
-    const results = siteSearchResults;
-
-    const ul = document.createElement('ul');
-    ul.className = 'site-search-results__list';
-
-    const limit = Math.min(needles.length, numberOfResults);
-
-    // @ts-ignore
-    const siteUrl = new URL(site_url);
-
-    for (let i = 0; i < limit; i++) {
-      const needle = needles[i];
-
-      const address = new URL(needle.url);
-      const isSameHost = siteUrl.host == address.host;
-      const url = isSameHost ? address.pathname : needle.url;
-
-      const listElementWrapper = document.createElement('a');
-      listElementWrapper.href = url;
-      listElementWrapper.className = 'result-wrapper';
-
-      const listElementTitle = document.createElement('span');
-      // Only highlight user query terms, not stemmed terms
-      listElementTitle.innerHTML = highlight(needle.title, queryTerms);
-      listElementTitle.className = 'result-title';
-
-      const path = document.createElement('div');
-      path.className = 'result-path';
-
-      // Split the path into segments, filter out empty segments (in case of leading slash)
-      const segments = address.pathname.split('/').filter(Boolean);
-
-      segments.forEach((segment, index) => {
-        const words = segment.replace(/-/g, ' ').split(' ');
-        const processedSegment = words
-          .map((word, index) =>
-            index === 0
-              ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-              : word.toLowerCase()
-          )
-          .join(' ');
-
-        const segmentSpan = document.createElement('span');
-        segmentSpan.className = 'result-path__segment';
-        segmentSpan.textContent = processedSegment;
-        path.appendChild(segmentSpan);
-
-        if (index < segments.length - 1) {
-          const svgIcon = document.createElement('span');
-          svgIcon.className = 'result-path__icon';
-          svgIcon.innerHTML = `
-                      <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
-                          <path d="M1 9L5 5L1 1" stroke="#7C98B4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                  `;
-          path.appendChild(svgIcon);
-        }
-      });
-
-      const listElementDescription = document.createElement('p');
-      listElementDescription.className = 'result-description';
-      // Only highlight user query terms, not stemmed terms
-      listElementDescription.innerHTML = highlight(
-        needle.description,
-        queryTerms
+    try {
+      const pagefind = await getPagefind();
+      const searchResponse = await pagefind.search(cleanQuery);
+      currentResults = await Promise.all(
+        searchResponse.results.map((result) => result.data())
       );
+      currentResults = prioritiseResults(currentResults, terms, cleanQuery);
 
-      const li = document.createElement('li');
-      li.classList.add('site-search-results__item');
-      li.dataset.words = needle.foundWords.toString();
-      li.dataset.score = (
-        Math.round((needle.score / total) * 1000) / 1000
-      ).toString();
-      listElementWrapper.appendChild(path);
-      listElementWrapper.appendChild(listElementTitle);
-      listElementWrapper.appendChild(listElementDescription);
-      li.appendChild(listElementWrapper);
-
-      if (enabled(f.search, 'headings') && needle.matchedHeadings.length > 0) {
-        const headings = document.createElement('ul');
-        headings.className = 'result-headings';
-
-        headings.tabIndex = 0;
-
-        needle.matchedHeadings.forEach((h) => {
-          const item = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = url + '#' + h.slug;
-          // Only highlight user query terms, not stemmed terms
-          link.innerHTML = highlight(h.text, queryTerms);
-          item.appendChild(link);
-          headings.append(item);
-        });
-
-        li.appendChild(headings);
-      }
-
-      ul.appendChild(li);
+      renderResults(currentResults, terms, 12, cleanQuery);
+    } catch (error) {
+      console.log(error);
     }
-
-    let h4;
-    if (needles.length === 0) {
-      h4 = document.createElement('h4');
-      h4.classList.add('search-results__heading');
-      h4.innerHTML = results.dataset.emptytitle || 'No Results';
-    }
-
-    const more = document.createElement('button');
-    more.className = 'show-more';
-    more.type = 'button';
-    more.innerHTML = 'See more';
-    more.addEventListener('click', function (e) {
-      e.stopPropagation(); // Prevent the click from closing the dropdown
-      currentQuery = '';
-      const newTotal = numberOfResults + 12;
-      search(s, newTotal);
-    });
-
-    results.innerHTML = '';
-    results.appendChild(ul);
-    h4 && results.appendChild(h4);
-
-    if (needles.length > numberOfResults) {
-      results.appendChild(more);
-    }
-
-    const address = window.location.href.split('?')[0];
-    window.history.pushState(
-      {},
-      '',
-      address + '?q=' + encodeURIComponent(cleanQuery)
-    );
-    raiseEvent('searched', { search: s });
   }
 
-  /** @type {Number} */
-  var debounceTimer;
-
   function debounceSearch() {
-    var input = siteSearchInput;
-
-    if (input == null) {
-      throw new Error('Cannot find data-site-search-query');
-    }
-
-    // Words chained with . are combined, i.e. System.Text is "systemtext"
-    var s = input.value.replace(/\./g, '');
-
     window.clearTimeout(debounceTimer);
-    debounceTimer = window.setTimeout(function () {
-      if (ready) {
-        search(s);
-      }
+    debounceTimer = window.setTimeout(() => {
+      search(siteSearchInput.value);
     }, 400);
   }
 
-  fetch(dataUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      haystack = data;
-      ready = true;
+  siteSearchInput.addEventListener('focus', () => activateInput());
+  siteSearchInput.addEventListener('click', () => {
+    if (siteSearchInput.value.trim() !== '') {
+      activateInput();
+      openDropdown();
+    }
+  });
 
-      for (let i = 0; i < haystack.length; i++) {
-        const item = haystack[i];
-        item.safeTitle = sanitise(item.title);
-        item.tags = item.tags.map((t) => sanitise(t));
-        item.safeDescription = sanitise(item.description);
-        item.depth = item.url.match(/\//g)?.length ?? 0;
+  removeSearchButton.addEventListener('click', () => clearInput());
+  document.addEventListener('keydown', handleDropdownKeyboardNavigation);
 
-        item.headings.forEach((h) => (h.safeText = sanitise(h.text)));
-      }
+  document.addEventListener('click', (e) => {
+    if (
+      !siteSearchElement.contains(e.target) &&
+      !siteSearchResults.contains(e.target)
+    ) {
+      closeDropdown();
 
-      /** @type {HTMLFormElement} */
-      const siteSearch = siteSearchElement;
+      const duration = getComputedStyle(siteSearchWrapper).getPropertyValue(
+        '--search-dropdown-duration'
+      );
+      const durationMs =
+        parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
 
-      /** @type {HTMLInputElement} */
-      const siteSearchQuery = siteSearchInput;
+      setTimeout(() => {
+        deactivateInput();
+      }, durationMs);
+    }
+  });
 
-      if (siteSearch == null || siteSearchQuery == null) {
-        throw new Error('Cannot find #site-search or data-site-search-query');
-      }
+  siteSearchElement.addEventListener('submit', (e) => {
+    e.preventDefault();
+    debounceSearch();
+  });
 
-      siteSearch.addEventListener('submit', function (e) {
-        e.preventDefault();
-        debounceSearch();
-        return false;
-      });
+  siteSearchInput.addEventListener('keyup', function (e) {
+    e.preventDefault();
+    if (!scrolled) {
+      scrolled = true;
+      this.scrollIntoView(true);
+    }
+    debounceSearch();
+  });
 
-      siteSearchQuery.addEventListener('keyup', function (e) {
-        e.preventDefault();
-        if (!scrolled) {
-          scrolled = true;
-          this.scrollIntoView(true);
-        }
-        debounceSearch();
-        return false;
-      });
-
-      const params = new URLSearchParams(window.location.search);
-      if (params.has('q')) {
-        siteSearchQuery.value = params.get('q') ?? '';
-      }
-
-      for (let key of Object.keys(scoring)) {
-        if (params.has(`s_${key}`)) {
-          scoring[key] = parseInt(
-            params.get(`s_${key}`) ?? scoring[key].toString(),
-            10
-          );
-        }
-      }
-
-      debounceSearch();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('q')) {
+    siteSearchInput.value = params.get('q') ?? '';
+    debounceSearch();
+  }
 }
 
 if (document.readyState === 'loading') {
-  // Loading hasn't finished yet
   document.addEventListener('DOMContentLoaded', initializeSearch);
 } else {
-  // `DOMContentLoaded` has already fired
   initializeSearch();
 }

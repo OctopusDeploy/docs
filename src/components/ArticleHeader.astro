@@ -12,10 +12,11 @@ stats.start();
 type Props = {
   icon?: string | null;
   lang: string;
+  pagefindWeight?: string;
   subtitle?: string | null;
   title: string;
 };
-const { icon, lang, subtitle, title } = Astro.props satisfies Props;
+const { icon, lang, pagefindWeight, subtitle, title } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
@@ -24,7 +25,7 @@ const _ = Lang(lang);
 stats.stop();
 ---
 
-<header class="header">
+<header class="header" data-pagefind-weight={pagefindWeight}>
   {
     icon && (
       <div class="header__icon-wrapper">

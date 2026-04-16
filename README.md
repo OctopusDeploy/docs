@@ -112,6 +112,21 @@ Before merging to `main` it's possible you'd like to see your changes in a previ
 
 You can generate a static copy of the site using `pnpm build` and run it in a browser with `pnpm preview`.
 
+### Search build workflow
+
+The docs search index is now generated as part of the static build.
+
+- `pnpm build` runs `astro build` first, then runs Pagefind against the rendered HTML in `dist/`.
+- The Pagefind output is written to `dist/docs/pagefind/`.
+- The generated Pagefind assets are build artifacts and should not be committed.
+
+For local search testing:
+
+- Use `pnpm preview` to serve the current `dist/` output after you have already built the site.
+- Use `pnpm preview:pagefind` to rebuild the site, regenerate the Pagefind index, and serve the result in one command.
+
+Search relevance is driven by the rendered markup, not only page frontmatter. If you change templates or content components that add attributes such as `data-pagefind-body`, `data-pagefind-weight`, `data-pagefind-meta`, or `data-pagefind-ignore`, rebuild the site before checking search results.
+
 Note! We use *Sharp* to generate images. You may need to install a specific flavour of *Sharp* depending on your operating system. If you see an error, such as "Error: Could not load the "sharp" module using the linux-x64 runtime", you can follow the instruction on the [Sharp cross-platform page](https://sharp.pixelplumbing.com/install#cross-platform). You can also refer to [issue 2142](https://github.com/OctopusDeploy/docs/issues/2142).
 
 ## Astro hints and tips

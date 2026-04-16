@@ -30,7 +30,7 @@ function containsWord(string, search) {
  */
 function highlight(string, terms) {
   terms.forEach((term) => {
-    const regEx = new RegExp(term, 'ig');
+    const regEx = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig');
     const matches = string.match(regEx);
     if (matches) {
       string = string.replace(regEx, `<mark>${matches[0]}</mark>`);
