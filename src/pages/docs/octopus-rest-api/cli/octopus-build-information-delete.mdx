@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus build-information delete
 description: Delete a build information
-navOrder: 31
+navOrder: 32
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Delete a build information in Octopus Deploy
 
-```
+```text
 Usage:
   octopus build-information delete <id> [flags]
 
@@ -35,10 +35,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus build-information delete BuildInformation-1
-$ octopus build-info rm BuildInformation-1
-$ octopus build-info del --package-id ThePackage --version 1.2.3
+```bash
+octopus build-information delete BuildInformation-1
+octopus build-info rm BuildInformation-1
+octopus build-info del --package-id ThePackage --version 1.2.3
 
 
 ```

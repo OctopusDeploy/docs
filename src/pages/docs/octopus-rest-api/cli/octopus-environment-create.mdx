@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus environment create
 description: Create an environment
-navOrder: 69
+navOrder: 70
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a environment in Octopus Deploy
 
-```
+```text
 Usage:
   octopus environment create [flags]
 
@@ -21,6 +21,7 @@ Flags:
       --allow-dynamic-infrastructure   Allow dynamic infrastructure
   -d, --description string             Description of the environment
   -n, --name string                    Name of the environment
+  -t, --tag stringArray                Tag to apply to environment, must use canonical name: <tag_set>/<tag_name>
       --use-guided-failure             Use guided failure mode by default
 
 
@@ -36,8 +37,8 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus environment create
+```bash
+octopus environment create
 
 ```
 

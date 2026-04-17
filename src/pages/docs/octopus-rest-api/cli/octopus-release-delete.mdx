@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus release delete
 description: Delete a release
-navOrder: 112
+navOrder: 119
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Delete a release in Octopus Deploy
 
-```
+```text
 Usage:
   octopus release delete [flags]
 
@@ -34,10 +34,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus release delete myProject 2.0
-$ octopus release delete --project myProject --version 2.0
-$ octopus release rm "Other Project" -v 2.0
+```bash
+octopus release delete myProject 2.0
+octopus release delete --project myProject --version 2.0
+octopus release rm "Other Project" -v 2.0
 
 
 ```

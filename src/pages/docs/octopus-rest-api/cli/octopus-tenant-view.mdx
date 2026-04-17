@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus tenant view
 description: View a tenant
-navOrder: 146
+navOrder: 153
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a tenant in Octopus Deploy
 
-```
+```text
 Usage:
   octopus tenant view {<name> | <id>} [flags]
 
@@ -30,9 +30,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus tenant view Tenants-1
-$ octopus tenant view 'Tenant'
+```bash
+octopus tenant view Tenants-1
+octopus tenant view 'Tenant'
 
 
 ```

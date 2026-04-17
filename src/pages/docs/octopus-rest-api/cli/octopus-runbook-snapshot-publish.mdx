@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus runbook snapshot publish
 description: Publish a runbook snapshot
-navOrder: 125
+navOrder: 132
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Publish a runbook snapshot in Octopus Deploy
 
-```
+```text
 Usage:
   octopus runbook snapshot publish [flags]
 
@@ -32,8 +32,8 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus runbook snapshot publish --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
+```bash
+octopus runbook snapshot publish --project MyProject --runbook "Rebuild DB Indexes" --snapshot "Snapshot 40C9ENM"
 
 
 ```
