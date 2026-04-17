@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus release create
 description: Create a release
-navOrder: 111
+navOrder: 118
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -31,6 +31,8 @@ Flags:
       --git-resource stringArray    Git reference for a specific Git resource.
                                     Format as {step}:{git-ref}, {step}:{git-resource-name}:{git-ref}
                                     You may specify this multiple times
+      --custom-field stringArray    Custom field value to set on the release.
+                                    Format as {name}:{value}. You may specify multiple times
 
 
 Global Flags:

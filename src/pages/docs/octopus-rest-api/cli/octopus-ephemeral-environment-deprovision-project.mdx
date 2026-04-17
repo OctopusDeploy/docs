@@ -1,0 +1,42 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2026-04-17
+title: octopus ephemeral-environment deprovision-project
+description: Deprovision an ephemeral environment for a project
+navOrder: 77
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Deprovision an ephemeral environment in Octopus Deploy for a specific project
+
+```
+Usage:
+  octopus ephemeral-environment deprovision-project [flags]
+
+Flags:
+  -n, --name string      Name of the environment
+  -p, --project string   Name of the project
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```
+$ octopus ephemeral-environment deprovision-project
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

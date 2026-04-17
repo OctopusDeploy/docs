@@ -51,6 +51,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus account username](/docs/octopus-rest-api/cli/octopus-account-username)**:  Manage Username/Password accounts.
 - **[octopus account username create](/docs/octopus-rest-api/cli/octopus-account-username-create)**:  Create a Username/Password account.
 - **[octopus account username list](/docs/octopus-rest-api/cli/octopus-account-username-list)**:  List Username/Password accounts.
+- **[octopus api](/docs/octopus-rest-api/cli/octopus-api)**:  Execute a raw API GET request.
 - **[octopus build-information](/docs/octopus-rest-api/cli/octopus-build-information)**:  Manage build information.
 - **[octopus build-information bulk-delete](/docs/octopus-rest-api/cli/octopus-build-information-bulk-delete)**:  Bulk delete build information.
 - **[octopus build-information delete](/docs/octopus-rest-api/cli/octopus-build-information-delete)**:  Delete a build information.
@@ -94,6 +95,11 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus environment create](/docs/octopus-rest-api/cli/octopus-environment-create)**:  Create an environment.
 - **[octopus environment delete](/docs/octopus-rest-api/cli/octopus-environment-delete)**:  Delete an environment.
 - **[octopus environment list](/docs/octopus-rest-api/cli/octopus-environment-list)**:  List environments.
+- **[octopus environment tag](/docs/octopus-rest-api/cli/octopus-environment-tag)**:  Override tags for an environment.
+- **[octopus ephemeral-environment](/docs/octopus-rest-api/cli/octopus-ephemeral-environment)**:  Manage ephemeral environments.
+- **[octopus ephemeral-environment create](/docs/octopus-rest-api/cli/octopus-ephemeral-environment-create)**:  Create an ephemeral environment.
+- **[octopus ephemeral-environment deprovision-environment](/docs/octopus-rest-api/cli/octopus-ephemeral-environment-deprovision-environment)**:  Deprovision an environment.
+- **[octopus ephemeral-environment deprovision-project](/docs/octopus-rest-api/cli/octopus-ephemeral-environment-deprovision-project)**:  Deprovision an ephemeral environment for a project.
 - **[octopus login](/docs/octopus-rest-api/cli/octopus-login)**:  Login to Octopus.
 - **[octopus logout](/docs/octopus-rest-api/cli/octopus-logout)**:  Logout of Octopus.
 - **[octopus package](/docs/octopus-rest-api/cli/octopus-package)**:  Manage packages.
@@ -118,6 +124,7 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus project disconnect](/docs/octopus-rest-api/cli/octopus-project-disconnect)**:  Disconnect a tenant from a project.
 - **[octopus project enable](/docs/octopus-rest-api/cli/octopus-project-enable)**:  Enable a project.
 - **[octopus project list](/docs/octopus-rest-api/cli/octopus-project-list)**:  List projects.
+- **[octopus project tag](/docs/octopus-rest-api/cli/octopus-project-tag)**:  Override tags for a project.
 - **[octopus project variables](/docs/octopus-rest-api/cli/octopus-project-variables)**:  Manage project variables.
 - **[octopus project variables create](/docs/octopus-rest-api/cli/octopus-project-variables-create)**:  Create a variable for a project.
 - **[octopus project variables delete](/docs/octopus-rest-api/cli/octopus-project-variables-delete)**:  Delete a project variable.

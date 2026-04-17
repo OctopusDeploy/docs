@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus runbook run
 description: Run runbooks in Octopus Deploy
-navOrder: 121
+navOrder: 128
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -17,6 +17,7 @@ Usage:
 Flags:
   -p, --project string                   Name or ID of the project to run the runbook from
   -n, --name string                      Name of the runbook to run
+      --runbook-tag stringArray          Run all runbooks matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name'. Mutually exclusive with --name.
   -e, --environment stringArray          Run in this environment (can be specified multiple times)
       --tenant stringArray               Run for this tenant (can be specified multiple times)
       --tenant-tag stringArray           Run for tenants matching this tag (can be specified multiple times). Format is 'Tag Set Name/Tag Name', such as 'Regions/South'.

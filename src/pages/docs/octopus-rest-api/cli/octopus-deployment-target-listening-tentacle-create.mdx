@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus deployment-target listening-tentacle create
 description: Create a Listening Tentacle deployment target
-navOrder: 57
+navOrder: 58
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -22,7 +22,8 @@ Flags:
       --machine-policy string   The machine policy for the deployment target to use, only required if not using the Default Machine Policy
   -n, --name string             A short, memorable, unique name for this Listening Tentacle.
       --proxy string            Select whether to use a proxy to connect to this Listening Tentacle. If omitted, will connect directly.
-      --role strings            Choose at least one role that this deployment target will provide.
+      --role strings            Choose at least one role that this deployment target will provide (use --tag for tag sets with validation).
+      --tag strings             Target tags in canonical format (TagSetName/TagName).
       --tenant strings          Associate the deployment target with tenants
       --tenant-tag strings      Associate the deployment target with tenant tags, should be in the format 'tag set name/tag name'
       --tenanted-mode string    
