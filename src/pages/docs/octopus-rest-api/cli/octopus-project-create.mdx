@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project create
 description: Create a project
-navOrder: 90
+navOrder: 96
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project create [flags]
 
@@ -20,6 +20,7 @@ Flags:
   -g, --group string                           Project group of the project
   -l, --lifecycle string                       Lifecycle of the project
       --process-vcs                            Use Config As Code for the project
+  -t, --tag stringArray                        Tag to apply to project, must use canonical name: <tag_set>/<tag_name>
       --git-url string                         Url of the Git repository for storing project configuration
       --git-branch string                      The default branch to use for Config As Code. Default is 'main'.
       --git-credentials string                 The Id or name of the Git credentials stored in Octopus
@@ -44,7 +45,7 @@ Global Flags:
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus project create
 $ octopus project create --process-vcs
 $ octopus project create --name 'Deploy web app' --lifecycle 'Default Lifecycle' --group 'Default Project Group'

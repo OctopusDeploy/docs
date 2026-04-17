@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus build-information bulk-delete
 description: Bulk delete build information
-navOrder: 30
+navOrder: 31
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Bulk delete build information in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus build-information bulk-delete [flags]
 
@@ -32,7 +32,7 @@ Global Flags:
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus build-information bulk-delete
 $ octopus build-info --package-id ThePackage
 $ octopus build-info --package-id ThePackage --version 1.0.0 --version 1.0.1

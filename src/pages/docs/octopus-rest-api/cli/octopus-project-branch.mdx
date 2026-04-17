@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project branch
 description: Manage project branches
-navOrder: 84
+navOrder: 90
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Manage project branches in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project branch [command]
 
@@ -33,7 +33,7 @@ Use "octopus project branch [command] --help" for more information about a comma
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus project branch list "Deploy Web App"
 $ octopus project branch create -p "Deploy Web App" --new-branch-name add-name-variable --base-branch refs/heads/main -
 

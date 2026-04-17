@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus tenant disconnect
 description: Disconnect a tenant from a project
-navOrder: 139
+navOrder: 146
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Disconnect a tenant from a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus tenant disconnect [flags]
 
@@ -32,7 +32,7 @@ Global Flags:
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus tenant disconnect
 $ octopus tenant disconnect --tenant "Test Tenant" --project "Deploy web site" --confirm
 

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project variables create
 description: Create a variable for a project
-navOrder: 97
+navOrder: 104
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a variable for a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project variables create [flags]
 
@@ -50,7 +50,7 @@ Global Flags:
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus project variable create
 $ octopus project variable create --project "Deploy Website" --name "variable name" --value "abc"
 $ octopus project variable create --name "variable name" --value "passwordABC" --type sensitive

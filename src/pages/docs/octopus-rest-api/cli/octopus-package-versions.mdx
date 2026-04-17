@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus package versions
 description: List versions of a package
-navOrder: 80
+navOrder: 86
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List versions of a package.
 
-```
+```bash
 Usage:
   octopus package versions [flags]
 
@@ -35,7 +35,7 @@ Global Flags:
 
 <SamplesInstance />
 
-```
+```bash
 $ octopus package versions --package SomePackage
 $ octopus package versions SomePackage --filter beta --limit 5
 $ octopus package show SomePackage -n 2
