@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus release deploy
 description: Deploy releases
-navOrder: 113
+navOrder: 120
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Deploy releases in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus release deploy [flags]
 
@@ -45,12 +45,12 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus release deploy  # fully interactive
-$ octopus release deploy --project MyProject --version 1.0 --environment Dev
-$ octopus release deploy --project MyProject --version 1.0 --tenant-tag Regions/East --tenant-tag Regions/South
-$ octopus release deploy -p MyProject --version 1.0 -e Dev --skip InstallStep --variable VarName:VarValue
-$ octopus release deploy -p MyProject --version 1.0 -e Dev --force-package-download --guided-failure true -f basic
+```bash
+octopus release deploy  # fully interactive
+octopus release deploy --project MyProject --version 1.0 --environment Dev
+octopus release deploy --project MyProject --version 1.0 --tenant-tag Regions/East --tenant-tag Regions/South
+octopus release deploy -p MyProject --version 1.0 -e Dev --skip InstallStep --variable VarName:VarValue
+octopus release deploy -p MyProject --version 1.0 -e Dev --force-package-download --guided-failure true -f basic
 
 
 ```

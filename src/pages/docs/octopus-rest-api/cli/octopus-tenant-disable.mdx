@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus tenant disable
 description: Disable a tenant
-navOrder: 138
+navOrder: 145
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Disable a tenant in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus tenant disable {<name> | <id>} [flags]
 
@@ -26,9 +26,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus tenant disable Tenants-1
-$ octopus tenant disable 'Tenant'
+```bash
+octopus tenant disable Tenants-1
+octopus tenant disable 'Tenant'
 
 
 ```

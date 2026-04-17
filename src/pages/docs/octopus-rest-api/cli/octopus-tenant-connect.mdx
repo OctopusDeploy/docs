@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus tenant connect
 description: Connect a tenant to a project
-navOrder: 135
+navOrder: 142
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Connect a tenant to a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus tenant connect [flags]
 
@@ -34,9 +34,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus tenant connect
-$ octopus tenant connect --tenant "Bobs Wood Shop" --project "Deploy web site" --environment "Production"
+```bash
+octopus tenant connect
+octopus tenant connect --tenant "Bobs Wood Shop" --project "Deploy web site" --environment "Production"
 
 
 ```

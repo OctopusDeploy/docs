@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project branch create
 description: Create a Git branch for a project
-navOrder: 85
+navOrder: 91
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a Git branch for a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project branch create [flags]
 
@@ -35,9 +35,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project branch create
-$ octopus project branch create --project "Deploy Website" --name branch-name --base-branch refs/heads/main
+```bash
+octopus project branch create
+octopus project branch create --project "Deploy Website" --name branch-name --base-branch refs/heads/main
 
 
 ```

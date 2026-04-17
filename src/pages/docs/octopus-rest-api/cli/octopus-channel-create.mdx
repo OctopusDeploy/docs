@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus channel create
 description: Create a channel
-navOrder: 36
+navOrder: 37
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a channel in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus channel create [flags]
 
@@ -34,9 +34,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus channel create
-$ octopus channel create --name "The Channel" --project "The Project" --lifecycle "Default Lifecycle" --default
+```bash
+octopus channel create
+octopus channel create --name "The Channel" --project "The Project" --lifecycle "Default Lifecycle" --default
 
 
 ```

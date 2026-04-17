@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus worker-pool static view
 description: View a static worker pool
-navOrder: 173
+navOrder: 180
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a static worker pool in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus worker-pool static view {<name> | <id>} [flags]
 
@@ -30,9 +30,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus worker-pool static view WorkerPools-3
-$ octopus worker-pool static view 'windows workers'
+```bash
+octopus worker-pool static view WorkerPools-3
+octopus worker-pool static view 'windows workers'
 
 
 ```

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus space view
 description: View a space
-navOrder: 130
+navOrder: 137
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a space in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus space view {<name> | <id>} [flags]
 
@@ -26,9 +26,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus space view 'Pattern - Blue-Green'
-$ octopus space view Spaces-302
+```bash
+octopus space view 'Pattern - Blue-Green'
+octopus space view Spaces-302
 
 
 ```

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus runbook list
 description: List runbooks
-navOrder: 120
+navOrder: 127
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List runbooks in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus runbook list [flags]
 
@@ -36,10 +36,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus runbook list SomeProject
-$ octopus runbook list --project SomeProject --limit 50 --filter SomeKeyword
-$ octopus runbook ls -p SomeProject -n 30 -q SomeKeyword
+```bash
+octopus runbook list SomeProject
+octopus runbook list --project SomeProject --limit 50 --filter SomeKeyword
+octopus runbook ls -p SomeProject -n 30 -q SomeKeyword
 
 
 ```

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus deployment-target ssh create
 description: Create a SSH deployment target
-navOrder: 64
+navOrder: 65
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a SSH deployment target in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus deployment-target ssh create [flags]
 
@@ -27,8 +27,9 @@ Flags:
       --platform string         The platform to use for the self-contained Calamari. Options are 'linux-x64', 'linux-arm64', 'linux-arm' or 'osx-x64'
       --port int                The port to connect to the SSH target on.
       --proxy string            Select whether to use a proxy to connect to this SSH target. If omitted, will connect directly.
-      --role strings            Choose at least one role that this deployment target will provide.
+      --role strings            Choose at least one role that this deployment target will provide (use --tag for tag sets with validation).
       --runtime string          The runtime to use to run Calamari on the SSH target. Options are 'self-contained' or 'mono'
+      --tag strings             Target tags in canonical format (TagSetName/TagName).
       --tenant strings          Associate the deployment target with tenants
       --tenant-tag strings      Associate the deployment target with tenant tags, should be in the format 'tag set name/tag name'
       --tenanted-mode string    
@@ -48,8 +49,8 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus deployment-target ssh create
+```bash
+octopus deployment-target ssh create
 
 ```
 

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project view
 description: View a project
-navOrder: 104
+navOrder: 111
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a project in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project view {<name> | <id> | <slug>} [flags]
 
@@ -30,10 +30,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project view 'Deploy Web App'
-$ octopus project view Projects-9000
-$ octopus project view deploy-web-app
+```bash
+octopus project view 'Deploy Web App'
+octopus project view Projects-9000
+octopus project view deploy-web-app
 
 
 ```

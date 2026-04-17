@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus package list
 description: List packages
-navOrder: 76
+navOrder: 82
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List packages in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus package list [flags]
 
@@ -34,10 +34,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus package list
-$ octopus package list --limit 50 --filter SomePackage
-$ octopus package ls -n 30 -q SomePackage
+```bash
+octopus package list
+octopus package list --limit 50 --filter SomePackage
+octopus package ls -n 30 -q SomePackage
 
 
 ```

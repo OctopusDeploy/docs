@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project variables update
 description: Update the value of a project variable
-navOrder: 102
+navOrder: 109
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Update the value of a project variable in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project variables update [flags]
 
@@ -42,13 +42,13 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project variable update
-$ octopus project variable update --name "variable name" --value "abc"
-$ octopus project variable update --name "variable name" --value "password"
-$ octopus project variable update --name "variable name" --unscoped
-$ octopus project variable update --name "variable name" --environment-scope test
-$ octopus project variable update -p "Deploy Website" --name "variable name" --value "updated" --git-ref refs/heads/main
+```bash
+octopus project variable update
+octopus project variable update --name "variable name" --value "abc"
+octopus project variable update --name "variable name" --value "password"
+octopus project variable update --name "variable name" --unscoped
+octopus project variable update --name "variable name" --environment-scope test
+octopus project variable update -p "Deploy Website" --name "variable name" --value "updated" --git-ref refs/heads/main
 
 
 ```

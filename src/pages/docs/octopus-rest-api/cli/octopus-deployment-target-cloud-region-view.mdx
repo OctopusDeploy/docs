@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus deployment-target cloud-region view
 description: View a Cloud Region deployment target
-navOrder: 49
+navOrder: 50
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a Cloud Region deployment target in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus deployment-target cloud-region view {<name> | <id>} [flags]
 
@@ -30,9 +30,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus deployment-target cloud-region view 'EU'
-$ octopus deployment-target cloud-region view Machines-100
+```bash
+octopus deployment-target cloud-region view 'EU'
+octopus deployment-target cloud-region view Machines-100
 
 
 ```

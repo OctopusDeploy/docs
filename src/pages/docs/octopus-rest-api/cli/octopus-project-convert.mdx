@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-17
 title: octopus project convert
 description: Convert a project to use Config As Code
-navOrder: 89
+navOrder: 95
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Convert a project to use Config As Code in Octopus Deploy
 
-```
+```bash
 Usage:
   octopus project convert [flags]
 
@@ -40,9 +40,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project convert
-$ octopus project convert --project "Deploy web site" --git-url https://github.com/orgname/reponame"
+```bash
+octopus project convert
+octopus project convert --project "Deploy web site" --git-url https://github.com/orgname/reponame"
 
 
 ```

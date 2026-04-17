@@ -1,0 +1,40 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2023-01-01
+modDate: 2026-04-17
+title: octopus api
+description: Execute a raw API GET request
+navOrder: 29
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+Execute an authenticated GET request against the Octopus Server API and print the JSON response.
+
+```bash
+Usage:
+  octopus api <url> [flags]
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```bash
+octopus api /api
+octopus api /api/spaces
+octopus api /api/Spaces-1/projects
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
