@@ -1,3 +1,5 @@
+/** @format */
+
 // warning: This file is overwritten by Astro Accelerator
 
 import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
@@ -14,9 +16,7 @@ const getData = async () => {
   const accelerator = new Accelerator(SITE);
 
   for (const path in allPages) {
-    const page = (await allPages[path]()) as MarkdownInstance<
-      Record<string, any>
-    >;
+    const page = (await allPages[path]()) as MarkdownInstance<Record<string, any>>;
 
     if (!PostFiltering.showInSearch(page)) {
       continue;
@@ -29,14 +29,20 @@ const getData = async () => {
     }
 
     const headings = await page.getHeadings();
-    const title = await accelerator.markdown.getTextFrom(
-      page.frontmatter.title ?? ''
-    );
-    const content = page.compiledContent ? page.compiledContent() : '';
+    const title = await accelerator.markdown.getTextFrom(page.frontmatter?.title);
+    const content = page.compiledContent ? await page.compiledContent() : '';
     let counted: { word: string; count: number }[] = [];
 
     if (content) {
-      const text = convert(content, { wordwrap: false });
+      const options = {
+        wordwrap: false,
+        selectors: [
+          { selector: 'a', options: { ignoreHref: true } },
+          { selector: 'img', format: 'skip' },
+          { selector: 'h1', options: { uppercase: false } },
+        ],
+      };
+      const text = convert(content, options);
 
       const words = keywordExtractor.extract(text, {
         language: 'english',
@@ -45,19 +51,22 @@ const getData = async () => {
       });
 
       counted = words
-        .map((w) => {
-          return { word: w, count: words.filter((wd) => wd === w).length };
+        .map(w => {
+          return {
+            word: w,
+            count: words.filter(wd => wd === w).length,
+          };
         })
-        .filter((e) => e.word.replace(/[^a-z]+/g, '').length > 1);
+        .filter(e => e.word.replace(/[^a-z]+/g, '').length > 1);
     }
 
     items.push({
       title: title,
-      headings: headings.map((h) => {
+      headings: headings.map(h => {
         return { text: h.text, slug: h.slug };
       }),
       description: page.frontmatter.description ?? '',
-      keywords: counted.map((c) => c.word).join(' '),
+      keywords: counted.map(c => c.word).join(' '),
       tags: page.frontmatter.tags ?? [],
       url: SITE.url + accelerator.urlFormatter.formatAddress(url),
       date: page.frontmatter.pubDate ?? '',
