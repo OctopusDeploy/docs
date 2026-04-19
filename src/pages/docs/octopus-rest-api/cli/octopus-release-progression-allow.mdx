@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus release progression allow
 description: Allows a release to progress to the next phase.
-navOrder: 116
+navOrder: 123
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Allows a release to progress to the next phase in Octopus Deploy.
 
-```
+```text
 Usage:
   octopus release progression allow [flags]
 
@@ -34,10 +34,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus release progression allow --project MyProject --version 1.2.3
-$ octopus release progression allow -p MyProject -v 1.2.3
-$ octopus release progression allow -p MyProject -v 1.2.3 --no-prompt
+```bash
+octopus release progression allow --project MyProject --version 1.2.3
+octopus release progression allow -p MyProject -v 1.2.3
+octopus release progression allow -p MyProject -v 1.2.3 --no-prompt
 
 
 ```

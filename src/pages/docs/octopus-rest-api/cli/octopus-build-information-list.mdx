@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus build-information list
 description: List build information
-navOrder: 32
+navOrder: 33
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List build information in Octopus Deploy
 
-```
+```text
 Usage:
   octopus build-information list [flags]
 
@@ -35,12 +35,12 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus build-information list
-$ octopus build-information ls
-$ octopus build-info list
-$ octopus build-info ls --package-id ThePackage
-$ octopus build-info ls --package-id ThePackage --filter 1.2.3
+```bash
+octopus build-information list
+octopus build-information ls
+octopus build-info list
+octopus build-info ls --package-id ThePackage
+octopus build-info ls --package-id ThePackage --filter 1.2.3
 
 
 ```

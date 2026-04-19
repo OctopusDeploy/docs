@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus project variables view
 description: View all values of a project variable
-navOrder: 103
+navOrder: 110
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View all values of a project variable in Octopus Deploy
 
-```
+```text
 Usage:
   octopus project variables view [flags]
 
@@ -35,9 +35,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project variable view
-$ octopus project variable view DatabaseName --project "Vet Clinic" 
+```bash
+octopus project variable view
+octopus project variable view DatabaseName --project "Vet Clinic"
 
 
 ```

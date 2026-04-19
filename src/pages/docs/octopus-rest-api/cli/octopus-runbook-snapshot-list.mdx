@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus runbook snapshot list
 description: List runbook snapshots
-navOrder: 124
+navOrder: 131
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List runbook snapshots in Octopus Deploy
 
-```
+```text
 Usage:
   octopus runbook snapshot list [flags]
 
@@ -35,9 +35,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus runbook snapshot list --project "Deploy Web App" --runbook "Run maintenance"
-$ octopus runbook snapshot ls
+```bash
+octopus runbook snapshot list --project "Deploy Web App" --runbook "Run maintenance"
+octopus runbook snapshot ls
 
 
 ```
