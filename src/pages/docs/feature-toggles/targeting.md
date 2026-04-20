@@ -13,7 +13,7 @@ navOrder: 96
 
 ## Tenants {#tenants}
 
-If your Project uses [Tenants](/docs/tenants/), then Toggles may be enabled for subsets of your Tenants. 
+If your Project uses [Tenants](/docs/tenants/), then Toggles may be enabled for subsets of your Tenants.
 
 The options for configuring a Feature Toggle for Tenants are:
 
@@ -22,23 +22,22 @@ The options for configuring a Feature Toggle for Tenants are:
 - % of Tenants
 - Specific Tenants Excluded
 
-For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Cyberdyne Systems`. 
+For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Cyberdyne Systems`.
 
 ![Tenanted Rollout](/docs/img/feature-toggles/tenant-rollout.png)
 
 ## Segments {#segments}
 
-Segments allow enabling a toggle for a subset of users. 
+Segments allow enabling a toggle for a subset of users.
 
 Segments are key/value pairs, and are supplied by your applications via the [OpenFeature EvaluationContext](https://openfeature.dev/docs/reference/concepts/evaluation-context).
 
-
 Common segment examples include:
 
-- Specific users. e.g. `user-id/123456`  
-- Specific accounts. e.g. `account-id/123456` 
-- License types. e.g. `license-type/free`  
-- Geographic regions. e.g. `region/eu` 
+- Specific users. e.g. `user-id/123456`
+- Specific accounts. e.g. `account-id/123456`
+- License types. e.g. `license-type/free`
+- Geographic regions. e.g. `region/eu`
 - Rollout rings. e.g. `ring/early-adopter`
 
 The Evaluation Context can be supplied at different points in your application, for example:
@@ -60,13 +59,13 @@ Segments can then be configured for Environments on the Feature Toggle in Octopu
 
 ![Add Segment](/docs/img/feature-toggles/segment-add.png)
 
-A Toggle evaluation will match on segments if the evaluation context matches at least one segment for each key. 
+A Toggle evaluation will match on segments if the evaluation context matches at least one segment for each key.
 
 Some examples:
 
-|Segments   | Evaluation Context | Result |
-|-----------|--------------------|--------|
-| `user-id/123456`   | `user-id/123456` | `On` |
-| `user-id/123456`   | `user-id/789383` | `Off` |
-| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/Asia`  | `On` |
-| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/US`  | `Off` |
+| Segments                                      | Evaluation Context                | Result |
+|-----------------------------------------------|-----------------------------------|--------|
+| `user-id/123456`                              | `user-id/123456`                  | `On`   |
+| `user-id/123456`                              | `user-id/789383`                  | `Off`  |
+| `license-type/free` `region/Asia` `region/EU` | `license-type/free` `region/Asia` | `On`   |
+| `license-type/free` `region/Asia` `region/EU` | `license-type/free` `region/US`   | `Off`  |

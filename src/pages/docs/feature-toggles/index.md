@@ -13,16 +13,16 @@ navOrder: 95
 Octopus Feature Toggles support toggling features on or off in real-time, without redeploying, and progressively releasing changes to subsets of your users.
 
 :::div{.hint}
-Octopus Feature Toggles are currently in Alpha, available to a small set of customers. 
+Octopus Feature Toggles are currently in Alpha, available to a small set of customers.
 
 If you are interested in this feature please register your interest on the [roadmap card](https://roadmap.octopus.com/c/121-feature-toggles) and we'll keep you updated.
 :::
 
-## Usage 
+## Usage
 
-### Create a Feature Toggle 
+### Create a Feature Toggle
 
-Feature Toggles are located within Octopus Projects: 
+Feature Toggles are located within Octopus Projects:
 **Project ➜ Feature Toggles**
 
 Create a new Toggle and give it name.
@@ -33,17 +33,17 @@ Create a new Toggle and give it name.
 
 Octopus Feature Toggles rely on [OpenFeature](https://openfeature.dev/) as the client SDK.
 
-Follow the [OpenFeature guide for installing the SDK for your language](https://openfeature.dev/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=SDK) into your application. 
+Follow the [OpenFeature guide for installing the SDK for your language](https://openfeature.dev/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=SDK) into your application.
 
 Configure OpenFeature to use the [Octopus Provider](/docs/feature-toggles/providers).
 
 The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which specifies the Octopus Project, Environment, and Tenant (if applicable). This tells the Octopus Feature Toggle service which set of toggles to evaluate.
 
 :::div{.hint}
-The Octopus Feature Toggle client identifier is available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier` or via the Feature Toggle UI (see below). 
+The Octopus Feature Toggle client identifier is available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier` or via the Feature Toggle UI (see below).
 :::
 
-For applications deployed by Octopus, the recommended way is to have Octopus inject the client identifier as part of deployment, for example by injecting it into a configuration file or environment variable. The client identifier is made available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier`.   
+For applications deployed by Octopus, the recommended way is to have Octopus inject the client identifier as part of deployment, for example by injecting it into a configuration file or environment variable. The client identifier is made available via the Octopus variable `Octopus.FeatureToggles.ClientIdentifier`.
 
 For applications not deployed by Octopus, or cannot have the client identifier supplied during deployment for any reason, the client identifier can be obtained via the portal UI, as shown below.
 
@@ -53,7 +53,7 @@ For applications not deployed by Octopus, or cannot have the client identifier s
 
 The previewed client identifier may then be copied into your application configuration.
 
-For example, an ASP.NET application could have an `appsettings.json` file which contained the following: 
+For example, an ASP.NET application could have an `appsettings.json` file which contained the following:
 
 ```json
 {
@@ -81,7 +81,7 @@ await OpenFeature.Api.Instance.SetProviderAsync(octopusProvider);
 
 ### Evaluate a Toggle
 
-The [Provider](#providers) for each language documents how to evaluate toggles.
+The [Provider](/docs/feature-toggles/providers) for each language documents how to evaluate toggles.
 
 You will need the Toggle slug in order to reference the toggle in code. This can be found in the Octopus portal:
 
@@ -95,8 +95,9 @@ var darkModeEnabled = await featureClient.GetBooleanValueAsync("dark-mode", fals
 
 The second argument is the default value. Read more about [default values](#default-values) below.
 
-### Rollout 
-To enable your toggle for an environment, add the environment to the Toggle. 
+### Rollout
+
+To enable your toggle for an environment, add the environment to the Toggle.
 
 ![Add Environment button](/docs/img/feature-toggles/add-environment-button.png)
 
@@ -108,7 +109,7 @@ You can additionally control rollout within an environment. See [Feature Toggle 
 
 ## Default Values {#default-values}
 
-Toggle default values are configured both on the Toggle in Octopus, and at the evaluation site in your client application. It's important to understand how these interact. 
+Toggle default values are configured both on the Toggle in Octopus, and at the evaluation site in your client application. It's important to understand how these interact.
 
 The default value on the Toggle in Octopus will be returned if the environment being evaluated has not been configured with an explicit value.
 
