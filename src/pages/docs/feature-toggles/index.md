@@ -104,7 +104,7 @@ Select your environment, and whether you want the toggle on or off.
 
 ![Add Environment dialog](/docs/img/feature-toggles/add-environment-dialog.png)
 
-You can additionally target specific [Tenants](#tenants) or [User Segments](#segments).
+You can additionally control rollout within an environment. See [Feature Toggle targeting](/docs/feature-toggles/targeting) for more information.
 
 ## Default Values {#default-values}
 
