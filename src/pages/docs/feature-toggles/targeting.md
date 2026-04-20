@@ -4,7 +4,7 @@ pubDate: 2026-04-20
 modDate: 2026-04-20
 title: Targeting
 subtitle: Control rollout within an environment
-icon: fa-solid fa-target
+icon: fa-solid fa-bullseye
 navTitle: Targeting
 navSection: Feature Toggles
 description: Targeting options for Octopus Feature Toggles
