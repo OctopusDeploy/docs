@@ -1,12 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-05-21
-modDate: 2025-05-21
-title: Feature Toggles 
-navTitle: Feature Toggles
+modDate: 2026-04-20
+title: Feature Toggles
+icon: fa-solid fa-toggle-on
+navTitle: Overview
 navSection: Feature Toggles
 description: Octopus Feature Toggles allow progressive delivery of changes and instant rollback 
-navOrder: 95 
+navOrder: 95
 ---
 
 Octopus Feature Toggles support toggling features on or off in real-time, without redeploying, and progressively releasing changes to subsets of your users.
@@ -34,7 +35,7 @@ Octopus Feature Toggles rely on [OpenFeature](https://openfeature.dev/) as the c
 
 Follow the [OpenFeature guide for installing the SDK for your language](https://openfeature.dev/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=SDK) into your application. 
 
-Configure OpenFeature to use the [Octopus Provider](#providers).
+Configure OpenFeature to use the [Octopus Provider](/docs/feature-toggles/providers).
 
 The Octopus OpenFeature Provider requires a client identifier when instantiated. This is a [JWT](https://jwt.io/introduction) which specifies the Octopus Project, Environment, and Tenant (if applicable). This tells the Octopus Feature Toggle service which set of toggles to evaluate.
 
@@ -104,79 +105,6 @@ Select your environment, and whether you want the toggle on or off.
 ![Add Environment dialog](/docs/img/feature-toggles/add-environment-dialog.png)
 
 You can additionally target specific [Tenants](#tenants) or [User Segments](#segments).
-
-## Providers {#providers}
-
-Below are the Octopus OpenFeature provider SDKs currently available:
-
-### Server SDKs
-- [.NET](https://github.com/OctopusDeploy/openfeature-provider-dotnet)
-- [Java](https://github.com/OctopusDeploy/openfeature-provider-java)
-
-### Web SDKs
-- [TypeScript/JavaScript](https://github.com/OctopusDeploy/openfeature-provider-ts-web)
-
-Configuring the providers is documented in the README files in the repositories.
-
-## Segments {#segments}
-
-Segments allow enabling a toggle for a subset of users. 
-
-Segments are key/value pairs, and are supplied by your applications via the [OpenFeature EvaluationContext](https://openfeature.dev/docs/reference/concepts/evaluation-context).
-
-
-Common segment examples include:
-
-- Specific users. e.g. `user-id/123456`  
-- Specific accounts. e.g. `account-id/123456` 
-- License types. e.g. `license-type/free`  
-- Geographic regions. e.g. `region/eu` 
-- Rollout rings. e.g. `ring/early-adopter`
-
-The Evaluation Context can be supplied at different points in your application, for example:
-
-- On start-up
-- During each web request
-- At the evaluation site
-
-The following example shows adding a key/value to the evaluation context in C#.
-
-```cs
-// The client would be injected by IoC in many cases
-var client = OpenFeature.Api.Instance.GetClient();
-// The following is hard-coded, whereas a real-world use would set this dynamically
-client.SetContext(EvaluationContext.Builder().Set("license-type", "free").Build());
-```
-
-Segments can then be configured for Environments on the Feature Toggle in Octopus.
-
-![Add Segment](/docs/img/feature-toggles/segment-add.png)
-
-A Toggle evaluation will match on segments if the evaluation context matches at least one segment for each key. 
-
-Some examples:
-
-|Segments   | Evaluation Context | Result |
-|-----------|--------------------|--------|
-| `user-id/123456`   | `user-id/123456` | `On` |
-| `user-id/123456`   | `user-id/789383` | `Off` |
-| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/Asia`  | `On` |
-| `license-type/free` `region/Asia` `region/EU`  | `license-type/free` `region/US`  | `Off` |
-
-## Tenants {#tenants}
-
-If your Project uses [Tenants](/docs/tenants/), then Toggles may be enabled for subsets of your Tenants. 
-
-The options for configuring a Feature Toggle for Tenants are:
-
-- All Tenants
-- Specific Tenants Included
-- % of Tenants
-- Specific Tenants Excluded
-
-For example, the configuration shown below will result in the Toggle evaluating as `On` for 10% of Tenants, always including `Acme` and never including `Cyberdyne Systems`. 
-
-![Tenanted Rollout](/docs/img/feature-toggles/tenant-rollout.png)
 
 ## Default Values {#default-values}
 
