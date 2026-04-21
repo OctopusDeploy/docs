@@ -24,7 +24,7 @@ Project templates require an Octopus Enterprise license with the project templat
 Project templates are available to Cloud customers without any additional setup. Self-hosted customers can access project templates as an early preview by installing the latest Octopus Server 2026.2.
 
 :::div{.warning}
-You should only install a preview version of Octopus Server if you are comfortable adopting a feature before it's fully complete. Any issues or bugs you encounter will not be fixed immediately. Contact <sales@octopus.com> with any questions about whether this approach is right for you.
+You should only install a preview version of Octopus Server if you are comfortable adopting a feature before it's fully complete. Any issues or bugs you encounter with preview features may take longer to fix than normal. For other features, we provide the same level of support as for LTS versions. Contact <sales@octopus.com> with any questions about whether this approach is right for you.
 :::
 
 1. Download Octopus Server 2026.2.
