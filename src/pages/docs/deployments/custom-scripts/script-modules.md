@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2026-04-27
 title: Script modules in Octopus
 navTitle: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
@@ -13,19 +13,19 @@ Script modules allow users to create collections of language specific functions 
 
 ## Creating a script module {#create-script-module}
 
-1.  Navigate to **Deploy ➜ Manage ➜ Script Modules ➜ Add Script Module**.
+1. Navigate to **Deploy ➜ Manage ➜ Script Modules ➜ Add Script Module**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-add.png)
+![Script Modules Add](/docs/img/deployments/custom-scripts/images/script-modules-add.png)
 :::
 
-2.  Name your new Script Module:
+1. Name your new Script Module:
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-new.png)
+![Script Modules New](/docs/img/deployments/custom-scripts/images/script-modules-new.png)
 :::
 
-3.  Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
+1. Your new script module will default to PowerShell and come with a function called *Say-Hello.* Each supported script language has a similar function. In this walk-through we will work with PowerShell and modify the provided sample function a bit with the following code for the sake of showing a better example:
 
 ```powershell
 function Say-Hello($name)
@@ -37,7 +37,7 @@ function Say-Hello($name)
 After inserting the modified function, the Script Module should look like this:
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-new-body.png)
+![Script Modules Modified](/docs/img/deployments/custom-scripts/images/script-modules-new-body.png)
 :::
 
 Once this is done, click on **Save**.
@@ -46,32 +46,32 @@ Once this is done, click on **Save**.
 
 Once you have created a Script Module, you can start using the functions it contains in Script Steps in your deployment processes. These steps must use the same language as the Script Module.
 
-1.  Go to your **[Deployment Process](/docs/deployments)** and click **Include.**
+1. Go to your **[Deployment Process](/docs/deployments)** and click **Include.**
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-deployment.png)
+![Script Modules Deployment](/docs/img/deployments/custom-scripts/images/script-modules-deployment.png)
 :::
 
 A new window will pop up up, prompting you to select you script module. Select the module you just created (make sure the check-box is checked) and hit **Save**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-deployment-include.png)
+![Script Modules Deployment Include](/docs/img/deployments/custom-scripts/images/script-modules-deployment-include.png)
 :::
 
 You will now be able to see your module loaded on your Deployment Process
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-deployment-included.png)
+![Script Modules Deployment Included](/docs/img/deployments/custom-scripts/images/script-modules-deployment-included.png)
 :::
 
-2.  Add a **[Script step](/docs/deployments/custom-scripts)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
+1. Add a **[Script step](/docs/deployments/custom-scripts)**, ensure you choose PowerShell and call the *Say-Hello* function from it.
 
 ```powershell
 Say-Hello -name "George"
 ```
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-deployment-step.png)
+![Script Modules Deployment Step](/docs/img/deployments/custom-scripts/images/script-modules-deployment-step.png)
 :::
 
 Once you're done, hit **Save.**
@@ -80,30 +80,30 @@ Once you're done, hit **Save.**
 Make sure to select a **Target Tag**, an **Environment** and to put a **Step Name**
 :::
 
-3.  Create and Deploy a release.
+1. Create and Deploy a release.
 
-4.  Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
+1. Check the Release task log and expand all the steps. You should be able to see the output of the *Say-Hello* function in there.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-deployment-release.png)
+![Script Modules Deployment Release](/docs/img/deployments/custom-scripts/images/script-modules-deployment-release.png)
 :::
-
 
 ## Using script modules {#ScriptModules-using}
 
 Each language has a slightly different syntax for using the Script Module. Please see the language specific section below.
 
-* [PowerShell](#powershell)
-* [Bash](#bash)
-* [C#](#ScriptModules-CSharp)
-* [F#](#ScriptModules-FSharp)
-* [Python](#ScriptModules-Python)
+- [PowerShell](#powershell)
+- [Bash](#bash)
+- [C#](#csharp-script-modules)
+- [F#](#fsharp-script-modules)
+- [Python](#python-script-modules)
 
 ## PowerShell script modules {#powershell}
 
 PowerShell script modules get automatically loaded once for every PowerShell script step in your deployment process - the functions and cmdlets will automatically be in scope for your script.
 
 Script Module:
+
 ```powershell
 function Say-Hello($name) {
     Write-output "Hello $name. Welcome to Octopus!"
@@ -111,11 +111,13 @@ function Say-Hello($name) {
 ```
 
 Script Step:
+
 ```powershell
 Say-Hello -name "George"
 ```
 
 ### Gotcha
+
 If your process has 4 steps (i.e Stop IIS, Backup, Deploy, Start IIS) the entire module will get loaded once at the start of each step. Because of this we encourage users to avoid putting code outside functions on your Script Modules. This way the code will only get executed when the function is properly called from a PowerShell Script step.
 
 In the example Script Module below, the first line which attempts to stop the service "ImportantService" will run for every PowerShell-Script-based step on your deployment. The first time it might succeed (stopping the service), but subsequent tries will most likely make the overall deployment fail.
@@ -137,6 +139,7 @@ Module with invalid characters removed. The help text above the Script Module bo
 will show the filename that will be created.
 
 Given a Bash Script Module called `Bash Script Module`:
+
 ```bash
 say_hello() {
     echo "Hello $1. Welcome to Octopus!"
@@ -144,12 +147,13 @@ say_hello() {
 ```
 
 Call it from your Script Step with:
+
 ```bash
 source BashScriptModule.sh
 say_hello George
 ```
 
-## C# script modules {#ScriptModules-CSharp}
+## C# script modules {#csharp-script-modules}
 
 C# Script Modules are written as a `.csx` file next to your script. Import them
 via `#load "MyScriptModule.csx"`, where `MyScriptModule` is the name of your Script
@@ -159,6 +163,7 @@ will show the filename that will be created.
 The `#load` statement must be at the top of your script.
 
 Given a C# Script Module called `CSharp Script Module`:
+
 ```csharp
 public void SayHello(string name) {
     Console.WriteLine("Hello " + name + ". Welcome to Octopus!");
@@ -166,12 +171,13 @@ public void SayHello(string name) {
 ```
 
 Call it from your Script Step with:
+
 ```csharp
 #load "CSharpScriptModule.csx"
 SayHello("George");
 ```
 
-## F# script modules {#ScriptModules-FSharp}
+## F# script modules {#fsharp-script-modules}
 
 F# Script Modules are written as an `.fsx` file next to your script. Import them
 via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
@@ -194,6 +200,7 @@ let result = add 1 3
 The `#load` statement must be at the top of your script.
 
 Given an F# Script Module called `FSharp Script Module`:
+
 ```fsharp
 module MyFSharpScriptModule
 let sayHello name =
@@ -201,13 +208,14 @@ let sayHello name =
 ```
 
 Call it from your Script Step with:
+
 ```fsharp
 #load "FSharpScriptModule.fsx"
 open MyFSharpScriptModule
 sayHello "George";
 ```
 
-## Python script modules {#ScriptModules-Python}
+## Python script modules {#python-script-modules}
 
 Python Script Modules are written as a `.py` file next to your script. Import them
 via `import MyScriptModule`, where `MyScriptModule` is the name of your Script
@@ -217,12 +225,14 @@ will show the filename that will be created.
 Once imported, functions from the Script Module will be available prefixed with the Script Module name.
 
 Given a Python Script Module called `Python Script Module`:
+
 ```python
 def say_hello(name):
     print(f"Hello {name}. Welcome to Octopus!")
 ```
 
 Call it from your Script Step with:
+
 ```python
 import PythonScriptModule
 PythonScriptModule.say_hello("George")
@@ -235,10 +245,12 @@ the Script Module, as well as the Releases that have a snapshot of the Script Mo
 ramifications of changing a Script Module, as well as track down where it has been used in the past.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-modules-usage.png)
+![Script Modules Usage](/docs/img/deployments/custom-scripts/images/script-modules-usage.png)
 :::
 
 ## Permissions
+
+Script modules are represented as unscoped variable sets. This means that the user role must not be scoped to specific environments.
 
 To be able to access and use the script modules feature you will require the following permissions:
 
