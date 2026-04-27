@@ -240,6 +240,8 @@ ramifications of changing a Script Module, as well as track down where it has be
 
 ## Permissions
 
+Script modules are represented as unscoped variable sets. This means that the user role must not be scoped to specific environments. 
+
 To be able to access and use the script modules feature you will require the following permissions:
 
 To see the "Script Modules" menu requires the `VariableView` permission.
