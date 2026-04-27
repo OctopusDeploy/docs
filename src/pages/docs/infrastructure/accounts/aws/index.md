@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-08-18
+modDate: 2026-04-27
 title: AWS accounts
 description: Configure your infrastructure so Octopus can deploy infrastructure to AWS and run scripts against the AWS CLI.
 navOrder: 20
@@ -82,7 +82,7 @@ Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/op
 
 By default, the role trust policy does not have any conditions on the subject identifier. To lock the role down to particular usages you need to modify the [trust policy conditions](https://oc.to/aws-iam-policy-conditions) and add a condition for the `sub`.
 
-For example, to lock an identity role to a specific Octopus environment, you can update the conditions:
+For example, to lock an identity role to a specific Octopus environment for an untenanted deployment, you can update the conditions:
 
 ```json
 "Condition": {
@@ -93,7 +93,18 @@ For example, to lock an identity role to a specific Octopus environment, you can
 }
 ```
 
-`default`, `aws-oidc-testing` and `dev` are the slugs of their respective Octopus resources.
+`default`, `aws-oidc-testing`, and `dev` are the slugs of their respective Octopus resources. The `tenant:` segment is omitted because this deployment has no tenant value — when a selected subject key has no value at runtime, both the key and the value are dropped from the subject.
+
+For a tenanted deployment, the subject also includes the tenant slug:
+
+```json
+"Condition": {
+  "StringEquals": {
+        "example.octopus.app:sub": "space:default:project:aws-oidc-testing:tenant:acme:environment:dev",
+        "example.octopus.app:aud": "example.octopus.app"
+  }
+}
+```
 
 AWS policy conditions also support complex matching with wildcards and `StringLike` expressions.
 
