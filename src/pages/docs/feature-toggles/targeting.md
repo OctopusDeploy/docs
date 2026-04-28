@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-04-20
-modDate: 2026-04-20
+modDate: 2026-04-28
 title: Targeting
 subtitle: Configure rollout within an environment
 icon: fa-solid fa-bullseye
