@@ -21,7 +21,7 @@ You can configure a feature toggle to only be enabled for an environment once th
 
 If your project uses [Tenants](/docs/tenants/) you can configure a feature toggle to be enabled for subsets of your tenants within an environment. There are many options for configuring a feature toggle for tenants.
 
-These are all modelled in Octopus and do not require any custom configuation in application code.
+These are all modelled in Octopus and do not require any custom configuration in application code.
 
 ### Excluded tenants
 
@@ -39,7 +39,7 @@ You can enable feature toggles for individual tenants. These tenants will always
 
 ### Tenant rollout
 
-Tenant rollouts allow you to enable a toggle for a random percentage of all tenants.
+Tenant rollout allow you to enable a toggle for a random percentage of all tenants.
 
 The included tenants are determined using a MurmurHash of the tenant ID and a unique key for each toggle. This guarantees deterministic evaluation for any given tenant and toggle combination, but ensures that a different set of tenants is included for each toggle.
 
@@ -51,9 +51,9 @@ As with excluded tenants, any changes to tenant tags apply immediately to featur
 
 ## Client rollout
 
-Client rollouts allows you to enable a toggle for a random percentage of your application users. The included users are determined using a MurmurHash of the [OpenFeature Targeting Key](https://openfeature.dev/docs/reference/concepts/evaluation-context#targeting-key) and a key for each toggle. This guarantees deterministic evaluation for any given user and toggle combination.
+Client rollout allows you to enable a toggle for a random percentage of your application users. The included users are determined using a MurmurHash of the [OpenFeature Targeting Key](https://openfeature.dev/docs/reference/concepts/evaluation-context#targeting-key) and a key for each toggle. This guarantees deterministic evaluation for any given user and toggle combination.
 
-To use client rollouts, you must configure a targeting key in your OpenFeature client. Refer to the [OpenFeature SDK](https://openfeature.dev/docs/reference/sdks/) documentation for your development language for details on how to set the targeting key. If you do not set a targeting key, the feature will not be enabled for any users unless the rollout it set to 100%.
+To use client rollout, you must configure a targeting key in your OpenFeature client. Refer to the [OpenFeature SDK](https://openfeature.dev/docs/reference/sdks/) documentation for your development language for details on how to set the targeting key. If you do not set a targeting key, the feature will not be enabled for any users unless the rollout it set to 100%.
 
 You should set the targeting key to some value that uniquely identifies your evaluation subject. For most applications the evaluation subject will be a user, so you will want to set this to be a unique for the user. Targeting users is a good default for most applications, but you can use any identifier that you want here (for example team, region, server instance, etc).
 
