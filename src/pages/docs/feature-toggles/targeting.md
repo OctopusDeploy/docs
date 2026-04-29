@@ -45,7 +45,7 @@ The included tenants are determined using a MurmurHash of the tenant ID and a to
 
 ![Screenshot of feature toggle environment drawer, included tenants section expanded, tenants to include is empty, tenant rollout percentage is set to 50% and tenant tags to include in rollout multi-select has Tier/Free, Region/Australia, and Region/Europe selected](/docs/img/feature-toggles/tenant-rollout.png)
 
-You can further restrict the rollout using tenant tags. For example, if you specify `Region/Australia`, `Region/Europe`, and `Tier/Enterprise`, a 50% rollout rollout will only apply to 50% of Enterprise tenants in either Australia or Europe. If you do not specify any tenant tags, a 50% rollout will apply to 50% of all tenants.
+You can further restrict the rollout using tenant tags. For example, if you specify `Region/Australia`, `Region/Europe`, and `Tier/Enterprise`, a 50% rollout will only apply to 50% of Enterprise tenants in either Australia or Europe. If you do not specify any tenant tags, a 50% rollout will apply to 50% of all tenants.
 
 As with excluded tenants, any changes to tenant tags apply immediately to feature toggles.
 
