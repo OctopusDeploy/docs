@@ -14,7 +14,7 @@ This feature is available from version `2025.2.7727`.
 
 ## Configuration
 
-The task cancellation behaviour is configured per deployment or runbook process. It is on by default for new projects and runbooks, you can customize the setting via the project's deployment dettings or on each runbook.
+The task cancellation behavior is configured per deployment or runbook process. It is on by default for new projects and runbooks, you can customize the setting via the project's deployment settings or on each runbook.
 
 :::figure
 ![Cancel existing tasks settings.](/docs/img/tasks/images/cancel-task-settings.png)
