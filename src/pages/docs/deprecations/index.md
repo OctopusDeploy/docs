@@ -31,7 +31,7 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Kubernetes Agent bundled NFS storage deprecation
 
-As of Kubernetes Agent v3, the buncled NFS server is no longer the default storage option. It is still available and usable, but no longer the default. In a _future major release_, timed to occur with Octopus Server 2026.4, we will remove the NFS storage as a bundle storage solution.
+As of Kubernetes Agent v3, the bundled NFS server is no longer the default storage option. It is still available and usable, but no longer the default. In a *future major release*, timed to occur with Octopus Server 2026.4, we will remove the NFS storage as a bundle storage solution.
 
 Closer to the release date, we will have guidance for existing customers who are using the NFS server.
 
