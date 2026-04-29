@@ -19,9 +19,9 @@ You can configure a feature toggle to require a minimum version before being ena
 
 ## Tenants {#tenants}
 
-If your project uses [Tenants](/docs/tenants/), you can configure a feature toggle to be enabled for subsets of your tenants within an environment. There are many options for configuring a feature toggle for tenants.
+If your project uses [Tenants](/docs/tenants/), you can configure a feature toggle to be enabled for subsets of your tenants within an environment.
 
-These are all modeled in Octopus and do not require any custom configuration in application code.
+There are many options for configuring a feature toggle for tenants. These are all modeled in Octopus and do not require any custom configuration in application code.
 
 ### Excluded tenants
 
@@ -45,7 +45,7 @@ The included tenants are determined using a MurmurHash of the tenant ID and a to
 
 ![Screenshot of feature toggle environment drawer, included tenants section expanded, tenants to include is empty, tenant rollout percentage is set to 50% and tenant tags to include in rollout multi-select has Tier/Free, Region/Australia, and Region/Europe selected](/docs/img/feature-toggles/tenant-rollout.png)
 
-You can further restrict the rollout using tenant tags. For example, if you specify `Region/Australia`, `Region/Europe`, and `Tier/Enterprise`, the rollout will only apply to Enterprise tenants in either Australia or Europe. If you do not specify any tenant tags, the rollout will apply to all tenants.
+You can further restrict the rollout using tenant tags. For example, if you specify `Region/Australia`, `Region/Europe`, and `Tier/Enterprise`, a 50% rollout rollout will only apply to 50% of Enterprise tenants in either Australia or Europe. If you do not specify any tenant tags, a 50% rollout will apply to 50% of all tenants.
 
 As with excluded tenants, any changes to tenant tags apply immediately to feature toggles.
 
