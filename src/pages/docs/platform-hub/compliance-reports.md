@@ -11,7 +11,7 @@ description: An overview of Compliance Reports in Platform Hub
 navOrder: 170
 ---
 
-The Compliance Reports area is a new addition to the Platform Hub, designed to transform raw audit data into actionable insights.
+The Compliance Reports area is a new addition to Platform Hub, designed to transform raw audit data into actionable insights.
 
 While you can already access granular logs via the [Audit](/docs/security/users-and-teams/auditing) tab or integrate with SIEM tools using the [audit stream](/docs/security/users-and-teams/auditing/audit-stream), Compliance Reports streamline reporting for Governance, Risk, and Compliance (GRC) teams.
 
