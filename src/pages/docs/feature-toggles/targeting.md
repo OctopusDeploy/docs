@@ -39,7 +39,7 @@ You can enable feature toggles for individual tenants. These tenants will always
 
 ### Tenant rollout
 
-Tenant rollout allows you to enable a toggle for a random percentage of all tenants.
+Tenant rollout allows you to enable a toggle for a pseudorandom percentage of all tenants.
 
 The included tenants are determined using a MurmurHash of the tenant ID and a toggle-specific key. This guarantees deterministic evaluation for any given tenant and toggle combination, while ensuring that a different set of tenants is included for each toggle.
 
@@ -53,7 +53,7 @@ As with excluded tenants, any changes to tenant tags apply immediately to featur
 
 Client rollout allows you to enable a toggle for a random percentage of your application users. The included users are determined using a MurmurHash of the [OpenFeature Targeting Key](https://openfeature.dev/docs/reference/concepts/evaluation-context#targeting-key) and a toggle-specific key. This guarantees deterministic evaluation for any given user and toggle combination.
 
-To use client rollout, you must configure a targeting key in your OpenFeature client. Refer to the [OpenFeature SDK](https://openfeature.dev/docs/reference/sdks/) documentation for your development language for details on how to set the targeting key. If you do not set a targeting key, the feature will not be enabled for any users unless the rollout is set to 100%.
+To use client rollout, you must configure a targeting key in your OpenFeature client. Refer to the [OpenFeature SDK](https://openfeature.dev/docs/reference/sdks/) documentation for your development language for details on how to set the targeting key. If you do not set a targeting key, the feature toggle will not be enabled for any users unless the rollout is set to 100%.
 
 You should set the targeting key to a value that uniquely identifies your evaluation subject. For most applications, this will be a user identifier (such as a user ID), but you can use any identifier that suits your needs (for example, team, region, or server instance).
 
