@@ -49,9 +49,9 @@ No! Once enabled, this feature will appear in your UI as shown in the gif above.
 
 For Octopus Cloud instances, please get in touch with our [Support team](https://octopus.com/support), who can opt you out.
 
-For Octopus Server instances, this is managed through adding the below OS system environment variable to your machines hosting your Octopus nodes and ensuring it's set to ```false```.
+For Octopus Server instances, this is managed through adding the below OS system environment variable to your machines hosting your Octopus nodes and ensuring it's set to `false`.
 
-​```OCTOPUS__FeatureToggles__AiFeatureToggle = false```
+​
 
 An example of this using Windows is below. You will need to restart your Octopus Server Service for this to take effect. If operating a multi-node Octopus instance (High Availability), you will need to add the variable on each node and restart the Octopus Server service on each node.
 
