@@ -55,12 +55,12 @@ Tasks that don't run the full process on all targets are not considered for canc
 
 ### Queued tasks
 
-When the queued task doesn’t run the full process on all targets, no earlier tasks will be cancelled.
+- When the queued task doesn’t run the full process on all targets, no earlier tasks will be cancelled.
 
-When the queued task does run the full process on all targets, Octopus starts cancelling earlier tasks from the back of the queue and stops once it sees a task that doesn't run the full process on all targets, it does not skip the task and keep going. This ensures the task order is preserved.
+- When the queued task does run the full process on all targets, Octopus starts cancelling earlier tasks from the back of the queue and stops once it sees a task that doesn't run the full process on all targets, it does not skip the task and keep going. This ensures the task order is preserved.
 
 ### Running tasks
 
-When the completed task doesn’t run the full process on all targets, no earlier tasks will be cancelled.
+- When the completed task doesn’t run the full process on all targets, no earlier tasks will be cancelled.
 
-When the completed task does run the full process on all targets, Octopus cancels all earlier tasks that run the full process on all targets.
+- When the completed task does run the full process on all targets, Octopus cancels all earlier tasks that run the full process on all targets.
