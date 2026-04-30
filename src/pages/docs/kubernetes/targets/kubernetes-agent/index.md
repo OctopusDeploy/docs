@@ -126,7 +126,7 @@ kubectl config view
 2. Select at least one [environment](/docs/infrastructure/environments) for the target.
 3. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 4. Optionally, set the default namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don't specify a namespace.
-5. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. If the storage class supports the `ReadWriteMany` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) and you wish to [scale horizontally](), check the checkbox below the storage class.
+5. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. If the storage class supports the `ReadWriteMany` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) and you wish to scale horizontally, check the checkbox below the storage class.
 If no storage class name is added, the default cluster storage class with `ReadWriteOnce` access mode will be used.
 
 :::div{.warning}
