@@ -54,7 +54,7 @@ You can expand each project to see a list of the users that have permissions to 
 
 ## Deployment History
 
-The Deployment History report provides a definitive audit trail of deployments across your instance, giving GRC teams a streamlined view of who deployed what, where, and when. It supports point-in-time compliance reviews and post-incident investigations by letting you filter deployments by date, space, environment, project, tenant, or deployer.
+The Deployment History report captures deployment activity across your instance, giving GRC teams a streamlined view of who deployed what, where, and when. It supports point-in-time compliance reviews and post-incident investigations by letting you filter deployments by date, space, environment, project, tenant, or deployer.
 
 ### Running the Deployment History report
 
