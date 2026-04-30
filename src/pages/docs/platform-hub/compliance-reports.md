@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-01-21
-modDate: 2026-01-21
+modDate: 2026-04-30
 title: Compliance Reports
 subtitle: An overview of Compliance Reports
 icon: fa-solid fa-shield-halved
@@ -24,11 +24,7 @@ Compliance reports are currently in Alpha. If you encounter any issues, please c
 Our reports focus on answering two critical questions:
 
 1. **Deployment Permissions**: Which users are authorized to deploy specific projects, and to which environments?
-2. **Production Deployments**: Who initiated deployments to Production, and when did those events occur?
-
-:::div{.hint}
-The **Production Deployments** report is coming soon.
-:::
+2. **Deployment History**: Who initiated deployments, and when did those events occur?
 
 ## Deployment Permissions
 
@@ -56,13 +52,29 @@ Finally, click on the **Create Report** button and view the projects for the sel
 
 You can expand each project to see a list of the users that have permissions to deploy to that environment. You can also click the **Download CSV** button to generate a CSV file of the executed report.
 
-## Production Deployments
+## Deployment History
 
-:::div{.hint}
-Development of the Production Deployments report is currently being planned.
+The Deployment History report provides a definitive audit trail of deployments across your instance, giving GRC teams a streamlined view of who deployed what, where, and when. It supports point-in-time compliance reviews and post-incident investigations by letting you filter deployments by date, space, environment, project, tenant, or deployer.
+
+### Running the report
+
+To run the Deployment History report, navigate to **Platform Hub -> Reports**, and choose the **Deployment History** card:
+
+:::figure
+![The Compliance reports page where users select a report to run](/docs/img/platform-hub/compliance/compliance-reports-tiles.png)
 :::
 
-This report is designed to provide a definitive audit trail of all activity within your most sensitive environments. It will offer a streamlined view of who initiated changes to Production and precisely when they occurred, facilitating effortless point-in-time compliance reviews.
+Select a date range from the dropdown — choose from **Today**, **Last 7 Days**, **Last 30 Days**, **Last 90 Days**, **Last 365 Days**, or **Custom** to specify exact dates.
+
+To narrow the results further, click **Show advanced filters** and select any combination of Spaces, Environments, Projects, Tenants, and Deployers. Click **Reset** to clear the advanced filters.
+
+The report lists each deployment with its status, project, version, space, environment, tenant, deployer, and the time it was deployed:
+
+:::figure
+![The deployment history report showing deployments for the selected date range and filters](/docs/img/platform-hub/compliance/deployment-history-report-executed.png)
+:::
+
+Click **Download** to generate a CSV file of the executed report, or use the **Share** icon to share the current view, including any applied filters.
 
 ## Feedback
 
