@@ -68,6 +68,7 @@ The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to
 ##### Step 1: Find your Helm release {#KubernetesAgentStorage-Step1-FindYourHelmRelease}
 
 Take note of the current Helm release name and Chart version for your Kubernetes agent by running the following command:
+
 ```bash
 helm list --namespace octopus-agent-nfs-to-pv
 ```
@@ -82,11 +83,13 @@ In this example, the release name is `nfs-to-pv` while the chart version is `1.0
 ##### Step 2: Change Persistence {#KubernetesAgentStorage-Step2-ChangePersistence}
 
 Run the following command (substitute the placeholders with your own values):
+
 ```bash
 helm upgrade --reuse-values --atomic --set persistence.storageClassName="<storage class>" --namespace <namespace> --version "<chart version>" <release name> oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
 ```
    
 Here is an example to convert the `nfs-to-pv` Helm release in the `octopus-agent-nfs-to-pv` namespace to use the `octopus-agent-nfs-migration` `StorageClass`:
+
 ```bash
 helm upgrade --reuse-values --atomic --set persistence.storageClassName="octopus-agent-nfs-migration" --namespace octopus-agent-nfs-to-pv --version "1.0.1" nfs-to-pv oci://registry-1.docker.io/octopusdeploy/kubernetes-agent`
 ```
