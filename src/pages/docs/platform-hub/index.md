@@ -59,3 +59,32 @@ You can create and manage Git credentials in Platform Hub by visiting the Git cr
 :::figure
 ![Platform Hub Git credentials area](/docs/img/platform-hub/platform-hub-git-credential.png)
 :::
+
+## GitHub App Connections in Platform Hub
+
+You can connect your GitHub accounts to Platform Hub using the Octopus GitHub App. This lets you use a GitHub App Connection when configuring Platform Hub's version control settings, without needing a personal access token.
+
+:::div{.hint}
+GitHub App Connections in Platform Hub can only be used to configure Platform Hub's version control settings. These GitHub Connections are scoped only to Platform Hub, and cannot be used in spaces. They also cannot be used in steps in process templates or project templates currently.
+:::
+
+### Set up a GitHub App Connection
+
+To configure a GitHub App Connection in Platform Hub, navigate to **GitHub Connections** and follow the same steps as [connecting a GitHub account in a space](/docs/projects/version-control/github#connecting-a-github-account).
+
+:::figure
+![GitHub Connections page in Platform Hub](/docs/img/platform-hub/platform-hub-github-connections.png)
+:::
+
+### Use a GitHub App Connection for version control
+
+Once you've configured a connection, you can select it when setting up Platform Hub's version control.
+
+1. Navigate to **Version Control** in Platform Hub.
+2. Select "GitHub" section.
+3. Under GitHub Repository, choose your GitHub Connection and the repository where your Platform Hub configurations will be stored.
+4. Save your settings.
+
+:::figure
+![Version control configuration in Platform Hub using a GitHub App Connection](/docs/img/platform-hub/platform-hub-version-control-github-connection.png)
+:::
