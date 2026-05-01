@@ -81,7 +81,7 @@ To configure a GitHub App Connection in Platform Hub, navigate to **GitHub Conne
 Once you've configured a connection, you can select it when setting up Platform Hub's version control.
 
 1. Navigate to **Version Control** in Platform Hub.
-2. Select "GitHub" section.
+2. Select "GitHub".
 3. Under GitHub Repository, choose your GitHub Connection and the repository where your Platform Hub configurations will be stored.
 4. Save your settings.
 
