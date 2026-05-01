@@ -98,4 +98,3 @@ helm upgrade --reuse-values --atomic --set persistence.storageClassName="octopus
 :::div{.warning}
 If you are using an existing `PersistentVolume` via its `StorageClassName`, then you must set the `persistence.size` value in the Helm command to match the capacity of the `PersistentVolume` for the `PersistentVolume` to bind.
 :::
-
