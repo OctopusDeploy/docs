@@ -11,22 +11,24 @@ As the capabilities of the Kubernetes agent evolve and change, this page will do
 
 ## Version 2
 
-## NFS storage
+### NFS storage
 
-By default, the Kubernetes agent Helm chart will set up an NFS server suitable for use by the agent inside your cluster. The server runs as a `StatefulSet` in the same namespace as the Kubernetes agent, and uses `EmptyDir` storage, as the working files of the agent are not required to be long-lived. 
+By default, the Kubernetes agent Helm chart will set up an NFS server suitable for use by the agent inside your cluster. The server runs as a `StatefulSet` in the same namespace as the Kubernetes agent, and uses `EmptyDir` storage, as the working files of the agent are not required to be long-lived.
 
 This NFS server is referenced in the `StorageClass` that the Kubernetes agent and the script pod use. This `StorageClass` will then instruct the `NFS CSI Driver` to mount the server as directed.
 
 This default implementation is made to let you try the Kubernetes agent without worrying about installing a `ReadWriteMany` compatible `StorageClass` yourself. There are  some drawbacks to this approach:
 
 #### Privileges
-The NFS server requires `privileged` access when running as a container, which may not be permitted depending on the cluster configuration. Access to the NFS pod should be kept to a minimum since it enables access to the host. 
+
+The NFS server requires `privileged` access when running as a container, which may not be permitted depending on the cluster configuration. Access to the NFS pod should be kept to a minimum since it enables access to the host.
 
 :::div{.warning}
-Red Hat OpenShift does not enable `privileged` access by default. When enabled, we have also encountered inconsistent file access issues using the NFS storage. We highly recommend the use of a [custom storage class](#custom-storage-class) when using Red Hat OpenShift.
+Red Hat OpenShift does not enable `privileged` access by default. When enabled, we have also encountered inconsistent file access issues using the NFS storage. We highly recommend the use of a [custom storage class](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/storage#custom-storage-class) when using Red Hat OpenShift.
 :::
 
 #### Reliability
+
 Since the NFS server runs inside your Kubernetes cluster, upgrades and other cluster operations can cause the NFS server to restart. Due to how NFS stores and allows access to shared data, script pods will not be able to recover cleanly from an NFS server restart. This causes running deployments to fail when the NFS server is restarted.
 
 If you have a use case that can’t tolerate occasional deployment failures, it’s recommended to provide your own `StorageClass` instead of using the default NFS implementation.
@@ -47,7 +49,6 @@ helm upgrade --install --atomic --repo https://raw.githubusercontent.com/kuberne
 
 :::div{.warning}
 If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
-
 ```bash
 helm repo update
 ```
@@ -56,11 +57,11 @@ helm repo update
 
 #### NFS Server Pod Permissions
 
-If you have not provided a predefined storageClassName for persistence, an NFS pod will be used. This NFS Server pod requires `privileged` access. For more information see [Kubernetes agent Storage](/docs/infrastructure/deployment-targets/kubernetes/kubernetes-agent/storage#nfs-storage).
+If you have not provided a predefined storageClassName for persistence, an NFS pod will be used. This NFS Server pod requires `privileged` access.
 
 #### Migrating from NFS storage to a custom StorageClass
 
-If you installed the Kubernetes agent using the default NFS storage, and want to change to a custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName`. 
+If you installed the Kubernetes agent using the default NFS storage, and want to change to a custom `StorageClass` instead, simply rerun the installation Helm command with specified values for `persistence.storageClassName`.
 
 The following steps assume your Kubernetes agent is in the `octopus-agent-nfs-to-pv` namespace:
 

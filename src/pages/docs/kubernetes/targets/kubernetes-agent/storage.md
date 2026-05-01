@@ -37,7 +37,7 @@ This change was made from v2 due to reliability and security concerns with the p
 
 ## Custom StorageClass \{#custom-storage-class}
 
-If distribution of script pods across multiple nodes is desired, then you can specify your own `StorageClass`. This `StorageClass` must be capable of `ReadWriteMany` (also known as `RWX`) access mode. 
+If distribution of script pods across multiple nodes is desired, then you can specify your own `StorageClass`. This `StorageClass` must be capable of `ReadWriteMany` (also known as `RWX`) access mode.
 
 Many managed Kubernetes offerings will provide storage that require little effort to set up. These will be a “provisioner” (named as such as they “provision” storage for a `StorageClass`), which you can then tie to a `StorageClass`. Some examples are listed below:
 
@@ -52,6 +52,7 @@ See this [blog post](https://octopus.com/blog/efs-eks) for a tutorial on connect
 :::
 
 If you manage your own cluster and don’t have offerings from cloud providers available, there are some in-cluster options you could explore:
+
 - [Longhorn](https://longhorn.io/)
 - [Rook (CephFS)](https://rook.io/)
 - [GlusterFS](https://www.gluster.org/)
