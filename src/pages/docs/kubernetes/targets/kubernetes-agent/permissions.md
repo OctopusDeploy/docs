@@ -11,6 +11,7 @@ navOrder: 20
 The Kubernetes agent uses service accounts to manage access to cluster objects.
 
 There are 2 main components that run with different permissions in the Kubernetes agent:
+
 - **Agent Pod** - This is the main component and is responsible for receiving work from Octopus Server and scheduling it in the cluster.
 - **Script Pods** - These are run to execute work on the cluster. When Octopus issues work to the agent, the Tentacle will schedule a pod to run the script to execute the required work. These are short-lived, single-use pods which are removed by Tentacle when they are complete.
 
@@ -18,10 +19,10 @@ There are 2 main components that run with different permissions in the Kubernete
 
 The agent pod uses a service account which only allows the agent to create, view and modify pods, pod logs, config maps, and secrets in the agent namespace. Adjusting these permissions is not supported.
 
-| Variable Name                      | Description                              | Default Value            |
-|:-----------------------------------|:-----------------------------------------|:-------------------------|
-| `agent.serviceAccount.name`        | The name of the agent service account    | `<agent-name>-tentacle`  |
-| `agent.serviceAccount.annotations` | Annotations given to the service account | `[]`                     |
+| Variable Name                      | Description                              | Default Value           |
+| :--------------------------------- | :--------------------------------------- | :---------------------- |
+| `agent.serviceAccount.name`        | The name of the agent service account    | `<agent-name>-tentacle` |
+| `agent.serviceAccount.annotations` | Annotations given to the service account | `[]`                    |
 
 ## Script Pod Permissions
 
@@ -30,13 +31,14 @@ By default, the script pods (the pods which run your deployment steps) are given
 The service account for script pods can be customized in a few ways:
 
 | Variable Name                                 | Description                                                      | Default Value                                                                                                                                                                                                                              |
-|:----------------------------------------------|:-----------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :-------------------------------------------- | :--------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `scriptPods.serviceAccount.targetNamespaces`  | Limit the namespaces that the service account can interact with. | `[]`<br/>(When empty, all namespaces are allowed.)                                                                                                                                                                                         |
 | `scriptPods.serviceAccount.clusterRole.rules` | Give the service account custom rules                            | <pre>- apiGroups:<br/>&nbsp;&nbsp;- '\*'<br/>&nbsp;&nbsp;resources:<br/>&nbsp;&nbsp;- '\*'<br/>&nbsp;&nbsp;verbs:<br/>&nbsp;&nbsp;- '\*'<br/>- nonResourceURLs:<br/>&nbsp;&nbsp;- '\*'<br/>&nbsp;&nbsp;verbs:<br/>&nbsp;&nbsp;- '\*'</pre> |
-| `scriptPods.serviceAccount.name`              | The name of the scriptPods service account                       | `<agent-name>-scripts`                                                                                                                                                                                                                    |
+| `scriptPods.serviceAccount.name`              | The name of the scriptPods service account                       | `<agent-name>-scripts`                                                                                                                                                                                                                     |
 | `scriptPods.serviceAccount.annotations`       | Annotations given to the service account                         | `[]`                                                                                                                                                                                                                                       |
 
 ### Examples
+
 <details data-group="script-pod-value-examples">
 <summary>Target Namespaces</summary>
 
@@ -45,6 +47,7 @@ The service account for script pods can be customized in a few ways:
 <br/>
 
 **command:**
+
 ```bash
 helm upgrade --install --atomic \
 --set scriptPods.serviceAccount.targetNamespaces="{development,preproduction}" \
@@ -61,6 +64,7 @@ helm upgrade --install --atomic \
 my-agent\
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+
 </details>
 
 <details data-group="script-pod-value-examples">
@@ -71,6 +75,7 @@ oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 <br/>
 
 **values.yaml:**
+
 ```yaml
 scriptPods:
   serviceAccount:
@@ -101,9 +106,11 @@ agent:
     - 'k8s-cluster-tag'
   bearerToken: 'XXXX'
 ```
+
 <br/>
 
 **command:**
+
 ```bash
 helm upgrade --install --atomic \
 --values values.yaml \
@@ -112,4 +119,5 @@ helm upgrade --install --atomic \
 my-agent \
 oci://registry-1.docker.io/octopusdeploy/kubernetes-agent
 ```
+
 </details>
