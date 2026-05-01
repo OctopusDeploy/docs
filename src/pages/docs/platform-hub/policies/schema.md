@@ -2,12 +2,12 @@
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
 modDate: 2025-09-11
-title: Policy input schema
-subtitle: The data available to your policy engine when evaluating deployments and runbook runs
+title: Schema for policies
+subtitle: A reference for the input schema passed to the policy engine, including field descriptions, conditional fields, and example patterns.
 icon: fa-solid fa-lock
-navTitle: Policy input schema
+navTitle: Schema for policies
 navSection: Policies
-description: A reference for the input schema passed to the policy engine, including field descriptions, conditional fields, and example patterns.
+description: Schema for policies
 navOrder: 162
 ---
 
@@ -21,19 +21,21 @@ The table below summarizes every top-level field available to your policies.
 
 | Field | Type | Always present? | Description |
 | --- | --- | --- | --- |
-| `Environment` | object | Yes | The environment the deployment or runbook run is targeting |
-| `Project` | object | Yes | The project being deployed |
-| `Space` | object | Yes | The space the deployment belongs to |
-| `ProjectGroup` | object | Yes | The project group the project belongs to |
-| `Steps` | array | Yes | All steps included in the deployment process |
-| `SkippedSteps` | array | Yes | IDs of any steps excluded from this deployment |
-| `Execution` | array | Yes | Execution order and parallelism settings for each step |
-| `Tenant` | object | **No** | Present only for tenanted deployments |
-| `Release` | object | **No** | Present only for deployments (not runbook runs) |
-| `Runbook` | object | **No** | Present only for runbook runs (not deployments) |
+| Environment | object | Yes | The environment the deployment or runbook run is targeting |
+| Project | object | Yes | The project being deployed |
+| Space | object | Yes | The space the deployment belongs to |
+| ProjectGroup | object | Yes | The project group the project belongs to |
+| Steps | array | Yes | All steps included in the deployment process |
+| SkippedSteps | array | Yes | IDs of any steps excluded from this deployment |
+| Execution | array | Yes | Execution order and parallelism settings for each step |
+| Tenant | object | **No** | Present only for tenanted deployments |
+| Release | object | **No** | Present only for deployments (not runbook runs) |
+| Runbook | object | **No** | Present only for runbook runs (not deployments) |
 
-:::hint
+:::div{.hint}
+
 Because `Tenant`, `Release`, and `Runbook` are conditionally present, always check for their existence before referencing them in your conditions. For example, use `input.Runbook` to check the field exists before accessing `input.Runbook.GitRef`. See [Scoping to deployments or runbook runs](#scoping-to-deployments-or-runbook-runs) below.
+
 :::
 
 ## Input fields
@@ -44,10 +46,10 @@ The environment the deployment or runbook run is targeting.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Id` | string | The unique identifier for the environment |
-| `Name` | string | The display name of the environment |
-| `Slug` | string | The URL-safe slug for the environment |
-| `Tags` | array of strings | Tags applied to the environment |
+| Id | string | The unique identifier for the environment |
+| Name | string | The display name of the environment |
+| Slug | string | The URL-safe slug for the environment |
+| Tags | array of strings | Tags applied to the environment |
 
 **Example usage:**
 
@@ -63,14 +65,14 @@ input.Environment.Tags[_] == "regulated"
 
 ### Project
 
-The project being deployed.
+The Octopus project where the deployment or runbook will be executed.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Id` | string | The unique identifier for the project |
-| `Name` | string | The display name of the project |
-| `Slug` | string | The URL-safe slug for the project |
-| `Tags` | array of strings | Tags applied to the project |
+| Id | string | The unique identifier for the project |
+| Name | string | The display name of the project |
+| Slug | string | The URL-safe slug for the project |
+| Tags | array of strings | Tags applied to the project |
 
 ### Space
 
@@ -78,9 +80,9 @@ The Octopus space the deployment belongs to.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Id` | string | The unique identifier for the space |
-| `Name` | string | The display name of the space |
-| `Slug` | string | The URL-safe slug for the space |
+| Id | string | The unique identifier for the space |
+| Name | string | The display name of the space |
+| Slug | string | The URL-safe slug for the space |
 
 ### ProjectGroup
 
@@ -88,9 +90,9 @@ The project group the project belongs to.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Id` | string | The unique identifier for the project group |
-| `Name` | string | The display name of the project group |
-| `Slug` | string | The URL-safe slug for the project group |
+| Id | string | The unique identifier for the project group |
+| Name | string | The display name of the project group |
+| Slug | string | The URL-safe slug for the project group |
 
 ### Tenant
 
@@ -98,10 +100,10 @@ The tenant for tenanted deployments. **This field is absent for non-tenanted dep
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Id` | string | The unique identifier for the tenant |
-| `Name` | string | The display name of the tenant |
-| `Slug` | string | The URL-safe slug for the tenant |
-| `Tags` | array of strings | Tags applied to the tenant |
+| Id | string | The unique identifier for the tenant |
+| Name | string | The display name of the tenant |
+| Slug | string | The URL-safe slug for the tenant |
+| Tags | array of strings | Tags applied to the tenant |
 
 **Example usage:**
 
@@ -124,34 +126,34 @@ has_required_tag if {
 
 These two fields work together. A step that's skipped still appears in `Steps`, but its ID is also added to `SkippedSteps`. This means policies that enforce required steps need to check both fields.
 
-**Steps array, each item contains:**
+#### Steps
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Id` | string | Yes | The unique identifier for the step |
-| `Slug` | string | Yes | The URL-safe slug for the step |
-| `ActionType` | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
-| `Enabled` | boolean | Yes | Whether the step is enabled in the process |
-| `IsRequired` | boolean | Yes | Whether the step has been marked as required |
-| `Source` | object | Yes | Where the step comes from. See the Source object below |
-| `Packages` | array | No | Packages referenced by this step |
+| Id | string | Yes | The unique identifier for the step |
+| Slug | string | Yes | The URL-safe slug for the step |
+| ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
+| Enabled | boolean | Yes | Whether the step is enabled in the process |
+| IsRequired | boolean | Yes | Whether the step has been marked as required |
+| Source | object | Yes | Where the step comes from. See the Source object below |
+| Packages | array | No | Packages referenced by this step |
 
-**Source object:**
-
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `Type` | string | Yes | The source type. Valid values: `"Step Template"`, `"Process Template"` |
-| `SlugOrId` | string | Yes | The slug or ID of the step or process template |
-| `Version` | string | No | The pinned version, if one is set |
-
-**Packages array, each item contains:**
+#### Source object
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Id` | string | Yes | The unique identifier for the package reference |
-| `Name` | string | Yes | The name of the package |
-| `Version` | string | No | The resolved package version |
-| `GitRef` | string | No | The Git reference the package was built from |
+| Type | string | Yes | The source type. Valid values: `"Step Template"`, `"Process Template"` |
+| SlugOrId | string | Yes | The slug or ID of the step or process template |
+| Version | string | No | The pinned version, if one is set |
+
+#### Packages array
+
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| Id | string | Yes | The unique identifier for the package reference |
+| Name | string | Yes | The name of the package |
+| Version | string | No | The resolved package version |
+| GitRef | string | No | The Git reference the package was built from |
 
 **Example usage:**
 
@@ -171,18 +173,20 @@ result := {"allowed": true} if {
 }
 ```
 
+:::div{.hint}
+
 See the [steps and skipping examples](/docs/platform-hub/policies/examples#check-that-a-step-isnt-skipped-in-a-deployment) for more patterns.
+
+:::
 
 ### Execution
 
 The `Execution` array describes the order steps run in and how each step relates to the previous one. Use this field to enforce rules about parallelism or step sequencing.
 
-Each item in the array contains:
-
 | Property | Type | Description |
 | --- | --- | --- |
-| `StartTrigger` | string | How this step starts. `"StartAfterPrevious"` runs sequentially; `"StartWithPrevious"` runs in parallel with the previous step |
-| `Steps` | array of strings | The IDs of the steps in this execution group |
+| StartTrigger | string | How this step starts. `"StartAfterPrevious"` runs sequentially; `"StartWithPrevious"` runs in parallel with the previous step |
+| Steps | array of strings | The IDs of the steps in this execution group |
 
 **Example usage:**
 
@@ -201,10 +205,10 @@ Details about the release being deployed. **This field is absent for runbook run
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Id` | string | Yes | The unique identifier for the release |
-| `Name` | string | Yes | The release name |
-| `Version` | string | Yes | The release version string |
-| `GitRef` | string | No | The Git reference the release was created from |
+| Id | string | Yes | The unique identifier for the release |
+| Name | string | Yes | The release name |
+| Version | string | Yes | The release version string |
+| GitRef | string | No | The Git reference the release was created from |
 
 **Example usage:**
 
@@ -221,7 +225,11 @@ result := {"allowed": false, "action": "block"} if {
 }
 ```
 
+:::div{.hint}
+
 See the [release version examples](/docs/platform-hub/policies/examples#check-that-a-release-version-is-greater-than-required-minimum) for more patterns.
+
+:::
 
 ### Runbook
 
@@ -229,10 +237,10 @@ Details about the runbook run. **This field is absent for deployments.**
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `Id` | string | Yes | The unique identifier for the runbook |
-| `Name` | string | Yes | The display name of the runbook |
-| `Snapshot` | string | Yes | The snapshot name used for this run |
-| `GitRef` | string | No | The Git reference the runbook was published from |
+| Id | string | Yes | The unique identifier for the runbook |
+| Name | string | Yes | The display name of the runbook |
+| Snapshot | string | Yes | The snapshot name used for this run |
+| GitRef | string | No | The Git reference the runbook was published from |
 
 **Example usage:**
 
@@ -274,9 +282,9 @@ Your Rego conditions must define a `result` object that Octopus reads to determi
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-| `allowed` | boolean | Yes | Whether the policy permits the deployment to proceed |
-| `reason` | string | No | A message shown to the user when the policy fails |
-| `action` | string | No | Overrides the violation action. Valid values: `"block"` or `"warn"` |
+| allowed | boolean | Yes | Whether the policy permits the deployment to proceed |
+| reason | string | No | A message shown to the user when the policy fails |
+| action | string | No | Overrides the violation action. Valid values: `"block"` or `"warn"` |
 
 The `action` field lets individual policy rules override the default violation action set on the policy. This is useful when you want a single policy to block in production but warn in other environments.
 
@@ -431,6 +439,14 @@ The complete JSON schema for the policy input object is provided below for use w
       }
     }
   },
-  "required": ["Environment", "Project", "Space", "SkippedSteps", "Steps", "ProjectGroup", "Execution"]
+  "required": [
+    "Environment",
+    "Project",
+    "Space",
+    "SkippedSteps",
+    "Steps",
+    "ProjectGroup",
+    "Execution"
+  ]
 }
 ```
