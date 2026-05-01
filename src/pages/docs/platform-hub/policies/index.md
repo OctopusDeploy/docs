@@ -27,9 +27,9 @@ Common things teams enforce with policies:
 - Steps must run in a particular order
 - Projects and tenants must carry required tags
 
-By default, a policy applies to both deployments and runbook runs. You can scope a policy to one or the other in your Rego. For the full list of input fields available, see the [policy input schema](/docs/platform-hub/policies/schema).
+By default, a policy applies to both deployments and runbook runs. You can scope a policy to one or the other in your Rego. For the full list of input fields available, see the [schema for policies](/docs/platform-hub/policies/schema).
 
-If you want to jump straight to working Rego, see the [examples page](/docs/platform-hub/policies/examples). For a full guide to the Rego language, see the [OPA documentation](https://www.openpolicyagent.org/docs/policy-language).
+If you want to jump straight to working with Rego, see the [examples page](/docs/platform-hub/policies/examples). For a full guide to the Rego language, see the [OPA documentation](https://www.openpolicyagent.org/docs/policy-language).
 
 ## Build your first policy
 
@@ -51,8 +51,10 @@ Choose a starter policy to base your new policy on, then click **Next**.
 ![A modal to select a starter policy](/docs/img/platform-hub/policies/policies-create-starter-modal.png)
 :::
 
-:::hint
+:::div{.hint}
+
 To start with a blank slate, choose **Create Blank Policy**.
+
 :::
 
 ### 3. Name your policy
@@ -63,8 +65,10 @@ Enter a name for your policy. Octopus generates a slug from the name you provide
 ![A modal to create a new policy](/docs/img/platform-hub/policies/policies-create-modal.png)
 :::
 
-:::hint
+:::div{.hint}
+
 The slug can't be changed after the policy is created. It becomes the package name in your Rego code and the filename of the OCL file in your repository.
+
 :::
 
 ### 4. Fill in the policy details
@@ -74,14 +78,16 @@ Fill in the following fields:
 - **Name:** a short, memorable name for this policy.
 - **Description:** an optional summary of what the policy enforces.
 - **Violation reason:** the message shown to users when a deployment or runbook run fails this policy. Make this specific enough for users to understand what they need to fix.
-- **Violation action:** whether a failing policy blocks the execution or raises a warning. This default can be overridden per rule in your conditions Rego using the `action` property.
+- **Violation action:** whether a failing policy blocks the execution or raises a warning.
 
 :::figure
 ![The form used to edit a policy](/docs/img/platform-hub/policies/policies-edit-getting-started.png)
 :::
 
-:::hint
+:::div{.hint}
+
 The values for both Violation Reason and Violation Action can be overridden by the `reason` and `action` properties returned in your conditions Rego result. See the [output schema](/docs/platform-hub/policies/schema#output-schema) for details.
+
 :::
 
 ### 5. Write your scope
@@ -101,7 +107,7 @@ Octopus passes the input object for every execution to the policy engine. In you
 }
 ```
 
-To reference the environment name in Rego:
+Reference the environment name in Rego as follows:
 
 ```rego
 input.Environment.Name == "Development"
@@ -121,10 +127,9 @@ evaluate if {
 }
 ```
 
-:::hint
+:::div{.hint}
 
-- The scope rule must be named `evaluate`. You can't rename it.
-- The package name must match your policy slug exactly.
+The scope rule must be named `evaluate`. You can't rename it. The package name must match your policy slug exactly.
 
 :::
 
@@ -138,8 +143,7 @@ Start by setting the default result. Because we're still testing this policy, se
 
 :::warning
 
-- The result rule must be named `result`. You can't rename it.
-- The package name must match your policy slug exactly.
+The result rule must be named `result`. You can't rename it. The package name must match your policy slug exactly.
 
 :::
 
@@ -162,9 +166,7 @@ result := {"allowed": true} if {
 }
 ```
 
-Once you've confirmed the policy is evaluating correctly, change `"action": "warn"` to `"action": "block"` and update the scope to cover your production environment.
-
-For the full list of input fields you can reference in your conditions, see the [policy input schema](/docs/platform-hub/policies/schema).
+For the full list of input fields you can reference in your conditions, see the [schema for policies](/docs/platform-hub/policies/schema).
 
 ### 7. Save your policy
 
@@ -182,8 +184,10 @@ After committing, publish the policy to make the changes take effect. Choose the
 - **Minor:** non-breaking changes
 - **Patch:** bug fixes
 
-:::hint
+:::div{.hint}
+
 The first time you publish a policy, you can only publish a major version.
+
 :::
 
 :::figure
@@ -194,8 +198,10 @@ The first time you publish a policy, you can only publish a major version.
 
 Published policies must be activated before Octopus evaluates them. You can deactivate a policy at any time to stop it from being evaluated without deleting it.
 
-:::hint
+:::div{.hint}
+
 Activation settings can be updated at any time from the **Versions** tab on the edit policy page.
+
 :::
 
 :::figure
@@ -216,12 +222,8 @@ Once you're satisfied the policy is working correctly, you can:
 2. Update the scope to include your production environment.
 3. Commit, publish, and re-activate the policy.
 
+:::div{.hint}
+
 See [Troubleshooting policies](/docs/platform-hub/policies/troubleshooting) if evaluations aren't appearing as expected.
 
----
-
-## What's next
-
-- [Policy examples](/docs/platform-hub/policies/examples): ready-to-use Rego for common enforcement scenarios
-- [Policy input schema](/docs/platform-hub/policies/schema): the full reference for fields available in your Rego
-- [Best practices](/docs/platform-hub/policies/best-practices): guidance on naming, rollout, and writing reliable policies
+:::

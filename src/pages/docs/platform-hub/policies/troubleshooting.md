@@ -57,23 +57,23 @@ Audit log entries only appear for executions that fall in the policy's scope. If
 
 If a policy isn't appearing in the task log or audit log for an execution you expect it to cover, work through the following checks.
 
-**Check the policy is activated.** A published policy must be activated before Octopus evaluates it. Go to the **Versions** tab on the edit policy page and confirm the policy is active.
+1. **Check the policy is activated.** A published policy must be activated before Octopus evaluates it. Go to the **Versions** tab on the edit policy page and confirm the policy is active.
 
-**Check the scope Rego.** The scope determines which executions the policy evaluates. Open the policy editor and review your scope Rego. Use the verbose task log on a deployment you expect to be in scope to see what input fields were passed, and check whether your scope conditions would match.
+1. **Check the scope Rego.** The scope determines which executions the policy evaluates. Open the policy editor and review your scope Rego. Use the verbose task log on a deployment you expect to be in scope to see what input fields were passed, and check whether your scope conditions would match.
 
-**Check the package name.** The package name in your scope and conditions Rego must exactly match your policy's slug. A mismatch will prevent the policy from evaluating. The slug is shown on the edit policy page.
+1. **Check the package name.** The package name in your scope and conditions Rego must exactly match your policy's slug. A mismatch will prevent the policy from evaluating. The slug is shown on the edit policy page.
 
 ### Policy is blocking when it should warn
 
 If a policy is blocking deployments or runbook runs when you expect it to only warn, check the following.
 
-**Check the default result.** If your conditions Rego sets `default result := {"allowed": false}` without an `action` property, Octopus uses the violation action set on the policy itself. If that's set to `block`, all failures will block. Add `"action": "warn"` to your default result while testing:
+1. **Check the default result.** If your conditions Rego sets `default result := {"allowed": false}` without an `action` property, Octopus uses the violation action set on the policy itself. If that's set to `block`, all failures will block. Add `"action": "warn"` to your default result while testing.
 
-```rego
-default result := {"allowed": false, "action": "warn"}
-```
+    ```rego
+    default result := {"allowed": false, "action": "warn"}
+    ```
 
-**Check the policy violation action.** The violation action on the policy UI sets the default behaviour for all failures. Go to the edit policy page and confirm it's set to **Warn** if you want warnings by default.
+2. **Check the policy violation action.** The violation action on the policy UI sets the default behaviour for all failures. Go to the edit policy page and confirm it's set to **Warn** if you want warnings by default.
 
 ### Policy is not catching skipped steps
 
@@ -90,7 +90,11 @@ result := {"allowed": true} if {
 }
 ```
 
+:::div{.hint}
+
 See [Check for both existence and skipping](/docs/platform-hub/policies/best-practices#check-for-both-existence-and-skipping) in the best practices guide.
+
+:::
 
 ### Policy causes an evaluation error on runbook runs
 
@@ -115,7 +119,13 @@ result := {"allowed": true} if {
 }
 ```
 
-The same applies to `input.Runbook` on deployments, and `input.Tenant` on non-tenanted deployments. See [Guard against conditional fields](/docs/platform-hub/policies/best-practices#guard-against-conditional-fields) in the best practices guide.
+The same applies to `input.Runbook` on deployments, and `input.Tenant` on non-tenanted deployments.
+
+:::div{.hint}
+
+See [Guard against conditional fields](/docs/platform-hub/policies/best-practices#guard-against-conditional-fields) in the best practices guide.
+
+:::
 
 ### Policy evaluates the wrong executions
 

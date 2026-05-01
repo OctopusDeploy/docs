@@ -13,21 +13,20 @@ navOrder: 161
 
 This page organizes policy examples by what you're trying to achieve, rather than by the underlying input fields they use. Find the scenario closest to your goal, copy the Rego, and adapt it to your environment.
 
-If you haven't written a policy before, start with the [getting started guide](/docs/platform-hub/policies). For the full list of input fields available in your Rego, see the [policy input schema](/docs/platform-hub/policies/schema).
+If you haven't written a policy before, start with the [getting started guide](/docs/platform-hub/policies). For the full list of input fields available in your Rego, see the [schema for policies](/docs/platform-hub/policies/schema).
 
 ## How to use these examples
 
 Each example shows Rego for the scope and conditions sections separately. You can apply them in two ways.
 
-**Using the policy editor:** Copy the scope Rego into the **Scope** editor and the conditions Rego into the **Conditions** editor, including the `package` declaration in each. The package name must match your policy's slug.
+- **Using the policy editor:** Copy the scope Rego into the **Scope** editor and the conditions Rego into the **Conditions** editor, including the `package` declaration in each. The package name must match your policy's slug.
+- **Using OCL files:** See [Writing policies as OCL files](#writing-policies-as-ocl-files) at the end of this page.
 
-**Using OCL files:** See [Writing policies as OCL files](#writing-policies-as-ocl-files) at the end of this page.
+:::div{.hint}
 
-:::hint
 Start every new policy with `"action": "warn"` in your default result. This lets executions proceed while you verify the policy is evaluating correctly, without risking blocked deployments. Switch to `"action": "block"` once you're confident it's working as expected.
-:::
 
----
+:::
 
 ## Ensure required steps are present
 
@@ -200,8 +199,6 @@ result := {"allowed": true} if {
 }
 ```
 
----
-
 ## Control deployments to production
 
 Use these examples when you want stricter rules for production environments, such as enforcing minimum release versions, restricting which branches can be deployed, or blocking in production while only warning elsewhere.
@@ -245,7 +242,7 @@ compliant if {
 
 Blocks production deployments where the release version is below the required minimum, and warns in other environments.
 
-:::hint
+:::div{.hint}
 `Release` is only present for deployments, not runbook runs. Use `not input.Runbook` in your scope to prevent evaluation errors.
 :::
 
@@ -295,7 +292,7 @@ version_too_low if {
 
 Blocks deployments where the release was created from a branch other than `main`.
 
-:::hint
+:::div{.hint}
 `Release` is only present for deployments. Use `not input.Runbook` in your scope.
 :::
 
@@ -352,8 +349,10 @@ result := {"allowed": true} if {
 
 Blocks runbook runs where the runbook was published from a branch other than `main`.
 
-:::hint
+:::div{.hint}
+
 `Runbook` is only present for runbook runs. Use `input.Runbook` in your scope.
+
 :::
 
 **Scope:**
@@ -534,14 +533,14 @@ result := {"allowed": true} if {
 }
 ```
 
----
-
 ## Enforce tagging standards
 
 Use these examples when you want to ensure projects, tenants, or environments carry the tags your organisation uses to classify workloads. For example, to confirm a tenant has been assigned a support tier before a deployment can proceed.
 
-:::hint
+:::div{.hint}
+
 `Tenant` is only present for tenanted deployments. Always check for `input.Tenant` before referencing its properties. If your policy evaluates both tenanted and non-tenanted deployments, add an existence check in your conditions.
+
 :::
 
 ### Require a project and tenant to carry tags from specific tag sets
@@ -570,8 +569,6 @@ project_has_lang_tag if {
     startswith(tag, "lang/")
 }
 ```
-
----
 
 ## Scoping examples
 
@@ -641,8 +638,6 @@ evaluate if {
     input.Runbook.Id == "<runbook-id>"
 }
 ```
-
----
 
 ## Writing policies as OCL files
 

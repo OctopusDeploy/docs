@@ -21,11 +21,11 @@ Use the format **[Scope] - [Policy name]**, where the scope prefix reflects what
 
 | Scope prefix | Use when |
 | --- | --- |
-| `Deployments` | The policy only applies to deployments |
-| `Runbook Runs` | The policy only applies to runbook runs |
-| `Deployments and Runbook Runs` | The policy applies to both |
+| Deploy | The policy only applies to deployments |
+| Run | The policy only applies to runbook runs |
+| Global | The policy applies to both |
 
-For example: `Deployments - Manual intervention required` or `Runbook Runs - Main branch only`.
+For example: `Deploy - Manual intervention required` or `Run - Main branch only`.
 
 ## Use warn before block
 
@@ -102,9 +102,9 @@ Three input fields are not always present in the input object: `Tenant`, `Releas
 
 | Field | When it's present |
 | --- | --- |
-| `Tenant` | Tenanted deployments only |
-| `Release` | Deployments only |
-| `Runbook` | Runbook runs only |
+| Tenant | Tenanted deployments only |
+| Release | Deployments only |
+| Runbook | Runbook runs only |
 
 Always guard against their absence in your scope or conditions:
 
