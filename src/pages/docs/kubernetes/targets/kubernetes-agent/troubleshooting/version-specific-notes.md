@@ -49,6 +49,7 @@ helm upgrade --install --atomic --repo https://raw.githubusercontent.com/kuberne
 
 :::div{.warning}
 If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
+
 ```bash
 helm repo update
 ```
