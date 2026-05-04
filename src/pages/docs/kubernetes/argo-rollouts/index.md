@@ -23,7 +23,7 @@ Octopus supports **visualization and control** of Argo Rollouts. Rollout definit
 Argo Rollouts support is available for both Octopus Kubernetes deployment paths:
 
 | Deployment path | Supported |
-|:---|:---:|
+| :--- | :---: |
 | [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) (without Argo CD) | ✓ |
 | [Argo CD Gateway](/docs/argo-cd) | ✓ |
 
@@ -50,7 +50,7 @@ During a deployment, each environment column displays live rollout-aware status 
 :::
 
 | State | Meaning |
-|:---|:---|
+| :--- | :--- |
 | Healthy | All rollouts are complete and stable |
 | In Progress | A rollout is actively progressing through steps |
 | Paused | A rollout is paused, awaiting manual promotion or analysis |

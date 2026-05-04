@@ -22,7 +22,7 @@ Octopus does not create, edit, or delete Rollout definitions. Rollout specs cont
 The actions available depend on the current state of the rollout.
 
 | Action | Description | Available when |
-|:---|:---|:---|
+| :--- | :--- | :--- |
 | **Details** | Opens the Rollout Details Drawer | Always |
 | **Pause** | Halts progression at the current step | Rollout is in progress |
 | **Promote** | Advances the rollout to the next step | Rollout is paused at a step |
@@ -77,7 +77,7 @@ Rollback is not the same as re-deploying a previous release. To re-deploy an ear
 Control actions are gated by Octopus permissions. Users with read-only access can view rollout state but cannot perform any actions.
 
 | Action | Required permission |
-|:---|:---|
+| :--- | :--- |
 | View rollout status and details | Project `View` |
 | Pause, Promote, Promote Full, Restart, Retry, Abort, Rollback | Project `DeploymentCreate` |
 
