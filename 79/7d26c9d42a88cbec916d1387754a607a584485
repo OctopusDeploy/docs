@@ -1,0 +1,25 @@
+src/pages/docs/kubernetes/argo-rollouts/index.md
+  d41a0aebffed8f61 26,53
+src/pages/docs/kubernetes/argo-rollouts/control-actions.md
+  d41a0aebffed8f61 25,80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "797d26c9d42a88cbec916d1387754a607a584485",
+  "prompts": {
+    "d41a0aebffed8f61": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9f5bb09d-5245-44a1-bf46-3cf3f9a6f9f4",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Idan Arbel",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  }
+}
