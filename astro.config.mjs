@@ -3,12 +3,14 @@ import remarkHeading from 'remark-heading-id';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/custom-markdown.mjs';
+import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://octopus.com',
     integrations: [
-        mdx()
+        mdx(),
+        llmMdEmitter()
     ],
     markdown: {
         shikiConfig: {
