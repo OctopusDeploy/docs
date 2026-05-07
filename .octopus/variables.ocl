@@ -27,7 +27,7 @@ variable "AWS.BucketName" {
         environment = ["live"]
     }
 
-    value "octopus-docs-staging" {
+    value "s3://octopus-docs-staging" {
         environment = ["test"]
     }
 }
