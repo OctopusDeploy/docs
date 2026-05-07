@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-09-22
-modDate: 2025-03-28
+modDate: 2026-04-27
 title: OpenID Connect 
 description: How to customize the Subject Claim for OpenID Connect authentication
 navOrder: 70
@@ -41,11 +41,13 @@ The subject can be modified for the three different uses within Octopus:
 
 ### Subject key parts
 
-- Only the requested keys for a **Subject** claim will be include in the generated **Subject** claim
-- Any Octopus resource types included in the **Subject** claim will use the slug value for the Octopus resource. The slug value is generated from the name of the Octopus resource when it was created, it can be edited on the edit page of resource type.
+- Only the requested keys for a **Subject** claim will be included in the generated **Subject** claim.
+- Any Octopus resource types included in the **Subject** claim will use the slug value for the Octopus resource. The slug value is generated from the name of the Octopus resource when it was created, and it can be edited on the edit page of the resource type.
+- If a requested key has no value (for example, **Tenant** on an untenanted deployment, or **Runbook** on a deployment), both the key and the value are dropped from the **Subject** claim.
 - The **Subject** claim parts will always be in the following order:
   - **Space**
   - **Project**
+  - **Project Group**
   - **Runbook**
   - **Tenant**
   - **Environment**
@@ -60,21 +62,25 @@ The **Subject** claim for a deployment or a runbook supports the following parts
 
 - **Space** slug
 - **Project** slug
+- **Project Group** slug
 - **Runbook** slug
 - **Tenant** slug
 - **Environment** slug
 - **Account** slug
 - **Type**
-- **Feed** slug
 
-The default format for a deployment and runbook is `space:[space-slug]:project:[project-slug]:tenant:[tenant-slug]:environment:[environment-slug]`.
+The default keys for a deployment and runbook are **Space**, **Project**, **Tenant**, and **Environment**. For a tenanted deployment, this produces `space:[space-slug]:project:[project-slug]:tenant:[tenant-slug]:environment:[environment-slug]`. For an untenanted deployment, the **Tenant** segment is dropped, giving `space:[space-slug]:project:[project-slug]:environment:[environment-slug]`.
 
 The value for the type is either `deployment` or `runbook`.
 
 When changing the **Subject** claim format for a deployment and runbook, the runbook value will not be included (if specified) when running a deployment.
 
-For example, in the **Default** space, you have a project called **Deploy Web App**, and a runbook called **Restart**. If you set the **Subject** claim format to `space`, `project`, `runbook` and `type`, when running a deployment the **Subject** claim will be `space:default:project:deploy-web-app:type:deployment` and for the run of the runbook the **Subject** claim would be `space:default:project:deploy-web-app:runbook:restart:type:runbook`.
-This is using the default generated slug values for the space, project and runbook.
+For example, in the **Default** space, you have a project called **Deploy Web App**, and a runbook called **Restart**. If you set the **Subject** claim format to `space`, `project`, `runbook` and `type`, when running a deployment the **Subject** claim will be `space:default:project:deploy-web-app:type:deployment`, and for the run of the runbook the **Subject** claim would be `space:default:project:deploy-web-app:runbook:restart:type:runbook`.
+This is using the default generated slug values for the space, project, and runbook.
+
+:::div{.warning}
+Make sure your cloud provider's trust policy matches the **Subject** your deployments actually produce (tenanted or untenanted, deployment or runbook), not just the keys you selected.
+:::
 
 ## Health Checks {#health-checks}
 
@@ -117,7 +123,7 @@ Each of these claims will be prefixed with `https://octopus.com/claims/` and wil
   "https://octopus.com/claims/tenant": "tenant-slug",
   "https://octopus.com/claims/type": "deployment", // or runbook for a runbook run
   "https://octopus.com/claims/account": "account-slug",
-  "sub": "space:[space-slug]:project:[project-slug]:environment:[environment-slug]"
+  "sub": "space:[space-slug]:project:[project-slug]:environment:[environment-slug]" // tenant segment dropped because this example is untenanted
 }
 ```
 

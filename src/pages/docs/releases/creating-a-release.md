@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2025-09-23
+modDate: 2026-04-16
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
@@ -68,7 +68,7 @@ Guide failure mode asks for users to intervene when a deployment encounters an e
 1. Expand the **Failure mode** section, and select the mode you want to use.
 1. Click **SAVE**.
 
-### Deploy to a specific subset of deployment target
+### Deploy to a specific subset of deployment targets
 
 You can deploy releases to a specific subset of deployment targets.
 
@@ -76,8 +76,13 @@ You can deploy releases to a specific subset of deployment targets.
 1. Click **DEPLOY TO (Environment)**.
 1. Expand the **Preview and customize** section.
 1. Expand the **Deployment Targets** section.
-1. Select whether you would like to include or exclude specific deployment targets. The default is to include all applicable deployment targets.
-1. Select the deployment targets to include or exclude, and click **DEPLOY**.
+1. Select your target selection method:
+   - **Include all applicable deployment targets** (default)
+   - **Include specific deployment targets**: Choose individual targets to include
+   - **Exclude specific deployment targets**: Choose individual targets to exclude
+   - **Include specific target tags**: Include targets with selected tags
+   - **Exclude specific target tags**: Exclude targets with selected tags
+1. Click **DEPLOY**.
 
 ### Variable snapshot
 

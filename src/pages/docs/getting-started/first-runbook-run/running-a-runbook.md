@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-07-30
+modDate: 2026-04-16
 title: Running a Runbook
 description: Step by step guide on how to run a runbook in Octopus Deploy.
 navOrder: 50
@@ -18,8 +18,8 @@ This screen provides the details of the Runbook you are about to run.
 ![run runbook basic options](/docs/img/getting-started/first-runbook-run/images/run-runbook-basic-options.png)
 :::
 
-2. Select an environment.
-3. Click **RUN**.
+1. Select an environment.
+1. Click **RUN**.
 
 :::figure
 ![run runbook results](/docs/img/getting-started/first-runbook-run/images/run-hello-runbook-results.png)
@@ -29,10 +29,11 @@ Because we didn't define any deployment targets for the target environment, Octo
 
 The next step will cover [how to configure and use variables in runbooks](/docs/getting-started/first-runbook-run/runbook-specific-variables).
 
-**Further Reading**
+## Further reading
 
 For further reading on running a Runbook please see:
 
+- [Running a runbook](/docs/runbooks/running-a-runbook)
 - [Runbook vs Deployments](/docs/runbooks/runbooks-vs-deployments)
 - [Runbook Documentation](/docs/runbooks)
 - [Runbook Examples](/docs/runbooks/runbook-examples)

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-22
-modDate: 2026-01-15
+modDate: 2026-04-30
 title: Kubernetes agent
 navTitle: Overview
 navSection: Kubernetes agent
@@ -43,7 +43,7 @@ When you install the agent, several resources will be created within a cluster, 
 
 - Certain resource names may vary based on the target name and any overrides.
 
-- The NFS section to the right is created only when a user-defined storageClassName is not included.
+- The NFS section to the right is only relevant for pre-version v3 of the agent
 
 - `tentacle-certificate` is only created if you provide your own certificate during installation.
 
@@ -75,17 +75,22 @@ Upon completion of the task, the pod will terminate itself.
 
 The Kubernetes agent follows [semantic versioning](https://semver.org/), so a major agent version is locked to a Octopus Server version range. Updating to the latest major agent version requires updating to a supported Octopus Server. The supported versions for each agent major version are:
 
-| Kubernetes agent | Octopus Server           | Kubernetes cluster   |
-| ---------------- | ------------------------ | -------------------- |
-| 1.0.0 - 1.16.1   | **2024.2.6580** or newer | **1.26** to **1.29** |
-| 1.17.0 - 1.19.2  | **2024.2.6580** or newer | **1.27** to **1.30** |
-| 1.20.0 - 1.21.0  | **2024.2.6580** or newer | **1.28** to **1.31** |
-| 1.22.0 - 1.\*.\* | **2024.2.6580** or newer | **1.29** to **1.32** |
-| 2.0.0 - 2.2.1    | **2024.2.9396** or newer | **1.26** to **1.29** |
-| 2.3.0 - 2.8.2    | **2024.2.9396** or newer | **1.27** to **1.30** |
-| 2.9.0 - 2.11.3   | **2024.2.9396** or newer | **1.28** to **1.31** |
-| 2.12.0 - 2.25.1  | **2024.2.9396** or newer | **1.29** to **1.32** |
-| 2.26.0 - 2.\*.\* | **2024.2.9396** or newer | **1.30** to **1.33** |
+| Kubernetes agent  | Octopus Server             | Kubernetes cluster   |
+| ----------------- | -------------------------- | -------------------- |
+| 1.0.0 - 1.16.1    | **2024.2.6580** or newer   | **1.26** to **1.29** |
+| 1.17.0 - 1.19.2   | **2024.2.6580** or newer   | **1.27** to **1.30** |
+| 1.20.0 - 1.21.0   | **2024.2.6580** or newer   | **1.28** to **1.31** |
+| 1.22.0 - 1.24.0 * | **2024.2.6580** or newer   | **1.29** to **1.32** |
+| 2.0.0 - 2.2.1     | **2024.2.9396** or newer   | **1.26** to **1.29** |
+| 2.3.0 - 2.8.2     | **2024.2.9396** or newer   | **1.27** to **1.30** |
+| 2.9.0 - 2.11.3    | **2024.2.9396** or newer   | **1.28** to **1.31** |
+| 2.12.0 - 2.25.1   | **2024.2.9396** or newer   | **1.29** to **1.32** |
+| 2.26.0 - 2.37.0   | **2024.2.9396** or newer   | **1.30** to **1.33** |
+| 2.38.1 - 2.\*.\*  | **2024.2.9396** or newer   | **1.30** to **1.33** |
+| 3.0.0 - 3.\*.\*   | **2024.2.9396** or newer † | **1.32** to **1.35** |
+
+\* Version 1 of the Kubernetes agent is not longer maintained.  
+† Version 3 of the Kubernetes agent of the Kubernetes agent is compatible with this version, however it is only prompted as the installed version in **2026.2.7054** or newer.  
 
 Additionally, the Kubernetes agent only supports **Linux AMD64** and **Linux ARM64** Kubernetes nodes.
 
@@ -121,6 +126,8 @@ kubectl config view
 2. Select at least one [environment](/docs/infrastructure/environments) for the target.
 3. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 4. Optionally, set the default namespace that resources are deployed to. This is only used if the step configuration or Kubernetes manifests don't specify a namespace.
+5. Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. If the storage class supports the `ReadWriteMany` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) and you wish to scale horizontally, check the checkbox below the storage class.
+If no storage class name is added, the default cluster storage class with `ReadWriteOnce` access mode will be used.
 
 :::div{.warning}
 As the display name is used for the Helm release name, this name must be unique for a given cluster. This means that if you have a Kubernetes agent and Kubernetes worker with the same name (e.g. `production`), then they will clash during installation.
@@ -135,28 +142,6 @@ If you do want a Kubernetes agent and Kubernetes worker to have the same name, T
 :::
 
 Choose if you want to install additional components, such as the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) or the [Permissions controller](/docs/kubernetes/targets/kubernetes-agent/granular-permissions)
-
-Optionally, add the name of an existing [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) for the agent to use. The storage class must support the ReadWriteMany [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).  
-If no storage class name is added, the default Network File System (NFS) storage will be used.
-
-### NFS CSI driver
-
-If no [Storage Class](https://kubernetes.io/docs/concepts/storage/storage-classes/) name is set, the default NFS storage pod will be used. This runs a small NFS pod next to the agent pod and provides shared storage to the agent and script pods.
-
-A requirement of using the NFS pod is the installation of the [NFS CSI Driver](https://github.com/kubernetes-csi/csi-driver-nfs). This can be achieved by executing the presented helm command in a terminal connected to the target Kubernetes cluster.
-
-:::figure
-![Kubernetes Agent Wizard NFS CSI Page](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-wizard-nfs.png)
-:::
-
-:::div{.warning}
-If you receive an error with the text `failed to download` or `no cached repo found` when attempting to install the NFS CSI driver via helm, try executing the following command and then retrying the install command:
-
-```bash
-helm repo update
-```
-
-:::
 
 ### Installation helm command
 
@@ -309,6 +294,22 @@ This image contains the minimum required tooling to run Kubernetes workloads for
 - `kubectl`
 - `helm`
 - `powershell`
+
+## Modifying the Helm installation
+
+The Helm installation of the Kubernetes agent can be modified after installation if changes to the installed values need to be made. To help facilitate this, there is a dialog that can be launched that gives a pre-populated Helm command where additional values can be set.
+
+It is launched from the contedt menu on the Kubernetes agent settings page which can be navigated to **Infrastructure ➜ Deployment Targets ➜ [DEPLOYMENT TARGET] ➜ Settings**.
+
+:::figure
+![Kubernetes Agent Modify via Helm context menu item](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-modify-via-helm-context-menu.png)
+:::
+
+Once launched, it presents a dialog prefilled with the correct namespace and helm release name. From there, this command can be modified, copied and executed in a terminal connected to the cluster.
+
+:::figure
+![Kubernetes Agent Modify via Helm dialog](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-modify-via-helm-dialog.png)
+:::
 
 ## Upgrading the Kubernetes agent
 
