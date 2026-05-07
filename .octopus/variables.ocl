@@ -9,7 +9,7 @@ variable "AWS.Website" {
 }
 
 variable "AWS.Region" {
-    value "us-east-1" {}
+    value "" {}
 }
 
 variable "AWS.Distribution" {
@@ -27,7 +27,7 @@ variable "AWS.BucketName" {
         environment = ["live"]
     }
 
-    value "s3://octopus-docs-staging" {
+    value "octopus-docs-staging" {
         environment = ["test"]
     }
 }
