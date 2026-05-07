@@ -38,7 +38,7 @@ Supported editions:
 
 The following table outlines the minimum SQL Server version required by older Octopus Server releases.
 
-| Octopus Server    | Minimum SQL Server version          | Azure SQL   |
-| --------------    | ----------------------------------- |----------   |
-| 2020.2.x ➜ latest | SQL Server 2016+                    | Supported   |
-| 3.0  ➜ 2019.13    | SQL Server 2008+                    | Supported   |
+| Octopus Server    | Minimum SQL Server version | Azure SQL |
+| ----------------- | -------------------------- | --------- |
+| 2020.2.x ➜ latest | SQL Server 2016+           | Supported |
+| 3.0  ➜ 2019.13    | SQL Server 2008+           | Supported |
