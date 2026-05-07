@@ -4,7 +4,7 @@ Octopus works with a wide range of versions and editions of SQL Server, from a l
 
 Octopus supports versions of SQL Server that have at least 2 years of active support remaining from Microsoft. Versions approaching or past end-of-support are not supported.
 
-### SQL Server Hosting Options
+### SQL Server hosting options
 
 SQL Server can be hosted on [Linux](https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-overview) (including in a [container](https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment)), [Windows](https://learn.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server), or in one of many managed offerings from Cloud Providers.
 
