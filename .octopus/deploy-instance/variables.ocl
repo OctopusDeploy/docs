@@ -1,0 +1,7 @@
+variable "micrositeprefix" {
+    value "docs" {}
+}
+
+variable "GitHub.Repository" {
+    value "OctopusDeploy/Docs" {}
+}
