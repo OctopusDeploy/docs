@@ -6,5 +6,8 @@ connectivity_policy {
 }
 
 versioning_strategy {
-    template = "#{Octopus.Version.LastMajor}.#{Octopus.Version.LastMinor}.#{Octopus.Version.NextPatch}"
+    donor_package {
+        package = "microsite-package"
+        step = "run-a-process-template-upload-site-to-azure-blob"
+    }
 }
