@@ -29,6 +29,14 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
+## Kubernetes Agent bundled NFS storage deprecation
+
+As of Kubernetes Agent v3, the bundled NFS server is no longer the default storage option. It is still available and usable, but no longer the default. In a *future major release*, timed to occur with Octopus Server 2026.4, we will remove the NFS storage as a bundle storage solution.
+
+Closer to the release date, we will have guidance for existing customers who are using the NFS server.
+
+You can read more about this in the pinned [issue in the GitHub repository](https://github.com/OctopusDeploy/helm-charts/issues/554)
+
 ## Octopus Tentacle TLS specification deprecation
 
 From **9.0.0 onwards**, Octopus Tentacle will no longer explicitly specify supported TLS versions. Instead, TLS version selection will be delegated to the host operating system. This only applies to network connections between Octopus Tentacle and Octopus Server, both Cloud and self-hosted.
