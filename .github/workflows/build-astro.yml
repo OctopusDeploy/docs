@@ -31,16 +31,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Load versions
+        run: cat .github/versions.env >> "$GITHUB_ENV"
+
       - name: Install pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 10.13.1
+          version: ${{ env.PNPM_VERSION }}
           run_install: false
 
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
 

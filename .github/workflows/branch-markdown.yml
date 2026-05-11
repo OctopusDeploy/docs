@@ -23,6 +23,9 @@ jobs:
         with:
           fetch-depth: 0  # Fetch all history for comparison
 
+      - name: Load versions
+        run: cat .github/versions.env >> "$GITHUB_ENV"
+
       - name: Get changed markdown files
         id: changed-files
         run: |
@@ -48,14 +51,14 @@ jobs:
         if: steps.changed-files.outputs.count > 0
         uses: pnpm/action-setup@v6
         with:
-          version: 10.13.1
+          version: ${{ env.PNPM_VERSION }}
           run_install: false
 
       - name: Setup Node
         if: steps.changed-files.outputs.count > 0
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
 
