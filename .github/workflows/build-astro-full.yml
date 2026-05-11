@@ -11,5 +11,5 @@ jobs:
     with:
       octopus_project_name: 'Docs Microsite'
       package_id: 'DocsMicrosite'
-      node_version: '20'
+      node_version: '22'
     secrets: inherit
