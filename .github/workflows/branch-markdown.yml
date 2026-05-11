@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0  # Fetch all history for comparison
 
@@ -46,14 +46,14 @@ jobs:
 
       - name: Install pnpm
         if: steps.changed-files.outputs.count > 0
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 10.13.1
           run_install: false
 
       - name: Setup Node
         if: steps.changed-files.outputs.count > 0
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
           cache: 'pnpm'
@@ -84,7 +84,7 @@ jobs:
           echo; echo "PNPM install"
           pnpm install
 
-      - uses: DavidAnson/markdownlint-cli2-action@v22
+      - uses: DavidAnson/markdownlint-cli2-action@v23
         if: steps.changed-files.outputs.count > 0
         with:
           config: '.markdownlint.json'
