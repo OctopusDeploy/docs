@@ -1,0 +1,27 @@
+name: Deprovision Ephemeral Environment
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  deprovision:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Login to Octopus Deploy
+        uses: OctopusDeploy/login@v1
+        with:
+          server: ${{ secrets.OCTOPUS_SERVER_URL }}
+          service_account_id: ${{ secrets.OCTOPUS_SERVICE_ACCOUNT_ID }}
+
+      - name: 🐙 Deprovision Ephemeral Environment Action
+        uses: OctopusDeploy/deprovision-ephemeral-environment@v1.0.1
+        with:
+          name: pr${{ github.event.pull_request.number }}
+          space: Microsites
+          all_projects: true
