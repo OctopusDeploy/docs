@@ -9,6 +9,7 @@ navSection: Argo CD
 navOrder: 28
 hideInThisSectionHeader: true
 ---
+<!-- Test fixture for tests/llm-endpoints.spec.ts (STABLE_PLAIN_MD_PATH); do not add MDX components or imports. -->
 
 Octopus makes it easy to improve your Argo CD deployments with environment modeling and deployment orchestration. Automate everything from environment promotion and compliance to tests and change management.
 
