@@ -132,7 +132,7 @@ The application YAML required to install the helm chart is as follows (replacing
     ```
 
 3. Generate Octopus Deploy Api-Key
-  3.1. Follow the instreuctions on the [How to Create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key) guide
+  3.1. Follow the instructions on the [How to Create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key) guide
   3.2. Save the token in a secret
 
     ```shell
