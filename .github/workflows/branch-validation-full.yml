@@ -7,20 +7,10 @@ on:
       - main
 
 jobs:
-  versions:
-    runs-on: ubuntu-latest
-    outputs:
-      node_version: ${{ steps.read.outputs.NODE_VERSION }}
-    steps:
-      - uses: actions/checkout@v6
-      - id: read
-        run: cat .github/versions.env >> "$GITHUB_OUTPUT"
 
   branch_validation:
-    needs: versions
     uses: OctopusDeploy/microsite-deployment/.github/workflows/microsite-deployment-branch.yml@main
     with:
       octopus_project_name: "Docs Microsite"
       package_id: "DocsMicrosite"
-      node_version: ${{ needs.versions.outputs.node_version }}
     secrets: inherit
