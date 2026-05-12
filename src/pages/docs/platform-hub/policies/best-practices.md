@@ -33,7 +33,7 @@ Every new policy should start with `"action": "warn"` in the default result. A w
 
 Once you've confirmed the policy is working as expected, switch to `"action": "block"`.
 
-```rego
+```ruby
 # Start here while testing
 default result := {"allowed": false, "action": "warn"}
 
@@ -65,7 +65,7 @@ Avoid generic messages like "Policy violation" or "Deployment blocked". Instead,
 
 You can set a default violation reason in the policy UI, and override it per rule using the `reason` property in your conditions Rego:
 
-```rego
+```ruby
 result := {"allowed": false, "reason": "A manual intervention step is required and cannot be skipped in this environment"} if {
     manual_intervention_skipped
 }
@@ -81,7 +81,7 @@ It's not enough to check that a required step exists in the process. Users can s
 
 Your policy conditions should check both that the step is present and that it hasn't been skipped:
 
-```rego
+```ruby
 result := {"allowed": true} if {
     some step in input.Steps
     step.Source.SlugOrId == "<step-slug>"
@@ -98,7 +98,7 @@ See the [steps and skipping examples](/docs/platform-hub/policies/examples#ensur
 
 ## Guard against conditional fields
 
-Three input fields are not always present in the input object: `Tenant`, `Release`, and `Runbook`. Referencing them without checking for their existence first will cause a policy evaluation error.
+Three input fields are not always present in the input object: `Tenant`, `Release`, and `Runbook`. Referencing them without checking for their existence first will cause a policy evaluation error. See [schema for policies](/docs/platform-hub/policies/schema) for the full list of available fields.
 
 | Field | When it's present |
 | --- | --- |
@@ -108,7 +108,7 @@ Three input fields are not always present in the input object: `Tenant`, `Releas
 
 Always guard against their absence in your scope or conditions:
 
-```rego
+```ruby
 # Safe: check Runbook exists before accessing its properties
 evaluate if {
     input.Runbook
@@ -134,7 +134,7 @@ Each item in the `Execution` input field has a `StartTrigger` property with one 
 
 To enforce sequential execution:
 
-```rego
+```ruby
 result := {"allowed": true} if {
     every execution in input.Execution {
         execution.StartTrigger != "StartWithPrevious"

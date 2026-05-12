@@ -19,18 +19,18 @@ This page describes every field available in that input object, explains which f
 
 The table below summarizes every top-level field available to your policies.
 
-| Field | Type | Always present? | Description |
-| --- | --- | --- | --- |
-| Environment | object | Yes | The environment the deployment or runbook run is targeting |
-| Project | object | Yes | The project being deployed |
-| Space | object | Yes | The space the deployment belongs to |
-| ProjectGroup | object | Yes | The project group the project belongs to |
-| Steps | array | Yes | All steps included in the deployment process |
-| SkippedSteps | array | Yes | IDs of any steps excluded from this deployment |
-| Execution | array | Yes | Execution order and parallelism settings for each step |
-| Tenant | object | **No** | Present only for tenanted deployments |
-| Release | object | **No** | Present only for deployments (not runbook runs) |
-| Runbook | object | **No** | Present only for runbook runs (not deployments) |
+| Field | Type | Always present | Description |
+| :--- | :--- | :--- | :--- |
+| [Environment](#environment) | object | Yes | The environment the deployment or runbook run is targeting |
+| [Project](#project) | object | Yes | The project being deployed |
+| [Space](#space) | object | Yes | The space the deployment belongs to |
+| [ProjectGroup](#projectgroup) | object | Yes | The project group the project belongs to |
+| [Steps](#steps) | array | Yes | All steps included in the deployment process |
+| [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
+| [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
+| [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
+| [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
+| [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
 
 :::div{.hint}
 
@@ -45,7 +45,7 @@ Because `Tenant`, `Release`, and `Runbook` are conditionally present, always che
 The environment the deployment or runbook run is targeting.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Id | string | The unique identifier for the environment |
 | Name | string | The display name of the environment |
 | Slug | string | The URL-safe slug for the environment |
@@ -53,7 +53,7 @@ The environment the deployment or runbook run is targeting.
 
 **Example usage:**
 
-```rego
+```ruby
 # Match environments whose slug starts with "prod"
 production if {
     startswith(input.Environment.Slug, "prod")
@@ -68,7 +68,7 @@ input.Environment.Tags[_] == "regulated"
 The Octopus project where the deployment or runbook will be executed.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Id | string | The unique identifier for the project |
 | Name | string | The display name of the project |
 | Slug | string | The URL-safe slug for the project |
@@ -79,7 +79,7 @@ The Octopus project where the deployment or runbook will be executed.
 The Octopus space the deployment belongs to.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Id | string | The unique identifier for the space |
 | Name | string | The display name of the space |
 | Slug | string | The URL-safe slug for the space |
@@ -89,7 +89,7 @@ The Octopus space the deployment belongs to.
 The project group the project belongs to.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Id | string | The unique identifier for the project group |
 | Name | string | The display name of the project group |
 | Slug | string | The URL-safe slug for the project group |
@@ -99,7 +99,7 @@ The project group the project belongs to.
 The tenant for tenanted deployments. **This field is absent for non-tenanted deployments.** Always guard against its absence before using it.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | Id | string | The unique identifier for the tenant |
 | Name | string | The display name of the tenant |
 | Slug | string | The URL-safe slug for the tenant |
@@ -107,7 +107,7 @@ The tenant for tenanted deployments. **This field is absent for non-tenanted dep
 
 **Example usage:**
 
-```rego
+```ruby
 # Only evaluate for tenanted deployments
 evaluate if {
     input.Tenant
@@ -128,36 +128,36 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 
 #### Steps
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | Id | string | Yes | The unique identifier for the step |
 | Slug | string | Yes | The URL-safe slug for the step |
 | ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
 | Source | object | Yes | Where the step comes from. See the Source object below |
-| Packages | array | No | Packages referenced by this step |
+| Packages | array | No | Packages referenced by this step. Not present for Runbook runs |
 
 #### Source object
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | Type | string | Yes | The source type. Valid values: `"Step Template"`, `"Process Template"` |
 | SlugOrId | string | Yes | The slug or ID of the step or process template |
 | Version | string | No | The pinned version, if one is set |
 
 #### Packages array
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | Id | string | Yes | The unique identifier for the package reference |
 | Name | string | Yes | The name of the package |
 | Version | string | No | The resolved package version |
-| GitRef | string | No | The Git reference the package was built from |
+| GitRef | string | No | The Git reference for the package. Originates from comes from linked Build Information |
 
 **Example usage:**
 
-```rego
+```ruby
 # Check that no steps are skipped
 result := {"allowed": true} if {
     count(input.SkippedSteps) == 0
@@ -184,13 +184,13 @@ See the [steps and skipping examples](/docs/platform-hub/policies/examples#check
 The `Execution` array describes the order steps run in and how each step relates to the previous one. Use this field to enforce rules about parallelism or step sequencing.
 
 | Property | Type | Description |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | StartTrigger | string | How this step starts. `"StartAfterPrevious"` runs sequentially; `"StartWithPrevious"` runs in parallel with the previous step |
 | Steps | array of strings | The IDs of the steps in this execution group |
 
 **Example usage:**
 
-```rego
+```ruby
 # Prevent any steps from running in parallel
 result := {"allowed": true} if {
     every execution in input.Execution {
@@ -203,16 +203,16 @@ result := {"allowed": true} if {
 
 Details about the release being deployed. **This field is absent for runbook runs.**
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | Id | string | Yes | The unique identifier for the release |
 | Name | string | Yes | The release name |
 | Version | string | Yes | The release version string |
-| GitRef | string | No | The Git reference the release was created from |
+| GitRef | string | No | The Git reference for the release. Only present for version-controlled projects |
 
 **Example usage:**
 
-```rego
+```ruby
 # Only allow releases from the main branch
 result := {"allowed": true} if {
     input.Release.GitRef == "refs/heads/main"
@@ -235,16 +235,16 @@ See the [release version examples](/docs/platform-hub/policies/examples#check-th
 
 Details about the runbook run. **This field is absent for deployments.**
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | Id | string | Yes | The unique identifier for the runbook |
 | Name | string | Yes | The display name of the runbook |
 | Snapshot | string | Yes | The snapshot name used for this run |
-| GitRef | string | No | The Git reference the runbook was published from |
+| GitRef | string | No | The Git reference the runbook. Only present for version-controlled runbooks |
 
 **Example usage:**
 
-```rego
+```ruby
 # Scope a policy to runbook runs only
 evaluate if {
     input.Runbook
@@ -262,7 +262,7 @@ result := {"allowed": true} if {
 
 Because `Release` and `Runbook` are mutually exclusive, you can use them to scope a policy to one type of execution or the other.
 
-```rego
+```ruby
 # Deployments only
 evaluate if {
     not input.Runbook
@@ -280,8 +280,8 @@ evaluate if {
 
 Your Rego conditions must define a `result` object that Octopus reads to determine what to do. The `result` object supports three properties:
 
-| Property | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
 | allowed | boolean | Yes | Whether the policy permits the deployment to proceed |
 | reason | string | No | A message shown to the user when the policy fails |
 | action | string | No | Overrides the violation action. Valid values: `"block"` or `"warn"` |
@@ -290,7 +290,7 @@ The `action` field lets individual policy rules override the default violation a
 
 **Example:**
 
-```rego
+```ruby
 # Block in production, warn elsewhere
 result := {"allowed": false, "action": "block"} if {
     production

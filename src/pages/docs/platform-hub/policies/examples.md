@@ -38,7 +38,7 @@ Blocks deployments that don't include a manual intervention step. Also blocks de
 
 **Scope** (apply to the environments where manual intervention is required):
 
-```rego
+```ruby
 package manual_intervention_required
 
 default evaluate := false
@@ -51,7 +51,7 @@ evaluate if {
 
 **Conditions:**
 
-```rego
+```ruby
 package manual_intervention_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -79,7 +79,7 @@ Blocks deployments where a specific step template is absent, disabled, or skippe
 
 **Conditions:**
 
-```rego
+```ruby
 package step_template_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -99,7 +99,7 @@ Use this when you need to ensure a step template is not just present, but pinned
 
 **Conditions:**
 
-```rego
+```ruby
 package step_template_version_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -120,7 +120,7 @@ Process templates can contribute multiple steps. This example checks that all st
 
 **Conditions:**
 
-```rego
+```ruby
 package process_template_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -147,7 +147,7 @@ Uses `semver.compare` to check that every step from the process template matches
 
 **Conditions:**
 
-```rego
+```ruby
 package process_template_version_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -175,7 +175,7 @@ Use these when you want a blanket rule across all steps, rather than targeting a
 
 **No steps skipped:**
 
-```rego
+```ruby
 package no_steps_skipped
 
 default result := {"allowed": false, "action": "warn"}
@@ -187,7 +187,7 @@ result := {"allowed": true} if {
 
 **No steps disabled:**
 
-```rego
+```ruby
 package no_steps_disabled
 
 default result := {"allowed": false, "action": "warn"}
@@ -209,7 +209,7 @@ This pattern lets you run a policy in warn mode across all environments but esca
 
 **Conditions:**
 
-```rego
+```ruby
 package block_in_production_warn_elsewhere
 
 default result := {"allowed": false, "action": "warn"}
@@ -248,7 +248,7 @@ Blocks production deployments where the release version is below the required mi
 
 **Scope:**
 
-```rego
+```ruby
 package minimum_release_version
 
 default evaluate := false
@@ -260,7 +260,7 @@ evaluate if {
 
 **Conditions:**
 
-```rego
+```ruby
 package minimum_release_version
 
 default result := {"allowed": false, "action": "warn"}
@@ -298,7 +298,7 @@ Blocks deployments where the release was created from a branch other than `main`
 
 **Scope:**
 
-```rego
+```ruby
 package release_from_main_branch
 
 default evaluate := false
@@ -310,7 +310,7 @@ evaluate if {
 
 **Conditions:**
 
-```rego
+```ruby
 package release_from_main_branch
 
 default result := {"allowed": false, "action": "warn"}
@@ -326,7 +326,7 @@ Blocks deployments where any package was built from a branch other than `main`.
 
 **Conditions:**
 
-```rego
+```ruby
 package packages_from_main_branch
 
 default result := {"allowed": false, "action": "warn"}
@@ -357,7 +357,7 @@ Blocks runbook runs where the runbook was published from a branch other than `ma
 
 **Scope:**
 
-```rego
+```ruby
 package runbook_from_main_branch
 
 default evaluate := false
@@ -369,7 +369,7 @@ evaluate if {
 
 **Conditions:**
 
-```rego
+```ruby
 package runbook_from_main_branch
 
 default result := {"allowed": false, "action": "warn"}
@@ -391,7 +391,7 @@ Blocks any deployment or runbook run where steps are configured to run at the sa
 
 **Conditions:**
 
-```rego
+```ruby
 package no_parallel_steps
 
 default result := {"allowed": false, "action": "warn"}
@@ -409,7 +409,7 @@ Use this to ensure a specific step, such as a pre-flight check or a notification
 
 **Conditions:**
 
-```rego
+```ruby
 package step_at_boundary
 
 default result := {"allowed": false, "action": "warn"}
@@ -431,7 +431,7 @@ Similar to the example above, but for a process template that contributes multip
 
 **Conditions:**
 
-```rego
+```ruby
 package process_template_at_boundary
 
 default result := {"allowed": false, "action": "warn"}
@@ -455,7 +455,7 @@ Use this when relative ordering matters. For example, a security scan process te
 
 **Conditions:**
 
-```rego
+```ruby
 package process_template_ordering
 
 default result := {"allowed": false, "action": "warn"}
@@ -487,7 +487,7 @@ Use this when you need to enforce ordering between a custom step template and a 
 
 **Conditions:**
 
-```rego
+```ruby
 package step_template_and_builtin_ordering
 
 default result := {"allowed": false, "action": "warn"}
@@ -519,7 +519,7 @@ Use this when two built-in action types must always run in a specific sequence.
 
 **Conditions:**
 
-```rego
+```ruby
 package builtin_step_ordering
 
 default result := {"allowed": false, "action": "warn"}
@@ -549,7 +549,7 @@ Blocks deployments where the tenant doesn't have a tag from the `size/` set, or 
 
 **Conditions:**
 
-```rego
+```ruby
 package required_tags
 
 default result := {"allowed": false, "action": "warn"}
@@ -576,7 +576,7 @@ Every policy evaluates all deployments and runbook runs by default. Use scope to
 
 ### Scope to a specific space, environment, or project
 
-```rego
+```ruby
 package scope_example
 
 default evaluate := false
@@ -592,7 +592,7 @@ evaluate if {
 
 ### Scope to all projects except specific ones
 
-```rego
+```ruby
 package scope_example
 
 default evaluate := true
@@ -604,7 +604,7 @@ evaluate := false if {
 
 ### Scope to deployments only
 
-```rego
+```ruby
 package scope_example
 
 default evaluate := false
@@ -616,7 +616,7 @@ evaluate if {
 
 ### Scope to runbook runs only
 
-```rego
+```ruby
 package scope_example
 
 default evaluate := false
@@ -628,7 +628,7 @@ evaluate if {
 
 ### Scope to a specific runbook
 
-```rego
+```ruby
 package scope_example
 
 default evaluate := false

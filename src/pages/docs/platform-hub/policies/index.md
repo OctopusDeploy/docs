@@ -109,13 +109,13 @@ Octopus passes the input object for every execution to the policy engine. In you
 
 Reference the environment name in Rego as follows:
 
-```rego
+```ruby
 input.Environment.Name == "Development"
 ```
 
 For our example, the policy only evaluates deployments going to the Development environment, for the ACME project, in the Default space. All three conditions must be true at once.
 
-```rego
+```ruby
 package manual_intervention_required
 
 default evaluate := false
@@ -147,7 +147,7 @@ The result rule must be named `result`. You can't rename it. The package name mu
 
 :::
 
-```rego
+```ruby
 package manual_intervention_required
 
 default result := {"allowed": false, "action": "warn"}
@@ -155,7 +155,7 @@ default result := {"allowed": false, "action": "warn"}
 
 Then add a rule that sets `result` to allowed when the conditions are met. In this example, the deployment must contain at least one manual intervention step:
 
-```rego
+```ruby
 package manual_intervention_required
 
 default result := {"allowed": false, "action": "warn"}

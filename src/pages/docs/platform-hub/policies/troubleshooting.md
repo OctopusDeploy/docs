@@ -61,15 +61,13 @@ If a policy isn't appearing in the task log or audit log for an execution you ex
 
 1. **Check the scope Rego.** The scope determines which executions the policy evaluates. Open the policy editor and review your scope Rego. Use the verbose task log on a deployment you expect to be in scope to see what input fields were passed, and check whether your scope conditions would match.
 
-1. **Check the package name.** The package name in your scope and conditions Rego must exactly match your policy's slug. A mismatch will prevent the policy from evaluating. The slug is shown on the edit policy page.
-
 ### Policy is blocking when it should warn
 
 If a policy is blocking deployments or runbook runs when you expect it to only warn, check the following.
 
 1. **Check the default result.** If your conditions Rego sets `default result := {"allowed": false}` without an `action` property, Octopus uses the violation action set on the policy itself. If that's set to `block`, all failures will block. Add `"action": "warn"` to your default result while testing.
 
-    ```rego
+    ```ruby
     default result := {"allowed": false, "action": "warn"}
     ```
 
@@ -81,7 +79,7 @@ If a policy intended to catch skipped steps isn't working, the conditions are li
 
 A step that's been skipped still appears in `input.Steps`, but its ID is also added to `input.SkippedSteps`. Your conditions need to check both:
 
-```rego
+```ruby
 result := {"allowed": true} if {
     some step in input.Steps
     step.Source.SlugOrId == "<step-slug>"
@@ -102,7 +100,7 @@ If a policy works correctly for deployments but causes an error on runbook runs,
 
 Add a scope to limit the policy to deployments only:
 
-```rego
+```ruby
 default evaluate := false
 
 evaluate if {
@@ -112,7 +110,7 @@ evaluate if {
 
 Or, if the policy must evaluate both, check for the field's existence before referencing it:
 
-```rego
+```ruby
 result := {"allowed": true} if {
     input.Release
     input.Release.GitRef == "refs/heads/main"
