@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus worker listening-tentacle view
 description: View a Listening Tentacle worker
-navOrder: 156
+navOrder: 163
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a Listening Tentacle worker in Octopus Deploy
 
-```
+```text
 Usage:
   octopus worker listening-tentacle view {<name> | <id>} [flags]
 
@@ -30,9 +30,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus worker listening-tentacle view 'WindowsWorker'
-$ octopus worker listening-tentacle view Machines-100
+```bash
+octopus worker listening-tentacle view 'WindowsWorker'
+octopus worker listening-tentacle view Machines-100
 
 
 ```

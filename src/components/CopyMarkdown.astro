@@ -1,0 +1,87 @@
+---
+import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+import { getEligibleSlugs } from '@util/mdxContent';
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const docsPath = Astro.url.pathname.replace(/\/$/, '');
+const subfolderPrefix = SITE.subfolder.replace(/\/$/, '') + '/';
+const docsSlug = docsPath.startsWith(subfolderPrefix)
+  ? docsPath.slice(subfolderPrefix.length)
+  : null;
+const eligibleSlugs = getEligibleSlugs();
+const pageMdUrl =
+  docsSlug && eligibleSlugs.has(docsSlug) ? docsPath + '.md' : null;
+const allDocsUrl = SITE.subfolder.replace(/\/$/, '') + '/llms-full.txt';
+---
+
+{
+  pageMdUrl && (
+    <div class="octo-copy-md">
+      <details class="octo-copy-md__menu" data-copy-md-menu>
+        <summary class="octo-copy-md__trigger" data-copy-md-trigger>
+          <span class="octo-copy-md__trigger-icon" aria-hidden="true" />
+          <span class="octo-copy-md__trigger-label">
+            {_(Translations.octopus_copy_md.label)}
+          </span>
+          <span class="octo-copy-md__trigger-caret" aria-hidden="true" />
+        </summary>
+        <ul class="octo-copy-md__options">
+          <li>
+            <button
+              type="button"
+              class="octo-copy-md__option octo-copy-md__option--copy"
+              data-copy-md-option
+              data-copy-md-action="copy"
+              data-copy-md-url={pageMdUrl}
+              data-copy-md-label={_(Translations.octopus_copy_md.copy)}
+              data-copy-md-success={_(Translations.octopus_copy_md.copied)}
+              data-copy-md-error={_(Translations.octopus_copy_md.error)}
+            >
+              <span class="octo-copy-md__option-label" data-copy-md-text>
+                {_(Translations.octopus_copy_md.copy)}
+              </span>
+            </button>
+          </li>
+          <li>
+            <a
+              class="octo-copy-md__option octo-copy-md__option--view"
+              data-copy-md-option
+              href={pageMdUrl}
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="octo-copy-md__option-label">
+                {_(Translations.octopus_copy_md.view_raw)}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="octo-copy-md__option octo-copy-md__option--all"
+              data-copy-md-option
+              href={allDocsUrl}
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="octo-copy-md__option-label">
+                {_(Translations.octopus_copy_md.download_all)}
+              </span>
+            </a>
+          </li>
+        </ul>
+        <div
+          class="octo-copy-md__sr-status"
+          aria-live="polite"
+          data-copy-md-live
+        />
+      </details>
+    </div>
+  )
+}

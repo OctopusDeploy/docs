@@ -593,7 +593,7 @@ function initializeSearch() {
     }
 
     // Words chained with . are combined, i.e. System.Text is "systemtext"
-    var s = input.value.replace(/\./g, '');
+    var s = input.value.replace(/\./g, ' ');
 
     window.clearTimeout(debounceTimer);
     debounceTimer = window.setTimeout(function () {

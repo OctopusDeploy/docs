@@ -148,6 +148,16 @@ variable "gateway_namespace" {
   type        = string
   default     = "octopus-argocd-gateway"
 }
+
+variable "gateway_name" {
+  description = "Name of the Argo CD Gateway"
+  type        = string
+}
+
+variable "gateway_chart_version" {
+  description = "Helm chart version for the Argo CD Gateway"
+  type        = string
+}
 ```
 
 ## Argo CD

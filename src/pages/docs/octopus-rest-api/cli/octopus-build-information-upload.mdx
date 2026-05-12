@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus build-information upload
 description: upload build information for one or more packages to Octopus Deploy
-navOrder: 33
+navOrder: 34
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 upload build information one or more packages to Octopus Deploy.
 
-```
+```text
 Usage:
   octopus build-information upload [flags]
 
@@ -36,11 +36,11 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus build-information upload --package-id SomePackage --version 1.0.0 --file buildinfo.octopus
-$ octopus build-information upload SomePackage --version 1.0.0 --file buildinfo.octopus --overwrite-mode overwrite
-$ octopus build-information push SomePackage --version 1.0.0 --file buildinfo.octopus
-$ octopus build-information upload PkgA PkgB PkgC --version 1.0.0 --file buildinfo.octopus
+```bash
+octopus build-information upload --package-id SomePackage --version 1.0.0 --file buildinfo.octopus
+octopus build-information upload SomePackage --version 1.0.0 --file buildinfo.octopus --overwrite-mode overwrite
+octopus build-information push SomePackage --version 1.0.0 --file buildinfo.octopus
+octopus build-information upload PkgA PkgB PkgC --version 1.0.0 --file buildinfo.octopus
 
 
 ```

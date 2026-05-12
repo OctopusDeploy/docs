@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-29
+modDate: 2026-04-27
 title: Installation requirements
 description: Software and hardware requirements for installing the Octopus Server.
 navOrder: 1
@@ -53,8 +53,6 @@ Requirements for the [Octopus Server Linux Container](/docs/installation/octopus
 
 You can also run the Octopus Server Linux Container using a platform such as [AWS ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html).
 
-<Sql />
-
 ### Hypervisors
 
 Windows Server can be installed on a bare-metal machine or on a virtual machine (VM) hosted by any popular type-1 hypervisor or virtual private server (cloud) technology.  Type-2 hypervisors can work for demos and POCs, but because they are typically installed on desktop operating systems, aren't recommended.  
@@ -85,6 +83,10 @@ The list of hypervisors and virtual private servers include (but not limited to)
 
 Most, if not all, of those tools include documentation or pre-built images for Windows Server 2012 R2, 2016 and 2019.  Please refer to their documentation on how to install and configure a Windows Server VM.  
 
+## SQL Server Database
+
+<Sql />
+
 ## .NET \{#dotnet-requirements}
 
 Octopus Server is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained) that has all the components required to run, including the .NET runtime. Older versions of Octopus Server require the .NET Framework:
@@ -96,9 +98,13 @@ Octopus Server is a .NET application distributed as a [self-contained deployment
 
 ## Windows PowerShell
 
-- **Windows PowerShell 2.0.** This is automatically installed on 2008 R2.
-- **Windows PowerShell 3.0 or 4.0** are recommended, both of which are compatible with PowerShell 2.0, but execute against .NET 4.0+.
-- **Windows PowerShell 5.1** is required to run Azure steps.
+- **Windows PowerShell 3.0** is automatically installed on Windows Server 2012.
+- **Windows PowerShell 4.0** is automatically installed on Windows Server 2012 R2.
+- **Windows PowerShell 5.1** is automatically installed on Windows Server 2016 and later. It is recommended and required to run Azure steps. It can installed on Windows Server 2012 and 2012 R2 via the [Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+
+## PowerShell Core
+
+- **PowerShell 7 and later** supports all steps.
 
 ## Supported browsers \{#supported-browsers}
 

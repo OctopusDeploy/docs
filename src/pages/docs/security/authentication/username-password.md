@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-04-14
 title: Username and Password
 description: Octopus Deploy provides a Username and Password authentication provider to allow log in with standard Octopus user accounts.
 navOrder: 2
 ---
 
 :::div{.hint}
-Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/), authentication using this provider is supported through [Octopus ID](/docs/security/authentication/octopusid-authentication/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information. 
+Username and Password authentication can only be configured for Octopus Server. For [Octopus Cloud](/docs/octopus-cloud/), authentication using this provider is supported through [Octopus ID](/docs/security/authentication/octopusid-authentication/). See our [authentication provider compatibility](/docs/security/authentication/auth-provider-compatibility) section for further information.
 :::
 
 Octopus provides a Username and Password authentication provider allowing you to create user accounts in Octopus manually without requirement for an external authentication provider.
@@ -18,6 +18,15 @@ When Username and Password authentication is enabled, the sign in page for the O
 :::figure
 ![Username and Password login screen](/docs/img/security/authentication/images/username-password-login.png)
 :::
+
+## Security considerations
+
+Username and Password authentication has limited built-in security controls compared to [IdP-based](/docs/security/authentication#identity-provider-based-idp-authentication) or [directory-based](/docs/security/authentication#directory-based-authentication) authentication:
+
+- Passwords do not expire and there is no password history enforcement, so previously used passwords can be reused.
+- Accounts are locked for 10 minutes after 9 failed login attempts for the same username from the same IP address. The threshold and duration are not configurable and no administrative unlock is available.
+
+For environments that require password expiry, password history, or configurable lockout policies, we recommend using IdP or directory-based authentication instead.
 
 ## Enable username and password authentication via UI
 
@@ -38,7 +47,7 @@ Octopus.Server.exe configure --instance=[your_instance_name] --usernamePasswordI
 
 ## Managing user permissions
 
-When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **Configuration ➜ Users**. 
+When a new Octopus user is created, they are automatically added to the **Everyone** team. To manage Octopus users, this can be done by navigating to **Configuration ➜ Users**.
 
 :::figure
 ![Managing users](/docs/img/security/authentication/images/username-password-managing-users.png)
