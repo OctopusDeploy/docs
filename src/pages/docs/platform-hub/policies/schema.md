@@ -135,8 +135,8 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
-| Source | object | Yes | Where the step comes from. See the Source object below |
-| Packages | array | No | Packages referenced by this step. Not present for Runbook runs |
+| [Source](#source-object) | object | Yes | Where the step comes from. See the Source object below |
+| [Packages](#packages-array) | array | No | Packages referenced by this step. Not present for Runbook runs |
 
 #### Source object
 
