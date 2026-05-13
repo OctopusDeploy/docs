@@ -99,6 +99,20 @@ When defining versions ranges against artifacts sourced from a Maven feed (when 
 | (,1.0],[1.2,) |	x <= 1.0 or x >= 1.2. Multiple sets are comma-separated |
 | (,1.1),(1.1,) |	x != 1.1 |
 
+## Overriding Maven package versions from the CLI
+
+Maven coordinates use a colon to separate `groupId` and `artifactId` (for example `com.google.guava:guava`). Because `:` is also the delimiter the `--package` flag uses to separate fields, you must escape the colon inside the package ID with a backslash:
+
+```bash
+octopus release create -p MyProject --package "com.google.guava\:guava:1.0.0"
+```
+
+This pins the Guava package in the release to version `1.0.0`. Without the backslash the CLI splits on every colon and the override is silently dropped — the package will fall back to its baseline version.
+
+The same escape syntax (`\:`, `\/`, `\=`) works for any package ID or step name that contains a delimiter character.
+
+Requires Octopus CLI `<cli-version>` or later and Octopus Server `<server-version>` or later.
+
 ## Troubleshooting Maven feeds
 
 1. Can you download the POM file directly from the Maven repository from the Octopus Server? For example, the Google Guava POM file for version 24.0-jre is https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom. If you can not, then there is likely to be an issue with the URL or your network settings.

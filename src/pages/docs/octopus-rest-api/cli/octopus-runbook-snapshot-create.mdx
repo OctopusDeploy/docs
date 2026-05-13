@@ -24,7 +24,11 @@ Flags:
                                      Only relevant for config-as-code projects where runbooks are stored in Git.
   -n, --name string                  Override the snapshot name
       --package stringArray          Version specification a specific packages.
-                                     Format as {package}:{version}, {step}:{version} or {package-ref-name}:{packageOrStep}:{version}
+                                     Format as {package}:{version}, {step}:{version} or {package-ref-name}:{packageOrStep}:{version}.
+                                     If the package ID or step name contains a colon, slash, or equals sign (such as Maven
+                                     coordinates like com.example:my-artifact), escape that character with a backslash:
+                                     --package "com.example\:my-artifact:1.0".
+                                     Requires Octopus Server <server-version> or later.
                                      You may specify this multiple times
       --package-version string       Default version to use for all packages. Only relevant for config-as-code projects where runbooks are stored in Git.
   -p, --project string               Name or ID of the project where the runbook is
