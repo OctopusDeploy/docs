@@ -46,7 +46,8 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
 
 1. Decide on a meaningful `Key Name` that will assist in identifying the private key credential the Connection Agent will use for authentication. Key Names can be up to 200 characters and may include alphanumeric characters, hyphens (-), and periods (.).
 
-1. Generate an RSA key pair to be used to authenticate the Connection Agent. Ensure a minimum key size of `2048`.  
+1. Generate an RSA key pair to be used to authenticate the Connection Agent. Ensure a minimum key size of `2048`.
+
     Run the following command, substituting in the desired Agent Name:
 
     ```bash
@@ -55,16 +56,21 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
     openssl rsa -in ConnectionAgent-$AGENT_NAME.pem -outform PEM -pubout -out ConnectionAgent-$AGENT_NAME.pem.pub
     ```
 
-    :::div{.hint}
-    ⚠️ **IMPORTANT - Protect your Private Key:** The generated `.pem` file is your private key and must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).:::
+    :::div{.warning}
+    **IMPORTANT - Protect your Private Key:** The generated `.pem` file is your private key and must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
+    :::
 
 1. [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) with a short expiry date on your Octopus Cloud instance. This API key will only be used to register the Connection Agent.
 
-3.Register the Connection Agent with your Octopus Cloud instance.
+1. Register the Connection Agent with your Octopus Cloud instance.
+  
    Note that this command does not need to be run on the same infrastructure you intend to run the Connection Agent.  
+  
    Run the following command, substituting the values:
-     - `CONNECT_URL` - This will be in the format `wss://<dns-prefix>.octopus.app/connect` where `<dns-prefix>` is the hostname of your Cloud Instance
-     - `API_KEY` - The API key created above
+
+    - `CONNECT_URL` - This will be in the format `wss://<dns-prefix>.octopus.app/connect` where `<dns-prefix>` is the hostname of your Cloud Instance
+    - `API_KEY` - The API key created above
+
     ```bash
     CONNECT_URL=<Connect URL>
     OCTOPUS_API_KEY=<API Key>
@@ -83,7 +89,9 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
     - `CONNECT_URL`
 
 1. Configure forwarding rules to map fully qualified domain names (FQDNs) for the applications that are to be accessed via the Connection Agent. Note that this command does not need to be run on the same infrastructure you intend to run the Connection Agent.  
+
     Run the following command, substituting the values:
+
       - `FQDN` - The fully qualified domain name of the application (e.g. `nuget.internal.example.com`)
 
     ```bash
@@ -100,15 +108,15 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
 
 Deploy the [octopusdeploy/connection-agent](https://hub.docker.com/repository/docker/octopusdeploy/connection-agent) container into your desired private network, specifying the following environment variables returned when the Connection Agent was registered:
 
--`AUTH_SERVER_DOMAIN`
--`AUTH_SERVER_CLIENT_ID`
--`API_AUDIENCE`
--`CONNECT_URL`
+- `AUTH_SERVER_DOMAIN`
+- `AUTH_SERVER_CLIENT_ID`
+- `API_AUDIENCE`
+- `CONNECT_URL`
 
 Additionally, specify your private key (the PEM-encoded Private Key generated previously) as either the environment variable `AUTH_SERVER_PRIVATE_KEY_PEM`, or as the path to your private key as `AUTH_SERVER_PRIVATE_KEY_PEM_PATH`.
 
-:::div{.hint}
-⚠️ **IMPORTANT - Protect your Private Key:** The `AUTH_SERVER_PRIVATE_KEY_PEM` value must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
+:::div{.warning}
+**IMPORTANT - Protect your Private Key:** The `AUTH_SERVER_PRIVATE_KEY_PEM` value must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
 :::
 
 ### Running the Connection Agent in Docker
