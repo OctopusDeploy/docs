@@ -111,7 +111,7 @@ This pins the Guava package in the release to version `1.0.0`. Without the backs
 
 The same escape syntax (`\:`, `\/`, `\=`) works for any package ID or step name that contains a delimiter character.
 
-Requires Octopus CLI `<cli-version>` or later and Octopus Server `<server-version>` or later.
+Requires Octopus CLI `<cli-version>` or later and Octopus Server `2026.2.10450` or later.
 
 ## Troubleshooting Maven feeds
 
