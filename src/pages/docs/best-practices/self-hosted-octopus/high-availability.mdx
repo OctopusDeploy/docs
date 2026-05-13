@@ -301,7 +301,7 @@ Follow these steps if you elect to host Octopus Deploy on Windows Servers.
 1. Once the setup wizard is complete, you'll be taken to the Octopus Manager. Now is a good time to [retrieving the master key](/docs/security/data-encryption#your-master-key). That master key is required to add additional nodes to your High Availability Cluster.
 1. Run the following script to configure the BLOB storage.
 
-```PowerShell
+```plaintext
 Octopus.Server.exe path --clusterShared \\OctoShared\OctopusData
 ```
 
@@ -365,7 +365,7 @@ Once the files are copied over, you can update your Octopus Deploy instance to p
 - Run `robocopy` or `rsync` one final time to pick up any new files since the last sync.
 - Run the following PowerShell script to update Octopus to point to the new directory.
 
-```PowerShell
+```plaintext
 Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 $filePath = "YOUR ROOT DIRECTORY"
 
@@ -403,7 +403,7 @@ We recommend writing scripts to automate this process.
 
 Once the load balancer is configured to expose each Octopus Server node, you must register them with each polling tentacle. You can use this PowerShell script as a basis for your automation. The script should add any new nodes you've created. If you added two nodes to your High Availability cluster, your script would look like this.
 
-```PowerShell
+```plaintext
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo2.domain.com:10943 --apikey=YOUR_API_KEY
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo3.domain.com:10943 --apikey=YOUR_API_KEY
 ```
