@@ -59,6 +59,12 @@ We recommend customers who would benefit from scalable workers consider [Kuberne
 
 Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time [before being destroyed](/docs/infrastructure/workers/dynamic-worker-pools#on-demand). Dynamic workers are destroyed when they have been idle for 60 minutes or when they reached 72 hours of existence. All data written to disk is lost upon worker destruction.
 
+### Disk space
+
+Dynamic workers run on virtual machines with a fixed disk. The amount of free space available to your deployments and runbook runs is bounded, and may be consumed by package downloads, container image pulls, and intermediate files created during a step. Workloads that regularly process large packages, pull large container images, or run many parallel steps may exhaust the available disk and cause the step to fail.
+
+If your workloads need more disk headroom than dynamic workers provide, consider [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker) or [external workers](/docs/infrastructure/workers#external-workers), where you control the disk size and lifecycle.
+
 ### Installed software
 
 Dynamic workers come with a small number of [baseline tools](/docs/infrastructure/workers/dynamic-worker-pools#available-dynamic-worker-images) installed. The version of baseline tools may be updated between worker leases.
