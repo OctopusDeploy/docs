@@ -28,7 +28,7 @@ When configuring external Maven repositories, we need to link to the repository 
 
 When referencing a Maven artifact, the package ID is in the format `group:artifact`.
 
-For example, to reference the Maven artifact with the group of `org.wildfly.swarm.testsuite` and artifact of `testsuite-https` (i.e. the artifacts found at https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/), you would enter a package ID of `org.wildfly.swarm.testsuite:testsuite-https`.
+For example, to reference the Maven artifact with the group of `org.wildfly.swarm.testsuite` and artifact of `testsuite-https` (i.e. the artifacts found at <https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/>), you would enter a package ID of `org.wildfly.swarm.testsuite:testsuite-https`.
 
 :::figure
 ![Maven Artifact Names](/docs/img/packaging-applications/package-repositories/images/maven-artifact-names.png)
@@ -36,15 +36,15 @@ For example, to reference the Maven artifact with the group of `org.wildfly.swar
 
 Prior to 2020.3.0, the packaging type is determined automatically from the extensions supported by Octopus, which are:
 
-* zip
-* jar
-* ear
-* rar
-* war
+- zip
+- jar
+- ear
+- rar
+- war
 
-So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war.
+So the package ID `org.wildfly.swarm.testsuite:testsuite-https` for version `2017.10.0` would download the WAR file <https://repo.maven.apache.org/maven2/org/wildfly/swarm/testsuite/testsuite-https/2017.10.0/testsuite-https-2017.10.0.war>.
 
-Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:my-artifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `my-artifact`, or `org.example:my-artifact:jar:sources` will select the JAR package with the `sources` classification. 
+Since 2020.3.0, Maven artifacts can be specified with an optional packaging and classifier. For example, the artifact ID of `org.example:my-artifact:zip` will select the ZIP package with the group `org.example` and the artifact ID of `my-artifact`, or `org.example:my-artifact:jar:sources` will select the JAR package with the `sources` classification.
 
 The packaging must be defined when using a classifier.
 
@@ -76,28 +76,28 @@ When using artifacts from a Maven feed, the [Maven versioning scheme](https://oc
 
 The following qualifiers in the version are used to indicate that it is a pre-release version:
 
-* `alpha` (or the `a` shorthand) e.g. `1.0.0-alpha1` or `1.0.0-a1`.
-* `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`.
-* `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`.
-* `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
-* `SNAPSHOT` e.g. `1.0.0-SNAPSHOT`.
+- `alpha` (or the `a` shorthand) e.g. `1.0.0-alpha1` or `1.0.0-a1`.
+- `beta` (or the `b` shorthand) e.g. `1.0.0-beta1` or `1.0.0-b1`.
+- `milestone` (or the `m` shorthand) e.g. `1.0.0-milestone1` or `1.0.0-m1`.
+- `rc` or `cr` e.g. `1.0.0-rc1` or `1.0.0-cr1`.
+- `SNAPSHOT` e.g. `1.0.0-SNAPSHOT`.
 
 ## Version ranges with Maven feeds
 
 When defining versions ranges against artifacts sourced from a Maven feed (when defining a channel rule for example), the [Maven range specification](https://oc.to/MavenVersioning) is used. The table below shows some common examples of Maven version ranges.
 
-| Range |	Meaning |
-|-|-|
-| 1.0 |	x >= 1.0 * The default Maven meaning for 1.0 is everything (,) but with 1.0 recommended. Obviously this doesn't work for enforcing versions here, so it has been redefined as a minimum version. |
-| (,1.0] |	x <= 1.0 |
-| (,1.0) | 	x < 1.0 |
-| [1.0] |	x == 1.0 |
-| [1.0,) |	x >= 1.0 |
-| (1.0,) |	x > 1.0 |
-| (1.0,2.0) |	1.0 < x < 2.0 |
-| [1.0,2.0] |	1.0 <= x <= 2.0 |
-| (,1.0],[1.2,) |	x <= 1.0 or x >= 1.2. Multiple sets are comma-separated |
-| (,1.1),(1.1,) |	x != 1.1 |
+| Range | Meaning |
+| - | - |
+| 1.0 | x >= 1.0 * The default Maven meaning for 1.0 is everything (,) but with 1.0 recommended. Obviously this doesn't work for enforcing versions here, so it has been redefined as a minimum version. |
+| (,1.0] | x <= 1.0 |
+| (,1.0) | x < 1.0 |
+| [1.0] | x == 1.0 |
+| [1.0,) | x >= 1.0 |
+| (1.0,) | x > 1.0 |
+| (1.0,2.0) | 1.0 < x < 2.0 |
+| [1.0,2.0] | 1.0 <= x <= 2.0 |
+| (,1.0],[1.2,) | x <= 1.0 or x >= 1.2. Multiple sets are comma-separated |
+| (,1.1),(1.1,) | x != 1.1 |
 
 ## Overriding Maven package versions from the CLI
 
@@ -115,6 +115,6 @@ Requires Octopus CLI `<cli-version>` or later and Octopus Server `<server-versio
 
 ## Troubleshooting Maven feeds
 
-1. Can you download the POM file directly from the Maven repository from the Octopus Server? For example, the Google Guava POM file for version 24.0-jre is https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom. If you can not, then there is likely to be an issue with the URL or your network settings.
-2. The Maven URL to be configured in Octopus includes the path up to the to the start of the group id. For Guava, the group id is `com.google.guava`. This maps to the `com/google/guava` component of the URL. So the Maven URL to be configured in Octopus is https://repo.maven.apache.org/maven2/, because this is the part of the URL that does not include the group id.
+1. Can you download the POM file directly from the Maven repository from the Octopus Server? For example, the Google Guava POM file for version 24.0-jre is <https://repo.maven.apache.org/maven2/com/google/guava/guava/24.0-jre/guava-24.0-jre.pom>. If you can not, then there is likely to be an issue with the URL or your network settings.
+2. The Maven URL to be configured in Octopus includes the path up to the to the start of the group id. For Guava, the group id is `com.google.guava`. This maps to the `com/google/guava` component of the URL. So the Maven URL to be configured in Octopus is <https://repo.maven.apache.org/maven2/>, because this is the part of the URL that does not include the group id.
 3. Maven artifacts must be referenced in the `group:artifact` format. For Guava, the group is `com.google.guava` and the artifact is `guava`. So this would be referenced in Octopus as `com.google.guava:guava`.
