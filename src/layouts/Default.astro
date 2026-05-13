@@ -22,6 +22,7 @@ import ArticleJourney from '../components/ArticleJourney.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
+import CopyMarkdown from '../components/CopyMarkdown.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
@@ -114,6 +115,7 @@ const showSearch = !isSearchPage;
               headings={headings}
               lang={lang}
             />
+            <CopyMarkdown lang={lang} />
             <ArticleJourney
               frontmatter={frontmatter}
               headings={headings}
