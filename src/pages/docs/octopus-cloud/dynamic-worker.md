@@ -42,7 +42,7 @@ Customers may choose between Windows and Ubuntu virtual machine images for their
 
 Your Octopus Cloud [task cap](/docs/octopus-cloud/task-cap) determines the resources available to your dynamic worker. As at January 2025, dynamic worker virtual machines are resourced as follows. These specifications may be adjusted over time.
 
-| Task cap  | vCPUs (Qty.) | Memory (GB) |
+| Task cap | vCPUs (Qty.) | Memory (GB) |
 | -----: | ------: | ------: |
 | 5 | 2 | 4 |
 | 10 | 4 | 8 |
