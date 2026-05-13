@@ -124,7 +124,10 @@ Tables are automatically wrapped in `<div class="table-wrap">` by the build pipe
 
 The spell checker uses `cspell` with a custom dictionary at `dictionary-octopus.txt`. Add new technical terms there when flagged.
 
-**Flagged words** (must not use): `utilize`, `whilst`, `on-premise`, `whitelist`, `blacklist`, `enable/disable` (prefer `let`/`deactivate`), `within` (use `in`).
+There is spellcheck configuration in  `./cspell.json`. In particular:
+
+1. `flagWords` should never be used
+2. We prefer to use the words on the right side of `->` in the list of `suggestWords`
 
 ## Path aliases (tsconfig)
 
