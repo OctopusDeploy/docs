@@ -87,7 +87,7 @@ jobs:
 
       - name: Create a Zip package 🐙
         id: package
-        uses: OctopusDeploy/create-zip-package-action@v3
+        uses: OctopusDeploy/create-zip-package-action@v4
         with:
           package_id: 'DocsMicrosite'
           version: "${{ env.PACKAGE_VERSION }}-pullrequest"
