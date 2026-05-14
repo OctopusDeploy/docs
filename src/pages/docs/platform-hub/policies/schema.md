@@ -394,7 +394,7 @@ The complete JSON schema for the policy input object is provided below for use w
           "ActionType": { "type": "string" },
           "Enabled": { "type": "boolean" },
           "IsRequired": { "type": "boolean" },
-          "IsConditional": { "type": "boolean" }
+          "IsConditional": { "type": "boolean" },
           "Source": {
             "type": "object",
             "properties": {
