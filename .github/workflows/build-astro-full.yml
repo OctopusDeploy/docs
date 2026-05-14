@@ -6,10 +6,10 @@ on:
     branches: [ main ]
 
 jobs:
+
   branch_validation:
     uses: OctopusDeploy/microsite-deployment/.github/workflows/microsite-deployment-full.yml@main
     with:
       octopus_project_name: 'Docs Microsite'
       package_id: 'DocsMicrosite'
-      node_version: '20'
     secrets: inherit
