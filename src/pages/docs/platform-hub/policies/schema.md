@@ -155,7 +155,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | Id | string | Yes | The unique identifier for the package reference |
 | Name | string | Yes | The name of the package |
 | Version | string | No | The resolved package version |
-| GitRef | string | No | The Git reference for the package. Originates from comes from linked Build Information |
+| GitRef | string | No | The Git reference for the package. Sourced from linked Build Information |
 | [Feed](#feed-object) | object | No | Details of the feed the package is sourced from |
 
 #### Feed object
