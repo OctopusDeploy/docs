@@ -31,7 +31,7 @@ The table below summarizes every top-level field available to your policies.
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
-| RequiresApproval | boolean | Yes | Whether the execution requires requires an [approval](/docs/approvals) |
+| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 
 :::div{.hint}
 
@@ -394,6 +394,7 @@ The complete JSON schema for the policy input object is provided below for use w
           "ActionType": { "type": "string" },
           "Enabled": { "type": "boolean" },
           "IsRequired": { "type": "boolean" },
+          "IsConditional": { "type": "boolean" }
           "Source": {
             "type": "object",
             "properties": {
@@ -411,13 +412,24 @@ The complete JSON schema for the policy input object is provided below for use w
                 "Id": { "type": "string" },
                 "Name": { "type": "string" },
                 "Version": { "type": "string" },
-                "GitRef": { "type": "string" }
+                "GitRef": { "type": "string" },
+                "Feed": {
+                  "type": "object",
+                  "properties": {
+                    "Id": { "type": "string" },
+                    "Name": { "type": "string" },
+                    "Slug": { "type": "string" },
+                    "Uri": { "type": "string" },
+                    "Type": { "type": "string" }
+                  },
+                  "required": ["Id", "Name", "Slug", "Type"]
+                }
               },
               "required": ["Id", "Name"]
             }
           }
         },
-        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "Source"]
+        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "IsConditional", "Source"]
       }
     },
     "Release": {
@@ -450,7 +462,8 @@ The complete JSON schema for the policy input object is provided below for use w
         },
         "required": ["StartTrigger", "Steps"]
       }
-    }
+    },
+    "RequiresApproval": { "type": "boolean" }
   },
   "required": [
     "Environment",
@@ -459,7 +472,8 @@ The complete JSON schema for the policy input object is provided below for use w
     "SkippedSteps",
     "Steps",
     "ProjectGroup",
-    "Execution"
+    "Execution",
+    "RequiresApproval"
   ]
 }
 ```
