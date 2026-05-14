@@ -97,7 +97,7 @@ jobs:
             **/*.*
 
       - name: Push a package to Octopus Deploy 🐙
-        uses: OctopusDeploy/push-package-action@v3.0.2
+        uses: OctopusDeploy/push-package-action@v4.0.1
         if: ${{ env.SHOULD_DEPLOY }}
         with:
           packages: ${{ steps.package.outputs.package_file_path }}
