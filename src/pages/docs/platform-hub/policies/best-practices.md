@@ -71,15 +71,15 @@ result := {"allowed": false, "reason": "A manual intervention step is required a
 }
 ```
 
-## Check for both existence and skipping
+## Check for existence, skipping, and run conditions
 
-It's not enough to check that a required step exists in the process. Users can skip steps when scheduling a deployment or runbook run, even if the step is present.
+It's not enough to check that a required step exists in the process. Users can skip steps when scheduling a deployment or runbook run, even if the step is present. Users can also configure a step to only run based on certain conditions (scoped to environment, tenant, etc.).
 
 :::figure
 ![An example of a step that can be skipped when scheduling a deployment](/docs/img/platform-hub/policies/a-step-that-can-be-skipped-violating-a-policy.png)
 :::
 
-Your policy conditions should check both that the step is present and that it hasn't been skipped:
+Your policy conditions should check that the step is present, that it hasn't been skipped and is not conditional:
 
 ```ruby
 result := {"allowed": true} if {
@@ -87,6 +87,7 @@ result := {"allowed": true} if {
     step.Source.SlugOrId == "<step-slug>"
     not step.Id in input.SkippedSteps
     step.Enabled == true
+    step.IsConditional == false
 }
 ```
 
