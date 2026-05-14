@@ -71,9 +71,9 @@ result := {"allowed": false, "reason": "A manual intervention step is required a
 }
 ```
 
-## Check for the existence, skipping and conditional run
+## Check for existence, skipping, and run conditions
 
-It's not enough to check that a required step exists in the process. Users can skip steps when scheduling a deployment or runbook run, even if the step is present. User can also configure a step to only run based on certain conditions (scoped to environment, tenant etc.)
+It's not enough to check that a required step exists in the process. Users can skip steps when scheduling a deployment or runbook run, even if the step is present. Users can also configure a step to only run based on certain conditions (scoped to environment, tenant, etc.).
 
 :::figure
 ![An example of a step that can be skipped when scheduling a deployment](/docs/img/platform-hub/policies/a-step-that-can-be-skipped-violating-a-policy.png)

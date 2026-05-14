@@ -28,10 +28,10 @@ The table below summarizes every top-level field available to your policies.
 | [Steps](#steps) | array | Yes | All steps included in the deployment process |
 | [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
 | [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
+| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
-| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 
 :::div{.hint}
 
@@ -136,7 +136,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
-| IsConditional | boolean | Yes | Whether the step has other than default [run conditions](/docs/projects/steps/conditions) |
+| IsConditional | boolean | Yes | Whether the step has non-default [run conditions](/docs/projects/steps/conditions) |
 | [Source](#source-object) | object | Yes | Where the step comes from. See the Source object below |
 | [Packages](#packages-array) | array | No | Packages referenced by this step. Not present for Runbook runs |
 
