@@ -110,7 +110,7 @@ jobs:
           path: ${{ steps.package.outputs.package_file_path }}
 
       - name: Push build information to Octopus Deploy 🐙
-        uses: OctopusDeploy/push-build-information-action@v3
+        uses: OctopusDeploy/push-build-information-action@v4
         if: ${{ env.SHOULD_DEPLOY }}
         with:
           version: "${{ env.PACKAGE_VERSION }}-pullrequest"
