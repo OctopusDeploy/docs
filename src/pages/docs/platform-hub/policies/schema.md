@@ -207,8 +207,6 @@ result := {"allowed": true} if {
 | Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
 | Uri | string | No | The configured endpoint for the feed |
 
-
-
 :::div{.hint}
 
 See the [steps and skipping examples](/docs/platform-hub/policies/examples#check-that-a-step-isnt-skipped-in-a-deployment) for more patterns.
