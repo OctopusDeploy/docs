@@ -31,6 +31,7 @@ The table below summarizes every top-level field available to your policies.
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
+| RequiresApproval | boolean | Yes | Whether the execution requires requires an [approval](/docs/approvals) |
 
 :::div{.hint}
 
@@ -135,6 +136,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
+| IsConditional | boolean | Yes | Whether the step has other than default [run conditions](/docs/projects/steps/conditions) |
 | [Source](#source-object) | object | Yes | Where the step comes from. See the Source object below |
 | [Packages](#packages-array) | array | No | Packages referenced by this step. Not present for Runbook runs |
 
@@ -154,6 +156,17 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | Name | string | Yes | The name of the package |
 | Version | string | No | The resolved package version |
 | GitRef | string | No | The Git reference for the package. Originates from comes from linked Build Information |
+| [Feed](#feed-object) | object | No | Details of the feed the package is sourced from |
+
+#### Feed object
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the feed |
+| Name | string | Yes | Display name of the feed |
+| Slug | string | Yes | The URL-safe slug for the feed |
+| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
+| Uri | string | No | The configured endpoint for the feed |
 
 **Example usage:**
 
