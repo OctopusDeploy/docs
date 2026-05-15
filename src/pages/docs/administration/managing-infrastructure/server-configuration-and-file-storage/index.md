@@ -52,6 +52,10 @@ The Octopus Server stores files in the following folders by default:
     - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
     - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-event-exports-folder) on how to move the Octopus Server event exports folder
 
+## Managing disk space usage {#managing-disk-space-usage}
+
+To manage disk space usage on your Octopus Server instance, see the [Retention policies](/docs/administration/retention-policies) page.
+
 ## Clean up post-2.6 migration {#clean-up-post-2-6-migration}
 
 In **Octopus 2.6** the Server stored files in the following folders by default:
