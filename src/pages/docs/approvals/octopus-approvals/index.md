@@ -66,7 +66,7 @@ Octopus surfaces change requests in several places so approvers can act on them 
 
 ### Approvals
 
-Navigate to **Library ➜ Approvals** for a complete list of all change requests. The list is divided into three tabs:
+Navigate to **Deploy ➜ Manage ➜ Approvals** for a complete list of all change requests. The list is divided into three tabs:
 
 - **Needs Approval**: Change requests that are still pending the required number of approvals.
 - **Completed**: Change requests that have been approved or rejected.
