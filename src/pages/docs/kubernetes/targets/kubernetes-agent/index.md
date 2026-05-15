@@ -167,6 +167,54 @@ Look at the Helm chart [values.yaml](https://github.com/OctopusDeploy/helm-chart
 
 The Kubernetes monitor is deployed as a sub-chart to the Kubernetes agent. [Available values for the monitor are available here](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/kubernetes-monitor.md). All Kubernetes monitor values should be nested under a `kubernetesMonitor` key when deployed with the Kubernetes agent chart.
 
+### Strict security context
+
+Agent and script pods can be running in `non-root` mode. UID/GID should be 999.
+
+```yaml
+agent:
+  securityContext:
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999
+    fsGroupChangePolicy: "OnRootMismatch"
+scriptPods:
+  securityContext: 
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999
+    fsGroupChangePolicy: "OnRootMismatch"
+persistence:
+  storageClassName: {your-custom-value} #required
+```
+
+To make sure that you will not have problems with PV StorageClass requires to have explicit UID to match one from securityContext. Here is important part of your StorageClass `mountOptions`:
+
+```yaml
+mountOptions:
+- uid=999
+- forceuid
+- file_mode=0775 #rwx for user required
+- dir_mode=0775 #rwx for user required
+```
+
+### Openshift
+
+Agent can be run under `nonroot-v2` SCC. This means you will probably need to manually assing the SCC to service accounts:
+
+- **Agent**
+```bash
+NS_NAME="octopus-agent-<name>"
+AGENT_SERVICE_ACCOUNT="octopus-agent-tentacle"
+oc adm policy add-scc-to-user nonroot-v2 -z $AGENT_SERVICE_ACCOUNT -n $NS_NAME
+```
+- **Pod scripts**
+```bash
+NS_NAME="octopus-agent-<name>"
+POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-scripts"
+oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
+```
+
 ## Configuring the agent with Tenants
 
 While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
