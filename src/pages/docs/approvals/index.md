@@ -40,7 +40,7 @@ What's included in Octopus Approvals?
 - Octopus records an audit trail of approvals and rejections in the task log.
 
 :::div{.hint}
-Octopus Feature Toggles are currently in Alpha, available to a small set of customers.
+Octopus Approvals is currently in Alpha, available to a small set of customers.
 
 If you are interested in this feature please register your interest on the [roadmap card](https://roadmap.octopus.com/c/121-feature-toggles) and we'll keep you updated.
 :::
