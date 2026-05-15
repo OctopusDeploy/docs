@@ -148,26 +148,6 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | SlugOrId | string | Yes | The slug or ID of the step or process template |
 | Version | string | No | The pinned version, if one is set |
 
-#### Packages array
-
-| Property | Type | Always Present | Description |
-| :--- | :--- | :--- | :--- |
-| Id | string | Yes | The unique identifier for the package reference |
-| Name | string | Yes | The name of the package |
-| Version | string | No | The resolved package version |
-| GitRef | string | No | The Git reference for the package. Sourced from linked Build Information |
-| [Feed](#feed-object) | object | No | Details of the feed the package is sourced from |
-
-#### Feed object
-
-| Property | Type | Always Present | Description |
-| :--- | :--- | :--- | :--- |
-| Id | string | Yes | The unique identifier for the feed |
-| Name | string | Yes | Display name of the feed |
-| Slug | string | Yes | The URL-safe slug for the feed |
-| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
-| Uri | string | No | The configured endpoint for the feed |
-
 **Example usage:**
 
 ```ruby
@@ -185,6 +165,47 @@ result := {"allowed": true} if {
     step.Enabled == true
 }
 ```
+
+#### Packages array
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the package reference |
+| Name | string | Yes | The name of the package |
+| Version | string | No | The resolved package version |
+| GitRef | string | No | The Git reference for the package. Sourced from linked Build Information |
+| [Feed](#feed-object) | object | No | Details of the feed the package is sourced from |
+
+**Example usage:**
+
+```ruby
+package packages_from_main_branch
+
+default result := {"allowed": false, "action": "warn"}
+
+all_packages := [pkg | some step in input.Steps; some pkg in step.Packages]
+
+result := {"allowed": true} if {
+    count(all_packages) == 0
+}
+
+result := {"allowed": true} if {
+    count(all_packages) > 0
+    every pkg in all_packages {
+        pkg.GitRef == "refs/heads/main"
+    }
+}
+```
+
+#### Feed object
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the feed |
+| Name | string | Yes | Display name of the feed |
+| Slug | string | Yes | The URL-safe slug for the feed |
+| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
+| Uri | string | No | The configured endpoint for the feed |
 
 :::div{.hint}
 
