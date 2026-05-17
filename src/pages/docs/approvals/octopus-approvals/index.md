@@ -21,11 +21,11 @@ When a controlled deployment or runbook run triggers, Octopus automatically crea
 
 Enable Octopus Approvals on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and tick **Is Enabled** and save.
 
-Once Octopus Approvals is enabled, navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage Approvals** to create your first approval policy, then configure scope to apply it to the relevant projects and environments.
+Once Octopus Approvals is enabled, navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** to create your first approval policy, then configure scope to apply it to the relevant projects and environments.
 
 ## Configuring an approval policy
 
-Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage Approvals** and select **Add Approval Policy**. Each policy includes the following settings:
+Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Approval Policy**. Each policy includes the following settings:
 
 - **Name**: A short, memorable, unique name for this approval policy.
 - **Description**: An optional description for this approval policy.
