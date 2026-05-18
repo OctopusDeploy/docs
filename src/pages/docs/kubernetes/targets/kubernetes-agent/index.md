@@ -167,7 +167,7 @@ Look at the Helm chart [values.yaml](https://github.com/OctopusDeploy/helm-chart
 
 The Kubernetes monitor is deployed as a sub-chart to the Kubernetes agent. [Available values for the monitor are available here](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/kubernetes-monitor.md). All Kubernetes monitor values should be nested under a `kubernetesMonitor` key when deployed with the Kubernetes agent chart.
 
-### Strict security context
+### Non-root configuration
 
 Agent and script pods can be running in `non-root` mode. UID/GID should be 999.
 
