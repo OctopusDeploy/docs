@@ -28,6 +28,7 @@ The table below summarizes every top-level field available to your policies.
 | [Steps](#steps) | array | Yes | All steps included in the deployment process |
 | [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
 | [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
+| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
@@ -135,6 +136,7 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | ActionType | string | Yes | The built-in action type (e.g. `Octopus.Manual`, `Octopus.Script`) |
 | Enabled | boolean | Yes | Whether the step is enabled in the process |
 | IsRequired | boolean | Yes | Whether the step has been marked as required |
+| IsConditional | boolean | Yes | Whether the step has non-default [run conditions](/docs/projects/steps/conditions) |
 | [Source](#source-object) | object | Yes | Where the step comes from. See the Source object below |
 | [Packages](#packages-array) | array | No | Packages referenced by this step. Not present for Runbook runs |
 
@@ -145,15 +147,6 @@ These two fields work together. A step that's skipped still appears in `Steps`, 
 | Type | string | Yes | The source type. Valid values: `"Step Template"`, `"Process Template"` |
 | SlugOrId | string | Yes | The slug or ID of the step or process template |
 | Version | string | No | The pinned version, if one is set |
-
-#### Packages array
-
-| Property | Type | Always Present | Description |
-| :--- | :--- | :--- | :--- |
-| Id | string | Yes | The unique identifier for the package reference |
-| Name | string | Yes | The name of the package |
-| Version | string | No | The resolved package version |
-| GitRef | string | No | The Git reference for the package. Originates from comes from linked Build Information |
 
 **Example usage:**
 
@@ -172,6 +165,47 @@ result := {"allowed": true} if {
     step.Enabled == true
 }
 ```
+
+#### Packages array
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the package reference |
+| Name | string | Yes | The name of the package |
+| Version | string | No | The resolved package version |
+| GitRef | string | No | The Git reference for the package. Sourced from linked Build Information |
+| [Feed](#feed-object) | object | No | Details of the feed the package is sourced from |
+
+**Example usage:**
+
+```ruby
+package packages_from_main_branch
+
+default result := {"allowed": false, "action": "warn"}
+
+all_packages := [pkg | some step in input.Steps; some pkg in step.Packages]
+
+result := {"allowed": true} if {
+    count(all_packages) == 0
+}
+
+result := {"allowed": true} if {
+    count(all_packages) > 0
+    every pkg in all_packages {
+        pkg.GitRef == "refs/heads/main"
+    }
+}
+```
+
+#### Feed object
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the feed |
+| Name | string | Yes | Display name of the feed |
+| Slug | string | Yes | The URL-safe slug for the feed |
+| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
+| Uri | string | No | The configured endpoint for the feed |
 
 :::div{.hint}
 
@@ -381,6 +415,7 @@ The complete JSON schema for the policy input object is provided below for use w
           "ActionType": { "type": "string" },
           "Enabled": { "type": "boolean" },
           "IsRequired": { "type": "boolean" },
+          "IsConditional": { "type": "boolean" },
           "Source": {
             "type": "object",
             "properties": {
@@ -398,13 +433,24 @@ The complete JSON schema for the policy input object is provided below for use w
                 "Id": { "type": "string" },
                 "Name": { "type": "string" },
                 "Version": { "type": "string" },
-                "GitRef": { "type": "string" }
+                "GitRef": { "type": "string" },
+                "Feed": {
+                  "type": "object",
+                  "properties": {
+                    "Id": { "type": "string" },
+                    "Name": { "type": "string" },
+                    "Slug": { "type": "string" },
+                    "Uri": { "type": "string" },
+                    "Type": { "type": "string" }
+                  },
+                  "required": ["Id", "Name", "Slug", "Type"]
+                }
               },
               "required": ["Id", "Name"]
             }
           }
         },
-        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "Source"]
+        "required": ["Id", "Slug", "ActionType", "Enabled", "IsRequired", "IsConditional", "Source"]
       }
     },
     "Release": {
@@ -437,7 +483,8 @@ The complete JSON schema for the policy input object is provided below for use w
         },
         "required": ["StartTrigger", "Steps"]
       }
-    }
+    },
+    "RequiresApproval": { "type": "boolean" }
   },
   "required": [
     "Environment",
@@ -446,7 +493,8 @@ The complete JSON schema for the policy input object is provided below for use w
     "SkippedSteps",
     "Steps",
     "ProjectGroup",
-    "Execution"
+    "Execution",
+    "RequiresApproval"
   ]
 }
 ```
