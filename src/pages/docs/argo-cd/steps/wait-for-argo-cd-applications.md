@@ -1,6 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-05-05
+pubDate: 2026-05-18
 modDate: 2026-05-18
 title: Wait for Argo CD Applications
 description: Wait for Argo CD applications to sync and become healthy during a deployment
@@ -19,7 +19,7 @@ Before adding this step, ensure:
 
 ## Configuration
 
-### Expected Applications
+### Expected applications
 
 The **Application count** field specifies how many Argo CD applications Octopus should expect to find and wait for. Octopus discovers matching applications using your project, environment, and tenant annotations.
 
@@ -35,7 +35,7 @@ Each Argo CD application must have Octopus project, environment, and tenant anno
 ![Wait for Argo CD Applications expected app count configuration](/docs/img/argo-cd/steps/wait-for-apps-expected.png)
 :::
 
-### Label Filter
+### Label filter
 
 Use the **Label filter** field to narrow down which applications the step waits for by providing a regular expression matched against application labels. Leave this empty to include all applications that match your project, environment, and tenant scope.
 
@@ -71,7 +71,7 @@ You could use the following regex to match on both apps
 ![Wait for Argo CD Applications label filter configuration](/docs/img/argo-cd/steps/wait-for-apps-label.png)
 :::
 
-### Commit Hashes
+### Commit hashes
 
 The **Commit hashes** field allows you to wait for applications that have synced to one or more specific Git commits. Provide each commit SHA as 7 to 40 hexadecimal characters, separating multiple hashes with commas.
 
@@ -83,9 +83,9 @@ Leave this field empty if you want to wait for health regardless of which commit
 ![Wait for Argo CD Applications commit hash field configuration](/docs/img/argo-cd/steps/wait-for-apps-commit-hash.png)
 :::
 
-## Additional Configuration Options
+## Additional configuration options
 
-### Step Verification
+### Step verification
 
 The **Step Verification** option determines how Octopus decides whether the step has succeeded. Choose one of the following options:
 
@@ -102,7 +102,7 @@ You can disable the timeout entirely by unchecking the **Step timeout** option, 
 ![Wait for Argo CD Applications additional configuration](/docs/img/argo-cd/steps/wait-for-apps-verification.png)
 :::
 
-## How the Step Works
+## How the step works
 
 When the step executes during a deployment, Octopus:
 
@@ -120,19 +120,19 @@ When the step executes during a deployment, Octopus:
 
 After the step completes, Octopus sets the following output variable:
 
-| Variable | Description |
-| ---------- | ------------- |
+| Variable                                 | Description                                                        |
+| ---------------------------------------- | ------------------------------------------------------------------ |
 | `ArgoCD.VerifyArgoApplicationSyncResult` | The outcome of the verification. Possible values are listed below. |
 
-### Outcome Values
+### Outcome values
 
-| Value | Description |
-| ------- | ------------- |
-| `Synced` | All applications were verified to meet the configured criteria within the timeout period. |
-| `Timeout` | The applications did not satisfy the configured criteria before the timeout expired. |
-| `Failed` | A fatal error occurred during verification. |
+| Value     | Description                                                                               |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `Synced`  | All applications were verified to meet the configured criteria within the timeout period. |
+| `Timeout` | The applications did not satisfy the configured criteria before the timeout expired.      |
+| `Failed`  | A fatal error occurred during verification.                                               |
 
-## Failure Scenarios
+## Failure scenarios
 
 ### Timeout
 
