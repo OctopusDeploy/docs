@@ -22,6 +22,10 @@ Before you can configure a Linux Tentacle, the Linux server must meet the [requi
 
 Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that [you will need to install some prerequisites](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies).
 
+### Git-based steps \{#git-based-steps}
+
+Git-based steps (steps that clone or fetch from a git repository as part of a deployment or runbook) require OpenSSL **1.1** or **3** on the host. Tentacles running with other OpenSSL versions will fail when running these steps.
+
 ## Known limitations
 
 Support for F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
