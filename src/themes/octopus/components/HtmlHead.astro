@@ -124,6 +124,12 @@ stats.stop();
   <meta name="view-transition" content="same-origin" />
   {pageMeta.map((m) => <meta name={m.name} content={m.content} />)}
   {authorMeta.map((m) => <meta name={m.name} content={m.content} />)}
-  <JsonLd frontmatter={frontmatter} canonicalURL={canonicalURL} />
+  <JsonLd
+    frontmatter={frontmatter}
+    canonicalURL={canonicalURL.toString()}
+    socialTitle={socialTitle}
+    imageURL={canonicalImageSrc.toString()}
+    authors={authorList}
+  />
   <Fragment set:html={HEADER_SCRIPTS} />
 </head>

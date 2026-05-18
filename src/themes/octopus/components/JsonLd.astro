@@ -1,69 +1,105 @@
 ---
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import { SITE } from '@config';
+import type { AuthorList } from 'astro-accelerator-utils/types/AuthorList';
+import { STRUCTURED_DATA } from '@config';
+import {
+  buildArticle,
+  buildOrganization,
+  buildPersonNodes,
+  buildWebSite,
+  cleanHeadline,
+  escapeJsonForScript,
+  isStructuredDataEligible,
+  pickArticleType,
+  toGraphPayload,
+  type GraphNode,
+} from '@util/structured-data';
 
 type Props = {
   frontmatter: Frontmatter;
   canonicalURL: string;
+  socialTitle: string;
+  imageURL?: string;
+  authors?: AuthorList | null;
 };
 
-const { frontmatter, canonicalURL } = Astro.props;
+const { frontmatter, canonicalURL, socialTitle, imageURL, authors } =
+  Astro.props;
 
-const pathname = Astro.url.pathname.replace(/\/$/, '');
-const eligible =
-  pathname.startsWith('/docs/installation') ||
-  pathname.startsWith('/docs/getting-started');
+type Payload = ReturnType<typeof toGraphPayload>;
 
-function toIsoDate(val: unknown): string | undefined {
-  if (!val) return undefined;
-  if (val instanceof Date) return val.toISOString().slice(0, 10);
-  const s = String(val).trim().split('T')[0];
-  return s.length > 0 ? s : undefined;
+// Warns each path once per worker (Astro can use multiple workers).
+declare global {
+  // eslint-disable-next-line no-var
+  var __jsonLdWarnedPaths: Set<string> | undefined;
+}
+const warnedPaths = (globalThis.__jsonLdWarnedPaths ??= new Set<string>());
+
+function normalizePathname(pathname: string): string {
+  return pathname.length > 1 && pathname.endsWith('/')
+    ? pathname.slice(0, -1)
+    : pathname;
 }
 
-const headline =
-  typeof frontmatter.title === 'string'
-    ? frontmatter.title.replace(/[\[\]*`]/g, '').trim().slice(0, 110)
-    : '';
+function pathnameFromCanonical(canonical: string, fallback: string): string {
+  try {
+    return new URL(canonical).pathname;
+  } catch {
+    return fallback;
+  }
+}
 
-const description =
-  typeof frontmatter.description === 'string' &&
-  frontmatter.description.trim().length > 0
-    ? frontmatter.description.trim()
-    : undefined;
+function buildPayload(): Payload | null {
+  if (!STRUCTURED_DATA.enabled) return null;
+  if (!isStructuredDataEligible(frontmatter)) return null;
 
-const datePublished = toIsoDate(frontmatter.pubDate);
-const dateModified = toIsoDate(frontmatter.modDate) ?? datePublished;
-const lang =
-  typeof frontmatter.lang === 'string' ? frontmatter.lang : SITE.default.lang;
+  const pathname = normalizePathname(
+    pathnameFromCanonical(canonicalURL, Astro.url.pathname)
+  );
+  const articleType = pickArticleType(pathname, frontmatter);
+  const headline = cleanHeadline(socialTitle);
 
-const jsonLd = eligible
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'TechArticle',
-      headline,
-      ...(description && { description }),
-      url: canonicalURL,
-      ...(datePublished && { datePublished }),
-      ...(dateModified && { dateModified }),
-      inLanguage: lang,
-      publisher: {
-        '@type': 'Organization',
-        name: SITE.owner,
-        url: SITE.url,
-      },
-      isPartOf: {
-        '@type': 'WebSite',
-        name: SITE.title,
-        url: SITE.url + SITE.subfolder,
-      },
+  // Author branch is unreachable today (no author pages); kept wired.
+  const mainAuthor =
+    authors && authors.writers.length > 0 && authors.mainAuthor
+      ? (buildPersonNodes([authors.mainAuthor])[0] ?? null)
+      : null;
+  const contributors =
+    authors && authors.writers.length > 0
+      ? buildPersonNodes(authors.contributors)
+      : [];
+
+  const article = buildArticle({
+    frontmatter,
+    canonicalURL,
+    articleType,
+    headline,
+    imageURL,
+    mainAuthor,
+    contributors,
+  });
+  if (!article) {
+    if (!warnedPaths.has(pathname)) {
+      warnedPaths.add(pathname);
+      console.warn(`[JsonLd] eligible page produced no Article: ${pathname}`);
     }
-  : null;
+    return null;
+  }
 
-// Escape </script> sequences to prevent premature tag close.
-const jsonLdString = jsonLd
-  ? JSON.stringify(jsonLd, null, 2).replace(/<\//g, '<\\/')
-  : null;
+  const nodes: GraphNode[] = [article, buildWebSite(), buildOrganization()];
+  return toGraphPayload(nodes);
+}
+
+const payload = buildPayload();
 ---
 
-{jsonLdString && <script type="application/ld+json" set:html={jsonLdString} />}
+{/* Safe: payload is escaped by escapeJsonForScript. */}
+{
+  payload && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={escapeJsonForScript(payload)}
+    />
+  )
+}
