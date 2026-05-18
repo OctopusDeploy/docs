@@ -25,10 +25,10 @@ The **Application count** field specifies how many Argo CD applications Octopus 
 
 If fewer applications than expected are found, the step will continue to wait until the expected count is reached or the timeout expires.
 
-You can provide a static integer or an [Octopus variable expression](/docs/projects/variables/variable-substitution-syntax).
+You can provide a static integer or an [Octopus variable expression](/docs/projects/variables/variable-substitutions).
 
 :::div{.info}
-Each Argo CD application must have Octopus project, environment, and tenant annotations and its Git repository must have credentials configured with the repository in the allow list. See [Argo CD application annotations](/docs/argo-cd/annotations/application-annotations) for details.
+Each Argo CD application must have Octopus project, environment, and tenant annotations and its Git repository must have credentials configured with the repository in the allow list. See [Argo CD application annotations](/docs/argo-cd/annotations) for details.
 :::
 
 :::figure
