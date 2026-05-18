@@ -17,7 +17,6 @@ Before adding this step, ensure:
 - Your Argo CD cluster is connected to Octopus and visible via the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view).
 - [Git credentials](/docs/infrastructure/git-credentials) exist for the repositories referenced by your Argo CD applications, with the repository included in the [repository allow list](/docs/infrastructure/git-credentials#repository-restrictions).
 
-
 ## Configuration
 
 ### Expected Applications
@@ -43,6 +42,7 @@ Use the **Label filter** field to narrow down which applications the step waits 
 For example, to wait only for applications with a `team: payments` label, you would enter `team: payments`.
 
 For a more advanced example, to wait only for applications that match one of the following labels:
+
 ```yaml
 ...
 kind: Application
@@ -60,8 +60,10 @@ metadata:
     app.kubernetes.io/part-of: payments-*
 ...
 ```
+
 You could use the following regex to match on both apps
-```
+
+```plaintext
 (team: payments|team: infrastructure|app\.kubernetes\.io\/part-of: payments-.*)
 ```
 
@@ -103,6 +105,7 @@ You can disable the timeout entirely by unchecking the **Step timeout** option, 
 ## How the Step Works
 
 When the step executes during a deployment, Octopus:
+
 1. Creates an interruption point that pauses step execution.
 2. Polls the Octopus Deploy database for the current state of the applications that are scoped to the in-progress deployment.
 3. Applies the label filter (if configured) to narrow the discovered applications.
@@ -118,13 +121,13 @@ When the step executes during a deployment, Octopus:
 After the step completes, Octopus sets the following output variable:
 
 | Variable | Description |
-|----------|-------------|
+| ---------- | ------------- |
 | `ArgoCD.VerifyArgoApplicationSyncResult` | The outcome of the verification. Possible values are listed below. |
 
 ### Outcome Values
 
 | Value | Description |
-|-------|-------------|
+| ------- | ------------- |
 | `Synced` | All applications were verified to meet the configured criteria within the timeout period. |
 | `Timeout` | The applications did not satisfy the configured criteria before the timeout expired. |
 | `Failed` | A fatal error occurred during verification. |
@@ -138,7 +141,6 @@ If the configured verification condition has not been met within the configured 
 - The application has a long sync or rollout duration (increase the timeout).
 - Argo CD is in a degraded state.
 - A misconfigured manifest is preventing the application from becoming healthy.
-
 
 ## Troubleshooting
 
