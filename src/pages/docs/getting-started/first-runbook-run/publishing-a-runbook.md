@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Publishing a runbook
-description: Step by step guide on how to publish an Octopus Deploy Runbook to use with triggers.
+title: Publish a runbook in Octopus Deploy
+description: Publish your Octopus Deploy runbook to make it available for scheduled triggers and deployment targets. Follow the step-by-step guide to create a snapshot.
 navOrder: 90
 hideInThisSection: true
 ---

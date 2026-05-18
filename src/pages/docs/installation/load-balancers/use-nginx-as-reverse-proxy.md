@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-12-08
-title: Use NGINX as a reverse proxy for Octopus Deploy
-description: How to set up NGINX as a Reverse Proxy for Octopus Deploy
+title: NGINX as a reverse proxy for Octopus Deploy
+description: Run Octopus Deploy behind an NGINX reverse proxy to add SSL termination or custom HTTP response headers. Follow the configuration guide to get set up.
 navOrder: 10
 ---
 

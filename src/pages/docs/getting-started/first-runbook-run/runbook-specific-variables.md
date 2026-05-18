@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Runbook specific variables
-description: Step by step guide on how to define and use variables in an Octopus Deploy runbook.
+title: Variables in Octopus Deploy runbooks
+description: Add variables to your Octopus Deploy runbook to make scripts flexible. Define a variable, reference it in a step, and scope it to specific environments.
 navOrder: 60
 hideInThisSection: true
 ---

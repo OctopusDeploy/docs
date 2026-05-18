@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-06-13
-title: Managing Octopus subscriptions
-description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
+title: Manage your Octopus subscriptions
+description: Use Octopus Control Center to manage your subscriptions, licenses, and user access. View billing details, add users, and adjust your plan from one place.
 navOrder: 40
 ---
 

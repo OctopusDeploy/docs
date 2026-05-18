@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2026-04-16
-title: Running a Runbook
-description: Step by step guide on how to run a runbook in Octopus Deploy.
+title: Run a runbook in Octopus Deploy
+description: Trigger a runbook run in Octopus Deploy. Select the runbook, choose an environment, review the task summary, and verify the run completed successfully.
 navOrder: 50
 hideInThisSection: true
 ---

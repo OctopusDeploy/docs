@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Defining the runbook process for targets
-description: Step by step guide on how to define a runbook process in Octopus Deploy.
+title: Define a runbook process for targets
+description: Define the steps in your Octopus Deploy runbook to run on deployment targets. Add a script step, target it by role, and save the runbook process to run.
 navOrder: 80
 hideInThisSection: true
 ---

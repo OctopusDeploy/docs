@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Use IIS as a reverse proxy for Octopus Deploy
-description: How to set up IIS 7 (or later) as a Reverse Proxy for Octopus Deploy
+title: IIS as a reverse proxy for Octopus Deploy
+description: Run Octopus Deploy behind IIS as a reverse proxy using ARR and URL Rewrite modules. Follow the step-by-step guide to add SSL termination and custom headers.
 navOrder: 15
 ---
 

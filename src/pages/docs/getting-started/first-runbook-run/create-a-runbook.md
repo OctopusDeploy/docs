@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Create a runbook
-description: Step by step guide on how to create a runbook in Octopus Deploy.
+title: Create a runbook in Octopus Deploy
+description: Add a runbook to your Octopus Deploy project. Follow the step-by-step guide to create the runbook, name it, and prepare it for defining process steps.
 navOrder: 30
 hideInThisSection: true
 ---
