@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-01-07
-title: Approvals with Manual Interventions
-description: Step by step guide on how to use Manual Interventions in Octopus Deploy for approvals
+title: Approvals with manual interventions
+description: Add a manual intervention step to require sign-off before each Octopus Deploy deployment proceeds. Follow the step-by-step guide to configure approvals.
 navOrder: 60
 hideInThisSection: true
 ---

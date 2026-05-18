@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-11-13
 modDate: 2023-11-13
-title: EKS reference architecture
-description: Populate an Octopus space with example projects deploying to an AWS EKS cluster
+title: EKS reference architecture for Octopus Deploy
+description: Populate an Octopus space with example projects that deploy to AWS EKS. Follow the guide to set up a Kubernetes deployment reference architecture in Octopus.
 navOrder: 1
 ---
 

@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-22
-title: Self-Managed SQL Server
-description: Guidelines and recommendations for configuring Octopus Deploy to use a self-managed SQL Server.
+title: Self-managed SQL Server for Octopus Deploy
+description: Configure a self-managed SQL Server to host your Octopus Deploy database. Review server edition, collation, authentication, and permission requirements.
 navOrder: 10
 hideInThisSection: true
 ---

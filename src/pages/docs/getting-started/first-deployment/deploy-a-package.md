@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-01-7
-title: Deploy a sample package
-description: Step by step guide on how to deploy a sample package Octopus Deploy
+title: Deploy a package in Octopus Deploy
+description: Deploy a sample package using Octopus Deploy. Create a deploy package step, push an artifact to the built-in feed, and release it to your first environment.
 navOrder: 80
 hideInThisSection: true
 ---

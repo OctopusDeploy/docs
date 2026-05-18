@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Octopus Server Container with systemd
-description: Using systemd, you can have the Octopus Server Linux Container running in Docker each time the OS starts on your host machine.
+title: Run Octopus Server Container with systemd
+description: Configure systemd to start the Octopus Server Linux Container automatically when your host machine boots. Follow the service definition steps to get set up.
 navOrder: 20
 ---
 

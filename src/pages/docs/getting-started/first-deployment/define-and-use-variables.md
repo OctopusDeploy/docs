@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-11-13
-title: Define and use variables
-description: This tutorial will walk you through defining and using variables in an Octopus Deploy deployment.
+title: Define and use variables in Octopus Deploy
+description: Add variables to your Octopus Deploy project to make deployments flexible. Define variable values per environment and reference them in your deployment steps.
 navOrder: 50
 hideInThisSection: true
 ---

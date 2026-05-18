@@ -55,6 +55,9 @@ stats.stop();
             >
               <a
                 href={
+                  // TODO: `formatAddress(...) + '1/'` produces `<slug>1/`,
+                  // not `<slug>/1/`, under SITE.useTrailingUrlSlash = false.
+                  // Dormant: no author pages exist yet.
                   accelerator.urlFormatter.formatAddress(
                     authorList.mainAuthor.url
                   ) + '1/'

@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Troubleshooting Octopus Server in a Container
-description: Troubleshooting steps for running Octopus in a Container
+title: Troubleshoot Octopus Server in a container
+description: Fix common issues with the Octopus Server Linux container. Find solutions for startup failures, database connection errors, and Docker configuration problems.
 navOrder: 100
 ---
 

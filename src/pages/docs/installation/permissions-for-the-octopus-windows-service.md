@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Permissions for the Octopus Windows Service
-description: Information about the permissions required by the Octopus Windows service to operate.
+title: Octopus Windows Service permissions
+description: Review the Windows permissions required to run the Octopus Deploy Windows service. Learn which accounts work, what access they need, and how to configure them.
 navOrder: 5
 ---
 

@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Windows NFS File Storage
-description: Guidelines and recommendations for configuring NFS File Storage with Octopus Deploy.
+title: Windows NFS file storage for Octopus Deploy
+description: Configure a Windows NFS share for Octopus Deploy file storage across nodes. Review prerequisites, share setup steps, and how to connect your Octopus instance.
 navOrder: 80
 hideInThisSection: true
 ---

@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Troubleshooting the Octopus installation
-description: Troubleshooting steps for installing Octopus Deploy
+title: Troubleshoot Octopus installation issues
+description: Fix common Octopus Server installation errors. Find solutions for database connection failures, port conflicts, Windows service issues, and permission problems.
 navOrder: 7
 ---
 In a few cases a bug in a 3rd party component causes the installer to display an "Installation directory must be on a local hard drive" error. If this occurs, run the install again from an elevated command prompt using the following command (replacing `Octopus.3.3.4-x64.msi` with the name of the installer you are using):
