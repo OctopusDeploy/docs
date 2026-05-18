@@ -13,7 +13,7 @@ The **Wait for Argo CD Applications** step pauses a deployment until one or more
 
 Before adding this step, ensure:
 
-- Your Argo CD applications have the required [Octopus annotations](/docs/argo-cd/annotations/application-annotations) so Octopus can identify which applications belong to which project, environment, and tenant.
+- Your Argo CD applications have the required [Octopus annotations](/docs/argo-cd/annotations) so Octopus can identify which applications belong to which project, environment, and tenant.
 - Your Argo CD cluster is connected to Octopus and visible via the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view).
 - [Git credentials](/docs/infrastructure/git-credentials) exist for the repositories referenced by your Argo CD applications, with the repository included in the [repository allow list](/docs/infrastructure/git-credentials#repository-restrictions).
 
@@ -145,7 +145,7 @@ If the configured verification condition has not been met within the configured 
 ## Troubleshooting
 
 **The step can't find my applications.**
-Verify that your Argo CD applications have the correct [project, environment, and tenant annotations](/docs/argo-cd/annotations/application-annotations). You can inspect discovered applications via the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view).
+Verify that your Argo CD applications have the correct [project, environment, and tenant annotations](/docs/argo-cd/annotations). You can inspect discovered applications via the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view).
 
 **The step times out even though the application appears healthy in Argo CD.**
 Check that the **Application count** matches the actual number of applications Octopus should discover. If you have a label filter set, confirm it matches the labels on your applications. If you have provided commit hashes, confirm that the applications have synced to one of those commits. Also verify the application's Argo CD status is both **Synced** and **Healthy** (not just one of the two).
