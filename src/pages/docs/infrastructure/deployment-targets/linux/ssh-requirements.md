@@ -17,7 +17,7 @@ When connecting to a target over SSH, the Octopus Server connects then executes 
 
 For example, with targets on a Mac the default $PATH variable may be missing `/usr/sbin`. This can be added in the `.bashrc` script with the line:
 
-```
+```bash
 PATH=$PATH:/usr/sbin
 ```
 
@@ -36,6 +36,7 @@ Since it is self-contained, .NET Core does not need to be installed on the targe
 Git-based steps (steps that clone or fetch from a git repository as part of a deployment or runbook) require OpenSSL **1.1** or **3** on the host. SSH targets running with other OpenSSL versions will fail when running these steps.
 
 ## Python
+
 Octopus can execute Python scripts on SSH targets provided the following criteria are met:
 
 - Python is version 3.4+
