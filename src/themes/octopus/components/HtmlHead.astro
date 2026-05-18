@@ -3,6 +3,7 @@ import { Accelerator } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE, OPEN_GRAPH, HEADER_SCRIPTS } from '@config';
 import { getEligibleSlugs } from '@util/mdxContent';
+import JsonLd from '@components/JsonLd.astro';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
@@ -123,5 +124,6 @@ stats.stop();
   <meta name="view-transition" content="same-origin" />
   {pageMeta.map((m) => <meta name={m.name} content={m.content} />)}
   {authorMeta.map((m) => <meta name={m.name} content={m.content} />)}
+  <JsonLd frontmatter={frontmatter} canonicalURL={canonicalURL} />
   <Fragment set:html={HEADER_SCRIPTS} />
 </head>

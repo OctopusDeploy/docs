@@ -1,0 +1,69 @@
+---
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+
+type Props = {
+  frontmatter: Frontmatter;
+  canonicalURL: string;
+};
+
+const { frontmatter, canonicalURL } = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const eligible =
+  pathname.startsWith('/docs/installation') ||
+  pathname.startsWith('/docs/getting-started');
+
+function toIsoDate(val: unknown): string | undefined {
+  if (!val) return undefined;
+  if (val instanceof Date) return val.toISOString().slice(0, 10);
+  const s = String(val).trim().split('T')[0];
+  return s.length > 0 ? s : undefined;
+}
+
+const headline =
+  typeof frontmatter.title === 'string'
+    ? frontmatter.title.replace(/[\[\]*`]/g, '').trim().slice(0, 110)
+    : '';
+
+const description =
+  typeof frontmatter.description === 'string' &&
+  frontmatter.description.trim().length > 0
+    ? frontmatter.description.trim()
+    : undefined;
+
+const datePublished = toIsoDate(frontmatter.pubDate);
+const dateModified = toIsoDate(frontmatter.modDate) ?? datePublished;
+const lang =
+  typeof frontmatter.lang === 'string' ? frontmatter.lang : SITE.default.lang;
+
+const jsonLd = eligible
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      headline,
+      ...(description && { description }),
+      url: canonicalURL,
+      ...(datePublished && { datePublished }),
+      ...(dateModified && { dateModified }),
+      inLanguage: lang,
+      publisher: {
+        '@type': 'Organization',
+        name: SITE.owner,
+        url: SITE.url,
+      },
+      isPartOf: {
+        '@type': 'WebSite',
+        name: SITE.title,
+        url: SITE.url + SITE.subfolder,
+      },
+    }
+  : null;
+
+// Escape </script> sequences to prevent premature tag close.
+const jsonLdString = jsonLd
+  ? JSON.stringify(jsonLd, null, 2).replace(/<\//g, '<\\/')
+  : null;
+---
+
+{jsonLdString && <script type="application/ld+json" set:html={jsonLdString} />}
