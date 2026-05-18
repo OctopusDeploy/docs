@@ -7,12 +7,32 @@ class MobileNav {
     this.mobileMenuWrapper = qs('[data-mobile-menu-wrapper]');
     this.hamburgerIcon = qs('[data-hamburger-icon]');
     this.mobileMenu = qs('[data-mobile-menu]');
-    this.menuItems = qsa('.site-nav__list li');
+    this.mobileMenuList = qs('[data-mobile-menu-list]');
+
+    this.populateMobileMenu();
+    this.menuItems = qsa('[data-mobile-menu-list] li');
 
     // Initially hide the menu
     this.mobileMenu.style.visibility = 'hidden';
 
     this.addListeners();
+  }
+
+  populateMobileMenu() {
+    // Idempotent on hot-reload.
+    if (this.mobileMenuList.children.length > 0) return;
+
+    const sourceList = document.querySelector('#site-nav .site-nav__list');
+    if (!sourceList) {
+      console.warn(
+        '[nav-mobile] #site-nav not found; mobile drawer will be empty'
+      );
+      return;
+    }
+
+    for (const child of sourceList.children) {
+      this.mobileMenuList.appendChild(child.cloneNode(true));
+    }
   }
 
   toggleMobileMenu() {
