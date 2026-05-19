@@ -37,4 +37,4 @@ If you rely on Octopus to run certain tasks on the Octopus Server, you'll also n
 
 ## Learn more
 
- - [Octopus installation](/docs/installation).
+- [Octopus installation](/docs/installation).

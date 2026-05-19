@@ -29,7 +29,7 @@ At the end of this walk-through, you should be able to:
 - Set and verify a custom HTTP header with IIS.
 
 :::figure
-![](/docs/img/administration/high-availability/design/images/create-server-farm.png)
+![Create server farm in IIS](/docs/img/administration/high-availability/design/images/create-server-farm.png)
 :::
 
 ## Install URLRewrite and ARR
@@ -105,7 +105,7 @@ There is no need to specify outbound rules, as the Octopus Portal always uses re
 
 Click OK and close down all dialogs.
 
-You should now be able to navigate to https://servername/ in your browser and log in to Octopus Deploy.
+You should now be able to navigate to `https://servername/` in your browser and log in to Octopus Deploy.
 
 :::div{.warning}
 **Polling Tentacles are not supported with this scenario**

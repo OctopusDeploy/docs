@@ -18,19 +18,19 @@ Hosted Octopus users should use the `Hosted Ubuntu` worker pool and run the step
 
 The step exposes a number of options, typically requesting credentials to the various platforms that are configured to support Azure Web App deployments:
 
-* `Azure account application ID`, `Azure account subscription ID`, `Azure account tenant ID`, and `Azure account password` require the details associated with a [service principal](https://learn.microsoft.com/en-us/purview/create-service-principal-azure) used to access the Azure platform.
-* `Docker Hub Username` and `Docker Hub Password` require the credentials of a [Docker Hub user](https://docs.docker.com/docker-id/) that is used to access sample Docker images from public DockerHub repositories. These credentials are also used by a sample GitHub Actions workflow that publishes Docker images.
-* `GitHub Access Token` requires the [GitHub access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) of a user that is used to create a new GitHub repository holding a sample application.
-* `Octopus API Key` requires an [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) to the Octopus instance where the reference architecture projects and supporting resources are created.
-* `Octopus Space ID` requires the space ID where the reference architecture projects and supporting resources are created. Leave the default value to populate the same space as the runbook.
-* `Octopus Server URL` requires the URL of the Octopus instance where the reference architecture projects and supporting resources are created. Leave the default value to populate the same instance as the runbook.
-* `Optional Terraform Apply Args` allows custom arguments to be passed to the `terraform apply` command. The Terraform module applied by this step exposes a number of optional variables that can be defined as apply arguments. These arguments can be defined by setting this field to a value like `-var=project_template_project_name=renamed -var=infrastructure_project_name=renamed2 -var=frontend_project_name=renamed3 -var=products_project_name=renamed4 -var=audits_project_name=renamed5`:
-  * `infrastructure_project_name` defines the name of the `_ Azure Web App Infrastructure` project
-  * `project_template_project_name` defines the name of the `Docker Project Templates` project
-  * `frontend_project_name` defines the name of the `Azure WebApp Octopub Frontend` project
-  * `products_project_name` defines the name of the `Azure WebApp Octopub Products` project
-  * `audits_project_name` defines the name of the `Azure WebApp Octopub Audits` project
-* `Optional Terraform Init Args` allows custom argument to be passed to the `terraform init` command. Leave this field blank unless you have a specific use case.
+- `Azure account application ID`, `Azure account subscription ID`, `Azure account tenant ID`, and `Azure account password` require the details associated with a [service principal](https://learn.microsoft.com/en-us/purview/create-service-principal-azure) used to access the Azure platform.
+- `Docker Hub Username` and `Docker Hub Password` require the credentials of a [Docker Hub user](https://docs.docker.com/docker-id/) that is used to access sample Docker images from public DockerHub repositories. These credentials are also used by a sample GitHub Actions workflow that publishes Docker images.
+- `GitHub Access Token` requires the [GitHub access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) of a user that is used to create a new GitHub repository holding a sample application.
+- `Octopus API Key` requires an [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) to the Octopus instance where the reference architecture projects and supporting resources are created.
+- `Octopus Space ID` requires the space ID where the reference architecture projects and supporting resources are created. Leave the default value to populate the same space as the runbook.
+- `Octopus Server URL` requires the URL of the Octopus instance where the reference architecture projects and supporting resources are created. Leave the default value to populate the same instance as the runbook.
+- `Optional Terraform Apply Args` allows custom arguments to be passed to the `terraform apply` command. The Terraform module applied by this step exposes a number of optional variables that can be defined as apply arguments. These arguments can be defined by setting this field to a value like `-var=project_template_project_name=renamed -var=infrastructure_project_name=renamed2 -var=frontend_project_name=renamed3 -var=products_project_name=renamed4 -var=audits_project_name=renamed5`:
+  - `infrastructure_project_name` defines the name of the `_ Azure Web App Infrastructure` project
+  - `project_template_project_name` defines the name of the `Docker Project Templates` project
+  - `frontend_project_name` defines the name of the `Azure WebApp Octopub Frontend` project
+  - `products_project_name` defines the name of the `Azure WebApp Octopub Products` project
+  - `audits_project_name` defines the name of the `Azure WebApp Octopub Audits` project
+- `Optional Terraform Init Args` allows custom argument to be passed to the `terraform init` command. Leave this field blank unless you have a specific use case.
 
 ### Reference projects
 
@@ -40,7 +40,7 @@ The `_ Azure Web App Infrastructure` project contains a runbook called `Create W
 
 The `Azure WebApp Octopub Audits`, `Azure WebApp Octopub Frontend`, `Azure WebApp Octopub Products` projects deploy the [Octopub](https://github.com/OctopusSolutionsEngineering/Octopub) sample application to an Azure Web App, performs a smoke test, and scans the [SBOM](https://www.cisa.gov/sbom) associated with each image using [Trivy](https://aquasecurity.github.io/trivy/). Each of these projects have a number of supporting runbooks to inspect Kubernetes resources.
 
-The `_ Deploy Azure Web App Octopub Stack` project uses the [Deploy a release](/docs/projects/coordinating-multiple-projects/deploy-release-step) step to orchestrate the deployment of the individual microservices that make up the Octopub sample application. Orchestration projects provide a convenient way of promoting multiple related releases between environments in a predefined order, which may be required when applications are tightly bound or a well-defined set of release versions must be installed as a group. 
+The `_ Deploy Azure Web App Octopub Stack` project uses the [Deploy a release](/docs/projects/coordinating-multiple-projects/deploy-release-step) step to orchestrate the deployment of the individual microservices that make up the Octopub sample application. Orchestration projects provide a convenient way of promoting multiple related releases between environments in a predefined order, which may be required when applications are tightly bound or a well-defined set of release versions must be installed as a group.
 
 The `Docker Project Templates` project contains a runbook called `Create Template Github Node.js Project` that:
 
