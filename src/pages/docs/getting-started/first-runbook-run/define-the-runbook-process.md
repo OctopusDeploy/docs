@@ -47,7 +47,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook).
 
-**Further Reading**
+**Further Reading:**
 
 For further reading on runbook processes and what is possible please see:
 

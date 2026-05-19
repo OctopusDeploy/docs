@@ -27,7 +27,7 @@ The specific version of any packages used in a runbook process is included in th
 
 You have now completed the tutorial for running your first runbook!
 
-**Further Reading**
+**Further Reading:**
 
 This tutorial is designed to cover the basics of how to configure runbooks and how they work.  For further reading please see:
 

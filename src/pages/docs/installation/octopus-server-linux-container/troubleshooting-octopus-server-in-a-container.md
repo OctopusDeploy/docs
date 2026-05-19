@@ -17,7 +17,7 @@ When you create an Octopus Server container, you must agree with the [Octopus De
 
 If you get an error similar to:
 
-```
+```text
 ERROR: You must accept the EULA
 ```
 
@@ -27,14 +27,16 @@ You must pass `--env "ACCEPT_EULA=Y"` when using `docker run` with an Octopus Se
 
 If you get an error similar to:
 
-```
+```text
 image operating system "windows" cannot be used on this platform.
 ```
+
 or
 
-```
+```text
 image operating system "linux" cannot be used on this platform.
 ```
+
 then you likely are using a Windows image with Linux Containers or a Linux image with Windows Containers.
 
 When running Containers on a Windows host machine, there is the options to run both Windows Containers and Linux Containers. Docker must be set to the correct container mode for the image you are using. Please refer to [switching between Windows and Linux Containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) documentation to learn how to switch between them.
@@ -43,7 +45,7 @@ When running Containers on a Windows host machine, there is the options to run b
 
 You should create your Windows Containers with a volume mount so files such as logs can be stored outside the container. If you get an error similar to:
 
-```
+```text
 Error response from daemon: invalid volume specification: '...': invalid mount config for type "bind": bind source path does not exist: ...
 ```
 
@@ -51,4 +53,4 @@ Please ensure that the folder you are mounting exists on the host machine and tr
 
 ### How can I install other software in the container?
 
-When you have the container running, you may need to install other programs within it or read/modify files within. For example, you may want to have [PowerShell Core](https://github.com/PowerShell/PowerShell) available to run PowerShell scripts on the Octopus Server. To access bash within the container first run the command `docker ps` to find your container, then copy the Container ID. Next run `docker exec -it <container id> /bin/bash` to enter bash within the container. From there, you can install, remove or access anything else that is required. 
+When you have the container running, you may need to install other programs within it or read/modify files within. For example, you may want to have [PowerShell Core](https://github.com/PowerShell/PowerShell) available to run PowerShell scripts on the Octopus Server. To access bash within the container first run the command `docker ps` to find your container, then copy the Container ID. Next run `docker exec -it <container id> /bin/bash` to enter bash within the container. From there, you can install, remove or access anything else that is required.

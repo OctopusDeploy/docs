@@ -36,30 +36,30 @@ Steps in the runbook process can reference the variables.
 1. Select the script step.
 1. Change the script in the script step based on your language of choice:
 
-<details data-group="getting-started-first-runbook-run-runbook-specific-variables">
-<summary>PowerShell</summary>
+    <details data-group="getting-started-first-runbook-run-runbook-specific-variables">
+    <summary>PowerShell</summary>
 
-```powershell
-Write-Host $OctopusParameters["Helloworld.Greeting"]
-```
+    ```powershell
+    Write-Host $OctopusParameters["Helloworld.Greeting"]
+    ```
 
-</details>
-<details data-group="getting-started-first-runbook-run-runbook-specific-variables">
-<summary>Bash</summary>
+    </details>
+    <details data-group="getting-started-first-runbook-run-runbook-specific-variables">
+    <summary>Bash</summary>
 
-```bash
-greeting=$(get_octopusvariable "Helloworld.Greeting")
-echo $greeting
-```
+    ```bash
+    greeting=$(get_octopusvariable "Helloworld.Greeting")
+    echo $greeting
+    ```
 
-</details>
+    </details>
 
-:::div{.hint}
-If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
-:::
+    :::div{.hint}
+    If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
+    :::
 
-6. Click the **SAVE** button.
-7. Click the **RUN...** button, select and environment, and run the Runbook.
+1. Click the **SAVE** button.
+1. Click the **RUN...** button, select and environment, and run the Runbook.
 
 :::figure
 ![The results of the hello world runbook run with variables](/docs/img/getting-started/first-runbook-run/images/runbook-run-with-variables.png)
@@ -67,7 +67,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 The next step will [add deployment targets to run runbooks on](/docs/getting-started/first-runbook-run/add-runbook-deployment-targets).
 
-**Further Reading**
+**Further Reading:**
 
 For further reading on Runbook variables please see:
 

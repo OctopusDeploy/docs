@@ -24,6 +24,7 @@ As of **Octopus 2018.5.3** and **Tentacle 3.21.0**, most operations support long
 ## Enabling
 
 On the target machine:
+
 1. Ensure .NET Framework 4.6.2 or later is installed.
 1. Open Group Policy Editor (Press Windows Key and type `gpedit.msc` and hit Enter key).
 1. Navigate to and enable.
@@ -42,4 +43,4 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 ## Learn more
 
- - [Octopus installation](/docs/installation)
+- [Octopus installation](/docs/installation)

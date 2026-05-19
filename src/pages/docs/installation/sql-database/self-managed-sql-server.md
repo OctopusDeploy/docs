@@ -28,9 +28,9 @@ If you don't want Octopus to automatically create the database for you as part o
 1. The default schema must be **dbo**.
 1. The database must use a **case-insensitive collation** (a collation with a name containing "\_CI\_").
 1. If you are using **Integrated Authentication** to connect to your database:
-   - The user account installing Octopus must be a member of the **db\_owner** role for that database.
-   - The account the Octopus Deploy Windows Server process runs under (by default, the `Local System` account) must be a member of the **db\_owner** role for that database.
-2. If you are using **SQL Authentication** to connect to your database, the SQL user account defined in your connection string must be a member of the **db\_owner** role for that database.
+    - The user account installing Octopus must be a member of the **db\_owner** role for that database.
+    - The account the Octopus Deploy Windows Server process runs under (by default, the `Local System` account) must be a member of the **db\_owner** role for that database.
+1. If you are using **SQL Authentication** to connect to your database, the SQL user account defined in your connection string must be a member of the **db\_owner** role for that database.
 
 ## Changing the database collation
 
@@ -55,7 +55,7 @@ Make sure the Octopus Server is connecting to the listener which will route data
 
 A typical connection string for using a SQL Server AlwaysOn availability group looks like this:
 
-```
+```text
 Server=tcp:AGListener,1433;Database=Octopus;IntegratedSecurity=SSPI;MultiSubnetFailover=True
 ```
 
@@ -95,4 +95,3 @@ When a disaster occurs, any data not synchronized will be lost.  Depending on th
 Fundamentally, both options are the same.  They asynchronously transfer database transactions to a secondary data center.  When a disaster occurs, you perform the necessary steps as detailed by Microsoft to make the secondary database the primary.  
 
 There are pros and cons to either approach.  And there might be additional licensing costs or limits.  Our recommendation is to consult your DBA on which option they prefer.  
-
