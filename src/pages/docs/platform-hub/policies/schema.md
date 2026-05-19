@@ -28,7 +28,7 @@ The table below summarizes every top-level field available to your policies.
 | [Steps](#steps) | array | Yes | All steps included in the deployment process |
 | [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
 | [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
-| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
+| [RequiresApproval](#requiresapproval) | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
