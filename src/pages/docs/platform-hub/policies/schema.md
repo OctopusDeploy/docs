@@ -95,6 +95,23 @@ The project group the project belongs to.
 | Name | string | The display name of the project group |
 | Slug | string | The URL-safe slug for the project group |
 
+### RequiresApproval
+
+Indicates whether an ITSM change approval is required for this deployment. Derived from the change control settings configured on the target project and environment.
+
+**Example usage:**
+
+```ruby
+package require_change_approvals
+
+default result := { "allowed": false }
+
+result := {
+    "allowed": input.RequiresApproval,
+    "reason": "No ITSM change request was found attached to this deployment or runbook run. Attach an approved change request, and try again.",
+}
+```
+
 ### Tenant
 
 The tenant for tenanted deployments. **This field is absent for non-tenanted deployments.** Always guard against its absence before using it.
@@ -163,6 +180,7 @@ result := {"allowed": true} if {
     step.Source.SlugOrId == "<ActionTemplate-ID>"
     not step.Id in input.SkippedSteps
     step.Enabled == true
+    step.IsConditional == false
 }
 ```
 
@@ -194,6 +212,50 @@ result := {"allowed": true} if {
     every pkg in all_packages {
         pkg.GitRef == "refs/heads/main"
     }
+}
+```
+
+```ruby
+package block_cross_environment_feeds
+
+default result := {
+    "allowed": true,
+    "reason": "All packages use feeds appropriate for the target environment.",
+}
+
+# Collect all packages across all steps
+all_packages contains pkg if {
+    some step in input.Steps
+    some pkg in step.Packages
+}
+
+# Violation: dev feed used in production
+violations contains msg if {
+    input.Environment.Slug == "prod"
+    some pkg in all_packages
+    contains(lower(pkg.Feed.Slug), "dev")
+    msg := sprintf(
+      "Non-compliant: Step '%s' uses dev feed '%s' but is deploying to Production.",
+      [pkg.Id, pkg.Feed.Name],
+    )
+}
+
+# Violation: prod feed used in dev
+violations contains msg if {
+    input.Environment.Slug == "dev"
+    some pkg in all_packages
+    contains(lower(pkg.Feed.Slug), "prod")
+    msg := sprintf(
+      "Step '%s' uses prod feed '%s' but is deploying to Dev.",
+      [pkg.Id, pkg.Feed.Name],
+    )
+}
+
+result := {
+    "allowed": false,
+    "reason": concat(" ", violations),
+} if {
+    count(violations) > 0
 }
 ```
 
