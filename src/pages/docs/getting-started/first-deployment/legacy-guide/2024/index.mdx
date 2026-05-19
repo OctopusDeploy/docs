@@ -20,8 +20,9 @@ This tutorial will help you complete your first deployment in Octopus Deploy. We
 :::div{.hint}
 **Other versions of this guide**
 
-* **Octopus 2022.2** or earlier [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/2022)
-* **Octopus 2024.3** or newer [First deployment guide](/docs/getting-started/first-deployment)
+- **Octopus 2022.2** or earlier [First deployment guide](/docs/getting-started/first-deployment/legacy-guide/2022)
+- **Octopus 2024.3** or newer [First deployment guide](/docs/getting-started/first-deployment)
+
 :::
 
 Before starting the tutorial, if you haven't set up an Octopus Deploy instance, please do so by picking from one of the following options:
@@ -67,7 +68,7 @@ Click **SUBMIT** and you will be taken to your project.
 
 ## Create deployment process
 
-The next step in the journey is to create your deployment process. This is where you define the steps that Octopus uses to deploy your software. For our simple Hello World deployment, we will configure one step to print _Hello World_.
+The next step in the journey is to create your deployment process. This is where you define the steps that Octopus uses to deploy your software. For our simple Hello World deployment, we will configure one step to print *Hello World*.
 
 :::figure
 ![Create deployment process](/docs/img/getting-started/first-deployment/legacy-guide/images/img-createdeploymentprocess.png)
@@ -78,14 +79,15 @@ The next step in the journey is to create your deployment process. This is where
 3. Scroll down and click **ADD** on the **Run a Script** tile.
 4. Accept the default name for the script.
 5. In the Execution Location section, select **Run once on a worker** if you're using Octopus Cloud, or **Run once on the Octopus Server** if you're using a self-hosted Octopus instance.
-6. Scroll down to the Script section, select your script language of choice, and enter the following script in the Inline Source Code section. 
-```
-Write-Host "Hello, World!"
-```
+6. Scroll down to the Script section, select your script language of choice, and enter the following script in the Inline Source Code section.
 
-:::div{.hint}
-If you are using Octopus Cloud, Bash scripts require you to select the Hosted Ubuntu worker pool. The Default Worker Pool is running Windows and doesn't have Bash installed.
-:::
+    ```bash
+    Write-Host "Hello, World!"
+    ```
+
+    :::div{.hint}
+    If you are using Octopus Cloud, Bash scripts require you to select the Hosted Ubuntu worker pool. The Default Worker Pool is running Windows and doesn't have Bash installed.
+    :::
 
 7. Click **SAVE** to save the step.
 
@@ -119,7 +121,7 @@ Subsequent pages in the guide:
 3. [Add deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
 4. [Deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package)
 
-**Further Reading**
+**Further Reading:**
 
 This tutorial will deploy a sample package to your servers.  If you prefer to skip that and start configuring Octopus Deploy for your application right away, please see:
 

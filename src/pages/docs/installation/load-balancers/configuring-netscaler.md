@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Configuring Netscaler
-description: Script to configure a Netscaler load balancer for use with an Octopus High Availability instance.
+title: Netscaler for Octopus High Availability
+description: Use a script to configure a Netscaler load balancer for Octopus High Availability. Adjust the script for your environment and apply the configuration.
 navOrder: 10
 ---
 

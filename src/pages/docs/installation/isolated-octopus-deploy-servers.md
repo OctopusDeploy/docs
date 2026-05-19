@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Isolated Octopus Servers
-description: Working with isolated Octopus Servers due to infrastructure or governance requirements.
+title: Isolated Octopus Deploy servers
+description: Run Octopus Deploy in an isolated network without internet access. Learn how to manage packages, upgrades, and Tentacle comms in air-gapped environments.
 navOrder: 11
 ---
 

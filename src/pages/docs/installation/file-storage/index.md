@@ -2,11 +2,11 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-22
-title: File Storage
+title: File storage for Octopus Deploy
 navTitle: Overview
 navSection: File Storage
 navOrder: 3
-description: How to configure file storage for Octopus Deploy
+description: Choose how Octopus Deploy stores its files. Options include local storage, AWS, Azure, and GCP. Pick the right setup for your environment and follow the guide.
 hideInThisSection: true
 ---
 
