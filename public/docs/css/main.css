@@ -2210,6 +2210,14 @@ a[data-youtube] {
   display: block;
 }
 
+.page-content {
+  li:has(figure) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 /* Paging */
 
 .post-paging {
