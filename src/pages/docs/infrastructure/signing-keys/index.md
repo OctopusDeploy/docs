@@ -27,3 +27,5 @@ Externally hosted public keys must be manually rotated. Upon clicking **Rotate**
 :::div{.info}
 The new key set will include your previous active key. This ensures that all OIDC services continue to function while the key rotation is underway. Octopus Deploy will start signing tokens with the new key only after validating that the new key is available at the issuer URL.
 :::
+
+Support for manually managing signing keys has been added in **2026.2** and later.
