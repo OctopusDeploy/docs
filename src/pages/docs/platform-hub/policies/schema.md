@@ -215,6 +215,18 @@ result := {"allowed": true} if {
 }
 ```
 
+#### Feed object
+
+| Property | Type | Always Present | Description |
+| :--- | :--- | :--- | :--- |
+| Id | string | Yes | The unique identifier for the feed |
+| Name | string | Yes | Display name of the feed |
+| Slug | string | Yes | The URL-safe slug for the feed |
+| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
+| Uri | string | No | The configured endpoint for the feed |
+
+**Example usage:**
+
 ```ruby
 package block_cross_environment_feeds
 
@@ -258,16 +270,6 @@ result := {
     count(violations) > 0
 }
 ```
-
-#### Feed object
-
-| Property | Type | Always Present | Description |
-| :--- | :--- | :--- | :--- |
-| Id | string | Yes | The unique identifier for the feed |
-| Name | string | Yes | Display name of the feed |
-| Slug | string | Yes | The URL-safe slug for the feed |
-| Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
-| Uri | string | No | The configured endpoint for the feed |
 
 :::div{.hint}
 
