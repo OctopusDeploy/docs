@@ -169,7 +169,7 @@ The Kubernetes monitor is deployed as a sub-chart to the Kubernetes agent. [Avai
 
 ### Non-root configuration
 
-Agent and script pods can be running in `non-root` mode. UID/GID should be 999.
+Agent and script pods support running in non-root mode. UID/GID should be 999.
 
 ```yaml
 agent:
@@ -200,18 +200,29 @@ mountOptions:
 
 ### Openshift
 
-Agent can be run under `nonroot-v2` SCC. This means you will probably need to manually assing the SCC to service accounts:
+Agent can be run under `nonroot-v2` SCC. This means you will probably need to manually assign the SCC to service accounts:
 
 - **Agent**
+
 ```bash
 NS_NAME="octopus-agent-<name>"
 AGENT_SERVICE_ACCOUNT="octopus-agent-tentacle"
 oc adm policy add-scc-to-user nonroot-v2 -z $AGENT_SERVICE_ACCOUNT -n $NS_NAME
 ```
+
 - **Pod scripts**
+
 ```bash
 NS_NAME="octopus-agent-<name>"
 POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-scripts"
+oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
+```
+
+- **Auto-upgrader**
+
+```bash
+NS_NAME="octopus-agent-<name>"
+POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-auto-upgrader"
 oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
 ```
 
