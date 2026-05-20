@@ -1,5 +1,6 @@
 ---
 import { Accelerator } from 'astro-accelerator-utils';
+import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { Translations, Lang } from '@util/Languages';
 import { menu } from '@data/navigation';
 import NavigationItem from '@components/NavigationItem.astro';
@@ -9,18 +10,44 @@ const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/Navigation.astro');
 stats.start();
 
-// Properties
 type Props = {
   lang: string;
 };
 const { lang } = Astro.props satisfies Props;
 
-// Language
 const _ = Lang(lang);
 
-// Logic
 const currentUrl = new URL(Astro.request.url);
 const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
+
+// Expand the current section in place; collapse every other section to a
+// labelled link.
+const currentPath = currentUrl.pathname.replace(/\/$/, '');
+function isOnActivePath(page: NavPage): boolean {
+  const pUrl = (page.url ?? '').replace(/\/$/, '');
+  if (!pUrl) return false;
+  return currentPath === pUrl || currentPath.startsWith(pUrl + '/');
+}
+function markActiveBranchOpen(items: NavPage[]): void {
+  for (const item of items) {
+    if (item.children && item.children.length > 0 && isOnActivePath(item)) {
+      item.isOpen = true;
+      markActiveBranchOpen(item.children);
+    }
+  }
+}
+
+for (const top of pages) {
+  if (top.children && top.children.length > 0) {
+    if (isOnActivePath(top)) {
+      top.isOpen = true;
+      markActiveBranchOpen(top.children);
+    } else {
+      if (top.section) top.title = top.section;
+      top.children = [];
+    }
+  }
+}
 
 stats.stop();
 ---
