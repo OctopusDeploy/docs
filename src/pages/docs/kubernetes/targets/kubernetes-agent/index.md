@@ -226,6 +226,8 @@ POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-auto-upgrader"
 oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
 ```
 
+For additional details on the helm values for non-root setup, see the [Non-root configurationg](#non-root-configuration) section.
+
 ## Configuring the agent with Tenants
 
 While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
