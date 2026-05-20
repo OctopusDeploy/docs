@@ -20,6 +20,10 @@ When using internally hosted public keys, your Octopus Deploy instance will host
 
 When externally hosting public keys, they will be available for download as a zip file. The contents of this zip file can then be hosted on any hosting provider that publicly serves HTTPS. The location where the files are hosted must be provided as the **OIDC Issuer URL**. When Octopus Deploy creates a token, the issuer will point to the **OIDC Issuer URL**. While the location specified by the issuer URL must be publicly available, the Octopus Deploy instance can be isolated from public access.
 
+:::div{.warn}
+If the OIDC issuer URL is specified in Octopus Deploy's settings it will be used as the issuer when performing the OIDC authentication regardless of if Internal or External hosting in selected.
+:::
+
 ### Rotating externally hosted keys
 
 Externally hosted public keys must be manually rotated. Upon clicking **Rotate**, a new set of keys will be downloaded as a zip file. You will then need to upload the contents of this file to your chosen hosting provider. Octopus Deploy will poll the provided **OIDC Issuer URL** for the new keys. After it successfully validates that the new keys are available at the issuer URL, it will start using the new signing key.
