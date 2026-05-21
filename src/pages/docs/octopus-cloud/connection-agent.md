@@ -207,6 +207,16 @@ The following commands are available:
 
 For full flag listings, append `--help` to any command.
 
+### Read only view of registered Connection Agents
+
+You can view the registered Connection Agents in the UI. If you navigate to Congifurations and select Connection Agents, you will see your registered agents.
+
+   :::figure
+   ![A screenshot of the Octopus UI showing registered Connection Agents](/docs/img/octopus-cloud/images/registered-connection-agents.png)
+   :::
+
+Note that this is a read only view and you will not be able to make any changes to the configuration of your Connection Agents via the UI.
+
 ### Rotate the agent's key {#rotate-the-agents-key}
 
 To rotate Connection Agent's private key, add a new key first, then remove the old one. This avoids downtime as the agent can authenticate with either while the rotation happens.
