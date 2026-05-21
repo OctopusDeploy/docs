@@ -226,7 +226,7 @@ POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-auto-upgrader"
 oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
 ```
 
-For additional details on the helm values for non-root setup, see the [Non-root configurationg](#non-root-configuration) section.
+For additional details on the helm values for non-root setup, see the [Non-root configuration](#non-root-configuration) section.
 
 ## Configuring the agent with Tenants
 
@@ -322,7 +322,7 @@ data:
 
 ### gRPC certificates
 
-When installing the Kubernetes monitor, you will possibly encounter the same certificate issues for the gRPC communcations as you do for the Octopus server certificate.
+When installing the Kubernetes monitor, you will possibly encounter the same certificate issues for the gRPC communications as you do for the Octopus server certificate.
 
 Depending on your load balancer configuration, you have several options for how to handle this.
 
