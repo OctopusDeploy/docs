@@ -9,7 +9,7 @@ description: An overview of the the Octopus MCP server, allowing AI clients to l
 navOrder: 2
 ---
 
-### Octopus MCP Server
+## Octopus MCP Server
 
 The Octopus MCP ([Model Context Protocol](https://modelcontextprotocol.io/)) server represents a significant leap forward in AI integration capabilities. Built on Anthropic's open standard for connecting AI assistants to external data sources and tools, the MCP server enables AI assistants like Claude to interact directly with your Octopus Deploy infrastructure.
 
@@ -33,6 +33,7 @@ To learn more, read our [Octopus REST API](/docs/octopus-rest-api) documentation
 ## 🚀 Installation
 
 ### Requirements
+
 - Node.js >= v20.0.0
 - Octopus Deploy instance that can be accessed by the MCP server via HTTPS
 - Octopus Deploy API Key
@@ -40,6 +41,7 @@ To learn more, read our [Octopus REST API](/docs/octopus-rest-api) documentation
 ### Configuration
 
 Full example configuration (for Claude Desktop, Claude Code, and Cursor):
+
 ```json
 {
   "mcpServers": {
@@ -67,12 +69,14 @@ npx -y @octopusdeploy/mcp-server
 ```
 
 With configuration provided via environment variables:
+
 ```bash
 OCTOPUS_API_KEY=API-KEY
 OCTOPUS_SERVER_URL=https://your-octopus.com
 ```
 
 Or with configuration supplied via the command line:
+
 ```bash
 OCTOPUS_API_KEY=API-KEY \
 npx -y @octopusdeploy/mcp-server --server-url https://your-octopus.com
