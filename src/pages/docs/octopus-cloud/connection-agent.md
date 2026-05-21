@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-05-11
-modDate: 2026-05-11
+pubDate: 2026-05-21
+modDate: 2026-05-21
 title: Connection Agent
 navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
@@ -10,6 +10,10 @@ description: How to set up and manage a Connection Agent to connect your Octopus
 Connection Agent allows your Octopus Cloud instance to connect to privately hosted internal applications such as Git repositories, package feeds, and SMTP servers without requiring inbound firewall rules or a VPN.
 
 A Connection Agent is a container image you deploy within your private network. It establishes outbound WebSocket connections to your Octopus Cloud instance and acts as a proxy, forwarding traffic between Octopus Cloud and your internal applications.
+
+   :::figure
+   ![A diagram illustrating how the Connection agent and Relay work to connect your network to the Octopus Cloud instance](/docs/img/octopus-cloud/images/connection-agent-architecture-diagram.png)
+   :::
 
 ## Supported applications
 
