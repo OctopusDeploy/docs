@@ -36,7 +36,7 @@ In the current release, Connection Agent supports the following application type
 
 Connection Agent is currently in Public Preview, available to all customers.
 
-If you would like to access this feature, please reach out to . By default, you can register up to 5 Connection Agents per instance. If you need more, contact [our support team](https://octopus.com/support) to discuss your requirements.
+If you would like to access this feature, please reach out to [our support team](https://octopus.com/support). By default, you can register up to 5 Connection Agents per instance. If you need more, contact [our support team](https://octopus.com/support) to discuss your requirements.
 
 ## Prerequisites
 
