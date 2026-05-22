@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2026-04-16
+modDate: 2026-05-22
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -26,12 +26,11 @@ You install the Octopus GitHub App on an account (organization or user) to give 
 
 Selecting authorize will take you to GitHub to complete the installation and authorization process.
 
-:::div{.info}
-**Note:**
-For self-hosted instances, the public [signing key](/docs/infrastructure/signing-keys) must be set up and accessible on the internet before authorizing the app.
-:::
+#### Self-hosted instances
 
-If you are authorizing the app for a self-hosted instance, you will be required to copy an access code over to your octopus instance.
+Self-hosted instances have an extra step in the authorization flow compared to Octopus Cloud instances. After authorizing on GitHub, our intermediary GitHub Web App will provide you with an access code. Copy this code, and paste it into the field shown in your Octopus instance to complete the connection.
+
+If your instance is on a **private or isolated network** that is not accessible from the internet, you will also need to configure [external signing key hosting](/docs/infrastructure/signing-keys) before connecting. The Octopus GitHub service verifies your instance's identity by fetching its public signing key from your OIDC discovery endpoint — if your instance isn't reachable from the internet, you need to host those keys at a publicly accessible location first.
 
 #### More information on installing and authorizing the Octopus GitHub App
 
@@ -94,7 +93,7 @@ Simply follow the on-screen prompts to reconnect the account and select the same
 
 ## Using GitHub App Connections
 
-You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
+You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for Personal Access Tokens (PAT) to connect to GitHub repositories, and lets users commit as their GitHub users (rather than using a single shared account, as PATs lead you to do).
 
 You can also define GitHub Connections in [Platform Hub](/docs/platform-hub). GitHub Connections defined in Platform Hub can only be used to configure Platform Hub's version control settings and can't be used in spaces.
 
