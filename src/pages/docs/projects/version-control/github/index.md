@@ -26,6 +26,11 @@ You install the Octopus GitHub App on an account (organization or user) to give 
 
 Selecting authorize will take you to GitHub to complete the installation and authorization process.
 
+:::div{.info}
+**Note:**
+For self-hosted instances, the public [signing key](/docs/infrastructure/signing-keys) must be set up and accessible on the internet before authorizing the app.
+:::
+
 If you are authorizing the app for a self-hosted instance, you will be required to copy an access code over to your octopus instance.
 
 #### More information on installing and authorizing the Octopus GitHub App
