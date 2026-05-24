@@ -1,0 +1,14 @@
+src/pages/docs/kubernetes/targets/kubernetes-agent/index.md
+  h_1903a5d928fbe4 172,191,205,211
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "7b9632d4936a6e1da183c8ab4c439a479f96e995",
+  "prompts": {},
+  "humans": {
+    "h_1903a5d928fbe4": {
+      "author": "oleksandr-codefresh <oleksandr.saulyak@octopus.com>"
+    }
+  }
+}

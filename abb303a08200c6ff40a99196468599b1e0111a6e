@@ -1,0 +1,23 @@
+dictionary-octopus.txt
+  d41a0aebffed8f61 457-460
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "abb303a08200c6ff40a99196468599b1e0111a6e",
+  "prompts": {
+    "d41a0aebffed8f61": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9f5bb09d-5245-44a1-bf46-3cf3f9a6f9f4",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Idan Arbel",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 0,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  }
+}
