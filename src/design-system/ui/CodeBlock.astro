@@ -1,0 +1,101 @@
+---
+// Calm bordered code surface with a slim label bar (filename/language) and an
+// optional copy affordance. The copy button is a tiny is:inline vanilla script
+// (no framework runtime) - it reads textContent from the sibling <pre>.
+type Lang = 'bash' | 'shell' | 'json' | 'yaml' | 'powershell' | 'text';
+
+interface Props {
+  label?: string;
+  lang?: Lang;
+  copy?: boolean;
+}
+
+const { label, lang = 'text', copy = true } = Astro.props;
+
+const icons: Record<Lang, string> = {
+  bash: '<path d="M4 17l6-6-6-6"></path><path d="M12 19h8"></path>',
+  shell: '<path d="M4 17l6-6-6-6"></path><path d="M12 19h8"></path>',
+  powershell: '<path d="M4 17l6-6-6-6"></path><path d="M12 19h8"></path>',
+  json: '<path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"></path><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"></path>',
+  yaml: '<path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"></path><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"></path>',
+  text: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path>',
+};
+---
+
+<figure class="code-block not-prose" data-component="CodeBlock">
+  <div class="code-block__bar">
+    <span class="code-block__label">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        set:html={icons[lang]}
+      />
+      {label ?? lang}
+    </span>
+    {
+      copy && (
+        <button
+          type="button"
+          class="code-block__copy"
+          data-copy
+          aria-label="Copy code to clipboard"
+        >
+          <span class="code-block__copy-idle">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            Copy
+          </span>
+          <span class="code-block__copy-done">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m20 6-11 11-5-5" />
+            </svg>
+            Copied
+          </span>
+        </button>
+      )
+    }
+  </div>
+  <slot />
+</figure>
+
+<script is:inline>
+  (() => {
+    if (window.__mvpCopyInit) return;
+    window.__mvpCopyInit = true;
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const pre = btn.closest('.code-block')?.querySelector('pre');
+      if (!pre) return;
+      const text = pre.innerText;
+      navigator.clipboard?.writeText(text).then(() => {
+        btn.setAttribute('data-copied', '');
+        clearTimeout(btn.__t);
+        btn.__t = setTimeout(() => btn.removeAttribute('data-copied'), 1600);
+      });
+    });
+  })();
+</script>

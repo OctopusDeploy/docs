@@ -1,0 +1,512 @@
+/*
+  Design-system entry (MVP). Importing this file is what opts a page into the
+  new UI: it pulls Tailwind v4, the typography plugin, the brand tokens, and
+  maps those tokens into Tailwind's theme so utilities like `bg-background`,
+  `text-foreground`, `border-border`, `text-primary` resolve to brand values.
+
+  Nothing here leaks onto pages that don't import it.
+*/
+
+@import 'tailwindcss';
+@import './tokens.css';
+@plugin '@tailwindcss/typography';
+
+/* Dark mode is driven by the existing [data-theme="dark"] attribute, not a class. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+}
+
+/* Reserve the vertical scrollbar gutter from first paint so a late-appearing
+   scrollbar (e.g. after images load) can't narrow the viewport and shift the
+   centered header/content sideways. */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Tune the `prose` typography plugin to brand tokens so markdown content
+   matches the design system without bespoke per-element CSS.
+
+   These rules are intentionally UNLAYERED: the typography plugin sets its
+   default `--tw-prose-*` color vars from the `prose` utility (utilities layer),
+   which would beat an `@layer base` override. Unlayered rules win over any
+   layered rule, so this is what makes our brand tokens (and dark mode) stick. */
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: var(--primary);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--octo-navy-300);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--muted-foreground);
+  --tw-prose-quote-borders: var(--primary);
+  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-code: var(--foreground);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
+  --tw-prose-pre-bg: var(--code-bg);
+  --tw-prose-pre-code: var(--code-foreground);
+  max-width: 46rem;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Typographic rhythm: calmer vertical spacing and tighter, confident headings. */
+.prose :where(h2):not(:where([class~='not-prose'] *)) {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 650;
+  letter-spacing: -0.014em;
+  scroll-margin-top: 5.5rem;
+}
+.prose :where(h3):not(:where([class~='not-prose'] *)) {
+  margin-top: 2rem;
+  margin-bottom: 0.625rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 625;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 5.5rem;
+}
+.prose :where(h2, h3):not(:where([class~='not-prose'] *)):first-child {
+  margin-top: 0;
+}
+.prose :where(p, ul, ol):not(:where([class~='not-prose'] *)) {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+.prose :where(strong):not(:where([class~='not-prose'] *)) {
+  font-weight: 625;
+}
+.prose :where(a):not(:where([class~='not-prose'] *)) {
+  font-weight: 500;
+  text-decoration-color: color-mix(in oklab, var(--primary) 35%, transparent);
+  text-underline-offset: 2px;
+  transition:
+    text-decoration-color 0.15s ease,
+    color 0.15s ease;
+}
+.prose :where(a):not(:where([class~='not-prose'] *)):hover {
+  text-decoration-color: var(--primary);
+}
+
+/* Lists: tidy markers and spacing. */
+.prose :where(ol > li, ul > li):not(:where([class~='not-prose'] *)) {
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem;
+  padding-left: 0.4em;
+}
+.prose :where(ol > li)::marker:not(:where([class~='not-prose'] *)) {
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+/* Horizontal rule */
+.prose :where(hr):not(:where([class~='not-prose'] *)) {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* --- Code block treatment: a calm bordered surface with a slim label bar.
+   Inspired by Stripe/Vercel/Linear docs - the code is the hero, the chrome is
+   quiet. The label bar (filename/language) and copy affordance live in a
+   `figure.code-block` wrapper rendered alongside the <pre>. */
+.prose :where(pre):not(:where([class~='not-prose'] *)) {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--code-bg);
+  color: var(--code-foreground);
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  overflow-x: auto;
+}
+.prose :where(pre code):not(:where([class~='not-prose'] *)) {
+  background: transparent;
+  padding: 0;
+  font-weight: 400;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Code-block wrapper: slim top bar + bordered body sharing one frame. */
+.prose :where(.code-block):not(:where([class~='not-prose'] *)) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--code-border);
+  border-radius: var(--radius-lg);
+  background: var(--code-bg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.code-block > .code-block__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+  padding: 0 0.5rem 0 0.9rem;
+  background: var(--code-chrome);
+  border-bottom: 1px solid var(--code-border);
+}
+.code-block__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: color-mix(in oklab, var(--code-foreground) 62%, transparent);
+}
+.code-block__label svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  color: color-mix(in oklab, var(--code-foreground) 45%, transparent);
+}
+/* When wrapped (figure is .not-prose), the inner <pre> is excluded from the
+   prose pre rules, so re-apply the code surface here and drop the outer frame -
+   the figure provides it. */
+.code-block > pre {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--code-bg);
+  color: var(--code-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  overflow-x: auto;
+}
+.code-block > pre code {
+  background: transparent;
+  padding: 0;
+  font-weight: 400;
+  font-size: inherit;
+  color: inherit;
+}
+/* Copy affordance: a quiet button that brightens to brand on interaction. */
+.code-block__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 1.75rem;
+  padding: 0 0.55rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: color-mix(in oklab, var(--code-foreground) 55%, transparent);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+.code-block__copy svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+.code-block__copy:hover {
+  color: var(--code-foreground);
+  background: color-mix(in oklab, var(--code-foreground) 10%, transparent);
+}
+.code-block__copy:focus-visible {
+  outline: none;
+  border-color: color-mix(in oklab, var(--primary) 55%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 55%, transparent);
+}
+.code-block__copy[data-copied] {
+  color: var(--accent);
+}
+.code-block__copy-idle,
+.code-block__copy-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.code-block__copy-done {
+  display: none;
+}
+.code-block__copy[data-copied] .code-block__copy-idle {
+  display: none;
+}
+.code-block__copy[data-copied] .code-block__copy-done {
+  display: inline-flex;
+}
+
+/* --- Tables: zebra + hover, token-aligned borders, refined header --- */
+.prose :where(table):not(:where([class~='not-prose'] *)) {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+.prose :where(thead):not(:where([class~='not-prose'] *)) {
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.prose :where(thead th):not(:where([class~='not-prose'] *)) {
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border-bottom: 1px solid var(--border);
+}
+.prose :where(tbody td):not(:where([class~='not-prose'] *)) {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.prose :where(tbody tr:last-child td):not(:where([class~='not-prose'] *)) {
+  border-bottom: 0;
+}
+.prose :where(tbody tr):not(:where([class~='not-prose'] *)):nth-child(even) {
+  background: color-mix(in oklab, var(--muted) 45%, transparent);
+}
+.prose :where(tbody tr):not(:where([class~='not-prose'] *)):hover {
+  background: color-mix(in oklab, var(--primary) 6%, transparent);
+}
+
+/* Inline code chips, brand-tinted */
+.prose :not(pre) > code {
+  background: color-mix(in oklab, var(--muted) 70%, var(--background));
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.8125em;
+  white-space: nowrap;
+}
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+/* Status pills (used in tables to render state cells tastefully) */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.6rem 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.status-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in oklab, currentColor 22%, transparent);
+}
+.status-pill--ok {
+  color: var(--success-border);
+  background: color-mix(in oklab, var(--success-border) 12%, var(--background));
+  border-color: color-mix(in oklab, var(--success-border) 30%, transparent);
+}
+.status-pill--wait {
+  color: var(--warning-border);
+  background: color-mix(in oklab, var(--warning-border) 12%, var(--background));
+  border-color: color-mix(in oklab, var(--warning-border) 30%, transparent);
+}
+
+/* --- Callout boxes (remark directive output) ---
+   Authored as `:::div{.hint|.info|.success|.warning|.problem|.question}` and
+   rendered as raw `<div class="...">` inside .prose. Match ui/Callout.astro:
+   soft border + stronger left accent, tinted bg, comfortable padding. */
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):not(:where([class~='not-prose'] *)) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid color-mix(in oklab, var(--bd) 35%, transparent);
+  border-left: 3px solid var(--bd);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  color: var(--c);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+/* Intent token mapping (hint -> info/blue, question -> neutral/muted). */
+.prose :where(div.hint, div.info):not(:where([class~='not-prose'] *)) {
+  --c: var(--info);
+  --bg: var(--info-bg);
+  --bd: var(--info-border);
+}
+.prose :where(div.success):not(:where([class~='not-prose'] *)) {
+  --c: var(--success);
+  --bg: var(--success-bg);
+  --bd: var(--success-border);
+}
+.prose :where(div.warning):not(:where([class~='not-prose'] *)) {
+  --c: var(--warning);
+  --bg: var(--warning-bg);
+  --bd: var(--warning-border);
+}
+.prose :where(div.problem):not(:where([class~='not-prose'] *)) {
+  --c: var(--problem);
+  --bg: var(--problem-bg);
+  --bd: var(--problem-border);
+}
+.prose :where(div.question):not(:where([class~='not-prose'] *)) {
+  --c: var(--question);
+  --bg: var(--question-bg);
+  --bd: var(--question-border);
+}
+/* Tighten internal spacing and inherit the intent text color. */
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  :where(p):not(:where([class~='not-prose'] *)) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  :where(p:first-child):not(:where([class~='not-prose'] *)) {
+  margin-top: 0;
+}
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  :where(p:last-child):not(:where([class~='not-prose'] *)) {
+  margin-bottom: 0;
+}
+
+/* --- Figures / images (remark `:::figure` directive output) ---
+   Rendered with .image (figure), .image__img (img), .image__caption (caption).
+   Center, constrain, round, subtle border; keep responsive srcset intact. */
+.prose :where(figure, .image):not(:where([class~='not-prose'] *)) {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+.prose :where(figure > p):not(:where([class~='not-prose'] *)) {
+  margin: 0;
+}
+.prose :where(img, .image__img):not(:where([class~='not-prose'] *)) {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.prose :where(.image__caption):not(:where([class~='not-prose'] *)) {
+  display: block;
+  margin-top: 0.65rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* --- Table wrapper (wrapTables -> <div class="table-wrap">) ---
+   Allow horizontal scroll on overflow; the inner table keeps its own border. */
+.prose :where(.table-wrap):not(:where([class~='not-prose'] *)) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+.prose :where(.table-wrap > table):not(:where([class~='not-prose'] *)) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- Shiki code blocks (`<pre class="astro-code ...">`) ---
+   Give our frame (border + radius + padding) but leave Shiki's inline bg/colors
+   alone. Known: this renders light against our dark code surface - deferred. */
+.prose :where(pre.astro-code):not(:where([class~='not-prose'] *)) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-x: auto;
+}

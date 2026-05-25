@@ -1,0 +1,200 @@
+---
+import DocsLayout from '../../design-system/docs-shell/DocsLayout.astro';
+import Card from '../../design-system/ui/Card.astro';
+import Badge from '../../design-system/ui/Badge.astro';
+import Button from '../../design-system/ui/Button.astro';
+import Callout from '../../design-system/ui/Callout.astro';
+import CodeBlock from '../../design-system/ui/CodeBlock.astro';
+
+const breadcrumbs = [
+  { label: 'Docs', href: '/docs' },
+  { label: 'Getting started', href: '/docs/getting-started' },
+  { label: 'Deploying a release' },
+];
+
+const sidebar = [
+  {
+    title: 'Getting started',
+    items: [
+      { label: 'Overview', href: '#' },
+      { label: 'Installation', href: '#' },
+      { label: 'Your first project', href: '#' },
+      { label: 'Deploying a release', href: '#', active: true },
+      { label: 'Environments', href: '#' },
+    ],
+  },
+  {
+    title: 'Deployments',
+    items: [
+      { label: 'Deployment process', href: '#' },
+      { label: 'Variables', href: '#' },
+      { label: 'Releases & channels', href: '#' },
+      { label: 'Runbooks', href: '#' },
+    ],
+  },
+  {
+    title: 'Infrastructure',
+    items: [
+      { label: 'Targets', href: '#' },
+      { label: 'Workers', href: '#' },
+      { label: 'Accounts', href: '#' },
+    ],
+  },
+];
+
+const toc = [
+  { label: 'Before you begin', href: '#before-you-begin' },
+  { label: 'Create a release', href: '#create-a-release' },
+  { label: 'Promote to an environment', href: '#promote', depth: 2 },
+  { label: 'Deploy from the CLI', href: '#deploy-cli' },
+  { label: 'Next steps', href: '#next-steps' },
+];
+---
+
+<DocsLayout
+  title="Deploying a release"
+  description="Create a release from your deployment process and promote it through your environments - from the dashboard or the CLI."
+  breadcrumbs={breadcrumbs}
+  sidebar={sidebar}
+  toc={toc}
+>
+  <div class="not-prose mb-7 flex flex-wrap items-center gap-2">
+    <Badge variant="brand">Guide</Badge>
+    <Badge variant="outline">
+      <svg
+        class="h-3 w-3"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        ><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"
+        ></path></svg
+      >
+      10 min read
+    </Badge>
+    <Badge variant="success">Beginner</Badge>
+  </div>
+
+  <p>
+    A <strong>release</strong> is a snapshot of your deployment process and the variables
+    and packages it references. Once you have a release, you deploy it to an environment
+    such as <em>Development</em>, <em>Test</em>, or
+    <em>Production</em>.
+  </p>
+
+  <h2 id="before-you-begin">Before you begin</h2>
+  <p>
+    Make sure you have a project with a configured deployment process and at
+    least one deployment target registered in an environment.
+  </p>
+
+  <Callout intent="info" title="Prerequisites">
+    You need the <code>Project deployer</code> role (or higher) to create and deploy
+    releases. See <a href="#">Managing users and teams</a>.
+  </Callout>
+
+  <h2 id="create-a-release">Create a release</h2>
+  <p>
+    From your project dashboard, choose <strong>Create release</strong>. Octopus
+    assigns a version number based on your versioning strategy:
+  </p>
+
+  <ol>
+    <li>Open the project and select <strong>Create release</strong>.</li>
+    <li>Review the package versions selected for the release.</li>
+    <li>Add release notes (optional but recommended).</li>
+    <li>Select <strong>Save</strong>.</li>
+  </ol>
+
+  <h3 id="promote">Promote to an environment</h3>
+  <p>
+    Releases move through your lifecycle phases. The dashboard shows which
+    environments a release has reached:
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Environment</th><th>Status</th><th>Last deployed</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Development</td>
+        <td
+          ><span class="status-pill status-pill--ok"
+            ><span class="status-dot"></span>Success</span
+          ></td
+        >
+        <td>2 hours ago</td>
+      </tr>
+      <tr>
+        <td>Test</td>
+        <td
+          ><span class="status-pill status-pill--ok"
+            ><span class="status-dot"></span>Success</span
+          ></td
+        >
+        <td>1 hour ago</td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td
+          ><span class="status-pill status-pill--wait"
+            ><span class="status-dot"></span>Awaiting approval</span
+          ></td
+        >
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <Callout intent="warning" title="Production gates">
+    Deployments to <em>Production</em> in this lifecycle require manual approval.
+    The release will pause until an authorized user intervenes.
+  </Callout>
+
+  <h2 id="deploy-cli">Deploy from the CLI</h2>
+  <p>You can script the same flow with the Octopus CLI:</p>
+
+  <CodeBlock label="Terminal" lang="bash"
+    ><pre><code>octopus release deploy \
+  --project "Web Store" \
+  --version "2024.1.0" \
+  --environment "Production" \
+  --progress</code></pre></CodeBlock
+  >
+
+  <p>
+    The <code>--progress</code> flag streams the deployment log to your terminal so
+    it integrates cleanly with CI pipelines.
+  </p>
+
+  <Callout intent="success" title="Done">
+    Once the deployment completes, the dashboard and the CLI both report a green
+    <strong>Success</strong> status for that environment.
+  </Callout>
+
+  <h2 id="next-steps">Next steps</h2>
+
+  <div class="not-prose mt-4 grid gap-4 sm:grid-cols-2">
+    <Card href="#" title="Deployment process →">
+      Define the steps Octopus runs when it deploys your release.
+    </Card>
+    <Card href="#" title="Variables →">
+      Parameterize deployments per environment, tenant, and target.
+    </Card>
+    <Card href="#" title="Runbooks →">
+      Automate routine operations like backups and failover.
+    </Card>
+    <Card href="#" title="Channels →">
+      Route releases through different lifecycles and rules.
+    </Card>
+  </div>
+
+  <div class="not-prose mt-8 flex flex-wrap gap-3">
+    <Button href="#" variant="primary">Read the deployment guide</Button>
+    <Button href="#" variant="outline">Browse the CLI reference</Button>
+  </div>
+</DocsLayout>

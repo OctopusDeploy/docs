@@ -1,0 +1,85 @@
+---
+interface TocItem {
+  label: string;
+  href: string;
+  depth?: number;
+}
+interface Props {
+  items: TocItem[];
+}
+const { items } = Astro.props;
+---
+
+<aside class="hidden xl:block w-56 shrink-0" aria-label="On this page" data-component="DocsToc">
+  <nav class="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-14 pl-6">
+    <p
+      class="mb-3 flex items-center gap-2 text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/70"
+    >
+      <svg
+        class="h-3.5 w-3.5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path>
+      </svg>
+      On this page
+    </p>
+    <ul class="space-y-0.5 border-l border-border" data-toc>
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-toc-link
+              class={`-ml-px block border-l-2 border-transparent py-[0.3rem] text-[0.875rem] leading-snug text-muted-foreground transition-colors duration-150 hover:border-primary/50 hover:text-foreground aria-[current=true]:border-primary aria-[current=true]:font-medium aria-[current=true]:text-primary ${
+                item.depth === 2 ? 'pl-7' : 'pl-4'
+              }`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<script is:inline>
+  (() => {
+    const links = Array.from(document.querySelectorAll('[data-toc-link]'));
+    if (!links.length) return;
+    const byId = new Map();
+    const targets = [];
+    for (const link of links) {
+      const id = link.getAttribute('href')?.slice(1);
+      if (!id) continue;
+      const el = document.getElementById(id);
+      if (el) {
+        byId.set(id, link);
+        targets.push(el);
+      }
+    }
+    let current = null;
+    const setActive = (id) => {
+      if (id === current) return;
+      current = id;
+      for (const [lid, link] of byId)
+        link.setAttribute('aria-current', lid === id ? 'true' : 'false');
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      },
+      { rootMargin: '-88px 0px -65% 0px', threshold: 0 }
+    );
+    targets.forEach((t) => observer.observe(t));
+  })();
+</script>

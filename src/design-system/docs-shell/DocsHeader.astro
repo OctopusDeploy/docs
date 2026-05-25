@@ -1,0 +1,344 @@
+---
+// Top navigation bar. The only JS is a tiny theme toggle (vanilla, no framework
+// runtime) to demonstrate dark mode - consistent with the zero-JS approach.
+import OctopusLogo from '../../../public/docs/img/OctopusLogo.astro';
+---
+
+<header
+  data-component="DocsHeader"
+  class="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/65"
+>
+  <!-- No left padding: the logo's left edge lines up with the sidebar column. -->
+  <div class="mx-auto flex h-16 max-w-[1600px] items-center gap-4 pr-4 lg:pr-6">
+    <!-- Brand: genuine Octopus wordmark (glyph stays brand blue; wordmark text
+         follows --foreground so it stays legible in both themes). -->
+    <a
+      href="/docs"
+      class="group mvp-brand flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      style="--octopus-logo-text-color: var(--foreground);"
+    >
+      <OctopusLogo />
+      <span
+        class="hidden border-l border-border pl-2.5 text-[0.82rem] font-medium text-muted-foreground sm:inline-block"
+        >Docs</span
+      >
+    </a>
+
+    <!-- Search: type-ahead dropdown of matching docs (demo data, no backend). -->
+    <div class="mvp-search relative ml-2 hidden flex-1 max-w-md md:flex">
+      <label class="group relative w-full">
+        <span class="sr-only">Search documentation</span>
+        <svg
+          class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-primary"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input
+          id="mvp-search-input"
+          data-mvp-search-query
+          type="search"
+          role="combobox"
+          autocomplete="off"
+          aria-expanded="false"
+          aria-controls="mvp-search-results"
+          aria-autocomplete="list"
+          placeholder="Search documentation…"
+          class="h-9 w-full rounded-lg border border-input bg-muted/50 pl-9 pr-14 text-sm text-foreground transition-[background-color,border-color,box-shadow] placeholder:text-muted-foreground hover:border-border hover:bg-muted/70 focus:border-primary/50 focus:bg-background focus:outline-none focus:ring-2 focus:ring-ring/60"
+        />
+        <kbd
+          class="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 rounded-md border border-border bg-background/80 px-1.5 py-0.5 font-mono text-[10px] font-medium text-muted-foreground shadow-[var(--shadow-sm)]"
+          >⌘K</kbd
+        >
+      </label>
+
+      <!-- Results dropdown (populated by the inline script). -->
+      <div
+        id="mvp-search-panel"
+        data-mvp-search-panel
+        hidden
+        class="absolute left-0 right-0 top-[calc(100%+0.4rem)] z-50 overflow-hidden rounded-xl border border-border bg-popover shadow-[var(--shadow-lg)]"
+      >
+        <ul
+          id="mvp-search-results"
+          data-mvp-search-results
+          role="listbox"
+          aria-label="Search results"
+          class="max-h-80 overflow-y-auto py-1 [scrollbar-width:thin]"
+        >
+        </ul>
+        <p
+          data-mvp-search-empty
+          hidden
+          class="px-3.5 py-6 text-center text-sm text-muted-foreground"
+        >
+        </p>
+      </div>
+    </div>
+
+    <nav class="ml-auto flex items-center gap-1">
+      <a
+        href="https://octopus.com"
+        class="hidden h-9 items-center rounded-md px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
+        >octopus.com</a
+      >
+      <span class="mx-1 hidden h-5 w-px bg-border sm:block" aria-hidden="true"
+      ></span>
+      <button
+        id="mvp-theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="grid h-9 w-9 place-items-center rounded-md border border-border text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <svg
+          class="block dark:hidden"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><circle cx="12" cy="12" r="4"></circle><path
+            d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+          ></path></svg
+        >
+        <svg
+          class="hidden dark:block"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg
+        >
+      </button>
+      <a
+        href="https://octopus.com/start"
+        class="ml-1.5 hidden h-9 items-center gap-1.5 rounded-md bg-accent px-3.5 text-[0.8rem] font-semibold text-accent-foreground outline-none ring-1 ring-inset ring-black/5 transition-[background-color,box-shadow,transform] hover:bg-accent/90 hover:shadow-[var(--shadow-sm)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+        >Start free trial</a
+      >
+    </nav>
+  </div>
+</header>
+
+<style is:global>
+  .mvp-brand .octo-header__logo {
+    height: 3.125rem;
+    width: auto;
+    display: block;
+    transition: opacity 0.2s ease;
+  }
+  .mvp-brand:hover .octo-header__logo {
+    opacity: 0.88;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const stored = localStorage.getItem('mvp-theme');
+    if (stored === 'dark') root.setAttribute('data-theme', 'dark');
+    document
+      .getElementById('mvp-theme-toggle')
+      ?.addEventListener('click', () => {
+        const dark = root.getAttribute('data-theme') === 'dark';
+        if (dark) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('mvp-theme', 'light');
+        } else {
+          root.setAttribute('data-theme', 'dark');
+          localStorage.setItem('mvp-theme', 'dark');
+        }
+      });
+  })();
+</script>
+
+<script is:inline>
+  (() => {
+    const input = document.querySelector('[data-mvp-search-query]');
+    const panel = document.querySelector('[data-mvp-search-panel]');
+    const list = document.querySelector('[data-mvp-search-results]');
+    const empty = document.querySelector('[data-mvp-search-empty]');
+    if (!input || !panel || !list || !empty) return;
+
+    const docs = [
+      { title: 'Deploying a release', section: 'Getting started › Deployments', href: '#' },
+      { title: 'Your first project', section: 'Getting started', href: '#' },
+      { title: 'Installation', section: 'Getting started', href: '#' },
+      { title: 'Environments', section: 'Getting started', href: '#' },
+      { title: 'Deployment process', section: 'Deployments', href: '#' },
+      { title: 'Variables', section: 'Deployments › Configuration', href: '#' },
+      { title: 'Releases & channels', section: 'Deployments', href: '#' },
+      { title: 'Runbooks', section: 'Deployments › Operations', href: '#' },
+      { title: 'Deployment targets', section: 'Infrastructure', href: '#' },
+      { title: 'Workers', section: 'Infrastructure', href: '#' },
+      { title: 'Accounts', section: 'Infrastructure › Security', href: '#' },
+      { title: 'Tenants & multi-tenancy', section: 'Tenants', href: '#' },
+      { title: 'Octopus CLI reference', section: 'Automation', href: '#' },
+      { title: 'Lifecycles & phases', section: 'Deployments › Lifecycles', href: '#' },
+    ];
+
+    let results = [];
+    let active = -1;
+
+    const docIcon = () => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '2');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('class', 'mt-0.5 h-4 w-4 shrink-0 text-muted-foreground');
+      const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p1.setAttribute('d', 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z');
+      const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p2.setAttribute('d', 'M14 2v6h6');
+      svg.append(p1, p2);
+      return svg;
+    };
+
+    const titleNode = (title, q) => {
+      const span = document.createElement('span');
+      span.className = 'block truncate text-foreground';
+      const i = q ? title.toLowerCase().indexOf(q.toLowerCase()) : -1;
+      if (i < 0) {
+        span.textContent = title;
+        return span;
+      }
+      span.append(document.createTextNode(title.slice(0, i)));
+      const mark = document.createElement('mark');
+      mark.className = 'bg-transparent font-semibold text-primary';
+      mark.textContent = title.slice(i, i + q.length);
+      span.append(mark, document.createTextNode(title.slice(i + q.length)));
+      return span;
+    };
+
+    const close = () => {
+      panel.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+
+    const setActive = (idx) => {
+      const items = list.querySelectorAll('[role="option"]');
+      items.forEach((el, i) => {
+        const on = i === idx;
+        el.setAttribute('aria-selected', on ? 'true' : 'false');
+        el.classList.toggle('bg-muted', on);
+        if (on) el.scrollIntoView({ block: 'nearest' });
+      });
+      active = idx;
+      if (idx >= 0 && items[idx])
+        input.setAttribute('aria-activedescendant', items[idx].id);
+      else input.removeAttribute('aria-activedescendant');
+    };
+
+    const render = (q) => {
+      const query = q.trim();
+      if (!query) {
+        close();
+        return;
+      }
+      results = docs.filter(
+        (d) =>
+          d.title.toLowerCase().includes(query.toLowerCase()) ||
+          d.section.toLowerCase().includes(query.toLowerCase())
+      );
+      panel.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      list.replaceChildren();
+
+      if (!results.length) {
+        empty.hidden = false;
+        empty.textContent = 'No results for “' + query + '”';
+        setActive(-1);
+        return;
+      }
+      empty.hidden = true;
+      results.forEach((d, i) => {
+        const li = document.createElement('li');
+        li.id = 'mvp-search-opt-' + i;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        li.className =
+          'mx-1 flex cursor-pointer items-start gap-2.5 rounded-lg px-3 py-2 text-sm hover:bg-muted';
+        const text = document.createElement('span');
+        text.className = 'min-w-0';
+        const sec = document.createElement('span');
+        sec.className = 'mt-0.5 block truncate text-[0.75rem] text-muted-foreground';
+        sec.textContent = d.section;
+        text.append(titleNode(d.title, query), sec);
+        li.append(docIcon(), text);
+        list.append(li);
+      });
+      setActive(0);
+    };
+
+    const go = (idx) => {
+      const d = results[idx];
+      if (d) window.location.hash = d.href.startsWith('#') ? d.href.slice(1) : '';
+      close();
+    };
+
+    input.addEventListener('input', () => render(input.value));
+    input.addEventListener('focus', () => {
+      if (input.value.trim()) render(input.value);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (panel.hidden) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (results.length) setActive((active + 1) % results.length);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (results.length)
+          setActive((active - 1 + results.length) % results.length);
+      } else if (e.key === 'Enter') {
+        if (active >= 0) {
+          e.preventDefault();
+          go(active);
+        }
+      } else if (e.key === 'Escape') {
+        close();
+        input.blur();
+      }
+    });
+
+    list.addEventListener('mousedown', (e) => {
+      const opt = e.target.closest('[role="option"]');
+      if (!opt) return;
+      e.preventDefault();
+      const items = Array.from(list.querySelectorAll('[role="option"]'));
+      go(items.indexOf(opt));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.mvp-search')) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+    });
+  })();
+</script>

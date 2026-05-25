@@ -2,6 +2,7 @@ import remarkDirective from 'remark-directive';
 import remarkHeading from 'remark-heading-id';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import tailwindcss from '@tailwindcss/vite';
 import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/custom-markdown.mjs';
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 
@@ -12,6 +13,11 @@ export default defineConfig({
         mdx(),
         llmMdEmitter()
     ],
+    // Tailwind v4 only lands on pages that import the design-system entry
+    // (src/design-system/theme.css), so the live site stays untouched.
+    vite: {
+        plugins: [tailwindcss()]
+    },
     markdown: {
         shikiConfig: {
             theme: 'light-plus'

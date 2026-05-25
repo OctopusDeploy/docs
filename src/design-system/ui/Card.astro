@@ -1,0 +1,45 @@
+---
+interface Props {
+  href?: string;
+  title?: string;
+  class?: string;
+}
+
+const { href, title, class: extra = '' } = Astro.props;
+const interactive = href
+  ? 'group hover:-translate-y-0.5 hover:border-primary/45 hover:shadow-[var(--shadow-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+  : '';
+const cls = [
+  'relative flex h-full flex-col rounded-xl border border-border bg-card text-card-foreground p-5 transition-all duration-200 ease-out',
+  interactive,
+  extra,
+].join(' ');
+const Tag = href ? 'a' : 'div';
+// Title may carry a trailing arrow glyph in content; strip it so we render our own.
+const cleanTitle = title?.replace(/\s*→\s*$/, '');
+---
+
+<Tag class={cls} href={href} data-component="Card">
+  {
+    cleanTitle && (
+      <h3 class="mb-1.5 flex items-center gap-1.5 font-semibold tracking-tight">
+        <span>{cleanTitle}</span>
+        {href && (
+          <svg
+            class="h-4 w-4 shrink-0 text-muted-foreground transition-all duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-primary"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        )}
+      </h3>
+    )
+  }
+  <div class="text-sm leading-relaxed text-muted-foreground"><slot /></div>
+</Tag>

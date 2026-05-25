@@ -1,0 +1,162 @@
+/*
+  Octopus docs design-system tokens (MVP).
+
+  This is the portable contract: brand primitives + shadcn-style semantic tokens,
+  light + dark. A microsite adopts the design system by shipping this file (and
+  theme.css) unchanged. Dark mode keys off [data-theme="dark"] to match the
+  existing site switch.
+
+  Brand source of truth: public/docs/css/vars.css.
+*/
+
+:root {
+  /* --- Brand primitives (from vars.css) --- */
+  --octo-blue: #1a77ca;
+  --octo-blue-light: #2f95e3;
+  --octo-blue-bright: #1fc0ff;
+  --octo-green: #00e693;
+  --octo-green-bright: #00ffa3;
+  --octo-navy-900: #10212f;
+  --octo-navy-800: #152b3d;
+  --octo-navy-700: #2e475d;
+  --octo-navy-600: #3e607d;
+  --octo-navy-400: #7c98b4;
+  --octo-navy-300: #a9bbcb;
+  --octo-navy-200: #dae2e9;
+  --octo-navy-100: #f4f6f8;
+  --octo-blue-100: #f2f8fd;
+
+  /* --- Semantic tokens (shadcn shape) --- */
+  --background: #ffffff;
+  --foreground: var(--octo-navy-900);
+
+  --card: #ffffff;
+  --card-foreground: var(--octo-navy-900);
+
+  --popover: #ffffff;
+  --popover-foreground: var(--octo-navy-900);
+
+  --primary: var(--octo-blue);
+  --primary-foreground: #ffffff;
+
+  /* Octopus CTA green is the brand "accent" action color */
+  --accent: var(--octo-green);
+  --accent-foreground: #0a3b2a;
+
+  --secondary: var(--octo-navy-100);
+  --secondary-foreground: var(--octo-navy-700);
+
+  --muted: var(--octo-navy-100);
+  --muted-foreground: var(--octo-navy-600);
+
+  --border: var(--octo-navy-200);
+  --input: var(--octo-navy-200);
+  --ring: var(--octo-blue);
+
+  --destructive: #d63d3d;
+  --destructive-foreground: #ffffff;
+
+  /* Callout intents (map to existing hint/info/success/warning/problem) */
+  --info: #124164;
+  --info-bg: #e5f4ff;
+  --info-border: var(--octo-blue);
+  --success: #04502f;
+  --success-bg: #e8ffeb;
+  --success-border: #00b065;
+  --warning: #a23623;
+  --warning-bg: #fefae9;
+  --warning-border: #fc8431;
+  --problem: #931919;
+  --problem-bg: #fff2ee;
+  --problem-border: #ff4848;
+  /* question -> neutral/muted treatment */
+  --question: var(--octo-navy-700);
+  --question-bg: var(--octo-navy-100);
+  --question-border: var(--octo-navy-400);
+
+  --sidebar: #fafdff;
+  --sidebar-foreground: var(--octo-navy-700);
+
+  /* Surfaces for layered UI (code blocks, window chrome, hover states) */
+  --surface: var(--octo-navy-100);
+  --surface-2: #f8fafc;
+  --code-bg: #0c1a24;
+  --code-foreground: #e6edf3;
+  --code-chrome: #142736;
+  --code-border: #1f3a52;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px 0 rgba(16, 33, 47, 0.06);
+  --shadow-md:
+    0 4px 12px -2px rgba(16, 33, 47, 0.1), 0 2px 6px -2px rgba(16, 33, 47, 0.06);
+  --shadow-lg:
+    0 12px 32px -8px rgba(16, 33, 47, 0.18),
+    0 4px 10px -4px rgba(16, 33, 47, 0.1);
+
+  --radius: 0.5rem;
+
+  /* Fonts - preserve the existing system stack designers expect */
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-mono: Consolas, monaco, monospace;
+}
+
+[data-theme='dark'] {
+  --background: #10202e;
+  --foreground: #dae2e9;
+
+  --card: #132838;
+  --card-foreground: #dae2e9;
+
+  --popover: #0c1a24;
+  --popover-foreground: #dae2e9;
+
+  --primary: var(--octo-blue-bright);
+  --primary-foreground: #06121b;
+
+  --accent: var(--octo-green-bright);
+  --accent-foreground: #06121b;
+
+  --secondary: var(--octo-navy-800);
+  --secondary-foreground: var(--octo-navy-200);
+
+  --muted: #16344a;
+  --muted-foreground: var(--octo-navy-300);
+
+  --border: #314c62;
+  --input: #314c62;
+  --ring: var(--octo-blue-bright);
+
+  /* Callout text colors must lighten for legibility on the dark surfaces;
+     light-mode values stay dark and would be invisible here. */
+  --info: #cfe6fb;
+  --info-bg: rgba(13, 128, 216, 0.1);
+  --info-border: var(--octo-blue);
+  --success: #6fe6b4;
+  --success-bg: rgba(0, 176, 101, 0.12);
+  --warning: #ffb27a;
+  --warning-bg: rgba(252, 132, 49, 0.12);
+  --problem: #ff9b9b;
+  --problem-bg: rgba(255, 72, 72, 0.12);
+  --question: var(--octo-navy-200);
+  --question-bg: rgba(124, 152, 180, 0.12);
+  --question-border: var(--octo-navy-400);
+
+  --sidebar: #0c1a24;
+  --sidebar-foreground: var(--octo-navy-200);
+
+  --surface: #0f2230;
+  --surface-2: #16344a;
+  --code-bg: #0a161f;
+  --code-foreground: #e6edf3;
+  --code-chrome: #0f2230;
+  --code-border: #233a4f;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md:
+    0 4px 12px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg:
+    0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 4px 10px -4px rgba(0, 0, 0, 0.4);
+}
