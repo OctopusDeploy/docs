@@ -37,3 +37,14 @@ _site/
 **/*.dia~
 tmp
 .pnpm-store/
+
+# Local Claude Code context — not for commit
+CLAUDE.local.md
+.claude/
+
+# Local audit working files — not for commit
+/audit/
+*.audit.csv
+
+# Local writing guides and skills — not for commit
+octopus-writing-guide.md

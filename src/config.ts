@@ -56,6 +56,18 @@ export const OPEN_GRAPH = {
   },
 };
 
+// Schema.org inputs for JsonLd.astro. Set enabled=false to suppress
+// JSON-LD site-wide without a deploy revert. Logo asset existence is
+// not verified at build time.
+export const STRUCTURED_DATA = {
+  enabled: true,
+  organizationLogo: {
+    src: `${SITE.subfolder}/img/octopus-logo.png`,
+    width: 140,
+    height: 140,
+  },
+};
+
 export const HEADER_SCRIPTS = `
 	<link href="/docs/css/fa/css/fontawesome.css" rel="stylesheet">
 	<link href="/docs/css/fa/css/brands.css" rel="stylesheet">

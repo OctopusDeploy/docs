@@ -1300,6 +1300,19 @@ li.has-children .sub-nav ul li:focus > a {
   padding-block: var(--gap-menu);
 }
 
+/* Right-chevron on top-level section links (navigate, not expand). */
+.site-nav
+  > .site-nav__list
+  > .site-nav__list-item:not(.has-children)
+  > a::after {
+  content: '\f054';
+  /* Chevron Right */
+  font-family: fa-solid;
+  float: right;
+  color: var(--color-menu-marker);
+  margin-inline-end: 0.5rem;
+}
+
 .site-nav details[open] > summary {
   background-color: var(--bg-color-menu-open);
   font-weight: bold;
@@ -2208,6 +2221,14 @@ a[data-youtube] {
 
 .recent-updates time {
   display: block;
+}
+
+.page-content {
+  li:has(figure) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 /* Paging */
