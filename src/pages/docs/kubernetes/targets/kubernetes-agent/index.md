@@ -198,35 +198,6 @@ mountOptions:
 - dir_mode=0775 #rwx for user required
 ```
 
-### Openshift
-
-Agent can be run under `nonroot-v2` SCC. This means you will probably need to manually assign the SCC to service accounts:
-
-- **Agent**
-
-```bash
-NS_NAME="octopus-agent-<name>"
-AGENT_SERVICE_ACCOUNT="octopus-agent-tentacle"
-oc adm policy add-scc-to-user nonroot-v2 -z $AGENT_SERVICE_ACCOUNT -n $NS_NAME
-```
-
-- **Pod scripts**
-
-```bash
-NS_NAME="octopus-agent-<name>"
-POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-scripts"
-oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
-```
-
-- **Auto-upgrader**
-
-```bash
-NS_NAME="octopus-agent-<name>"
-POD_SCRIPTS_SERVICE_ACCOUNT="octopus-agent-auto-upgrader"
-oc adm policy add-scc-to-user nonroot-v2 -z $POD_SCRIPTS_SERVICE_ACCOUNT -n $NS_NAME
-```
-
-For additional details on the helm values for non-root setup, see the [Non-root configuration](#non-root-configuration) section.
 
 ## Configuring the agent with Tenants
 
