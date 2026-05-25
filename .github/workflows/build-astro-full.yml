@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  branch_validation:
+  build_and_deploy:
     uses: OctopusDeploy/microsite-deployment/.github/workflows/microsite-deployment-full.yml@main
     with:
       octopus_project_name: 'Docs Microsite'

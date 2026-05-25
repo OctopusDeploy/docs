@@ -1,86 +1,26 @@
-step "upload-microsite-to-aws-s3" {
-    name = "Upload Microsite to AWS S3"
+process_template "run-a-process-template" {
+    name = "Run a Process Template"
+    process_template_slug = "deployment-deploy-octopus-microsite"
+    version_mask = "1.X"
 
-    action {
-        action_type = "Octopus.AwsUploadS3"
-        is_required = true
-        properties = {
-            Octopus.Action.Aws.AssumeRole = "False"
-            Octopus.Action.Aws.Region = "#{AWS.Region}"
-            Octopus.Action.Aws.S3.BucketName = "#{AWS.BucketName}"
-            Octopus.Action.Aws.S3.FileSelections = "[{\"type\":\"MultipleFiles\",\"tags\":[],\"metadata\":[{\"key\":\"Cache-Control\",\"value\":\"604800\"}],\"cannedAcl\":\"public-read\",\"path\":\"\",\"storageClass\":\"STANDARD\",\"bucketKey\":\"\",\"bucketKeyPrefix\":\"\",\"bucketKeyBehaviour\":\"Custom\",\"performVariableSubstitution\":\"False\",\"performStructuredVariableSubstitution\":\"False\",\"autoFocus\":true,\"pattern\":\"**/*\"}]"
-            Octopus.Action.Aws.S3.PackageOptions = "{\"bucketKey\":\"#{Project.AWS.BucketKey}\",\"bucketKeyBehaviour\":\"Custom\",\"bucketKeyPrefix\":\"\",\"storageClass\":\"STANDARD\",\"cannedAcl\":\"private\",\"variableSubstitutionPatterns\":\"\",\"structuredVariableSubstitutionPatterns\":\"\",\"metadata\":[],\"tags\":[]}"
-            Octopus.Action.Aws.S3.TargetMode = "FileSelections"
-            Octopus.Action.AwsAccount.UseInstanceRole = "False"
-            Octopus.Action.AwsAccount.Variable = "AWS.Account"
-            Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "#{PackageId}"
-        }
-        worker_pool = "hosted-ubuntu"
-
-        packages {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "#{PackageId}"
-            properties = {
-                SelectionMode = "immediate"
-            }
-        }
+    package_parameter "Microsite Package" {
+        feed = "octopus-server-built-in"
+        package_id = "DocsMicrosite"
     }
-}
 
-step "clear-aws-cloudfront-cache" {
-    name = "Clear AWS CloudFront Cache"
-
-    action {
-        action_type = "Octopus.AwsRunScript"
-        properties = {
-            Octopus.Action.Aws.AssumeRole = "False"
-            Octopus.Action.Aws.Region = "#{AWS.Region}"
-            Octopus.Action.AwsAccount.UseInstanceRole = "False"
-            Octopus.Action.AwsAccount.Variable = "CloudFront.InvalidationAccount"
-            Octopus.Action.Script.ScriptBody = <<-EOT
-                aws cloudfront create-invalidation \
-                --distribution-id #{AWS.Distribution} \
-                --paths "/*"
-                EOT
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "Bash"
-            OctopusUseBundledTooling = "False"
-        }
-        worker_pool = "hosted-ubuntu"
-
-        container {
-            feed = "docker-hub"
-            image = "octopusdeploy/worker-tools:6.2.1-ubuntu.22.04"
-        }
+    parameter "Azure Account" {
+        value = "Microsite.Azure.Account"
     }
-}
 
-step "slack-notify-feed-website-automation" {
-    condition = "Always"
-    name = "Slack - Notify #feed-website-automation"
+    parameter "Worker Pool" {
+        value = "WorkerPools-3114"
+    }
 
-    action {
-        properties = {
-            Channel = "#feed-website-automation"
-            DeploymentInfoText = "#{Octopus.Project.Name} release #{Octopus.Release.Number} to <#{AWS.Website}|#{Octopus.Environment.Name} ↗️>"
-            HookUrl = "#{FeedWebsiteAutomation.WebHook}"
-            IconUrl = "https://octopus.com/content/resources/favicon.png"
-            IncludeErrorMessageOnFailure = "false"
-            IncludeFieldEnvironment = "True"
-            IncludeFieldMachine = "false"
-            IncludeFieldRelease = "True"
-            IncludeFieldReleaseNotes = "false"
-            IncludeFieldTenant = "false"
-            IncludeFieldUsername = "false"
-            IncludeLinkOnFailure = "True"
-            Octopus.Action.Template.Id = "ActionTemplates-181"
-            Octopus.Action.Template.Version = "10"
-            OctopusBaseUrl = "https://tenpillars.octopus.app"
-            Username = "Octopus Deploy"
-        }
-        worker_pool = "hosted-ubuntu"
+    parameter "DockerHub Feed" {
+        value = "Feeds-4847"
+    }
+
+    parameter "Ephemeral Environment" {
+        value = "Environments-12022"
     }
 }
