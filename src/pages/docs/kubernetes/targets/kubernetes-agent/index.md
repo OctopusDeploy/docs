@@ -198,7 +198,6 @@ mountOptions:
 - dir_mode=0775 #rwx for user required
 ```
 
-
 ## Configuring the agent with Tenants
 
 While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:

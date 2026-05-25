@@ -55,7 +55,7 @@ Installation steps are following:
     - dir_mode=0775 #rwx for user required
     ```
 
-4. Agent and script pods support running in non-root mode. UID/GID should be 999. Run `helm install` command with extra values: 
+4. Agent and script pods support running in non-root mode. UID/GID should be 999. Run `helm install` command with extra values:
 
     ```yaml
     agent:
