@@ -9,7 +9,7 @@ description: Tasks that are no longer required can be automatically cancelled.
 Sometimes multiple deployment or runbook run tasks for the same project/environment/tenant combination will be waiting in the task queue. Often this means some of the tasks are superseded and no longer required. Octopus can help you clean these tasks up automatically by cancelling them.
 
 :::div{.info}
-This feature is available from version `2026.2.7727`.
+This feature is available from version `2025.2.7727`.
 :::
 
 ## Configuration
