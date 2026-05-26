@@ -22,12 +22,16 @@ Ensure your instance is accessible at the address used as its issuer URL.
 
 ## Externally hosted
 
-External hosting is for **self-hosted instances on private or isolated networks** that are not reachable from the internet. Services like the Octopus GitHub service or cloud providers need to fetch your public keys to validate tokens — if they can't reach your instance directly, you need to host those keys somewhere they can.
+External hosting is for **self-hosted instances on private or isolated networks** that are not reachable from the internet. Services like the Octopus GitHub app or cloud providers need to fetch your public keys to validate tokens - if they can't reach your instance directly, you need to host those keys somewhere they can.
 
-When externally hosting, Octopus generates a ZIP file containing your OIDC discovery document and public key set. Host the contents of this file at any publicly accessible HTTPS location, then provide that address as the **OIDC Issuer URL**. Octopus uses this URL as the issuer in tokens it generates, and external services fetch keys from there instead of from your instance.
+When externally hosting, Octopus generates a ZIP file containing your OIDC discovery document and public key set. During the export, you will be prompted to update the **OIDC Issuer URL** setting, which you must set to the publicly-accessible location at which you will host the contents of the signing keys ZIP file. Octopus uses this URL as the issuer in tokens it generates, and external services fetch keys from there instead of from your instance.
+
+:::figure
+![Signing Key Config](/docs/img/infrastructure/signing-keys/signing-key-config.png)
+:::
 
 :::div{.hint}
-If the OIDC Issuer URL is set in Octopus's settings, it will be used as the issuer regardless of whether Internal or External hosting is selected.
+Once the OIDC Issuer URL is set in Octopus's settings, it will be used as the issuer regardless of whether Internal or External hosting is selected. You can update this setting later in Configuration > Settings > Authentication > OIDC Issuer URL
 :::
 
 :::div{.warning}
