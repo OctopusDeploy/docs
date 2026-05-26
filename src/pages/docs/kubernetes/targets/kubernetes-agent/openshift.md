@@ -60,6 +60,7 @@ Installation steps are following:
     ```yaml
     agent:
       securityContext:
+        readOnlyRootFilesystem: true
         runAsUser: 999
         runAsGroup: 999
         fsGroup: 999
