@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-01-07
-title: Approvals with Manual Interventions
-description: Step by step guide on how to use Manual Interventions in Octopus Deploy for approvals
+title: Approvals with manual interventions
+description: Add a manual intervention step to require sign-off before each Octopus Deploy deployment proceeds. Follow the step-by-step guide to configure approvals.
 navOrder: 60
 hideInThisSection: true
 ---
@@ -17,27 +17,19 @@ The **Manual Intervention Required** step lets you add approvals or manual check
 3. Select the **Other** category to filter the types of steps.
 4. Locate the Manual Intervention Required card and click **Add Step**.
 
-:::figure
-![Add Manual Intervention Required step to deployment process](/docs/img/getting-started/first-deployment/images/manual-intervention-step.png)
-:::
+    :::figure
+    ![Add Manual Intervention Required step to deployment process](/docs/img/getting-started/first-deployment/images/manual-intervention-step.png)
+    :::
 
-### Step name
+    **Step name** - You can leave this as the default *Manual Intervention Required*.
 
-You can leave this as the default *Manual Intervention Required*.
+5. **Instructions** - Copy the message below and paste it into the **Instructions** field.
 
-### Instructions
+    ```text
+    Please verify the Production environment is ready before proceeding.
+    ```
 
-5. Copy the message below and paste it into the **Instructions** field.
-
-```
-Please verify the Production environment is ready before proceeding.
-```
-
-### Responsible Teams
-
-6. Select **Octopus Administrators** and **Octopus Managers** from the **Responsible Teams** dropdown list.
-
-### Environments
+6. **Responsible Teams** - Select **Octopus Administrators** and **Octopus Managers** from the **Responsible Teams** dropdown list.
 
 7. Select **Run only for specific environments**.
 8. Select **Production** from the **Environments** dropdown list.
@@ -61,7 +53,7 @@ Currently, your deployment process will run manual intervention after the script
 
 1. Create a new release and deploy it through to the Production environment.
 
-You will notice manual intervention doesn’t run in the Development or Staging environments. When the deployment reaches Production, it will pause and request approval.
+You will notice manual intervention doesn't run in the Development or Staging environments. When the deployment reaches Production, it will pause and request approval.
 
 :::figure
 ![Manual intervention is required in production](/docs/img/getting-started/first-deployment/images/manual-intervention.png)

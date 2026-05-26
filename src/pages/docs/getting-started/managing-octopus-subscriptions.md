@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-06-13
-title: Managing Octopus subscriptions
-description: Control Center is where you manage your Octopus subscriptions and their associated user access. 
+title: Manage your Octopus subscriptions
+description: Use Octopus Control Center to manage your subscriptions, licenses, and user access. View billing details, add users, and adjust your plan from one place.
 navOrder: 40
 ---
 
@@ -103,7 +103,7 @@ Invite a user to manage a subscription group and access all current and future s
 1. In the [Control Center](https://billing.octopus.com/) dashboard, locate your subscription group.
 2. Click **User Access**.
 3. Click **Invite User**.
-4. Enter the user’s details.
+4. Enter the user's details.
 5. Select which role to give the user ([see role permissions below](#role-permissions-for-subscription-group-access)).
 6. Click **Invite**.
 
@@ -123,8 +123,8 @@ Otherwise, they will first need to **Register** a new account using the email ad
 
 ##### Group-level
 
-|              | Administrator            | Technical Manager              | Billing Manager         |
-| ------------ | ------------------------ | ------------------------------ | ----------------------- |
+| -- | Administrator | Technical Manager | Billing Manager |
+| -- | -- | -- | -- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | Rename/Delete Group <br>Manage User Access</br> | Rename/Delete Group <br>Manage User Access</br> | - |
 
 ##### Subscription-level
@@ -132,23 +132,22 @@ Otherwise, they will first need to **Register** a new account using the email ad
 <details data-group="subscription-group-level">
 <summary>Cloud</summary>
 
-|              | Administrator            | Technical Manager              | Billing Manager         |
-| ------------ | ------------------------ | ------------------------------ | ----------------------- |
+| -- | Administrator | Technical Manager | Billing Manager |
+| -- | -- | -- | -- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview <br>Manage Configuration</br> Manage User Access | View Overview <br>Manage Billing</br> |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers" team | “Space Managers” team | -  |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | "Octopus Managers" team | "Space Managers" team | - |
 
 :::div{.hint}
-Octopus uses teams and user roles to manage permissions. The “Octopus Managers” and “Space Managers” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+Octopus uses teams and user roles to manage permissions. The "Octopus Managers" and "Space Managers" teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 :::
 
 </details>
 <details data-group="subscription-group-level">
 <summary>Server</summary>
 
-|              | Administrator            | Technical Manager              | Billing Manager         |
-| ------------ | ------------------------ | ------------------------------ | ----------------------- |
-| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key <br>Manage User Access</br>  | View License Key <br>Manage Billing</br> |
-
+| -- | Administrator | Technical Manager | Billing Manager |
+| -- | -- | -- | -- |
+| **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key <br>Manage User Access</br> | View License Key <br>Manage Billing</br> |
 
 </details>
 
@@ -163,7 +162,7 @@ Invite a user to access a specific subscription.
 1. Navigate to your Cloud instance in [Control Center](https://billing.octopus.com/).
 2. Click **User Access** in the left sidebar.
 3. Click **Invite User**.
-4. Enter the user’s details.
+4. Enter the user's details.
 5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
 6. Click **Invite**.
 
@@ -172,7 +171,7 @@ Invite a user to access a specific subscription.
 1. Navigate to your Server license in [Control Center](https://billing.octopus.com/).
 2. Click **Admin Access** in the left sidebar.
 3. Click **Invite Admin**.
-4. Enter the user’s details.
+4. Enter the user's details.
 5. Select which role to give the user ([see role permissions below](#role-permissions-for-direct-access)).
 6. Click **Invite**.
 
@@ -189,7 +188,7 @@ If they already have an [Octopus ID](/docs/security/authentication/octopusid-aut
 Otherwise, they will first need to **Register** a new account using the email address the invitation was sent to.
 
 :::div{.hint}
-**Cloud instances note:** Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user’s permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
+**Cloud instances note:** Invited users are only added to an Octopus Cloud instance after their first sign-in. To manage a newly invited user's permissions, you will need to ask them to sign in to your Octopus Cloud instance first.
 :::
 
 #### Role permissions for Direct access
@@ -197,21 +196,21 @@ Otherwise, they will first need to **Register** a new account using the email ad
 <details data-group="subscription-level">
 <summary>Cloud</summary>
 
-|                             | Cloud Subscription Owner                 | Cloud Subscription User (Contributor)            | Cloud Subscription User (Base)                   |
-| --------------------------- | ---------------------------------------- | ------------------------------------------------ | ------------------------------------------------ |
+| -- | Cloud Subscription Owner | Cloud Subscription User (Contributor) | Cloud Subscription User (Base) |
+| -- | -- | -- | -- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View Overview <br>Manage Billing</br> Manage Configuration <br>Manage User Access</br> | View Overview | View Overview |
-| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | “Octopus Managers” team <div class="table-hint">By default, the user has full permissions across all spaces.</div>| “Space Managers” team  <div class="table-hint">By default, the user has full permissions in the “Default” space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the “Default” space, the user will be added to the “Everyone” team.</div> | “Everyone” team  <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
+| **Octopus Instance** <div class="table-hint">(example.octopus.com)</div> | "Octopus Managers" team <div class="table-hint">By default, the user has full permissions across all spaces.</div> | "Space Managers" team <div class="table-hint">By default, the user has full permissions in the "Default" space only.</div> <div class="table-hint" style="padding-top: 8px;">If you delete the "Default" space, the user will be added to the "Everyone" team.</div> | "Everyone" team <div class="table-hint">By default, the user can sign in but can't view or do anything.</div> |
 
 :::div{.hint}
-Octopus uses teams and user roles to manage permissions. The “Octopus Managers”, “Space Managers”, and “Everyone” teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
+Octopus uses teams and user roles to manage permissions. The "Octopus Managers", "Space Managers", and "Everyone" teams provide different levels of access in your instance. Learn about best practices for [users, roles, and teams](/docs/best-practices/octopus-administration/users-roles-and-teams).
 :::
 
 </details>
 <details data-group="subscription-level">
 <summary>Server</summary>
 
-|              | Server License Owner           | Server License Viewer         |
-| ------------ | ------------------------------ | ------------------------------|
+| -- | Server License Owner | Server License Viewer |
+| -- | -- | -- |
 | **Control Center** <div class="table-hint">(billing.octopus.com)</div> | View License Key <br>Manage Billing</br> Manage User Access | View License Key |
 
 </details>

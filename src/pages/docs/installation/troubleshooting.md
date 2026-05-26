@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Troubleshooting the Octopus installation
-description: Troubleshooting steps for installing Octopus Deploy
+title: Troubleshoot Octopus installation issues
+description: Fix common Octopus Server installation errors. Find solutions for database connection failures, port conflicts, Windows service issues, and permission problems.
 navOrder: 7
 ---
 In a few cases a bug in a 3rd party component causes the installer to display an "Installation directory must be on a local hard drive" error. If this occurs, run the install again from an elevated command prompt using the following command (replacing `Octopus.3.3.4-x64.msi` with the name of the installer you are using):
@@ -24,6 +24,7 @@ As of **Octopus 2018.5.3** and **Tentacle 3.21.0**, most operations support long
 ## Enabling
 
 On the target machine:
+
 1. Ensure .NET Framework 4.6.2 or later is installed.
 1. Open Group Policy Editor (Press Windows Key and type `gpedit.msc` and hit Enter key).
 1. Navigate to and enable.
@@ -42,4 +43,4 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 ## Learn more
 
- - [Octopus installation](/docs/installation)
+- [Octopus installation](/docs/installation)
