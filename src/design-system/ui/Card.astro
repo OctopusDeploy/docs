@@ -7,10 +7,10 @@ interface Props {
 
 const { href, title, class: extra = '' } = Astro.props;
 const interactive = href
-  ? 'group hover:-translate-y-0.5 hover:border-primary/45 hover:shadow-[var(--shadow-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+  ? 'group hover:-translate-y-1 hover:border-primary/45 hover:[box-shadow:var(--shadow-glow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background before:absolute before:inset-x-5 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary/50 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100'
   : '';
 const cls = [
-  'relative flex h-full flex-col rounded-xl border border-border bg-card text-card-foreground p-5 transition-all duration-200 ease-out',
+  'relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card/70 text-card-foreground p-5 backdrop-blur-sm transition-[transform,box-shadow,border-color] duration-300 ease-out',
   interactive,
   extra,
 ].join(' ');
@@ -22,7 +22,7 @@ const cleanTitle = title?.replace(/\s*→\s*$/, '');
 <Tag class={cls} href={href} data-component="Card">
   {
     cleanTitle && (
-      <h3 class="mb-1.5 flex items-center gap-1.5 font-semibold tracking-tight">
+      <h3 class="mb-1.5 flex items-center gap-1.5 font-display text-[1.05rem] font-bold tracking-tight">
         <span>{cleanTitle}</span>
         {href && (
           <svg

@@ -9,12 +9,18 @@ import Footer from '../../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  eyebrow?: string;
   breadcrumbs: { label: string; href?: string }[];
-  sidebar: { title: string; items: { label: string; href: string; active?: boolean }[] }[];
+  sidebar: {
+    title: string;
+    items: { label: string; href: string; active?: boolean }[];
+  }[];
   toc: { label: string; href: string; depth?: number }[];
 }
 
-const { title, description, breadcrumbs, sidebar, toc } = Astro.props;
+const { title, description, eyebrow, breadcrumbs, sidebar, toc } = Astro.props;
+const kicker =
+  eyebrow ?? breadcrumbs[breadcrumbs.length - 2]?.label ?? 'Documentation';
 ---
 
 <!doctype html>
@@ -24,6 +30,12 @@ const { title, description, breadcrumbs, sidebar, toc } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Octopus Docs</title>
     {description && <meta name="description" content={description} />}
+    <!-- Web fonts via Bunny (GF mirror); preconnect + swap. -->
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.bunny.net/css?family=bricolage-grotesque:600,700,800|hanken-grotesk:400,500,600,700|jetbrains-mono:400,500&display=swap"
+    />
     <!-- Shared footer styles (footer remains the existing shared component) -->
     <link rel="stylesheet" href="/docs/css/footer-bundle.css" />
     <!-- Avoid dark-mode flash before the toggle script runs -->
@@ -32,74 +44,134 @@ const { title, description, breadcrumbs, sidebar, toc } = Astro.props;
         document.documentElement.setAttribute('data-theme', 'dark');
     </script>
   </head>
-  <body class="min-h-screen bg-background font-sans text-foreground antialiased">
+  <body
+    class="relative min-h-screen bg-background font-sans text-foreground antialiased"
+  >
+    <div class="ds-atmosphere"></div>
+    <div class="ds-grain"></div>
+
     <DocsHeader />
 
     <div class="mx-auto flex max-w-[1600px]">
       <DocsSidebar sections={sidebar} />
 
       <div class="flex min-w-0 flex-1">
-        <main class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-14">
+        <main class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-16">
           <div class="mx-auto max-w-3xl xl:mx-0">
-            <details class="group mb-5 rounded-lg border border-border bg-sidebar lg:hidden">
+            <details
+              class="group mb-5 rounded-lg border border-border bg-sidebar/70 backdrop-blur lg:hidden"
+            >
               <summary
                 class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-2.5 text-sm font-medium text-foreground [&::-webkit-details-marker]:hidden"
               >
                 <span class="flex items-center gap-2">
-                  <svg class="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                  <svg
+                    class="h-4 w-4 text-muted-foreground"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><path d="M4 6h16M4 12h16M4 18h16"></path></svg
+                  >
                   Documentation menu
                 </span>
-                <svg class="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+                <svg
+                  class="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg
+                >
               </summary>
-              <nav class="border-t border-border px-3 py-3" aria-label="Documentation navigation">
-                {sidebar.map((section) => (
-                  <div class="mb-3 last:mb-0">
-                    <p class="mb-1 px-2 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/70">
-                      {section.title}
-                    </p>
-                    <ul class="space-y-px">
-                      {section.items.map((item) => (
-                        <li>
-                          <a
-                            href={item.href}
-                            aria-current={item.active ? 'page' : undefined}
-                            class={`block rounded-md px-2 py-1.5 text-[0.925rem] transition-colors ${
-                              item.active
-                                ? 'bg-primary/10 font-medium text-primary'
-                                : 'text-sidebar-foreground hover:bg-muted hover:text-foreground'
-                            }`}
-                          >
-                            {item.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <nav
+                class="border-t border-border px-3 py-3"
+                aria-label="Documentation navigation"
+              >
+                {
+                  sidebar.map((section) => (
+                    <div class="mb-4 last:mb-0">
+                      <p class="mb-2 px-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground/60">
+                        {section.title}
+                      </p>
+                      <ul class="space-y-0.5">
+                        {section.items.map((item) => (
+                          <li>
+                            <a
+                              href={item.href}
+                              aria-current={item.active ? 'page' : undefined}
+                              class={`block rounded-lg px-3 py-[0.47rem] text-[0.9rem] transition-colors ${
+                                item.active
+                                  ? 'bg-primary/[0.08] font-semibold text-primary'
+                                  : 'font-medium text-sidebar-foreground hover:bg-muted/55 hover:text-foreground'
+                              }`}
+                            >
+                              {item.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                }
               </nav>
             </details>
 
-            <DocsBreadcrumbs items={breadcrumbs} />
+            <div data-rise style="--rise:60ms">
+              <DocsBreadcrumbs items={breadcrumbs} />
+            </div>
 
             <article itemscope itemtype="https://schema.org/TechArticle">
-              <header class="mb-8 border-b border-border pb-7">
+              <header class="relative mb-9 pb-8">
+                <p
+                  data-rise
+                  style="--rise:90ms"
+                  class="mb-3 flex items-center gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary"
+                >
+                  <span
+                    class="inline-block h-1.5 w-1.5 rounded-full shadow-[0_0_10px_2px_var(--glow-brand)]"
+                    style="background:var(--purple-300)"></span>
+                  {kicker}
+                </p>
                 <h1
-                  class="text-[2.05rem] font-bold leading-[1.15] tracking-[-0.02em] text-foreground"
+                  data-rise
+                  style="--rise:150ms"
+                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.9rem]"
                   itemprop="headline"
                 >
                   {title}
                 </h1>
-                {description && (
-                  <p
-                    class="mt-3 text-lg leading-relaxed text-muted-foreground"
-                    itemprop="description"
-                  >
-                    {description}
-                  </p>
-                )}
+                {
+                  description && (
+                    <p
+                      data-rise
+                      style="--rise:230ms"
+                      class="mt-4 max-w-2xl text-[1.12rem] leading-relaxed text-muted-foreground"
+                      itemprop="description"
+                    >
+                      {description}
+                    </p>
+                  )
+                }
+                <div
+                  data-rise
+                  style="--rise:300ms"
+                  class="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-primary/55 via-border to-transparent"
+                >
+                </div>
               </header>
 
-              <div class="prose" itemprop="articleBody">
+              <div
+                class="prose"
+                itemprop="articleBody"
+                data-rise
+                style="--rise:380ms"
+              >
                 <slot />
               </div>
             </article>

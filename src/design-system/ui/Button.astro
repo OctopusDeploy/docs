@@ -1,39 +1,47 @@
 ---
-type Variant = 'primary' | 'accent' | 'outline' | 'ghost';
-type Size = 'sm' | 'md' | 'lg';
+type Variant = 'primary' | 'secondary' | 'ghost';
 
 interface Props {
   href?: string;
   variant?: Variant;
-  size?: Size;
   class?: string;
 }
 
-const { href, variant = 'primary', size = 'md', class: extra = '' } = Astro.props;
-
-const base =
-  'inline-flex items-center justify-center gap-2 rounded-md font-medium whitespace-nowrap transition-all duration-150 ease-out active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50';
-
-const variants: Record<Variant, string> = {
-  primary:
-    'bg-primary text-primary-foreground shadow-[var(--shadow-sm)] hover:bg-primary/90 hover:shadow-[var(--shadow-md)]',
-  accent:
-    'bg-accent text-accent-foreground shadow-[var(--shadow-sm)] hover:bg-accent/90 hover:shadow-[var(--shadow-md)]',
-  outline:
-    'border border-border bg-background text-foreground hover:bg-muted hover:border-primary/40',
-  ghost: 'text-foreground hover:bg-muted',
-};
-
-const sizes: Record<Size, string> = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
-  lg: 'h-11 px-6 text-[0.95rem]',
-};
-
-const cls = [base, variants[variant], sizes[size], extra].join(' ');
+const { href, variant = 'primary', class: extra = '' } = Astro.props;
+const cls = ['ds-btn', `ds-btn--${variant}`, extra].join(' ');
 const Tag = href ? 'a' : 'button';
 ---
 
-<Tag class={cls} href={href} data-component="Button">
-  <slot />
-</Tag>
+<Tag class={cls} href={href} data-component="Button"><slot /></Tag>
+
+<script is:inline>
+  // Cursor-tracked glow: set --hover-x/--hover-y per pointer position.
+  (() => {
+    if (window.__dsBtnInit) return;
+    window.__dsBtnInit = true;
+    const SELECTOR = '.ds-btn--primary, .ds-btn--secondary';
+    const seen = new WeakSet();
+    const track = (btn) => {
+      if (seen.has(btn)) return;
+      seen.add(btn);
+      let rect = null;
+      btn.addEventListener('mouseenter', () => {
+        rect = btn.getBoundingClientRect();
+      });
+      btn.addEventListener('mousemove', (e) => {
+        if (!rect) rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--hover-x', e.clientX - rect.left + 'px');
+        btn.style.setProperty('--hover-y', e.clientY - rect.top + 'px');
+      });
+    };
+    document.querySelectorAll(SELECTOR).forEach(track);
+    new MutationObserver((muts) => {
+      for (const m of muts)
+        for (const n of m.addedNodes) {
+          if (n.nodeType !== 1) continue;
+          if (n.matches?.(SELECTOR)) track(n);
+          n.querySelectorAll?.(SELECTOR).forEach(track);
+        }
+    }).observe(document.body, { childList: true, subtree: true });
+  })();
+</script>

@@ -43,14 +43,20 @@ src/design-system/
 
 ## 2. The single customization surface: `tokens.css`
 
-`tokens.css` is the **only** file a site is expected to edit. It defines two layers:
+`tokens.css` is the **only** file a site is expected to edit. It defines three layers:
 
 1. **Brand primitives** - the literal Octopus palette (`--octo-blue`, `--octo-green`, the
-   navy scale) and font stacks. These are the brand source of truth, mirrored from
-   `public/docs/css/vars.css`.
+   navy scale) and font stacks (`--font-display` / `--font-sans` / `--font-mono`). These are
+   the brand source of truth, mirrored from `public/docs/css/vars.css`.
 2. **Semantic tokens** (shadcn shape) - `--background`, `--foreground`, `--primary`,
    `--accent`, `--muted`, `--border`, `--ring`, callout intents, surfaces, elevation, etc.,
    defined for light (`:root`) and dark (`[data-theme='dark']`).
+3. **Bioluminescence layer** (the "Abyssal" look) - the decorative palette is cyan -> purple
+   -> pink (`#1FC0FF` / `#6950FF` / `#CC3CFF`); green is reserved for semantic success only.
+   Glow tokens (`--glow-primary`, `--glow-brand`), brand gradients (`--gradient-brand`,
+   `--gradient-ink`), the atmosphere stops (`--aurora-1..3`, `--grid-line`, `--grain-opacity`),
+   and `--shadow-glow`. Dial the whole mood from here: drop the glow alphas and grain to
+   near-zero for a flatter skin, or push them up for more drama. No component edits required.
 
 Components and `theme.css` reference **only the semantic tokens**, never raw hex. So:
 - Re-skinning a site = edit `tokens.css`, nothing else.
@@ -180,9 +186,26 @@ These hold by construction; preserve them when extending the system.
   wraps content in `<article itemscope itemtype="https://schema.org/TechArticle">` with
   `itemprop` headline/description/articleBody; heading hierarchy is semantic. Keep these when
   editing the shell.
-- **Core Web Vitals.** No web fonts (system-ui sans + Consolas/monaco mono), no blocking JS,
-  no layout-shifting hydration. A FOUC-prevention inline script in `DocsLayout`'s `<head>`
-  applies the stored theme before paint.
+- **Core Web Vitals.** No blocking JS, no layout-shifting hydration. A FOUC-prevention inline
+  script in `DocsLayout`'s `<head>` applies the stored theme before paint. The "Abyssal"
+  revamp **does** load three web fonts (Bricolage Grotesque / Hanken Grotesk / JetBrains Mono
+  via Bunny Fonts, a privacy-friendly Google Fonts mirror) - a deliberate trade for distinctive
+  type. They are `preconnect`ed and `display=swap`, and every `--font-*` token keeps a system
+  stack fallback, so first paint uses system fonts and there is no invisible-text delay. If a
+  site must stay font-free, point the `--font-*` tokens back at system stacks and drop the
+  `<link>`s from the layout heads - nothing else changes.
+- **In-content images get the "glass" effect.** Images authored inside documentation content
+  (`.prose figure` / `.image` / `[data-image]` from `<Image>` and the `:::figure` / `:img`
+  directives, plus standalone `img.resp-img`) are wrapped in a frosted panel with a blurred
+  cyan/pink bloom behind them - ported 1:1 from the marketing site. It is **scoped to `.prose`**,
+  so the logo and all UI/chrome imagery are never touched. The look is tokenized in `tokens.css`
+  (`--glass-*`): dark mode uses the exact marketing values; light mode is retuned (cyan-tinted
+  frost, visible border, softened bloom) since the white-translucent originals vanish on the
+  pale background. Padding is `--glass-pad` (the main project's `--space-12`).
+- **Atmosphere is decorative and pointer-transparent.** The fixed `.ds-atmosphere` (aurora
+  mesh + engineering grid) and `.ds-grain` overlay sit at `z-index:-1` behind content and are
+  GPU-cheap. The page-load `[data-rise]` reveal, the aurora drift, and the status-dot pulse all
+  collapse under `prefers-reduced-motion: reduce`.
 - **Typography plugin override technique.** The prose/table/code/status rules in `theme.css`
   are intentionally **unlayered** (outside `@layer base`) so they beat `@tailwindcss/typography`'s
   utility-layer defaults. Pages use `class="prose"` (not `prose-slate`). Don't move these into
@@ -197,6 +220,7 @@ These hold by construction; preserve them when extending the system.
 | Search dropdown | `docs-shell/DocsHeader.astro` | Filtered, keyboard-navigable results list (currently sample data - see gaps) |
 | TOC scroll-spy | `docs-shell/DocsToc.astro` | IntersectionObserver active-section highlight |
 | Copy button | `ui/CodeBlock.astro` | Delegated copy-to-clipboard with "Copied" state |
+| Button glow | `ui/Button.astro` | Tracks the pointer to set `--hover-x/--hover-y` for the cursor-following glow |
 
 ---
 

@@ -40,22 +40,26 @@ const icons: Record<Intent, string> = {
 
 <div
   data-component="Callout"
-  class={`my-6 flex gap-3 rounded-lg border border-l-[3px] px-4 py-3.5 text-[0.95rem] ${styles[intent]}`}
-  style="border-color: color-mix(in oklab, var(--bd) 35%, transparent); border-left-color: var(--bd); background: var(--bg); color: var(--c);"
+  class={`my-7 flex gap-3.5 rounded-xl border border-l-[3px] px-4 py-4 text-[0.95rem] shadow-[var(--shadow-sm)] ${styles[intent]}`}
+  style="border-color: color-mix(in oklab, var(--bd) 32%, transparent); border-left-color: var(--bd); background: var(--bg); color: var(--c);"
   role="note"
 >
-  <svg
-    class="mt-0.5 h-[18px] w-[18px] shrink-0"
-    style="color: var(--bd);"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true"
-    set:html={icons[intent]}
-  />
+  <span
+    class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg"
+    style="color: var(--bd); background: color-mix(in oklab, var(--bd) 15%, transparent); box-shadow: 0 0 16px -3px color-mix(in oklab, var(--bd) 55%, transparent);"
+  >
+    <svg
+      class="h-[17px] w-[17px]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      set:html={icons[intent]}
+    />
+  </span>
   <div class="min-w-0">
     <p class="mb-1 font-semibold leading-snug">{title ?? labels[intent]}</p>
     <div

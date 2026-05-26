@@ -1,10 +1,7 @@
 /*
-  Design-system entry (MVP). Importing this file is what opts a page into the
-  new UI: it pulls Tailwind v4, the typography plugin, the brand tokens, and
-  maps those tokens into Tailwind's theme so utilities like `bg-background`,
-  `text-foreground`, `border-border`, `text-primary` resolve to brand values.
-
-  Nothing here leaks onto pages that don't import it.
+  Design-system entry. Importing this opts a page in: Tailwind v4 + typography
+  plugin + brand tokens mapped into the theme. Web fonts load in the layout
+  <head>. Nothing here leaks onto pages that don't import it.
 */
 
 @import 'tailwindcss';
@@ -39,33 +36,157 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
 
+  --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 5px);
 
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+  --shadow-glow: var(--shadow-glow);
 }
 
-/* Reserve the vertical scrollbar gutter from first paint so a late-appearing
-   scrollbar (e.g. after images load) can't narrow the viewport and shift the
-   centered header/content sideways. */
+/* Reserve the scrollbar gutter so a late-appearing scrollbar can't shift the
+   centered layout sideways. Smooth in-page scrolling for the TOC anchors. */
 html {
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
-/* Tune the `prose` typography plugin to brand tokens so markdown content
-   matches the design system without bespoke per-element CSS.
+/* Tinted, thin scrollbars that match the abyss. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent)
+    transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground) 32%, transparent);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--muted-foreground) 55%, transparent);
+  background-clip: padding-box;
+}
 
-   These rules are intentionally UNLAYERED: the typography plugin sets its
-   default `--tw-prose-*` color vars from the `prose` utility (utilities layer),
-   which would beat an `@layer base` override. Unlayered rules win over any
-   layered rule, so this is what makes our brand tokens (and dark mode) stick. */
+::selection {
+  background: color-mix(in oklab, var(--primary) 24%, transparent);
+  color: var(--foreground);
+}
+
+/* Atmosphere: fixed aurora mesh + grid + grain, behind everything (z-index:-1).
+   Layout renders the .ds-atmosphere / .ds-grain divs. */
+.ds-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 38rem at 12% -8%, var(--aurora-1), transparent 60%),
+    radial-gradient(46rem 40rem at 100% 0%, var(--aurora-2), transparent 58%),
+    radial-gradient(60rem 46rem at 78% 108%, var(--aurora-3), transparent 62%);
+  background-color: var(--background);
+}
+.ds-atmosphere::before {
+  /* Engineering grid, masked to fade inward. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(
+    120% 80% at 50% 0%,
+    #000 0%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(120% 80% at 50% 0%, #000 0%, transparent 75%);
+}
+.ds-atmosphere::after {
+  /* Slow-drifting luminous bloom. */
+  content: '';
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 60%;
+  background: radial-gradient(
+    40rem 22rem at 30% 0%,
+    var(--aurora-1),
+    transparent 70%
+  );
+  opacity: 0.7;
+  animation: ds-drift 22s ease-in-out infinite alternate;
+}
+.ds-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes ds-drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(5%, 3%, 0) scale(1.12);
+  }
+}
+
+/* Staggered page-load reveal: [data-rise] fades/lifts, --rise sets the delay. */
+@keyframes ds-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+[data-rise] {
+  animation: ds-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--rise, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-rise] {
+    animation: none;
+  }
+  .ds-atmosphere::after {
+    animation: none;
+  }
+}
+
+/* Gradient brand text (hero H1 / accents). */
+.ds-gradient-text {
+  background: var(--gradient-ink);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Prose: brand-tuned typography. Intentionally UNLAYERED to beat the typography
+   plugin's utility-layer defaults (keeps brand colors + dark mode). */
 .prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
@@ -74,7 +195,7 @@ html {
   --tw-prose-counters: var(--muted-foreground);
   --tw-prose-bullets: var(--octo-navy-300);
   --tw-prose-hr: var(--border);
-  --tw-prose-quotes: var(--muted-foreground);
+  --tw-prose-quotes: var(--foreground);
   --tw-prose-quote-borders: var(--primary);
   --tw-prose-captions: var(--muted-foreground);
   --tw-prose-code: var(--foreground);
@@ -83,28 +204,44 @@ html {
   --tw-prose-pre-bg: var(--code-bg);
   --tw-prose-pre-code: var(--code-foreground);
   max-width: 46rem;
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.02rem;
+  line-height: 1.78;
+  font-feature-settings: 'ss01', 'cv01';
 }
 
-/* Typographic rhythm: calmer vertical spacing and tighter, confident headings. */
+/* Confident display headings with a luminous anchored accent. */
 .prose :where(h2):not(:where([class~='not-prose'] *)) {
-  margin-top: 2.75rem;
+  position: relative;
+  margin-top: 3rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  line-height: 1.3;
-  font-weight: 650;
-  letter-spacing: -0.014em;
-  scroll-margin-top: 5.5rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  scroll-margin-top: 6rem;
+}
+/* Glowing tick to the left of every H2. */
+.prose :where(h2):not(:where([class~='not-prose'] *))::before {
+  content: '';
+  position: absolute;
+  left: -1.15rem;
+  top: 0.45em;
+  height: 1.05em;
+  width: 3px;
+  border-radius: 9999px;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 12px -1px var(--glow-primary);
 }
 .prose :where(h3):not(:where([class~='not-prose'] *)) {
-  margin-top: 2rem;
-  margin-bottom: 0.625rem;
-  font-size: 1.2rem;
-  line-height: 1.35;
-  font-weight: 625;
-  letter-spacing: -0.01em;
-  scroll-margin-top: 5.5rem;
+  margin-top: 2.1rem;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  line-height: 1.32;
+  font-weight: 650;
+  letter-spacing: -0.014em;
+  scroll-margin-top: 6rem;
 }
 .prose :where(h2, h3):not(:where([class~='not-prose'] *)):first-child {
   margin-top: 0;
@@ -114,53 +251,87 @@ html {
   margin-bottom: 1.25rem;
 }
 .prose :where(strong):not(:where([class~='not-prose'] *)) {
-  font-weight: 625;
+  font-weight: 650;
+  color: var(--foreground);
 }
+
+/* Links: an underline that grows in from the left on hover. */
 .prose :where(a):not(:where([class~='not-prose'] *)) {
   font-weight: 500;
-  text-decoration-color: color-mix(in oklab, var(--primary) 35%, transparent);
-  text-underline-offset: 2px;
-  transition:
-    text-decoration-color 0.15s ease,
-    color 0.15s ease;
+  text-decoration: none;
+  color: var(--primary);
+  background-image: linear-gradient(var(--primary), var(--primary));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 1px;
+  transition: background-size 0.25s ease;
 }
 .prose :where(a):not(:where([class~='not-prose'] *)):hover {
-  text-decoration-color: var(--primary);
+  background-size: 100% 2px;
 }
 
 /* Lists: tidy markers and spacing. */
 .prose :where(ol > li, ul > li):not(:where([class~='not-prose'] *)) {
-  margin-top: 0.375rem;
-  margin-bottom: 0.375rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
   padding-left: 0.4em;
 }
 .prose :where(ol > li)::marker:not(:where([class~='not-prose'] *)) {
   font-weight: 600;
-  color: var(--muted-foreground);
+  color: var(--primary);
+}
+.prose :where(ul > li)::marker:not(:where([class~='not-prose'] *)) {
+  color: var(--primary);
 }
 
-/* Horizontal rule */
+/* Blockquote: glassy panel with a luminous edge. */
+.prose :where(blockquote):not(:where([class~='not-prose'] *)) {
+  margin: 1.75rem 0;
+  padding: 0.9rem 1.25rem;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-image: var(--gradient-brand) 1;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in oklab, var(--primary) 6%, transparent);
+  font-style: normal;
+  font-weight: 450;
+  color: var(--foreground);
+}
+.prose :where(blockquote p:first-of-type)::before,
+.prose :where(blockquote p:last-of-type)::after {
+  content: '';
+}
+
+/* Horizontal rule: a faded brand line. */
 .prose :where(hr):not(:where([class~='not-prose'] *)) {
   margin-top: 3rem;
   margin-bottom: 3rem;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 18%,
+    var(--border) 82%,
+    transparent
+  );
 }
 
-/* --- Code block treatment: a calm bordered surface with a slim label bar.
-   Inspired by Stripe/Vercel/Linear docs - the code is the hero, the chrome is
-   quiet. The label bar (filename/language) and copy affordance live in a
-   `figure.code-block` wrapper rendered alongside the <pre>. */
+/* Code blocks. The label bar + copy button live in a figure.code-block wrapper. */
 .prose :where(pre):not(:where([class~='not-prose'] *)) {
   position: relative;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  padding: 1.15rem 1.25rem;
+  padding: 1.2rem 1.3rem;
   background: var(--code-bg);
   color: var(--code-foreground);
   border: 1px solid var(--code-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  font-size: 0.875rem;
-  line-height: 1.75;
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.78;
   overflow-x: auto;
 }
 .prose :where(pre code):not(:where([class~='not-prose'] *)) {
@@ -171,54 +342,68 @@ html {
   color: inherit;
 }
 
-/* Code-block wrapper: slim top bar + bordered body sharing one frame. */
+/* Code-block wrapper: top bar + body in one frame, with a lit top edge. */
 .prose :where(.code-block):not(:where([class~='not-prose'] *)) {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: left;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
   border: 1px solid var(--code-border);
   border-radius: var(--radius-lg);
   background: var(--code-bg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
+}
+.prose :where(.code-block):not(:where([class~='not-prose'] *))::before {
+  content: '';
+  position: absolute;
+  inset: -1px -1px auto -1px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--octo-blue-bright) 55%, transparent),
+    color-mix(in oklab, var(--pink-100) 45%, transparent),
+    transparent
+  );
 }
 .code-block > .code-block__bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 2.5rem;
-  padding: 0 0.5rem 0 0.9rem;
+  height: 2.6rem;
+  padding: 0 0.5rem 0 1rem;
   background: var(--code-chrome);
   border-bottom: 1px solid var(--code-border);
 }
 .code-block__label {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   font-weight: 500;
-  color: color-mix(in oklab, var(--code-foreground) 62%, transparent);
+  color: color-mix(in oklab, var(--code-foreground) 64%, transparent);
 }
 .code-block__label svg {
-  width: 0.85rem;
-  height: 0.85rem;
-  color: color-mix(in oklab, var(--code-foreground) 45%, transparent);
+  width: 0.9rem;
+  height: 0.9rem;
+  color: color-mix(in oklab, var(--octo-blue-bright) 70%, transparent);
 }
-/* When wrapped (figure is .not-prose), the inner <pre> is excluded from the
-   prose pre rules, so re-apply the code surface here and drop the outer frame -
-   the figure provides it. */
+/* The inner <pre> (inside the .not-prose figure) re-states the code surface. */
 .code-block > pre {
   margin: 0;
-  padding: 1.15rem 1.25rem;
+  text-align: left;
+  padding: 1.2rem 1.3rem;
   border: 0;
   border-radius: 0;
   box-shadow: none;
   background: var(--code-bg);
   color: var(--code-foreground);
   font-family: var(--font-mono);
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 0.86rem;
+  line-height: 1.78;
   overflow-x: auto;
 }
 .code-block > pre code {
@@ -233,8 +418,8 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  height: 1.75rem;
-  padding: 0 0.55rem;
+  height: 1.8rem;
+  padding: 0 0.6rem;
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   background: transparent;
@@ -290,23 +475,24 @@ html {
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
+  background: color-mix(in oklab, var(--card) 60%, transparent);
 }
 .prose :where(thead):not(:where([class~='not-prose'] *)) {
   background: var(--muted);
   border-bottom: 1px solid var(--border);
 }
 .prose :where(thead th):not(:where([class~='not-prose'] *)) {
-  padding: 0.7rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  padding: 0.72rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted-foreground);
   border-bottom: 1px solid var(--border);
 }
 .prose :where(tbody td):not(:where([class~='not-prose'] *)) {
-  padding: 0.7rem 1rem;
+  padding: 0.72rem 1rem;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
@@ -317,18 +503,19 @@ html {
   background: color-mix(in oklab, var(--muted) 45%, transparent);
 }
 .prose :where(tbody tr):not(:where([class~='not-prose'] *)):hover {
-  background: color-mix(in oklab, var(--primary) 6%, transparent);
+  background: color-mix(in oklab, var(--primary) 7%, transparent);
 }
 
 /* Inline code chips, brand-tinted */
 .prose :not(pre) > code {
-  background: color-mix(in oklab, var(--muted) 70%, var(--background));
-  color: var(--foreground);
-  border: 1px solid var(--border);
-  padding: 0.1em 0.4em;
+  background: color-mix(in oklab, var(--primary) 10%, var(--background));
+  color: color-mix(in oklab, var(--primary) 72%, var(--foreground));
+  border: 1px solid color-mix(in oklab, var(--primary) 22%, transparent);
+  padding: 0.12em 0.42em;
   border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 0.8125em;
+  font-size: 0.8em;
   white-space: nowrap;
 }
 .prose :not(pre) > code::before,
@@ -343,7 +530,7 @@ html {
   gap: 0.4rem;
   padding: 0.15rem 0.6rem 0.15rem 0.5rem;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 600;
   line-height: 1.4;
   white-space: nowrap;
@@ -355,6 +542,21 @@ html {
   border-radius: 9999px;
   background: currentColor;
   box-shadow: 0 0 0 3px color-mix(in oklab, currentColor 22%, transparent);
+  animation: ds-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ds-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in oklab, currentColor 8%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
 }
 .status-pill--ok {
   color: var(--success-border);
@@ -369,8 +571,7 @@ html {
 
 /* --- Callout boxes (remark directive output) ---
    Authored as `:::div{.hint|.info|.success|.warning|.problem|.question}` and
-   rendered as raw `<div class="...">` inside .prose. Match ui/Callout.astro:
-   soft border + stronger left accent, tinted bg, comfortable padding. */
+   rendered as raw `<div class="...">` inside .prose. Match ui/Callout.astro. */
 .prose
   :where(
     div.hint,
@@ -380,18 +581,19 @@ html {
     div.problem,
     div.question
   ):not(:where([class~='not-prose'] *)) {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  padding: 0.95rem 1.1rem;
-  border: 1px solid color-mix(in oklab, var(--bd) 35%, transparent);
+  position: relative;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  padding: 1rem 1.15rem 1rem 1.2rem;
+  border: 1px solid color-mix(in oklab, var(--bd) 32%, transparent);
   border-left: 3px solid var(--bd);
   border-radius: var(--radius-lg);
   background: var(--bg);
   color: var(--c);
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.66;
+  box-shadow: var(--shadow-sm);
 }
-/* Intent token mapping (hint -> info/blue, question -> neutral/muted). */
 .prose :where(div.hint, div.info):not(:where([class~='not-prose'] *)) {
   --c: var(--info);
   --bg: var(--info-bg);
@@ -417,7 +619,6 @@ html {
   --bg: var(--question-bg);
   --bd: var(--question-border);
 }
-/* Tighten internal spacing and inherit the intent text color. */
 .prose
   :where(
     div.hint,
@@ -457,35 +658,76 @@ html {
   margin-bottom: 0;
 }
 
-/* --- Figures / images (remark `:::figure` directive output) ---
-   Rendered with .image (figure), .image__img (img), .image__caption (caption).
-   Center, constrain, round, subtle border; keep responsive srcset intact. */
-.prose :where(figure, .image):not(:where([class~='not-prose'] *)) {
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+/* In-content image "glass" effect (from the marketing site), scoped to .prose
+   so chrome imagery is untouched. Frosted panel + blurred bloom (::before)
+   behind; image/caption above via z-index. Tokens: --glass-* in tokens.css. */
+.prose :where(figure, .image, [data-image]):not(:where([class~='not-prose'] *)),
+.prose p:has(> img.resp-img:only-child):not(:where([class~='not-prose'] *)) {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+  max-width: 100%;
+  margin: 2.25rem auto;
+  padding: var(--glass-pad);
+  border-radius: var(--radius-lg);
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border-color);
+  box-shadow: var(--glass-shadow);
+  overflow: visible;
   text-align: center;
 }
-.prose :where(figure > p):not(:where([class~='not-prose'] *)) {
-  margin: 0;
+.prose
+  :where(figure, .image, [data-image]):not(
+    :where([class~='not-prose'] *)
+  )::before,
+.prose
+  p:has(> img.resp-img:only-child):not(:where([class~='not-prose'] *))::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  background: var(--glass-blur-glow);
 }
-.prose :where(img, .image__img):not(:where([class~='not-prose'] *)) {
-  display: inline-block;
+/* Inner image stacks above the bloom. */
+.prose
+  :where(figure, .image, [data-image]):not(:where([class~='not-prose'] *))
+  :where(img, .image__img),
+.prose
+  p:has(> img.resp-img:only-child):not(:where([class~='not-prose'] *))
+  > img {
+  position: relative;
+  z-index: 1;
+  display: block;
   max-width: 100%;
   height: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  /* Zero the plugin's block margins so glass padding is uniform on all sides. */
+  margin: 0 auto;
+  border-radius: calc(var(--radius-lg) - 0.15rem);
 }
-.prose :where(.image__caption):not(:where([class~='not-prose'] *)) {
+/* Strip prose margin from a wrapping <p> inside the figure. */
+.prose
+  :where(figure, .image, [data-image]):not(:where([class~='not-prose'] *))
+  :where(p):not(:where([class~='not-prose'] *)) {
+  margin: 0;
+}
+.prose :where(.image__caption, figcaption):not(:where([class~='not-prose'] *)) {
+  position: relative;
+  z-index: 1;
   display: block;
-  margin-top: 0.65rem;
+  margin-top: 0.7rem;
   text-align: center;
   color: var(--muted-foreground);
   font-size: 0.85rem;
   line-height: 1.5;
 }
 
-/* --- Table wrapper (wrapTables -> <div class="table-wrap">) ---
-   Allow horizontal scroll on overflow; the inner table keeps its own border. */
+/* --- Table wrapper (wrapTables -> <div class="table-wrap">) --- */
 .prose :where(.table-wrap):not(:where([class~='not-prose'] *)) {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -496,17 +738,182 @@ html {
   margin-bottom: 0;
 }
 
-/* --- Shiki code blocks (`<pre class="astro-code ...">`) ---
-   Give our frame (border + radius + padding) but leave Shiki's inline bg/colors
-   alone. Known: this renders light against our dark code surface - deferred. */
+/* --- Shiki code blocks (`<pre class="astro-code ...">`) --- */
 .prose :where(pre.astro-code):not(:where([class~='not-prose'] *)) {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  padding: 1.15rem 1.25rem;
-  border: 1px solid var(--border);
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--code-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  font-size: 0.875rem;
+  box-shadow: var(--shadow-md);
+  font-size: 0.86rem;
   line-height: 1.7;
   overflow-x: auto;
+}
+
+/* Buttons (ported from the marketing site's pu-button mixins). Primary = purple
+   with a cursor-tracked pink glow; secondary = gradient-border (::after mask).
+   --hover-x/--hover-y are set by the inline script in Button.astro. In the
+   components layer so utilities (h-9, hidden, px-*) can override base sizing. */
+@layer components {
+  .ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: fit-content;
+    padding: var(--space-12) var(--space-24);
+    border-radius: 0.5rem;
+    border: 0.0625rem solid transparent;
+    font-family: var(--font-sans);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    appearance: none;
+    transition-property: background, box-shadow, border-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  .ds-btn--primary {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    color: var(--white);
+    background: var(--purple-300);
+    border: none;
+  }
+  .ds-btn--primary::before {
+    content: '';
+    position: absolute;
+    left: var(--hover-x, 50%);
+    top: var(--hover-y, 50%);
+    width: 16rem;
+    height: 16rem;
+    background: radial-gradient(
+      circle closest-side,
+      var(--pink-100),
+      transparent
+    );
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .ds-btn--primary:hover {
+    box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.25);
+  }
+  .ds-btn--primary:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .ds-btn--primary:active {
+    box-shadow: var(--button-shadow-inner);
+  }
+  .ds-btn--primary:focus-visible {
+    outline: 0.25rem solid rgba(105, 80, 255, 0.5);
+    box-shadow: none;
+  }
+  .ds-btn--primary:focus-visible::before {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .ds-btn--secondary {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    color: var(--secondary-button-text);
+    background: var(--secondary-button-bg);
+    border: none;
+  }
+  .ds-btn--secondary::before {
+    content: '';
+    position: absolute;
+    left: var(--hover-x, 50%);
+    top: var(--hover-y, 50%);
+    width: 14rem;
+    height: 14rem;
+    background: radial-gradient(
+      circle closest-side,
+      var(--secondary-button-hover-glow),
+      transparent
+    );
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+  /* Gradient border ring via a masked padding box. */
+  .ds-btn--secondary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.0625rem;
+    background: var(--purple-300);
+    -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    -webkit-mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    mask-clip: content-box, border-box;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .ds-btn--secondary svg path {
+    transition: stroke 200ms ease-in-out;
+  }
+  .ds-btn--secondary:hover {
+    color: var(--secondary-button-hover-text);
+    background: var(--secondary-button-hover-bg);
+  }
+  .ds-btn--secondary:hover svg path {
+    stroke: var(--secondary-button-hover-text);
+  }
+  .ds-btn--secondary:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .ds-btn--secondary:hover::after {
+    background: radial-gradient(
+      circle 7rem at var(--hover-x, 50%) var(--hover-y, 50%),
+      var(--secondary-button-hover-border),
+      var(--purple-300)
+    );
+  }
+  .ds-btn--secondary:active {
+    box-shadow: var(--button-shadow-inner);
+  }
+  .ds-btn--secondary:active::before {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  .ds-btn--secondary:active::after {
+    background: var(--purple-400);
+  }
+  .ds-btn--secondary:focus-visible {
+    background: var(--secondary-button-bg);
+    outline: 0.25rem solid var(--purple-300);
+    box-shadow: none;
+  }
+  .ds-btn--secondary:focus-visible::before {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  /* Low-emphasis text button. */
+  .ds-btn--ghost {
+    color: var(--foreground);
+    background: transparent;
+    border-color: transparent;
+  }
+  .ds-btn--ghost:hover {
+    background: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-btn--primary::before,
+    .ds-btn--secondary::before {
+      transition: none;
+    }
+  }
 }

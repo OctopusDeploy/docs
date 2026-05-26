@@ -10,13 +10,66 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<aside class="hidden xl:block w-56 shrink-0" aria-label="On this page" data-component="DocsToc">
-  <nav class="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-14 pl-6">
-    <p
-      class="mb-3 flex items-center gap-2 text-[0.74rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/70"
+<aside
+  class="hidden xl:block w-56 shrink-0"
+  aria-label="On this page"
+  data-component="DocsToc"
+>
+  <nav
+    class="ds-toc sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-14 pl-6"
+  >
+    <div class="ds-toc__head">
+      <p class="ds-toc__title">
+        <svg
+          class="ds-toc__title-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path>
+        </svg>
+        On this page
+      </p>
+      <span class="ds-toc__pct" data-toc-pct aria-hidden="true">0%</span>
+    </div>
+
+    <div class="ds-toc__rail-wrap">
+      <span class="ds-toc__rail" aria-hidden="true"></span>
+      <span class="ds-toc__progress" data-toc-progress aria-hidden="true"
+      ></span>
+      <span class="ds-toc__thumb" data-toc-thumb aria-hidden="true"></span>
+
+      <ul class="ds-toc__list" data-toc>
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-toc-link
+                class={`ds-toc__link ${item.depth === 2 ? 'is-nested' : ''}`}
+              >
+                <span class="ds-toc__dot" aria-hidden="true" />
+                <span class="ds-toc__label">{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <a
+      href="#"
+      class="ds-toc__top"
+      data-toc-top
+      tabindex="-1"
+      aria-hidden="true"
     >
       <svg
-        class="h-3.5 w-3.5"
+        class="ds-toc__top-icon"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -25,34 +78,249 @@ const { items } = Astro.props;
         stroke-linejoin="round"
         aria-hidden="true"
       >
-        <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path>
+        <path d="M12 19V5M5 12l7-7 7 7"></path>
       </svg>
-      On this page
-    </p>
-    <ul class="space-y-0.5 border-l border-border" data-toc>
-      {
-        items.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              data-toc-link
-              class={`-ml-px block border-l-2 border-transparent py-[0.3rem] text-[0.875rem] leading-snug text-muted-foreground transition-colors duration-150 hover:border-primary/50 hover:text-foreground aria-[current=true]:border-primary aria-[current=true]:font-medium aria-[current=true]:text-primary ${
-                item.depth === 2 ? 'pl-7' : 'pl-4'
-              }`}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+      Back to top
+    </a>
   </nav>
 </aside>
 
+<style>
+  /* TOC: continuous rail with a brand reading-progress fill and a sliding
+     active thumb. Active state is driven by aria-current from the scroll-spy
+     script; thumb position/height come from --thumb-* set in the script. */
+  .ds-toc {
+    --thumb-top: 0px;
+    --thumb-h: 0px;
+    --thumb-on: 0;
+    --toc-progress: 0%;
+  }
+
+  .ds-toc__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .ds-toc__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
+  }
+  .ds-toc__title-icon {
+    height: 0.85rem;
+    width: 0.85rem;
+    color: var(--primary);
+  }
+  .ds-toc__pct {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in oklab, var(--muted-foreground) 60%, transparent);
+    opacity: 0;
+    transform: translateY(-2px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+  .ds-toc[data-scrolled] .ds-toc__pct {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ds-toc__rail-wrap {
+    position: relative;
+  }
+  /* Base rail: the faint track. */
+  .ds-toc__rail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 9999px;
+    background: var(--border);
+  }
+  /* Reading-progress fill grows top-down with scroll. */
+  .ds-toc__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: var(--toc-progress);
+    border-radius: 9999px;
+    background: var(--gradient-brand);
+    box-shadow: 0 0 8px -1px var(--glow-brand);
+    transition: height 0.15s linear;
+  }
+  /* Sliding active thumb: a brighter, glowing segment of the rail. */
+  .ds-toc__thumb {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 4px;
+    height: var(--thumb-h);
+    border-radius: 9999px;
+    background: var(--primary);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent),
+      0 0 14px -1px var(--glow-primary);
+    opacity: var(--thumb-on);
+    transform: translateY(var(--thumb-top));
+    transition:
+      transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+      height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.25s ease;
+  }
+
+  .ds-toc__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ds-toc__list li {
+    margin: 0;
+  }
+
+  .ds-toc__link {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding: 0.34rem 0 0.34rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    border-radius: 0.3rem;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .ds-toc__link.is-nested {
+    padding-left: 1.75rem;
+    font-size: 0.82rem;
+  }
+  /* Small leading dot brightens on hover/active for a tactile feel. */
+  .ds-toc__dot {
+    flex: none;
+    margin-top: 0.5em;
+    height: 4px;
+    width: 4px;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+    transition:
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+  .ds-toc__link.is-nested .ds-toc__dot {
+    height: 3px;
+    width: 3px;
+  }
+  .ds-toc__label {
+    transition: inherit;
+  }
+
+  .ds-toc__link:hover {
+    color: var(--foreground);
+    transform: translateX(2px);
+  }
+  .ds-toc__link:hover .ds-toc__dot {
+    background: color-mix(in oklab, var(--primary) 70%, transparent);
+  }
+  .ds-toc__link[aria-current='true'] {
+    color: var(--primary);
+    font-weight: 550;
+  }
+  .ds-toc__link[aria-current='true'] .ds-toc__dot {
+    background: var(--primary);
+    transform: scale(1.4);
+    box-shadow: 0 0 8px 0 var(--glow-primary);
+  }
+  .ds-toc__link:focus-visible {
+    outline: none;
+    color: var(--foreground);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 60%, transparent);
+  }
+
+  /* Back to top: appears once the reader has scrolled. */
+  .ds-toc__top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.4rem;
+    padding: 0.3rem 0.1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition:
+      color 0.2s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+  .ds-toc[data-scrolled] .ds-toc__top {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .ds-toc__top:hover {
+    color: var(--primary);
+  }
+  .ds-toc__top:focus-visible {
+    outline: none;
+    color: var(--foreground);
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 60%, transparent);
+  }
+  .ds-toc__top-icon {
+    height: 0.85rem;
+    width: 0.85rem;
+    transition: transform 0.2s ease;
+  }
+  .ds-toc__top:hover .ds-toc__top-icon {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-toc__thumb,
+    .ds-toc__progress,
+    .ds-toc__link,
+    .ds-toc__dot,
+    .ds-toc__pct,
+    .ds-toc__top,
+    .ds-toc__top-icon {
+      transition: none;
+    }
+    .ds-toc__link:hover {
+      transform: none;
+    }
+  }
+</style>
+
 <script is:inline>
   (() => {
+    const root = document.querySelector('[data-component="DocsToc"] .ds-toc');
     const links = Array.from(document.querySelectorAll('[data-toc-link]'));
-    if (!links.length) return;
+    if (!root || !links.length) return;
+
+    const thumb = root.querySelector('[data-toc-thumb]');
+    const pctEl = root.querySelector('[data-toc-pct]');
+    const topBtn = root.querySelector('[data-toc-top]');
+
     const byId = new Map();
     const targets = [];
     for (const link of links) {
@@ -64,13 +332,26 @@ const { items } = Astro.props;
         targets.push(el);
       }
     }
+
+    // Slide the active thumb to the current link (relative to the list).
+    const moveThumb = (link) => {
+      if (!thumb || !link) return;
+      const h = link.offsetHeight * 0.6;
+      const top = link.offsetTop + (link.offsetHeight - h) / 2;
+      root.style.setProperty('--thumb-top', `${top}px`);
+      root.style.setProperty('--thumb-h', `${h}px`);
+      root.style.setProperty('--thumb-on', '1');
+    };
+
     let current = null;
     const setActive = (id) => {
       if (id === current) return;
       current = id;
       for (const [lid, link] of byId)
         link.setAttribute('aria-current', lid === id ? 'true' : 'false');
+      moveThumb(byId.get(id));
     };
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -81,5 +362,48 @@ const { items } = Astro.props;
       { rootMargin: '-88px 0px -65% 0px', threshold: 0 }
     );
     targets.forEach((t) => observer.observe(t));
+
+    // Reading progress + scrolled affordances, throttled to animation frames.
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        const pct = max > 0 ? Math.min(1, Math.max(0, doc.scrollTop / max)) : 0;
+        root.style.setProperty('--toc-progress', `${(pct * 100).toFixed(1)}%`);
+        if (pctEl) pctEl.textContent = `${Math.round(pct * 100)}%`;
+        if (doc.scrollTop > 120) root.setAttribute('data-scrolled', '');
+        else root.removeAttribute('data-scrolled');
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      moveThumb(byId.get(current));
+      onScroll();
+    });
+    onScroll();
+
+    // Keep "Back to top" keyboard-reachable only when visible.
+    if (topBtn) {
+      const sync = () => {
+        const on = root.hasAttribute('data-scrolled');
+        topBtn.setAttribute('tabindex', on ? '0' : '-1');
+        topBtn.setAttribute('aria-hidden', on ? 'false' : 'true');
+      };
+      new MutationObserver(sync).observe(root, {
+        attributes: true,
+        attributeFilter: ['data-scrolled'],
+      });
+      topBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const reduce = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }
   })();
 </script>
