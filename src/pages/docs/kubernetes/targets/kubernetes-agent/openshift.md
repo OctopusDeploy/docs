@@ -59,17 +59,17 @@ Installation steps are following:
 
     ```yaml
     agent:
-    securityContext:
+      securityContext:
         runAsUser: 999
         runAsGroup: 999
         fsGroup: 999
         fsGroupChangePolicy: "OnRootMismatch"
     scriptPods:
-    securityContext: 
+      securityContext: 
         runAsUser: 999
         runAsGroup: 999
         fsGroup: 999
         fsGroupChangePolicy: "OnRootMismatch"
     persistence:
-    storageClassName: {your-custom-value} #required - use name from previous step
+      storageClassName: {your-custom-value} #required - use name from previous step
     ```
