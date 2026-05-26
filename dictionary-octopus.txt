@@ -281,6 +281,7 @@ mattc
 maxage
 mdast
 Metabase
+microsite
 milli
 minidump
 minifier
@@ -328,6 +329,7 @@ nodir
 nologo
 nologs
 noninteractive
+nonroot-v2
 noopener
 NOPASSWD
 noreferrer
@@ -624,4 +626,3 @@ xxlarge
 youtu
 Zstandard
 Zuora
-nonroot-v2
