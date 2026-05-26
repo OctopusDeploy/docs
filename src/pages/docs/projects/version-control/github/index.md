@@ -30,7 +30,7 @@ Selecting authorize will take you to GitHub to complete the installation and aut
 
 Self-hosted instances have an extra step in the authorization flow compared to Octopus Cloud instances. After authorizing on GitHub, our intermediary GitHub Web App will provide you with an access code. Copy this code, and paste it into the field shown in your Octopus instance to complete the connection.
 
-If your instance is on a **private or isolated network** that is not accessible from the internet, you will also need to configure [external signing key hosting](/docs/infrastructure/signing-keys) before connecting. The Octopus GitHub service verifies your instance's identity by fetching its public signing key from your OIDC discovery endpoint — if your instance isn't reachable from the internet, you need to host those keys at a publicly accessible location first.
+If your instance is on a **private or isolated network** that is not accessible from the internet, you will also need to configure [external signing key hosting](/docs/infrastructure/signing-keys#externally-hosted) before connecting. The Octopus GitHub service verifies your instance's identity by fetching its public signing key from your OIDC discovery endpoint — if your instance isn't reachable from the internet, you need to host those keys at a publicly accessible location first.
 
 #### More information on installing and authorizing the Octopus GitHub App
 
