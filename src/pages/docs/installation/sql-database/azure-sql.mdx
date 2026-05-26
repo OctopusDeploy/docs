@@ -2,9 +2,9 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-22
-title: Azure SQL
+title: Azure SQL for the Octopus Deploy database
 navTitle: Azure SQL
-description: Guidelines and recommendations for configuring Azure SQL to host the Octopus Deploy Database.
+description: Host your Octopus Deploy database on Azure SQL. Review supported service tiers, sizing recommendations, and configuration steps before you get started.
 navOrder: 30
 hideInThisSection: true
 ---
@@ -13,7 +13,6 @@ Each Octopus Server node stores project, environment, and deployment-related dat
 
 - [SQL Server on a Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview/) -  To run SQL Server on a VM, please refer to our [self-managed SQL Server guide](/docs/installation/sql-database/self-managed-sql-server).
 - [Azure SQL Database as a Service](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview/)
-
 
 ## Using Microsoft Entra in Azure SQL \{#using-entra-in-azure-sql}
 
@@ -25,7 +24,7 @@ For self-hosted installations of Octopus Deploy, you will need to click on the `
 
 ## High Availability
 
-The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it. 
+The database is a critical component of Octopus Deploy.  If the database is lost or destroyed all your configuration will be lost with it.
 
 We recommend using [zone-redundant availability](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#zone-redundant-availability) with Azure SQL to ensure the resilience and availability of your Octopus database. This will ensure that your replicated is spread across three Azure availability zones in the primary region. In the event of a failure of the primary zone Azure SQL automatically switches to another zone.
 

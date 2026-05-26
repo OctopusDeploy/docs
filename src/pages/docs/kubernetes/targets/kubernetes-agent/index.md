@@ -167,6 +167,37 @@ Look at the Helm chart [values.yaml](https://github.com/OctopusDeploy/helm-chart
 
 The Kubernetes monitor is deployed as a sub-chart to the Kubernetes agent. [Available values for the monitor are available here](https://github.com/OctopusDeploy/helm-charts/blob/main/charts/kubernetes-agent/kubernetes-monitor.md). All Kubernetes monitor values should be nested under a `kubernetesMonitor` key when deployed with the Kubernetes agent chart.
 
+### Non-root configuration
+
+Agent and script pods support running in non-root mode. UID/GID should be 999.
+
+```yaml
+agent:
+  securityContext:
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999
+    fsGroupChangePolicy: "OnRootMismatch"
+scriptPods:
+  securityContext: 
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999
+    fsGroupChangePolicy: "OnRootMismatch"
+persistence:
+  storageClassName: {your-custom-value} #required
+```
+
+To make sure that you will not have problems with PV StorageClass requires to have explicit UID to match one from securityContext. Here is important part of your StorageClass `mountOptions`:
+
+```yaml
+mountOptions:
+- uid=999
+- forceuid
+- file_mode=0775 #rwx for user required
+- dir_mode=0775 #rwx for user required
+```
+
 ## Configuring the agent with Tenants
 
 While the wizard doesn't support selecting Tenants or Tenant tags, the agent can be configured for tenanted deployments in two ways:
@@ -261,7 +292,7 @@ data:
 
 ### gRPC certificates
 
-When installing the Kubernetes monitor, you will possibly encounter the same certificate issues for the gRPC communcations as you do for the Octopus server certificate.
+When installing the Kubernetes monitor, you will possibly encounter the same certificate issues for the gRPC communications as you do for the Octopus server certificate.
 
 Depending on your load balancer configuration, you have several options for how to handle this.
 

@@ -59,6 +59,14 @@ create new pods for each requested operation.
 
 The Kubernetes Worker allows execution permissions to be overwritten in the same way as the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent/permissions).
 
+## Non-root mode
+
+The Kubernetes Worker non-root mode can be configured in the same way as the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent#non-root-configuration).
+
+## Openshift
+
+The Kubernetes Worker installation on Openshift similar to [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent/openshift).
+
 ## Limitations
 
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.

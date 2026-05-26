@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Defining the runbook process for workers
-description: Step by step guide on how to define a runbook process to run on Workers in Octopus Deploy.
+title: Define a runbook process for Workers
+description: Define the steps in your Octopus Deploy runbook to run on Workers. Add a script step, select a Worker pool, and save the runbook process to run on demand.
 navOrder: 40
 hideInThisSection: true
 ---
@@ -47,7 +47,7 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 
 The next step will [run the runbook](/docs/getting-started/first-runbook-run/running-a-runbook).
 
-**Further Reading**
+**Further Reading:**
 
 For further reading on runbook processes and what is possible please see:
 

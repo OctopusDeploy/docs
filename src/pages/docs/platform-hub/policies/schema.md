@@ -28,7 +28,7 @@ The table below summarizes every top-level field available to your policies.
 | [Steps](#steps) | array | Yes | All steps included in the deployment process |
 | [SkippedSteps](#steps-and-skippedsteps) | array | Yes | IDs of any steps excluded from this deployment |
 | [Execution](#execution) | array | Yes | Execution order and parallelism settings for each step |
-| RequiresApproval | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
+| [RequiresApproval](#requiresapproval) | boolean | Yes | Whether the execution requires an [approval](/docs/approvals) |
 | [Tenant](#tenant) | object | **No** | Present only for tenanted deployments |
 | [Release](#release) | object | **No** | Present only for deployments (not runbook runs) |
 | [Runbook](#runbook) | object | **No** | Present only for runbook runs (not deployments) |
@@ -94,6 +94,23 @@ The project group the project belongs to.
 | Id | string | The unique identifier for the project group |
 | Name | string | The display name of the project group |
 | Slug | string | The URL-safe slug for the project group |
+
+### RequiresApproval
+
+Indicates whether an ITSM change approval is required for this deployment. Derived from the change control settings configured on the target project and environment.
+
+**Example usage:**
+
+```ruby
+package require_change_approvals
+
+default result := { "allowed": false }
+
+result := {
+    "allowed": input.RequiresApproval,
+    "reason": "No ITSM change request was found attached to this deployment or runbook run. Attach an approved change request, and try again.",
+}
+```
 
 ### Tenant
 
@@ -163,6 +180,7 @@ result := {"allowed": true} if {
     step.Source.SlugOrId == "<ActionTemplate-ID>"
     not step.Id in input.SkippedSteps
     step.Enabled == true
+    step.IsConditional == false
 }
 ```
 
@@ -206,6 +224,52 @@ result := {"allowed": true} if {
 | Slug | string | Yes | The URL-safe slug for the feed |
 | Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
 | Uri | string | No | The configured endpoint for the feed |
+
+**Example usage:**
+
+```ruby
+package block_cross_environment_feeds
+
+default result := {
+    "allowed": true,
+    "reason": "All packages use feeds appropriate for the target environment.",
+}
+
+# Collect all packages across all steps
+all_packages contains pkg if {
+    some step in input.Steps
+    some pkg in step.Packages
+}
+
+# Violation: dev feed used in production
+violations contains msg if {
+    input.Environment.Slug == "prod"
+    some pkg in all_packages
+    contains(lower(pkg.Feed.Slug), "dev")
+    msg := sprintf(
+      "Non-compliant: Step '%s' uses dev feed '%s' but is deploying to Production.",
+      [pkg.Id, pkg.Feed.Name],
+    )
+}
+
+# Violation: prod feed used in dev
+violations contains msg if {
+    input.Environment.Slug == "dev"
+    some pkg in all_packages
+    contains(lower(pkg.Feed.Slug), "prod")
+    msg := sprintf(
+      "Step '%s' uses prod feed '%s' but is deploying to Dev.",
+      [pkg.Id, pkg.Feed.Name],
+    )
+}
+
+result := {
+    "allowed": false,
+    "reason": concat(" ", violations),
+} if {
+    count(violations) > 0
+}
+```
 
 :::div{.hint}
 

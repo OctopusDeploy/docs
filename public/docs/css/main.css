@@ -166,11 +166,11 @@ h1 {
   margin: 0 0 1rem 0;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2:not(:where([data-shared-fragment] *)),
+h3:not(:where([data-shared-fragment] *)),
+h4:not(:where([data-shared-fragment] *)),
+h5:not(:where([data-shared-fragment] *)),
+h6:not(:where([data-shared-fragment] *)) {
   font-weight: 800;
   line-height: 1.4;
   color: var(--color-heading);
@@ -184,23 +184,23 @@ h6 {
   }
 }
 
-h2 {
+h2:not(:where([data-shared-fragment] *)) {
   font-size: var(--font-size-xlarge);
 }
 
-h3 {
+h3:not(:where([data-shared-fragment] *)) {
   font-size: var(--font-size-large);
 }
 
-h4 {
+h4:not(:where([data-shared-fragment] *)) {
   font-size: var(--font-size-regular);
 }
 
-h5 {
+h5:not(:where([data-shared-fragment] *)) {
   font-size: var(--font-size-medium);
 }
 
-h6 {
+h6:not(:where([data-shared-fragment] *)) {
   font-size: var(--font-size-small);
 }
 
@@ -1300,6 +1300,19 @@ li.has-children .sub-nav ul li:focus > a {
   padding-block: var(--gap-menu);
 }
 
+/* Right-chevron on top-level section links (navigate, not expand). */
+.site-nav
+  > .site-nav__list
+  > .site-nav__list-item:not(.has-children)
+  > a::after {
+  content: '\f054';
+  /* Chevron Right */
+  font-family: fa-solid;
+  float: right;
+  color: var(--color-menu-marker);
+  margin-inline-end: 0.5rem;
+}
+
 .site-nav details[open] > summary {
   background-color: var(--bg-color-menu-open);
   font-weight: bold;
@@ -2208,6 +2221,14 @@ a[data-youtube] {
 
 .recent-updates time {
   display: block;
+}
+
+.page-content {
+  li:has(figure) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 /* Paging */

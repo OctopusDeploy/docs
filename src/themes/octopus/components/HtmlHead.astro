@@ -3,6 +3,8 @@ import { Accelerator } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE, OPEN_GRAPH, HEADER_SCRIPTS } from '@config';
 import { getEligibleSlugs } from '@util/mdxContent';
+import JsonLd from '@components/JsonLd.astro';
+import { ASSETS, ASSETS_ORIGIN } from 'src/lib/sharedNavbarFooter';
 
 const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
@@ -58,9 +60,12 @@ stats.stop();
   <meta name="robots" content={'max-image-preview:large, ' + robots} />
   <meta name="keywords" content={frontmatter.keywords} />
   <meta name="description" content={frontmatter.description} />
+  <link rel="preconnect" href={ASSETS_ORIGIN} crossorigin />
+  <link rel="stylesheet" href={`${ASSETS}/pu-vars.css`} />
+  <link rel="stylesheet" href={`${ASSETS}/footer-pu-styles.css`} />
+  <link rel="stylesheet" href={`${ASSETS}/marketo-pu-styles.css`} />
   <link rel="stylesheet" href={SITE.subfolder + '/css/vars.css'} />
   <link rel="stylesheet" href={SITE.subfolder + '/css/main.css'} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/footer-bundle.css'} />
   {
     autoMeta('viewport') && (
       <meta
@@ -123,5 +128,12 @@ stats.stop();
   <meta name="view-transition" content="same-origin" />
   {pageMeta.map((m) => <meta name={m.name} content={m.content} />)}
   {authorMeta.map((m) => <meta name={m.name} content={m.content} />)}
+  <JsonLd
+    frontmatter={frontmatter}
+    canonicalURL={canonicalURL.toString()}
+    socialTitle={socialTitle}
+    imageURL={canonicalImageSrc.toString()}
+    authors={authorList}
+  />
   <Fragment set:html={HEADER_SCRIPTS} />
 </head>
