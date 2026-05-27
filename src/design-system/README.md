@@ -6,8 +6,9 @@ each maintaining its own CSS. Everything here is plain Astro + CSS custom proper
 Tailwind v4 utilities - **no React/Vue/Svelte, no client framework runtime** - which keeps
 SEO and Core Web Vitals intact on statically generated pages.
 
-> Status: MVP. Proven in this repo on `/docs/ui-mvp`, which is the first consumer of this
-> module. Adopt it elsewhere by copying this one folder and wiring two things.
+> Status: MVP / preview — not yet production-complete. Proven in this repo on `/docs/ui-mvp`,
+> the first consumer of this module. Adopt it elsewhere by copying this one folder and wiring
+> two things.
 
 ---
 
@@ -187,13 +188,11 @@ These hold by construction; preserve them when extending the system.
   `itemprop` headline/description/articleBody; heading hierarchy is semantic. Keep these when
   editing the shell.
 - **Core Web Vitals.** No blocking JS, no layout-shifting hydration. A FOUC-prevention inline
-  script in `DocsLayout`'s `<head>` applies the stored theme before paint. The "Abyssal"
-  revamp **does** load three web fonts (Bricolage Grotesque / Hanken Grotesk / JetBrains Mono
-  via Bunny Fonts, a privacy-friendly Google Fonts mirror) - a deliberate trade for distinctive
-  type. They are `preconnect`ed and `display=swap`, and every `--font-*` token keeps a system
-  stack fallback, so first paint uses system fonts and there is no invisible-text delay. If a
-  site must stay font-free, point the `--font-*` tokens back at system stacks and drop the
-  `<link>`s from the layout heads - nothing else changes.
+  script in `DocsLayout`'s `<head>` applies the stored theme before paint. Three web fonts
+  (Bricolage Grotesque / Hanken Grotesk / JetBrains Mono via Bunny Fonts, a privacy-friendly
+  Google Fonts mirror) are `preconnect`ed and `display=swap`, and every `--font-*` token keeps
+  a system-stack fallback, so first paint uses system fonts with no invisible-text delay. To go
+  font-free, point the `--font-*` tokens at system stacks and drop the `<link>`s from the heads.
 - **In-content images get the "glass" effect.** Images authored inside documentation content
   (`.prose figure` / `.image` / `[data-image]` from `<Image>` and the `:::figure` / `:img`
   directives, plus standalone `img.resp-img`) are wrapped in a frosted panel with a blurred
@@ -217,7 +216,7 @@ These hold by construction; preserve them when extending the system.
 |---|---|---|
 | FOUC theme apply | `docs-shell/DocsLayout.astro` (head) | Set `data-theme` from `localStorage` before paint |
 | Theme toggle | `docs-shell/DocsHeader.astro` | Toggle + persist light/dark |
-| Search dropdown | `docs-shell/DocsHeader.astro` | Filtered, keyboard-navigable results list (currently sample data - see gaps) |
+| Search | `docs-shell/DocsHeader.astro` renders the real `themes/octopus/components/Search.astro` | The real `search.js` engine (index + scoring + synonyms), re-skinned via `.ds-search` CSS. Not a design-system script. |
 | TOC scroll-spy | `docs-shell/DocsToc.astro` | IntersectionObserver active-section highlight |
 | Copy button | `ui/CodeBlock.astro` | Delegated copy-to-clipboard with "Copied" state |
 | Button glow | `ui/Button.astro` | Tracks the pointer to set `--hover-x/--hover-y` for the cursor-following glow |
@@ -226,9 +225,10 @@ These hold by construction; preserve them when extending the system.
 
 ## 5. Known MVP gaps (intentionally out of scope)
 
-- **Search is demo data.** The dropdown filters ~14 hard-coded sample entries. Wiring the
-  real search index (the existing `search.json` / `Search.astro` backend) is a data swap, not
-  a structural change.
+- **Search uses the real engine.** The header renders the existing `Search.astro` +
+  `search.js` (full `search.json` index, scoring, synonyms), re-skinned to the new UI via
+  `.ds-search` CSS. The engine files are unmodified; the layout sets `window.site_url` /
+  `window.site_features` (which `search.js` depends on).
 - **Code blocks: no syntax highlighting.** `CodeBlock` gives the surface + filename bar +
   copy button, but not token highlighting. Add a build-time highlighter (Shiki via
   rehype/remark) if needed. Bare fenced code in MDX gets the styled surface but not the

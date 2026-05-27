@@ -1,8 +1,7 @@
 ---
-// Recursive nav renderer for the real Octopus nav tree (NavPage[]).
-// Reuses DocsSidebar's visual language (eyebrow section labels, active-item
-// indicator, focus rings) but renders nested native <details> sections.
-// Zero-JS: collapsible state is native <details open>.
+// Recursive nav over the Octopus nav tree (NavPage[]). Three shapes: leaf link,
+// collapsed top-level link (right-chevron), expandable native <details>.
+// Zero-JS. Styling lives in theme.css (.ds-nav__*) so it paints on first load.
 import { Accelerator } from 'astro-accelerator-utils';
 import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { SITE } from '@config';
@@ -18,28 +17,43 @@ const { page, depth = 0 } = Astro.props satisfies Props;
 const displayLink = page.title != null;
 const linkTitle = page.title === page.fullTitle ? null : page.fullTitle;
 const children = page.children.slice().sort((a, b) => a.order - b.order);
+
+const href = accelerator.urlFormatter.formatAddress(page.url);
+
+// page.ariaCurrent is the source of truth; fall back to a normalized path
+// compare because the upstream exact-match misses on trailing-slash diffs.
+const normalize = (p: string) => p.replace(/\/+$/, '') || '/';
+const currentPath = normalize(new URL(Astro.url).pathname);
+const isCurrent = Boolean(page.ariaCurrent) || normalize(href) === currentPath;
+const ariaCurrent = isCurrent ? page.ariaCurrent || 'page' : undefined;
+
+// Open section on the active branch lights its rail (the trail to the page).
+const isCurrentPage = (p: NavPage): boolean =>
+  Boolean(p.ariaCurrent) ||
+  normalize(accelerator.urlFormatter.formatAddress(p.url)) === currentPath;
+const onActiveTrail =
+  page.children.length > 0 &&
+  page.isOpen &&
+  page.children.some(function hasCurrent(c: NavPage): boolean {
+    return isCurrentPage(c) || c.children.some(hasCurrent);
+  });
 ---
 
 {
   displayLink && page.children.length === 0 && (
-    <li data-component="DocsSidebarNav">
+    <li class="ds-nav__item" data-component="DocsSidebarNav">
       <a
-        href={accelerator.urlFormatter.formatAddress(page.url)}
-        aria-current={page.ariaCurrent ? page.ariaCurrent : undefined}
+        href={href}
+        aria-current={ariaCurrent}
         rel={page.rel}
         title={linkTitle}
-        class={`group/link relative flex items-center justify-between gap-2 rounded-lg py-[0.47rem] pr-2.5 text-[0.9rem] leading-snug outline-none transition-[color,background-color] duration-150 focus-visible:ring-2 focus-visible:ring-ring ${
-          depth > 0 ? 'pl-3' : 'pl-3'
-        } ${
-          page.ariaCurrent
-            ? 'bg-primary/[0.08] font-semibold text-primary before:absolute before:inset-y-1.5 before:left-0 before:w-[3px] before:rounded-r-full before:bg-primary before:shadow-[0_0_10px_1px_var(--glow-primary)]'
-            : 'font-medium text-sidebar-foreground hover:bg-muted/55 hover:text-foreground'
-        }`}
+        class={`ds-nav__link ${depth === 0 ? 'ds-nav__link--top' : 'ds-nav__link--leaf'}`}
       >
-        <span class="truncate">{page.title}</span>
+        {depth > 0 && <span class="ds-nav__node" aria-hidden="true" />}
+        <span class="ds-nav__text">{page.title}</span>
         {depth === 0 && (
           <svg
-            class="h-3.5 w-3.5 shrink-0 text-muted-foreground/45"
+            class="ds-nav__chevron ds-nav__chevron--nav"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -57,21 +71,18 @@ const children = page.children.slice().sort((a, b) => a.order - b.order);
 }
 {
   displayLink && page.children.length > 0 && (
-    <li data-component="DocsSidebarNav">
+    <li class="ds-nav__item" data-component="DocsSidebarNav">
       <details
         open={page.isOpen}
-        class={`group ${depth === 0 ? 'mb-7 last:mb-0' : 'mt-px'}`}
+        class={`ds-nav__section ${depth === 0 ? 'ds-nav__section--top' : 'ds-nav__section--nested'} ${onActiveTrail ? 'is-trail' : ''}`}
       >
         <summary
-          class={`flex cursor-pointer list-none items-center justify-between gap-2 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden ${
-            depth === 0
-              ? 'mb-2.5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground/60'
-              : 'px-3 py-[0.47rem] text-[0.9rem] font-medium leading-snug text-sidebar-foreground hover:bg-muted/55 hover:text-foreground'
-          }`}
+          class={`ds-nav__summary ${depth === 0 ? 'ds-nav__summary--top' : 'ds-nav__summary--nested'}`}
         >
-          <span>{page.section}</span>
+          {depth > 0 && <span class="ds-nav__node" aria-hidden="true" />}
+          <span class="ds-nav__text">{page.section}</span>
           <svg
-            class="h-3.5 w-3.5 shrink-0 text-muted-foreground/70 transition-transform group-open:rotate-90"
+            class="ds-nav__chevron"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -80,15 +91,11 @@ const children = page.children.slice().sort((a, b) => a.order - b.order);
             stroke-linejoin="round"
             aria-hidden="true"
           >
-            <path d="m9 18 6-6-6-6" />
+            <path d="m6 9 6 6 6-6" />
           </svg>
         </summary>
         <ul
-          class={
-            depth === 0
-              ? 'space-y-0.5'
-              : 'ml-3 space-y-0.5 border-l border-border/50 pl-2'
-          }
+          class={`ds-nav__list ${depth === 0 ? 'ds-nav__list--top' : 'ds-nav__list--nested'}`}
         >
           {children.map((child) => (
             <Astro.self page={child} depth={depth + 1} />

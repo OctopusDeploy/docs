@@ -1,5 +1,6 @@
 ---
 import '../theme.css';
+import { SITE } from '@config';
 import DocsHeader from './DocsHeader.astro';
 import DocsSidebar from './DocsSidebar.astro';
 import DocsToc from './DocsToc.astro';
@@ -30,7 +31,7 @@ const kicker =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · Octopus Docs</title>
     {description && <meta name="description" content={description} />}
-    <!-- Web fonts via Bunny (GF mirror); preconnect + swap. -->
+    <!-- Web fonts via Bunny (privacy-friendly GF mirror); preconnect + swap. -->
     <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
     <link
       rel="stylesheet"
@@ -47,6 +48,13 @@ const kicker =
   <body
     class="relative min-h-screen bg-background font-sans text-foreground antialiased"
   >
+    <script
+      is:inline
+      define:vars={{ site_url: SITE.url, site_features: SITE.featureFlags }}
+    >
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
     <div class="ds-atmosphere"></div>
     <div class="ds-grain"></div>
 
@@ -57,7 +65,7 @@ const kicker =
 
       <div class="flex min-w-0 flex-1">
         <main class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-16">
-          <div class="mx-auto max-w-3xl xl:mx-0">
+          <div class="mx-auto max-w-3xl">
             <details
               class="group mb-5 rounded-lg border border-border bg-sidebar/70 backdrop-blur lg:hidden"
             >
@@ -96,7 +104,7 @@ const kicker =
                 {
                   sidebar.map((section) => (
                     <div class="mb-4 last:mb-0">
-                      <p class="mb-2 px-3 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground/60">
+                      <p class="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground/60">
                         {section.title}
                       </p>
                       <ul class="space-y-0.5">
@@ -105,7 +113,7 @@ const kicker =
                             <a
                               href={item.href}
                               aria-current={item.active ? 'page' : undefined}
-                              class={`block rounded-lg px-3 py-[0.47rem] text-[0.9rem] transition-colors ${
+                              class={`block rounded-lg px-3 py-[0.47rem] text-base transition-colors ${
                                 item.active
                                   ? 'bg-primary/[0.08] font-semibold text-primary'
                                   : 'font-medium text-sidebar-foreground hover:bg-muted/55 hover:text-foreground'
@@ -131,7 +139,7 @@ const kicker =
                 <p
                   data-rise
                   style="--rise:90ms"
-                  class="mb-3 flex items-center gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary"
+                  class="mb-3 flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary"
                 >
                   <span
                     class="inline-block h-1.5 w-1.5 rounded-full shadow-[0_0_10px_2px_var(--glow-brand)]"
@@ -141,7 +149,7 @@ const kicker =
                 <h1
                   data-rise
                   style="--rise:150ms"
-                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.9rem]"
+                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.75rem]"
                   itemprop="headline"
                 >
                   {title}
@@ -151,7 +159,7 @@ const kicker =
                     <p
                       data-rise
                       style="--rise:230ms"
-                      class="mt-4 max-w-2xl text-[1.12rem] leading-relaxed text-muted-foreground"
+                      class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground"
                       itemprop="description"
                     >
                       {description}

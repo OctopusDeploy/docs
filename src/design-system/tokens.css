@@ -99,10 +99,10 @@
   );
 
   /* --- Atmosphere (fixed background layers): cyan -> purple -> pink mesh --- */
-  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 20%, transparent);
-  --aurora-2: color-mix(in oklab, var(--pink-100) 14%, transparent);
-  --aurora-3: color-mix(in oklab, var(--purple-300) 16%, transparent);
-  --grid-line: color-mix(in oklab, var(--octo-navy-700) 6%, transparent);
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 11%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 9%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-navy-700) 3%, transparent);
   --grain-opacity: 0.035;
 
   /* Glass effect for in-content images (mirrors the marketing site). Raw
@@ -118,18 +118,20 @@
   --glass-navy-fade: rgba(10, 35, 54, 0);
   --glass-pad: 0.75rem;
 
+  /* Docs-calm glass: same structure as the marketing site, much softer (faint
+     tint, neutral lift, whisper of a bloom) so screenshots feel framed not hero. */
   --glass-background: linear-gradient(
     263.36deg,
-    rgba(255, 255, 255, 0.72) -46.77%,
-    rgba(147, 225, 255, 0.42) 86.43%
+    rgba(255, 255, 255, 0.6) -46.77%,
+    rgba(147, 225, 255, 0.12) 86.43%
   );
-  --glass-border-color: rgba(31, 192, 255, 0.32);
-  --glass-shadow: 0 12px 36px -12px rgba(31, 192, 255, 0.3);
+  --glass-border-color: rgba(31, 192, 255, 0.18);
+  --glass-shadow: 0 8px 26px -16px rgba(16, 33, 47, 0.18);
   --glass-blur-glow: radial-gradient(
     101.55% 101.55% at 50% -1.55%,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(31, 192, 255, 0.38) 18.63%,
-    rgba(204, 60, 255, 0.3) 73.48%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(31, 192, 255, 0.14) 18.63%,
+    rgba(204, 60, 255, 0.09) 73.48%,
     var(--glass-navy-fade) 100%
   );
 
@@ -165,8 +167,8 @@
 
   --radius: 0.65rem;
 
-  /* Fonts - distinctive type carries the redesign. Loaded via Bunny Fonts in
-     the layout head; system stacks remain as graceful fallbacks. */
+  /* Fonts - distinctive web type (loaded via Bunny Fonts in the layout head);
+     system stacks remain as graceful fallbacks. */
   --font-display:
     'Bricolage Grotesque', 'Hanken Grotesk', system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -249,25 +251,27 @@
     #ec8cff 120%
   );
 
-  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 16%, transparent);
-  --aurora-2: color-mix(in oklab, var(--pink-100) 12%, transparent);
-  --aurora-3: color-mix(in oklab, var(--purple-300) 18%, transparent);
-  --grid-line: color-mix(in oklab, var(--octo-blue-bright) 6%, transparent);
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 9%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 10%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-blue-bright) 3%, transparent);
   --grain-opacity: 0.05;
 
   /* Glass effect: the exact marketing-site values (tuned for dark backgrounds). */
+  /* Docs-calm glass (dark): a gentle frost + faint bloom, not the bright
+     marketing panel. */
   --glass-background: linear-gradient(
     263.36deg,
-    var(--glass-white-31) -46.77%,
-    var(--glass-cyan) 86.43%
+    rgba(255, 255, 255, 0.08) -46.77%,
+    rgba(147, 225, 255, 0.09) 86.43%
   );
-  --glass-border-color: var(--glass-white-20);
-  --glass-shadow: 0 0 30px var(--glass-white-15);
+  --glass-border-color: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.5);
   --glass-blur-glow: radial-gradient(
     101.55% 101.55% at 50% -1.55%,
-    var(--glass-white-35) 0%,
-    var(--glass-cyan-glow) 18.63%,
-    var(--glass-pink-glow) 73.48%,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(31, 192, 255, 0.18) 18.63%,
+    rgba(204, 60, 255, 0.14) 73.48%,
     var(--glass-navy-fade) 100%
   );
 

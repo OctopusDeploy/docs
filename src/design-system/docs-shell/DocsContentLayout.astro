@@ -3,6 +3,11 @@
 // content page adopt the new design system by switching its `layout:`
 // frontmatter line. Reuses the site's existing data sources (nav tree,
 // breadcrumbs, SEO head via HtmlHead) and renders them through our chrome.
+//
+// ⚠️ MVP / PREVIEW — NOT production-complete. Versus DefaultLegacy.astro this
+// omits essential plumbing (main.js, Plausible, Marketo, SkipLinks, real search,
+// theme reconciliation, article-footer features) — complete these before any
+// real rollout.
 import '../theme.css';
 import { Accelerator } from 'astro-accelerator-utils';
 import { SITE } from '@config';
@@ -13,6 +18,7 @@ import DocsHeader from './DocsHeader.astro';
 import DocsToc from './DocsToc.astro';
 import DocsBreadcrumbs from './DocsBreadcrumbs.astro';
 import DocsSidebarNav from './DocsSidebarNav.astro';
+import SidebarBehavior from './SidebarBehavior.astro';
 import Footer from '../../components/Footer.astro';
 
 type Props = {
@@ -92,23 +98,49 @@ const sortedTopLevel = pages
       if (localStorage.getItem('mvp-theme') === 'dark')
         document.documentElement.setAttribute('data-theme', 'dark');
     </script>
+    <script
+      is:inline
+      define:vars={{ site_url: SITE.url, site_features: SITE.featureFlags }}
+    >
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
     <div class="ds-atmosphere"></div>
     <div class="ds-grain"></div>
-    <DocsHeader />
+    <DocsHeader lang={lang} />
 
     <div class="mx-auto flex max-w-[1600px]">
       <aside
         data-component="DocsSidebar"
-        class="hidden w-[16.5rem] shrink-0 border-r border-border/60 bg-sidebar/55 backdrop-blur-sm lg:block"
-        aria-label="Documentation navigation"
+        class="hidden w-[18.75rem] shrink-0 border-r border-border/60 bg-sidebar/55 backdrop-blur-sm lg:block"
       >
-        <nav
-          class="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto px-3.5 py-8 [scrollbar-gutter:stable]"
+        <div
+          class="ds-navscroll"
+          data-navscroll
+          data-at-top="true"
+          data-at-bottom="true"
         >
-          <ul>
-            {sortedTopLevel.map((page: any) => <DocsSidebarNav page={page} />)}
-          </ul>
-        </nav>
+          <nav
+            class="ds-navscroll__viewport px-3.5 py-8"
+            data-navscroll-viewport
+            aria-label="Documentation navigation"
+          >
+            <ul>
+              {
+                sortedTopLevel.map((page: any) => (
+                  <DocsSidebarNav page={page} />
+                ))
+              }
+            </ul>
+          </nav>
+          <span
+            class="ds-navscroll__fade ds-navscroll__fade--top"
+            aria-hidden="true"></span>
+          <span
+            class="ds-navscroll__fade ds-navscroll__fade--bottom"
+            aria-hidden="true"></span>
+        </div>
+        <SidebarBehavior />
       </aside>
 
       <div class="flex min-w-0 flex-1">
@@ -116,7 +148,7 @@ const sortedTopLevel = pages
           class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-14"
           data-component="DocsContentLayout"
         >
-          <div class="mx-auto max-w-3xl xl:mx-0">
+          <div class="mx-auto max-w-3xl">
             <details
               class="group mb-5 rounded-lg border border-border bg-sidebar lg:hidden"
             >
@@ -171,7 +203,7 @@ const sortedTopLevel = pages
                 <p
                   data-rise
                   style="--rise:90ms"
-                  class="mb-3 flex items-center gap-2 font-mono text-[0.72rem] font-medium uppercase tracking-[0.18em] text-primary"
+                  class="mb-3 flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary"
                 >
                   <span
                     class="inline-block h-1.5 w-1.5 rounded-full shadow-[0_0_10px_2px_var(--glow-brand)]"
@@ -181,7 +213,7 @@ const sortedTopLevel = pages
                 <h1
                   data-rise
                   style="--rise:150ms"
-                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.9rem]"
+                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.75rem]"
                   itemprop="headline"
                 >
                   {frontmatter.title}
@@ -191,7 +223,7 @@ const sortedTopLevel = pages
                     <p
                       data-rise
                       style="--rise:230ms"
-                      class="mt-4 max-w-2xl text-[1.12rem] leading-relaxed text-muted-foreground"
+                      class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground"
                       itemprop="description"
                     >
                       {frontmatter.description}

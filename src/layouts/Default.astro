@@ -1,149 +1,20 @@
 ---
-import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
-import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import { SITE } from '@config';
-import { getImageInfo } from '@util/custom-markdown.mjs';
+// Layout delegator. Every content page references `layout: src/layouts/Default.astro`
+// in its frontmatter, so this single file decides what the whole site renders -
+// no per-page frontmatter changes needed to switch designs.
+//
+// Default: the new design system (DocsContentLayout).
+// Escape hatch: set `legacyLayout: true` in a page's frontmatter to render the
+// original layout (preserved verbatim in DefaultLegacy.astro).
+// Global revert: swap the `Layout` default back to LegacyLayout, or restore this
+// file from DefaultLegacy.astro.
+import NewLayout from '../design-system/docs-shell/DocsContentLayout.astro';
+import LegacyLayout from './DefaultLegacy.astro';
 
-// Theme components
-import Head from '@components/HtmlHead.astro';
-import SkipLinks from '@components/SkipLinks.astro';
-import Breadcrumbs from '@components/Breadcrumbs.astro';
-import Navigation from '@components/Navigation.astro';
-import Authors from '@components/Authors.astro';
-import Taxonomy from '@components/Taxonomy.astro';
-
-// Custom components
-import ArticleHeader from '../components/ArticleHeader.astro';
-import ArticleNav from '../components/ArticleNav.astro';
-import Copyright from '../components/Copyright.astro';
-import Header from '../components/Header.astro';
-import Related from '../components/Related.astro';
-import ArticleJourney from '../components/ArticleJourney.astro';
-import Feedback from '../components/Feedback.astro';
-import EditOnGithub from '../components/EditOnGithub.astro';
-import LastUpdated from '../components/LastUpdated.astro';
-import CopyMarkdown from '../components/CopyMarkdown.astro';
-import Plausible from 'src/components/Plausible.astro';
-import Footer from 'src/components/Footer.astro';
-
-// Extend Frontmatter with icon
-type Frontmatter = OriginalFrontmatter & {
-  icon?: string; // Add the icon property
-};
-
-type Props = {
-  frontmatter: Frontmatter;
-  headings: { depth: number; slug: string; text: string }[];
-  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
-};
-const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
-
-const lang = frontmatter.lang ?? SITE.default.lang;
-const textDirection = frontmatter.dir ?? SITE.default.dir;
-
-// Logic
-const accelerator = new Accelerator(SITE);
-
-const metaImage = frontmatter.bannerImage
-  ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
-  : null;
-
-const title = await accelerator.markdown.getInlineHtmlFrom(
-  frontmatter.title ?? SITE.title
-);
-
-const subtitle = frontmatter.subtitle
-  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
-  : null;
-
-const icon = frontmatter.icon
-  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.icon)
-  : null;
-
-const site_url = SITE.url;
-const site_features = SITE.featureFlags;
-const search =
-  accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
-const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
-const isSearchPage =
-  accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
-
-const showSearch = !isSearchPage;
+const { frontmatter, headings, breadcrumbs } = Astro.props;
+const Layout = frontmatter?.legacyLayout ? LegacyLayout : NewLayout;
 ---
 
-<html dir={textDirection} lang={lang} class="initial">
-  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
-  <body data-theme="dark">
-    <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Header
-      frontmatter={frontmatter}
-      headings={headings}
-      lang={lang}
-      showSearch={showSearch}
-    />
-    <div class="content-group">
-      <main id="site-main">
-        <Breadcrumbs
-          frontmatter={frontmatter}
-          headings={headings}
-          lang={lang}
-          breadcrumbs={breadcrumbs}
-        />
-        <article itemscope itemtype="https://schema.org/Article">
-          <ArticleHeader
-            icon={icon}
-            lang={lang}
-            subtitle={subtitle}
-            title={title}
-          />
-          <div class="page-content anim-show-parent" itemprop="articleBody">
-            <slot />
-            <Feedback
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
-            <Authors frontmatter={frontmatter} lang={lang} />
-            <Taxonomy frontmatter={frontmatter} lang={lang} />
-            <LastUpdated
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
-            <EditOnGithub
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
-            <CopyMarkdown lang={lang} />
-            <ArticleJourney
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
-            {metaImage && <meta itemprop="image" content={metaImage.src} />}
-          </div>
-        </article>
-      </main>
-      <Navigation lang={lang} />
-      <div class="side-nav">
-        <!-- <TableOfContents
-          expanded={930}
-          frontmatter={frontmatter}
-          headings={headings}
-          lang={lang}
-        /> -->
-        <ArticleNav headings={headings} lang={lang} />
-      </div>
-    </div>
-    <Related frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Footer />
-    <script define:vars={{ site_url, site_features }}>
-      window.site_url = site_url;
-      window.site_features = site_features;
-    </script>
-    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
-    <Plausible />
-    <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
-  </body>
-</html>
+<Layout frontmatter={frontmatter} headings={headings} breadcrumbs={breadcrumbs}>
+  <slot />
+</Layout>
