@@ -63,69 +63,9 @@ In some instances, Octopus will automatically trigger the failure of a task that
 
 This is generally indicative of an internal error in Octopus. In Octopus Cloud we actively monitor for these issues, but please reach out to support for further assistance, especially if the problem persists.
 
-### Recovering from stuck PowerShell scripts on Tentacle
+### Tentacle script abandonment
 
-PowerShell scripts on a Tentacle target can sometimes fail to run normally because of interference from antivirus or endpoint-protection software on the target. Without help, this used to leave the target's deployment queue blocked: you'd have to remote into the target and end the process, or restart the Tentacle service, before the next deployment could run.
-
-Octopus now has two automatic recoveries that keep the queue moving while you investigate the underlying interference. Both are mitigation, not a fix. The underlying problem is on the target machine, and you'll still want to configure your antivirus software ([see the antivirus section below](#anti-virus-software)) so the interference stops happening.
-
-#### Detecting scripts that never start
-
-When Tentacle launches `powershell.exe` to run your script, the PowerShell process can sometimes start but never actually begin executing the script body. This typically happens when endpoint-protection software hooks into PowerShell startup and the script content never reaches the runtime.
-
-If `powershell.exe` doesn't reach the first instruction of your script in 5 minutes, Tentacle marks the task as failed with exit code `-47` and prevents the script body from ever running, even if PowerShell wakes up later. Tentacle records a log line like:
-
-```
-PowerShell startup detection: PowerShell did not start within 5 minutes for task <task ID>
-```
-
-The mutex protecting the target is released as part of normal task cleanup, so the next deployment to that machine can begin straight away. The Tentacle itself stays healthy and doesn't need to be restarted.
-
-This recovery is supported on Windows Tentacles running `powershell.exe`. Linux `pwsh` is not currently covered.
-
-#### Releasing the target when cancellation can't take effect
-
-If you cancel a deployment from the Octopus Web Portal and the cancellation can't take effect on the Tentacle in 2 minutes, Octopus tells the Tentacle to abandon the script and accept new work. This means:
-
-- The script's underlying process may still be running on the target. Octopus does not kill it. If your script was performing an operation that could leave the target in an inconsistent state (a database migration, a file system change, and so on), inspect the target and clean up manually.
-- The Tentacle releases its mutex and immediately accepts the next deployment in the queue.
-- The task is marked as Cancelled.
-
-When abandonment runs, you'll see this in the task log:
-
-```
-Cancellation hasn't taken effect on Tentacle after 2 minutes. Abandoning the script so this target can accept new deployments.
-Tentacle abandoned the script.
-```
-
-Tentacle's own log will also record:
-
-```
-Tentacle has abandoned this script. The underlying script process may still be running on this host.
-```
-
-If your cancellation succeeded cleanly, no abandonment runs and the task is marked Cancelled without these messages. Check your task log to know which path your cancellation took.
-
-#### Version requirements
-
-The automatic recoveries described above are available from:
-
-- Octopus Server `2026.2.5952` or later
-- Tentacle `9.1.3801` or later for the script-startup detection
-- Tentacle version supporting the cancellation abandon to be confirmed when the work ships
-
-If either component is on an older version, your deployments use the previous behavior, where a stuck script may require you to remote into the target and end the process manually or restart the Tentacle service.
-
-#### What to do if automatic recovery fires regularly
-
-If you see automatic recovery firing on the same target more than occasionally, that target has an environmental problem worth investigating directly. Common causes:
-
-- Antivirus or endpoint-protection software (CrowdStrike, Rapid7, and similar) hooking into PowerShell startup or holding file locks on the Tentacle's working directories.
-- Multiple security agents installed on the same host, contending for the same kernel locks.
-
-The first step is to configure your antivirus or endpoint-protection software per the [antivirus section below](#anti-virus-software). You can identify how often automatic recovery is firing on a specific target by searching your task logs for the messages above across recent deployments to that target.
-
-If the recoveries keep firing after exclusions are in place, contact support and include a process dump from the target during the next occurrence. This helps us identify which agent is interfering.
+If your task ends in `Cancelled` or `Failed` and your Tentacle has logged that the script was abandoned, see [Tentacle script abandonment](/docs/infrastructure/deployment-targets/tentacle/tentacle-script-abandonment) for the full explanation and what to do next.
 
 ### Antivirus software {#anti-virus-software}
 
