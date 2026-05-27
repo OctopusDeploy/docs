@@ -1,0 +1,14 @@
+src/pages/docs/infrastructure/workers/kubernetes-worker/index.md
+  h_1903a5d928fbe4 64-68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "e7e3906c87514503675a72ec09dd3b1bf0cf1e3c",
+  "prompts": {},
+  "humans": {
+    "h_1903a5d928fbe4": {
+      "author": "oleksandr-codefresh <oleksandr.saulyak@octopus.com>"
+    }
+  }
+}

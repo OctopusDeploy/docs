@@ -1,0 +1,14 @@
+src/pages/docs/kubernetes/targets/kubernetes-agent/openshift.md
+  h_1903a5d928fbe4 1-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "d718493b2143421a9d3651d48a361eaa417cf08f",
+  "prompts": {},
+  "humans": {
+    "h_1903a5d928fbe4": {
+      "author": "oleksandr-codefresh <oleksandr.saulyak@octopus.com>"
+    }
+  }
+}
