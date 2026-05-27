@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2026-03-05
 title: Troubleshooting Active Directory integration
 description: Information on troubleshooting common Active Directory integration issues.
 navOrder: 30
@@ -39,11 +39,11 @@ Octopus Deploy uses .dlls provided by Microsoft to interact with Active Director
 - System.DirectoryServices
 - System.DirectoryServices.ActiveDirectory
 
-The code will use the method `LoginUser()` to authenticate the user's credentials.  
+The code will use the method `LoginUser()` to authenticate the user's credentials.
 
 Assuming the login is successful, Octopus Deploy will create  [System.DirectoryServices.AccountManagement.UserPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.userprincipal) object to query group membership.  Group membership query in this order of operations:
 
-1. First call [GetAuthorizationGroups](https://docs.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.userprincipal.getauthorizationgroups) as that does a recursive search and returns security groups only.  
+1. First call [GetAuthorizationGroups](https://docs.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.userprincipal.getauthorizationgroups) as that does a recursive search and returns security groups only.
 2. If `GetAuthorizationGroups()` fails (for a variety of reasons), then run [GetGroups](https://docs.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.principal.getgroups).  The downside of `GetGroups()` is it only returns groups a user is a direct member of and includes distribution groups.  Octopus Deploy ignores distribution groups.
 
 When a cross-domain trust is configured, both `GetAuthorizationGroups()` and `GetGroups()` methods will include groups in the trusted domains of the user.  Octopus Deploy relies on what those methods return to determine group membership.  We've found the vast majority of the time; Active Directory issues are a misconfiguration within Active Directory itself.  We've provided scripts below where you can take Octopus Deploy out of the equation and test your configuration directly.
@@ -57,10 +57,10 @@ Octopus relies on Active Directory users being configured with enough informatio
 3. Email Address
 
 :::figure
-![](/docs/img/security/authentication/active-directory/images/5866202.png)
+![Active Directory user properties showing the Account tab](/docs/img/security/authentication/active-directory/images/5866202.png)
 :::
 
-![](/docs/img/security/authentication/active-directory/images/5866203.png)
+![Active Directory user properties showing additional fields](/docs/img/security/authentication/active-directory/images/5866203.png)
 
 These values can be used by Octopus to uniquely identify which Octopus User Account should be associated with each Active Directory User.
 
@@ -101,7 +101,8 @@ Notes:
 - Ensure you replace the domain username ``ExampleUser`` with a sample Octopus username who would normally log into the system.
 - It's recommended that you run this script as the same user you're running the Octopus service under and on the same server so it reproduces the problem accurately.
 
-If specifying a container.
+If specifying a container:
+
 - Ensure you replace the active directory container string ``CN=Users, DC=acme, DC=local`` with the appropriate value for your network. If you're not sure of this value, we suggest talking to your network team (active directory expert) or trying different values and testing it with the script. For additional help on building/finding your container string, this StackOverflow answer is excellent. [http://serverfault.com/a/130556](http://serverfault.com/a/130556)
 
 See the following documentation page for further information on configuring Octopus to use a [specific Active Directory container](/docs/security/authentication/active-directory/custom-containers-for-ad-authentication).
@@ -146,7 +147,7 @@ If problems persist, we suggest turning on active directory diagnostic logging a
 It's recommended that you backup any registry entries before making changes.
 :::
 
-```
+```text
 Path: HKLM\SYSTEM\CurrentControlSet\Services\NTDS\Diagnostics\15 Field Engineering
 Type: DWORD
 Value: 5
@@ -163,7 +164,7 @@ For more information on diagnostic logging, see the following Microsoft TechNet 
 The diagnostic logs can be viewed in the Event Viewer.
 
 :::figure
-![](/docs/img/security/authentication/active-directory/images/5865632.png)
+![Event Viewer showing Active Directory diagnostic logs](/docs/img/security/authentication/active-directory/images/5865632.png)
 :::
 
 :::div{.hint}
@@ -201,3 +202,29 @@ To resolve this issue, open Active Directory Administrative Center for the domai
 Octopus Server `2020.1.x` has a known issue with users signing in across domains. The underlying cause relates to server moving from .NET Framework (HttpListener) to .NET Core (HttpSys). For more information about the issue, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/6265). For configuration guidelines and troubleshooting integrated authentication, see our [Active Directory authentication](/docs/security/authentication/active-directory) guide.
 
 For users on a different domain to the domain the Octopus Server is a member of, the workaround is to use forms authentication instead of the `Sign in with a domain account` button. As of `2020.1.7` the server will detect this issue when users attempt to sign in across domains, and it will provide guidance to those users who are impacted.
+
+## Sign in with a domain account fails with no clear error
+
+When using HTTP.sys (Kernel Mode), certain server-side errors may not be surfaced in the response. Instead, you may see a generic 500 error or the message:
+
+> An error occurred with Windows authentication, possibly due to a known issue, please try using forms authentication.
+
+This can make the root cause difficult to diagnose. A useful diagnostic step is to temporarily switch to Kestrel (User Mode), which surfaces the full error response:
+
+```bash
+Octopus.Server.exe service --stop
+Octopus.Server.exe configure --webServer=Kestrel
+Octopus.Server.exe service --start
+```
+
+Reproduce the sign-in failure and note the error message returned. Once you have identified and resolved the underlying issue, you can switch back to HTTP.sys if desired. See [GitHub issue #9835](https://github.com/OctopusDeploy/Issues/issues/9835) for more detail.
+
+## Maximum Session Duration breaks Active Directory SSO
+
+Setting the **Maximum Session Duration** to a low value (for example, `3600` seconds) can prevent users from signing in via the **Sign in with a domain account** button. The underlying error is:
+
+> Expiration cannot exceed maximum session duration
+
+When using HTTP.sys, this error is not surfaced directly (see the section above), making it particularly difficult to diagnose.
+
+To resolve this, increase the Maximum Session Duration in **Configuration ➜ Settings ➜ Server** to a value greater than or equal to the session expiry configured in your environment. See [GitHub issue #9836](https://github.com/OctopusDeploy/Issues/issues/9836) for more detail.

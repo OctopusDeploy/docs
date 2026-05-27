@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-02-23
-modDate: 2026-02-23
+modDate: 2026-03-17
 title: OpenTelemetry trace files
 description: OpenTelemetry trace files saved to disk by Octopus Server for diagnostic purposes.
 navOrder: 15
@@ -66,7 +66,7 @@ If a node crashes or restarts mid-write, any `.tar.inprogress` files left behind
 Trace files can be downloaded directly from the Diagnostics page:
 
 1. Navigate to **Configuration ➜ Diagnostics**.
-2. Under **Server Traces**, click `Download` to save all current trace files as a single `.tar` archive.
+2. Under **Server Traces**, click `Download` to save all current trace data as a single Zstandard compressed JSONL file.
 
 :::figure
 ![Download button for OpenTelemetry trace files on the Diagnostics page](/docs/img/support/images/download-trace-files.png)

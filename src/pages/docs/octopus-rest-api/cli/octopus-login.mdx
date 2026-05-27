@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus login
 description: Login to Octopus
-navOrder: 72
+navOrder: 78
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Log into your Octopus server using OpenID Connect (OIDC) or an API key. If no arguments are provided then login will be done interactively allowing creation of an API key.
+Login to your Octopus server using OpenID Connect (OIDC) or an API key. If no arguments are provided then login will be done interactively allowing creation of an API key.
 
-```
+```text
 Usage:
   octopus login [flags]
 
@@ -34,10 +34,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus login
-$ octopus login --server https://my.octopus.app --service-account-id b1a6f20f-0ec7-4e9a-938e-db800f945b37 --id-token eyJhbGciOiJQUzI1NiIs...
-$ octopus login --server https://my.octopus.app --api-key API-APIKEY123
+```bash
+octopus login
+octopus login --server https://my.octopus.app --service-account-id b1a6f20f-0ec7-4e9a-938e-db800f945b37 --id-token eyJhbGciOiJQUzI1NiIs...
+octopus login --server https://my.octopus.app --api-key API-APIKEY123
 
 
 ```

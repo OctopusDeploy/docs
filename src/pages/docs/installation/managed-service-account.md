@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Using a Managed Service Account (MSA)
-description: Run Octopus using a Managed Service Account.
+title: Run Octopus with a Managed Service Account
+description: Set up the Octopus Deploy Windows service to run as a Managed Service Account. Learn the requirements and follow the steps to create and apply the MSA.
 navOrder: 6
 ---
 You can run the Octopus Server using a Managed Service Account (MSA):

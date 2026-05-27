@@ -6,7 +6,7 @@ title: Annotated Application View
 description: Query affected applications before triggering the change
 ---
 
-Argo CD Instances don't fall under the category of 'Deployment Target', and does not support the idea of 'Target Tags',
+Argo CD Instances don't fall under the category of 'Deployment Target', and don't support the idea of 'Target Tags',
 instead - Argo CD *Applications* are annotated with [Scoping Annotations](/docs/argo-cd/annotations) to provide a similar
 mapping between project/environment and an output location (in this case, an Argo Application's repository).
 
@@ -17,7 +17,7 @@ This data is also visible via the Octopus Infrastructure pages - but having it o
 
 ## Argo App Configuration
 
-When you create a new Argo step, you'll see in the Output section, a field titled `Argo CD Applicstions`.
+When you create a new Argo step, you'll see in the Output section, a field titled `Argo CD Applications`.
 The content of this field is dependent on the state of your system:
 
 - Have you already registered a gateway and Argo CD Instance?
@@ -44,7 +44,7 @@ The content of this field is dependent on the state of your system:
   - Are git credentials available for all detected git repositories?
     - If not, you will see a warning triangle next to the application
     - A "Connect Git Credential" will appear next to the repository lacking credentials
-    - Selecting this button will all you to create a new git credential, or add this url to an existing credential
+    - Selecting this button will let you create a new git credential, or add this url to an existing credential
 
     :::figure
     ![Deployment Preview Drawer No Git Creds](/docs/img/argo-cd/deployment-preview-no-git-creds.png)

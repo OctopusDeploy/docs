@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
-modDate: 2024-08-22
+modDate: 2026-05-01
 title: Upgrading the Agent
 navTitle: Upgrading
 navSection: Kubernetes agent
@@ -15,15 +15,17 @@ The Kubernetes agent is automatically kept up to date by Octopus Server when run
 
 Automatic upgrades can be disabled by updating the machine updates settings in your applied [machine policy](/docs/infrastructure/deployment-targets/machine-policies)
 
-## V1
+## When do we new major versions
 
-Changes to the Kubernetes agent Helm Chart necessitated a breaking change.
+Changes to the Kubernetes agent Helm Chart necessitated a breaking change. To make this clear, we perform a major version increase.
 
 The version of a Kubernetes agent is found by going to **Infrastructure** then into **DeploymentTargets**; from there click on the **Kubernetes agent** of interest; on its **Connectivity** sub-page you will see 'Current Version'.
 
 :::figure
 ![Kubernetes agent default namespace](/docs/img/infrastructure/deployment-targets/kubernetes/kubernetes-agent/kubernetes-agent-upgrade-version.png)
 :::
+
+## V1
 
 Installed v1 instances will continue to operate as expected, however they will receive no further updates other than security updates.
 

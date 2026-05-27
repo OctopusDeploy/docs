@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Use IIS as a reverse proxy for Octopus Deploy
-description: How to set up IIS 7 (or later) as a Reverse Proxy for Octopus Deploy
+title: IIS as a reverse proxy for Octopus Deploy
+description: Run Octopus Deploy behind IIS as a reverse proxy using ARR and URL Rewrite modules. Follow the step-by-step guide to add SSL termination and custom headers.
 navOrder: 15
 ---
 
@@ -29,7 +29,7 @@ At the end of this walk-through, you should be able to:
 - Set and verify a custom HTTP header with IIS.
 
 :::figure
-![](/docs/img/administration/high-availability/design/images/create-server-farm.png)
+![Create server farm in IIS](/docs/img/administration/high-availability/design/images/create-server-farm.png)
 :::
 
 ## Install URLRewrite and ARR
@@ -105,7 +105,7 @@ There is no need to specify outbound rules, as the Octopus Portal always uses re
 
 Click OK and close down all dialogs.
 
-You should now be able to navigate to https://servername/ in your browser and log in to Octopus Deploy.
+You should now be able to navigate to `https://servername/` in your browser and log in to Octopus Deploy.
 
 :::div{.warning}
 **Polling Tentacles are not supported with this scenario**

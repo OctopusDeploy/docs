@@ -1,0 +1,105 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2026-03-05
+modDate: 2026-03-16
+title: Project template best practices
+subtitle: Best practices for creating project templates in Platform Hub
+icon: fa-solid fa-layer-group
+navTitle: Best practices
+navSection: Project Templates
+description: Best practices for creating project templates in Platform Hub
+navOrder: 180
+---
+
+:::div{.warning}
+Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Don't use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback.
+:::
+
+This document uses **Producer** and **Consumer** frequently. To avoid confusion, use these definitions:
+
+- **Producer**: the user who creates and manages project templates in Platform Hub.
+- **Consumer**: the user who creates projects from those templates.
+
+## Project template administration
+
+### Establish a naming standard
+
+Use a **[ Prefix ] - [ Template Name ]** convention that's easy for everyone to understand at a glance. The template name should be succinct and informative.
+
+The prefix should convey the intended use. For example:
+
+- **Project - [ Template Name ]** for general deployment project templates
+- **Service - [ Template Name ]** for templates designed for specific service types (APIs, background workers, etc.)
+
+### Define what major, minor, patch, and pre-release mean for your organization
+
+Project template versioning provides hints:
+
+- **Major** (breaking changes)
+- **Minor** (non-breaking changes)
+- **Patch** (bug fixes)
+- **Pre-release**
+
+Without a shared definition of breaking vs. non-breaking, teams will interpret these differently. A starting point for a versioning policy:
+
+- **Major**: The change fundamentally alters how the template works. Parameters have been added or removed. Consumers need to review and test the update before accepting it.
+- **Minor**: Parameters may have been added or adjusted, which could require a change in the consuming project, but the core behavior is preserved.
+- **Patch**: No parameters were added or removed. Bug fixes only. Consuming projects can accept the update without a deployment process change.
+- **Pre-release**: Use for changes that aren't ready for general use. Share with a specific space to test before promoting.
+
+### Use branch protection on the Platform Hub Git repository
+
+Template changes should happen in a branch and be reviewed via a pull request. Use the pre-release feature to test changes before promoting them to a stable version.
+
+## Building templates
+
+### Keep templates focused
+
+A project template should represent one clear type of project, not accommodate every variation your organization uses. If you find yourself adding conditional logic to handle different use cases, that's a sign you need more than one template.
+
+For example, a template for a Kubernetes microservice hosting an application and one that hosts a message queue may share similar infrastructure but have meaningfully different deployment processes. Separate templates are clearer for consumers and easier to maintain.
+
+### Use parameters for everything consumer-specific
+
+Parameters are the only way information should flow from a project into the template. This means:
+
+- Don't hardcode space-specific values, account names, or resource identifiers in the template
+- Don't expect consumers to know internal variable names. Expose them as parameters
+- Any external reference such as secrets, feeds, worker pools, and target tags must come in via a parameter
+- Only expose parameters the consumer genuinely needs to provide. If the producer should control a value, use a variable instead
+
+### Keep consumer decision-making to a minimum
+
+A consumer should be able to create a project from the template by supplying a small set of well-defined inputs. They shouldn't need to understand the internal mechanics of how the deployment works.
+
+A consumer should be able to say:
+
+> I want to deploy this service using these values:
+>
+> - The container image
+> - The target tag of the cluster to deploy to
+> - The connection string for the database
+
+It's the producer's job to figure out how to take those inputs and run a reliable deployment.
+
+### Lock values that must be consistent across projects
+
+Template variables are fixed. Consumers can't override them. Use this for values that must be the same across every project created from the template, such as accounts. If you want consumers to supply their own value for something, expose it as a parameter instead.
+
+Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
+
+### Include notes for each step in the deployment process
+
+Step notes help consumers understand what each step does and why. If a deployment fails, clear notes make it much easier for them to self-diagnose. Don't assume that a step name alone provides enough context.
+
+## Publishing and versioning
+
+### Test your template before publishing a stable version
+
+Before publishing a stable version, create a test project using the template in a development or sandbox space. Verify the deployment runs end-to-end with realistic parameter values using pre-release versions.
+
+### Write release notes when publishing a new version
+
+Each published version can include release notes. Describe what changed, whether any parameters were added or removed, and what consumers need to do when updating.
+
+A concise, clear release note (for example, *Added a required parameter for the image pull secret. Update your project before creating a new release.*) saves consumers time and reduces support requests.
