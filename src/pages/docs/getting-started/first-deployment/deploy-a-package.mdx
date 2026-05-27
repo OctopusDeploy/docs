@@ -2,11 +2,12 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-01-7
-title: Deploy a sample package
-description: Step by step guide on how to deploy a sample package Octopus Deploy
+title: Deploy a package in Octopus Deploy
+description: Deploy a sample package using Octopus Deploy. Create a deploy package step, push an artifact to the built-in feed, and release it to your first environment.
 navOrder: 80
 hideInThisSection: true
 ---
+import Image from "src/components/Image.astro";
 
 Deploying software with Octopus often involves deploying packages, for example, `.zip`, `.nupkg`, `.jar`, `.tar`, etc. In this section, we'll walk you through the steps to deploy a sample hello world package to your deployment target.
 
@@ -14,7 +15,7 @@ Deploying software with Octopus often involves deploying packages, for example, 
 To learn about supported formats, versioning, and packaging applications, refer to the [packaging documentation](/docs/packaging-applications).
 :::
 
-## Before your start
+## Before you start
 
 Please download our sample package:
 
@@ -24,13 +25,12 @@ Please download our sample package:
 
 1. From the left Deploy menu, click **Packages**.
 
-:::figure
-![Packages page](/docs/img/getting-started/first-deployment/images/packages-page.png)
-:::
+    :::figure
+    ![Packages page](/docs/img/getting-started/first-deployment/images/packages-page.png)
+    :::
 
-2. Click **Upload Package**.
-3. Select the package you want to upload.
-
+1. Click **Upload Package**.
+1. Select the package you want to upload.
 
 ## Add deploy package step
 
@@ -43,42 +43,34 @@ Add a step to the deployment process to push that package to your deployment tar
 5. Select the **Package** category to filter the types of steps.
 6. Locate the Deploy a Package card and click **Add Step**.
 
-:::figure
-![Add Deploy a Package step to deployment process](/docs/img/getting-started/first-deployment/images/deploy-package-step.png)
-:::
+    <Image
+      src="/docs/img/getting-started/first-deployment/images/deploy-package-step.png"
+      alt="Add Deploy a Package step to deployment process"
+    />
 
-### Step name
+7. **Step name:** - You can leave this as the default *Deploy a Package*.
+8. **Target tags:** - Select **tutorial-target** from the **Target Tags** dropdown list.
 
-You can leave this as the default *Deploy a Package*.
+    :::div{.hint}
+    **Context for target tags**
 
-### Target tags
+    When configuring your deployment process, you can click a target tag to see the deployment targets and environments the step will run on.
 
-7. Select **tutorial-target** from the **Target Tags** dropdown list.
+    :::figure
+    ![Target tags popover that shows correlating deployment targets](/docs/img/getting-started/first-deployment/images/target-tags-popover.png)
+    :::
 
-:::div{.hint}
-**Context for target tags**
+9. **Package:** - Select **hello-world** from the **Package ID** dropdown list.
 
-When configuring your deployment process, you can click a target tag to see the deployment targets and environments the step will run on.
+    You can skip the other sections of this page for this tutorial.
 
-:::figure
-![Target tags popover that shows correlating deployment targets](/docs/img/getting-started/first-deployment/images/target-tags-popover.png)
-:::
+    **Save** your deployment process and you can move on to create and deploy a release.
 
-### Package
+    :::figure
+    ![Deploy a package step with target tag and package selected](/docs/img/getting-started/first-deployment/images/deploy-package-step-form.png)
+    :::
 
-8. Select **hello-world** from the **Package ID** dropdown list.
-
-You can skip the other sections of this page for this tutorial.
-
-**Save** your deployment process and you can move on to create and deploy a release.
-
-:::figure
-![Deploy a package step with target tag and package selected](/docs/img/getting-started/first-deployment/images/deploy-package-step-form.png)
-:::
-
-## Release and deploy
-
-1. Create a new release and deploy it to the Development environment.
+10. **Release and deploy** - Create a new release and deploy it to the Development environment.
 
 The release will deploy the *hello world* package to the *Hello world tutorial target*.
 

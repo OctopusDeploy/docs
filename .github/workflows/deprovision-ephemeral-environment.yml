@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Login to Octopus Deploy
-        uses: OctopusDeploy/login@v1
+        uses: OctopusDeploy/login@v2
         with:
           server: ${{ secrets.OCTOPUS_SERVER_URL }}
           service_account_id: ${{ secrets.OCTOPUS_SERVICE_ACCOUNT_ID }}

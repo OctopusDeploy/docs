@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-02
+modDate: 2026-05-25
 title: Manual intervention and approval step
 icon: fa-solid fa-check
 description: Manual intervention and approvals allow a human to review, approve, or sign off on deployments.
@@ -40,7 +40,30 @@ Manual intervention steps are added to deployment processes in the same way as o
    - Run the manual intervention based on the status (success or failure) of the previous step.
    - Wait for the previous step to complete.
    - Run based on the value of a variable expression.
-8.  Save the deployment process.
+8. Save the deployment process.
+
+## When the deployment pauses
+
+The point at which a deployment or runbook run pauses depends on how the manual intervention step is positioned in the deployment process:
+
+### As a standalone step**
+
+The deployment pauses after all currently executing parallel steps have completed. Once the intervention is handled, the deployment may need to wait for a task cap slot to become available before it resumes.
+
+### As a child step**
+
+A manual intervention can be configured as a child step nested inside another step. In this case:
+
+- The deployment does **not** pause at the task level — the task slot remains active while waiting for intervention.
+- The deployment will not progress to subsequent child steps until the intervention is handled.
+
+The exception is when the manual intervention is the **last child step** of a parent step with no associated deployment target (i.e., the parent is not part of a rolling deployment). In that case, the deployment pauses in the same way as a standalone step.
+
+:::div{.hint}
+When a manual intervention pauses the deployment task, it frees the task slot for other work. When the deployment is ready to resume, it will wait for an available task cap slot, which may introduce a delay before it continues.
+
+When a manual intervention does not pause the deployment task, the task slot remains in use while awaiting intervention. If multiple deployments are held at manual interventions simultaneously, they can exhaust all available task cap slots and prevent new tasks from starting.
+:::
 
 ## Assigning manual interventions
 
@@ -52,7 +75,7 @@ When a deployment is executing and a manual step is encountered, the deployment 
 
 You can click **Show details** to view the instructions.
 
-If you are in the team of users that can take responsibility for the interruption, you'll also be able to assign the interruption to yourself by clicking **Assign to me**. 
+If you are in the team of users that can take responsibility for the interruption, you'll also be able to assign the interruption to yourself by clicking **Assign to me**.
 
 :::div{.hint}
 Interruptions can only be assigned to one person at a time to prevent two people from accidentally performing the manual step.
@@ -73,13 +96,14 @@ When a manual step is completed, details of the interruption are saved as variab
 | Variable name | Contains | Example value |
 | --- | --- | --- |
 | `Octopus.Action[Step Name].Output.Manual.Notes` | The contents of the *Notes* field from the interruption form | *Checked with Rick, got the all-clear; Michelle is out at a meeting.* |
-| `Octopus.Action[Step Name].Output.Manual.Approved` | Indicates if the step was approved | *True*
+| `Octopus.Action[Step Name].Output.Manual.Approved` | Indicates if the step was approved | *True* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Id` | The user ID of the user who submitted the interruption form | *users-237* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *j_jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *jamie.jones@example.com* |
 
 ## Evaluating manual intervention output in following steps
+
 If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true", and use the `Octopus.Deployment.Error` variable as the conditional. For example:
 
 ```

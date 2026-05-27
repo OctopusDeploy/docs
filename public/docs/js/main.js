@@ -6,6 +6,7 @@ import {
 import { addResizedEvent } from './modules/resizing.js';
 import { addStickyNavigation } from './modules/nav-sticky.js';
 import { mobileNav } from './modules/nav-mobile.js';
+import { copyMarkdownMenus } from './modules/copy-markdown.js';
 import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
