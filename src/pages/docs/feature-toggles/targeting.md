@@ -97,3 +97,29 @@ Some examples:
 | `ring/early-adopter`, `region/eu`, `region/au` | `ring/early-adopter`, `region/au` | `On`   |
 | `ring/early-adopter`, `region/eu`, `region/au` | `license-type/free`               | `Off`  |
 | `ring/early-adopter`, `region/eu`, `region/au` | `region/au`                       | `Off`  |
+
+## Rollout groups {#rollout-groups}
+
+By default, rollouts are evaluated independently for each feature toggle. A 10% tenant rollout on one toggle will include a different 10% of tenants than a 10% tenant rollout on another toggle. This ensures the same tenants or clients are not always the first to receive every new feature.
+
+Rollout groups let you connect rollout evaluation between multiple feature toggles so that the same tenants or clients are included in the rollout across those toggles. This can be useful when you have related features that should roll out to the same audience.
+
+You can assign a rollout group to a feature toggle from the feature toggle page by selecting a group from the rollout group dropdown.
+
+<!-- SCREENSHOT: Feature toggle page showing the rollout group dropdown -->
+
+:::div{.warning}
+Adding or removing a rollout group changes the set of tenants or clients included in the rollout. If you have a tenant or client rollout configured, assigning a rollout group will change which tenants or clients are included. Configure rollout groups before you begin rolling out a feature.
+:::
+
+### Managing rollout groups
+
+You can manage rollout groups from the rollout groups page. To access this page, open the overflow menu on the feature toggles list page and select **Rollout groups**.
+
+<!-- SCREENSHOT: Feature toggles list page with the overflow menu open, the Rollout groups item highlighted -->
+
+From the rollout groups page, you can add, rename, and delete rollout groups.
+
+<!-- SCREENSHOT: Rollout groups management page showing a list of rollout groups with options to add, rename, and delete -->
+
+You cannot delete a rollout group that is assigned to one or more feature toggles. To delete a rollout group, first remove it from all feature toggles that use it.
