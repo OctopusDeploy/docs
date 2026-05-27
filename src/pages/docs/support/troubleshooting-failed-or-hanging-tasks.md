@@ -63,9 +63,9 @@ In some instances, Octopus will automatically trigger the failure of a task that
 
 This is generally indicative of an internal error in Octopus. In Octopus Cloud we actively monitor for these issues, but please reach out to support for further assistance, especially if the problem persists.
 
-### Tentacle script abandonment
+### Automatic recovery for hanging tasks
 
-If your task ends in `Cancelled` or `Failed` and your Tentacle has logged that the script was abandoned, see [Tentacle script abandonment](/docs/infrastructure/deployment-targets/tentacle/tentacle-script-abandonment) for the full explanation and what to do next.
+Octopus Tentacle can automatically recover from many hanging-task scenarios by abandoning the affected script and releasing the per-target mutex. See [Tentacle script abandonment](/docs/infrastructure/deployment-targets/tentacle/tentacle-script-abandonment) for what triggers this, what you'll see in the task log, and what to do about the underlying cause.
 
 ### Antivirus software {#anti-virus-software}
 
