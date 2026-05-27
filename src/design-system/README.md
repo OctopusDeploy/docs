@@ -14,7 +14,7 @@ SEO and Core Web Vitals intact on statically generated pages.
 
 ## 1. Anatomy
 
-```
+```text
 src/design-system/
 ├── README.md            ← this file
 ├── tokens.css           ← brand + semantic CSS variables (THE customization surface)
@@ -36,6 +36,7 @@ src/design-system/
 ```
 
 **Two tiers, adopt independently:**
+
 - `tokens.css` + `theme.css` + `ui/` - the universal core. Any Octopus Astro site can use it.
 - `docs-shell/` - opinionated documentation chrome. Take it for docs sites; skip it for
   marketing/app sites and build their own shells on top of the core.
@@ -60,6 +61,7 @@ src/design-system/
    near-zero for a flatter skin, or push them up for more drama. No component edits required.
 
 Components and `theme.css` reference **only the semantic tokens**, never raw hex. So:
+
 - Re-skinning a site = edit `tokens.css`, nothing else.
 - Because every microsite is the *same* Octopus brand, `tokens.css` ports **1:1 unchanged** -
   that is the whole point: copy it verbatim and every site converges on one look. Only fork
@@ -110,7 +112,7 @@ each other).
 them. If you adopt `docs-shell`, the target repo must provide:
 
 | Dependency | Used by | Path in this repo | Notes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `OctopusLogo.astro` | `DocsHeader.astro` | `public/docs/img/OctopusLogo.astro` | The genuine wordmark+glyph. Import path is `../../../public/docs/img/OctopusLogo.astro` - adjust if your asset lives elsewhere. |
 | Shared `SharedFooter.astro` | `DocsLayout.astro` / `DocsContentLayout.astro` | `src/components/SharedFooter.astro` | Imported as `../../components/SharedFooter.astro` (fetches the shared footer + Marketo form). Swap for the site's own footer if needed. |
 | `footer-bundle.css` | `DocsLayout.astro` `<head>` | `public/docs/css/footer-bundle.css` | Linked by absolute URL `/docs/css/footer-bundle.css`. |
@@ -157,6 +159,7 @@ truth is the `.astro` component, not a CSS file. To keep the DOM traceable we ta
 component's root element with a **`data-component="<FileName>"`** attribute.
 
 Workflow to locate and fix anything:
+
 1. Inspect the element in browser devtools.
 2. Walk up to the nearest `[data-component="X"]`.
 3. Open `src/design-system/**/X.astro` — the Tailwind classes you want to change are right
@@ -213,7 +216,7 @@ These hold by construction; preserve them when extending the system.
 ### Inline-script inventory (all vanilla, all `is:inline`)
 
 | Script | File | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | FOUC theme apply | `docs-shell/DocsLayout.astro` (head) | Set `data-theme` from `localStorage` before paint |
 | Theme toggle | `docs-shell/DocsHeader.astro` | Toggle + persist light/dark |
 | Search | `docs-shell/DocsHeader.astro` renders the real `themes/octopus/components/Search.astro` | The real `search.js` engine (index + scoring + synonyms), re-skinned via `.ds-search` CSS. Not a design-system script. |
