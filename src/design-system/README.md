@@ -112,7 +112,7 @@ them. If you adopt `docs-shell`, the target repo must provide:
 | Dependency | Used by | Path in this repo | Notes |
 |---|---|---|---|
 | `OctopusLogo.astro` | `DocsHeader.astro` | `public/docs/img/OctopusLogo.astro` | The genuine wordmark+glyph. Import path is `../../../public/docs/img/OctopusLogo.astro` - adjust if your asset lives elsewhere. |
-| Shared `Footer.astro` | `DocsLayout.astro` | `src/components/Footer.astro` | Imported as `../../components/Footer.astro`. Swap for the site's own footer if needed. |
+| Shared `SharedFooter.astro` | `DocsLayout.astro` / `DocsContentLayout.astro` | `src/components/SharedFooter.astro` | Imported as `../../components/SharedFooter.astro` (fetches the shared footer + Marketo form). Swap for the site's own footer if needed. |
 | `footer-bundle.css` | `DocsLayout.astro` `<head>` | `public/docs/css/footer-bundle.css` | Linked by absolute URL `/docs/css/footer-bundle.css`. |
 
 The `ui/` core has **no** external dependencies.

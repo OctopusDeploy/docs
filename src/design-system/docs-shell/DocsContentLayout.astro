@@ -19,7 +19,7 @@ import DocsToc from './DocsToc.astro';
 import DocsBreadcrumbs from './DocsBreadcrumbs.astro';
 import DocsSidebarNav from './DocsSidebarNav.astro';
 import SidebarBehavior from './SidebarBehavior.astro';
-import Footer from '../../components/Footer.astro';
+import SharedFooter from '../../components/SharedFooter.astro';
 
 type Props = {
   frontmatter: Record<string, any>;
@@ -254,6 +254,6 @@ const sortedTopLevel = pages
       </div>
     </div>
 
-    <Footer />
+    <SharedFooter />
   </body>
 </html>

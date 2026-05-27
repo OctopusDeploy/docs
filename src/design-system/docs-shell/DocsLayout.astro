@@ -5,7 +5,7 @@ import DocsHeader from './DocsHeader.astro';
 import DocsSidebar from './DocsSidebar.astro';
 import DocsToc from './DocsToc.astro';
 import DocsBreadcrumbs from './DocsBreadcrumbs.astro';
-import Footer from '../../components/Footer.astro';
+import SharedFooter from '../../components/SharedFooter.astro';
 
 interface Props {
   title: string;
@@ -190,6 +190,6 @@ const kicker =
       </div>
     </div>
 
-    <Footer />
+    <SharedFooter />
   </body>
 </html>
