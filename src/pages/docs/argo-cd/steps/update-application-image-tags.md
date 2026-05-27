@@ -20,6 +20,26 @@ When targeting a Helm-based application source, each referenced container image 
 ![The Helm image tag path field in the Reference a package drawer](/docs/img/argo-cd/update-application-image-tags-helm-values-tag.png)
 :::
 
+:::div{.info}
+**Config-as-Code / OCL:** the **Helm image tag path** field maps to the `HelmReplacementPath` property on the package reference. In an OCL deployment process the property lives inside the package block alongside `Purpose`, `Extract`, etc.:
+
+```ocl
+packages "my-image" {
+    acquisition_location = "NotAcquired"
+    feed                 = "<feed-id>"
+    package_id           = "<image-name>"
+    properties = {
+        Extract              = "False"
+        HelmReplacementPath  = "image.tag"
+        Purpose              = "DockerImageReference"
+        SelectionMode        = "immediate"
+    }
+}
+```
+
+The full variable name resolved at deployment time is `Octopus.Action.Package[<package-reference-name>].HelmReplacementPath`. Octopus silently ignores unrecognised property names on package references, so a typo (`HelmImageTagPath`, `Octopus.Action.ArgoCD.HelmImageTagPath`, etc.) will be saved as-is but never consulted at runtime, leaving the step unable to find a path and effectively a no-op.
+:::
+
 Depending on what the helm value contains:
 
 - Only the tag - it will be replaced with the package's version, with no further validation or checking.
@@ -60,8 +80,9 @@ For Kubernetes YAML:
 
 For Helm charts:
 
-- Image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations)
-- Matching image tags in the `values.yaml` are replaced with container image versions from the release
+- When the step's package reference has a `HelmReplacementPath` (the **Helm image tag path** field) set, the path is read directly from the step configuration. Image tags are replaced in **every Helm values file referenced by the Application** — both the chart's default `values.yaml` and any files listed in the Application's `spec.source.helm.valueFiles` (per-env overrides, etc.).
+- When no `HelmReplacementPath` is configured on any package, image paths are instead extracted from the Application's [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) and the same set of values files is updated. (See the [annotation doc](/docs/argo-cd/annotations/helm-annotations) for the requirement that, if used, all package references must rely on annotations rather than step configuration.)
+- Inline `spec.source.helm.valuesObject` values are **not** written by this step — the step only edits committed values files. Applications using inline values for image fields will need to either move the image fields into a referenced values file or use a separate mechanism to update them.
   
 For Kustomize applications (i.e. supplied path contains  `kustomization.yaml`, `kustomization.yml` or `Kustomization`):
 
