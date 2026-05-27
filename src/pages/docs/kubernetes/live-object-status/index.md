@@ -90,7 +90,7 @@ Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/t
 
 ### Orphaned objects
 
-When you deploy a project that no longer includes a resource that was deployed in a previous release (for example, a Helm chart drops a sub-resource, or you remove a step from the deployment process), Octopus marks the dropped resource as **Orphaned** in the Live Status table.
+When you deploy a project that no longer includes a resource that was deployed in a previous release (for example, you remove a resource from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped resource as **Orphaned** in the Live Status table.
 
 Orphaned objects:
 
@@ -99,7 +99,7 @@ Orphaned objects:
 - are summarized by a total-orphans count shown on the project's Live Status page
 - can be narrowed to by using the Live Status table's filter and selecting **Orphaned**
 
-The orphan state clears automatically on the next deployment that re-adds the resource. If you remove an orphaned object from your cluster directly (for example with `kubectl delete` or by uninstalling its Helm release), the Kubernetes monitor detects the removal and Octopus stops tracking the resource, so the orphan entry disappears from the Live Status table without any manual intervention.
+The orphan state clears automatically on the next deployment that re-adds the resource. If you remove an orphaned object from your cluster directly (for example with `kubectl delete`), the Kubernetes monitor detects the removal and Octopus stops tracking the resource, so the orphan entry disappears from the Live Status table without any manual intervention.
 
 :::div{.info}
 Orphaned-resource tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the resource is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
