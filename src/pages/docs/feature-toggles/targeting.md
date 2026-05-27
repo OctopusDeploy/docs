@@ -100,26 +100,26 @@ Some examples:
 
 ## Rollout groups {#rollout-groups}
 
-By default, rollouts are evaluated independently for each feature toggle. A 10% tenant rollout on one toggle will include a different 10% of tenants than a 10% tenant rollout on another toggle. This ensures the same tenants or clients are not always the first to receive every new feature.
+Rollouts are evaluated independently for each feature toggle by default. A 10% tenant rollout on one toggle will include a different set of tenants than a 10% tenant rollout on another toggle. This ensures the same tenants or clients are not always the first to receive every new feature.
 
 Rollout groups let you connect rollout evaluation between multiple feature toggles so that the same tenants or clients are included in the rollout across those toggles. This can be useful when you have related features that should roll out to the same audience.
 
 You can assign a rollout group to a feature toggle from the feature toggle page by selecting a group from the rollout group dropdown.
 
-<!-- SCREENSHOT: Feature toggle page showing the rollout group dropdown -->
+![Screenshot of feature toggle page showing rollout group selector expanded with new onboarding flow group selected](/docs/img/feature-toggles/rollout-group-selector.png)
 
 :::div{.warning}
-Adding or removing a rollout group changes the set of tenants or clients included in the rollout. If you have a tenant or client rollout configured, assigning a rollout group will change which tenants or clients are included. Configure rollout groups before you begin rolling out a feature.
+Adding or removing a rollout group changes the set of tenants or clients included in the rollout. If you have a tenant or client rollout configured, assigning a rollout group will change which tenants or clients are included.
 :::
 
 ### Managing rollout groups
 
 You can manage rollout groups from the rollout groups page. To access this page, open the overflow menu on the feature toggles list page and select **Rollout groups**.
 
-<!-- SCREENSHOT: Feature toggles list page with the overflow menu open, the Rollout groups item highlighted -->
+![Screenshot of feature toggle list page with overflow menu expanded highlighting the manage rollout groups button](/docs/img/feature-toggles/manage-rollout-group-overflow.png)
 
 From the rollout groups page, you can add, rename, and delete rollout groups.
 
-<!-- SCREENSHOT: Rollout groups management page showing a list of rollout groups with options to add, rename, and delete -->
+![Screenshot of rollout group list page with a single rollout group named new onboarding flow, used by the live chat and AI recommendations feature toggles, with the overflow menu is expanded showing edit and delete options](/docs/img/feature-toggles/rollout-group-page.png)
 
 You cannot delete a rollout group that is assigned to one or more feature toggles. To delete a rollout group, first remove it from all feature toggles that use it.
