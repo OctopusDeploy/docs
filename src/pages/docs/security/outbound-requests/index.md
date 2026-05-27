@@ -33,6 +33,7 @@ The Octopus Server makes the following outbound requests:
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
 8. Email address and behavioral data is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
 9. Requests are sent to `https://aiproxy.octopus.com` to communicate with foundation models for [AI features](/docs/octopus-ai) in Octopus Deploy.
+10. Requests are made to the configured OIDC Issuer URL during rotation of [externally hosted signing keys](/docs/infrastructure/signing-keys#rotating-externally-hosted-keys) to validate the signing keys.
 
 ### Built-in step templates
 
