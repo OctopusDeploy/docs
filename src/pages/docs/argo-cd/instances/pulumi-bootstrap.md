@@ -225,7 +225,7 @@ kubectl rollout status deployment/argocd-server \
   --namespace "${cfg.argocdNamespace}" \
   --timeout=300s
 
-# Give the Argo CD server a moment to fully initialise its API
+# Give the Argo CD server a moment to fully initialize its API
 # (the rollout-status check alone isn't always sufficient).
 sleep 30
 
