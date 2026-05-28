@@ -12,7 +12,7 @@ navOrder: 170
 ---
 
 :::div{.warning}
-Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability, [tell us what you think](https://roadmap.octopus.com/c/263-project-templates).
 :::
 
 ## Overview
@@ -58,7 +58,7 @@ If your deployment process includes a process template configured to auto-update
 
 The project template process editor shows a warning callout when included process templates have received automatic updates since the template was last published. Use it to review the changes before publishing a new version.
 
-We're interested in your [feedback](#feedback) on whether this behavior meets your expectations.
+We're interested in your [feedback](https://roadmap.octopus.com/c/263-project-templates) on whether this behavior meets your expectations.
 :::
 
 ## Parameters
