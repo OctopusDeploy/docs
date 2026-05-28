@@ -1,0 +1,20 @@
+dictionary-octopus.txt
+  s_c9c0d2fc56713c::t_0c923aa1484469 427
+  s_c9c0d2fc56713c::t_dd5e1c65bfb15b 398
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "70d395b652726c587619e4ccd0c30010ac11f653",
+  "prompts": {},
+  "sessions": {
+    "s_c9c0d2fc56713c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fa6f913-f850-41bd-807a-daa39c6061d0",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Noam Gal <noam.gal@octopus.com>"
+    }
+  }
+}
