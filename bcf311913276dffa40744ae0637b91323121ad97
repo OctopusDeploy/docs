@@ -1,0 +1,25 @@
+src/pages/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor.md
+  s_6a80a4f0d3943f::t_160454dda179ad 18-19
+  s_6a80a4f0d3943f::t_4d98cfdda5ebe8 4
+src/pages/docs/kubernetes/live-object-status/index.md
+  s_6a80a4f0d3943f::t_dfc392d76f0eb5 82-87,91-92,94-96,99,101,103-106
+  s_6a80a4f0d3943f::t_ac5e3229aff685 93,97,100,102
+  s_6a80a4f0d3943f::t_93cfd71817f231 4,107
+  s_6a80a4f0d3943f::t_eef775bd86edec 98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "bcf311913276dffa40744ae0637b91323121ad97",
+  "prompts": {},
+  "sessions": {
+    "s_6a80a4f0d3943f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "272919e6-6512-495b-9ca1-cf217faba3a0",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Philip Kotliyakov <philip.kotliyakov@octopus.com>"
+    }
+  }
+}
