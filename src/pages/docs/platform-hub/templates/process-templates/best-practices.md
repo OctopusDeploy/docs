@@ -5,7 +5,7 @@ modDate: 2025-09-11
 title: Process Templates best practices
 subtitle: Best practices for creating process templates within Platform Hub
 icon: fa-solid fa-lock
-navTitle: Best Practices
+navTitle: Best practices
 navSection: Process Templates
 description: Best practices for creating process templates within Platform Hub
 navOrder: 160
