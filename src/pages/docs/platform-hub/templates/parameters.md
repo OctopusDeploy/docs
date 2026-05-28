@@ -39,7 +39,7 @@ Templates can manage the following as parameters:
 - Worker Pool
 - Package
 - Project
-- A previous step name
+- A previous step name (process templates only)
 
 To create a parameter, navigate to **Parameters** on a template and add a new parameter.
 

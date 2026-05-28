@@ -12,14 +12,14 @@ navOrder: 170
 ---
 
 :::div{.warning}
-Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards general availability.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
 :::
 
 ## Overview
 
 Project templates are reusable project blueprints that can be shared across multiple spaces in Octopus Deploy. Instead of manually configuring each new project from scratch, defining deployment steps and variables every time, you create a single template that any space can use as a starting point. This ensures teams follow the same standards and removes the risk of configuration drift.
 
-To create or manage your project templates, navigate to Platform Hub. If you haven't set up your Git repository, you must do so before creating a project template.
+To create or manage your project templates, navigate to Platform Hub. If you haven't set up your [Git repository](/docs/platform-hub#git-credentials-in-platform-hub), you must do so before creating a project template.
 
 1. Navigate to **Project Templates** in Platform Hub.
 2. Give the project template a **Name** and an optional **Description**.
@@ -66,7 +66,7 @@ We're interested in your [feedback](#feedback) on whether this behavior meets yo
 Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
 
 :::div{.warning}
-Project templates don't yet support parameter scoping or sensitive parameter values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
+Project templates don't yet support parameter scoping or sensitive parameter default values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
 :::
 
 For a full reference of supported parameter types and default values, see [Template parameters](/docs/platform-hub/templates/parameters).
@@ -98,9 +98,9 @@ Project template variables support the following types:
 
 You can scope a project template variable to any combination of the following:
 
-- A specific step in the deployment process.
-- A process template usage, when the template's deployment process includes one.
-- An environment parameter, target tag parameter, or tenant tag parameter defined on the template. The variable applies wherever the project's parameter value resolves to.
+- Specific steps in the deployment process.
+- Process template usages, when the template's deployment process includes one or more.
+- Environment parameters, target tag parameters, or tenant tag parameters defined on the template. Whatever the project's parameter value resolves to determines the scope.
 
 Scoping is fixed at the template level. The same scoping rules apply to every project created from the template.
 

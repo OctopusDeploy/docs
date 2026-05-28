@@ -12,7 +12,7 @@ navOrder: 173
 ---
 
 :::div{.warning}
-Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards general availability.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
 :::
 
 ## Public Preview limitations
@@ -23,18 +23,21 @@ Project templates are in Public Preview. The following features are not yet supp
 - Lifecycles
 - Environments
 - Ephemeral environments
-- Cloud target discovery on steps. Use project variables in the project instead
+- Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
 - Feeds
-- Project settings, except for Multi-tenant Deployments
+- Project settings, except for Multi-tenant Deployments and Project Persistence
 - Runbooks
 - Triggers
 - Import and export of templated projects
-- Git Credentials
 - Inline variable configuration within the deployment process editor
 
 We'll update this page as the feature evolves.
+
+## Cloud target discovery
+
+Project templates can't supply the account that cloud target discovery uses on a step. To use cloud target discovery in a templated project, configure it on the templated project itself. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
 
 ## Step support
 
