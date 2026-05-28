@@ -100,7 +100,7 @@ Some examples:
 
 ## Rollout groups {#rollout-groups}
 
-Rollouts are evaluated independently for each feature toggle by default. A 10% tenant rollout on one toggle will include a different set of tenants than a 10% tenant rollout on another toggle. This ensures the same tenants or clients are not always the first to receive every new feature.
+A percentage rollout on one feature toggle will include a different set of tenants or clients than the same percentage rollout on another toggle by default. This ensures the same tenants or clients are not always the first to receive every new feature.
 
 Rollout groups let you connect rollout evaluation between multiple feature toggles so that the same tenants or clients are included in the rollout across those toggles. This can be useful when you have related features that should roll out to the same audience.
 
