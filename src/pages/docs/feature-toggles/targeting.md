@@ -120,6 +120,6 @@ You can manage rollout groups from the rollout groups page. To access this page,
 
 From the rollout groups page, you can add, rename, and delete rollout groups.
 
-![Screenshot of rollout group list page with a single rollout group named new onboarding flow, used by the live chat and AI recommendations feature toggles, with the overflow menu is expanded showing edit and delete options](/docs/img/feature-toggles/rollout-group-page.png)
+![Screenshot of rollout group list page with a single rollout group named new onboarding flow, used by the live chat and AI recommendations feature toggles, with the overflow menu expanded and showing edit and delete options](/docs/img/feature-toggles/rollout-group-page.png)
 
 You cannot delete a rollout group that is assigned to one or more feature toggles. To delete a rollout group, first remove it from all feature toggles that use it.
