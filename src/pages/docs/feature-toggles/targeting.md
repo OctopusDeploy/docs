@@ -100,7 +100,7 @@ Some examples:
 
 ## Rollout groups {#rollout-groups}
 
-A percentage rollout on one feature toggle will include a different set of tenants or clients than the same percentage rollout on another toggle by default. This ensures the same tenants or clients are not always the first to receive every new feature.
+By default, a percentage rollout on one feature toggle will include a different set of tenants or clients than the same percentage rollout on another toggle. This ensures the same tenants or clients are not always the first to receive every new feature.
 
 Rollout groups let you connect rollout evaluation between multiple feature toggles so that the same tenants or clients are included in the rollout across those toggles. This can be useful when you have related features that should roll out to the same audience.
 
@@ -109,7 +109,7 @@ You can assign a rollout group to a feature toggle from the feature toggle page 
 ![Screenshot of feature toggle page showing rollout group selector expanded with new onboarding flow group selected](/docs/img/feature-toggles/rollout-group-selector.png)
 
 :::div{.warning}
-Adding or removing a rollout group changes the set of tenants or clients included in the rollout. If you have a tenant or client rollout configured, assigning a rollout group will change which tenants or clients are included.
+If you have a tenant or client rollout configured, adding, changing, or removing a rollout group on a feature toggle will change which tenants or clients are included in that rollout.
 :::
 
 ### Managing rollout groups
