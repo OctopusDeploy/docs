@@ -114,7 +114,7 @@ Adding or removing a rollout group changes the set of tenants or clients include
 
 ### Managing rollout groups
 
-You can manage rollout groups from the rollout groups page. To access this page, open the overflow menu on the feature toggles list page and select **Rollout groups**.
+You can manage rollout groups from the rollout groups page. To access this page, open the overflow menu on the feature toggles list page and select **Manage Rollout Groups**.
 
 ![Screenshot of feature toggle list page with overflow menu expanded highlighting the manage rollout groups button](/docs/img/feature-toggles/manage-rollout-group-overflow.png)
 
