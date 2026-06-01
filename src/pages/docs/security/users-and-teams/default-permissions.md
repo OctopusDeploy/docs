@@ -145,6 +145,7 @@ description: A listing of the default permissions for each of the built-in user 
 
 | System Permission           | Description                              |
 | --------------------------- | ---------------------------------------- |
+| SshKnownHostsView           | View SSH known hosts |
 | TeamView                    | View teams |
 | UserRoleView                | View other user's roles |
 | UserView                    | View users |
@@ -253,6 +254,7 @@ description: A listing of the default permissions for each of the built-in user 
 
 | System Permission           | Description                              |
 | --------------------------- | ---------------------------------------- |
+| SshKnownHostsView           | View SSH known hosts |
 | TeamView                    | View teams |
 | UserRoleView                | View other user's roles |
 | UserView                    | View users |
@@ -459,6 +461,8 @@ description: A listing of the default permissions for each of the built-in user 
 
 | System Permission           | Description                              |
 | --------------------------- | ---------------------------------------- |
+| SshKnownHostsAdminister     | Add, edit, and remove SSH known hosts |
+| SshKnownHostsView           | View SSH known hosts |
 | TeamView                    | View teams |
 | UserRoleView                | View other user's roles |
 | UserView                    | View users |
@@ -588,6 +592,8 @@ description: A listing of the default permissions for each of the built-in user 
 | SpaceDelete          | Delete spaces                                                                                                                            |
 | SpaceEdit            | Edit spaces                                                                                                                              |
 | SpaceView            | View spaces                                                                                                                              |
+| SshKnownHostsAdminister | Add, edit, and remove SSH known hosts |
+| SshKnownHostsView | View SSH known hosts |
 | TaskCancel           | Cancel server tasks                                                                                                                      |
 | TaskCreate           | Explicitly create (run) server tasks                                                                                                     |
 | TaskEdit             | Edit server tasks                                                                                                                        |
@@ -616,6 +622,8 @@ description: A listing of the default permissions for each of the built-in user 
 | SpaceDelete          | Delete spaces                                                                  |
 | SpaceEdit            | Edit spaces                                                                    |
 | SpaceView            | View spaces                                                                    |
+| SshKnownHostsAdminister | Add, edit, and remove SSH known hosts |
+| SshKnownHostsView | View SSH known hosts |
 | TaskCancel           | Cancel server tasks                                                            |
 | TaskCreate           | Explicitly create (run) server tasks                                           |
 | TaskEdit             | Edit server tasks                                                              |
