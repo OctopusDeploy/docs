@@ -13,6 +13,8 @@ The [Package ID](/docs/packaging-applications/#package-id), version number, and 
 
 The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds), in which case, you need to use [Maven Versions](#maven).
 
+If your toolchain produces version strings that don't sort correctly under SemVer (for example feature-branch names, CI build numbers, or date-stamped builds), channels can be configured to order packages by [publish date](/docs/releases/channels#version-ordering-strategy) instead of version string — letting feed triggers and release creation pick the most-recently-published version.
+
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
 1. Can you trace a version back to the commit/check-in the application/package was built from?
