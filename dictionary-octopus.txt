@@ -395,6 +395,7 @@ petclinic
 Petlife
 petshop
 Pids
+pipefail
 Pitstop
 PKCE
 pkcs
@@ -423,6 +424,7 @@ proxying
 pscustomobject
 pubdate
 publicip
+Pulumi
 pwsh
 pycryptodome
 Qualys
