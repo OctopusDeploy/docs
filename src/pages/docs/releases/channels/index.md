@@ -78,17 +78,18 @@ When creating a release for a channel with rules, an option can be configured on
 
 Package version rules assist in selecting the correct versions of packages for the channel.  They are only used when creating a release, either manually or via [project triggers](/docs/projects/project-triggers).
 
-:::div{.hint}
-Version rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)](http://semver.org) for your versioning strategy.
-:::
+By default, channels rank package versions using [Semantic Versioning (SemVer 2.0.0)](http://semver.org). If your packages don't follow SemVer — feature-branch tags, date-stamped builds, CI build numbers — you can rank them by publish date instead, using the [Most recently published](#version-ordering-strategy) ordering strategy.
 
 1. When viewing a channel, click **Add rule** in the Package Version Rules section.
 2. Select the package step(s) (and as such the packages) the version rule will be applied to.
-3. Enter the version range in the **Version range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
+3. Select an [ordering strategy](#version-ordering-strategy):
+    - **Use semantic version** (default) — rank packages by their version string using SemVer comparison. Continue at step 4.
+    - **Use most recently published** — rank packages by the publish date that the feed reports. Skip to the [Most recently published rules](#most-recently-published-rules) section below.
+4. Enter the version range in the **Version range** field. You can use either [Nuget](https://oc.to/NuGetVersioning) or [Maven](https://oc.to/MavenVersioning) versioning syntax to specify the range of versions to include.
 
     You can use the full semantic version as part of your version range specification. For example: `[2.0.0-alpha.1,2.0.0)` will match all 2.0.0 pre-releases (where the pre-release component is `>= alpha.1`), and will exclude the 2.0.0 release.
 
-4. Enter any pre-release tags you want to include.
+5. Enter any pre-release tags you want to include.
 
     Following the standard 2.0.0 [SemVer syntax](http://semver.org/), a pre-release tag is the alphanumeric text that can appear after the standard *major.minor.patch* pattern immediately following a hyphen. Providing a regex pattern for this field allows the channel to filter packages based on their tag in a very flexible manner.  The [SemVer build metadata](https://semver.org/#spec-item-10) will also be evaluated by the regex pattern. Some examples are.
 
@@ -107,7 +108,7 @@ Version rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)
     If adding a pre-release tag to channels, you will also need to add the tag `^$` to your `default` channel
     :::
 
-5. Click **Design rule**.
+6. Click **Design rule**.
 
     The **Design Version Rule** window will show a list of the packages that will deployed as part of the deploy package step selected earlier. The versions of the packages that will deployed in this channel with the version rules you've designed will be highlighted in green, and the versions of the packages that will not be deployed with be shown in red. You can continue to edit the version rules in this window.
 
@@ -115,7 +116,38 @@ Version rules will work best when you follow [Semantic Versioning (SemVer 2.0.0)
     ![Design version rule](/docs/img/releases/channels/images/channel-design-version-rule.png)
     :::
 
-6. Click **Save**.
+7. Click **Save**.
+
+#### Ordering strategy {#version-ordering-strategy}
+
+Channels rank candidate package versions to decide which is the "latest" that satisfies the rule. Two strategies are available:
+
+- **Use semantic version** (default): packages are ranked by their version string using SemVer comparison. Use this when your package versions follow SemVer (e.g. `2.1.0`, `2.1.0-beta.3`). The version range and pre-release tag fields described above apply.
+- **Use most recently published**: packages are ranked by the publish date that the feed reports. The version that was uploaded most recently is treated as the latest. Use this when your version strings don't reflect recency — for example, feature-branch tags like `feature-checkout-04`, build numbers like `build-1234`, or date-stamps like `2026-05-29-nightly`.
+
+When **Use most recently published** is selected the version range and pre-release tag fields are replaced by a single **Version tag regex** field — see the next section for details.
+
+#### Most recently published rules {#most-recently-published-rules}
+
+When **Use most recently published** is selected:
+
+1. (Optional) Enter a regular expression in the **Version tag regex** field. This is matched against the **full version string** (not just the pre-release component) and filters candidate versions. Leave blank to consider every version published to the feed. Examples:
+
+    | **Pattern** | **Description** | **Example use-case** |
+    | --- | --- | --- |
+    | (empty) | Matches any version | Take the absolute newest publish, regardless of name |
+    | `^build-\d+$` | Matches versions like `build-1234` | CI build numbers |
+    | `^feature-checkout-.*` | Matches feature-branch tags for one feature | Auto-deploy a specific feature branch to a preview environment |
+    | `^\d{4}-\d{2}-\d{2}` | Matches a date prefix like `2026-05-29` | Date-stamped nightly builds |
+    | `^v\d+\.\d+\.\d+(-\w+)?$` | Matches a SemVer-like shape | Restrict to SemVer-shaped tags while still ordering by publish date |
+
+2. Click **Save**.
+
+The **Design rule** dialog isn't available for Most recently published rules — there's no SemVer range to evaluate candidates against. The regex filter determines which candidates qualify; Octopus then picks the candidate with the latest publish date. When two candidates share the same publish timestamp (a rare tie), the SemVer-higher version wins as a deterministic secondary sort.
+
+:::div{.hint}
+**Feed support.** Most recently published ordering needs the feed to report a publish date per version. It is supported on the built-in NuGet feed, external HTTP and filesystem NuGet feeds, Amazon S3, Google Cloud Storage, Helm, NPM, GitHub Releases, PyPI, and Artifactory Generic feeds. It is **not** supported on container or OCI registry feeds (Docker, DockerHub, GitHub Container Registry, Amazon ECR, Google GCR, or any OCI registry) because their tag-listing APIs return tag names only — fetching per-tag dates would require an extra manifest call for every tag. The channel rule editor warns you if you choose Most recently published with a step that targets one of these feeds.
+:::
 
 ### Git protection rules {#git-protection-rules}
 
