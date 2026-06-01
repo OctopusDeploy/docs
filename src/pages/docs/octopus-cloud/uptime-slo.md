@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-05-05
+modDate: 2026-06-01
 title: Uptime SLO
 navTitle: Uptime SLO
 navOrder: 70
@@ -26,6 +26,7 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 
 | Month | Uptime % | Weekly unplanned downtime | Uptime % incl. planned maintenance | Weekly downtime incl. planned maintenance |
 | :----- | ------: | ------: | ------: | ------: |
+| May 2026 | 99.9959% | 28s | 99.9234% | 469s |
 | April 2026 | 99.9857% | 91s | 99.9186% | 497s |
 | March 2026 | 99.9973% | 21s | 99.8632% | 833s |
 | February 2026 | 99.9985% | 14s | 99.8517% | 903s |
@@ -37,7 +38,6 @@ We list our achieved uptime percentage and weekly unplanned downtime duration. W
 | August 2025 | 99.9989% | 7s | 99.9281% | 441s |
 | July 2025 | 99.9992% | 7s | 99.9207% | 483s |
 | June 2025 | 99.9974% | 21s | 99.9307% | 420s |
-| May 2025 | 100% | 0s | 99.9125% | 532s |
 
 ### How we calculate uptime
 
