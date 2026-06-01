@@ -7,7 +7,7 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v9
+      - uses: actions/stale@v10
         with:
           stale-pr-message: 'Things seem to have gone quiet on this PR. There has been no activity for 60 days, so it will be closed in 14 days if there is still no movement.'
           close-pr-message: 'Closing due to inactivity.'
