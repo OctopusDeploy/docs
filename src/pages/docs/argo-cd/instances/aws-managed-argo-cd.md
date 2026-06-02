@@ -16,7 +16,7 @@ AWS managed Argo CD instances differ from standard self-hosted installations in 
 
 ### Authentication
 
-AWS enforces a maximum lifetime of 12 hours for account tokens due to this project role authentication tokens must be used instead. The majority of the APIs that the Argo CD Gateway calls are all project scoped however if the Gateway needs to make a request to an API that is not project scoped it will choose the first available authentication token, if you would like to provide a specific token to be used for these calls you can add it to the value `gateway.argocd.projectAuthentication` using the project name `octo-gateway-unscoped`
+AWS enforces a maximum lifetime of 12 hours for account tokens due to this project role authentication tokens must be used instead. The majority of the APIs that the Argo CD Gateway calls are project-scoped. However, if the Gateway needs to make a request to an API that is not project-scoped it will choose the first available authentication token, if you would like to provide a specific token to be used for these calls you can add it to the value `gateway.argocd.projectAuthentication` using the project name `octo-gateway-unscoped`
 
 ### External URL
 
@@ -32,7 +32,7 @@ AWS EKS Argo CD instances are exposed through a load balancer that does not supp
 
 ### Cluster annotation
 
-Project role auth tokens do not have permission to query Argo CD Cluster resources unless they are scoped to the project which means the Gateway won't be able to retrieve the default image registry annotation from the cluster resource. If you need to be able to add this annotation it can be added to the application along side the other Octopus annotations. [See the Cluster annotation doc for more details](/docs/argo-cd/annotations/cluster-annotations)
+Project role auth tokens do not have permission to query Argo CD Cluster resources unless they are scoped to the project. This means the Gateway won't be able to retrieve the default image registry annotation from the cluster resource. If you need to be able to add this annotation it can be added to the application along side the other Octopus annotations. [See the Cluster annotation doc for more details](/docs/argo-cd/annotations/cluster-annotations)
 
 ## Installation
 
