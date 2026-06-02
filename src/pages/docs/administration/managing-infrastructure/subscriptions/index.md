@@ -257,8 +257,8 @@ The following is a list of all options for subscriptions including Event Groups,
 | Deprecation Usage                    |
 | Event                                |
 | Extension Configuration              |
-| Feature Toggle                       | 
-| Feature Toggle Publishing Signing Key |
+| Feature Flag                         | 
+| Feature Flag Publishing Signing Key  |
 | Feed                                 |
 | Git Credential                       | 
 | Git Hub App Connection               |
