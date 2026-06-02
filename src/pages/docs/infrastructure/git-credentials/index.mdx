@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-14
-modDate: 2025-07-14
+modDate: 2026-06-02
 title: Git credentials
 icon: fa-solid fa-key
 description: How to work with Git credentials.
@@ -49,6 +49,16 @@ Known limitations with SSH key authentication:
 - Repository URLs must include a username, for example `git@example.com:octopus/repo.git` or `ssh://git@example.com/octopus/repo.git`.
 
 :::
+
+#### Supported key types
+
+Octopus supports these SSH key types:
+
+- Ed25519
+- ECDSA
+- RSA
+
+You can add your private key in OpenSSH, PEM (PKCS#1), or PKCS#8 format, whether or not it's protected with a passphrase.
 
 ## Edit your Git credentials
 
