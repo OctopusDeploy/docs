@@ -121,7 +121,7 @@ This feature is only available for version 2022.3.1274 and later
 The instructions in this section will require an Octopus Deploy Manager or Administrator
 :::
 
-If enabled, this feature will result in a linked change request having one or more Work Notes added during the deployment lifecycle which record details about the deployment and its execution status. Work notes include the project name, environment, and version. From **2026.2**, for tenanted deployments, the tenant name and tags are also included.
+If enabled, this feature will result in a linked change request having one or more Work Notes added during the deployment lifecycle which record details about the deployment and its execution status. Work notes include the project name, environment, and version. From **2026.2**, the tenant name and tags are also included for tenanted deployments.
 
 To enable this feature navigate to **Configuration ➜ Settings ➜ ServiceNow Integration**, click the **Work Notes Enabled** checkbox show below then click **Save**.
 
@@ -173,7 +173,7 @@ Setting the **Standard Change Template Name** setting under **ITSM Providers** t
 active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
 result in deployments and runbook runs of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
-From **2026.2** the **Standard Change Template Name** supports Octopus variable expressions (e.g. `#{ServiceNow.StandardTemplate}`), allowing the template to vary by environment, tenant, or any other variable scope. If the expression resolves to an empty value, the change type falls back to `Normal`.
+From **2026.2**, **Standard Change Template Name** supports Octopus variable expressions (e.g. `#{ServiceNow.StandardTemplate}`), allowing the template to vary dynamically by environment or tenant. If the expression resolves to an empty value, a Normal change request will be created.
 
 From **2024.2** you can create an `Emergency` change by selecting the Emergency Change setting on the deployment or runbook run creation page.
 :::figure

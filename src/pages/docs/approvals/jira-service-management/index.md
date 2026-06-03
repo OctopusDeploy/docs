@@ -113,7 +113,7 @@ The instructions in this section will require an Octopus Deploy Manager or Admin
 :::
 
 If enabled, this feature will result in a linked change request having one or more Comments added
-during the deployment lifecycle which record details about the deployment and its execution status. Comments include the project name, environment, and version. From **2026.2**, for tenanted deployments, the tenant name and tags are also included.
+during the deployment lifecycle, which record details about the deployment and its execution status. Comments include the project name, environment, and version. From **2026.2**, the tenant name and tags are also included for tenanted deployments.
 
 To enable this feature navigate to **Configuration ➜ Settings ➜ Jira Service Management
 Integration**, click the **Customer Comments Enabled** checkbox show below then click **Save**.
