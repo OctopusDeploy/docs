@@ -10,7 +10,9 @@ navOrder: 10
 
 When Octopus connects to a Git repository over SSH, it needs to know it's talking to the expected server and not an imposter. SSH known hosts record the public keys of the SSH servers Octopus trusts, so Octopus can verify each connection. They work the same way the `known_hosts` file works on your developer machine.
 
-If you want to authenticate a [Git credential](/docs/infrastructure/git-credentials) with an SSH key, you'll need to add the SSH host for that repository to your known hosts before you use it. Otherwise Octopus can't verify the server and the connection fails.
+If you want to authenticate a [Git credential](/docs/infrastructure/git-credentials) with an SSH key, you'll need an SSH host entry for that repository in your known hosts before you use it. Otherwise Octopus can't verify the server and the connection fails.
+
+Octopus pre-seeds the list of known hosts with those of common cloud providers and will keep this list up to date via Octopus version updates.
 
 :::figure
 ![The SSH known hosts settings page in Octopus Deploy, showing a list of trusted SSH hosts](/docs/img/infrastructure/git-credentials/ssh-known-hosts/images/ssh-known-hosts.png)
@@ -24,11 +26,9 @@ SSH known hosts are system-wide. They're shared across every space in your insta
 
 You manage SSH known hosts by navigating to **Configuration ➜ SSH Known Hosts** in the Octopus Web Portal.
 
-Octopus pre-seeds the list of known hosts with those of common cloud providers and will keep this list up to date via Octopus version updates.
-
 To add a new known host, provide the host, key type and a hash of the public key in the form `<host> <keytype> <publickey>` and save.
 
-Octopus accepts these in the same format that `ssh-keyscan` or your local `known_hosts` file stores them in. You can copy and paste from your terminal or local file to add them.
+Octopus accepts these in the same format that `ssh-keyscan` or your local `known_hosts` file stores them in. You can copy and paste multiple entries at once from your terminal or local `known_hosts` file to add them.
 
 :::figure
 ![Adding SSH known hosts with a multi-line entry from ssh-keyscan](/docs/img/infrastructure/git-credentials/ssh-known-hosts/images/add-ssh-known-hosts.png)
