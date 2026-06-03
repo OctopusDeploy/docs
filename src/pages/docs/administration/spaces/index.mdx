@@ -103,7 +103,7 @@ Once you've done this, follow these steps:
 1. Return to **Configuration ➜ Spaces** and select the space that you wish to nominate as the default space.
 2. Click the overflow button and select **Enable the default space**.
 
-**Remove the default space**
+#### Remove the default space
 
 For organizations that are new to Octopus, especially those that make heavy use of spaces, a default space is not required, and you can remove the default space entirely. However, this comes with some considerations that should be weighed carefully against the needs of your organization.
 
@@ -138,22 +138,23 @@ The following table shows which Octopus resources are space-scoped, system-scope
 If a resource isn't listed below, then it's space-scoped.
 :::
 
-| Resource              | Space-scoped                | System-scoped |
-| --------------------- | --------------------------- | ------------- |
-| Environments          | True                        |               |
-| Lifecycles            | True                        |               |
-| Projects              | True                        |               |
-| Variable sets         | True                        |               |
-| Deployment targets    | True                        |               |
-| Tenants               | True                        |               |
-| Custom Step Templates | True                        |               |
-| Octopus Server nodes  |                             | True          |
-| Authentication        |                             | True          |
-| Users                 |                             | True          |
-| License               |                             | True          |
-| Events                | True                        | True          |
-| Teams                 | True                        | True          |
-| Tasks                 | True                        | True          |
+| Resource              | Space-scoped | System-scoped |
+| --------------------- | ------------ | ------------- |
+| Environments          | True         |               |
+| Lifecycles            | True         |               |
+| Projects              | True         |               |
+| Variable sets         | True         |               |
+| Deployment targets    | True         |               |
+| Tenants               | True         |               |
+| Custom Step Templates | True         |               |
+| Octopus Server nodes  |              | True          |
+| Authentication        |              | True          |
+| SSH Known Hosts       |              | True          |
+| Users                 |              | True          |
+| License               |              | True          |
+| Events                | True         | True          |
+| Teams                 | True         | True          |
+| Tasks                 | True         | True          |
 
 ## Automation changes to be aware of \{#automation-changes}
 
