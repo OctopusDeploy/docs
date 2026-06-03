@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-13
-modDate: 2026-03-13
+modDate: 2026-06-03
 title: AWS Managed Argo CD
 description: Install Argo CD Gateway on EKS with Argo CD Capability
 navOrder: 10
@@ -16,7 +16,28 @@ AWS managed Argo CD instances differ from standard self-hosted installations in 
 
 ### Authentication
 
-AWS enforces a maximum lifetime of 12 hours for account tokens due to this project role authentication tokens must be used instead. The majority of the APIs that the Argo CD Gateway calls are project-scoped. However, if the Gateway needs to make a request to an API that is not project-scoped it will choose the first available authentication token, if you would like to provide a specific token to be used for these calls you can add it to the value `gateway.argocd.projectAuthentication` using the project name `octo-gateway-unscoped`
+AWS enforces a maximum lifetime of 12 hours for account tokens due to this project role authentication tokens must be used instead. The majority of the APIs that the Argo CD Gateway calls are project-scoped. However, if the Gateway needs to make a request to an API that is not project-scoped it will choose the first available authentication token, if you would like to provide a specific token to be used for these calls you can add it to the value `gateway.argocd.projectAuthentication` using the project name `octo-gateway-unscoped`.
+
+The project auth tokens can also be provided using a external secret, for example:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  # Pass this name to gateway.argocd.projectAuthenticationSecretName
+  name: octopus-argocd-project-tokens
+  # Must be the same namespace your Helm release is installed into
+  namespace: octo-argo-gateway-local-dev
+type: Opaque
+stringData:
+  # One key per Argo CD AppProject.
+  # Key format:  PROJECT_AUTH_TOKEN_<project>
+  # Env at runtime: OCTOPUS_ARGOCD_PROJECT_AUTH_TOKEN_<project>  (chart adds OCTOPUS_ARGOCD_ prefix via envFrom)
+  PROJECT_AUTH_TOKEN_default: ""
+  PROJECT_AUTH_TOKEN_my-project: ""
+```
+
+This secret can then be passed to the helm chart by setting the value `gateway.argocd.projectAuthenticationSecretName`.
 
 ### External URL
 
@@ -59,6 +80,42 @@ helm install --atomic \
 --set gateway.argocd.plaintext="false" \
 --set gateway.argocd.grpcWeb="true" \
 --set-json gateway.argocd.projectAuthentication=[{"project":"project-1","token":"<Argo API Token>"},{"project":"project-2","token":"<Argo API Token>"}] \
+<instance-name> \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
+Alternatively using a values file
+
+```yaml
+registration:
+  octopus:
+    name: "<instance-name>"
+    serverApiUrl: "https://your-instance.octopus.app/"
+    serverAccessToken: "API-XXXXXXXXXXXXXXXX"
+    spaceId: "Spaces-1"
+    environments:
+      - dev
+gateway:
+  octopus:
+    serverGrpcUrl: "grpc://your-instance.octopus.app:8443"
+  argocd:
+    serverGrpcUrl: "grpc://xxxxxxxx.eks-capabilities.<region>.amazonaws.com"
+    grpcWeb: "true"
+    insecure: "false"
+    plaintext: "false"
+    projectAuthenticationSecretName: <your-secret-name>
+    projectAuthentication:
+     - project: project-1
+       token: <Argo API Token>
+     - project: project-2
+       token: <Argo API Token>
+```
+
+```bash
+helm install --atomic \
+--create-namespace --namespace octo-argo-gateway-<instance-name> \
+--version "*.*" \
+-f "my-values.yaml" \
 <instance-name> \
 oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 ```
