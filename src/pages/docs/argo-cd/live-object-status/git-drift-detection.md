@@ -130,6 +130,6 @@ When detecting whether these changes have been overwritten:
 
 ### Does Octopus inspect the Git tree?
 
-Octopus does not determine sync status by tracing the Git commit graph. It checks file contents directly, because a later commit can overwrite changes regardless of where it appears in history.
+Octopus does not determine sync status by walking the Git commit graph. It checks file contents directly because a later commit can overwrite the intended changes.
 
-The only exception is a small optimization: if the commit SHA that Argo CD is looking at matches the commit Octopus made, file comparisons are skipped. In all other cases, Octopus compares file contents, not commits.
+The only exception is a small optimization: file comparisons are skipped if the commit SHA that Argo CD is looking at matches the commit Octopus made.
