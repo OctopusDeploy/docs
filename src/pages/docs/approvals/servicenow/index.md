@@ -319,7 +319,7 @@ The following variables are only available in version 2025.4 and later
 
 ## Troubleshooting
 
-Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
+Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's
 tooltip. From **2024.2** on errors related to creating a change request are available through the task log. Additional information will also be available in the "System Diagnostic Report".
 
 If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
@@ -333,8 +333,8 @@ The ServiceNow integration uses the following REST endpoints:
 | Create change                        | `POST`      | `/api/sn_chg_rest/change/normal`                |       |
 | Search for Standard Change templates | `GET`       | `/api/sn_chg_rest/change/standard/template`     | Requires project **Change Template Name** configuration |
 | Create Standard Change from template | `POST`      | `/api/sn_chg_rest/change/standard/{templateId}` | Requires project **Change Template Name** configuration |
-|Approve Standard Change               | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
-|Add work notes                        | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
+| Approve Standard Change              | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
+| Add work notes                       | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
 
 ## Older versions
 
