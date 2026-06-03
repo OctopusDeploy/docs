@@ -25,32 +25,32 @@ The deployment process is the steps the Octopus Server orchestrates to deploy yo
 1. In the **Execution Location** section, select **Run once on a worker** (if you are on self-hosted Octopus, select **Run once on the Octopus Server**).  If you are using Octopus Cloud and want to use Bash scripts change the worker pool from **Default Worker Pool** to **Hosted Ubuntu**.
 1. Scroll down to the **Script**, select your script language of choice, and enter the following script in the **Inline Source Code** section:
 
-<details data-group="getting-started-first-deployment-define-the-deployment-process">
-<summary>PowerShell</summary>
+    <details data-group="getting-started-first-deployment-define-the-deployment-process">
+    <summary>PowerShell</summary>
 
-```powershell
-Write-Host "Hello, World!"
-```
+    ```powershell
+    Write-Host "Hello, World!"
+    ```
 
-</details>
-<details data-group="getting-started-first-deployment-define-the-deployment-process">
-<summary>Bash</summary>
+    </details>
+    <details data-group="getting-started-first-deployment-define-the-deployment-process">
+    <summary>Bash</summary>
 
-```bash
-echo "Hello, World!"
-```
+    ```bash
+    echo "Hello, World!"
+    ```
 
-</details>
+    </details>
 
-:::div{.hint}
-If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
-:::
+    :::div{.hint}
+    If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
+    :::
 
-8. Click **SAVE**.
+1. Click **SAVE**.
 
 The next step will [create a release and deploy it](/docs/getting-started/first-deployment/legacy-guide/2022/create-and-deploy-a-release).
 
-**Further Reading**
+**Further Reading:**
 
 For further reading on defining a deployment process in Octopus Deploy please see:
 

@@ -15,7 +15,6 @@ import Taxonomy from '@components/Taxonomy.astro';
 // Custom components
 import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleNav from '../components/ArticleNav.astro';
-import Copyright from '../components/Copyright.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
@@ -24,7 +23,8 @@ import EditOnGithub from '../components/EditOnGithub.astro';
 import LastUpdated from '../components/LastUpdated.astro';
 import CopyMarkdown from '../components/CopyMarkdown.astro';
 import Plausible from 'src/components/Plausible.astro';
-import Footer from 'src/components/Footer.astro';
+import SharedFooter from 'src/components/SharedFooter.astro';
+import SharedScripts from 'src/components/SharedScripts.astro';
 
 // Extend Frontmatter with icon
 type Frontmatter = OriginalFrontmatter & {
@@ -137,7 +137,7 @@ const showSearch = !isSearchPage;
       </div>
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Footer />
+    <SharedFooter />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
@@ -145,5 +145,6 @@ const showSearch = !isSearchPage;
     <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
     <Plausible />
     <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
+    <SharedScripts />
   </body>
 </html>
