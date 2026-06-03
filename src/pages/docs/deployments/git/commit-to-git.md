@@ -105,11 +105,11 @@ When you deploy a release with a Commit to Git step, Octopus:
 
 The step creates [output variables](/docs/projects/variables/output-variables) you can use in later steps. Each is empty if no pull request was created.
 
-| Variable name                  | Content                                                          |
-| ------------------------------ | ---------------------------------------------------------------- |
-| CommitToGit.PullRequest.Title  | The title of the pull request created by the step.               |
-| CommitToGit.PullRequest.Number | The identifier of the pull request in your Git repository.   |
-| CommitToGit.PullRequest.Url     | The URL of the pull request created by the step.                |
+| Variable name                         | Content                                                    |
+| ------------------------------------- | ---------------------------------------------------------- |
+| CommitToGit.PullRequest.Title         | The title of the pull request created by the step.         |
+| CommitToGit.PullRequest.Number        | The identifier of the pull request in your Git repository. |
+| CommitToGit.PullRequest.Url           | The URL of the pull request created by the step.           |
 | CommitToGit.PullRequest.RepositoryUrl | The URL of the repository the pull request was created in. |
 
 ## Learn more
