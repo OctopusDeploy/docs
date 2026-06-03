@@ -525,6 +525,7 @@ struct
 stylesheet
 subcomponent
 subcontext
+subfolders
 sunsetting
 swaggerui
 systemprofile
