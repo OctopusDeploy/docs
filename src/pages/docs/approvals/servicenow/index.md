@@ -227,7 +227,7 @@ Once a CR has been found, the deployment will only proceed if the **State** of t
 The only supported states are those defined in the default CR lifecycle
 :::
 
-If the deployment is scheduled to execute in the future, then a CR will be created at the scheduled deployment time, and not when the deployment was requested.
+If the deployment is scheduled to execute in the future, then a CR will be created as soon as the deployment is created. The deployment will remain queued until the scheduled time on the deployment or the `Planned Start` time on the CR is reached.
 
 The number of the CR created or found will appear in the Task Summary tab of the executing Octopus deployment task. Clicking on the CR number in the message will navigate you to the CR in ServiceNow.
 
