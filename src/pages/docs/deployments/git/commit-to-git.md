@@ -76,6 +76,58 @@ You can run a single script during the step, for example to transform your input
 - For package and Git repository scripts, you can pass parameters and reference other packages as dependencies. Inline scripts don't support parameters.
 - The script runs from the standard Calamari working directory, with the cloned destination repository available to it. Octopus exposes the path to the repository through the `Octopus.Calamari.Git.RepositoryPath` variable, which points to the root of the repository so your script can read and modify files before the commit.
 
+For example, the following scripts write a release marker into the repository before Octopus commits it:
+
+<details data-group="deployments-git-commit-to-git-script">
+<summary>PowerShell</summary>
+
+```powershell PowerShell
+# Get the path to the cloned repository
+$repoPath = $OctopusParameters["Octopus.Calamari.Git.RepositoryPath"]
+
+# Write a file that will be included in the commit
+"Released #{Octopus.Release.Number} to #{Octopus.Environment.Name}" | Out-File -FilePath "$repoPath/release-marker.txt"
+```
+
+</details>
+<details data-group="deployments-git-commit-to-git-script">
+<summary>C#</summary>
+
+```csharp C#
+// Get the path to the cloned repository
+var repoPath = OctopusParameters["Octopus.Calamari.Git.RepositoryPath"];
+
+// Write a file that will be included in the commit
+System.IO.File.WriteAllText(System.IO.Path.Combine(repoPath, "release-marker.txt"), "Released #{Octopus.Release.Number} to #{Octopus.Environment.Name}");
+```
+
+</details>
+<details data-group="deployments-git-commit-to-git-script">
+<summary>Bash</summary>
+
+```bash Bash
+# Get the path to the cloned repository
+repo_path=$(get_octopusvariable "Octopus.Calamari.Git.RepositoryPath")
+
+# Write a file that will be included in the commit
+echo "Released #{Octopus.Release.Number} to #{Octopus.Environment.Name}" > "$repo_path/release-marker.txt"
+```
+
+</details>
+<details data-group="deployments-git-commit-to-git-script">
+<summary>Python</summary>
+
+```python Python
+# Get the path to the cloned repository
+repo_path = get_octopusvariable("Octopus.Calamari.Git.RepositoryPath")
+
+# Write a file that will be included in the commit
+with open(f"{repo_path}/release-marker.txt", "w") as marker:
+    marker.write("Released #{Octopus.Release.Number} to #{Octopus.Environment.Name}")
+```
+
+</details>
+
 ## Step verification
 
 Step verification controls how Octopus decides the step succeeded. There are 2 options.
