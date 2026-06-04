@@ -13,7 +13,8 @@ Worker Tools are a set of Docker images used as [execution containers for worker
 
 Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.22.04` or `windows.ltsc2022`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
 
-The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for 
+The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for
+
 - [Windows 2022](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2022/Dockerfile)
 - [Windows 2025](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2025/Dockerfile)
 - [Ubuntu 22.04](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.22.04/Dockerfile)
