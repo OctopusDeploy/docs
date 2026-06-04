@@ -59,14 +59,14 @@ For each input source, specify:
 
 - The package or Git repository to take files from.
 - **Input file paths**, one or more glob patterns that select the files to copy.
-- **Destination subfolder**, the subfolder, under the destination path, to copy the matched files into.
+- **Destination sub-folder**, the sub-folder, under the destination path, to copy the matched files into.
 
 :::div{.warning}
-When an input file path includes a wildcard, Octopus removes the fixed part of the path before the first wildcard when it works out where to place each matched file. For example, with the input file path `config/app/*.yaml`, the file `config/app/settings.yaml` is copied to `settings.yaml` in the destination subfolder.
+When an input file path includes a wildcard, Octopus removes the fixed part of the path before the first wildcard when it works out where to place each matched file. For example, with the input file path `config/app/*.yaml`, the file `config/app/settings.yaml` is copied to `settings.yaml` in the destination sub-folder.
 :::
 
 :::div{.warning}
-The input file paths are relative to the root of the input source, and the destination subfolder is relative to the destination path you set for the target repository. Both must be relative paths rather than absolute, and you can use [variables](/docs/projects/variables) to define them.
+The input file paths are relative to the root of the input source, and the destination sub-folder is relative to the destination path you set for the target repository. Both must be relative paths rather than absolute, and you can use [variables](/docs/projects/variables) to define them.
 :::
 
 ## Script (optional)
@@ -151,7 +151,7 @@ Octopus reviews this status once every 60 seconds. While the task is paused, the
 When you deploy a release with a Commit to Git step, Octopus:
 
 - Clones the destination repository on the worker.
-- Copies the configured input files into their destination subfolders.
+- Copies the configured input files into their destination sub-folders.
 - Runs your script, if you configured one.
 - Commits the changed files, and either pushes them to the target branch or opens a pull request, based on the commit method for the environment.
 - Waits until the pull requests are merged before completing, if step verification is set to pull request merged.
