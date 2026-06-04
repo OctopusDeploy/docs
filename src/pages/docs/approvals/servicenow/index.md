@@ -21,25 +21,26 @@ To enable this behavior, both the Octopus Project and Environment you are deploy
 ### Deployments
 
 | Project | Environment | Outcome |
-|--|--|--|
-| Change controlled| Change controlled| Approval required for deployment |
-| **_Not_** Change controlled| Change controlled| No approval required |
-| Change controlled| **_Not_** Change controlled| No approval required |
+| -- | -- | -- |
+| Change controlled | Change controlled | Approval required for deployment |
+| ***Not*** Change controlled | Change controlled | No approval required |
+| Change controlled | ***Not*** Change controlled | No approval required |
 
 ### Runbooks
 
 | Project | Environment | Runbook | Outcome |
-|--|--|--|--|
+| -- | -- | -- | -- |
 | Change controlled | Change controlled | Enabled | Approval required |
-| Change controlled | Change controlled | **_Not_** Enabled | No approval required |
-| **_Not_** Change controlled | Change controlled | Enabled | No approval required |
-| Change controlled | **_Not_** Change controlled | Enabled | No approval required |
+| Change controlled | Change controlled | ***Not*** Enabled | No approval required |
+| ***Not*** Change controlled | Change controlled | Enabled | No approval required |
+| Change controlled | ***Not*** Change controlled | Enabled | No approval required |
 
 ## Getting started
 
 The ServiceNow integration requires Octopus **2022.3** or later and an Octopus enterprise subscription.
 
 Your ServiceNow instance must have the following modules installed and activated:
+
 - Change Management
 - Change Management Standard Change Catalog
 - Change Management State Model
@@ -166,11 +167,11 @@ To enable a runbook to enforce a requirement for an approved CR:
 
 ### Standard, Normal, and Emergency Changes
 
-By default, deployments and runbooks runs resulting in CR creation will produce a `Normal` change (i.e. one 
+By default, deployments and runbooks runs resulting in CR creation will produce a `Normal` change (i.e. one
 requiring explicit approval).
 
-Setting the **Standard Change Template Name** setting under **ITSM Providers** to the name of an 
-active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead 
+Setting the **Standard Change Template Name** setting under **ITSM Providers** to the name of an
+active, approved **Standard Change Template** (as found in the Standard Change Catalog) will instead
 result in deployments and runbook runs of the project creating a `Standard` (i.e. low-risk, pre-approved) change.
 
 From **2024.2** you can create an `Emergency` change by selecting the Emergency Change setting on the deployment or runbook run creation page.
@@ -253,15 +254,14 @@ The title must match the format **exactly**, including the double-quotes.
 This feature is only available for version 2024.2.6455 and later
 :::
 
-
 To control the content of the CRs the variable `Octopus.ServiceNow.Field[snow_field]` can be set at the project level. These are contributed to the create CR body as a dictionary allowing any field to be set.
 
 For example to set the `Assigned To` or `Short Description` fields you can use the following:
 
-| Field | Variable | Example Value|
-|--|--|--|
-|Assigned To|Octopus.ServiceNow.Field[assigned_to]|beth.anglin|
-|Short Description|Octopus.ServiceNow.Field[short_description]|Custom Short Description with #{SomeVariable} #{Octopus.Deployment.Id}|
+| Field | Variable | Example Value |
+| -- | -- | -- |
+| Assigned To | Octopus.ServiceNow.Field[assigned_to] | beth.anglin |
+| Short Description | Octopus.ServiceNow.Field[short_description] | Custom Short Description with #{SomeVariable} #{Octopus.Deployment.Id} |
 
 :::div{.hint}
 Setting a `Short Description` will over-ride the auto generated Octopus description. [Title text matching](#title-text-matching) means this will automatically progress the deployment unless the resolved description is unique. This can be done by including variables like the deployment or environment Id.
@@ -299,10 +299,10 @@ The following variables are only available in version 2025.4 and later
 :::
 
 | Variable | Notes |
-|--|--|
-| `Octopus.ServiceNow.ChangeRequest.Number` | The number of the matched or created change request | 
+| -- | -- |
+| `Octopus.ServiceNow.ChangeRequest.Number` | The number of the matched or created change request |
 | `Octopus.ServiceNow.ChangeRequest.SysId` | The system identifier of the matched or created change request |
-| `Octopus.ServiceNow.Connection.Id` |  |
+| `Octopus.ServiceNow.Connection.Id` | |
 | `Octopus.ServiceNow.Connection.Name` | |
 | `Octopus.ServiceNow.Connection.BaseUrl` | |
 | `Octopus.ServiceNow.Connection.OAuthClientId` | |
@@ -318,22 +318,22 @@ The following variables are only available in version 2025.4 and later
 
 ## Troubleshooting
 
-Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's 
+Errors occurring during a deployment approval checks will appear in the "Task Failed" icon's
 tooltip. From **2024.2** on errors related to creating a change request are available through the task log. Additional information will also be available in the "System Diagnostic Report".
 
-If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints. 
+If you are seeing errors in Octopus during deployments, ensure that the ServiceNow user account is authorized to call the required endpoints.
 
 The ServiceNow integration uses the following REST endpoints:
 
-| Purpose                              | HTTP Method | Path                                            | Notes |
-|--------------------------------------|-------------|-------------------------------------------------|-------|
-| Authorize                            | `POST`      | `/oauth_token.do`                               |       |
-| Search for changes                   | `GET`       | `/api/sn_chg_rest/change`                       |       |
-| Create change                        | `POST`      | `/api/sn_chg_rest/change/normal`                |       |
-| Search for Standard Change templates | `GET`       | `/api/sn_chg_rest/change/standard/template`     | Requires project **Change Template Name** configuration |
-| Create Standard Change from template | `POST`      | `/api/sn_chg_rest/change/standard/{templateId}` | Requires project **Change Template Name** configuration |
-|Approve Standard Change               | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration |
-|Add work notes                        | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
+| Purpose                              | HTTP Method | Path                                            | Notes                                                                |
+|--------------------------------------|-------------|-------------------------------------------------|----------------------------------------------------------------------|
+| Authorize                            | `POST`      | `/oauth_token.do`                               |                                                                      |
+| Search for changes                   | `GET`       | `/api/sn_chg_rest/change`                       |                                                                      |
+| Create change                        | `POST`      | `/api/sn_chg_rest/change/normal`                |                                                                      |
+| Search for Standard Change templates | `GET`       | `/api/sn_chg_rest/change/standard/template`     | Requires project **Change Template Name** configuration              |
+| Create Standard Change from template | `POST`      | `/api/sn_chg_rest/change/standard/{templateId}` | Requires project **Change Template Name** configuration              |
+| Approve Standard Change              | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  project **Automatic Transition** configuration             |
+| Add work notes                       | `PATCH`     | `/api/sn_chg_rest/change/{changeId}`            | Requires  **Work Notes Enabled** **ServiceNow** global configuration |
 
 ## Older versions
 
