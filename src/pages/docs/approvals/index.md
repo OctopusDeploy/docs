@@ -61,8 +61,8 @@ What's included in our ServiceNow support?
 - Automatically create normal and emergency change requests at execution time. Octopus pauses the execution until the appropriate approvals are complete.
 - Let Octopus do the work for you by automating the transition between stages in the change request once created, leaving a deployment or runbook run record in ServiceNow.
 - Use change templates to auto-create standard change requests to reduce manual work and control what information is populated.
-- Ensure "Change Windows" are honored on existing change requests so deployments or runbook runs won't execute until the specified time window.
-- Add work notes to change requests with information about deployment or runbook run start and finish time and whether it was successful or not.
+- Ensure “Change Windows” are honored on existing change requests so deployments or runbook runs won't execute until the specified time window.
+- Add work notes to change requests, capturing execution details for deployments and runbook runs, including tenant name and tags for tenanted deployments.
 - Create change requests with pre-populated fields through variables.
 - View and export audit logs of controlled deployments and runbook runs for easy compliance and post-execution reconciliation.
 
