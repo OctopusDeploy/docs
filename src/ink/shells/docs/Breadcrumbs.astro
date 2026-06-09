@@ -10,7 +10,11 @@ const { items } = Astro.props;
 ---
 
 <!-- RDFa BreadcrumbList preserved (SEO guardrail: matches existing Breadcrumbs.astro) -->
-<nav aria-label="Breadcrumb" class="mb-4 text-sm" data-component="DocsBreadcrumbs">
+<nav
+  aria-label="Breadcrumb"
+  class="mb-4 text-sm"
+  data-component="ink/docs/Breadcrumbs"
+>
   <ol
     class="flex flex-wrap items-center gap-1.5 text-muted-foreground"
     vocab="https://schema.org/"
@@ -24,14 +28,25 @@ const { items } = Astro.props;
           typeof="ListItem"
         >
           {c.href ? (
-            <a property="item" typeof="WebPage" href={c.href} class="hover:text-foreground transition-colors">
+            <a
+              property="item"
+              typeof="WebPage"
+              href={c.href}
+              class="hover:text-foreground transition-colors"
+            >
               <span property="name">{c.label}</span>
             </a>
           ) : (
-            <span property="name" class="text-foreground font-medium">{c.label}</span>
+            <span property="name" class="text-foreground font-medium">
+              {c.label}
+            </span>
           )}
           <meta property="position" content={String(i + 1)} />
-          {i < items.length - 1 && <span aria-hidden="true" class="text-border">/</span>}
+          {i < items.length - 1 && (
+            <span aria-hidden="true" class="text-border">
+              /
+            </span>
+          )}
         </li>
       ))
     }

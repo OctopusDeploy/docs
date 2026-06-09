@@ -13,8 +13,8 @@ export default defineConfig({
         mdx(),
         llmMdEmitter()
     ],
-    // Tailwind v4 only lands on pages that import the design-system entry
-    // (src/design-system/theme.css), so the live site stays untouched.
+    // Tailwind v4 only lands on pages that import the Ink design system entry
+    // (src/ink/theme.css), so the live site stays untouched.
     vite: {
         plugins: [tailwindcss()]
     },

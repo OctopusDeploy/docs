@@ -1,11 +1,11 @@
 ---
-import '../theme.css';
+import '../../theme.css';
 import { SITE } from '@config';
-import DocsHeader from './DocsHeader.astro';
-import DocsSidebar from './DocsSidebar.astro';
-import DocsToc from './DocsToc.astro';
-import DocsBreadcrumbs from './DocsBreadcrumbs.astro';
-import SharedFooter from '../../components/SharedFooter.astro';
+import Header from './Header.astro';
+import Sidebar from './Sidebar.astro';
+import Toc from './Toc.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import SharedFooter from '../../../components/SharedFooter.astro';
 
 interface Props {
   title: string;
@@ -58,10 +58,10 @@ const kicker =
     <div class="ds-atmosphere"></div>
     <div class="ds-grain"></div>
 
-    <DocsHeader />
+    <Header />
 
     <div class="mx-auto flex max-w-[1600px]">
-      <DocsSidebar sections={sidebar} />
+      <Sidebar sections={sidebar} />
 
       <div class="flex min-w-0 flex-1">
         <main class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-16">
@@ -131,7 +131,7 @@ const kicker =
             </details>
 
             <div data-rise style="--rise:60ms">
-              <DocsBreadcrumbs items={breadcrumbs} />
+              <Breadcrumbs items={breadcrumbs} />
             </div>
 
             <article itemscope itemtype="https://schema.org/TechArticle">
@@ -186,7 +186,7 @@ const kicker =
           </div>
         </main>
 
-        <DocsToc items={toc} />
+        <Toc items={toc} />
       </div>
     </div>
 

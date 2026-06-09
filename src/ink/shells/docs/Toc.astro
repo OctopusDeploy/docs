@@ -13,7 +13,7 @@ const { items } = Astro.props;
 <aside
   class="hidden xl:block w-56 shrink-0"
   aria-label="On this page"
-  data-component="DocsToc"
+  data-component="ink/docs/Toc"
 >
   <nav
     class="ds-toc sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto py-14 pl-6"
@@ -198,7 +198,7 @@ const { items } = Astro.props;
   .ds-toc__link {
     position: relative;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 0.55rem;
     padding: 0.34rem 0 0.34rem 1rem;
     font-size: 1rem;
@@ -216,7 +216,6 @@ const { items } = Astro.props;
   /* Small leading dot brightens on hover/active for a tactile feel. */
   .ds-toc__dot {
     flex: none;
-    margin-top: 0.5em;
     height: 4px;
     width: 4px;
     border-radius: 9999px;
@@ -316,7 +315,9 @@ const { items } = Astro.props;
 
 <script is:inline>
   (() => {
-    const root = document.querySelector('[data-component="DocsToc"] .ds-toc');
+    const root = document.querySelector(
+      '[data-component="ink/docs/Toc"] .ds-toc'
+    );
     const links = Array.from(document.querySelectorAll('[data-toc-link]'));
     if (!root || !links.length) return;
 

@@ -19,7 +19,7 @@ const Tag = href ? 'a' : 'div';
 const cleanTitle = title?.replace(/\s*→\s*$/, '');
 ---
 
-<Tag class={cls} href={href} data-component="Card">
+<Tag class={cls} href={href} data-component="ink/core/Card">
   {
     cleanTitle && (
       <h3 class="mb-1.5 flex items-center gap-1.5 font-display text-[1.05rem] font-bold tracking-tight">

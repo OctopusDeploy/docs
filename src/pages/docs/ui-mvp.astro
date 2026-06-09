@@ -1,10 +1,10 @@
 ---
-import DocsLayout from '../../design-system/docs-shell/DocsLayout.astro';
-import Card from '../../design-system/ui/Card.astro';
-import Badge from '../../design-system/ui/Badge.astro';
-import Button from '../../design-system/ui/Button.astro';
-import Callout from '../../design-system/ui/Callout.astro';
-import CodeBlock from '../../design-system/ui/CodeBlock.astro';
+import Layout from '../../ink/shells/docs/Layout.astro';
+import Card from '../../ink/core/Card.astro';
+import Badge from '../../ink/core/Badge.astro';
+import Button from '../../ink/core/Button.astro';
+import Callout from '../../ink/core/Callout.astro';
+import CodeBlock from '../../ink/core/CodeBlock.astro';
 
 const breadcrumbs = [
   { label: 'Docs', href: '/docs' },
@@ -51,7 +51,7 @@ const toc = [
 ];
 ---
 
-<DocsLayout
+<Layout
   title="Deploying a release"
   description="Create a release from your deployment process and promote it through your environments - from the dashboard or the CLI."
   breadcrumbs={breadcrumbs}
@@ -210,4 +210,4 @@ const toc = [
     <Button href="#" variant="primary">Read the deployment guide</Button>
     <Button href="#" variant="secondary">Browse the CLI reference</Button>
   </div>
-</DocsLayout>
+</Layout>

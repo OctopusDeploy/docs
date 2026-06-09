@@ -172,6 +172,7 @@ figcaption
 filedata
 filestore
 FIPS
+focusables
 fontawesome
 frontmatter
 functionapp

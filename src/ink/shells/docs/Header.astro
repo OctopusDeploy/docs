@@ -3,9 +3,9 @@
 // runtime) to demonstrate dark mode - consistent with the zero-JS approach.
 // Search renders the REAL site search component + engine (search.js), restyled
 // via tokens in theme.css. The engine is unchanged; we only provide its markup.
-import OctopusLogo from '../../../public/docs/img/OctopusLogo.astro';
-import Button from '../ui/Button.astro';
-import Search from '../../themes/octopus/components/Search.astro';
+import OctopusLogo from '../../../../public/docs/img/OctopusLogo.astro';
+import Button from '../../core/Button.astro';
+import Search from '../../../themes/octopus/components/Search.astro';
 import { SITE } from '@config';
 
 type Props = {
@@ -15,32 +15,34 @@ const { lang = SITE.default.lang } = Astro.props satisfies Props;
 ---
 
 <header
-  data-component="DocsHeader"
+  data-component="ink/docs/Header"
   class="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55"
 >
   <!-- No left padding: the logo's left edge lines up with the sidebar column. -->
   <div class="mx-auto flex h-16 max-w-[1600px] items-center gap-4 pr-4 lg:pr-6">
-    <!-- Brand: genuine Octopus wordmark (glyph stays brand blue; wordmark text
-         follows --foreground so it stays legible in both themes). -->
-    <a
-      href="/docs"
-      class="group mvp-brand flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-      style="--octopus-logo-text-color: var(--foreground);"
-    >
-      <OctopusLogo />
-      <span
-        class="hidden border-l border-border pl-2.5 text-sm font-medium text-muted-foreground sm:inline-block"
-        >Docs</span
+    <!-- Left zone (flex-1): brand wordmark, left-aligned. The flex-1 sides keep
+         the centre search column truly centered in the header. -->
+    <div class="flex min-w-0 flex-1 items-center">
+      <a
+        href="/docs"
+        class="group mvp-brand flex shrink-0 items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        style="--octopus-logo-text-color: var(--foreground);"
       >
-    </a>
+        <OctopusLogo />
+        <span
+          class="hidden border-l border-border pl-2.5 text-sm font-medium text-muted-foreground sm:inline-block"
+          >Docs</span
+        >
+      </a>
+    </div>
 
-    <!-- Search: the REAL site search component (markup + search.js engine),
-         restyled in theme.css under `.ds-search`. Engine code is unchanged. -->
-    <div class="ds-search relative ml-2 hidden flex-1 max-w-md md:flex">
+    <!-- Centre zone: the REAL site search (markup + search.js engine), restyled
+         in theme.css under `.ds-search`. Width/expand-on-focus handled there. -->
+    <div class="ds-search relative hidden md:flex">
       <Search lang={lang} />
     </div>
 
-    <nav class="ml-auto flex items-center gap-1">
+    <nav class="flex min-w-0 flex-1 items-center justify-end gap-1">
       <a
         href="https://octopus.com"
         class="hidden h-9 items-center rounded-md px-3 text-base text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
