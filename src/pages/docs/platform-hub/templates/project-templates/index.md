@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-03-16
+modDate: 2026-05-28
 title: Project templates
 subtitle: An overview of project templates
 icon: fa-solid fa-layer-group
@@ -12,14 +12,14 @@ navOrder: 170
 ---
 
 :::div{.warning}
-Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Don't use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability, [tell us what you think](https://roadmap.octopus.com/c/263-project-templates).
 :::
 
 ## Overview
 
 Project templates are reusable project blueprints that can be shared across multiple spaces in Octopus Deploy. Instead of manually configuring each new project from scratch, defining deployment steps and variables every time, you create a single template that any space can use as a starting point. This ensures teams follow the same standards and removes the risk of configuration drift.
 
-To create or manage your project templates, navigate to the Platform Hub. If you haven't set up your Git repository, you must do so before creating a project template.
+To create or manage your project templates, navigate to Platform Hub. If you haven't set up your [Git repository](/docs/platform-hub#git-credentials-in-platform-hub), you must do so before creating a project template.
 
 1. Navigate to **Project Templates** in Platform Hub.
 2. Give the project template a **Name** and an optional **Description**.
@@ -50,11 +50,15 @@ Some steps behave differently inside the project template editor. Instead of let
 :::
 
 :::div{.hint}
-Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline parameter and variable configuration to the deployment process editor.
+Unlike standard projects, project templates validate the deployment process when you publish, not when you commit. You can save an incomplete process and continue configuring parameters and variables before publishing. This will change once we add inline variable configuration to the deployment process editor.
 :::
 
 :::div{.hint}
-If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template. This means two releases created on different days could use different versions of the process template, without anyone making any change to the project template or the project itself. We're interested in your [feedback](#feedback) on whether this behavior meets your expectations.
+If your deployment process includes a process template configured to auto-update on patch or minor versions, those updates flow through to templated projects automatically, even without you publishing a new version of the project template. This means two releases created on different days could use different versions of the process template, without anyone making any change to the project template or the project itself.
+
+The project template process editor shows a warning callout when included process templates have received automatic updates since the template was last published. Use it to review the changes before publishing a new version.
+
+We're interested in your [feedback](https://roadmap.octopus.com/c/263-project-templates) on whether this behavior meets your expectations.
 :::
 
 ## Parameters
@@ -62,12 +66,12 @@ If your deployment process includes a process template configured to auto-update
 Parameters let you define the inputs a user must supply when they create a project from the template. They're the mechanism for making a template flexible. Rather than hardcoding values that differ between teams or spaces, you expose them as parameters.
 
 :::div{.warning}
-In the Alpha release, project templates don't support parameter scoping or sensitive parameter values. We're still working out how parameters, variables, and scoping should work in project templates and expect this to evolve throughout Alpha. We'd love your [feedback](#feedback).
+Project templates don't yet support parameter scoping or sensitive parameter default values. We're still shaping how parameters, variables, and scoping work together and expect this area to evolve. We'd love your [feedback](#feedback).
 :::
 
 For a full reference of supported parameter types and default values, see [Template parameters](/docs/platform-hub/templates/parameters).
 
-To create a parameter, navigate to the **Parameters** tab on your project template and add a new parameter.
+To create a parameter, navigate to **Parameters** on your project template and add a new parameter.
 
 :::figure
 ![The Parameters tab in a project template](/docs/img/platform-hub/project-templates/project-templates-parameters.png)
@@ -81,12 +85,38 @@ Unlike parameters, users can't change the variables defined in a template when c
 
 Variable values can reference parameters, letting you combine fixed template-level values with project-supplied inputs where needed.
 
-:::div{.warning}
-In the Alpha release, the variable types you can use are limited to text, sensitive, and resources currently available in Platform Hub, such as Accounts. Variable scoping is also not supported. We're adding support for additional resource types throughout Alpha. We'd love your [feedback](#feedback) on what you need.
-:::
+### Variable types
+
+Project template variables support the following types:
+
+- **Text**: plain string values.
+- **Sensitive**: encrypted values like passwords and API keys.
+- **Account**: references to accounts defined in Platform Hub. Add the account in Platform Hub before using it in a template.
+- **Certificate**: references to certificates defined in Platform Hub.
+
+### Variable scoping
+
+You can scope a project template variable to any combination of the following:
+
+- Specific steps in the deployment process.
+- Process template usages, when the template's deployment process includes one or more.
+- Environment parameters, target tag parameters, or tenant tag parameters defined on the template. Whatever the project's parameter value resolves to determines the scope.
+
+Scoping is fixed at the template level. The same scoping rules apply to every project created from the template.
 
 :::figure
 ![The Variables tab in a project template](/docs/img/platform-hub/project-templates/project-templates-variables.png)
+:::
+
+## Project settings
+
+Project templates let you set a few project-level defaults that flow through to every project created from the template. Configure these in **Settings** on the project template.
+
+- **Multi-tenant Deployments**: choose whether projects created from the template require tenants, allow tenants, or run untenanted. Users can't change this on a project created from the template.
+- **Project Persistence**: choose the preferred storage for projects created from the template, either in Octopus or backed by Git. The project creation flow defaults to your recommendation and lets users pick a different option if they need to.
+
+:::div{.hint}
+We're planning to add more template-level settings, including default lifecycle and channel configuration, once those features are available in project templates.
 :::
 
 ## Git repository structure
@@ -118,4 +148,4 @@ After you publish and share a template, users in a space can create a new projec
 
 ## Feedback
 
-Project templates are in Alpha and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://oc.to/feedback) to help us build this the right way.
+Project templates are in Public Preview and we're actively shaping how the feature works. If you run into something unexpected or have thoughts on how parameters, variables, scoping, or anything else should work, we'd love to hear from you. [Share your feedback](https://oc.to/feedback) to help us build this the right way.

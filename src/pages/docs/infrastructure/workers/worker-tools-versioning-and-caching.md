@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-01-14
+modDate: 2026-06-04
 title: Worker Tools, Versioning and Caching
 description: How Octopus creates, versions, caches, and releases the worker-tools Docker images for use with the execution containers for workers feature.
 navOrder: 50
@@ -13,11 +13,16 @@ Worker Tools are a set of Docker images used as [execution containers for worker
 
 Worker Tool images follow a semantic versioning (SemVer) approach of `Major.Minor.Patch-Distro` for their tag format. When we release a new version of Worker Tools to the [Worker Tools Docker Hub repository](https://hub.docker.com/r/octopusdeploy/worker-tools/tags), we also add the following image tags, distribution (`ubuntu.22.04` or `windows.ltsc2022`), `Major-Distro` (e.g. `3-Distro`) and `Major.Minor-Distro` (`3.3-Distro`). We recommend using the fully qualified SemVer as patch updates of Worker Tools could result in an updated tool dependency introducing a breaking change.
 
-The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for [Windows](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2022/Dockerfile) and [Ubuntu](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile) Worker Tools.
+The Worker Tools Dockerfiles use a combination of tools pinned to specific versions, such as CLI tools and Frameworks, while other tools pull their latest available release. For Ubuntu, these are pulled with apt-get, and for Windows, chocolatey. You can find the full details of these tools in the Docker files for
+
+- [Windows 2022](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2022/Dockerfile)
+- [Windows 2025](https://github.com/OctopusDeploy/WorkerTools/blob/main/windows.ltsc2025/Dockerfile)
+- [Ubuntu 22.04](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.22.04/Dockerfile)
+- [Ubuntu 24.04](https://github.com/OctopusDeploy/WorkerTools/blob/main/ubuntu.24.04/Dockerfile)
 
 The tools pulling their latest releases for Ubuntu include `wget`, `python3-pip`, `groff`, `unzip`, `apt-utils`, `curl`, `software-properties-common`, `jq`, `yq`, `openssh-client`, `rsync`, `git`, `augeas-tools`, `maven`, `gradle`, `Node 14`, `istioctl`, `linkerd`, `umoci`.
 
-For Windows these include `chocolatey` and `dotnet 6.0.*`.
+For Windows these include `chocolatey` and `dotnet 10.0.*` and `dotnet 8.0.*`.
 
 If your steps depend on any of these packages, we recommend you target the fully qualified SemVer of Worker Tools. Otherwise, our additional Worker Tools tags may be suitable for your use case. We version our releases as follows:
 
@@ -37,7 +42,7 @@ Patch update
 - Update of a pinned tools Patch version
 - Any new release, the latest tools will be updated automatically
 
-In short, we recommend using the full `octopusdeploy/worker-tools:Major.Minor.Patch-Distro` tag format. Depending on your use case, the latest releases, `octopusdeploy/worker-tools:ubuntu.22.04` and `octopusdeploy/worker-tools:windows.ltsc2022` respectively or `octopusdeploy/worker-tools:Major-distro`, `octopusdeploy/worker-tools:Major.Minor-Distro` may be suitable for you.
+In short, we recommend using the full `octopusdeploy/worker-tools:Major.Minor.Patch-Distro` tag format. Depending on your use case, the latest releases, `octopusdeploy/worker-tools:ubuntu.24.04` and `octopusdeploy/worker-tools:windows.ltsc2025` respectively or `octopusdeploy/worker-tools:Major-distro`, `octopusdeploy/worker-tools:Major.Minor-Distro` may be suitable for you.
 
 ## Caching Worker Tools
 
