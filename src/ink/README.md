@@ -241,7 +241,7 @@ These hold by construction; preserve them when extending the system.
   the logo and all UI/chrome imagery are never touched. Tokenized in `tokens.css` (`--glass-*`):
   dark mode uses the marketing values; light mode is retuned for the pale background.
 - **Atmosphere is decorative and pointer-transparent.** The fixed `.ds-atmosphere` (aurora mesh
-  + engineering grid) and `.ds-grain` overlay sit at `z-index:-1` behind content and are
+  and engineering grid) and `.ds-grain` overlay sit at `z-index:-1` behind content and are
   GPU-cheap. The page-load `[data-rise]` reveal, the aurora drift, and the status-dot pulse all
   collapse under `prefers-reduced-motion: reduce`.
 - **Typography plugin override technique.** The prose/table/code/status rules in `theme.css`
