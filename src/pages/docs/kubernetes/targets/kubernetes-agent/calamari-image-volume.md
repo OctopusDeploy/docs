@@ -73,42 +73,28 @@ If Calamari Image Volume is enabled but the cluster is running Kubernetes 1.34 o
 
 ## Images
 
-#### Source code
-
-[GitHub](https://github.com/OctopusDeploy/Calamari)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/Calamari)
 
 ### octopusdeploy/calamari
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari)
 
 ### octopusdeploy/calamari.azureappservice
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureappservice)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureappservice)
 
 ### octopusdeploy/calamari.azureresourcegroup
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureresourcegroup)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureresourcegroup)
 
 ### octopusdeploy/calamari.azurescripting
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azurescripting)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azurescripting)
 
 ### octopusdeploy/calamari.googlecloudscripting
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.googlecloudscripting)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.googlecloudscripting)
 
 ### octopusdeploy/calamari.terraform
 
-#### Default registry
-
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.terraform)
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.terraform)
