@@ -42,8 +42,8 @@ autopopulate
 awsaccount
 azureaccount
 azureactivedirectory
-azurefile
 azureappservice
+azurefile
 azureresourcegroup
 azurescripting
 bacpac
@@ -185,9 +185,9 @@ gitcredential
 gitops
 globbing
 Gluster
-googlecloudscripting
 googleaccount
 googleapps
+googlecloudscripting
 gpedit
 groff
 Groupsand
