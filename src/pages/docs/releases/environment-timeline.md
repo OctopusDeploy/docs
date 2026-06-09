@@ -2,7 +2,7 @@
 layout: src/layouts/Default.astro
 pubDate: 2024-10-28
 modDate: 2026-06-09
-title: Environ,enmt Timeline
+title: Environment Timeline
 description: View and interact with the Environment Timeline
 navOrder: 132
 ---
@@ -15,7 +15,7 @@ It can be access by clicking the **Timeline** button within the deployment detai
 ![The Environment Timeline button](/docs/img/releases/timeline/timeline-button.png)
 :::
 
-A drawer opens showing all deployments for the current Environment, Project and Tenant you are viewing. Deployments are grouped into buckets dependeding on how long ago the deployment was performed.
+A drawer opens showing all deployments for the current Environment, Project and Tenant you are viewing. Deployments are grouped into buckets depending on how long ago the deployment was performed.
 
 :::figure
 ![The Environment Timeline with overflow menu for last successful deployment](/docs/img/releases/timeline/timeline.png)
