@@ -11,7 +11,7 @@ Calamari is the command-line tool invoked by the Kubernetes agent during deploym
 
 When a new version of Calamari is required, this is packaged by Octopus Server, sent to the agent, and then unpacked into the shared volume. Then, during deployment, Calamari is executed from the shared filesystem.
 
-When the Calamari Image Volume feature is enabled, the agent instead mounts Calamari as a read-only [Kubernetes Image Volume](https://kubernetes.io/docs/concepts/storage/volumes/#image) directly into each script pod. 
+When the Calamari Image Volume feature is enabled, the agent instead mounts Calamari as a read-only [Kubernetes Image Volume](https://kubernetes.io/docs/concepts/storage/volumes/#image) directly into each script pod.
 
 ## Benefits
 
@@ -63,7 +63,7 @@ When using a private registry, you are responsible for keeping the mirrored Cala
 
 The structure of the Calamari image name is `octopusdeploy/{CalamariTool}:{Version}` where the `{CalamariTool}` and `{Version}` are dictated and provided by Octopus Server during deployment execution.
 
-This means that the `scriptPods.calamariImageVolume.image.repository` should _not_ include the `{CalamariTool}` and `{Version}` part of image name.
+This means that the `scriptPods.calamariImageVolume.image.repository` should *not* include the `{CalamariTool}` and `{Version}` part of image name.
 
 For example, if your mirrored Calamari image names are like `your-registry.example.com/octopusdeploy/{CalamariTool}`, then the `scriptPods.calamariImageVolume.image.repository` should be `your-registry.example.com/octopusdeploy`.
 
@@ -73,42 +73,42 @@ If Calamari Image Volume is enabled but the cluster is running Kubernetes 1.34 o
 
 ## Images
 
-**Source code**
+#### Source code
 
 [GitHub](https://github.com/OctopusDeploy/Calamari)
 
 ### octopusdeploy/calamari
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari)
 
 ### octopusdeploy/calamari.azureappservice
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureappservice)
 
 ### octopusdeploy/calamari.azureresourcegroup
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azureresourcegroup)
 
 ### octopusdeploy/calamari.azurescripting
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.azurescripting)
 
 ### octopusdeploy/calamari.googlecloudscripting
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.googlecloudscripting)
 
 ### octopusdeploy/calamari.terraform
 
-**Default registry**
+#### Default registry
 
 [Docker Hub](https://hub.docker.com/r/octopusdeploy/calamari.terraform)

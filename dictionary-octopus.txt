@@ -43,6 +43,9 @@ awsaccount
 azureaccount
 azureactivedirectory
 azurefile
+azureappservice
+azureresourcegroup
+azurescripting
 bacpac
 Bento
 Blkio
@@ -182,6 +185,7 @@ gitcredential
 gitops
 globbing
 Gluster
+googlecloudscripting
 googleaccount
 googleapps
 gpedit
