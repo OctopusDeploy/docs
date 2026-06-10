@@ -324,6 +324,7 @@ The TCP ports listed below are defaults, and can be changed if required - refer 
 |Polling Tentacle|`TCP 10943`|Polling Tentacles|Octopus Server|ALLOW|Required when using [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) via TCP as deployment targets or external workers.|
 |SSH|`TCP 22`|Octopus Server|SSH deployment targets|ALLOW|Allows Octopus Server to securely connect to any SSH deployment targets.|
 |RDP|`TCP 3389`|Remote Desktop Users|Octopus Server|ALLOW|Allows your system administrators to perform maintenance tasks on your Octopus Server.|
+|gRPC|`TCP 8443`|Kubernetes Live Object Status (KLOS)/ArgoCD Gateway|Octopus Server|ALLOW|Required for Kubernetes Live Object Status (KLOS)/ArgoCD Gateway|
 |All inbound|`ALL`|Anywhere|Octopus Server|DENY|Prevent any other unwanted inbound traffic.|
 
 ### Outbound rules
