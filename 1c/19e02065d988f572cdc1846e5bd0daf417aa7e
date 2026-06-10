@@ -1,0 +1,36 @@
+src/pages/docs/argo-cd/instances/index.md
+  s_c83ad5a4fd6d2a::t_35796632531ab1 43
+  s_c83ad5a4fd6d2a::t_69cb9615075f11 36-40
+src/pages/docs/argo-cd/troubleshooting.md
+  h_0abc1f0694f983 176
+  s_397d3ed75d6f19::t_69f16191648fc1 167-175,177-198
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "1c19e02065d988f572cdc1846e5bd0daf417aa7e",
+  "prompts": {},
+  "humans": {
+    "h_0abc1f0694f983": {
+      "author": "Denys Melnyk <denis.melnyk@octopus.com>"
+    }
+  },
+  "sessions": {
+    "s_397d3ed75d6f19": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c8589139-3787-4e17-9226-105818512ef0",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Denys Melnyk <denis.melnyk@octopus.com>"
+    },
+    "s_c83ad5a4fd6d2a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5cbb7b4d-15cb-4a84-9b9f-903f8422ed02",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Denys Melnyk <denis.melnyk@octopus.com>"
+    }
+  }
+}
