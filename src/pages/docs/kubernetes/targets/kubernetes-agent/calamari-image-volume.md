@@ -69,7 +69,7 @@ For example, if your mirrored Calamari image names are like `your-registry.examp
 
 ## Fallback behavior
 
-If Calamari Image Volume is enabled but the cluster is running Kubernetes 1.34 or earlier, the agent will log a warning and fall back to the existing Octopus Server delivery mechanism.
+If Calamari Image Volume is enabled but the cluster is running Kubernetes 1.34 or earlier, the agent will log a warning to the task log and fall back to the existing Octopus Server delivery mechanism.
 
 ## Images
 
