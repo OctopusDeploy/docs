@@ -227,6 +227,48 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 
 MDX files don't allow short-form links, instead of using `<https://example.com>` use `[https://example.com](https://example.com)`, or even better - put in useful link text, like `[example website](https://example.com)`.
 
+## Shared footer
+
+The footer is not maintained in this repo. It is fetched at build time from the
+main site:
+
+- `https://octopus.com/fragments/footer`
+
+CSS, JS, and fonts load at page-view time from
+`https://octopus.com/octopus-public/assets/...` via `<link>` and
+`<script defer>` tags in every page. The fetch URL lives in `.env.staging`
+(used by `pnpm dev`) and `.env.production` (used by `pnpm build`).
+
+`SharedFooter.astro` wraps the injected HTML in a `<div>` with
+`data-shared-source`, `data-shared-fragment`, and `data-shared-note`
+attributes. Inspect those in DevTools to confirm whether a given build's footer
+came from the live fetch (`"live"`) or the local fallback (`"fallback"`).
+
+**About the committed `.env.*` files:** `.env.staging` and `.env.production`
+are checked into git on purpose. They contain **only** the three public asset
+URLs the integration needs - the same URLs that appear in every rendered page's
+`<head>`. They are not secrets and there is nothing in them you couldn't read
+from a visitor's browser DevTools. Do not add API keys, tokens, or anything
+sensitive to these files. Use `.env` (gitignored) for any local-only overrides.
+
+### Snapshot fallback
+
+If the live fetch fails during a build (origin unreachable, timeout, non-200
+response), the build silently uses the on-disk snapshot at
+`src/fallback/footer.html` instead of failing. This file is committed and
+refreshed manually with:
+
+```bash
+pnpm snapshot
+git diff src/fallback/
+git add src/fallback/
+git commit -m "Refresh shared footer snapshot"
+```
+
+The build never writes to `src/fallback/` automatically. Refresh when the live
+footer has changed meaningfully and you want the safety net to stay roughly
+current, or when `data-shared-source="fallback"` shows up on a deployed page.
+
 ## Docs page layout guidelines
 
 ### Title icons

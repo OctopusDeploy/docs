@@ -1,10 +1,13 @@
+cancel_queued_tasks = true
+cancel_running_tasks = true
+
 connectivity_policy {
     allow_deployments_to_no_targets = true
 }
 
 versioning_strategy {
-
     donor_package {
-        step = "upload-microsite-to-aws-s3"
+        package = "microsite-package"
+        step = "run-a-process-template-upload-site-to-azure-blob"
     }
 }

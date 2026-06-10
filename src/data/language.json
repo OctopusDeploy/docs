@@ -22,6 +22,26 @@
             "en": "Edit on GitHub"
         }
     },
+    "octopus_copy_md": {
+        "label": {
+            "en": "Use Octopus docs with AI"
+        },
+        "copy": {
+            "en": "Copy this page as markdown"
+        },
+        "copied": {
+            "en": "Copied!"
+        },
+        "view_raw": {
+            "en": "Open this page as markdown"
+        },
+        "download_all": {
+            "en": "Open all docs as markdown"
+        },
+        "error": {
+            "en": "Copy failed"
+        }
+    },
     "post": {
         "written_by": {
             "en": ""

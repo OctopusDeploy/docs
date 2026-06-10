@@ -17,17 +17,17 @@ Octopus: High Availability (HA) enables you to run multiple Octopus Server nodes
 
 An Octopus High Availability configuration requires four main components:
 
-- **A load balancer**
-  This will direct user traffic bound for the Octopus web interface between the different Octopus Server nodes.
-- **Octopus Server nodes**
-  These run the Octopus Server service. They serve user traffic and orchestrate deployments.
-- **A database**
-  Most data used by the Octopus Server nodes is stored in this database.
-- **Shared storage**
-  Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
+- **A load balancer** This will direct user traffic bound for the Octopus web interface between the different Octopus Server nodes.
+- **Octopus Server nodes** These run the Octopus Server service. They serve user traffic and orchestrate deployments.
+- **A database** Most data used by the Octopus Server nodes is stored in this database.
+- **Shared storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database, and so must be stored in a shared folder available to all nodes.
 
 :::div{.hint}
 One of the benefits of High Availability is the database and file storage is running on a separate infrastructure from the Octopus Server service. For a production instance, we recommend everyone follow the steps below, even if you plan on running a single node instance. If anything were to happen to that single node, you could be back up and running quickly with a minimal amount of effort. In addition, adding a second node later will be much easier.
+:::
+
+:::figure
+![Octopus Deploy Self-Hosted Reference Diagram](/docs/img/installation/octopus-install-diagram.png)
 :::
 
 This implementation guide will help configure High Availability. If you are looking for an in-depth set of recommendations, please refer to our white paper on [Best Practices for Self-Hosted Octopus Deploy HA/DR](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr).
@@ -39,20 +39,20 @@ High Availability (HA) distributes load between multiple nodes. There are two ki
 1. Tasks (Deployments, runbook runs, health checks, package re-indexing, system integrity checks, etc.)
 2. User Interface via the Web UI and REST API (Users, build server integrations, deployment target registrations, etc.)
 
-Tasks are placed onto a first-in-first-out (FIFO) queue. By default, each Octopus Deploy node is configured to process five (5) tasks concurrently, which [can be updated in the UI](/docs/support/increase-the-octopus-server-task-cap). That is known as the task cap. Once the task cap is reached, the remaining tasks in the queue will wait until one of the other tasks is finished. 
+Tasks are placed onto a first-in-first-out (FIFO) queue. By default, each Octopus Deploy node is configured to process five (5) tasks concurrently, which [can be updated in the UI](/docs/support/increase-the-octopus-server-task-cap). That is known as the task cap. Once the task cap is reached, the remaining tasks in the queue will wait until one of the other tasks is finished.
 
-Each Octopus Server node has a separate task cap. High Availability allows you to scale the task cap horizontally. If you have two (2) Octopus Server nodes each with a task cap of 10, you can process 20 concurrent tasks. Each node will pull items from the task queue and process them. 
+Each Octopus Server node has a separate task cap. High Availability allows you to scale the task cap horizontally. If you have two (2) Octopus Server nodes each with a task cap of 10, you can process 20 concurrent tasks. Each node will pull items from the task queue and process them.
 
 Learn more about [how High Availability processes tasks in the queue](/docs/administration/high-availability/how-high-availability-works) section.
 
 ## High Availability Limits
 
-Octopus Deploy's High Availability functionality provides many benefits, but it has limits. 
+Octopus Deploy's High Availability functionality provides many benefits, but it has limits.
 
 1. All Octopus Server nodes must run the same version of Octopus Deploy. Upgrading to a newer version of Octopus Deploy will require an outage as you upgrade all nodes.
 1. You cannot specify the node a deployment or runbook run to execute on. Octopus Deploy uses a FIFO queue, nodes will pick up any pending tasks.
 1. If a deployment or runbook run fails, it fails. Octopus Deploy will not automatically attempt to re-run that failed deployment or runbook run on a different node. In our experience, changing nodes rarely has been the solution to a failed deployment or runbook run.
-1. All the Octopus Server nodes must connect to the same database. 
+1. All the Octopus Server nodes must connect to the same database.
 1. Octopus Server nodes have no concept of a "read-only" connection to a database. All online nodes perform write operations to the database. Even if it is not processing tasks.
 1. Octopus Server nodes are sensitive to latency to SQL Server and the file storage. The Octopus Server nodes, SQL Server, and file storage should all be located in the same data center or cloud region. The latency between availability zones within the same cloud region is acceptable. While the latency between cloud regions or data centers is not.
 
@@ -60,19 +60,17 @@ Generally, these limits are encountered when our users attempt to use Octopus De
 
 ## Calculating Task Cap
 
-The amount of computing resources required for the Octopus Server nodes and database is dependent on the task cap. The higher the task cap, the more resources you'll need. 
+The amount of computing resources required for the Octopus Server nodes and database is dependent on the task cap. The higher the task cap, the more resources you'll need.
 
-To calculate the task cap we recommend using the number of applications or projects you need to deploy during the production deployment window. 
+To calculate the task cap we recommend using the number of applications or projects you need to deploy during the production deployment window.
 
-- Deployments and runbook runs are the most common tasks. 
-- Deployments typically take longer than any other task, including runbook runs. 
+- Deployments and runbook runs are the most common tasks.
+- Deployments typically take longer than any other task, including runbook runs.
 - Production deployments are time-constrained. They are done off-hours during an outage window.
 
 Once you know the number of projects and the duration of the window, you can calculate the task cap using the average deployment duration. If you don't know the average deployment duration, use 30 minutes as the starting point. The formula is:
 
-```
-(Number of Projects to Deploy * Average Deployment Duration) / Production Deployment Window in Minutes
-```
+`(Number of Projects to Deploy * Average Deployment Duration) / Production Deployment Window in Minutes`
 
 For example, you need to deploy 50 applications, each taking 30 minutes to deploy. You have two hours (120 minutes) to deploy all the applications.
 
@@ -130,9 +128,9 @@ Most of our customers have between two (2) and four (4) nodes. Generally, more n
 
 #### Octopus Server node compute resources
 
-Below is a baseline for setting compute resources based on the task cap. You are responsible for monitoring the compute resource utilization of your Octopus Server nodes to ensure you aren't over or under-provisioning. 
+Below is a baseline for setting compute resources based on the task cap. You are responsible for monitoring the compute resource utilization of your Octopus Server nodes to ensure you aren't over or under-provisioning.
 
-| Task Cap Per Node | Windows Compute Resources | Container Compute Resources        | 
+| Task Cap Per Node | Windows Compute Resources | Container Compute Resources        |
 | ----------------- | ------------------------- | ---------------------------------- |
 | 5 - 10            | 2 Cores / 4 GB RAM        | 150m - 1000m / 1500 Mi - 3000 Mi   |
 | 20                | 4 Cores / 8 GB RAM        | 1000m - 2000m / 3000 Mi - 6000 Mi  |
@@ -148,13 +146,13 @@ In our research the biggest limiting factor in processing concurrent tasks is th
 
 ### Database
 
-Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You can host that SQL Database on a self-managed SQL server, or use one of the many popular cloud providers. We recommend picking the option based on where you plan on hosting Octopus Deploy. 
+Octopus Deploy stores project, environment, and deployment-related data in a shared Microsoft SQL Server Database. You can host that SQL Database on a self-managed SQL server, or use one of the many popular cloud providers. We recommend picking the option based on where you plan on hosting Octopus Deploy.
 
 #### Database Compute Resources
 
 The amount of compute resources to assign the databases is based on the total amount of concurrent tasks you wish to process. Below is a baseline of resources. You are responsible for monitoring the compute resource utilization of your database to ensure you aren't over or under-provisioning. We have some customers in Octopus Cloud who require 3200 DTUs due to their Octopus Deploy usage.
 
-| Total Task Cap | Virtual Machine Host      | Azure DTUs   | 
+| Total Task Cap | Virtual Machine Host      | Azure DTUs   |
 | -------------- | ------------------------- | ------------ |
 | 5 - 10         | 2 Cores / 4 GB RAM        | 50 DTUs      |
 | 20             | 2 Cores / 8 GB RAM        | 100 DTUs     |
@@ -202,7 +200,7 @@ Whichever way you provide the shared storage, there are a few considerations to 
 
 - To Octopus, it needs to appear as either:
   - A mapped network drive e.g. `X:\`
-  - A UNC path to a file share e.g. `\\server\share` 
+  - A UNC path to a file share e.g. `\\server\share`
   - For Linux containers they need to be a volume mount.
 - The service account that Octopus runs needs **full control** over the directory.
 - Drives are mapped per user, so you should map the drive using the same service account that Octopus is running under.
@@ -226,12 +224,13 @@ For the Web UI and API traffic you can leverage SSL offloading. For Polling Tent
 :::
 
 #### Health Checks
+
 Octopus Deploy provides an endpoint you can use for health checks for your load balancer to ping: `/api/octopusservernodes/ping`.
 
 Making a standard `HTTP GET` request to this URL on your Octopus Server nodes will return:
 
-- HTTP Status Code `200 OK` as long as the Octopus Server node is online and not in [drain mode](#drain).
-- HTTP Status Code `418 I'm a teapot` when the Octopus Server node is online, but it is currently in [drain mode](#drain) preparing for maintenance.
+- HTTP Status Code `200 OK` as long as the Octopus Server node is online and not in `drain mode`.
+- HTTP Status Code `418 I'm a teapot` when the Octopus Server node is online, but it is currently in `drain mode` preparing for maintenance.
 - Anything else indicates the Octopus Server node is offline, or something has gone wrong with this node.
 
 :::div{.hint}
@@ -255,18 +254,18 @@ All package uploads are sent as a POST to the REST API endpoint `/api/[SPACE-ID]
 
 #### Polling Tentacles
 
-Polling Tentacles poll each Octopus Server node at regular intervals to see if that node has picked up a task. Using Polling Tentacles with HA requires every Polling Tentacle to be able to connect to all nodes. 
+Polling Tentacles poll each Octopus Server node at regular intervals to see if that node has picked up a task. Using Polling Tentacles with HA requires every Polling Tentacle to be able to connect to all nodes.
 
 You have two options:
 
 1. Using a unique address per node with the default port of `10943`.
-  - Node1 would be: Octo1.domain.com:10943
-  - Node2 would be: Octo2.domain.com:10943
-  - Node3 would be: Octo3.domain.com:10943
+   1. Node1 would be: Octo1.domain.com:10943
+   2. Node2 would be: Octo2.domain.com:10943
+   3. Node3 would be: Octo3.domain.com:10943
 2. Using the same address with a different port per node.
-  - Node1 would be: octopus.domain.com:10943
-  - Node2 would be: octopus.domain.com:10944
-  - Node3 would be: octopus.domain.com:10945
+   1. Node1 would be: octopus.domain.com:10943
+   2. Node2 would be: octopus.domain.com:10944
+   3. Node3 would be: octopus.domain.com:10945
 
 :::div{.hint}
 For Polling Tentacles, SSL offloading is not supported. Octopus Deploy and the Tentacle establishes a two-way trust using the certificates created by Octopus Deploy and the Tentacle. If either of them doesn't match, the connection is closed and all commands are rejected.
@@ -283,14 +282,14 @@ We've created guides for configuring many popular load balancers.
 - [AWS Load Balancers](/docs/installation/load-balancers/aws-load-balancers)
 - [Azure Load Balancers](/docs/installation/load-balancers/azure-load-balancers)
 - [GCP Load Balancers](/docs/installation/load-balancers/gcp-load-balancers)
-  
+
 ## Octopus Deploy Configuration
 
 Once the infrastructure is in place to support high availability, you can then start configuring Octopus Deploy to leverage it. The good news is if you have an existing instance in place you can update the configuration without having to rebuild everything.
 
 ### Creating a new instance
 
-When creating a new instance, you must start with a single node. Once that is up and running, you can add additional nodes. When you create a new Octopus Deploy instance, it will run a series of SQL Scripts to populate the Octopus Deploy database with the appropriate tables, views, and stored procedures. 
+When creating a new instance, you must start with a single node. Once that is up and running, you can add additional nodes. When you create a new Octopus Deploy instance, it will run a series of SQL Scripts to populate the Octopus Deploy database with the appropriate tables, views, and stored procedures.
 
 #### Windows Host
 
@@ -302,7 +301,7 @@ Follow these steps if you elect to host Octopus Deploy on Windows Servers.
 1. Once the setup wizard is complete, you'll be taken to the Octopus Manager. Now is a good time to [retrieving the master key](/docs/security/data-encryption#your-master-key). That master key is required to add additional nodes to your High Availability Cluster.
 1. Run the following script to configure the BLOB storage.
 
-```
+```powershell
 Octopus.Server.exe path --clusterShared \\OctoShared\OctopusData
 ```
 
@@ -327,7 +326,7 @@ Migrating an existing instance is possible, and for most configurations can be c
 
 #### Backup the Master Key
 
-Before getting started, it is important to ensure you have a backup of the master key. The master key is used by Octopus Deploy to encrypt and decrypt data within the Octopus Deploy database. If this master key is lost, you will have to reset all the encrypted items in your database. 
+Before getting started, it is important to ensure you have a backup of the master key. The master key is used by Octopus Deploy to encrypt and decrypt data within the Octopus Deploy database. If this master key is lost, you will have to reset all the encrypted items in your database.
 
 Learn more about [retrieving the master key](/docs/security/data-encryption#your-master-key).
 
@@ -347,18 +346,18 @@ Learn more about [moving the Octopus Server Database](/docs/administration/manag
 
 #### Migrating File Storage
 
-Typically, the file storage takes the most time of the high availability migration. The good news is you can do most of the work prior to the cutover. The file storage stores items like deployment logs and runbook run logs. Once a deployment or runbook run is complete, Octopus Deploy will leave those files until they are deleted by the retention policies. 
+Typically, the file storage takes the most time of the high availability migration. The good news is you can do most of the work prior to the cutover. The file storage stores items like deployment logs and runbook run logs. Once a deployment or runbook run is complete, Octopus Deploy will leave those files until they are deleted by the retention policies.
 
 The following work can be completed without turning off any Octopus Server nodes. Your Octopus instance might have years worth of data. It can take hours or days to finish copying all the files over.
 
 1. Create the main directory and subdirectories.
-  1. TaskLogs
-  1. Artifacts
-  1. Packages
-  1. Imports
-  1. EventExports
-  1. Telemetry
-1. Using tools such as `robocopy` or `rsync` copy the files and subdirectories to the corresponding folder. Leverage the mirror functionality to ensure your file share folder structure matches the original.
+   1. TaskLogs
+   2. Artifacts
+   3. Packages
+   4. Imports
+   5. EventExports
+   6. Telemetry
+2. Using tools such as `robocopy` or `rsync` copy the files and subdirectories to the corresponding folder. Leverage the mirror functionality to ensure your file share folder structure matches the original.
 
 Once the files are copied over, you can update your Octopus Deploy instance to point to the file share.
 
@@ -366,7 +365,7 @@ Once the files are copied over, you can update your Octopus Deploy instance to p
 - Run `robocopy` or `rsync` one final time to pick up any new files since the last sync.
 - Run the following PowerShell script to update Octopus to point to the new directory.
 
-```
+```powershell
 Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 $filePath = "YOUR ROOT DIRECTORY"
 
@@ -379,7 +378,7 @@ Learn more about [moving the Octopus Server folders](/docs/administration/managi
 
 #### Migrating to the Load Balancer
 
-For Web UI and API traffic, migrating to a load balancer should be seamless. Use the configuration information from an earlier section in this document to configure the load balancer. Once you've verified all the traffic is working as expected, then provide the new URL to your users. 
+For Web UI and API traffic, migrating to a load balancer should be seamless. Use the configuration information from an earlier section in this document to configure the load balancer. Once you've verified all the traffic is working as expected, then provide the new URL to your users.
 
 ### Adding Nodes
 
@@ -404,7 +403,7 @@ We recommend writing scripts to automate this process.
 
 Once the load balancer is configured to expose each Octopus Server node, you must register them with each polling tentacle. You can use this PowerShell script as a basis for your automation. The script should add any new nodes you've created. If you added two nodes to your High Availability cluster, your script would look like this.
 
-```
+```powershell
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo2.domain.com:10943 --apikey=YOUR_API_KEY
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=Octo3.domain.com:10943 --apikey=YOUR_API_KEY
 ```
@@ -428,7 +427,7 @@ A dedicated page to High Availability within the Octopus Deploy user interface c
 That page provides the following functionality:
 
 - The number of nodes your HA cluster has registered.
-- The last time each node "checked-in" or was seen. 
+- The last time each node "checked-in" or was seen.
 - The number of tasks each node is processing.
 - Changing the task cap on each node via the overflow menu.
 - Draining a specific node via the overflow menu will stop it from processing tasks.
@@ -436,7 +435,7 @@ That page provides the following functionality:
 
 #### Node Status and Last Seen
 
-A healthy node will update the **Last Seen** date on the node configuration page every 60 seconds or so. The code to update that last seen date runs on a dedicated thread and will do its very best to update that date. That means there is a problem if that value isn't updated for a specific node in a while. 
+A healthy node will update the **Last Seen** date on the node configuration page every 60 seconds or so. The code to update that last seen date runs on a dedicated thread and will do its very best to update that date. That means there is a problem if that value isn't updated for a specific node in a while.
 
 #### Modifying the task cap
 
@@ -457,7 +456,7 @@ While draining:
 
 ### Deleting a node
 
-Once a node has been retired, you can delete it from the HA Cluster using the node configuration page. It is important to note that deleting an active node will have minimal impact. Every 60 seconds the nodes will perform a check-in where they update the "last seen" date. If the node is not present in the table, it will automatically add itself. 
+Once a node has been retired, you can delete it from the HA Cluster using the node configuration page. It is important to note that deleting an active node will have minimal impact. Every 60 seconds the nodes will perform a check-in where they update the "last seen" date. If the node is not present in the table, it will automatically add itself.
 
 ### Auto-scaling nodes
 
@@ -476,7 +475,7 @@ The process for removing a node is:
 1. Wait for all the tasks to be completed. Failure to do so will cause those tasks to fail.
 1. Delete the application host.
 
-The complexity of removing a node is due to having to invoke the API to drain the node and waiting for the node to complete any in-flight tasks. For cloud providers such as Azure or AWS that typically means leveraging a function or a Lambda. 
+The complexity of removing a node is due to having to invoke the API to drain the node and waiting for the node to complete any in-flight tasks. For cloud providers such as Azure or AWS that typically means leveraging a function or a Lambda.
 
 For scripts and examples, please refer to the [auto-scaling high availability nodes page](/docs/administration/high-availability/auto-scaling-high-availability-nodes).
 

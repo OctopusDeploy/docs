@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-03-16
+modDate: 2026-05-28
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -12,39 +12,42 @@ navOrder: 173
 ---
 
 :::div{.warning}
-Project templates are in Alpha. The feature is incomplete and standard SLAs do not apply. Don't use it for production workloads. It is available to Enterprise customers on Cloud. Self-hosted customers can access it as an early preview via Octopus 2026.2. We're actively developing this feature and would love your feedback.
+Project templates are in Public Preview. The feature is still evolving and standard SLAs don't apply. We don't recommend it for production workloads yet. It's available to Enterprise customers on Cloud and to self-hosted customers running Octopus 2026.2. We'd love your feedback as we work towards General Availability.
 :::
 
-## Alpha limitations
+## Public Preview limitations
 
-Project templates are in Alpha. The following features are not yet supported and are planned for future releases:
+Project templates are in Public Preview. The following features are not yet supported and are planned for future releases:
 
 - Channels
 - Lifecycles
 - Environments
 - Ephemeral environments
-- Cloud target discovery on steps. Use project variables in the project instead
+- Cloud target discovery on steps (see below)
 - Cloning a project template through the Octopus UI
 - Creating and managing project templates through the REST API, CLI, or Terraform provider
 - Feeds
-- Project settings
+- Project settings, except for Multi-tenant Deployments and Project Persistence
 - Runbooks
 - Triggers
 - Import and export of templated projects
-- Git Credentials
-- Inline variable and parameter configuration within the deployment process editor
+- Inline variable configuration within the deployment process editor
 
 We'll update this page as the feature evolves.
 
+## Cloud target discovery
+
+Project templates can't supply the account that cloud target discovery uses on a step. To use cloud target discovery in a templated project, configure it on the templated project itself. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
+
 ## Step support
 
-Project templates support most Octopus steps. The following step package framework steps are not supported:
+Project templates support most Octopus steps. The following steps are not supported:
 
 - Deploy a Bicep Template
 - AWS S3 Create Bucket
 - AWS ECS
 
-These steps are being migrated away from the step package framework and will be supported in the future.
+These steps will be supported in the future.
 
 ## Cloning project templates
 

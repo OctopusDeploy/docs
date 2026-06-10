@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Octopus Server Container with Docker Compose
-description: A fully self-contained SQL Server and Octopus Server provisioned as Linux containers using Docker Compose.
+title: Octopus Server with Docker Compose on Linux
+description: Run Octopus Server and SQL Server as Linux containers using Docker Compose. Follow the step-by-step setup to create a self-contained local deployment.
 navOrder: 10
 ---
 
@@ -68,7 +68,7 @@ volumes:
 
 We will provide some of the environment variables to run this container with an additional `.env` file:
 
-```
+```ini
 # Define the password for the SQL database. This also must be set in the DB_CONNECTION_STRING value.
 SA_PASSWORD=
 
@@ -125,13 +125,13 @@ CONTAINER_USER=octopus
 TASK_CAP=20
 ```
 
-You will have to supply your own values for `SA_PASSWORD`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`. 
+You will have to supply your own values for `SA_PASSWORD`, `ADMIN_USERNAME`, and `ADMIN_PASSWORD`.
 
 It is also highly recommended that you create a new master key with the command `openssl rand 16 | base64` and supply it through the `MASTER_KEY` property before you boot Octopus for the first time. If a master key is not supplied, Octopus will generate one, and the generated value must be saved in the `MASTER_KEY` property when the Octopus container is restarted.
 
 Start both containers by running:
 
-```
+```bash
 docker-compose --project-name octopus up -d
 ```
 
@@ -141,10 +141,10 @@ When both containers are healthy, you can browse directly to `http://localhost:8
 
 Octopus Server can interface with several external sources (feeds, git repos, etc.), and those sources are often configured to use SSL/TLS for secure communication.  It is common for organizations to have their own Certificate Authority (CA) servers for their internal networks.  A CA server can issue SSL certificates for internal resources, such as build servers or internally hosted applications, without purchasing from a third-party vendor.  Technologies such as Group Policy Objects (GPO) can configure machines (servers and clients) to trust the CA automatically, so users don't have to configure trust for them manually. However, this is not inherited in containers.  When attempting to configure a connection to an external resource with an untrusted CA, you'll most likely encounter an error similar to this:
 
-```
+```text
 Could not connect to the package feed. The SSL connection could not be established, see inner exception. The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot
 ```
- 
+
 The recommended approach is to add the certificate to the Docker host, such as `/etc/ssl/certs`, and mount a volume to it inside the container.  To do this, add a `volumes` section to  the `octopus-server` container just after the `image` component
 
 ```yaml
@@ -165,5 +165,5 @@ For further information about the additional configuration of the SQL Server con
 
 ## Learn more
 
- - [Docker blog posts](https://octopus.com/blog/tag/docker/1)
- - [Linux blog posts](https://octopus.com/blog/tag/linux/1)
+- [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

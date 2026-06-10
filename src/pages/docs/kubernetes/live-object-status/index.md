@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-03-19
+modDate: 2026-05-24
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -79,13 +79,31 @@ Sync Status tracks whether the changes Octopus deployed still matches the resour
 
 ### Object Sync Status
 
-| Label       |                 Status Icon                 | Description                                                    |
-| :---------- | :-----------------------------------------: | :------------------------------------------------------------- |
-| In Sync     |   <i class="fa-solid fa-check green"></i>   | Object manifest matches what was applied                       |
-| Out of Sync | <i class="fa-solid fa-arrow-up orange"></i> | Object manifest is not the same as what was applied            |
-| Unknown     |  <i class="fa-solid fa-question grey"></i>  | We don't have information about the live status of this object |
+| Label       |                  Status Icon                  | Description                                                                                      |
+| :---------- | :-------------------------------------------: | :----------------------------------------------------------------------------------------------- |
+| In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied                                                         |
+| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                              |
+| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                   |
+| Orphaned    | <i class="fa-solid fa-link-slash orange"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
 
 Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/troubleshooting) for details on why you may see some object statuses
+
+### Orphaned objects
+
+When you deploy a project that no longer includes a resource that was deployed in a previous release (for example, you remove a resource from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped resource as **Orphaned** in the Live Status table.
+
+Orphaned objects:
+
+- keep their existing Health Status, so Octopus continues tracking them while they remain in your cluster
+- have **Orphaned** as their Sync Status (shown with the link-slash icon in the table above)
+- are summarized by a total-orphans count shown on the project's Live Status page
+- can be narrowed to by using the Live Status table's filter and selecting **Orphaned**
+
+The orphan state clears automatically on the next deployment that re-adds the resource. If you remove an orphaned object from your cluster directly (for example with `kubectl delete`), the Kubernetes monitor detects the removal and Octopus stops tracking the resource, so the orphan entry disappears from the Live Status table without any manual intervention.
+
+:::div{.info}
+Orphaned-resource tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the resource is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
+:::
 
 ### Detailed object information
 

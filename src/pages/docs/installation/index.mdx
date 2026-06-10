@@ -2,13 +2,13 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-01
-title: Installation of Octopus Server
+title: Install Octopus Server
 subtitle: How to install Octopus Server
 icon: fa-solid fa-server
 navTitle: Overview
 navSection: Installation
 navOrder: 20
-description: How to install the Octopus Server.
+description: Install Octopus Server on Windows or as a Linux container. Connect a SQL Server database, configure your instance, and start deploying software today.
 hideInThisSection: true
 ---
 import OctopusReleases from 'src/shared-content/installation/octopus-releases.include.md';
@@ -25,13 +25,23 @@ There are three components to an Octopus Deploy instance:
 - **SQL Server Database** Most data used by the Octopus Server nodes is stored in this database.  SQL Server 2016+ or Azure SQL is required.
 - **Files or BLOB Storage** Some larger files - like [packages](/docs/packaging-applications/package-repositories), artifacts, and deployment task logs - aren't suitable to be stored in the database and are stored on the file system instead.  This can be a local folder, a network file share, or a cloud provider's storage.  
 
-All inbound traffic to Octopus Deploy is via:
+Relevant ports include:
 
-- HTTP/HTTPS (ports 80/443)
-- Polling tentacles (port 10943)  
-- gRPC (port 8443)
+- **Inbound** port 443/80 (http/https): Web Traffic UI / CLI / API / MCP Server
+  - **Inbound** port 8080: Container Host - service / load balancer to container
+  - **Inbound** port 443/80 (http/https): Windows Host - load balancer to Windows Server
+- **Inbound** port 10943: Polling tentacles (Octopus Deploy agents) running on application hosts or runners (workers).
+- **Inbound** port 8443 (gRPC): Octopus Deploy Argo CD Gateway
+- **Outbound** port 10933: Listening tentacles (Octopus Deploy agents) running on application hosts or runners (workers).
+- **Outbound** port 22 (SSH): For application hosts or runners (workers).
 
-For production instances of Octopus Deploy, it is best to configure a [load balancer](/docs/installation/load-balancers) to route traffic to your instance.  Leveraging a load balancer offers numerous benefits, such as redirecting users to a maintenance page while the instance is down for upgrading, as well as making it much easier to configure High Availability later.
+When running Octopus Deploy as a container it is required to configure a load balancer or service to facilitate user web traffic to the user.  All web traffic going to the container must be routed to port 8080.  
+
+When running Octopus Deploy on a Windows Server, the [load balancer](/docs/installation/load-balancers) is optional, but highly recommended for production instances.  For Windows Server hosts, leveraging a load balancer offers numerous benefits, including redirecting users to a maintenance page while the instance is down for upgrading, as well has making it easier to configure High Availability later.  All web traffic going to Windows Servers can remain on the standard 443 or 80 ports.  Or, another port can be selected.
+
+:::figure
+![Octopus Deploy Self-Hosted Reference Diagram](/docs/img/installation/octopus-install-diagram.png)
+:::
 
 ## Self-hosted Octopus Server
 
