@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-05-22
-title: GCP File Storage
-description: Guidelines and recommendations for configuring Octopus Deploy to store files on GCP File Storage.
+title: GCP file storage for Octopus Deploy
+description: Store Octopus Deploy files on Google Cloud using Filestore with NFS v3 mounts. Follow the setup steps for both Linux and Windows Server hosts to get connected.
 navOrder: 40
 hideInThisSection: true
 ---
@@ -28,7 +28,8 @@ See more information about [Windows NFS and Octopus Deploy](/docs/installation/f
 <FileStorageHA />
 
 ## Disaster Recovery
-For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with GCP you have several options available. Further details on the redundancy options available for Filestore can be found [here](https://cloud.google.com/architecture/filers-on-compute-engine#filestore-basic).
+
+For disaster recovery scenarios, [we recommend leveraging a hot/cold configuration](https://octopus.com/whitepapers/best-practice-for-self-hosted-octopus-deploy-ha-dr). To achieve this with GCP you have several options available. Further details on the [redundancy options available for Filestore](https://cloud.google.com/architecture/filers-on-compute-engine#filestore-basic) can be found in the GCP documentation.
 
 ### Zonal
 

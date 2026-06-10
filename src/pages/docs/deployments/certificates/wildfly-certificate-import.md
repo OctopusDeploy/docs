@@ -66,7 +66,7 @@ The `KeyStore alias` field defines a custom alias under which the certificate an
 
 ## Deploying a certificate to a domain
 
-Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two step process:
+Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two-step process:
 
 1. Deploying a KeyStore file to all slave instances.
 2. Configuring the profiles managed by the domain controller to reference the KeyStore files.

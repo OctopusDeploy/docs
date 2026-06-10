@@ -7,7 +7,7 @@ description: Configuring NuGet repositories as Octopus Feeds
 navOrder: 50
 ---
 
-If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **Library ➜ External feeds**.
+If you're using an external NuGet feed, you can register it with Octopus and use them as part of your deployments. Go to **Deploy ➜ Manage ➜ External Feeds**.
 
 You can add NuGet feeds by clicking the **Add feed** button.
 
@@ -34,6 +34,12 @@ On the test page, you can check whether the feed is working by searching for pac
 :::
 
 Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds)
+
+:::div{.info}
+
+Note: Local packages must be stored in a single folder. Octopus does not currently support hierarchical local NuGet feeds. 
+
+:::
 
 ## NuGet.Server performance
 

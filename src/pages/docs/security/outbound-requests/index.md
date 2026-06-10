@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-13
+modDate: 2026-02-09
 title: Outbound requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 navOrder: 25
@@ -25,13 +25,15 @@ It's possible that scripts in your packages may make outbound requests; in this 
 The Octopus Server makes the following outbound requests:
 
 1. Pushing packages and deployment instructions, and checking the health, of Tentacles.
-2. Downloading packages from the [NuGet feeds](/docs/packaging-applications/package-repositories) that you configure.
+2. Downloading packages from the [external package repositories](/docs/packaging-applications/package-repositories) that you configure.
 3. Windows Azure traffic (only when deploying to an Azure deployment target).
 4. Checking for updates (if enabled).
 5. Checking for updated [built-in step templates](/docs/projects/built-in-step-templates) (if enabled).
 6. Checking for updated [community contributed step templates](/docs/projects/community-step-templates) (if enabled).
 7. Behavioral telemetry is sent to `https://telemetry.octopus.com` (if enabled).
 8. Email address and behavioral data is sent to `https://experiences.octopus.com` via In-App messaging (if enabled).
+9. Requests are sent to `https://aiproxy.octopus.com` to communicate with foundation models for [AI features](/docs/octopus-ai) in Octopus Deploy.
+10. Requests are made to the configured OIDC Issuer URL during rotation of [externally hosted signing keys](/docs/infrastructure/signing-keys#rotating-externally-hosted-keys) to validate the signing keys.
 
 ### Built-in step templates
 

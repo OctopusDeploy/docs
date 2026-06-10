@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-05-15
 title: Server configuration and file storage
 description: Octopus Server configuration command reference including how to specify your file storage locations.
 navOrder: 1100
@@ -27,30 +27,34 @@ If you need to move folders other than the Octopus Home folder, you can do that 
 The Octopus Server stores files in the following folders by default:
 
 - `C:\Octopus`
-    - This is where the Octopus Server config file and deployment journal is stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-octopus-home-folder) on how to move the Octopus home folder
+  - This is where the Octopus Server config file and deployment journal is stored.
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-octopus-home-folder) on how to move the Octopus home folder
 - `C:\Octopus\Artifacts`
-    - This is where artifacts created by deployments are stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-artifacts-folder) on how to move the Octopus Server artifacts folder
+  - This is where artifacts created by deployments are stored.
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-artifacts-folder) on how to move the Octopus Server artifacts folder
 - `C:\Octopus\Logs`
-    - This is where the Octopus Server log file is stored.
+  - This is where the Octopus Server log file is stored.
 - `C:\Octopus\OctopusServer\PackageCache`
-    - This is where the signature and delta files used for package acquisitions are stored.
+  - This is where the signature and delta files used for package acquisitions are stored.
 - `C:\Octopus\Packages`
-    - This is where the packages pushed to the Octopus Server built-in package repository are stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-nuget-folder) on how to move the Octopus Server built-in package folder
+  - This is where the packages pushed to the Octopus Server built-in package repository are stored.
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-nuget-folder) on how to move the Octopus Server built-in package folder
 - `C:\Octopus\TaskLogs`
-    - This is where all logs from deployments and other server tasks are stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-task-logs-folder) on how to move the Octopus Server task logs folder
+  - This is where all logs from deployments and other server tasks are stored.
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-task-logs-folder) on how to move the Octopus Server task logs folder
 - `C:\Octopus\Telemetry`
-    - This is where all performance and other temporal telemetry files are stored.
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-telemetry-folder) on how to move the Octopus Server telemetry folder
+  - This is where all performance and other temporal telemetry files are stored.
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-telemetry-folder) on how to move the Octopus Server telemetry folder
 - `C:\Octopus\Imports`
-    - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import).
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-imports-folder) on how to move the Octopus Server imports folder
+  - This is where imported zip files are stored when using the [Export/Import Projects feature](/docs/projects/export-import).
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-imports-folder) on how to move the Octopus Server imports folder
 - `C:\Octopus\EventExports`
-    - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
-    - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-event-exports-folder) on how to move the Octopus Server event exports folder
+  - This is where audit log archive zip files are stored when using the [Archived audit logs feature](/docs/security/users-and-teams/auditing/#archived-audit-events).
+  - See this [page](/docs/administration/managing-infrastructure/server-configuration-and-file-storage/moving-octopus-server-folders/#move-event-exports-folder) on how to move the Octopus Server event exports folder
+
+## Managing disk space usage {#managing-disk-space-usage}
+
+To manage disk space usage on your Octopus Server instance, see the [Retention policies](/docs/administration/retention-policies) page.
 
 ## Clean up post-2.6 migration {#clean-up-post-2-6-migration}
 

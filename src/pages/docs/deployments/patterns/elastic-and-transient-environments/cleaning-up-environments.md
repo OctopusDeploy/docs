@@ -58,4 +58,4 @@ Machine clean up is part of health checks and machine clean up logs are not stor
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns).

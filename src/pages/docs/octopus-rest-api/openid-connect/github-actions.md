@@ -151,7 +151,7 @@ jobs:
       id-token: write # This is required to obtain the ID token from GitHub Actions
       contents: read # For example: this is required to check out code, remove if not needed
     steps:
-      - name: Login to Octopus
+      - name: Log into Octopus
         uses: OctopusDeploy/login@v1
         with:
           server: https://my.octopus.app

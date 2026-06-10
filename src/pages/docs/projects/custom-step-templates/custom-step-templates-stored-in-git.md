@@ -62,7 +62,7 @@ In this section, you will specify the full URL to the root of your target reposi
 
 Unlike database sourced custom step templates, authentication is typically required to access the repository holding the script.
 
-Git credentials can be added to a Space by navigating to **Deploy ➜ Git Credentials** or via the + button in the Authentication section of the **Step** tab. Use the drop-down arrow to select the appropriate Git credentials once they have been added. 
+Git credentials can be added to a Space by navigating to **Deploy ➜ Manage ➜ Git Credentials** or via the + button in the Authentication section of the **Step** tab. Use the drop-down arrow to select the appropriate Git credentials once they have been added. 
 
 If newly added Git credentials aren’t showing up, click on the **circular refresh button** next to the drop-down arrow.
 

@@ -1,19 +1,27 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2025-12-01
 title: Bamboo
 description: Octopus Deploy and Bamboo can work together to make automated, continuous delivery easy.
 navOrder: 30
 ---
 
-The Octopus Deploy [add-on for Bamboo](https://octopus.com/downloads) allows packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
+:::div{.warning}
+As of December 2025 the Octopus Deploy add-on for Bamboo has reached end of life (EOL), in line with Atlassian's end of life timeline plans for [Data Center products](https://www.atlassian.com/software/bamboo/download-archives).
+
+Alternative features to flow artifacts from your CI system into Octopus are; [external feed triggers](/docs/projects/project-triggers/external-feed-triggers) and [Built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers).
+
+If you are an Atlassian Data Center user and Octopus customer and need help reach out to [Octopus Support](https://octopus.com/support).
+:::
+
+The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
 
 ## Getting started
 
 The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
-Note that while the command line tool package is largely self contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
+Note that while the command line tool package is largely self-contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
 To verify that the command line tool can be run, execute it from a terminal. When run with no arguments, the `Octo` executable will display a list of available commands.
 
@@ -130,7 +138,7 @@ It is recommended that this field be left blank, because the `Ignore existing re
 
 The `Ignore existing releases` option can be selected to skip the create release step if the release version already exists.
 
-Tick this option, as it allows builds to be rebuilt. Otherwise rebuilds will attempt to recreate an existing environment and the step will fail.
+Tick this option, as it allows builds to be rebuilt. Otherwise, rebuilds will attempt to recreate an existing environment and the step will fail.
 
 :::figure
 ![Create Release](/docs/img/packaging-applications/build-servers/images/create-release.png)
@@ -184,7 +192,7 @@ This `Promote to` field defines the environment whose release will be promoted f
 
 ## Common configuration
 
-All of the Octopus Deploy tasks share a number of common configuration fields.
+All Octopus Deploy tasks share a number of common configuration fields.
 
 ### Octopus URL
 
@@ -241,7 +249,7 @@ For this reason it is recommended that the promote release task not be used as p
 
 ### Octopus command line tool failed to run in Linux
 
-The Octopus Command Line tool packages for Linux are relatively self contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
+The Octopus Command Line tool packages for Linux are relatively self-contained, but depending on your Linux distribution you may need to install some additional dependencies for the command line tool to run.
 
 For example, in Centos 7 you might see this error:
 

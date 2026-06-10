@@ -17,7 +17,7 @@ Starting with 2020.6, Octopus introduced a new, permissive versioning scheme for
 Prior to 2020.6, Octopus only recognized Docker image tags that complied with the Semantic Versioning standard.
 :::
 
-The following [regular expression](https://oc.to/OctopusVersionRegex/) defines how docker tags are parsed into version components:
+The following [regular expression](https://oc.to/OctopusVersionRegex/) defines how Docker tags are parsed into version components:
 
 ```
 ^(?:(?<prefix>v|V)?(?<major>\d+)(?:\.(?<minor>\d+))?(?:\.(?<patch>\d+))?(?:\.(?<revision>\d+))?)?(?:[.\-_])?(?<prerelease>(?<prereleaseprefix>[^+.\-_\s]*?)([.\-_](?<prereleasecounter>[^+\s]*?)?)?)?(?:\+(?<buildmetadata>[^\s]*?))?$

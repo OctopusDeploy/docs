@@ -2,57 +2,59 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-11-14
-title: First Deployment
-description: This tutorial will walk you through configuring your first deployment in Octopus Deploy.
+title: Your first deployment in Octopus Deploy
+description: Deploy your first application with Octopus. Set up environments, create a project, add a deployment target, and release your first software package today.
 navOrder: 10
 hideInThisSection: true
 ---
+import OctopusDeploySetupOptions from 'src/shared-content/concepts/octopus-deploy-setup-options.include.md';
 
 👋 Welcome to Octopus Deploy!
 
-This tutorial series will help you complete your first deployment in Octopus Deploy. We’ll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.
+This tutorial series will help you complete your first deployment in Octopus Deploy. We'll walk you through the steps to deploy a sample [hello world package](https://octopus.com/images/docs/hello-world.1.0.0.zip) to one or more of your servers.
 
 :::div{.hint}
 If you're using **Octopus 2024.2** or earlier, please visit one of these legacy guides:
 
 - **Octopus 2022.2** or earlier [read the 2022 guide](/docs/getting-started/first-deployment/legacy-guide/2022)
 - **Octopus 2024.2** or earlier [read the 2024 guide](/docs/getting-started/first-deployment/legacy-guide/2024)
+
 :::
 
 ## Before you start
 
-To follow this tutorial, you will need an Octopus Deploy instance. If you haven’t already, set up an instance using one of these methods:
+To follow this tutorial, you will need an Octopus Deploy instance. If you haven't already, set up an instance using one of these methods:
 
-- [Octopus Cloud](https://octopus.com/start) ➜ we host Octopus Deploy for you.
-- [Self-hosted on a Windows Server](https://octopus.com/start?platform=Server) ➜ you host Octopus Deploy on your infrastructure by [downloading our MSI](https://octopus.com/download) and installing it onto a Windows Server with a SQL Server backend. Read the [installation requirements](/docs/installation/requirements).
-- [Self-hosted as a Docker container](https://octopus.com/start?platform=Server) ➜ you run Octopus Deploy in a docker container. Read the [installation instructions](https://octopus.com/blog/introducing-linux-docker-image).
+<OctopusDeploySetupOptions />
 
 ## Log in to Octopus
 
 1. Log in to your Octopus instance and click **New Project**.
 
-:::figure
-![Get started welcome screen](/docs/img/getting-started/first-deployment/images/get-started.png)
-:::
+    :::figure
+    ![Get started welcome screen](/docs/img/getting-started/first-deployment/images/get-started.png)
+    :::
 
-## Add project
-Projects let you manage software applications and services, each with their own deployment process.
+    **Add project:**
+
+    Projects let you manage software applications and services, each with their own deployment process.
 
 2. Give your project a descriptive name, for example, `Hello world deployment`.
 
-Octopus lets you store your deployment process, settings, and non-sensitive variables in either Octopus or a Git repository. 
+    Octopus lets you store your deployment process, settings, and non-sensitive variables in either Octopus or a Git repository.
 
 3. For this example, keep the default **Octopus** option selected.
 4. Leave the rest as is and click **Create Project**.
 
-:::figure
-![Add new project screen](/docs/img/getting-started/first-deployment/images/add-new-project.png)
-:::
+    :::figure
+    ![Add new project screen](/docs/img/getting-started/first-deployment/images/add-new-project.png)
+    :::
 
-## Add environments
-You'll need an environment to deploy to.
+    **Add environments:**
 
-Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline. For example, Development, Staging, and Production.
+    You'll need an environment to deploy to.
+
+    Environments are how you organize your infrastructure into groups representing the different stages of your deployment pipeline. For example, Development, Staging, and Production.
 
 5. Keep the default environments and click **Create Environments**.
 
@@ -62,65 +64,58 @@ Environments are how you organize your infrastructure into groups representing t
 
 ## Create deployment process
 
-The next step is creating your deployment process. This is where you define the steps that Octopus uses to deploy your software. 
+The next step is creating your deployment process. This is where you define the steps that Octopus uses to deploy your software.
 
-For this deployment, we will configure one step to print _Hello World_.
+For this deployment, we will configure one step to print *Hello World*.
 
 1. In the "Welcome to your Project" dialog, click **Thanks, got it**.
 
-Octopus lands you in the process step template library.
+    Octopus lands you in the process step template library.
 
 2. In the **Featured** category, locate the Run a Script card and click **Add Step**.
 
-:::figure
-![Add Run a Script step to deployment process](/docs/img/getting-started/first-deployment/images/run-script-step.png)
-:::
+    :::figure
+    ![Add Run a Script step to deployment process](/docs/img/getting-started/first-deployment/images/run-script-step.png)
+    :::
 
-### Step Name
-You can leave this as the default _Run a Script_.
+    **Step Name:** You can leave this as the default *Run a Script*.
 
-### Script Source
+    **Script Source:** You can source script files via 3 methods:
 
-You can source script files via 3 methods:
+      - Inline script (default)
+      - Git repository
+      - Package
 
-- Inline script (default)
-- Git repository
-- Package
+3. Select **Inline script** as your script source.
 
-3. Select **Inline script** as your script source. 
+    :::figure
+    ![Script source expander where users can select where to source scripts from](/docs/img/getting-started/first-deployment/images/script-source.png)
+    :::
 
-:::figure
-![Script source expander where users can select where to source scripts from](/docs/img/getting-started/first-deployment/images/script-source.png)
-:::
+4. **Inline Source Code:**
+   1. Select an appropriate script language.
+   2. **Copy** the script below and **paste** it into the source code editor.
 
-### Inline Source Code
+    ```powershell
+    Write-Host "Hello, World!"
+    ```
 
-4. Select an appropriate script language.
-5. **Copy** the script below and **paste** it into the source code editor.
+    :::figure
+    ![Inline source code expander where users can type a script](/docs/img/getting-started/first-deployment/images/inline-source-code.png)
+    :::
 
-```
-Write-Host "Hello, World!"
-```
+5. **Execution Location:**
+   1. If you're using Octopus Cloud, select **Run once on a worker**.
+   2. If you're using a self-hosted Octopus instance, select **Run once on the Octopus Server**.
 
-:::figure
-![Inline source code expander where users can type a script](/docs/img/getting-started/first-deployment/images/inline-source-code.png)
-:::
+    :::figure
+    ![Execution location expander where users can select where this step will run](/docs/img/getting-started/first-deployment/images/execution-location.png)
+    :::
 
-### Execution Location
-
-6. If you’re using Octopus Cloud, select **Run once on a worker**. 
-7. If you’re using a self-hosted Octopus instance, select **Run once on the Octopus Server**.
-
-:::figure
-![Execution location expander where users can select where this step will run](/docs/img/getting-started/first-deployment/images/execution-location.png)
-:::
-
-### Worker Pool
-
-8. If you’re using Octopus Cloud, keep the default **Runs on a worker from a specific worker pool** option selected.
+6. **Worker Pool:** If you're using Octopus Cloud, keep the default **Runs on a worker from a specific worker pool** option selected.
 
 :::div{.hint}
-If you’re using Octopus Cloud and a Bash script language, select the Hosted Ubuntu option from the dropdown. The Default Worker Pool is running Windows and doesn’t have Bash installed.
+If you're using Octopus Cloud and a Bash script language, select the Hosted Ubuntu option from the dropdown. The Default Worker Pool is running Windows and doesn't have Bash installed.
 :::
 
 :::figure
@@ -145,7 +140,7 @@ A release is a snapshot of the deployment process and the associated assets (pac
 Deployments typically occur in a defined environment order (for example, Development ➜ Staging ➜ Production), starting with the first one. Later you can configure Lifecycles with complex promotion rules to accurately reflect how you want to release software.
 
 1. Click the **Deploy to Development…** button to deploy to the development environment.
-2. Review the preview summary and when you’re ready, click **Deploy**.
+2. Review the preview summary and when you're ready, click **Deploy**.
 
 The **Task Log** will show you in real-time the tasks Octopus is taking to run your Hello World script.
 
@@ -153,9 +148,9 @@ The **Task Log** will show you in real-time the tasks Octopus is taking to run y
 ![Successful first deployment message](/docs/img/getting-started/first-deployment/images/successful-deployment.png)
 :::
 
-You successfully completed your first deployment! 🎉 
+You successfully completed your first deployment! 🎉
 
-Up next, we’ll introduce you to the [power of variables](/docs/getting-started/first-deployment/define-and-use-variables).
+Up next, we'll introduce you to the [power of variables](/docs/getting-started/first-deployment/define-and-use-variables).
 
 :::div{.hint}
 **⭐ Favoriting projects**

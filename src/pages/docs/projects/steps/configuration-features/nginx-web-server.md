@@ -34,4 +34,4 @@ When configuring a `location` as a reverse proxy, you need to add the following 
 
 ### Supported operating systems
 
-Currently the **NGINX Web Server** feature only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.
+The **NGINX Web Server** feature currently only supports Linux based operating systems. See [NGINX supported distributions](https://docs.nginx.com/nginx/technical-specs/#supported-distributions) for more details.

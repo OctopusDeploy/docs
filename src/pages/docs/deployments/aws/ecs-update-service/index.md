@@ -135,7 +135,7 @@ This configuration allows the template task definition to be updated without con
 ### Deployment Options section
 
 You can optionally change whether the step should wait until the release is fully deployed by changing the `Wait Option` selection.
-By default, the step will wait until all of the ECS Tasks within the target service are running (or failed to run).
+By default, the step will wait until all ECS Tasks within the target service are running (or failed to run).
 
 :::figure
 ![ECS Step Deployment Options section](/docs/img/deployments/aws/ecs-update-service/images/update-ecs-deployment-option.png)

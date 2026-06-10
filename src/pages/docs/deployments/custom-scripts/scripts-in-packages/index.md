@@ -19,7 +19,7 @@ You can add any of the following script files in any of the scripting languages 
 - `PostDeploy.<ext>`
 - `DeployFailed.<ext>`
 
-Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case sensitive on certain operating systems.
+Where `<ext>` is the appropriate extension for your scripting language of choice. Also note these file names will be case-sensitive on certain operating systems.
 
 Octopus will detect these scripts and invoke them at the appropriate time during the step. Which file you use depends on when you need your custom activity to run; see the section on [what order are conventions run in](/docs/deployments/packages/package-deployment-feature-ordering/) for details. Your scripts can do anything your scripting language supports, as well as setting [output variables](/docs/projects/variables/output-variables/) and [collecting artifacts](/docs/projects/deployment-process/artifacts).
 
@@ -82,8 +82,8 @@ If you are deploying the same package to multiple platforms, you can:
 
 The platform-specific priority order Octopus uses to select scripts is:
 
-- Linux: Bash, Python, C#, F#, Powershell
-- Windows: Powershell, Python, C#, F#, Bash
+- Linux: Bash, Python, C#, F#, PowerShell
+- Windows: PowerShell, Python, C#, F#, Bash
 
 Example: You are deploying an application to both Windows and Linux. You can write a single `PreDeploy.py` python script, making sure the python runtime is installed on both platforms. Alternatively, you can write both `PreDeploy.sh` and `PreDeploy.ps1`, and Octopus will run the Bash script on Linux and the PowerShell script on Windows.
 

@@ -99,4 +99,4 @@ This is due to that the revocation information for the certificate is not retrie
 
 ## Learn more
 
-- [Reporting blog posts](https://octopus.com/blog/tag/reporting)
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting/1)

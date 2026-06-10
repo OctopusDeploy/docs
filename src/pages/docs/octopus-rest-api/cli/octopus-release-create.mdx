@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus release create
 description: Create a release
-navOrder: 111
+navOrder: 118
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Create a release in Octopus Deploy
 
-```
+```text
 Usage:
   octopus release create [flags]
 
@@ -31,6 +31,8 @@ Flags:
       --git-resource stringArray    Git reference for a specific Git resource.
                                     Format as {step}:{git-ref}, {step}:{git-resource-name}:{git-ref}
                                     You may specify this multiple times
+      --custom-field stringArray    Custom field value to set on the release.
+                                    Format as {name}:{value}. You may specify multiple times
 
 
 Global Flags:
@@ -45,11 +47,11 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus release create --project MyProject --channel Beta --version 1.2.3
-$ octopus release create -p MyProject -c Beta -v 1.2.3
-$ octopus release create -p MyProject -c default --package "utils:1.2.3" --package "utils:InstallOnly:5.6.7"
-$ octopus release create -p MyProject -c Beta --no-prompt
+```bash
+octopus release create --project MyProject --channel Beta --version 1.2.3
+octopus release create -p MyProject -c Beta -v 1.2.3
+octopus release create -p MyProject -c default --package "utils:1.2.3" --package "utils:InstallOnly:5.6.7"
+octopus release create -p MyProject -c Beta --no-prompt
 
 
 ```

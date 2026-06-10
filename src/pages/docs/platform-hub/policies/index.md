@@ -3,234 +3,227 @@ layout: src/layouts/Default.astro
 pubDate: 2025-09-11
 modDate: 2025-09-11
 title: Policies
-subtitle: An overview of Policies
+subtitle: Enforce deployment standards automatically across your Octopus instance
 icon: fa-solid fa-lock
 navTitle: Getting started
 navSection: Policies
-description: Policies let you enforce standards across your Octopus instance with ease. 
+description: Use policies to enforce deployment standards, block non-compliant executions, and maintain governance across your Octopus instance.
 navOrder: 160
 ---
 
-Policies in Octopus are designed to ensure compliance and governance by default, making it easier to enforce deployment controls at scale. This approach allows you to shift compliance left, alleviating the burden of manual audits and enabling you to maintain high standards across your organization. With policies, you can enforce organization-wide compliance across teams and regions, moving governance out of Confluence docs and Slack threads and into the heart of your delivery pipeline. 
+Policies let you enforce deployment standards automatically. You write rules in Rego, and Octopus evaluates every deployment and runbook run against those rules before it executes. Non-compliant executions are blocked or flagged, and every evaluation is logged to the audit trail.
 
-Using Rego, you can write custom policy checks that align with your requirements, block non-compliant deployments, and access detailed audit logs of policy evaluation events. This method ensures compliance is not an afterthought; it is embedded within every deployment pipeline, providing a seamless and efficient way to uphold governance standards across all activities.
+All policies are stored as OCL files in your Platform Hub repository. If your Platform Hub repository isn't set up yet, see [Platform Hub](/docs/platform-hub/) before continuing.
 
-## When to use Policies
+## What you can enforce
 
-Policies streamline the enforcement of standards across all deployments by automating compliance checks and governance measures.
+When a deployment or runbook run starts, Octopus passes a structured input object to the policy engine. Your Rego conditions read from that object to decide whether the execution should proceed.
 
-Consider implementing policies if:
+Common things teams enforce with policies:
 
-- You want to ensure that every deployment conforms to predefined standards without manual effort.
-- You wish to manage these standards centrally, allowing for consistent application across your organization and easy updating of standards.
+- A manual intervention or approval step must be present in production deployments
+- All packages must come from an approved branch
+- Specific steps must not be skipped or disabled
+- Steps must run in a particular order
+- Projects and tenants must carry required tags
 
-While policies may not be necessary in every deployment scenario, they are invaluable if maintaining compliance and security is a priority. By embedding policies into your deployments, you can minimize risks and ensure that all teams are aligned with your organizational standards.
+By default, a policy applies to both deployments and runbook runs. You can scope a policy to one or the other in your Rego. For the full list of input fields available, see the [schema for policies](/docs/platform-hub/policies/schema).
 
-## Enforceable Policies
+If you want to jump straight to working with Rego, see the [examples page](/docs/platform-hub/policies/examples). For a full guide to the Rego language, see the [OPA documentation](https://www.openpolicyagent.org/docs/policy-language).
 
-:::div{.warning}
-Policies is currently in Alpha for all Enterprise Tier Cloud Customers. The feature is not finished or fully tested, and may change drastically as we iterate and build more functionality.
+## Build your first policy
+
+The steps below walk through creating a policy that requires a manual intervention step in every deployment going to the Development environment for the ACME project. The walkthrough uses a non-production environment and sets the violation action to warn so you can safely verify the policy is working before extending it to production.
+
+### 1. Create a policy
+
+In your Octopus instance, go to Platform Hub and select **Policies**. Click **Create Policy**.
+
+:::figure
+![An empty policies list in the Platform Hub](/docs/img/platform-hub/policies/policies-getting-started.png)
 :::
 
-For the Alpha release of Policies, you can enforce that all deployments to specific environments contain a certain step. A policy will by default, scope to both runbooks and deployment processes.
+### 2. Select a starter policy
 
-An example use-case you might have is to enforce that all deployments going to production environments must contain a manual intervention step.
+Choose a starter policy to base your new policy on, then click **Next**.
 
-## Getting started
-
-All policies are written in Rego and saved as an OCL file. For a comprehensive guide to Rego, please visit the official [documentation.](https://www.openpolicyagent.org/docs/policy-language) If you would like to jump straight to examples that are more representative of the deployment scenario you want to enforce, please visit our [examples page](/docs/platform-hub/policies/examples).
-
-:::div{.warning}
-Policies can be created on any branch, but will only evaluate deployments from the default branch
+:::figure
+![A modal to select a starter policy](/docs/img/platform-hub/policies/policies-create-starter-modal.png)
 :::
 
-In our example below, we are writing a policy that checks for the existence of a manual intervention step whenever deployments go to production.
+:::div{.hint}
 
-## Building your first policy
+To start with a blank slate, choose **Create Blank Policy**.
 
-### 1. Create your policies file
-
-To get started, you must create a new folder called **policies** in your Git File Storage Directory. In the folder, you will need to create an OCL file for your policy.
-
-:::div{.warning}
-- You cannot use dashes in your policy file name.
 :::
+
+### 3. Name your policy
+
+Enter a name for your policy. Octopus generates a slug from the name you provide. You can edit the slug before clicking **Done**.
+
+:::figure
+![A modal to create a new policy](/docs/img/platform-hub/policies/policies-create-modal.png)
+:::
+
+:::div{.hint}
+
+The slug can't be changed after the policy is created. It becomes the package name in your Rego code and the filename of the OCL file in your repository.
+
+:::
+
+### 4. Fill in the policy details
+
+Fill in the following fields:
+
+- **Name:** a short, memorable name for this policy.
+- **Description:** an optional summary of what the policy enforces.
+- **Violation reason:** the message shown to users when a deployment or runbook run fails this policy. Make this specific enough for users to understand what they need to fix.
+- **Violation action:** whether a failing policy blocks the execution or raises a warning.
+
+:::figure
+![The form used to edit a policy](/docs/img/platform-hub/policies/policies-edit-getting-started.png)
+:::
+
+:::div{.hint}
+
+The values for both Violation Reason and Violation Action can be overridden by the `reason` and `action` properties returned in your conditions Rego result. See the [output schema](/docs/platform-hub/policies/schema#output-schema) for details.
+
+:::
+
+### 5. Write your scope
+
+The Scope Rego determines which deployments and runbook runs this policy evaluates.
+
+Octopus passes the input object for every execution to the policy engine. In your Rego, this is available as `input`. For example, the environment being deployed to looks like this:
 
 ```json
-checkformanualintervention.ocl
+{
+    "Environment": {
+        "Id": "Environments-1",
+        "Name": "Development",
+        "Slug": "development",
+        "Tags": ["region/us-east"]
+    }
+}
 ```
 
-### 2. Give your policy a name
-After you’ve done this, open the OCL file in your code editor, and start with a name, an optional description, an optional violation reason, and an optional violation action. A violation reason will show a custom message to users when they fail to meet the conditions of a policy. The violation action determines what happens when a deployment or runbook run doesn't comply with the policy.
+Reference the environment name in Rego as follows:
 
-<br>
+```ruby
+input.Environment.Name == "Development"
+```
 
-   ```json
-   name = "Require Manual Intervention step"
-   description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production"
-   violation_reason = "Manual intervention step is required to deploy"
-   violation_action = "warn" or "block"
-   ```
+For our example, the policy only evaluates deployments going to the Development environment, for the ACME project, in the Default space. All three conditions must be true at once.
 
-The ```violation_reason``` can be overridden by the value of the ```reason``` property defined in the output result of the conditions Rego code. Similarly, the ```violation_action``` can be overridden by the value of the ```action``` property defined in the output result of the conditions Rego code.
+```ruby
+package manual_intervention_required
 
-### 3. Define the policy scope
+default evaluate := false
 
-You’ll now need to define the policy's scope, as Rego in the OCL file. Octopus will provide data about your deployments to the policy engine to use during evaluation. When you are writing your Rego code for scoping or conditions, this input data is available under the value ```input.VALUE```. This scope section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The scope will evaluate to true if the deployment is going to the Production environment, for the ACME project, and in the Default space - all three conditions must be true at the same time.
+evaluate if {
+    input.Environment.Name == "Development"
+    input.Project.Name == "ACME"
+    input.Space.Name == "Default"
+}
+```
 
-<br>
+:::div{.hint}
 
-   For example, Octopus provides the environment details that you are deploying to.
+The scope rule must be named `evaluate`. You can't rename it. The package name must match your policy slug exactly.
 
-   ```json
-   {
-       "Environment": {
-           "Id": "Environments-1",
-           "Name": "Development",
-           "Slug": "development"
-   
-       }
-   }
-   ```
-
-   To use the environment name in your Rego, you would add the following:
-
-   ```json
-   input.environment.name = "Development"
-   ```
-
-:::div{.warning}
- Full details on the data available for scoping can be found under the [schema page](/docs/platform-hub/policies/schema).
 :::
 
+For more scoping patterns, including scoping to tenants, project groups, or runbook runs only, see the [scoping examples](/docs/platform-hub/policies/examples#scoping-examples).
 
-   Our example applies only to deployments and runbook runs to the production environment for the ACME project, in the default space. **All Rego code has to have a package defined, which is the name of your ocl file.**
+### 6. Write your conditions
 
-   ```ruby
-   scope {
-       rego = <<-EOT
-           package checkformanualintervention 
-           default evaluate := false
-           evaluate := true if {
-               input.Environment.Name == "Production"
-               input.Project.Name == "ACME"
-               input.Space.Name == "Default"
-           }
-       EOT
-   }
-   ```
+The conditions define the rules a deployment or runbook run must meet. Octopus reads the `result` object your Rego returns to decide whether to allow or block the execution.
 
-### 4. Define the policy conditions
+Start by setting the default result. Because we're still testing this policy, set the `action` to `warn` rather than `block`. A warning lets the execution proceed but records the violation in the task log, dashboard, and audit log, so you can confirm the policy is evaluating correctly without risking broken deployments.
 
-After defining your scope, you must specify the policy rules. These rules are written in Rego. Octopus will check the results of your Rego code to determine if a deployment complies with the policy. The result should contain a composite value with the properties **allowed** and an optional **reason.** In this example, we will set the default rule result to be non-compliant. Any deployment that does not meet the policy rules will be prevented from executing. This conditions section of the policy defines the package name, which must match the underlying .ocl file name the policy is stored in. By default, the policy evaluates to false. The condition will evaluate to true if the deployment contains the required steps.
+:::warning
 
-   :::div{.warning}
-   - You cannot rename **result**, it must be called **result**.
-   - The package name must be the same as your policy file name.
-   :::
+The result rule must be named `result`. You can't rename it. The package name must match your policy slug exactly.
 
-   ```json
-   conditions {
-       rego = <<-EOT
-       package checkformanualintervention
-       default result := {"allowed": false}
-       EOT
-   } 
-   ```
-
-<br>
-
-### 5. Check for a deployment step
-
-After you’ve set the default state, you’ll need to define the policy rules that will update the **result** state to be true so the deployment can execute. In this example, the deployment must contain at least one manual intervention step. We can do this by checking the step.ActionType is “Octopus.Manual”
-
-<br>
-
-   ```ruby
-   conditions {
-       rego = <<-EOT
-           package checkformanualintervention
-           default result := {"allowed": false}
-           result := {"allowed": true} if {
-               some step in input.Steps
-               step.ActionType == "Octopus.Manual"
-           }
-       EOT
-   }
-   ```
-
-<br>
-
-### 6. Finalize and test your policy
-
-You’ve now defined a basic policy to ensure a manual intervention step is present when deploying to any environment. You can test this policy by customizing the values in the scope block, and then deploying to an environment. If you choose not to include the manual intervention step in your process, you will see errors in the task log and project dashboards when you try to run the deployment. All policy evaluations will appear in the Audit log (**Configuration** → **Audit**) with the “Compliance Policy Evaluated” filter applied. Audit logs and Server Tasks will only appear for deployments within the policy's scope.
-
-<br>
-
-   ```ruby
-   name = "Require Manual Intervention step" 
-   description = "This Policy checks that a manual intervention step isn't skipped when deploying to Production" 
-   ViolationReason = "Manual intervention step is required to deploy"
-    
-   scope {
-       rego = <<-EOT
-           package checkformanualintervention 
-           default evaluate := false
-           evaluate := true if {
-               input.Environment.Name == "Production"
-               input.Project.Name == "ACME"
-               input.Space.Name == "Default"
-           }
-       EOT
-   } 
-    
-   conditions {
-       rego = <<-EOT
-           package checkformanualintervention
-           default result := {"allowed": false}
-           result := {"allowed": true} if {
-               some step in input.Steps
-               step.ActionType == "Octopus.Manual"
-           }
-       EOT
-   }
-   ```
-
-   :::div{.hint}
-   - If you wish to see more comprehensive examples for other deployment scenarios, please visit the [examples page](/docs/platform-hub/policies/examples).
-   - If you wish to see the schema of inputs available for policies, please visit the [schemas page](/docs/platform-hub/policies/schema).
-   :::
-
-## Policy evaluation information
-
-If you want to see what information was provided to the policy engine when it evaluates a deployment, you can do so in the task log. Every deployment, whether they succeeded or failed due to a policy evaluation, will show information in the following places:
-
-1. Task logs
-
-:::figure
-![The task logs showing policy audit records](/docs/img/platform-hub/policies-task-log.png)
 :::
 
-<br>
+```ruby
+package manual_intervention_required
 
-2. Project dashboards
+default result := {"allowed": false, "action": "warn"}
+```
+
+Then add a rule that sets `result` to allowed when the conditions are met. In this example, the deployment must contain at least one manual intervention step:
+
+```ruby
+package manual_intervention_required
+
+default result := {"allowed": false, "action": "warn"}
+
+result := {"allowed": true} if {
+    some step in input.Steps
+    step.ActionType == "Octopus.Manual"
+}
+```
+
+For the full list of input fields you can reference in your conditions, see the [schema for policies](/docs/platform-hub/policies/schema).
+
+### 7. Save your policy
+
+Once you've finished writing your Rego, commit your changes to save them to your Git repository. You can commit with a description or use quick commit without one.
 
 :::figure
-![Dashboards showing policy errors](/docs/img/platform-hub/policies-dashboard-notification.png)
+![The commit experience for a policy](/docs/img/platform-hub/policies/policies-commit-experience.png)
 :::
 
-<br>
+### 8. Publish your policy
 
-3. Audit records
+After committing, publish the policy to make the changes take effect. Choose the appropriate version type:
 
-:::figure
-![Audit log containing policy evaluation records](/docs/img/platform-hub/policies-audit-log.png)
+- **Major:** breaking changes
+- **Minor:** non-breaking changes
+- **Patch:** bug fixes
+
+:::div{.hint}
+
+The first time you publish a policy, you can only publish a major version.
+
 :::
 
-<br>
+:::figure
+![Publish experience for a policy](/docs/img/platform-hub/policies/policies-publishing.png)
+:::
 
-You can see what information was evaluated at the time of policy evaluation by using the verbose option in the task logs. This is useful if you want to troubleshoot a policy and see if it is evaluating deployments correctly.
+### 9. Activate your policy
+
+Published policies must be activated before Octopus evaluates them. You can deactivate a policy at any time to stop it from being evaluated without deleting it.
+
+:::div{.hint}
+
+Activation settings can be updated at any time from the **Versions** tab on the edit policy page.
+
+:::
 
 :::figure
-![Verbose options shown in task logs](/docs/img/platform-hub/policies-verbose-task-log.png)
+![Activation status for a policy](/docs/img/platform-hub/policies/policies-activation.png)
+:::
+
+### 10. Test your policy
+
+With the policy active, trigger a deployment to the Development environment for the ACME project. Because the violation action is set to `warn`, the deployment will proceed regardless. If the manual intervention step is missing, Octopus records the violation in the task log and project dashboard. Check both to confirm the policy is evaluating as expected.
+
+All policy evaluations appear in the audit log under **Configuration** > **Audit**, filtered by the **Compliance Policy Evaluated** event group. Audit log entries and server tasks only appear for executions in the policy's scope.
+
+To see the full input object that was passed to the policy engine for a specific execution, turn on the verbose option in the task log. This is useful for checking whether a policy is evaluating the right fields.
+
+Once you're satisfied the policy is working correctly, you can:
+
+1. Change `"action": "warn"` to `"action": "block"` in your conditions Rego.
+2. Update the scope to include your production environment.
+3. Commit, publish, and re-activate the policy.
+
+:::div{.hint}
+
+See [Troubleshooting policies](/docs/platform-hub/policies/troubleshooting) if evaluations aren't appearing as expected.
+
 :::

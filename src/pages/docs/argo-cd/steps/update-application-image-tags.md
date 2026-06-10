@@ -1,81 +1,93 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-11
 title: Update Argo CD Application Image Tags
 description: Deployment steps to modify your Argo CD Applications
 navOrder: 30
 ---
 
-The Update Argo CD Application Image Tags step is responsible for iterating over your Argo Application's repository, and
+The Update Argo CD Application Image Tags step is responsible for iterating over your Argo CD Application's repository, and
 updating the image tag for referenced container images.
 
-The following instructions can be followed to configure the `Update Argo CD Image Tags`.
+## Container Images
+
+Add package references for each container image you would like to update when you run your deployment. Unreferenced container images in your manifests will not be changed by Octopus.
+
+When targeting a Helm-based application source, each referenced container image should have a populated **Helm image tag path** field. This is the YAML path to the specific field in your values file that contains the tag of the referenced container image (for example, `agent.image.tag`). This can be set in the **Reference a package** drawer when adding or editing a package reference. This is not required for directory or Kustomize sources.
+
+:::figure
+![The Helm image tag path field in the Reference a package drawer](/docs/img/argo-cd/update-application-image-tags-helm-values-tag.png)
+:::
 
 :::div{.info}
-When deploying a Helm Chart with multiple values files, specific annotations must be added to your Argo CD Application to
-ensure the correct sections of the relevant values files are updated. See [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) for
-more information.
+**Config-as-Code / OCL:** the **Helm image tag path** field maps to the `HelmReplacementPath` property on the package reference. In an OCL deployment process the property lives inside the package block alongside `Purpose`, `Extract`, etc.:
+
+```ocl
+packages "my-image" {
+    acquisition_location = "NotAcquired"
+    feed                 = "<feed-id>"
+    package_id           = "<image-name>"
+    properties = {
+        Extract              = "False"
+        HelmReplacementPath  = "image.tag"
+        Purpose              = "DockerImageReference"
+        SelectionMode        = "immediate"
+    }
+}
+```
+
+The full variable name resolved at deployment time is `Octopus.Action.Package[<package-reference-name>].HelmReplacementPath`. Octopus silently ignores unrecognised property names on package references, so a typo (`HelmImageTagPath`, `Octopus.Action.ArgoCD.HelmImageTagPath`, etc.) will be saved as-is but never consulted at runtime, leaving the step unable to find a path and effectively a no-op.
 :::
 
+Depending on what the helm value contains:
 
-If the application cluster's default registry has been changed see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
+- Only the tag - it will be replaced with the package's version, with no further validation or checking.
+- Tag, ImageName and repository, these fields will be validated against the step package's properties to ensure the correct data is being inserted.
+  - If the namespace/repository do not align with the step package, tag replacement will not be performed.
+
+:::div{.info}
+Using the step-based notation may not be appropriate for complex use cases (e.g. updating multiple sources from the one deployment). In such cases, [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) may be required.
+
+Note: Helm Annotations will only be considered during step execution when **no** helm-image-tag-paths have been defined in the step directly.
+:::
+
+If the application cluster's default registry has been changed, see [cluster annotations](/docs/argo-cd/annotations/cluster-annotations) to ensure
 the correct default registry is shared with Octopus.
-:::
 
-## Add the Update Argo CD Application Image Tags step
-Add the `Update Argo CD Image Tags` step to the project, and provide it a name.
-
-## Provide the required configuration
-
-1. Specify an execution location
-
-This step will execute on a worker of your choosing - if required it can run within a container on the worker, though this should not be necessary.
-
-### Inputs
-
-1. Specify the Container Images which are to be updated  in your Argo Application.
-`Note`: These packages can then be used in an [external feed trigger](/docs/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
-
-
-### Outputs
-The output section allows you to configure how changes are to be merged into your repository.
-
-1. Deployment Preview is an aid to help determine which instances, and which applications are going to be updated when executing this step
-   * More information can be found [here](/docs/argo-cd/steps/deployment-preview)
-2. Commit message allows you to specify the summary, and description of the change. The description will be automatically populated if left empty.
-   * The content here will be reused for Pull Request messages if you have selected for the change to merge via Pull Request
-     :::div{.warning}
-     If the commit summary or description references a [Sensitive Variable](/docs/projects/variables/sensitive-variables) the deployment wil fail.
-     This ensures sensitive data is not leaked to Git via the commit/PR message.
-     :::
-3. Git Commit Method specifies _how_ changes are merged - merging directly into the repo, or going via a PR.
-   * A third option exists whereby you can specify which environments should use Pull Requests, with all others falling back to a direct commit
-   * This is useful if your Production environment requires PRs, but early environments do not.
-:::div{.warning}
-Currently, Pull Requests can only be created for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+:::div{.info}
+These packages can then be used in an [external feed trigger](/docs/projects/project-triggers/external-feed-triggers), such that your cluster is automatically updated when new image versions become available.
 :::
 
 ## Creating and Deploying a Release
+
 :::div{.info}
-The step will fail to execute if no git credentials exist for repositories references by your Argo CD Applications.
-As such, prior to execution, it is recommended to use the [Deployment Preview](/docs/argo-cd/steps/deployment-preview) to ensure
+The step will fail to execute if no git credentials exist for repositories referenced by your Argo CD Applications.
+As such, prior to execution, it is recommended to use the [Argo CD Applications View](/docs/argo-cd/steps/argo-cd-applications-view) to ensure
 no outstanding configuration is required.
 :::
 
-When a release of the project is created, the versions of packages referenced in the step's input are snapshotted as part of the
-release.
+When a release of the project is created, a snapshot of the versions of container images referenced in the step is taken.
 
-When deploying the release, Octopus will:
-* For each annotation-mapped application (all apps with relevant scoping annotations)
-  * Checkout each repository using git credentials determined via [Git AllowListing](/docs/infrastructure/git-credentials#repository-restrictions)
-  * If the source is kubernetes raw yaml
-    * Search k8s resources which are known to reference images (does not look into other CRDs)
-    * If a resource references an image from the set configured in the step's inputs - the image tag is updated to match that in the release
-  * If the source is a helm chart
-    * The image fields are extracted from the [Helm Annotations](/docs/argo-cd/annotations/helm-annotations)
-    * The matching image-tags in the `values.yaml` are replaced with container image versions configured in the step's inputs.
-  * If the source is a kustomize based install (i.e. supplied path contains  `kustomization.yaml`, `kustomization.yml` or `Kustomization`)
-    * Octopus will _only_ update the `newTag` field(s) found in the kustomize file. No other files will be edited
-  * Changed files are committed, and pushed back to the repo/branch as specified in the Argo CD Application
-    * A PR will be created (rather than merging to the targetRevision branch) if configured in the step UI 
+For each application with relevant scoping annotations found during a deployment, Octopus will checkout each repository using git credentials determined based on [repository restrictions](/docs/infrastructure/git-credentials#repository-restrictions).
+
+### How Octopus updates image tags varies for each source type
+
+For Kubernetes YAML:
+
+- Octopus searches for Kubernetes resources which are known to reference images (CRDs are not included)
+- If a resource references an image configured as a referenced container image, the image tag is updated to match that in the release
+
+For Helm charts:
+
+- When the step's package reference has a `HelmReplacementPath` (the **Helm image tag path** field) set, the path is read directly from the step configuration. Image tags are replaced in **every Helm values file referenced by the Application** — both the chart's default `values.yaml` and any files listed in the Application's `spec.source.helm.valueFiles` (per-env overrides, etc.).
+- When no `HelmReplacementPath` is configured on any package, image paths are instead extracted from the Application's [Helm Annotations](/docs/argo-cd/annotations/helm-annotations) and the same set of values files is updated. (See the [annotation doc](/docs/argo-cd/annotations/helm-annotations) for the requirement that, if used, all package references must rely on annotations rather than step configuration.)
+- Inline `spec.source.helm.valuesObject` values are **not** written by this step — the step only edits committed values files. Applications using inline values for image fields will need to either move the image fields into a referenced values file or use a separate mechanism to update them.
+  
+For Kustomize applications (i.e. supplied path contains  `kustomization.yaml`, `kustomization.yml` or `Kustomization`):
+
+- Octopus will *only* update the `newTag` field(s) found in the Kustomize file. No other files will be edited.
+  
+Finally, changed files are committed and pushed back to the repo/branch specified by the Argo CD Application
+  
+A PR will be created (rather than merging to the `targetRevision` branch) if configured in the step UI.

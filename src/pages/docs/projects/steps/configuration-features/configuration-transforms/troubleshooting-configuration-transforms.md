@@ -11,7 +11,7 @@ If you're new to .NET configuration transformation, first check the package(s) p
 
 ## Advanced .NET configuration transforms examples
 
-.NET Configuration transforms can sometimes be complicated to setup. As a general rule, its best to have both configuration file and transform file in the same directory, however, this is not always achievable.
+.NET Configuration transforms can sometimes be complicated to set up. As a general rule, it's best to have both configuration file and transform file in the same directory, however, this is not always achievable.
 
 This page lists the supported scenarios and the transform definitions required to apply the transform.
 

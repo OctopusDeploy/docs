@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus worker view
 description: View a worker
-navOrder: 164
+navOrder: 171
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 View a worker in Octopus Deploy
 
-```
+```text
 Usage:
   octopus worker view {<name> | <id>} [flags]
 
@@ -30,9 +30,9 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus worker view Machines-100
-$ octopus worker view 'worker'
+```bash
+octopus worker view Machines-100
+octopus worker view 'worker'
 
 
 ```

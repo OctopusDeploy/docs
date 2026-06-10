@@ -102,5 +102,5 @@ Licensing requirements of software installed on workers may mean that the softwa
 
 ## Learn more
 
-- [Variable blog posts](https://octopus.com/blog/tag/variables)
-- [Worker blog posts](https://octopus.com/blog/tag/workers)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)
+- [Worker blog posts](https://octopus.com/blog/tag/workers/1)

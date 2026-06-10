@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-10
+modDate: 2025-10-23
 title: Machine policies
 description: Machine Policies allow you to customize the behavior of Tentacle and SSH endpoints like health check settings, machine connectivity, updates and more.
 navOrder: 110
@@ -21,7 +21,7 @@ You can access the machine policies by navigating to **Infrastructure ➜ Machin
 [Getting Started - Machine Policies](https://www.youtube.com/watch?v=uEjXuPttRO4)
 
 ## Default machine policy
-By default Octopus Deploy comes with a default configured machine policy with the following rules:
+By default, Octopus Deploy comes with a default configured machine policy with the following rules:
 :::figure
 ![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-default-policy.png)
 :::
@@ -126,7 +126,7 @@ Machine policies allow the configuration of custom health check scripts for Tent
 :::figure
 ![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-script.png)
 :::
-By default machine policies will inherit the script from the default machine policy if one has not been defined. For more details on providing a custom script see the section [Custom health check script](#custom-health-check-script)
+By default, machine policies will inherit the script from the default machine policy if one has not been defined. For more details on providing a custom script see the section [Custom health check script](#custom-health-check-script)
 
 **Connection test**
 
@@ -260,6 +260,8 @@ By default, Calamari will be installed or updated when a machine is involved in 
 Tentacle and Kubernetes agents can be toggled to manually or automatically update.  If **Automatically** is selected, Octopus will start a task to update Tentacles and Kubernetes agents whenever Octopus detects that there is a pending Tentacle or Kubernetes agents upgrade (after health checks for example). 
 
 Conversely, Octopus will not automatically update Tentacle or Kubernetes agents but instead will display a prompt to begin a Tentacle and Kubernetes agents update on the Deployment Targets and Environments screens.
+
+Kubernetes also has a 3rd option: **Block** which disables both automatic and manual updates to keep the Agent on a static version.
 
 ### Maximum number of concurrent upgrades
 

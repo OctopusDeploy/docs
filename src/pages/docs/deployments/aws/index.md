@@ -14,7 +14,7 @@ Octopus Deploy includes dedicated integration with Amazon Web Services (AWS) to 
 - [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation) allows you to create or update a CloudFormation stack. It offers more flexibility than the UI step.
 - [Delete an AWS CloudFormation stack](/docs/deployments/aws/removecloudformation) deletes existing CloudFormation stacks.
 - [Upload a package to an AWS S3 bucket](/docs/deployments/aws/s3) allows you to upload files and packages to S3 buckets.
-- [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts) runs a custom script with AWS credentials pre-loaded.
+- [Run an AWS CLI Script](/docs/deployments/custom-scripts/aws-cli-scripts) runs a custom script with AWS credentials preloaded.
 
 :::div{.hint}
 **Where do AWS Steps execute?**
@@ -51,5 +51,5 @@ Flexible, [role-based security](/docs/security/users-and-teams/user-roles/) allo
 
 ## Learn more
 
-- [AWS blog posts](https://octopus.com/blog/tag/aws)
+- [AWS blog posts](https://octopus.com/blog/tag/aws/1)
 - [AWS runbook examples](/docs/runbooks/runbook-examples/aws)

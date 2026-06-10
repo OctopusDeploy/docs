@@ -8,7 +8,7 @@ description: Deployment target triggers allow you to define unattended behavior 
 navOrder: 1
 ---
 
-Deployment target triggers (also known as auto-deploy) let you to define an unattended behavior for your [projects](/docs/projects/) that will cause an automatic deployment of a release into an [environment](/docs/infrastructure/environments). This means, you can configure new deployment targets to be just like their counterparts.
+Deployment target triggers (also known as auto-deploy) let you define an unattended behavior for your [projects](/docs/projects/) that will cause an automatic deployment of a release into an [environment](/docs/infrastructure/environments). This means, you can configure new deployment targets to be just like their counterparts.
 
 Deployment target triggers can help you:
 

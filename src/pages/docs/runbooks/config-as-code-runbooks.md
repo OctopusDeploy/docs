@@ -1,16 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-24
-modDate: 2025-02-18
+modDate: 2025-11-27
 title: Config as Code runbooks
 description: Details about using configuration as code with runbooks.
 navOrder: 20
 icon: fa-brands fa-git-alt
 ---
 
-:::div{.success}
-Support for CaC Runbooks is rolling out to Octopus Cloud as of Q1 2025 and will be available in Octopus Server in a future release.
-:::
 
 Config as Code (or CaC) Runbooks stores your runbook process as code in your project repository. This means that you can now use version control to track changes to your runbook processes alongside changes to your project code.
 
@@ -33,6 +30,21 @@ Converting a project to use CaC Runbooks is a one-way change. Once you convert a
 You can migrate an existing version controlled project to use CaC Runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project and following the prompts.
 
 Once that's done, you should see a branch selector at the top of the **Runbooks** page, and a new 'runbooks/' directory in your repository alongside your existing OCL files. (See the '.octopus/ directory' of your repository project repository.) 
+
+### Troubleshooting
+
+**Slug related errors during migration**
+
+Published runbook snapshots must have unique step slugs. Step slugs were added to Octopus in 2022. If you published snapshots before this feature was added, those snapshots may contain empty or duplicate slugs.
+To identify and fix these issues:
+
+1. Use these scripts to check for problematic slugs in your runbooks:
+- [Check for blank slugs in runbook snapshots](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/CheckForBlankSlugsInFrozenSnapshots.ps1)
+- [Check for duplicate slugs in runbook snapshots](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/CheckForDuplicateSlugs.ps1)
+
+2. For any affected runbooks, ensure all steps have unique slugs
+3. Publish new snapshots of the affected runbooks
+4. Retry the runbook migration
 
 ## Drafts vs branches
 
@@ -81,6 +93,10 @@ The information that was previously found on the **Snapshot** page is still avai
 ## Scheduled triggers
 
 [Runbook triggers](/docs/runbooks/scheduled-runbook-trigger) will always run CaC Runbooks from the latest commit on your default branch, just as non-CaC runbook triggers will only run published runbooks.
+
+:::div{.hint}
+If you have steps that use packages in your runbook process we only support getting latest non-prerelease versions. To use prerelease packages you would need to hard-code the version on individual steps.
+:::
 
 ## Custom automated scripts
 

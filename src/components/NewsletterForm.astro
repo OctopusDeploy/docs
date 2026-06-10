@@ -1,0 +1,19 @@
+---
+import MarketoForm from './MarketoForm.astro';
+
+type Props = {
+  formId: number;
+  dreamdataTrackingId?: string;
+};
+
+const { formId, dreamdataTrackingId } = Astro.props satisfies Props;
+---
+
+<div class="newsletter">
+  <h2>Newsletter</h2>
+  <p>
+    Join ~80,000 DevOps professionals and sign up for the latest Octopus news,
+    events, and opinions. No spam. Unsubscribe at any time.
+  </p>
+  <MarketoForm formId={formId} dreamdataTrackingId={dreamdataTrackingId} />
+</div>

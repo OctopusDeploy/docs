@@ -24,7 +24,7 @@ The Flyway download comes with everything it needs to execute, including a versi
 :::
 
 :::div{.hint}
-If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` sub-directory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
+If Flyway doesn't find Java installed on the machine (detected by the presence of the JAVA_HOME environment variable), it will fall back to the included JRE.  The included version of the JRE has the .exe and .dll files located within a `bin` subdirectory.  It is often the case that source control will ignore any directory with the name `bin`, so be careful when including a Flyway project and you need the included JRE.
 :::
 
 ## Add scripts to your Flyway project

@@ -1,0 +1,16 @@
+name: Mark stale PRs
+on:
+  schedule:
+    - cron: '0 1 * * 3'  # Every Wednesday at 1am UTC
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v10
+        with:
+          stale-pr-message: 'Things seem to have gone quiet on this PR. There has been no activity for 60 days, so it will be closed in 14 days if there is still no movement.'
+          close-pr-message: 'Closing due to inactivity.'
+          days-before-pr-stale: 60
+          days-before-pr-close: 14
+          stale-pr-label: 'stale'
