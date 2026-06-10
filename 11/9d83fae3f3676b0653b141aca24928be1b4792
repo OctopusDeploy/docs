@@ -1,0 +1,16 @@
+src/pages/docs/argo-cd/instances/index.md
+  h_0abc1f0694f983 4
+src/pages/docs/argo-cd/troubleshooting.md
+  h_0abc1f0694f983 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "119d83fae3f3676b0653b141aca24928be1b4792",
+  "prompts": {},
+  "humans": {
+    "h_0abc1f0694f983": {
+      "author": "Denys Melnyk <denis.melnyk@octopus.com>"
+    }
+  }
+}
