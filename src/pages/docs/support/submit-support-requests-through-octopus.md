@@ -27,7 +27,7 @@ The support form includes the following fields:
 - **Subject**: Provide a brief summary of your issue or question.
 - **Describe the problem**: Describe your issue in detail. Include any error messages, steps to reproduce the problem, and what you expected to happen versus what actually occurred.
 - **Upload supporting documents (optional)**: Upload any relevant screenshots, logs, or other files that will help the support team understand your issue.
-- **Send System Diagnostics Report**: Check this option to automatically attach an Octopus generated system diagnostic report with your request.
+- **Send System Diagnostics Report**: Check this option to automatically attach a system diagnostic report with your request. The report includes logs, system information, and other diagnostic data from your Octopus Server. In a [High Availability](/docs/administration/high-availability) setup, each node uploads its own diagnostic report so the support team has full visibility across all nodes.
 
 ## Submitting your request
 
