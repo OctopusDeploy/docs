@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-06-10
 title: Troubleshooting Argo CD in Octopus
 navTitle: Troubleshooting
 description: How to resolve configuration issues
@@ -38,14 +38,45 @@ Resolution:
 
 ### Argo CD Gateway install fails initial health check
 
+#### Failed to connect to Octopus
+
 Behavior:
 
 - Install Argo CD Gateway dialog states:
-  - "established a connection" was successful
-  - Health check failed
-- The Gateway pod is in a CrashLoopBackoff
+  - "Gateway registered with Octopus" was successful
+  - "Failed to connect to Octopus" and "Failed to connect to Argo CD" both show as failed
+- The gateway pod is in a CrashLoopBackoff
+- In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "*Gateway failed to connect to Octopus*"
+- If installed with `helm install --atomic`, the install fails and rolls back, removing the gateway from the cluster. The registered gateway still appears under **Infrastructure ➜ Argo CD Instances** but will never become healthy
+
+Cause:
+
+- The gateway cannot establish a gRPC connection to Octopus Server. Both "Failed to connect" rows in the dialog are caused by this single problem, not two separate ones
+- Registration uses the REST API url (`registration.octopus.serverApiUrl`), while the running gateway connects to a separate gRPC endpoint (`gateway.octopus.serverGrpcUrl`, port `8443` by default), so a successful registration does not mean the gRPC endpoint is reachable
+
+Resolution:
+
+- Confirm port `8443` is open and routed through to Octopus Server. A load balancer, proxy, or firewall that only forwards HTTPS (`443`) is a common cause. Probe it from inside the cluster:
+
+```bash
+kubectl run port-check --image=busybox --restart=Never --rm -it -- \
+  sh -c 'nc -z -w 5 your-octopus-url 8443 && echo REACHABLE || echo UNREACHABLE'
+```
+
+- Confirm `gateway.octopus.serverGrpcUrl` points at your Octopus Server's gRPC endpoint, including the port (not the web url)
+- If the gateway logs a certificate thumbprint mismatch, confirm `gateway.octopus.serverThumbprint` matches your Octopus Server's certificate thumbprint
+- Inspect the gateway pod logs for connection details: `kubectl logs deploy/octopus-argocd-gateway -n <namespace>`
+- If the install was rolled back (e.g. `helm install --atomic` failed and cleaned up the cluster), delete the orphaned Argo CD Gateway in Octopus, resolve the connection issue, and re-run the installation
+
+#### Failed to connect to ArgoCD
+
+Behavior:
+
+- Install Argo CD Gateway dialog states:
+  - "Gateway registered with Octopus" was successful
+  - "Failed to connect to Argo CD" show as failed
 - In a Kubernetes viewer (e.g. K9s), the gateway pod logs state "*error validating connection to Argo CD*"
-- In Octopus, the healthcheck task log contains: "The Argo CD Gateway has not established a gRPC connection to Octopus Server"
+- In Octopus when navigating to newly added ArgoCD instance "Gateway connectivity" tab show "Argo CD Connectivity Issues" warning
 
 Cause:
 
@@ -54,9 +85,84 @@ Cause:
 Resolution:
 
 - Confirm the URL specified for the `gateway.argocd.serverGrpcUrl` matches the expected grpc endpoint of your argo instance (`<servicename>.<namespace>.svc.cluster.local`)
-- If your Argo CD instance is using a self-signed certificate ensure `gateway.argocd.insecure` is set to `true`
+- If your Argo CD instance is using a self-signed certificate ensure `gateway.argocd.insecure` is set to `true` (see [TLS errors](#argo-cd-gateway-cannot-connect-to-argo-cd-due-to-tls-errors) below)
 - If your Argo CD instance is running in "insecure" mode, ensure `gateway.argocd.plaintext` is set to `true` (false otherwise)
 - In Octopus, delete the registered Argo CD Gateway, follow all required helm deletion commands, and reinstall
+
+### Argo CD Gateway cannot connect to Argo CD due to TLS errors
+
+If your gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
+
+#### Self Signed Certificate
+
+Behavior:
+
+- The gateway is unable to connect to your Argo CD instance
+- The gateway pod logs contain:
+
+```text
+tls: failed to verify certificate: x509: certificate signed by unknown authority
+```
+
+Cause:
+
+- Argo CD is using a self-signed certificate
+
+Resolution:
+
+- Configure the gateway to trust your certificate, as described in [Trusting Certificates](/docs/argo-cd/instances#trusting-certificates)
+- Alternatively, if it is intended that your certificate is self-signed, you can disable certificate verification by doing the following:
+
+Using Helm for existing installation:
+
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set gateway.argocd.insecure="true" \
+--set gateway.argocd.plaintext="false" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
+:::div{.warning}
+By setting `gateway.argocd.insecure="true"`, TLS certificate verification will no longer be performed between the gateway and the Argo CD instance. Make sure this configuration is necessary to avoid potential security issues.
+:::
+
+#### No Certificate
+
+Behavior:
+
+- The gateway fails to connect to your Argo CD instance
+- The gateway pod logs contain:
+
+```text
+transport: authentication handshake failed: EOF
+```
+
+Cause:
+
+- Your Argo CD instance is running without a certificate (e.g. SSL is terminated at a load balancer), while the gateway is configured by default to require encrypted traffic
+
+Resolution:
+
+- If it is intended that you don't have a certificate, you can disable encryption between the gateway and Argo CD by doing the following:
+
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set gateway.argocd.insecure="false" \
+--set gateway.argocd.plaintext="true" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
+:::div{.warning}
+By setting `gateway.argocd.plaintext="true"`, all traffic between the gateway and Argo CD will be unencrypted. Make sure this configuration is necessary to avoid potential security issues.
+:::
 
 ## Application/Project mapping
 
