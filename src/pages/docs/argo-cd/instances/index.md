@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-06-10
+modDate: 2026-06-11
 navSection: Argo CD Instances
 navTitle: Overview
 title: Overview
