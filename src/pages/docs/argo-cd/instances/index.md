@@ -33,14 +33,14 @@ The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kuber
 
 The gateway makes three outgoing connections. Before installing, make sure all of them are reachable from inside your cluster:
 
-| The gateway must reach | How |
-| --- | --- |
-| Octopus Server REST API | HTTPS, port `443` |
-| Octopus Server gRPC endpoint | gRPC (HTTP/2), port `8443` by default |
-| Argo CD API server | In-cluster gRPC, e.g. `<servicename>.<namespace>.svc.cluster.local` |
+| Destination | Protocol | Port |
+| --- | --- | --- |
+| Octopus Server REST API | HTTPS | `443` |
+| Octopus Server gRPC endpoint | gRPC (HTTP/2) | `8443` by default |
+| Argo CD API server | gRPC (in-cluster) | Argo CD service port |
 
 :::div{.warning}
-If your Octopus Server sits behind a load balancer, proxy, or firewall, make sure the gRPC port (`8443` by default) is forwarded to Octopus Server and the proxy supports HTTP/2. Forwarding only HTTPS (`443`) is a common cause of installation failure, where the gateway registers successfully but never connects. See [Troubleshooting](/docs/argo-cd/troubleshooting#argo-cd-gateway-registers-but-fails-to-connect-to-octopus-server) for details.
+If your Octopus Server sits behind a load balancer, proxy, or firewall, make sure the gRPC port (`8443` by default) is forwarded to Octopus Server and the proxy supports HTTP/2. Forwarding only HTTPS (`443`) is a common cause of installation failure, where the gateway registers successfully but never connects. See [Troubleshooting](/docs/argo-cd/troubleshooting#failed-to-connect-to-octopus) for details.
 :::
 
 :::div{.hint}

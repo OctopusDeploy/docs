@@ -164,6 +164,38 @@ oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
 By setting `gateway.argocd.plaintext="true"`, all traffic between the gateway and Argo CD will be unencrypted. Make sure this configuration is necessary to avoid potential security issues.
 :::
 
+## Gateway Connectivity
+
+### Gateway connection drops at regular intervals (load balancer idle timeout)
+
+Behavior:
+
+- The gateway installs and connects successfully, but loses its connection to Octopus Server after every quiet period of the same length (e.g. 60 seconds without activity)
+- Deployments with Argo CD steps fail intermittently with gRPC connection errors, and succeed when retried
+- The "Gateway connectivity" tab of the Argo CD instance intermittently shows "Unavailable", depending on when the last health check ran
+- The gateway pod logs show stream errors followed by an immediate reconnection
+- If the load balancer drops connections silently instead of closing them, the logs show failing keep alives (`keep alive check failed - cancelling subscribers` with `DeadlineExceeded` errors) and the gateway pod restart count climbs at a regular cadence
+
+Cause:
+
+- A load balancer or proxy between the gateway and Octopus Server closes connections it considers idle
+- The gateway sends a keep alive to Octopus Server every 30 seconds by default to hold the connection open. If the load balancer's idle timeout is shorter than the keep alive interval (or keep alives are disabled), the connection is terminated before the next keep alive is sent
+
+Resolution:
+
+- Increase the idle timeout on your load balancer so it comfortably exceeds the keep alive interval (`gateway.octopus.keepAlive.intervalSeconds`, default 30 seconds)
+- Alternatively, reduce the keep alive interval below the load balancer's idle timeout:
+
+```bash
+helm upgrade --atomic \
+--version "1.0.0" \
+--namespace "{{GATEWAY_NAMESPACE}}" \
+--reset-then-reuse-values \
+--set gateway.octopus.keepAlive.intervalSeconds="15" \
+{{EXISTING_HELM_RELEASE_NAME}} \
+oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
+```
+
 ## Application/Project mapping
 
 ### No applications are listed on the **Argo CD Instance ➜ Applications** page
