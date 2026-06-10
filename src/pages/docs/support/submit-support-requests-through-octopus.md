@@ -9,7 +9,6 @@ navOrder: 1
 
 From [ADD VERSION], you can now submit support requests directly from within the Octopus application. This works the same way as emailing our support team and ensures your request is handled promptly.
 
-
 ## Accessing the support form
 
 To submit a support request:
