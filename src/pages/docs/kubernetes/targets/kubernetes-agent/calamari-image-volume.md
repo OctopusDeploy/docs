@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-06-05
-modDate: 2026-06-05
+modDate: 2026-06-11
 title: Calamari Image Volume
 description: How the Kubernetes agent uses Kubernetes Image Volumes to provide Calamari to script pods
 navOrder: 35
@@ -24,7 +24,7 @@ When the Calamari Image Volume feature is enabled, the agent instead mounts Cala
 
 - **Kubernetes**: 1.35 or later. Image Volumes require the `ImageVolume` feature gate, which is enabled by default from Kubernetes 1.35 (Beta) and is GA from 1.36. Clusters running an older version will fall back to the existing transfer-and-unpack mechanism automatically and log a warning.
 - **Kubernetes agent**: v3.5.0
-- **Octopus Server**: 2026.3.892 or later
+- **Octopus Server**: 2026.3.982 or later
 
 ## Enabling the feature
 
