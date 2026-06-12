@@ -13,7 +13,7 @@ navOrder: 95
 Octopus Feature Toggles support toggling features on or off in real-time, without redeploying, and progressively releasing changes to subsets of your users.
 
 :::div{.hint}
-Octopus Feature Flags are now available to Octopus Cloud customers as a Private Preview. To get access, [register your interest](https://survey.octopus.com/t/piv3LpVWWmus).
+Octopus Feature Toggles are now available to Octopus Cloud customers as a Private Preview. To get access, [register your interest](https://survey.octopus.com/t/piv3LpVWWmus).
 :::
 
 ## Usage
