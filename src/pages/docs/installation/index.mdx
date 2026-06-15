@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-01
+modDate: 2026-06-10
 title: Install Octopus Server
 subtitle: How to install Octopus Server
 icon: fa-solid fa-server
@@ -31,7 +31,7 @@ Relevant ports include:
   - **Inbound** port 8080: Container Host - service / load balancer to container
   - **Inbound** port 443/80 (http/https): Windows Host - load balancer to Windows Server
 - **Inbound** port 10943: Polling tentacles (Octopus Deploy agents) running on application hosts or runners (workers).
-- **Inbound** port 8443 (gRPC): Octopus Deploy Argo CD Gateway
+- **Inbound** port 8443 (gRPC): Octopus Deploy Argo CD Gateway and Kubernetes Live Object Status
 - **Outbound** port 10933: Listening tentacles (Octopus Deploy agents) running on application hosts or runners (workers).
 - **Outbound** port 22 (SSH): For application hosts or runners (workers).
 
