@@ -12,13 +12,13 @@ The Environment Timeline provides visual representation of all deployments made 
 It can be access by clicking the **Timeline** button within the deployment details page, or the environment name in a project's dashboard.
 
 :::figure
-![The Environment Timeline button](/docs/img/releases/timeline/timeline-button.png)
+![The Environment Timeline button](/docs/img/releases/timeline/environment-timeline-button.png)
 :::
 
 A drawer opens showing all deployments for the current Environment, Project and Tenant you are viewing. Deployments are grouped into buckets depending on how long ago the deployment was performed.
 
 :::figure
-![The Environment Timeline with overflow menu for last successful deployment](/docs/img/releases/timeline/timeline.png)
+![The Environment Timeline with overflow menu for last successful deployment](/docs/img/releases/timeline/environment-timeline.png)
 :::
 
 For releases that have not been deleted, either manually or via [Retention policies](/docs/administration/retention-policies), an overflow menu provides actions that can be triggered:
