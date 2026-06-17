@@ -9,7 +9,7 @@ navOrder: 132
 
 The Environment Timeline provides visual representation of all deployments made to an [Environment](/docs/infrastructure/environments) for a [Project](/docs/projects) within a [Tenant](/docs/tenants). In additional to providing an easy to understand view of deployment data, the Environment Timeline allows easy access to perform common workflows, such as deploying the last successful/stable deployment into your environment.
 
-It can be access by clicking the **Timeline** button within the deployment details page, or the environment name in a project's dashboard.
+It can be accessed by clicking the **Timeline** button within the deployment details page, or the environment name in a project's dashboard.
 
 :::figure
 ![The Environment Timeline button](/docs/img/releases/timeline/environment-timeline-button.png)
