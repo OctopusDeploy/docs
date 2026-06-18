@@ -16,6 +16,8 @@ Badges are turned off by default. To turn them on:
 2. Toggle **Badges** on.
 3. Click **Save**.
 
+<img height="136" alt="image" src="https://github.com/user-attachments/assets/d2ceb98b-d0db-4168-895c-30d21837398a" />
+
 :::div{.warning}
 Turning on badges lets anyone with the badge URL view the latest release version and deployment status for the selected environment. No authentication is required, and no other project data is exposed.
 :::
@@ -39,6 +41,9 @@ After you turn on badges, a **Badge Builder** button appears on the project sett
    - **URL** — direct link to the badge image
 
 The preview updates as you change options, so you can see what the badge looks like before you copy it.
+
+<img height="614" alt="image" src="https://github.com/user-attachments/assets/fa650b69-aef7-45e0-9fa8-c0345acf8da4" />
+
 
 ## Badge colors
 
