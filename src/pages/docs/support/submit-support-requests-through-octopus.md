@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2025-10-20
-modDate: 2025-10-20
+pubDate: 2026-06-19
+modDate: 2026-06-19
 title: Submit support requests through Octopus
 description: How to submit a request to Octopus Support through the application.
 navOrder: 1
 ---
 
-From [ADD VERSION], you can now submit support requests directly from within the Octopus application. This works the same way as emailing our support team and ensures your request is handled promptly.
+From version `2026.3.2809`, you can now submit support requests directly from within the Octopus application. This works the same way as emailing our support team and ensures your request is handled promptly.
 
 ## Accessing the support form
 
