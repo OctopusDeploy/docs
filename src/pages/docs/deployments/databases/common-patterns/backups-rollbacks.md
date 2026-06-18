@@ -21,7 +21,7 @@ Your application's users are why rollbacks are high risk. Typically, application
 
 There are major pitfalls with rolling back databases:
 
-1. Schema changes, adding a column, creating a table, updating a stored procedure, along with corresponding migration scripts, are common. Unless tested, rollback scripts will result in data loss. Thus a backup is needed.
+1. Schema changes, adding a column, creating a table, updating a stored procedure, along with corresponding migration scripts, are common. Unless tested, rollback scripts will result in data loss. Thus, a backup is needed.
 2. The decision to rollback will come after a successful deployment. Most, if not all, automated database deployment tooling use transactions to deploy changes, and they automatically rollback that transaction on failure. A restore of the database backup is required after the successful deployment.
 3. Unless programmatically locked out, users will use the application during deployment verification. After a user changes data, any database backup taken before deployment is worthless. Rolling back to a database backup will result in data loss.
 

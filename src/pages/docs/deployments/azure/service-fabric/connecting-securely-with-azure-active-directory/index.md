@@ -59,9 +59,9 @@ Now that we have configured our Service Fabric cluster to use AAD, we can assign
 In the Azure Active Directory:
 
 - Create a user that you will use for deploying to your Service Fabric cluster.
-- Login to the Azure Portal with this user (so you get past any temporary password shenanigans).
+- Log into the Azure Portal with this user (so you get past any temporary password shenanigans).
 
-Once we know this user is valid and can login, we can proceed again to your Azure Active Directory in the Azure Portal:
+Once we know this user is valid and can log in, we can proceed again to your Azure Active Directory in the Azure Portal:
 
 - Go to **App registrations**.
 - Select your cluster application that you setup earlier.

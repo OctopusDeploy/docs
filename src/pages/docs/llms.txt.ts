@@ -1,89 +1,92 @@
-// warning: This file is overwritten by Astro Accelerator
+// Generates llms.txt per https://llmstxt.org
 
-// Generates an LLMs.txt file of documentation pages
 import { SITE } from '@config';
-import { PostFiltering, Accelerator } from 'astro-accelerator-utils';
+import { Accelerator } from 'astro-accelerator-utils';
+import {
+  compareForLlmSurfaces,
+  eligibleForMarkdown,
+  sanitizeTitle,
+} from '@util/mdxContent';
+
+const PROJECT_TITLE = 'Octopus Deploy Documentation';
+const PROJECT_SUMMARY =
+  'Official documentation for Octopus Deploy: deployment, runbooks, infrastructure, configuration, integrations, and operations guidance.';
+
+const allPages = import.meta.glob<any>(['./**/*.md', './**/*.mdx']);
+const allRaws = import.meta.glob<string>(['./**/*.md', './**/*.mdx'], {
+  query: '?raw',
+  import: 'default',
+});
 
 async function getData() {
-	//@ts-ignore
-	const allPages = import.meta.glob(['./**/*.md', './**/*.mdx']);
+  const accelerator = new Accelerator(SITE);
+  const subfolderPrefix = SITE.subfolder.replace(/\/$/, '') + '/';
 
-	const accelerator = new Accelerator(SITE);
-	let pages = [];
+  type Page = {
+    title: string;
+    description: string;
+    url: string;
+    slug: string;
+    navOrder: number;
+    navSection: string;
+  };
+  const pages: Page[] = [];
 
-	for (const path in allPages) {
-		const article: any = await allPages[path]();
+  for (const path in allPages) {
+    const article: any = await allPages[path]();
+    const fm = article.frontmatter ?? {};
 
-		// Skip drafts and redirect pages
-		if (article.frontmatter.draft) {
-			continue;
-		}
+    const raw = await allRaws[path]();
+    const verdict = eligibleForMarkdown({ path, frontmatter: fm, raw });
+    if (!verdict.eligible) continue;
 
-		if (article.frontmatter.redirect) {
-			continue;
-		}
+    const url = accelerator.urlFormatter.formatAddress(article.url);
+    if (!url.startsWith(subfolderPrefix)) continue;
+    if (url.endsWith('/')) continue;
+    const slug = url.slice(subfolderPrefix.length);
+    if (slug.length === 0) continue;
 
-		// Skip if it shouldn't be in sitemap (likely similar filtering logic)
-		const addToLlms = PostFiltering.showInSitemap(article);
-		if (!addToLlms) {
-			continue;
-		}
+    const fullUrl = SITE.url + url + '.md';
+    const title = sanitizeTitle(fm.title);
+    const description =
+      typeof fm.description === 'string' && fm.description.trim().length > 0
+        ? fm.description
+        : 'Documentation page for Octopus Deploy';
 
-		let url = accelerator.urlFormatter.formatAddress(article.url);
+    // `??` so navOrder=0 and navSection='' aren't promoted to defaults.
+    pages.push({
+      title,
+      description,
+      url: fullUrl,
+      slug,
+      navOrder: fm.navOrder ?? 999999,
+      navSection: fm.navSection ?? '',
+    });
+  }
 
-		// Handle author pages if needed (similar to sitemap logic)
-		if (article.frontmatter.layout == 'src/layouts/Author.astro') {
-			url += '1/';
-		}
+  pages.sort(compareForLlmSurfaces);
 
-		const fullUrl = SITE.url + url;
-		// Remove square brackets
-		const title = (article.frontmatter.title || 'Untitled').replace(/[[\]]/g, '');
-		const description = article.frontmatter.description || 'Documentation page for Octopus Deploy';
+  // UTF-8 BOM so files self-declare encoding when served without charset.
+  let content = '﻿# ' + PROJECT_TITLE + '\n\n';
+  content += '> ' + PROJECT_SUMMARY + '\n\n';
 
-		pages.push({
-			title,
-			description,
-			url: fullUrl,
-			// Clean slug for sorting
-			slug: url.replace(/^\/docs\//, '').replace(/\/$/, ''),
-			navOrder: article.frontmatter.navOrder || 999999,
-			navSection: article.frontmatter.navSection || '',
-			pubDate: article.frontmatter.pubDate,
-			modDate: article.frontmatter.modDate,
-		});
-	}
+  let lastSection: string | null = null;
+  for (const page of pages) {
+    if (page.navSection !== lastSection) {
+      if (lastSection !== null) content += '\n';
+      const heading =
+        page.navSection.trim().length > 0 ? page.navSection : 'Other';
+      content += '## ' + heading + '\n\n';
+      lastSection = page.navSection;
+    }
+    content +=
+      '- [' + page.title + '](' + page.url + '): ' + page.description + '\n';
+  }
 
-	// Sort by navSection, then navOrder, then slug (same logic as before)
-	pages.sort((a, b) => {
-		// First, sort by navSection alphabetically
-		const sectionA = a.navSection || '';
-		const sectionB = b.navSection || '';
-		if (sectionA !== sectionB) {
-			return sectionA.localeCompare(sectionB);
-		}
-
-		// Within the same section, sort by navOrder first
-		if (a.navOrder !== b.navOrder) {
-			return a.navOrder - b.navOrder;
-		}
-
-		// If navOrder is the same, sort by slug alphabetically
-		return a.slug.localeCompare(b.slug);
-	});
-
-	// Generate the LLMs.txt content
-	let content = '## Documentation\n\n';
-	pages.forEach(page => {
-		content += `- [${page.title}](${page.url}): ${page.description}\n`;
-	});
-
-	return new Response(content, {
-		status: 200,
-		headers: {
-			'Content-Type': 'text/plain',
-		},
-	});
+  return new Response(content, {
+    status: 200,
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
 }
 
-export const GET = getData; 
+export const GET = getData;

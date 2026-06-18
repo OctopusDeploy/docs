@@ -25,7 +25,7 @@ You can dynamically select a Package Feed and/or the Package ID at deployment ti
 :::
 
 :::div{.hint}
-When multiple machines are associated with the target tag you select, Octopus deploys to all of the machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus).
+When multiple machines are associated with the target tag you select, Octopus deploys to all machines in parallel. If you need to change this behavior, you can [configure a rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus).
 :::
 
 ## Configuring features

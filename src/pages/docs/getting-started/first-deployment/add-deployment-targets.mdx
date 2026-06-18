@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2025-01-07
-title: Add deployment targets
-description: Step by step guide on how to add deployment targets in Octopus Deploy.
+title: Add deployment targets in Octopus Deploy
+description: Register machines or cloud services as deployment targets in Octopus Deploy. Follow the step-by-step guide to connect your first target and start deploying.
 navOrder: 70
 hideInThisSection: true
 ---
@@ -17,35 +17,27 @@ With Octopus, you can deploy software to:
 - Offline package drop
 - Cloud region
 
-Regardless of where you’re deploying your software, these machines and services are known as your deployment targets.
+Regardless of where you're deploying your software, these machines and services are known as your deployment targets.
 
 ## Add deployment target
 
 1. From the left Deploy menu, click **Deployment Targets**.
 
-:::figure
-![Deployment Targets page](/docs/img/getting-started/first-deployment/images/deployment-targets-page.png)
-:::
+    :::figure
+    ![Deployment Targets page](/docs/img/getting-started/first-deployment/images/deployment-targets-page.png)
+    :::
 
 2. Click **Add Deployment Target**.
 3. Use the category tabs to filter by deployment target type.
 4. Click **Add** on the deployment target you want to add.
 
-### Name
-
-Give your deployment target a descriptive name, for example, `Hello world tutorial target`.
-
-### Environments
-
-We’ll scope this deployment target to one environment. Later, you can add additional targets and scope them to your other environments.
+    **Name** - Give your deployment target a descriptive name, for example, `Hello world tutorial target`.**Environments** - We'll scope this deployment target to one environment. Later, you can add additional targets and scope them to your other environments.
 
 5. Select **Development** from the **Environments** dropdown list.
 
-### Target Tags
+    **Target Tags** - Octopus uses target tags to select which deployment target a project should deploy to. Later, you'll add the same target tag to your deployment process. You can deploy to multiple targets simply by adding this tag.
 
-Octopus uses target tags to select which deployment target a project should deploy to. Later, you’ll add the same target tag to your deployment process. You can deploy to multiple targets simply by adding this tag.
-
-6. Add a new target tag by typing it into the field. For this example, we’ll use `tutorial-target`.
+6. Add a new target tag by typing it into the field. For this example, we'll use `tutorial-target`.
 
 :::figure
 ![Deployment target form](/docs/img/getting-started/first-deployment/images/deployment-target-form.png)
@@ -61,7 +53,7 @@ Fill in the other sections of the deployment target form. If you need guidance, 
 - [Offline package drop](/docs/infrastructure/deployment-targets/offline-package-drop)
 - [Cloud region](/docs/infrastructure/deployment-targets/cloud-regions)
 
-Next, let’s [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package) to your deployment target.
+Next, let's [deploy a sample package](/docs/getting-started/first-deployment/deploy-a-package) to your deployment target.
 
 ### All guides in this tutorial series
 

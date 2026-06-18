@@ -1,18 +1,19 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2025-09-23
+modDate: 2026-04-16
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
 ---
+
 ## How to create a release in Octopus Deploy
 
 1. With your deployment process defined, you can create a release on the project's Overview page, by clicking **CREATE RELEASE**.
 
-:::figure
-![Create release](/docs/img/shared-content/releases/images/create-release.png)
-:::
+   :::figure
+   ![Create release](/docs/img/shared-content/releases/images/create-release.png)
+   :::
 
 2. Depending on the type of steps you configured in the deployment process, there could be additional options available, for instance, if you're using a step to deploy a package, there will be a package section where you can specify which version of the package to use in the release.
 3. Give the release a version number, add any release notes you'd like to include, and click **SAVE**.
@@ -29,7 +30,7 @@ After creating the release, if the [lifecycle](/docs/releases/lifecycles) associ
 
 If the release is not deployed automatically, you can click **DEPLOY TO (Environment)** where *(Environment)* is the first environment in the project's lifecycle. Alternatively, you can click **Deploy to...** to select a specific environment to deploy to.
 
-### Schedule a deployment
+### Schedule a deployment {#scheduling-a-deployment}
 
 1. Select the release you want to schedule for deployment.
 1. Click **DEPLOY TO...** or **DEPLOY TO (Environment)**.
@@ -67,7 +68,7 @@ Guide failure mode asks for users to intervene when a deployment encounters an e
 1. Expand the **Failure mode** section, and select the mode you want to use.
 1. Click **SAVE**.
 
-### Deploy to a specific subset of deployment target
+### Deploy to a specific subset of deployment targets
 
 You can deploy releases to a specific subset of deployment targets.
 
@@ -75,14 +76,19 @@ You can deploy releases to a specific subset of deployment targets.
 1. Click **DEPLOY TO (Environment)**.
 1. Expand the **Preview and customize** section.
 1. Expand the **Deployment Targets** section.
-1. Select whether you would like to include or exclude specific deployment targets. The default is to include all applicable deployment targets.
-1. Select the deployment targets to include or exclude, and click **DEPLOY**.
+1. Select your target selection method:
+   - **Include all applicable deployment targets** (default)
+   - **Include specific deployment targets**: Choose individual targets to include
+   - **Exclude specific deployment targets**: Choose individual targets to exclude
+   - **Include specific target tags**: Include targets with selected tags
+   - **Exclude specific target tags**: Exclude targets with selected tags
+1. Click **DEPLOY**.
 
 ### Variable snapshot
 
 For each release you create, a snapshot is taken of the project variables. You can review the variables for a release from within a project:
 
-1. Using the project side menu, navigate to **Deployments ➜ Releases** 
+1. Using the project side menu, navigate to **Deployments ➜ Releases**
 1. Select the release that you wish to view the variable snapshot for
 1. On the release page scroll to the **Variable Snapshot** section
 1. Click **SHOW SNAPSHOT**
@@ -90,14 +96,14 @@ For each release you create, a snapshot is taken of the project variables. You c
 This lets you see the variables as they existed when the release was created.
 
 :::figure
-![](/docs/img/releases/images/release-variable-snapshot-section.png)
+![The Octopus release screen with variable snapshots highlighted](/docs/img/releases/images/release-variable-snapshot-section.png)
 :::
 
 You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
 
-* The release has not been deployed yet, but the variables have changed since the release was created.
-* The release needs to be **redeployed** and the variables have changed since the release was created.
-* The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
+- The release has not been deployed yet, but the variables have changed since the release was created.
+- The release needs to be **redeployed** and the variables have changed since the release was created.
+- The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
 After you've updated the variables, the release will use the updated variables when it is deployed.
 
@@ -111,7 +117,7 @@ When updating the variable snapshot, the new snapshot is taken from the current 
 ![Screenshot of Octopus Release page showing process snapshot with Git reference main and commit 047cb76 and variable snapshot with reference main and commit 617aa79](/docs/img/releases/git-variables-release-snapshot.png)
 :::
 
-Updating the variable snapshot _only_ updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
+Updating the variable snapshot *only* updates the variables (and not the deployment process). After updating, the commit for the process snapshot and variables snapshot will be different.
 
 ## Custom fields
 
@@ -121,7 +127,7 @@ Releases can have custom fields added to them when being created. Custom fields 
 - During deployments within scripts and other steps.
 
 :::div{.hint}
-Support for custom fields on releases is rolling out to Octopus Cloud in Early Access Preview.
+Support for custom fields on releases is available from version `2025.4`.
 :::
 
 :::div{.hint}
@@ -146,3 +152,42 @@ The following restrictions apply to custom fields on releases:
 
 - A maximum of 10 custom fields can be added to each release.
 - The maximum length of the key and value of each custom field is 150 characters.
+
+## Create a release based on a previous release
+
+Sometimes you may need to create a new release based on a previous release, for example, if a defect is discovered during testing which requires making changes to a package used by the release before publishing a new version. This can be done via the release summary page.
+
+:::figure
+![Screenshot of Octopus release page showing an existing release and its selected packages](/docs/img/releases/images/octopus-existing-release-selected-packages.png)
+:::
+
+From your existing release, select the **Copy** option. You will be redirected to the create release page.
+
+:::figure
+![Screenshot of Octopus release page showing new Copy option in the overflow menu](/docs/img/releases/images/octopus-releases-copy-release.png)
+:::
+
+The following release properties will be pre-populated:
+
+- Channel of the source release
+- Version of the source release
+- Git reference from the source release, if it's a version-controlled project
+  - *If the source release is created from the `features/dark-mode` branch, then the new one should use the same (the head commit may be different in this case). If the source uses a specific commit, the new release should use the same commit.*
+- All package versions from the source release
+- All Git resources from the source release
+- Release notes from the source release
+- Custom fields from the source release
+
+:::figure
+![Screenshot of Octopus release page showing copied release with all existing package versions selected](/docs/img/releases/images/octopus-copied-release-with-package-versions-pre-selected.png)
+:::
+
+Before saving the new release, you will need to update the release version. Attempting to save the release with a version that already exists will encounter validation errors.
+
+:::figure
+![Screenshot of Octopus release page showing copied release with updated version for a single package](/docs/img/releases/images/octopus-copied-release-with-package-versions-updated.png)
+:::
+
+## Older versions
+  
+- In versions earlier than **2026.1.4812**, there is no option to create a release from a previous release

@@ -37,7 +37,7 @@ By the time your deployment starts, the Octopus HTTP API and database are no lon
 
 ## Tips
 
-We don't offer a one-size-fits-all approach to optimizing your deployments using Octopus; every deployment scenario is unique. Instead we recommend taking an experimental approach to optimization: measure-then-cut. Record your deployments, make an adjustment, then measure again, etc. These tips should give you enough information to get started.
+We don't offer a one-size-fits-all approach to optimizing your deployments using Octopus; every deployment scenario is unique. Instead, we recommend taking an experimental approach to optimization: measure-then-cut. Record your deployments, make an adjustment, then measure again, etc. These tips should give you enough information to get started.
 
 ### Optimize the connection to your deployment targets {#optimize-connection-to-targets}
 
@@ -125,7 +125,7 @@ Larger task logs put the entire Octopus pipeline under more pressure. A good rul
 
 ### Consider how many targets acquire packages in parallel {#parallel-acquisition}
 
-Imagine you have 1,000 deployment targets configured to stream packages from the Octopus Server and you configure your deployment so all of the packages are acquired across all of your deployment targets in parallel. This can put a lot of strain on your Octopus Server as the constraint in this mix.
+Imagine you have 1,000 deployment targets configured to stream packages from the Octopus Server and you configure your deployment so all packages are acquired across all of your deployment targets in parallel. This can put a lot of strain on your Octopus Server as the constraint in this mix.
 
 Alternatively, imagine you have 1,000 deployment targets configured to download packages directly from a package feed or a file share. Now the package feed or file share becomes the constraint.
 

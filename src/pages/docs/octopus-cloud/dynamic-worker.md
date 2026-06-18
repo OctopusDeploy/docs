@@ -42,7 +42,7 @@ Customers may choose between Windows and Ubuntu virtual machine images for their
 
 Your Octopus Cloud [task cap](/docs/octopus-cloud/task-cap) determines the resources available to your dynamic worker. As at January 2025, dynamic worker virtual machines are resourced as follows. These specifications may be adjusted over time.
 
-| Task cap  | vCPUs (Qty.) | Memory (GB) |
+| Task cap | vCPUs (Qty.) | Memory (GB) |
 | -----: | ------: | ------: |
 | 5 | 2 | 4 |
 | 10 | 4 | 8 |
@@ -59,6 +59,12 @@ We recommend customers who would benefit from scalable workers consider [Kuberne
 
 Dynamic workers are created on demand and leased to an Octopus Cloud instance for a limited time [before being destroyed](/docs/infrastructure/workers/dynamic-worker-pools#on-demand). Dynamic workers are destroyed when they have been idle for 60 minutes or when they reached 72 hours of existence. All data written to disk is lost upon worker destruction.
 
+### Disk space
+
+Dynamic workers run on virtual machines with a fixed disk. The amount of free space available to your deployments and runbook runs is bounded, and may be consumed by package downloads, container image pulls, and intermediate files created during a step. Workloads that regularly process large packages, pull large container images, or run many parallel steps may exhaust the available disk and cause the step to fail.
+
+If your workloads need more disk headroom than dynamic workers provide, consider [Kubernetes workers](/docs/infrastructure/workers/kubernetes-worker) or [external workers](/docs/infrastructure/workers#external-workers), where you control the disk size and lifecycle.
+
 ### Installed software
 
 Dynamic workers come with a small number of [baseline tools](/docs/infrastructure/workers/dynamic-worker-pools#available-dynamic-worker-images) installed. The version of baseline tools may be updated between worker leases.
@@ -67,7 +73,7 @@ We do not recommend installing additional software on dynamic workers. Instead, 
 
 ### IP addresses
 
-Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud Server. If a known/static IP is required for your worker, please consider provisioning your own external worker.
+Dynamic workers are assigned IP addresses outside the static IP range of your Octopus Cloud instance. If a known/static IP is required for your worker, please consider provisioning your own external worker.
 
 ## Let us know what you want for the future of dynamic workers
 

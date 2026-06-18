@@ -108,7 +108,7 @@ That sample uses `Notification.Base.Url` instead of the system variable `Octopus
 
 A separate variable, such as `Notification.Base.Url` provides a lot more options.  For example, you can set that to a publicly exposed URL the approvers can use to approve changes from home.  
 
-## Keeping the signal to noise ratio low
+## Keeping the signal-to-noise ratio low
 
 Imagine a message is sent to the team for every deployment to `Development` and `Test`.  At first, that is a good idea.  But as time goes on, the number of deployments per day will increase.  They are now deploying 20 times a day to each environment.  Those notifications went from being useful to being noise.  
 

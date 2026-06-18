@@ -77,7 +77,7 @@ There are a few more maintenance tasks to add, such as:
 * Assigning that user to the database
 * Assigning the user to a role.  
 
-Keep in mind, all of the steps being added are occurring before an actual deployment happens.  Without doing a deployment yet, we have added in five steps to deploy the database.  Imagine if this project also deploys a website, a Windows Service, and other components.  The project would become very hard to manage.  
+Keep in mind, all steps being added are occurring before an actual deployment happens.  Without doing a deployment yet, we have added in five steps to deploy the database.  Imagine if this project also deploys a website, a Windows Service, and other components.  The project would become very hard to manage.  
 
 :::figure
 ![](/docs/img/shared-content/octopus-recommendations/configure-project/images/projectconfiguration-databaseprojectbeforedeployment.png)

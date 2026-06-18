@@ -250,7 +250,7 @@ Next, you need to configure your Octopus project to deploy a Node.js application
 
 ### Configure account and target {#configure-account-and-target}
 
-1. Navigate to **Infrastructure ➜ Accounts**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
+1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click **Add Account**, select **username/password** from the drop-down menu, and add the username credentials for the Linux deployment target you configured earlier.
 2. Navigate to **Infrastructure ➜ Environments**, select the **prod** environment, click **Add deployment target**, and select **SSH Connection**.
 3. Enter the IP address of the machine that is accessible to the Octopus Server. *In our case below it's the public IP provided by Azure/AWS.*
 4. Click **Discover** to automatically pre-populate the SSH fingerprint for the remote server.

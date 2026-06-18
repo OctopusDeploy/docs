@@ -10,17 +10,17 @@ hideInThisSectionHeader: true
 
 Elastic and transient environments is a group of features to facilitate deploying to machines that are intermittently available for deployment.
 
-## Scenarios {#ElasticandTransientEnvironments-Scenarios}
+## Scenarios
 
-### Auto-scaling infrastructure {#ElasticandTransientEnvironments-Auto-scalinginfrastructure}
+### Auto-scaling infrastructure
 
 OctoFX has become so popular that additional servers are required to manage peak load. At peak times servers are provisioned and the latest version of OctoFX is deployed to those servers.  When demand wanes the additional servers are terminated.
 
-### Intermittent connectivity {#ElasticandTransientEnvironments-Intermittentconnectivity}
+### Intermittent connectivity
 
 OctoFX is being deployed to trading desks in offices around the world.  Occasionally, unknown to the deployment team, the machines that host OctoFX are taken down for maintenance. OctoFX must be kept up to date when a machine comes back online.
 
-## Elastic and transient environment features {#ElasticandTransientEnvironments-ElasticandTransientEnvironmentfeatures}
+## Elastic and transient environment features
 
 - Automatically keep deployment targets up to date with the latest releases.
 - Automatically reflect infrastructure changes in your environments.
@@ -28,4 +28,4 @@ OctoFX is being deployed to trading desks in offices around the world.  Occasion
 
 ## Learn more
 
-- [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns).
+- [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

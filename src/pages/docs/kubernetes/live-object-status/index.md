@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-05-16
+modDate: 2026-05-24
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -23,7 +23,6 @@ Using Kubernetes Live Object Status requires the following:
 - Octopus Deploy 2025.3+
 - A [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent) target
 - A project with a deployment process containing Kubernetes steps
-  - The kubectl script step is currently unsupported
 
 ## How to use Live Status
 
@@ -39,33 +38,72 @@ Octopus display individual status at an object level as well as summarized statu
 ![Live status page](/docs/img/kubernetes/live-object-status/live-status-page.png)
 :::
 
-### Application status
+### Application Health Status
 
-| Label       |                    Status Icon                     | Description                                                                 |
-| :---------- | :------------------------------------------------: | :-------------------------------------------------------------------------- |
-| Progressing |   <i class="fa-solid fa-circle-notch blue"></i>    | Objects in your application are currently in a progressing state            |
-| Healthy     |      <i class="fa-solid fa-heart green"></i>       | The objects in your cluster match what was specified in the last deployment |
-| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting live status updates for this application       |
-| Degraded    |    <i class="fa-solid fa-heart-crack red"></i>     | Your objects experienced errors after the deployment completed              |
-| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The objects on your cluster no longer match what you last deployed          |
-| Missing     |       <i class="fa-solid fa-ghost grey"></i>       | Objects in your application are currently in a missing state                |
-| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application live status is unavailable because your last deployment failed  |
-| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application live status will be available once the deployment completes     |
+The application health status is a roll-up of the health of all objects:
 
-### Object status
+| Label       |                                    Status Icon                                    | Description                                                                   |
+| :---------- | :-------------------------------------------------------------------------------: | :---------------------------------------------------------------------------- |
+| Progressing |                   <i class="fa-solid fa-circle-notch blue"></i>                   | Objects in your application are currently in a progressing state              |
+| Healthy     |                      <i class="fa-solid fa-heart green"></i>                      | The objects in your cluster match what was specified in the last deployment   |
+| Unknown     |                     <i class="fa-solid fa-question grey"></i>                     | We're having trouble getting live status updates for this application         |
+| Degraded    |                    <i class="fa-solid fa-heart-crack red"></i>                    | Your objects experienced errors after the deployment completed                |
+| Missing     |                      <i class="fa-solid fa-ghost grey"></i>                       | Objects in your application are currently in a missing state                  |
+| Unavailable |                <i class="fa-solid fa-circle-exclamation red"></i>                 | Application live status is unavailable because your last deployment failed    |
+| Waiting     |                    <i class="fa-solid fa-hourglass blue"></i>                     | Application live status will be available once the deployment completes       |
+| Stale       | <img src="/docs/img/bolt-slash.svg" alt="stale icon" width="16px" height="16px">. | Status information is stale. No data has been received in the last 10 minutes |
 
-| Label       |                  Status Icon                  | Description                                                                                |
-| :---------- | :-------------------------------------------: | :----------------------------------------------------------------------------------------- |
-| Progressing | <i class="fa-solid fa-circle-notch blue"></i> | Object is attempting to reach the desired state                                            |
-| Healthy     |    <i class="fa-solid fa-heart green"></i>    | Object is in sync and reporting that it is running as expected                             |
-| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have up-to-date information about the live status of this object                  |
-| Degraded    |  <i class="fa-solid fa-heart-crack red"></i>  | Object has run into a problem, check the logs or events to find out more                   |
-| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                        |
-| Missing     |    <i class="fa-solid fa-ghost grey"></i>     | Object is missing from the cluster                                                         |
-| In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied, but does not report any additional health status |
-| Suspended   |    <i class="fa-solid fa-pause grey"></i>     | Job is not currently running                                                               |
+### Application Sync Status
+
+Sync Status tracks whether the changes Octopus deployed still matches the resources in the cluster.
+
+| Label       |                    Status Icon                     | Description                                                                |
+| :---------- | :------------------------------------------------: | :------------------------------------------------------------------------- |
+| In Sync     |      <i class="fa-solid fa-check green"></i>       | The objects on your cluster match what you last deployed                   |
+| Out of Sync |    <i class="fa-solid fa-arrow-up orange"></i>     | The objects on your cluster no longer match what you last deployed         |
+| Unknown     |     <i class="fa-solid fa-question grey"></i>      | We’re having trouble getting sync status updates for this application      |
+| Unavailable | <i class="fa-solid fa-circle-exclamation red"></i> | Application sync status is unavailable because your last deployment failed |
+| Waiting     |     <i class="fa-solid fa-hourglass blue"></i>     | Application sync status will be available once the deployment completes    |
+
+### Object Health Status
+
+| Label       |                                   Status Icon                                    | Description                                                                   |
+| :---------- | :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------- |
+| Progressing |                  <i class="fa-solid fa-circle-notch blue"></i>                   | Object is attempting to reach the desired state                               |
+| Healthy     |                     <i class="fa-solid fa-heart green"></i>                      | Object is in sync and reporting that it is running as expected                |
+| Unknown     |                    <i class="fa-solid fa-question grey"></i>                     | We don't have information about the live status of this object                |
+| Degraded    |                   <i class="fa-solid fa-heart-crack red"></i>                    | Object has run into a problem, check the logs or events to find out more      |
+| Missing     |                      <i class="fa-solid fa-ghost grey"></i>                      | Object is missing from the cluster                                            |
+| Suspended   |                      <i class="fa-solid fa-pause grey"></i>                      | Job is not currently running                                                  |
+| Stale       | <img src="/docs/img/bolt-slash.svg" alt="stale icon" width="16px" height="16px"> | Status information is stale. No data has been received in the last 10 minutes |
+
+### Object Sync Status
+
+| Label       |                  Status Icon                  | Description                                                                                      |
+| :---------- | :-------------------------------------------: | :----------------------------------------------------------------------------------------------- |
+| In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied                                                         |
+| Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                              |
+| Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                   |
+| Orphaned    | <i class="fa-solid fa-link-slash orange"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
 
 Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/troubleshooting) for details on why you may see some object statuses
+
+### Orphaned objects
+
+When you deploy a project that no longer includes a resource that was deployed in a previous release (for example, you remove a resource from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped resource as **Orphaned** in the Live Status table.
+
+Orphaned objects:
+
+- keep their existing Health Status, so Octopus continues tracking them while they remain in your cluster
+- have **Orphaned** as their Sync Status (shown with the link-slash icon in the table above)
+- are summarized by a total-orphans count shown on the project's Live Status page
+- can be narrowed to by using the Live Status table's filter and selecting **Orphaned**
+
+The orphan state clears automatically on the next deployment that re-adds the resource. If you remove an orphaned object from your cluster directly (for example with `kubectl delete`), the Kubernetes monitor detects the removal and Octopus stops tracking the resource, so the orphan entry disappears from the Live Status table without any manual intervention.
+
+:::div{.info}
+Orphaned-resource tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the resource is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
+:::
 
 ### Detailed object information
 
@@ -116,6 +154,61 @@ The Kubernetes Agent has a new component called the Kubernetes monitor which als
 
 During a deployment, Octopus will capture any applied Kubernetes manifests and send them to the monitor. The monitor uses these manifests to track the deployed objects in the cluster, keeping track of their synchronization and health.
 
+### Script steps
+
+The built in Kubernetes steps will automatically report the applied manifests for deployments, however Octopus needs a bit of help when you're making changes using kubectl script steps.
+
+To notify Octopus which Kubernetes resources you want tracked, we have bash and powershell helper functions available to use. You can choose between passing the manifest as a variable, or passing the file path directly instead.
+
+Only the "Run a kubectl script" step will correctly report manifests, regular "Run a script" steps are not supported.
+
+:::div{.info}
+You still need to apply the Kubernetes manifests to your cluster. These functions only notify Octopus that you expect the resources to be created.
+:::
+
+Available in Octopus server versions:
+
+- 2025.4.10333+
+- 2026.1.4557+
+
+#### Bash
+
+```bash
+read -r -d '' manifest << EOM
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "example"
+labels:
+    name: "example"
+EOM
+
+report_kubernetes_manifest "$manifest"
+```
+
+```bash
+report_kubernetes_manifest_file "$ManifestFilePath"
+```
+
+#### Powershell
+
+```powershell
+$manifest = @"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: "example"
+labels:
+    name: "example"
+"@
+
+Report-KubernetesManifest -manifest $manifest
+```
+
+```powershell
+Report-KubernetesManifestFile -path $ManifestFilePath
+```
+
 ## User permissions
 
 Viewing the data returned from the Kubernetes monitor from within Octopus requires `DeploymentView` permissions.
@@ -145,7 +238,7 @@ The flexibility that Octopus variables provide mean that sensitive variables can
 
 ### Kubernetes secrets
 
-The well defined structure of Kubernetes secrets allow us to confidently redact secret data.
+The well-defined structure of Kubernetes secrets allow us to confidently redact secret data.
 
 To ensure that we never exfiltrate secret data that Octopus is not privy to, the Kubernetes monitor salts and hashes the secret data using sha256. By hashing secrets Octopus can tell you when something changed in your secret, but Octopus will never know what the secrets are unless you have populated them using Octopus sensitive variables.
 
@@ -168,10 +261,6 @@ This setting defaults to on for all projects, but may change in the future.
 The desired object list is compiled from objects that were applied during the last deployment. If steps are excluded during a deployment, then live status will not be shown for objects that were applied in those steps.
 
 Please avoid skipping steps that deploy Kubernetes objects.
-
-### Script steps are not supported
-
-Objects modified by script steps directly are not monitored. Support for script steps is planned for a future release.
 
 ### Runbooks are not supported
 

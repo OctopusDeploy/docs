@@ -22,6 +22,10 @@ Before you can configure a Linux Tentacle, the Linux server must meet the [requi
 
 Linux Tentacle is a .NET application distributed as a [self-contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained). On most Linux distributions it will *just work*, but be aware that [you will need to install some prerequisites](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies).
 
+### Git-based steps \{#git-based-steps}
+
+Git-based steps (steps that clone or fetch from a git repository as part of a deployment or runbook) require OpenSSL **1.1** or **3** on the host. Tentacles running with other OpenSSL versions will fail when running these steps.
+
 ## Known limitations
 
 Support for F# scripts are only available with **Mono 4** and above. While they require mono installed, they will still execute with the self-contained Calamari.
@@ -47,7 +51,6 @@ The latest release of Linux Tentacle is available for download from:
 :::div{.hint}
 Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 :::
-
 
 ### Installing Tentacle
 
@@ -113,7 +116,7 @@ Many instances of Tentacle can be configured on a single machine. To configure a
 /opt/octopus/tentacle/configure-tentacle.sh
 ```
 
-Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all of the commands listed here.
+Additional instances of Tentacle can be created and configured by passing the `--instance $instanceName` argument to all commands listed here.
 
 :::div{.warning}
 The installer script does not make any adjustments to firewalls. Be sure to check any ports specified are open on your firewalls. For example port `10933` for listening tentacles.
@@ -125,7 +128,7 @@ The installer script does not make any adjustments to firewalls. Be sure to chec
 
 Start the Tentacle interactively by running:
 
-```
+```bash
 /opt/octopus/tentacle/Tentacle run --instance <instance name>
 ```
 
@@ -133,7 +136,7 @@ Start the Tentacle interactively by running:
 
 Tentacle has command line options for configuring a systemd service:
 
-```
+```bash
 Usage: Tentacle service [<options>]
 
 Where [<options>] is any of:
@@ -161,7 +164,7 @@ Or one of the common options:
 
 To install and start Tentacle as a service, use the `Tentacle service` command:
 
-```
+```bash
  /opt/octopus/tentacle/Tentacle service --install --start
 ```
 
@@ -170,7 +173,8 @@ To install and start Tentacle as a service, use the `Tentacle service` command:
 To manually configure a systemd service, use the following sample unit file:
 
 1. Create a systemd **Unit file** to run Tentacle.
-   ```
+
+   ```bash
    [Unit]
    Description=Octopus Tentacle Server
    After=network.target
@@ -186,18 +190,21 @@ To manually configure a systemd service, use the following sample unit file:
    ```
 
 2. Copy the unit file to `/etc/systemd/system` and give it permissions
-   ```
+
+   ```bash
    sudo cp tentacle.service /etc/systemd/system/tentacle.service
    sudo chmod 644 /etc/systemd/system/tentacle.service
    ```
 
 3. Start the Tentacle service
-   ```
+
+   ```bash
    sudo systemctl start tentacle
    ```
 
 4. Use the `enable` command to ensure that the service start whenever the system boots.
-   ```
+
+   ```bash
    sudo systemctl enable tentacle
    ```
 
@@ -215,21 +222,22 @@ The upgrade is attempted in the following order:
 
 To uninstall (delete) a Tentacle instance run the `service --stop --uninstall` and then `delete-instance` commands first:
 
-```
+```bash
 /opt/octopus/tentacle/Tentacle service --instance <instance name> --stop --uninstall
 /opt/octopus/tentacle/Tentacle delete-instance --instance <instance name>
 ```
 
 The `service --stop --uninstall` command on the Tentacle will run the following commands to manage the systemd **Unit file**:
 
-```
+```bash
 sudo systemctl stop tentacle
 sudo systemctl disable tentacle
 sudo rm /etc/systemd/system/tentacle.service
 ```
 
 Then the working folders and logs can be deleted if they are no longer needed, depending on where you installed them, for instance:
-```
+
+```bash
 # default locations:
 # - installed directory:
 cd /opt/octopus/tentacle
@@ -247,13 +255,16 @@ The following bash scripts install, configure and register Linux Tentacle for us
 
 :::div{.hint}
 **Note:**
+
 - Many of the steps described below require elevated permissions, or must be run as a super user using `sudo`.
 - By default, when registering Linux Targets or Workers, the scripts below assume Octopus will communicate with the target or worker using the server hostname (from the `$HOSTNAME` variable). To provide a different address, consider looking up the hostname/IP address. For example:
 
-      ```bash
-      publicIp=$(curl -s https://ifconfig.info)
-      ```
-      You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command by providing the value to the `--publicHostName` parameter.
+```bash
+publicIp=$(curl -s https://ifconfig.info)
+```
+
+You can specify the address when using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command by providing the value to the `--publicHostName` parameter.
+
 :::
 
 <QuickstartDebian />
@@ -270,4 +281,4 @@ To harden the TLS implementation used, review our documentation on [Disabling we
 
 ## Learn more
 
-- [Linux blog posts](https://octopus.com/blog/tag/linux)
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1)

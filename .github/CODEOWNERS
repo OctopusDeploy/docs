@@ -187,17 +187,17 @@
 
 /docs/packaging-applications/index.md @OctopusDeploy/team-marketing
 
-# updates to the packaging applications create packages page are reviewed by team-server-at-scale
+# updates to the packaging applications create packages page are reviewed by team-executions-foundations
 
-/docs/packaging-applications/create-packages/index.md @OctopusDeploy/team-server-at-scale
+/docs/packaging-applications/create-packages/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the packaging applications builder servers page are reviewed by team-modern-deployments
 
 /docs/packaging-applications/build-servers/ @OctopusDeploy/team-modern-deployments
 
-# updates to the packaging applications packaging repositories page are reviewed by team-server-at-scale
+# updates to the packaging applications packaging repositories page are reviewed by team-executions-foundations
 
-/docs/packaging-applications/package-repositories/index.md @OctopusDeploy/team-server-at-scale
+/docs/packaging-applications/package-repositories/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the releases overview page are reviewed by team-marketing
 
@@ -211,13 +211,13 @@
 
 /docs/releases/channels/ @OctopusDeploy/team-modelling-at-scale
 
-# updates to the guided failures page are reviewed by team-server-at-scale
+# updates to the guided failures page are reviewed by team-executions-foundations
 
-/docs/releases/guided-failures.md @OctopusDeploy/team-server-at-scale
+/docs/releases/guided-failures.md @OctopusDeploy/team-executions-foundations
 
-# updates to the prevent release progression page are reviewed by team-server-at-scale
+# updates to the prevent release progression page are reviewed by team-executions-foundations
 
-/docs/releases/prevent-release-progression.md @OctopusDeploy/team-server-at-scale
+/docs/releases/prevent-release-progression.md @OctopusDeploy/team-executions-foundations
 
 # updates to the releases deleting releases page are reviewed by team-modelling-at-scale
 
@@ -255,13 +255,13 @@
 
 /docs/deployments/databases/ @OctopusDeploy/team-modern-deployments
 
-# updates to the deployments docker section are reviewed by team-modern-deployments
+# updates to the deployments Docker section are reviewed by team-modern-deployments
 
 /docs/deployments/docker/ @OctopusDeploy/team-modern-deployments
 
-# updates to the deployments packages page are reviewed by team-server-at-scale
+# updates to the deployments packages page are reviewed by team-executions-foundations
 
-/docs/deployments/packages/index.md @OctopusDeploy/team-server-at-scale
+/docs/deployments/packages/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the deployments custom scripts section are reviewed by team-modelling-at-scale
 
@@ -275,29 +275,29 @@
 
 /docs/runbooks/index.mdx @OctopusDeploy/team-marketing
 
-# updates to the runbooks runbooks vs deployments page are reviewed by team-server-at-scale
+# updates to the runbooks runbooks vs deployments page are reviewed by team-executions-foundations
 
-/docs/runbooks/runbooks-vs-deployments/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/runbooks-vs-deployments/index.md @OctopusDeploy/team-executions-foundations
 
-# updates to the runbooks runbook permissions page are reviewed by team-server-at-scale
+# updates to the runbooks runbook permissions page are reviewed by team-executions-foundations
 
-/docs/runbooks/runbook-permissions/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/runbook-permissions/index.md @OctopusDeploy/team-executions-foundations
 
-# updates to the runbooks runbook variables page are reviewed by team-server-at-scale
+# updates to the runbooks runbook variables page are reviewed by team-executions-foundations
 
-/docs/runbooks/runbook-variables/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/runbook-variables/index.md @OctopusDeploy/team-executions-foundations
 
-# updates to the runbooks runbook publishing page are reviewed by team-server-at-scale
+# updates to the runbooks runbook publishing page are reviewed by team-executions-foundations
 
-/docs/runbooks/runbook-publishing/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/runbook-publishing/index.md @OctopusDeploy/team-executions-foundations
 
-# updates to the runbooks scheduled runbook triggers page are reviewed by team-server-at-scale
+# updates to the runbooks scheduled runbook triggers page are reviewed by team-executions-foundations
 
-/docs/runbooks/scheduled-runbook-trigger/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/scheduled-runbook-trigger/index.md @OctopusDeploy/team-executions-foundations
 
-# updates to the runbooks scheduled runbook examples page are reviewed by team-server-at-scale
+# updates to the runbooks scheduled runbook examples page are reviewed by team-executions-foundations
 
-/docs/runbooks/runbook-examples/index.md @OctopusDeploy/team-server-at-scale
+/docs/runbooks/runbook-examples/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the tasks section are reviewed by team-backend-foundations
 
@@ -347,9 +347,9 @@
 
 /docs/octopus-rest-api/octopus.server.exe-command-line/index.md @OctopusDeploy/team-backend-foundations
 
-# updates to the octopus rest api tentacle exe command line page are reviewed by team-server-at-scale
+# updates to the octopus rest api tentacle exe command line page are reviewed by team-executions-foundations
 
-/docs/octopus-rest-api/tentacle.exe-command-line/index.md @OctopusDeploy/team-server-at-scale
+/docs/octopus-rest-api/tentacle.exe-command-line/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the calamari page are reviewed by team-modern-deployments
 
@@ -411,9 +411,9 @@
 
 /docs/security/http-security-headers.md @OctopusDeploy/team-backend-foundations
 
-# updates to the security octopus tentacle communication page are reviewed by team-server-at-scale
+# updates to the security octopus tentacle communication page are reviewed by team-executions-foundations
 
-/docs/security/octopus-tentacle-communication/index.md @OctopusDeploy/team-server-at-scale
+/docs/security/octopus-tentacle-communication/index.md @OctopusDeploy/team-executions-foundations
 
 # updates to the security authentication providers section are reviewed by team-product-growth
 
@@ -423,9 +423,9 @@
 
 /docs/security/data-encryption.md @OctopusDeploy/team-backend-foundations
 
-# updates to the security built-in worker page are reviewed by team-server-at-scale
+# updates to the security built-in worker page are reviewed by team-executions-foundations
 
-/docs/security/built-in-worker.md @OctopusDeploy/team-server-at-scale
+/docs/security/built-in-worker.md @OctopusDeploy/team-executions-foundations
 
 # updates to the users and teams page are reviewed by team-backend-foundations
 

@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus project variables list
 description: List project variables
-navOrder: 101
+navOrder: 108
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 List project variables in Octopus Deploy
 
-```
+```text
 Usage:
   octopus project variables list [flags]
 
@@ -34,10 +34,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus project variable list "Deploy Website"
-$ octopus project variable list -p "Deploy Website" --git-ref refs/heads/main
-$ octopus project variable ls
+```bash
+octopus project variable list "Deploy Website"
+octopus project variable list -p "Deploy Website" --git-ref refs/heads/main
+octopus project variable ls
 
 
 ```

@@ -18,7 +18,7 @@ In the following example, we'll use the [AWS RDS SQL Server - Restore from S3 Bu
 * An AWS Identity and Access Management (IAM) Role to access the bucket.
 * The SQLSERVER_BACKUP_RESTORE option added to an option group on the DB instance.
 
-For more information on setting up AWS RDS instances for native backup and restores, please see this [AWS knowledgebase article](https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/).
+For more information on setting up AWS RDS instances for native backup and restores, please see this [AWS knowledge base article](https://aws.amazon.com/premiumsupport/knowledge-center/native-backup-rds-sql-server/).
 
 ## Create the runbook
 
@@ -30,11 +30,11 @@ For more information on setting up AWS RDS instances for native backup and resto
 
 | Parameter  | Description | Example |
 | ------------- | ------------- | ------------- |
-| SQL Server | The SQL Server to perform the work on. | mydatabase.region.rds.amazonaws.com |
-| SQL Login | The login of the user who has permissions to create a database. | backupuser |
+| SQL Server | The SQL Server to perform the work on. | my-database.region.rds.amazonaws.com |
+| SQL Login | The login of the user who has permissions to create a database. | backup-user |
 | SQL Password | The password of the user who has permission to create SQL Logins. | MyGreatPassword! |
 | Database Name | The name of the database to restore to. | MyDatabase |
-| S3 Bucket Name | The name of the bucket (including any sub directories) where the backup is stored. | MyS3Bucket/backups/sql |
+| S3 Bucket Name | The name of the bucket (including any subdirectories) where the backup is stored. | MyS3Bucket/backups/sql |
 | Backup File Name and Extension | The name of the back up file (including the extension). | MyBackup.bak |
 
 :::div{.hint}

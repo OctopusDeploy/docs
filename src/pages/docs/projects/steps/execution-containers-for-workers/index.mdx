@@ -42,7 +42,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 ![](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-image.png)
 :::
 
-## First deployment on a docker container
+## First deployment on a Docker container
 
 :::div{.hint}
 Pre-pulling your chosen image will save you time during deployments.
@@ -50,7 +50,7 @@ Pre-pulling your chosen image will save you time during deployments.
 
 When you choose to run one or more of your deployment steps in a container, your deployment process will `docker pull` the image you provide at the start of each deployment during package acquisition.
 
-For your first deployment this may take a while since your docker image won't be cached. You can pre-pull the desired docker image on your worker before your first deployment to avoid any delays.
+For your first deployment this may take a while since your Docker image won't be cached. You can pre-pull the desired Docker image on your worker before your first deployment to avoid any delays.
 
 ## Which Docker images can I use? \{#which-image}
 
@@ -60,9 +60,9 @@ The easiest way to get started is to use the [worker-tools](#worker-tools-images
 
 When a step is configured to use an execution container, you can choose from:
 - One of the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
-- A [custom docker image](#custom-docker-images) you build. 
+- A [custom Docker image](#custom-docker-images) you build. 
 
-If you run into issues with the provided [worker-tools](#worker-tools-images) images or they don't meet your needs, you will have to create a custom image. Take a look at the [custom docker image](#custom-docker-images) section or the [blog post on extending execution containers](https://octopus.com/blog/extending-octopus-execution-container) to learn how to create a custom image.
+If you run into issues with the provided [worker-tools](#worker-tools-images) images or they don't meet your needs, you will have to create a custom image. Take a look at the [custom Docker image](#custom-docker-images) section or the [blog post on extending execution containers](https://octopus.com/blog/extending-octopus-execution-container) to learn how to create a custom image.
 
 ### The octopusdeploy/worker-tools Docker images \{#worker-tools-images} 
 
@@ -90,7 +90,7 @@ Some of the tools included are:
 - Terraform
 - Python
 
-### Custom docker images \{#custom-docker-images}
+### Custom Docker images \{#custom-docker-images}
 
 It can be beneficial to build your own custom Docker image when using execution containers, particularly when you wish the image size to be as small as possible.
 
@@ -136,7 +136,7 @@ If your chosen Docker image does not have these prerequisites, the easiest solut
 
 Microsoft also provides [base images that include these dependencies](https://hub.docker.com/r/microsoft/dotnet-runtime-deps).
 
-#### Custom docker image example
+#### Custom Docker image example
 
 The following example is a basic Docker file that (when built) can run Calamari and PowerShell scripts:
 
@@ -154,7 +154,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Powershell core
+# PowerShell Core
 # https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-2004
 RUN curl -LO -k "https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb" && \
     dpkg -i packages-microsoft-prod.deb && \
@@ -167,7 +167,7 @@ RUN curl -LO -k "https://packages.microsoft.com/config/ubuntu/20.04/packages-mic
     rm -f packages-microsoft-prod.deb
 ```
 
-To learn more about creating a custom docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
+To learn more about creating a custom Docker image, we have a [detailed blog post](https://octopus.com/blog/extending-octopus-execution-container) that describes how to get started and the minimum set of dependencies you would need.
 
 #### Inline execution containers
 
@@ -175,7 +175,7 @@ To learn more about creating a custom docker image, we have a [detailed blog pos
 Support for inline execution containers requires Octopus version 2024.1
 :::
 
-To improve the experience of using custom docker images on steps in Octopus we're expanding our execution containers feature to include options to provide the Dockerfile from a [Git URL](#docker-image-from-git-url) or an [Inline Dockerfile](#docker-image-from-inline-dockerfile) that will be built and used as the container that the step is executed on.
+To improve the experience of using custom Docker images on steps in Octopus we're expanding our execution containers feature to include options to provide the Dockerfile from a [Git URL](#docker-image-from-git-url) or an [Inline Dockerfile](#docker-image-from-inline-dockerfile) that will be built and used as the container that the step is executed on.
 
 This will make it easier and quicker to iterate on building a Docker image best suited to different scenarios.
 

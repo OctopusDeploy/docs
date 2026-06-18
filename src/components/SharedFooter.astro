@@ -1,0 +1,29 @@
+---
+import { fetchFooter } from '../lib/sharedNavbarFooter';
+import { splitFooterAtMarketoPlaceholder } from '../lib/footerSplitter';
+import MarketoForm from './MarketoForm.astro';
+
+const footer = await fetchFooter();
+const parts = splitFooterAtMarketoPlaceholder(footer.html);
+---
+
+<div
+  data-shared-source={footer.source}
+  data-shared-fragment="footer"
+  data-shared-note={footer.note}
+>
+  {
+    parts.map((part) =>
+      part.kind === 'html' ? (
+        <Fragment set:html={part.html} />
+      ) : (
+        <div class="mktoFormWrapper">
+          <MarketoForm
+            formId={part.formId}
+            dreamdataTrackingId={part.dreamdataTrackingId}
+          />
+        </div>
+      )
+    )
+  }
+</div>

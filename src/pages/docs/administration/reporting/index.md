@@ -10,7 +10,7 @@ navOrder: 80
 
 The reporting feature makes it easy to produce reports over your deployment history, using your preferred reporting tools.
 
-Currently Octopus doesn't display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favorite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
+Octopus doesn't currently display this reporting data in the user interface anywhere, but we do expose raw data that you can query or consume in your favorite reporting tools. Hopefully, you'll be able to import this data, combine it with data from other sources, and slice and dice it in ways that make the most sense to you.
 
 Raw data is provided in two ways:
 
@@ -27,4 +27,4 @@ If you're using Octopus Cloud, you'll only be able to work with the API for your
 
 ## Learn more
 
-- [Reporting blog posts](https://octopus.com/blog/tag/reporting)
+- [Reporting blog posts](https://octopus.com/blog/tag/reporting/1)

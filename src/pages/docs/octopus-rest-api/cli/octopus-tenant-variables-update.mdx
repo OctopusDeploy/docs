@@ -1,16 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-07
+modDate: 2026-04-19
 title: octopus tenant variables update
 description: Update the value of a tenant variable
-navOrder: 145
+navOrder: 152
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
 Update the value of a tenant variable in Octopus Deploy
 
-```
+```text
 Usage:
   octopus tenant variables update [flags]
 
@@ -35,10 +35,10 @@ Global Flags:
 
 <SamplesInstance />
 
-```
-$ octopus tenant variables update
-$ octopus tenant variables update --tenant "Bobs Fish Shack" --name "site-name" --value "Bob's Fish Shack" --project "Awesome Web Site" --environment "Test"
-$ octopus tenant variables update --tenant "Sally's Tackle Truck" --name dbPassword --value "12345" --library-variable-set "Shared Variables"
+```bash
+octopus tenant variables update
+octopus tenant variables update --tenant "Bobs Fish Shack" --name "site-name" --value "Bob's Fish Shack" --project "Awesome Web Site" --environment "Test"
+octopus tenant variables update --tenant "Sally's Tackle Truck" --name dbPassword --value "12345" --library-variable-set "Shared Variables"
 
 
 ```

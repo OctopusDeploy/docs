@@ -32,9 +32,9 @@ If you want to have a project per component, you need to ensure each component i
 Previous versions of this guide recommended having a project per component.  Octopus Deploy now includes new features, including ITSM integration, Config as Code, and more options for variable run conditions.  There is also a logistical overhead with a project per component.  That recommendation was made in 2021.  At that time, a project per component made sense.  It is no longer applicable with the 2023 version of Octopus Deploy.
 :::
 
-## Anti-patterns to avoid
+## Antipatterns to avoid
 
-A project should deploy all the coupled components of an application (WebUI, WebAPI, Service, Database).  Some common anti-patterns we've seen you should avoid are:
+A project should deploy all the coupled components of an application (WebUI, WebAPI, Service, Database).  Some common antipatterns we've seen you should avoid are:
 
 - A project per component in an application.  If the components are referenced in the same "solution" or built in the same build configuration, they need to be deployed together.
 - A project per application, per environment, such as `OctoPetShop_Dev`, `OctoPetShop_Test`, and so on.  That is impossible to maintain and track versions.

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-03-14
-modDate: 2024-09-17
+modDate: 2026-05-22
 title: GitHub integration 
 description: Octopus Deploy GitHub integration
 icon: fa-brands fa-github
@@ -10,16 +10,38 @@ navOrder: 30
 
 The Octopus Deploy GitHub App provides seamless integration between Octopus Deploy and GitHub.
 
-:::div{.hint}
-The Octopus Deploy GitHub App is only supported on Octopus Cloud instances. 
-:::
-
-To get started, go to the GitHub Connections page in the Deploy -> Manage section of your Octopus cloud instance, and follow the prompts.
+To get started, go to the GitHub Connections page in the Deploy -> Manage section of your Octopus cloud instance.
 
 ## GitHub App Connections
+
 GitHub Connections is the recommended way to connect Octopus to your GitHub accounts (organizations or users). It provides seamless and secure connection via the Octopus GitHub App, without using personal access tokens.
 
+### Installing and authorizing the Octopus GitHub App
+
+You install the Octopus GitHub App on an account (organization or user) to give it access to the repositories or other content within that account. Authorizing gives the Octopus GitHub App permission to act on your behalf in any account that has the app installed.
+
+:::figure
+![Screenshot of GitHub Connections screen showing the Authorize Octopus Deploy GitHub App button](/docs/img/api-and-integration/github/github-connections-authorize-app.png)
+:::
+
+Selecting authorize will take you to GitHub to complete the installation and authorization process.
+
+#### Self-hosted instances
+
+Self-hosted instances have an extra step in the authorization flow compared to Octopus Cloud instances. After authorizing on GitHub, our intermediary GitHub Web App will provide you with an access code. Copy this code, and paste it into the field shown in your Octopus instance to complete the connection.
+
+If your instance is on a **private or isolated network** that is not accessible from the internet, you will also need to configure [external signing key hosting](/docs/infrastructure/signing-keys#externally-hosted) before connecting. The Octopus GitHub service verifies your instance's identity by fetching its public signing key from your OIDC discovery endpoint — if your instance isn't reachable from the internet, you need to host those keys at a publicly accessible location first.
+
+#### More information on installing and authorizing the Octopus GitHub App
+
+Installing and authorizing are both GitHub concepts. If you want to find out more about what installing and authorizing GitHub App and how to manage these installation and authorizations, refer to the GitHub documentation:
+
+- [GitHub Apps documentation](https://docs.github.com/en/apps/using-github-apps/about-using-github-apps)
+- [Installing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party)
+- [Authorizing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps)
+
 ### Connecting a GitHub account
+
 Before you can use an GitHub account in Octopus Deploy, you need to connect the account to the Space.
 
 :::figure
@@ -31,20 +53,23 @@ To connect a new account, select any currently disconnected account to go to the
 If you don't see an account that you're expecting in this list, the app probably hasn't been installed (Octopus cannot see an account that have the app installed). To install the Octopus GitHub App in a new account, select the link at the bottom of the screen to go to GitHub and complete the installation process.
 
 ### Editing GitHub Connections
+
 When you first open the GitHub connection page, you will be in view mode. This will show the connection details and the currently connected repositories. To edit the connection, click the edit button at the top of the screen. This will put the connection in edit mode, and load the GitHub repositories that you are able to connect.
 
-You will not be able to save the connection unless you have at least 1 repository selected. To remove all of the repositories, disconnect the account completely using the Disconnect button in the overflow menu.
+You will not be able to save the connection unless you have at least 1 repository selected. To remove all repositories, disconnect the account completely using the Disconnect button in the overflow menu.
 
 :::figure
 ![Screenshot of Octopus Deploy GitHub Connections screen showing OctopusPetShop connection with overflow menu expanded showing disconnect button](/docs/img/api-and-integration/github/github-connection-disconnect.png)
 :::
 
 ### Selecting repositories on the GitHub Connection
+
 Each GitHub Connection defines its own set of repositories (this is on top of the list of repositories configured on the installation in GitHub).
 
 GitHub accounts can only have a single GitHub App installation, so this installation is shared by all Octopus instances connected to that account. By requiring repositories are set for each connection as well, you are able to fine-tune the GitHub resources that each connection in each Space can access. If you ever add more repositories to the installation in GitHub, you can be confident that any existing connections cannot access this repository until you explicitly add it to those connections. This does add an extra step every time you want to add a new repository, but we believe this is worth it for the extra security this provides.
 
 #### If you can't see a repository
+
 Octopus can only see repositories that are available to the app installation and the current user. If you can't see a repository that you expect to see on this screen, it may not be accessible to either you or the installation. To configure more repositories on a connection, follow the link at the bottom of the repository selection screen to configure more repositories on GitHub.
 
 :::figure
@@ -52,20 +77,51 @@ Octopus can only see repositories that are available to the app installation and
 :::
 
 #### Only repository administrators can connect repositories
+
 To connect a repository, you must be an administrator of the repository on GitHub. If you're not an administrator (but can view the repository), you will still see the repository in the list, but will not be able to select it.
 
+### Recovering a GitHub App connection
+
+Octopus can help you recover your GitHub App connection automatically if you lose the connection in the following cases:
+
+- Disconnecting the GitHub App
+- The registration is broken (for example, your instance URL was changed)
+- The app was uninstalled on GitHub
+- The app was suspended on GitHub
+
+Simply follow the on-screen prompts to reconnect the account and select the same repositories as before.
+
 ## Using GitHub App Connections
-You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for using Personal Access Tokens to connect to GitHub repositories, and allows users to commit as their GitHub users (rather than using a shared account).
 
-## More information on installing and authorizing the Octopus GitHub App
-You install the Octopus GitHub App on an account (organization or user) to give the repositories or other content within that account. Authorizing gives the Octopus GitHub App permission to act on your behalf in any account that has the app installed.
+You can currently use GitHub App Connections to connect to Configuration as Code projects. This removes the need for Personal Access Tokens (PAT) to connect to GitHub repositories, and lets users commit as their GitHub users (rather than using a single shared account, as PATs lead you to do).
 
-Installing and authorizing are both GitHub concepts. If you want to find out more about what installing and authorizing GitHub App and how to manage these installation and authorizations, refer to the GitHub documentation:
+You can also define GitHub Connections in [Platform Hub](/docs/platform-hub). GitHub Connections defined in Platform Hub can only be used to configure Platform Hub's version control settings and can't be used in spaces.
 
-- [GitHub Apps documentation](https://docs.github.com/en/apps/using-github-apps/about-using-github-apps)
-- [Installing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party)
-- [Authorizing GitHub apps documentation](https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps)
+## Requested Permissions
+
+There are specific GitHub permissions that the Octopus GitHub App requests in order to perform its tasks.
+
+- **Repository Permissions**
+  - **Contents: Read and Write** Allows Octopus to access the files in the approved repositories for usage such as [Config As Code](https://octopus.com/docs/projects/version-control) projects, [Git Resources in deployments](https://octopus.com/blog/git-resources-in-deployments) or during some steps such as [Argo CD](https://octopus.com/docs/argo-cd).
+  - **Metadata: Read-only** Default permission required by all GitHub Apps in to load basic repository information.
+  - **Pull Requests: Read and Write** Used by Octopus when executing some steps, for example supporting pull requests for Argo CD deployments.
+- **Account Permissions**
+  - **Email addresses (Read-only):** Required so that Octopus can attempt to obtain the correct email address used when committing the author information to a commit.
+
+Whenever possible, Octopus uses a token scoped down to minimal permissions in accordance with the principle of least privilege.
+
+## GitHub Allow List
+
+The Octopus Deploy GitHub App can be used with the GitHub's allow list feature. To include the app in your allow list manually add the IP Address `172.182.208.68`. Information about adding IP addresses to GitHub's allow list can be found in [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#adding-an-allowed-ip-address)
+
+:::div{.hint}
+**Note:**
+In order to use Octopus Deploy with GitHub allow lists, the IP address of your Octopus Deploy instance and any workers that require GitHub access will also need to be added. If you are using an Octopus Cloud instance of Octopus Deploy you can obtain your [static IP](/docs/octopus-cloud/static-ip) via the Control Center.
+:::
+
+Due to a limitation in the way that GitHub supports inheritance of IP addresses when performing actions on behalf of a user, the IP address for the GitHub App needs to be configured manually and cannot be inherited from the app settings. For more information please refer to [GitHub's Documentation](https://docs.github.com/en/enterprise-cloud@latest/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app#about-ip-address-allow-lists-for-github-apps)
 
 ## Older versions
 
 - Prior to version 2024.3.12703 when the new UI navigation was introduced, the GitHub Connections page is located in the Library section of Octopus.
+- The Octopus GitHub App for self-hosted instances is only available from Octopus **2026.2** onwards.

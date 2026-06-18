@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
-title: Migration
-description: How to migrate from an Octopus Server instance running on Windows Server or in a Windows Container to one running in a Linux Container.
+title: Migrate Octopus Server to a Linux Container
+description: Move your Octopus Server instance from Windows Server or a Windows container to the Linux container image. Choose the migration path for your current setup.
 navOrder: 90
 hideInThisSectionHeader: true
 ---

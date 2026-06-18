@@ -1,0 +1,31 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2025-12-02
+modDate: 2025-12-02
+title: System for Cross-domain Identity Management (SCIM)
+description: Octopus Deploy supports SCIM for user and group provisioning
+navTitle: General
+navSection: SCIM
+navOrder: 34
+---
+
+[System for Cross-domain Identity Management](https://scim.cloud) is a standards-based approach used to allow identity providers to create, update and delete users and groups in other applications via an API. This makes it easier to provision and revoke user access to applications directly from the identity provider, as well as reduce the work involved in updating user details shared across systems, like names and email addresses.
+
+Octopus Deploy currently supports SCIM 2 as an Early Access feature of the Azure AD authentication provider.
+
+## Benefits of SCIM
+
+- **Automated provisioning**: Users and groups are automatically created in Octopus Deploy when they're added to your identity provider.
+- **Automated deprovisioning**: Users are automatically deactivated in Octopus Deploy when they're removed from your identity provider.
+- **Synchronized updates**: User details like names and email addresses are automatically updated in Octopus Deploy when changed in your identity provider.
+- **Single source of truth**: Your identity provider becomes the authoritative source for user and group management.
+
+## Supported identity providers
+
+- [Microsoft Entra ID](/docs/security/authentication/scim/configuring-microsoft-entra)
+
+## Requirements
+
+- An Octopus Deploy license that includes the SCIM feature, such as an Enterprise license.
+- A configured authentication provider that supports SCIM.
+- Network access to allow inbound HTTPS API requests from your identity provider to Octopus Deploy.

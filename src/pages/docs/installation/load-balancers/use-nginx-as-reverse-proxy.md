@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Use NGINX as a reverse proxy for Octopus Deploy
-description: How to set up NGINX as a Reverse Proxy for Octopus Deploy
+modDate: 2025-12-08
+title: NGINX as a reverse proxy for Octopus Deploy
+description: Run Octopus Deploy behind an NGINX reverse proxy to add SSL termination or custom HTTP response headers. Follow the configuration guide to get set up.
 navOrder: 10
 ---
 
@@ -13,7 +13,6 @@ This example assumes:
 
 - NGINX will terminate your SSL connections.
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles) are not required.
-- [Kubernetes monitors](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required.
 
 Our starting configuration:
 
@@ -29,6 +28,7 @@ At the end of this walk-through, you should be able to:
 Unlike a web server such as Microsoft's Internet Information Services (IIS), NGINX doesn't have a user interface.  All configuration in NGINX is done via a configuration file such as the `nginx.conf` file.  An SSL certificate doesn't have to be "installed" in a certificate store.  They are placed in a folder, and the configuration file references them.  See [NGINX's documentation](https://docs.nginx.com/nginx/admin-guide/) for more details.
 
 ## NGINX hosted on a server
+
 Follow these steps if you're running NGINX directly on a server, such as Windows or Linux.
 
 The first step is to copy the SSL certificate to a folder NGINX can access, for example, `/etc/nginx`.  This example will use two files, `STAR_octopusdemos.app.pem` and `STAR_octopusdemos.app.key`.  The .pem file contains the entire certificate chain.  
@@ -41,7 +41,7 @@ The next step is to modify the configuration file.  The file to edit depends on 
 
 Below is an example reverse proxy configuration:
 
-```
+```nginx
 upstream octopusdeploy {
    server servername:8080;               
 }
@@ -60,11 +60,56 @@ server {
 }
 ```
 
+### gRPC Communications
+
+Octopus generates a self signed certificate for gRPC communications. When the a gRPC client needs to connect to Octopus via a load balancer, there are two common methods to achieve this.
+
+#### TLS/SSL Bridging
+
+`grpc_ssl_verify off` allows us to use a self signed certificate outside of the CA chain of trust.
+
+The `ssl_certificate` refers to your CA certificate used for the HTTPS configuration.
+
+```nginx
+upstream octopusdeploy_grpc {
+    server servername:8443;
+}
+
+server {
+    listen 8443 ssl http2;
+
+    ssl_certificate     /etc/nginx/ssl/octopusdeploy.pem;
+    ssl_certificate_key /etc/nginx/ssl/octopusdeploy.key;
+
+    location / {
+        proxy_set_header Host $host;
+        grpc_pass grpcs://octopusdeploy_grpc;
+        grpc_ssl_verify off;
+    }
+}
+```
+
+#### TLS/SSL Passthrough
+
+```nginx
+stream {
+    upstream octopusdeploy_grpc {
+        server OctopusServer1:8443;
+        server OctopusServer2:8443;
+    }
+
+    server {
+        listen 8443;
+        proxy_pass octopusdeploy_grpc;
+    }
+}
+```
+
 ## NGINX hosted in a Docker Container
 
 NGINX 1.19 added support for environment variables.  Instead of modifying the `nginx.conf` file, you'll create a `default.conf.template` file.  The environment variable is `${OCTOPUS_SERVER}`.  That value will be replaced when the Docker container starts up.
 
-```
+```nginx
 upstream octopusdeploy {
     server ${OCTOPUS_SERVER};    
 }
@@ -86,7 +131,7 @@ server {
 
 The Dockerfile will copy that template file to `/etc/nginx/templates/default.conf.template` and copy in the certificate and key files.  
 
-```
+```dockerfile
 FROM nginx:latest
 
 ENV OCTOPUS_SERVER servername:8080
@@ -98,21 +143,23 @@ COPY ./STAR_octopusdemos_app.pem /etc/nginx/STAR_octopusdemos_app.pem
 
 Build the Docker image like any other Docker image.  The `-t` parameter tags the image to make it easier to reference.  Replace `octopusbob` with the name of your repository.
 
-```
+```bash
 docker build -t octopusbob/nginx:1.0.0 -t octopusbob/nginx:latest .
 ```
 
 ### Running the NGINX Container
-Then you can run the docker image in a container by running the command.  
 
-```
+Then you can run the Docker image in a container by running the command.  
+
+```bash
 docker run --name octopus-reverse-proxy -p 443:443 -e OCTOPUS_SERVER=servername:8080 octopusbob/nginx:latest
 ```
 
 ### Referencing the NGINX Container in Docker Compose
+
 If you prefer, you can run the image via a docker-compose file.
 
-```
+```yaml
 version: '3'
 services:  
   db:
@@ -160,7 +207,8 @@ services:
 ```
 
 The .env file will look something like this:
-```
+
+```ini
 # It is highly recommended this value is changed as it's the password used for the database user.
 SA_PASSWORD=REPLACE ME!
 
@@ -209,11 +257,12 @@ ADMIN_API_KEY=
 # Sets the task cap for this node. If not specified the default is 5.
 TASK_CAP=20
 ```
+
 ## NGINX as a Load Balancer
 
 NGINX can be used as a load balancer for Octopus Deploy configured for [High Availability](/docs/administration/high-availability).  To do so, add all the HA nodes to this section.
 
-```
+```nginx
 upstream octopusdeploy {
    server servername:8080;               
    server servername02:8080;               
@@ -222,7 +271,7 @@ upstream octopusdeploy {
 
 The full file will look like:
 
-```
+```nginx
 http {
     upstream octopusdeploy {
         server servername:8080;
@@ -244,4 +293,4 @@ http {
 }
 ```
 
-By default, NGINX uses round robin.  The Octopus Deploy UI is stateless; round robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.
+By default, NGINX uses round-robin.  The Octopus Deploy UI is stateless; round-robin should work without issues.  Another option is the least connections, where the server routes the request with the least amount of active connections.  See the [NGINX documentation](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#choosing-a-load-balancing-method) for more details on load balancing.

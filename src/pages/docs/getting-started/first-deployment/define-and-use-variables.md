@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-11-13
-title: Define and use variables
-description: This tutorial will walk you through defining and using variables in an Octopus Deploy deployment.
+title: Define and use variables in Octopus Deploy
+description: Add variables to your Octopus Deploy project to make deployments flexible. Define variable values per environment and reference them in your deployment steps.
 navOrder: 50
 hideInThisSection: true
 ---
@@ -15,7 +15,7 @@ Octopus lets you define variables and scope them for use in different phases of 
 1. From the *Hello world* project you created earlier, click **Project Variables** in the left menu.
 2. Click **Create Variables**.
 3. Add `Helloworld.Greeting` in the **Name** column,
-4. Add `Hello, Development` in the **Value** column, 
+4. Add `Hello, Development` in the **Value** column,
 5. Click the **Scope** column and select the `Development` environment.
 6. Click **Add another value**.
 7. Add `Hello, Staging` and scope it to the `Staging` environment.
@@ -34,32 +34,32 @@ Steps in the deployment process can reference variables.
 1. Click **Process** in the left menu.
 2. Select the previously created **Run a Script** step.
 
-### Inline Source Code
+    **Inline Source Code**
 
 3. Based on your selected language, copy the appropriate script from below.
 4. Replace the script in the code editor with the new script.
 
-<details data-group="getting-started-first-deployment-define-and-use-variables">
-<summary>PowerShell</summary>
+    <details data-group="getting-started-first-deployment-define-and-use-variables">
+    <summary>PowerShell</summary>
 
-```powershell
-Write-Host $OctopusParameters["Helloworld.Greeting"]
-```
+    ```powershell
+    Write-Host $OctopusParameters["Helloworld.Greeting"]
+    ```
 
-</details>
-<details data-group="getting-started-first-deployment-define-and-use-variables">
-<summary>Bash</summary>
+    </details>
+    <details data-group="getting-started-first-deployment-define-and-use-variables">
+    <summary>Bash</summary>
 
-```bash
-greeting=$(get_octopusvariable "Helloworld.Greeting")
-echo $greeting
-```
+    ```bash
+    greeting=$(get_octopusvariable "Helloworld.Greeting")
+    echo $greeting
+    ```
 
-</details>
+    </details>
 
-:::div{.hint}
-If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
-:::
+    :::div{.hint}
+    If you are using Octopus Cloud, Bash scripts require you to select the **Hosted Ubuntu** worker pool.  The **Default Worker Pool** is running Windows and doesn't have Bash installed.
+    :::
 
 5. Click **Save**
 6. Click **Create Release**.
@@ -67,14 +67,14 @@ If you are using Octopus Cloud, Bash scripts require you to select the **Hosted 
 :::div{.hint}
 A release snapshots everything about your project, including variables and the deployment process. You have to create a new release to see any changes.
 :::
- 
+
 As you promote through the environments, you will see the greeting change.
 
 :::figure
 ![The results of the hello world deployment with variables](/docs/img/getting-started/first-deployment/images/environment-variables.png)
 :::
 
-Great job! Next, let's build on your deployment process and [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions). 
+Great job! Next, let's build on your deployment process and [add an approval process using manual interventions](/docs/getting-started/first-deployment/approvals-with-manual-interventions).
 
 ### All guides in this tutorial series
 

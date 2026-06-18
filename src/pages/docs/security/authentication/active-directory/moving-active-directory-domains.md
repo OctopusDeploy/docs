@@ -15,9 +15,9 @@ We assume your Octopus Server and users are currently in the same domain - `Doma
 
 1.  Update your infrastructure to move the server from one domain (`Domain A`) to another (`Domain B`).
 2.  Ensure that `Domain B` trusts `Domain A`.  This can be either one way trust where `Domain B` trusts `Domain A` or two-way trust where `Domain B` trusts `Domain A` and `Domain A` trusts `Domain B`.  This is largely a decision you and your infrastructure personnel need to decide.  
-3.  Update your Octopus Server windows service account if desired.
+3.  Update your Octopus Server Windows service account if desired.
 
-If needed, you can update the account the Octopus Server windows service is running under.  If you select an account from `Domain B` then you need to ensure that there is a two-way trust relationship in place.  If you do change the account, then you need to ensure that your Octopus Sql Server database grants this user access to the database as a `db_owner`.
+If needed, you can update the account the Octopus Server Windows service is running under.  If you select an account from `Domain B` then you need to ensure that there is a two-way trust relationship in place.  If you do change the account, then you need to ensure that your Octopus Sql Server database grants this user access to the database as a `db_owner`.
 
 ---
 

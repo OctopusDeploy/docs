@@ -22,7 +22,7 @@ Don't use the Tentacles on your web or application servers.  A recommended secur
 We recommend using [Workers](/docs/infrastructure/workers) to handle all of your database deployments.  Workers have several advantages:
 
 1. You can run multiple deployments on them at the same time.
-2. You can place multiple VMs into a worker pool.  If a VM goes down during a deployment, another VM would step in and take it's place.
+2. You can place multiple VMs into a worker pool.  If a VM goes down during a deployment, another VM would step in and take its place.
 
 :::figure
 ![](/docs/img/deployments/databases/configuration/images/standard-database-worker-pool.png)

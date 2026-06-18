@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-26
+modDate: 2025-03-04
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
 icon: fa-regular fa-file-code
@@ -72,11 +72,11 @@ The default AWS region in which to execute AWS CLI commands is defined in the `R
 
 ## Script section
 
-PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path, as well as having the AWS PowerShell modules if they are present on the worker. In addition the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured to authenticate you with AWS. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus Server) was used.
+PowerShell scripts run by the `Run an AWS CLI Script` step have access to the AWS CLI executable `aws.exe` on the path, as well as having the AWS PowerShell modules if they are present on the worker. Additionally, the environment variables `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION` are configured to authenticate you with AWS. The `AWS_SESSION_TOKEN` environment variable is also configured if the script was run against an assumed role, or if the AWS service role for the EC2 instance running the script (i.e. the Octopus Server) was used.
 
 This means you can run scripts using a mix of the AWS CLI and PowerShell commands:
 
-```
+```powershell
 # This will write out information on the Get-AWSPowerShellVersion CmdLet.
 get-command Get-AWSPowerShellVersion | fl *
 
@@ -84,7 +84,7 @@ Write-Host "Get caller identity with the AWS CLI"
 Write-Host "aws sts get-caller-identity"
 aws sts get-caller-identity
 
-Write-Host "Get the version of the Powershell module"
+Write-Host "Get the version of the PowerShell module"
 Write-Host "Get-AWSPowerShellVersion"
 Get-AWSPowerShellVersion
 
@@ -123,10 +123,14 @@ The third option is to run a script from a package. This is done by selecting th
 
 Octopus Cloud uses a special type of worker pool called a [Dynamic Worker Pool](/docs/infrastructure/workers/dynamic-worker-pools). Octopus provides these, and you cannot easily install custom versions of the AWS tools on them.
 
-To use your own version of the AWS CLI or AWS Powershell cmdlets when using Dynamic Worker Pools, please do the following:
+To use your own version of the AWS CLI or AWS PowerShell cmdlets when using Dynamic Worker Pools, please do the following:
 
 - Configure your step to use a Dynamic Worker pool that supports [execution containers](/docs/projects/steps/execution-containers-for-workers).
-- Configure your step to run in an execution container with a [compatible docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS Powershell cmdlets that you would like to use.
+- Configure your step to run in an execution container with a [compatible Docker image](/docs/projects/steps/execution-containers-for-workers/#which-image) that contains the versions of the AWS CLI or AWS PowerShell cmdlets that you would like to use.
+
+## EC2 workers and execution containers
+
+If the worker is an EC2 instance and you configure your step to run inside a container on that worker, you must configure the EC2 instance's HTTP PUT response hop limit to 2. This is required because accessing the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) (IMDS) from within a container adds an additional network hop. You can configure this using the [modify-instance-metadata-options](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-metadata-options.html) AWS CLI command.
 
 ## Older versions
 

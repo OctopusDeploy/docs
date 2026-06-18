@@ -1,30 +1,7 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
-import { Lang } from '@util/Languages';
-import { getNavigationItems } from '@util/getNavigationItems';
-import NavigationItem from '@components/NavigationItem.astro';
-import { SITE } from '@config';
+// Drawer body is populated client-side by nav-mobile.js cloning #site-nav.
 import SunIcon from '../../public/docs/img/SunIcon.astro';
 import MoonIcon from '../../public/docs/img/MoonIcon.astro';
-
-const accelerator = new Accelerator(SITE);
-const stats = new accelerator.statistics('components/Hamburger.astro');
-stats.start();
-
-// Properties
-type Props = {
-  lang: string;
-};
-const { lang } = Astro.props satisfies Props;
-
-// Language
-const _ = Lang(lang);
-
-// Logic
-const currentUrl = new URL(Astro.request.url);
-const pages = await getNavigationItems(currentUrl, lang);
-
-stats.stop();
 ---
 
 <div
@@ -76,8 +53,6 @@ stats.stop();
         </span>
       </label>
     </div>
-    <ul class="site-nav__list" data-mobile-menu-list>
-      {pages.map((page) => <NavigationItem lang={lang} page={page} />)}
-    </ul>
+    <ul class="site-nav__list" data-mobile-menu-list></ul>
   </div>
 </div>

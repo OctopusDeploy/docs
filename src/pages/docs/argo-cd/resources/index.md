@@ -1,43 +1,27 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-03-04
 title: Supported Use Cases
-description: Octopus Deploy can help you manage your Argo CD applications navigate lifecycle promotion
+description: Supported Argo CD Application configurations and constraints for use with Octopus
 navTitle: Supported Use Cases
 navSection: Resources
 navOrder: 30
 ---
-Initially setting up Octopus to interact with your Argo CD instance(s) can be complex, and the best way to accomplish
-your desired outcomes may not be immediate obvious.
+The Octopus and Argo CD integration supports a variety of application configurations. This page covers how each step behaves for different application shapes, and any constraints to be aware of.
 
-The following explores how best to use Octopus for various Argo CD Application shapes.
+## Constraints
 
-## Global Constraints
-There are a number of use cases which Octopus _cannot_ support due to data access.
+- Octopus updates content in the repositories referenced by your application. It does not update pinned `TargetRevisions` in your `Application.yaml`.
+  - If your application specifies a constant `TargetRevision`, Octopus treats it as a branch and will fail to push back to your repository.
+- Helm sources that directly reference a chart from a Helm repository or OCI feed are read-only and can't be updated by Octopus.
+  - If your application is represented as a Helm chart *in a directory*, Octopus can update the directory content in the application's repository.
+- Pull requests can be created for GitHub, GitLab, and Azure DevOps hosted repositories (e.g. \*.github.com, \*.gitlab.com).
+  - Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+- Multiple source applications require Argo CD 2.14.0 or above (corresponding to the introduction of named sources in Argo CD).
+  - Single source applications are supported in all versions of Argo CD.
 
-* Octopus will not update "pinned" `TargetRevisions` in your `Application.yaml` - Octopus will _only_ update content in the repositories referenced by your application
-    * If your application specifies a constant `TargetRevision`, Octopus will treat it as a branch - and fail to push back to your repository.
-* Octopus cannot update the content of Helm Sources as they typically references a chart from a Helm Repository or OCI feed which is static content.
-    * However, if your application is represented as a helm chart _in a directory_, Octopus can interact with the directory content via the applications repository
-* Octopus can currently only create Pull Requests for GitHub-based repositories. Please [let us know](https://oc.to/roadmap-argo-cd) which other providers you would like to see supported.
+For details on how each step behaves, see:
 
-
-## Update Argo Manifest Step
-| Argo Source Type | Repository Content | Behavior                                                                                  |
-|------------------|--------------------|-------------------------------------------------------------------------------------------|
-| Directory        | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Directory        | Kubernetes Yaml    | &#x2705; Will successfully inject Octopus variables to the yaml                           |
-| Directory        | Helm Chart         | &#x2705; Will successfully inject variables to any file in the repository's path          |
- | Directory | Kustomize |  &#x2705; Will successfully inject variables to any file in the repository's path |
-| Multiple Source  | Any                | &#x274C; Not currently supported - work coming to update specifically referenced sources  |
-| Helm             | Helm Chart         | &#x274C; Not currently supported - work coming to update *referenced* `values.yaml` files |
-
-## Update Argo Image Tags
-| Argo Source Type     | Repository Content                 | Behavior                                                                                                 |
-|----------------------|------------------------------------|----------------------------------------------------------------------------------------------------------|
-| Directory            | Kubernetes Yaml                    | &#x2705; Will update image-tag fields without requiring additional annotations                           |
-| Directory | Kustomize | &#x2705; Will replace image tag values in the kustomize file |
-| Directory            | Helm Chart w/internal values.yaml  | &#x2705; Will update image-tag fields, requires helm-annotations to identify image-fields in values file |
-| Multiple Directories | Helm Char w/referenced values.yaml | &#x2705; Will update image-tag fields, requires multiple helm annotations                                |
-
+- [Update Argo CD Application Image Tags](/docs/argo-cd/steps/update-application-image-tags)
+- [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests)

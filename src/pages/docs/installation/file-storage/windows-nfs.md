@@ -2,14 +2,14 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Windows NFS File Storage
-description: Guidelines and recommendations for configuring NFS File Storage with Octopus Deploy.
+title: Windows NFS file storage for Octopus Deploy
+description: Configure a Windows NFS share for Octopus Deploy file storage across nodes. Review prerequisites, share setup steps, and how to connect your Octopus instance.
 navOrder: 80
 hideInThisSection: true
 ---
 Follow the steps below to configure NFS on a Windows Server for Octopus Deploy to use.
 
-1. Install NFS on the Windows VM 
+1. Install NFS on the Windows VM
 
    On the Windows VM, open PowerShell as an administrator, and install the NFS client:
 
@@ -31,6 +31,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
    New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default" `
     -Name "AnonymousGid" -Value "0" -PropertyType DWORD
    ```
+
 3. Restart the NFS client service
 
    ```cmd
@@ -38,6 +39,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
 
    nfsadmin client start
    ```
+
 4. Create a batch file (`.bat` or `.cmd`) to mount the NFS share.
 
    ```cmd
@@ -51,8 +53,8 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
    - `share-name` with the Filestore instance share name
 
 5. Create a Windows Scheduled Task to run at system startup to mount the NFS share using the batch file.
-      
-   Below is an example scheduled task for mounting an NFS volume. Remember to substitute `C:\OctoHA\MountNfsShare.cmd` with the path to your batch file and ensure the task is set to run as `LocalSystem`. 
+
+   Below is an example scheduled task for mounting an NFS volume. Remember to substitute `C:\OctoHA\MountNfsShare.cmd` with the path to your batch file and ensure the task is set to run as `LocalSystem`.
 
    ```xml
    <?xml version="1.0" encoding="UTF-16"?>
@@ -99,12 +101,13 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
      </Actions>
    </Task>
    ```
-   
+
    You can add multiple Actions to a Scheduled task. If you want to be sure the NFS share is mounted *before* the Octopus Service is started, you can set the service **Startup Type** to `Manual`, and add the following command to run *after* the NFS share is mounted:
 
    ```cmd Command-line
    C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe" checkservices --instances OctopusServer
    ```
+
    ```xml Scheduled Task XML Snippet
    <Exec>
      <Command>"C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe"</Command>
@@ -112,6 +115,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
    </Exec>
 
    ```
+
    :::div{.hint}
    This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog) command to configure a scheduled task to monitor the Octopus Server service.
    :::
@@ -121,7 +125,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
 7. Create the symbolic links for the Artifacts, Packages, TaskLogs, Imports, and EventExports folders.
 
    Run the following PowerShell script, substituting the placeholder values with your own:
-   
+
    ```powershell
    # Create the local folder to use to create the symbolic links within.
    $LocalFolder="C:\OctopusShared"
@@ -158,7 +162,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
        New-Item -Path $EventExportsFolder -ItemType SymbolicLink -Value "$NfsShare\EventExports"
    }
    ```
-   
+
    :::div{.hint}
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::

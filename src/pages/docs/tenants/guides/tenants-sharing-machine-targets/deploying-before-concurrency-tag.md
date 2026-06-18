@@ -27,7 +27,7 @@ If we look at one of the specific task logs, we can see that each step in the de
 ![](/docs/img/tenants/guides/tenants-sharing-machine-targets/deployment-details-concurrent.png)
 :::
 
-The time required to complete a deployment in this scenario will grow based on the number of steps targeting the shared infrastructure and the number of tenants in that group being deployed at once. It can also cause tasks to queue for longer than expected since all of the tasks are running, they are consuming part of the task cap. If you have a task cap of 20, and three infrastructure groups that each host 50 tenants, the tasks for one group can cause the tasks for the other two groups to wait in the queue for quite a while.
+The time required to complete a deployment in this scenario will grow based on the number of steps targeting the shared infrastructure and the number of tenants in that group being deployed at once. It can also cause tasks to queue for longer than expected since all tasks are running, they are consuming part of the task cap. If you have a task cap of 20, and three infrastructure groups that each host 50 tenants, the tasks for one group can cause the tasks for the other two groups to wait in the queue for quite a while.
 
 To remedy this, we can set the `Octopus.Task.ConcurrencyTag` system variable.
 

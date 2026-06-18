@@ -34,7 +34,7 @@ Where [<options>] is any of:
                                the schema of your database so it can safely
                                load and save data in the expected format.
       --skipCurrentMasterKeyTest
-                             By default this command will test whether the
+                             By default, this command will test whether the
                                existing Master Key can decrypt the Octopus
                                Server X.509 certificate. Use this switch if you
                                are certain you want to ignore the results of

@@ -48,7 +48,7 @@ Since our goal is to give members of the Developers team the ability to create a
 ![](/docs/img/security/users-and-teams/images/define-scope-for-user-role.png)
 :::
 
-We can repeat this process as many times as necessary to configure the team to your needs. The resulting team configuration screen should now display all of the different roles and their scopes so that you can review them.
+We can repeat this process as many times as necessary to configure the team to your needs. The resulting team configuration screen should now display all different roles and their scopes so that you can review them.
 
 :::figure
 ![](/docs/img/security/users-and-teams/images/add-team-with-scoped-roles.png)

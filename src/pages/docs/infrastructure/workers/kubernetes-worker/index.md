@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-08-22
-modDate: 2024-08-22
+modDate: 2026-05-01
 title: Kubernetes Worker
 navOrder: 10
 ---
@@ -9,12 +9,6 @@ navOrder: 10
 The Kubernetes Worker allows worker operations to be executed within a Kubernetes cluster in a scalable manner.
 This allows compute resources used during the execution of a Deployment process (or runbook) are released
 when the Deployment completes.
-
-:::div{.info}
-The Kubernetes Worker is in "Early Access" and may not cover every scenario immediately, but it is maturing.
-Your feedback will help drive its direction, so please post your thoughts and experiences in our [community slack](https://octopususergroup.slack.com/archives/CBQ3FPQAH)
-or [ProductBoard](https://portal.productboard.com/octopusdeploy/1-octopus-deploy-roadmap/c/108-workers-on-kubernetes).
-:::
 
 The Octopus Web portal provides a wizard which constructs guides you through the creation of a Helm installation command
 which installs the Kubernetes Worker in your cluster.
@@ -46,7 +40,7 @@ Of note:
 
 | Value                         | Purpose                                                                   |
 | ----------------------------- | ------------------------------------------------------------------------- |
-| scriptPods.worker.image       | Specifies the docker container image to be used when running an operation |
+| scriptPods.worker.image       | Specifies the Docker container image to be used when running an operation |
 | scriptPods.resources.requests | Specifies the average cpu/memory usage required to execute an operation   |
 
 If you are experiencing difficulties with your Kubernetes Cluster's autoscaling, modifying `scriptPods.resources.requests.*`
@@ -65,6 +59,14 @@ create new pods for each requested operation.
 
 The Kubernetes Worker allows execution permissions to be overwritten in the same way as the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent/permissions).
 
+## Non-root mode
+
+The Kubernetes Worker non-root mode can be configured in the same way as the [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent#non-root-configuration).
+
+## Openshift
+
+The Kubernetes Worker installation on Openshift similar to [Kubernetes Agent](/docs/kubernetes/targets/kubernetes-agent/openshift).
+
 ## Limitations
 
 Being securely hosted inside a kubernetes cluster comes with some limitations - the primary of which is the lack of `Docker`.
@@ -72,5 +74,5 @@ Which means certain operations which are typically valid, may not be possible.
 Specifically:
 
 - Creating an [inline execution container](/docs/projects/steps/execution-containers-for-workers#inline-execution-containers)
-- Fetching docker images (when used as secondary packages)
+- Fetching Docker images (when used as secondary packages)
 - Arbitrary scripts which use docker
