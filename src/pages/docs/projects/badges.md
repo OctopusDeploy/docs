@@ -1,12 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-06-18
-title: Project badges
+title: Release Badges
 description: How to add deployment status badges to your Git repositories and other external tools.
 navOrder: 12
 ---
 
-Project badges let you display the deployment status of your projects in external tools like Git repository READMEs, wikis, or dashboards. Each badge shows the latest release version for a specific environment, so your team can see deployment status at a glance without opening Octopus.
+Release Badges let you display the deployment status of your projects in external tools like Git repository READMEs, wikis, or dashboards. Each badge shows the latest release version for a specific environment, so your team can see deployment status at a glance without opening Octopus.
 
 ## Enable badges for a project
 
