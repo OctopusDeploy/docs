@@ -42,7 +42,10 @@ autopopulate
 awsaccount
 azureaccount
 azureactivedirectory
+azureappservice
 azurefile
+azureresourcegroup
+azurescripting
 bacpac
 Bento
 Blkio
@@ -184,6 +187,7 @@ globbing
 Gluster
 googleaccount
 googleapps
+googlecloudscripting
 gpedit
 groff
 Groupsand
