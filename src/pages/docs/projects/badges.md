@@ -44,12 +44,12 @@ The preview updates as you change options, so you can see what the badge looks l
 
 The right side of the badge is automatically colored based on the deployment status:
 
-| Color | Status |
-|-------|--------|
-| Green | Successful deployment |
+| Color | Status                                    |
+| ----- | ----------------------------------------- |
+| Green | Successful deployment                     |
 | Red   | Failed, canceled, or timed-out deployment |
-| Blue  | Deployment in progress or other states |
-| Gray  | No deployment found |
+| Blue  | Deployment in progress or other states    |
+| Gray  | No deployment found                       |
 
 ## API endpoints
 
@@ -59,7 +59,7 @@ You can also build badge URLs manually. Both endpoints are anonymous and don't r
 
 Returns an SVG image you can embed directly:
 
-```
+```text
 GET /api/{spaceId}/projects/{projectSlug}/badge/{environmentSlug}/latest_release
 ```
 
@@ -67,18 +67,18 @@ GET /api/{spaceId}/projects/{projectSlug}/badge/{environmentSlug}/latest_release
 
 Returns badge data as JSON. You can use this endpoint to externalize badge rendering through third-party services like [shields.io](https://shields.io), which offloads requests from your Octopus Server.
 
-```
+```text
 GET /api/{spaceId}/projects/{projectSlug}/badge/{environmentSlug}/latest_release.json
 ```
 
 ### Query parameters
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `label` | `environment` | The text on the left side: `environment`, `project`, or `release` |
-| `style` | `flat` | The badge style: `flat` or `flat-square` |
-| `includeFailed` | `false` | Include failed, canceled, or timed-out releases |
-| `tenantId` | | Filter by a specific tenant for multi-tenant deployments |
+| Parameter       | Default       | Description                                                       |
+| --------------- | ------------- | ----------------------------------------------------------------- |
+| `label`         | `environment` | The text on the left side: `environment`, `project`, or `release` |
+| `style`         | `flat`        | The badge style: `flat` or `flat-square`                          |
+| `includeFailed` | `false`       | Include failed, canceled, or timed-out releases                   |
+| `tenantId`      |               | Filter by a specific tenant for multi-tenant deployments          |
 
 ## Caching
 
