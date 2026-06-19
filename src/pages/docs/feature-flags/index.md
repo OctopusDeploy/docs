@@ -99,7 +99,7 @@ To enable your flag for an environment, add the environment to the flag.
 
 ![Add Environment button](/docs/img/feature-flags/add-environment-button.png)
 
-Once your Environment configuration is saved, you can toggle the Flag on or off for that Environment. 
+Once your Environment configuration is saved, you can toggle the Flag on or off for that Environment.
 
 ![Toggle Environment](/docs/img/feature-flags/environment-toggle.png)
 
