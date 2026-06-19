@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-18
+modDate: 2026-06-18
 title: How to Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
 navOrder: 10
