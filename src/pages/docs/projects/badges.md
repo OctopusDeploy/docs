@@ -1,6 +1,6 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-06-18
+pubDate: 2026-06-19
 title: Release Badges
 description: How to add deployment status badges to your Git repositories and other external tools.
 navOrder: 12
@@ -16,7 +16,11 @@ Badges are turned off by default. To turn them on:
 2. Toggle **Badges** on.
 3. Click **Save**.
 
-<img height="136" alt="image" src="https://github.com/user-attachments/assets/d2ceb98b-d0db-4168-895c-30d21837398a" />
+:::figure
+
+:img{ src="/docs/img/projects/release-badges/release-badges.png" alt="Enable release badges in project settings" }
+
+:::
 
 :::div{.warning}
 Turning on badges lets anyone with the badge URL view the latest release version and deployment status for the selected environment. No authentication is required, and no other project data is exposed.
@@ -42,7 +46,11 @@ After you turn on badges, a **Badge Builder** button appears on the project sett
 
 The preview updates as you change options, so you can see what the badge looks like before you copy it.
 
-<img height="614" alt="image" src="https://github.com/user-attachments/assets/fa650b69-aef7-45e0-9fa8-c0345acf8da4" />
+:::figure
+
+:img{ src="/docs/img/projects/release-badges/build-release-badge.png" alt="Build badges by selecting what you want to display" loading="lazy" }
+
+:::
 
 ## Badge colors
 
