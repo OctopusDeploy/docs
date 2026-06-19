@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-06-19
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
 ---
@@ -22,12 +22,15 @@ Some general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does** capture login events for specific user accounts, but **not** logout.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
+- When an action is performed via an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key), Octopus captures the API key name alongside the action, so you can trace activity back to a specific credential and its owner.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
 ## Viewing the audit history
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
+
+To filter the log to actions taken by AI agents only, check **AI Agents** in the filter options. This lets you review agent activity without wading through actions taken by human users.
 
 :::figure
 ![Audit Configuration](/docs/img/security/users-and-teams/auditing/images/audit-configuration.png)
