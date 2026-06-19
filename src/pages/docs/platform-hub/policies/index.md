@@ -241,7 +241,7 @@ Activation settings can be updated at any time from the **Versions** tab on the 
 ![Activation status for a policy](/docs/img/platform-hub/policies/policies-activation.png)
 :::
 
-### 11. Test your policy
+### 11. Validate your policy
 
 With the policy active, trigger a deployment to the Development environment for the ACME project. Because the violation action is set to `warn`, the deployment will proceed regardless. If the manual intervention step is missing, Octopus records the violation in the task log and project dashboard. Check both to confirm the policy is evaluating as expected.
 
