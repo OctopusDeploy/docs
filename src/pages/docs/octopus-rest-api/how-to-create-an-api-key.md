@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-06-18
+modDate: 2026-06-19
 title: How to Create an API Key
 description: How to create an API key to interact with Octopus without the need for a username and password.
 navOrder: 10
@@ -28,6 +28,19 @@ You can create API keys by performing the following steps:
 **Write Your Key Down**
 After you generate an API key, it cannot be retrieved from the Octopus Web Portal again, we store only a one-way hash of the API key. If you want to use the API key again, you need to store it in a secure place such as a password manager. Read about [why we hash API keys](https://octopus.com/blog/hashing-api-keys).
 :::
+
+## Creating an agent API key {#creating-an-agent-api-key}
+
+If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp)—create a dedicated agent API key rather than a regular one. Agent keys are tagged throughout Octopus so you can filter for and audit agent activity separately from human activity.
+
+The recommended approach is to first create an [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for your agent. Any API key created under an agent service account is automatically tagged as an agent key.
+
+You can also create an agent API key directly from the **Manage API Keys** page:
+
+1. Click **New Agent Key** and state the purpose of the key.
+1. Choose the level of **Access** to grant.
+1. Click **Generate new**.
+1. Copy the new API key to your clipboard.
 
 ## Choosing an access level
 
@@ -96,6 +109,26 @@ To change these values in the Octopus Web Portal:
 1. Navigate to **Configuration ➜ Settings** and click **Authentication**.
 1. Expand the sections for **API Key default expiry (days)** and **API Key maximum expiry (days)** and alter the values.
 1. Click Save.
+
+## Managing API keys
+
+Octopus administrators can view all API keys across the instance from the **API Keys** page.
+
+### Identifying key types
+
+Each key's row shows an **API key type** column with a type tag—**User**, or **AI Agent**—so you can tell at a glance which kind of identity each key belongs to.
+
+### Filtering by agent
+
+Check **AI Agents** to filter the list to agent keys only. This is useful when you want to review the credentials your agents are using without wading through keys belonging to human users.
+
+### Last used
+
+The list shows when each key was last used. Use this to spot dormant credentials that may need rotating.
+
+### Viewing permissions
+
+Each row has an overflow menu. Select **View permissions** to open the Test Permissions page for that identity, so you can see exactly what the key can do.
 
 ## Disabling API key creation for user accounts
 
