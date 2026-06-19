@@ -7,7 +7,7 @@ description: How to create an API key to interact with Octopus without the need 
 navOrder: 10
 ---
 
-API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.π
+API keys allow you to access the Octopus Deploy [REST API](/docs/octopus-rest-api) and perform tasks such as creating and deploying releases. API keys can be saved in scripts or external tools, without having to use your username and password. Each user and service account can have multiple API keys.
 
 See the [Service Accounts docs](/docs/security/users-and-teams/service-accounts) for information about creating service accounts.
 
@@ -33,7 +33,7 @@ After you generate an API key, it cannot be retrieved from the Octopus Web Porta
 
 :::div{.hint}
 
-This feature is currently being rolled out to Octopus Cloud customers and will become available to self-hosted installations in Octopus Server **2026.3**.
+This feature is currently being rolled out to Octopus Cloud customers and will become available to self-hosted installations in Octopus Server 2026.3.
 
 If you don't see the access option when creating an API key, the API key will be created with full access and have the same permissions as your user account.
 
