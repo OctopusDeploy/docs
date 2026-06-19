@@ -22,7 +22,7 @@ Some general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does** capture login events for specific user accounts, but **not** logout.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
-- When an action is performed via an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key), Octopus captures the API key name alongside the action, so you can trace activity back to a specific credential and its owner.
+- When an action is performed via an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key), Octopus captures the API key name alongside the action, so you can trace agent activity back to a specific credential and its owner.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
