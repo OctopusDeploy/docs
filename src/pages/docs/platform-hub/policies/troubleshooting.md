@@ -51,7 +51,7 @@ Audit log entries only appear for executions that fall in the policy's scope. If
 
 ---
 
-## Preview a policy against past executions
+## Evaluate a policy against past executions
 
 :::div{.info}
 Policy Evaluations is available from Octopus **2026.3.3064**.

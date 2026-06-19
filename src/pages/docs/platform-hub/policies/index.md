@@ -168,15 +168,15 @@ result := {"allowed": true} if {
 
 For the full list of input fields you can reference in your conditions, see the [schema for policies](/docs/platform-hub/policies/schema).
 
-### 7. Preview your policy
+### 7. Evaluate your policy
 
 :::div{.info}
 Policy Evaluations is available from Octopus **2026.3.3064**.
 :::
 
-Before you commit, use the **Evaluations** tab to check how your policy would behave against deployments and runbook runs that have already happened. This lets you confirm your scope and conditions are correct without running a deployment, and nothing you preview is stored or affects real executions.
+Before you commit, use the **Evaluate** button to check how your policy would behave against deployments and runbook runs that have already happened. This lets you confirm your scope and conditions are correct without running a deployment, and nothing you preview is stored or affects real executions.
 
-By default, the Evaluations tab evaluates the current draft, including any uncommitted changes in the editor. You can also select a published version from the **Policy version** dropdown to compare behaviour.
+By default, evaluations are for the current policy draft, including any uncommitted changes in the editor. You can also select a published version from the **Policy version** dropdown to compare behaviour.
 
 :::figure
 ![The Evaluations tab showing policy results against past executions](/docs/img/platform-hub/policies/policies-evaluations-tab.png)

@@ -17,7 +17,7 @@ This page describes every field available in that input object, explains which f
 
 :::div{.hint}
 
-To see the resolved input object for a real deployment or runbook run, open the **Evaluations** tab on the edit policy page and select **View** on any result. The **Policy input** section shows the exact object that was passed to the policy engine. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#preview-a-policy-against-past-executions).
+To see the resolved input object for a real deployment or runbook run, use the **Evaluate** button on the edit policy page and select **View** on any result. The **Policy input** section shows the exact object that was passed to the policy engine. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#preview-a-policy-against-past-executions).
 
 :::
 

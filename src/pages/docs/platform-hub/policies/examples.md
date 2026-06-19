@@ -30,7 +30,7 @@ Start every new policy with `"action": "warn"` in your default result. This lets
 
 :::div{.hint}
 
-After you paste an example into the editor, use the **Evaluations** tab to preview how it behaves against your past deployments and runbook runs before you commit. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#preview-a-policy-against-past-executions).
+After you paste an example into the editor, use the **Evaluate** button to preview how it behaves against your past deployments and runbook runs before you commit. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#preview-a-policy-against-past-executions).
 
 :::
 
