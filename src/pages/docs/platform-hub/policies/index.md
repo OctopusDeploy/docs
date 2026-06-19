@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-11
+modDate: 2026-06-19
 title: Policies
 subtitle: Enforce deployment standards automatically across your Octopus instance
 icon: fa-solid fa-lock
@@ -168,7 +168,40 @@ result := {"allowed": true} if {
 
 For the full list of input fields you can reference in your conditions, see the [schema for policies](/docs/platform-hub/policies/schema).
 
-### 7. Save your policy
+### 7. Preview your policy
+
+:::div{.info}
+Policy Evaluations is available from Octopus **2026.3.3064**.
+:::
+
+Before you commit, use the **Evaluations** tab to check how your policy would behave against deployments and runbook runs that have already happened. This lets you confirm your scope and conditions are correct without running a deployment, and nothing you preview is stored or affects real executions.
+
+By default, the Evaluations tab evaluates the current draft, including any uncommitted changes in the editor. You can also select a published version from the **Policy version** dropdown to compare behaviour.
+
+:::figure
+![The Evaluations tab showing policy results against past executions](/docs/img/platform-hub/policies/policies-evaluations-tab.png)
+:::
+
+Each row shows the **Verdict** for that execution and whether it was in **Scope**:
+
+- **Verdict:** `Compliant`, `Block`, `Warning`, or `Runtime error`.
+- **Scope:** `In`, `Out`, or `Invalid`.
+
+Use **Show advanced filters** to narrow the results by task name, space, environment, project, tenant, execution type, or date range.
+
+Select **View** on any row to open the evaluation details, including the violation reason and the full policy input object that was passed to the policy engine.
+
+:::figure
+![The evaluation details panel showing the verdict, reason, and policy input](/docs/img/platform-hub/policies/policies-evaluation-details.png)
+:::
+
+:::div{.hint}
+
+The Evaluations tab evaluates against existing deployment and runbook runs. The results aren't stored, don't appear in the audit log, and don't affect the executions they're evaluated against.
+
+:::
+
+### 8. Save your policy
 
 Once you've finished writing your Rego, commit your changes to save them to your Git repository. You can commit with a description or use quick commit without one.
 
@@ -176,7 +209,7 @@ Once you've finished writing your Rego, commit your changes to save them to your
 ![The commit experience for a policy](/docs/img/platform-hub/policies/policies-commit-experience.png)
 :::
 
-### 8. Publish your policy
+### 9. Publish your policy
 
 After committing, publish the policy to make the changes take effect. Choose the appropriate version type:
 
@@ -194,7 +227,7 @@ The first time you publish a policy, you can only publish a major version.
 ![Publish experience for a policy](/docs/img/platform-hub/policies/policies-publishing.png)
 :::
 
-### 9. Activate your policy
+### 10. Activate your policy
 
 Published policies must be activated before Octopus evaluates them. You can deactivate a policy at any time to stop it from being evaluated without deleting it.
 
@@ -208,7 +241,7 @@ Activation settings can be updated at any time from the **Versions** tab on the 
 ![Activation status for a policy](/docs/img/platform-hub/policies/policies-activation.png)
 :::
 
-### 10. Test your policy
+### 11. Test your policy
 
 With the policy active, trigger a deployment to the Development environment for the ACME project. Because the violation action is set to `warn`, the deployment will proceed regardless. If the manual intervention step is missing, Octopus records the violation in the task log and project dashboard. Check both to confirm the policy is evaluating as expected.
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-11-25
-modDate: 2025-11-25
+modDate: 2026-06-19
 title: Troubleshooting policies
 subtitle: Diagnose and fix common issues with policy evaluation
 icon: fa-solid fa-layer-group
@@ -51,6 +51,29 @@ Audit log entries only appear for executions that fall in the policy's scope. If
 
 ---
 
+## Preview a policy against past executions
+
+:::div{.info}
+Policy Evaluations is available from Octopus **2026.3.3064**.
+:::
+
+The fastest way to diagnose a scope or conditions problem is the **Evaluations** tab on the edit policy page. It evaluates a policy version against deployments and runbook runs that have already happened, without you having to run a new deployment. The results aren't stored and don't affect real executions.
+
+By default it evaluates your current draft, including uncommitted changes, so you can edit your Rego and immediately re-check the results. You can also select a published version from the **Policy version** dropdown.
+
+Each result shows a **Verdict** and a **Scope**:
+
+| Column | Values | What it tells you |
+| :--- | :--- | :--- |
+| Verdict | `Compliant`, `Block`, `Warning`, `Runtime error` | Whether the execution passes, and what would happen if it didn't |
+| Scope | `In`, `Out`, `Invalid` | Whether the execution is evaluated by this policy |
+
+Select **View** on any row to see the violation reason and the full policy input object that was evaluated. Use **Show advanced filters** to narrow the results by task name, space, environment, project, tenant, execution type, or date range.
+
+A `Runtime error` verdict or an `Invalid` scope points to an error in your Rego, often a reference to a conditional field that isn't present. See [Policy causes an evaluation error on runbook runs](#policy-causes-an-evaluation-error-on-runbook-runs).
+
+---
+
 ## Common problems
 
 ### Policy is not evaluating
@@ -59,7 +82,7 @@ If a policy isn't appearing in the task log or audit log for an execution you ex
 
 1. **Check the policy is activated.** A published policy must be activated before Octopus evaluates it. Go to the **Versions** tab on the edit policy page and confirm the policy is active.
 
-1. **Check the scope Rego.** The scope determines which executions the policy evaluates. Open the policy editor and review your scope Rego. Use the verbose task log on a deployment you expect to be in scope to see what input fields were passed, and check whether your scope conditions would match.
+1. **Check the scope Rego.** The scope determines which executions the policy evaluates. Open the policy editor and review your scope Rego. Use the verbose task log on a deployment you expect to be in scope to see what input fields were passed, and check whether your scope conditions would match. You can also use the [Evaluations tab](#preview-a-policy-against-past-executions) to see whether past executions resolve to `In` or `Out` of scope.
 
 ### Policy is blocking when it should warn
 
@@ -96,7 +119,7 @@ See [Check for both existence and skipping](/docs/platform-hub/policies/best-pra
 
 ### Policy causes an evaluation error on runbook runs
 
-If a policy works correctly for deployments but causes an error on runbook runs, it's likely referencing `input.Release` without guarding against its absence. `Release` is only present for deployments.
+If a policy works correctly for deployments but causes an error on runbook runs, it's likely referencing `input.Release` without guarding against its absence. `Release` is only present for deployments. These errors show as a `Runtime error` verdict on the [Evaluations tab](#preview-a-policy-against-past-executions).
 
 Add a scope to limit the policy to deployments only:
 
@@ -129,7 +152,7 @@ See [Guard against conditional fields](/docs/platform-hub/policies/best-practice
 
 If a policy is evaluating executions it shouldn't, or not evaluating ones it should, the scope Rego is likely not matching as expected.
 
-Turn on verbose logging in the task log for an affected execution. This shows the full input object, including the exact values for `Environment.Slug`, `Project.Slug`, `Space.Slug`, and other fields your scope may be checking. Compare these against your scope Rego to identify the mismatch.
+Turn on verbose logging in the task log for an affected execution. This shows the full input object, including the exact values for `Environment.Slug`, `Project.Slug`, `Space.Slug`, and other fields your scope may be checking. Compare these against your scope Rego to identify the mismatch. The [Evaluations tab](#preview-a-policy-against-past-executions) is also useful here: filter the results and check the **Scope** column to see exactly which past executions your scope matches.
 
 Common causes:
 
