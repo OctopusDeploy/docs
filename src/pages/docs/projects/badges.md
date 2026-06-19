@@ -44,7 +44,6 @@ The preview updates as you change options, so you can see what the badge looks l
 
 <img height="614" alt="image" src="https://github.com/user-attachments/assets/fa650b69-aef7-45e0-9fa8-c0345acf8da4" />
 
-
 ## Badge colors
 
 The right side of the badge is automatically colored based on the deployment status:
