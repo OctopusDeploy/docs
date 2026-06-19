@@ -57,7 +57,7 @@ To use client rollout, you must configure a targeting key in your OpenFeature cl
 
 You should set the targeting key to a value that uniquely identifies your evaluation subject. For most applications, this will be a user identifier (such as a user ID), but you can use any identifier that suits your needs (for example, team, region, or server instance).
 
-:::div{.warning}
+:::div{.hint}
 Support for client rollout percentages was added in the following versions of the [provider libraries](/docs/feature-flags/providers):
 
 - [.NET: `2.1.0`](https://github.com/OctopusDeploy/openfeature-provider-dotnet/releases/tag/v2.1.0)

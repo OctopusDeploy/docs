@@ -99,9 +99,9 @@ To enable your flag for an environment, add the environment to the flag.
 
 ![Add Environment button](/docs/img/feature-flags/add-environment-button.png)
 
-Select your environment, and whether you want the flag on or off.
+Once your Environment configuration is saved, you can toggle the Flag on or off for that Environment. 
 
-![Add Environment dialog](/docs/img/feature-flags/add-environment-dialog.png)
+![Toggle Environment](/docs/img/feature-flags/environment-toggle.png)
 
 You can additionally control rollout within an environment. See [Feature Flag targeting](/docs/feature-flags/targeting) for more information.
 
