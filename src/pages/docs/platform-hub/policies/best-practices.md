@@ -154,7 +154,7 @@ This gives your security team visibility into policy violations across your enti
 ## Preview against past executions before publishing
 
 :::div{.info}
-Policy Evaluations is available from Octopus **2026.3.3064**.
+Policy Evaluations is available from Octopus **2026.3.3162**.
 :::
 
 The **Evaluations** tab on the edit policy page evaluates your policy against deployments and runbook runs that have already happened, so you can confirm it behaves as expected before you commit, publish, or activate it. The results aren't stored and don't affect real executions.
