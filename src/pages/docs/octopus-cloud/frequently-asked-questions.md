@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-11-08
-modDate: 2025-06-06
+modDate: 2026-06-23
 title: Octopus Cloud Frequently Asked Questions
 navTitle: Octopus Cloud FAQ
 navOrder: 110
@@ -198,6 +198,10 @@ We publish Octopus Cloud’s [uptime track record](/docs/octopus-cloud/uptime-sl
 ### How can we check Octopus Cloud's status?
 
 We publish Octopus Cloud's [operational status](https://status.octopus.com/). You can subscribe to status change emails from our [operational status page](https://status.octopus.com/).
+
+### What happens to my deployments during a maintenance window?
+
+Deployments and runbook runs on Octopus Cloud are resilient. If a [maintenance window](/docs/octopus-cloud/maintenance-window) or node restart interrupts a deployment or runbook run, it continues automatically once your instance is back online, rather than failing. You don't need to manually re-run them afterwards. Other task types are not yet resilient and may be abandoned during an outage.
 
 ## Logs and data
 

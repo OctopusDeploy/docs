@@ -1,11 +1,15 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-06-23
 title: Rerun all canceled deployments and runbook runs after node shutdown.
 description: An example script that determine which deployments and runbook runs were canceled because of a node shutdown and resubmit them.
 ---
 import RerunDeploymentsAndRunbooksAfterNodeFailure from 'src/shared-content/scripts/rerun-deployments-and-runbooks-after-node-failure.include.md';
+
+:::div{.hint}
+**Octopus Cloud:** This script is no longer needed for deployments and runbook runs. On Octopus Cloud, these tasks are resilient — they continue automatically after a node restart or maintenance window rather than being cancelled. This script remains useful for self-hosted High Availability instances, where node restarts still cancel active tasks.
+:::
 
 This script demonstrates how to programmatically determine which deployments and runbook runs can be resubmitted because they were canceled because of a node shutdown.  The node could have been shutdown for normal reasons, or it could have stopped responding, or it could have been turned off.
 
@@ -23,9 +27,9 @@ This script has guardrails in place to ensure you don't make too many changes.
 
 - A what if variable.  Set that to `$true` and it will skip the submission step.  It will print out all the deployments and runbook runs it would've done.
 - This script will not resubmit every canceled runbook run or deployment.  For a runbook run or deployment to be considered it must:
-    - Have been canceled within the time frame provided.
-    - Have been running on the node or nodes that were provided.
-    - Have been canceled because of a node shutdown.
+  - Have been canceled within the time frame provided.
+  - Have been running on the node or nodes that were provided.
+  - Have been canceled because of a node shutdown.
 
 ## Script
 
