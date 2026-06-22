@@ -19,7 +19,6 @@ Due to Windows Server 2022 reaching the end of standard support on 13 October 20
 
 Users of Octopus Cloud using Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2022` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2022 and Windows 2025**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
 
-Steps running execution containers on Windows Dynamic Workers may also be impacted as Windows containers can generally only run when the container base image OS version matches the host OS version. This means the Windows 2022 container image you are currently using will likely fail to run on a Windows 2025 Dynamic Worker.
 
 **Note:** All Octopus Deploy steps will work under Windows 2025 but some community and custom steps may be impacted.
 
@@ -90,7 +89,7 @@ To avoid having two Worker Pools that both yield the same Workers, you can resto
 
 ### Why the deadline of 13 October 2026?
 
-Windows 2022 exits standard support and will not be patched including any security vulnerability. Consequently, Octopus will not provide an unsupported Dynamic Worker image.
+Windows 2022 exits Mainstream support and will not receive feature updates, and non-security fixes. Consequently, Octopus will not provide an unsupported Dynamic Worker image.
 
 ### What are the breaking changes between Windows 2022 and Windows 2025 releases?
 
@@ -107,7 +106,7 @@ There is the option to provision your own worker with Windows Server 2022 and se
 
 ### How does this affect Execution Containers?
 
-Windows containers can generally only run when the container base image OS version matches the host OS version. Please follow the [migration guide](#migration-guide) to make the transition as smooth as possible.
+[Windows Server 2025 supports running containers based on Windows Server 2022](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2025%2Cwindows-11#windows-server-host-os-compatibility). While Microsoft provides compatibility for Windows Server 2022 based containers to run, the base operating system is still reaching its end of support on 13th of October, 2026 and so we recommend upgrading when possible. Please follow the [migration guide](#migration-guide) to make the transition as smooth as possible.
 
 ### Are the Ubuntu Dynamic Workers affected in any way?
 
