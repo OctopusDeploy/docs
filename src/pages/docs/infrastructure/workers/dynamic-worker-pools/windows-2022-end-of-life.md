@@ -19,7 +19,6 @@ Due to Windows Server 2022 reaching the end of standard support on 13 October 20
 
 Users of Octopus Cloud using Windows Dynamic Workers (`Windows (default)` and `Windows Server Core 2022` images) and running custom scripts or community steps may be impacted as there are **breaking changes between Windows 2022 and Windows 2025**. Should any additional components be identified as having breaking changes we will endeavour to inform you via email and Octopus community Slack.
 
-
 **Note:** All Octopus Deploy steps will work under Windows 2025 but some community and custom steps may be impacted.
 
 ## What do I need to do?
