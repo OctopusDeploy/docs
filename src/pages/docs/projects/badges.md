@@ -32,14 +32,15 @@ After you turn on badges, a **Badge Builder** button appears on the project sett
 
 1. Click **Badge Builder** on the project settings page.
 2. Select the **environment** you want the badge to show status for.
-3. Choose a **label** for the left side of the badge:
+3. If your project uses tenants, select a **Tenant** to scope the badge to that tenant's deployments, and optionally choose the **Tenant name** label to show the tenant on the badge. Leave the tenant blank to show untenanted deployments.
+4. Choose a **label** for the left side of the badge:
    - **Environment** (default) — shows the environment name
    - **Project** — shows the project name
    - **Release** — shows the text "Release"
-4. Optionally, expand the **Advanced** section to:
+5. Optionally, expand the **Advanced** section to:
    - Turn on **Include failed releases** to show the latest release even if it failed, rather than only showing successful releases.
    - Choose a **badge style** — flat (default) or flat-square.
-5. Copy the generated code from one of the available formats:
+6. Copy the generated code from one of the available formats:
    - **Markdown** — for Git repository READMEs and wikis
    - **HTML** — for web pages
    - **URL** — direct link to the badge image
