@@ -431,6 +431,7 @@ publicip
 Pulumi
 pwsh
 pycryptodome
+pypi
 Qualys
 querystring
 quickstart

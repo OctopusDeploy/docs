@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-08-13
+modDate: 2026-06-23
 title: Maintenance windows
 navTitle: Maintenance windows
 navOrder: 80
@@ -48,7 +48,7 @@ On rare occasions, a maintenance action will require an outage. During the two-h
 
 We follow this process to minimize impact:
 
-- In-progress tasks get a few minutes to complete before being abandoned
+- In-progress tasks get a few minutes to complete. Deployments and runbook runs still running at the end of that time are resilient — they continue automatically once your instance is back online, rather than failing. Other in-progress tasks may still be abandoned
 - Users receive a maintenance page, and API requests return a 503 Service Unavailable status code
 - Maintenance operations occur
 - Your instance will start up again, and we confirm it is in a healthy state
@@ -56,10 +56,8 @@ We follow this process to minimize impact:
 - Tasks paused during shutdown will be resumed
 - Tasks scheduled to start during the outage commence
 
-We recommend avoiding non-idempotent deployments and runbook runs during maintenance windows.
-
 :::div{.hint}
-One impact of an outage is that deployments and runbook runs may fail. We are actively working on [Resilient Scalable Deployments](https://roadmap.octopus.com/c/95-alpha-program-resilient-scalable-deployments-in-octopus-cloud) to allow deployments and runbook runs to resume post-outage.  
+Deployments and runbook runs on Octopus Cloud are now resilient: if an outage interrupts a deployment or runbook run, it continues automatically once your instance is back online, rather than failing. You no longer need to manually re-run them after a maintenance window. Other task types are not yet resilient and may be abandoned during an outage.
 :::
 
 ## How to view or change your maintenance window
