@@ -1,0 +1,300 @@
+---
+// Phase A adapter layout: markdown-compatible entrypoint that lets any real
+// content page adopt the new design system by switching its `layout:`
+// frontmatter line. Reuses the site's existing data sources (nav tree,
+// breadcrumbs, SEO head via HtmlHead) and renders them through our chrome.
+//
+// ⚠️ MVP / PREVIEW — NOT production-complete. Versus DefaultLegacy.astro this
+// omits essential plumbing (main.js, Plausible, Marketo, SkipLinks, real search,
+// theme reconciliation, article-footer features) — complete these before any
+// real rollout.
+import '../../theme.css';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+import { menu } from '@data/navigation';
+import Head from './Head.astro';
+
+import Header from './Header.astro';
+import Toc from './Toc.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import SidebarNav from './SidebarNav.astro';
+import SidebarBehavior from './SidebarBehavior.astro';
+import SharedFooter from '../../../components/SharedFooter.astro';
+import CopyMarkdown from '../../../components/CopyMarkdown.astro';
+
+type Props = {
+  frontmatter: Record<string, any>;
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+};
+const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const accelerator = new Accelerator(SITE);
+const lang = frontmatter.lang ?? SITE.default.lang;
+const currentUrl = new URL(Astro.request.url);
+
+// Real sidebar nav tree (NavPage[]).
+const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
+
+// Lightweight nav (mirrors src/themes/octopus/components/Navigation.astro from
+// main): keep only the active section's subtree expanded and collapse every
+// other top-level section to a single labelled link, so the rendered DOM stays
+// small for AI-crawler token budgets. Collapsed sections render as links with a
+// right-chevron 'navigate' affordance (see SidebarNav); the active section
+// stays an expandable dropdown.
+const currentPath = currentUrl.pathname.replace(/\/$/, '');
+const isOnActivePath = (page: any): boolean => {
+  const pUrl = (page.url ?? '').replace(/\/$/, '');
+  if (!pUrl) return false;
+  return currentPath === pUrl || currentPath.startsWith(pUrl + '/');
+};
+const markActiveBranchOpen = (items: any[]): void => {
+  for (const item of items) {
+    if (item.children && item.children.length > 0 && isOnActivePath(item)) {
+      item.isOpen = true;
+      markActiveBranchOpen(item.children);
+    }
+  }
+};
+for (const top of pages) {
+  if (top.children && top.children.length > 0) {
+    if (isOnActivePath(top)) {
+      top.isOpen = true;
+      markActiveBranchOpen(top.children);
+    } else {
+      if (top.section) top.title = top.section;
+      top.children = [];
+    }
+  }
+}
+
+// Real breadcrumbs from accelerator nav data.
+const crumbs = accelerator.navigation
+  .breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0)
+  .map((crumb: any) => ({
+    label: crumb.section || crumb.title,
+    href: accelerator.urlFormatter.formatAddress(crumb.url),
+  }));
+
+// TOC from the rendered markdown headings (h2/h3 only).
+const toc = headings
+  .filter((h) => h.depth >= 2 && h.depth <= 3)
+  .map((h) => ({
+    label: h.text,
+    href: '#' + h.slug,
+    depth: h.depth >= 3 ? 2 : 1,
+  }));
+
+const sortedTopLevel = pages
+  .slice()
+  .sort((a: any, b: any) => a.order - b.order);
+---
+
+<html lang={lang}>
+  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
+  <body
+    class="relative min-h-screen bg-background font-sans text-foreground antialiased"
+  >
+    <script is:inline>
+      if (localStorage.getItem('mvp-theme') === 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark');
+    </script>
+    <script
+      is:inline
+      define:vars={{ site_url: SITE.url, site_features: SITE.featureFlags }}
+    >
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
+    <div class="ds-atmosphere"></div>
+    <div class="ds-grain"></div>
+    <Header lang={lang} />
+
+    <div class="mx-auto flex max-w-[1600px]">
+      <aside
+        data-component="ink/docs/Sidebar"
+        class="hidden w-[18.75rem] shrink-0 border-r border-border/60 bg-sidebar/55 backdrop-blur-sm lg:block"
+      >
+        <div
+          class="ds-navscroll"
+          data-navscroll
+          data-at-top="true"
+          data-at-bottom="true"
+        >
+          <nav
+            class="ds-navscroll__viewport px-3.5 py-8"
+            data-navscroll-viewport
+            aria-label="Documentation navigation"
+          >
+            <ul>
+              {sortedTopLevel.map((page: any) => <SidebarNav page={page} />)}
+            </ul>
+          </nav>
+          <span
+            class="ds-navscroll__fade ds-navscroll__fade--top"
+            aria-hidden="true"></span>
+          <span
+            class="ds-navscroll__fade ds-navscroll__fade--bottom"
+            aria-hidden="true"></span>
+        </div>
+        <SidebarBehavior />
+      </aside>
+
+      <div class="flex min-w-0 flex-1">
+        <main
+          class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-14"
+          data-component="ink/docs/ContentLayout"
+        >
+          <div class="mx-auto max-w-3xl">
+            <details
+              class="group mb-5 rounded-lg border border-border bg-sidebar lg:hidden"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-2.5 text-sm font-medium text-foreground [&::-webkit-details-marker]:hidden"
+              >
+                <span class="flex items-center gap-2">
+                  <svg
+                    class="h-4 w-4 text-muted-foreground"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><path d="M4 6h16M4 12h16M4 18h16"></path></svg
+                  >
+                  Documentation menu
+                </span>
+                <svg
+                  class="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg
+                >
+              </summary>
+              <nav
+                class="border-t border-border px-3 py-3"
+                aria-label="Documentation navigation"
+              >
+                <ul>
+                  {
+                    sortedTopLevel.map((page: any) => (
+                      <SidebarNav page={page} />
+                    ))
+                  }
+                </ul>
+              </nav>
+            </details>
+
+            <div data-rise style="--rise:60ms">
+              <Breadcrumbs items={crumbs} />
+            </div>
+
+            <article itemscope itemtype="https://schema.org/TechArticle">
+              <header class="relative mb-9 pb-8">
+                <div class="mb-3 flex items-center justify-between gap-3">
+                  <p
+                    data-rise
+                    style="--rise:90ms"
+                    class="flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.18em] text-primary"
+                  >
+                    <span
+                      class="inline-block h-1.5 w-1.5 rounded-full shadow-[0_0_10px_2px_var(--glow-brand)]"
+                      style="background:var(--purple-300)"></span>
+                    {crumbs[crumbs.length - 2]?.label ?? 'Documentation'}
+                  </p>
+                  <CopyMarkdown lang={lang} />
+                </div>
+                <h1
+                  data-rise
+                  style="--rise:150ms"
+                  class="ds-gradient-text font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-[2.75rem]"
+                  itemprop="headline"
+                >
+                  {frontmatter.title}
+                </h1>
+                {
+                  frontmatter.description && (
+                    <p
+                      data-rise
+                      style="--rise:230ms"
+                      class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground"
+                      itemprop="description"
+                    >
+                      {frontmatter.description}
+                    </p>
+                  )
+                }
+                <div
+                  data-rise
+                  style="--rise:300ms"
+                  class="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-primary/55 via-border to-transparent"
+                >
+                </div>
+              </header>
+
+              <div
+                class="prose"
+                itemprop="articleBody"
+                data-rise
+                style="--rise:380ms"
+              >
+                <slot />
+              </div>
+            </article>
+          </div>
+        </main>
+
+        <Toc items={toc} />
+      </div>
+    </div>
+
+    <SharedFooter />
+    <!-- Marketo library: MarketoForm (in SharedFooter) only renders once MktoForms2 exists. -->
+    <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
+    <script is:inline>
+      /* CopyMarkdown: outside-click close, Esc to close, Tab-loop while open. */
+      (() => {
+        const menu = document.querySelector('[data-copy-md-menu]');
+        if (!menu) return;
+        const trigger = menu.querySelector('[data-copy-md-trigger]');
+        const focusables = () =>
+          [trigger, ...menu.querySelectorAll('[data-copy-md-option]')].filter(
+            Boolean
+          );
+        const close = () => {
+          if (menu.open) menu.open = false;
+        };
+        document.addEventListener('pointerdown', (e) => {
+          if (menu.open && !menu.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (!menu.open) return;
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            trigger?.focus();
+            return;
+          }
+          if (e.key !== 'Tab') return;
+          const items = focusables();
+          if (items.length < 2) return;
+          const first = items[0];
+          const last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

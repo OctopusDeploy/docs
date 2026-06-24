@@ -1,0 +1,38 @@
+---
+type Variant = 'primary' | 'secondary' | 'ghost';
+
+interface Props {
+  href?: string;
+  variant?: Variant;
+  class?: string;
+}
+
+const { href, variant = 'primary', class: extra = '' } = Astro.props;
+const cls = ['ds-btn', `ds-btn--${variant}`, extra].join(' ');
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag class={cls} href={href} data-component="ink/core/Button"><slot /></Tag>
+
+<script is:inline>
+  // Cursor-tracked glow: set --hover-x/--hover-y per pointer position. Delegated
+  // on the document so it works for any button, including content buttons parsed
+  // after this header script runs.
+  (() => {
+    if (window.__dsBtnInit) return;
+    window.__dsBtnInit = true;
+    const SELECTOR =
+      '.ds-btn--primary, .ds-btn--secondary, .prose a.button--primary, .prose a.button--secondary';
+    document.addEventListener(
+      'pointermove',
+      (e) => {
+        const btn = e.target.closest?.(SELECTOR);
+        if (!btn) return;
+        const r = btn.getBoundingClientRect();
+        btn.style.setProperty('--hover-x', e.clientX - r.left + 'px');
+        btn.style.setProperty('--hover-y', e.clientY - r.top + 'px');
+      },
+      { passive: true }
+    );
+  })();
+</script>

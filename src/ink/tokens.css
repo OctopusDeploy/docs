@@ -1,0 +1,292 @@
+/*
+  Design-system tokens: brand primitives + shadcn-style semantic tokens + a
+  glow/aurora layer. Portable: ship this + theme.css unchanged. Dark mode keys
+  off [data-theme="dark"]. Brand source: public/docs/css/vars.css.
+*/
+
+:root {
+  /* --- Brand primitives (from vars.css) --- */
+  --octo-blue: #1a77ca;
+  --octo-blue-light: #2f95e3;
+  --octo-blue-bright: #1fc0ff;
+  --octo-green: #00e693;
+  --octo-green-bright: #00ffa3;
+  --octo-navy-900: #10212f;
+  --octo-navy-800: #152b3d;
+  --octo-navy-700: #2e475d;
+  --octo-navy-600: #3e607d;
+  --octo-navy-400: #7c98b4;
+  --octo-navy-300: #a9bbcb;
+  --octo-navy-200: #dae2e9;
+  --octo-navy-100: #f4f6f8;
+  --octo-blue-100: #f2f8fd;
+
+  /* --- Semantic tokens (shadcn shape) --- */
+  --background: #f7fafc;
+  --foreground: var(--octo-navy-900);
+
+  --card: #ffffff;
+  --card-foreground: var(--octo-navy-900);
+
+  --popover: #ffffff;
+  --popover-foreground: var(--octo-navy-900);
+
+  --primary: var(--octo-blue);
+  --primary-foreground: #ffffff;
+
+  /* Octopus CTA green is the brand "accent" action color */
+  --accent: #00b86f;
+  --accent-foreground: #04241a;
+
+  --secondary: var(--octo-navy-100);
+  --secondary-foreground: var(--octo-navy-700);
+
+  --muted: var(--octo-navy-100);
+  --muted-foreground: #587088;
+
+  --border: #dde6ee;
+  --input: var(--octo-navy-200);
+  --ring: var(--octo-blue);
+
+  --destructive: #d63d3d;
+  --destructive-foreground: #ffffff;
+
+  /* Callout intents (map to existing hint/info/success/warning/problem) */
+  --info: #124164;
+  --info-bg: #eaf5ff;
+  --info-border: var(--octo-blue);
+  --success: #04502f;
+  --success-bg: #e6fbef;
+  --success-border: #00b065;
+  --warning: #a23623;
+  --warning-bg: #fef7e7;
+  --warning-border: #fc8431;
+  --problem: #931919;
+  --problem-bg: #fff1ed;
+  --problem-border: #ff4848;
+  /* question -> neutral/muted treatment */
+  --question: var(--octo-navy-700);
+  --question-bg: var(--octo-navy-100);
+  --question-border: var(--octo-navy-400);
+
+  --sidebar: #fbfdff;
+  --sidebar-foreground: #4a6076;
+
+  /* Surfaces for layered UI (code blocks, window chrome, hover states) */
+  --surface: #f2f6fa;
+  --surface-2: #ffffff;
+  --code-bg: #0b1a26;
+  --code-foreground: #e6f0f7;
+  --code-chrome: #112637;
+  --code-border: #1d384d;
+
+  /* --- Bioluminescence: colored glows + accent gradients --- */
+  --glow-primary: color-mix(in oklab, var(--octo-blue) 38%, transparent);
+  --glow-accent: color-mix(in oklab, var(--octo-green) 42%, transparent);
+  /* Decorative brand glow (cyan->purple->pink language); green stays semantic. */
+  --glow-brand: color-mix(in oklab, var(--purple-300) 50%, transparent);
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--octo-blue-bright) 0%,
+    var(--purple-300) 52%,
+    var(--pink-100) 108%
+  );
+  --gradient-ink: linear-gradient(
+    100deg,
+    var(--octo-navy-900) 0%,
+    var(--purple-300) 60%,
+    var(--pink-100) 125%
+  );
+
+  /* --- Atmosphere (fixed background layers): cyan -> purple -> pink mesh --- */
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 11%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 9%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-navy-700) 3%, transparent);
+  --grain-opacity: 0.035;
+
+  /* Glass effect for in-content images (mirrors the marketing site). Raw
+     primitives are theme-independent; composed tokens here are light-adapted
+     (the white originals vanish on the pale bg), dark uses the exact values. */
+  --glass-white-31: hsla(0, 0%, 100%, 0.31);
+  --glass-white-35: hsla(0, 0%, 100%, 0.35);
+  --glass-white-20: hsla(0, 0%, 100%, 0.2);
+  --glass-white-15: hsla(0, 0%, 100%, 0.15);
+  --glass-cyan: rgba(147, 225, 255, 0.31);
+  --glass-cyan-glow: rgba(31, 192, 255, 0.45);
+  --glass-pink-glow: rgba(204, 60, 255, 0.5);
+  --glass-navy-fade: rgba(10, 35, 54, 0);
+  --glass-pad: 0.75rem;
+
+  /* Docs-calm glass: same structure as the marketing site, much softer (faint
+     tint, neutral lift, whisper of a bloom) so screenshots feel framed not hero. */
+  --glass-background: linear-gradient(
+    263.36deg,
+    rgba(255, 255, 255, 0.6) -46.77%,
+    rgba(147, 225, 255, 0.12) 86.43%
+  );
+  --glass-border-color: rgba(31, 192, 255, 0.18);
+  --glass-shadow: 0 8px 26px -16px rgba(16, 33, 47, 0.18);
+  --glass-blur-glow: radial-gradient(
+    101.55% 101.55% at 50% -1.55%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(31, 192, 255, 0.14) 18.63%,
+    rgba(204, 60, 255, 0.09) 73.48%,
+    var(--glass-navy-fade) 100%
+  );
+
+  /* Marketing-site button palette + base (purple primary, gradient-border
+     secondary). Primary/palette are theme-independent; the --secondary-button-*
+     set below is light, overridden for dark. */
+  --white: #ffffff;
+  --purple-300: #6950ff;
+  --purple-400: #9747ff;
+  --pink-100: #cc3cff;
+  --space-12: 0.75rem;
+  --space-24: 1.5rem;
+  --button-font-size: 1rem;
+  --button-font-weight: 600;
+  --button-shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+
+  --secondary-button-text: var(--purple-300);
+  --secondary-button-bg: transparent;
+  --secondary-button-hover-text: var(--pink-100);
+  --secondary-button-hover-bg: transparent;
+  --secondary-button-hover-glow: rgba(204, 60, 255, 0.15);
+  --secondary-button-hover-border: var(--pink-100);
+
+  /* Elevation - layered, slightly tinted toward the brand navy */
+  --shadow-sm: 0 1px 2px 0 rgba(16, 33, 47, 0.06);
+  --shadow-md:
+    0 4px 14px -3px rgba(16, 33, 47, 0.12),
+    0 2px 6px -2px rgba(16, 33, 47, 0.07);
+  --shadow-lg:
+    0 18px 40px -12px rgba(16, 33, 47, 0.22),
+    0 6px 14px -6px rgba(16, 33, 47, 0.12);
+  --shadow-glow: 0 10px 40px -10px var(--glow-primary);
+
+  --radius: 0.65rem;
+
+  /* Fonts - distinctive web type (loaded via Bunny Fonts in the layout head);
+     system stacks remain as graceful fallbacks. */
+  --font-display:
+    'Bricolage Grotesque', 'Hanken Grotesk', system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans:
+    'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monaco, monospace;
+}
+
+[data-theme='dark'] {
+  /* The abyss: deep navy with a faint blue cast, luminous accents. */
+  --background: #081521;
+  --foreground: #dde7ef;
+
+  --card: #0e2231;
+  --card-foreground: #dde7ef;
+
+  --popover: #0b1d2a;
+  --popover-foreground: #dde7ef;
+
+  --primary: var(--octo-blue-bright);
+  --primary-foreground: #04121c;
+
+  --accent: var(--octo-green-bright);
+  --accent-foreground: #04241a;
+
+  --secondary: #122a3c;
+  --secondary-foreground: var(--octo-navy-200);
+
+  --muted: #102636;
+  --muted-foreground: #8aa4bd;
+
+  --border: #1e394e;
+  --input: #284459;
+  --ring: var(--octo-blue-bright);
+
+  /* Callout text colors must lighten for legibility on the dark surfaces. */
+  --info: #cfe6fb;
+  --info-bg: rgba(31, 192, 255, 0.08);
+  --info-border: var(--octo-blue-bright);
+  --success: #6fe6b4;
+  --success-bg: rgba(0, 230, 147, 0.09);
+  --success-border: var(--octo-green);
+  --warning: #ffb27a;
+  --warning-bg: rgba(252, 132, 49, 0.1);
+  --warning-border: #fc8431;
+  --problem: #ff9b9b;
+  --problem-bg: rgba(255, 72, 72, 0.1);
+  --problem-border: #ff4848;
+  --question: var(--octo-navy-200);
+  --question-bg: rgba(124, 152, 180, 0.1);
+  --question-border: var(--octo-navy-400);
+
+  --sidebar: #091a27;
+  --sidebar-foreground: #a9c0d4;
+
+  --surface: #0c1f2d;
+  --surface-2: #112a3b;
+  --code-bg: #06121c;
+  --code-foreground: #e6f0f7;
+  --code-chrome: #0c2031;
+  --code-border: #16344a;
+
+  --glow-primary: color-mix(in oklab, var(--octo-blue-bright) 50%, transparent);
+  --glow-accent: color-mix(in oklab, var(--octo-green-bright) 50%, transparent);
+  --glow-brand: color-mix(in oklab, var(--pink-100) 55%, transparent);
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--octo-blue-bright) 0%,
+    var(--purple-400) 50%,
+    var(--pink-100) 115%
+  );
+  /* Hero H1 text: bright cyan -> light purple -> pink, readable on the abyss. */
+  --gradient-ink: linear-gradient(
+    100deg,
+    #9fe7ff 0%,
+    #b69cff 52%,
+    #ec8cff 120%
+  );
+
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 9%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 10%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-blue-bright) 3%, transparent);
+  --grain-opacity: 0.05;
+
+  /* Glass effect: the exact marketing-site values (tuned for dark backgrounds). */
+  /* Docs-calm glass (dark): a gentle frost + faint bloom, not the bright
+     marketing panel. */
+  --glass-background: linear-gradient(
+    263.36deg,
+    rgba(255, 255, 255, 0.08) -46.77%,
+    rgba(147, 225, 255, 0.09) 86.43%
+  );
+  --glass-border-color: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.5);
+  --glass-blur-glow: radial-gradient(
+    101.55% 101.55% at 50% -1.55%,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(31, 192, 255, 0.18) 18.63%,
+    rgba(204, 60, 255, 0.14) 73.48%,
+    var(--glass-navy-fade) 100%
+  );
+
+  /* Secondary button (dark): purple-tinted fill instead of transparent. */
+  --secondary-button-text: var(--white);
+  --secondary-button-bg: rgba(105, 80, 255, 0.3);
+  --secondary-button-hover-text: var(--white);
+  --secondary-button-hover-bg: rgba(105, 80, 255, 0.3);
+  --secondary-button-hover-glow: rgba(204, 60, 255, 0.5);
+  --secondary-button-hover-border: var(--pink-100);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.45);
+  --shadow-md:
+    0 4px 14px -3px rgba(0, 0, 0, 0.55), 0 2px 6px -2px rgba(0, 0, 0, 0.45);
+  --shadow-lg:
+    0 18px 44px -12px rgba(0, 0, 0, 0.65), 0 6px 16px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 10px 44px -8px var(--glow-primary);
+}

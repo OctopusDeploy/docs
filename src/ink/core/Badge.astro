@@ -1,0 +1,26 @@
+---
+type Variant = 'default' | 'brand' | 'success' | 'outline';
+
+interface Props {
+  variant?: Variant;
+  class?: string;
+}
+
+const { variant = 'default', class: extra = '' } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  default: 'bg-muted text-muted-foreground ring-1 ring-inset ring-border/60',
+  brand: 'bg-primary/10 text-primary ring-1 ring-inset ring-primary/20',
+  success:
+    'bg-[color-mix(in_oklab,var(--octo-green)_16%,var(--background))] text-[color-mix(in_oklab,var(--octo-green)_60%,var(--foreground))] ring-1 ring-inset ring-[color-mix(in_oklab,var(--octo-green)_35%,transparent)]',
+  outline: 'border border-border text-muted-foreground',
+};
+
+const cls = [
+  'inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium tracking-tight',
+  variants[variant],
+  extra,
+].join(' ');
+---
+
+<span class={cls} data-component="ink/core/Badge"><slot /></span>
