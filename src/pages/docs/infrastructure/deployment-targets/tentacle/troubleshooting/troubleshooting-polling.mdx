@@ -108,18 +108,21 @@ To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck
 
 ## Requests timing out during Deployments/Runbooks while the Tentacle is online
 
-If the Polling Tentacle is online and if while running multiple Deployments or Runbooks the following error:
+If a Polling Tentacle is online but you occasionally see timeout errors during concurrent deployments or runbooks, the Tentacle may be hitting its connection limit.
+
+**The Error:**
 
 > A request was sent to a polling endpoint, but the polling endpoint did not collect the request within the allowed time (00:02:00), so the request timed out.
 
-is occasionally seen. It could be that the Polling Tentacle is unable to process the requests quickly enough, despite the Tentacle's CPU and other 
-resources being under utilised.
+**The Cause:**
 
-This can occur because a Polling Tentacle may be configured to process no more than one request at a time, as their polling connection count is set to `1` or 
-defaults to `1`. Polling Tentacle Targets are by default configured to have a polling connection count of 1. While Polling Workers default to `max(5, Tentacle Core Count)`, 
-historically they have been configured with a Polling Connection Count of `1`.
+This issue occurs when a Polling Tentacle cannot process requests quickly enough, even if the host CPU and RAM utilization are low. By default, Polling Tentacle Deployment Targets are configured with a polling connection count of 1.
 
-To overcome this the polling connection count can be increased. For workers the recommended value is `max(5, Tentacle Core Count)`.
+While new Polling Workers automatically scale to `max(5, Tentacle Core Count)`, older Tentacles and standard Deployment Targets default to 1 and only process one request at a time.
+
+**The Solution:**
+
+Increase the polling connection count to allow concurrent request processing. The recommended value for targets and workers is `max(5, Tentacle Core Count)`.
 
 Set it from the Tentacle command line:
 
@@ -134,9 +137,5 @@ Or set it directly in the Tentacle configuration file:
 ```
 
 Restart the Tentacle for the change to take effect.
-
-:::div{.hint}
-New Polling Tentacle workers are automatically configured with a connection count of `max(5, processor count)`. Deployment targets — and any Tentacle configured before this option existed — default to `1`, so they are the most likely to benefit from increasing the count.
-:::
 
 <TentacleUninstall />
