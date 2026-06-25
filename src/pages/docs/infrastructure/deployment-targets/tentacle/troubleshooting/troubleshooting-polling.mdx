@@ -116,9 +116,9 @@ If a Polling Tentacle is online but you occasionally see timeout errors during c
 
 **The Cause:**
 
-This issue occurs when a Polling Tentacle cannot process requests quickly enough, even if the host CPU and RAM utilization are low. By default, Polling Tentacle Deployment Targets are configured with a polling connection count of 1.
+This issue occurs when a Polling Tentacle cannot process requests quickly enough, even if the host CPU and RAM utilization are low. By default, Polling Tentacle Deployment Targets are configured with a polling connection count of `1`.
 
-While new Polling Workers automatically scale to `max(5, Tentacle Core Count)`, older Tentacles and standard Deployment Targets default to 1 and only process one request at a time.
+While newly configured Polling Workers automatically scale to `max(5, Tentacle Core Count)`, previously configured Tentacles and standard Deployment Targets default to `1` and only process one request at a time.
 
 **The Solution:**
 
