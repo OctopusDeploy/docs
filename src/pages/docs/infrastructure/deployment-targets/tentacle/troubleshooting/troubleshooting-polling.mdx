@@ -106,7 +106,7 @@ To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck
 ![uncheck of the Check for publisher’s certificate revocation control panel option](/docs/img/infrastructure/deployment-targets/tentacle/images/5865771.png)
 :::
 
-## Requests timing out during Deployments/Runbook while the Tentacle is online
+## Requests timing out during Deployments/Runbooks while the Tentacle is online
 
 If the tentacle is online and if while running multiple Deployments and Runbooks the following error:
 
@@ -115,9 +115,9 @@ If the tentacle is online and if while running multiple Deployments and Runbooks
 is occasionally seen. It could be that the Polling Tentacle is unable to process the requests quickly enough, despite the Tentacle's CPU and other 
 resources being under utilised.
 
-This can occure because Polling Tentacle may be configured to process no more than one requests at a time, as their polling connect count is set to `1` or 
+This can occur because a Polling Tentacle may be configured to process no more than one request at a time, as their polling connection count is set to `1` or 
 defaults to `1`. Polling Tentacle Targets are by default configured to have a polling connection count of 1. While Polling Workers default to `max(5, Tentacle Core Count)`, 
-however historically theu have been configured with a Polling Connection Count of `1`.
+historically they have been configured with a Polling Connection Count of `1`.
 
 To overcome this the polling connection count can be increased. For workers the recommended value is `max(5, Tentacle Core Count)`.
 
