@@ -99,15 +99,18 @@ From this view you can filter by release and then deploy the selected release in
     - No untenanted deployments are shown on the dashboard.
 
 ### Advanced filtering options
-:::figure
-![Advanced filter screenshot](src/pages/docs/projects/test-michelle.png)
-:::
 
-
-:::div{.warning}
-This feature is only available on version 2026.3.2219 and later
-:::
+To help narrow down your view to only the projects you need to see, our advanced filtering enables you to:
 - Hide inactive projects 
 - Filter by deployment status
-- Filter by live status
+- Filter by live status (where appropriate)
 - Filter by tags
+
+:::figure
+![Advanced filter screenshot](src/pages/docs/projects/advanced-filters.png)
+:::
+
+
+```markdown
+In versions earlier than 2026.3.2219, you'll find your filtering options are limited to Project Groups, Projects, Environments and Tenants.
+```
