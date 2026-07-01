@@ -108,10 +108,12 @@ To help narrow down your view to only the projects you need to see, our advanced
 - Filter by tags
 
 :::figure
-![Advanced filter screenshot](/docs/public/docs/img/projects/advanced-filters.png)
-:::\
-\
+![Advanced filter screenshot](/docs/img/projects/advanced-filters.png)
+:::
+<br>
 
-```markdown
-In versions earlier than 2026.3.2219, you'll find your filtering options are limited to Project Groups, Projects, Environments and Tenants.
-```
+### Older versions
+
+:::div{.warning}
+In versions earlier than **2026.3.4913**, you'll find your filtering options are limited to Project Groups, Projects, Environments and Tenants.
+:::
