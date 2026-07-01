@@ -97,3 +97,17 @@ From this view you can filter by release and then deploy the selected release in
     - All untenanted deployments are summarized in the first row, labeled ‘Untenanted’.
   - **Only tenanted** deployments are allowed:
     - No untenanted deployments are shown on the dashboard.
+
+### Advanced filtering options
+:::figure
+![Advanced filter screenshot](src/pages/docs/projects/test-michelle.png)
+:::
+
+
+:::div{.warning}
+This feature is only available on version 2026.3.2219 and later
+:::
+- Hide inactive projects 
+- Filter by deployment status
+- Filter by live status
+- Filter by tags
