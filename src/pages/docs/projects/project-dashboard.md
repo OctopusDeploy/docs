@@ -101,17 +101,17 @@ From this view you can filter by release and then deploy the selected release in
 ### Advanced filtering options
 
 To help narrow down your view to only the projects you need to see, our advanced filtering enables you to:
-- Hide inactive projects 
+
+- Hide inactive projects
 - Filter by deployment status
 - Filter by live status (where appropriate)
 - Filter by tags
 
 :::figure
 ![Advanced filter screenshot](docs/public/docs/img/projects/advanced-filters.png)
-:::
+:::\
+\
 
-
-
-```
+```markdown
 In versions earlier than 2026.3.2219, you'll find your filtering options are limited to Project Groups, Projects, Environments and Tenants.
 ```
