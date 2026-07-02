@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-15
+modDate: 2026-06-03
 title: Approvals
 subtitle: Defining your change approval process
 icon: fa-solid fa-square-check
