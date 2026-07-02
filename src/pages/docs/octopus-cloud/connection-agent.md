@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-05-21
-modDate: 2026-05-21
+modDate: 2026-07-02
 title: Connection Agent
 navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
@@ -72,18 +72,18 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
   
    Run the following command, substituting the values:
 
-    - `CONNECT_URL` - This will be in the format `wss://<dns-prefix>.octopus.app/connect` where `<dns-prefix>` is the hostname of your Cloud Instance
-    - `API_KEY` - The API key created above
+    - `SERVER_URL` - This will be in the format `https://<dns-prefix>.octopus.app` where `<dns-prefix>` is the hostname of your Cloud Instance
+    - `OCTOPUS_API_KEY` - The API key created above
 
     ```bash
-    CONNECT_URL=<Connect URL>
+    SERVER_URL=<Server URL>
     OCTOPUS_API_KEY=<API Key>
     KEY_NAME=<Key Name>
     PUBLIC_KEY=$(cat ConnectionAgent-$AGENT_NAME.pem.pub)
 
     docker run --rm \
         octopusdeploy/connection-agent \
-        register --connect-url $CONNECT_URL --octopus-cloud-instance-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $KEY_NAME --public-key "$PUBLIC_KEY" 
+        register --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $KEY_NAME --public-key "$PUBLIC_KEY" 
     ```
 
     Note down the returned values, you will need to apply them as environment variables when the Connection Agent is deployed:
@@ -103,7 +103,7 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
 
     docker run --rm \
     octopusdeploy/connection-agent \
-    add-fqdn --connect-url $CONNECT_URL --octopus-cloud-instance-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --fqdn $FQDN
+    add-fqdn --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --fqdn $FQDN
     ```
 
     For each application hosted over HTTPS with either an internal CA issued or self-signed certificate, add the `--ignore-certificate-validation-errors` option.
@@ -137,7 +137,7 @@ docker run --interactive --rm \
 --env 'AUTH_SERVER_CLIENT_ID=<PROVIDED_CLIENT_ID>' \
 --env "AUTH_SERVER_PRIVATE_KEY_PEM=$(cat $PRIVATE_KEY_PATH)" \
 --env 'API_AUDIENCE=<PROVIDED_API_AUDIENCE>' \
---env 'CONNECT_URL=wss://<HOST_OF_YOUR_INSTANCE>/connect' \
+--env 'CONNECT_URL=<PROVIDED_CONNECT_URL>' \
 'octopusdeploy/connection-agent' \
 run
 ```
@@ -170,7 +170,7 @@ spec:
             - name: AUTH_SERVER_DOMAIN
               value: "m2m.auth.octopus.com"
             - name: CONNECT_URL
-              value: "wss://<HOST_OF_YOUR_INSTANCE>/connect"
+              value: <PROVIDED_CONNECT_URL>
             - name: AUTH_SERVER_CLIENT_ID
               value: <PROVIDED_CLIENT_ID>
             - name: API_AUDIENCE
@@ -229,17 +229,17 @@ openssl rsa -in ConnectionAgent-$AGENT_NAME.pem -outform PEM -pubout -out Connec
 # 2. Authorize the new public key
 docker run --rm \
 octopusdeploy/connection-agent \
-add-key --connect-url $CONNECT_URL --octopus-cloud-instance-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $KEY_NAME --public-key "$(cat ConnectionAgent-$AGENT_NAME.pem.pub)" 
+add-key --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $KEY_NAME --public-key "$(cat ConnectionAgent-$AGENT_NAME.pem.pub)" 
 
 # 3. Restart the agent pointing at the new private key and verify it's connected
 
 # 4. List keys to confirm both are present
 docker run --rm \
 octopusdeploy/connection-agent \
-list-keys --connect-url $CONNECT_URL --octopus-cloud-instance-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME 
+list-keys --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME 
 
 # 5. Remove the old key
 docker run --rm \
 octopusdeploy/connection-agent \
-remove-key --connect-url $CONNECT_URL --octopus-cloud-instance-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $OLD_KEY_NAME 
+remove-key --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $OLD_KEY_NAME 
 ```
