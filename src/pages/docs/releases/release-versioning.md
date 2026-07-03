@@ -86,15 +86,30 @@ where `REVISION` starts at 0 each day and increments with each release. i.e. The
 This can be achieved using the following expression:
 
 ```text
+#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.
+#{if Octopus.Date.Day==Octopus.Version.LastPatch | Format Int32 D2}
+#{Octopus.Version.NextRevision}
+#{else}
+#{if Octopus.Version.LastRevision!=0}
+0
+#{else}
+#{Octopus.Version.NextRevision}
+#{/if}#{/if}
+```
+
+:::div{.warning}
+We do not recommend comparing version and date components for equality (e.g. #{if
+Octopus.Date.Day==Octopus.Version.LastPatch}). Octopus.Date.Day/Month are zero-padded (01), while
+Octopus.Version.Last\*/Next\* variables are not (1). This introduces the possibility for comparisons to
+unexpectedly fail on single-digit days or months, causing unexpected version conflicts. While piping through
+Format Int32 D2 works around this, we recommend the simpler mask-based expression below instead.
+:::
+
+Instead, use the following simpler mask-based expression:
+
+```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
 ```
 
 The `i` mask character increments the previous release's revision component by one on every release. Note
 that the revision component will reset whenever any part of the date changes from the previous release.
-
-:::div{.warning}
-We do not recommend comparing version and date components for equality (e.g.
-`#{if Octopus.Date.Day==Octopus.Version.LastPatch}`). `Octopus.Date.Day`/`Month` are zero-padded (`01`), while
-`Octopus.Version.Last*`/`Next*` variables are not (`1`). This introduces the possibility for comparisons to
-unexpectedly fail on single-digit days or months, causing unexpected version conflicts.
-:::
