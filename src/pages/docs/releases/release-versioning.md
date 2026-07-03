@@ -98,14 +98,10 @@ This can be achieved using the following expression:
 ```
 
 :::div{.warning}
-We do not recommend comparing version and date components for equality (e.g. #{if
-Octopus.Date.Day==Octopus.Version.LastPatch}). Octopus.Date.Day/Month are zero-padded (01), while
-Octopus.Version.Last\*/Next\* variables are not (1). This introduces the possibility for comparisons to
-unexpectedly fail on single-digit days or months, causing unexpected version conflicts. While piping through
-Format Int32 D2 works around this, we recommend the simpler mask-based expression below instead.
+This example is no longer recommended for production workloads due to the potential for unexpected version
+conflicts arising from inconsistencies between date formats. The following simple mask-based expression
+should be preferred:
 :::
-
-Instead, use the following simpler mask-based expression:
 
 ```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
