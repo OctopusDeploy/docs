@@ -99,8 +99,8 @@ This can be achieved using the following expression:
 
 :::div{.warning}
 This example is no longer recommended for production workloads due to the potential for unexpected version
-conflicts arising from inconsistencies between date formats. The following simple mask-based expression
-should be preferred:
+conflicts arising from inconsistencies between date formats. The mask-based alternative provided below
+should be preferred.
 :::
 
 ```text
