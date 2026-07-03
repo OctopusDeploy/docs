@@ -52,6 +52,7 @@ Blkio
 bootstrap
 bootstrapped
 bootstrapper
+bubblewrap
 bufio
 buildevent
 buildinfo
@@ -69,6 +70,7 @@ choco
 cicd
 CIFS
 classiclink
+ClaudeCodeBehaviour
 clientcertificate
 cloudapi
 cloudapp
@@ -131,6 +133,7 @@ Djava
 Dockerfiles
 dockerhub
 Domainname
+dontAsk
 DONTVALIDATEPATH
 dotmemory
 dotnetcore
@@ -156,6 +159,7 @@ environmentids
 eprintfn
 esac
 exfiltrate
+exfiltration
 expressjs
 externalgroups
 externalusers
@@ -239,6 +243,7 @@ ITSM
 javac
 jdbc
 jjones
+journalctl
 jsondecode
 JSSE
 jwks
@@ -292,6 +297,7 @@ minifier
 minlevel
 MITM
 Mkto
+modelcontextprotocol
 Moines
 mozjpeg
 mozroots
@@ -480,6 +486,8 @@ Runspace
 runtimes
 sakila
 SAMEORIGIN
+sandboxed
+sandboxing
 Schannel
 SCIM
 scopeduserroles
@@ -581,6 +589,7 @@ undeployed
 undeploying
 uniquestring
 Unmarshal
+unsandboxed
 updateprogress
 upgradeavailability
 upgradelog
@@ -614,6 +623,7 @@ WEBSVR
 westeurope
 WFLYCTL
 WFLYUT
+wildcarded
 Wildfly
 windir
 windowsfeatures

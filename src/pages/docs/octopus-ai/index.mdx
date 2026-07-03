@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2025-11-20
+modDate: 2026-07-03
 title: AI-Powered DevOps with Octopus Deploy
 navTitle: Overview
 navSection: Octopus AI
@@ -58,12 +58,23 @@ Octopus Server communicates with foundation models via `https://aiproxy.octopus.
 
 [Learn more about Octopus Recovery Agent](/docs/octopus-ai/recovery-agent)
 
+### Claude Agent Step
+
+The Claude Agent Step lets you run Claude Code, an AI agent, as a step in your deployment process or runbook. You bring your own Anthropic API key and choose the model. Octopus provides the rest: somewhere for the agent to run, context about the deployment it's part of, and scoped access to your infrastructure.
+
+Because the agent runs inside your deployment, it can do the work that would otherwise need custom scripting or a human. It can investigate why a deployment failed, run a smoke test against a freshly deployed service before you promote it, or handle the one-off glue tasks between your deployment tools.
+
+The step is an alpha release. Letting an AI agent near your infrastructure is, like most things in deployment, an exercise in risk management, so the step gives you a few layers of control: you choose how the agent is sandboxed (the choice is mandatory), which tools it's allowed to use, and which MCP servers it can talk to. Octopus also screens for prompt injection and keeps an access-controlled transcript of each session, so you can see exactly what the agent did (and why).
+
+[Learn more about the Claude Agent Step](/docs/octopus-ai/claude-agent-step)
+
 ## Getting Started
 
 Begin your AI-powered DevOps journey today with the Octopus AI Assistant, or the Octopus MCP Server. As an Early Access participant, you'll help shape these features while gaining early access to capabilities that will transform how teams deploy software.
 
 - [Getting Started with Octopus AI Assistant](/docs/octopus-ai/assistant/getting-started)
 - [Getting Started with Octopus MCP Server](https://github.com/OctopusDeploy/mcp-server?tab=readme-ov-file#-installation)
+- [Getting Started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step)
 
 ## Security and Privacy
 
