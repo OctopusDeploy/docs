@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-20
+modDate: 2026-07-02
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
 icon: fa-solid fa-code-commit
@@ -81,26 +81,20 @@ A relatively common versioning scheme is:
 YEAR.MONTH.DAY.REVISION
 ```
 
-where `REVISION` starts at 0 each day and increments with each release. i.e. The releases on one day might be `2020.10.2.0`, `2020.10.2.1`, `2020.10.2.2` ... and the following day may be: `2020.10.3.0`, `2020.10.3.1` etc.   
+where `REVISION` starts at 0 each day and increments with each release. i.e. The releases on one day might be `2020.10.2.0`, `2020.10.2.1`, `2020.10.2.2` ... and the following day may be: `2020.10.3.0`, `2020.10.3.1` etc.
 
 This can be achieved using the following expression:
-
-```
-#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.
-#{if Octopus.Date.Day==Octopus.Version.LastPatch}
-#{Octopus.Version.NextRevision}
-#{else}
-#{if Octopus.Version.LastRevision!=0}
-0
-#{else}
-#{Octopus.Version.NextRevision}
-#{/if}#{/if}
-```
-
-The expression above is equivalent to:
 
 ```
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
 ```
 
-The difference is that the `i` is not replaced until the release is saved where the complex expression will show the next increment number before it is saved.
+The `i` mask character increments the previous release's revision component by one on every release. Note
+that the revision component will reset whenever any part of the date changes from the previous release.
+
+:::div{.warning}
+We do not recommend comparing version and date components for equality (e.g.
+`#{if Octopus.Date.Day==Octopus.Version.LastPatch}`). `Octopus.Date.Day`/`Month` are zero-padded (`01`), while
+`Octopus.Version.Last*`/`Next*` variables are not (`1`). This introduces the possibility for comparisons to
+unexpectedly fail on single-digit days or months, causing unexpected version conflicts.
+:::
