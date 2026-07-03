@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-07-03
 title: Notifications
 description: Guidelines and recommendations for notifications in Octopus Deploy.
 navOrder: 100
@@ -10,9 +10,9 @@ hideInThisSection: true
 
 Octopus Deploy provides multiple mechanisms for notifying you and your users of specific actions within Octopus Deploy.  These include:
 
-- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) to send out notifications when specific events occur within Octopus.  Both email and webhook subscriptions are currently supported.
+- [Subscriptions](/docs/administration/managing-infrastructure/subscriptions) to send out notifications when specific events occur within Octopus.  Email, webhook, and Slack subscriptions are supported.
 - [Email notification step](/docs/projects/built-in-step-templates/email-notifications) to send out an email during a deployment or runbook run.
-- [Slack notification step template](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification) to send out Slack messages during a deployment or runbook run.
+- [Slack notification step template](https://library.octopus.com/step-templates/99e6f203-3061-4018-9e34-4a3a9c3c3179/actiontemplate-slack-send-simple-notification) to send out Slack messages during a deployment or runbook run. From version `2026.3.5228`, you can use the [built-in Send a Slack Message step](/docs/projects/built-in-step-templates/send-slack-message) instead.
 - [Microsoft Teams notification step template](https://library.octopus.com/step-templates/110a8b1e-4da4-498a-9209-ef8929c31168/actiontemplate-microsoft-teams-post-a-message) to send out messages to Microsoft Teams during a deployment or runbook run.
 - [Twilio - send SMS step template](https://library.octopus.com/step-templates/3c3904a9-d08c-4f18-b86c-0304800bb541/actiontemplate-twilio-send-sms-(powershell)) to send out an SMS message during a deployment or runbook run.
 
@@ -30,6 +30,7 @@ If you are not careful with your subscription, you could end up with a lot of "n
 Each filter you add is an "AND," while each option you add to the filter is an "OR."
 
 A subscription with the filters:
+
 - Event Categories: Deployment Started
 - Environments: Staging, Production
 - Projects: Hello World
@@ -61,4 +62,3 @@ For further reading on subscriptions and other notifications in Octopus Deploy p
 
 - [Subscriptions](/docs/administration/managing-infrastructure/subscriptions)
 - [Email Notifications](/docs/projects/built-in-step-templates/email-notifications)
-
