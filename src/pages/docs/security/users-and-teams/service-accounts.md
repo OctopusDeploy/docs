@@ -16,9 +16,9 @@ When using Octopus Deploy it is common to have other automated services control 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
 :::div{.hint}
-**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
+**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key). For dedicated agent service accounts, see [Agent service accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts).
 :::
 
 ## Creating a service account {#ServiceAccounts-CreatingAServiceAccount}
