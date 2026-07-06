@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-07-03
+modDate: 2026-07-06
 title: Notifications
 description: Guidelines and recommendations for notifications in Octopus Deploy.
 navOrder: 100

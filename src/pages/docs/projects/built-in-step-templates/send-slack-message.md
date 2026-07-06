@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-03
+modDate: 2026-07-06
 title: Send a Slack Message step
 description: Send a Slack Message steps let you post messages to Slack channels as part of a deployment or runbook process.
 navOrder: 20
@@ -12,6 +12,10 @@ The Send a Slack Message step posts a message to one or more Slack channels duri
 The Send a Slack Message step is available from Octopus Server version `2026.3.5228`.
 
 You can add this step to a process at any time. If a Slack workspace isn't connected yet, the step editor shows a prompt to set one up. See [Slack integration](/docs/administration/managing-infrastructure/slack-integration) for instructions.
+
+:::figure
+![The Send a Slack Message step editor showing channel selection and message fields.](/docs/img/projects/built-in-step-templates/images/send-slack-message-step.png)
+:::
 
 ## Add the step
 

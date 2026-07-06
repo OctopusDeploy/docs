@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-03
+modDate: 2026-07-06
 title: Slack integration
 description: Connect a Slack workspace to Octopus Deploy to send subscription notifications and deployment messages to Slack channels.
 navOrder: 1700
@@ -65,6 +65,10 @@ Octopus requests the following scopes when authorizing:
 ### 4. Confirm the connection
 
 Your workspace is now connected. You can optionally send a test message to `#general` to confirm everything is working before finishing.
+
+:::figure
+![The Slack integration page showing a connected workspace with scopes and a test message option.](/docs/img/administration/managing-infrastructure/slack-integration/images/slack-integration-connected.png)
+:::
 
 ## Test the connection {#slack-integration-test}
 
