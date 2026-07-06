@@ -110,8 +110,10 @@ Navigate: Open the Add MCP Server drawer with the fields filled in as above.
 Capture: the Add MCP Server drawer showing Name, Command, Arguments, and Environment Variables, light theme, 1440px viewport
 Alt text: "The Add MCP Server drawer with the filesystem MCP server configured"
 NOTE: if PR #44873 has merged by capture time, the drawer gains Type and Tools fields and the button is renamed "Add MCP" — recheck the docs text first (see in-flight note above).
--->
+
 ![The Add MCP Server drawer with the filesystem MCP server configured](/docs/img/octopus-ai/claude-agent-step/mcp-server-drawer.png)
+-->
+
 
 ## Skills and context
 
@@ -177,8 +179,10 @@ Setup: On the step, expand "Agent Capabilities (optional)" > Skills, select "Add
 Navigate: Open the Add Skill drawer with Name and Content filled in.
 Capture: the Add Skill drawer showing the Name and Content fields, light theme, 1440px viewport
 Alt text: "The Add Skill drawer with a custom skill name and markdown content"
--->
+
 ![The Add Skill drawer with a custom skill name and markdown content](/docs/img/octopus-ai/claude-agent-step/skills-drawer.png)
+-->
+
 
 ## Related pages
 

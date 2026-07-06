@@ -73,8 +73,10 @@ Setup: Configuration > Teams & Roles (or Users, Roles) > edit a user role
 Navigate: Open the role's permission list and filter for "AiAgentTranscriptView"
 Capture: the AiAgentTranscriptView permission row with its "View AI agent transcripts" description, light theme, 1440px viewport
 Alt text: "The AiAgentTranscriptView permission in the Octopus role editor"
--->
+
 ![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)
+-->
+
 
 ## Sandboxing
 
@@ -139,8 +141,10 @@ Setup: Add a "Run Claude Agent" step named "Investigate deployment failure"; exp
 Navigate: Process > the step > scroll to Sandboxing and Permission mode
 Capture: the Sandboxing radios (Bash sandbox / Sandbox runtime / None) with the JSON settings editor, and the Permission mode radios, light theme, 1440px viewport
 Alt text: "The Sandboxing and Permission mode controls in the Claude Agent Step editor"
--->
+
 ![The Sandboxing and Permission mode controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/security-section.png)
+-->
+
 
 ## Tool permissions
 
@@ -225,8 +229,10 @@ Setup: On the "Run Claude Agent" step, expand the Prompt Injection Check section
 Navigate: Process > the step > Prompt Injection Check
 Capture: the expanded Prompt Injection Check section, light theme, 1440px viewport
 Alt text: "The Prompt Injection Check controls in the Claude Agent Step editor"
--->
+
 ![The Prompt Injection Check controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/injection-check.png)
+-->
+
 
 <!-- SCREENSHOT: auto-mode-config.png
 Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
@@ -235,5 +241,7 @@ Setup: On the "Run Claude Agent" step, in the Permission mode section select "Au
 Navigate: Process > the step > Permission mode > Auto mode
 Capture: the Auto Mode Config JSON editor with its explanatory note, light theme, 1440px viewport
 Alt text: "The Auto Mode Config JSON editor shown when Auto mode is selected"
--->
+
 ![The Auto Mode Config JSON editor shown when Auto mode is selected](/docs/img/octopus-ai/claude-agent-step/auto-mode-config.png)
+-->
+
