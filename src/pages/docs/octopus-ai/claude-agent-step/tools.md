@@ -66,16 +66,9 @@ Octopus turns the **Tools** entries into the underlying `mcp__<name>__<tool>` pe
 If you clear the **Tools** field entirely, the agent can't call any of that server's tools. Permission modes and tool allowlisting are covered in full on the [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) page.
 :::
 
-<!-- SCREENSHOT: mcp-server-drawer.png
-Instance: local dev instance (http://localhost:8065) or https://claude-step.testoctopus.app
-Space: Default; Project: "Claude Agent Docs Demo" (create if absent); Process > a Claude Agent Step (step name "Investigate deployment failure")
-Setup: On the step, expand "Agent Capabilities (optional)" > MCP, select "Add MCP". In the drawer set Type = stdio, Name = filesystem, Command = npx, Arguments = "-y", "@modelcontextprotocol/server-filesystem", "." (one per line). Leave Environment Variables empty and Tools at the default "*".
-Navigate: Open the Add MCP drawer with the fields filled in as above.
-Capture: the Add MCP drawer showing Type, Name, Command, Arguments, Environment Variables, and Tools, light theme, 1440px viewport
-Alt text: "The Add MCP drawer with the filesystem stdio MCP server configured"
-
+:::figure
 ![The Add MCP drawer with the filesystem stdio MCP server configured](/docs/img/octopus-ai/claude-agent-step/mcp-server-drawer.png)
--->
+:::
 
 ## MCP server settings
 
@@ -145,16 +138,9 @@ To add a custom skill:
 
 When the step runs, each skill you provide is written to a file the agent can discover, alongside the built-in skills.
 
-<!-- SCREENSHOT: skills-drawer.png
-Instance: local dev instance (http://localhost:8065) or https://claude-step.testoctopus.app
-Space: Default; Project: "Claude Agent Docs Demo" (create if absent); Process > a Claude Agent Step (step name "Investigate deployment failure")
-Setup: On the step, expand "Agent Capabilities (optional)" > Skills, select "Add Skill". In the drawer set Name = release-notes and Content = a short markdown skill (e.g. a heading and two bullet points describing how the team writes release notes).
-Navigate: Open the Add Skill drawer with Name and Content filled in.
-Capture: the Add Skill drawer showing the Name and Content fields, light theme, 1440px viewport
-Alt text: "The Add Skill drawer with a custom skill name and markdown content"
-
+:::figure
 ![The Add Skill drawer with a custom skill name and markdown content](/docs/img/octopus-ai/claude-agent-step/skills-drawer.png)
--->
+:::
 
 ## Related links
 

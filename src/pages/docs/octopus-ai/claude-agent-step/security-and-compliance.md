@@ -85,16 +85,9 @@ Know the limits before you rely on the sandbox as a hard boundary:
 
 For the heavier patterns, see Anthropic's guide to [securely deploying AI agents](https://code.claude.com/docs/en/agent-sdk/secure-deployment). You can apply those patterns around the step yourself.
 
-<!-- SCREENSHOT: security-section.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo" (create if absent)
-Setup: Add a "Run Claude Agent" step named "Investigate deployment failure"; expand the Sandboxing and Permission mode sections; select "Bash sandbox" so the settings editor is visible; select "dontAsk mode"
-Navigate: Process > the step > scroll to Sandboxing and Permission mode
-Capture: the Sandboxing radios (Bash sandbox / Sandbox runtime / None) with the JSON settings editor, and the Permission mode radios, light theme, 1440px viewport
-Alt text: "The Sandboxing and Permission mode controls in the Claude Agent Step editor"
-
+:::figure
 ![The Sandboxing and Permission mode controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/security-section.png)
--->
+:::
 
 ## Tool permissions
 
@@ -132,16 +125,9 @@ Auto mode has real limitations you should consider:
 
 Selecting auto mode reveals an **Auto Mode Config** editor for classifier rules (`environment`, `allow`, `soft_deny`, and `hard_deny`, using Claude Code's own format and supporting a literal `$defaults` entry).
 
-<!-- SCREENSHOT: auto-mode-config.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"
-Setup: On the "Run Claude Agent" step, in the Permission mode section select "Auto mode" so the Auto Mode Config JSON editor appears, pre-filled with the default ($defaults) config
-Navigate: Process > the step > Permission mode > Auto mode
-Capture: the Auto Mode Config JSON editor with its explanatory note, light theme, 1440px viewport
-Alt text: "The Auto Mode Config JSON editor shown when Auto mode is selected"
-
+:::figure
 ![The Auto Mode Config JSON editor shown when Auto mode is selected](/docs/img/octopus-ai/claude-agent-step/auto-mode-config.png)
--->
+:::
 
 For the full behavior of each mode, see Claude Code's [permission modes documentation](https://code.claude.com/docs/en/permission-modes).
 
@@ -169,16 +155,9 @@ Prompt injection is when untrusted content the agent reads tries to hijack it: a
 
 The check adds a model call, and therefore some cost and latency, to every run, and its token usage appears in the task's Claude Usage Summary - but not it's cost. A determined injection can be phrased to slip past a screening model, which is exactly why the other layers matter. Auto mode's classifier watches actions at runtime, sandboxing constrains what any hijacked action can reach, and least-privilege scoping limits the damage of anything that gets through. No single layer is sufficient on its own; the injection check is the cheap first filter in front of the rest.
 
-<!-- SCREENSHOT: injection-check.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"
-Setup: On the "Run Claude Agent" step, expand the Prompt Injection Check section with the check enabled so all controls show: On detection (Block/Warn), Model, Maximum tokens, Maximum input characters, and "Continue if the check cannot run"
-Navigate: Process > the step > Prompt Injection Check
-Capture: the expanded Prompt Injection Check section, light theme, 1440px viewport
-Alt text: "The Prompt Injection Check controls in the Claude Agent Step editor"
-
+:::figure
 ![The Prompt Injection Check controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/injection-check.png)
--->
+:::
 
 ## The audit trail
 
@@ -189,16 +168,9 @@ Every execution produces an audit trail, so you can review after the fact exactl
 - **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
 - **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
 
-<!-- SCREENSHOT: transcript-permission.png
-Instance: https://claude-step.testoctopus.app (this control needs the branch instance; the local dev instance may not expose the permission in its role UI)
-Space: Default
-Setup: Configuration > Teams & Roles (or Users, Roles) > edit a user role
-Navigate: Open the role's permission list and filter for "AiAgentTranscriptView"
-Capture: the AiAgentTranscriptView permission row with its "View AI agent transcripts" description, light theme, 1440px viewport
-Alt text: "The AiAgentTranscriptView permission in the Octopus role editor"
-
+:::figure
 ![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)
--->
+:::
 
 ## Safe usage patterns
 

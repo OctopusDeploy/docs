@@ -30,31 +30,17 @@ To add and configure the step:
 1. Open your deployment process or runbook and select **Add step**.
 2. Search for `claude` and choose **Run Claude Agent** from the step library.
 
-<!-- SCREENSHOT: step-library-run-claude.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo" (create if absent); Process editor > Add step
-Setup: Feature toggle claude-step enabled. Open the "Choose a step" library.
-Navigate: Project > Process > Add step > search "claude" (or open the "AI" category)
-Capture: the "Run Claude Agent" step-library card showing its description "Runs the Claude Code CLI tool." and the blue "Alpha" chip, light theme, 1440px viewport
-Alt text: "The Run Claude Agent step card in the step library with an Alpha chip"
-
+:::figure
 ![The Run Claude Agent step card in the step library with an Alpha chip](/docs/img/octopus-ai/claude-agent-step/step-library-run-claude.png)
--->
+:::
 
 3. In **Prompt**, describe the task in plain language, the way you would prompt Claude Code. The prompt can use Octopus variables (for example `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "success" looks like.
 4. In **Claude Settings**, set **API Key** to a reference to your sensitive variable, for example `#{anthropic-api-key}`.
 5. Optionally, set **Model Version** to a model such as `claude-opus-4-8` or `claude-haiku-4-5`, or leave it blank to use the Claude Code CLI's current default. The **Effort** setting trades thoroughness against cost and latency; leave it blank to use the default.
 
-<!-- SCREENSHOT: step-editor-prompt-and-settings.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"; a Run Claude Agent step named "Investigate the deployment"
-Setup: Prompt section filled with a short investigation prompt; Claude Settings ➜ API Key = #{anthropic-api-key}; Model = claude-haiku-4-5. Expand the Prompt and Claude Settings sections.
-Navigate: open the step editor and scroll so Prompt and Claude Settings are both visible
-Capture: the Prompt section (with prompt text) and the Claude Settings section (API Key + Model), light theme, 1440px viewport
-Alt text: "The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in"
-
+:::figure
 ![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
--->
+:::
 
 6. In **Security**, select a **Sandboxing** mode. You must pick one of the three values to save the step:
    - **Bash sandbox** uses Claude Code's built-in sandbox. It confines the agent's `Bash` commands, but file operations and hooks still run on the host.
@@ -115,16 +101,9 @@ Claude Code invocation complete.
 Collecting artifacts
 ```
 
-<!-- SCREENSHOT: task-log-streaming.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"; deploy/run a Run Claude Agent step
-Setup: run the step so the task log contains the injection-check lines, the agent narration, and the "Claude Code invocation complete." line
-Navigate: open the completed task, expand the Run Claude Agent step in the task log
-Capture: the task log for the step showing the agent's streamed output and the usage line, light theme, 1440px viewport
-Alt text: "The task log showing the Claude agent streaming its output"
-
+:::figure
 ![The task log showing the Claude agent streaming its output](/docs/img/octopus-ai/claude-agent-step/task-log-streaming.png)
--->
+:::
 
 When the task finishes, the step's log ends with its usage lines and `Claude Code invocation complete.`, and the task page shows a **Claude Usage Summary** panel.
 
@@ -139,16 +118,9 @@ Every completed run leaves the following outputs on the task page.
 | Artifacts | The task's artifacts | Files the agent attached using the built-in `octopus-artifacts` skill, ready to download. See [Built-in skills](/docs/octopus-ai/claude-agent-step/tools#built-in-skills). |
 | Transcript | Stored on the Octopus Server, gated behind a dedicated permission | The full, verbose session, recorded for auditing. See [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) for who can read it and how. |
 
-<!-- SCREENSHOT: claude-usage-summary.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"; a completed deployment/run with one or more Run Claude Agent steps
-Setup: complete a run so usage is recorded
-Navigate: open the completed task page and scroll to the "Claude Usage Summary" panel
-Capture: the "Claude Usage Summary" panel with its Step / Max Budget (USD) / Cost (USD) / Tokens / Model columns and total row, light theme, 1440px viewport
-Alt text: "The Claude Usage Summary panel on the task page"
-
+:::figure
 ![The Claude Usage Summary panel on the task page](/docs/img/octopus-ai/claude-agent-step/claude-usage-summary.png)
--->
+:::
 
 ## Investigate a failed deployment
 
