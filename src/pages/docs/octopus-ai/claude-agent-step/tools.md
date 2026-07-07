@@ -75,7 +75,7 @@ If you clear the **Tools** field entirely, the agent can't call any of that serv
 The **Add MCP** drawer takes the following settings. Each entry must have a unique name and either a `stdio` type with a non-empty command or an `http` type with a non-empty URL.
 
 | Setting | Applies to | Description |
-|---|---|---|
+| --- | --- | --- |
 | Type | All servers | `stdio` for a server Octopus runs locally, or `http` for a remote endpoint. |
 | Name | All servers | A unique identifier for this server, such as `github` or `jira`. |
 | Command | stdio | The executable that starts the server, such as `npx`, `node`, or `python`. Required for stdio servers. |

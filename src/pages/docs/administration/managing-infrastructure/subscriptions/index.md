@@ -17,7 +17,7 @@ For earlier versions of Octopus, Subscriptions can be accessed from the **Config
 :::
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
+![The Subscriptions page in the Octopus Configuration menu](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
 :::
 
 ## Email notifications {#Subscriptions-EmailNotifications}
@@ -35,19 +35,20 @@ Let's say you have some critical projects and you want your administrators to re
 Consider the following example:
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
+![An example email subscription configured for deployment-critical events in the Production environment](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
 :::
 
-We can select the _Deployment-critical events_ group, which will automatically filter all deployment-critical events for us.
+We can select the *Deployment-critical events* group, which will automatically filter all deployment-critical events for us.
 
-We can then select just the projects/environments we want to monitor. In this case: our _Infrastructure_ or _Code_ projects. Also, we only want to get notified when these critical events occur in our _Production_ environment.
+We can then select just the projects/environments we want to monitor. In this case: our *Infrastructure* or *Code* projects. Also, we only want to get notified when these critical events occur in our *Production* environment.
 
-So in this example, all users in the _Octopus Administrators_ team (with a valid email address) will receive an email notification for _Deployment-critical events_, in the _Infrastructure_ or _Code_ projects, that occurred in our _Production_ environment.
+So in this example, all users in the *Octopus Administrators* team (with a valid email address) will receive an email notification for *Deployment-critical events*, in the *Infrastructure* or *Code* projects, that occurred in our *Production* environment.
 
 :::div{.hint}
 Each filter you add is an "AND," while each option you add to the filter is an "OR."
 
 A subscription with the filters:
+
 - Event Categories: Deployment Started
 - Environments: Staging, Production
 - Projects: Hello World
@@ -62,12 +63,11 @@ You can read more about getting started with notifications in our [Getting Start
 In this example, we have also configured the timezone drop-down so all dates shown in the emails will be in our preferred timezone.
 :::
 
-We can then hit _Save_ and this subscription will show up in our subscriptions list screen.
+We can then hit *Save* and this subscription will show up in our subscriptions list screen.
 
 ## Role permissions
 
 Each email will be customized based on the user's roles, so they will only be emailed with events that they have permission to see. See the "Event Visibility and Permissions" section below for more details.
-
 
 ## Webhook notifications {#Subscriptions-WebhookNotifications}
 
@@ -92,16 +92,16 @@ Webhook notifications allow you to receive a JSON payload, posted to a specified
 
 The `Payload` includes:
 
-| Property                     | Hint | Description |
+| Property | Hint | Description |
 | ---------------------------- | ---- | ----------- |
-| ServerUri                    | \* |  The Octopus Server that generated this webhook |
-| ServerAuditUri               | \* | The URL to the Octopus Server's audit screen where this event may be found in more detail |
-| Subscription                 | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
-| Event                        | | The event object that this webhook is responding to |
-| BatchProcessingDate          | | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
-| BatchId                      | \** | A unique GUID given to the current batch of events being processed |
-| TotalEventsInBatch           | \** | The total number of events, in the current batch of events being processed |
-| EventNumberInBatch           | \** | The event number of this event, in the current batch of events being processed |
+| ServerUri | \* | The Octopus Server that generated this webhook |
+| ServerAuditUri | \* | The URL to the Octopus Server's audit screen where this event may be found in more detail |
+| Subscription | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
+| Event | | The event object that this webhook is responding to |
+| BatchProcessingDate | | The processing date for the current batch. For 'Single' payload types, the events will be sent in batches. The batch date is included here for your reference |
+| BatchId | \** | A unique GUID given to the current batch of events being processed |
+| TotalEventsInBatch | \** | The total number of events, in the current batch of events being processed |
+| EventNumberInBatch | \** | The event number of this event, in the current batch of events being processed |
 
 \* This property will be null unless the publicly-accessible URL has been set for your Octopus instance (see the **Configuration ➜ Nodes ➜ Configuration Settings** menu).
 
@@ -111,7 +111,6 @@ The `Payload` includes:
 **Consuming Events**
 While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your consuming API with this in mind.
 :::
-
 
 ## Event visibility and permissions {#Subscriptions-Event-Visibility-and-Permissions}
 
@@ -229,84 +228,84 @@ The following is a list of all options for subscriptions including Event Groups,
 | Task canceled                                          |
 | User password changed                                  |
 
-| DOCUMENT TYPES                       |
-|--------------------------------------|
-| Account                              |
-| Action Template                      |
-| Action Template Version              |
-| Api Key                              |
-| Artifact                             |
-| Auto Deploy Queue Item               |
-| Build Information                    |
-| Certificate                          |
-| Channel                              |
-| Community Action Template            |
-| Connect Project to Tenants Task      |
-| Dashboard Configuration              |
-| Data Migration State                 |
-| Deleted Space                        |
-| Deployment                           |
-| Deployment Completion                |
-| Deployment Environment               |
-| Deployment Freeze                    |
-| Deployment Freeze Override           |
-| Deployment History                   |
-| Deployment Process                   |
-| Deployment Settings                  |
-| Deployment Target Tag                |
-| Deprecation Usage                    |
-| Event                                |
-| Extension Configuration              |
-| Feature Toggle                       | 
+| DOCUMENT TYPES                        |
+|---------------------------------------|
+| Account                               |
+| Action Template                       |
+| Action Template Version               |
+| Api Key                               |
+| Artifact                              |
+| Auto Deploy Queue Item                |
+| Build Information                     |
+| Certificate                           |
+| Channel                               |
+| Community Action Template             |
+| Connect Project to Tenants Task       |
+| Dashboard Configuration               |
+| Data Migration State                  |
+| Deleted Space                         |
+| Deployment                            |
+| Deployment Completion                 |
+| Deployment Environment                |
+| Deployment Freeze                     |
+| Deployment Freeze Override            |
+| Deployment History                    |
+| Deployment Process                    |
+| Deployment Settings                   |
+| Deployment Target Tag                 |
+| Deprecation Usage                     |
+| Event                                 |
+| Extension Configuration               |
+| Feature Toggle                        |
 | Feature Toggle Publishing Signing Key |
-| Feed                                 |
-| Git Credential                       | 
-| Git Hub App Connection               |
-| Git Hub App Token                    |
-| Insights Report                      |
-| Interruption                         |
-| Invitation                           |
-| Kubernetes Monitor                   |
-| Kubernetes Resource Manifest         |
-| Kubernetes Task Resource Status      |
-| Library Variable Set                 |
-| Lifecycle                            |
-| Machine                              |
-| Machine Policy                       |
-| Octopus Server Node                  | 
-| Process Execution                    |
-| Project                              |
-| Project Group                        |
-| Project Intents                      |
-| Project Trigger                      |
-| Proxy                                |
-| Release                              |
-| Runbook                              |
-| Runbook Process                      |
-| Runbook Run                          |
-| Runbook Run History                  |
-| Runbooks Snapshot                    |
-| Sample Project                       |
-| Scoped User Role                     |
-| Server Task                          |
-| Server Task Approval                 |
-| Server Account Oidc Identity         |
-| Signing Key                          |
-| Space                                |
-| Subscription                         |
-| Tag Set                              |
-| Team                                 |
-| Tenant                               |
-| Tenant Variable                      |
-| User                                 |
-| User Favorite Project                |
-| User Onboarding                      |
-| User Role                            |
-| User Session                         |
-| Variable Set                         |
-| Worker                               |
-| Worker Pool                          |
-| Worker Task Lease                    |
+| Feed                                  |
+| Git Credential                        |
+| Git Hub App Connection                |
+| Git Hub App Token                     |
+| Insights Report                       |
+| Interruption                          |
+| Invitation                            |
+| Kubernetes Monitor                    |
+| Kubernetes Resource Manifest          |
+| Kubernetes Task Resource Status       |
+| Library Variable Set                  |
+| Lifecycle                             |
+| Machine                               |
+| Machine Policy                        |
+| Octopus Server Node                   |
+| Process Execution                     |
+| Project                               |
+| Project Group                         |
+| Project Intents                       |
+| Project Trigger                       |
+| Proxy                                 |
+| Release                               |
+| Runbook                               |
+| Runbook Process                       |
+| Runbook Run                           |
+| Runbook Run History                   |
+| Runbooks Snapshot                     |
+| Sample Project                        |
+| Scoped User Role                      |
+| Server Task                           |
+| Server Task Approval                  |
+| Server Account Oidc Identity          |
+| Signing Key                           |
+| Space                                 |
+| Subscription                          |
+| Tag Set                               |
+| Team                                  |
+| Tenant                                |
+| Tenant Variable                       |
+| User                                  |
+| User Favorite Project                 |
+| User Onboarding                       |
+| User Role                             |
+| User Session                          |
+| Variable Set                          |
+| Worker                                |
+| Worker Pool                           |
+| Worker Task Lease                     |
 
 \* License key expiry events are only available in Octopus Server version `2025.2.6402` and later.
 

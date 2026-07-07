@@ -30,17 +30,17 @@ To add and configure the step:
 1. Open your deployment process or runbook and select **Add step**.
 2. Search for `claude` and choose **Run Claude Agent** from the step library.
 
-:::figure
-![The Run Claude Agent step card in the step library with an Alpha chip](/docs/img/octopus-ai/claude-agent-step/step-library-run-claude.png)
-:::
+   :::figure
+   ![The Run Claude Agent step card in the step library with an Alpha chip](/docs/img/octopus-ai/claude-agent-step/step-library-run-claude.png)
+   :::
 
 3. In **Prompt**, describe the task in plain language, the way you would prompt Claude Code. The prompt can use Octopus variables (for example `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "success" looks like.
 4. In **Claude Settings**, set **API Key** to a reference to your sensitive variable, for example `#{anthropic-api-key}`.
 5. Optionally, set **Model Version** to a model such as `claude-opus-4-8` or `claude-haiku-4-5`, or leave it blank to use the Claude Code CLI's current default. The **Effort** setting trades thoroughness against cost and latency; leave it blank to use the default.
 
-:::figure
-![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
-:::
+   :::figure
+   ![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
+   :::
 
 6. In **Security**, select a **Sandboxing** mode. You must pick one of the three values to save the step:
    - **Bash sandbox** uses Claude Code's built-in sandbox. It confines the agent's `Bash` commands, but file operations and hooks still run on the host.
@@ -49,9 +49,9 @@ To add and configure the step:
 
    For a first run on a Linux worker, **Sandbox runtime** is the safest starting point. Each mode and how to configure it is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
 
-:::div{.warning}
-The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers in this alpha. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on your own isolation while you try it out.
-:::
+   :::div{.warning}
+   The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers in this alpha. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on your own isolation while you try it out.
+   :::
 
 7. Select a **Permission Mode**. For your first run, select **dontAsk mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. The other option, Auto mode (a classifier model that judges each action instead of relying only on the allowlist), is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
 8. In **Tool Permissions**, list the tools the agent needs, one per line. For example:
@@ -112,7 +112,7 @@ When the task finishes, the step's log ends with its usage lines and `Claude Cod
 Every completed run leaves the following outputs on the task page.
 
 | Output | Where it appears | What it contains |
-|---|---|---|
+| --- | --- | --- |
 | Task log | The step's section of the task log | The agent's streamed narration and final answer. The verbose level adds its thinking and each tool call. |
 | Claude Usage Summary | A panel on the task page | Each Claude step with its model, token count, cost, and any budget cap, plus a total. Use it to keep an eye on what a run costs. |
 | Artifacts | The task's artifacts | Files the agent attached using the built-in `octopus-artifacts` skill, ready to download. See [Built-in skills](/docs/octopus-ai/claude-agent-step/tools#built-in-skills). |

@@ -30,6 +30,7 @@ If you are not careful with your subscription, you could end up with a lot of "n
 Each filter you add is an "AND," while each option you add to the filter is an "OR."
 
 A subscription with the filters:
+
 - Event Categories: Deployment Started
 - Environments: Staging, Production
 - Projects: Hello World
@@ -61,4 +62,3 @@ For further reading on subscriptions and other notifications in Octopus Deploy p
 
 - [Subscriptions](/docs/administration/managing-infrastructure/subscriptions)
 - [Email Notifications](/docs/projects/built-in-step-templates/email-notifications)
-

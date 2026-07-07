@@ -22,70 +22,70 @@ Within a project, click **Settings ➜ Release Versioning**:
 
 You can use variables from the project (un-scoped or scoped only to a channel). In addition, some special variables are provided - example:
 
-```
+```text
 1.2.#{Octopus.Version.NextPatch}-pre
 ```
 
 These special variables take the form:
 
-```
+```text
 Octopus.Version.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)
 ```
 
 If you are using channels, channel-specific special variables are also available:
 
-```
+```text
 Octopus.Version.Channel.(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)
 ```
 
 Version components from other channels in the project can be referenced using the channel name as the index:
 
-```
+```text
 Octopus.Version.Channel[ChannelName].(Last|Next)(Major|Minor|Patch|Build|Revision|Suffix)
 ```
 
 The channel name can also be used (generally as part of the suffix):
 
-```
+```text
 Octopus.Release.Channel.Name
 ```
 
 The version can also include Octopus *semantic version mask* characters i and c referring to the **incremented** and **current** values of the version, respectively. For example:
 
-```
+```text
 2.1.c.i
 ```
 
 Finally, date fields can be also be used, for example:
 
-```
+```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}
 ```
 
 These take the form:
 
-```
+```text
 Octopus.Date.(Day|Month|Year|DayOfYear)
 Octopus.Time.(Hour|Minute|Second)
 ```
 
 ## Complex expressions
 
-The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions/#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions/#conditionals) can be used to model some complex scenarios. 
+The full power of the [Octopus variable syntax](/docs/projects/variables/variable-substitutions/#complex-syntax) (powered by [Octostache](https://github.com/OctopusDeploy/Octostache)) is available in version templates.  In particular, [conditional expressions](/docs/projects/variables/variable-substitutions/#conditionals) can be used to model some complex scenarios.
 
 ### Example: Date with incrementing revision
 
-A relatively common versioning scheme is: 
+A relatively common versioning scheme is:
 
-```
+```text
 YEAR.MONTH.DAY.REVISION
 ```
 
-where `REVISION` starts at 0 each day and increments with each release. i.e. The releases on one day might be `2020.10.2.0`, `2020.10.2.1`, `2020.10.2.2` ... and the following day may be: `2020.10.3.0`, `2020.10.3.1` etc.   
+where `REVISION` starts at 0 each day and increments with each release. i.e. The releases on one day might be `2020.10.2.0`, `2020.10.2.1`, `2020.10.2.2` ... and the following day may be: `2020.10.3.0`, `2020.10.3.1` etc.
 
 This can be achieved using the following expression:
 
-```
+```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.
 #{if Octopus.Date.Day==Octopus.Version.LastPatch}
 #{Octopus.Version.NextRevision}
@@ -99,7 +99,7 @@ This can be achieved using the following expression:
 
 The expression above is equivalent to:
 
-```
+```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
 ```
 
