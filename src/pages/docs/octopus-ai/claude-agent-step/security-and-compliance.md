@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-03
+modDate: 2026-07-07
 title: Claude Agent Step security and compliance
 navTitle: Security & Compliance
 description: How the Claude Agent Step is secured, what each control does and does not protect against, and how to configure it safely.
@@ -24,27 +24,6 @@ Most of the step's controls are policy gates that contain mistakes, not hard sec
 
 The strongest boundary available to you is not configurable within Octopus, but *where you run the agent*: a dedicated, isolated worker with only the access the task genuinely needs. Everything else layers on top of that choice.
 
-## Using the step safely
-
-How much access to grant depends on what you're asking the agent to do. Two archetypes bracket the range:
-
-- **The host-interacting agent.** Its job *is* to act on the machine or target: run a smoke test against a deployed app, inspect a failed deployment on the box, restart a service. Here you can't lock the agent away from the host, because the host is the work. Instead you bound the access: a worker or target scoped to that one environment, a narrow tool allowlist, and a sandbox that constrains what shell commands can touch.
-- **The worker-isolated agent.** The worker is incidental; the agent reasons over context and calls out to Octopus or an external service, but has no legitimate reason to touch the worker itself. Here you lock it down hard: whole-process sandboxing, a minimal network allowlist, and no ambient access to the worker's credentials or filesystem.
-
-The step serves the whole spectrum between these, which is why the sandbox choice is mandatory and explicit rather than defaulted. Match the controls to the archetype your task fits.
-
-Some guidance applies to every run:
-
-- Grant the narrowest tool set, the smallest network allowlist, and the least filesystem access the task needs. It's far easier to widen access after a run fails for lack of it than to reason about what a broadly-scoped agent might have done.
-- Prefer a dedicated, isolated worker. A worker that's used only for these steps, has no standing production credentials, and can reach only what the task requires is the most effective control you have. A shared worker with broad access undermines every setting inside the step.
-- Scope the Anthropic API key. Supply the key as a [sensitive variable](/docs/projects/variables/sensitive-variables) so it's encrypted and masked in logs. Use a key you can rotate and revoke independently, with spend and rate limits set.
-- Treat the prompt as a code-review surface. The prompt, any skills, and the tool lists together define what the agent is allowed and encouraged to do. Review changes to them the way you review a change to a deployment script, because that's effectively what they are.
-- Bound every run. Set a **Turn Limit** (the maximum number of calls the agent makes to the API) and a **Maximum Budget** in USD. Both cap a run that goes off the rails, in wall-clock work and in spend. A run that exhausts either limit fails the step rather than continuing indefinitely.
-
-:::div{.warning}
-Octopus leverages Claude Code's built in controls for cost and token limits, but these are not guaranteed to exactly match the cost incurred by Anthropic's servers.
-:::
-
 ## Built-in security controls
 
 The step applies the following controls on every run. Several exist to contain the primary threat (model error); read each one for what it actually enforces.
@@ -55,27 +34,7 @@ The step applies the following controls on every run. Several exist to contain t
 - **Deterministic failure detection.** The step fails on a non-zero exit code or any recorded permission denial. A **denied tool call fails the step**; see [Tool permissions](#tool-permissions). The step doesn't try to judge whether the agent achieved your goal. An agent that gives up cleanly exits successfully and looks the same as one that succeeded, so treat the task log and transcript as the record of what actually happened.
 - **A prompt-injection pre-check.** Before the agent runs, a separate, cheaper model screens the untrusted inputs. See [Prompt injection protection](#prompt-injection-protection).
 - **Sandboxing.** You choose an OS-level isolation level for the agent process. See [Sandboxing](#sandboxing).
-- **Auditing.** The full session is recorded, scrubbed, and gated behind a dedicated permission. See [Auditing](#auditing-and-post-run-visibility).
-
-### Auditing and post-run visibility
-
-Every execution produces an audit trail, so you can review after the fact exactly what the agent did.
-
-- **A full session transcript.** The complete verbose session is captured and stored on the Octopus Server, separately from the task log. Sensitive variable values are scrubbed before the transcript is persisted.
-- **Access gated by a dedicated permission.** Reading a transcript requires the space-scoped `AiAgentTranscriptView` permission.
-- **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
-- **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
-
-<!-- SCREENSHOT: transcript-permission.png
-Instance: https://claude-step.testoctopus.app (this control needs the branch instance; the local dev instance may not expose the permission in its role UI)
-Space: Default
-Setup: Configuration > Teams & Roles (or Users, Roles) > edit a user role
-Navigate: Open the role's permission list and filter for "AiAgentTranscriptView"
-Capture: the AiAgentTranscriptView permission row with its "View AI agent transcripts" description, light theme, 1440px viewport
-Alt text: "The AiAgentTranscriptView permission in the Octopus role editor"
-
-![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)
--->
+- **Auditing.** The full session is recorded, scrubbed, and gated behind a dedicated permission. See [The audit trail](#the-audit-trail).
 
 ## Sandboxing
 
@@ -173,11 +132,22 @@ Auto mode has real limitations you should consider:
 
 Selecting auto mode reveals an **Auto Mode Config** editor for classifier rules (`environment`, `allow`, `soft_deny`, and `hard_deny`, using Claude Code's own format and supporting a literal `$defaults` entry).
 
+<!-- SCREENSHOT: auto-mode-config.png
+Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
+Space: Default; Project: "Claude Agent Docs Demo"
+Setup: On the "Run Claude Agent" step, in the Permission mode section select "Auto mode" so the Auto Mode Config JSON editor appears, pre-filled with the default ($defaults) config
+Navigate: Process > the step > Permission mode > Auto mode
+Capture: the Auto Mode Config JSON editor with its explanatory note, light theme, 1440px viewport
+Alt text: "The Auto Mode Config JSON editor shown when Auto mode is selected"
+
+![The Auto Mode Config JSON editor shown when Auto mode is selected](/docs/img/octopus-ai/claude-agent-step/auto-mode-config.png)
+-->
+
 For the full behavior of each mode, see Claude Code's [permission modes documentation](https://code.claude.com/docs/en/permission-modes).
 
 ## MCP server security
 
-The Model Context Protocol (MCP) lets the agent call out to external tools and data sources through configured servers. The [Tools](/docs/octopus-ai/claude-agent-step/tools) page covers what MCP is and how to configure servers; this section covers only the security properties.
+The Model Context Protocol (MCP) lets the agent call out to external tools and data sources through configured servers. [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools) covers what MCP is and how to configure servers; this section covers only the security properties.
 
 - **Only the servers you configure are loaded.** The agent runs with `--strict-mcp-config`, which tells the CLI to load exactly the MCP servers the step wrote out and to ignore any MCP configuration ambient on the worker. There's no path for a server the operator didn't configure to be picked up from the worker's own Claude Code config.
 - **MCP tools go through the same allowlist as everything else.** The agent can only call MCP tools that appear on the allowlist, as entries of the form `mcp__<server>__<tool>`. These are authored per MCP server under the **Tools** section. Octopus will automatically prepend the tool with `mcp__<serverName>__` for your ease of use.
@@ -210,13 +180,51 @@ Alt text: "The Prompt Injection Check controls in the Claude Agent Step editor"
 ![The Prompt Injection Check controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/injection-check.png)
 -->
 
-<!-- SCREENSHOT: auto-mode-config.png
-Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-Space: Default; Project: "Claude Agent Docs Demo"
-Setup: On the "Run Claude Agent" step, in the Permission mode section select "Auto mode" so the Auto Mode Config JSON editor appears, pre-filled with the default ($defaults) config
-Navigate: Process > the step > Permission mode > Auto mode
-Capture: the Auto Mode Config JSON editor with its explanatory note, light theme, 1440px viewport
-Alt text: "The Auto Mode Config JSON editor shown when Auto mode is selected"
+## The audit trail
 
-![The Auto Mode Config JSON editor shown when Auto mode is selected](/docs/img/octopus-ai/claude-agent-step/auto-mode-config.png)
+Every execution produces an audit trail, so you can review after the fact exactly what the agent did.
+
+- **A full session transcript.** The complete verbose session is captured and stored on the Octopus Server, separately from the task log. Sensitive variable values are scrubbed before the transcript is persisted.
+- **Access gated by a dedicated permission.** Reading a transcript requires the space-scoped `AiAgentTranscriptView` permission.
+- **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
+- **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
+
+<!-- SCREENSHOT: transcript-permission.png
+Instance: https://claude-step.testoctopus.app (this control needs the branch instance; the local dev instance may not expose the permission in its role UI)
+Space: Default
+Setup: Configuration > Teams & Roles (or Users, Roles) > edit a user role
+Navigate: Open the role's permission list and filter for "AiAgentTranscriptView"
+Capture: the AiAgentTranscriptView permission row with its "View AI agent transcripts" description, light theme, 1440px viewport
+Alt text: "The AiAgentTranscriptView permission in the Octopus role editor"
+
+![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)
 -->
+
+## Safe usage patterns
+
+How much access to grant depends on what you're asking the agent to do. Two archetypes bracket the range:
+
+- **The host-interacting agent.** Its job *is* to act on the machine or target: run a smoke test against a deployed app, inspect a failed deployment on the box, restart a service. Here you can't lock the agent away from the host, because the host is the work. Instead you bound the access: a worker or target scoped to that one environment, a narrow tool allowlist, and a sandbox that constrains what shell commands can touch.
+- **The worker-isolated agent.** The worker is incidental; the agent reasons over context and calls out to Octopus or an external service, but has no legitimate reason to touch the worker itself. Here you lock it down hard: whole-process sandboxing, a minimal network allowlist, and no ambient access to the worker's credentials or filesystem.
+
+The step serves the whole spectrum between these, which is why the sandbox choice is mandatory and explicit rather than defaulted. Match the controls to the archetype your task fits.
+
+Some guidance applies to every run:
+
+- Grant the narrowest tool set, the smallest network allowlist, and the least filesystem access the task needs. It's far easier to widen access after a run fails for lack of it than to reason about what a broadly-scoped agent might have done.
+- Prefer a dedicated, isolated worker. A worker that's used only for these steps, has no standing production credentials, and can reach only what the task requires is the most effective control you have. A shared worker with broad access undermines every setting inside the step.
+- Scope the Anthropic API key. Supply the key as a [sensitive variable](/docs/projects/variables/sensitive-variables) so it's encrypted and masked in logs. Use a key you can rotate and revoke independently, with spend and rate limits set.
+- Treat the prompt as a code-review surface. The prompt, any skills, and the tool lists together define what the agent is allowed and encouraged to do. Review changes to them the way you review a change to a deployment script, because that's effectively what they are.
+- Bound every run. Set a **Turn Limit** (the maximum number of calls the agent makes to the API) and a **Maximum Budget** in USD. Both cap a run that goes off the rails, in wall-clock work and in spend. A run that exhausts either limit fails the step rather than continuing indefinitely.
+
+:::div{.warning}
+Octopus leverages Claude Code's built in controls for cost and token limits, but these are not guaranteed to exactly match the cost incurred by Anthropic's servers.
+:::
+
+## Related links
+
+- [How the Claude Agent Step works](/docs/octopus-ai/claude-agent-step)
+- [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started)
+- [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools)
+- [Sensitive variables](/docs/projects/variables/sensitive-variables)
+- [Securely deploying AI agents (Anthropic)](https://code.claude.com/docs/en/agent-sdk/secure-deployment)
