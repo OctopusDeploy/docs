@@ -19,7 +19,7 @@ The Claude Agent Step is an **alpha** release. The configuration and behavior ma
 
 Octopus already holds the two things an agent needs to be useful during a deployment: the *context* (the target, the variables, the release, and the logs and output of earlier steps) and *access* to your targets. Until now, using an AI agent against that context meant either wiring up an agent outside Octopus by hand, or running an unsandboxed script step with no scoping and no audit trail.
 
-The Claude Agent Step gives you a place to run an agent *inside* the deployment. You choose how much the agent can do, from a read-only investigation to running commands on the target, and you sandbox the process so a mistake stays contained. Octopus hands the agent the deployment's non-sensitive variables, so it knows which project, environment, and release it's working on. Every run streams to the task log, records its token usage and cost, and stores a full transcript you can review later.
+The Claude Agent Step gives you a place to run an agent *inside* the deployment. You choose how much the agent can do, from a read-only investigation to running commands on the target, and you can sandbox the process so a mistake stays contained. Octopus hands the agent the deployment's context, so it knows which project, environment, and release it's working on. Every run streams to the task log, records its token usage and cost, and stores a full transcript you can review later.
 
 We built it with two kinds of work in mind. The first is investigating and reacting to deployments: a DevOps engineer who owns a runbook and wants an agent to look at a failed deployment and explain what went wrong, or run a quick smoke test before a release is promoted. The second is building the step into templates: a platform engineer who wants to offer a safe, pre-scoped agent step to their teams. If that's you, read [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) next; it's written for the person who has to sign off on the scoping.
 
@@ -35,7 +35,6 @@ Alt text: "The Run Claude Agent step card in the step library with an Alpha chip
 
 ![The Run Claude Agent step card in the step library with an Alpha chip](/docs/img/octopus-ai/claude-agent-step/step-library-run-claude.png)
 -->
-
 
 ## How to set it up
 
@@ -53,57 +52,73 @@ If you pick the **Sandbox runtime** sandbox mode (described below), the `srt` ex
 
 ### Configure the step
 
-Open your deployment process or runbook, add a step, and choose **Run Claude Agent** from the step library (it's in the **AI** category, and you can find it by searching for `claude`). The card carries an **Alpha** chip.
+Open your deployment process or runbook, add a step, and choose **Run Claude Agent** from the step library (you can find it by searching for `claude`). The step editor is organized into sections, configure each one as described below:
 
-1. **Write the prompt.** In the **Prompt** section, describe the task in plain language, the way you would prompt Claude Code. The prompt is required. It can use Octopus variables (for example `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "done" looks like.
+#### Prompt
 
-2. **Set the API key.** In **Claude Settings ➜ API Key**, reference your sensitive variable, for example `#{anthropic-api-key}`.
+**Prompt**: Describe the task in plain language, the way you would prompt Claude Code. It can use Octopus variables (for example `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "success" looks like.
 
-3. **Choose a model and effort (optional).** Still under **Claude Settings**, pick a model such as `claude-opus-4-8` or `claude-haiku-4-5`, or leave the model blank to use the Claude Code CLI's current default. The **Effort** setting (Low, Medium, High, Extra High, Max) trades thoroughness against cost and latency; leave it unset to let the model decide.
+#### Claude Settings
 
-4. **Choose a sandbox mode.** In the **Security** section, the **Sandboxing** control offers three options, and you must pick one. There's no default, and the step won't save until you choose.
+**API Key:** Reference your sensitive variable, for example `#{anthropic-api-key}`.
 
-   - **Bash sandbox** uses Claude Code's built-in sandbox. It confines the agent's `Bash` commands, but file operations and hooks still run on the host.
-   - **Sandbox runtime** runs the whole agent process inside Anthropic's `sandbox-runtime`, for stronger, whole-process isolation.
-   - **None** applies no sandboxing. The agent runs with the same permissions as the account running the step (the Tentacle service account). We don't recommend it unless you have your own isolation around the worker.
+**Model Version (optional):** Pick a model such as `claude-opus-4-8` or `claude-haiku-4-5`, or leave the model blank to use the Claude Code CLI's current default. The **Effort** setting trades thoroughness against cost and latency, leave it blank use the default.
 
-   Each mode and how to configure it is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance). For a first run on a Linux worker, **Sandbox runtime** is the safest starting point.
+#### Security
 
-   :::div{.warning}
-   The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers in this alpha. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on your own isolation while you try it out.
-   :::
+**Sandboxing:** There are three options, and you must pick one of the three values to save the step.
 
-5. **Choose a permission mode and allowed tools.** Also under **Security**, the **Permission mode** control offers **dontAsk mode** and **Auto mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. For your first run, select **dontAsk mode** and list the tools the agent needs in **Tool Permissions ➜ Allowed tools**, one per line, for example:
+- **Bash sandbox** uses Claude Code's built-in sandbox. It confines the agent's `Bash` commands, but file operations and hooks still run on the host.
+- **Sandbox runtime** runs the whole agent process inside Anthropic's `sandbox-runtime`, for stronger, whole-process isolation.
+- **None** applies no sandboxing. The agent runs with the same permissions as the account running the step (the Tentacle/Kubernetes Agent service account). We don't recommend it unless you have your own isolation around the worker.
 
-   ```text
-   Read
-   Glob
-   Bash(pwd)
-   Bash(ls *)
-   ```
+Each mode and how to configure it is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance). For a first run on a Linux worker, **Sandbox runtime** is the safest starting point.
 
-   Keep the list tight and add to it as you learn what the agent needs. A denied tool call fails the step, so a list that's too narrow is safer than one that's too broad. Auto mode (a classifier model that judges each action instead of relying only on the allowlist) and the full tool syntax are covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
+:::div{.warning}
+The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers in this alpha. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on your own isolation while you try it out.
+:::
 
-6. The **Agent Capabilities** section is where you add [skills](/docs/octopus-ai/claude-agent-step/tools) (reusable instructions) and [Model Context Protocol (MCP)](/docs/octopus-ai/claude-agent-step/tools) servers (extra tools). See [Tools](/docs/octopus-ai/claude-agent-step/tools) when you're ready to try them out.
+**Permission Mode:** There are two options: **dontAsk mode** and **Auto mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. For your first run, select **dontAsk mode** and list the tools the agent needs in **Tool Permissions**.
 
-7. **Set the limits.** In **Additional Configuration Options**, set the guardrails:
-   - **Turn Limit** caps how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
-   - **Maximum Budget** sets a spend cap in USD. Leave it blank for no limit, or set a value like `1.50` to stop the agent once it has spent that much.
-   - **Prompt Injection Check** should stay on. Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-4-5` by default) and, by default, blocks the step if it detects an injection attempt. It costs a little time and a few tokens per run.
+**Tool Permissions:** Specify the tools to allow or deny, one per line. For example:
 
-   <!-- SCREENSHOT: step-editor-prompt-and-settings.png
-   Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
-   Space: Default; Project: "Claude Agent Docs Demo"; a Run Claude Agent step named "Investigate the deployment"
-   Setup: Prompt section filled with a short investigation prompt; Claude Settings ➜ API Key = #{anthropic-api-key}; Model = claude-haiku-4-5. Expand the Prompt and Claude Settings sections.
-   Navigate: open the step editor and scroll so Prompt and Claude Settings are both visible
-   Capture: the Prompt section (with prompt text) and the Claude Settings section (API Key + Model), light theme, 1440px viewport
-   Alt text: "The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in"
+```text
+Read
+Glob
+Bash(pwd)
+Bash(ls *)
+```
 
-   ![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
-   -->
+Keep the list tight and add to it as you learn what the agent needs. A denied tool call fails the step, so a list that's too narrow is safer than one that's too broad. Auto mode (a classifier model that judges each action instead of relying only on the allowlist) and the full tool syntax are covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
 
+#### Agent Capabilities
 
-8. **Run it.** Save the step, then create a release and deploy it, or run your runbook, as you would for any other step. The step can run on the Octopus Server, a worker, or a deployment target, wherever the Claude Code CLI is installed.
+**Skills (optional):** Add [skills](/docs/octopus-ai/claude-agent-step/tools) (reusable instructions) for Claude to use.
+
+**MCP (optional):** Add [Model Context Protocol (MCP)](/docs/octopus-ai/claude-agent-step/tools) servers (extra tools).
+
+#### Additional Configuration Options
+
+**Turn Limit:** Cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
+
+**Maximum Budget**: Set a spend cap in USD. Leave it blank for no limit.
+
+**Prompt Injection Check**: Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-4-5` by default) and, by default, blocks the step if it detects an injection attempt. It costs a little time and a few tokens per run. You should leave this setting on.
+
+<!-- SCREENSHOT: step-editor-prompt-and-settings.png
+Instance: local dev instance http://localhost:8065 (or https://claude-step.testoctopus.app)
+Space: Default; Project: "Claude Agent Docs Demo"; a Run Claude Agent step named "Investigate the deployment"
+Setup: Prompt section filled with a short investigation prompt; Claude Settings ➜ API Key = #{anthropic-api-key}; Model = claude-haiku-4-5. Expand the Prompt and Claude Settings sections.
+Navigate: open the step editor and scroll so Prompt and Claude Settings are both visible
+Capture: the Prompt section (with prompt text) and the Claude Settings section (API Key + Model), light theme, 1440px viewport
+Alt text: "The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in"
+
+![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
+-->
+
+#### Save and run
+
+Save the step, create a release and then deploy it (or run the runbook), as you would for any other step. The step can run on the Octopus Server, a worker, or a deployment target, wherever the Claude Code CLI is installed.
 
 ### Read the output
 
