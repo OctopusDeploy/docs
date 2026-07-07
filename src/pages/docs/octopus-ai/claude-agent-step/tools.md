@@ -142,7 +142,7 @@ You can add your own skills to guide the agent for a particular task. On the ste
 - **Name**: a unique name for the skill, such as `code-review` or `release-notes`.
 - **Content**: the skill's instructions, written in markdown.
 
-Give the content a cflear opening line describing when the skill applies; the agent uses that to decide whether to load it.
+Give the content a clear opening line describing when the skill applies; the agent uses that to decide whether to load it.
 
 When the step runs, each skill you provide is written to a file the agent can discover, alongside the built-in skills. Skill names must be valid file names: a name containing `/`, `\`, or `..` is rejected when you save the step.
 
