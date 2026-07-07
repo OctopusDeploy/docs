@@ -35,9 +35,9 @@ You store the API key in Octopus as a sensitive variable and reference it from t
 
 ## Limitations
 
-The Claude Agent Step is an alpha, and some of its boundaries are deliberate. Knowing what it does *not* do will save you time.
+The Claude Agent Step is an alpha. Expect the configuration and behavior to change between releases, and don't rely on it for unattended, business-critical automation yet.
 
-- It's an alpha. Expect the configuration and behavior to change between releases, and don't rely on it for unattended, business-critical automation yet. We want your feedback.
+- Claude only, bring your own key. The step runs the Claude Code CLI against your own Anthropic API key. There's no support for other model providers, and Octopus doesn't supply or proxy the model.
 - It runs non-interactively. There are no mid-run approval prompts. The agent runs with the tools you allowed and nothing else; if it tries to use a tool it wasn't allowed, that denial fails the step. Plan the permissions up front.
 - A run that "gives up" can still pass. Octopus fails the step only on concrete signals: a non-zero exit, a terminal status other than success (which covers hitting the turn limit or budget cap), a denied tool call, or the explicit failure tag from the `octopus-fail-deployment` skill. It doesn't judge whether the agent actually achieved your goal. An agent that concludes it can't do the task, but exits cleanly, looks the same as success. For outcomes that matter, back the agent with a deterministic check.
 - The strong sandbox modes are Linux/WSL2-only. Bash sandbox and Sandbox runtime run on Linux (and WSL2) workers. They aren't available on Windows. On other platforms you're limited to **None** plus whatever isolation you provide yourself.
