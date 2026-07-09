@@ -132,6 +132,25 @@ If left open, the installation dialog waits for the gateway to establish a conne
 A successful health check indicates that the gateway can successfully connect to the target Argo CD instance and is communicating with Octopus Server.
 :::
 
+## Permissions
+
+Argo CD instances are a distinct Infrastructure component, for permissions purposes gateways are treated the same as **Deployment Targets**. To manage Octopus Argo CD gateways, a user needs the following [permissions](/docs/security/users-and-teams/default-permissions):
+
+| Permission | Purpose |
+| --- | --- |
+| `MachineView` | View gateways |
+| `MachineCreate` | Add gateways |
+| `MachineEdit` | Edit existing gateways |
+| `MachineDelete` | Delete gateways (omit to prevent users from deleting) |
+| `EnvironmentView` | Select the environments a gateway services |
+| `GitCredentialView` | Required during configuration |
+
+These are all standard in the build in roles of `Environment manager` and `Space manager`.
+
+:::div{.warning}
+Octopus permissions are not specific to Argo CD gateways. Granting these will also give the user access to manage Deployment Targets and Workers.
+:::
+
 ### Advanced Configuration
 
 #### Trusting Certificates
