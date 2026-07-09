@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-07
+modDate: 2026-07-09
 title: Claude Agent Step security and compliance
 navTitle: Security & Compliance
 description: How the Claude Agent Step is secured, what each control does and does not protect against, and how to configure it safely.
@@ -127,7 +127,7 @@ Selecting auto mode reveals an **Auto Mode Config** editor for classifier rules 
 The Model Context Protocol (MCP) lets the agent call out to external tools and data sources through configured servers. [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools) covers what MCP is and how to configure servers.
 
 - **Only the servers you configure are loaded.** The agent runs with `--strict-mcp-config`, which tells the CLI to load exactly the MCP servers the step wrote out and to ignore any MCP configuration ambient on the worker. There's no path for a server the operator didn't configure to be picked up from the worker's own Claude Code config.
-- **MCP tools go through the same allowlist as everything else.** The agent can only call MCP tools that appear on the allowlist, as entries of the form `mcp__<server>__<tool>`. These are authored per MCP server under the **Tools** section. Octopus will automatically prepend the tool with `mcp__<serverName>__` for your ease of use.
+- **MCP tools go through the same allowlist as everything else.** The agent can only call MCP tools that appear on the allowlist, as entries of the form `mcp__<server>__<tool>`. These are authored in each MCP server's **Tools** field, including the Octopus MCP server's. Octopus will automatically prepend the tool with `mcp__<serverName>__` for your ease of use.
 
 ## Prompt injection protection
 

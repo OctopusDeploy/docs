@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-07
-modDate: 2026-07-07
+modDate: 2026-07-09
 title: Getting started with the Claude Agent Step
 navTitle: Getting Started
 navSection: Claude Agent Step
@@ -60,7 +60,7 @@ To add and configure the step:
    ```
 
    Start with minimal permissions and add to it as you learn what the agent needs.
-9. Optionally, under **Agent Capabilities**, add **Skills** or **MCP** servers. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
+9. Optionally, under **Agent Capabilities**, add **Skills**, connect the **Octopus MCP Server**, or add **Additional MCP Servers**. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
 10. Under **Additional Configuration Options**, set a **Turn Limit** to cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
 11. Optionally, set a **Maximum Budget** as a spend cap in USD. Leave it blank for no limit.
 12. Leave **Prompt Injection Check** switched on. Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-4-5` by default) and blocks the step if it detects an injection attempt.

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-07-03
-modDate: 2026-07-07
+modDate: 2026-07-09
 title: Extending the Claude Agent Step
 navTitle: Tools
 navSection: Claude Agent Step
@@ -21,7 +21,7 @@ The agent loads only the MCP servers configured on the step, and every MCP tool 
 
 ## Connect the Octopus MCP server
 
-Octopus publishes its own [MCP server](/docs/octopus-ai/mcp), which lets an AI agent query and act on your Octopus instance: its projects, releases, deployments, machines, and more. The step wires this server up for the agent automatically whenever an API token variable is set, so the agent can answer questions about your Octopus data and take Octopus actions without you configuring a server by hand.
+Octopus publishes its own [MCP server](/docs/octopus-ai/mcp), which lets an AI agent query and act on your Octopus instance: its projects, releases, deployments, machines, and more. The step adds this server for the agent whenever an API key is set in the **Octopus MCP Server** section, so the agent can answer questions about your Octopus data and take Octopus actions without you configuring a server by hand.
 
 Before you begin, you'll need:
 
@@ -32,12 +32,18 @@ To connect the agent to your Octopus instance:
 1. Create a dedicated [agent service account](/docs/security/users-and-teams/service-accounts#agent-service-accounts). This gives the agent its own identity, keeps its activity identifiable in the audit log, and lets you revoke it on its own.
 2. Grant the account the least privilege the task needs. For investigation and reporting, read-only access is usually enough, and it's what we recommend for a first run.
 3. Generate an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) under the account.
-4. Store the key as a **sensitive variable** named `Octopus.Action.Claude.OctopusToken`, so the key is kept out of the task log and execution context.
+4. Store the key as a **sensitive variable** (for example `octopus-api-key`), so the key is kept out of the task log and execution context.
+5. On the step, expand **Agent Capabilities (optional)** > **Octopus MCP Server** and set **Octopus API key** to a reference to your variable, for example `#{octopus-api-key}`.
+6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__octopus__` prefix, or leave the default `*` to allow every tool the server offers. A blank field also allows every tool.
 
-The step adds the Octopus MCP server automatically whenever the `Octopus.Action.Claude.OctopusToken` variable is set — Octopus supplies the server URL for you — and the agent can call the server's tools during the run.
+Octopus supplies the server URL for you and turns the **Tools** entries into `mcp__octopus__<tool>` permissions on the agent's allowed tools. When the step runs, the agent can call the server's tools.
+
+:::div{.hint}
+To evaluate the step without creating a service account, select **Generate API Key** in the **Octopus MCP Server** section. This creates an AI Agent API key for your own user account and fills in the **Octopus API key** field for you. A key generated this way carries your permissions, so prefer a service account's key outside of evaluation.
+:::
 
 :::div{.warning}
-All of the Octopus MCP server's tools are allowed, and the token is the agent's identity into Octopus, so its permissions *are* the agent's authority: whatever the token can do, the agent can do. Scope it deliberately. For how this fits the step's security model, see [MCP server security](/docs/octopus-ai/claude-agent-step/security-and-compliance#mcp-server-security).
+By default, all of the Octopus MCP server's tools are allowed, and the API key is the agent's identity into Octopus, so its permissions *are* the agent's authority: whatever the key can do, the agent can do.
 :::
 
 ## Add an MCP server
@@ -46,7 +52,7 @@ Adding an MCP server to the step gives the agent that server's tools for the run
 
 To add an MCP server to the step:
 
-1. On the step, expand **Agent Capabilities (optional)** > **MCP** and select **Add MCP**.
+1. On the step, expand **Agent Capabilities (optional)** > **Additional MCP Servers** and select **Add MCP**.
 2. Set **Type** to `stdio` or `http`.
 3. Enter a unique **Name** for the server, such as `github` or `jira`.
 4. Complete the connection settings for your server type: **Command** and **Arguments** for a stdio server, or **URL** and **Headers** for an http server. See [MCP server settings](#mcp-server-settings) below.
