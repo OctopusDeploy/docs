@@ -1,63 +1,33 @@
 ---
-import Layout from '../../ink/shells/docs/Layout.astro';
-import Card from '../../ink/core/Card.astro';
+// Ink component showcase. Renders through the real InkLayout (the same shell every
+// docs page uses) so the demo reflects the true integrated result. Nav, breadcrumbs,
+// and TOC are derived by InkLayout; headings below are declared so the TOC populates.
+import InkLayout from '../../layouts/ink-docs/InkLayout.astro';
+import Card from '../../ink/core/LinkCard.astro';
 import Badge from '../../ink/core/Badge.astro';
 import Button from '../../ink/core/Button.astro';
 import Callout from '../../ink/core/Callout.astro';
 import CodeBlock from '../../ink/core/CodeBlock.astro';
 
-const breadcrumbs = [
-  { label: 'Docs', href: '/docs' },
-  { label: 'Getting started', href: '/docs/getting-started' },
-  { label: 'Deploying a release' },
-];
+const frontmatter = {
+  title: 'Deploying a release',
+  description:
+    'Create a release from your deployment process and promote it through your environments - from the dashboard or the CLI.',
+  // Markdown pages get `file` auto-injected; this hand-built page supplies it so the
+  // shared EditOnGithub link resolves to this source file.
+  file: new URL(import.meta.url).pathname,
+};
 
-const sidebar = [
-  {
-    title: 'Getting started',
-    items: [
-      { label: 'Overview', href: '#' },
-      { label: 'Installation', href: '#' },
-      { label: 'Your first project', href: '#' },
-      { label: 'Deploying a release', href: '#', active: true },
-      { label: 'Environments', href: '#' },
-    ],
-  },
-  {
-    title: 'Deployments',
-    items: [
-      { label: 'Deployment process', href: '#' },
-      { label: 'Variables', href: '#' },
-      { label: 'Releases & channels', href: '#' },
-      { label: 'Runbooks', href: '#' },
-    ],
-  },
-  {
-    title: 'Infrastructure',
-    items: [
-      { label: 'Targets', href: '#' },
-      { label: 'Workers', href: '#' },
-      { label: 'Accounts', href: '#' },
-    ],
-  },
-];
-
-const toc = [
-  { label: 'Before you begin', href: '#before-you-begin' },
-  { label: 'Create a release', href: '#create-a-release' },
-  { label: 'Promote to an environment', href: '#promote', depth: 2 },
-  { label: 'Deploy from the CLI', href: '#deploy-cli' },
-  { label: 'Next steps', href: '#next-steps' },
+const headings = [
+  { depth: 2, slug: 'before-you-begin', text: 'Before you begin' },
+  { depth: 2, slug: 'create-a-release', text: 'Create a release' },
+  { depth: 3, slug: 'promote', text: 'Promote to an environment' },
+  { depth: 2, slug: 'deploy-cli', text: 'Deploy from the CLI' },
+  { depth: 2, slug: 'next-steps', text: 'Next steps' },
 ];
 ---
 
-<Layout
-  title="Deploying a release"
-  description="Create a release from your deployment process and promote it through your environments - from the dashboard or the CLI."
-  breadcrumbs={breadcrumbs}
-  sidebar={sidebar}
-  toc={toc}
->
+<InkLayout frontmatter={frontmatter} headings={headings}>
   <div class="not-prose mb-7 flex flex-wrap items-center gap-2">
     <Badge variant="brand">Guide</Badge>
     <Badge variant="outline">
@@ -210,4 +180,4 @@ const toc = [
     <Button href="#" variant="primary">Read the deployment guide</Button>
     <Button href="#" variant="secondary">Browse the CLI reference</Button>
   </div>
-</Layout>
+</InkLayout>

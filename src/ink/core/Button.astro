@@ -1,14 +1,35 @@
 ---
+// Styles live in styles/components.css (.ink-btn), shared with content buttons
+// authored as `.button--primary/--secondary` in markdown. The shared block is
+// unlayered (the content-button selectors must beat the typography plugin's
+// prose-link rules), so utility classes can't override its sizing - use the
+// size prop / a variant modifier instead. An anchor-tag .ink-btn rendered
+// INSIDE `.prose` still needs a `not-prose` ancestor, or the prose link
+// treatment (higher specificity) wins over the variant colors.
 type Variant = 'primary' | 'secondary' | 'ghost';
+type Size = 'md' | 'sm';
 
 interface Props {
   href?: string;
   variant?: Variant;
+  size?: Size;
   class?: string;
 }
 
-const { href, variant = 'primary', class: extra = '' } = Astro.props;
-const cls = ['ds-btn', `ds-btn--${variant}`, extra].join(' ');
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: extra = '',
+} = Astro.props;
+const cls = [
+  'ink-btn',
+  `ink-btn--${variant}`,
+  size === 'sm' && 'ink-btn--sm',
+  extra,
+]
+  .filter(Boolean)
+  .join(' ');
 const Tag = href ? 'a' : 'button';
 ---
 
@@ -19,10 +40,10 @@ const Tag = href ? 'a' : 'button';
   // on the document so it works for any button, including content buttons parsed
   // after this header script runs.
   (() => {
-    if (window.__dsBtnInit) return;
-    window.__dsBtnInit = true;
+    if (window.__inkBtnInit) return;
+    window.__inkBtnInit = true;
     const SELECTOR =
-      '.ds-btn--primary, .ds-btn--secondary, .prose a.button--primary, .prose a.button--secondary';
+      '.ink-btn--primary, .ink-btn--secondary, .prose a.button--primary, .prose a.button--secondary';
     document.addEventListener(
       'pointermove',
       (e) => {

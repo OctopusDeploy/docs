@@ -47,6 +47,8 @@ azurefile
 bacpac
 behaviour
 Bento
+bioluminescence
+bioluminescent
 Blkio
 bootstrap
 bootstrapped
@@ -251,6 +253,7 @@ kubelogin
 kubernetesmonitor
 kustomization
 kustomize
+labelledby
 lanman
 lastmod
 latestdeployments

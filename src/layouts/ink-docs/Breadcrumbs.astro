@@ -12,7 +12,7 @@ const { items } = Astro.props;
 <!-- RDFa BreadcrumbList preserved (SEO guardrail: matches existing Breadcrumbs.astro) -->
 <nav
   aria-label="Breadcrumb"
-  class="mb-4 text-sm"
+  class="mb-4 text-xs"
   data-component="ink/docs/Breadcrumbs"
 >
   <ol
@@ -37,7 +37,7 @@ const { items } = Astro.props;
               <span property="name">{c.label}</span>
             </a>
           ) : (
-            <span property="name" class="text-foreground font-medium">
+            <span property="name" class="text-foreground">
               {c.label}
             </span>
           )}

@@ -35,6 +35,13 @@ function flatten(pageTree: NavPage[]) {
 }
 
 const currentUrl = new URL(Astro.request.url);
+// Current-page matching compares against nav URLs, which are stored WITH a trailing
+// slash. Normalize so prev/next resolves correctly even when the page is requested
+// without one (e.g. the dev server, or a non-canonical URL). The prev/next sequence
+// logic below is unchanged.
+if (!currentUrl.pathname.endsWith('/')) {
+  currentUrl.pathname += '/';
+}
 const pages = accelerator.navigation.autoMenu(SITE.subfolder);
 accelerator.navigation.setCurrentPage(pages, currentUrl);
 flatten(pages);

@@ -3,12 +3,13 @@
 // in its frontmatter, so this single file decides what the whole site renders -
 // no per-page frontmatter changes needed to switch designs.
 //
-// Default: the new Ink design system (ink/shells/docs/ContentLayout).
+// Default: the host's Ink-based docs shell (layouts/ink-docs/InkLayout), which
+// consumes the standalone Ink package (src/ink/ = core + tokens + theme).
 // Escape hatch: set `legacyLayout: true` in a page's frontmatter to render the
 // original layout (preserved verbatim in DefaultLegacy.astro).
 // Global revert: swap the `Layout` default back to LegacyLayout, or restore this
 // file from DefaultLegacy.astro.
-import NewLayout from '../ink/shells/docs/ContentLayout.astro';
+import NewLayout from './ink-docs/InkLayout.astro';
 import LegacyLayout from './DefaultLegacy.astro';
 
 const { frontmatter, headings, breadcrumbs } = Astro.props;

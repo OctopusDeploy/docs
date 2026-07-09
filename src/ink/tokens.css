@@ -1,7 +1,11 @@
 /*
-  Design-system tokens: brand primitives + shadcn-style semantic tokens + a
-  glow/aurora layer. Portable: ship this + theme.css unchanged. Dark mode keys
-  off [data-theme="dark"]. Brand source: public/docs/css/vars.css.
+  Ink token contract: brand primitives + shadcn-style semantic tokens + the
+  core-required decorative tokens (glow-primary/shadow-glow, glass, button palette,
+  icons, fonts). This is the REQUIRED foundation every Ink shell needs; it ports
+  1:1 unchanged. The tunable "abyssal/bioluminescent" brand MOOD (aurora, grid,
+  grain, gradients, glow-brand) is split into tokens.decorative.css, imported by
+  theme.css right after this file. Dark mode keys off [data-theme="dark"].
+  Brand source: public/docs/css/vars.css.
 */
 
 :root {
@@ -80,41 +84,15 @@
   --code-chrome: #112637;
   --code-border: #1d384d;
 
-  /* --- Bioluminescence: colored glows + accent gradients --- */
+  /* Primary blue glow - feeds --shadow-glow (card hover) so it belongs with the
+     contract. The decorative brand mood (glow-brand, gradients, aurora, grid,
+     grain) lives in tokens.decorative.css - shared brand, imported by theme.css
+     right after this file. */
   --glow-primary: color-mix(in oklab, var(--octo-blue) 38%, transparent);
-  --glow-accent: color-mix(in oklab, var(--octo-green) 42%, transparent);
-  /* Decorative brand glow (cyan->purple->pink language); green stays semantic. */
-  --glow-brand: color-mix(in oklab, var(--purple-300) 50%, transparent);
-  --gradient-brand: linear-gradient(
-    100deg,
-    var(--octo-blue-bright) 0%,
-    var(--purple-300) 52%,
-    var(--pink-100) 108%
-  );
-  --gradient-ink: linear-gradient(
-    100deg,
-    var(--octo-navy-900) 0%,
-    var(--purple-300) 60%,
-    var(--pink-100) 125%
-  );
 
-  /* --- Atmosphere (fixed background layers): cyan -> purple -> pink mesh --- */
-  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 11%, transparent);
-  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
-  --aurora-3: color-mix(in oklab, var(--purple-300) 9%, transparent);
-  --grid-line: color-mix(in oklab, var(--octo-navy-700) 3%, transparent);
-  --grain-opacity: 0.035;
-
-  /* Glass effect for in-content images (mirrors the marketing site). Raw
-     primitives are theme-independent; composed tokens here are light-adapted
-     (the white originals vanish on the pale bg), dark uses the exact values. */
-  --glass-white-31: hsla(0, 0%, 100%, 0.31);
-  --glass-white-35: hsla(0, 0%, 100%, 0.35);
-  --glass-white-20: hsla(0, 0%, 100%, 0.2);
-  --glass-white-15: hsla(0, 0%, 100%, 0.15);
-  --glass-cyan: rgba(147, 225, 255, 0.31);
-  --glass-cyan-glow: rgba(31, 192, 255, 0.45);
-  --glass-pink-glow: rgba(204, 60, 255, 0.5);
+  /* Glass effect for in-content images (mirrors the marketing site). The
+     composed tokens below are light-adapted (the white marketing originals
+     vanish on the pale bg); dark mode overrides them with the exact values. */
   --glass-navy-fade: rgba(10, 35, 54, 0);
   --glass-pad: 0.75rem;
 
@@ -144,8 +122,8 @@
   --pink-100: #cc3cff;
   --space-12: 0.75rem;
   --space-24: 1.5rem;
-  --button-font-size: 1rem;
-  --button-font-weight: 600;
+  --button-font-size: var(--text-base);
+  --button-font-weight: 700;
   --button-shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.25);
 
   --secondary-button-text: var(--purple-300);
@@ -165,19 +143,93 @@
     0 6px 14px -6px rgba(16, 33, 47, 0.12);
   --shadow-glow: 0 10px 40px -10px var(--glow-primary);
 
-  --radius: 0.65rem;
+  /* Radius scale - one knob (--radius = lg = 8px) with ratio-derived steps on
+     the px grid: sm 4 / md 6 / lg 8 / xl 12. Components reference the steps,
+     never --radius directly; pills use 9999px. The bookmark anchor's 0.4em is
+     the one documented exception (scales with its heading). */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) / 2);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
 
-  /* Fonts - distinctive web type (loaded via Bunny Fonts in the layout head);
-     system stacks remain as graceful fallbacks. */
-  --font-display:
-    'Bricolage Grotesque', 'Hanken Grotesk', system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Motion - one easing + three speeds for every transition in the system. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+
+  /* Interaction states - the single recipe for hover surfaces, hover borders,
+     primary washes and the input focus ring. Derived from semantic tokens, so
+     they adapt per theme. The canonical FOCUS treatment is
+     `outline: 2px solid var(--ring); outline-offset: 2px` - --focus-ring is the
+     box-shadow variant reserved for text inputs (where the outline would fight
+     the border treatment). */
+  --surface-hover: color-mix(in oklab, var(--muted) 55%, transparent);
+  --card-hover: color-mix(in oklab, var(--primary) 5%, var(--card));
+  --border-hover: color-mix(in oklab, var(--primary) 50%, var(--border));
+  --wash-primary: color-mix(in oklab, var(--primary) 10%, transparent);
+  --focus-ring: 0 0 0 2px color-mix(in oklab, var(--ring) 60%, transparent);
+
+  /* The one small-halo glow for dots, rails and accent ticks. */
+  --glow-dot: 0 0 10px 1px var(--glow-primary);
+
+  /* Inline SVG icons (masked, tinted via currentColor) so components stay free of
+     any icon-font dependency and remain portable to any repo. */
+  --ink-icon-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E");
+  --ink-icon-magnify: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  --ink-icon-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+  --ink-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+
+  /* Type scale - THE complete font-size set; nothing in Ink may use any other
+     size. Three copy sizes (base for all main copy, sm, xs for breadcrumbs/
+     eyebrows/badges) + six heading steps on a px-grid tapered scale
+     (32/28/24/20/18/17px - 4px steps through the display range, halving toward
+     the base so H6 stays just above body copy). Inline code uses 0.875em - the
+     sm step expressed relative to its context. --text-title is the tile-title
+     ROLE (Card/LinkCard/search results/journey): base size, weight carries the
+     emphasis. */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-h6: 1.0625rem;
+  --text-h5: 1.125rem;
+  --text-h4: 1.25rem;
+  --text-h3: 1.5rem;
+  --text-h2: 1.75rem;
+  --text-h1: 2rem;
+  --text-title: var(--text-base);
+
+  /* Line heights - every size carries ONE canonical line box. Copy sits on the
+     px grid (20px under xs/sm, 24px under base); headings get a constant 0.5rem
+     (8px) of leading, so the boxes are 40/36/32/28/26/25px and the ratios taper
+     monotonically (1.25 -> 1.47) as sizes approach the base. Long-form prose
+     (and callouts) read at --leading-prose (28px). Documented exceptions:
+     single-line controls (button 1.2, CopyMarkdown trigger 1). */
+  --text-xs--line-height: 1.25rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-h6--line-height: calc(var(--text-h6) + 0.5rem);
+  --text-h5--line-height: calc(var(--text-h5) + 0.5rem);
+  --text-h4--line-height: calc(var(--text-h4) + 0.5rem);
+  --text-h3--line-height: calc(var(--text-h3) + 0.5rem);
+  --text-h2--line-height: calc(var(--text-h2) + 0.5rem);
+  --text-h1--line-height: calc(var(--text-h1) + 0.5rem);
+  --text-title--line-height: var(--text-base--line-height);
+  --leading-prose: 1.75;
+
+  /* Fonts - system stacks only (zero web-font requests, instant first paint,
+     native rendering on every platform). --font-display aliases the sans stack;
+     it stays a separate ROLE so a shell can re-point it at a display face
+     without touching components. */
+  --font-display: var(--font-sans);
   --font-sans:
-    'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
   --font-mono:
-    'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monaco, monospace;
+    ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
 }
 
 [data-theme='dark'] {
@@ -235,27 +287,8 @@
   --code-border: #16344a;
 
   --glow-primary: color-mix(in oklab, var(--octo-blue-bright) 50%, transparent);
-  --glow-accent: color-mix(in oklab, var(--octo-green-bright) 50%, transparent);
-  --glow-brand: color-mix(in oklab, var(--pink-100) 55%, transparent);
-  --gradient-brand: linear-gradient(
-    100deg,
-    var(--octo-blue-bright) 0%,
-    var(--purple-400) 50%,
-    var(--pink-100) 115%
-  );
-  /* Hero H1 text: bright cyan -> light purple -> pink, readable on the abyss. */
-  --gradient-ink: linear-gradient(
-    100deg,
-    #9fe7ff 0%,
-    #b69cff 52%,
-    #ec8cff 120%
-  );
-
-  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 9%, transparent);
-  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
-  --aurora-3: color-mix(in oklab, var(--purple-300) 10%, transparent);
-  --grid-line: color-mix(in oklab, var(--octo-blue-bright) 3%, transparent);
-  --grain-opacity: 0.05;
+  /* Decorative dark overrides (glow-brand, gradients, aurora, grid, grain) live in
+     tokens.decorative.css. */
 
   /* Glass effect: the exact marketing-site values (tuned for dark backgrounds). */
   /* Docs-calm glass (dark): a gentle frost + faint bloom, not the bright

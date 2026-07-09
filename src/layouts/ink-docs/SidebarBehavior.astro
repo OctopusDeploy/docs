@@ -1,7 +1,8 @@
 ---
-// Sidebar behaviour for [data-navscroll] viewports: edge fade shades, auto-reveal
-// of the active item, and a tooltip for truncated labels. Vanilla, zero deps.
-// Shared by Sidebar (showcase) and ContentLayout (real nav).
+// Sidebar behaviour for [data-navscroll] viewports: auto-reveal of the active
+// item and a tooltip for truncated labels. Vanilla, zero deps. The edge fade
+// shades are handled by the shared scroll-shade behavior
+// (src/ink/core/behavior/scroll-shade.ts, wired via Behavior.astro).
 ---
 
 <script is:inline>
@@ -14,7 +15,7 @@
     const getTip = () => {
       if (!tip) {
         tip = document.createElement('div');
-        tip.className = 'ds-nav-tip';
+        tip.className = 'ink-nav-tip';
         tip.setAttribute('role', 'tooltip');
         document.body.appendChild(tip);
       }
@@ -34,9 +35,9 @@
         t.style.left = `${Math.max(8, window.innerWidth - 8 - tr.width)}px`;
     };
     const onOver = (e) => {
-      const row = e.target.closest('.ds-nav__link, .ds-nav__summary');
+      const row = e.target.closest('.ink-nav__link, .ink-nav__summary');
       if (!row) return;
-      const tx = row.querySelector('.ds-nav__text');
+      const tx = row.querySelector('.ink-nav__text');
       if (truncated(tx)) showTip(tx, row);
       else hideTip();
     };
@@ -45,16 +46,6 @@
       const vp = root.querySelector('[data-navscroll-viewport]');
       if (!vp || vp.__nsInit) return;
       vp.__nsInit = true;
-
-      const update = () => {
-        root.setAttribute('data-at-top', vp.scrollTop <= 1 ? 'true' : 'false');
-        root.setAttribute(
-          'data-at-bottom',
-          vp.scrollTop + vp.clientHeight >= vp.scrollHeight - 1
-            ? 'true'
-            : 'false'
-        );
-      };
 
       // Reveal the active item if it loaded out of view.
       const active = vp.querySelector('[aria-current="page"]');
@@ -66,21 +57,12 @@
             a.top - v.top - (vp.clientHeight - active.offsetHeight) / 2;
       }
 
-      vp.addEventListener(
-        'scroll',
-        () => {
-          update();
-          hideTip();
-        },
-        { passive: true }
-      );
-      window.addEventListener('resize', update);
+      vp.addEventListener('scroll', hideTip, { passive: true });
       window.addEventListener('scroll', hideTip, { passive: true });
       vp.addEventListener('mouseover', onOver);
       vp.addEventListener('focusin', onOver);
       vp.addEventListener('mouseleave', hideTip);
       vp.addEventListener('focusout', hideTip);
-      update();
     });
   })();
 </script>

@@ -1,0 +1,16 @@
+---
+// Content image with optional caption. Renders a semantic <figure>; the visual styling
+// (`.image__img` / `.image__caption`) is the design system's shared figure/image styling
+// in styles/prose.css (the same rules markdown images get), so this stays part of prose.
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="image" data-image>
+  <img src={src} alt={alt} class="image__img" />
+  {caption && <figcaption class="image__caption">{caption}</figcaption>}
+</figure>

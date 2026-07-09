@@ -1,0 +1,835 @@
+/*
+  Ink component layer: the CSS for core components and for the content markup
+  contracts their behaviors enhance (tabs, figures, heading anchors, toast).
+  Rule of the file: every visual recipe is declared ONCE and shared by selector
+  grouping - the component class first, the content/markup contract second.
+*/
+
+/* ── Buttons ─────────────────────────────────────────────────────────────────
+   ONE declaration for both surfaces: the `.ink-btn` component (Button.astro)
+   and content buttons authored in markdown as `.button.button--primary` /
+   `--secondary` (marketing-site class names). Unlayered so both beat the
+   typography plugin's prose-link styling; sizing overrides therefore can't come
+   from utilities - use the `--sm` modifier (or add one), not `h-9 px-4`.
+   --hover-x/--hover-y are set by the pointer-tracking script in Button.astro. */
+.ink-btn,
+.prose a.button {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: fit-content;
+  overflow: hidden;
+  padding: var(--space-12) var(--space-24);
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+  transition-property: background, box-shadow, border-color, color;
+  transition-duration: var(--duration-base);
+  transition-timing-function: ease-in-out;
+}
+.ink-btn--sm {
+  height: 2.25rem;
+  padding: 0 1rem;
+  gap: 0.375rem;
+}
+
+/* Primary: purple fill with a cursor-tracked pink glow. */
+.ink-btn--primary,
+.prose a.button--primary {
+  color: var(--white);
+  background: var(--purple-300);
+}
+.ink-btn--primary::before,
+.prose a.button--primary::before {
+  content: '';
+  position: absolute;
+  left: var(--hover-x, 50%);
+  top: var(--hover-y, 50%);
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(
+    circle closest-side,
+    var(--pink-100),
+    transparent
+  );
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform var(--duration-slow) ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.ink-btn--primary:hover,
+.prose a.button--primary:hover {
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.25);
+}
+.ink-btn--primary:hover::before,
+.prose a.button--primary:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.ink-btn--primary:active,
+.prose a.button--primary:active {
+  box-shadow: var(--button-shadow-inner);
+}
+/* Brand focus (deliberate exception to the canonical 2px ring outline): a wide
+   purple halo that reads on the purple fill, matching the marketing site. */
+.ink-btn--primary:focus-visible,
+.prose a.button--primary:focus-visible {
+  outline: 0.25rem solid color-mix(in oklab, var(--purple-300) 50%, transparent);
+  box-shadow: none;
+}
+.ink-btn--primary:focus-visible::before,
+.prose a.button--primary:focus-visible::before {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Secondary: gradient-border ring (masked padding box) + cursor-tracked glow. */
+.ink-btn--secondary,
+.prose a.button--secondary {
+  color: var(--secondary-button-text);
+  background: var(--secondary-button-bg);
+}
+.ink-btn--secondary::before,
+.prose a.button--secondary::before {
+  content: '';
+  position: absolute;
+  left: var(--hover-x, 50%);
+  top: var(--hover-y, 50%);
+  width: 14rem;
+  height: 14rem;
+  background: radial-gradient(
+    circle closest-side,
+    var(--secondary-button-hover-glow),
+    transparent
+  );
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform var(--duration-slow) ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.ink-btn--secondary::after,
+.prose a.button--secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 0.0625rem;
+  background: var(--purple-300);
+  -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  -webkit-mask-clip: content-box, border-box;
+  -webkit-mask-composite: xor;
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-clip: content-box, border-box;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+.ink-btn--secondary svg path {
+  transition: stroke var(--duration-base) ease-in-out;
+}
+.ink-btn--secondary:hover,
+.prose a.button--secondary:hover {
+  color: var(--secondary-button-hover-text);
+  background: var(--secondary-button-hover-bg);
+}
+.ink-btn--secondary:hover svg path {
+  stroke: var(--secondary-button-hover-text);
+}
+.ink-btn--secondary:hover::before,
+.prose a.button--secondary:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.ink-btn--secondary:hover::after,
+.prose a.button--secondary:hover::after {
+  background: radial-gradient(
+    circle 7rem at var(--hover-x, 50%) var(--hover-y, 50%),
+    var(--secondary-button-hover-border),
+    var(--purple-300)
+  );
+}
+.ink-btn--secondary:active,
+.prose a.button--secondary:active {
+  box-shadow: var(--button-shadow-inner);
+}
+.ink-btn--secondary:active::before,
+.prose a.button--secondary:active::before {
+  transform: translate(-50%, -50%) scale(0);
+}
+.ink-btn--secondary:active::after,
+.prose a.button--secondary:active::after {
+  background: var(--purple-400);
+}
+.ink-btn--secondary:focus-visible,
+.prose a.button--secondary:focus-visible {
+  background: var(--secondary-button-bg);
+  outline: 0.25rem solid var(--purple-300);
+  box-shadow: none;
+}
+.ink-btn--secondary:focus-visible::before,
+.prose a.button--secondary:focus-visible::before {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Low-emphasis text button. */
+.ink-btn--ghost {
+  color: var(--foreground);
+  background: transparent;
+}
+.ink-btn--ghost:hover {
+  background: var(--surface-hover);
+}
+
+/* The CTA's <span> wrapper is inline, so a margin on the inline-flex button
+   can't space it from the next block. Give the wrapper block rhythm instead. */
+.prose span:has(> a.button) {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-btn--primary::before,
+  .ink-btn--secondary::before,
+  .prose a.button--primary::before,
+  .prose a.button--secondary::before {
+    transition: none;
+  }
+}
+
+/* ── Eyebrow ─────────────────────────────────────────────────────────────────
+   THE small uppercase micro-label (section kickers, table headers, card
+   labels). One recipe; consumers add their own color/margins. Content contract
+   consumers (thead) are grouped in; the article-header kicker is the one
+   deliberate hero variant (mono, wider tracking) and lives in the shell. */
+.ink-eyebrow,
+.prose :where(thead th):not(:where([class~='not-prose'] *)) {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Callouts ────────────────────────────────────────────────────────────────
+   ONE declaration for both surfaces: the `.ink-callout` component
+   (Callout.astro) and the remark-directive output authored as
+   `:::div{.hint|.info|.success|.warning|.problem|.question}` (raw divs inside
+   .prose). Intent modifiers only set the three custom properties. */
+.ink-callout,
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):not(:where([class~='not-prose'] *)) {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.15rem 1rem 1.2rem;
+  border: 1px solid color-mix(in oklab, var(--callout-bd) 32%, transparent);
+  border-left: 3px solid var(--callout-bd);
+  border-radius: var(--radius-lg);
+  background: var(--callout-bg);
+  color: var(--callout-c);
+  font-size: var(--text-base);
+  line-height: var(--leading-prose);
+  box-shadow: var(--shadow-sm);
+}
+.ink-callout--info,
+.prose :where(div.hint, div.info):not(:where([class~='not-prose'] *)) {
+  --callout-c: var(--info);
+  --callout-bg: var(--info-bg);
+  --callout-bd: var(--info-border);
+}
+.ink-callout--success,
+.prose :where(div.success):not(:where([class~='not-prose'] *)) {
+  --callout-c: var(--success);
+  --callout-bg: var(--success-bg);
+  --callout-bd: var(--success-border);
+}
+.ink-callout--warning,
+.prose :where(div.warning):not(:where([class~='not-prose'] *)) {
+  --callout-c: var(--warning);
+  --callout-bg: var(--warning-bg);
+  --callout-bd: var(--warning-border);
+}
+.ink-callout--problem,
+.prose :where(div.problem):not(:where([class~='not-prose'] *)) {
+  --callout-c: var(--problem);
+  --callout-bg: var(--problem-bg);
+  --callout-bd: var(--problem-border);
+}
+.ink-callout--question,
+.prose :where(div.question):not(:where([class~='not-prose'] *)) {
+  --callout-c: var(--question);
+  --callout-bg: var(--question-bg);
+  --callout-bd: var(--question-border);
+}
+/* Paragraph rhythm inside the remark-authored callouts. */
+.prose
+  :where(
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):not(:where([class~='not-prose'] *)) {
+  & :where(p) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: inherit;
+  }
+  & :where(p:first-child) {
+    margin-top: 0;
+  }
+  & :where(p:last-child) {
+    margin-bottom: 0;
+  }
+}
+/* Icon chip in the component variant. */
+.ink-callout__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.125rem;
+  border-radius: var(--radius-md);
+  color: var(--callout-bd);
+  background: color-mix(in oklab, var(--callout-bd) 12%, transparent);
+  box-shadow: 0 0 10px 1px
+    color-mix(in oklab, var(--callout-bd) 45%, transparent);
+}
+.ink-callout__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ── Masked-SVG icons ────────────────────────────────────────────────────────
+   ONE recipe for every icon drawn from the --ink-icon-* tokens: a box filled
+   with currentColor, cut by the mask in `--mask`. Consumers set `--mask`, a
+   size, and (optionally) a tint. Works as a real class (.ink-mask) and for the
+   grouped pseudo-element consumers below. */
+.ink-mask,
+.ink-toast__icon,
+.magnify-icon::before,
+.bookmark-link::before,
+.ink-lightbox__close::before {
+  content: '';
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask: var(--mask) center / contain no-repeat;
+  mask: var(--mask) center / contain no-repeat;
+}
+
+/* ── Interactive tile ────────────────────────────────────────────────────────
+   The shared card language: bordered surface; linking tiles lift, light their
+   border, glow, and fade in a brand hairline on the top edge. Used by
+   Card.astro / LinkCard.astro; the docs shell reuses the same tokens for its
+   own tiles (journey buttons, search results). In the components layer so
+   layout utilities (padding, background) can override. */
+@layer components {
+  .ink-tile {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    background: var(--card);
+    color: var(--card-foreground);
+    transition-property: translate, box-shadow, border-color, background-color;
+    transition-duration: var(--duration-slow);
+    transition-timing-function: var(--ease-out);
+  }
+  .ink-tile--link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+    height: 1px;
+    background: var(--hairline-primary);
+    opacity: 0;
+    transition: opacity var(--duration-slow) ease;
+  }
+  .ink-tile--link:hover {
+    translate: 0 -2px;
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+  }
+  .ink-tile--link:hover::before {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ink-tile,
+    .ink-tile--link::before {
+      transition: none;
+    }
+    .ink-tile--link:hover {
+      translate: none;
+    }
+  }
+}
+
+/* ── Status pills (used in content tables to render state cells) ────────────
+   The content-table sibling of Badge.astro: same pill idea, but authored in
+   markdown and carrying the live status dot. Kept separate on purpose - Badge
+   is UI chrome, this is a content contract. */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.6rem 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: var(--text-xs--line-height);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.status-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in oklab, currentColor 22%, transparent);
+  animation: ink-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ink-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in oklab, currentColor 8%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
+}
+.status-pill--ok {
+  color: var(--success-border);
+  background: color-mix(in oklab, var(--success-border) 12%, var(--background));
+  border-color: color-mix(in oklab, var(--success-border) 30%, transparent);
+}
+.status-pill--wait {
+  color: var(--warning-border);
+  background: color-mix(in oklab, var(--warning-border) 12%, var(--background));
+  border-color: color-mix(in oklab, var(--warning-border) 30%, transparent);
+}
+
+/* ── Detail tabs ─────────────────────────────────────────────────────────────
+   core/behavior/tabs.ts converts authored <details data-group="…"> siblings
+   into an ARIA tablist. Semantic tokens only, so it themes automatically. */
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+.tab-list button[role='tab'] {
+  appearance: none;
+  margin: 0 0 -1px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition:
+    color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+.tab-list button[role='tab'] span.focus {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.tab-list button[role='tab']:hover {
+  color: var(--foreground);
+}
+.tab-list button[role='tab'][aria-selected='true'] {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.tab-list button[role='tab']:focus-visible span.focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+[role='tabpanel'] {
+  padding: 1.15rem 0.15rem;
+}
+[role='tabpanel'].is-hidden {
+  display: none;
+}
+[role='tabpanel'] > div > :first-child {
+  margin-top: 0;
+}
+
+/* ── Image magnify + lightbox ────────────────────────────────────────────────
+   core/behavior/figures.ts adds an "enlarge" button over content images and
+   opens a native <dialog> lightbox. */
+
+/* Trigger: a floating button in the image's top-right, revealed on figure hover/focus
+   and always shown on touch (via the input-type body class). Zero-height overlay row so
+   it doesn't shift the image. */
+.magnify-container {
+  position: relative;
+  top: 0.65rem;
+  z-index: 1;
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  padding-inline-end: 0.65rem;
+  text-align: end;
+  pointer-events: none;
+}
+.magnify-icon {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  -webkit-backdrop-filter: blur(6px) saturate(1.2);
+  backdrop-filter: blur(6px) saturate(1.2);
+  color: var(--primary);
+  cursor: zoom-in;
+  opacity: 0;
+  box-shadow: var(--shadow-md);
+  transition:
+    opacity var(--duration-base) ease,
+    transform var(--duration-base) ease,
+    background var(--duration-base) ease;
+}
+.magnify-icon::before {
+  --mask: var(--ink-icon-magnify);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+figure:hover .magnify-icon,
+figure:focus-within .magnify-icon,
+.magnify-icon:focus-visible {
+  opacity: 1;
+}
+.input-touch .magnify-icon {
+  opacity: 1;
+}
+.magnify-icon:hover {
+  transform: scale(1.08);
+  background: var(--background);
+}
+.magnify-icon:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Lightbox: native <dialog> in the top layer. Fills the viewport, centers the figure,
+   dims + blurs everything behind. Enter/leave animate opacity+scale on the figure and
+   opacity on the backdrop; `.is-open` is toggled by the behavior a frame after showModal. */
+.ink-lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: 0;
+  padding: clamp(1rem, 4vw, 3rem);
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.ink-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ink-lightbox::backdrop {
+  background: rgba(4, 12, 20, 0.8);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  transition: opacity var(--duration-slow) ease;
+}
+.ink-lightbox.is-open::backdrop {
+  opacity: 1;
+}
+.ink-lightbox__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  opacity: 0;
+  transform: scale(0.94);
+  transition:
+    opacity var(--duration-slow) ease,
+    transform var(--duration-slow) var(--ease-out);
+}
+.ink-lightbox.is-open .ink-lightbox__figure {
+  opacity: 1;
+  transform: none;
+}
+.ink-lightbox__img {
+  display: block;
+  max-width: 92vw;
+  max-height: 82dvh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  box-shadow: 0 30px 90px -25px rgba(0, 0, 0, 0.75);
+  cursor: zoom-in;
+}
+.ink-lightbox__caption {
+  max-width: min(92vw, 60ch);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  text-align: center;
+}
+.ink-lightbox__caption[hidden] {
+  display: none;
+}
+/* Actual-size mode: image renders at its natural dimensions; the dialog scrolls to pan. */
+.ink-lightbox.is-zoomed {
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.ink-lightbox.is-zoomed .ink-lightbox__figure {
+  max-width: none;
+  max-height: none;
+  margin: auto;
+}
+.ink-lightbox.is-zoomed .ink-lightbox__img {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+.ink-lightbox__close {
+  position: fixed;
+  top: clamp(0.75rem, 2vw, 1.35rem);
+  right: clamp(0.75rem, 2vw, 1.35rem);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.ink-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: scale(1.06);
+}
+/* White focus (deliberate exception): the ring token vanishes on photo overlays. */
+.ink-lightbox__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.ink-lightbox__close::before {
+  --mask: var(--ink-icon-close);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-lightbox__figure,
+  .ink-lightbox::backdrop {
+    transition: none;
+  }
+  .ink-lightbox__figure {
+    transform: none;
+  }
+}
+
+/* ── Toast (core/behavior/toast.ts) ──────────────────────────────────────────
+   A brief confirmation pill, bottom-center, that fades up and auto-dismisses. */
+.ink-toast {
+  position: fixed;
+  z-index: 300;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.ink-toast.is-visible {
+  opacity: 1;
+}
+.ink-toast__icon {
+  --mask: var(--ink-icon-check);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--success-border);
+}
+
+/* Default placement: bottom-center (fallback when no anchor is given). */
+.ink-toast:not(.ink-toast--anchored) {
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translate(-50%, 0.75rem);
+}
+.ink-toast:not(.ink-toast--anchored).is-visible {
+  transform: translate(-50%, 0);
+}
+
+/* Anchored placement: `left`/`top` set inline to the clicked element; sits just above it
+   (or below when the element is near the top), with a small pop-in. */
+.ink-toast--anchored {
+  bottom: auto;
+  transform-origin: center bottom;
+  transform: translate(-50%, calc(-100% - 8px)) scale(0.94);
+}
+.ink-toast--anchored.is-visible {
+  transform: translate(-50%, calc(-100% - 8px)) scale(1);
+}
+.ink-toast--anchored.ink-toast--below {
+  transform-origin: center top;
+  transform: translate(-50%, 8px) scale(0.94);
+}
+.ink-toast--anchored.ink-toast--below.is-visible {
+  transform: translate(-50%, 8px) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-toast:not(.ink-toast--anchored),
+  .ink-toast:not(.ink-toast--anchored).is-visible {
+    transform: translate(-50%, 0);
+  }
+  .ink-toast--anchored,
+  .ink-toast--anchored.is-visible {
+    transform: translate(-50%, calc(-100% - 8px));
+  }
+  .ink-toast--anchored.ink-toast--below,
+  .ink-toast--anchored.ink-toast--below.is-visible {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* ── Skip links (WCAG bypass blocks) ─────────────────────────────────────────
+   Off-screen until a link receives focus, then it slides into the top-left. */
+.ink-skip-links a {
+  position: fixed;
+  top: 0.5rem;
+  left: -9999px;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+.ink-skip-links a:focus,
+.ink-skip-links a:focus-visible {
+  left: 0.5rem;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ── Heading anchor links ────────────────────────────────────────────────────
+   core/behavior/heading-anchors.ts appends <a class="bookmark-link"> to every
+   h2-h6[id]; revealed on heading hover/focus. Base rule is global so an anchor
+   added outside .prose still styles correctly; the .prose override cancels the
+   animated-underline link treatment. */
+.bookmark-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  height: 1.4em;
+  margin-inline-start: 0.15rem;
+  vertical-align: middle;
+  /* em-relative radius on purpose: the anchor scales with its heading. */
+  border-radius: 0.4em;
+  color: var(--primary);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(-0.15em);
+  transition:
+    opacity var(--duration-base) ease,
+    transform var(--duration-base) ease,
+    background-color var(--duration-base) ease;
+}
+.bookmark-link::before {
+  --mask: var(--ink-icon-link);
+  width: 0.82em;
+  height: 0.82em;
+}
+/* Revealed on heading hover or keyboard focus, with a subtle slide-in. */
+:is(h2, h3, h4, h5, h6):hover .bookmark-link,
+.bookmark-link:focus-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Hovering the icon itself gives a soft ghost-button backdrop. */
+.bookmark-link:hover {
+  background-color: var(--wash-primary);
+}
+.bookmark-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+/* Touch / no-hover devices can't reveal on hover, so keep it gently visible. */
+@media (hover: none) {
+  .bookmark-link {
+    opacity: 0.55;
+    transform: none;
+  }
+}
+.prose a.bookmark-link:not(.button) {
+  background-image: none;
+  padding-bottom: 0;
+  font-weight: 400;
+  color: var(--primary);
+}

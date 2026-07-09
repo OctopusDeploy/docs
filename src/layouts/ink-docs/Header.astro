@@ -1,0 +1,127 @@
+---
+// Top navigation bar. The only JS is a tiny theme toggle (vanilla, no framework
+// runtime) to demonstrate dark mode - consistent with the zero-JS approach.
+// Search renders the REAL site search component + engine (search.js), restyled
+// via tokens in shell.css. The engine is unchanged; we only provide its markup.
+import OctopusLogo from '../../../public/docs/img/OctopusLogo.astro';
+import Button from '../../ink/core/Button.astro';
+import Icon from '../../ink/core/Icon.astro';
+import Search from '../../themes/octopus/components/Search.astro';
+import { SITE } from '@config';
+
+type Props = {
+  lang?: string;
+};
+const { lang = SITE.default.lang } = Astro.props satisfies Props;
+---
+
+<header
+  data-component="ink/docs/Header"
+  class="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55"
+>
+  <!-- No left padding: the logo's left edge lines up with the sidebar column. -->
+  <div
+    class="mx-auto flex h-[var(--header-h)] max-w-[1600px] items-center gap-4 pr-4 lg:pr-6"
+  >
+    <!-- Left zone (flex-1): brand wordmark, left-aligned. The flex-1 sides keep
+         the centre search column truly centered in the header. -->
+    <div class="flex min-w-0 flex-1 items-center">
+      <a
+        href="/docs"
+        class="group ink-brand flex shrink-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+        style="--octopus-logo-text-color: var(--foreground);"
+      >
+        <OctopusLogo />
+        <span
+          class="hidden border-l border-border pl-2.5 text-sm text-muted-foreground sm:inline-block"
+          >Docs</span
+        >
+      </a>
+    </div>
+
+    <!-- Centre zone: the REAL site search (markup + search.js engine), restyled
+         in shell.css under `.ink-search`. Width/expand-on-focus handled there. -->
+    <div class="ink-search relative hidden md:flex">
+      <Search lang={lang} />
+    </div>
+
+    <nav class="flex min-w-0 flex-1 items-center justify-end gap-2">
+      <a
+        href="https://octopus.com"
+        class="hidden h-11 items-center rounded-md px-3 text-base text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
+        >octopus.com</a
+      >
+      <span class="mx-1 hidden h-6 w-px bg-border sm:block" aria-hidden="true"
+      ></span>
+      <button
+        id="ink-theme-toggle"
+        type="button"
+        aria-label="Toggle light and dark theme"
+        class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-md border border-border px-3.5 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+      >
+        <Icon name="sun" class="h-[18px] w-[18px] dark:hidden" />
+        <Icon name="moon" class="hidden h-[18px] w-[18px] dark:block" />
+        <span class="dark:hidden">Light</span>
+        <span class="hidden dark:inline">Dark</span>
+      </button>
+      {
+        /* The button block is unlayered, so responsive display/margin live on a
+          wrapper rather than utility overrides on the button itself. Default
+          (md) size so it matches content buttons exactly - same --space-12 /
+          --space-24 padding, not the smaller sm variant. */
+      }
+      <span class="ml-2 hidden sm:inline-flex">
+        <Button href="https://octopus.com/start" variant="primary">
+          Start free trial
+        </Button>
+      </span>
+    </nav>
+  </div>
+  <!-- Bottom hairline. -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-px [background:var(--hairline-primary)]"
+  >
+  </div>
+</header>
+
+<style is:global>
+  .ink-brand .octo-header__logo {
+    height: 3.375rem;
+    width: auto;
+    display: block;
+    transition: opacity var(--duration-base) ease;
+  }
+  .ink-brand:hover .octo-header__logo {
+    opacity: 0.88;
+  }
+</style>
+
+<script is:inline>
+  // Single theme system. `data-theme` is already set before paint by the shared
+  // HEADER_SCRIPTS init (real pages) or the standalone Layout head - both read the same
+  // `theme` localStorage key (default: prefers-color-scheme). The toggle just flips and
+  // persists that key, so preference carries across every page and reload.
+  (() => {
+    const root = document.documentElement;
+    document
+      .getElementById('ink-theme-toggle')
+      ?.addEventListener('click', () => {
+        const next =
+          root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+  })();
+</script>
+
+<script is:inline>
+  // Opt the search results dropdown into the shared scroll-shade behavior
+  // (core/behavior/scroll-shade.ts). The markup belongs to the host's
+  // Search.astro, so the attribute is added here rather than in its source.
+  // Inline scripts run before the bundled behavior module, so the attribute is
+  // in place when it scans.
+  document
+    .querySelector('.ink-search [data-site-search-results]')
+    ?.setAttribute('data-scroll-shade', '');
+</script>

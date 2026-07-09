@@ -20,7 +20,14 @@ export default defineConfig({
     },
     markdown: {
         shikiConfig: {
-            theme: 'light-plus'
+            // Dual themes: `light-plus` stays the base inline color (so the legacy layout,
+            // which styles code via main.css + a dark invert-filter, is unchanged), and
+            // `dark-plus` is emitted as per-token `--shiki-dark` CSS vars that the Ink
+            // design system consumes for its always-dark code surface (see theme.css).
+            themes: {
+                light: 'light-plus',
+                dark: 'dark-plus'
+            }
         },
         remarkPlugins: [
             remarkDirective,
