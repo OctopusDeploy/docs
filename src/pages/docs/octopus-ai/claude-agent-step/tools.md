@@ -93,7 +93,7 @@ A skill is a markdown file of instructions that the agent loads on demand. Inste
 
 ## Built-in skills
 
-Every run of the step includes three skills that connect the agent to Octopus. You don't configure these; they're always available to the agent.
+Every run of the step includes skills that help the agent communicate with Octopus.
 
 ### Deployment context
 
@@ -122,7 +122,7 @@ Smoke test returned HTTP 500 from /health after 3 retries.
 Octopus detects the closed block and fails the step, surfacing the reason in the task log.
 
 :::div{.hint}
-This is a best-effort signal. It depends on the agent correctly following the skill and deciding the condition is met, so it isn't a deterministic guarantee the way the step's built-in failure checks are (a non-zero exit, a denied tool call, or a budget or turn limit reached always fail the step). Use it for conditions only the agent can judge, and keep prompts specific about what should count as failure. Deterministic failure handling is covered on the [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) page.
+This is a best-effort signal. It depends on the agent correctly following the skill and deciding the condition is met, so it isn't a deterministic guarantee the way the step's built-in failure checks are (a non-zero exit, a denied tool call, or a budget or turn limit reached always fail the step). Use it for conditions only the agent can judge, and keep prompts specific about what should count as failure.
 :::
 
 ## Add a custom skill

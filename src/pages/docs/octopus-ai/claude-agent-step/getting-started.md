@@ -21,10 +21,6 @@ Before you begin, you'll need:
 - The [Claude Code](https://code.claude.com/docs/en/setup) CLI on the `PATH` of whatever runs the step: a worker, a deployment target, or the Octopus Server if you run the step on the server. The step launches the `claude` executable as a child process.
 - If you pick the **Sandbox runtime** sandbox mode: the `srt` executable from Anthropic's [sandbox-runtime](https://code.claude.com/docs/en/sandboxing) (version 0.0.55 or later) on the `PATH`. The step checks the version and fails if it's missing or too old.
 
-:::div{.warning}
-Octopus does **not** install, download, or bootstrap the Claude Code CLI for you. If `claude` isn't on the `PATH`, the step fails when it tries to start the process. Install Claude Code on your worker or target, or bake it into your worker image, before you run the step.
-:::
-
 To add and configure the step:
 
 1. Open your deployment process or runbook and select **Add step**.
@@ -63,8 +59,8 @@ To add and configure the step:
    Bash(ls *)
    ```
 
-   Keep the list tight and add to it as you learn what the agent needs. A list that's too narrow is safer than one that's too broad. The full tool syntax is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
-9. Optionally, under **Agent Capabilities**, add **Skills** (reusable instructions) or **MCP** servers (extra tools). See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
+   Start with minimal permissions and add to it as you learn what the agent needs. See [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions) for more information.
+9. Optionally, under **Agent Capabilities**, add **Skills** or **MCP** servers. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
 10. Under **Additional Configuration Options**, set a **Turn Limit** to cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
 11. Optionally, set a **Maximum Budget** as a spend cap in USD. Leave it blank for no limit.
 12. Leave **Prompt Injection Check** switched on. Before the agent runs, Octopus screens the prompt, deployment variables, MCP configuration, and skills with a fast model (`claude-haiku-4-5` by default) and blocks the step if it detects an injection attempt.
@@ -79,27 +75,8 @@ A Run Claude Agent step runs like any other step. Run the process that contains 
 To run the step and watch its output:
 
 1. Create a release and deploy it, as you would for any other step.
-2. Open the task and expand the step in the **task log**. While the step runs, the agent streams its output in real time: at the default log level you see the agent's narration and its final answer.
+2. Open the task and expand the step in the **task log**. While the step runs, the agent streams its output in real time. At the default log level you see the agent's narration and its final answer.
 3. To also see the agent's thinking, each tool call, and the exact command Octopus ran, switch the log to verbose (or download the raw log).
-
-A run looks roughly like this (trimmed):
-
-```text
-Running prompt-injection check against the execution context using model 'claude-haiku-4-5'.
-Prompt-injection check passed: no injection detected in the execution context.
-I'll help you investigate the deployment state. Let me read the deployment variables and check the working directory.
-## Deployment Investigation Complete
-**Deployment Summary:**
-- **Project:** ClaudeIsCool
-- **Environment:** Development
-- **Task:** RunbookRun (ServerTasks-975)
-**Working Directory Status:**
-- **Writability:** CONFIRMED - Successfully created findings.txt
-Claude Code usage — Duration: 15527 ms, Turns: 6
-Claude Code tokens — Input: 30, Output: 1476, Cache read: 55032, Cache creation: 34098
-Claude Code invocation complete.
-Collecting artifacts
-```
 
 :::figure
 ![The task log showing the Claude agent streaming its output](/docs/img/octopus-ai/claude-agent-step/task-log-streaming.png)

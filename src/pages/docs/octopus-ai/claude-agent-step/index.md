@@ -23,8 +23,6 @@ Octopus already holds the two things an agent needs to be useful during a deploy
 
 The Claude Agent Step gives you a place to run an agent *inside* the deployment. You choose how much the agent can do, from a read-only investigation to running commands on the target, and you can sandbox the process so a mistake stays contained. Octopus hands the agent the deployment's context, so it knows which project, environment, and release it's working on. Every invocation of Claude streams to the task log, records its token usage and cost, and stores a full transcript you can review later.
 
-We built it with two kinds of work in mind. The first is investigating and reacting to deployments: a DevOps engineer who owns a runbook and wants an agent to look at a failed deployment and explain what went wrong, or run a quick smoke test before a release is promoted. The second is building the step into templates: a platform engineer who wants to offer a safe, pre-scoped agent step to their teams. If pre-scoping agents sounds useful to you, read [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) for more information.
-
 ## Models and API keys
 
 The step brings no model of its own, you bring your own Anthropic API key and choose the Anthropic model based on your own requirements. Octopus doesn't proxy the model or add its own key. The step runs Claude Code specifically; there's currently no option to use a different provider, like Amazon Bedrock or Azure AI Foundry.
