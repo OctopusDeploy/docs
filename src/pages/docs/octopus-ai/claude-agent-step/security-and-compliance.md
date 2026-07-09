@@ -88,7 +88,7 @@ Permission handling is two related controls: a **permission mode** that decides 
 
 For the full behavior of each mode, see Claude Code's [permission modes documentation](https://code.claude.com/docs/en/permission-modes).
 
-The Allowed and Denied lists take one tool or pattern per line, matching Claude Code's own syntax, for example `Read`, `Bash(npm run test:*)`, or `Read(./.env)`. Though these tools still apply when running in auto mode, the behaviour has some nuance. See [auto mode](#auto-mode) for more information.
+The Allowed and Denied lists take one tool or pattern per line, matching Claude Code's own syntax, for example `Read`, `Bash(npm run test:*)`, or `Read(./.env)`. Though these tools still apply when running in auto mode, the behavior has some nuance. See [auto mode](#auto-mode) for more information.
 
 :::div{.warning}
 **A denied tool call fails the step.** The step treats a permission denial as a deterministic failure, not something the agent can recover from. In **dontAsk mode** this has a direct consequence: your **Allowed tools** list must cover every tool the prompt needs. If the agent tries a tool that isn't allowed, that call is denied and the step fails.
@@ -144,7 +144,7 @@ Prompt injection is when untrusted content the agent reads tries to hijack it: a
 
 **Defaults and caps.** The check uses `claude-haiku-4-5` by default (you can choose another model), produces at most 1024 tokens for its verdict, and truncates the execution context to 200,000 characters before checking. These caps bound the check's cost and latency.
 
-The check adds a model call to every run, and its token usage appears in the task's Claude Usage Summary (though not it's cost). A determined injection can be phrased to slip past a screening model, so treat this as the first line of defence. 
+The check adds a model call to every run, and its token usage appears in the task's Claude Usage Summary (though not it's cost). A determined injection can be phrased to slip past a screening model, so treat this as the first line of defense.
 
 :::figure
 ![The Prompt Injection Check controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/injection-check.png)
@@ -175,11 +175,3 @@ Some guidance for every run:
 - Grant the narrowest tool set, the smallest network allowlist, and the least filesystem access the task needs. It's far easier to widen access after a run fails for lack of it than to reason about what a broadly-scoped agent might have done.
 - Prefer a dedicated, isolated worker. A worker that's used only for these steps, and can reach only what the task requires, is the most effective control you have. A shared worker with broad access undermines most settings inside the step.
 - Scope the Anthropic API key. Use a key you can rotate and revoke independently, with spend and rate limits set.
-
-## Related links
-
-- [How the Claude Agent Step works](/docs/octopus-ai/claude-agent-step)
-- [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started)
-- [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools)
-- [Sensitive variables](/docs/projects/variables/sensitive-variables)
-- [Securely deploying AI agents (Anthropic)](https://code.claude.com/docs/en/agent-sdk/secure-deployment)

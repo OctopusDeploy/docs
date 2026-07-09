@@ -19,7 +19,7 @@ Before you begin, you'll need:
 
 - An [Anthropic API key](https://console.anthropic.com/), stored in Octopus as a **sensitive** project or library variable (for example `anthropic-api-key`). You reference it from the step as `#{anthropic-api-key}`. Storing it as a [sensitive variable](/docs/projects/variables/sensitive-variables) keeps it out of the task log.
 - The [Claude Code](https://code.claude.com/docs/en/setup) CLI on the `PATH` of whatever runs the step: a worker, a deployment target, or the Octopus Server if you run the step on the server. The step launches the `claude` executable as a child process.
-- If you pick the **Sandbox runtime** sandbox mode: the `srt` executable from Anthropic's [sandbox-runtime](https://code.claude.com/docs/en/sandboxing) (version 0.0.55 or later) on the `PATH`. The step checks the version and fails if it's missing or too old.
+- If you pick the **Sandbox runtime** sandbox mode: the `srt` executable from Anthropic's [sandbox-runtime](https://code.claude.com/docs/en/sandboxing) on the `PATH`. The step checks the version and fails if it's missing or too old.
 
 To add and configure the step:
 
@@ -43,13 +43,13 @@ To add and configure the step:
    - **Sandbox runtime** runs the whole agent process inside Anthropic's `sandbox-runtime`, for stronger, whole-process isolation.
    - **None** applies no sandboxing. The agent runs with the same permissions as the account running the step (the Tentacle/Kubernetes Agent service account). We don't recommend it unless you have your own isolation around the worker.
 
-   For a first run on a Linux worker, **Sandbox runtime** is the safest starting point. Each mode and how to configure it is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
+   For a first run on a Linux worker, **Sandbox runtime** is the safest starting point. Each mode and how to configure it is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#sandboxing).
 
    :::div{.warning}
    The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on isolation such as the account Tentacle runs under.
    :::
 
-7. Select a **Permission Mode**. For your first run, select **dontAsk mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. The other option, Auto mode (a mode that uses a classifier model to determine whether to run a tool), is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance).
+7. Select a **Permission Mode**. For your first run, select **dontAsk mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. The other option, Auto mode (a mode that uses a classifier model to determine whether to run a tool), is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions).
 8. In **Tool Permissions**, list the tools the agent needs, one per line. For example:
 
    ```text
@@ -59,7 +59,7 @@ To add and configure the step:
    Bash(ls *)
    ```
 
-   Start with minimal permissions and add to it as you learn what the agent needs. See [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions) for more information.
+   Start with minimal permissions and add to it as you learn what the agent needs.
 9. Optionally, under **Agent Capabilities**, add **Skills** or **MCP** servers. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
 10. Under **Additional Configuration Options**, set a **Turn Limit** to cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
 11. Optionally, set a **Maximum Budget** as a spend cap in USD. Leave it blank for no limit.
@@ -156,10 +156,3 @@ If the health check doesn't pass, the agent emits the failure tag from the `octo
 :::div{.hint}
 As with any AI tool, the outcome of a check like this is not deterministic. Treat the agent's verdict as a helpful check, not a hard gate, and pair it with deterministic checks where the outcome matters. See [Limitations](/docs/octopus-ai/claude-agent-step#limitations) for more information.
 :::
-
-## Related links
-
-- [How the Claude Agent Step works](/docs/octopus-ai/claude-agent-step)
-- [Claude Agent Step security and compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance)
-- [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools)
-- [Step run conditions](/docs/projects/steps/conditions)

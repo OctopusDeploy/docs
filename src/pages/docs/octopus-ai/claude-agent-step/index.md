@@ -38,10 +38,3 @@ Every run records its token usage and cost against the task, so you can see what
 - The prompt injection check and Auto mode add cost and latency. The injection check runs a model over your context before every run. Auto mode runs a second classifier model to judge each action. API Costs associated with the prompt injection check are not included as part of the cost estimate, and aren't included when determining if the agent is going to exceed the set budget limit. The tokens used, however, are reported back and displayed.
 
 We'd love to hear how you use the step, what worked, and what you need next. Feedback during the alpha directly shapes what we build, so send it through your account team or [Octopus support](https://octopus.com/support).
-
-## Related links
-
-- [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started)
-- [Claude Agent Step security and compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance)
-- [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools)
-- [Claude Code documentation](https://code.claude.com/docs/en/overview)

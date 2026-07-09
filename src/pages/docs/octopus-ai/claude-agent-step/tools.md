@@ -63,7 +63,7 @@ To add an MCP server to the step:
 Octopus turns the **Tools** entries into the underlying `mcp__<name>__<tool>` permissions and adds them to the agent's allowed tools for you. When the step runs, the agent is launched with only the MCP servers configured on the step.
 
 :::div{.hint}
-If you clear the **Tools** field entirely, the agent can't call any of that server's tools. Permission modes and tool allowlisting are covered in full on the [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance) page.
+If you clear the **Tools** field entirely, the agent can't call any of that server's tools. Permission modes and tool allowlisting are covered in full on the [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions) page.
 :::
 
 :::figure
@@ -141,11 +141,3 @@ When the step runs, each skill you provide is written to a file the agent can di
 :::figure
 ![The Add Skill drawer with a custom skill name and markdown content](/docs/img/octopus-ai/claude-agent-step/skills-drawer.png)
 :::
-
-## Related links
-
-- [How the Claude Agent Step works](/docs/octopus-ai/claude-agent-step)
-- [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started)
-- [Claude Agent Step security and compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance)
-- [Octopus MCP server](/docs/octopus-ai/mcp)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
