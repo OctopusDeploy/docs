@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-29
+modDate: 2026-07-09
 title: Google Cloud account variables
 icon: fa-brands fa-google
 description: Create a Google Cloud account variable to use it in Google Cloud deployment steps
@@ -28,7 +28,10 @@ The Google Cloud account variable also exposes the following properties that you
 
 | Name and description |
 | -------------------- | 
-| **`JsonKey`** <br/> The JSON Key for the Google cloud account|
+| **`JsonKey`** <br/> The JSON Key for the Google Cloud account. <br/> Only set if **Use a Key File** is selected |
+| **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task. <br/> Only set if **Use OpenID Connect** is selected |
+| **`Audience`** <br/> The Workload Identity Federation audience. <br/> Only set if **Use OpenID Connect** is selected |
+| **`OpenIdConnect.TokenLifetimeSeconds`** <br/> The lifetime, in seconds, of the federated Google Cloud access token (600–43200, default 3600), passed to gcloud as `--service-account-token-lifetime-seconds`. Set from the account's **Token Lifetime** when **Use OpenID Connect** is selected. A Generic OpenId Connect account has no Token Lifetime setting, so define this variable yourself to override the 3600 default. |
 
 ### Accessing the properties in a script
 
@@ -44,6 +47,10 @@ Write-Host 'GoogleCloudAccount.JsonKey=' $OctopusParameters["google cloud accoun
 # Directly as a variable
 Write-Host 'GoogleCloudAccount.Id=' #{google cloud account}
 Write-Host 'GoogleCloudAccount.JsonKey=' #{google cloud account.JsonKey}
+
+# For an account using OpenID Connect
+Write-Host 'GoogleCloudAccount.OpenIdConnect.Jwt=' #{google cloud account.OpenIdConnect.Jwt}
+Write-Host 'GoogleCloudAccount.OpenIdConnect.TokenLifetimeSeconds=' #{google cloud account.OpenIdConnect.TokenLifetimeSeconds}
 ```
 
 ## Add a Google Cloud account to Octopus
