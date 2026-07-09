@@ -1,13 +1,13 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-10-28
+modDate: 2026-07-06
 title: Subscriptions
 description: Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly.
 navOrder: 1600
 ---
 
-Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. Both **email** and **webhook** notifications are currently supported.
+Subscriptions allow you to subscribe to events that are happening within Octopus, so you can be notified when events have occurred and react accordingly. **Email**, **webhook**, and **Slack** notifications are supported.
 
 Subscriptions can be accessed from the `Configuration` menu.
 
@@ -17,7 +17,7 @@ For earlier versions of Octopus, Subscriptions can be accessed from the **Config
 :::
 
 :::figure
-![The Subscriptions page in the Octopus Configuration menu](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
+![Subscriptions menu](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-menu.png)
 :::
 
 ## Email notifications {#Subscriptions-EmailNotifications}
@@ -35,7 +35,7 @@ Let's say you have some critical projects and you want your administrators to re
 Consider the following example:
 
 :::figure
-![An example email subscription configured for deployment-critical events in the Production environment](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
+![Subscriptions email example](/docs/img/administration/managing-infrastructure/subscriptions/images/subscriptions-email-example.png)
 :::
 
 We can select the *Deployment-critical events* group, which will automatically filter all deployment-critical events for us.
@@ -93,7 +93,7 @@ Webhook notifications allow you to receive a JSON payload, posted to a specified
 The `Payload` includes:
 
 | Property | Hint | Description |
-| ---------------------------- | ---- | ----------- |
+| -------- | ---- | ----------- |
 | ServerUri | \* | The Octopus Server that generated this webhook |
 | ServerAuditUri | \* | The URL to the Octopus Server's audit screen where this event may be found in more detail |
 | Subscription | | The subscription object that triggered this webhook (including all filtering criteria so you can see exactly why you are receiving this webhook) |
@@ -111,6 +111,18 @@ The `Payload` includes:
 **Consuming Events**
 While we make every effort to ensure events are only ever sent *once* to a given email or webhook subscription, we can offer no guarantees and advise that you design your consuming API with this in mind.
 :::
+
+## Slack notifications {#Subscriptions-SlackNotifications}
+
+Slack notifications post a digest of events to one or more channels in a connected Slack workspace. Available from Octopus Server version `2026.3.1827`.
+
+The **Slack notifications** section is visible on the subscription form. If a Slack workspace isn't connected yet, the section shows a prompt to set one up. See [Slack integration](/docs/administration/managing-infrastructure/slack-integration) for setup instructions.
+
+Once connected, select or enter the channels to post to and set the frequency.
+
+Public channels in your workspace are listed automatically. To post to a private channel, type its name and add it. The Slack app must be a member of the channel.
+
+For more information on what channels the Slack app can post to, see [public and private channels](/docs/administration/managing-infrastructure/slack-integration#slack-integration-channels).
 
 ## Event visibility and permissions {#Subscriptions-Event-Visibility-and-Permissions}
 
