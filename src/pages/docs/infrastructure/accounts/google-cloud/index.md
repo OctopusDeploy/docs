@@ -36,6 +36,7 @@ Google Cloud rejects lifetimes longer than 1 hour (3600 seconds) unless the orga
 :::
 
 ## Generic OpenId Connect Account
+
 Google Cloud steps can use a Generic OpenId Connect Account for authentication.
 
 1. Navigate to **Deploy ➜ Manage ➜ Accounts**, click the **ADD ACCOUNT** and select **Generic Oidc Account**.
@@ -64,7 +65,6 @@ gcloud iam workload-identity-pools create-cred-config \
     --app-id-uri=<serverUri>
 ```
 
-
 :::div{.hint}
 The default audience format is `https://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID` while `workload-identity-pools create-cred-config` command expects the audience without `https://iam.googleapis.com`. In this scenario Octopus expects the full audience value to be set on the account including `https://iam.googleapis.com` but will trim the `https://iam.googleapis.com` when running the create-cred-config command.  
 :::
@@ -80,7 +80,7 @@ Google Cloud steps can use a Google Cloud Account for authentication.
 
 See the [Google cloud documentation](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for instructions to create a service account and download the key file.
 
-5. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
+1. Click the **SAVE AND TEST** to save the account and verify the credentials are valid.
 
 :::div{.hint}
 Google Cloud steps can also defer to the service account assigned to the instance/virtual machine that hosts the Octopus Tentacles for authentication. In this scenario there is no need to create a Google Cloud account in Octopus Deploy.

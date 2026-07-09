@@ -27,7 +27,7 @@ Select the Google Cloud account you want to access from the project to assign it
 The Google Cloud account variable also exposes the following properties that you can reference in a PowerShell script:
 
 | Name and description |
-| -------------------- | 
+| -------------------- |
 | **`JsonKey`** <br/> The JSON Key for the Google Cloud account. <br/> Only set if **Use a Key File** is selected |
 | **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task. <br/> Only set if **Use OpenID Connect** is selected |
 | **`Audience`** <br/> The Workload Identity Federation audience. <br/> Only set if **Use OpenID Connect** is selected |
@@ -58,7 +58,8 @@ Write-Host 'GoogleCloudAccount.OpenIdConnect.TokenLifetimeSeconds=' #{google clo
 For instructions to set up a Google Cloud account in Octopus, see [Google Cloud Accounts](/docs/infrastructure/accounts/google-cloud).
 
 ## Older versions
-* Google Cloud accounts are available from Octopus Deploy **2021.3** onwards.
+
+- Google Cloud accounts are available from Octopus Deploy **2021.3** onwards.
 
 ## Learn more
 
