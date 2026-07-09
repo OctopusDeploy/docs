@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-05-20
+modDate: 2026-07-02
 title: Release versioning
 description: Select how the next release number is generated when creating a release.
 icon: fa-solid fa-code-commit
@@ -87,7 +87,7 @@ This can be achieved using the following expression:
 
 ```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.
-#{if Octopus.Date.Day==Octopus.Version.LastPatch}
+#{if Octopus.Date.Day==Octopus.Version.LastPatch | Format Int32 D2}
 #{Octopus.Version.NextRevision}
 #{else}
 #{if Octopus.Version.LastRevision!=0}
@@ -97,10 +97,15 @@ This can be achieved using the following expression:
 #{/if}#{/if}
 ```
 
-The expression above is equivalent to:
+:::div{.warning}
+This example is no longer recommended for production workloads due to the potential for unexpected version
+conflicts arising from inconsistencies between date formats. The mask-based alternative provided below
+should be preferred.
+:::
 
 ```text
 #{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i
 ```
 
-The difference is that the `i` is not replaced until the release is saved where the complex expression will show the next increment number before it is saved.
+The `i` mask character increments the previous release's revision component by one on every release. Note
+that the revision component will reset whenever any part of the date changes from the previous release.

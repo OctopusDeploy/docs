@@ -33,11 +33,9 @@ After you generate an API key, it cannot be retrieved from the Octopus Web Porta
 
 If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp)—create a dedicated agent API key rather than a regular one. Agent keys are tagged throughout Octopus so you can filter for and audit agent activity separately from human activity.
 
-The recommended approach is to first create an [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for your agent. Any API key created under an agent service account is automatically tagged as an agent key.
+You can also create an agent API key directly from the **API Keys** page:
 
-You can also create an agent API key directly from the **Manage API Keys** page:
-
-1. Click **New Agent Key** and state the purpose of the key.
+1. Click **New API key for AI Agent** and state the purpose of the key.
 1. Choose the level of **Access** to grant.
 1. Click **Generate new**.
 1. Copy the new API key to your clipboard.
