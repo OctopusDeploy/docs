@@ -26,6 +26,7 @@ The strongest boundary available to you is not configurable within Octopus, but 
 
 The step applies the following controls on every run.
 
+- **Tentacle user account.** The agent is launched under the user account Tentacle is configured to run as. You should adjust the configuration on your deployment target or worker to ensure the Tentacle account running the agent has limited access to files it doesn't require.
 - **MCP isolation.** The agent is launched with `--strict-mcp-config`, so it loads *only* the Model Context Protocol (MCP) servers the step configured and nothing ambient from the worker. See [MCP server security](#mcp-server-security).
 - **An ephemeral working directory.** Each run gets a fresh temporary working directory that's deleted after the run.
 - **A prompt-injection pre-check.** Before the agent runs, a separate model screens the untrusted inputs. See [Prompt injection protection](#prompt-injection-protection).
@@ -159,9 +160,46 @@ Every execution produces an audit trail, so you can review after the fact exactl
 - **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
 - **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
 
+The session transcripts are stored on Octopus Server for 6 months. The retention of the audit logs vary with instance configuration. To learn more about audit log streaming and retention, see the [audit log documentation](docs/security/users-and-teams/auditing).
+
 :::figure
 ![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)
 :::
+
+## Platform Hub policies
+
+The controls above are configured on the step itself. To govern where the step runs across your instance, use a [Platform Hub policy](/docs/platform-hub/policies): Octopus evaluates every deployment and runbook run in the policy's scope before it executes, and blocks anything that doesn't comply.
+
+The policy below blocks any production execution whose process includes an enabled Claude Agent step (action type `Octopus.Claude`). Scoping it to production leaves executions in other environments unaffected. While you validate it, set `"action": "warn"` so violations are recorded without blocking, then switch to `"block"`.
+
+**Scope** (production environments):
+
+```ruby
+package block_claude_agent_in_production
+
+default evaluate := false
+
+evaluate if {
+    startswith(input.Environment.Slug, "prod")
+}
+```
+
+**Conditions:**
+
+```ruby
+package block_claude_agent_in_production
+
+default result := {"allowed": true}
+
+result := {"allowed": false, "action": "block"} if {
+    some step in input.Steps
+    step.ActionType == "Octopus.Claude"
+    step.Enabled
+    not step.Id in input.SkippedSteps
+}
+```
+
+For more policy patterns, see the [policy examples](/docs/platform-hub/policies/examples).
 
 ## Safe usage patterns
 
