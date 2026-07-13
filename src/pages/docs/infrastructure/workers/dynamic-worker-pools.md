@@ -97,6 +97,20 @@ Each `Ubuntu Server 22.04` worker is provisioned with a baseline of tools includ
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
 :::
 
+### Ubuntu 24.04
+
+Each `Ubuntu Server 24.04` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET (10.0, 8.0)
+- Docker (29.5.3)
+- PowerShell Core (7.6.2)
+- Python 3 (latest for Ubuntu 24.04)
+- GCloud CLI (566.0.0)
+
+:::div{.hint}
+Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
+:::
+
 ### Windows Server Core 2022
 
 This is the default for the Windows operating system, referenced as `Windows (default)`.
@@ -110,7 +124,7 @@ Each `Windows Server Core 2022` worker is provisioned with a baseline of tools i
 - Chocolatey (latest)
 - Docker (latest)
 - Helm (3.19.4)
-- Kubectl (multiple versions)
+- Kubectl (1.35.1, 1.34.4, 1.33.8, 1.32.12)
 - Microsoft Service Fabric (10.1.2338.9590)
 - Microsoft Service Fabric SDK (7.1.2338)
 - Nuget CLI (latest)
@@ -126,16 +140,37 @@ Windows 2022 workers are capable of running [execution worker containers](/docs/
 We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
 :::
 
+### Windows Server Core 2025
+
+Each `Windows Server Core 2025` worker is provisioned with a baseline of tools including (but not limited to):
+
+- .NET (10.0, 8.0)
+- .NET Framework 4.8 (Default for Windows Server 2025)
+- AWS IAM Authenticator (0.7.17)
+- Chocolatey (2.7.2)
+- Docker (29.5.2)
+- Helm (3.20.1)
+- Kubectl (1.36.1, 1.35.5, 1.34.8, 1.33.12)
+- Microsoft Service Fabric (10.1.2338.9590)
+- Microsoft Service Fabric SDK (7.1.2338)
+- Nuget CLI (latest)
+- Octopus Client (latest)
+- Pip (latest)
+- PowerShell Core (7.6.2)
+- Python (3.14.5)
+- GCloud CLI (566.0.0)
+
+Windows 2025 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers).
+
+:::div{.hint}
+We recommend execution containers as the preferred option for steps requiring external tools. This allows you to control which version of the tools will be used as your scripts will rely on a specific version that they are compatible with to function correctly.
+:::
+
 ## kubectl on Windows Images
 
 Windows dynamic worker images come with many versions of `kubectl` available.
 
-A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the following:
-
-- `1.32.12`
-- `1.33.8`
-- `1.34.4`
-- `1.35.1`
+A specific version can be used by [specifying a custom kubectl location](/docs/deployments/kubernetes/kubectl) of `c:\tools\kubectl\{{version}}\kubectl.exe`, where `{{version}}` is one of the versions specified above for your dynamic worker version.
 
 ## Installing Software On Dynamic Workers
 
