@@ -101,16 +101,11 @@ Ubuntu workers are designed to use [execution worker containers](https://octopus
 
 Each `Ubuntu Server 24.04` worker is provisioned with a baseline of tools including (but not limited to):
 
-- AWS IAM Authenticator (0.7.17)
-- Azure CLI (2.86.0)
-- Docker (29.5.3)
 - .NET (10.0, 8.0)
-- GCloud CLI (566.0.0)
-- Helm (3.20.1)
-- Kubectl (1.35.5)
-- Pip (24.0)
+- Docker (29.5.3)
 - PowerShell Core (7.6.2)
 - Python 3 (latest for Ubuntu 24.04)
+- GCloud CLI (566.0.0)
 
 :::div{.hint}
 Ubuntu workers are designed to use [execution worker containers](https://octopus.com/blog/execution-containers) for tooling like `kubectl` and `helm`. This makes it much easier to choose the appropriate runtime environment with the tools you need for your use case.
@@ -149,13 +144,12 @@ We recommend execution containers as the preferred option for steps requiring ex
 
 Each `Windows Server Core 2025` worker is provisioned with a baseline of tools including (but not limited to):
 
+- .NET (10.0, 8.0)
+- .NET Framework 4.8 (Default for Windows Server 2025)
 - AWS IAM Authenticator (0.7.17)
 - Azure CLI (2.81.0)
 - Chocolatey (2.7.2)
 - Docker (29.5.2)
-- .NET (10.0, 8.0)
-- .NET Framework 4.8 (Default for Windows Server 2025)
-- GCloud CLI (566.0.0)
 - Helm (3.20.1)
 - Kubectl (1.36.1, 1.35.5, 1.34.8, 1.33.12)
 - Microsoft Service Fabric (10.1.2338.9590)
@@ -165,6 +159,7 @@ Each `Windows Server Core 2025` worker is provisioned with a baseline of tools i
 - Pip (latest)
 - PowerShell Core (7.6.2)
 - Python (3.14.5)
+- GCloud CLI (566.0.0)
 
 Windows 2025 workers are capable of running [execution worker containers](/docs/projects/steps/execution-containers-for-workers).
 
