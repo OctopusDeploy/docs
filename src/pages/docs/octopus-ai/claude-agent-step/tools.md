@@ -9,13 +9,13 @@ description: Extend the agent in the Claude Agent Step with MCP servers and skil
 navOrder: 3
 ---
 
-The Claude Agent Step runs Claude Code, Anthropic's agentic tool, as a step in your deployment process or runbook. Out of the box the agent can read and write files, run commands, and reach the web, all subject to the permission and sandbox controls you set. It can also see your non-sensitive deployment variables, save files back to Octopus, and fail the step on a condition you describe. This page covers extending what the agent can do and what it knows: connecting the built-in Octopus MCP server, adding your own MCP servers, and giving the agent skills.
+The Claude Agent Step runs Claude Code, Anthropic's agentic tool, as a step in your deployment process or runbook. Out of the box, the agent can read and write files, run commands, and reach the web, all subject to the permission and sandbox controls you set. It can also see your non-sensitive deployment variables, save files back to Octopus, and fail the step on a condition you describe. This page covers extending what the agent can do and what it knows: connecting the built-in Octopus MCP server, adding your own MCP servers, and giving the agent skills.
 
 ## MCP servers
 
-The **Model Context Protocol (MCP)** is an open standard for connecting an AI agent to external tools and data. An MCP server is a program the agent talks to; it advertises a set of tools (for example "create an issue" or "run a query"), and the agent can call them during the run. Configuring an MCP server is how you let the agent reach systems that Octopus and Claude Code don't know about on their own.
+The **Model Context Protocol (MCP)** is an open standard for connecting an AI agent to external tools and data. An MCP server is a program the agent talks to; it advertises a set of tools (for example, "create an issue" or "run a query"), and the agent can call them during the run. Configuring an MCP server is how you let the agent reach systems that Octopus and Claude Code don't know about on their own.
 
-MCP servers come in two types. A **stdio** server is a command Octopus runs on the worker or target and talks to over standard input and output; use it for a server you install and run locally, such as an `npx` package. The command must be installed and resolvable on the machine the step runs on, and because stdio servers start without a login shell, a command such as `npx` resolves using the worker's `PATH`. An **http** server is a remote endpoint Octopus connects to by URL; use it for a hosted server.
+MCP servers come in two types. A **stdio** server is a command Octopus runs on the worker or target and talks to over standard input and output; use it for a server you install and run locally, like an `npx` package. The command must be installed and resolvable on the machine the step runs on, and because stdio servers start without a login shell, a command like `npx` resolves using the worker's `PATH`. An **http** server is a remote endpoint Octopus connects to by URL; use it for a hosted server.
 
 The agent loads only the MCP servers configured on the step, and every MCP tool passes through the same allowlist as the agent's other tools. The security properties are covered under [MCP server security](/docs/octopus-ai/claude-agent-step/security-and-compliance#mcp-server-security).
 
@@ -25,14 +25,14 @@ Octopus publishes its own [MCP server](/docs/octopus-ai/mcp), which lets an AI a
 
 Before you begin, you'll need:
 
-- `npx` (Node.js) available on the worker or target that runs the step. The Octopus MCP server runs as an `npx` package, the same as many other stdio MCP servers.
+- `npx` (Node.js) available on the worker or target that runs the step. The Octopus MCP server runs as an `npx` package, like many other stdio MCP servers.
 
 To connect the agent to your Octopus instance:
 
 1. Create a dedicated [agent service account](/docs/security/users-and-teams/service-accounts#agent-service-accounts). This gives the agent its own identity, keeps its activity identifiable in the audit log, and lets you revoke it on its own.
 2. Grant the account the least privilege the task needs. For investigation and reporting, read-only access is usually enough, and it's what we recommend for a first run.
 3. Generate an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) under the account.
-4. Store the key as a **sensitive variable** (for example `octopus-api-key`), so the key is kept out of the task log and execution context.
+4. Store the key as a **sensitive variable** (for example, `octopus-api-key`), so the key is kept out of the task log and execution context.
 5. On the step, expand **Agent Capabilities (optional)** > **Octopus MCP Server** and set **Octopus API key** to a reference to your variable, for example `#{octopus-api-key}`.
 6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__octopus__` prefix, or leave the default `*` to allow every tool the server offers. A blank field disallows any tool the MCP server exposes.
 
@@ -56,7 +56,7 @@ To add an MCP server to the step:
 2. Set **Type** to `stdio` or `http`.
 3. Enter a unique **Name** for the server, such as `github` or `jira`.
 4. Complete the connection settings for your server type: **Command** and **Arguments** for a stdio server, or **URL** and **Headers** for an http server. See [MCP server settings](#mcp-server-settings) below.
-5. Add any **Environment Variables** the server needs. Use [variable substitution](/docs/projects/variables) for secrets, for example a value of `#{GitHubToken}`, so the token is never stored in plain text on the step.
+5. Add any **Environment Variables** the server needs. Use [variable substitution](/docs/projects/variables) for secrets, for example, a value of `#{GitHubToken}`, so the token is never stored in plain text on the step.
 6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__<name>__` prefix, or leave the default `*` to allow every tool the server offers. For example:
 
    ```text
@@ -111,11 +111,11 @@ The `octopus-artifacts` skill is how you get files out of a run and into Octopus
 
 The agent uses this skill only when your prompt explicitly asks for a file to be attached, uploaded, published, or saved to Octopus. To trigger the behavior, say so in the prompt, for example "generate a report and attach it to the deployment as an artifact."
 
-By default the combined size of all captured artifacts is capped at 5 GB. To raise or lower it, set the `Octopus.Action.Claude.MaxArtifactSizeInMegaBytes` variable (its value is in megabytes). Exceeding the cap fails the step.
+By default, the combined size of all captured artifacts is capped at 5 GB. To raise or lower it, set the `Octopus.Action.Claude.MaxArtifactSizeInMegaBytes` variable (its value is in megabytes). Exceeding the cap fails the step.
 
 ### Failing the step on a condition
 
-By default the step succeeds whenever the agent finishes normally, regardless of what it found. The `octopus-fail-deployment` skill is how you make the step fail on a condition you describe, such as "fail the deployment if the smoke test does not pass."
+By default the step succeeds whenever the agent finishes normally, regardless of what it found. The `octopus-fail-deployment` skill is how you make the step fail on a condition you describe, like "fail the deployment if the smoke test does not pass."
 
 When your prompt states a failure condition and the agent decides it has been met, the agent writes a sentinel block in its final message:
 

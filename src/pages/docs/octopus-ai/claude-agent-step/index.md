@@ -9,7 +9,7 @@ description: What the Claude Agent Step is, how it fits into a deployment, and t
 navOrder: 4
 ---
 
-The Claude Agent Step runs [Claude Code](https://code.claude.com/docs/en/overview) (Anthropic's agentic developer tool) as a step in your deployment process or runbook. This page explains the step, both what it provides, and why it runs inside the deployment. When you're ready to add the step to a process, start with [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started).
+The Claude Agent Step runs [Claude Code](https://code.claude.com/docs/en/overview) (Anthropic's agentic developer tool) as a step in your deployment process or runbook. This page explains the step, both what it provides and why it runs inside the deployment. When you're ready to add the step to a process, start with [Getting started with the Claude Agent Step](/docs/octopus-ai/claude-agent-step/getting-started).
 
 :::div{.warning}
 The Claude Agent Step is an **alpha** release. The configuration and behavior may change between releases, and we're actively looking for feedback on how you use it. Don't build critical, unattended automation on it yet.
@@ -25,9 +25,9 @@ The Claude Agent Step gives you a place to run an agent *inside* the deployment.
 
 ## Models and API keys
 
-The step brings no model of its own, you bring your own Anthropic API key and choose the Anthropic model based on your own requirements. Octopus doesn't proxy the model or add its own key. The step runs Claude Code specifically; there's currently no option to use a different provider, like Amazon Bedrock or Azure AI Foundry.
+This step provides no model of its own; you bring your own Anthropic API key and choose the Anthropic model based on your requirements. Octopus doesn't proxy the model or add its own key. The step runs Claude Code specifically; there's currently no option to use a different provider, like Amazon Bedrock or Azure AI Foundry.
 
-Every run records its token usage and cost against the task, so you can see what each agent run costs.
+Every run records its token usage and cost against the task, so you can see how much each agent run costs.
 
 ## Limitations
 

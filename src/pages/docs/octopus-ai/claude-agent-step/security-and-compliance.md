@@ -8,7 +8,7 @@ description: How the Claude Agent Step is secured, what each control does and do
 navOrder: 2
 ---
 
-The Claude Agent Step runs an AI agent (the Claude Code CLI) as a step in a deployment process or runbook. You bring your own Anthropic API key and model and Octopus runs the agent on a worker or target with your deployment context, scoped access, and an audit trail. Because the agent can read context and act on your infrastructure, the step ships with several layers of protection. This page describes what each one does, why it exists, and where it stops.
+The Claude Agent Step runs an AI agent (the Claude Code CLI) as a step in a deployment process or runbook. You bring your own Anthropic API key and model, and Octopus runs the agent on a worker or target with your deployment context, scoped access, and an audit trail. Because the agent can read context and act on your infrastructure, the step ships with several layers of protection. This page describes what each one does, why it exists, and where it stops.
 
 ## The threat model
 
@@ -35,7 +35,7 @@ The step applies the following controls on every run.
 
 ## Sandboxing
 
-Sandboxing is a technique that can help isolate a running process from other areas of a system. Usually, these sandboxes will help restrict the files a process can access, and network hosts a process can reach.
+Sandboxing is a technique that can help isolate a running process from other areas of a system. Usually, these sandboxes help restrict the files a process can access, and the network hosts a process can reach.
 
 The UI offers three modes: **Bash sandbox**, **Sandbox runtime**, and **None**.
 
@@ -47,9 +47,9 @@ Octopus pre-populates both available sandboxing options with some defaults we've
 
 The Bash sandbox is Claude Code's built-in sandbox. It uses an external tool (bubblewrap on Linux and WSL2) to confine Bash commands and their child processes to the files and network hosts you allow. The operating system enforces the boundary, which gives substantially more protection than simply disallowing certain tools.
 
-The Bash sandbox only constrains Bash and its children, but the agent's internal tools and its hooks aren't run through this sandbox. If you want to constrain the agent's file access more generally, use the sandbox runtime.
+The Bash sandbox only constrains Bash and its children; the agent's internal tools and hooks aren't run through it. If you want to constrain the agent's file access more generally, use the sandbox runtime.
 
-See Anthropic's [sandboxing documentation](https://oc.to/anthropic-claude-code-sandboxing) for the full reference on the configuration options available.
+See Anthropic's [sandboxing documentation](https://oc.to/anthropic-claude-code-sandboxing) for the full reference on the available configuration options.
 
 ### Sandbox runtime
 
@@ -57,7 +57,7 @@ The sandbox runtime wraps the *entire* Claude Code process (not just Bash) in An
 
 `srt` must be installed on the worker.
 
-See Anthropic's [sandbox-runtime documentation](https://oc.to/anthropic-sandbox-runtime) for the full reference on the configuration options available.
+See Anthropic's [sandbox-runtime documentation](https://oc.to/anthropic-sandbox-runtime) for the full reference on the available configuration options.
 
 ### None
 
@@ -77,7 +77,7 @@ Know the limits before you rely on the sandbox as a hard boundary:
 - By default the sandbox's proxy doesn't terminate or inspect TLS, so it allows or blocks connections by the hostname the client asks for. That means a broad allowlist entry (say, `github.com`) can become a data-exfiltration path, and techniques like domain fronting can reach hosts outside the allowlist. In-process TLS termination is available as an experimental capability, but doesn't add native content filtering.
 - A container shares the host kernel. Container isolation isn't a virtual machine. A kernel-level escape is out of scope for what these controls defend against.
 
-For the more options, see Anthropic's guide to [securely deploying AI agents](https://code.claude.com/docs/en/agent-sdk/secure-deployment). These are good additions to the existing controls to further protect your execution environments.
+For more options, see Anthropic's guide to [securely deploying AI agents](https://code.claude.com/docs/en/agent-sdk/secure-deployment). These are good additions to the existing controls to further protect your execution environments.
 
 :::figure
 ![The Sandboxing and Permission mode controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/security-section.png)
@@ -89,7 +89,7 @@ Permission handling is two related controls: a **permission mode** that decides 
 
 For the full behavior of each mode, see Claude Code's [permission modes documentation](https://code.claude.com/docs/en/permission-modes).
 
-The Allowed and Denied lists take one tool or pattern per line, matching Claude Code's own syntax, for example `Read`, `Bash(npm run test:*)`, or `Read(./.env)`. Though these tools still apply when running in auto mode, the behavior has some nuance. See [auto mode](#auto-mode) for more information.
+The Allowed and Denied lists take one tool or pattern per line, matching Claude Code's own syntax, for example, `Read`, `Bash(npm run test:*)`, or `Read(./.env)`. Though these tools still apply when running in auto mode, the behavior has some nuance. See [auto mode](#auto-mode) for more information.
 
 :::div{.warning}
 **A denied tool call fails the step.** The step treats a permission denial as a deterministic failure, not something the agent can recover from. In **dontAsk mode** this has a direct consequence: your **Allowed tools** list must cover every tool the prompt needs. If the agent tries a tool that isn't allowed, that call is denied and the step fails.
@@ -109,13 +109,13 @@ Your Allowed and Denied lists still apply in auto mode, with some nuance. When a
 
 - Deny rules always apply. A denied tool stays denied.
 - Narrow allow rules carry over. A specific rule like `Bash(npm test)` will run without the classifier getting involved.
-- Broad, arbitrary-code-execution allow rules are dropped and routed to the classifier instead. Blanket rules such as `Bash(*)`, wildcarded interpreters, and package-manager run commands are judged on a case by case basis by the classifier.
+- Broad, arbitrary-code-execution allow rules are dropped and routed to the classifier instead. Blanket rules like `Bash(*)`, wildcarded interpreters, and package-manager run commands are judged on a case-by-case basis by the classifier.
 
 Auto mode has some limitations you should consider:
 
 - It's a research preview. It reduces risky actions but doesn't guarantee safety, and it shouldn't replace a sandbox or other preventative measures.
 - It adds latency and cost. Each classified action makes an extra model round-trip, and those tokens count toward your usage.
-- Repeated blocks abort the run. Because the step runs non-interactively, if the classifier blocks actions repeatedly, the session aborts rather than pausing for a human.
+- Repeated blocks abort the run. Because the step runs non-interactively, if the classifier repeatedly blocks actions, the session aborts rather than pausing for a human.
 
 Selecting auto mode reveals an **Auto Mode Config** editor for classifier rules (`environment`, `allow`, `soft_deny`, and `hard_deny`). See the [Anthropic auto mode configuration page](https://code.claude.com/docs/en/auto-mode-config) for details on how to set these classifier rules.
 
@@ -145,7 +145,7 @@ Prompt injection is when untrusted content the agent reads tries to hijack it: a
 
 **Defaults and caps.** The check uses `claude-haiku-4-5` by default (you can choose another model), produces at most 1024 tokens for its verdict, and truncates the execution context to 200,000 characters before checking. These caps bound the check's cost and latency.
 
-The check adds a model call to every run, and its token usage appears in the task's Claude Usage Summary (though not it's cost). A determined injection can be phrased to slip past a screening model, so treat this as the first line of defense.
+The check adds a model call to every run, and its token usage appears in the task's Claude Usage Summary (though not its cost). A determined injection can be phrased to slip past a screening model, so treat this as the first line of defense.
 
 :::figure
 ![The Prompt Injection Check controls in the Claude Agent Step editor](/docs/img/octopus-ai/claude-agent-step/injection-check.png)
@@ -160,7 +160,7 @@ Every execution produces an audit trail, so you can review after the fact exactl
 - **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
 - **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
 
-The session transcripts are stored on Octopus Server for 6 months. The retention of the audit logs vary with instance configuration. To learn more about audit log streaming and retention, see the [audit log documentation](/docs/security/users-and-teams/auditing).
+The session transcripts are stored on Octopus Server for 6 months. The retention of the audit logs varies with instance configuration. To learn more about audit log streaming and retention, see the [audit log documentation](/docs/security/users-and-teams/auditing).
 
 :::figure
 ![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)

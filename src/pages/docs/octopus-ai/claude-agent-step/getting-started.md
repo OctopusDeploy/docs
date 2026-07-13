@@ -30,9 +30,9 @@ To add and configure the step:
    ![The Run Claude Agent step card in the step library](/docs/img/octopus-ai/claude-agent-step/step-library-run-claude.png)
    :::
 
-3. In **Prompt**, describe the task in plain language, the way you would prompt Claude Code. The prompt can use Octopus variables (for example `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "success" looks like.
+3. In **Prompt**, describe the task in plain language, the way you would prompt Claude Code. The prompt can use Octopus variables (for example, `#{Octopus.Environment.Name}`), which are substituted before the agent runs. Be specific about what you want the agent to do and what "success" looks like.
 4. In **Claude Settings**, set **API Key** to a reference to your sensitive variable, for example `#{anthropic-api-key}`.
-5. Optionally, set **Model Version** to a model such as `claude-opus-4-8` or `claude-haiku-4-5`, or leave it blank to use the Claude Code CLI's current default. The **Effort** setting trades thoroughness against cost and latency; leave it blank to use the default.
+5. Optionally, set **Model Version** to a model, like `claude-opus-4-8` or `claude-haiku-4-5`, or leave it blank to use the Claude Code CLI's current default. The **Effort** setting trades thoroughness against cost and latency; leave it blank to use the default.
 
    :::figure
    ![The Run Claude Agent step editor showing the Prompt and Claude Settings sections filled in](/docs/img/octopus-ai/claude-agent-step/step-editor-prompt-and-settings.png)
@@ -49,7 +49,7 @@ To add and configure the step:
    The **Bash sandbox** and **Sandbox runtime** modes are supported on Linux (and WSL2) workers. They aren't available on Windows workers. If you're evaluating the step on a Windows worker, use **None** and rely on isolation such as the account Tentacle runs under.
    :::
 
-7. Select a **Permission Mode**. For your first run, select **dontAsk mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. The other option, Auto mode (a mode that uses a classifier model to determine whether to run a tool), is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions).
+7. Select a **Permission Mode**. For your first run, select **dontAsk mode**. The step runs non-interactively, with no way to approve an action mid-run, so `dontAsk` is the standard choice: the agent may use any tool you allow and is denied everything else. The other option, Auto mode (which uses a classifier model to determine whether to run a tool), is covered in [Security & Compliance](/docs/octopus-ai/claude-agent-step/security-and-compliance#tool-permissions).
 8. In **Tool Permissions**, list the tools the agent needs, one per line. For example:
 
    ```text
@@ -59,7 +59,7 @@ To add and configure the step:
    Bash(ls *)
    ```
 
-   Start with minimal permissions and add to it as you learn what the agent needs.
+   Start with minimal permissions and add to them as you learn what the agent needs.
 9. Optionally, under **Agent Capabilities**, add **Skills**, connect the **Octopus MCP Server**, or add **Additional MCP Servers**. See [Extending the Claude Agent Step](/docs/octopus-ai/claude-agent-step/tools).
 10. Under **Additional Configuration Options**, set a **Turn Limit** to cap how many turns the agent can take before the step stops. One turn is a single request/response cycle with the model. The default is 10.
 11. Optionally, set a **Maximum Budget** as a spend cap in USD. Leave it blank for no limit.
@@ -75,7 +75,7 @@ A Run Claude Agent step runs like any other step. Run the process that contains 
 To run the step and watch its output:
 
 1. Create a release and deploy it, as you would for any other step.
-2. Open the task and expand the step in the **task log**. While the step runs, the agent streams its output in real time. At the default log level you see the agent's narration and its final answer.
+2. Open the task and expand the step in the **task log**. While the step runs, the agent streams its output in real time. At the default log level, you see the agent's narration and its final answer.
 3. To also see the agent's thinking, each tool call, and the exact command Octopus ran, switch the log to verbose (or download the raw log).
 
 :::figure
@@ -101,7 +101,7 @@ Every completed run leaves the following outputs on the task page.
 
 ## Investigate a failed deployment
 
-When a deployment fails, the fastest first responder is one that's already there. Add an agent step that runs only when an earlier step fails, and it attaches a first-pass diagnosis to the failed task, while the deployment is still in its failed state, instead of waiting for someone to start digging.
+When a deployment fails, the fastest first responder is one that's already there. Add an agent step that runs only when an earlier step fails, and use it to attach a first-pass diagnosis to the failed task, while the deployment is still in its failed state, instead of waiting for someone to start digging.
 
 To add an automatic failure investigation to a deployment process:
 
@@ -127,14 +127,14 @@ To add an automatic failure investigation to a deployment process:
 6. Select **Sandbox runtime** as the sandbox mode on a Linux worker (or **None** while evaluating on Windows or macOS).
 
 :::div{.hint}
-Keep the allowlist to read-only tools. The prompt tells the agent not to change anything, but the allowlist helps to enforces that. With only read and query commands allowed, an agent that decides to "fix" the problem anyway is denied the tool it reaches for, and the step fails rather than making the outage worse. Match the list to how your infrastructure is inspected. For a virtual machine you might allow `Bash(systemctl status *)` and `Bash(journalctl *)` in place of the `kubectl` commands above.
+Keep the allowlist to read-only tools. The prompt tells the agent not to change anything, but the allowlist helps to enforce that. With only read and query commands allowed, an agent that decides to "fix" the problem anyway is denied the tool it reaches for, and the step fails rather than making the outage worse. Match the list to how your infrastructure is inspected. For a virtual machine you might allow `Bash(systemctl status *)` and `Bash(journalctl *)` in place of the `kubectl` commands above.
 :::
 
-Because the step runs only on failure, the deployment still ends in a failed state, which is what you want: the agent explains the failure, it doesn't paper over it. Its summary appears in the task log next to the step that failed.
+Because the step runs only on failure, the deployment still ends in a failed state, which is what you want: the agent explains the failure, it doesn't paper over it. Its summary appears in the task log next to the failed step.
 
 ## Smoke-test a service before promotion
 
-Before promoting a release, you want an agent to check that the deployed service is healthy, and to fail the step if it isn't so the promotion stops. By default an agent run always *succeeds* when the agent finishes normally, so the agent has to explicitly signal failure; the built-in `octopus-fail-deployment` skill handles this when your prompt states a failure condition.
+Before promoting a release, you want an agent to check that the deployed service is healthy and fail the step if it isn't, so the promotion stops. By default, an agent run always *succeeds* when the agent finishes normally, so the agent has to signal failure explicitly; the built-in `octopus-fail-deployment` skill handles this when your prompt states a failure condition.
 
 To add a smoke test to a deployment process:
 
@@ -151,7 +151,7 @@ To add a smoke test to a deployment process:
 4. In **Tool Permissions**, allow `Bash(curl *)`, plus any other command your check needs.
 5. Select **Sandbox runtime** as the sandbox mode on a Linux worker.
 
-If the health check doesn't pass, the agent emits the failure tag from the `octopus-fail-deployment` skill in its final message, and Octopus fails the step and surfaces the agent's reason in the task log, stopping the promotion. Stating the failure condition in the prompt is enough. See [Built-in skills](/docs/octopus-ai/claude-agent-step/tools#built-in-skills) for how the skill works.
+If the health check doesn't pass, the agent emits the `octopus-fail-deployment` failure tag in its final message, and Octopus fails the step and surfaces the agent's reason in the task log, stopping the promotion. Stating the failure condition in the prompt is enough. See [Built-in skills](/docs/octopus-ai/claude-agent-step/tools#built-in-skills) for how the skill works.
 
 :::div{.hint}
 As with any AI tool, the outcome of a check like this is not deterministic. Treat the agent's verdict as a helpful check, not a hard gate, and pair it with deterministic checks where the outcome matters. See [Limitations](/docs/octopus-ai/claude-agent-step#limitations) for more information.
