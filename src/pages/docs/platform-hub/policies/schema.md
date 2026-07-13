@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-09-11
+modDate: 2026-06-19
 title: Schema for policies
 subtitle: A reference for the input schema passed to the policy engine, including field descriptions, conditional fields, and example patterns.
 icon: fa-solid fa-lock
@@ -14,6 +14,12 @@ navOrder: 162
 When Octopus evaluates a policy, it passes a structured input object to the policy engine. Your Rego conditions read from this object using `input.<Field>` to make decisions about whether a deployment or runbook run should be allowed to proceed.
 
 This page describes every field available in that input object, explains which fields are always present and which are conditional, and shows common patterns for using them. For complete working examples, see [Policy examples](/docs/platform-hub/policies/examples).
+
+:::div{.hint}
+
+To see the resolved input object for a real deployment or runbook run, use the **Evaluate** button on the edit policy page and select **View** on any result. The **Policy input** section shows the exact object that was passed to the policy engine. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#evaluate-a-policy-against-past-executions).
+
+:::
 
 ## What's in the input object
 

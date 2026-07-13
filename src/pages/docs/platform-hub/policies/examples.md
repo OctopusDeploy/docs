@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-11
-modDate: 2025-11-25
+modDate: 2026-06-19
 title: Policy examples
 subtitle: Ready-to-use Rego organized by what you want to enforce
 icon: fa-solid fa-lock
@@ -25,6 +25,12 @@ Each example shows Rego for the scope and conditions sections separately. You ca
 :::div{.hint}
 
 Start every new policy with `"action": "warn"` in your default result. This lets executions proceed while you verify the policy is evaluating correctly, without risking blocked deployments. Switch to `"action": "block"` once you're confident it's working as expected.
+
+:::
+
+:::div{.hint}
+
+After you paste an example into the editor, use the **Evaluate** button to preview how it behaves against your past deployments and runbook runs before you commit. See [Preview a policy against past executions](/docs/platform-hub/policies/troubleshooting#preview-a-policy-against-past-executions).
 
 :::
 
