@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-03-10
+modDate: 2026-07-02
 title: Dynamic Worker pools
 description: Dynamic Worker pools are used in our cloud product to dynamically create and assign workers to running tasks. This page describes how dynamic worker pools work.
 navOrder: 50
@@ -147,7 +147,7 @@ For deployments and runbook runs that require additional software dependencies o
 
 :::div{.hint}
 **Octopus worker-tools are cached on Dynamic Workers**  
-The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the five latest Ubuntu and two latest Windows [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching) images on a dynamic worker when it's created. This makes them an excellent choice over installing additional software on a dynamic worker.
+The `octopusdeploy/worker-tools` images provided for the execution containers feature cache the three latest Ubuntu and two latest Windows [Worker Tools](/docs/infrastructure/workers/worker-tools-versioning-and-caching) images on a dynamic worker when it's created. This makes them an excellent choice over installing additional software on a dynamic worker.
 
 :::
 

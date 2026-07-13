@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-27
+modDate: 2026-06-19
 title: Service accounts
 description: Creating Service Accounts to provide individual services with the least privileges required for the tasks they will perform.
 navOrder: 2
@@ -16,9 +16,9 @@ When using Octopus Deploy it is common to have other automated services control 
 It is best to create **Service accounts** for this purpose to provide each service with the least privileges required for the tasks each service will perform.
 
 :::div{.hint}
-**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal user accounts, but are prevented from using the Octopus Web Portal.
+**Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/octopus-rest-api/openid-connect) or an [Octopus API Key](/docs/octopus-rest-api/how-to-create-an-api-key). For dedicated agent service accounts, see [Agent service accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts).
 :::
 
 ## Creating a service account {#ServiceAccounts-CreatingAServiceAccount}
@@ -51,6 +51,20 @@ You can use [OpenID Connect (OIDC)](/docs/octopus-rest-api/openid-connect) to au
 :::
 
 Once you have created an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/) and [added this Service account to a team](/docs/security/users-and-teams), you can start using this Service account to automate Octopus with another service.
+
+## Agent service accounts {#agent-service-accounts}
+
+If you're connecting an AI agent to Octopus—such as the [Octopus MCP server](/docs/octopus-ai/mcp) or any other automated tooling that runs without a human user session—create an **Agent Service Account** rather than a regular service account. Agent service accounts are a dedicated identity type for AI agents, and they're labeled as such across the product, making agent activity easy to identify and audit.
+
+Any API key created under an agent service account is automatically treated as an agent key. This means you can filter for agent activity separately from human activity in the [audit log](/docs/security/users-and-teams/auditing) and on the **API Keys** page.
+
+To create an agent service account:
+
+1. Go to **Configuration ➜ Users** and click **Add AI service account**.
+2. Enter a **Service Username** and **Service Display Name** for the agent.
+3. Save the user.
+
+Once created, [add the agent service account to one or more teams](/docs/security/users-and-teams) to grant it the permissions it needs, then [create an agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it.
 
 ## Logins
 

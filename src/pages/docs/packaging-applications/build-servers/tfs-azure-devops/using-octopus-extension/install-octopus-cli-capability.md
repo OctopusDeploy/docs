@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-07-13
 title: Installing the Octopus CLI as a capability
 description: This guide covers how to add the Octopus CLI as a capability to your Azure DevOps custom build agents.
 ---
@@ -84,6 +84,12 @@ Version 6+ of each of the steps no longer require installing the CLI
 
 Version 6 of the Octo CLI installer will only install the new [Octopus CLI](https://github.com/OctopusDeploy/cli).
 
+:::div{.hint}
+**Using the CLI directly in a YAML pipeline**
+
+The other v6+ tasks in this extension (for example, **Create Octopus Release** or **Deploy Octopus Release**) call the [Executions API](https://octopus.com/blog/azure-devops-octopus-v6) directly and no longer use the Octopus CLI under the hood. If you'd rather call the CLI yourself: install it with the **Octopus CLI Installer** task, then call `octopus` directly from a script step in your pipeline.
+:::
+
 ## Using the Octopus CLI with Self-Hosted Agents
 
 Self-hosted agents provide the ability to install tools that are required for builds and deployments. They can also improve build performance since their associated configuration is persisted between runs.
@@ -111,7 +117,7 @@ These task demands were introduced and mandated in version 5 to ensure the avail
 
 If this user-defined capability described above is not defined for self-hosted agents then jobs will fail with the following error:
 
-```
+```text
 No agent found in pool [POOL-NAME] which satisfies demands: octo
 ```
 

@@ -1,18 +1,12 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-12-03
-modDate: 2026-01-23
+modDate: 2026-07-02
 title: Microsoft Entra ID
 description: Microsoft Entra ID can manage Octopus Users and Teams using the SCIM API.
 navTitle: Microsoft Entra ID
 navOrder: 10
 ---
-
-:::div{.hint}
-
-Support for Entra ID with SCIM is rolling out as an Early Access Preview to enterprise customers in Octopus Cloud.
-
-:::
 
 Octopus Deploy supports [SCIM](./) 2 as a feature of the Azure AD authentication provider. This allows users and groups created and managed in Entra ID to be synchronized with users and teams in Octopus Deploy, rather than manually provisioning users or provisioning them just-in-time via **Allow Auto User Creation**.
 
@@ -185,4 +179,3 @@ Entra ID will now reach out to Octopus Deploy regularly via the SCIM API wheneve
 - Octopus Deploy does not support nested groups. Any requests from Entra ID to add a group as a member of another group will be ignored.
 - Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Azure AD authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
 - Octopus Deploy only supports a single email address for each user, whereas Entra ID supports many. Octopus Deploy will ignore any email addresses other than the **Work** email address, ie: `emails[type eq "work"].value`.
-- Entra ID has a [Provisioning Expression builder](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/expression-builder) feature in preview, which depends on APIs that are not yet implemented in Octopus Deploy. As such, you may see errors if you try to use the Provisioning Expression builder in the Azure Portal.
