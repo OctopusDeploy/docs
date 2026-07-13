@@ -41,8 +41,8 @@ If you are running custom scripts, using community steps, or using execution con
 
 | Date                  | Details                                                                                                                                                                                                                                                       |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 14&nbsp;Jul&nbsp;2026 | Ubuntu 24.04 Dynamic Worker will be made available for customers. Customers should test their impacted deployments and runbooks on an Ubuntu 24.04 worker with the aim of completing testing by 14 August 2026.                                               |
-| 8&nbsp;Sep&nbsp;2026  | Octopus will switch over the default "Hosted Ubuntu" worker pool to use the Ubuntu 24.04 worker. If customers experience failed deployments or runbooks, they can select the Ubuntu 22.04 worker until 13 October 2026 while they resolve any issues.         |
+| 14&nbsp;Jul&nbsp;2026 | Ubuntu 24.04 Dynamic Worker will be made available for customers. Customers should test their impacted deployments and runbooks on an Ubuntu 24.04 worker with the aim of completing testing by September 08, 2026.                                           |
+| 8&nbsp;Sep&nbsp;2026  | Octopus will switch over the default "Hosted Ubuntu" worker pool to use the Ubuntu 24.04 worker. If customers experience failed deployments or runbooks, they can select the Ubuntu 22.04 worker until October 13, 2026 while they resolve any issues.        |
 | 13&nbsp;Oct&nbsp;2026 | Ubuntu 22.04 Dynamic Workers will no longer be available on Octopus Cloud.                                                                                                                                                                                    |
 
 ## Migration Guide
