@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-06-28
+modDate: 2026-07-13
 title: Using the Octopus extension
 description: Octopus Deploy and Azure DevOps can work together to make automated, continuous delivery easy.
 navOrder: 1
@@ -11,9 +11,13 @@ import TfsNotice from 'src/shared-content/azure-ado/tfs-notice.include.md';
 import BuildInformationInReleaseNotesWithArc from 'src/shared-content/build-information/using-build-information-in-release-notes-with-arc.include.md'
 
 :::div{.warning}
-Version 6 of the Octopus extension for Azure DevOps no longer requires the Octopus CLI to be installed.
+Version 6 of the Octopus extension for Azure DevOps no longer requires the Octopus CLI to be installed. Instead, v6+ steps call the Executions API directly, which requires Octopus Server 2022.3 or later. Learn more about this change in our [Azure DevOps extension v6 blog post](https://octopus.com/blog/azure-devops-octopus-v6).
 
 The use of the **Additional Arguments** field has been deprecated and is only left in place to ease migration from earlier versions.
+:::
+
+:::div{.hint}
+You can still write a YAML pipeline that calls the Octopus CLI yourself. See [Installing the Octopus CLI as a capability](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/install-octopus-cli-capability) for more information.
 :::
 
 We've created a [public extension](https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks) you can install into your Azure DevOps instance.  This extension makes the following tasks available to your Build and Release processes:
@@ -80,7 +84,7 @@ Version 6+ of each of the steps, no longer requires View permissions.
 - DeploymentView (for the dashboard widget)
 - TaskView (for the dashboard widget)
 - BuildInformationPush (for pushing build information to Octopus)
-    - BuildInformationAdminister (required if `Overwrite Mode` is set to `Overwrite Existing`)
+  - BuildInformationAdminister (required if `Overwrite Mode` is set to `Overwrite Existing`)
 
 ## Demands and the Octopus tools installer task
 
@@ -319,9 +323,9 @@ Hover over the widget and click the wrench icon to configure the widget.
 Select an Octopus Deploy connection (see the [Add a Connection](#add-a-connection-to-octopus-deploy) section for details), a Project, and an Environment.
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/widget-setup-preview.jpg)
+![Octopus Deploy Status widget configuration showing connection, project, and environment fields](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/widget-setup-preview.jpg)
 :::
 
 The widget should refresh to show the current status of the selected project in the selected environment.
 
-![](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/multiple-widget-preview.jpg)
+![Several Octopus Deploy Status widgets on an Azure DevOps dashboard, each showing the deployment status for a different project and environment](/docs/img/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/images/multiple-widget-preview.jpg)
