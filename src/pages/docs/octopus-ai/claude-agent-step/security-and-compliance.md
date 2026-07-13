@@ -160,7 +160,7 @@ Every execution produces an audit trail, so you can review after the fact exactl
 - **Audit events.** Recording, and any deletion, of a transcript raises an audit event tied to the space, project, environment, tenant, target, and task, so the transcript's own lifecycle is auditable.
 - **Token and cost reporting.** Usage and cost are recorded per model and shown as a **Claude Usage Summary** on the task page.
 
-The session transcripts are stored on Octopus Server for 6 months. The retention of the audit logs vary with instance configuration. To learn more about audit log streaming and retention, see the [audit log documentation](docs/security/users-and-teams/auditing).
+The session transcripts are stored on Octopus Server for 6 months. The retention of the audit logs vary with instance configuration. To learn more about audit log streaming and retention, see the [audit log documentation](/docs/security/users-and-teams/auditing).
 
 :::figure
 ![The AiAgentTranscriptView permission in the Octopus role editor](/docs/img/octopus-ai/claude-agent-step/transcript-permission.png)

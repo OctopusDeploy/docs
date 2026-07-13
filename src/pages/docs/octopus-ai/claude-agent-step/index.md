@@ -39,6 +39,6 @@ Every run records its token usage and cost against the task, so you can see what
 
 ## Risks
 
-AI, by design, is non-deterministic. You may find that it "completes" tasks in unexpected or dangerous ways. As an example, it may decide that to fix the database migration failing, it should *delete your database entirely*. Though we have built a [variety of safety nets](./security-and-compliance.md) into the Claude Agent Step, you should review the risks associated with non-deterministic behavior in your deployment pipeline to ensure that you have sufficient mitigations.
+AI, by design, is non-deterministic. You may find that it "completes" tasks in unexpected or dangerous ways. As an example, it may decide that to fix the database migration failing, it should *delete your database entirely*. Though we have built a [variety of safety nets](/docs/octopus-ai/claude-agent-step/security-and-compliance) into the Claude Agent Step, you should review the risks associated with non-deterministic behavior in your deployment pipeline to ensure that you have sufficient mitigations.
 
 We'd love to hear how you use the step, what worked, and what you need next. Feedback during the alpha directly shapes what we build, so send it through your account team or [Octopus support](https://octopus.com/support).
