@@ -37,4 +37,8 @@ Every run records its token usage and cost against the task, so you can see what
 - The sandbox modes are Linux/WSL2-only. Bash sandbox and Sandbox runtime run on Linux (and WSL2) workers. They aren't available on Windows. On other platforms you're limited to **None** plus whatever isolation you provide yourself.
 - The prompt injection check and Auto mode add cost and latency. The injection check runs a model over your context before every run. Auto mode runs a second classifier model to judge each action. API Costs associated with the prompt injection check are not included as part of the cost estimate, and aren't included when determining if the agent is going to exceed the set budget limit. The tokens used, however, are reported back and displayed.
 
+## Risks
+
+AI, by design, is non-deterministic. You may find that it "completes" tasks in unexpected or dangerous ways. As an example, it may decide that to fix the database migration failing, it should *delete your database entirely*. Though we have built a [variety of safety nets](./security-and-compliance.md) into the Claude Agent Step, you should review the risks associated with non-deterministic behavior in your deployment pipeline to ensure that you have sufficient mitigations.
+
 We'd love to hear how you use the step, what worked, and what you need next. Feedback during the alpha directly shapes what we build, so send it through your account team or [Octopus support](https://octopus.com/support).
