@@ -33,7 +33,7 @@ Some important items to note about workers:
 The Octopus Server includes a [built-in worker](/docs/infrastructure/workers/built-in-worker).  When you configure a deployment or runbook to run tasks on the server, it is handing off that work to the built-in worker.   
 
 :::div{.hint}
-Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 2 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools), Windows Server 2019 and Ubuntu 22.04.  Each worker type is a different worker pool.
+Octopus Cloud is running the Octopus Linux container.  To ensure maximum cross-compatibility with both Windows and Linux, the built-in worker is disabled on Octopus Cloud.  Instead, we provide you with the ability to choose from 2 [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools).  Each worker type is a different worker pool.
 :::
 
 The built-in worker and [dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools) were created to help get you started.  Using them at scale will quickly expose their flaws.
