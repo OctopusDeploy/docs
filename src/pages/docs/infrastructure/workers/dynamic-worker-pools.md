@@ -147,7 +147,6 @@ Each `Windows Server Core 2025` worker is provisioned with a baseline of tools i
 - .NET (10.0, 8.0)
 - .NET Framework 4.8 (Default for Windows Server 2025)
 - AWS IAM Authenticator (0.7.17)
-- Azure CLI (2.81.0)
 - Chocolatey (2.7.2)
 - Docker (29.5.2)
 - Helm (3.20.1)
