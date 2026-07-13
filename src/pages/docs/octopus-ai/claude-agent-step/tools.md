@@ -25,7 +25,7 @@ Octopus publishes its own [MCP server](/docs/octopus-ai/mcp), which lets an AI a
 
 Before you begin, you'll need:
 
-- `npx` (Node.js) available on the worker or target that runs the step. The Octopus MCP server runs as an `npx` package, the same as any other stdio MCP server.
+- `npx` (Node.js) available on the worker or target that runs the step. The Octopus MCP server runs as an `npx` package, the same as many other stdio MCP servers.
 
 To connect the agent to your Octopus instance:
 
@@ -34,7 +34,7 @@ To connect the agent to your Octopus instance:
 3. Generate an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) under the account.
 4. Store the key as a **sensitive variable** (for example `octopus-api-key`), so the key is kept out of the task log and execution context.
 5. On the step, expand **Agent Capabilities (optional)** > **Octopus MCP Server** and set **Octopus API key** to a reference to your variable, for example `#{octopus-api-key}`.
-6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__octopus__` prefix, or leave the default `*` to allow every tool the server offers. A blank field also allows every tool.
+6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__octopus__` prefix, or leave the default `*` to allow every tool the server offers. A blank field disallows any tool the MCP server exposes.
 
 Octopus supplies the server URL for you and turns the **Tools** entries into `mcp__octopus__<tool>` permissions on the agent's allowed tools. When the step runs, the agent can call the server's tools.
 
