@@ -1,0 +1,68 @@
+---
+// Sidebar behaviour for [data-navscroll] viewports: auto-reveal of the active
+// item and a tooltip for truncated labels. Vanilla, zero deps. The edge fade
+// shades are handled by the shared scroll-shade behavior
+// (src/ink/core/behavior/scroll-shade.ts, wired via Behavior.astro).
+---
+
+<script is:inline>
+  (() => {
+    const roots = document.querySelectorAll('[data-navscroll]');
+    if (!roots.length) return;
+
+    // One fixed tooltip, reused. Fixed position escapes the scroll clip.
+    let tip;
+    const getTip = () => {
+      if (!tip) {
+        tip = document.createElement('div');
+        tip.className = 'ink-nav-tip';
+        tip.setAttribute('role', 'tooltip');
+        document.body.appendChild(tip);
+      }
+      return tip;
+    };
+    const hideTip = () => tip && tip.removeAttribute('data-show');
+    const truncated = (el) => el && el.scrollWidth > el.clientWidth + 1;
+    const showTip = (textEl, row) => {
+      const t = getTip();
+      t.textContent = textEl.textContent.trim();
+      const r = row.getBoundingClientRect();
+      t.style.top = `${r.top + r.height / 2}px`;
+      t.style.left = `${r.right + 10}px`;
+      t.setAttribute('data-show', '');
+      const tr = t.getBoundingClientRect();
+      if (tr.right > window.innerWidth - 8)
+        t.style.left = `${Math.max(8, window.innerWidth - 8 - tr.width)}px`;
+    };
+    const onOver = (e) => {
+      const row = e.target.closest('.ink-nav__link, .ink-nav__summary');
+      if (!row) return;
+      const tx = row.querySelector('.ink-nav__text');
+      if (truncated(tx)) showTip(tx, row);
+      else hideTip();
+    };
+
+    roots.forEach((root) => {
+      const vp = root.querySelector('[data-navscroll-viewport]');
+      if (!vp || vp.__nsInit) return;
+      vp.__nsInit = true;
+
+      // Reveal the active item if it loaded out of view.
+      const active = vp.querySelector('[aria-current="page"]');
+      if (active) {
+        const v = vp.getBoundingClientRect();
+        const a = active.getBoundingClientRect();
+        if (a.top < v.top || a.bottom > v.bottom)
+          vp.scrollTop +=
+            a.top - v.top - (vp.clientHeight - active.offsetHeight) / 2;
+      }
+
+      vp.addEventListener('scroll', hideTip, { passive: true });
+      window.addEventListener('scroll', hideTip, { passive: true });
+      vp.addEventListener('mouseover', onOver);
+      vp.addEventListener('focusin', onOver);
+      vp.addEventListener('mouseleave', hideTip);
+      vp.addEventListener('focusout', hideTip);
+    });
+  })();
+</script>

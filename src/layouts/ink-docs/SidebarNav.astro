@@ -1,0 +1,89 @@
+---
+// Recursive nav over the Octopus nav tree (NavPage[]). Three shapes: leaf link,
+// collapsed top-level link (right-chevron), expandable native <details>.
+// Zero-JS. Styling lives in shell.css (.ink-nav__*).
+import { Accelerator } from 'astro-accelerator-utils';
+import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
+import { SITE } from '@config';
+import Icon from '../../ink/core/Icon.astro';
+
+const accelerator = new Accelerator(SITE);
+
+type Props = {
+  page: NavPage;
+  depth?: number;
+};
+const { page, depth = 0 } = Astro.props satisfies Props;
+
+const displayLink = page.title != null;
+const linkTitle = page.title === page.fullTitle ? null : page.fullTitle;
+const children = page.children.slice().sort((a, b) => a.order - b.order);
+
+const href = accelerator.urlFormatter.formatAddress(page.url);
+
+// page.ariaCurrent is the source of truth; fall back to a normalized path
+// compare because the upstream exact-match misses on trailing-slash diffs.
+const normalize = (p: string) => p.replace(/\/+$/, '') || '/';
+const currentPath = normalize(new URL(Astro.url).pathname);
+const isCurrent = Boolean(page.ariaCurrent) || normalize(href) === currentPath;
+const ariaCurrent = isCurrent ? page.ariaCurrent || 'page' : undefined;
+
+// Open section on the active branch lights its rail (the trail to the page).
+const isCurrentPage = (p: NavPage): boolean =>
+  Boolean(p.ariaCurrent) ||
+  normalize(accelerator.urlFormatter.formatAddress(p.url)) === currentPath;
+const onActiveTrail =
+  page.children.length > 0 &&
+  page.isOpen &&
+  page.children.some(function hasCurrent(c: NavPage): boolean {
+    return isCurrentPage(c) || c.children.some(hasCurrent);
+  });
+---
+
+{
+  displayLink && page.children.length === 0 && (
+    <li class="ink-nav__item" data-component="ink/docs/SidebarNav">
+      <a
+        href={href}
+        aria-current={ariaCurrent}
+        rel={page.rel}
+        title={linkTitle}
+        class={`ink-nav__link ${depth === 0 ? 'ink-nav__link--top' : 'ink-nav__link--leaf'}`}
+      >
+        {depth > 0 && <span class="ink-nav__node" aria-hidden="true" />}
+        <span class="ink-nav__text">{page.title}</span>
+        {depth === 0 && (
+          <Icon
+            name="chevron-right"
+            class="ink-nav__chevron ink-nav__chevron--nav"
+          />
+        )}
+      </a>
+    </li>
+  )
+}
+{
+  displayLink && page.children.length > 0 && (
+    <li class="ink-nav__item" data-component="ink/docs/SidebarNav">
+      <details
+        open={page.isOpen}
+        class={`ink-nav__section ${depth === 0 ? 'ink-nav__section--top' : 'ink-nav__section--nested'} ${onActiveTrail ? 'is-trail' : ''}`}
+      >
+        <summary
+          class={`ink-nav__summary ${depth === 0 ? 'ink-nav__summary--top' : 'ink-nav__summary--nested'}`}
+        >
+          {depth > 0 && <span class="ink-nav__node" aria-hidden="true" />}
+          <span class="ink-nav__text">{page.section}</span>
+          <Icon name="chevron-down" class="ink-nav__chevron" />
+        </summary>
+        <ul
+          class={`ink-nav__list ${depth === 0 ? 'ink-nav__list--top' : 'ink-nav__list--nested'}`}
+        >
+          {children.map((child) => (
+            <Astro.self page={child} depth={depth + 1} />
+          ))}
+        </ul>
+      </details>
+    </li>
+  )
+}

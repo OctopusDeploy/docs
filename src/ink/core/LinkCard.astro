@@ -1,0 +1,40 @@
+---
+// Generic link card: a titled panel that optionally links out with a hover arrow.
+// (Was ink/core/Card.astro; renamed so `Card` can be the content image-card.)
+import Icon from './Icon.astro';
+
+interface Props {
+  href?: string;
+  title?: string;
+  class?: string;
+}
+
+const { href, title, class: extra = '' } = Astro.props;
+// Frame + hover language come from the shared .ink-tile recipe (components.css).
+const interactive = href
+  ? 'group ink-tile--link focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2'
+  : '';
+const cls = ['ink-tile bg-card/70 p-5 backdrop-blur-sm', interactive, extra]
+  .filter(Boolean)
+  .join(' ');
+const Tag = href ? 'a' : 'div';
+// Title may carry a trailing arrow glyph in content; strip it so we render our own.
+const cleanTitle = title?.replace(/\s*→\s*$/, '');
+---
+
+<Tag class={cls} href={href} data-component="ink/core/LinkCard">
+  {
+    cleanTitle && (
+      <h3 class="mb-1.5 flex items-center gap-1.5 font-display text-title font-bold tracking-tight">
+        <span>{cleanTitle}</span>
+        {href && (
+          <Icon
+            name="arrow-right"
+            class="h-4 w-4 shrink-0 text-muted-foreground transition-all duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-primary"
+          />
+        )}
+      </h3>
+    )
+  }
+  <div class="text-sm text-muted-foreground"><slot /></div>
+</Tag>

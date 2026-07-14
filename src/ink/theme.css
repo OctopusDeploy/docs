@@ -1,0 +1,103 @@
+/*
+  Ink entry point. Importing this opts a page in: Tailwind v4 + typography
+  plugin + brand tokens mapped into the theme + the package style layers.
+  Web fonts load in the layout <head>. Nothing here leaks onto pages that
+  don't import it.
+
+  Layer map (all package-owned; the docs shell's chrome CSS lives in the host
+  at src/layouts/ink-docs/shell.css):
+  - tokens.css / tokens.decorative.css  the customization surface
+  - styles/base.css                     document defaults + atmosphere
+  - styles/prose.css                    markdown typography + content constructs
+  - styles/code.css                     the one code surface (pre/Shiki/CodeBlock)
+  - styles/components.css               core components + enhanced-markup contracts
+*/
+
+@import 'tailwindcss';
+@import './tokens.css';
+@import './tokens.decorative.css';
+@import './styles/base.css';
+@import './styles/prose.css';
+@import './styles/code.css';
+@import './styles/components.css';
+@plugin '@tailwindcss/typography';
+
+/* Dark mode is driven by the existing [data-theme="dark"] attribute, not a class. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Enforce the Ink type scale: wipe Tailwind's default font-size utilities so a
+   size outside tokens.css simply doesn't compile, then map ONLY the scale back
+   in (utilities: text-xs/sm/base, text-title, text-h1..h6). */
+@theme {
+  --text-*: initial;
+  /* Two weights only: regular and bold. Off-scale weight utilities
+     (font-medium, font-semibold, ...) don't compile. */
+  --font-weight-*: initial;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  /* Radius: only the Ink steps compile (rounded-sm/md/lg/xl/full). */
+  --radius-*: initial;
+}
+
+@theme inline {
+  --text-xs: var(--text-xs);
+  --text-xs--line-height: var(--text-xs--line-height);
+  --text-sm: var(--text-sm);
+  --text-sm--line-height: var(--text-sm--line-height);
+  --text-base: var(--text-base);
+  --text-base--line-height: var(--text-base--line-height);
+  --text-title: var(--text-title);
+  --text-title--line-height: var(--text-title--line-height);
+  --text-h1: var(--text-h1);
+  --text-h1--line-height: var(--text-h1--line-height);
+  --text-h2: var(--text-h2);
+  --text-h2--line-height: var(--text-h2--line-height);
+  --text-h3: var(--text-h3);
+  --text-h3--line-height: var(--text-h3--line-height);
+  --text-h4: var(--text-h4);
+  --text-h4--line-height: var(--text-h4--line-height);
+  --text-h5: var(--text-h5);
+  --text-h5--line-height: var(--text-h5--line-height);
+  --text-h6: var(--text-h6);
+  --text-h6--line-height: var(--text-h6--line-height);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-glow: var(--shadow-glow);
+
+  --ease-out: var(--ease-out);
+}

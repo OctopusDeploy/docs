@@ -1,0 +1,37 @@
+---
+// Client behavior for the Ink docs shell. The imported modules are bundled by Astro
+// (hashed, self-contained) rather than loaded from a host-specific /public URL, so the
+// package is portable to any Astro repo. Universal behaviors always run; the optional
+// heading anchors are gated by a prop (surfaced as a data-attribute the bundled script
+// reads) so this component never imports host config.
+interface Props {
+  headingAnchors?: boolean;
+}
+const { headingAnchors = true } = Astro.props;
+---
+
+<div data-ink-behavior data-heading-anchors={String(headingAnchors)} hidden>
+</div>
+
+<script>
+  import { setExternalLinkAttributes } from '../../ink/core/behavior/external-links';
+  import { monitorInputType } from '../../ink/core/behavior/input-type';
+  import { enhanceHeadingAnchors } from '../../ink/core/behavior/heading-anchors';
+  import { enhanceDetailGroups } from '../../ink/core/behavior/tabs';
+  import { enhanceFigures } from '../../ink/core/behavior/figures';
+  import { observeScrollShades } from '../../ink/core/behavior/scroll-shade';
+
+  setExternalLinkAttributes();
+  monitorInputType();
+
+  // Content-construct enhancers: each is a no-op unless its markup is present, so they
+  // need no flag - any page that authors the markup gets the enhancement.
+  enhanceDetailGroups();
+  enhanceFigures();
+  observeScrollShades();
+
+  const flags = document.querySelector('[data-ink-behavior]');
+  if (flags instanceof HTMLElement && flags.dataset.headingAnchors === 'true') {
+    enhanceHeadingAnchors();
+  }
+</script>

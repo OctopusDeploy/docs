@@ -1,0 +1,66 @@
+/*
+  Ink decorative layer - the "Abyssal / bioluminescent" brand mood.
+
+  SHARED OCTOPUS BRAND (not docs-specific): the cyan->purple->pink glow language
+  every Octopus surface shares. Ports 1:1 like tokens.css. Split out from the
+  required semantic contract (tokens.css) so a shell can dial the mood - or swap
+  this one file - for a flatter skin without touching the contract.
+
+  Consumed only by the decoration layer (.ink-atmosphere / .ink-grain in
+  styles/base.css, prose accents) and shell chrome; core components never
+  reference these directly. Imported by theme.css right after
+  tokens.css, so any site loading theme.css gets the full mood. Tune the whole
+  look here: drop the aurora / grain / glow alphas toward zero to flatten.
+*/
+
+:root {
+  /* Brand glow (cyan->purple->pink; green stays semantic-success only). */
+  --glow-brand: color-mix(in oklab, var(--purple-300) 50%, transparent);
+
+  /* Accent gradient: decorative accents, rule/border images. */
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--octo-blue-bright) 0%,
+    var(--purple-300) 52%,
+    var(--pink-100) 108%
+  );
+
+  /* Lit-edge hairlines: 1px gradient edges on chrome and cards. Two recipes
+     cover every use - the primary fade (header, tile hover) and the brand duo
+     (code frames, hero surfaces). */
+  --hairline-primary: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--primary) 50%, transparent),
+    transparent
+  );
+  --hairline-brand: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--octo-blue-bright) 55%, transparent),
+    color-mix(in oklab, var(--pink-100) 45%, transparent),
+    transparent
+  );
+
+  /* Atmosphere: fixed background mesh + grid + film grain. */
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 11%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 9%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-navy-700) 3%, transparent);
+  --grain-opacity: 0.035;
+}
+
+[data-theme='dark'] {
+  --glow-brand: color-mix(in oklab, var(--pink-100) 55%, transparent);
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--octo-blue-bright) 0%,
+    var(--purple-400) 50%,
+    var(--pink-100) 115%
+  );
+  --aurora-1: color-mix(in oklab, var(--octo-blue-bright) 9%, transparent);
+  --aurora-2: color-mix(in oklab, var(--pink-100) 7%, transparent);
+  --aurora-3: color-mix(in oklab, var(--purple-300) 10%, transparent);
+  --grid-line: color-mix(in oklab, var(--octo-blue-bright) 3%, transparent);
+  --grain-opacity: 0.05;
+}

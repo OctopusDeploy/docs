@@ -3,6 +3,7 @@ actionid
 actiontemplates
 Adfs
 advfirewall
+affordances
 agentic
 allatclaims
 ALLUSERSPROFILE
@@ -47,7 +48,10 @@ azurefile
 azureresourcegroup
 azurescripting
 bacpac
+behaviour
 Bento
+bioluminescence
+bioluminescent
 Blkio
 bootstrap
 bootstrapped
@@ -177,6 +181,7 @@ figcaption
 filedata
 filestore
 FIPS
+focusables
 fontawesome
 frontmatter
 functionapp
@@ -199,6 +204,7 @@ gruntfile
 guestloginenabled
 gulpfile
 GZRS
+Hanken
 hasattr
 Hashtable
 hastscript
@@ -256,6 +262,7 @@ kubelogin
 kubernetesmonitor
 kustomization
 kustomize
+labelledby
 lanman
 lastmod
 latestdeployments
@@ -291,6 +298,7 @@ maxage
 mdast
 Metabase
 microsite
+microsites
 milli
 minidump
 minifier
@@ -320,6 +328,7 @@ mytransform.config
 namespacing
 Nartac
 navigationid
+navscroll
 NETBIOS
 netcore
 netcoreapp
@@ -351,6 +360,7 @@ npmjs
 NTDS
 NTFS
 NTLM
+nums
 nupkg
 NVARCHAR
 O_WRONLY
@@ -383,6 +393,7 @@ Octostache
 octostorage
 octoterra
 OIDC
+oklab
 oldcert
 oldguid
 oldthumbprint
@@ -505,6 +516,7 @@ serviceaccount
 Sesna
 setspn
 sfproj
+shadcn
 shiki
 showcerts
 Showplan
@@ -542,6 +554,7 @@ struct
 stylesheet
 subcomponent
 subcontext
+sublist
 sunsetting
 swaggerui
 systemprofile
@@ -588,6 +601,7 @@ umoci
 undeployed
 undeploying
 uniquestring
+unlayered
 Unmarshal
 unsandboxed
 updateprogress
@@ -606,6 +620,7 @@ VARCHAR
 variablename
 variableset
 vhdx
+viewports
 violationreason
 VMSS
 vnet
@@ -629,6 +644,7 @@ windir
 windowsfeatures
 Wireshark
 WIXUI
+wordmark
 workerpool
 workerpools
 workertools

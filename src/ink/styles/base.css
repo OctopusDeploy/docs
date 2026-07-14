@@ -1,0 +1,104 @@
+/*
+  Ink base layer: document-level defaults (scrolling, scrollbars, selection) and
+  the decorative page atmosphere (aurora mesh, grid, grain, reveal animation,
+  gradient text). Everything here is markup-agnostic and portable.
+*/
+
+/* Reserve the scrollbar gutter so a late-appearing scrollbar can't shift the
+   centered layout sideways. Smooth in-page scrolling for the TOC anchors. */
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Tinted, thin scrollbars that match the abyss. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--muted-foreground) 35%, transparent)
+    transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground) 32%, transparent);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--muted-foreground) 55%, transparent);
+  background-clip: padding-box;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--primary) 24%, transparent);
+  color: var(--foreground);
+}
+
+/* Atmosphere: fixed aurora mesh + grid + grain, behind everything (z-index:-1).
+   The layout renders the .ink-atmosphere / .ink-grain divs. */
+.ink-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 38rem at 12% -8%, var(--aurora-1), transparent 60%),
+    radial-gradient(46rem 40rem at 100% 0%, var(--aurora-2), transparent 58%);
+  background-color: var(--background);
+}
+.ink-atmosphere::before {
+  /* Engineering grid, masked to fade inward. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(
+    120% 80% at 50% 0%,
+    #000 0%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(120% 80% at 50% 0%, #000 0%, transparent 75%);
+}
+.ink-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Staggered page-load reveal: [data-rise] fades/lifts, --rise sets the delay. */
+@keyframes ink-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+[data-rise] {
+  animation: ink-rise 0.7s var(--ease-out) both;
+  animation-delay: var(--rise, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-rise] {
+    animation: none;
+  }
+}

@@ -1,0 +1,27 @@
+---
+// Skip links (WCAG 2.4.1 "Bypass Blocks"): the first focusable elements on the page,
+// visually hidden until focused. Self-contained and prop-driven - labels default to
+// English but a host can pass translated strings, so the component imports no i18n
+// system and stays portable. Targets must exist in the layout with matching ids
+// (InkLayout gives <main> id="ink-main-content" tabindex="-1" and the sidebar nav
+// id="ink-main-nav").
+interface Props {
+  contentHref?: string;
+  navHref?: string;
+  contentLabel?: string;
+  navLabel?: string;
+  ariaLabel?: string;
+}
+const {
+  contentHref = '#ink-main-content',
+  navHref = '#ink-main-nav',
+  contentLabel = 'Skip to content',
+  navLabel = 'Skip to navigation',
+  ariaLabel = 'Skip links',
+} = Astro.props;
+---
+
+<nav class="ink-skip-links" aria-label={ariaLabel}>
+  <a href={contentHref}>{contentLabel}</a>
+  <a href={navHref}>{navLabel}</a>
+</nav>

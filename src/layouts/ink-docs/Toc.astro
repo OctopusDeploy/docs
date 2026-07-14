@@ -1,0 +1,395 @@
+---
+import Icon from '../../ink/core/Icon.astro';
+
+interface TocItem {
+  label: string;
+  href: string;
+  depth?: number;
+}
+interface Props {
+  items: TocItem[];
+}
+const { items } = Astro.props;
+---
+
+<aside
+  class="hidden xl:block w-56 shrink-0"
+  aria-label="On this page"
+  data-component="ink/docs/Toc"
+>
+  <nav
+    class="ink-toc sticky top-[var(--header-h)] max-h-[calc(100vh_-_var(--header-h))] overflow-y-auto py-14 pl-6"
+  >
+    <div class="ink-toc__head">
+      <p class="ink-toc__title ink-eyebrow">
+        <Icon name="outline" class="ink-toc__title-icon" />
+        On this page
+      </p>
+      <span class="ink-toc__pct" data-toc-pct aria-hidden="true">0%</span>
+    </div>
+
+    <div class="ink-toc__rail-wrap">
+      <span class="ink-toc__rail" aria-hidden="true"></span>
+      <span class="ink-toc__progress" data-toc-progress aria-hidden="true"
+      ></span>
+      <span class="ink-toc__thumb" data-toc-thumb aria-hidden="true"></span>
+
+      <ul class="ink-toc__list" data-toc>
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-toc-link
+                class={`ink-toc__link ${item.depth === 2 ? 'is-nested' : ''}`}
+              >
+                <span class="ink-toc__dot" aria-hidden="true" />
+                <span class="ink-toc__label">{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <a
+      href="#"
+      class="ink-toc__top"
+      data-toc-top
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <Icon name="arrow-up" class="ink-toc__top-icon" />
+      Back to top
+    </a>
+  </nav>
+</aside>
+
+{
+  /* is:global (namespaced classes): scoped styles can't reach the Icon child's svg. */
+}
+<style is:global>
+  /* TOC: continuous rail. The brand fill and the active thumb share one point -
+     both end at the current topic (set from the scroll-spy script). */
+  .ink-toc {
+    --thumb-top: 0px;
+    --thumb-h: 0px;
+    --thumb-on: 0;
+    --toc-fill: 0px;
+  }
+
+  .ink-toc__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+  .ink-toc__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: color-mix(in oklab, var(--muted-foreground) 78%, transparent);
+  }
+  .ink-toc__title-icon {
+    height: 0.85rem;
+    width: 0.85rem;
+    color: var(--primary);
+  }
+  .ink-toc__pct {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in oklab, var(--muted-foreground) 60%, transparent);
+    opacity: 0;
+    transform: translateY(-2px);
+    transition:
+      opacity var(--duration-slow) ease,
+      transform var(--duration-slow) ease;
+  }
+  .ink-toc[data-scrolled] .ink-toc__pct {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ink-toc__rail-wrap {
+    position: relative;
+  }
+  /* Base rail: the faint track. */
+  .ink-toc__rail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 9999px;
+    background: var(--border);
+  }
+  /* Glassy translucent fill that grows down to the active topic; its tip meets
+     the thumb. Soft and frosted, so the bright thumb stays the accent. */
+  .ink-toc__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: var(--toc-fill);
+    border-radius: 9999px;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--primary) 16%, transparent) 0%,
+      color-mix(in oklab, var(--purple-300) 24%, transparent) 52%,
+      color-mix(in oklab, var(--purple-300) 40%, transparent) 100%
+    );
+    transition: height var(--duration-slow) var(--ease-out);
+  }
+  /* Sliding active thumb: a brighter, glowing segment of the rail. */
+  .ink-toc__thumb {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 4px;
+    height: var(--thumb-h);
+    border-radius: 9999px;
+    background: var(--primary);
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent),
+      var(--glow-dot);
+    opacity: var(--thumb-on);
+    transform: translateY(var(--thumb-top));
+    transition:
+      transform var(--duration-slow) var(--ease-out),
+      height var(--duration-slow) var(--ease-out),
+      opacity var(--duration-base) ease;
+  }
+
+  .ink-toc__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ink-toc__list li {
+    margin: 0;
+  }
+
+  .ink-toc__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.34rem 0 0.34rem 1rem;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    color: var(--muted-foreground);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition:
+      color var(--duration-base) ease,
+      transform var(--duration-base) ease;
+  }
+  .ink-toc__link.is-nested {
+    padding-left: 1.75rem;
+  }
+  /* Small leading dot brightens on hover/active for a tactile feel. */
+  .ink-toc__dot {
+    flex: none;
+    height: 4px;
+    width: 4px;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+    transition:
+      background var(--duration-base) ease,
+      box-shadow var(--duration-base) ease,
+      transform var(--duration-base) ease;
+  }
+  .ink-toc__link.is-nested .ink-toc__dot {
+    height: 3px;
+    width: 3px;
+  }
+  .ink-toc__label {
+    transition: inherit;
+  }
+
+  .ink-toc__link:hover {
+    color: var(--foreground);
+    transform: translateX(2px);
+  }
+  .ink-toc__link:hover .ink-toc__dot {
+    background: color-mix(in oklab, var(--primary) 70%, transparent);
+  }
+  .ink-toc__link[aria-current='true'] {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .ink-toc__link[aria-current='true'] .ink-toc__dot {
+    background: var(--primary);
+    transform: scale(1.4);
+    box-shadow: var(--glow-dot);
+  }
+  .ink-toc__link:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    color: var(--foreground);
+  }
+
+  /* Back to top: appears once the reader has scrolled. */
+  .ink-toc__top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.4rem;
+    padding: 0.3rem 0.1rem;
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition:
+      color var(--duration-base) ease,
+      opacity var(--duration-slow) ease,
+      transform var(--duration-slow) ease;
+  }
+  .ink-toc[data-scrolled] .ink-toc__top {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .ink-toc__top:hover {
+    color: var(--primary);
+  }
+  .ink-toc__top:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    color: var(--foreground);
+    border-radius: var(--radius-sm);
+  }
+  .ink-toc__top-icon {
+    height: 0.85rem;
+    width: 0.85rem;
+    transition: transform var(--duration-base) ease;
+  }
+  .ink-toc__top:hover .ink-toc__top-icon {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ink-toc__thumb,
+    .ink-toc__progress,
+    .ink-toc__link,
+    .ink-toc__dot,
+    .ink-toc__pct,
+    .ink-toc__top,
+    .ink-toc__top-icon {
+      transition: none;
+    }
+    .ink-toc__link:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector(
+      '[data-component="ink/docs/Toc"] .ink-toc'
+    );
+    const links = Array.from(document.querySelectorAll('[data-toc-link]'));
+    if (!root || !links.length) return;
+
+    const thumb = root.querySelector('[data-toc-thumb]');
+    const pctEl = root.querySelector('[data-toc-pct]');
+    const topBtn = root.querySelector('[data-toc-top]');
+
+    const byId = new Map();
+    const targets = [];
+    for (const link of links) {
+      const id = link.getAttribute('href')?.slice(1);
+      if (!id) continue;
+      const el = document.getElementById(id);
+      if (el) {
+        byId.set(id, link);
+        targets.push(el);
+      }
+    }
+
+    // Slide the active thumb to the current link, and grow the fill to meet it.
+    const moveThumb = (link) => {
+      if (!thumb || !link) return;
+      const h = link.offsetHeight * 0.6;
+      const top = link.offsetTop + (link.offsetHeight - h) / 2;
+      root.style.setProperty('--thumb-top', `${top}px`);
+      root.style.setProperty('--thumb-h', `${h}px`);
+      root.style.setProperty('--thumb-on', '1');
+      root.style.setProperty(
+        '--toc-fill',
+        `${link.offsetTop + link.offsetHeight / 2}px`
+      );
+    };
+
+    let current = null;
+    const setActive = (id) => {
+      if (id === current) return;
+      current = id;
+      for (const [lid, link] of byId)
+        link.setAttribute('aria-current', lid === id ? 'true' : 'false');
+      moveThumb(byId.get(id));
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive(visible[0].target.id);
+      },
+      { rootMargin: '-88px 0px -65% 0px', threshold: 0 }
+    );
+    targets.forEach((t) => observer.observe(t));
+
+    // Reading progress + scrolled affordances, throttled to animation frames.
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        const pct = max > 0 ? Math.min(1, Math.max(0, doc.scrollTop / max)) : 0;
+        if (pctEl) pctEl.textContent = `${Math.round(pct * 100)}%`;
+        if (doc.scrollTop > 120) root.setAttribute('data-scrolled', '');
+        else root.removeAttribute('data-scrolled');
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      moveThumb(byId.get(current));
+      onScroll();
+    });
+    onScroll();
+
+    // Keep "Back to top" keyboard-reachable only when visible.
+    if (topBtn) {
+      const sync = () => {
+        const on = root.hasAttribute('data-scrolled');
+        topBtn.setAttribute('tabindex', on ? '0' : '-1');
+        topBtn.setAttribute('aria-hidden', on ? 'false' : 'true');
+      };
+      new MutationObserver(sync).observe(root, {
+        attributes: true,
+        attributeFilter: ['data-scrolled'],
+      });
+      topBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const reduce = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }
+  })();
+</script>

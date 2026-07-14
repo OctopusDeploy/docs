@@ -1,0 +1,357 @@
+---
+// Phase A adapter layout: markdown-compatible entrypoint that lets any real
+// content page adopt the new design system by switching its `layout:`
+// frontmatter line. Reuses the site's existing data sources (nav tree,
+// breadcrumbs, SEO head via HtmlHead) and renders them through our chrome.
+//
+// ⚠️ MVP / PREVIEW - not yet the production default. Most plumbing is now in place:
+// SkipLinks, real search, Marketo, GTM analytics + Plausible search hook, unified theme
+// system, article footer, and a selective client-behavior layer (see core/behavior/).
+// Remaining gaps before rollout are tracked in
+// .claude/docs/engineering/design-system-migration-status.md.
+import '../../ink/theme.css';
+import './shell.css';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+import { menu } from '@data/navigation';
+import Head from './Head.astro';
+
+import Header from './Header.astro';
+import Toc from './Toc.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import SidebarNav from './SidebarNav.astro';
+import SidebarBehavior from './SidebarBehavior.astro';
+import Behavior from './Behavior.astro';
+import SkipLinks from './SkipLinks.astro';
+import Icon from '../../ink/core/Icon.astro';
+import SharedFooter from '../../components/SharedFooter.astro';
+import CopyMarkdown from '../../components/CopyMarkdown.astro';
+import ArticleFooter from './ArticleFooter.astro';
+import Plausible from '../../components/Plausible.astro';
+import SharedScripts from '../../components/SharedScripts.astro';
+
+// This repo honors its own `headers` feature flag; the flag lookup stays in the shell
+// so the portable Behavior/Ink components never import host config.
+const headingAnchors = (SITE.featureFlags?.headers ?? []).includes('link');
+
+type Props = {
+  frontmatter: Record<string, any>;
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+};
+const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const accelerator = new Accelerator(SITE);
+const lang = frontmatter.lang ?? SITE.default.lang;
+const currentUrl = new URL(Astro.request.url);
+
+// Real sidebar nav tree (NavPage[]).
+const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
+
+// Lightweight nav (mirrors src/themes/octopus/components/Navigation.astro from
+// main): keep only the active section's subtree expanded and collapse every
+// other top-level section to a single labelled link, so the rendered DOM stays
+// small for AI-crawler token budgets. Collapsed sections render as links with a
+// right-chevron 'navigate' affordance (see SidebarNav); the active section
+// stays an expandable dropdown.
+const currentPath = currentUrl.pathname.replace(/\/$/, '');
+const isOnActivePath = (page: any): boolean => {
+  const pUrl = (page.url ?? '').replace(/\/$/, '');
+  if (!pUrl) return false;
+  return currentPath === pUrl || currentPath.startsWith(pUrl + '/');
+};
+const markActiveBranchOpen = (items: any[]): void => {
+  for (const item of items) {
+    if (item.children && item.children.length > 0 && isOnActivePath(item)) {
+      item.isOpen = true;
+      markActiveBranchOpen(item.children);
+    }
+  }
+};
+for (const top of pages) {
+  if (top.children && top.children.length > 0) {
+    if (isOnActivePath(top)) {
+      top.isOpen = true;
+      markActiveBranchOpen(top.children);
+    } else {
+      if (top.section) top.title = top.section;
+      top.children = [];
+    }
+  }
+}
+
+// Real breadcrumbs from accelerator nav data.
+const crumbs = accelerator.navigation
+  .breadcrumbs(currentUrl, SITE.subfolder, breadcrumbs?.length ?? 0)
+  .map((crumb: any) => ({
+    label: crumb.section || crumb.title,
+    href: accelerator.urlFormatter.formatAddress(crumb.url),
+  }));
+
+// TOC from the rendered markdown headings (h2/h3 only).
+const toc = headings
+  .filter((h) => h.depth >= 2 && h.depth <= 3)
+  .map((h) => ({
+    label: h.text,
+    href: '#' + h.slug,
+    depth: h.depth >= 3 ? 2 : 1,
+  }));
+
+const sortedTopLevel = pages
+  .slice()
+  .sort((a: any, b: any) => a.order - b.order);
+---
+
+<html lang={lang} dir={frontmatter.dir ?? SITE.default.dir}>
+  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
+  <body
+    class="relative min-h-screen bg-background font-sans text-foreground antialiased"
+  >
+    {
+      /* Theme is set before paint by HEADER_SCRIPTS (in <head>) from the shared `theme`
+        localStorage key; no separate anti-flash script needed here. */
+    }
+    <script
+      is:inline
+      define:vars={{ site_url: SITE.url, site_features: SITE.featureFlags }}
+    >
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
+    <Behavior headingAnchors={headingAnchors} />
+    <SkipLinks />
+    <div class="ink-atmosphere"></div>
+    <div class="ink-grain"></div>
+    <Header lang={lang} />
+
+    <div class="mx-auto flex max-w-[1600px]">
+      <aside
+        data-component="ink/docs/Sidebar"
+        class="hidden w-[18.75rem] shrink-0 border-r border-border/60 bg-sidebar/55 backdrop-blur-sm lg:block"
+      >
+        <div
+          class="ink-navscroll"
+          data-navscroll
+          data-scroll-shade
+          data-at-top="true"
+          data-at-bottom="true"
+        >
+          <nav
+            id="ink-main-nav"
+            class="ink-navscroll__viewport px-3.5 py-8"
+            data-navscroll-viewport
+            data-scroll-shade-viewport
+            aria-label="Documentation navigation"
+          >
+            <ul>
+              {sortedTopLevel.map((page: any) => <SidebarNav page={page} />)}
+            </ul>
+          </nav>
+          <span
+            class="ink-navscroll__fade ink-navscroll__fade--top"
+            aria-hidden="true"></span>
+          <span
+            class="ink-navscroll__fade ink-navscroll__fade--bottom"
+            aria-hidden="true"></span>
+        </div>
+        <SidebarBehavior />
+      </aside>
+
+      <div class="flex min-w-0 flex-1">
+        <main
+          id="ink-main-content"
+          tabindex="-1"
+          class="min-w-0 flex-1 px-5 py-6 sm:px-6 lg:px-12 lg:py-14"
+          data-component="ink/docs/InkLayout"
+        >
+          <div class="mx-auto max-w-3xl">
+            <details
+              class="group mb-5 rounded-lg border border-border bg-sidebar lg:hidden"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-2.5 text-sm text-foreground [&::-webkit-details-marker]:hidden"
+              >
+                <span class="flex items-center gap-2">
+                  <Icon name="menu" class="h-4 w-4 text-muted-foreground" />
+                  Documentation menu
+                </span>
+                <Icon
+                  name="chevron-down"
+                  class="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <nav
+                class="border-t border-border px-3 py-3"
+                aria-label="Documentation navigation"
+              >
+                <ul>
+                  {
+                    sortedTopLevel.map((page: any) => (
+                      <SidebarNav page={page} />
+                    ))
+                  }
+                </ul>
+              </nav>
+            </details>
+
+            <div data-rise style="--rise:60ms">
+              <Breadcrumbs items={crumbs} />
+            </div>
+
+            <article itemscope itemtype="https://schema.org/TechArticle">
+              <header class="relative mb-9 pb-8">
+                <div class="mb-3 flex items-center justify-between gap-3">
+                  <p
+                    data-rise
+                    style="--rise:90ms"
+                    class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-primary"
+                  >
+                    <span
+                      class="inline-block h-1.5 w-1.5 rounded-full shadow-[0_0_10px_1px_var(--glow-brand)]"
+                      style="background:var(--purple-300)"></span>
+                    {crumbs[crumbs.length - 2]?.label ?? 'Documentation'}
+                  </p>
+                  <CopyMarkdown lang={lang} />
+                </div>
+                <div class="flex items-start gap-4 sm:gap-5">
+                  {
+                    /* Header icon (frontmatter `icon`) disabled for now - re-enable this
+                      block to restore the two-column icon + title layout. The
+                      `.ink-article-icon` CSS and the `.fa-octopus` glyph port remain in
+                      theme.css so this drops back in cleanly.
+                    frontmatter.icon && (
+                      <div
+                        class="ink-article-icon"
+                        data-rise
+                        style="--rise:120ms"
+                        aria-hidden="true"
+                      >
+                        {frontmatter.icon.startsWith('fa-') ? (
+                          <i class={frontmatter.icon} />
+                        ) : (
+                          <img src={frontmatter.icon} alt="" />
+                        )}
+                      </div>
+                    )
+                  */
+                  }
+                  <div class="min-w-0">
+                    <h1
+                      data-rise
+                      style="--rise:150ms"
+                      class="text-foreground font-display text-h1 font-bold tracking-[-0.03em]"
+                      itemprop="headline"
+                    >
+                      {frontmatter.title}
+                    </h1>
+                    {
+                      frontmatter.subtitle && (
+                        <p
+                          data-rise
+                          style="--rise:230ms"
+                          class="mt-4 max-w-2xl text-muted-foreground"
+                        >
+                          {frontmatter.subtitle}
+                        </p>
+                      )
+                    }
+                    {
+                      frontmatter.description && (
+                        <p
+                          data-rise
+                          style="--rise:230ms"
+                          class={
+                            frontmatter.subtitle
+                              ? 'sr-only'
+                              : 'mt-4 max-w-2xl text-muted-foreground'
+                          }
+                          itemprop="description"
+                        >
+                          {frontmatter.description}
+                        </p>
+                      )
+                    }
+                  </div>
+                </div>
+                <div
+                  data-rise
+                  style="--rise:300ms"
+                  class="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-primary/55 via-border to-transparent"
+                >
+                </div>
+              </header>
+
+              <div
+                class="prose"
+                itemprop="articleBody"
+                data-rise
+                style="--rise:380ms"
+              >
+                <slot />
+              </div>
+              <ArticleFooter
+                frontmatter={frontmatter}
+                headings={headings}
+                lang={lang}
+              />
+            </article>
+          </div>
+        </main>
+
+        <Toc items={toc} />
+      </div>
+    </div>
+
+    <SharedFooter />
+    {
+      /* Shared button hover effect for the shared footer/navbar chrome (host asset). */
+    }
+    <SharedScripts />
+    <!-- Marketo library: MarketoForm (in SharedFooter) only renders once MktoForms2 exists. -->
+    <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
+    {
+      /* Analytics: GTM (page views) is loaded pre-body by HEADER_SCRIPTS on the prod host.
+        This hook forwards the search.js `searched` event to Plausible if present. */
+    }
+    <Plausible />
+    <script is:inline>
+      /* CopyMarkdown: outside-click close, Esc to close, Tab-loop while open. */
+      (() => {
+        const menu = document.querySelector('[data-copy-md-menu]');
+        if (!menu) return;
+        const trigger = menu.querySelector('[data-copy-md-trigger]');
+        const focusables = () =>
+          [trigger, ...menu.querySelectorAll('[data-copy-md-option]')].filter(
+            Boolean
+          );
+        const close = () => {
+          if (menu.open) menu.open = false;
+        };
+        document.addEventListener('pointerdown', (e) => {
+          if (menu.open && !menu.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', (e) => {
+          if (!menu.open) return;
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            trigger?.focus();
+            return;
+          }
+          if (e.key !== 'Tab') return;
+          const items = focusables();
+          if (items.length < 2) return;
+          const first = items[0];
+          const last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

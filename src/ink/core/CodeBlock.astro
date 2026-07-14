@@ -1,0 +1,74 @@
+---
+// Calm bordered code surface with a slim label bar (filename/language) and an
+// optional copy affordance. Styles live in styles/code.css (.ink-code); the
+// copy button is a tiny is:inline vanilla script (no framework runtime) - it
+// reads textContent from the sibling <pre>.
+import Icon from './Icon.astro';
+
+type Lang = 'bash' | 'shell' | 'json' | 'yaml' | 'powershell' | 'text';
+
+interface Props {
+  label?: string;
+  lang?: Lang;
+  copy?: boolean;
+}
+
+const { label, lang = 'text', copy = true } = Astro.props;
+
+const icons = {
+  bash: 'terminal',
+  shell: 'terminal',
+  powershell: 'terminal',
+  json: 'braces',
+  yaml: 'braces',
+  text: 'file-text',
+} as const satisfies Record<Lang, string>;
+---
+
+<figure class="ink-code not-prose" data-component="ink/core/CodeBlock">
+  <div class="ink-code__bar">
+    <span class="ink-code__label">
+      <Icon name={icons[lang]} />
+      {label ?? lang}
+    </span>
+    {
+      copy && (
+        <button
+          type="button"
+          class="ink-code__copy"
+          data-copy
+          aria-label="Copy code to clipboard"
+        >
+          <span class="ink-code__copy-idle">
+            <Icon name="copy" />
+            Copy
+          </span>
+          <span class="ink-code__copy-done">
+            <Icon name="check" />
+            Copied
+          </span>
+        </button>
+      )
+    }
+  </div>
+  <slot />
+</figure>
+
+<script is:inline>
+  (() => {
+    if (window.__inkCopyInit) return;
+    window.__inkCopyInit = true;
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-copy]');
+      if (!btn) return;
+      const pre = btn.closest('.ink-code')?.querySelector('pre');
+      if (!pre) return;
+      const text = pre.innerText;
+      navigator.clipboard?.writeText(text).then(() => {
+        btn.setAttribute('data-copied', '');
+        clearTimeout(btn.__t);
+        btn.__t = setTimeout(() => btn.removeAttribute('data-copied'), 1600);
+      });
+    });
+  })();
+</script>

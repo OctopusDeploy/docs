@@ -1,0 +1,1073 @@
+/*
+  Docs-shell chrome styles (HOST-OWNED, imported by InkLayout - NOT part of the
+  portable src/ink/ package). Everything here styles docs-specific chrome or
+  re-skins host markup contracts the shell composes:
+
+  - `.ink-nav*` / `.ink-navscroll*` / `.ink-nav-tip` - the sidebar (SidebarNav)
+  - `.ink-search .site-search*` - the real site search engine markup (unchanged)
+  - `.octo-copy-md*` - the CopyMarkdown component (also styled by legacy main.css)
+  - `.ink-article-footer .article-journey*` etc. - reused end-of-article components
+  - FontAwesome tints for author-embedded `<i class="fa-* blue|green|…">` icons
+
+  It consumes only Ink tokens (tokens.css), so it themes with the package.
+*/
+
+/* Header height - the ONE source of truth. Referenced by Header.astro (bar
+   height), Toc.astro and .ink-navscroll below (sticky offsets that must sit
+   flush under the sticky header). Change it here and everything tracks. */
+:root {
+  --header-h: 4.5rem;
+}
+
+/* ── Article header icon badge ──────────────────────────────────────────────
+   InkLayout renders it from frontmatter `icon` (a FontAwesome class or an image
+   path). FA is a host/content dependency, not an Ink core dep. */
+.ink-article-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklab, var(--primary) 20%, transparent);
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--primary);
+  font-size: var(--text-h4);
+}
+.ink-article-icon img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* ── Article footer ─────────────────────────────────────────────────────────
+   Ink styling for the reused end-of-article components (LastUpdated,
+   EditOnGithub, Feedback, ArticleJourney), which emit legacy class names that
+   main.css used to style. Scoped so the generic classes only apply here. */
+.ink-article-footer {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.ink-article-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.4rem;
+  font-size: var(--text-sm);
+  color: var(--muted-foreground);
+}
+.ink-article-footer__meta .last-updated {
+  margin: 0;
+}
+.ink-article-footer__feedback {
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--muted);
+}
+.ink-article-footer__feedback h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: var(--text-h5);
+  line-height: var(--text-h5--line-height);
+  font-weight: 700;
+  color: var(--foreground);
+}
+.ink-article-footer__feedback p {
+  margin: 0 0 1rem;
+  color: var(--muted-foreground);
+}
+.ink-article-footer__feedback p:last-of-type {
+  margin-bottom: 1.15rem;
+}
+
+/* Prev/next journey cards: the shared interactive-tile language via tokens. */
+.ink-article-footer .article-journey {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ink-article-footer .article-journey__button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-slow) var(--ease-out),
+    translate var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out),
+    background var(--duration-slow) var(--ease-out);
+}
+.ink-article-footer .article-journey__button:hover {
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+  translate: 0 -2px;
+  box-shadow: var(--shadow-glow);
+}
+.ink-article-footer .article-journey__button--previous {
+  grid-column: 1;
+}
+.ink-article-footer .article-journey__button--next {
+  grid-column: 2;
+  /* DOM order is already [content][icon]; pack it to the right rather than reversing
+     (reversing would put the arrow before the text). */
+  justify-content: flex-end;
+  text-align: right;
+}
+/* Circular chevron badge that nudges outward on hover. */
+.ink-article-footer .article-journey__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  transition:
+    transform var(--duration-base) ease,
+    background var(--duration-base) ease;
+}
+.ink-article-footer
+  .article-journey__button:hover
+  .article-journey__icon-wrapper {
+  background: color-mix(in oklab, var(--primary) 20%, transparent);
+}
+.ink-article-footer
+  .article-journey__button--next:hover
+  .article-journey__icon-wrapper {
+  transform: translateX(3px);
+}
+.ink-article-footer
+  .article-journey__button--previous:hover
+  .article-journey__icon-wrapper {
+  transform: translateX(-3px);
+}
+.ink-article-footer .article-journey__icon {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 0.85rem;
+}
+.ink-article-footer .article-journey__icon path {
+  stroke: var(--primary);
+}
+.ink-article-footer .article-journey__button--previous .article-journey__icon {
+  transform: rotate(180deg);
+}
+.ink-article-footer .article-journey__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.ink-article-footer .article-journey__label {
+  color: var(--primary);
+}
+.ink-article-footer .article-journey__title {
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--text-title--line-height);
+  font-size: var(--text-title);
+}
+@media (max-width: 640px) {
+  .ink-article-footer .article-journey {
+    grid-template-columns: 1fr;
+  }
+  .ink-article-footer .article-journey__button--previous,
+  .ink-article-footer .article-journey__button--next {
+    grid-column: 1;
+  }
+}
+
+/* ── FontAwesome content icons ──────────────────────────────────────────────
+   Authors embed icons like <i class="fa-solid fa-circle-notch blue"> in
+   markdown; the color utilities lived in main.css. Tinted with Ink's adaptive
+   tokens so they flip in dark mode; inert on a host that doesn't load FA. */
+/* Custom Octopus glyph: `.fa-octopus` is not a standard FA icon; its class→glyph
+   mapping lived only in main.css. The glyph (\e082) ships in the fa-brands
+   webfont the host loads. */
+.fa-octopus::before {
+  content: '\e082';
+  font-family: fa-brands;
+}
+.prose [class*='fa-'].blue {
+  color: var(--primary);
+}
+.prose [class*='fa-'].green {
+  color: var(--success-border);
+}
+.prose [class*='fa-'].red {
+  color: var(--problem-border);
+}
+.prose [class*='fa-'].grey {
+  color: var(--muted-foreground);
+}
+
+/* ── Eyebrow (shell consumers on host markup) ───────────────────────────────
+   The package's .ink-eyebrow recipe (styles/components.css), applied to the two
+   host-markup contracts the shell can't tag with the class. Keep values in
+   lockstep with the package rule. */
+.ink-search .result-path,
+.ink-article-footer .article-journey__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Popover surface ────────────────────────────────────────────────────────
+   ONE surface recipe for every floating panel in the shell: the sidebar
+   tooltip, the CopyMarkdown dropdown, and the search results panel. */
+.ink-nav-tip,
+.octo-copy-md__options,
+.ink-search .site-search-results {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Sidebar nav (SidebarNav.astro) ─────────────────────────────────────────
+   All nav text is 1rem; hierarchy comes from indent, rails, weight and the
+   active highlight, not size. */
+.ink-nav__item {
+  margin: 0;
+  list-style: none;
+}
+.ink-nav__link,
+.ink-nav__summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-md);
+  outline: none;
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+.ink-nav__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Top-level section: identical typography whether collapsed (link) or open
+   (summary); only the chevron + revealed children differ. */
+.ink-nav__link--top,
+.ink-nav__summary--top {
+  padding: 0.47rem 0.6rem 0.47rem 0.65rem;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--text-sm--line-height);
+  color: var(--sidebar-foreground);
+}
+.ink-nav__summary--top,
+.ink-nav__summary--nested {
+  cursor: pointer;
+  list-style: none;
+}
+.ink-nav__summary--top::-webkit-details-marker,
+.ink-nav__summary--nested::-webkit-details-marker {
+  display: none;
+}
+
+/* Nested section toggle + leaf link. */
+.ink-nav__summary--nested {
+  padding: 0.42rem 0.55rem 0.42rem 0.45rem;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--text-sm--line-height);
+  color: var(--sidebar-foreground);
+}
+.ink-nav__link--leaf {
+  padding: 0.4rem 0.55rem 0.4rem 0.45rem;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--text-sm--line-height);
+  color: var(--sidebar-foreground);
+}
+/* One hover recipe for every row shape. */
+.ink-nav__link--top:hover,
+.ink-nav__summary--top:hover,
+.ink-nav__summary--nested:hover,
+.ink-nav__link--leaf:hover {
+  background: var(--surface-hover);
+  color: var(--foreground);
+}
+.ink-nav__section--nested[open] > .ink-nav__summary--nested {
+  color: var(--foreground);
+}
+
+/* Tree connector dot before nested items. */
+.ink-nav__node {
+  flex: none;
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: 0.1rem;
+}
+.ink-nav__node::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+  transition:
+    background var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.ink-nav__link--leaf:hover .ink-nav__node::before,
+.ink-nav__summary--nested:hover .ink-nav__node::before {
+  background: color-mix(in oklab, var(--primary) 70%, transparent);
+}
+.ink-nav__section--nested[open]
+  > .ink-nav__summary--nested
+  .ink-nav__node::before {
+  background: color-mix(in oklab, var(--primary) 60%, transparent);
+}
+
+/* Chevrons. Toggle = down caret that flips up when open (disclosure); the
+   collapsed-link "navigate" chevron (--nav) points right and nudges on hover. */
+.ink-nav__chevron {
+  flex: none;
+  height: 1rem;
+  width: 1rem;
+  color: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    color var(--duration-fast) ease;
+}
+.ink-nav__section[open] > .ink-nav__summary > .ink-nav__chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+.ink-nav__summary:hover > .ink-nav__chevron {
+  color: var(--foreground);
+}
+.ink-nav__chevron--nav {
+  color: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+  transition:
+    transform var(--duration-base) ease,
+    color var(--duration-fast) ease;
+}
+.ink-nav__link--top:hover .ink-nav__chevron--nav {
+  transform: translateX(2px);
+  color: color-mix(in oklab, var(--primary) 80%, transparent);
+}
+
+/* Top-level grouping rhythm. */
+.ink-nav__section--top {
+  margin-bottom: 1.75rem;
+}
+.ink-nav__section--top:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested group: tree-guide rail + open tint. */
+.ink-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ink-nav__list--top > .ink-nav__item + .ink-nav__item,
+.ink-nav__list--nested > .ink-nav__item + .ink-nav__item {
+  margin-top: 1px;
+}
+.ink-nav__list--nested {
+  position: relative;
+  margin-left: 0.7rem;
+  padding-left: 0.55rem;
+  border-left: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+}
+.ink-nav__section.is-trail > .ink-nav__list--nested {
+  border-left-color: color-mix(in oklab, var(--primary) 40%, var(--border));
+}
+.ink-nav__section--nested[open] {
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--muted) 22%, transparent);
+}
+
+/* Active leaf: tinted bg + glowing brand rail. */
+.ink-nav__link[aria-current] {
+  color: var(--primary);
+  font-weight: 700;
+  background: var(--wash-primary);
+}
+.ink-nav__link[aria-current] .ink-nav__text {
+  color: var(--primary);
+}
+.ink-nav__link[aria-current]::before {
+  content: '';
+  position: absolute;
+  top: 0.32rem;
+  bottom: 0.32rem;
+  left: -0.56rem;
+  width: 3px;
+  border-radius: 9999px;
+  background: var(--primary);
+  box-shadow: var(--glow-dot);
+}
+.ink-nav__link[aria-current] .ink-nav__node::before {
+  background: var(--primary);
+  transform: scale(1.35);
+  box-shadow: var(--glow-dot);
+}
+.ink-nav__link--top[aria-current]::before {
+  left: -0.65rem;
+}
+
+.ink-nav__link:focus-visible,
+.ink-nav__summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-nav__chevron,
+  .ink-nav__chevron--nav,
+  .ink-nav__node::before,
+  .ink-nav__link,
+  .ink-nav__summary {
+    transition: none;
+  }
+}
+
+/* ── Sidebar scroll container ───────────────────────────────────────────────
+   A sticky wrapper holds the scroller plus top/bottom fade scrims. The shared
+   scroll-shade behavior toggles data-at-top/bottom so each scrim shows only
+   when there's hidden content that way. */
+.ink-navscroll {
+  position: sticky;
+  top: var(--header-h);
+}
+.ink-navscroll__viewport {
+  max-height: calc(100vh - var(--header-h));
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+.ink-navscroll__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2.75rem;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-slow) ease;
+}
+.ink-navscroll__fade--top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--sidebar), transparent);
+}
+.ink-navscroll__fade--bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--sidebar), transparent);
+}
+.ink-navscroll[data-at-top='false'] .ink-navscroll__fade--top {
+  opacity: 1;
+}
+.ink-navscroll[data-at-bottom='false'] .ink-navscroll__fade--bottom {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-navscroll__fade {
+    transition: none;
+  }
+}
+
+/* Tooltip revealing a truncated nav label. Fixed so it escapes the sidebar's
+   scroll clip; shown by the script only when the label is actually cut off.
+   Surface comes from the shared popover rule above. */
+.ink-nav-tip {
+  position: fixed;
+  z-index: 60;
+  max-width: 20rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity var(--duration-fast) ease;
+}
+.ink-nav-tip[data-show] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-nav-tip {
+    transition: none;
+  }
+}
+
+/* ── Header search re-skin ──────────────────────────────────────────────────
+   Styles the REAL site search markup (themes/octopus/components/Search.astro)
+   + engine (search.js), both unchanged; main.css is not loaded on Ink pages, so
+   the entire look lives here, scoped under `.ink-search` (the wrapper added in
+   Header.astro). Engine contract: results show by toggling `.is-active` on
+   `[data-site-search]`; the dropdown is `[data-site-search-results]`. */
+.ink-search {
+  --search-dropdown-height: 70vh;
+  --search-dropdown-duration: 0ms;
+  /* Centered column, compact at rest, expanding on interaction. The flex-1 zones
+     either side keep it centered as the width animates. max-width guards against
+     overflow at small widths. */
+  width: 23rem;
+  max-width: calc(100vw - 30rem);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+/* Expand only when the input is engaged or there's a query/results - never on
+   hover or when the clear (X) button is focused, so the X can't dodge the cursor
+   while you try to click it. */
+.ink-search:has(.site-search-query:focus),
+.ink-search:has(.site-search-query:not(:placeholder-shown)),
+.ink-search:has(.site-search.is-active) {
+  width: 36rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-search {
+    transition: none;
+  }
+}
+.ink-search .site-search__wrapper {
+  position: relative;
+  width: 100%;
+}
+/* The engine adds an overlay div + a mobile fallback link we don't use here. */
+.ink-search .site-search__overlay,
+.ink-search .site-search__mobile {
+  display: none;
+}
+
+/* Input box: rounded field with subtle border, muted bg, left search icon. */
+.ink-search .site-search {
+  position: relative;
+  margin: 0;
+  width: 100%;
+}
+.ink-search .site-search fieldset {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ink-search .site-search__icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  color: var(--muted-foreground);
+}
+.ink-search .site-search__icon path {
+  fill: currentColor;
+}
+.ink-search .site-search-query {
+  width: 100%;
+  height: 2.25rem;
+  padding: 0 2.5rem 0 2.25rem;
+  font-size: var(--text-base);
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--muted) 50%, transparent);
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  outline: none;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease;
+}
+.ink-search .site-search-query::placeholder {
+  color: var(--muted-foreground);
+}
+.ink-search .site-search-query:hover {
+  border-color: var(--border);
+  background: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+.ink-search .site-search-query:focus {
+  background: var(--background);
+  border-color: color-mix(in oklab, var(--primary) 50%, transparent);
+  box-shadow: var(--focus-ring);
+}
+.ink-search .site-search:focus-within .site-search__icon {
+  color: var(--primary);
+}
+
+/* Clear button (engine wires [data-site-search-remove]). */
+.ink-search .site-search__remove-btn {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+.ink-search .site-search__remove-btn svg path {
+  fill: currentColor;
+}
+.ink-search
+  .site-search-query:not(:placeholder-shown)
+  ~ .site-search__remove-btn,
+.ink-search .site-search.is-active .site-search__remove-btn {
+  opacity: 1;
+}
+.ink-search .site-search__remove-btn:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+/* Results dropdown: popover panel (surface shared above), hidden until the
+   engine adds `.is-active`. */
+.ink-search .site-search-results {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.4rem);
+  z-index: 50;
+  max-height: min(70vh, 28rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.4rem;
+  scrollbar-width: thin;
+}
+.ink-search .site-search.is-active ~ .site-search-results {
+  display: block;
+}
+/* Scroll shades: sticky pseudo-element scrims pinned to the viewport edges
+   (negative margins cancel their flow space). The shared scroll-shade behavior
+   toggles data-at-top/bottom so each appears only when there's more to scroll. */
+.ink-search .site-search-results::before,
+.ink-search .site-search-results::after {
+  content: '';
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  display: block;
+  height: 1.75rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-slow) ease;
+}
+.ink-search .site-search-results::before {
+  top: 0;
+  margin-bottom: -1.75rem;
+  background: linear-gradient(to bottom, var(--popover), transparent);
+}
+.ink-search .site-search-results::after {
+  bottom: 0;
+  margin-top: -1.75rem;
+  background: linear-gradient(to top, var(--popover), transparent);
+}
+.ink-search .site-search-results[data-at-top='false']::before {
+  opacity: 1;
+}
+.ink-search .site-search-results[data-at-bottom='false']::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-search .site-search-results::before,
+  .ink-search .site-search-results::after {
+    transition: none;
+  }
+}
+.ink-search .site-search-results__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+}
+.ink-search .site-search-results__item {
+  list-style: none;
+  margin: 0;
+}
+.ink-search .site-search-results__item + .site-search-results__item {
+  margin-top: 0.45rem;
+}
+/* Each result is a card with a left accent rail that lights up on hover/focus. */
+.ink-search .result-wrapper {
+  position: relative;
+  display: block;
+  padding: 0.85rem 1rem 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease,
+    background-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.ink-search .result-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.ink-search .result-wrapper:hover,
+.ink-search .result-wrapper:focus,
+.ink-search .result-wrapper:focus-visible {
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+}
+.ink-search .result-wrapper:hover::before,
+.ink-search .result-wrapper:focus::before,
+.ink-search .result-wrapper:focus-visible::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-search .result-wrapper,
+  .ink-search .result-wrapper::before {
+    transition: none;
+  }
+}
+.ink-search .result-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 700;
+  line-height: var(--text-title--line-height);
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+.ink-search .result-wrapper:hover .result-title,
+.ink-search .result-wrapper:focus .result-title,
+.ink-search .result-wrapper:focus-visible .result-title {
+  color: var(--primary);
+}
+.ink-search .result-title mark {
+  background: color-mix(in oklab, var(--primary) 18%, transparent);
+  color: var(--primary);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 0 0.18em;
+}
+/* Breadcrumb eyebrow: small, uppercase, sits above the title. */
+.ink-search .result-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+  color: color-mix(in oklab, var(--muted-foreground) 85%, transparent);
+}
+.ink-search .result-path__segment:last-child {
+  color: var(--primary);
+}
+.ink-search .result-path__icon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.65;
+  color: var(--muted-foreground);
+}
+/* Chevron in the path ships with a hardcoded stroke; follow the theme instead. */
+.ink-search .result-path__icon svg path {
+  stroke: currentColor;
+}
+/* Brighter, larger description for legibility (raw muted was too faint). */
+.ink-search .result-description {
+  margin: 0.35rem 0 0;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: color-mix(in oklab, var(--foreground) 78%, var(--muted-foreground));
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ink-search .result-description mark {
+  background: color-mix(in oklab, var(--primary) 13%, transparent);
+  color: var(--foreground);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 0 0.16em;
+}
+/* Optional matched-headings sublist (gated by site_features.search 'headings'). */
+.ink-search .result-headings {
+  list-style: none;
+  margin: 0.55rem 0 0.15rem 0.15rem;
+  padding: 0.1rem 0 0.1rem 0.85rem;
+  border-left: 2px solid color-mix(in oklab, var(--primary) 30%, var(--border));
+}
+.ink-search .result-headings a {
+  display: block;
+  padding: 0.28rem 0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: color-mix(in oklab, var(--foreground) 70%, var(--muted-foreground));
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+.ink-search .result-headings a:hover {
+  color: var(--foreground);
+  background: var(--wash-primary);
+}
+.ink-search .result-headings mark {
+  background: transparent;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Empty-state heading + "see more" button. */
+.ink-search .search-results__heading {
+  margin: 0;
+  padding: 1.6rem 0.75rem;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 65%, var(--muted-foreground));
+}
+.ink-search .show-more {
+  display: block;
+  width: calc(100% - 0.5rem);
+  margin: 0.5rem auto 0.4rem;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+.ink-search .show-more:hover,
+.ink-search .show-more:focus-visible {
+  background: var(--wash-primary);
+  border-color: var(--border-hover);
+  outline: none;
+}
+
+/* ── CopyMarkdown ("Use with AI" dropdown) ──────────────────────────────────
+   `.octo-copy-md*` is the CopyMarkdown component's markup contract (also styled
+   by main.css on legacy pages - do not rename). Dropdown surface comes from the
+   shared popover rule above. */
+.octo-copy-md {
+  display: inline-flex;
+  flex: none;
+}
+.octo-copy-md__menu {
+  position: relative;
+  margin: 0;
+}
+.octo-copy-md__menu > summary {
+  list-style: none;
+}
+.octo-copy-md__menu > summary::-webkit-details-marker {
+  display: none;
+}
+.octo-copy-md__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 2.25rem;
+  padding: 0 0.65rem 0 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--muted-foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+.octo-copy-md__trigger:hover,
+.octo-copy-md__trigger:focus-visible,
+.octo-copy-md__menu[open] > .octo-copy-md__trigger {
+  background: var(--surface-hover);
+  color: var(--foreground);
+  border-color: var(--border-hover);
+  outline: none;
+}
+.octo-copy-md__trigger-icon,
+.octo-copy-md__trigger-caret {
+  flex: none;
+  display: block;
+  background: currentColor;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+.octo-copy-md__trigger-icon {
+  width: 1rem;
+  height: 1rem;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M9 13h6M9 17h6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M9 13h6M9 17h6'/%3E%3C/svg%3E");
+}
+.octo-copy-md__trigger-caret {
+  width: 0.7rem;
+  height: 0.7rem;
+  opacity: 0.75;
+  margin-left: 0.05rem;
+  transition: transform var(--duration-base) var(--ease-out);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+.octo-copy-md__menu[open]
+  > .octo-copy-md__trigger
+  > .octo-copy-md__trigger-caret {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.octo-copy-md__options {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  z-index: 20;
+  min-width: 14rem;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+.octo-copy-md__menu[open] > .octo-copy-md__options {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.octo-copy-md__options li {
+  list-style: none;
+  margin: 0;
+}
+.octo-copy-md__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--text-sm--line-height);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+.octo-copy-md__option:hover,
+.octo-copy-md__option:focus-visible {
+  background: var(--surface-hover);
+  outline: none;
+}
+.octo-copy-md__option::before {
+  content: '';
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  background: var(--muted-foreground);
+  transition: background-color var(--duration-fast) ease;
+  -webkit-mask: var(--ink-action-icon, none) center / contain no-repeat;
+  mask: var(--ink-action-icon, none) center / contain no-repeat;
+}
+.octo-copy-md__option:hover::before,
+.octo-copy-md__option:focus-visible::before {
+  background: var(--primary);
+}
+.octo-copy-md__option--copy {
+  --ink-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='13' height='13' rx='2'/%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
+}
+.octo-copy-md__option--view {
+  --ink-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+}
+.octo-copy-md__option--all {
+  --ink-action-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E");
+}
+
+.octo-copy-md__sr-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .octo-copy-md__trigger,
+  .octo-copy-md__trigger-caret,
+  .octo-copy-md__option,
+  .octo-copy-md__options {
+    transition: none;
+  }
+}

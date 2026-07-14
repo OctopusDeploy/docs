@@ -1,11 +1,11 @@
 ---
-// Legacy site <head>: charset + the full stylesheet stack (including main.css) + the
-// shared HeadMeta (SEO/OG/JsonLd/HEADER_SCRIPTS). The meta lives in HeadMeta so this and
-// the Ink docs Head can't drift apart.
+// Ink docs <head>: charset + web fonts + the shared (non-main.css) stylesheets, then the
+// shared HeadMeta (SEO/OG/JsonLd/HEADER_SCRIPTS - single source of truth with HtmlHead).
+// main.css is intentionally omitted so legacy prose CSS doesn't bleed onto Ink pages.
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { ASSETS, ASSETS_ORIGIN } from 'src/lib/sharedNavbarFooter';
-import HeadMeta from './HeadMeta.astro';
+import HeadMeta from '@components/HeadMeta.astro';
 
 type Props = {
   lang: string;
@@ -17,11 +17,11 @@ const { frontmatter, headings, lang } = Astro.props;
 
 <head>
   <meta charset="utf-8" />
+  {/* Ink is system-font only - no web-font requests. */}
+  <link rel="stylesheet" href={SITE.subfolder + '/css/vars.css'} />
   <link rel="preconnect" href={ASSETS_ORIGIN} crossorigin />
   <link rel="stylesheet" href={`${ASSETS}/pu-vars.css`} />
   <link rel="stylesheet" href={`${ASSETS}/footer-pu-styles.css`} />
   <link rel="stylesheet" href={`${ASSETS}/marketo-pu-styles.css`} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/vars.css'} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/main.css'} />
   <HeadMeta frontmatter={frontmatter} headings={headings} lang={lang} />
 </head>

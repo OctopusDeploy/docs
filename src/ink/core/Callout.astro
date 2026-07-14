@@ -1,0 +1,40 @@
+---
+// The callout box + intent colors are declared once in styles/components.css
+// (.ink-callout), shared with the remark-directive callouts authored as
+// `:::div{.info}` in markdown. This component only adds the icon + title layout.
+import Icon from './Icon.astro';
+
+type Intent = 'info' | 'success' | 'warning' | 'problem';
+
+interface Props {
+  intent?: Intent;
+  title?: string;
+}
+
+const { intent = 'info', title } = Astro.props;
+
+const labels: Record<Intent, string> = {
+  info: 'Note',
+  success: 'Success',
+  warning: 'Warning',
+  problem: 'Important',
+};
+---
+
+<div
+  data-component="ink/core/Callout"
+  class={`ink-callout ink-callout--${intent} flex gap-3.5`}
+  role="note"
+>
+  <span class="ink-callout__icon">
+    <Icon name={intent} />
+  </span>
+  <div class="min-w-0">
+    <p class="mb-1 font-bold">{title ?? labels[intent]}</p>
+    <div
+      class="opacity-95 [&_a]:underline [&_a]:underline-offset-2 [&_p]:my-1 [&_p:last-child]:mb-0"
+    >
+      <slot />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+---
+// Docs-shell article footer. Composes the existing end-of-article components (which own
+// their data logic via astro-accelerator) and gives their output Ink styling (see
+// `.ink-article-footer` in ./shell.css). The feedback CTA is rendered with the shared Ink
+// `Button` so it stays visually coherent with every other button on the site. These are
+// docs-specific and NOT part of portable Ink core - hence they live in the host shell.
+import LastUpdated from '../../components/LastUpdated.astro';
+import EditOnGithub from '../../components/EditOnGithub.astro';
+import ArticleJourney from '../../components/ArticleJourney.astro';
+import Button from '../../ink/core/Button.astro';
+import { Accelerator } from 'astro-accelerator-utils';
+import { SITE } from '@config';
+
+interface Props {
+  frontmatter: Record<string, any>;
+  headings: { depth: number; slug: string; text: string }[];
+  lang: string;
+}
+const { frontmatter, headings, lang } = Astro.props;
+
+// Feedback form URL (mirrors the legacy Feedback component: prefill the page title).
+const accelerator = new Accelerator(SITE);
+const feedbackHeading = await accelerator.markdown.getTextFrom(
+  frontmatter.title
+);
+const feedbackUrl = `https://docs.google.com/forms/d/e/1FAIpQLSehVdN2w6tgSvp5QX7lHGnHDmgKi2Yfvko7bM2izgWQaqg-Wg/viewform?usp=pp_url&entry.336432709=${encodeURIComponent(feedbackHeading)}`;
+---
+
+<footer class="ink-article-footer not-prose">
+  <div class="ink-article-footer__meta">
+    <LastUpdated frontmatter={frontmatter} headings={headings} lang={lang} />
+    <EditOnGithub frontmatter={frontmatter} headings={headings} lang={lang} />
+  </div>
+
+  <div class="ink-article-footer__feedback">
+    <h2>Help us continuously improve</h2>
+    <p>Please let us know if you have any feedback about this page.</p>
+    <Button href={feedbackUrl} variant="primary">Send feedback</Button>
+  </div>
+
+  <ArticleJourney frontmatter={frontmatter} headings={headings} lang={lang} />
+</footer>
