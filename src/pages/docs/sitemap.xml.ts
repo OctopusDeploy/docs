@@ -18,7 +18,7 @@ async function getData() {
     let url = accelerator.urlFormatter.formatAddress(article.url);
 
     if (article.frontmatter.layout == 'src/layouts/Author.astro') {
-      url += '1/';
+      url += '/1/';
     }
 
     if (addToSitemap) {
