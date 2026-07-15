@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-05-21
-modDate: 2026-07-02
+modDate: 2026-07-16
 title: Connection Agent
 navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
