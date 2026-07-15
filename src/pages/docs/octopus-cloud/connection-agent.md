@@ -7,6 +7,10 @@ navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
 ---
 
+:::div{.warning}
+Connection Agent is currently in Alpha, available only to Octopus Cloud Enterprise tier customers. [Contact our support team](https://octopus.com/support) to request access.
+:::
+
 Connection Agent lets your Octopus Cloud instance connect to privately hosted internal applications such as Git repositories, package feeds, and SMTP servers without requiring inbound firewall rules or a VPN.
 
 A Connection Agent is a container image you deploy within your private network. It establishes outbound WebSocket connections to your Octopus Cloud instance and acts as a proxy, forwarding traffic between Octopus Cloud and your internal applications.
@@ -17,7 +21,7 @@ A Connection Agent is a container image you deploy within your private network. 
 
 ## Supported applications
 
-In the current release, Connection Agent supports the following application types:
+Connection Agent supports the following application types:
 
 - Git repositories (e.g. GitHub Enterprise, Bitbucket)
 - SMTP servers
@@ -32,21 +36,17 @@ In the current release, Connection Agent supports the following application type
   - NuGet Feed
   - OCI Container Registry
 
-## How to access this feature
-
-Connection Agent is currently in Alpha, available only to Octopus Cloud Enterprise tier customers.
-
-If you would like to access this feature, please reach out to [our support team](https://octopus.com/support). By default, you can register up to 5 Connection Agents per instance. If you need more, contact [our support team](https://octopus.com/support) to discuss your requirements.
-
 ## Prerequisites
 
-Before registering a Connection Agent, ensure your Octopus Cloud has Connection Agents enabled. If not, please contact [our support team](https://octopus.com/support).
+Only users with `ConfigureServer` permission (e.g. belonging to the `Octopus Managers` team) can register new Connection Agents. Make sure you're a member of this team, or a team with `ConfigureServer` permission, before proceeding.
 
 ## 1. Connection Agent registration
 
-Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Managers` Team) on your Octopus Cloud instance can register new Connection Agents. Please ensure you are a member of this team or a team with `ConfigureServer` permission before proceeding.
+:::div{.hint}
+By default, you can register up to 5 Connection Agents per instance. [Contact our support team](https://octopus.com/support) if you need more.
+:::
 
-1. Decide on a meaningful `Agent Name` that will assist in identifying where the Connection Agent is deployed. This will be used by Octopus to determine which Connection Agent the configured applications will be routed to. Agent Names can be up to 200 characters and may include alphanumeric characters, hyphens (-), and periods (.).
+1. Decide on a meaningful `Agent Name` that will assist in identifying where the Connection Agent is deployed. Octopus uses this to route configured applications to the right Connection Agent. Agent Names can be up to 200 characters and may include alphanumeric characters, hyphens (-), and periods (.).
 
 1. Decide on a meaningful `Key Name` that will assist in identifying the private key credential the Connection Agent will use for authentication. Key Names can be up to 200 characters and may include alphanumeric characters, hyphens (-), and periods (.).
 
@@ -66,13 +66,11 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
 
 1. [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) with a short expiry date on your Octopus Cloud instance. This API key will only be used to register the Connection Agent.
 
-1. Register the Connection Agent with your Octopus Cloud instance.
-  
-   This command doesn't need to be run on the same infrastructure you intend to run the Connection Agent on.
+1. Register the Connection Agent with your Octopus Cloud instance. This command doesn't need to be run on the same infrastructure you intend to run the Connection Agent on.
   
    Run the following command, substituting the values:
 
-    - `SERVER_URL` - This will be in the format `https://<dns-prefix>.octopus.app` where `<dns-prefix>` is the hostname of your Cloud Instance
+    - `SERVER_URL` - This will be in the format `https://<dns-prefix>.octopus.app` where `<dns-prefix>` is the hostname of your Cloud instance
     - `OCTOPUS_API_KEY` - The API key created above
 
     ```bash
@@ -106,11 +104,11 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
     add-fqdn --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --fqdn $FQDN
     ```
 
-    For each application hosted over HTTPS with either an internal CA issued or self-signed certificate, add the `--ignore-certificate-validation-errors` option.
+    If an application uses an internal CA-issued or self-signed HTTPS certificate, add the `--ignore-certificate-validation-errors` option.
 
 ## 2. Connection Agent deployment
 
-Deploy the [octopusdeploy/connection-agent](https://hub.docker.com/repository/docker/octopusdeploy/connection-agent) container into your desired private network, specifying the following environment variables returned when the Connection Agent was registered:
+Deploy the [octopusdeploy/connection-agent](https://hub.docker.com/repository/docker/octopusdeploy/connection-agent) container into your desired private network, specifying the environment variables you received when you registered the Connection Agent.
 
 - `AUTH_SERVER_DOMAIN`
 - `AUTH_SERVER_CLIENT_ID`
@@ -207,9 +205,9 @@ The following commands are available:
 
 For full flag listings, append `--help` to any command.
 
-### Read-only view of registered Connection Agents
+### View registered Connection Agents
 
-You can view the registered Connection Agents in the UI. If you navigate to **Configuration ➜ Connection Agents**, you will see your registered agents.
+You can view the registered Connection Agents by navigating to **Configuration ➜ Connection Agents**.
 
    :::figure
    ![A screenshot of the Octopus UI showing registered Connection Agents](/docs/img/octopus-cloud/images/registered-connection-agents.png)
