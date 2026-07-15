@@ -28,8 +28,9 @@
         "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
-        "@astrojs/mdx": "^5.0.4",
-        "astro": "^6.3.1",
+        "@astrojs/markdown-remark": "7.2.1",
+        "@astrojs/mdx": "^7.0.3",
+        "astro": "^7.0.9",
         "astro-accelerator-utils": "^0.3.84",
         "glob": "^13.0.6",
         "gray-matter": "^4.0.3",
