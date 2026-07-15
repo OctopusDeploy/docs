@@ -7,12 +7,12 @@ navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
 ---
 
-Connection Agent allows your Octopus Cloud instance to connect to privately hosted internal applications such as Git repositories, package feeds, and SMTP servers without requiring inbound firewall rules or a VPN.
+Connection Agent lets your Octopus Cloud instance connect to privately hosted internal applications such as Git repositories, package feeds, and SMTP servers without requiring inbound firewall rules or a VPN.
 
 A Connection Agent is a container image you deploy within your private network. It establishes outbound WebSocket connections to your Octopus Cloud instance and acts as a proxy, forwarding traffic between Octopus Cloud and your internal applications.
 
    :::figure
-   ![A diagram illustrating how the Connection agent and Relay work to connect your network to the Octopus Cloud instance](/docs/img/octopus-cloud/images/connection-agent-architecture-diagram.png)
+   ![A diagram illustrating how the Connection Agent and Relay work to connect your network to the Octopus Cloud instance](/docs/img/octopus-cloud/images/connection-agent-architecture-diagram.png)
    :::
 
 ## Supported applications
@@ -34,7 +34,7 @@ In the current release, Connection Agent supports the following application type
 
 ## How to access this feature
 
-Connection Agent is currently in Public Preview, available only to Octopus Cloud Enterprise tier customers.
+Connection Agent is currently in Alpha, available only to Octopus Cloud Enterprise tier customers.
 
 If you would like to access this feature, please reach out to [our support team](https://octopus.com/support). By default, you can register up to 5 Connection Agents per instance. If you need more, contact [our support team](https://octopus.com/support) to discuss your requirements.
 
@@ -42,7 +42,7 @@ If you would like to access this feature, please reach out to [our support team]
 
 Before registering a Connection Agent, ensure your Octopus Cloud has Connection Agents enabled. If not, please contact [our support team](https://octopus.com/support).
 
-## 1. Connection Agent Registration
+## 1. Connection Agent registration
 
 Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Managers` Team) on your Octopus Cloud instance can register new Connection Agents. Please ensure you are a member of this team or a team with `ConfigureServer` permission before proceeding.
 
@@ -61,14 +61,14 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
     ```
 
     :::div{.warning}
-    **IMPORTANT - Protect your Private Key:** The generated `.pem` file is your private key and must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
+    **IMPORTANT - Protect your Private Key:** The generated `.pem` file is your private key and must be kept secret. It lets Connection Agent authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
     :::
 
 1. [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) with a short expiry date on your Octopus Cloud instance. This API key will only be used to register the Connection Agent.
 
 1. Register the Connection Agent with your Octopus Cloud instance.
   
-   Note that this command does not need to be run on the same infrastructure you intend to run the Connection Agent.  
+   This command doesn't need to be run on the same infrastructure you intend to run the Connection Agent on.
   
    Run the following command, substituting the values:
 
@@ -86,13 +86,13 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
         register --server-url $SERVER_URL --server-api-key $OCTOPUS_API_KEY --agent-name $AGENT_NAME --key-name $KEY_NAME --public-key "$PUBLIC_KEY" 
     ```
 
-    Note down the returned values, you will need to apply them as environment variables when the Connection Agent is deployed:
+    Make a note of the returned values. You'll need to apply them as environment variables when you deploy the Connection Agent:
     - `AUTH_SERVER_DOMAIN`
     - `AUTH_SERVER_CLIENT_ID`
     - `API_AUDIENCE`
     - `CONNECT_URL`
 
-1. Configure forwarding rules to map fully qualified domain names (FQDNs) for the applications that are to be accessed via the Connection Agent. Note that this command does not need to be run on the same infrastructure you intend to run the Connection Agent.  
+1. Configure forwarding rules to map fully qualified domain names (FQDNs) for the applications that are to be accessed via the Connection Agent. This command doesn't need to be run on the same infrastructure you intend to run the Connection Agent on.  
 
     Run the following command, substituting the values:
 
@@ -108,7 +108,7 @@ Only users with `ConfigureServer` permission (e.g. belonging to `Octopus Manager
 
     For each application hosted over HTTPS with either an internal CA issued or self-signed certificate, add the `--ignore-certificate-validation-errors` option.
 
-## 2. Connection Agent Deployment
+## 2. Connection Agent deployment
 
 Deploy the [octopusdeploy/connection-agent](https://hub.docker.com/repository/docker/octopusdeploy/connection-agent) container into your desired private network, specifying the following environment variables returned when the Connection Agent was registered:
 
@@ -120,7 +120,7 @@ Deploy the [octopusdeploy/connection-agent](https://hub.docker.com/repository/do
 Additionally, specify your private key (the PEM-encoded Private Key generated previously) as either the environment variable `AUTH_SERVER_PRIVATE_KEY_PEM`, or as the path to your private key as `AUTH_SERVER_PRIVATE_KEY_PEM_PATH`.
 
 :::div{.warning}
-**IMPORTANT - Protect your Private Key:** The `AUTH_SERVER_PRIVATE_KEY_PEM` value must be kept secret. It allows Connection Agent to authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
+**IMPORTANT - Protect your Private Key:** The `AUTH_SERVER_PRIVATE_KEY_PEM` value must be kept secret. It lets Connection Agent authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
 :::
 
 ### Running the Connection Agent in Docker
@@ -182,7 +182,7 @@ spec:
                   key: AUTH_SERVER_PRIVATE_KEY_PEM
 ```
 
-## 3. Connection Agent Management
+## 3. Connection Agent management
 
 The Connection Agent Docker image can be run as a CLI:
 
@@ -207,19 +207,19 @@ The following commands are available:
 
 For full flag listings, append `--help` to any command.
 
-### Read only view of registered Connection Agents
+### Read-only view of registered Connection Agents
 
-You can view the registered Connection Agents in the UI. If you navigate to Congifurations and select Connection Agents, you will see your registered agents.
+You can view the registered Connection Agents in the UI. If you navigate to **Configuration ➜ Connection Agents**, you will see your registered agents.
 
    :::figure
    ![A screenshot of the Octopus UI showing registered Connection Agents](/docs/img/octopus-cloud/images/registered-connection-agents.png)
    :::
 
-Note that this is a read only view and you will not be able to make any changes to the configuration of your Connection Agents via the UI.
+This is a read-only view, and you won't be able to make any changes to the configuration of your Connection Agents via the UI.
 
-### Rotate the agent's key {#rotate-the-agents-key}
+### Rotate the Connection Agent's key {#rotate-the-agents-key}
 
-To rotate Connection Agent's private key, add a new key first, then remove the old one. This avoids downtime as the agent can authenticate with either while the rotation happens.
+To rotate a Connection Agent's private key, add a new key first, then remove the old one. This avoids downtime as the agent can authenticate with either while the rotation happens.
 
 ```shell
 # 1. Generate a new key pair
