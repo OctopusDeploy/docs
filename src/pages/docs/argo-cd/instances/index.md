@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-12-08
+modDate: 2026-06-11
 navSection: Argo CD Instances
 navTitle: Overview
 title: Overview
@@ -27,6 +27,24 @@ The Argo/Octopus integration requires only the Octopus/Argo gateway to support a
 
 The [Kubernetes agent](/docs/kubernetes/targets/kubernetes-agent) and the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) are not required when monitoring Argo CD applications. The Octopus Argo CD Gateway has the equivalent capabilities.
 
+:::
+
+## Prerequisites
+
+The gateway makes three outgoing connections. Before installing, make sure all of them are reachable from inside your cluster:
+
+| Destination | Protocol | Port |
+| --- | --- | --- |
+| Octopus Server REST API | HTTPS | `443` |
+| Octopus Server gRPC endpoint | gRPC (HTTP/2) | `8443` by default |
+| Argo CD API server | gRPC (in-cluster) | Argo CD service port |
+
+:::div{.warning}
+If your Octopus Server sits behind a load balancer, proxy, or firewall, make sure the gRPC port (`8443` by default) is forwarded to Octopus Server and the proxy supports HTTP/2. Forwarding only HTTPS (`443`) is a common cause of installation failure, where the gateway registers successfully but never connects. See [Troubleshooting](/docs/argo-cd/troubleshooting#failed-to-connect-to-octopus) for details.
+:::
+
+:::div{.hint}
+The gateway holds long-lived gRPC streams and sends a keep-alive every 30 seconds by default. If a load balancer between the cluster and Octopus Server closes idle connections, set its idle timeout to comfortably exceed the keep-alive interval (`gateway.octopus.keepAlive.intervalSeconds`).
 :::
 
 ## Installing the Octopus Argo CD Gateway
@@ -112,6 +130,25 @@ If left open, the installation dialog waits for the gateway to establish a conne
 
 :::div{.hint}
 A successful health check indicates that the gateway can successfully connect to the target Argo CD instance and is communicating with Octopus Server.
+:::
+
+## Permissions
+
+Argo CD instances are a distinct Infrastructure component, for permissions purposes gateways are treated the same as **Deployment Targets**. To manage Octopus Argo CD gateways, a user needs the following [permissions](/docs/security/users-and-teams/default-permissions):
+
+| Permission | Purpose |
+| --- | --- |
+| `MachineView` | View gateways |
+| `MachineCreate` | Add gateways |
+| `MachineEdit` | Edit existing gateways |
+| `MachineDelete` | Delete gateways (omit to prevent users from deleting) |
+| `EnvironmentView` | Select the environments a gateway services |
+| `GitCredentialView` | Required during configuration |
+
+These are all standard in the build in roles of `Environment manager` and `Space manager`.
+
+:::div{.warning}
+Octopus permissions are not specific to Argo CD gateways. Granting these will also give the user access to manage Deployment Targets and Workers.
 :::
 
 ### Advanced Configuration
@@ -206,61 +243,7 @@ The Octopus Argo CD gateway Helm chart follows [Semantic Versioning](https://sem
 
 ## Troubleshooting
 
-### Argo CD TLS Errors
-
-If your gateway is unable to connect to your Argo CD instance due to TLS errors it is likely due to the certificate that Argo CD is serving traffic with.
-
-#### Self Signed Certificate
-
-If you are getting an error that looks like this:
-
-```text
-tls: failed to verify certificate: x509: certificate signed by unknown authority
-```
-
-It is most likely due to Argo CD using a self-signed certificate, if it is intended that your certificate is self-signed you can disable certificate verification by doing the following:
-
-Using Helm for existing installation:
-
-```bash
-helm upgrade --atomic \
---version "1.0.0" \
---namespace "{{GATEWAY_NAMESPACE}}" \
---reset-then-reuse-values \
---set gateway.argocd.insecure="true" \
---set gateway.argocd.plaintext="false" \
-{{EXISTING_HELM_RELEASE_NAME}} \
-oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
-```
-
-:::div{.warning}
-By setting `gateway.argocd.insecure="true"`, TLS certificate verification will no longer be performed between the gateway and the Argo CD instance. Make sure this configuration is necessary to avoid potential security issues.
-:::
-
-#### No Certificate
-
-If you are running your Argo CD instance without a certificate due to terminating SSL at a load balancer level the gateway will likely fail to connect with the following error:
-
-```text
-transport: authentication handshake failed: EOF
-```
-
-This is because the gateway is configured by default to require encrypted traffic, if it is intended that you don't have a certificate you can disable encryption between the gateway and Argo CD by doing the following:
-
-```bash
-helm upgrade --atomic \
---version "1.0.0" \
---namespace "{{GATEWAY_NAMESPACE}}" \
---reset-then-reuse-values \
---set gateway.argocd.insecure="false" \
---set gateway.argocd.plaintext="true" \
-{{EXISTING_HELM_RELEASE_NAME}} \
-oci://registry-1.docker.io/octopusdeploy/octopus-argocd-gateway-chart
-```
-
-:::div{.warning}
-By setting `gateway.argocd.plaintext="true"`, all traffic between the gateway and Argo CD will be unencrypted. Make sure this configuration is necessary to avoid potential security issues.
-:::
+If your gateway is unable to connect to your Argo CD instance or Octopus Server (e.g. due to TLS errors), see [Troubleshooting Argo CD in Octopus](/docs/argo-cd/troubleshooting) for common issues and resolutions.
 
 ## Deleting an Octopus Argo CD Gateway
 

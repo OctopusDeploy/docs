@@ -213,7 +213,7 @@ resource "helm_release" "argocd" {
   wait    = true
 }
 
-# Give the Argo CD server a moment to fully initialise its API
+# Give the Argo CD server a moment to fully initialize its API
 # (the rollout-status check alone isn't always sufficient).
 resource "time_sleep" "wait_for_argocd" {
   depends_on      = [helm_release.argocd]

@@ -183,10 +183,18 @@ function isRedirectLayout(layout: unknown): boolean {
 }
 
 function isFuturePubDate(pubDate: unknown): boolean {
-  if (typeof pubDate !== 'string' || pubDate.trim().length === 0) {
+  // pubDate arrives as a string from Astro but as a Date from gray-matter;
+  // accept both so every LLM surface treats the page the same way.
+  let ts: number;
+  if (pubDate instanceof Date) {
+    ts = pubDate.getTime();
+  } else if (typeof pubDate === 'number') {
+    ts = pubDate;
+  } else if (typeof pubDate === 'string' && pubDate.trim().length > 0) {
+    ts = Date.parse(pubDate);
+  } else {
     return false;
   }
-  const ts = Date.parse(pubDate);
   if (Number.isNaN(ts)) return false;
   return ts > Date.now();
 }

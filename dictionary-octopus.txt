@@ -42,13 +42,17 @@ autopopulate
 awsaccount
 azureaccount
 azureactivedirectory
+azureappservice
 azurefile
+azureresourcegroup
+azurescripting
 bacpac
 Bento
 Blkio
 bootstrap
 bootstrapped
 bootstrapper
+bubblewrap
 bufio
 buildevent
 buildinfo
@@ -66,6 +70,7 @@ choco
 cicd
 CIFS
 classiclink
+ClaudeCodeBehaviour
 clientcertificate
 cloudapi
 cloudapp
@@ -128,6 +133,7 @@ Djava
 Dockerfiles
 dockerhub
 Domainname
+dontAsk
 DONTVALIDATEPATH
 dotmemory
 dotnetcore
@@ -153,6 +159,7 @@ environmentids
 eprintfn
 esac
 exfiltrate
+exfiltration
 expressjs
 externalgroups
 externalusers
@@ -184,6 +191,7 @@ globbing
 Gluster
 googleaccount
 googleapps
+googlecloudscripting
 gpedit
 groff
 Groupsand
@@ -235,6 +243,7 @@ ITSM
 javac
 jdbc
 jjones
+journalctl
 jsondecode
 JSSE
 jwks
@@ -288,6 +297,7 @@ minifier
 minlevel
 MITM
 Mkto
+modelcontextprotocol
 Moines
 mozjpeg
 mozroots
@@ -395,6 +405,7 @@ petclinic
 Petlife
 petshop
 Pids
+pipefail
 Pitstop
 PKCE
 pkcs
@@ -423,8 +434,10 @@ proxying
 pscustomobject
 pubdate
 publicip
+Pulumi
 pwsh
 pycryptodome
+pypi
 Qualys
 querystring
 quickstart
@@ -473,6 +486,8 @@ Runspace
 runtimes
 sakila
 SAMEORIGIN
+sandboxed
+sandboxing
 Schannel
 SCIM
 scopeduserroles
@@ -574,6 +589,7 @@ undeployed
 undeploying
 uniquestring
 Unmarshal
+unsandboxed
 updateprogress
 upgradeavailability
 upgradelog
@@ -607,6 +623,7 @@ WEBSVR
 westeurope
 WFLYCTL
 WFLYUT
+wildcarded
 Wildfly
 windir
 windowsfeatures

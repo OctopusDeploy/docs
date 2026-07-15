@@ -37,7 +37,7 @@ Octopus Cloud instances have HSTS enabled so it will be impossible to bypass the
 The page shown should look like the one below.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/tentacle/images/3277906.png)
+![Octopus Server configured successfully page](/docs/img/infrastructure/deployment-targets/tentacle/images/3277906.png)
 :::
 
 If you've made it this far, good news! Your Octopus Server is running and ready to accept inbound connections from Polling Tentacles.
@@ -103,7 +103,41 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/tentacle/images/5865771.png)
+![uncheck of the Check for publisher’s certificate revocation control panel option](/docs/img/infrastructure/deployment-targets/tentacle/images/5865771.png)
 :::
+
+## Requests timing out during Deployments/Runbooks while the Tentacle is online
+
+If a Polling Tentacle is online but you occasionally see timeout errors during concurrent deployments or runbooks, the Tentacle may be hitting its connection limit.
+
+**The Error:**
+
+```text
+A request was sent to a polling endpoint, but the polling endpoint did not collect the request within the allowed time (00:02:00), so the request timed out.
+```
+
+**The Cause:**
+
+This issue occurs when a Polling Tentacle cannot process requests quickly enough, even if the host CPU and RAM utilization are low. By default, Polling Tentacle Deployment Targets are configured with a polling connection count of `1`.
+
+While newly configured Polling Workers automatically scale to `max(5, Tentacle Core Count)`, previously configured Tentacles and standard Deployment Targets default to `1` and only process one request at a time.
+
+**The Solution:**
+
+Increase the polling connection count to allow concurrent request processing. The recommended value for targets and workers is `max(5, Tentacle Core Count)`.
+
+Set it from the Tentacle command line:
+
+```bash
+Tentacle set-polling-connection-count --instance=MyInstance --pollingConnectionCount=5
+```
+
+Or set it directly in the Tentacle configuration file:
+
+```xml
+<set key="Tentacle.Communication.PollingConnectionCount">5</set>
+```
+
+Restart the Tentacle for the change to take effect.
 
 <TentacleUninstall />
