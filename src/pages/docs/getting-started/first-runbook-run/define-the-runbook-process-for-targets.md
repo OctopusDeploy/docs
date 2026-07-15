@@ -2,8 +2,8 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2024-07-30
-title: Defining the runbook process for targets
-description: Step by step guide on how to define a runbook process in Octopus Deploy.
+title: Define a runbook process for targets
+description: Define the steps in your Octopus Deploy runbook to run on deployment targets. Add a script step, target it by role, and save the runbook process to run.
 navOrder: 80
 hideInThisSection: true
 ---
@@ -16,44 +16,44 @@ A runbook process can run steps, which include scripts, on the Octopus Server, a
 1. Click **ADD STEP**.
 1. Select the **Script** tile to filter the types of steps.
 1. Scroll down and click **ADD** on the **Run a Script** tile.
-1. Change **Name** of the script to be "Run a script on deployment targets" for the script 
+1. Change **Name** of the script to be "Run a script on deployment targets" for the script
 1. Leave the **Enabled** check-box ticked.
 1. In the **Execution Location** section change the option to be **Run on each deployment target**.
 1. In the **Target Tags** section change the tag to be `Hello-World`.
 
-:::figure
-![Changing the script step to run on a deployment target](/docs/img/getting-started/first-runbook-run/images/run-script-on-deployment-target.png)
-:::
+    :::figure
+    ![Changing the script step to run on a deployment target](/docs/img/getting-started/first-runbook-run/images/run-script-on-deployment-target.png)
+    :::
 
-:::div{.hint}
-Not all steps can run on deployment targets.  A step missing the option **Target Tags** indicates that step must run on the Octopus Server or a [on a worker](/docs/infrastructure/workers)
-:::
+    :::div{.hint}
+    Not all steps can run on deployment targets.  A step missing the option **Target Tags** indicates that step must run on the Octopus Server or a [on a worker](/docs/infrastructure/workers)
+    :::
 
-11. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
+1. Scroll down to the **Script**, select your script language of choice and enter the following script in the **Inline Source Code** section:
 
-<details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
-<summary>PowerShell</summary>
+    <details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
+    <summary>PowerShell</summary>
 
-```powershell
-Write-Host $OctopusParameters["Helloworld.Greeting"]
-Write-Host $OctopusParameters["Octopus.Machine.Name"]
-```
+    ```powershell
+    Write-Host $OctopusParameters["Helloworld.Greeting"]
+    Write-Host $OctopusParameters["Octopus.Machine.Name"]
+    ```
 
-</details>
-<details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
-<summary>Bash</summary>
+    </details>
+    <details data-group="getting-started-first-runbook-run-define-the-runbook-process-for-targets">
+    <summary>Bash</summary>
 
-```bash
-greeting=$(get_octopusvariable "Helloworld.Greeting")
-echo $greeting
-machineName=$(get_octopusvariable "Octopus.Machine.Name")
-echo $machineName
-```
+    ```bash
+    greeting=$(get_octopusvariable "Helloworld.Greeting")
+    echo $greeting
+    machineName=$(get_octopusvariable "Octopus.Machine.Name")
+    echo $machineName
+    ```
 
-</details>
+    </details>
 
-1.  Click **SAVE**
-2.  Click **RUN...** and select an environment to run on.
+1. Click **SAVE**
+1. Click **RUN...** and select an environment to run on.
 
 :::figure
 ![Running the runbook script on a deployment target](/docs/img/getting-started/first-runbook-run/images/run-deployment-target-results.png)
@@ -65,7 +65,7 @@ Not all scripts should run on a deployment target.  A rule of thumb is a script 
 
 The next step will [publish the runbook](/docs/getting-started/first-runbook-run/publishing-a-runbook) so it can used by triggers and users have a known version to run.
 
-**Further Reading**
+**Further Reading:**
 
 For further reading on runbook processes and what is possible please see:
 

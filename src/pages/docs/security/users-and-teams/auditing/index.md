@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-06-19
 title: Auditing
 description: Octopus Deploy captures audit information whenever significant events happen in the system.
 ---
@@ -22,12 +22,15 @@ Some general points worth noting:
 - Octopus **does** capture the details of every mutating action (create/edit/delete) including who initiated the action.
 - Octopus **does** capture login events for specific user accounts, but **not** logout.
 - Octopus **does not** capture when data is read, however certain sensitive actions like downloading a certificate with its private key is captured.
+- When an action is performed via an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key), Octopus captures the API key name alongside the action, so you can trace agent activity back to a specific credential and its owner.
 
 If you are concerned that Octopus does not capture a specific action of interest to you, please contact our [support team](https://octopus.com/support).
 
 ## Viewing the audit history
 
 You can view the full audit history by navigating to the **Audit** tab in the **Configuration** area.
+
+To filter the log to actions taken by AI agents only, check **AI Agents** in the filter options. This lets you review agent activity without wading through actions taken by human users.
 
 :::figure
 ![Audit Configuration](/docs/img/security/users-and-teams/auditing/images/audit-configuration.png)
@@ -103,6 +106,7 @@ From **Octopus 2023.1**, the originating IP address of a request is recorded as 
 Octopus accepts any number of trusted proxies. A trusted proxy can either be a single IP address such as `192.168.123.111` or an IP range such as `192.168.0.0/16`.
 
 Octopus reads forwarded IP addresses from the `X-Forwarded-For` header. Given the IP address of the client sending the request is trusted, the rightmost IP address that is **not** configured in the list of trusted proxies will be used as the IP address for the event. If all IP addresses are trusted, the leftmost value in the `X-Forwarded-For` header will be used. Some examples include:
+
 - If the IP range `0.0.0.0/0` is configured as a trusted proxy, then any request will always use the leftmost IP address found in the `X-Forwarded-For` header, or the IP address of the client if no header is provided
 - If no trusted proxies are configured, the IP address of the client that sent the request will always be used as it is not considered trusted, even if there is a valid `X-Forwarded-For` header
 - If the IP address `192.168.123.111` is configured as a trusted proxy, and a request is received with a client IP address of `192.168.123.111` and the header `X-Forwarded-For: 100.100.101.102, 200.123.124.125`, then `200.123.124.125` will be used as the IP address of this request as it is the rightmost untrusted IP address

@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-07-14
-modDate: 2025-07-14
+modDate: 2026-06-02
 title: Git credentials
 icon: fa-solid fa-key
 description: How to work with Git credentials.
 navOrder: 35
 ---
 
-Git credentials allow you to define your Git authentication credentials once, and reuse them across projects.
+Git credentials let you define your Git authentication credentials once, and reuse them across projects.
 
 You can manage your Git credentials by navigating to **Manage ➜ Git Credentials** in the Octopus Web Portal:
 
@@ -16,9 +16,53 @@ You can manage your Git credentials by navigating to **Manage ➜ Git Credential
 ![The Git credentials area of Octopus Deploy](/docs/img/infrastructure/git-credentials/images/git-credentials.png)
 :::
 
+## Authentication methods
+
+Octopus supports two ways to authenticate a Git credential:
+
+- **Username and password** – a username with a password or personal access token. This works for any Git provider over HTTPS.
+- **SSH key** – an SSH private key, with an optional passphrase. Use this when you need to connect to a repository over SSH.
+
+You choose the authentication method when you add or edit a Git credential.
+
+### Username and password
+
+Enter the username for your Git provider, and a password or personal access token in the **Password** field. We recommend using a personal access token rather than a password, and following the principle of least privilege when you grant it scopes. For provider-specific guidance on creating an access token, see the [Config as Code authentication reference](/docs/projects/version-control/config-as-code-reference/#authentication).
+
+### SSH key
+
+:::div{.info}
+Available from Octopus 2026.2
+:::
+
+To authenticate with an SSH key:
+
+1. Add your private key either as a file upload or by manually entering it.
+2. If your private key is protected with a passphrase, enter it in the **Passphrase** field. Leave this empty if your key has no passphrase.
+
+Before Octopus can connect to a repository over SSH, it needs to trust the SSH host. Set up the hosts Octopus trusts on the [SSH known hosts](/docs/infrastructure/git-credentials/ssh-known-hosts) page.
+
+:::div{.warning}
+Known limitations with SSH key authentication:
+
+- Git operations that run on a Windows host (either server or Tentacle) aren't supported.
+- Repository URLs must include a username, for example `git@example.com:octopus/repo.git` or `ssh://git@example.com/octopus/repo.git`.
+
+:::
+
+#### Supported key types
+
+Octopus supports these SSH key types:
+
+- Ed25519
+- ECDSA
+- RSA
+
+You can add your private key in OpenSSH, PEM (PKCS#1), or PKCS#8 format, whether or not it's protected with a passphrase.
+
 ## Edit your Git credentials
 
-To edit individual environments, click the Git credential name. From here, it is possible to edit the name, description, change the username and password, set repository restrictions, or delete the Git credential.
+To edit an individual Git credential, click the Git credential name. From here you can edit the name and description, change the authentication method and credentials, set repository restrictions, or delete the Git credential.
 
 ## Git credential permissions
 
@@ -26,7 +70,7 @@ You can control who has access to view and edit Git credentials by assigning use
 
 ## Repository Restrictions
 
-You can optionally restrict the Git credential to specified repository URL's. These can be complete repository URL’s or you can add a wildcard at the end to include everything under that path.
+You can optionally restrict the Git credential to specified repository URL's. These can be complete repository URL's or you can add a wildcard at the end to include everything under that path.
 
 :::figure
 ![The Git credentials area of Octopus Deploy](/docs/img/infrastructure/git-credentials/images/git-credential-details.png)

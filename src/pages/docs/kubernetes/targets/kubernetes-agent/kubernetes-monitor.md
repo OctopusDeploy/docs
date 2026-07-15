@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2025-03-28
+modDate: 2026-05-24
 title: Kubernetes Monitor
 description: How to manage the Kubernetes monitor component
 navOrder: 25
@@ -14,6 +14,8 @@ The Kubernetes monitor is a component that runs alongside Tentacle in the cluste
 The Kubernetes monitor communicates with Octopus Server over gRPC on a new port (8443) to send back object information to Octopus Deploy. Communications are initiated by the Kubernetes monitor, so no endpoints on the Kubernetes cluster need to be exposed.
 
 The monitor process uses the [Argo project gitops engine project](https://github.com/argoproj/gitops-engine) to internally keep track of the resources running on your cluster and react to changes as they occur.
+
+Newer versions of the Kubernetes monitor (2.38.3 or later for v2, 3.0.1 or later for v3) also surface resources that were previously deployed but are no longer part of the latest deployment process. See [Orphaned objects](/docs/kubernetes/live-object-status#orphaned-objects) for details.
 
 ## Required Kubernetes permissions
 
