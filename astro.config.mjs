@@ -9,6 +9,7 @@ import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://octopus.com',
+    compressHTML: true, // preserve astro v6 behavior - https://docs.astro.build/en/guides/upgrade-to/v7/
     integrations: [
         mdx(),
         llmMdEmitter()
