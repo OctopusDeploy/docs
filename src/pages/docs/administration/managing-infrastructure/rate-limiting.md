@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
-pubDate: 2026-07-16
-modDate: 2026-07-16
+pubDate: 2026-07-17
+modDate: 2026-07-17
 title: Rate Limiting
 description: A guide to configuring HTTP Rate Limiting for Octopus Server
 navOrder: 55
@@ -40,7 +40,7 @@ The rate limit applies per user.
 ### Authenticated AI Agent Requests
 
 This policy applies to any HTTP requests associated with an authenticated user which authenticate using an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key)
-The rate limit applies per user, measured separately from non-AI requests.
+The rate limit applies per user, counted separately from non-AI requests.
 
 ### Enabling the Rate Limiter
 
@@ -59,10 +59,9 @@ You can use the configuration screen to enable or disable the policies, and alte
 *****************************************************
 ```
 
-Rate limiting policies can also be enabled and configured using the [Octopus.Server command line's `rate-limiting-policy` command](http://localhost:3000/docs/octopus-rest-api/octopus.server.exe-command-line/rate-limiting-policy)
+Rate limiting policies can also be enabled and configured using the [Octopus.Server command line's `rate-limiting-policy` command](http://localhost:3000/docs/octopus-rest-api/octopus.server.exe-command-line)
 
-**Note:** We do not enable the rate limiter on existing Octopus Cloud instances because they may have configured scripts or integrations which
-are not prepared to handle an HTTP 429 error correctly. However, we reserve the right, according to our [acceptable usage policy](https://octopus.com/legal/acceptable-usage),
+**Note:** We chose not to automatically enable the rate limiter on existing Octopus Cloud instances because they may have configured scripts or integrations which are not prepared to handle an HTTP 429 error correctly. However, we reserve the right - according to our [acceptable usage policy](https://octopus.com/legal/acceptable-usage) -
 to enable it on instances where our internal monitoring shows the instance is overloaded or degraded and we believe the rate limiter may help us restore service.
 
 ## Understanding the Rate Limiter
@@ -71,9 +70,9 @@ Octopus Server uses the [Token Bucket](https://en.wikipedia.org/wiki/Token_bucke
 
 It has two configurable parameters - **Burst Limit**, and **Requests Per Hour**.
 
-The Burst Limit value specifies how many requests can be made (per user or per IP) before the rate limiter starts rejecting requests.
+The **Burst Limit** value specifies how many requests can be made (per user or per IP) before the rate limiter starts rejecting requests.
 
-The Requests Per Hour value specifies the steady state at which requests are allowed to continue, when the burst capacity is consumed.
+The **Requests Per Hour** value specifies the steady state at which requests are allowed to continue, when the burst capacity is consumed.
 
 **By analogy:** Imagine the rate limiter as a physical bucket of coins.
 
@@ -83,11 +82,10 @@ The Requests Per Hour value specifies the steady state at which requests are all
 - Burst Limit specifies how many coins the bucket starts with, and how many it can hold before it is full and no more can be added.
 - Requests Per Hour specifies how quickly new coins are added to refill the bucket.
 
-**Note:** The bucket refills continuously. If you specified a Requests Per Hour value of 7,200, then it would behave as though one "coin" is added every half-second.
-
 ### Detail
 
 - All requests are considered equal; they each deduct one token from the bucket regardless of what the request does.
+- The bucket refills continuously. If you specified a Requests Per Hour value of 7,200, then it would behave as though one token is added every half-second.
 - Requests made by the Octopus Web Portal are considered the same as requests made via scripts and integrations.
   - If you are concerned that a script or integration might consume a user's rate limit quota and prevent them from accessing the web portal, create a separate service account for that script or integration.
 - The Octopus Web Portal makes some requests to diagnostic endpoints for logging and telemetry. These do not count towards a user's rate limit.
@@ -95,7 +93,7 @@ The Requests Per Hour value specifies the steady state at which requests are all
 
 ## Enforcement
 
-When a rate limiting policy is enabled, and rejects a request, the client will receive an [HTTP 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429) error response.
+When the rate limiter rejects a request, the client will receive an [HTTP 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429) error response.
 
 The response may include a `Retry-After` header, with a value specifying the number of seconds to wait to retry again.  
 **Note:** The `Retry-After` header is an estimate; A client is not guaranteed to succeed if it waits that long and tries again.
