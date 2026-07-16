@@ -11,16 +11,17 @@ navOrder: 55
 HTTP Rate Limiting functionality was added in **Octopus 2026.3**.
 :::
 
-Rate limiting is a technique used to regulate how quickly a system processes incoming requests. 
-It is useful to guard against misbehaving scripts, integrations, or bad actors.
+Rate limiting is a technique used to regulate how quickly a system processes incoming requests. It is useful to guard against misbehaving scripts, integrations, or bad actors.
 
 Octopus Server has a rate limiter built in to the system. It can be enabled and configured by users with the `ConfigureServer` permission (usually associated with the **System Manager** role).
+
+## Configuration
 
 Rate limiting is configured using policies, managed in the **Configuration ➜ Settings ➜ Rate Limiting** screen in the Octopus Web Portal.
 
 There are three built-in policies, as follows:
 
-```
+```bash
 *****************************************************
 * TODO insert a picture showing the rate limiting configuration screen with all 3 policies
 *****************************************************
@@ -41,7 +42,7 @@ The rate limit applies per user.
 This policy applies to any HTTP requests associated with an authenticated user which authenticate using an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key)
 The rate limit applies per user, measured separately from non-AI requests.
 
-## Enabling the Rate Limiter
+### Enabling the Rate Limiter
 
 For existing self-hosted installations of Octopus Server, the Unauthenticated and Authenticated rate limiting policies are not enabled by default.
 
@@ -52,7 +53,7 @@ The Authenticated AI rate limiting policy is enabled by default for all instance
 
 You can use the configuration screen to enable or disable the policies, and alter their configured values.
 
-```
+```bash
 *****************************************************
 * TODO insert a picture showing the specific Authenticated Request policy configuration screen
 *****************************************************
@@ -64,9 +65,9 @@ Rate limiting policies can also be enabled and configured using the [Octopus.Ser
 are not prepared to handle an HTTP 429 error correctly. However, we reserve the right, according to our [acceptable usage policy](https://octopus.com/legal/acceptable-usage),
 to enable it on instances where our internal monitoring shows the instance is overloaded or degraded and we believe the rate limiter may help us restore service.
 
-## Concepts
+## Understanding the Rate Limiter
 
-Octopus Server uses the standard [Token Bucket](https://en.wikipedia.org/wiki/Token_bucket) algorithm.
+Octopus Server uses the [Token Bucket](https://en.wikipedia.org/wiki/Token_bucket) algorithm.
 
 It has two configurable parameters - **Burst Limit**, and **Requests Per Hour**.
 
@@ -75,6 +76,7 @@ The Burst Limit value specifies how many requests can be made (per user or per I
 The Requests Per Hour value specifies the steady state at which requests are allowed to continue, when the burst capacity is consumed.
 
 **By analogy:** Imagine the rate limiter as a physical bucket of coins.
+
 - Each user has their own bucket.
 - Whenever a user makes an HTTP request to the Octopus Server, a coin is removed from the bucket.
 - If the bucket is empty and a coin cannot be removed, the request is rejected.
@@ -82,6 +84,14 @@ The Requests Per Hour value specifies the steady state at which requests are all
 - Requests Per Hour specifies how quickly new coins are added to refill the bucket.
 
 **Note:** The bucket refills continuously. If you specified a Requests Per Hour value of 7,200, then it would behave as though one "coin" is added every half-second.
+
+### Detail
+
+- All requests are considered equal; they each deduct one token from the bucket regardless of what the request does.
+- Requests made by the Octopus Web Portal are considered the same as requests made via scripts and integrations.
+  - If you are concerned that a script or integration might consume a user's rate limit quota and prevent them from accessing the web portal, create a separate service account for that script or integration.
+- The Octopus Web Portal makes some requests to diagnostic endpoints for logging and telemetry. These do not count towards a user's rate limit.
+- The Octopus Web Portal makes some requests to load static content such as JavaScript and Image files. These do not count towards a user's rate limit.
 
 ## Enforcement
 
@@ -92,7 +102,7 @@ The response may include a `Retry-After` header, with a value specifying the num
 
 When a request is rejected, an Audit Event will be generated. At most one Audit Event will be generated every 15 minutes, per user, per server node.
 
-```
+```bash
 *****************************************************
 * TODO insert a picture showing an audit event
 *****************************************************
