@@ -120,10 +120,6 @@ By default, channels rank package versions using [Semantic Versioning (SemVer 2.
 
 #### Ordering strategy {#version-ordering-strategy}
 
-:::div{.hint}
-The **Use most recently published** ordering strategy is currently behind the `non-semver-ordering` feature toggle. While the toggle is disabled, the ordering strategy choice is unavailable and channels rank package versions using SemVer.
-:::
-
 Channels rank candidate package versions to decide which is the "latest" that satisfies the rule. Two strategies are available:
 
 - **Use semantic version** (default): packages are ranked by their version string using SemVer comparison. Use this when your package versions follow SemVer (e.g. `2.1.0`, `2.1.0-beta.3`). The version range and pre-release tag fields described above apply.
@@ -143,14 +139,15 @@ When **Use most recently published** is selected:
     | `^build-\d+$` | Matches versions like `build-1234` | CI build numbers |
     | `^feature-checkout-.*` | Matches feature-branch tags for one feature | Auto-deploy a specific feature branch to a preview environment |
     | `^\d{4}-\d{2}-\d{2}` | Matches a date prefix like `2026-05-29` | Date-stamped nightly builds |
-    | `^v\d+\.\d+\.\d+(-\w+)?$` | Matches a SemVer-like shape | Restrict to SemVer-shaped tags while still ordering by publish date |
 
 2. Click **Save**.
 
 The **Design rule** dialog isn't available for Most recently published rules — there's no SemVer range to evaluate candidates against. The regex filter determines which candidates qualify; Octopus then picks the candidate with the latest publish date. When two candidates share the same publish timestamp (a rare tie), the SemVer-higher version wins as a deterministic secondary sort.
 
 :::div{.hint}
-**Feed support.** Most recently published ordering needs the feed to report a publish date per version. It is supported on the built-in NuGet feed, external HTTP and filesystem NuGet feeds, Amazon S3, Google Cloud Storage, Helm, NPM, PyPI, and Artifactory Generic feeds. It is **not** supported on container or OCI registry feeds (Docker, DockerHub, GitHub Container Registry, Amazon ECR, Google GCR, or any OCI registry) because their tag-listing APIs return tag names only — fetching per-tag dates would require an extra manifest call for every tag. When you choose Most recently published for a step that targets one of these feeds, the channel rule editor warns you.
+**Feed support.** Most recently published ordering needs the feed to report a publish date per version. It is supported on the built-in NuGet feed, external HTTP and filesystem NuGet feeds, Amazon S3, Google Cloud Storage, Helm, NPM, PyPI, and Artifactory Generic feeds. 
+
+It is **not** supported on container or OCI registry feeds (Docker, DockerHub, GitHub Container Registry, Amazon ECR, Google GCR, or any OCI registry) because their tag-listing APIs return tag names only — fetching per-tag dates would require an extra manifest call for every tag. When you choose Most recently published for a step that targets one of these feeds, the channel rule editor warns you.
 
 Other feeds that don't report a publish date — including Maven and GitHub feeds — don't error, but they can't order by publish date either: they silently fall back to version-string ordering. Only use Most recently published with the feed types listed above.
 :::
