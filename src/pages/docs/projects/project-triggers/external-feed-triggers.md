@@ -94,7 +94,7 @@ When you are using external feed triggers there are a few reasons why a release 
 
 4. Ensure you are pushing a **new version** of the package - Octopus will not create a release where the package has already been used for creating a release.
 
-5. Ensure you are pushing a package that Octopus will consider as the **latest available package**. The trigger's version evaluator uses SemVer, and will not trigger off image tags such as 'latest'.
+5. Ensure you are pushing a package that Octopus will consider as the **latest available package**. By default, the trigger's version evaluator uses SemVer and will not trigger off image tags such as `latest`. If your packages don't follow SemVer (for example feature-branch tags or date-stamped builds), configure the channel's package version rule to use [Most recently published](/docs/releases/channels#version-ordering-strategy) ordering, which ranks candidates by the publish date that the feed reports. Most recently published is supported on Google Container Registry (GCR) and Google Artifact Registry (GAR) include this metadata, but cannot be supported on container or OCI registry feeds that lack that metadata — see the feed support note in the channel rules docs.
 
 6. Make sure that the feed and package references only use variables which are **able to be evaluated at release creation time.** For example, the environment name variable is not available, because it is only known at the time of deployment.
 

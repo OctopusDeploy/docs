@@ -13,20 +13,22 @@ The [Package ID](/docs/packaging-applications/#package-id), version number, and 
 
 The technology you're working with will, in some cases, determine the type of versioning scheme you choose. We recommend using [Semantic Versioning](#semver) for your applications, unless you are deploying artifacts to a [Maven repository](/docs/packaging-applications/package-repositories/maven-feeds), in which case, you need to use [Maven Versions](#maven).
 
+If your toolchain produces version strings that don't sort correctly under SemVer (for example feature-branch names, CI build numbers, or date-stamped builds), channels can be configured to order packages by [publish date](/docs/releases/channels#version-ordering-strategy) instead of version string — letting feed triggers and release creation pick the most-recently-published version.
+
 Consider the following factors when deciding on the versioning scheme you'll use for your applications and packages:
 
 1. Can you trace a version back to the commit/check-in the application/package was built from?
 
-  *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
+   *For example: We stamp the SHA hash of the git commit into the metadata component of the Semantic Version for Octopus Deploy which makes it easier to find and fix bugs. We also tag the commit with the version of Octopus Deploy it produced so you can quickly determine which commit produced a particular version of Octopus Deploy.*
 
 2. Can your users easily report a version to the development team that supports #1?
 3. Will your version numbers be confusing, or will they help people understand the changes that have been made to the software?
 
-  *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
+   *For example: bumping a major version component (first part) means there are potentially breaking changes, but bumping a patch (3rd part) should be safe to upgrade, and safe to rollback if something goes wrong.*
 
 4. Does your tool chain support the versioning scheme?
 
-  *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels).*
+   *Octopus supports Semantic Versioning, which enables enhanced features like [Channels](/docs/releases/channels).*
 
 ## SemVer {#semver}
 
@@ -70,7 +72,7 @@ Octopus uses a string-based approach to version numbers. These are the decisions
         i. `3.0.0-beta.10 > 3.0.0-beta.9`  
         i. `1.4.008 < 1.4.9`  
 
- 3. **Package Feeds:** Octopus asks the feed for a package with the version string stored in the release, and accepts what the feed provides.
+3. **Package Feeds:** Octopus asks the feed for a package with the version string stored in the release, and accepts what the feed provides.
 
 ## Maven versions {#maven}
 
@@ -80,23 +82,23 @@ The Maven versioning scheme is implemented as a copy of the [ComparableVersion](
 
 Maven version strings have 5 parts:
 
-* Major
-* Minor
-* Patch
-* Build number
-* Qualifier
+- Major
+- Minor
+- Patch
+- Build number
+- Qualifier
 
 The Major, Minor, Patch, and Build number are all integer values.
 
 The Qualifier can hold any value, although some qualifiers have special meanings and an associated order of precedence as follows:
 
-* alpha or a
-* beta or b
-* milestone or m
-* rc or cr
-* snapshot
-* (the empty string) or ga or final
-* sp
+- alpha or a
+- beta or b
+- milestone or m
+- rc or cr
+- snapshot
+- (the empty string) or ga or final
+- sp
 
 Qualifiers are case-insensitive, and some of the qualifiers have shorthand aliases, for instance, `alpha` and `a`. If you use an alias it must include a number, for instance, `a1`. If you do not include a number after the alias, it will be treated as an unrecognized qualifier which will be compared as a case-insensitive string after the qualified versions.
 
@@ -108,10 +110,10 @@ For an in-depth look at Maven versions, see the blog post [Maven Versions Explai
 
 ## Learn more
 
- - [Package your applications](/docs/packaging-applications).
- - [Create packages with Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
- - [Creating packages with OctoPack](/docs/packaging-applications/create-packages/octopack).
- - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity).
- - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension).
- - [Package repositories](/docs/packaging-applications).
- - [Package deployments](/docs/deployments/packages).
+- [Package your applications](/docs/packaging-applications).
+- [Create packages with Octopus CLI](/docs/packaging-applications/create-packages/octopus-cli).
+- [Creating packages with OctoPack](/docs/packaging-applications/create-packages/octopack).
+- [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity).
+- [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension).
+- [Package repositories](/docs/packaging-applications).
+- [Package deployments](/docs/deployments/packages).

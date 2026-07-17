@@ -87,7 +87,7 @@ jobs:
           echo; echo "PNPM install"
           pnpm install
 
-      - uses: DavidAnson/markdownlint-cli2-action@v23
+      - uses: DavidAnson/markdownlint-cli2-action@v24
         if: steps.changed-files.outputs.count > 0
         with:
           config: '.markdownlint.json'
