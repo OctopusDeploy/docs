@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2026-05-01
+modDate: 2026-07-16
 title: Storage
 description: How to configure storage for a Kubernetes agent
 navOrder: 30
@@ -39,6 +39,10 @@ This change was made from v2 due to reliability and security concerns with the p
 
 If distribution of script pods across multiple nodes is desired, then you can specify your own `StorageClass`. This `StorageClass` must be capable of `ReadWriteMany` (also known as `RWX`) access mode.
 
+:::div{.hint}
+You can also specify a custom `StorageClass` that only supports `ReadWriteOnce` — for example a block-storage class such as AWS EBS (`gp3`) or Azure Disk. This is useful when your cluster has no default storage class, or when you want higher-performance single-node storage rather than the cluster default. As with the default `RWO` behavior, all script pods are then scheduled onto the same node as the Tentacle pod. Leave the `ReadWriteMany` checkbox unchecked in the installation wizard when using an `RWO` class.
+:::
+
 Many managed Kubernetes offerings will provide storage that require little effort to set up. These will be a “provisioner” (named as such as they “provision” storage for a `StorageClass`), which you can then tie to a `StorageClass`. Some examples are listed below:
 
 | **Offering**                                                                                                | **Provisioner**                | **Default StorageClass name** |
@@ -51,11 +55,52 @@ Many managed Kubernetes offerings will provide storage that require little effor
 See this [blog post](https://octopus.com/blog/efs-eks) for a tutorial on connecting EFS to and EKS cluster.
 :::
 
+Cloud provider CSI drivers usually need to be installed as an add-on and given an IAM role with a trust relationship (for example [IRSA](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) on EKS, or [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) on GKE) before they can provision volumes. Follow the provider documentation below to install the correct driver and configure these permissions, then reference the resulting `StorageClass` name when installing the agent.
+
+| **Provider**      | **CSI driver setup documentation**                                                                                                                                                                                                                                            |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon EKS        | [Amazon EBS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) (RWO) · [Amazon EFS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) (RWX)                                                                                   |
+| Azure AKS         | [Azure Disk CSI driver](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) (RWO) · [Azure Files CSI driver](https://learn.microsoft.com/en-us/azure/aks/azure-files-csi) (RWX)                                                                                       |
+| Google GKE        | [Compute Engine persistent disk CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/gce-pd-csi-driver) (RWO) · [Filestore CSI driver](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/filestore-csi-driver) (RWX) |
+| Red Hat OpenShift | [Configuring CSI volumes](https://docs.openshift.com/container-platform/latest/storage/container_storage_interface/persistent-storage-csi.html)                                                                                                                               |
+
+:::div{.info}
+If your **deployment workloads** need to assume an IAM role, you can annotate the script pod service account — see [setting scriptPod service account annotations](/docs/kubernetes/targets/kubernetes-agent/troubleshooting#setting-scriptpod-service-account-annotations).
+:::
+
 If you manage your own cluster and don’t have offerings from cloud providers available, there are some in-cluster options you could explore:
 
 - [Longhorn](https://longhorn.io/)
 - [Rook (CephFS)](https://rook.io/)
 - [GlusterFS](https://www.gluster.org/)
+
+## SELinux-enforced clusters \{#selinux}
+
+On clusters where SELinux is enforced — such as [OpenShift](https://www.redhat.com/en/topics/containers/what-is-openshift), or EKS nodes running Bottlerocket or Amazon Linux 2023 — SELinux volume labeling can prevent the agent and script pods from reading and writing the shared storage volume, even when the `StorageClass` and access mode are configured correctly. This typically surfaces as permission-denied errors when a pod tries to mount or access the volume.
+
+To allow the pods to access the volume on these nodes, set the SELinux type to `spc_t` (super-privileged container) in the pod security context of both the agent and the script pods:
+
+```yaml
+agent:
+  securityContext:
+    seLinuxOptions:
+      type: spc_t
+scriptPods:
+  securityContext:
+    seLinuxOptions:
+      type: spc_t
+```
+
+This can be provided during installation, or in a `helm upgrade`, via `--set` flags:
+
+```bash
+--set agent.securityContext.seLinuxOptions.type="spc_t" \
+--set scriptPods.securityContext.seLinuxOptions.type="spc_t"
+```
+
+:::div{.hint}
+If you don't want to set the SELinux type on an OpenShift cluster, you can grant the agent's service account access to an appropriate [SecurityContextConstraint (SCC)](https://docs.openshift.com/container-platform/latest/authentication/managing-security-context-constraints.html) instead.
+:::
 
 ## Azure Files CSI driver
 

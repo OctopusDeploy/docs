@@ -52,6 +52,7 @@ Blkio
 bootstrap
 bootstrapped
 bootstrapper
+Bottlerocket
 bubblewrap
 bufio
 buildevent
@@ -229,6 +230,7 @@ internalcustomer
 ioutil
 IPAM
 ipify
+IRSA
 ISAPIExtensions
 ISAPIFilter
 isdir
@@ -498,6 +500,7 @@ secpol
 secureclientcertificate
 securestring
 SEIM
+SELinux
 servedby
 servername
 serverstatus
@@ -512,6 +515,7 @@ SIEM
 signingkeys
 Signup
 skiplinks
+skuname
 snapshotted
 snapshotting
 SNMP
