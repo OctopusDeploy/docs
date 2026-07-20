@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-05-21
-modDate: 2026-07-16
+modDate: 2026-07-20
 title: Connection Agent
 navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
 ---
 
 :::div{.warning}
-Connection Agent is currently in Alpha, available only to Octopus Cloud Enterprise tier customers. [Contact our support team](https://octopus.com/support) to request access.
+Connection Agent is currently in Preview, available to select customers. [Contact our support team](https://octopus.com/support) to request access.
 :::
 
 Connection Agent lets your Octopus Cloud instance connect to privately hosted internal applications such as Git repositories, package feeds, and SMTP servers without requiring inbound firewall rules or a VPN.
