@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2026-07-20
 title: New Octopus Target Command
 description: Function for creating an Octopus target for a step package
 navOrder: 50
@@ -12,6 +12,8 @@ import CreateDeploymentTargetsHint from 'src/shared-content/infrastructure/creat
 **Deprecated**
 
 Creating deployment targets using the `New-OctopusTarget` function has been deprecated in favor of using [Cloud Target Discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery).
+
+More broadly, the **step packages** architecture described on this page is part of the Step Package Framework (SPF), which is [being deprecated](/docs/deprecations#step-package-framework-spf-deprecation) in favor of targets and steps built as native Octopus types.
 :::
 
 In **Octopus 2021.3**, a new architecture for deployments and steps targets was developed, known as **step packages**.

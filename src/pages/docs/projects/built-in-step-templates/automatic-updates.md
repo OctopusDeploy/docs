@@ -1,12 +1,18 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-26
+modDate: 2026-07-20
 title: Automatic step template updates
 icon: fa-solid fa-arrows-rotate
 description: How automatic updates of built-in steps using the new step package format work
 navOrder: 40
 ---
+
+:::div{.warning}
+**Deprecated**
+
+The "step package" format described on this page is part of the Step Package Framework (SPF), which is [being deprecated](/docs/deprecations#step-package-framework-spf-deprecation) in favor of steps built as native Octopus step types. Steps built on SPF are being migrated to native step types over time, with no behavioral change to existing deployment processes.
+:::
 
 Built-in step templates that use the new "step package" format can be updated automatically to the latest versions without updating Octopus Server. Octopus will check for updates to the built-in step templates every hour and automatically download them from the publicly available feed located at steps-feed.octopus.com.
 

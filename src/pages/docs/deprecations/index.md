@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-12-16
+modDate: 2026-07-20
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -28,6 +28,14 @@ If you have questions or need help assessing the impact of a deprecation on your
 :::
 
 ## Planned Deprecations
+
+## Step Package Framework (SPF) deprecation {#step-package-framework-spf-deprecation}
+
+The Step Package Framework (SPF) is the architecture, introduced in Octopus **2021.3**, used to build some built-in steps and dynamic deployment targets (for example, the Amazon ECS steps and targets). We are deprecating SPF in favor of steps built as native Octopus step types.
+
+Steps built on SPF are being migrated to native `Octopus.Action.*` step types one at a time. Existing deployment processes and Config-as-Code projects are automatically upgraded to the native equivalent, with no behavioral change — for example, the **Update Amazon ECS Service** and **Deploy Amazon ECS Service** steps have already been migrated from SPF-authored inputs to their native `Octopus.Action.Aws.Ecs.*` properties.
+
+We don't yet have a full timeline for migrating all remaining SPF-based steps and targets, or for when SPF itself will be switched off and removed. We'll update this page with further guidance as more steps are migrated.
 
 ## Kubernetes Agent bundled NFS storage deprecation
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-07-20
 title: Dynamic infrastructure
 description: Octopus resources created in cloud providers can also be modeled in Octopus using service messages and scripts, which form part of dynamic infrastructure.
 navOrder: 100
@@ -77,6 +77,10 @@ These commands are not available in the **Script Console**.
 ## Using bash functions
 
 Any targets defined by a step package have access to creating that target with a bash script. See the [new-target function documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget) for further information.
+
+:::div{.hint}
+Step packages are part of the Step Package Framework (SPF), which is [being deprecated](/docs/deprecations#step-package-framework-spf-deprecation).
+:::
 
 ## Examples
 
