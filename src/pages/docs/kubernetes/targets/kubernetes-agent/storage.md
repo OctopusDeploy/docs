@@ -92,7 +92,7 @@ This can be provided during installation, or in a `helm upgrade`, via `--set` fl
 ```
 
 :::div{.hint}
-On OpenShift you can alternatively grant the agent's service account access to an appropriate [SecurityContextConstraint (SCC)](https://docs.openshift.com/container-platform/latest/authentication/managing-security-context-constraints.html). Using `spc_t` is the simplest option that works consistently across SELinux-enforced clusters.
+If you don't want to set the SELinux type on an OpenShift cluster, you can grant the agent's service account access to an appropriate [SecurityContextConstraint (SCC)](https://docs.openshift.com/container-platform/latest/authentication/managing-security-context-constraints.html) instead.
 :::
 
 ## Azure Files CSI driver
