@@ -30,25 +30,25 @@ To create a target defined by a step package, you will need to know the `target 
 
 Command (pwsh): **New-OctopusTarget**
 
-| Parameter             | Value                                                                         |
-| --------------------- | ----------------------------------------------------------------------------- |
-| `-name`               | The Name of the target to create                                              |
-| `-targetId`           | The target identifier of target to create                                     |
-| `-inputs`             | The inputs required to define the target being created                        |
-| `-roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign                                       |
-| `-updateIfExisting`   | Will update an existing target with the same name, create if it doesn't exist |
-| `-workerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional)    |
+| Parameter             | Value                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| `-name`               | The Name of the target to create                                                                       |
+| `-targetId`           | The target identifier of target to create                                                              |
+| `-inputs`             | The inputs required to define the target being created                                                 |
+| `-roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign   |
+| `-updateIfExisting`   | Will update an existing target with the same name, create if it doesn't exist                          |
+| `-workerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional)                             |
 
 Command (bash) **new_octopustarget**
 
-| Parameter              | Value                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| `-n` \| `--name`       | The Name of the target to create                                              |
-| `-t` \| `--targetId`   | The target identifier of target to create                                     |
-| `--inputs`             | The inputs required to define the target being created                        |
-| `--roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign                                       |
-| `--update-if-existing` | Will update an existing target with the same name, create if it doesn't exist |
-| `--worker-pool`        | Name or Id of the Worker Pool for the deployment target to use. (Optional)    |
+| Parameter              | Value                                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| `-n` \| `--name`       | The Name of the target to create                                                                       |
+| `-t` \| `--targetId`   | The target identifier of target to create                                                              |
+| `--inputs`             | The inputs required to define the target being created                                                 |
+| `--roles`              | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign   |
+| `--update-if-existing` | Will update an existing target with the same name, create if it doesn't exist                          |
+| `--worker-pool`        | Name or Id of the Worker Pool for the deployment target to use. (Optional)                             |
 
 ### Examples
 

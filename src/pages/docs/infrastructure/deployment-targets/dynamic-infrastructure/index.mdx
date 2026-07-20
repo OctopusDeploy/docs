@@ -112,7 +112,7 @@ Building on the Web App example, you may wish to spin up an application and then
 
 Using as little as two lines of PowerShell you can remove all the resources from Azure and Octopus:
 
-```
+```powershell
 Remove-AzureRmResourceGroup -Name "AzureWebAppResourceGroup" -Force
 Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 ```
@@ -121,12 +121,12 @@ Remove-OctopusTarget -targetIdOrName "AzureWebApp"
 
 You can also use the above PowerShell cmdlets when deploying Azure resources using an ARM template.
 
-Firstly, turn on **Custom deployment scripts** under _Configure Features_ on your _Deploy an Azure Resource Group_ step.
+Firstly, turn on **Custom deployment scripts** under *Configure Features* on your *Deploy an Azure Resource Group* step.
 
 :::figure
 ![Configure features on ARM template step](/docs/img/infrastructure/deployment-targets/dynamic-infrastructure/arm-template-step-configure-features.png)
 :::
 
-Under the _Features_ section you will have _Pre-deployment_, _Deployment_, and _Post-deployment_ scripts.
+Under the *Features* section you will have *Pre-deployment*, *Deployment*, and *Post-deployment* scripts.
 
-In the _Post-deployment_ script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/#arm-template-out-params) and use those output parameters to run any of the cmdlets above.
+In the *Post-deployment* script section, you can [access the output parameters](/docs/runbooks/runbook-examples/azure/resource-groups/#arm-template-out-params) and use those output parameters to run any of the cmdlets above.
