@@ -44,15 +44,13 @@ The release includes a snapshot containing the deployment process, variables (in
 
 You can update the following in a release:
 
-- Version number
+- Channel
 - Package version
 - Release notes
 - Variables
-- Channel
+- Version number
 
-However, you cannot change the following in the release snapshot:
-
-- Deployment Process
+You cannot, however, change the deployment process in the release snapshot.
 
 Never modify a release unless it is absolutely necessary. A release represents a snapshot in time, and it should be the same when deploying to the different stages or environments in your pipeline. Changing it after the fact can lead to unpredictable results.
 
