@@ -135,6 +135,26 @@ The health check will only perform a basic connection test to see if the deploym
 ![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-health-check-type-connection.png)
 :::
 
+### Machine behavior during health checks
+This setting controls what the expected behavior of machines should be during a health check.
+
+**Unavailable causes health checks to fail**
+
+If a machine is unavailable during an attempted health check it will cause the check to be failed.
+:::figure
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-default.png)
+:::
+
+**Ignore machines that are unavailable during health checks**
+
+By default, health checks fail if any deployment targets are unavailable during the health check. Machine policies offer an option to ignore machines if they are unavailable during a health check:
+
+:::figure
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-ignore.png)
+:::
+
+By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
+
 ### Custom health check script \{#custom-health-check-scripts}
 When the selected health check type is "Run health check scripts" you can provide script(s) that will execute during the health check.
 
@@ -185,62 +205,6 @@ fail_healthcheck "This is an error"
 **Agent-Level variables**
 
 When using a custom health check script, the script execution through Calamari is bypassed. This results in some behavioral differences compared with the normal scripting in Octopus that you would be accustomed to. You can still use the standard `#` variable substitution syntax, however since this is replaced on the server, environment variables from your target will not be available through Octopus variables.
-:::
-
-## Machine connectivity configuration
-
-### Machine behavior during health checks
-This setting controls what the expected behavior of machines should be during a health check.
-
-**Unavailable causes health checks to fail**
-
-If a machine is unavailable during an attempted health check it will cause the check to be failed.
-:::figure
-![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-default.png)
-:::
-
-**Ignore machines that are unavailable during health checks**
-
-By default, health checks fail if any deployment targets are unavailable during the health check. Machine policies offer an option to ignore machines if they are unavailable during a health check:
-
-:::figure
-![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-health-check-ignore.png)
-:::
-
-By selecting **Unavailable machines will not cause health checks to fail,** any deployment targets that Octopus cannot contact during a health check will be skipped and the health check marked as successful. If the target is contactable but encounters an error or warning, the usual health check behavior will proceed (i.e., a warning will be reported or the health check will fail with an error).
-
-### Connection timeout and retries
-Machine policies define rules for how long to wait for a connection to be established to a Tentacle or SSH target as well as how it should retry the connection if the initial attempts do not succeed.
-:::figure
-![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-timeout-retries.png)
-:::
-
-**Connect timeout**
-
-How long in hours/minutes/seconds to wait for a Listening Tentacle or SSH target respond to a connection before timing out. Depending on what operating system the machine is running could potentially mean the timeout is shorter than expected.
-
-**Retry attempts**
-
-How many times the connection to the Listening Tentacle or SSH target should be retried before failing the health check.
-
-**Retry wait interval**
-
-How long to wait between connection retries.
-
-**Retry time limit**
-
-Maximum time limit for how long retries can be attempted for.
-For example, if you have the following configuration:
-- Retry time limit: 1 minute.
-- Retry attempts: 4.
-- Retry interval: 30 seconds.
-
-In this scenario only a maximum of 2 retries could be attempted before reaching the time limit.
-
-### Polling request queue timeout
-This setting controls how long Octopus Deploy will wait before cancelling a task in a polling Tentacle's queue. For more details on what the Polling Tentacle queue is see the documentation on [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles)
-:::figure
-![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-polling-queue.png)
 :::
 
 ## Configure how Calamari, Tentacle and Kubernetes agents are updated \{#configure-machine-updates}
@@ -323,6 +287,47 @@ The machine package cache retention policy ensures that packages are periodicall
 
 :::figure
 ![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-package-cache-retention.png)
+:::
+
+## Machine connectivity configuration
+
+### Connection timeout and retries
+
+:::div{.hint}
+For Tentacles, [Retry Durations](#recover-from-communication-errors) should be used instead.
+:::
+
+Machine policies define rules for how long to wait for a connection to be established to a Tentacle or SSH target as well as how it should retry the connection if the initial attempts do not succeed.
+:::figure
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-timeout-retries.png)
+:::
+
+**Connect timeout**
+
+How long in hours/minutes/seconds to wait for a Listening Tentacle or SSH target respond to a connection before timing out. Depending on what operating system the machine is running could potentially mean the timeout is shorter than expected.
+
+**Retry attempts**
+
+How many times the connection to the Listening Tentacle or SSH target should be retried before failing the health check.
+
+**Retry wait interval**
+
+How long to wait between connection retries.
+
+**Retry time limit**
+
+Maximum time limit for how long retries can be attempted for.
+For example, if you have the following configuration:
+- Retry time limit: 1 minute.
+- Retry attempts: 4.
+- Retry interval: 30 seconds.
+
+In this scenario only a maximum of 2 retries could be attempted before reaching the time limit.
+
+### Polling request queue timeout
+This setting controls how long Octopus Deploy will wait before cancelling a task in a polling Tentacle's queue. For more details on what the Polling Tentacle queue is see the documentation on [Tentacle communication modes](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication#polling-tentacles)
+:::figure
+![](/docs/img/infrastructure/deployment-targets/machine-policies/machine-policies-connectivity-polling-queue.png)
 :::
 
 ## Assign machine policies to machines
