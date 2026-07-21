@@ -50,7 +50,9 @@ You can update the following in a release:
 - Variables
 - Version number
 
-You cannot, however, change the deployment process in the release snapshot.
+Please note that changing the channel of a release is only allowed where all the steps previously applicable (with respect to any channel filters) will still be applicable with the new channel.
+
+You cannot change the deployment process in the release snapshot.
 
 Never modify a release unless it is absolutely necessary. A release represents a snapshot in time, and it should be the same when deploying to the different stages or environments in your pipeline. Changing it after the fact can lead to unpredictable results.
 
