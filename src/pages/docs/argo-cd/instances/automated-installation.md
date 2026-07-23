@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2026-03-26
+modDate: 2026-07-21
 title: Automated Installation
 description: Install Argo CD instances via scripting or IAC
 navOrder: 10
@@ -110,6 +110,51 @@ resource "helm_release" "argo_gateway" {
   }]
 }
 ```
+
+## Registering a gateway in multiple spaces
+
+From 2026.x.y onwards, a single gateway installation can be registered in more than one space, making the same Argo CD instance available in each of them.
+
+By default, every registered space discovers all of the instance's applications. To limit an application to specific spaces, use the [space scoping annotation](/docs/argo-cd/annotations#scoping-applications-to-spaces).
+
+### Using Helm values
+
+Set `registration.octopus.spaceIds` and the gateway registers itself into each listed space:
+
+```bash
+--set 'registration.octopus.spaceIds={Spaces-1,Spaces-2,Spaces-3}' \
+```
+
+### Using the REST API
+
+You can also register an already-installed gateway in another space with the REST API by setting `PreserveAuthenticationToken` to `true`.
+
+First, find the gateway's client ID by getting its registration from the space it was initially installed into. The gateway ID (e.g. `ArgoCDGateways-1`) is shown in the URL of the Argo CD instance page in Octopus.
+
+```bash
+curl -H "X-Octopus-ApiKey: API-YOUR-KEY" \
+  "https://your-octopus-url/api/Spaces-1/argocdgateways/ArgoCDGateways-1"
+```
+
+The response includes a `ClientId` value, which is used to re-register the gateway in the new space. To run the registration in a new space:
+
+```bash
+curl -X POST \
+  -H "X-Octopus-ApiKey: API-YOUR-KEY" \
+  -H "Content-Type: application/json" \
+  "https://your-octopus-url/api/<new space ID>/argocdgateways" \
+  -d '{
+    "SpaceId": "<new space ID>",
+    "ClientId": "<client id from the existing registration>",
+    "Name": "<display name of gateway in Octopus>",
+    "Environments": [],
+    "PreserveAuthenticationToken": true
+  }'
+```
+
+When `PreserveAuthenticationToken` is `true`, the response's `AuthenticationToken` is null and the existing token remains valid.
+
+Deleting a registration only removes the gateway from that space. The gateway's authentication token stays valid while it's registered in at least one space.
 
 ## Installing as an Argo CD Application
 
