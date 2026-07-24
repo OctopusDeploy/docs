@@ -20,7 +20,7 @@ jobs:
           service_account_id: ${{ secrets.OCTOPUS_SERVICE_ACCOUNT_ID }}
 
       - name: 🐙 Deprovision Ephemeral Environment Action
-        uses: OctopusDeploy/deprovision-ephemeral-environment@v1.0.4
+        uses: OctopusDeploy/deprovision-ephemeral-environment@v1.0.5
         with:
           name: pr${{ github.event.pull_request.number }}
           space: Microsites
