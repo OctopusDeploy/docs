@@ -28,17 +28,17 @@ You can use your own SSL certificate which could be signed by any trusted Certif
 1. On the "Select Computer" page of the Wizard, select the **Local computer**, then click **Finish**. Click **OK** to close the Add/Remove Snap-ins dialog.
 1. You can either import the certificate to the **Personal** store, or the **Web Hosting** store (this store may or may not exist on your server). Expand to the Certificates directory, then open the import wizard:
 
-    ![](/docs/img/security/exposing-octopus/images/3278100.png)
+    ![Certificate Management Console](/docs/img/security/exposing-octopus/images/3278100.png)
 
 1. Follow the steps in the wizard to import your certificate. Your certificate will normally be in a .**PFX** file, and it should include both the **public** X.509 certificate, and the **private key** for the certificate.
 
 1. Once the certificate is imported, double click the certificate to bring up the properties. You should see an icon indicating that the private key has also been imported:
 
-    ![](/docs/img/security/exposing-octopus/images/3278099.png)
+    ![Certificate Details](/docs/img/security/exposing-octopus/images/3278099.png)
 
 1. If all these requirements have been met (**private key** imported, either the **Web Hosting** or **Personal** stores, in the **Local Computer** scope), the certificate should appear when you select to use an existing certificate when adding your HTTPS binding:
 
-    ![](/docs/img/security/exposing-octopus/images/ssl.png)
+    ![Octopus Add Bindings Pop-Up](/docs/img/security/exposing-octopus/images/ssl.png)
 
 ### Let Octopus generate a self-signed certificate
 
@@ -54,15 +54,15 @@ If you are bringing your own SSL certificate, or want to configure a complex set
 
 1. Open the **Octopus Manager** application on the Octopus Server. You'll find this in the start menu.
 
-    ![](/docs/img/security/exposing-octopus/images/3278103.png)
+    ![Octopus Manager App](/docs/img/security/exposing-octopus/images/3278103.png)
 
 1. From Octopus Manager, you can launch a wizard to modify the bindings that are associated with the Octopus Web Portal:
 
-    ![](/docs/img/security/exposing-octopus/images/bindings.png)
+    ![Octopus Manager Change Bindings](/docs/img/security/exposing-octopus/images/bindings.png)
 
 1. In the Web Bindings wizard, click **Add...** to add a new binding, and choose the HTTPS scheme. Other options such as the port can also be configured here.
 
-    ![](/docs/img/security/exposing-octopus/images/addingssl.png)
+    ![Octopus Manager Add Binding](/docs/img/security/exposing-octopus/images/addingssl.png)
 
     Since HTTPS requires an SSL certificate, you can either choose to generate a new, self-signed (untrusted) certificate, or to select an existing certificate. Self-signed certificates are useful for testing or to achieve encryption without trust, but for production use we recommend using a trusted SSL certificate.
 
@@ -78,7 +78,7 @@ The approach for updating an existing binding requires that we take a slightly d
 
 1. Click **Add...** to recreate the binding, and choose the relevant certificate via the **Select...** option in the `Add Binding` pop-up. Click **OK** to return to the bindings list.
 
-    ![](/docs/img/security/exposing-octopus/images/updatessl.png)
+    ![Octopus Manager Add Binding Pop-Up](/docs/img/security/exposing-octopus/images/updatessl.png)
 
     > At this point, the bindings have not changed yet, as we haven't yet applied this change to the server.
 
@@ -93,7 +93,7 @@ A common scenario when hosting the Octopus Server is to redirect all requests in
 1. Test you can use Octopus with either `http://` or `https://` schemes without being redirected (the scheme stays the same) - this proves both endpoint bindings are working as expected.
 1. Configure Octopus to `Redirect HTTP requests to HTTPS` - you can do this using the Octopus Server Manager application where you configure the bindings as soon as you have configured an HTTPS binding.
 
-    ![](/docs/img/security/exposing-octopus/images/forcessl.png)
+    ![Octopus Web Bindings Wizard - Force SSL](/docs/img/security/exposing-octopus/images/forcessl.png)
 
 ## HTTP strict transport security (HSTS) {#hsts}
 
