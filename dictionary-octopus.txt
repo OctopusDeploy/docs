@@ -474,6 +474,10 @@ rootelement
 Rootfs
 rsae
 RSASSA
+rollout
+rollouts
+Rollout
+Rollouts
 rstrip
 runbook
 runbookprocesses
