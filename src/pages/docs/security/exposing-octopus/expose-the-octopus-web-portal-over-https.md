@@ -101,7 +101,7 @@ HTTP Strict Transport Security is an HTTP header that can be used to tell the we
 
 **Octopus 3.13** and above can send this header, but due to the potential pitfalls, it is opt-in. To switch it on, run the following commands on your Octopus Server:
 
-```
+```powershell
 PS \> Octopus.Server.exe configure --hstsEnabled=true --hstsMaxAge=31556926
 PS \> Octopus.Server.exe service --stop --start
 ```
@@ -115,7 +115,8 @@ We highly recommend using a short value for `hstsMaxAge`, like 1 hour (3600 seco
 :::div{.warning}
 Please note that enabling HSTS comes with its own challenges. For example:
 
-* Untrusted / self-signed certificates will not work with HSTS - the certificate chain needs to be fully trusted by the browser.
-* Your Octopus Server must be hosted on standard ports - HTTP on port 80 and HTTPS on port 443.
-* Reverting from HTTPS to HTTP will not be simple - each browser will need to be manually reconfigured to remove the HSTS entry.
+- Untrusted / self-signed certificates will not work with HSTS - the certificate chain needs to be fully trusted by the browser.
+- Your Octopus Server must be hosted on standard ports - HTTP on port 80 and HTTPS on port 443.
+- Reverting from HTTPS to HTTP will not be simple - each browser will need to be manually reconfigured to remove the HSTS entry.
+
 :::
