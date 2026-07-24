@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-01-13
+modDate: 2026-05-26
 title: Troubleshooting failed or hanging tasks
 description: A guide for troubleshooting tasks that fail unexpectedly or are unresponsive
 navOrder: 8
@@ -62,6 +62,10 @@ In some instances, Octopus will automatically trigger the failure of a task that
 - The overall task will be marked as failed
 
 This is generally indicative of an internal error in Octopus. In Octopus Cloud we actively monitor for these issues, but please reach out to support for further assistance, especially if the problem persists.
+
+### Automatic recovery for hanging tasks
+
+Octopus Tentacle can automatically recover from many hanging-task scenarios by abandoning the affected script and releasing the per-target mutex. See [Tentacle script abandonment](/docs/infrastructure/deployment-targets/tentacle/tentacle-script-abandonment) for what triggers this, what you'll see in the task log, and what to do about the underlying cause.
 
 ### Antivirus software {#anti-virus-software}
 
