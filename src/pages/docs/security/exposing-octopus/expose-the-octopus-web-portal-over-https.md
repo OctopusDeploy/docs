@@ -74,9 +74,9 @@ The approach for updating an existing binding requires that we take a slightly d
 
 1. Open the **Change bindings...** screen, as in [Changing Your Web Portal Bindings Manually](#change-web-portal-bindings) steps 1 & 2.
 
-1. Select the binding that you are interested in updating the SSL Certificate for and click **Add...** to open the details. Note these details and click **OK** to return to the binding list.
+1. Click **Remove** to remove the existing binding that needs to be replaced.
 
-1. Click **Remove** and then **Add...** to recreate the binding, using the details from the previous step. When selecting the SSL Certificate, select the desired certificate. Click **OK** to return to the bindings list.
+1. Click **Add...** to recreate the binding, and choose the relevant certificate via the **Select...** option in the `Add Binding` pop-up. Click **OK** to return to the bindings list.
 
     ![](/docs/img/security/exposing-octopus/images/updatessl.png)
 
