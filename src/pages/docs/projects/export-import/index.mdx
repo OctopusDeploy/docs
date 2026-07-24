@@ -9,16 +9,16 @@ navOrder: 40
 import OctopusCloudStorageLimits from 'src/shared-content/octopus-cloud/octopus-cloud-storage-limits.include.md';
 
 :::div{.hint}
-For full instructions on migrating to Octopus Cloud see our [migration docs](/docs/octopus-cloud/migrations) 
+For full instructions on migrating to Octopus Cloud see our [migration docs](/docs/octopus-cloud/migrations).
 :::
 
 :::div{.warning}
 Migrations can only be performed from an earlier or equal version of Octopus Server. It cannot be used to migrate resources to an older version.
 :::
 
-The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance, and projects can be exported and imported between self-hosted and Octopus Cloud instances (see below for some [specific considerations when moving a project to Octopus Cloud](#octopus-cloud)). 
+The `Export/Import Projects` feature can export one or more projects into a zip file, which can then be imported into other spaces.  The target space may be in a different Octopus Server instance, and projects can be exported and imported between self-hosted and Octopus Cloud instances (see below for some [specific considerations when moving a project to Octopus Cloud](#octopus-cloud)).
 
-Export/Import features are found in the overflow menu on the **Projects** page. 
+Export/Import features are found in the overflow menu on the **Projects** page.
 
 :::figure
 ![Import Export Menu](/docs/img/projects/export-import/import-export-menu.png)
@@ -39,36 +39,39 @@ The export runs as a task. Once the task is complete, the export zip file is att
 ## Scenarios
 
 The current implementation of the Export/Import feature was designed for moving a project between spaces, specifically:
+
 - Moving from a self-hosted instance to an Octopus Cloud instance
 - Splitting a space containing many projects into multiple spaces
 
-Scenarios this feature was _not_ designed for include:
-- Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore) to disaster-recovery for your Octopus instance.    
-- Cloning projects _within_ a space. There is an [easier way to achieve this](/docs/projects/#clone-a-project).  
-- Promoting changes between environments on different Octopus instances. See below. 
+Scenarios this feature was *not* designed for include:
+
+- Backup/restore.  See our [recommended approach](/docs/administration/data/backup-and-restore) to disaster-recovery for your Octopus instance.
+- Cloning projects *within* a space. There is an [easier way to achieve this](/docs/projects/#clone-a-project).  
+- Promoting changes between environments on different Octopus instances. See below.
 
 ### Promoting changes between Octopus instances
 
 There are scenarios where it is desirable to create releases and deploy them to test environments on a development Octopus instance before promoting the changes to another instance.  This can be due to reasons including:
-- security requirements (e.g. air-gapped environments) 
+
+- security requirements (e.g. air-gapped environments)
 - multi-tenancy (deploying Octopus to customer infrastructure)
-- maintaining strict control over the changes made to the production Octopus instance 
+- maintaining strict control over the changes made to the production Octopus instance
 
 The export/import feature does not currently support these promotion scenarios. It will not import a project if it already exists in the target space.  
-The ability to import an existing project will likely be added in a future release. 
+The ability to import an existing project will likely be added in a future release.
 
 ## What is imported
 
 The root of the export/import is a project (or multiple projects).  The simple rule-of-thumb is everything the project references is included. Specifically:
 
-- The project (name, settings)   
-- The deployment process and runbooks 
-- Project variables 
-- Channels, and all lifecycles referenced 
+- The project (name, settings)
+- The deployment process and runbooks
+- Project variables (including sensitive values)
+- Channels, and all lifecycles referenced
 - Environments (see [below](#environments) for details)
 - [Tenants](#tenants) connected to the project
 - [Accounts](#accounts) and [certificates](#certificates) used by the project
-- [Variable sets](#library-variable-sets) included in the project 
+- [Variable sets](#library-variable-sets) included in the project
 - [Step templates](#step-templates) used in the deployment process or runbooks
 - Other projects referenced by [Deploy Release steps](/docs/projects/coordinating-multiple-projects/deploy-release-step)
 - [Git credentials](#git-credentials) used for a projects version-control settings
@@ -79,7 +82,7 @@ It is worth explicitly mentioning some things that are **not included**:
 - [Deployment targets](#deployment-targets)
 - [Audit logs](#audit-logs)
 - [Workers](#workers)
-- [Project logos](#project-logos) 
+- [Project logos](#project-logos)
 - [Triggers](#triggers)
 - [Limitations for version-controlled projects](#limitations-for-version-controlled-projects)
 - [Project release deployment history](#audit-logs)
@@ -117,21 +120,21 @@ An alternative is to create a new Tentacle on the same machine.  This gives the 
 
 ### Packages \{#packages}
 
-Packages from the built-in feed are _not_ included in the export (this is to avoid extremely large export bundles).
+Packages from the built-in feed are *not* included in the export (this is to avoid extremely large export bundles).
 
-Packages can be copied between spaces via the Octopus API.  [This PowerShell script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/SyncPackages.ps1) does this (please consider the [package storage limits when moving packages to Octopus Cloud](#octopus-cloud)) 
+Packages can be copied between spaces via the Octopus API.  [This PowerShell script](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Feeds/SyncPackages.ps1) does this (please consider the [package storage limits when moving packages to Octopus Cloud](#octopus-cloud))
 
 ### Users \{#users}
 
 Users are not exported, as they are not directly associated with projects.  
 
-Any teams which are referenced by projects (for example via manual intervention steps or email steps) will be created if they do not exist in the target space. These teams will be empty. 
+Any teams which are referenced by projects (for example via manual intervention steps or email steps) will be created if they do not exist in the target space. These teams will be empty.
 
 ### Workers \{#workers}
 
-[Workers](/docs/infrastructure/workers/) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created. 
+[Workers](/docs/infrastructure/workers/) are not included in the export. [Worker pools](/docs/infrastructure/workers/worker-pools) referenced by any steps (or variables) will attempt to match by name on the target, and if a matching pool does not exist then an empty pool will be created.
 
-If moving from a self-hosted to an Octopus Cloud instance, any steps which are configured to `Run on Server` will be converted to run on the default worker pool on import (`Run on server` is not supported on Octopus Cloud). 
+If moving from a self-hosted to an Octopus Cloud instance, any steps which are configured to `Run on Server` will be converted to run on the default worker pool on import (`Run on server` is not supported on Octopus Cloud).
 
 If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Worker Pools](/docs/infrastructure/workers/dynamic-worker-pools) will be converted to static worker pools on import (dynamic worker pools are not supported on self-hosted instances).
 
@@ -143,13 +146,13 @@ If moving from an Octopus Cloud instance to a self-hosted instance, [Dynamic Wor
 
 All [tenants](/docs/tenants) connected to the project will be included in the export.
 
-On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant. 
+On import, for any tenants which already exist on the destination the project/environment connections in the export will be merged into the existing tenant.
 
-### Variable Sets \{#library-variable-sets} 
+### Variable Sets \{#library-variable-sets}
 
-[Variable sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables. 
+[Variable sets](/docs/projects/variables/library-variable-sets) connected to the project will be exported, including all variables.
 
-When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. 
+When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn't exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched.
 
 ### Step templates
 
@@ -159,26 +162,26 @@ When importing, if a variable set with the same name already exists, the variabl
 Care should be taken with step templates when exporting/importing projects at different times
 :::
 
-Projects reference specific versions of a step template. When importing, if a step template with the same name and version already exists on the destination the existing step template version will be used. If the step template already exists, but the imported version is greater than the latest on the destination then the version included in the import will be imported into the destination, effectively incrementing the step template.  Existing projects on the destination will initially not be impacted, as they will be referencing a specific version which will remain unchanged, but care should be taken on future updates of the step template version in these projects. 
+Projects reference specific versions of a step template. When importing, if a step template with the same name and version already exists on the destination the existing step template version will be used. If the step template already exists, but the imported version is greater than the latest on the destination then the version included in the import will be imported into the destination, effectively incrementing the step template.  Existing projects on the destination will initially not be impacted, as they will be referencing a specific version which will remain unchanged, but care should be taken on future updates of the step template version in these projects.
 
 ### Accounts
 
 Any accounts which can be referenced via the project will be included in the export.  This includes:
 
-- Accounts which are the value of the project's variables 
+- Accounts which are the value of the project's variables
 - Accounts which are the value of variables in variable sets connected to the project
 - Accounts referenced directly from deployment process steps
 
-When importing, if an account with the same name already exists on the destination, the existing account will be used. 
+When importing, if an account with the same name already exists on the destination, the existing account will be used.
 
 ### Certificates
 
 Any certificates which can be referenced via the project will be included in the export.  This includes:
 
-- Certificates which are the value of the project's variables 
+- Certificates which are the value of the project's variables
 - Certificates which are the value of variables in variable sets connected to the project
 
-When importing, if a certificate with the same name already exists on the destination, the existing certificate will be used. 
+When importing, if a certificate with the same name already exists on the destination, the existing certificate will be used.
 
 ### Project logos
 
@@ -191,7 +194,6 @@ Triggers are also not currently included, and will need to be reconfigured in th
 ### Git Credentials
 
 Git credentials used to connect a project to Git will be exported.
-
 
 ### Limitations for version-controlled projects
 
@@ -246,6 +248,7 @@ Automating the export and import of projects using the REST API as part of a bac
 You can use the [Octopus REST API](/docs/octopus-rest-api) to export or import Octopus projects.
 
 To find out more take a look at our examples:
+
 - [Export projects](/docs/octopus-rest-api/examples/projects/export-projects)
 - [Import projects](/docs/octopus-rest-api/examples/projects/import-projects)
 
