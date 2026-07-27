@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-10-20
-modDate: 2024-11-11
+modDate: 2026-07-27
 title: Prioritize Tasks
 description: Tasks can be manually prioritized to run before other earlier queued tasks.
 ---
@@ -29,6 +29,8 @@ In Octopus **2024.4** we have redesigned the task system. Tasks are processed ba
 - Regular tasks
 
 Within each category, tasks are handled on a first in, first out basis.
+
+From Octopus **2026.2**, when more than one project has queued priority tasks, Octopus shares the task cap between those projects so a single project can't monopolize the queue. See the [fairer task queue](/docs/tasks/fairer-task-queue) for more information.
 
 ## Lifecycle phases
 
