@@ -45,6 +45,7 @@ You can use the configuration screen to enable or disable the rate limiting poli
 :::
 
 Each policy has the following settings you can modify:
+
 - **Enabled**: This controls whether the policy is applied to incoming HTTP requests. If a policy is disabled then matching requests will not be limited.
 - **Audit mode**: If enabled, this causes the Server not to reject traffic, but simply generate audit events where requests would have been limited. See "Audit Events" below.
 - **Rate**: The sustained rate of incoming HTTP requests that the limiter will allow. See [Understanding the Rate Limiter](#understanding-the-rate-limiter).
