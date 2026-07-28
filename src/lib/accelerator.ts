@@ -9,13 +9,13 @@ import { SITE } from '@config';
 // ~1,270 content pages and 6-8 call sites per page that measured at ~23s of
 // the build, all of it recomputing an identical answer.
 //
-// Nothing here changes behaviour: the page set is fixed for the duration of a
+// Nothing here changes behavior: the page set is fixed for the duration of a
 // build, so one snapshot is correct for every page.
 
 const accelerator = new Accelerator(SITE);
 
 // Capture the originals *before* shadowing, so the prototype getters still run
-// once each and see the real (unmemoized) dependencies.
+// once each and see the real dependencies.
 const cache = accelerator.cache;
 const urlFormatter = accelerator.urlFormatter;
 const markdown = accelerator.markdown;
@@ -24,7 +24,7 @@ const posts = accelerator.posts;
 
 // Resolved lazily, never at module-init time: Posts.all() runs an eager
 // import.meta.glob over every page, so forcing it during module init would
-// pull page modules in before their own imports have finished initialising and
+// pull page modules in before their own imports have finished initializing and
 // hand back undefined entries.
 //
 // Navigation.breadcrumbs() splices the array it is handed, so return a fresh
