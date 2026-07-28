@@ -26,32 +26,38 @@
 :root {
   --page-inline-margin: 2rem;
 
-  /* Theme colors */
-  --black: #000000ff;
-  --white: #ffffffff;
+  /* Theme colors
+     The palette entries below map 1:1 onto the design system's colour scales
+     from @octopusdeploy/design-system-tokens. Scales are theme-invariant, so
+     these values are the same in light and dark; the semantic variables
+     further down are what differ between themes. */
+  --black: var(--colorScalesBlack);
+  --white: var(--colorScalesWhite);
 
-  --navy-700: #2e475dff;
-  --navy-600: #3e607dff;
-  --navy-400: #7c98b4ff;
-  --navy-300: #a9bbcbff;
-  --navy-200: #dae2e9ff;
-  --navy-100: #f4f6f8ff;
+  --navy-700: var(--colorScalesNavy700);
+  --navy-600: var(--colorScalesNavy600);
+  --navy-400: var(--colorScalesNavy400);
+  --navy-300: var(--colorScalesNavy300);
+  --navy-200: var(--colorScalesNavy200);
+  --navy-100: var(--colorScalesNavy100);
 
-  --blue-500: #1a77ca;
-  --blue-200: #cde4f7;
-  --blue-100: #f2f8fd;
+  --blue-500: var(--colorScalesBlue500);
+  --blue-200: var(--colorScalesBlue200);
+  --blue-100: var(--colorScalesBlue100);
+  /* No scale equivalent */
   --blue-qqq: #fafdff;
 
   /* TODO: remove green-400 as it's being used in one place only */
-  --green-400: #00ab62;
-  --green-500: #00874d;
+  --green-400: var(--colorScalesGreen400);
+  --green-500: var(--colorScalesGreen500);
+  /* Brand greens, no scale equivalent */
   --green: #00e693ff;
   --light-green: #00ffa3ff;
 
-  --red-500: #d63d3d;
+  --red-500: var(--colorScalesRed500);
 
-  --orange-400: #ea7325;
-  --orange-500: #c45317;
+  --orange-400: var(--colorScalesOrange400);
+  --orange-500: var(--colorScalesOrange500);
 
   --blue-midnight-dark: #070e14ff;
   --blue-midnight-darker: #0a202fff;
@@ -63,11 +69,12 @@
   --blue-grey-medium: #113049ff;
   --blue-grey: var(--navy-700);
   --blue-grey-light: #274b66ff;
-  --blue-grey-lighter: #557999ff;
+  /* This is navy 500 in the design system's scale */
+  --blue-grey-lighter: var(--colorScalesNavy500);
   --blue-grey-smoke: #c5e6ff66;
 
   --grey: #555555ff; /* #777777 is low contrast (WCAG) */
-  --grey-500: #757575; /* #777777 is low contrast (WCAG) */
+  --grey-500: var(--colorScalesGrey500); /* #777777 is low contrast (WCAG) */
   --grey-light: #eef0f2ff;
   --grey-lighter: var(--navy-100);
 
