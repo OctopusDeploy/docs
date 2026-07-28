@@ -27,7 +27,7 @@
   --page-inline-margin: 2rem;
 
   /* Theme colors
-     The palette entries below map 1:1 onto the design system's colour scales
+     The palette entries below map 1:1 onto the design system's color scales
      from @octopusdeploy/design-system-tokens. Scales are theme-invariant, so
      these values are the same in light and dark; the semantic variables
      further down are what differ between themes. */
