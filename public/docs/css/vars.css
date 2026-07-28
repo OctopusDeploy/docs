@@ -42,7 +42,9 @@
 
   --blue-500: var(--colorScalesBlue500);
 
-  /* TODO: remove green-400 as it's being used in one place only */
+  /* TODO: --green-400 only colors two icons in main.css (.fa-circle-check and
+     .fa-heart.green). Those could use --colorIconSuccess instead, which would
+     retire this entry. */
   --green-400: var(--colorScalesGreen400);
   --green-500: var(--colorScalesGreen500);
   /* Brand greens, no scale equivalent */
@@ -102,40 +104,40 @@
 
   --navigation-width: 21.25rem;
 
-  --bg-color-tab: var(--navy-200);
+  --bg-color-tab: var(--colorBackgroundTertiary);
   --border-color-tab: var(--colorBorderPrimary);
   --border-color-tab-active: var(--colorBorderTertiary);
 
-  --color-hint: #124164;
-  --bg-color-hint: var(--lightest-blue);
-  --border-color-hint: var(--blue-500);
+  --color-hint: var(--colorTextPrimary);
+  --bg-color-hint: var(--colorBackgroundInfo);
+  --border-color-hint: var(--colorBorderInfo);
 
-  --color-info: #124164;
-  --bg-color-info: var(--lightest-blue);
-  --border-color-info: var(--blue-500);
+  --color-info: var(--colorTextPrimary);
+  --bg-color-info: var(--colorBackgroundInfo);
+  --border-color-info: var(--colorBorderInfo);
 
-  --color-success: #04502f;
-  --bg-color-success: #e8ffeb;
-  --border-color-success: var(--brandGreen);
+  --color-success: var(--colorTextPrimary);
+  --bg-color-success: var(--colorBackgroundSuccess);
+  --border-color-success: var(--colorBorderSuccess);
 
-  --color-warning: #a23623;
-  --bg-color-warning: #fefae9;
-  --border-color-warning: #fc8431;
+  --color-warning: var(--colorTextPrimary);
+  --bg-color-warning: var(--colorBackgroundWarning);
+  --border-color-warning: var(--colorBorderWarning);
 
-  --color-problem: #931919;
-  --bg-color-problem: #fff2ee;
-  --border-color-problem: #ff4848;
+  --color-problem: var(--colorTextPrimary);
+  --bg-color-problem: var(--colorBackgroundDanger);
+  --border-color-problem: var(--colorBorderDanger);
 
   --duration-default: 300ms;
 
   --code-color: var(--color-text);
   --code-background: var(--colorBackgroundSecondaryDefault);
 
-  /* Backgrounds TODO - update with design system */
+  /* Backgrounds */
   --background-light: var(--colorBackgroundSecondaryDefault);
   --background-default: var(--colorBackgroundPrimaryDefault);
 
-  /* Borders TODO - update with design system */
+  /* Borders */
   --border-default-color: var(--colorBorderPrimary);
 
   /* Separator */
@@ -181,7 +183,7 @@
   --hamburger-translate-y: calc(
     var(--hamburger-line-height) + var(--hamburger-line-margin)
   );
-  --hamburger-lines-color: var(--blue-grey-light);
+  --hamburger-lines-color: var(--colorIconPrimary);
 
   /* Theme Switcher */
   --theme-switcher-border: var(--colorBorderPrimary);
@@ -199,7 +201,6 @@
   /* To be checked and cleaned */
 
   --octo-blue: var(--colorTextLinkDefault);
-  --lightest-blue: #e5f4ffff;
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
 
@@ -213,12 +214,9 @@
   --code-font: Consolas, monaco, monospace;
 
   --header-bg: var(--colorBackgroundPrimaryDefault);
-  --header-icon-stroke: var(--blue-grey-light);
   --header-link-color: var(--octo-blue);
   --header-link-alt: var(--blue-gray-darker);
-  --header-link-alt-bg: var(--blue-grey-smoke);
 
-  --image-bg: var(--blue-grey-smoke);
   --content-bg: var(--white);
 
   --body-link-color: var(--octo-blue);
@@ -227,7 +225,7 @@
   --footer-link-color: var(--navy-200);
 
   --icon-stroke: var(--white);
-  --icon-fill: var(--blue-grey-light);
+  --icon-fill: var(--colorIconSecondary);
 
   --octopus-logo-text-color: #0f2535;
 
@@ -262,18 +260,16 @@ html[data-theme='dark'] {
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
   --grey-lighter: var(--blue-grey-dark);
-  /* TODO: update this */
+  /* TODO: --navy-200 is still hand-themed because main.css uses it directly for
+     borders and one background (lines 112, 216, 262, 920, 2539). Point those at
+     --border-default-color / --bg-color-tab and this override can go. */
   --navy-200: #314c62;
-  /* TODO: update this */
+  /* TODO: --blue-grey is hand-themed for .card__description (main.css:1016).
+     That is secondary text, so --color-text-secondary already covers it. */
   --blue-grey: #dae2e9ff;
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
-  --color-hint: var(--color-text);
-  --bg-color-hint: rgba(13, 128, 216, 0.1);
-  --color-info: var(--color-text);
-  --bg-color-info: var(--blue-grey-light);
-  --hamburger-lines-color: var(--white);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --header-icon-border: transparent;
