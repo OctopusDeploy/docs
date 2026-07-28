@@ -87,14 +87,22 @@ test.describe('theme', () => {
       await expect(page.locator(mobileInput)).not.toBeChecked();
     });
 
-    test('is operable by keyboard', async ({ page }) => {
-      await page.goto(home);
+    // Space is the native checkbox key; Enter is optional for role="switch"
+    // but the control supported it before, so both have to keep working.
+    for (const key of ['Space', 'Enter']) {
+      test(`is operable with ${key}`, async ({ page }) => {
+        await page.goto(home);
+        await page.locator(headerInput).focus();
 
-      await page.locator(headerInput).focus();
-      await page.keyboard.press('Space');
+        await page.keyboard.press(key);
+        expect(await theme(page)).toBe('dark');
+        await expect(page.locator(headerInput)).toBeChecked();
 
-      expect(await theme(page)).toBe('dark');
-    });
+        await page.keyboard.press(key);
+        expect(await theme(page)).toBe('light');
+        await expect(page.locator(headerInput)).not.toBeChecked();
+      });
+    }
   });
 
   // Regression guard: the knob used to be driven by a JS-applied class, so it

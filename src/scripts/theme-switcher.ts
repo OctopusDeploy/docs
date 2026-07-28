@@ -84,9 +84,20 @@ function bind() {
   checkboxes().forEach((box) => {
     if (box.dataset.themeBound) return;
     box.dataset.themeBound = 'true';
+
+    // Covers mouse, touch, label clicks and Space.
     box.addEventListener('change', () =>
       setTheme(box.checked ? 'dark' : 'light')
     );
+
+    // A checkbox ignores Enter. The switch role treats it as an optional
+    // second activation key, and this control supported it before.
+    box.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      box.checked = !box.checked;
+      setTheme(box.checked ? 'dark' : 'light');
+    });
   });
 }
 
