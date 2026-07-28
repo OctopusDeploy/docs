@@ -1,12 +1,15 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 
+// Override with PLAYWRIGHT_PORT to run the suite alongside a dev server.
+const port = Number(process.env.PLAYWRIGHT_PORT ?? 3000);
+
 // See https://playwright.dev/docs/test-configuration
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   timeout: 30 * 60 * 1000,
   expect: {
-    timeout: 5 * 1000
+    timeout: 5 * 1000,
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -15,7 +18,7 @@ const config: PlaywrightTestConfig = {
   reporter: 'list',
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:3000',
+    baseURL: `http://localhost:${port}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -28,8 +31,8 @@ const config: PlaywrightTestConfig = {
   ],
   outputDir: 'test-results/',
   webServer: {
-    command: 'npm run preview',
-    port: 3000,
+    command: `npm run preview -- --port ${port}`,
+    port,
   },
 };
 
