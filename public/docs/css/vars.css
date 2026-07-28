@@ -42,9 +42,7 @@
 
   --blue-500: var(--colorScalesBlue500);
 
-  /* TODO: --green-400 only colors two icons in main.css (.fa-circle-check and
-     .fa-heart.green). Those could use --colorIconSuccess instead, which would
-     retire this entry. */
+  /* TODO: remove green-400 as it's being used in one place only */
   --green-400: var(--colorScalesGreen400);
   --green-500: var(--colorScalesGreen500);
   /* Brand greens, no scale equivalent */
