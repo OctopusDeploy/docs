@@ -1,5 +1,6 @@
 ---
-import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering } from 'astro-accelerator-utils';
 import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { getImageInfo } from '@util/custom-markdown.mjs';
@@ -42,8 +43,6 @@ const lang = frontmatter.lang ?? SITE.default.lang;
 const textDirection = frontmatter.dir ?? SITE.default.dir;
 
 // Logic
-const accelerator = new Accelerator(SITE);
-
 const metaImage = frontmatter.bannerImage
   ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
   : null;

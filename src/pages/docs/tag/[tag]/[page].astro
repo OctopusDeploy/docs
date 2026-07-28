@@ -2,11 +2,8 @@
 // warning: This file is overwritten by Astro Accelerator
 
 // For listing by frontmatter.tags
-import {
-  PostFiltering,
-  PostOrdering,
-  Accelerator,
-} from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering, PostOrdering } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
 import type { Page } from 'astro';
@@ -16,7 +13,6 @@ import Default from 'src/layouts/Default.astro';
 import ArticleList from '@components/ArticleList.astro';
 import PagingLinks from '@components/PagingLinks.astro';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('pages/authors/[tag]/[page].astro');
 stats.start();
 

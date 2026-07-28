@@ -1,5 +1,5 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
 import { Lang } from '@util/Languages';
 import { Translations } from '@util/Languages';
 import { SITE } from '@config';
@@ -8,7 +8,6 @@ import { SITE } from '@config';
 const _ = Lang('en');
 
 // Logic
-const accelerator = new Accelerator(SITE);
 
 const links = accelerator.taxonomy.links(Translations, _, SITE.subfolder);
 const entries = accelerator.taxonomy.all();
