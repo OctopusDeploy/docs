@@ -5,8 +5,12 @@
  * place to stop the three drifting apart.
  *
  * `data-theme` on <html> is always exactly 'light' or 'dark' - never absent,
- * never 'system'. Design token stylesheets can therefore key off
- * [data-theme='light'] and [data-theme='dark'] with no :root fallback needed.
+ * never 'system'. The design token stylesheets key off [data-theme='light'] and
+ * [data-theme='dark'] and define nothing at :root, so the attribute has to be
+ * there unconditionally: layouts/Default.astro renders 'light' as the server
+ * default, and ThemeScript.astro resolves the real value before first paint.
+ * With scripting disabled the default stands and the tokens still resolve.
+ *
  * This holds for anything rendered through layouts/Default.astro; the
  * src/pages/report/*.astro pages build their own <html> and sit outside it.
  *

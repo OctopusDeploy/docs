@@ -109,6 +109,22 @@ test.describe('theme', () => {
     }
   });
 
+  // The design token stylesheets define their custom properties only under
+  // [data-theme='light'] / [data-theme='dark'] and nothing at :root, so a page
+  // with no attribute resolves no tokens at all. The server-rendered default in
+  // layouts/Default.astro is what keeps that from happening without scripting.
+  test.describe('with scripting disabled', () => {
+    test.use({ javaScriptEnabled: false });
+
+    test('still carries a data-theme for the tokens to key off', async ({
+      page,
+    }) => {
+      await page.goto(home);
+
+      await expectTheme(page, 'light');
+    });
+  });
+
   // Regression guard: the knob used to be driven by a JS-applied class, so it
   // painted on the light side and slid across after hydration. Driving it from
   // data-theme means the attribute alone decides the position.

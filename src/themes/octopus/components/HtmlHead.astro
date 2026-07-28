@@ -8,8 +8,9 @@ import ThemeScript from '@components/ThemeScript.astro';
 import { ASSETS, ASSETS_ORIGIN } from 'src/lib/sharedNavbarFooter';
 
 // Design tokens as CSS custom properties. globals and textTheme apply at :root;
-// lightTheme and darkTheme are selected by the data-theme attribute set on
-// <html> by the inline theme script in HEADER_SCRIPTS.
+// lightTheme and darkTheme are selected by the data-theme attribute on <html> -
+// rendered as a default by layouts/Default.astro, then resolved before first
+// paint by <ThemeScript />. See src/lib/theme.ts.
 import '@octopusdeploy/design-system-tokens/css/globals.css';
 import '@octopusdeploy/design-system-tokens/css/textTheme.css';
 import '@octopusdeploy/design-system-tokens/css/lightTheme.css';
