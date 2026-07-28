@@ -24,8 +24,6 @@
 }
 
 :root {
-  color-scheme: light;
-
   --page-inline-margin: 2rem;
 
   /* Theme colors
@@ -265,8 +263,6 @@
 }
 
 html[data-theme='dark'] {
-  color-scheme: dark;
-
   --color-base-primary: #10202e;
   --color-menu-link: var(--navy-300);
   --color-menu-link-active: var(--navy-100);
