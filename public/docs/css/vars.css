@@ -253,6 +253,11 @@
 }
 
 html[data-theme='dark'] {
+  /* The side navigation is a recessed panel, darker than the page. The design
+     system's dark backgrounds only step lighter from
+     --colorBackgroundPrimaryDefault (#111A23 -> #1F303F -> #2E475D), so there
+     is no token for a surface below the page, and this stays hand-themed. */
+  --bg-color-menu: #0c1a24;
   --bg-color-menu-open: var(--blue-grey-dark);
   --body-link-alt: var(--white);
   --search-placeholder-color: var(--navy-400);
