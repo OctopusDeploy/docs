@@ -24,6 +24,9 @@ importers:
       '@astrojs/mdx':
         specifier: ^7.0.3
         version: 7.0.3(@astrojs/markdown-satteri@0.3.4)(astro@7.0.9(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@24.10.1)(rollup@4.60.3)(yaml@2.8.4))
+      '@octopusdeploy/design-system-tokens':
+        specifier: ^2026.3.8240
+        version: 2026.3.8240
       astro:
         specifier: ^7.0.9
         version: 7.0.9(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@24.10.1)(rollup@4.60.3)(yaml@2.8.4)
@@ -813,6 +816,9 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
+
+  '@octopusdeploy/design-system-tokens@2026.3.8240':
+    resolution: {integrity: sha512-SxabL5Y2bDD0kEEEtVUtTos3tiJ+2FEWTno1a40YVw/Y5eUbRnXUTChf4oVsRzw32GXpjBhxoTxiOBdOceeelA==}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -3928,6 +3934,8 @@ snapshots:
       '@emnapi/runtime': 1.11.1
       '@tybys/wasm-util': 0.10.3
     optional: true
+
+  '@octopusdeploy/design-system-tokens@2026.3.8240': {}
 
   '@oslojs/encoding@1.1.0': {}
 

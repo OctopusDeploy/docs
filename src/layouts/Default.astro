@@ -70,9 +70,9 @@ const isSearchPage =
 const showSearch = !isSearchPage;
 ---
 
-<html dir={textDirection} lang={lang} class="initial">
+<html dir={textDirection} lang={lang} class="initial" data-theme="light">
   <Head frontmatter={frontmatter} headings={headings} lang={lang} />
-  <body data-theme="dark">
+  <body>
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
     <Header
       frontmatter={frontmatter}

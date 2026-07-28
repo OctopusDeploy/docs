@@ -6,6 +6,14 @@ import { getEligibleSlugs } from '@util/mdxContent';
 import JsonLd from '@components/JsonLd.astro';
 import { ASSETS, ASSETS_ORIGIN } from 'src/lib/sharedNavbarFooter';
 
+// Design tokens as CSS custom properties. globals and textTheme apply at :root;
+// lightTheme and darkTheme are selected by the data-theme attribute set on
+// <html> by the inline theme script in HEADER_SCRIPTS.
+import '@octopusdeploy/design-system-tokens/css/globals.css';
+import '@octopusdeploy/design-system-tokens/css/textTheme.css';
+import '@octopusdeploy/design-system-tokens/css/lightTheme.css';
+import '@octopusdeploy/design-system-tokens/css/darkTheme.css';
+
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
 stats.start();
 
