@@ -24,8 +24,6 @@
 }
 
 :root {
-  /* Tells the browser to render scrollbars, form controls and the like to
-     match. Overridden in the dark block below. */
   color-scheme: light;
 
   --page-inline-margin: 2rem;
