@@ -7,6 +7,8 @@
  * `data-theme` on <html> is always exactly 'light' or 'dark' - never absent,
  * never 'system'. Design token stylesheets can therefore key off
  * [data-theme='light'] and [data-theme='dark'] with no :root fallback needed.
+ * This holds for anything rendered through layouts/Default.astro; the
+ * src/pages/report/*.astro pages build their own <html> and sit outside it.
  *
  * `data-theme-preference` records what the user actually chose, including
  * 'system'. Nothing styles off it today; it exists so a future three-state
@@ -18,7 +20,12 @@ export const THEME_ATTRIBUTE = 'data-theme';
 export const THEME_PREFERENCE_ATTRIBUTE = 'data-theme-preference';
 export const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
-/** Fired on <html> after the theme changes. detail: { theme, preference } */
+/**
+ * Fired on <html> after the theme changes. detail: { theme, preference }
+ *
+ * Does not fire at boot - the pre-paint script sets the attribute directly.
+ * Read `data-theme` for the current value and listen for later changes.
+ */
 export const THEME_CHANGE_EVENT = 'theme:change';
 
 export type Theme = 'light' | 'dark';

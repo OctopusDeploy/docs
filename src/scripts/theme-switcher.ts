@@ -91,12 +91,12 @@ function bind() {
     );
 
     // A checkbox ignores Enter. The switch role treats it as an optional
-    // second activation key, and this control supported it before.
+    // second activation key, and this control supported it before. Routed
+    // through click() so the change handler stays the only writer of state.
     box.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter') return;
       event.preventDefault();
-      box.checked = !box.checked;
-      setTheme(box.checked ? 'dark' : 'light');
+      box.click();
     });
   });
 }

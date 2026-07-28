@@ -708,7 +708,7 @@ nav.skip-links a:focus {
 
 /* Driven by the attribute the pre-paint script sets, not by a JS class, so the
    knob is in the right place on the first frame and every switcher agrees. */
-html[data-theme='dark'] .switch-slider {
+html[data-theme='dark'] .theme-switcher .switch-slider {
   transform: translateX(100%);
 }
 

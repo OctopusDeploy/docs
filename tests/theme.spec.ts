@@ -8,12 +8,16 @@ const headerLabel = 'label[for="theme-switcher"]';
 const mobileInput = '#theme-switcher-mobile';
 const slider = '#theme-switcher ~ .theme-switcher__label .switch-slider';
 
-function theme(page: Page) {
-  return page.locator('html').getAttribute('data-theme');
+// Auto-retrying so a slow style/attribute write can never make these flaky.
+function expectTheme(page: Page, value: string) {
+  return expect(page.locator('html')).toHaveAttribute('data-theme', value);
 }
 
-function preference(page: Page) {
-  return page.locator('html').getAttribute('data-theme-preference');
+function expectPreference(page: Page, value: string) {
+  return expect(page.locator('html')).toHaveAttribute(
+    'data-theme-preference',
+    value
+  );
 }
 
 function sliderTransform(page: Page) {
@@ -27,8 +31,8 @@ test.describe('theme', () => {
     test('follows the OS when nothing is stored', async ({ page }) => {
       await page.goto(home);
 
-      expect(await theme(page)).toBe('dark');
-      expect(await preference(page)).toBe('system');
+      await expectTheme(page, 'dark');
+      await expectPreference(page, 'system');
       await expect(page.locator(headerInput)).toBeChecked();
     });
 
@@ -38,11 +42,11 @@ test.describe('theme', () => {
       await page.goto(home);
       await page.locator(headerLabel).click();
 
-      expect(await theme(page)).toBe('light');
-      expect(await preference(page)).toBe('light');
+      await expectTheme(page, 'light');
+      await expectPreference(page, 'light');
 
       await page.goto(otherPage);
-      expect(await theme(page)).toBe('light');
+      await expectTheme(page, 'light');
       await expect(page.locator(headerInput)).not.toBeChecked();
     });
 
@@ -56,11 +60,11 @@ test.describe('theme', () => {
       });
       await page.goto(home);
 
-      expect(await theme(page)).toBe('dark');
+      await expectTheme(page, 'dark');
 
       // Still usable for the life of the page, just not persisted.
       await page.locator(headerLabel).click();
-      expect(await theme(page)).toBe('light');
+      await expectTheme(page, 'light');
     });
   });
 
@@ -70,7 +74,7 @@ test.describe('theme', () => {
     test('follows the OS when nothing is stored', async ({ page }) => {
       await page.goto(home);
 
-      expect(await theme(page)).toBe('light');
+      await expectTheme(page, 'light');
       await expect(page.locator(headerInput)).not.toBeChecked();
     });
 
@@ -78,12 +82,12 @@ test.describe('theme', () => {
       await page.goto(home);
 
       await page.locator(headerLabel).click();
-      expect(await theme(page)).toBe('dark');
+      await expectTheme(page, 'dark');
       await expect(page.locator(headerInput)).toBeChecked();
       await expect(page.locator(mobileInput)).toBeChecked();
 
       await page.locator(headerLabel).click();
-      expect(await theme(page)).toBe('light');
+      await expectTheme(page, 'light');
       await expect(page.locator(mobileInput)).not.toBeChecked();
     });
 
@@ -95,11 +99,11 @@ test.describe('theme', () => {
         await page.locator(headerInput).focus();
 
         await page.keyboard.press(key);
-        expect(await theme(page)).toBe('dark');
+        await expectTheme(page, 'dark');
         await expect(page.locator(headerInput)).toBeChecked();
 
         await page.keyboard.press(key);
-        expect(await theme(page)).toBe('light');
+        await expectTheme(page, 'light');
         await expect(page.locator(headerInput)).not.toBeChecked();
       });
     }
