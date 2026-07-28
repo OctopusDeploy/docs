@@ -1,9 +1,6 @@
 ---
-import {
-  PostOrdering,
-  PostFiltering,
-  Accelerator,
-} from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostOrdering, PostFiltering } from 'astro-accelerator-utils';
 import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
 import type { Page } from 'astro';
 import { SITE } from '@config';
@@ -20,14 +17,12 @@ const { page } = Astro.props satisfies Props;
 const lang = SITE.default.lang;
 
 // Logic
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics(
   'report/oldest-content/[page].astro'
 );
 stats.start();
 
 export async function getData() {
-  const accelerator = new Accelerator(SITE);
   const allPages = accelerator.posts.all();
   const pageCount = allPages.length;
   const pages = allPages
