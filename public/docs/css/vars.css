@@ -85,32 +85,32 @@
   --font-size-medium: 1rem;
   --font-size-small: 0.875rem;
 
-  --color-base-primary: var(--white);
+  --color-base-primary: var(--colorBackgroundPrimaryDefault);
 
-  --color-text: var(--blue-midnight);
-  --color-heading: var(--blue-grey-dark);
-  --color-text-secondary: var(--navy-700);
+  --color-text: var(--colorTextPrimary);
+  --color-heading: var(--colorTextPrimary);
+  --color-text-secondary: var(--colorTextSecondary);
 
-  --color-subtitle: var(--navy-600);
+  --color-subtitle: var(--colorTextSecondary);
   --font-size-subtitle: var(--font-size-large);
   --font-size-title: var(--font-size-xxlarge);
 
-  --border-color-header: var(--navy-200);
+  --border-color-header: var(--colorBorderPrimary);
 
-  --color-menu-link: var(--navy-600);
-  --color-menu-link-active: var(--navy-700);
-  --color-menu-link-alt: var(--blue-500);
+  --color-menu-link: var(--colorTextSecondary);
+  --color-menu-link-active: var(--colorTextPrimary);
+  --color-menu-link-alt: var(--colorTextLinkDefault);
   --color-menu-marker: var(--navy-300);
-  --bg-color-menu: var(--blue-qqq);
+  --bg-color-menu: var(--colorBackgroundSecondaryDefault);
   --bg-color-menu-open: rgba(13, 128, 216, 0.1);
-  --border-color-menu-open: var(--navy-200);
+  --border-color-menu-open: var(--colorBorderPrimary);
   --gap-menu: 0.6em;
 
   --navigation-width: 21.25rem;
 
   --bg-color-tab: var(--navy-200);
-  --border-color-tab: var(--navy-200);
-  --border-color-tab-active: var(--navy-400);
+  --border-color-tab: var(--colorBorderPrimary);
+  --border-color-tab-active: var(--colorBorderTertiary);
 
   --color-hint: #124164;
   --bg-color-hint: var(--lightest-blue);
@@ -135,17 +135,17 @@
   --duration-default: 300ms;
 
   --code-color: var(--color-text);
-  --code-background: var(--blue-100);
+  --code-background: var(--colorBackgroundSecondaryDefault);
 
   /* Backgrounds TODO - update with design system */
-  --background-light: var(--blue-100);
-  --background-default: var(--white);
+  --background-light: var(--colorBackgroundSecondaryDefault);
+  --background-default: var(--colorBackgroundPrimaryDefault);
 
   /* Borders TODO - update with design system */
-  --border-default-color: var(--blue-200);
+  --border-default-color: var(--colorBorderPrimary);
 
   /* Separator */
-  --separator-color: #dae2e9;
+  --separator-color: var(--colorBorderPrimary);
 
   /* Scrollbar */
   --scrollbar-color: #a9bbcb;
@@ -158,7 +158,7 @@
   --icon-tile-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
 
   /* Article header */
-  --header-separator-color: var(--navy-200);
+  --header-separator-color: var(--colorBorderPrimary);
   --header-icon-border: var(--border-default-color);
   --header-icon-background: var(--background-light);
 
@@ -190,7 +190,7 @@
   --hamburger-lines-color: var(--blue-grey-light);
 
   /* Theme Switcher */
-  --theme-switcher-border: var(--navy-200);
+  --theme-switcher-border: var(--colorBorderPrimary);
 
   /* Badge */
   --badge-background: rgba(162, 209, 244, 0.2);
@@ -204,7 +204,7 @@
 
   /* To be checked and cleaned */
 
-  --octo-blue: var(--blue-500);
+  --octo-blue: var(--colorTextLinkDefault);
   --lightest-blue: #e5f4ffff;
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
@@ -218,7 +218,7 @@
   --bold-font: var(--font-family);
   --code-font: Consolas, monaco, monospace;
 
-  --header-bg: var(--white);
+  --header-bg: var(--colorBackgroundPrimaryDefault);
   --header-icon-stroke: var(--blue-grey-light);
   --header-link-color: var(--octo-blue);
   --header-link-alt: var(--blue-gray-darker);
@@ -263,32 +263,18 @@
 }
 
 html[data-theme='dark'] {
-  --color-base-primary: #10202e;
-  --color-menu-link: var(--navy-300);
-  --color-menu-link-active: var(--navy-100);
-  --bg-color-menu: #0c1a24;
   --bg-color-menu-open: var(--blue-grey-dark);
-  --border-color-menu-open: var(--navy-700);
-  --header-bg: var(--blue-grey-dark);
-  --color-text: #dae2e9ff;
-  --color-heading: var(--white);
-  --color-subtitle: #f5f6f8;
   --body-link-alt: var(--white);
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
   --grey-lighter: var(--blue-grey-dark);
   /* TODO: update this */
   --navy-200: #314c62;
-  --octo-blue: var(--octo-blue-lightest);
-  --border-color-header: var(--navy-700);
   /* TODO: update this */
   --blue-grey: #dae2e9ff;
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
-  --color-menu-link-alt: var(--octo-blue-lightest);
-  --body-link-color: var(--octo-blue-lightest);
   --octopus-logo-text-color: var(--white);
-  --theme-switcher-border: var(--navy-700);
   --color-hint: var(--color-text);
   --bg-color-hint: rgba(13, 128, 216, 0.1);
   --color-info: var(--color-text);
@@ -296,17 +282,12 @@ html[data-theme='dark'] {
   --hamburger-lines-color: var(--white);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
-  --header-separator-color: var(--navy-700);
   --header-icon-border: transparent;
   --header-icon-background: var(--blue-grey-dark);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
-  --color-text-secondary: #dae2e9;
-  --icon-tile-background: #132838;
   --icon-tile-background-hover: #223950;
   --icon-tile-border: #1c3f59;
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
-  --separator-color: var(--navy-700);
-  --code-background: #0c1a24;
 }
