@@ -35,17 +35,12 @@
   --white: var(--colorScalesWhite);
 
   --navy-700: var(--colorScalesNavy700);
-  --navy-600: var(--colorScalesNavy600);
   --navy-400: var(--colorScalesNavy400);
   --navy-300: var(--colorScalesNavy300);
   --navy-200: var(--colorScalesNavy200);
   --navy-100: var(--colorScalesNavy100);
 
   --blue-500: var(--colorScalesBlue500);
-  --blue-200: var(--colorScalesBlue200);
-  --blue-100: var(--colorScalesBlue100);
-  /* No scale equivalent */
-  --blue-qqq: #fafdff;
 
   /* TODO: remove green-400 as it's being used in one place only */
   --green-400: var(--colorScalesGreen400);
@@ -61,7 +56,6 @@
 
   --blue-midnight-dark: #070e14ff;
   --blue-midnight-darker: #0a202fff;
-  --blue-midnight: #10212fff;
   --blue-midnight-lighter: #22425cff;
 
   --blue-grey-dark: #152b3dff;
