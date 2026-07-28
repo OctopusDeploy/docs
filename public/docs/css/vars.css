@@ -60,7 +60,7 @@
 
   --blue-grey-dark: #152b3dff;
   --blue-gray-darker: #1f2f3cff;
-  --blue-grey-medium: #113049ff;
+  --blue-grey-medium: var(--brandGrey);
   --blue-grey: var(--navy-700);
   --blue-grey-light: #274b66ff;
   /* This is navy 500 in the design system's scale */
@@ -116,7 +116,7 @@
 
   --color-success: #04502f;
   --bg-color-success: #e8ffeb;
-  --border-color-success: #00b065;
+  --border-color-success: var(--brandGreen);
 
   --color-warning: #a23623;
   --bg-color-warning: #fefae9;
@@ -142,7 +142,7 @@
   --separator-color: var(--colorBorderPrimary);
 
   /* Scrollbar */
-  --scrollbar-color: #a9bbcb;
+  --scrollbar-color: var(--navy-300);
 
   /* Icon Tile */
   --icon-tile-border: var(--border-default-color);
