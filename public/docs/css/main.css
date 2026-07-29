@@ -3250,6 +3250,114 @@ a.button.button--primary:active {
   width: 120px;
 }
 
+/* Button component (namespaced `btn` as `.button` was already taken) */
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space0);
+  min-width: var(--btn-min-size, 2.25rem);
+  min-height: var(--btn-min-size, 2.25rem);
+  padding: calc(var(--btn-padding-block, var(--space8)) - var(--borderWidth1))
+    calc(var(--btn-padding-inline, var(--space6)) - var(--borderWidth1));
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  max-width: fit-content;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn--medium {
+  --btn-min-size: 2.25rem;
+  --btn-padding-block: var(--space8);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--small {
+  --btn-min-size: 2rem;
+  --btn-padding-block: var(--space6);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--xsmall {
+  --btn-min-size: 1.75rem;
+  --btn-padding-block: var(--space4);
+  --btn-padding-inline: var(--space4);
+}
+
+.btn__label {
+  padding-inline: var(--space4);
+}
+
+/* Qualified with .btn to ensure greater specificity than fontawesome.css */
+.btn .btn__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--colorIconPrimary);
+}
+
+img.btn__icon {
+  object-fit: contain;
+}
+
+/* Nudge the FontAwesome caret-down slightly so it looks right as part of a dropdown button */
+.btn .btn__icon.fa-caret-down {
+  transform: translateY(-0.0625rem);
+}
+
+/* Button states */
+.btn:hover:not(:disabled) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.btn:focus-visible {
+  background: var(--colorBackgroundPrimaryHover);
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+.btn:active:not(:disabled) {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
+.btn:disabled {
+  background: var(--colorButtonBackgroundDisabled);
+  border-color: var(--colorButtonBorderDisabled);
+  color: var(--colorButtonTextDisabled);
+  cursor: not-allowed;
+}
+
+.btn:disabled .btn__icon {
+  color: var(--colorButtonIconDisabled);
+}
+
+/* Buttons side by side e.g. a toolbar or the component showcase */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space8);
+}
+
+/* Stacked rows e.g. one row per size in the component showcase */
+.btn-row + .btn-row {
+  margin-block-start: var(--space8);
+}
+/* Button.astro component end */
+
 .inline-note {
   position: absolute;
   padding-left: 0.5rem;

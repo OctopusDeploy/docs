@@ -642,6 +642,7 @@ XACML
 xcopy
 xlarge
 xmark
+xsmall
 xvzf
 xxlarge
 youtu
