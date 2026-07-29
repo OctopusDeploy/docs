@@ -706,24 +706,31 @@ nav.skip-links a:focus {
   z-index: 2;
 }
 
-.theme-switcher.dark-mode .switch-slider {
+html[data-theme='dark'] .theme-switcher .switch-slider {
   transform: translateX(100%);
 }
 
-.theme-switcher.dark-mode .theme-switcher__icon--light {
+html[data-theme='dark'] .theme-switcher__icon--light {
   color: #7c98b4;
 }
 
-.theme-switcher.dark-mode .theme-switcher__icon--light svg path {
+html[data-theme='dark'] .theme-switcher__icon--light svg path {
   fill: #7c98b4;
 }
 
-.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark {
+html[data-theme='light'] .theme-switcher__icon--dark {
   color: #557999;
 }
 
-.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark svg path {
+html[data-theme='light'] .theme-switcher__icon--dark svg path {
   fill: #557999;
+}
+
+/* The input is visually hidden but still the focusable control, so the ring
+   has to be drawn on the label. */
+.theme-switcher input:focus-visible + .theme-switcher__label {
+  outline: 0.125rem solid var(--octo-blue);
+  outline-offset: 0.125rem;
 }
 
 .theme-switcher input:disabled + .theme-switcher__label {
