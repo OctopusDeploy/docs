@@ -106,25 +106,25 @@
   --border-color-tab: var(--colorBorderPrimary);
   --border-color-tab-active: var(--colorBorderTertiary);
 
-  --color-hint: var(--colorTextPrimary);
-  --bg-color-hint: var(--colorBackgroundInfo);
-  --border-color-hint: var(--colorBorderInfo);
+  --color-hint: var(--colorCalloutTextInfo);
+  --bg-color-hint: var(--colorCalloutBackgroundInfoDefault);
+  --border-color-hint: var(--colorCalloutBorderInfo);
 
-  --color-info: var(--colorTextPrimary);
-  --bg-color-info: var(--colorBackgroundInfo);
-  --border-color-info: var(--colorBorderInfo);
+  --color-info: var(--colorCalloutTextInfo);
+  --bg-color-info: var(--colorCalloutBackgroundInfoDefault);
+  --border-color-info: var(--colorCalloutBorderInfo);
 
-  --color-success: var(--colorTextPrimary);
-  --bg-color-success: var(--colorBackgroundSuccess);
-  --border-color-success: var(--colorBorderSuccess);
+  --color-success: var(--colorCalloutTextSuccess);
+  --bg-color-success: var(--colorCalloutBackgroundSuccessDefault);
+  --border-color-success: var(--colorCalloutBorderSuccess);
 
-  --color-warning: var(--colorTextPrimary);
-  --bg-color-warning: var(--colorBackgroundWarning);
-  --border-color-warning: var(--colorBorderWarning);
+  --color-warning: var(--colorCalloutTextWarning);
+  --bg-color-warning: var(--colorCalloutBackgroundWarningDefault);
+  --border-color-warning: var(--colorCalloutBorderWarning);
 
-  --color-problem: var(--colorTextPrimary);
-  --bg-color-problem: var(--colorBackgroundDanger);
-  --border-color-problem: var(--colorBorderDanger);
+  --color-problem: var(--colorCalloutTextDanger);
+  --bg-color-problem: var(--colorCalloutBackgroundDangerDefault);
+  --border-color-problem: var(--colorCalloutBorderDanger);
 
   --duration-default: 300ms;
 
@@ -253,11 +253,11 @@
 }
 
 html[data-theme='dark'] {
-  /* The page sits mid-ramp; the nav and code wells are recessed below it */
-  --color-base-primary: var(--colorBackgroundSecondaryDefault);
+  /* Page, header and nav share the darkest background; panels sit above it */
+  --color-base-primary: var(--colorBackgroundPrimaryDefault);
   --bg-color-menu: var(--colorBackgroundPrimaryDefault);
   --bg-color-menu-open: var(--blue-grey-dark);
-  --header-bg: var(--colorBackgroundSecondaryDefault);
+  --header-bg: var(--colorBackgroundPrimaryDefault);
   --body-link-alt: var(--white);
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
@@ -272,9 +272,6 @@ html[data-theme='dark'] {
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
-  /* No translucent background token exists */
-  --bg-color-hint: rgba(13, 128, 216, 0.1);
-  --bg-color-info: var(--blue-grey-light);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --header-icon-border: transparent;
@@ -286,5 +283,5 @@ html[data-theme='dark'] {
   --icon-tile-border: #1c3f59;
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
-  --code-background: var(--colorBackgroundPrimaryDefault);
+  --code-background: var(--colorBackgroundSecondaryDefault);
 }
