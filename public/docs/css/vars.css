@@ -253,12 +253,11 @@
 }
 
 html[data-theme='dark'] {
-  /* The side navigation is a recessed panel, darker than the page. The design
-     system's dark backgrounds only step lighter from
-     --colorBackgroundPrimaryDefault (#111A23 -> #1F303F -> #2E475D), so there
-     is no token for a surface below the page, and this stays hand-themed. */
-  --bg-color-menu: #0c1a24;
+  /* The page sits mid-ramp; the nav and code wells are recessed below it */
+  --color-base-primary: var(--colorBackgroundSecondaryDefault);
+  --bg-color-menu: var(--colorBackgroundPrimaryDefault);
   --bg-color-menu-open: var(--blue-grey-dark);
+  --header-bg: var(--colorBackgroundSecondaryDefault);
   --body-link-alt: var(--white);
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
@@ -273,14 +272,19 @@ html[data-theme='dark'] {
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
+  /* No translucent background token exists */
+  --bg-color-hint: rgba(13, 128, 216, 0.1);
+  --bg-color-info: var(--blue-grey-light);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --header-icon-border: transparent;
   --header-icon-background: var(--blue-grey-dark);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
+  --icon-tile-background: var(--colorBackgroundTertiary);
   --icon-tile-background-hover: #223950;
   --icon-tile-border: #1c3f59;
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
+  --code-background: var(--colorBackgroundPrimaryDefault);
 }
