@@ -253,11 +253,9 @@
 }
 
 html[data-theme='dark'] {
-  /* Page, header and nav share the darkest background; panels sit above it */
-  --color-base-primary: var(--colorBackgroundPrimaryDefault);
+  /* The navigation matches the page in dark, unlike light */
   --bg-color-menu: var(--colorBackgroundPrimaryDefault);
   --bg-color-menu-open: var(--blue-grey-dark);
-  --header-bg: var(--colorBackgroundPrimaryDefault);
   --body-link-alt: var(--white);
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
@@ -283,5 +281,4 @@ html[data-theme='dark'] {
   --icon-tile-border: #1c3f59;
   --icon-tile-border-hover: var(--octo-blue-lightest);
   --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
-  --code-background: var(--colorBackgroundSecondaryDefault);
 }
