@@ -225,6 +225,7 @@ inetmgr
 inetsrv
 inkey
 inlinable
+inlines
 INSTALLLOCATION
 internalcustomer
 ioutil
@@ -633,6 +634,7 @@ windir
 windowsfeatures
 Wireshark
 WIXUI
+wordmark
 workerpool
 workerpools
 workertools
