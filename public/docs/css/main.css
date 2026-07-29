@@ -417,6 +417,9 @@ h6:hover .bookmark-link,
 
 table {
   border-collapse: collapse;
+  /* Without this, auto layout shrinks tables to their content width and leaves
+     a ragged gap on the right of the content column. */
+  width: 100%;
 }
 
 table thead {
