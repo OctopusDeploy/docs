@@ -69,12 +69,12 @@ hr {
   border-bottom: 1px solid var(--header-separator-color);
 }
 
-.page-content a:not(.link) {
+.page-content a:not(.link):not(.top-nav__link) {
   color: var(--octo-blue);
 }
 
-.page-content a:hover,
-.page-content a:focus {
+.page-content a:hover:not(.top-nav__link),
+.page-content a:focus:not(.top-nav__link) {
   color: var(--body-link-color);
 }
 
@@ -3343,6 +3343,28 @@ img.btn__icon {
   color: var(--colorButtonIconDisabled);
 }
 
+/* Loud importance */
+.btn--loud {
+  background: var(--colorButtonBackgroundLoudDefault);
+  /* Keep the border there but transparent as an easy way to ensure the geometry is exactly preserved */
+  border-color: transparent;
+  color: var(--colorButtonTextLoud);
+  font: var(--textBodyBoldMedium);
+}
+
+.btn--loud .btn__icon {
+  color: var(--colorButtonIconLoud);
+}
+
+.btn--loud:hover:not(:disabled),
+.btn--loud:focus-visible {
+  background: var(--colorButtonBackgroundLoudHover);
+}
+
+.btn--loud:active:not(:disabled) {
+  background: var(--colorButtonBackgroundLoudPressed);
+}
+
 /* Buttons side by side e.g. a toolbar or the component showcase */
 .btn-row {
   display: flex;
@@ -3356,7 +3378,85 @@ img.btn__icon {
 .btn-row + .btn-row {
   margin-block-start: var(--space8);
 }
-/* Button.astro component end */
+/* Button component end */
+
+/* TopNav component */
+.top-nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space24);
+  padding: var(--space16) var(--space24)
+    calc(var(--space16) - var(--borderWidth1));
+  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+  background: var(--colorBackgroundPrimaryDefault);
+}
+
+.top-nav__leading,
+.top-nav__trailing {
+  flex-shrink: 0; /* Disallow shrinking so button labels don't wrap across 2 lines */
+}
+
+.top-nav__leading {
+  display: flex;
+  align-items: center;
+  gap: var(--space64);
+}
+
+.top-nav__logo {
+  display: flex;
+}
+
+.top-nav__logo-mark {
+  display: block;
+  height: 2rem;
+  width: auto;
+  color: var(--colorTextPrimary);
+}
+
+.top-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.top-nav__trailing {
+  display: flex;
+  align-items: center;
+  gap: var(--space12);
+}
+
+a.top-nav__link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space8) var(--space12);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorNavBackgroundRest);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  text-align: center;
+  text-decoration: none;
+}
+
+a.top-nav__link:hover:not(.top-nav__link--active),
+a.top-nav__link:focus:not(.top-nav__link--active) {
+  background: var(--colorNavBackgroundHover);
+}
+
+a.top-nav__link:focus-visible {
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+a.top-nav__link--active {
+  background: var(--colorNavBackgroundActive);
+  color: var(--colorTextSelected);
+  font: var(--textBodyBoldMedium);
+}
+/* TopNav component end */
 
 .inline-note {
   position: absolute;

@@ -1,0 +1,56 @@
+---
+import Logo from '../assets/octopus-logo-v2.svg';
+import Button from './Button.astro';
+
+type Props = {
+  active?: string;
+  links?: { label: string; href: string }[];
+};
+
+// TODO: Make these real links
+const {
+  active = 'Docs',
+  links = [
+    { label: 'Docs', href: '#' },
+    { label: 'Learn', href: '#' },
+    { label: 'API', href: '#' },
+    { label: 'CLI', href: '#' },
+  ],
+} = Astro.props;
+---
+
+<header class="top-nav">
+  <div class="top-nav__leading">
+    <a
+      class="top-nav__logo"
+      href="https://octopus.com"
+      aria-label="Octopus Deploy"
+    >
+      <Logo class="top-nav__logo-mark" aria-hidden="true" />
+    </a>
+    <nav class="top-nav__links" aria-label="Sections">
+      {
+        links.map(({ label, href }) => (
+          <a
+            class:list={[
+              'top-nav__link',
+              label === active && 'top-nav__link--active',
+            ]}
+            href={href}
+            aria-current={label === active ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <div class="top-nav__trailing">
+    <!-- All of these are just non-functional and for visual/presentation only at this stage -->
+    <Button icon="fa-regular fa-moon" aria-label="Switch to dark theme" />
+    <!-- TODO: Presumably at least some of these buttons should be <a> rather than <button> in practice, which isn't possible just yet -->
+    <Button label="Changelog" />
+    <Button label="Sign in" />
+    <Button label="Start for free" importance="loud" />
+  </div>
+</header>
