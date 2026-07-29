@@ -104,7 +104,7 @@
 
   --bg-color-tab: var(--colorBackgroundTertiary);
   --border-color-tab: var(--colorBorderPrimary);
-  --border-color-tab-active: var(--colorBorderTertiary);
+  --border-color-tab-active: var(--colorBorderSelected);
 
   --color-hint: var(--colorCalloutTextInfo);
   --bg-color-hint: var(--colorCalloutBackgroundInfoDefault);
@@ -260,12 +260,12 @@ html[data-theme='dark'] {
   --search-placeholder-color: var(--navy-400);
   --search-remove-icon-color: var(--white);
   --grey-lighter: var(--blue-grey-dark);
-  /* TODO: --navy-200 is still hand-themed because main.css uses it directly for
-     borders and one background (lines 112, 216, 262, 920, 2539). Point those at
-     --border-default-color / --bg-color-tab and this override can go. */
+  /* TODO: --navy-200 is still hand-themed because main.css uses it directly on
+     code, .image, figure:has(p > img) p, .card and .site-search-results__item.
+     Point those at --border-default-color / --bg-color-tab and this can go. */
   --navy-200: #314c62;
-  /* TODO: --blue-grey is hand-themed for .card__description (main.css:1016).
-     That is secondary text, so --color-text-secondary already covers it. */
+  /* TODO: --blue-grey is hand-themed for .card__description, which is
+     secondary text, so --color-text-secondary already covers it. */
   --blue-grey: #dae2e9ff;
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
@@ -273,12 +273,10 @@ html[data-theme='dark'] {
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --header-icon-border: transparent;
-  --header-icon-background: var(--blue-grey-dark);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
-  --icon-tile-background: var(--colorBackgroundTertiary);
-  --icon-tile-background-hover: #223950;
-  --icon-tile-border: #1c3f59;
-  --icon-tile-border-hover: var(--octo-blue-lightest);
-  --icon-tile-shadow: 0px 6px 20px 0px var(--bg-color-menu);
+  /* Tiles sit one step above the page so hover has somewhere lighter to go */
+  --icon-tile-background-hover: var(--colorBackgroundTertiary);
+  --icon-tile-border-hover: var(--colorBorderSelected);
+  --icon-tile-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.4);
 }
