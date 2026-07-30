@@ -1,12 +1,10 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
 import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { Translations, Lang } from '@util/Languages';
-import { menu } from '@data/navigation';
 import NavigationItem from '@components/NavigationItem.astro';
-import { SITE } from '@config';
+import { applyCurrentPage, menuTemplate } from '@lib/navigationTree';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/Navigation.astro');
 stats.start();
 
@@ -18,7 +16,6 @@ const { lang } = Astro.props satisfies Props;
 const _ = Lang(lang);
 
 const currentUrl = new URL(Astro.request.url);
-const pages = accelerator.navigation.menu(currentUrl, SITE.subfolder, menu);
 
 // Expand the current section in place; collapse every other section to a
 // labelled link.
@@ -37,15 +34,25 @@ function markActiveBranchOpen(items: NavPage[]): void {
   }
 }
 
+// Only the branch the reader is inside is ever rendered expanded, so clone
+// that one branch off the shared template rather than rebuilding the whole
+// tree per page.
+const pages: NavPage[] = menuTemplate().map((top) => {
+  const hasChildren = (top.children?.length ?? 0) > 0;
+  const expand = hasChildren && isOnActivePath(top);
+  return {
+    ...top,
+    title: hasChildren && !expand && top.section ? top.section : top.title,
+    children: expand ? structuredClone(top.children) : [],
+  };
+});
+
+applyCurrentPage(pages, currentUrl);
+
 for (const top of pages) {
-  if (top.children && top.children.length > 0) {
-    if (isOnActivePath(top)) {
-      top.isOpen = true;
-      markActiveBranchOpen(top.children);
-    } else {
-      if (top.section) top.title = top.section;
-      top.children = [];
-    }
+  if (top.children.length > 0) {
+    top.isOpen = true;
+    markActiveBranchOpen(top.children);
   }
 }
 

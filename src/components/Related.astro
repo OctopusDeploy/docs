@@ -1,9 +1,6 @@
 ---
-import {
-  PostFiltering,
-  PostOrdering,
-  Accelerator,
-} from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering, PostOrdering } from 'astro-accelerator-utils';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import type { MarkdownInstance } from 'astro';
@@ -12,7 +9,6 @@ import { getImageInfo } from '@util/custom-markdown.mjs';
 
 import AuthorsMini from '@components/AuthorsMini.astro';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('components/Related.astro');
 stats.start();
 

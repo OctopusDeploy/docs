@@ -1,11 +1,10 @@
 ---
+import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import Default from './Default.astro';
-import { Accelerator } from 'astro-accelerator-utils';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/layouts/Search.astro');
 stats.start();
 

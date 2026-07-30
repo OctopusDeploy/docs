@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-10-28
+modDate: 2026-07-22
 title: Channels
 icon: fa-solid fa-arrows-split-up-and-left
 description: Channels allow you to dynamically change the deployment logic and lifecycle of a project based on the version being deployed.
@@ -229,11 +229,7 @@ Some examples:
 
 ## Custom fields {#custom-fields}
 
-Channels allow you to define which custom fields are required when creating a release within the channel, ensuring you can use them within scripts and steps in the deployment process. A maximum of 10 custom fields can be defined on a channel.
-
-:::div{.hint}
-Support for custom fields in releases is rolling out to Octopus Cloud in Early Access Preview.
-:::
+Channels allow you to define custom fields which will be required when creating a release within the channel. The values of these custom fields can be used within scripts and steps in the deployment process. A maximum of 10 custom fields can be defined on a channel.
 
 1. When viewing a channel, click **Add Custom Field** in the Custom Fields section.
 2. Enter a name and description for the field.

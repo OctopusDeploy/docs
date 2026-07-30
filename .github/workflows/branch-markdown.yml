@@ -56,7 +56,7 @@ jobs:
 
       - name: Setup Node
         if: steps.changed-files.outputs.count > 0
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'

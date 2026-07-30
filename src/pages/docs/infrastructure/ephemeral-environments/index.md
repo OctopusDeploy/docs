@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-08
-modDate: 2025-11-27
+modDate: 2026-07-22
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -13,7 +13,7 @@ Ephemeral environments in Octopus Deploy allow you to automatically create test 
 
 Ephemeral environments are designed to be created and removed as part of testing changes within the development lifecycle.
 
-[Releases](/docs/releases) can be deployed to in the same way as long-lived environments such as **Staging** or **Production**, and provide additional capabilities to provision and deprovision infrastructure associated with the environment using [Runbooks](/docs/runbooks).
+[Releases](/docs/releases) can be deployed to ephemeral environments in the same way as long-lived environments such as **Staging** or **Production**. Additional infrastructure associated with the environment can be provisioned and deprovisioned using [Runbooks](/docs/runbooks).
 
 ## Getting started
 
@@ -21,7 +21,7 @@ Ephemeral environments are configured within Projects, see the [Getting Started]
 
 ## Scoping variables, deployment targets and accounts
 
-Ephemeral environments will be created and removed regularly as part of testing changes. To avoid requiring ongoing configuration of variables, deployment targets and accounts, ephemeral environments are represented by a **Parent Environment**.
+Ephemeral environments will be created and removed regularly as part of testing changes. To avoid requiring ongoing configuration of variables, deployment targets and accounts, ephemeral environments inherit configuration from a **Parent Environment**.
 
 Parent environments are configured alongside existing long-lived environments in the Octopus Web Portal but have key differences:
 
