@@ -419,14 +419,6 @@ table {
   border-collapse: collapse;
 }
 
-.table-full-width table {
-  width: 100%;
-}
-
-.table-full-width th {
-  text-align: left;
-}
-
 table thead {
   font-weight: 700;
 }
@@ -445,6 +437,14 @@ table tr td:first-child {
 
 table th {
   padding: 0.8rem 1rem;
+}
+
+.table-full-width table {
+  width: 100%;
+}
+
+.table-full-width th {
+  text-align: left;
 }
 
 .credits table,
