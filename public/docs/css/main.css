@@ -423,6 +423,10 @@ table {
   width: 100%;
 }
 
+.table-full-width th {
+  text-align: left;
+}
+
 table thead {
   font-weight: 700;
 }
