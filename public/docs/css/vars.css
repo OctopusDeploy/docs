@@ -142,7 +142,7 @@
   --separator-color: var(--colorBorderPrimary);
 
   /* Scrollbar */
-  --scrollbar-color: var(--navy-300);
+  --scrollbar-color: var(--colorScrollbarHandle);
 
   /* Icon Tile */
   --icon-tile-border: var(--border-default-color);
