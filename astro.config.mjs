@@ -12,7 +12,7 @@ export default defineConfig({
     compressHTML: true, // preserve astro v6 behavior - https://docs.astro.build/en/guides/upgrade-to/v7/
     build: {
         // The site is proxied onto octopus.com under /docs/ only, so bundled
-        // assets must live inside that prefix or the CDN 404s them.
+        // assets must live inside that prefix or the CDN 404s them
         assets: 'docs/_astro',
     },
     integrations: [
