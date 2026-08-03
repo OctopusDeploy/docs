@@ -97,6 +97,8 @@ stats.stop();
       window.site_url = site_url;
       window.site_features = site_features;
     </script>
-    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
+    <script>
+      import '../../../../public/docs/js/main.js';
+    </script>
   </body>
 </html>

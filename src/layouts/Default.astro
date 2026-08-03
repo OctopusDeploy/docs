@@ -141,7 +141,9 @@ const showSearch = !isSearchPage;
       window.site_url = site_url;
       window.site_features = site_features;
     </script>
-    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
+    <script>
+      import '../../public/docs/js/main.js';
+    </script>
     <Plausible />
     <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
     <SharedScripts />
