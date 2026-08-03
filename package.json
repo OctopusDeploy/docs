@@ -13,19 +13,19 @@
         "dev:dictionary": "node ./dictionary-sorter.mjs",
         "dev:img": "node ./src/themes/octopus/utilities/img.mjs",
         "dev:astro": "astro dev --mode staging",
-        "dev:watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",
+        "dev:watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",
         "astro": "astro",
         "snapshot": "node --env-file=.env.production ./scripts/snapshot-shared.mjs",
         "build": "astro build",
         "crawl": "linkinator ./dist --skip \"^(?!http://localhost)\" --recurse  --verbosity error",
-        "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/css/**/*.css'",
+        "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css'",
         "preview": "astro preview",
         "renovate": "renovate",
         "spellcheck": "git fetch origin main:refs/remotes/origin/main && git diff origin/main --name-only --diff-filter=ACMRTUXB | cspell --no-must-find-files --file-list stdin",
         "spellcheck-all": "cspell \"**/*.{md,mdx}\"",
         "thin": "node ./src/themes/octopus/utilities/dist-thinner.mjs",
         "test": "astro build && npx playwright install --with-deps && npx playwright test",
-        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
+        "watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' 'public/docs/js/**/*.js' 'public/docs/css/**/*.css' -- prettier --write --plugin=prettier-plugin-astro {{changed}}"
     },
     "dependencies": {
         "@astrojs/markdown-remark": "7.2.1",
