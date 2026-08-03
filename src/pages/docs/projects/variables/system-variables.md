@@ -15,12 +15,12 @@ imageAlt:
 
 This page lists built-in Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
 
-**All Octopus variables are strings**, even when the value looks like a number or a boolean. 
+**All Octopus variables are strings**, even when the value looks like a number or a boolean.
 
 ## Release variables
- 
+
 Release-level variables are drawn from the project and release being created, and are available throughout a deployment or runbook run.
- 
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Release.Id` | The ID of the release. | `releases-123` |
@@ -40,9 +40,9 @@ Release-level variables are drawn from the project and release being created, an
 | `Octopus.Release.Git.Ref` | The git reference the release was created from. Available for version-controlled projects. | `refs/heads/main` |
 
 ## Release package and build information variables
- 
+
 These variables expose the build information pushed from your build server for the packages in a release. They're populated only when build information has been pushed, and they're available only in project release notes, not in deployment steps. Each variable is a collection; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index collections.
- 
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Release.Package` | The packages, with their commits and work items, associated with the release. A collection of package objects. | `#{Octopus.Release.Package[Acme.Web].Version}` |
@@ -50,7 +50,7 @@ These variables expose the build information pushed from your build server for t
 | `Octopus.Release.WorkItems` | The distinct work items across all packages in the release. A collection of work item objects. | `#{Octopus.Release.WorkItems[0].Id}` |
 
 ### Package properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `PackageId` | The ID of the package. | `#{package.PackageId}` |
@@ -59,7 +59,7 @@ These variables expose the build information pushed from your build server for t
 | `WorkItems` | The work items associated with the package. A collection. | `#{package.WorkItems[0].Id}` |
 
 ### Commit properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `CommitId` | The commit ID. When using Git, this is the commit hash. | `#{commit.CommitId}` |
@@ -67,7 +67,7 @@ These variables expose the build information pushed from your build server for t
 | `Comment` | The commit message. | `#{commit.Comment}` |
 
 ### Work item properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `Id` | The work item ID. | `#{issue.Id}` |
@@ -75,7 +75,7 @@ These variables expose the build information pushed from your build server for t
 | `Description` | A description of the work item. | `#{issue.Description}` |
 
 ### Build properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `Packages` | A JSON array of the packages created by the build. A collection. | `#{build.Packages}` |
@@ -89,16 +89,16 @@ These variables expose the build information pushed from your build server for t
 | `VcsCommitUrl` | A link to the commit associated with the build. | `#{build.VcsCommitUrl}` |
 
 ### Build package properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `PackageId` | The ID of the package created by the build. | `#{build.Packages[0].PackageId}` |
 | `Version` | The version of the package created by the build. | `#{build.Packages[0].Version}` |
 
 ## Deployment variables
- 
+
 Deployment-level variables are drawn from the project and release being deployed, and the infrastructure being deployed to.
- 
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Acquire.MaxParallelism` | The maximum number of packages deployed concurrently to multiple targets. Default: 10. | `2` |
@@ -156,9 +156,9 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Web.DeploymentLink` | A path relative to the Octopus Server URL where the deployment can be viewed. | `/app/deployment/deployments-123` |
 
 ## Deployment change variables
- 
+
 These variables expose the changes included in a deployment, aggregated across the releases being deployed. They're available only where build information has been pushed and, for work items, an issue tracker integration is enabled. Several are JSON collections; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index them.
- 
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Deployment.Changes` | A JSON array of release-change objects, one per release, each with its release notes and build information. | `#{Octopus.Deployment.Changes[0].Version}` |
@@ -167,7 +167,7 @@ These variables expose the changes included in a deployment, aggregated across t
 | `Octopus.Deployment.ChangesMarkdown` | The output of applying the project's deployment changes template, in Markdown. | `#{Octopus.Deployment.ChangesMarkdown}` |
 
 ### Release change properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `Version` | The release version. | `#{change.Version}` |
@@ -177,7 +177,7 @@ These variables expose the changes included in a deployment, aggregated across t
 | `Commits` | The commits for the release. A collection. | `#{change.Commits[0].Id}` |
 
 ### Package build information properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `PackageId` | The ID of the package. | `#{info.PackageId}` |
@@ -194,7 +194,7 @@ These variables expose the changes included in a deployment, aggregated across t
 | `Commits` | The commits for the package. A collection. | `#{info.Commits[0].Id}` |
 
 ### Work item properties
- 
+
 | Property | Description | Example |
 | --- | --- | --- |
 | `Id` | The work item ID. | `#{workItem.Id}` |
@@ -203,7 +203,7 @@ These variables expose the changes included in a deployment, aggregated across t
 | `Description` | A description of the work item. | `#{workItem.Description}` |
 
  ### Commit properties
-  
+
  | Property | Description | Example |
  | --- | --- | --- |
  | `Id` | The commit ID. | `#{commit.Id}` |
@@ -211,9 +211,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Comment` | The commit message. | `#{commit.Comment}` |
 
  ## Action variables
-  
+
  Action-level variables are available while an action runs.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Container.Image` | The name of the container image being deployed. | `OctoFx-RateService` |
@@ -247,9 +247,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.SubstituteInFiles.EnableNoMatchWarning` | Whether a warning is logged when no files match a glob pattern in Substitute Variables in Files. | `False` |
 
  ### Package reference variables
-  
+
  When you reference a package in a custom script, that package contributes its own variables, available per package. The examples below assume a package reference named `Acme`.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Package[Acme].PackageId` | The package ID. | `Acme` |
@@ -261,9 +261,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.Package[Acme].PackageFileName` | The name of the package file, if the package isn't extracted. | `Acme.zip` |
 
  ### Docker image package variables
-  
+
  When the package reference is a Docker image, these additional variables are contributed.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Package[Acme].Image` | The fully qualified image name. | `index.docker.io/Acme:1.4.0` |
@@ -273,9 +273,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.Package[Acme].Feed.Password` | The password for the feed the image was acquired from, if the feed uses credentials. | `Password01!` |
 
  ## Azure variables
-  
+
  These variables are available during Azure deployment actions.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Azure.CertificateThumbprint` | The thumbprint of the X.509 certificate used to authenticate with the target Azure subscription. | `86B5C8E5553981FED961769B2DA3028C619596AC` |
@@ -284,7 +284,7 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.Azure.ResourceGroupDeploymentName` | Overrides the auto-generated resource group deployment name when deploying a resource group. | `my-resource-group-deployment-name` |
 
  ### Azure Cloud Service variables
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath` | The relative path to the `.cscfg` file, if set. Falls back to `ServiceConfiguration.{Environment}.cscfg` or `ServiceConfiguration.Cloud.cscfg`. | `ServiceConfiguration.Custom.cscfg` |
@@ -300,7 +300,7 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.Azure.DeploymentLabel` | The custom deployment label used for the Azure cloud service deployment, if set. | my custom label for build 3.x.x |
 
  ### Azure Web App variables
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Azure.WebAppName` | The name of the web app targeted by the deployment. | `my-web-app` |
@@ -311,9 +311,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action.Azure.AppOffline` | Whether Web Deploy takes the app domain down by adding an `app_offline.html` file in the site root. | `True` |
 
  ## Output variables
-  
+
  Output variables are collected while a step runs and made available to later steps.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action[name].Output.property` | The result of calling `Set-OctopusVariable` during an action, exposed for use in other actions. | `Octopus.Action[Website].Output.WarmUpResponseTime` |
@@ -327,9 +327,9 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Action[name].Output.OctopusAzureCloudServiceDeploymentUrl` | The URL of the completed Azure cloud service deployment. | `http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/` |
 
  ## Step variables
-  
+
  Step-level variables are available while a step runs.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Step.Id` | The ID of the step. | `80b3ad09-eedf-40d6-9b66-cf97f5c0ffee` |
@@ -338,13 +338,13 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Step.Status.Code` | A code describing the current status of the step. | `Succeeded` |
  | `Octopus.Step.Status.Error` | A description of the error, if the step failed. | The server could not be contacted |
  | `Octopus.Step.Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
-  
- The status codes returned by `Octopus.Step.Status.Code` are `Pending`, `Skipped`, `Abandoned`, `Canceled`, `Running`, `Succeeded`, and `Failed`.
 
+ The status codes returned by `Octopus.Step.Status.Code` are `Pending`, `Skipped`, `Abandoned`, `Canceled`, `Running`, `Succeeded`, and `Failed`.
+ 
  ## Agent variables
-  
+
  Agent-level variables describe the deployment agent or Tentacle the deployment runs on.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Tentacle.Agent.ApplicationDirectoryPath` | The directory the agent installs packages under. | `C:\Octopus\Tentacle\Apps` |
@@ -353,27 +353,27 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Agent.ProgramDirectoryPath` | The directory containing the server's or Tentacle's executables, depending on where the step runs. | `C:\Program Files\Octopus Deploy\Octopus` |
 
  ## Worker pool variables
-  
+
  When a step runs on a worker, these variables are available.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.WorkerPool.Id` | The ID of the pool. | `WorkerPools-1` |
  | `Octopus.WorkerPool.Name` | The name of the pool. | Default Worker Pool |
 
  ## Server variables
-  
+
  Server-level variables describe the Octopus Server the deployment runs on.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Web.BaseUrl` | The default URL the server API can be accessed at, based on the server's listen prefixes. May not be suitable behind a load balancer or reverse proxy. | `https://my-octopus` |
  | `Octopus.Web.ServerUri` | The default URL the server portal can be accessed at, as configured in Configuration ➜ Nodes. | `https://my-octopus` |
 
  ## Runbook variables
-  
+
  These variables are available during a runbook run.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Runbook.Id` | The ID of the runbook. | `Runbooks-123` |
@@ -393,17 +393,17 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Web.RunbookRunLink` | A path relative to the Octopus Server URL where the runbook run can be viewed. | `/app/runs/runbookRuns-123` |
 
  ## Kubernetes variables
-  
+
  This variable controls Kubernetes CLI output during Kubernetes deployment actions.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Action.Kubernetes.LogCliOutputAsInfo` | Whether successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`) is logged at the Info level instead of Verbose. | `True` |
 
  ## User-modifiable settings
-  
+
  You define these variables in your project to change how Octopus behaves. Unlike the variables above, you set these values and Octopus reads them.
-  
+
  | Variable | Description | Example |
  | --- | --- | --- |
  | `Octopus.Acquire.MaxParallelism` | The maximum number of NuGet packages downloaded at once when acquiring packages. | `3` |
@@ -422,11 +422,11 @@ These variables expose the changes included in a deployment, aggregated across t
  | `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo` | A file path the Calamari working directory is copied to, including the one-time key used to decrypt sensitive variables. | `c:\temp\octopus-debug` |
  | `Octopus.Deployment.WorkerLeaseCap` | An opt-in cap on how many steps referencing the same package reuse a single worker. Disabled by default; set above zero to opt in. Applies to deployments and runbooks. | `5` |
  | `Octopus.Task.ConcurrencyTag` | Runs one task at a time per concurrency tag. Set to run tasks in parallel instead of serial, or in serial instead of parallel. | `#{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}` |
-  
+
  ## Version notes
-  
+
  Some variables are available only from a specific version of Octopus. This topic lists those variables and the version each became available in.
-  
+
  | Variable | Available from |
  | --- | --- |
  | `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash`, `Octopus.Release.Git.Ref` | Octopus 2021.3 |
@@ -435,7 +435,7 @@ These variables expose the changes included in a deployment, aggregated across t
  | `OctopusShouldFailDeploymentOnSubstitutionFails` | Octopus 2025.1.0 |
 
  ## Related links
-  
+
  - [Variable substitution syntax](/docs/projects/variables/variable-substitutions/)
  - [Variable filters](/docs/projects/variables/variable-filters/)
  - [Custom scripts](/docs/deployments/custom-scripts)
