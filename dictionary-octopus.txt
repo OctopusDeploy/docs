@@ -611,6 +611,7 @@ variablename
 variableset
 vhdx
 violationreason
+vite
 VMSS
 vnet
 Voltron

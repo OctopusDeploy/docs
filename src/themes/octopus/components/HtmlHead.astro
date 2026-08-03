@@ -16,6 +16,14 @@ import '@octopusdeploy/design-system-tokens/css/textTheme.css';
 import '@octopusdeploy/design-system-tokens/css/lightTheme.css';
 import '@octopusdeploy/design-system-tokens/css/darkTheme.css';
 
+// Site styles, imported so that Vite will bundle/minify/content-hash them.
+// They stay in public/ so the unbundled copies keep being served from their original
+// /docs/css/ paths - HTML cached from earlier deploys still links to them.
+// Note: @font-face rules in vars.css point at public/docs/css/fa/webfonts which are not imported here, they're
+// served statically, meaning the webfonts keep their stable path and remain cached across deploys
+import '../../../../public/docs/css/vars.css';
+import '../../../../public/docs/css/main.css';
+
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
 stats.start();
 
@@ -74,8 +82,6 @@ stats.stop();
   <link rel="stylesheet" href={`${ASSETS}/pu-vars.css`} />
   <link rel="stylesheet" href={`${ASSETS}/footer-pu-styles.css`} />
   <link rel="stylesheet" href={`${ASSETS}/marketo-pu-styles.css`} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/vars.css'} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/main.css'} />
   {
     autoMeta('viewport') && (
       <meta
