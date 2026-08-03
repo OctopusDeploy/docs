@@ -214,6 +214,8 @@ These variables expose the changes included in a deployment, aggregated across t
 
 Action-level variables are available while an action runs.
 
+You can also read these variables for a different action using indexed notation, for example `Octopus.Action[ActionName].IsSkipped`. This is useful when [writing run conditions](/docs/projects/variables/system-variables/#tracking-deployment-status) that depend on another action's status.
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Action.Container.Image` | The name of the container image being deployed. | `OctoFx-RateService` |
@@ -319,6 +321,7 @@ Output variables are collected while a step runs and made available to later ste
 | `Octopus.Action[name].Output.property` | The result of calling `Set-OctopusVariable` during an action, exposed for use in other actions. | `Octopus.Action[Website].Output.WarmUpResponseTime` |
 | `Octopus.Action[name].Output.Manual.Notes` | Notes provided by the user who completed a manual step. | Signed off by Alice |
 | `Octopus.Action[name].Output.Package.InstallationDirectoryPath` | The directory the package was installed to. | `C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3` |
+| `Octopus.Action[name].Output[machine].Package.InstallationDirectoryPath` | The directory the package was installed to on a specific target machine. Use this to read the installation directory for a machine other than the one currently running, for example in a [run condition](/docs/projects/steps/conditions). | `C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3` |
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.DisplayName` | The full name of the user who completed the manual step. | Alice King |
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who completed the manual step. | `alice@example.com` |
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.Id` | The ID of the user who completed the manual step. | `users-123` |
@@ -330,6 +333,8 @@ Output variables are collected while a step runs and made available to later ste
 
 Step-level variables are available while a step runs.
 
+You can also read these variables for a different step using indexed notation, for example `Octopus.Step[StepName].Status.Code`. This is useful when [writing run conditions](/docs/projects/variables/system-variables/#tracking-deployment-status) that depend on another step's status.
+
 | Variable | Description | Example |
 | --- | --- | --- |
 | `Octopus.Step.Id` | The ID of the step. | `80b3ad09-eedf-40d6-9b66-cf97f5c0ffee` |
@@ -340,7 +345,28 @@ Step-level variables are available while a step runs.
 | `Octopus.Step.Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
 
 The status codes returned by `Octopus.Step.Status.Code` are `Pending`, `Skipped`, `Abandoned`, `Canceled`, `Running`, `Succeeded`, and `Failed`.
- 
+
+## Tracking deployment status {#tracking-deployment-status}
+
+During a deployment or runbook run, Octopus provides variables describing the status of each step and action, including ones other than the one currently running. This lets you reference another step or action's outcome, for example when writing a [run condition](/docs/projects/steps/conditions).
+
+Where `StepName` is the name of the step:
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Step[StepName].Status.Code` | A code describing the status of the step. | `Succeeded` |
+| `Octopus.Step[StepName].Status.Error` | A description of the error, if the step failed. | The server could not be contacted |
+| `Octopus.Step[StepName].Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
+
+Where `ActionName` is the name of the action:
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action[ActionName].IsSkipped` | Whether the action was skipped in the current deployment. Can be `True` or empty. | `True` |
+| `Octopus.Action[ActionName].TargetRoles` | The machine target tags targeted by the action. | `web-server,frontend` |
+
+For the deployment as a whole, see `Octopus.Deployment.Error` and `Octopus.Deployment.ErrorDetail` in [Deployment variables](#deployment-variables). These only contain the exit code and Octopus stack trace for the error. Octopus can't parse the deployment log, so it can only extract exit and error codes, not detailed information on the cause of the failure. Check the logs for full details on why a deployment failed.
+
 ## Agent variables
 
 Agent-level variables describe the deployment agent or Tentacle the deployment runs on.
