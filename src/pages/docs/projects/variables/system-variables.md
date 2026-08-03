@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2026-08-03
 title: System variables
 sidebarLabel: System variables
-navOrder:
+navOrder: 20
 description: The built-in variables Octopus provides for use in deployment processes, runbooks, and custom scripts.
 subject: system variables, release variables, deployment variables, action variables, output variables, runbook variables
 type: reference
@@ -13,7 +13,7 @@ image:
 imageAlt:
 ---
 
-This page lists built-in Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
+This page lists built-in variables Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
 
 **All Octopus variables are strings**, even when the value looks like a number or a boolean.
 
