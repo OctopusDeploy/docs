@@ -13,7 +13,7 @@ image:
 imageAlt:
 ---
 
-This page lists built-in [variables](/docs/projects/variables/) Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
+This page lists built-in Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
 
 **All Octopus variables are strings**, even when the value looks like a number or a boolean. 
 
