@@ -439,6 +439,14 @@ table th {
   padding: 0.8rem 1rem;
 }
 
+.table-full-width table {
+  width: 100%;
+}
+
+.table-full-width th {
+  text-align: left;
+}
+
 .credits table,
 .credits thead,
 .credits tbody,
