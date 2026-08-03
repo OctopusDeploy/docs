@@ -3424,7 +3424,7 @@ img.btn__icon {
   padding: 1rem;
   border: 2px solid var(--border-color-tab-active);
   border-radius: var(--standard-radius);
-  background: var(--aft);
+  background: var(--color-base-primary);
   overflow: auto;
 }
 
