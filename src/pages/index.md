@@ -54,6 +54,25 @@ button forced visible. Normally it appears on hover or keyboard focus.
   }
 </style>
 
+## Body text \{#body-text}
+
+In this tutorial you'll set up a small deployment in Octopus and watch it run.
+You'll create a project, add a single step that prints Hello, World!, then create
+a release and deploy it to a test environment.
+
+Paragraphs sit one rem apart. List items after the first sit 6px below the item
+above, which the two lists below show.
+
+1. In the **Welcome to your Project** dialog, select **Thanks, got it**.
+1. In the process step template library, find the Run a Script card in the
+   **Featured** category and select **Add Step**.
+1. Leave the **Step Name** as the default *Run a Script*.
+
+- In the **Welcome to your Project** dialog, select **Thanks, got it**.
+- In the process step template library, find the Run a Script card in the
+  **Featured** category and select **Add Step**.
+- Leave the **Step Name** as the default *Run a Script*.
+
 ## Examples
 
 ### Boxes
