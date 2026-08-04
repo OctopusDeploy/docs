@@ -31,7 +31,13 @@ This page is not shown on the production site.
 In each pair below, the first heading is at rest and the second has the anchor
 button forced visible. Normally it appears on hover or keyboard focus.
 
+<!-- The page title renders as an h1 from frontmatter, so this sample is a second
+     one. Deliberate - this page exists to show the heading styles. -->
+<!-- markdownlint-disable MD025 -->
+
 # Heading 1 (title)
+
+<!-- markdownlint-enable MD025 -->
 
 ## Heading 2 \{#heading-2-a}
 
