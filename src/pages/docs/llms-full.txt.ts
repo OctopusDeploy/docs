@@ -1,5 +1,5 @@
+import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
-import { Accelerator } from 'astro-accelerator-utils';
 import {
   compareForLlmSurfaces,
   eligibleForMarkdown,
@@ -22,7 +22,6 @@ const raws = import.meta.glob<string>(['./**/*.md', './**/*.mdx'], {
 const subfolderPrefix = SITE.subfolder.replace(/\/$/, '') + '/';
 
 async function getData() {
-  const accelerator = new Accelerator(SITE);
   const entries: {
     body: string;
     slug: string;

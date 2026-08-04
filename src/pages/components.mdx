@@ -11,6 +11,7 @@ navSitemap: false
 navMenu: false
 robots: noindex, follow
 ---
+import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
 import IconTile from 'src/components/IconTile.astro';
 import Image from 'src/components/Image.astro';
@@ -35,6 +36,93 @@ import Separator from 'src/components/Separator.astro';
 ```
 
 ## Components usage
+
+### Button
+
+The Button component renders an HTML `<button>`.
+
+1. **label**: Optional text label. Omit for an icon-only button.
+2. **icon** / **iconEnd**: Optional leading and/or trailing icon. Accepts a FontAwesome class (e.g. `iconEnd="fa-solid fa-caret-down"` for a dropdown button) or a URL to an SVG.
+3. **size**: Optional: `medium` (default), `small`, or `xSmall`.
+4. **disabled**: Optional `true`/`false`
+5. **type**: Optional: `button` (default), `submit`, or `reset`.
+
+An icon-only button has no visible text, so include an `aria-label` to give it an accessible name.
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <Button label="Label" />
+    <Button label="Label" size="small" />
+    <Button label="Label" size="xSmall" />
+  </div>
+  <div>
+    ```
+    <Button label="Label" />
+    <Button label="Label" size="small" />
+    <Button label="Label" size="xSmall" />
+    ```
+  </div>
+</div>
+
+#### Button with icons
+
+<div class="docs-home simple-grid">
+  <div>
+    <div class="btn-row">
+      <Button label="Copy" icon="fa-solid fa-copy" />
+      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" />
+      <Button label="Actions" iconEnd="fa-solid fa-caret-down" />
+      <Button icon="fa-solid fa-gear" aria-label="Settings" />
+    </div>
+    <div class="btn-row">
+      <Button label="Copy" icon="fa-solid fa-copy" size="small" />
+      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" size="small" />
+      <Button label="Actions" iconEnd="fa-solid fa-caret-down" size="small" />
+      <Button icon="fa-solid fa-gear" aria-label="Settings" size="small" />
+    </div>
+    <div class="btn-row">
+      <Button label="Copy" icon="fa-solid fa-copy" size="xSmall" />
+      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" size="xSmall" />
+      <Button label="Actions" iconEnd="fa-solid fa-caret-down" size="xSmall" />
+      <Button icon="fa-solid fa-gear" aria-label="Settings" size="xSmall" />
+    </div>
+  </div>
+  <div>
+    ```
+    <Button label="Copy" icon="fa-solid fa-copy" />
+    <Button
+      label="Label"
+      icon="fa-solid fa-copy"
+      iconEnd="fa-solid fa-caret-down"
+    />
+    <Button label="Actions" iconEnd="fa-solid fa-caret-down" />
+    <Button icon="fa-solid fa-gear" aria-label="Settings" />
+    ```
+  </div>
+</div>
+
+#### Disabled
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" disabled={true} />
+    <Button label="Label" size="small" disabled={true} />
+    <Button label="Label" size="xSmall" disabled={true} />
+  </div>
+  <div>
+    ```
+    <Button
+      label="Label"
+      icon="fa-solid fa-copy"
+      iconEnd="fa-solid fa-caret-down"
+      disabled={true}
+    />
+    <Button label="Label" size="small" disabled={true} />
+    <Button label="Label" size="xSmall" disabled={true} />
+    ```
+  </div>
+</div>
+
 ### Card
 
 The Card component displays content in a card format, suitable for highlights, features, or related topics.

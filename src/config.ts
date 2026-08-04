@@ -74,14 +74,6 @@ export const HEADER_SCRIPTS = `
 	<link href="/docs/css/fa/css/solid.css" rel="stylesheet">
 	<meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
 
-	<!-- Inline Script to set the initial theme -->
-	<script>
-		(() => {
-			const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.setAttribute('data-theme', theme);
-		})();
-	</script>
-
   <script defer>
   const whenActivated = new Promise((resolve) => {
 	if (document.prerendering) {

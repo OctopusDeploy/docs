@@ -1,0 +1,48 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+// Extend the native button attributes
+type Props = HTMLAttributes<'button'> & {
+  label?: string;
+  icon?: string; // URL to an SVG or a FontAwesome class
+  iconEnd?: string; // URL to an SVG or a FontAwesome class
+  size?: 'xSmall' | 'small' | 'medium';
+};
+
+const {
+  label,
+  icon,
+  iconEnd,
+  size = 'medium',
+  disabled = false,
+  type = 'button',
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
+  throw new Error('An icon-only button needs an aria-label for screen readers');
+}
+
+const classes = `btn btn--${size.toLowerCase()}${className ? ` ${className}` : ''}`;
+---
+
+<button class={classes} type={type} disabled={disabled} {...rest}>
+  {
+    icon &&
+      (icon.startsWith('fa-') ? (
+        <i class={`${icon} btn__icon`} aria-hidden="true" />
+      ) : (
+        <img src={icon} alt="" class="btn__icon" aria-hidden="true" />
+      ))
+  }
+  {label && <span class="btn__label">{label}</span>}
+  {
+    iconEnd &&
+      (iconEnd.startsWith('fa-') ? (
+        <i class={`${iconEnd} btn__icon`} aria-hidden="true" />
+      ) : (
+        <img src={iconEnd} alt="" class="btn__icon" aria-hidden="true" />
+      ))
+  }
+</button>

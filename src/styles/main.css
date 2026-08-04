@@ -108,26 +108,27 @@ blockquote cite {
 
 /* TODO: Refactor code snippets. This needs to be a component. */
 code {
-  font-family: var(--code-font);
-  background-color: var(--navy-200);
+  font-family: var(--fontFamilyCode);
+  border-radius: var(--borderRadiusSmall);
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  background: var(--colorBackgroundSecondaryDefault);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 pre {
   padding: 0.5rem 1rem;
   white-space: break-spaces;
-  background-color: var(--code-background) !important;
-  border-radius: var(--standard-radius);
-  font-family: var(--code-font);
-  color: var(--code-color);
+  background: var(--colorBackgroundSecondaryDefault) !important;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusLarge);
+  font-family: var(--fontFamilyCode);
+  color: var(--color-text);
 }
 
 pre code {
   background-color: unset;
-}
-
-.dark pre {
-  background-color: var(--color-base-primary) !important;
-  filter: invert(98%) hue-rotate(180deg);
+  border: unset;
 }
 
 /* TODO: Also will be removed once component is implemented */
@@ -137,8 +138,8 @@ div.warning code:not(pre code),
 div.problem code:not(pre code),
 div.question code:not(pre code),
 div.hint code:not(pre code) {
-  background-color: var(--code-background);
-  color: var(--code-color);
+  background-color: var(--colorBackgroundSecondaryDefault);
+  color: var(--color-text);
 }
 
 html[data-theme='dark'] {
@@ -439,6 +440,14 @@ table th {
   padding: 0.8rem 1rem;
 }
 
+.table-full-width table {
+  width: 100%;
+}
+
+.table-full-width th {
+  text-align: left;
+}
+
 .credits table,
 .credits thead,
 .credits tbody,
@@ -706,24 +715,31 @@ nav.skip-links a:focus {
   z-index: 2;
 }
 
-.theme-switcher.dark-mode .switch-slider {
+html[data-theme='dark'] .theme-switcher .switch-slider {
   transform: translateX(100%);
 }
 
-.theme-switcher.dark-mode .theme-switcher__icon--light {
+html[data-theme='dark'] .theme-switcher__icon--light {
   color: #7c98b4;
 }
 
-.theme-switcher.dark-mode .theme-switcher__icon--light svg path {
+html[data-theme='dark'] .theme-switcher__icon--light svg path {
   fill: #7c98b4;
 }
 
-.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark {
+html[data-theme='light'] .theme-switcher__icon--dark {
   color: #557999;
 }
 
-.theme-switcher:not(.dark-mode) .theme-switcher__icon--dark svg path {
+html[data-theme='light'] .theme-switcher__icon--dark svg path {
   fill: #557999;
+}
+
+/* The input is visually hidden but still the focusable control, so the ring
+   has to be drawn on the label. */
+.theme-switcher input:focus-visible + .theme-switcher__label {
+  outline: 0.125rem solid var(--octo-blue);
+  outline-offset: 0.125rem;
 }
 
 .theme-switcher input:disabled + .theme-switcher__label {
@@ -3243,6 +3259,114 @@ a.button.button--primary:active {
   width: 120px;
 }
 
+/* Button component (namespaced `btn` as `.button` was already taken) */
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space0);
+  min-width: var(--btn-min-size, 2.25rem);
+  min-height: var(--btn-min-size, 2.25rem);
+  padding: calc(var(--btn-padding-block, var(--space8)) - var(--borderWidth1))
+    calc(var(--btn-padding-inline, var(--space6)) - var(--borderWidth1));
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  max-width: fit-content;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn--medium {
+  --btn-min-size: 2.25rem;
+  --btn-padding-block: var(--space8);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--small {
+  --btn-min-size: 2rem;
+  --btn-padding-block: var(--space6);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--xsmall {
+  --btn-min-size: 1.75rem;
+  --btn-padding-block: var(--space4);
+  --btn-padding-inline: var(--space4);
+}
+
+.btn__label {
+  padding-inline: var(--space4);
+}
+
+/* Qualified with .btn to ensure greater specificity than fontawesome.css */
+.btn .btn__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--colorIconPrimary);
+}
+
+img.btn__icon {
+  object-fit: contain;
+}
+
+/* Nudge the FontAwesome caret-down slightly so it looks right as part of a dropdown button */
+.btn .btn__icon.fa-caret-down {
+  transform: translateY(-0.0625rem);
+}
+
+/* Button states */
+.btn:hover:not(:disabled) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.btn:focus-visible {
+  background: var(--colorBackgroundPrimaryHover);
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+.btn:active:not(:disabled) {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
+.btn:disabled {
+  background: var(--colorButtonBackgroundDisabled);
+  border-color: var(--colorButtonBorderDisabled);
+  color: var(--colorButtonTextDisabled);
+  cursor: not-allowed;
+}
+
+.btn:disabled .btn__icon {
+  color: var(--colorButtonIconDisabled);
+}
+
+/* Buttons side by side e.g. a toolbar or the component showcase */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space8);
+}
+
+/* Stacked rows e.g. one row per size in the component showcase */
+.btn-row + .btn-row {
+  margin-block-start: var(--space8);
+}
+/* Button.astro component end */
+
 .inline-note {
   position: absolute;
   padding-left: 0.5rem;
@@ -3301,7 +3425,7 @@ a.button.button--primary:active {
   padding: 1rem;
   border: 2px solid var(--border-color-tab-active);
   border-radius: var(--standard-radius);
-  background: var(--aft);
+  background: var(--color-base-primary);
   overflow: auto;
 }
 

@@ -1,0 +1,44 @@
+---
+import SunIcon from '../../public/docs/img/SunIcon.astro';
+import MoonIcon from '../../public/docs/img/MoonIcon.astro';
+
+type Props = {
+  /** Unique per instance - the label needs its own `for` target. */
+  id: string;
+};
+
+const { id } = Astro.props satisfies Props;
+---
+
+<div class="theme-switcher">
+  <input
+    id={id}
+    type="checkbox"
+    role="switch"
+    aria-label="Dark mode"
+    data-theme-toggle-checkbox
+  />
+  <label for={id} class="theme-switcher__label">
+    <span
+      class="theme-switcher__icon theme-switcher__icon--light"
+      aria-hidden="true"
+    >
+      <SunIcon />
+      Light
+    </span>
+    <span class="switch-slider"></span>
+    <span
+      class="theme-switcher__icon theme-switcher__icon--dark"
+      aria-hidden="true"
+    >
+      <MoonIcon />
+      Dark
+    </span>
+  </label>
+</div>
+
+<script>
+  // Astro bundles and dedupes this, so rendering the switcher more than once
+  // still loads the controller exactly once.
+  import '../scripts/theme-switcher';
+</script>

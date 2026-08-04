@@ -1,12 +1,11 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
 import { menu } from 'src/data/footer';
 import FooterItem from '@components/FooterItem.astro';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/Footer.astro');
 stats.start();
 

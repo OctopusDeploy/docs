@@ -1,12 +1,8 @@
 ---
-import {
-  PostOrdering,
-  PostFiltering,
-  Accelerator,
-} from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostOrdering, PostFiltering } from 'astro-accelerator-utils';
 import { SITE } from '@config';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics(
   'octopus/components/RecentlyUpdated.astro'
 );

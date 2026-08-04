@@ -1,12 +1,28 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE, OPEN_GRAPH, HEADER_SCRIPTS } from '@config';
 import { getEligibleSlugs } from '@util/mdxContent';
 import JsonLd from '@components/JsonLd.astro';
+import ThemeScript from '@components/ThemeScript.astro';
 import { ASSETS, ASSETS_ORIGIN } from 'src/lib/sharedNavbarFooter';
 
-const accelerator = new Accelerator(SITE);
+// Design tokens as CSS custom properties. globals and textTheme apply at :root;
+// lightTheme and darkTheme are selected by the data-theme attribute on <html> -
+// rendered as a default by layouts/Default.astro, then resolved before first
+// paint by <ThemeScript />. See src/lib/theme.ts.
+import '@octopusdeploy/design-system-tokens/css/globals.css';
+import '@octopusdeploy/design-system-tokens/css/textTheme.css';
+import '@octopusdeploy/design-system-tokens/css/lightTheme.css';
+import '@octopusdeploy/design-system-tokens/css/darkTheme.css';
+
+// Site styles, imported so that Vite will bundle/minify/content-hash them.
+// Note: @font-face rules in vars.css point at public/docs/css/fa/webfonts, which stay in
+// public/ and are served statically, so the webfonts keep their stable path and remain
+// cached across deploys.
+import '../../../styles/vars.css';
+import '../../../styles/main.css';
+
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
 stats.start();
 
@@ -56,6 +72,7 @@ stats.stop();
 
 <head>
   <meta charset="utf-8" />
+  <ThemeScript />
   <title>{title}</title>
   <meta name="robots" content={'max-image-preview:large, ' + robots} />
   <meta name="keywords" content={frontmatter.keywords} />
@@ -64,8 +81,6 @@ stats.stop();
   <link rel="stylesheet" href={`${ASSETS}/pu-vars.css`} />
   <link rel="stylesheet" href={`${ASSETS}/footer-pu-styles.css`} />
   <link rel="stylesheet" href={`${ASSETS}/marketo-pu-styles.css`} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/vars.css'} />
-  <link rel="stylesheet" href={SITE.subfolder + '/css/main.css'} />
   {
     autoMeta('viewport') && (
       <meta

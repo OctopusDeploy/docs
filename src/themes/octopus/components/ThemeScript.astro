@@ -1,0 +1,46 @@
+---
+import {
+  COLOR_SCHEME_QUERY,
+  THEME_ATTRIBUTE,
+  THEME_PREFERENCE_ATTRIBUTE,
+  THEME_STORAGE_KEY,
+} from 'src/lib/theme';
+
+// Render this as early in <head> as possible - before the stylesheets, so the
+// parser is not waiting on a CSS download before it can run.
+//
+// define:vars implies is:inline, which is what we want here: the script must
+// not be bundled or deferred, it has to run before the first paint. The values
+// come from src/lib/theme.ts so they cannot drift from the client controller.
+---
+
+<script
+  define:vars={{
+    COLOR_SCHEME_QUERY,
+    THEME_ATTRIBUTE,
+    THEME_PREFERENCE_ATTRIBUTE,
+    THEME_STORAGE_KEY,
+  }}
+>
+  (() => {
+    let stored = null;
+    try {
+      stored = localStorage.getItem(THEME_STORAGE_KEY);
+    } catch {
+      /* storage blocked - fall back to the OS preference */
+    }
+
+    const preference =
+      stored === 'light' || stored === 'dark' ? stored : 'system';
+    const theme =
+      preference === 'system'
+        ? window.matchMedia(COLOR_SCHEME_QUERY).matches
+          ? 'dark'
+          : 'light'
+        : preference;
+
+    const root = document.documentElement;
+    root.setAttribute(THEME_ATTRIBUTE, theme);
+    root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
+  })();
+</script>

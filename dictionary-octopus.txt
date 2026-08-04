@@ -611,6 +611,7 @@ variablename
 variableset
 vhdx
 violationreason
+vite
 VMSS
 vnet
 Voltron
@@ -642,6 +643,7 @@ XACML
 xcopy
 xlarge
 xmark
+xsmall
 xvzf
 xxlarge
 youtu
