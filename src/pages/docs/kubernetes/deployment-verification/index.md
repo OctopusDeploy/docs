@@ -100,10 +100,10 @@ At a given point in time, an object can have one of four statuses:
 
 | Label                       | Status Icon                              |
 |:----------------------------|:----------------------------------------:|
-| In progress                 | <i class="fa-regular fa-spinner blue"></i>      |
-| Success                     | <i class="fa-regular fa-heart green"></i> |
-| Error                       | <i class="fa-regular fa-heart-crack red"></i> |
-| Timed out while in progress | <i class="fa-regular fa-clock orange"></i>        |
+| In progress                 | <i class="fa-solid fa-spinner blue"></i>      |
+| Success                     | <i class="fa-solid fa-heart green"></i> |
+| Error                       | <i class="fa-solid fa-heart-crack red"></i> |
+| Timed out while in progress | <i class="fa-solid fa-clock orange"></i>        |
 
 If there are multiple steps in deploying Kubernetes resources, each step will have a separate section on the tab.
 

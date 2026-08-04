@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Debugging PowerShell scripts
 description: How to debug PowerShell scripts running as part of your deployment process.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 110
 hideInThisSectionHeader: true
 ---

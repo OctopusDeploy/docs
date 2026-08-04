@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-08-26
 title: Azure CLI and PowerShell Scripts
 description: Azure CLI and PowerShell Scripts allow you to manage your Azure resources as part of your deployment process.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 80
 ---
 

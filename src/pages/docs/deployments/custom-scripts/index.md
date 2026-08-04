@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2025-05-19
 title: Custom scripts
 description: Custom scripts allows you to script anything you want using PowerShell, Dotnet Script, F#, Python, or Bash.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 150
 ---
 

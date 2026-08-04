@@ -5,7 +5,7 @@ modDate: 2026-04-27
 title: Script modules in Octopus
 navTitle: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 120
 ---
 

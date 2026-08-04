@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-08-27
 title: Run a script step
 description: Standalone scripts allow you to run scripts contained in a package, in a git repository, or ad-hoc scripts you've saved as part of the step.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 10
 ---
 
