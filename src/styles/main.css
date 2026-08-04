@@ -315,9 +315,11 @@ strong {
 
 /* Figma puts space/6 above every list item after the first, so consecutive
    items read as a group while the list still sits tight against the block
-   above it. The component lists in the article body - the taxonomy chips and
-   the copy markdown menu - space themselves and opt out. */
-.page-content li + li:not(:where(.post-taxonomy *, .octo-copy-md *)) {
+   above it. Only markdown content lists are in scope, and those are the
+   classless ones - the component lists rendered into the article body (recent
+   updates, article cards, the copy markdown menu) all carry a class and space
+   themselves. */
+.page-content :where(ul, ol):not([class]) > li + li {
   padding-block-start: var(--space6);
 }
 
