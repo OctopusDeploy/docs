@@ -108,26 +108,27 @@ blockquote cite {
 
 /* TODO: Refactor code snippets. This needs to be a component. */
 code {
-  font-family: var(--code-font);
-  background-color: var(--navy-200);
+  font-family: var(--fontFamilyCode);
+  border-radius: var(--borderRadiusSmall);
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  background: var(--colorBackgroundSecondaryDefault);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 pre {
   padding: 0.5rem 1rem;
   white-space: break-spaces;
-  background-color: var(--code-background) !important;
-  border-radius: var(--standard-radius);
-  font-family: var(--code-font);
-  color: var(--code-color);
+  background: var(--colorBackgroundSecondaryDefault) !important;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusLarge);
+  font-family: var(--fontFamilyCode);
+  color: var(--color-text);
 }
 
 pre code {
   background-color: unset;
-}
-
-.dark pre {
-  background-color: var(--color-base-primary) !important;
-  filter: invert(98%) hue-rotate(180deg);
+  border: unset;
 }
 
 /* TODO: Also will be removed once component is implemented */
@@ -137,8 +138,8 @@ div.warning code:not(pre code),
 div.problem code:not(pre code),
 div.question code:not(pre code),
 div.hint code:not(pre code) {
-  background-color: var(--code-background);
-  color: var(--code-color);
+  background-color: var(--colorBackgroundSecondaryDefault);
+  color: var(--color-text);
 }
 
 html[data-theme='dark'] {

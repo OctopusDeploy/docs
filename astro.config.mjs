@@ -5,6 +5,9 @@ import { unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/custom-markdown.mjs';
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
+import rehypeWbr from './src/plugins/rehype-wbr.js';
+
+console.log('rehypeWbr =', rehypeWbr);
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +32,9 @@ export default defineConfig({
                 remarkHeading,
                 attributeMarkdown,
                 wrapTables
+            ],
+            rehypePlugins: [
+                rehypeWbr
             ],
         }),
     },
