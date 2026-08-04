@@ -787,6 +787,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .article-nav .article-nav__details .article-nav__title::after {
+  /* fa-chevron-down */
   content: '\f078';
   font-family: fa-solid;
   float: right;
@@ -808,6 +809,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 
   .article-nav .article-nav__details .article-nav__title::after {
+    /* fa-chevron-down */
     content: '\f078';
     font-family: fa-solid;
     float: right;
@@ -1083,8 +1085,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .site-breadcrumbs li::before {
+  /* fa-chevron-right */
   content: '\f054';
-  /* Chevron Right */
   color: var(--color-menu-link);
   font-family: fa-solid;
   font-size: 0.8em;
@@ -1265,8 +1267,8 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav details > summary::before {
+  /* fa-chevron-down */
   content: '\f078';
-  /* Chevron Down */
   font-family: fa-solid;
   float: right;
   color: var(--color-menu-marker);
@@ -1279,8 +1281,8 @@ li.has-children .sub-nav ul li:focus > a {
   > .site-nav__list
   > .site-nav__list-item:not(.has-children)
   > a::after {
+  /* fa-chevron-right */
   content: '\f054';
-  /* Chevron Right */
   font-family: fa-solid;
   float: right;
   color: var(--color-menu-marker);
@@ -1293,8 +1295,8 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav details[open] > summary::before {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   color: var(--color-menu-link-alt);
 }
 
@@ -1594,16 +1596,16 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .page-toc details summary::after {
+  /* fa-chevron-down */
   content: '\f078';
-  /* Chevron Down*/
   font-family: fa-solid;
   margin-inline-start: 0.3em;
   float: right;
 }
 
 .page-toc details[open] summary::after {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   font-family: fa-solid;
 }
 
@@ -2262,8 +2264,8 @@ a[data-youtube] {
 }
 
 .site-footer nav a:after {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   font-family: fa-solid;
   padding-inline-start: 0.6em;
 }
@@ -2757,8 +2759,8 @@ a[data-youtube] {
 }
 
 .i-right:after {
+  /* fa-arrow-right */
   content: '\f061';
-  /* Arrow Right */
   font-family: fa-solid;
 }
 
@@ -2806,6 +2808,7 @@ a[data-youtube] {
 }
 
 .magnify-icon:before {
+  /* fa-magnifying-glass-plus */
   content: '\f00e';
   font-family: fa-solid;
   font-size: var(--fontSizeLarge);
