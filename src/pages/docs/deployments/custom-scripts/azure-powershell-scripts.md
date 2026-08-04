@@ -30,7 +30,7 @@ When executing PowerShell against Azure, Octopus Deploy will automatically use y
 
 This functionality requires the Azure CLI version 2.0 or above to be installed on the worker.
 
-**Choosing the right Azure account type**
+## Choosing the right Azure account type
 
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
@@ -68,7 +68,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-![](/docs/img/deployments/custom-scripts/images/create-staging-slot.png)
+![Creating a staging slot in the Azure portal](/docs/img/deployments/custom-scripts/images/create-staging-slot.png)
 
 ## Older versions
 

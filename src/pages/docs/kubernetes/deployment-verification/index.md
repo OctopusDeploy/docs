@@ -21,17 +21,16 @@ Octopus will also show a snapshot (from the moment of deployment) of deployed ob
 
 Step Verification is available for these steps.
 
-* Deploy Kubernetes YAML
-* Deploy a Helm Chart
-* Deploy with Kustomize
-* Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
-* Configure and apply a Kubernetes ConfigMap
-* Configure and apply a Kubernetes Secret
-* Configure and apply a Kubernetes Ingress
-* Configure and apply a Kubernetes Service
+- Deploy Kubernetes YAML
+- Deploy a Helm Chart
+- Deploy with Kustomize
+- Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
+- Configure and apply a Kubernetes ConfigMap
+- Configure and apply a Kubernetes Secret
+- Configure and apply a Kubernetes Ingress
+- Configure and apply a Kubernetes Service
 
 Object status is disabled for all steps added before the feature was introduced and enabled by default in all the new steps added later.
-
 
 ## How to configure
 
@@ -57,20 +56,20 @@ Use the first option to enable the feature (`Verify that Kubernetes objects reac
 
 One can configure two extra parameters:
 
-* **Step timeout** refers to the maximum time a deployment step can run before termination (determined in seconds).
+- **Step timeout** refers to the maximum time a deployment step can run before termination (determined in seconds).
 This setting is intended to prevent a step from running indefinitely or causing delays in the overall deployment process. If one disables the parameter (checkbox), you allow the step to run indefinitely.
 
-* **Wait for Jobs to complete during deployment** determines if Octopus should wait for the successful completion of the jobs deployed at this step. If unchecked, Octopus considers a step execution successful once Jobs are created without waiting for their execution.
+- **Wait for Jobs to complete during deployment** determines if Octopus should wait for the successful completion of the jobs deployed at this step. If unchecked, Octopus considers a step execution successful once Jobs are created without waiting for their execution.
 
 A user needs to create and deploy a new release after one saves the new configuration to see the changes.
 
 ## How it works
 
-### Helm
+### Helm status tracking
 
 Helm has an existing mechanism for tracking the status of deployed resources, the [`--wait`](https://helm.sh/docs/helm/helm_upgrade/#options) parameter on the upgrade command. Rather than Octopus providing another mechanism on top of this, Octopus adds this parameter to the upgrade parameters and relies on Helm to track the deployed resources and fail the step if the resource fails
 
-### Other steps
+### Other Kubernetes steps
 
 When a deployment to a Kubernetes cluster is created, Octopus identifies the objects to create or update during this deployment. It then checks the status of these objects continuously throughout the deployment process. Apart from the objects that are defined directly in the project, Octopus also grabs the status of any children objects of them. For example, ReplicaSets and Pods that belong to a Deployment are included along with the Deployment itself, despite they are not defined directly.
 
@@ -98,12 +97,12 @@ Octopus displays resource status in a respected table for each deployed resource
 
 At a given point in time, an object can have one of four statuses:
 
-| Label                       | Status Icon                              |
-|:----------------------------|:----------------------------------------:|
-| In progress                 | <i class="fa-solid fa-spinner blue"></i>      |
-| Success                     | <i class="fa-solid fa-heart green"></i> |
+| Label                       | Status Icon                                 |
+|:----------------------------|:-------------------------------------------:|
+| In progress                 | <i class="fa-solid fa-spinner blue"></i>    |
+| Success                     | <i class="fa-solid fa-heart green"></i>     |
 | Error                       | <i class="fa-solid fa-heart-crack red"></i> |
-| Timed out while in progress | <i class="fa-solid fa-clock orange"></i>        |
+| Timed out while in progress | <i class="fa-solid fa-clock orange"></i>    |
 
 If there are multiple steps in deploying Kubernetes resources, each step will have a separate section on the tab.
 
@@ -123,4 +122,4 @@ Clicking the name will open a drawer showing the manifest for the resource.
 
 ## Useful links
 
-* [Find more details in the blog post](https://octopus.com/blog/live-updates-kubernetes-objects-deployments)
+- [Find more details in the blog post](https://octopus.com/blog/live-updates-kubernetes-objects-deployments)

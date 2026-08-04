@@ -14,16 +14,16 @@ As a convention-oriented deployment tool, Octopus can perform a number of action
 
 Octopus supports the following scripting environments:
 
- - PowerShell scripts (.ps1)
- - Bash scripts (.sh)
- - Python scripts (.py)
- - C# scripts (.csx) using [dotnet-script](https://github.com/dotnet-script/dotnet-script)
- - F# scripts (.fsx)
+- PowerShell scripts (.ps1)
+- Bash scripts (.sh)
+- Python scripts (.py)
+- C# scripts (.csx) using [dotnet-script](https://github.com/dotnet-script/dotnet-script)
+- F# scripts (.fsx)
 
  Octopus can run these scripts on almost any operating system as long as the script runtime is installed and configured correctly.
 
 :::div{.warning}
-C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs) will still work, but is marked for deprecation. You can find the announcement from ScriptCS that the project is no longer being maintained [here](https://github.com/scriptcs/scriptcs/issues/1323).
+C# scripts (.csx) using [ScriptCS](https://github.com/scriptcs/scriptcs) will still work, but is marked for deprecation. You can find the announcement from ScriptCS that the project is no longer being maintained [in this ScriptCS issue](https://github.com/scriptcs/scriptcs/issues/1323).
 
 C# scripts using ScriptCS will generate warning in your Octopus task logs from version 2024.2.7996+ advising users to use dotnet-script. For more information and ScriptCS to dotnet-script migration instructions, see our [blog announcement here](https://octopus.com/blog/rfc-migrate-scriptcs-dotnet-script).
 
@@ -38,25 +38,25 @@ If an activity can be scripted, Octopus can run that script as a standalone acti
 
 In the context of Octopus, your custom scripts get the following extra benefits:
 
- - Your scripts can use [variables](/docs/projects/variables/) managed by Octopus, including [secrets](/docs/projects/variables/sensitive-variables/), [complex variable expressions](/docs/projects/variables/variable-substitutions/), and [filters](/docs/projects/variables/variable-filters/). Learn about [using variables in scripts](/docs/deployments/custom-scripts/using-variables-in-scripts).
- - Your scripts can be executed across your entire fleet of servers, or a selection of servers, in a controlled fashion. Learn about [deployment targets](/docs/infrastructure/deployment-targets/) and [workers](/docs/infrastructure/workers).
- - Your scripts can use the contents of a package. Learn about [using files from packages in scripts](/docs/deployments/custom-scripts/scripts-in-packages/reference-files-within-a-package).
- - Your script can log special messages to control the format or report progress. Learn about [logging messages in scripts](/docs/deployments/custom-scripts/logging-messages-in-scripts).
- - Your scripts can set output variables making these values available to other steps in your process. Learn about [output variables](/docs/projects/variables/output-variables).
- - Your scripts can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/projects/deployment-process/artifacts).
- - Your scripts can be pre-authenticated and bootstrapped into a cloud provider. Learn about [AWS CLI scripts](/docs/deployments/custom-scripts/aws-cli-scripts/) and [Azure CLI scripts](/docs/deployments/custom-scripts/azure-powershell-scripts).
- - Your scripts can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployments/kubernetes/) and [Service Fabric deployments](/docs/deployments/azure/service-fabric).
- - You can define reusable functions for your scripts to use. Learn about [script modules](/docs/deployments/custom-scripts/script-modules).
+- Your scripts can use [variables](/docs/projects/variables/) managed by Octopus, including [secrets](/docs/projects/variables/sensitive-variables/), [complex variable expressions](/docs/projects/variables/variable-substitutions/), and [filters](/docs/projects/variables/variable-filters/). Learn about [using variables in scripts](/docs/deployments/custom-scripts/using-variables-in-scripts).
+- Your scripts can be executed across your entire fleet of servers, or a selection of servers, in a controlled fashion. Learn about [deployment targets](/docs/infrastructure/deployment-targets/) and [workers](/docs/infrastructure/workers).
+- Your scripts can use the contents of a package. Learn about [using files from packages in scripts](/docs/deployments/custom-scripts/scripts-in-packages/reference-files-within-a-package).
+- Your script can log special messages to control the format or report progress. Learn about [logging messages in scripts](/docs/deployments/custom-scripts/logging-messages-in-scripts).
+- Your scripts can set output variables making these values available to other steps in your process. Learn about [output variables](/docs/projects/variables/output-variables).
+- Your scripts can collect files and store them in Octopus. Learn about [publishing artifacts](/docs/projects/deployment-process/artifacts).
+- Your scripts can be pre-authenticated and bootstrapped into a cloud provider. Learn about [AWS CLI scripts](/docs/deployments/custom-scripts/aws-cli-scripts/) and [Azure CLI scripts](/docs/deployments/custom-scripts/azure-powershell-scripts).
+- Your scripts can be pre-authenticated and bootstrapped into an external service or server cluster. Learn about [Kubernetes deployments](/docs/deployments/kubernetes/) and [Service Fabric deployments](/docs/deployments/azure/service-fabric).
+- You can define reusable functions for your scripts to use. Learn about [script modules](/docs/deployments/custom-scripts/script-modules).
 
 ## How to use custom scripts
 
 Octopus supports the following ways to use custom scripts:
 
- - You can define a step in a process to run a script. Learn about the [run a script step](/docs/deployments/custom-scripts/run-a-script-step).
- - You can run custom scripts when Octopus deploys a package. Learn about the [deploy a package step](/docs/deployments/packages/) and [the different stages where your script can run](/docs/deployments/packages/package-deployment-feature-ordering).
- - You can build reusable step templates containing your own scripts which can be used across multiple projects. Learn about [step templates](/docs/projects/custom-step-templates).
- - You can run ad hoc scripts for administrative tasks. Learn about the [script console](/docs/administration/managing-infrastructure/script-console).
- - You can run custom scripts as part of a health check. Learn about [machine policies](/docs/infrastructure/deployment-targets/machine-policies).
+- You can define a step in a process to run a script. Learn about the [run a script step](/docs/deployments/custom-scripts/run-a-script-step).
+- You can run custom scripts when Octopus deploys a package. Learn about the [deploy a package step](/docs/deployments/packages/) and [the different stages where your script can run](/docs/deployments/packages/package-deployment-feature-ordering).
+- You can build reusable step templates containing your own scripts which can be used across multiple projects. Learn about [step templates](/docs/projects/custom-step-templates).
+- You can run ad hoc scripts for administrative tasks. Learn about the [script console](/docs/administration/managing-infrastructure/script-console).
+- You can run custom scripts as part of a health check. Learn about [machine policies](/docs/infrastructure/deployment-targets/machine-policies).
 
 ## Where to store your scripts
 
@@ -73,7 +73,7 @@ Octopus can execute scripts from a variety of locations, all with different bene
 The precise details depend on the context within which your script is running, however, Octopus follows this general process:
 
  1. Octopus transfers the script to the execution environment along with the variables, packages, script modules, and anything else required to run the script. This is done via the Tentacle agent or SSH session into a temporary work directory.
- 2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script and provide access to variables and helper functions. _You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell)._
+ 2. The Tentacle agent or SSH session invokes the [open-source Calamari project](https://github.com/OctopusDeploy/Calamari) to bootstrap your script and provide access to variables and helper functions. *You can see how your scripts are bootstrapped in the [Calamari source code](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/WindowsPowerShell).*
  3. Calamari invokes your script, streaming log messages back to the Octopus Server.
  4. Any artifacts published by your scripts are transferred back to the Octopus Server.
  5. The temporary work directory is cleaned up.
@@ -109,7 +109,7 @@ We recommend the following approaches for developing and testing your scripts, i
  3. Put your script in a test process and run that process in a test environment.
  4. Put your script in a real process and run that process in a test environment.
 
- ### Debugging scripts
+### Debugging scripts
 
  There may be times where your script does not work as expected. In these cases, there are some ways you can debug your scripts:
 

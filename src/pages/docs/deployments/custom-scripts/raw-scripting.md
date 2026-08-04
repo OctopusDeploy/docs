@@ -52,7 +52,8 @@ While raw scripting does not require a Transfer a Package step, the below scenar
    rm -fr ~/temp/somewhere
    unzip -d ~/temp/somewhere "#{Octopus.Action[Transfer AcmeWeb].Output.Package.FilePath}"
    ```
-4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/) during the package acquisition phase and it will actually be _moved_ from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies) will be unable to clean old packages.
+
+4. On the Variables tab set the variable `OctopusUseRawScript` to the value `True` which instructs Octopus to perform package transfers and script execution without the aid of Calamari. This means that package transfer will not be able to use [delta compression](/docs/deployments/packages/delta-compression-for-package-transfers/) during the package acquisition phase and it will actually be *moved* from the upload location when the transfer step runs. This is because no target-side logs are kept for this transfer and hence [retention policy](/docs/administration/retention-policies) will be unable to clean old packages.
 
 5. Create a release and deploy the project. You should notice that unlike a typical deployment, there are no calls to upload or run Calamari and the whole thing runs a bit faster due to the reduced overhead. If you check your *~/.octopus* directory on the remote endpoint, you should also notice that there are no Calamari dependencies that have had to be uploaded for this deployment.  
 

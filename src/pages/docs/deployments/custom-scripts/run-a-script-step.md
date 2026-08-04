@@ -18,9 +18,9 @@ When adding a script you choose where the script will run, and in which context 
 
 The options will vary based on the infrastructure that's available to you. For instance, if you do not have any [workers](/docs/infrastructure/workers) configured you will see the following options:
 
- - Run on the Octopus Server
- - Run on the Octopus Server on behalf of each deployment target
- - Run on each deployment target (default)
+- Run on the Octopus Server
+- Run on the Octopus Server on behalf of each deployment target
+- Run on each deployment target (default)
 
 If you do have workers configured you will see the following options:
 
@@ -30,15 +30,13 @@ If you do have workers configured you will see the following options:
 
 If you choose to run the step on a worker, you will also need to select which [worker pool](/docs/infrastructure/workers/worker-pools) Octopus should use for the step.
 
-
-
 Choosing the right combination of **Target** and **Roles** enables some really interesting scenarios. See below for some common examples:
 
-| Target            | Roles                  | Description                              | Variables                                | Example scenarios                        |
-| ----------------- | ---------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target |
-| Octopus Server    |                        | The script will run once on the Octopus Server | Scope variables to the Step in order to customize variables for this script | Calculate some output variables to be used by other steps or run a database upgrade process |
-| Octopus Server    | `web-server`           | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus) where access to the load balancer API is restricted |
+| Target            | Roles                     | Description                                                                                                                                                  | Variables                                                                                                                                               | Example scenarios                                                                                                                                                                          |
+|-------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Deployment target | `web-server` `app-server` | The script will run on each deployment target with either of the `web-server` or `app-server` roles                                                          | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Apply server hardening or ensure standard pre-requisites are met on each deployment target                                                                                                 |
+| Octopus Server    |                           | The script will run once on the Octopus Server                                                                                                               | Scope variables to the Step in order to customize variables for this script                                                                             | Calculate some output variables to be used by other steps or run a database upgrade process                                                                                                |
+| Octopus Server    | `web-server`              | The script will run on the Octopus Server on behalf of the deployment targets with the `web-server` role. The script will execute once per deployment target | The variables scoped to the deployment target will be available to the script. For example, `Octopus.Machine.Name` will be the deployment target's name | Remove web servers from a load balancer as part of a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus) where access to the load balancer API is restricted |
 
 ## Choosing where to source the script {#choosing-where-to-source-scripts}
 
@@ -49,7 +47,7 @@ You may also select the source of the script, either:
 - A script file inside a package (shown below).
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/script-file-in-package.png)
+![Selecting a script file from inside a package in the Run a Script step](/docs/img/deployments/custom-scripts/images/script-file-in-package.png)
 :::
 
 :::div{.success}
@@ -72,7 +70,7 @@ When sourcing a script from a file inside a package you cannot choose to run the
 When you call external scripts (sourced from a file inside a package or git repository) you can pass parameters to your script. This means you can write "vanilla" scripts that are unaware of Octopus, and test them in your local development environment. Read about [passing parameters to scripts](/docs/deployments/custom-scripts/passing-parameters-to-scripts).
 
 :::figure
-![](/docs/img/deployments/custom-scripts/images/5865636.png)
+![Script parameters configured on the Run a Script step](/docs/img/deployments/custom-scripts/images/5865636.png)
 :::
 
 ## Referencing packages
@@ -82,8 +80,8 @@ In addition to being able to [source the custom script from a package](#choosing
 - Executing a utility contained in a package
 - Deploying a package in a manner for which there is no built-in steps available; for example pushing a package to a Content-Management-System
 - Performing tasks which require multiple packages.  For example:
-    - Executing `NuGet.exe` to push another package (e.g. `Acme.Web`)
-    - Referencing multiple container images and performing `docker compose`
+  - Executing `NuGet.exe` to push another package (e.g. `Acme.Web`)
+  - Referencing multiple container images and performing `docker compose`
 
 :::figure
 ![Script Step Package References](/docs/img/deployments/custom-scripts/images/script-step-package-references.png)
@@ -96,18 +94,22 @@ Package references can be added regardless of whether the script is sourced inli
 When adding a package reference, you must supply:
 
 #### Package ID
+
 The ID of the package to be referenced, or a variable-expression.
 
 #### Feed
+
 The feed the package is sourced from, or a variable-expression.
 
 #### Name {#package-reference-fields-name}
+
 A unique identifier for the package-reference. In general the Package ID is a good choice for the name. The reasons the Package ID may not be suitable as the name include:
 
 - The Package-ID may be bound to a variable-expression (e.g. `#{Acme.Package.Id}`). Some of the places the name is used are not suitable for variable-expressions.
 - In rare situations it may be desirable to reference multiple versions of the same package.  In this case they would need to be given different names.
 
 #### Extract
+
 Whether the package should be extracted. See [below](#referencing-packages-package-files) for information on the package file locations.
 This will not be displayed for certain package-types (i.e. container images). This may also be bound to a variable-expression.
 
@@ -120,16 +122,17 @@ This will not be displayed for certain package-types (i.e. container images). Th
 Having added one or more package references, it's reasonable to assume you wish to do something with them in your custom script.
 
 #### Package variables
+
 Package-references contribute variables which can be used just as any other variable. These variables are (assuming a package-reference named `Acme`):
 
-| Variable name and description | Example |
-| ----------------------------- | ------- |
-| `Octopus.Action.Package[Acme].PackageId` <br/>The package ID | *Acme* |
-| `Octopus.Action.Package[Acme].FeedId` <br/>The feed ID | *feeds-123* |
-| `Octopus.Action.Package[Acme].PackageVersion` <br/>The version of the package included in the release | *1.4.0* |
-| `Octopus.Action.Package[Acme].ExtractedPath` <br/>The absolute path to the extracted directory (if the package is configured to be extracted) |  *C:\Octopus\Work\20210821060923-7117-31\Acme* |
+| Variable name and description                                                                                                                      | Example                                           |
+|----------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| `Octopus.Action.Package[Acme].PackageId` <br/>The package ID                                                                                       | *Acme*                                            |
+| `Octopus.Action.Package[Acme].FeedId` <br/>The feed ID                                                                                             | *feeds-123*                                       |
+| `Octopus.Action.Package[Acme].PackageVersion` <br/>The version of the package included in the release                                              | *1.4.0*                                           |
+| `Octopus.Action.Package[Acme].ExtractedPath` <br/>The absolute path to the extracted directory (if the package is configured to be extracted)      | *C:\Octopus\Work\20210821060923-7117-31\Acme*     |
 | `Octopus.Action.Package[Acme].PackageFilePath` <br/>The absolute path to the package file (if the package has been configured to not be extracted) | *C:\Octopus\Work\20210821060923-7117-31\Acme.zip* |
-| `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted) | *Acme.zip* |
+| `Octopus.Action.Package[Acme].PackageFileName` <br/>The name of the package file (if the package has been configured to not be extracted)          | *Acme.zip*                                        |
 
 The following PowerShell script example shows how to find the extracted path for a referenced package named `Acme`:
 
@@ -143,18 +146,19 @@ Write-Host "ExtractedPath: $ExtractedPath"
 
 If the package reference was configured to be extracted, then the package will be extracted to a subdirectory in the working-directory of the script. This directory will be named the same as the package-reference.  For example, a package reference named `Acme` would be extracted to directory similar to `C:\Octopus\Work\20180821060923-7117-31\Acme` (this is obviously a Windows directory; a script executing on a Linux target may have a path such as `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme`).
 
-If the package reference was _not_ configured to be extracted, then the un-extracted package file will be placed in the working directory. The file will be named as the package reference name, with the same extension as the original package file.  For example, for a package reference named `Acme`, which resolved to a zip package, the file would be copied to a path such as `C:\Octopus\Work\20180821060923-7117-31\Acme.zip` (for Linux: `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme.zip`).
+If the package reference was *not* configured to be extracted, then the un-extracted package file will be placed in the working directory. The file will be named as the package reference name, with the same extension as the original package file.  For example, for a package reference named `Acme`, which resolved to a zip package, the file would be copied to a path such as `C:\Octopus\Work\20180821060923-7117-31\Acme.zip` (for Linux: `/home/ubuntu/.octopus/Work/20180821062148-7121-35/Acme.zip`).
 
 These locations were designed to be convenient for use from custom scripts, as the relative path can be predicted, e.g. `./Acme` or `./Acme.zip`.  If the absolute path is required the variables above may be used.
 
 #### Docker image package variables
+
 In the scenario where your package reference is a Docker image some additional variables will be contributed. These variables are (assuming a package-reference named `Acme`):
 
-| Variable name and description                                                                                                                                | Example                      |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| `Octopus.Action.Package[Acme].Image` <br/>The fully qualified image name                                                                                     | *index.docker.io/Acme:1.4.0* |
-| `Octopus.Action.Package[Acme].Registry` <br/>The URI of the registry from the feed where the image was acquired from                                         | *index.docker.io*            |
-| `Octopus.Action.Package[Acme].Version` <br/>The version of the image included in the release                                                                 | *1.4.0*                      |
+| Variable name and description                                                                                                                                 | Example                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| `Octopus.Action.Package[Acme].Image` <br/>The fully qualified image name                                                                                      | *index.docker.io/Acme:1.4.0* |
+| `Octopus.Action.Package[Acme].Registry` <br/>The URI of the registry from the feed where the image was acquired from                                          | *index.docker.io*            |
+| `Octopus.Action.Package[Acme].Version` <br/>The version of the image included in the release                                                                  | *1.4.0*                      |
 | `Octopus.Action.Package[Acme].Feed.UserName` <br/>The username from the feed where the image was acquired from (if the feed is configured to use credentials) | *Alice*                      |
 | `Octopus.Action.Package[Acme].Feed.Password` <br/>The password from the feed where the image was acquired from (if the feed is configured to use credentials) | *Password01!*                |
 

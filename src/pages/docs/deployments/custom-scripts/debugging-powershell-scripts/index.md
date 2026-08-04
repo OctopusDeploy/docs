@@ -15,20 +15,20 @@ In PowerShell version 5.0 and above, Octopus supports script debugging to enable
 
 To enable debugging, add a variable to your project with the name `Octopus.Action.PowerShell.DebugMode`, with one of the following values:
 
-* `BreakBeforeLaunchingUserScript` or `True` - breaks just before executing the Step Template/Script Step/Custom deployment script.
-* `None` or `False` - disables debugging.
+- `BreakBeforeLaunchingUserScript` or `True` - breaks just before executing the Step Template/Script Step/Custom deployment script.
+- `None` or `False` - disables debugging.
 
 For more advanced usage, you can also use the following values:
 
-* `BreakAtStartOfBootstrapScript` - breaks into the debugger at the very start of the bootstrap script.
-* `BreakBeforeSettingVariables` - breaks into the debugger just before setting up all the variables.
-* `BreakBeforeImportingScriptModules` - breaks just before importing Script Modules. Useful for debugging issues with Script Modules.
+- `BreakAtStartOfBootstrapScript` - breaks into the debugger at the very start of the bootstrap script.
+- `BreakBeforeSettingVariables` - breaks into the debugger just before setting up all the variables.
+- `BreakBeforeImportingScriptModules` - breaks just before importing Script Modules. Useful for debugging issues with Script Modules.
 
 Once the variable is set, create and deploy your release as normal.
 
 When the Tentacle executes the script, it will print out instructions on how to attach the debugger, eg:
 
-```
+```text
 ...
 The PowerShell execution engine is waiting for a PowerShell script debugger to attach.
 Use the following commands to begin debugging this script:
