@@ -26,6 +26,18 @@ This page is not shown on the production site.
 - [Oldest content](/report/oldest-content/1)
 - [Taxonomy](/report/taxonomy)
 
+## Headings \{#headings}
+
+# Heading 1 (title)
+
+## Heading 2 \{#heading-2-a}
+
+## Heading 2 \{#heading-2-b}
+
+### Heading 3 \{#heading-3-a}
+
+### Heading 3 \{#heading-3-b}
+
 ## Examples
 
 ### Boxes
