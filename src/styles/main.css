@@ -176,10 +176,12 @@ h6:not(:where([data-shared-fragment] *)) {
 
 h2:not(:where([data-shared-fragment] *)) {
   font: var(--textHeadingLarge);
+  padding-top: var(--space56);
 }
 
 h3:not(:where([data-shared-fragment] *)) {
   font: var(--textHeadingMedium);
+  padding-top: var(--space48);
 }
 
 h4:not(:where([data-shared-fragment] *)) {
