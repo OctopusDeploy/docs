@@ -375,19 +375,32 @@ strong {
 }
 
 .bookmark-link {
-  border-radius: var(--standard-radius);
-  color: var(--fore-link);
-  display: inline-block;
-  font-size: var(--fontSizeLarge);
-  height: 1.2em;
-  margin-inline-start: 0.3rem;
-  opacity: 0.5;
-  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* box-sizing is set on html only and does not inherit, so without this the
+     min-width would exclude the padding and the button would be 36px. */
+  box-sizing: border-box;
+  min-width: 28px;
+  min-height: 28px;
+  padding: var(--space4);
+  margin-inline-start: var(--space8);
+  vertical-align: middle;
+  background: var(--colorBackgroundPrimaryDefault);
+  border-radius: var(--borderRadiusSmall);
+  outline: var(--borderWidth1) solid var(--colorBorderPrimary);
+  outline-offset: calc(-1 * var(--borderWidth1));
   text-decoration: none;
-  top: 0.5em;
   opacity: 0;
-  width: 1.25em;
-  white-space: nowrap;
+}
+
+.bookmark-link svg {
+  display: block;
+  width: var(--fontSizeLarge);
+  height: var(--fontSizeLarge);
+  /* Set on fill rather than inherited from the anchor's color, which
+     .page-content a:not(.link) outranks and would turn the icon blue. */
+  fill: var(--colorIconPrimary);
 }
 
 h2:hover .bookmark-link,
@@ -397,12 +410,6 @@ h5:hover .bookmark-link,
 h6:hover .bookmark-link,
 .bookmark-link:focus {
   opacity: 1;
-}
-
-.bookmark-link::before {
-  content: '\f0c1 ';
-  /* Link */
-  font-family: fa-solid;
 }
 
 /* Tables */
