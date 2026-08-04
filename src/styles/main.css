@@ -395,7 +395,7 @@ strong {
   /* ::before is a flex item here and would otherwise shrink. */
   flex: none;
   /* A mask uses the file's alpha channel, so its fill attribute is ignored and
-     the colour comes from here. Not the anchor's color, which
+     the color comes from here. Not the anchor's color, which
      .page-content a:not(.link) outranks and would turn the icon blue. */
   background-color: var(--colorIconPrimary);
   -webkit-mask: url('/docs/icons/link-on.svg') center / contain no-repeat;
