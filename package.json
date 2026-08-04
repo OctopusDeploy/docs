@@ -17,7 +17,7 @@
         "astro": "astro",
         "snapshot": "node --env-file=.env.production ./scripts/snapshot-shared.mjs",
         "build": "astro build",
-        "crawl": "linkinator ./dist --skip \"^(?!http://localhost)\" --recurse  --verbosity error",
+        "crawl": "linkinator docs --server-root ./dist --skip \"^(?!http://localhost)\" --recurse  --verbosity error",
         "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}'",
         "preview": "astro preview",
         "renovate": "renovate",
