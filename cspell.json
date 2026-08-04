@@ -63,7 +63,7 @@
     ".github/**",
     "src/pages/report/**",
     "src/fallback/**",
-    "public/docs/js/**",
+    "src/scripts/**",
     "node_modules/**",
     "public/docs/css/fa/**"
   ]
