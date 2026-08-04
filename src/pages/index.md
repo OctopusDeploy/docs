@@ -28,6 +28,9 @@ This page is not shown on the production site.
 
 ## Headings \{#headings}
 
+In each pair below, the first heading is at rest and the second has the anchor
+button forced visible. Normally it appears on hover or keyboard focus.
+
 # Heading 1 (title)
 
 ## Heading 2 \{#heading-2-a}
@@ -37,6 +40,13 @@ This page is not shown on the production site.
 ### Heading 3 \{#heading-3-a}
 
 ### Heading 3 \{#heading-3-b}
+
+<style>
+  #heading-2-b .bookmark-link,
+  #heading-3-b .bookmark-link {
+    opacity: 1;
+  }
+</style>
 
 ## Examples
 
