@@ -7,8 +7,6 @@ import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/cus
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 import rehypeWbr from './src/plugins/rehype-wbr.js';
 
-console.log('rehypeWbr =', rehypeWbr);
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://octopus.com',
