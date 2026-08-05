@@ -160,6 +160,7 @@ h4:not(:where([data-shared-fragment] *)),
 h5:not(:where([data-shared-fragment] *)),
 h6:not(:where([data-shared-fragment] *)) {
   color: var(--color-heading);
+  margin-block-end: var(--space12);
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -286,7 +287,9 @@ strong {
   font-family: var(--fontFamilySystem-ui);
 }
 
-.page-content > *,
+/* Headings are excluded because they set a tighter 12px block-end themselves,
+   which this rule would otherwise outrank on specificity. */
+.page-content > *:not(:is(h2, h3, h4, h5, h6)),
 .page-content > blockquote > *:not(:last-child),
 .page-content > div.info > *:not(:last-child),
 .page-content > div.success > *:not(:last-child),
