@@ -19,7 +19,7 @@ Rate limiting is configured using policies, managed in the **Configuration ➜ S
 ![A screenshot of the rate limiting policies list screen. Three policies are shown, with varying configured values.](/docs/img/administration/managing-infrastructure/rate-limiting/policies-list.png)
 :::
 
-There are three built-in policies:
+There are four built-in policies:
 
 ### Unauthenticated Requests
 
@@ -36,6 +36,12 @@ The rate limit applies per user.
 This policy applies to any HTTP requests associated with an authenticated user which authenticate using an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key).
 The rate limit applies per user, counted separately from non-AI requests.
 
+### Webhook Trigger Requests
+
+This policy applies to any HTTP requests made to the [webhook runbook trigger](/docs/runbooks/webhook-runbook-trigger) endpoint.
+The rate limit applies per instance, shared across all webhook triggers.
+This policy is always enabled, and its rate and burst limit cannot be changed.
+
 ## Configuring the Rate limiter
 
 You can use the configuration screen to enable or disable the rate limiting policies, and alter their configured values.
@@ -50,6 +56,10 @@ Each policy has the following settings you can modify:
 - **Audit mode**: If enabled, this causes the Server not to reject traffic, but simply generate audit events where requests would have been limited. See "Audit Events" below.
 - **Rate**: The sustained rate of incoming HTTP requests that the limiter will allow. See [Understanding the Rate Limiter](#understanding-the-rate-limiter).
 - **Burst limit**: The number of requests that must be consumed before the rate limiter activates and starts rejecting them. See [Understanding the Rate Limiter](#understanding-the-rate-limiter).
+
+:::div{.hint}
+The [Webhook Trigger Requests](#webhook-trigger-requests) policy is an exception; its settings cannot be modified.
+:::
 
 Rate limiting policies can also be enabled and configured using the Octopus.Server command line's `rate-limiting-policy` command.
 
