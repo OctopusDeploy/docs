@@ -1,5 +1,6 @@
 // @ts-check
 import { qs, qsa } from './query.js';
+import { writeToClipboard } from './clipboard.js';
 
 class CopyMarkdown {
   constructor(menu) {
@@ -29,49 +30,6 @@ class CopyMarkdown {
     }
   }
 
-  // navigator.clipboard requires a secure context; falls back to
-  // execCommand for HTTP and older browsers.
-  async writeToClipboard(text) {
-    if (
-      typeof navigator !== 'undefined' &&
-      navigator.clipboard &&
-      typeof navigator.clipboard.writeText === 'function' &&
-      (typeof window === 'undefined' || window.isSecureContext !== false)
-    ) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch (err) {
-        console.warn('[copy-md] navigator.clipboard failed, falling back', err);
-      }
-    }
-
-    return this.execCommandCopyFallback(text);
-  }
-
-  execCommandCopyFallback(text) {
-    if (typeof document === 'undefined') return false;
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.top = '0';
-    ta.style.left = '0';
-    ta.style.opacity = '0';
-    ta.style.pointerEvents = 'none';
-    document.body.appendChild(ta);
-    ta.select();
-    let ok = false;
-    try {
-      ok = document.execCommand('copy');
-    } catch (err) {
-      console.warn('[copy-md] execCommand fallback threw', err);
-      ok = false;
-    }
-    document.body.removeChild(ta);
-    return ok;
-  }
-
   async handleCopy(btn) {
     const url = btn.dataset.copyMdUrl;
     const success = btn.dataset.copyMdSuccess ?? '';
@@ -81,7 +39,7 @@ class CopyMarkdown {
       const res = await fetch(url);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const text = await res.text();
-      const ok = await this.writeToClipboard(text);
+      const ok = await writeToClipboard(text);
       if (!ok) throw new Error('clipboard-write-failed');
       this.announce(btn, success);
     } catch (err) {
