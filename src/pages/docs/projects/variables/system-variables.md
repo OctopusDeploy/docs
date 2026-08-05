@@ -227,11 +227,11 @@ You can also read these variables for a different action using indexed notation,
 | `Octopus.Action.Name` | The name of the action. | Website |
 | `Octopus.Action.Number` | The sequence number of the action in the deployment process. | `5` |
 | `Octopus.Action.Package.CustomInstallationDirectory` | The specific directory the package is copied to after extraction, if set. | `C:\InetPub\WWWRoot\OctoFx` |
-| `Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment` | Whether all files in the custom installation directory are deleted before deployment. | `False` |
+| <code>Octopus.Action.Package<wbr>.CustomInstallation<wbr>DirectoryShouldBePurged<wbr>BeforeDeployment</code> | Whether all files in the custom installation directory are deleted before deployment. | `False` |
 | `Octopus.Action.Package.DownloadOnTentacle` | Whether the package is downloaded by the Tentacle rather than pushed by the Octopus Server. | `False` |
-| `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` | Whether warnings in .NET configuration transformations fail the deployment. | `True` |
-| `Octopus.Action.Package.IgnoreConfigTransformationErrors` | Whether errors in .NET configuration transformations are treated as informational rather than failing the deployment. | `False` |
-| `Octopus.Action.Package.IgnoreVariableReplacementErrors` | Whether errors in variable replacement are treated as a warning rather than failing the deployment. | `False` |
+| <code>Octopus.Action.Package<wbr>.TreatConfig<wbr>TransformationWarnings<wbr>AsErrors</code> | Whether warnings in .NET configuration transformations fail the deployment. | `True` |
+| <code>Octopus.Action.Package<wbr>.IgnoreConfig<wbr>TransformationErrors</code> | Whether errors in .NET configuration transformations are treated as informational rather than failing the deployment. | `False` |
+| <code>Octopus.Action.Package<wbr>.IgnoreVariable<wbr>ReplacementErrors</code> | Whether errors in variable replacement are treated as a warning rather than failing the deployment. | `False` |
 | `Octopus.Action.Package.InstallationDirectoryPath` | The directory the package was installed to. Not available before extraction. | `C:\InetPub\WWWRoot\OctoFx` |
 | `Octopus.Action.Package.FeedId` | The ID of the feed the package was pulled from. | `feeds-123` |
 | `Octopus.Action.Package.PackageId` | The ID of the package being deployed. | `OctoFx.RateService` |
@@ -289,9 +289,9 @@ These variables are available during Azure deployment actions.
 
 | Variable | Description | Example |
 | --- | --- | --- |
-| `Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath` | The relative path to the `.cscfg` file, if set. Falls back to `ServiceConfiguration.{Environment}.cscfg` or `ServiceConfiguration.Cloud.cscfg`. | `ServiceConfiguration.Custom.cscfg` |
+| <code>Octopus.Action.Azure<wbr>.CloudService<wbr>ConfigurationFileRelativePath</code> | The relative path to the `.cscfg` file, if set. Falls back to `ServiceConfiguration.{Environment}.cscfg` or `ServiceConfiguration.Cloud.cscfg`. | `ServiceConfiguration.Custom.cscfg` |
 | `Octopus.Action.Azure.CloudServiceName` | The name of the cloud service targeted by the action. | `my-cloud-service-web` |
-| `Octopus.Action.Azure.CloudServicePackageExtractionDisabled` | Whether Octopus pushes the `.cspkg` file to Azure as-is without unpacking it. | `True` |
+| <code>Octopus.Action.Azure<wbr>.CloudService<wbr>PackageExtractionDisabled</code> | Whether Octopus pushes the `.cspkg` file to Azure as-is without unpacking it. | `True` |
 | `Octopus.Action.Azure.CloudServicePackagePath` | The path of the `.cspkg` file used by the action. | `Z:\Temp\packages\my-cloud-service-web.cspkg` |
 | `Octopus.Action.Azure.LogExtractedCspkg` | Whether the contents of the extracted `.cspkg` are written to the log. | `True` |
 | `Octopus.Action.Azure.Slot` | The slot of the cloud service targeted by the action. | Staging |
@@ -326,8 +326,8 @@ Output variables are collected while a step runs and made available to later ste
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who completed the manual step. | `alice@example.com` |
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.Id` | The ID of the user who completed the manual step. | `users-123` |
 | `Octopus.Action[name].Output.Manual.ResponsibleUser.Username` | The username of the user who completed the manual step. | `alice` |
-| `Octopus.Action[name].Output.OctopusAzureCloudServiceDeploymentID` | The ID of the completed Azure cloud service deployment. | `c9f52da2b00a4313b3b64bb2ad0f409f` |
-| `Octopus.Action[name].Output.OctopusAzureCloudServiceDeploymentUrl` | The URL of the completed Azure cloud service deployment. | `http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/` |
+| <code>Octopus.Action[name]<wbr>.Output<wbr>.OctopusAzure<wbr>CloudServiceDeploymentID</code> | The ID of the completed Azure cloud service deployment. | `c9f52d...409f` |
+| <code>Octopus.Action[name]<wbr>.Output<wbr>.OctopusAzure<wbr>CloudServiceDeploymentUrl</code> | The URL of the completed Azure cloud service deployment. | `http://c9f52d...409f.cloudapp.net/` |
 
 ## Step variables
 
@@ -438,12 +438,12 @@ You define these variables in your project to change how Octopus behaves. Unlike
 | `OctopusPrintEvaluatedVariables` | Set to `True` to have Tentacle print the value of all variables passed to it after evaluation. | `True` |
 | `OctopusSkipFreeDiskSpaceCheck` | Set to `True` to skip the free disk space check when deploying packages. | `True` |
 | `OctopusFreeDiskSpaceOverrideInMegaBytes` | The amount of free disk space, in megabytes, to check for, overriding the 500 MB default. | `100` |
-| `OctopusShouldFailDeploymentOnSubstitutionFails` | Set to `True` to fail the deployment if any variable substitution fails. | `True` |
+| <code>OctopusShouldFailDeployment<wbr>OnSubstitutionFails</code> | Set to `True` to fail the deployment if any variable substitution fails. | `True` |
 | `Octopus.Action.PowerShell.CustomPowerShellVersion` | The version Windows PowerShell scripts are invoked with (2.0, 3.0, 4.0, 5.0). For PowerShell Core, the value must match a directory in `%PROGRAMFILES%\PowerShell`. | `2.0` |
 | `OctopusDeleteScriptsOnCleanup` | Set to `False` to keep packaged PreDeploy, Deploy, and PostDeploy scripts in the target directory. | `False` |
 | `Octopus.Action.Script.SuppressEnvironmentLogging` | Set to `True` to suppress script environment-variable logging. | `True` |
 | `Octopus.Action.PowerShell.ExecuteWithoutProfile` | Set to `True` to skip the Tentacle service account's PowerShell profile when running PowerShell steps. | `True` |
-| `OctopusSuppressDuplicateVariableWarning` | Set to `True` to log the duplicate-variable message as verbose instead of a warning. | `True` |
+| <code>OctopusSuppressDuplicate<wbr>VariableWarning</code> | Set to `True` to log the duplicate-variable message as verbose instead of a warning. | `True` |
 | `Octopus.Action.Package.RunScripts` | Set to `False` to prevent scripts inside packages from running. | `True` |
 | `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo` | A file path the Calamari working directory is copied to, including the one-time key used to decrypt sensitive variables. | `c:\temp\octopus-debug` |
 | `Octopus.Deployment.WorkerLeaseCap` | An opt-in cap on how many steps referencing the same package reuse a single worker. Disabled by default; set above zero to opt in. Applies to deployments and runbooks. | `5` |

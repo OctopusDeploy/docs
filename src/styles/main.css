@@ -110,7 +110,9 @@ code {
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  padding: 0 var(--space4);
+  font-size: var(--fontSizeMedium);
 }
 
 pre {
@@ -171,7 +173,7 @@ h6:not(:where([data-shared-fragment] *)) {
 /* A heading directly below a larger one reads as a group, so the step is
    reduced. Only h3 and h4 need it: h5 already sits at 32px and h6 at 24px,
    where this would space the pair further apart, not closer. */
-:is(h2, h3)+ :is(h3, h4):not(:where([data-shared-fragment] *)) {
+:is(h2, h3) + :is(h3, h4):not(:where([data-shared-fragment] *)) {
   margin-block-start: var(--space32);
 }
 
@@ -321,7 +323,7 @@ strong {
    classless ones - the component lists rendered into the article body (recent
    updates, article cards, the copy markdown menu) all carry a class and space
    themselves. */
-.page-content :where(ul, ol):not([class])>li+li {
+.page-content :where(ul, ol):not([class]) > li + li {
   padding-block-start: var(--space6);
 }
 

@@ -1,6 +1,9 @@
 import { visit } from 'unist-util-visit';
 
-// Break *before* each of these characters
+// Browsers will break a line on a hyphen character, but not on a slash or period.
+// This can cause long strings of text to overflow their container, especially in code blocks.
+
+// This rehype plugin adds <wbr> elements to code blocks to allow for better line breaking in long strings of text.
 const SEPARATORS = /(?=[.\[:\/\\])/;
 
 function withBreaks(value) {
