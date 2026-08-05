@@ -171,7 +171,7 @@ h6:not(:where([data-shared-fragment] *)) {
 /* A heading directly below a larger one reads as a group, so the step is
    reduced. Only h3 and h4 need it: h5 already sits at 32px and h6 at 24px,
    where this would space the pair further apart, not closer. */
-:is(h2, h3)+ :is(h3, h4):not(:where([data-shared-fragment] *)) {
+:is(h2, h3) + :is(h3, h4):not(:where([data-shared-fragment] *)) {
   margin-block-start: var(--space32);
 }
 
@@ -321,7 +321,7 @@ strong {
    classless ones - the component lists rendered into the article body (recent
    updates, article cards, the copy markdown menu) all carry a class and space
    themselves. */
-.page-content :where(ul, ol):not([class])>li+li {
+.page-content :where(ul, ol):not([class]) > li + li {
   padding-block-start: var(--space6);
 }
 
@@ -417,11 +417,12 @@ strong {
   /* ::before is a flex item here and would otherwise shrink. */
   flex: none;
   /* A mask uses the file's alpha channel, so its fill attribute is ignored and
-     the color comes from here. Not the anchor's color, which
-     .page-content a:not(.link) outranks and would turn the icon blue. */
+     the icon takes the color declared here. The anchor's own color comes from
+     .page-content a:not(.link), which outranks this rule and would render the
+     icon blue. */
   background-color: var(--colorIconPrimary);
-  -webkit-mask: url('/docs/icons/link-on.svg') center / contain no-repeat;
-  mask: url('/docs/icons/link-on.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
+  mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
 }
 
 h2:hover .bookmark-link,
