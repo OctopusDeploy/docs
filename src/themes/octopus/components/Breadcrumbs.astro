@@ -95,25 +95,22 @@ stats.stop();
 </nav>
 
 <style>
-  /* The 8px rhythm is uniform across links and separators, so both the list
-     and each item carry the same gap: the list spaces one crumb from the next,
-     each item spaces its own separator from its link. */
+  /* The list gap spaces one crumb from the next and the separator carries the
+     same 8px after itself, which keeps the rhythm uniform. list-style is here
+     because the items are plain list items: nothing in main.css resets ol
+     markers globally, and flex-wrap lets a long trail drop to a second line
+     rather than overflow the column. */
   ol {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     gap: var(--space8);
+    list-style: none;
     padding: var(--space6) 0 var(--space0);
-  }
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: var(--space8);
   }
 
   li + li::before {
     content: '/';
+    margin-inline-end: var(--space8);
     color: var(--color-text-tertiary);
     font: var(--textBodyRegularSmall);
   }
