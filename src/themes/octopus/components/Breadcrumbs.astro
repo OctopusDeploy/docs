@@ -99,3 +99,52 @@ stats.stop();
     }
   </ol>
 </nav>
+
+<style>
+  ol {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    padding: 1rem 0 2rem 0;
+  }
+
+  li {
+    display: inline;
+    padding: 0.2em;
+  }
+
+  li::before {
+    content: '\f054';
+    /* Chevron Right */
+    color: var(--color-menu-link);
+    font-family: fa-solid;
+    font-size: 0.8em;
+    padding: 0 0.2rem 0 0;
+  }
+
+  li:first-child::before {
+    content: '';
+    padding: 0;
+  }
+
+  a {
+    color: var(--color-menu-link);
+    text-decoration: none;
+    transition: color var(--duration-default) ease-in-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-menu-link-alt);
+  }
+
+  a[aria-current],
+  a[aria-current]:hover,
+  a[aria-current]:focus {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+</style>

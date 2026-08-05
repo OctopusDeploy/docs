@@ -1107,55 +1107,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   font-weight: var(--fontWeight400);
 }
 
-/* Breadcrumbs */
-
-.site-breadcrumbs ol {
-  font: var(--textBodyRegularMedium);
-  margin: 0 auto;
-  padding: 1rem 0 2rem 0;
-}
-
-.site-breadcrumbs li {
-  display: inline;
-  padding: 0.2em;
-}
-
-.site-breadcrumbs li::before {
-  /* fa-chevron-right */
-  content: '\f054';
-  color: var(--color-menu-link);
-  font-family: fa-solid;
-  font-size: 0.8em;
-  padding: 0 0.2rem 0 0;
-}
-
-.site-breadcrumbs li:first-child::before {
-  content: '';
-  padding: 0;
-}
-
-.site-breadcrumbs a {
-  color: var(--color-menu-link);
-  text-decoration: none;
-  transition: color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-}
-
-.site-breadcrumbs a:hover,
-.site-breadcrumbs a:focus {
-  color: var(--color-menu-link-alt);
-}
-
-.site-breadcrumbs a[aria-current],
-.site-breadcrumbs a[aria-current]:hover,
-.site-breadcrumbs a[aria-current]:focus {
-  text-decoration: none;
-  color: var(--color-text);
-}
-
 /* Navigation */
 
 .site-nav,
