@@ -12,14 +12,13 @@ navOrder: 70
 
 Octopus Configuration Language (OCL) is based on a subset of Hashicorp Configuration Language (HCL). OCL files use the `.ocl` file extension, and are located in the base path defined in the projects version control settings.
 
-General information about the OCL format can be found [here](https://github.com/OctopusDeploy/Ocl), including the [EBNF notation](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
+General information about the OCL format is available in the [OCL repository](https://github.com/OctopusDeploy/Ocl), including the [EBNF notation](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
 
 ## Deployment Process
 
 The Deployment Process is defined in the `deployment_process.ocl` file. It consists of one or more steps. These steps are defined as blocks in OCL.
 
 ### `step` block
-
 
 Each step contains one label, which is the slug of the step. This must be unique throughout the process.
 
@@ -46,7 +45,9 @@ Default: `LetOctopusDecide`
 ### `step.properties`
 
 Properties is a dictionary of key-value-pairs.
+
 Example:
+
 ```ocl
 properties = {
     Octopus.Account.Id = "My Awesome Account"
@@ -137,6 +138,7 @@ tenant_tags = ["My Tenant/My Tag", "My Tenant/My Other Tag"]
 ### `step.action.worker_pool`
 
 The slug of a worker pool where this action should execute.
+
 ```ocl
 worker_pool = "my-worker-pool"
 ```
@@ -144,6 +146,7 @@ worker_pool = "my-worker-pool"
 ### `step.action.worker_pool_variable`
 
 The name of the variable pointing to a worker pool where this action should execute.
+
 ```ocl
 worker_pool_variable = "WorkerPoolVariable"
 ```
@@ -178,7 +181,7 @@ packages "<PACKAGE_NAME>" {
 }
 ```
 
-#### Example
+#### Example: deployment process steps
 
 ```ocl
 step "Hello world (using PowerShell)" {
@@ -244,7 +247,7 @@ value "<VARIABLE_VALUE>" {
 
 Defines the variable type. If omitted, the type is `String` (text). Valid values are `AzureAccount`, `GoogleCloudAccount`, `AmazonWebServicesAccount`, `Certificate`, `WorkerPool`, `Sensitive`, and `String`. Sensitive values should not be stored in the `variables.ocl` file - they should be stored in the database by using the Octopus Deploy UI instead.
 
-#### Example
+#### Example: value type
 
 ```ocl
 variable "Backup worker pool" {
@@ -259,7 +262,7 @@ variable "Backup worker pool" {
 
 Defines a description for a variable. This is often used to more fully describe what the variable does or any important notes about changing its value.
 
-#### Example
+#### Example: value description
 
 ```ocl
 variable "Logging.Level" {
@@ -274,7 +277,7 @@ variable "Logging.Level" {
 
 The `value` block can optional contain a `prompt` block. This allows for values to be set manually during deployment.
 
-#### Example
+#### Example: prompted value
 
 ```ocl
 variable "VersionNumber" {
@@ -306,7 +309,7 @@ Determines whether the value can be left blank when a deployment is done. The va
 
 Defines one or more actions (steps) that the value will apply to.
 
-#### Example
+#### Example: action scope
 
 ```ocl
 variable "Logging.Level" {
@@ -321,7 +324,7 @@ variable "Logging.Level" {
 
 Defines one or more channels that the value will apply to.
 
-#### Example
+#### Example: channel scope
 
 ```ocl
 variable "Version.Tag" {
@@ -362,7 +365,7 @@ variable "Server.Label" {
 
 Defines one or more roles that the value will apply to.
 
-#### Example
+#### Example: role scope
 
 ```ocl
 variable "Application.Name" {
