@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-19
+modDate: 2026-08-05
 title: octopus tenant variables list
 description: List tenant variables
 navOrder: 151
@@ -12,10 +12,14 @@ List tenant variables in Octopus Deploy
 
 ```text
 Usage:
-  octopus tenant variables list [flags]
+  octopus tenant variables list [<name> | <id>] [flags]
 
 Aliases:
   list, ls
+
+Flags:
+  -t, --tenant string   The tenant
+
 
 Global Flags:
   -h, --help                   Show help for a command
@@ -31,6 +35,7 @@ Global Flags:
 
 ```bash
 octopus tenant variables list "Bobs Wood Shop"
+octopus tenant variables list --tenant "Bobs Wood Shop"
 octopus tenant variables ls Tenant-123
 
 
