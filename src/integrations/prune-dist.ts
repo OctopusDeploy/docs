@@ -10,6 +10,7 @@ const KEEP = new Set([
   'docs', // This is the main site content, which is served under /docs/ on octopus.com.
   'index.html', // index.html is the entrypoint for the staging site, so we want to keep it.
   'report', // index.html links to some reports, so we keep them to avoid dead links, plus they can be useful on staging sites.
+  'css', // report pages have their own css in this folder
 ]);
 
 export default function pruneDist(): AstroIntegration {
