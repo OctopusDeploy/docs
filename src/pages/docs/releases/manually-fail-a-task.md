@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2024-08-29
 title: Manually fail a task
 description: How to manually fail a running or canceling task when tasks hang or get stuck.
-icon: fa-regular fa-circle-stop
+icon: fa-solid fa-circle-stop
 navOrder: 21
 ---
 
