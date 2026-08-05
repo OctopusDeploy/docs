@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-19
+modDate: 2026-08-05
 title: octopus tenant view
 description: View a tenant
 navOrder: 153
@@ -12,10 +12,11 @@ View a tenant in Octopus Deploy
 
 ```text
 Usage:
-  octopus tenant view {<name> | <id>} [flags]
+  octopus tenant view [<name> | <id>] [flags]
 
 Flags:
-  -w, --web   Open in web browser
+  -t, --tenant string   The tenant
+  -w, --web             Open in web browser
 
 
 Global Flags:
@@ -33,6 +34,7 @@ Global Flags:
 ```bash
 octopus tenant view Tenants-1
 octopus tenant view 'Tenant'
+octopus tenant view --tenant 'Tenant'
 
 
 ```
