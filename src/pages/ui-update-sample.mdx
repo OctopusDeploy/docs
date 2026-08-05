@@ -9,10 +9,12 @@ navSearch: false
 navSitemap: false
 navMenu: false
 robots: noindex, follow
+listable: false # stop the oldest-content report from listing this page
 ---
+
 import TenantsWhichVariableTemplatesApply from 'src/shared-content/tenants/tenants-which-variable-templates-apply.include.md';
 
-Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination. 
+Tenant variables allow you to configure [variables](/docs/projects/variables/) that can have different values for each [tenant](/docs/tenants)/environment combination.
 
 :::figure
 ![Octopus Deploy Tenant variable dashboard](/docs/img/getting-started/tenant-variables.png)
@@ -34,18 +36,19 @@ View a working example on our [samples instance](https://oc.to/samples-tenant-va
 Project templates allow you to specify variables that can have different values per tenant/environment combination. A perfect example would be a connection string or a database server. With project templates, you define them at the project level.
 
 To add a project template:
+
 1. Navigate to the **Tenant Variables** page in any project.
 2. Click **Add project template**.
 3. Add the details to your template and click **Add**.
 
-|      | Description                              | Example |
-| ---- | ---------------------------------------- | ------- |
-| **Name** | The name of the variable template. This will also be the name given to the resulting variable value you can use in your deployment process. | `Tenant.Alias` |
-| **Label**         | The label that will be displayed when prompting for the variable value. | Tenant alias                             |
-| **Help text**     | The descriptive help text that will be displayed to provide the user with enough information to accurately provide the value. | A shortened, URL friendly, version of the tenant's name. |
-| **Control type** | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, multi-line text box, drop down, checkbox, sensitive/password box, Azure account |
-| **Default value** | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/projects/variables/variable-substitutions). | `https://#{Tenant.Alias}.myapp.com`      |
-| **Options** | (Only applies when control type is drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `\|` to separate values and display text. | `Value1\|Display text 1` <br />`Value2\|Display text 2`  |
+|                   | Description                                                                                                                                                                                                                                         | Example                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Name**          | The name of the variable template. This will also be the name given to the resulting variable value you can use in your deployment process.                                                                                                         | `Tenant.Alias`                                                                                        |
+| **Label**         | The label that will be displayed when prompting for the variable value.                                                                                                                                                                             | Tenant alias                                                                                          |
+| **Help text**     | The descriptive help text that will be displayed to provide the user with enough information to accurately provide the value.                                                                                                                       | A shortened, URL friendly, version of the tenant's name.                                              |
+| **Control type**  | You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. | Single-line text box, multi-line text box, drop down, checkbox, sensitive/password box, Azure account |
+| **Default value** | The value that will be given to the variable if an actual value is not provided. The default value can contain [variable binding expressions](/docs/projects/variables/variable-substitutions).                                                     | `https://#{Tenant.Alias}.myapp.com`                                                                   |
+| **Options**       | (Only applies when control type is drop down). This defines the list of options available for the user to select from the drop down list. Enter each option on a new line. Use `\|` to separate values and display text.                            | `Value1\|Display text 1` <br />`Value2\|Display text 2`                                               |
 
 Values for your newly created templates will be displayed for each tenant/environment combination. If you don't see any values, make sure you've [connected tenants](/docs/projects/tenants/bulk-connection) to the project. You can filter the displayed values to a specific template by selecting it from the list on the side, or to specific tenants and environments using the provided filter options.
 

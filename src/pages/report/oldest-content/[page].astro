@@ -17,9 +17,7 @@ const { page } = Astro.props satisfies Props;
 const lang = SITE.default.lang;
 
 // Logic
-const stats = new accelerator.statistics(
-  'report/oldest-content/[page].astro'
-);
+const stats = new accelerator.statistics('report/oldest-content/[page].astro');
 stats.start();
 
 export async function getData() {
@@ -36,7 +34,7 @@ export async function getStaticPaths({ paginate }: any) {
   let data = await getData();
 
   return paginate(data, {
-    pageSize: 50,
+    pageSize: 500,
   });
 }
 

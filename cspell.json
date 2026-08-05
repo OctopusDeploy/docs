@@ -65,6 +65,7 @@
     "src/fallback/**",
     "src/scripts/**",
     "node_modules/**",
-    "public/docs/css/fa/**"
+    "public/docs/css/fa/**",
+    "assets/diagrams/**"
   ]
 }
