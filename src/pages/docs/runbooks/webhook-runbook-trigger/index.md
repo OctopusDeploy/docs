@@ -83,6 +83,10 @@ The runbook run is created as the owner of the API key, which means:
 
 We recommend using a [service account](/docs/security/users-and-teams/service-accounts) scoped to only what the runbook needs, rather than a key belonging to a person.
 
+:::div{.warning}
+**Payload signature verification is not supported.** Webhook runbook triggers are generic, and signing schemes are specific to the system sending the request so Octopus ignores signed payload headers.
+:::
+
 ## Rate limiting
 
 The webhook endpoint is rate limited. The limit applies to all webhook triggers on the instance:
