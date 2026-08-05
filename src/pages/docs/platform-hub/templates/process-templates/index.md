@@ -72,7 +72,7 @@ Unlike the other parameters, sensitive default values are stored securely in the
 
 You can set a default value for a sensitive parameter by navigating to the parameters tab of your process template and committing your changes. When the template is saved, sensitive default values are stored encrypted in the database with a unique identifier. In the OCL, the parameter block will look something like this:
 
-```hcl
+```ocl
 parameter "Example Sensitive Parameter" {
     display_settings = {
         Octopus.ControlType = "Sensitive"

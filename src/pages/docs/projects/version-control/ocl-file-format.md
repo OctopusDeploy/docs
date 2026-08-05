@@ -12,7 +12,7 @@ navOrder: 70
 
 Octopus Configuration Language (OCL) is based on a subset of Hashicorp Configuration Language (HCL). OCL files use the `.ocl` file extension, and are located in the base path defined in the projects version control settings.
 
-General information about the OCL format can be found [here](https://github.com/OctopusDeploy/Ocl), including the [EBNF notation](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
+General information about the OCL format is available in the [OCL repository](https://github.com/OctopusDeploy/Ocl), including the [EBNF notation](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form).
 
 ## Deployment Process
 
@@ -20,10 +20,9 @@ The Deployment Process is defined in the `deployment_process.ocl` file. It consi
 
 ### `step` block
 
-
 Each step contains one label, which is the slug of the step. This must be unique throughout the process.
 
-```hcl
+```ocl
 step "<step-slug>" {
     ...
 }
@@ -47,7 +46,8 @@ Default: `LetOctopusDecide`
 
 Properties is a dictionary of key-value-pairs.
 Example:
-```hcl
+
+```ocl
 properties = {
     Octopus.Account.Id = "My Awesome Account"
     MyCustomProperty = "My Value"
@@ -65,7 +65,7 @@ Default: `StartAfterPrevious`
 Steps generally contain a single action. However, there are some cases where they can contain multiple steps.
 Actions are also defined as OCL blocks.
 
-```hcl
+```ocl
 action "<action-slug>" {
     ...
 }
@@ -79,7 +79,7 @@ Tells Octopus what type of action this is, e.g: `Octopus.Script`, `Octopus.Nginx
 
 A list of channel slugs which this action will be executed for.
 
-```hcl
+```ocl
 channels = ["default", "pre-release"]
 ```
 
@@ -92,7 +92,7 @@ Default: `Success`
 
 A list of environment slugs where this action will be executed.
 
-```hcl
+```ocl
 environments = ["production", "staging"]
 ```
 
@@ -100,7 +100,7 @@ environments = ["production", "staging"]
 
 A list of environment slugs where this action will be excluded from execution.
 
-```hcl
+```ocl
 excluded_environments = ["production", "staging"]
 ```
 
@@ -130,21 +130,23 @@ Same as the Step `properties`.
 
 A list of canonical tenant tag names which this action applies to.
 
-```hcl
+```ocl
 tenant_tags = ["My Tenant/My Tag", "My Tenant/My Other Tag"]
 ```
 
 ### `step.action.worker_pool`
 
 The slug of a worker pool where this action should execute.
-```hcl
+
+```ocl
 worker_pool = "my-worker-pool"
 ```
 
 ### `step.action.worker_pool_variable`
 
 The name of the variable pointing to a worker pool where this action should execute.
-```hcl
+
+```ocl
 worker_pool_variable = "WorkerPoolVariable"
 ```
 
@@ -152,7 +154,7 @@ worker_pool_variable = "WorkerPoolVariable"
 
 If the action should be executed in a container, the `container` block can be used to specify the container.
 
-```hcl
+```ocl
 container "<IMAGE_NAME>" {
     feed = "<CONTAINER_FEED_SLUG>"
 }
@@ -162,7 +164,7 @@ container "<IMAGE_NAME>" {
 
 Actions can reference packages using one or more `package` blocks.
 
-```hcl
+```ocl
 packages "<PACKAGE_NAME>" {
     acquisition_location = "Server|ExecutionTarget|NotAcquired"
     feed = "<FEED_SLUG>"
@@ -178,9 +180,9 @@ packages "<PACKAGE_NAME>" {
 }
 ```
 
-#### Example
+#### Example: deployment process steps
 
-```hcl
+```ocl
 step "Hello world (using PowerShell)" {
 
     action {
@@ -222,7 +224,7 @@ The Variables are defined in the `variables.ocl` file. Variables are defined as 
 
 ### `variable` block
 
-```hcl
+```ocl
 variable "<LABEL>" {
     ...
 }
@@ -234,7 +236,7 @@ The variable block contains one or more value blocks.
 
 ### `variable.value` block
 
-```hcl
+```ocl
 value "<VARIABLE_VALUE>" {
     ...
 }
@@ -244,9 +246,9 @@ value "<VARIABLE_VALUE>" {
 
 Defines the variable type. If omitted, the type is `String` (text). Valid values are `AzureAccount`, `GoogleCloudAccount`, `AmazonWebServicesAccount`, `Certificate`, `WorkerPool`, `Sensitive`, and `String`. Sensitive values should not be stored in the `variables.ocl` file - they should be stored in the database by using the Octopus Deploy UI instead.
 
-#### Example
+#### Example: value type
 
-```hcl
+```ocl
 variable "Backup worker pool" {
 
     value "WorkerPools-3" {
@@ -259,9 +261,9 @@ variable "Backup worker pool" {
 
 Defines a description for a variable. This is often used to more fully describe what the variable does or any important notes about changing its value.
 
-#### Example
+#### Example: value description
 
-```hcl
+```ocl
 variable "Logging.Level" {
 
     value "Info" {
@@ -274,9 +276,9 @@ variable "Logging.Level" {
 
 The `value` block can optional contain a `prompt` block. This allows for values to be set manually during deployment.
 
-#### Example
+#### Example: prompted value
 
-```hcl
+```ocl
 variable "VersionNumber" {
 
     value {
@@ -306,9 +308,9 @@ Determines whether the value can be left blank when a deployment is done. The va
 
 Defines one or more actions (steps) that the value will apply to.
 
-#### Example
+#### Example: action scope
 
-```hcl
+```ocl
 variable "Logging.Level" {
 
     value "Info" {
@@ -321,9 +323,9 @@ variable "Logging.Level" {
 
 Defines one or more channels that the value will apply to.
 
-#### Example
+#### Example: channel scope
 
-```hcl
+```ocl
 variable "Version.Tag" {
 
     value "2022.3" {
@@ -336,7 +338,7 @@ variable "Version.Tag" {
 
 Defines one or more environments that the value will apply to.
 
-```hcl
+```ocl
 variable "API.Key" {
 
     value "20f5cb22-a4f1-493f-a327-a2206f39edd0" {
@@ -349,7 +351,7 @@ variable "API.Key" {
 
 Defines one or more machines that the value will apply to.
 
-```hcl
+```ocl
 variable "Server.Label" {
 
     value "Test SQL Server" {
@@ -362,9 +364,9 @@ variable "Server.Label" {
 
 Defines one or more roles that the value will apply to.
 
-#### Example
+#### Example: role scope
 
-```hcl
+```ocl
 variable "Application.Name" {
 
     value "HAL Portal" {
