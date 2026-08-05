@@ -113,7 +113,7 @@ code {
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 pre {
