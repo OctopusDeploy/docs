@@ -36,7 +36,7 @@ Release-level variables are drawn from the project and release being created, an
 | `Octopus.Release.CurrentForEnvironment.Id` | The ID of the release of the last successful deployment to the current environment. | `releases-122` |
 | `Octopus.Release.CurrentForEnvironment.Number` | The version number of the release of the last successful deployment to the current environment. | `1.2.2` |
 | `Octopus.Release.Git.BranchName` | The branch name the release was created from. Available for version-controlled projects. | `features/some-new-feature` |
-| `Octopus.Release.Git.CommitHash` | The commit hash the release was created from. Available for version-controlled projects. | `0c708fdec272bc4446c6cabea4f0022c2b616eba` |
+| `Octopus.Release.Git.CommitHash` | The commit hash the release was created from. Available for version-controlled projects. | `0c708f...6eba` |
 | `Octopus.Release.Git.Ref` | The git reference the release was created from. Available for version-controlled projects. | `refs/heads/main` |
 
 ## Release package and build information variables
@@ -49,7 +49,7 @@ These variables expose the build information pushed from your build server for t
 | `Octopus.Release.Builds` | The build and version-control details associated with the release. A collection of build objects. | `#{Octopus.Release.Builds[0].BuildUrl}` |
 | `Octopus.Release.WorkItems` | The distinct work items across all packages in the release. A collection of work item objects. | `#{Octopus.Release.WorkItems[0].Id}` |
 
-### Package properties
+### Package object properties
 
 | Property | Description | Example |
 | --- | --- | --- |
@@ -227,7 +227,7 @@ You can also read these variables for a different action using indexed notation,
 | `Octopus.Action.Name` | The name of the action. | Website |
 | `Octopus.Action.Number` | The sequence number of the action in the deployment process. | `5` |
 | `Octopus.Action.Package.CustomInstallationDirectory` | The specific directory the package is copied to after extraction, if set. | `C:\InetPub\WWWRoot\OctoFx` |
-| `Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment` | Whether all files in the custom installation directory are deleted before deployment. | `False` |
+| `Octopus.Action.Package.CustomInstallationDirectory<wbr>ShouldBePurgedBeforeDeployment` | Whether all files in the custom installation directory are deleted before deployment. | `False` |
 | `Octopus.Action.Package.DownloadOnTentacle` | Whether the package is downloaded by the Tentacle rather than pushed by the Octopus Server. | `False` |
 | `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` | Whether warnings in .NET configuration transformations fail the deployment. | `True` |
 | `Octopus.Action.Package.IgnoreConfigTransformationErrors` | Whether errors in .NET configuration transformations are treated as informational rather than failing the deployment. | `False` |
