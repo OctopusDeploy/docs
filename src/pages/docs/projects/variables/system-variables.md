@@ -1,1572 +1,467 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-03-06
+modDate: 2026-08-03
 title: System variables
-icon: fa-solid fa-desktop
-description: System variables are variables provided by Octopus that can be used in your deployments.
+sidebarLabel: System variables
 navOrder: 20
+description: The built-in variables Octopus provides for use in deployment processes, runbooks, and custom scripts.
+subject: system variables, release variables, deployment variables, action variables, output variables, runbook variables
+type: reference
+audience: [devops-eng, power-user]
+image:
+imageAlt:
 ---
 
-This page lists built-in [variables](/docs/projects/variables/) provided by Octopus that can be used in your deployment [custom scripts](/docs/deployments/custom-scripts).
-
-Most of the variables listed here are available in modern versions of Octopus and Calamari. However, some are only available from a specific version. See [Older versions](#older-versions) for more detail on when variables became available.
-
-:::div{.warning}
-**All variables are strings**
-Note that when evaluating values, **all Octopus variables are strings** even if they look like numbers or other data types.
-:::
-
-## Release {#release}
-
-Release-level variables are drawn from the project and release being created.
-
-`Octopus.Release.Id`
-
-The ID of the release.
-
-Example: *releases-123*
-
-`Octopus.Release.Number`
-
-The version number of the release.
-
-Example: *1.2.3*
-
-`Octopus.Release.Notes`
-
-Release notes associated with the release, in Markdown format.
-
-Example: *Fixes bugs 1, 2 & 3*
-
-`Octopus.Release.Created`
-
-The date and time at which the release was created.
-
-Example: *Tuesday 10th September 1:23 PM*
-
-`Octopus.Release.CustomFields[_name_]`
-
-The value of a custom field set on a release.
-
-Example: *4587* for a custom field `Pull Request Number`
-Example: *TST-123* for a custom field `Jira Ticket Number`
-
-### Release package build information {#release-package-build-information}
-
-`Octopus.Release.Package`
-
-Packages, including changes, associated with the release. See below. This is a collection.
-
-`Octopus.Release.Builds`
-
-Build and version control details associated with the release. This is a collection.
-
-:::div{.hint}
-
-The `Octopus.Release.Package` and `Octopus.Release.Builds` variables:
-
-- will only be populated if [build information](/docs/packaging-applications/build-servers/build-information) has been pushed from the build server.
-- is only available to be used by the project [release notes](/docs/releases/release-notes), it is not accessible from the project deployment steps.
-
-:::
-
-#### Octopus.Release.Package details
-
-The `Octopus.Release.Package` variable is a collection of `Package` objects based on the following structures:
-
-```csharp
-public class Package
-{
-  public string PackageId { get; set; }
-  public string Version { get; set; }
-  public WorkItemLink[] WorkItems { get; set; }
-  public Commit[] Commits { get; set; }
-}
-
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string Description { get; set; }
-}
-
-public class Commit
-{
-    public string CommitId { get; set; }
-    public string LinkUrl { get; set; }
-    public string Comment { get; set; }
-}
-```
-
-The packages in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
-
-```text
-#{each package in Octopus.Release.Package}
-    This release contains #{package.PackageId} #{package.Version}
-#{/each}
-```
-
-A particular package can be selected by indexing on the package ID:
-
-```text
-#{Octopus.Release.Package[Acme.Web].Version}
-```
-
-The variables available for packages are:
-
-| Name        | Example                           |
-| ----------- | --------------------------------- |
-| `PackageId` | `#{package.PackageId}`            |
-| `Version`   | `#{package.Version}`              |
-| `Commits`   | This is a collection.  See below. |
-| `WorkItems` | This is a collection.  See below. |
-
-On each package, the commits associated with that package are available as a collection which can be iterated over. e.g.:
-
-```text
-#{each package in Octopus.Release.Package}
-#{each commit in package.Commits}
-- [#{commit.CommitId}](#{commit.LinkUrl}) - #{commit.Comment}
-#{/each}
-#{/each}
-```
-
-A particular commit can be selected by indexing on the commit ID (when using git the commit ID is the commit hash):
-
-```text
-package.Commits[685afd4161d085e6e5f56a66e72e2298e402b114].Comment
-```
-
-The variables available for commits are:
-
-| Name       | Example              |
-| ---------- | -------------------- |
-| `CommitId` | `#{commit.CommitId}` |
-| `LinkUrl`  | `#{commit.LinkUrl}`  |
-| `Comment`  | `#{commit.Comment}`  |
-
-If the Octopus instance has one or more of the [Issue Tracker integrations](/docs/releases/issue-tracking) enabled, the commit messages will be parsed for issues. Any issues found will be displayed with the build information, and also available as variables:
-
-```text
-#{each issue in package.WorkItems}
-- [#{issue.Id}](#{issue.LinkUrl})
-#{/each}
-```
-
-A particular issue can be selected by indexing on the ID:
-
-```text
-package.WorkItems[4465].LinkUrl
-```
-
-The variables available for issues are:
-
-| Name      | Example            |
-| --------- | ------------------ |
-| `Id`      | `#{issue.Id}`      |
-| `LinkUrl` | `#{issue.LinkUrl}` |
-
-There is also a distinct list of issues across all packages available in:
-
-```text
-#{each workItem in Octopus.Release.WorkItems}
-- [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
-#{/each}
-```
-
-#### Octopus.Release.Builds details
-
-The `Octopus.Release.Builds` variable is a collection of Build objects based on the following structures:
-
-```csharp
-public class Build
-{
-  public BuildPackage[] Packages { get; set; }
-  public string BuildUrl { get; set; }
-  public string Branch { get; set; }
-  public string BuildEnvironment { get; set; }
-  public string BuildNumber { get; set; }
-  public string VcsRoot { get; set; }
-  public string VcsType { get; set; }
-  public string VcsCommitNumber { get; set; }
-  public string VcsCommitUrl { get; set; }
-}
-
-public class BuildPackage
-{
-  public string PackageId { get; set; }
-  public string Version { get; set; }
-}
-```
-
-The builds in a release are available as a collection which can be [iterated over](/docs/projects/variables/variable-substitutions/#repetition).  e.g.
-
-```text
-#{each build in Octopus.Release.Builds}
-    This release contains resources contributed by the build #{build.BuildUrl}
-#{/each}
-```
-
-Builds have a zero-based integer index, meaning the first build can be selected at index 0:
-
-```text
-Octopus.Release.Builds[0].BuildUrl
-```
-
-The variables available for builds are:
-
-`Packages`
-
-A JSON array with the packages created by a build.
-
-Example: `#{build.Packages}`
-
-`BuildUrl`
-
-A link to the CI build.
-
-Example: `#{build.BuildUrl}`
-
-`Branch`
-
-The VCS branch associated with the build.
-
-Example: `#{build.Branch}`
-
-`BuildEnvironment`
-
-The CI server that executed the build.
-
-Example: `#{build.BuildEnvironment}`
-
-`BuildNumber`
-
-The build number associated with the build.
-
-Example: `#{build.BuildNumber}`
-
-`VcsRoot`
-
-A link to the VCS repository associated with the build.
-
-Example: `#{build.VcsRoot}`
-
-`VcsType`
-
-The type of VCS associated with the build (e.g. git).
-
-Example: `#{build.VcsType}`
-
-`VcsCommitNumber`
-
-The VCS commit ID associated with the build.
-
-Example: `#{build.VcsCommitNumber}`
-
-`VcsCommitUrl`
-
-A link to the commit associated with the build.
-
-Example: `#{build.VcsCommitUrl}`
-
-The variables available for build packages are:
-
-`PackageId`
-
-The ID of the package created by the build.
-
-Example: `#{build.Packages[0].PackageId}`
-
-`Version`
-
-The version of the package created by the build.
-
-Example: `#{build.Packages[0].Version}`
-
-### Release Branch information {#release-branch-information}
-
-For projects that have [version control](/docs/projects/version-control) enabled, information about the branch and commit from which the release was created is also available.
-
- `Octopus.Release.Git.BranchName`
-
- The branch name.
-
- Example: *features/some-new-feature*
-
- `Octopus.Release.Git.CommitHash`
-
- The commit hash.
-
- Example: *0c708fdec272bc4446c6cabea4f0022c2b616eba*
-
- `Octopus.Release.Git.Ref`
-
- The git reference.
-
- Example: *Version 1*
-
-## Deployment
-
-Deployment-level variables are drawn from the project and release being deployed.
-
-`Octopus.Acquire.MaxParallelism`
-
-This variable limits the maximum number of packages that can be concurrently deployed to multiple targets.
-
-Default: *10*
-
-Example: *2*
-
-`Octopus.Acquire.DeltaCompressionEnabled`
-
-Toggle whether delta compression is enabled when sending packages to targets.
-
-Example: *true*
-
-`Octopus.Deployment.Comments`
-
-User-provided comments on the deployment.
-
-Example: *Signed off by Alice*
-
-`Octopus.Deployment.Created`
-
-The date and time at which the deployment was created.
-
-Example: *Tuesday 10th September 1:23 PM*
-
-`Octopus.Deployment.CreatedBy.DisplayName`
-
-The full name of the user who initiated the deployment.
-
-Example: *Alice King*
-
-`Octopus.Deployment.CreatedBy.EmailAddress`
-
-The email address of the user who initiated the deployment | *[alice@example.com](mailto:alice@example.com)*|
-
-`Octopus.Deployment.CreatedBy.Id`
-
-The ID of the user who initiated the deployment.
-
-Example: *users-123*
-
-`Octopus.Deployment.CreatedBy.Username`
-
-The username of the user who initiated the deployment.
-
-Example: *alice*
-
-`Octopus.Deployment.Error`
-
-This variable outputs the error/exit code for a failed deployment. [See here](/docs/projects/variables/system-variables).
-
-Example: *Script returned exit code 123*
-
-`Octopus.Deployment.ErrorDetail`
-
-The error/exit code for the deployment along with the Octopus stack trace. [See here](/docs/projects/variables/system-variables)
-
-Example: *System.IO.FileNotFoundException: file C:\Missing.txt does not exist (at...)*
-
-`Octopus.Deployment.ForcePackageDownload`
-
-If true, the package will be freshly downloaded from the feed/repository regardless of whether it is already present on the endpoint *(Boolean)*.
-
-Example: *False*
-
-`Octopus.Deployment.Id`
-
-The ID of the deployment.
-
-Example: *deployments-123*
-
-`Octopus.Deployment.Name`
-
-The name of the deployment.
-
-Example: *Deploy to Production*
-
-`Octopus.Deployment.PreviousSuccessful.Id`
-
-The ID of the previous successful deployment of this project in the target environment.
-
-Example: *deployments-122*
-
-`Octopus.Deployment.Machines`
-
-Ids of machines being targeted by the deployment.
-
-Example: *machines-123,machines-124*
-
-`Octopus.Deployment.SpecificMachines`
-
-Specific machines being targeted by the deployment, if any *(List)*.
-
-Example: *machines-123,machines-124*
-
-`Octopus.Deployment.ExcludedMachines`
-
-Ids of machines that have been excluded from the deployment (generally for being unavailable).
-
-Example: machines-123,machines-124
-
-`Octopus.Deployment.Tenant.Id`
-
-The ID of the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
-
-Example: *Tenants-123*
-
-`Octopus.Deployment.Tenant.Name`
-
-The name of the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
-
-Example: *Acme Corp*
-
-`Octopus.Deployment.Tenant.Tags`
-
-Comma delimited list of tags that belong the Tenant being deployed for. If the deployment is untenanted then this variable will not be present.
-
-Example: *Tenant type/External, Upgrade ring/Early adopter*
-
-`Octopus.Deployment.Trigger.Id`
-
-The ID of the Trigger that created the deployment.  It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the ID of *one* of the triggers.
-
-Example: *ProjectTriggers-522*
-
-`Octopus.Deployment.Trigger.Name`
-
-The name of the Trigger that created the deployment. It is possible for a deployment to be triggered due to multiple triggers. In this case, the variable will contain the name of *one* of the triggers.
-
-Example: *Nightly Deploy to Dev*
-
-`Octopus.Deployment.WorkerLeaseCap`
-
-This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default, this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
-
-Example: `1` - achieves a similar effect to round-robin.  
-Example: `5` - a balance between reducing package transfer and distributing load.
-
-Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
-
-`Octopus.Endpoint.\_type\_.\_property\_`
-
-Properties describing the endpoint being deployed.
-
-Example: *ftp.example.com*
-
-`Octopus.Environment.Id`
-
-The ID of the environment.
-
-Example: *environments-123*
-
-`Octopus.Environment.MachinesInRole[\_role\_]`
-
-Lists the machines with a specified target tag being deployed to.
-
-Example: *machines-123,machines-124*
-
-`Octopus.Environment.Name`
-
-The name of the environment.
-
-Example: *Production*
-
-`Octopus.Environment.SortOrder`
-
-The ordering applied to the environment when it is displayed on the dashboard and elsewhere.
-
-Example: *3*
-
-`Octopus.Machine.Id`
-
-The ID of the machine.
-
-Example: *machines-123*
-
-`Octopus.Machine.Name`
-
-The name that was used to register the machine in Octopus. Not the same as *Hostname*.
-
-Example: *WEBSVR01*
-
-`Octopus.Machine.Roles`
-
-The target tags associated with the machine *(List)*.
-
-Example: *web-server,frontend*
-
-`Octopus.Machine.Hostname`
-
-The host part of the URI that was used to register the machine, could be an IP, hostname depending on what was supplied. Only set for Listening Tentacles.
-
-Example: Database01, Database01.local, 192.168.200.100
-
-`Octopus.Project.Id`
-
-The ID of the project.
-
-Example: *projects-123*
-
-`Octopus.Project.Name`
-
-The name of the project.
-
-Example: *OctoFx*
-
-`Octopus.ProjectGroup.Id`
-
-The ID of the project group.
-
-Example: *project-groups-123*
-
-`Octopus.ProjectGroup.Name`
-
-The name of the project group.
-
-Example: *Public Web Properties*
-
-`Octopus.Release.Channel.Name`
-
-The Channel name associated with the release.
-
-Example: *2.x Feature Branch*
-
-`Octopus.Release.Notes`
-
-Release notes associated with the release, in Markdown format.
-
-Example: *Fixes bugs 1, 2 & 3*
-
-`Octopus.Release.Number`
-
-The version number of the release.
-
-Example: *1.2.3*
-
-`Octopus.Release.Id`
-
-The ID of the release.
-
-Example: *releases-123*
-
-`Octopus.Release.Previous.Id`
-
-The ID of the last release of the project.
-
-Example: *releases-122*
-
-`Octopus.Release.Previous.Number`
-
-The version number of the last release of the project.
-
-Example: *1.2.2*
-
-`Octopus.Release.PreviousForEnvironment.Id`
-
-The ID of the last release of the project to the current environment.
-
-Example: *releases-122*
-
-`Octopus.Release.PreviousForEnvironment.Number`
-
-The version number of the last release of the project to the current environment.
-
-Example: *1.2.2*
-
-`Octopus.Release.CurrentForEnvironment.Id`
-
-The ID of the release of the last successful deployment to the current environment.
-
-Example: *releases-122*
-
-`Octopus.Release.CurrentForEnvironment.Number`
-
-The version number of the release the last successful deployment to the current environment.
-
-Example: *1.2.2*
-
-`Octopus.Release.Created`
-
-The date and time at which the release was created.
-
-Example: *Tuesday 10th September 1:23 PM*
-
-`Octopus.Space.Id`
-
-The ID of the Space.
-
-Example: *Spaces-1*
-
-`Octopus.Space.Name`
-
-The name of the Space .
-
-Example: *Dev Space*
-
-`Octopus.Task.Argument[_name_]`
-
-Argument values provided when creating the task.
-
-Example: *deployments-123*
-
-`Octopus.Task.Id`
-
-The ID of the task.
-
-Example: *server-tasks-123*
-
-`Octopus.Task.Name`
-
-The name of the task.
-
-Example: *Deploy release 1.2.3 to Production*
-
-`Octopus.Task.QueueTime`
-
-The date and time the task should be queued for execution.
-
-Example: *Tuesday 10th September 1:30 PM*
-
-`Octopus.Task.QueueTimeExpiry`
-
-The date and time before which the task must start.
-
-Example: *Tuesday 10th September 2:30 PM*
-
-`Octopus.Tentacle.CurrentDeployment.PackageFilePath`
-
-The path to the package file being deployed.
-
-Example: *C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg*
-
-`Octopus.Tentacle.CurrentDeployment.TargetedRoles`
-
-The intersection of the target tags targeted by the step, and those associated with the machine.
-
-Example: *web-server*
-
-`Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory`
-
-The directory into which the previous version of the package was deployed.
-
-Example: *C:\InetPub\WWWRoot\OctoFx*
-
-`Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath`
-
-The directory into which the previous version of the package was extracted.
-
-Example: *C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2*
-
-`Octopus.Tentacle.PreviousInstallation.PackageFilePath`
-
-The path to the package file previously deployed.
-
-Example: *C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg*
-
-`Octopus.Tentacle.PreviousInstallation.PackageVersion`
-
-The previous version of the package that was deployed to the Tentacle.
-
-Example: *1.2.3*
-
-`Octopus.Web.ProjectLink`
-
-A path relative to the Octopus Server URL at which the project can be viewed.
-
-Example: */app/projects/projects-123*
-
-`Octopus.Web.ReleaseLink`
-
-A path relative to the Octopus Server URL at which the release can be viewed.
-
-Example: */app/releases/releases-123*
-
-`Octopus.Web.DeploymentLink`
-
-A path relative to the Octopus Server URL at which the deployment can be viewed.
-
-Example: */app/deployment/deployments-123*
-
-### Deployment changes {#deployment-changes}
-
-`Octopus.Deployment.Changes`
-
-A JSON array of `ReleaseChanges` objects. These can be iterated over and the properties accessed using regular Octopus variable expressions (see below). This will be JSON (see below).
-
-`Octopus.Deployment.WorkItems`
-
-The distinct list of issues across all [changes in the deployment](/docs/releases/deployment-changes/). This is a JSON array of `WorkItemLink` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information/) has been pushed and an [issue tracker integration](/docs/releases/issue-tracking) is enabled. This will be JSON (see below).
-
-`Octopus.Deployment.PackageBuildInformation`
-
-The distinct list of package [build information](/docs/packaging-applications/build-servers/build-information/) across all [changes in the deployment](/docs/releases/deployment-changes/). This is a JSON array of `ReleasePackageVersionBuildInformation` objects, defined below. This data will be only be available where [build information](/docs/packaging-applications/build-servers/build-information) has been pushed. This will be JSON (see below).
-
-The JSON structure contained in the `Octopus.Deployment.Changes` variables is an array of `ReleaseChanges` objects matching the following C# classes:
-
-```csharp
-public class ReleaseChanges
-{
-    public string Version { get; set; }
-    public string ReleaseNotes { get; set; }
-    public ReleasePackageVersionBuildInformation[] BuildInformation { get; set; }
-    public WorkItemLink[] WorkItems { get; set; }
-    public CommitDetails[] Commits { get; set; }
-}
-
-public class ReleasePackageVersionBuildInformation
-{
-    public string PackageId { get; set; }
-    public string Version { get; set; }
-    public string BuildEnvironment { get; set; }
-    public string BuildNumber { get; set; }
-    public string BuildUrl { get; set; }
-    public string Branch { get; set; }
-    public string VcsType { get; set; }
-    public string VcsRoot { get; set; }
-    public string VcsCommitNumber { get; set; }
-    public string VcsCommitUrl { get; set; }
-    public WorkItemLink[] WorkItems { get; set; }
-    public CommitDetails[] Commits { get; set; }
-}
-
-public class WorkItemLink
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string Source { get; set; }
-    public string Description { get; set; }
-}
-
-public class CommitDetails
-{
-    public string Id { get; set; }
-    public string LinkUrl { get; set; }
-    public string Comment { get; set; }
-}
-```
-
-There is an entry per release and it includes the release notes (**in markdown format**) and the build information for each of the packages in that release.
-
-**Example:** The following iterates the changes in the deployment, printing the release version and the issues contained.
-
-```text
-#{each change in Octopus.Deployment.Changes}
-    #{change.Version}
-    #{each issue in change.WorkItems}
-        #{issue.Id} - #{issue.LinkUrl}
-    #{/each}
-#{/each}
-```
-
-### Deployment changes templates {#deployment-changes-templates}
-
-`Octopus.Deployment.ChangesMarkdown`
-
-The output of applying the project's deployment changes template. This will be markdown.
-
-`Octopus.Deployment.Targets`
-
-The distinct targets being deployed to.
-
-This provides a dictionary of objects with ID and Name properties, keyed on ID. This is a distinct list across all steps in the deployment process.
-
-## Action {#action}
-
-Action-level variables are available during execution of an action. Indexer notation such as `Octopus.Action[Website].TargetRoles` can be used to refer to values for different actions.
-
-`Octopus.Action.Container.Image`
-
-The name of the container image being deployed.
-
-Example: *OctoFx-RateService*
-
-`Octopus.Action.Id`
-
-The ID of the action.
-
-Example: *85287bef-fe6c-4eb7-beef-74f5e5a6b5b0*
-
-`Octopus.Action.IsSkipped`
-
-Whether or not the action has been skipped in the current deployment *(Boolean)*.
-
-Note: This value can be True or null (indicated by an empty string)
-
-Example: *True*
-
-`Octopus.Action.Manual.Instructions`
-
-The instructions provided for a manual step.
-
-Example: *Don't break anything*
-
-`Octopus.Action.Manual.ResponsibleTeamIds`
-
-The teams responsible for completing a manual step *(List)*.
-
-Example: *teams-123,teams-124*
-
-`Octopus.Action.MaxParallelism`
-
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally, you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
-
-**Note:** Some built-in steps have their own concurrent limit and will ignore this value if set.
-
-Example: *5*
-
-`Octopus.Action.Name`
-
-The name of the action.
-
-Example: *Website*
-
-`Octopus.Action.Number`
-
-The sequence number of the action in the deployment process *(Number)*.
-
-Example: *5*
-
-`Octopus.Action.Package.CustomInstallationDirectory`
-
-If set, a specific directory to which the package will be copied after extraction.
-
-Example: *C:\InetPub\WWWRoot\OctoFx*
-
-`Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment`
-
-If true, the all files in the `Octopus.Action.Package.CustomInstallationDirectory` will be deleted before deployment *(Boolean)*.
-
-Example: *False*
-
-`Octopus.Action.Package.DownloadOnTentacle`
-
-If true, the package will be downloaded by the Tentacle, rather than pushed by the Octopus Server *(Boolean)*.
-
-Example: *False*
-
-`Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors`
-
-If true, any warnings in .NET configuration transformations will be treated as errors and will fail the deployment *(Boolean)*.
-
-Example: *True*
-
-`Octopus.Action.Package.IgnoreConfigTransformationErrors`
-
-If true, any errors in .NET configuration transformations will be treated as informational rather than errors that will fail the deployment *(Boolean)*.
-
-Example: *False*
-
-`Octopus.Action.Package.IgnoreVariableReplacementErrors`
-
-If true, any errors in variable replacement will be treated as a warning rather than an error that will fail the deployment. (*Boolean*).
-
-Example: *False*
-
-`Octopus.Action.Package.InstallationDirectoryPath`
-
-The directory where the package was installed. It is not available prior to package extraction.
-
-Example: *C:\InetPub\WWWRoot\OctoFx*
-
-`Octopus.Action.Package.FeedId`
-
-The ID of the feed from which the package being deployed was pulled.
-
-Example: *feeds-123*
-
-`Octopus.Action.Package.PackageId`
-
-The ID of the package being deployed.
-
-Example: *OctoFx.RateService*
-
-`Octopus.Action.Package.PackageVersion`
-
-The version of the package being deployed.
-
-Example: *1.2.3*
-
-`Octopus.Action.Package.SkipIfAlreadyInstalled`
-
-If true, and the version of the package being deployed is already present on the machine, its re-deployment will be skipped (use with caution) *(Boolean)*.
-
-Example: *False*
-
-`Octopus.Action.Script.ScriptBody`
-
-The script being run in a script step.
-
-Example: *Write-Host 'Hello!'*
-
-`Octopus.Action.Script.Syntax`
-
-The syntax of the script being run in a script step.
-
-Example: *PowerShell*
-
-`Octopus.Action.Script.CSharp.NuGetSource`
-
-Overrides the NuGet source used by the dotnet executor when running C# script steps.
-
-Example: *<https://my-nuget-server/nuget>*
-
-`Octopus.Action.SkipRemainingConventions`
-
-If set by the user, completes processing of the action without running further conventions/scripts *(Boolean)*. This should be set as an [output variable](/docs/projects/variables/output-variables). e.g. <br /> `Set-OctopusVariable -name 'Octopus.Action.SkipRemainingConventions' -value 'True'`
-
-Example: *True*
-
-`Octopus.Action.TargetRoles`
-
-Machine target tags targeted by the action *(List)*.
-
-Example: *web-server,frontend*
-
-`Octopus.Action.Template.Id`
-
-If the action is based on a step template, the ID of the template.
-
-Example: *action-templates-123*
-
-`Octopus.Action.Template.Version`
-
-If the action is based on a step template, the version of the template in use *(Number)*.
-
-Example: *123*
-
-`Octopus.Action.Status.Error`
-
-If the action failed because of an error, a description of the error.
-
-Example: *The server could not be contacted*
-
-`Octopus.Action.Status.ErrorDetail`
-
-If the action failed because of an error, a full description of the error.
-
-Example: *System.Net.SocketException: The server ...*
-
-`Octopus.Action.SubstituteInFiles.EnableNoMatchWarning`
-
-Controls whether a warning is displayed in the Task log when no files are found matching one or more of the glob patterns in Substitute Variables in Files.
-
-Example: *False*
-
-### Reference package variables {#reference-package-variables}
-
-When [referencing packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages) in custom scripts, they can contribute variables that can be used just like any other variable. The variables are available **per package**. Assuming a referenced package named `Acme`:
-
-`Octopus.Action.Package[Acme].PackageId`
-
-The package ID.
-
-Example: *Acme*
-
-`Octopus.Action.Package[Acme].FeedId`
-
-The feed ID.
-
-Example: *feeds-123*
-
-`Octopus.Action.Package[Acme].PackageVersion`
-
-The version of the package included in the release.
-
-Example: *1.4.0*
-
-`Octopus.Action.Package[Acme].OriginalPath`
-
-The location of the zip file before any actions are taken.
-
-Example: *C:\Octopus\Packages\Spaces-1\feeds-builtin\Acme\Acme.1.4.0.zip*
-
-`Octopus.Action.Package[Acme].ExtractedPath`
-
-The absolute path to the extracted directory (if the package is configured to be extracted).
-
-Example: *C:\Octopus\Work\20210821060923-7117-31\Acme*
-
-`Octopus.Action.Package[Acme].PackageFilePath`
-
-The absolute path to the package file (if the package has been configured to not be extracted).
-
-Example: *C:\Octopus\Work\20210821060923-7117-31\Acme.zip*
-
-`Octopus.Action.Package[Acme].PackageFileName`
-
-The name of the package file (if the package has been configured to not be extracted).
-
-Example: *Acme.zip*
-
-#### Docker image package variables {#docker-image-package-variables}
-
-In a scenario where your package reference is a Docker image, some additional variables will be contributed. Assuming a package-reference named `Acme`:
-
-`Octopus.Action.Package[Acme].Image`
-
-The fully qualified image name.
-
-Example: *index.docker.io/Acme:1.4.0*
-
-`Octopus.Action.Package[Acme].Registry`
-
-The URI of the registry from the feed where the image was acquired from.
-
-Example: *index.docker.io*
-
-`Octopus.Action.Package[Acme].Version`
-
-The version of the image included in the release.
-
-Example: *1.4.0*
-
-`Octopus.Action.Package[Acme].Feed.UserName`
-
-The username from the feed where the image was acquired from (if the feed is configured to use credentials).
-
-Example: *Alice*
-
-`Octopus.Action.Package[Acme].Feed.Password`
-
-The password from the feed where the image was acquired from (if the feed is configured to use credentials).
-
-Example: *Password01!*
-
-## Azure
-
-`Octopus.Action.Azure.CertificateThumbprint`
-
-The thumbprint of the X509 certificate used to authenticate with the Azure Subscription targeted by this action.
-
-Example: *86B5C8E5553981FED961769B2DA3028C619596AC*
-
-`Octopus.Action.Azure.PackageExtractionPath`
-
-If set by the user, the temporary path to extract Azure packages into during deployment.
-
-Example: Z:\Temp\packages\
-
-`Octopus.Action.Azure.SubscriptionId`
-
-The Azure Subscription Id being targeted by this action.
-
-Example: *8affaa7d-3d74-427c-93c5-2d7f6a16e754*
-
-`Octopus.Action.Azure.ResourceGroupDeploymentName`
-
-Override the auto-generated resource group deployment name when deploying a resource group.
-
-Example: my-resource-group-deployment-name
-
-## Azure Cloud Service
-
-`Octopus.Action.Azure.CloudServiceConfigurationFileRelativePath`
-
-If set by the user, the relative path to the \*.cscfg file, with a fallback to ServiceConfiguration.{Environment}.cscfg or ServiceConfiguration.Cloud.cscfg
-
-Example: *ServiceConfiguration.Custom.cscfg*
-
-`Octopus.Action.Azure.CloudServiceName`
-
-The name of the Cloud Service being targeted by this action.
-
-Example: *my-cloud-service-web*
-
-`Octopus.Action.Azure.CloudServicePackageExtractionDisabled`
-
-Octopus will not unpack the \*.cspkg file if this variable is set to True, instead the \*.cspkg file will be pushed to Azure as-is.
-
-Example: True
-
-`Octopus.Action.Azure.CloudServicePackagePath`
-
-The path of the \*.cspkg file used by this action.
-
-Example: *Z:\Temp\packages\my-cloud-service-web.cspkg*
-
-`Octopus.Action.Azure.LogExtractedCspkg`
-
-If true, the contents of the extracted \*.cspkg will be written to the log to help diagnose deployment issues *(Boolean)*.
-
-Example: *True*
-
-`Octopus.Action.Azure.Slot`
-
-The slot of the Cloud Service being targeted by this action.
-
-Example: *Staging* or *Production*
-
-`Octopus.Action.Azure.StorageAccountName`
-
-The name of the Azure Storage Account where \*.cspkg files will be uploaded to for deployment to the Cloud Service.
-
-Example: *my-storage-account*
-
-`Octopus.Action.Azure.SwapIfPossible`
-
-If true, the action will attempt to perform a VIP swap instead of deploying directly into the targeted Slot.
-
-Example: *True*
-
-`Octopus.Action.Azure.UploadedPackageUri`
-
-The Storage URI of the \*.cspkg file that will be deployed to the Cloud Service.
-
-Example: `https://my-storage-account/container/my-cloudservice.web.cspkg`
-
-`Octopus.Action.Azure.UseCurrentInstanceCount`
-
-If true, the action will maintain the number of Instances in the Cloud Service rather than reverting to what is defined in the \*.cspkg file.
-
-Example: *True*
-
-`Octopus.Action.Azure.DeploymentLabel`
-
-If set, the custom deployment label will be used for the Azure cloud service deployment.
-
-Example: my custom label for build 3.x.x
-
-## Azure Web Apps
-
-`Octopus.Action.Azure.WebAppName`
-
-The name of the Web App being targeted by this deployment.
-
-Example: *my-web-app*
-
-`Octopus.Action.Azure.DeploymentSlot`
-
-The name of the Web App slot being targeted by this deployment.
-
-Example: *staging*
-
-`Octopus.Action.Azure.ResourceGroupName`
-
-The name of the resource group being targeted by this deployment.
-
-Example: MyResourceGroup
-
-`Octopus.Action.Azure.RemoveAdditionalFiles`
-
-When *True* instructs Web Deploy to delete files from the destination that aren't in the source package.
-
-Example: *True*
-
-`Octopus.Action.Azure.PreserveAppData`
-
-When *True* instructs Web Deploy to skip Delete operations in the **App\_Data** directory.
-
-Example: *True*
-
-`Octopus.Action.Azure.AppOffline`
-
-When *True* instructs Web Deploy to safely bring down the app domain by adding a blank **app\_offline.html** file in the site root.
-
-Example: *True*
-
-## Output
-
-Output variables are collected during execution of a step and made available to subsequent steps using notation such as `Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath` to refer to values based on the action and machine that produced them. See also [Output variables](/docs/projects/variables/output-variables).
-
-`Octopus.Action[_name_].Output.\_property\_`
-
-The results of calling `Set-OctopusVariable` during an action are exposed for use in other actions using this pattern.
-
-Example: *Octopus.Action[Website].Output.WarmUpResponseTime*
-
-`Octopus.Action[_name_].Output.Manual.Notes`
-
-Notes provided by the user who completed a manual step.
-
-Example: *Signed off by Alice*
-
-`Octopus.Action[_name_].Output.Package.InstallationDirectoryPath`
-
-The directory where the package was installed.
-
-Example: *C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3*
-
-`Octopus.Action[_name_].Output.Manual.ResponsibleUser.DisplayName`
-
-The full name of the user who completed the manual step.
-
-Example: *Alice King*
-
-`Octopus.Action[_name_].Output.Manual.ResponsibleUser.EmailAddress`
-
-The email address of the user who completed the manual step.
-
-Example: *[alice@example.com](mailto:alice@example.com)*
-
-`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Id`
-
-The ID of the user who completed the manual step.
-
-Example: *users-123*
-
-`Octopus.Action[_name_].Output.Manual.ResponsibleUser.Username`
-
-The username of the user who completed the manual step.
-
-Example: *alice*
-
-`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentID`
-
-The ID of the completed Azure Cloud Service deployment.
-
-Example: *c9f52da2b00a4313b3b64bb2ad0f409f*
-
-`Octopus.Action[_name_].Output.OctopusAzureCloudServiceDeploymentUrl`
-
-The Url of the completed Azure Cloud Service deployment.
-
-Example: `http://c9f52da2b00a4313b3b64bb2ad0f409f.cloudapp.net/`
-
-## Step
-
-Step-level variables are available during execution of a step. Indexer notation such as `Octopus.Step[Website].Number` can be used to refer to values for different steps.
-
-`Octopus.Step.Id`
-
-The ID of the step.
-
-Example: *80b3ad09-eedf-40d6-9b66-cf97f5c0ffee*
-
-`Octopus.Step.Name`
-
-The name of the step.
-
-Example: *Website*
-
-`Octopus.Step.Number`
-
-The number of the step *(Number)*.
-
-Example: *2*
-
-`Octopus.Step.Status.Code`
-
-A code describing the current status of the step.
-
-Example: *Succeeded*
-
-`Octopus.Step.Status.Error`
-
-If the step failed because of an error, a description of the error.
-
-Example: *The server could not be contacted*
-
-`Octopus.Step.Status.ErrorDetail`
-
-If the step failed because of an error, a full description of the error.
-
-Example: *System.Net.SocketException: The server could not be contacted (at ...)*
-
-## Agent
-
-Agent-level variables describe the deployment agent or Tentacle on which the deployment is executing.
-
-`Octopus.Tentacle.Agent.ApplicationDirectoryPath`
-
-The directory under which the agent installs packages.
-
-Example: *C:\Octopus\Tentacle\Apps*
-
-`Octopus.Tentacle.Agent.InstanceName`
-
-The instance name that the agent runs under.
-
-Example: *Tentacle*
-
-`Octopus.Tentacle.Agent.ProgramDirectoryPath`
-
-The directory containing the agent's own executables.
-
-Example: *C:\Program Files\Octopus Deploy\Tentacle*
-
-`Octopus.Agent.ProgramDirectoryPath`
-
-The directory containing either the server or Tentacle's executables depending on which the step being executed on.
-
-Example: *C:\Program Files\Octopus Deploy\Octopus*
-
-## Worker Pool
-
-When a step is run on a worker, the following variables are available:
-
-`Octopus.WorkerPool.Id`
-
-The Id of the pool.
-
-Example: WorkerPools-1
-
-`Octopus.WorkerPool.Name`
-
-The name of the pool.
-
-Example: Default Worker Pool
-
-## Server
-
-Server-level variables describe the Octopus Server on which the deployment is running.
-
-`Octopus.Web.BaseUrl`
-
-The default URL at which the server API can be accessed. Note that this is based off the server's ListenPrefixes and works in simple configuration scenarios. If you have a load balancer or reverse proxy this value will likely not be suitable for use in referring to the server from a client perspective, e.g. in email templates etc.
-
-Example: *[https://my-octopus](https://my-octopus)*
-
-`Octopus.Web.ServerUri`
-
-The default URL at which the server portal can be accessed, as configured in the **Configuration ➜ Nodes** settings.
-
-*[https://my-octopus](https://my-octopus)*
+This page lists built-in variables Octopus provides for use in deployment processes, runbooks, and [custom scripts](/docs/deployments/custom-scripts).
+
+**All Octopus variables are strings**, even when the value looks like a number or a boolean.
+
+## Release variables
+
+Release-level variables are drawn from the project and release being created, and are available throughout a deployment or runbook run.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Release.Id` | The ID of the release. | `releases-123` |
+| `Octopus.Release.Number` | The version number of the release. | `1.2.3` |
+| `Octopus.Release.Notes` | Release notes associated with the release, in Markdown format. | Fixes bugs 1, 2, and 3 |
+| `Octopus.Release.Created` | The date and time the release was created. | Tuesday, September 10, 1:23 PM |
+| `Octopus.Release.CustomFields[name]` | The value of a custom field set on the release. | `TST-123` |
+| `Octopus.Release.Channel.Name` | The channel name associated with the release. | 2.x Feature Branch |
+| `Octopus.Release.Previous.Id` | The ID of the previous release of the project. | `releases-122` |
+| `Octopus.Release.Previous.Number` | The version number of the previous release of the project. | `1.2.2` |
+| `Octopus.Release.PreviousForEnvironment.Id` | The ID of the previous release of the project to the current environment. | `releases-122` |
+| `Octopus.Release.PreviousForEnvironment.Number` | The version number of the previous release of the project to the current environment. | `1.2.2` |
+| `Octopus.Release.CurrentForEnvironment.Id` | The ID of the release of the last successful deployment to the current environment. | `releases-122` |
+| `Octopus.Release.CurrentForEnvironment.Number` | The version number of the release of the last successful deployment to the current environment. | `1.2.2` |
+| `Octopus.Release.Git.BranchName` | The branch name the release was created from. Available for version-controlled projects. | `features/some-new-feature` |
+| `Octopus.Release.Git.CommitHash` | The commit hash the release was created from. Available for version-controlled projects. | `0c708f...6eba` |
+| `Octopus.Release.Git.Ref` | The git reference the release was created from. Available for version-controlled projects. | `refs/heads/main` |
+
+## Release package and build information variables
+
+These variables expose the build information pushed from your build server for the packages in a release. They're populated only when build information has been pushed, and they're available only in project release notes, not in deployment steps. Each variable is a collection; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index collections.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Release.Package` | The packages, with their commits and work items, associated with the release. A collection of package objects. | `#{Octopus.Release.Package[Acme.Web].Version}` |
+| `Octopus.Release.Builds` | The build and version-control details associated with the release. A collection of build objects. | `#{Octopus.Release.Builds[0].BuildUrl}` |
+| `Octopus.Release.WorkItems` | The distinct work items across all packages in the release. A collection of work item objects. | `#{Octopus.Release.WorkItems[0].Id}` |
+
+### Package object properties
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `PackageId` | The ID of the package. | `#{package.PackageId}` |
+| `Version` | The version of the package. | `#{package.Version}` |
+| `Commits` | The commits associated with the package. A collection. | `#{package.Commits[0].CommitId}` |
+| `WorkItems` | The work items associated with the package. A collection. | `#{package.WorkItems[0].Id}` |
+
+### Commit properties (release package and build info)
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `CommitId` | The commit ID. When using Git, this is the commit hash. | `#{commit.CommitId}` |
+| `LinkUrl` | A link to the commit. | `#{commit.LinkUrl}` |
+| `Comment` | The commit message. | `#{commit.Comment}` |
+
+### Work item properties (release package and build info)
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `Id` | The work item ID. | `#{issue.Id}` |
+| `LinkUrl` | A link to the work item. | `#{issue.LinkUrl}` |
+| `Description` | A description of the work item. | `#{issue.Description}` |
+
+### Build properties
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `Packages` | A JSON array of the packages created by the build. A collection. | `#{build.Packages}` |
+| `BuildUrl` | A link to the CI build. | `#{build.BuildUrl}` |
+| `Branch` | The version-control branch associated with the build. | `#{build.Branch}` |
+| `BuildEnvironment` | The CI server that ran the build. | `#{build.BuildEnvironment}` |
+| `BuildNumber` | The build number associated with the build. | `#{build.BuildNumber}` |
+| `VcsRoot` | A link to the version-control repository associated with the build. | `#{build.VcsRoot}` |
+| `VcsType` | The type of version control associated with the build. | `#{build.VcsType}` |
+| `VcsCommitNumber` | The commit ID associated with the build. | `#{build.VcsCommitNumber}` |
+| `VcsCommitUrl` | A link to the commit associated with the build. | `#{build.VcsCommitUrl}` |
+
+### Build package properties
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `PackageId` | The ID of the package created by the build. | `#{build.Packages[0].PackageId}` |
+| `Version` | The version of the package created by the build. | `#{build.Packages[0].Version}` |
+
+## Deployment variables
+
+Deployment-level variables are drawn from the project and release being deployed, and the infrastructure being deployed to.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Acquire.MaxParallelism` | The maximum number of packages deployed concurrently to multiple targets. Default: 10. | `2` |
+| `Octopus.Acquire.DeltaCompressionEnabled` | Whether delta compression is used when sending packages to targets. | `true` |
+| `Octopus.Deployment.Comments` | User-provided comments on the deployment. | Signed off by Alice |
+| `Octopus.Deployment.Created` | The date and time the deployment was created. | Tuesday, September 10, 1:23 PM |
+| `Octopus.Deployment.CreatedBy.DisplayName` | The full name of the user who started the deployment. | Alice King |
+| `Octopus.Deployment.CreatedBy.EmailAddress` | The email address of the user who started the deployment. | `alice@example.com` |
+| `Octopus.Deployment.CreatedBy.Id` | The ID of the user who started the deployment. | `users-123` |
+| `Octopus.Deployment.CreatedBy.Username` | The username of the user who started the deployment. | `alice` |
+| `Octopus.Deployment.Error` | The error or exit code for a failed deployment. | Script returned exit code 123 |
+| `Octopus.Deployment.ErrorDetail` | The error or exit code for a failed deployment, with the Octopus stack trace. | `System.IO.FileNotFoundException: file C:\Missing.txt does not exist` |
+| `Octopus.Deployment.ForcePackageDownload` | Whether the package is downloaded fresh from the feed regardless of whether it's already on the target. | `False` |
+| `Octopus.Deployment.Id` | The ID of the deployment. | `deployments-123` |
+| `Octopus.Deployment.Name` | The name of the deployment. | Deploy to Production |
+| `Octopus.Deployment.PreviousSuccessful.Id` | The ID of the previous successful deployment of this project to the target environment. | `deployments-122` |
+| `Octopus.Deployment.Machines` | The IDs of the machines targeted by the deployment. | `machines-123,machines-124` |
+| `Octopus.Deployment.SpecificMachines` | The specific machines targeted by the deployment, if any. | `machines-123,machines-124` |
+| `Octopus.Deployment.ExcludedMachines` | The IDs of machines excluded from the deployment, usually because they were unavailable. | `machines-123,machines-124` |
+| `Octopus.Deployment.Tenant.Id` | The ID of the tenant being deployed for. Not present for untenanted deployments. | `Tenants-123` |
+| `Octopus.Deployment.Tenant.Name` | The name of the tenant being deployed for. Not present for untenanted deployments. | Acme Corp |
+| `Octopus.Deployment.Tenant.Tags` | A comma-separated list of the tenant's tags. Not present for untenanted deployments. | Tenant type/External, Upgrade ring/Early adopter |
+| `Octopus.Deployment.Trigger.Id` | The ID of the trigger that created the deployment. If several triggers apply, the ID of one of them. | `ProjectTriggers-522` |
+| `Octopus.Deployment.Trigger.Name` | The name of the trigger that created the deployment. If several triggers apply, the name of one of them. | Nightly Deploy to Dev |
+| `Octopus.Deployment.WorkerLeaseCap` | An opt-in cap on how many steps referencing the same package reuse a single worker before another is selected. Disabled by default; set to a number above zero to opt in. Applies to deployments and runbooks. | `5` |
+| `Octopus.Deployment.Targets` | The distinct targets being deployed to across all steps. A dictionary of objects with `Id` and `Name` properties, keyed on ID. | `#{Octopus.Deployment.Targets[machines-123].Name}` |
+| `Octopus.Endpoint.type.property` | Properties describing the endpoint being deployed to. | `ftp.example.com` |
+| `Octopus.Environment.Id` | The ID of the environment. | `environments-123` |
+| `Octopus.Environment.MachinesInRole[role]` | The machines with the specified target tag being deployed to. | `machines-123,machines-124` |
+| `Octopus.Environment.Name` | The name of the environment. | Production |
+| `Octopus.Environment.SortOrder` | The order applied to the environment on the dashboard and elsewhere. | `3` |
+| `Octopus.Machine.Id` | The ID of the machine. | `machines-123` |
+| `Octopus.Machine.Name` | The name used to register the machine in Octopus. Not the same as the hostname. | `WEBSVR01` |
+| `Octopus.Machine.Roles` | The target tags associated with the machine. | `web-server,frontend` |
+| `Octopus.Machine.Hostname` | The host part of the URI used to register the machine. Set only for Listening Tentacles. | `192.168.200.100` |
+| `Octopus.Project.Id` | The ID of the project. | `projects-123` |
+| `Octopus.Project.Name` | The name of the project. | `OctoFx` |
+| `Octopus.ProjectGroup.Id` | The ID of the project group. | `project-groups-123` |
+| `Octopus.ProjectGroup.Name` | The name of the project group. | Public Web Properties |
+| `Octopus.Space.Id` | The ID of the space. | `Spaces-1` |
+| `Octopus.Space.Name` | The name of the space. | Dev Space |
+| `Octopus.Task.Argument[name]` | An argument value provided when the task was created. | `deployments-123` |
+| `Octopus.Task.Id` | The ID of the task. | `server-tasks-123` |
+| `Octopus.Task.Name` | The name of the task. | Deploy release 1.2.3 to Production |
+| `Octopus.Task.QueueTime` | The date and time the task should be queued for execution. | Tuesday, September 10, 1:30 PM |
+| `Octopus.Task.QueueTimeExpiry` | The date and time before which the task must start. | Tuesday, September 10, 2:30 PM |
+| `Octopus.Tentacle.CurrentDeployment.PackageFilePath` | The path to the package file being deployed. | `C:\Octopus\Tentacle\Packages\OctoFx.1.2.3.nupkg` |
+| `Octopus.Tentacle.CurrentDeployment.TargetedRoles` | The intersection of the target tags targeted by the step and those on the machine. | `web-server` |
+| `Octopus.Tentacle.PreviousInstallation.CustomInstallationDirectory` | The directory the previous version of the package was deployed to. | `C:\InetPub\WWWRoot\OctoFx` |
+| `Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath` | The directory the previous version of the package was extracted to. | `C:\Octopus\Tentacle\Apps\Production\OctoFx\1.2.2` |
+| `Octopus.Tentacle.PreviousInstallation.PackageFilePath` | The path to the previously deployed package file. | `C:\Octopus\Tentacle\Packages\OctoFx.1.2.2.nupkg` |
+| `Octopus.Tentacle.PreviousInstallation.PackageVersion` | The previous version of the package deployed to the Tentacle. | `1.2.2` |
+| `Octopus.Web.ProjectLink` | A path relative to the Octopus Server URL where the project can be viewed. | `/app/projects/projects-123` |
+| `Octopus.Web.ReleaseLink` | A path relative to the Octopus Server URL where the release can be viewed. | `/app/releases/releases-123` |
+| `Octopus.Web.DeploymentLink` | A path relative to the Octopus Server URL where the deployment can be viewed. | `/app/deployment/deployments-123` |
+
+## Deployment change variables
+
+These variables expose the changes included in a deployment, aggregated across the releases being deployed. They're available only where build information has been pushed and, for work items, an issue tracker integration is enabled. Several are JSON collections; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index them.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Deployment.Changes` | A JSON array of release-change objects, one per release, each with its release notes and build information. | `#{Octopus.Deployment.Changes[0].Version}` |
+| `Octopus.Deployment.WorkItems` | A JSON array of the distinct work items across all changes in the deployment. | `#{Octopus.Deployment.WorkItems[0].Id}` |
+| `Octopus.Deployment.PackageBuildInformation` | A JSON array of the distinct package build information across all changes in the deployment. | `#{Octopus.Deployment.PackageBuildInformation[0].PackageId}` |
+| `Octopus.Deployment.ChangesMarkdown` | The output of applying the project's deployment changes template, in Markdown. | `#{Octopus.Deployment.ChangesMarkdown}` |
+
+### Release change properties
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `Version` | The release version. | `#{change.Version}` |
+| `ReleaseNotes` | The release notes, in Markdown. | `#{change.ReleaseNotes}` |
+| `BuildInformation` | The build information for each package in the release. A collection. | `#{change.BuildInformation[0].PackageId}` |
+| `WorkItems` | The work items for the release. A collection. | `#{change.WorkItems[0].Id}` |
+| `Commits` | The commits for the release. A collection. | `#{change.Commits[0].Id}` |
+
+### Package build information properties
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `PackageId` | The ID of the package. | `#{info.PackageId}` |
+| `Version` | The version of the package. | `#{info.Version}` |
+| `BuildEnvironment` | The CI server that ran the build. | `#{info.BuildEnvironment}` |
+| `BuildNumber` | The build number associated with the build. | `#{info.BuildNumber}` |
+| `BuildUrl` | A link to the CI build. | `#{info.BuildUrl}` |
+| `Branch` | The version-control branch associated with the build. | `#{info.Branch}` |
+| `VcsType` | The type of version control associated with the build. | `#{info.VcsType}` |
+| `VcsRoot` | A link to the version-control repository. | `#{info.VcsRoot}` |
+| `VcsCommitNumber` | The commit ID associated with the build. | `#{info.VcsCommitNumber}` |
+| `VcsCommitUrl` | A link to the commit associated with the build. | `#{info.VcsCommitUrl}` |
+| `WorkItems` | The work items for the package. A collection. | `#{info.WorkItems[0].Id}` |
+| `Commits` | The commits for the package. A collection. | `#{info.Commits[0].Id}` |
+
+### Work item properties (deployment change)
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `Id` | The work item ID. | `#{workItem.Id}` |
+| `LinkUrl` | A link to the work item. | `#{workItem.LinkUrl}` |
+| `Source` | The issue tracker the work item came from. | `#{workItem.Source}` |
+| `Description` | A description of the work item. | `#{workItem.Description}` |
+
+### Commit properties (deployment change)
+
+| Property | Description | Example |
+| --- | --- | --- |
+| `Id` | The commit ID. | `#{commit.Id}` |
+| `LinkUrl` | A link to the commit. | `#{commit.LinkUrl}` |
+| `Comment` | The commit message. | `#{commit.Comment}` |
+
+## Action variables
+
+Action-level variables are available while an action runs.
+
+You can also read these variables for a different action using indexed notation, for example `Octopus.Action[ActionName].IsSkipped`. This is useful when [writing run conditions](/docs/projects/variables/system-variables/#tracking-deployment-status) that depend on another action's status.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Container.Image` | The name of the container image being deployed. | `OctoFx-RateService` |
+| `Octopus.Action.Id` | The ID of the action. | `85287bef-fe6c-4eb7-beef-74f5e5a6b5b0` |
+| `Octopus.Action.IsSkipped` | Whether the action was skipped in the current deployment. Can be `True` or empty. | `True` |
+| `Octopus.Action.Manual.Instructions` | The instructions provided for a manual step. | Don't break anything |
+| `Octopus.Action.Manual.ResponsibleTeamIds` | The teams responsible for completing a manual step. | `teams-123,teams-124` |
+| `Octopus.Action.MaxParallelism` | The maximum number of targets an action runs on concurrently, and the maximum number of steps that run in parallel. Some built-in steps ignore this value. Default: 10. | `5` |
+| `Octopus.Action.Name` | The name of the action. | Website |
+| `Octopus.Action.Number` | The sequence number of the action in the deployment process. | `5` |
+| `Octopus.Action.Package.CustomInstallationDirectory` | The specific directory the package is copied to after extraction, if set. | `C:\InetPub\WWWRoot\OctoFx` |
+| <code>Octopus.Action.Package<wbr>.CustomInstallation<wbr>DirectoryShouldBePurged<wbr>BeforeDeployment</code> | Whether all files in the custom installation directory are deleted before deployment. | `False` |
+| `Octopus.Action.Package.DownloadOnTentacle` | Whether the package is downloaded by the Tentacle rather than pushed by the Octopus Server. | `False` |
+| <code>Octopus.Action.Package<wbr>.TreatConfig<wbr>TransformationWarnings<wbr>AsErrors</code> | Whether warnings in .NET configuration transformations fail the deployment. | `True` |
+| <code>Octopus.Action.Package<wbr>.IgnoreConfig<wbr>TransformationErrors</code> | Whether errors in .NET configuration transformations are treated as informational rather than failing the deployment. | `False` |
+| <code>Octopus.Action.Package<wbr>.IgnoreVariable<wbr>ReplacementErrors</code> | Whether errors in variable replacement are treated as a warning rather than failing the deployment. | `False` |
+| `Octopus.Action.Package.InstallationDirectoryPath` | The directory the package was installed to. Not available before extraction. | `C:\InetPub\WWWRoot\OctoFx` |
+| `Octopus.Action.Package.FeedId` | The ID of the feed the package was pulled from. | `feeds-123` |
+| `Octopus.Action.Package.PackageId` | The ID of the package being deployed. | `OctoFx.RateService` |
+| `Octopus.Action.Package.PackageVersion` | The version of the package being deployed. | `1.2.3` |
+| `Octopus.Action.Package.SkipIfAlreadyInstalled` | Whether re-deployment is skipped when the package version is already on the machine. | `False` |
+| `Octopus.Action.Script.ScriptBody` | The script being run in a script step. | `Write-Host 'Hello'` |
+| `Octopus.Action.Script.Syntax` | The syntax of the script being run in a script step. | PowerShell |
+| `Octopus.Action.Script.CSharp.NuGetSource` | The NuGet source used by the dotnet executor for C# script steps. | `https://my-nuget-server/nuget` |
+| `Octopus.Action.SkipRemainingConventions` | Set as an output variable to finish the action without running further conventions or scripts. | `True` |
+| `Octopus.Action.TargetRoles` | The machine target tags targeted by the action. | `web-server,frontend` |
+| `Octopus.Action.Template.Id` | The ID of the step template the action is based on, if any. | `action-templates-123` |
+| `Octopus.Action.Template.Version` | The version of the step template in use, if any. | `123` |
+| `Octopus.Action.Status.Error` | A description of the error, if the action failed. | The server could not be contacted |
+| `Octopus.Action.Status.ErrorDetail` | A full description of the error, if the action failed. | `System.Net.SocketException: The server could not be contacted` |
+| `Octopus.Action.SubstituteInFiles.EnableNoMatchWarning` | Whether a warning is logged when no files match a glob pattern in Substitute Variables in Files. | `False` |
+
+### Package reference variables
+
+When you reference a package in a custom script, that package contributes its own variables, available per package. The examples below assume a package reference named `Acme`.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Package[Acme].PackageId` | The package ID. | `Acme` |
+| `Octopus.Action.Package[Acme].FeedId` | The feed ID. | `feeds-123` |
+| `Octopus.Action.Package[Acme].PackageVersion` | The version of the package included in the release. | `1.4.0` |
+| `Octopus.Action.Package[Acme].OriginalPath` | The location of the package file before any actions are taken. | `C:\Octopus\Packages\Spaces-1\feeds-builtin\Acme\Acme.1.4.0.zip` |
+| `Octopus.Action.Package[Acme].ExtractedPath` | The absolute path to the extracted directory, if the package is extracted. | `C:\Octopus\Work\20210821060923-7117-31\Acme` |
+| `Octopus.Action.Package[Acme].PackageFilePath` | The absolute path to the package file, if the package isn't extracted. | `C:\Octopus\Work\20210821060923-7117-31\Acme.zip` |
+| `Octopus.Action.Package[Acme].PackageFileName` | The name of the package file, if the package isn't extracted. | `Acme.zip` |
+
+### Docker image package variables
+
+When the package reference is a Docker image, these additional variables are contributed.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Package[Acme].Image` | The fully qualified image name. | `index.docker.io/Acme:1.4.0` |
+| `Octopus.Action.Package[Acme].Registry` | The URI of the registry the image was acquired from. | `index.docker.io` |
+| `Octopus.Action.Package[Acme].Version` | The version of the image included in the release. | `1.4.0` |
+| `Octopus.Action.Package[Acme].Feed.UserName` | The username for the feed the image was acquired from, if the feed uses credentials. | Alice |
+| `Octopus.Action.Package[Acme].Feed.Password` | The password for the feed the image was acquired from, if the feed uses credentials. | `Password01!` |
+
+## Azure variables
+
+These variables are available during Azure deployment actions.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Azure.CertificateThumbprint` | The thumbprint of the X.509 certificate used to authenticate with the target Azure subscription. | `86B5C...96AC` |
+| `Octopus.Action.Azure.PackageExtractionPath` | The temporary path Azure packages are extracted to during deployment, if set. | `Z:\Temp\packages\` |
+| `Octopus.Action.Azure.SubscriptionId` | The Azure subscription ID targeted by the action. | `8affaa7d-3d74-427c-93c5-2d7f6a16e754` |
+| `Octopus.Action.Azure.ResourceGroupDeploymentName` | Overrides the auto-generated resource group deployment name when deploying a resource group. | `my-resource-group-deployment-name` |
+
+### Azure Cloud Service variables
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| <code>Octopus.Action.Azure<wbr>.CloudService<wbr>ConfigurationFileRelativePath</code> | The relative path to the `.cscfg` file, if set. Falls back to `ServiceConfiguration.{Environment}.cscfg` or `ServiceConfiguration.Cloud.cscfg`. | `ServiceConfiguration.Custom.cscfg` |
+| `Octopus.Action.Azure.CloudServiceName` | The name of the cloud service targeted by the action. | `my-cloud-service-web` |
+| <code>Octopus.Action.Azure<wbr>.CloudService<wbr>PackageExtractionDisabled</code> | Whether Octopus pushes the `.cspkg` file to Azure as-is without unpacking it. | `True` |
+| `Octopus.Action.Azure.CloudServicePackagePath` | The path of the `.cspkg` file used by the action. | `Z:\Temp\packages\my-cloud-service-web.cspkg` |
+| `Octopus.Action.Azure.LogExtractedCspkg` | Whether the contents of the extracted `.cspkg` are written to the log. | `True` |
+| `Octopus.Action.Azure.Slot` | The slot of the cloud service targeted by the action. | Staging |
+| `Octopus.Action.Azure.StorageAccountName` | The Azure storage account `.cspkg` files are uploaded to. | `my-storage-account` |
+| `Octopus.Action.Azure.SwapIfPossible` | Whether the action attempts a VIP swap instead of deploying directly into the targeted slot. | `True` |
+| `Octopus.Action.Azure.UploadedPackageUri` | The storage URI of the `.cspkg` file to be deployed. | `https://my-storage-account/container/my-cloudservice.web.cspkg` |
+| `Octopus.Action.Azure.UseCurrentInstanceCount` | Whether the action keeps the current instance count rather than reverting to the `.cspkg` definition. | `True` |
+| `Octopus.Action.Azure.DeploymentLabel` | The custom deployment label used for the Azure cloud service deployment, if set. | my custom label for build 3.x.x |
+
+### Azure Web App variables
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Azure.WebAppName` | The name of the web app targeted by the deployment. | `my-web-app` |
+| `Octopus.Action.Azure.DeploymentSlot` | The name of the web app slot targeted by the deployment. | `staging` |
+| `Octopus.Action.Azure.ResourceGroupName` | The name of the resource group targeted by the deployment. | `MyResourceGroup` |
+| `Octopus.Action.Azure.RemoveAdditionalFiles` | Whether Web Deploy deletes files at the destination that aren't in the source package. | `True` |
+| `Octopus.Action.Azure.PreserveAppData` | Whether Web Deploy skips delete operations in the `App_Data` directory. | `True` |
+| `Octopus.Action.Azure.AppOffline` | Whether Web Deploy takes the app domain down by adding an `app_offline.html` file in the site root. | `True` |
+
+## Output variables
+
+Output variables are collected while a step runs and made available to later steps.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action[name].Output.property` | The result of calling `Set-OctopusVariable` during an action, exposed for use in other actions. | `Octopus.Action[Website].Output.WarmUpResponseTime` |
+| `Octopus.Action[name].Output.Manual.Notes` | Notes provided by the user who completed a manual step. | Signed off by Alice |
+| `Octopus.Action[name].Output.Package.InstallationDirectoryPath` | The directory the package was installed to. | `C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3` |
+| `Octopus.Action[name].Output[machine].Package.InstallationDirectoryPath` | The directory the package was installed to on a specific target machine. Use this to read the installation directory for a machine other than the one currently running, for example in a [run condition](/docs/projects/steps/conditions). | `C:\Octopus\Tentacle\Apps\Production\MyApp\1.2.3` |
+| `Octopus.Action[name].Output.Manual.ResponsibleUser.DisplayName` | The full name of the user who completed the manual step. | Alice King |
+| `Octopus.Action[name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who completed the manual step. | `alice@example.com` |
+| `Octopus.Action[name].Output.Manual.ResponsibleUser.Id` | The ID of the user who completed the manual step. | `users-123` |
+| `Octopus.Action[name].Output.Manual.ResponsibleUser.Username` | The username of the user who completed the manual step. | `alice` |
+| <code>Octopus.Action[name]<wbr>.Output<wbr>.OctopusAzure<wbr>CloudServiceDeploymentID</code> | The ID of the completed Azure cloud service deployment. | `c9f52d...409f` |
+| <code>Octopus.Action[name]<wbr>.Output<wbr>.OctopusAzure<wbr>CloudServiceDeploymentUrl</code> | The URL of the completed Azure cloud service deployment. | `http://c9f52d...409f.cloudapp.net/` |
+
+## Step variables
+
+Step-level variables are available while a step runs.
+
+You can also read these variables for a different step using indexed notation, for example `Octopus.Step[StepName].Status.Code`. This is useful when [writing run conditions](/docs/projects/variables/system-variables/#tracking-deployment-status) that depend on another step's status.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Step.Id` | The ID of the step. | `80b3ad09-eedf-40d6-9b66-cf97f5c0ffee` |
+| `Octopus.Step.Name` | The name of the step. | Website |
+| `Octopus.Step.Number` | The number of the step. | `2` |
+| `Octopus.Step.Status.Code` | A code describing the current status of the step. | `Succeeded` |
+| `Octopus.Step.Status.Error` | A description of the error, if the step failed. | The server could not be contacted |
+| `Octopus.Step.Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
+
+The status codes returned by `Octopus.Step.Status.Code` are `Pending`, `Skipped`, `Abandoned`, `Canceled`, `Running`, `Succeeded`, and `Failed`.
 
 ## Tracking deployment status {#tracking-deployment-status}
 
-During deployment, Octopus provides variables describing the status of each step.
+During a deployment or runbook run, Octopus provides variables describing the status of each step and action, including ones other than the one currently running. This lets you reference another step or action's outcome, for example when writing a [run condition](/docs/projects/steps/conditions).
+
+Where `StepName` is the name of the step:
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Step[StepName].Status.Code` | A code describing the status of the step. | `Succeeded` |
+| `Octopus.Step[StepName].Status.Error` | A description of the error, if the step failed. | The server could not be contacted |
+| `Octopus.Step[StepName].Status.ErrorDetail` | A full description of the error, if the step failed. | `System.Net.SocketException: The server could not be contacted` |
+
+Where `ActionName` is the name of the action:
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action[ActionName].IsSkipped` | Whether the action was skipped in the current deployment. Can be `True` or empty. | `True` |
+| `Octopus.Action[ActionName].TargetRoles` | The machine target tags targeted by the action. | `web-server,frontend` |
+
+For the deployment as a whole, see `Octopus.Deployment.Error` and `Octopus.Deployment.ErrorDetail` in [Deployment variables](#deployment-variables). These only contain the exit code and Octopus stack trace for the error. Octopus can't parse the deployment log, so it can only extract exit and error codes, not detailed information on the cause of the failure. Check the logs for full details on why a deployment failed.
+
+## Agent variables
+
+Agent-level variables describe the deployment agent or Tentacle the deployment runs on.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Tentacle.Agent.ApplicationDirectoryPath` | The directory the agent installs packages under. | `C:\Octopus\Tentacle\Apps` |
+| `Octopus.Tentacle.Agent.InstanceName` | The instance name the agent runs under. | `Tentacle` |
+| `Octopus.Tentacle.Agent.ProgramDirectoryPath` | The directory containing the agent's own executables. | `C:\Program Files\Octopus Deploy\Tentacle` |
+| `Octopus.Agent.ProgramDirectoryPath` | The directory containing the server's or Tentacle's executables, depending on where the step runs. | `C:\Program Files\Octopus Deploy\Octopus` |
+
+## Worker pool variables
+
+When a step runs on a worker, these variables are available.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.WorkerPool.Id` | The ID of the pool. | `WorkerPools-1` |
+| `Octopus.WorkerPool.Name` | The name of the pool. | Default Worker Pool |
+
+## Server variables
+
+Server-level variables describe the Octopus Server the deployment runs on.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Web.BaseUrl` | The default URL the server API can be accessed at, based on the server's listen prefixes. May not be suitable behind a load balancer or reverse proxy. | `https://my-octopus` |
+| `Octopus.Web.ServerUri` | The default URL the server portal can be accessed at, as configured in Configuration ➜ Nodes. | `https://my-octopus` |
+
+## Runbook variables
+
+These variables are available during a runbook run.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Runbook.Id` | The ID of the runbook. | `Runbooks-123` |
+| `Octopus.Runbook.Name` | The name of the runbook. | Restore Database |
+| `Octopus.RunbookRun.Created` | The date and time the runbook was run. | Friday, March 13, 2020 6:23:38 AM |
+| `Octopus.RunbookRun.CreatedUtc` | The date and time the runbook was run, in UTC. | `3/13/20 6:23:38 AM +00:00` |
+| `Octopus.RunbookRun.Git.BranchName` | The branch name, if the run was created from a branch. | `branch-abc` |
+| `Octopus.RunbookRun.Git.CommitHash` | The commit hash used to create the run, for a version-controlled runbook. | `14677f...a1e9` |
+| `Octopus.RunbookRun.Git.Ref` | The full git ref used to create the run, for a version-controlled runbook. | `refs/heads/branch-abc` |
+| `Octopus.RunbookRun.Git.TagName` | The tag name, if the run was created for a tag. | `v1.0.234` |
+| `Octopus.RunbookRun.Id` | The ID of the run. | `RunbookRuns-123` |
+| `Octopus.RunbookRun.Name` | The name of the run. | Run on Production |
+| `Octopus.RunbookSnapshot.Id` | The ID of the snapshot being run. | `RunbookSnapshots-123` |
+| `Octopus.RunbookSnapshot.Name` | The name of the snapshot. | Snapshot EXAMPLE3 |
+| `Octopus.RunbookSnapshot.Notes` | Notes associated with the snapshot, in Markdown. | Restores the database |
+| `Octopus.Web.RunbookSnapshotLink` | A path relative to the Octopus Server URL where the runbook snapshot can be viewed. | `/app/snapshots/runbookSnapshots-123` |
+| `Octopus.Web.RunbookRunLink` | A path relative to the Octopus Server URL where the runbook run can be viewed. | `/app/runs/runbookRuns-123` |
+
+## Kubernetes variables
+
+This variable controls Kubernetes CLI output during Kubernetes deployment actions.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Action.Kubernetes.LogCliOutputAsInfo` | Whether successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`) is logged at the Info level instead of Verbose. | `True` |
+
+## User-modifiable settings
+
+You define these variables in your project to change how Octopus behaves. Unlike the variables above, you set these values and Octopus reads them.
+
+| Variable | Description | Example |
+| --- | --- | --- |
+| `Octopus.Acquire.MaxParallelism` | The maximum number of NuGet packages downloaded at once when acquiring packages. | `3` |
+| `Octopus.Action.MaxParallelism` | The maximum number of targets an action runs on concurrently, and the maximum number of steps that run in parallel. Default: 10. | `5` |
+| `OctopusPrintVariables` | Set to `True` to have Tentacle print the value of all variables passed to it. | `True` |
+| `OctopusPrintEvaluatedVariables` | Set to `True` to have Tentacle print the value of all variables passed to it after evaluation. | `True` |
+| `OctopusSkipFreeDiskSpaceCheck` | Set to `True` to skip the free disk space check when deploying packages. | `True` |
+| `OctopusFreeDiskSpaceOverrideInMegaBytes` | The amount of free disk space, in megabytes, to check for, overriding the 500 MB default. | `100` |
+| <code>OctopusShouldFailDeployment<wbr>OnSubstitutionFails</code> | Set to `True` to fail the deployment if any variable substitution fails. | `True` |
+| `Octopus.Action.PowerShell.CustomPowerShellVersion` | The version Windows PowerShell scripts are invoked with (2.0, 3.0, 4.0, 5.0). For PowerShell Core, the value must match a directory in `%PROGRAMFILES%\PowerShell`. | `2.0` |
+| `OctopusDeleteScriptsOnCleanup` | Set to `False` to keep packaged PreDeploy, Deploy, and PostDeploy scripts in the target directory. | `False` |
+| `Octopus.Action.Script.SuppressEnvironmentLogging` | Set to `True` to suppress script environment-variable logging. | `True` |
+| `Octopus.Action.PowerShell.ExecuteWithoutProfile` | Set to `True` to skip the Tentacle service account's PowerShell profile when running PowerShell steps. | `True` |
+| <code>OctopusSuppressDuplicate<wbr>VariableWarning</code> | Set to `True` to log the duplicate-variable message as verbose instead of a warning. | `True` |
+| `Octopus.Action.Package.RunScripts` | Set to `False` to prevent scripts inside packages from running. | `True` |
+| `Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo` | A file path the Calamari working directory is copied to, including the one-time key used to decrypt sensitive variables. | `c:\temp\octopus-debug` |
+| `Octopus.Deployment.WorkerLeaseCap` | An opt-in cap on how many steps referencing the same package reuse a single worker. Disabled by default; set above zero to opt in. Applies to deployments and runbooks. | `5` |
+| `Octopus.Task.ConcurrencyTag` | Runs one task at a time per concurrency tag. Set to run tasks in parallel instead of serial, or in serial instead of parallel. | `#{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}` |
+
+## Version notes
 
-Where `S` is the step name, Octopus will set:
+Some variables are available only from a specific version of Octopus. This topic lists those variables and the version each became available in.
 
-```powershell
-Octopus.Step[S].Status.Code
-Octopus.Step[S].Status.Error
-Octopus.Step[S].Status.ErrorDetail
-```
+| Variable | Available from |
+| --- | --- |
+| `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash`, `Octopus.Release.Git.Ref` | Octopus 2021.3 |
+| `Octopus.Web.ServerUri` | Octopus 2019.4.0 |
+| `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name`, `Octopus.Deployment.Tenant.Tags` | Octopus 3.4 |
+| `OctopusShouldFailDeploymentOnSubstitutionFails` | Octopus 2025.1.0 |
 
-Status codes include `Pending`, `Skipped`, `Abandoned`, `canceled`, `Running`, `Succeeded` and `Failed`.
+## Related links
 
-For an action `A:`
-
-```powershell
-Octopus.Action[A].IsSkipped
-```
-
-For the deployment as a whole:
-
-```powershell
-Octopus.Deployment.Error
-Octopus.Deployment.ErrorDetail
-```
-
-:::div{.hint}
-**Error detail returned**
-Octopus.Deployment.Error and Octopus.Deployment.ErrorDetail will only display the exit code and Octopus stack trace for the error. As we cannot parse the deployment log, we can only extract the exit/error codes. It cannot show detailed information on what caused the error. For full information on what happened when the deployment fails, you will need to reference the logs.
-:::
-
-## Runbook
-
-`Octopus.Runbook.Id`
-
-The ID of the runbook.
-
-Example: *Runbooks-123*
-
-`Octopus.Runbook.Name`
-
-The name of the runbook.
-
-Example: *Restore Database*
-
-`Octopus.RunbookRun.Created`
-
-The date and time at which the runbook was run.
-
-Example: *Friday, March 13, 2020 6:23:38 AM*
-
-`Octopus.RunbookRun.CreatedUtc`
-
-The date and time at which the runbook was run in UTC format.
-
-Example: *3/13/20 6:23:38 AM +00:00*
-
-`Octopus.RunbookRun.Git.BranchName`
-
-The branch name if the runbook run was created from a branch
-
-Example: *branch-abc*
-
-`Octopus.RunbookRun.Git.CommitHash`
-
-The commit hash used when creating this run on a version controlled runbook
-
-Example: *14677f79e59df2a55e3904a7020fd14e96b8a1e9*
-
-`Octopus.RunbookRun.Git.Ref`
-
-The full git ref used when creating this run on a version controlled runbook
-
-Example: *refs/heads/branch-abc*
-
-`Octopus.RunbookRun.Git.TagName`
-
-The tag name if the runbook run was created for a tag
-
-"v1.0.234"
-
-`Octopus.RunbookRun.Id`
-
-The ID of the run.
-
-Example: *RunbookRuns-123*
-
-`Octopus.RunbookRun.Name`
-
-The name of the run.
-
-Example: *Run on Production*
-
-`Octopus.RunbookSnapshot.Id`
-
-The ID of the snapshot being run.
-
-Example: *RunbookSnapshots-123*
-
-`Octopus.RunbookSnapshot.Name`
-
-The name of the snapshot.
-
-Example: *Snapshot EXAMPLE3*
-
-`Octopus.RunbookSnapshot.Notes`
-
-Notes associated with the snapshot, in Markdown format.
-
-Example: *Restores the database*
-
-`Octopus.Web.RunbookSnapshotLink`
-
-A path relative to the Octopus Server URL at which the runbook snapshot can be viewed.
-
-Example: */app/snapshots/runbookSnapshots-123*
-
-`Octopus.Web.RunbookRunLink`
-
-A path relative to the Octopus Server URL at which the runbook run can be viewed.
-
-Example: */app/runs/runbookRuns-123*
-
-## User-modifiable settings {#user-modifiable-settings}
-
-The following variables can be defined as variables in your project to modify the way Octopus behaves.
-
-`Octopus.Acquire.MaxParallelism`
-
-Maximum number of NuGet packages that should be downloaded at once when acquiring packages.
-
-Example: 3
-
-`Octopus.Action.MaxParallelism`
-
-The maximum number of deployment targets on which the action will concurrently execute, and the maximum number of steps which will run in parallel. This value can be set in a project variable to change the default for the project. Additionally, you can scope a value to specific actions to control concurrency across your deployment targets. This is the same variable which is set when configuring a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus). *(Number - Default: 10)*.
-
-Example: *5*
-
-`OctopusPrintVariables`
-
-Set to "True" to tell Tentacle to print the value of all variables passed to it. We recommend only using this setting for non-production environments.
-
-Example: True
-
-`OctopusPrintEvaluatedVariables`
-
-Set to "True" to tell Tentacle to print the value of all variables passed to it after evaluating them. We recommend only using this setting for non-production environments.
-
-Example: True
-
-`OctopusSkipFreeDiskSpaceCheck`
-
-Set to "True" to skip the check for available free disk space when deploying packages.
-
-Example: True
-
-`OctopusFreeDiskSpaceOverrideInMegaBytes`
-
-The amount (in megabytes) of available free disk space we should check for (overriding the default 500MB), failing the deployment if not enough free disk space is available.
-
-Example: 100
-
-`OctopusShouldFailDeploymentOnSubstitutionFails`
-
-If set to "True", the deployment will fail if any variable substitution fails. This variable was added in Octopus 2025.1.0.
-
-Example: True
-
-`Octopus.Action.PowerShell.CustomPowerShellVersion`
-
-If specified, Windows PowerShell scripts will be invoked using `PowerShell.exe -version {Version}` where {Version} is the value you specified. Accepted values are *2.0*, *3.0*, *4.0, 5.0*.<br/>PowerShell Core scripts will be invoked using the installed version of PowerShell Core which matches the specified value. The value must match one of the directories contained within `%PROGRAMFILES%\PowerShell`. Example values include *6* and *7-preview*.
-
-Example: 2.0
-
-`OctopusDeleteScriptsOnCleanup`
-
-For packaged scripts, set to "False" to keep the PreDeploy/Deploy/PostDeploy scripts in the target directory (i.e. don't cleanup).
-
-Example: False
-
-`Octopus.Action.Script.SuppressEnvironmentLogging`
-
-To suppress/disable the environment logging that occurs from script (eg. PowerShell or Bash Script Environment Variables logging). This only suppresses script logging and does not suppress the Octopus or Calamari environment logging.
-
-Example: True
-
-`Octopus.Action.PowerShell.ExecuteWithoutProfile`
-
-Set to `true` to not run the Tentacle service account's PowerShell profile script when running PowerShell script steps.
-
-Example: True
-
-`OctopusSuppressDuplicateVariableWarning`
-
-Set to `true` to have the duplicate variable message logged as verbose instead of warning. **Do this if you are aware of the duplication and that it isn't causing any issues in your deployment**.
-
-Example: True
-
-`Octopus.Action.Package.RunScripts`
-
-Set to `false` to prevent scripts inside packages from executing.
-
-Example: True
-
-`Octopus.Calamari.CopyWorkingDirectoryIncludingKeyTo`
-
-Set to a file-path and the Calamari working directory will be copied to the configured location. **Copied files include the one-time key to decrypt sensitive variables** [More details.](/docs/support/copy-working-directory).
-
-Example: `c:\temp\octopus-debug`
-
-`Octopus.Deployment.WorkerLeaseCap`
-
-This is an opt-in variable to help distribute multiple steps referencing the same package (including container) across a worker pool. By setting this, a worker will be reused for steps up to the cap, after which another worker will be selected and reused in the same way. If all workers have reached the cap, additional steps will be spread out evenly. By default, this behavior is disabled, and the same worker will be reused for all steps referencing the same package. Opt in by setting the variable to a number higher than 0.
-
-Example: `1` - achieves a similar effect to round-robin.  
-Example: `5` - a balance between reducing package transfer and distributing load.
-
-Note: This value applies to both deployment processes and runbooks, as long as it's scoped to the particular scenario.
-
-`Octopus.Task.ConcurrencyTag`
-
-Octopus will run one task at a time for a given concurrency tag. Set the variable to run tasks in parallel instead of serial or in serial instead of parallel. For example, tenanted deployments run in parallel by default. Removing tenants from the concurrency tag will run them serially: #{Octopus.Project.Id}/#{Octopus.Environment.Id}
-
-Example: #{Octopus.Deployment.Tenant.Id}/#{Octopus.Project.Id}/#{Octopus.Environment.Id}
-
-### Kubernetes
-
-`Octopus.Action.Kubernetes.LogCliOutputAsInfo`
-
-By default, successful output from Kubernetes CLI tools (`kubectl`, `helm`, `aws`, `az`, `gcloud`, etc.) is logged at the Verbose level, which is only visible when the task log level is set to Verbose. Set to `True` to promote this output to the Info level so it appears in the Standard task log. This is useful when debugging deployments to see the full output of these tools without needing to switch the log level to Verbose for the entire deployment.
-
-Example: True
-
-## Older versions {#older-versions}
-
-- `Octopus.Release.Git.BranchName`, `Octopus.Release.Git.CommitHash` and `Octopus.Release.Git.Ref` is available from Octopus Deploy **2021.3** onwards.
-- `Octopus.Web.ServerUri` is available from Octopus Deploy **2019.4.0** onwards.
-- `Octopus.Deployment.Tenant.Id`, `Octopus.Deployment.Tenant.Name` and `Octopus.Deployment.Tenant.Tags` is available from Octopus Deploy **3.4** onwards.
-
-## Learn more
-
-- [Variable blog posts](https://octopus.com/blog/tag/variables/1)
+- [Variable substitution syntax](/docs/projects/variables/variable-substitutions/)
+- [Variable filters](/docs/projects/variables/variable-filters/)
+- [Custom scripts](/docs/deployments/custom-scripts)

@@ -111,6 +111,8 @@ code {
   background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
   overflow-wrap: break-word;
+  padding: 0 var(--space4);
+  font-size: var(--fontSizeMedium);
 }
 
 pre {
