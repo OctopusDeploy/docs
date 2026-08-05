@@ -1538,10 +1538,12 @@ li.has-children .sub-nav ul li:focus > a {
 
 .content-group main {
   grid-area: content;
-  /* Drops the breadcrumb 56px below the header. This belongs on the column
-     rather than on .content-group, because each column starts at its own
-     offset (nav 16px, content 56px, toc 100px) and .content-group's
-     margin-top is clearance for the fixed header. */
+  /* Drops the breadcrumb 56px below the header. The design gives each column
+     its own start height below the header — 16px for the nav, 56px here,
+     100px for the toc — so there is no shared value to put on .content-group,
+     whose margin-top is clearance for the fixed header. Only this column is
+     built to the design so far: the nav still starts at 0 and .side-nav still
+     uses a viewport-relative 10vh. Reset in the restack breakpoint below. */
   margin: var(--space56) 0 0;
 }
 
@@ -1570,6 +1572,13 @@ li.has-children .sub-nav ul li:focus > a {
   .content-group .page-content {
     width: unset;
     max-width: var(--content-width-mobile);
+  }
+
+  /* The columns stack here, so the toc sits directly above the content and the
+     56px that placed the breadcrumb below the header would read as a gap
+     between the two. */
+  .content-group main {
+    margin-block-start: 0;
   }
 }
 

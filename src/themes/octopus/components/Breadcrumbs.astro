@@ -58,51 +58,41 @@ for (let i = 0; i < navPages.length; i++) {
   }
 }
 
-// schema.org BreadcrumbList positions are 1-based, so the nav pages occupy
-// 1..navPages.length and any explicit crumbs continue on from there.
-let metaIndex = navPages.length + 1;
+// The derived nav pages and any explicit crumbs render identically, so they
+// share one list. That keeps the schema.org position sequence, which is
+// 1-based, tied to a single index rather than two counters that have to agree.
+type Crumb = {
+  url: string;
+  title: string;
+  ariaCurrent?: string;
+  rel?: string;
+};
 
-const hasCrumbs = navPages.length > 0 || (breadcrumbs?.length ?? 0) > 0;
+const crumbs: Crumb[] = [...navPages, ...(breadcrumbs ?? [])];
 
 stats.stop();
 ---
 
-{
-  hasCrumbs && (
-    <nav aria-label={_(Translations.aria.breadcrumbs)}>
-      <ol vocab="http://schema.org/" typeof="BreadcrumbList">
-        {navPages.map((page, index) => (
-          <li property="itemListElement" typeof="ListItem">
-            <meta property="position" content={(index + 1).toString()} />
-            <a
-              property="item"
-              typeof="WebPage"
-              href={accelerator.urlFormatter.formatAddress(page.url)}
-              aria-current={page.ariaCurrent ? page.ariaCurrent : null}
-              rel={page.rel}
-            >
-              <span property="name">{page.title}</span>
-            </a>
-          </li>
-        ))}
-        {breadcrumbs &&
-          breadcrumbs.map((crumb) => (
-            <li property="itemListElement" typeof="ListItem">
-              <meta property="position" content={(metaIndex++).toString()} />
-              <a
-                property="item"
-                typeof="WebPage"
-                href={accelerator.urlFormatter.formatAddress(crumb.url)}
-                aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
-              >
-                <span property="name">{crumb.title}</span>
-              </a>
-            </li>
-          ))}
-      </ol>
-    </nav>
-  )
-}
+<nav aria-label={_(Translations.aria.breadcrumbs)}>
+  <ol vocab="http://schema.org/" typeof="BreadcrumbList">
+    {
+      crumbs.map((crumb, index) => (
+        <li property="itemListElement" typeof="ListItem">
+          <meta property="position" content={(index + 1).toString()} />
+          <a
+            property="item"
+            typeof="WebPage"
+            href={accelerator.urlFormatter.formatAddress(crumb.url)}
+            aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
+            rel={crumb.rel}
+          >
+            <span property="name">{crumb.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
 
 <style>
   /* The 8px rhythm is uniform across links and separators, so both the list
@@ -132,7 +122,6 @@ stats.stop();
     color: var(--color-menu-link);
     font: var(--textBodyRegularMedium);
     text-decoration: none;
-    white-space: nowrap;
     transition: color var(--duration-default) ease-in-out;
 
     @media (prefers-reduced-motion: reduce) {
