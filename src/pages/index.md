@@ -47,7 +47,7 @@ button forced visible. Normally it appears on hover or keyboard focus.
 
 ### Heading 3 \{#heading-3-b}
 
-#### Heading 4 
+#### Heading 4
 
 ##### Heading 5
 
