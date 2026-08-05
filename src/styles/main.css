@@ -244,7 +244,7 @@ img {
   color: var(--color-heading);
   font-size: var(--fontSizeBase);
   font-weight: var(--fontWeight400);
-  text-align: left;
+  text-align: start;
 }
 
 /* TODO: Once all images are used with Image component these styles should be removed */
@@ -470,7 +470,7 @@ table th {
 }
 
 .table-full-width th {
-  text-align: left;
+  text-align: start;
 }
 
 .credits table,
@@ -652,7 +652,7 @@ nav.skip-links a:focus {
   display: inline-block;
   width: 11.1875rem;
   height: 2.5rem;
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
 }
 
 /* Hide theme switcher in header on mobile */
@@ -809,7 +809,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Article Nav */
 .article-nav {
-  margin-right: 1rem;
+  margin-inline-end: 1rem;
 }
 
 @media (max-width: 1130px) {
@@ -1014,7 +1014,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   display: flex;
   flex-direction: column;
   gap: 0.38rem;
-  text-align: left;
+  text-align: start;
   flex-grow: 1;
 }
 
@@ -1090,7 +1090,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .icon-tile__content {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: start;
 }
 
 .icon-tile__title {
@@ -1236,7 +1236,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .site-nav summary {
   padding-inline: 0.8em;
   position: relative;
-  left: -0.8em;
+  inset-inline-start: -0.8em;
 }
 
 /* TODO: refactor selectors for site-nav */
@@ -1285,7 +1285,7 @@ li.has-children .sub-nav ul li:focus > a {
 .site-nav details {
   border-inline-start: 1px solid transparent;
   position: relative;
-  left: -1px;
+  inset-inline-start: -1px;
 }
 
 /* .site-nav details[open] {
@@ -2090,11 +2090,11 @@ a[data-youtube] {
 .article-journey__button--next {
   --icon-translate-value: 0.4rem;
   --icon-rotate-value: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .article-journey__button--next .article-journey__content {
-  text-align: right;
+  text-align: end;
 }
 
 .article-journey__icon-wrapper {
@@ -2599,7 +2599,7 @@ a[data-youtube] {
 }
 
 .site-search__remove-btn {
-  margin-left: auto;
+  margin-inline-start: auto;
   background-color: transparent;
   padding: 0.5rem;
   cursor: pointer;
@@ -3064,7 +3064,7 @@ img.btn__icon {
 
 .inline-note {
   position: absolute;
-  padding-left: 0.5rem;
+  padding-inline-start: 0.5rem;
 }
 
 /* Detail tabs */
@@ -3089,7 +3089,7 @@ img.btn__icon {
   outline: none;
   font-size: var(--fontSizeMedium);
   font-weight: var(--fontWeight700);
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   color: var(--color-text);
 }
