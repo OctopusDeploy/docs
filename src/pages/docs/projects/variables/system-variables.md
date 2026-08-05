@@ -227,7 +227,7 @@ You can also read these variables for a different action using indexed notation,
 | `Octopus.Action.Name` | The name of the action. | Website |
 | `Octopus.Action.Number` | The sequence number of the action in the deployment process. | `5` |
 | `Octopus.Action.Package.CustomInstallationDirectory` | The specific directory the package is copied to after extraction, if set. | `C:\InetPub\WWWRoot\OctoFx` |
-| `Octopus.Action.Package.CustomInstallationDirectory<wbr>ShouldBePurgedBeforeDeployment` | Whether all files in the custom installation directory are deleted before deployment. | `False` |
+| `Octopus.Action.Package.CustomInstallationDirectoryShouldBePurgedBeforeDeployment` | Whether all files in the custom installation directory are deleted before deployment. | `False` |
 | `Octopus.Action.Package.DownloadOnTentacle` | Whether the package is downloaded by the Tentacle rather than pushed by the Octopus Server. | `False` |
 | `Octopus.Action.Package.TreatConfigTransformationWarningsAsErrors` | Whether warnings in .NET configuration transformations fail the deployment. | `True` |
 | `Octopus.Action.Package.IgnoreConfigTransformationErrors` | Whether errors in .NET configuration transformations are treated as informational rather than failing the deployment. | `False` |
@@ -280,7 +280,7 @@ These variables are available during Azure deployment actions.
 
 | Variable | Description | Example |
 | --- | --- | --- |
-| `Octopus.Action.Azure.CertificateThumbprint` | The thumbprint of the X.509 certificate used to authenticate with the target Azure subscription. | `86B5C8E5553981FED961769B2DA3028C619596AC` |
+| `Octopus.Action.Azure.CertificateThumbprint` | The thumbprint of the X.509 certificate used to authenticate with the target Azure subscription. | `86B5C...96AC` |
 | `Octopus.Action.Azure.PackageExtractionPath` | The temporary path Azure packages are extracted to during deployment, if set. | `Z:\Temp\packages\` |
 | `Octopus.Action.Azure.SubscriptionId` | The Azure subscription ID targeted by the action. | `8affaa7d-3d74-427c-93c5-2d7f6a16e754` |
 | `Octopus.Action.Azure.ResourceGroupDeploymentName` | Overrides the auto-generated resource group deployment name when deploying a resource group. | `my-resource-group-deployment-name` |
@@ -407,7 +407,7 @@ These variables are available during a runbook run.
 | `Octopus.RunbookRun.Created` | The date and time the runbook was run. | Friday, March 13, 2020 6:23:38 AM |
 | `Octopus.RunbookRun.CreatedUtc` | The date and time the runbook was run, in UTC. | `3/13/20 6:23:38 AM +00:00` |
 | `Octopus.RunbookRun.Git.BranchName` | The branch name, if the run was created from a branch. | `branch-abc` |
-| `Octopus.RunbookRun.Git.CommitHash` | The commit hash used to create the run, for a version-controlled runbook. | `14677f79e59df2a55e3904a7020fd14e96b8a1e9` |
+| `Octopus.RunbookRun.Git.CommitHash` | The commit hash used to create the run, for a version-controlled runbook. | `14677f...a1e9` |
 | `Octopus.RunbookRun.Git.Ref` | The full git ref used to create the run, for a version-controlled runbook. | `refs/heads/branch-abc` |
 | `Octopus.RunbookRun.Git.TagName` | The tag name, if the run was created for a tag. | `v1.0.234` |
 | `Octopus.RunbookRun.Id` | The ID of the run. | `RunbookRuns-123` |
