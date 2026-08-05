@@ -22,11 +22,7 @@ html {
 }
 
 body {
-  font-family: var(--body-font);
-  font-style: normal;
-  font-weight: 400;
-  font-size: var(--font-size-medium);
-  line-height: 1.6;
+  font: var(--textBodyRegularLarge);
   color: var(--color-text);
   background-color: var(--color-base-primary);
   transition-property: background-color, color;
@@ -81,7 +77,8 @@ hr {
 blockquote {
   background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
-  font-size: var(--font-size-large);
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
   margin: var(--block-gap) 0;
   padding: 1.5rem 2.5rem 1.5rem 4.5rem;
   position: relative;
@@ -103,7 +100,7 @@ blockquote cite {
   text-align: end;
   margin-block-start: var(--block-gap);
   font-style: italic;
-  font-size: var(--font-size-regular);
+  font-size: var(--fontSizeBase);
 }
 
 /* TODO: Refactor code snippets. This needs to be a component. */
@@ -153,12 +150,8 @@ em {
 }
 
 h1 {
-  font-size: 2.75rem;
-  line-height: 1.2;
-  font-weight: 800;
+  font: var(--textHeadingXLarge);
   color: var(--color-heading);
-  font-family: var(--heading-font);
-  letter-spacing: -0.02em;
 }
 
 h2:not(:where([data-shared-fragment] *)),
@@ -166,12 +159,8 @@ h3:not(:where([data-shared-fragment] *)),
 h4:not(:where([data-shared-fragment] *)),
 h5:not(:where([data-shared-fragment] *)),
 h6:not(:where([data-shared-fragment] *)) {
-  font-weight: 800;
-  line-height: 1.4;
   color: var(--color-heading);
-  padding: 2rem 0 0.5rem 0;
-  font-family: var(--heading-font);
-  letter-spacing: -0.02em;
+  margin-block-end: var(--space12);
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -179,24 +168,40 @@ h6:not(:where([data-shared-fragment] *)) {
   }
 }
 
+/* A heading directly below a larger one reads as a group, so the step is
+   reduced. Only h3 and h4 need it: h5 already sits at 32px and h6 at 24px,
+   where this would space the pair further apart, not closer. */
+:is(h2, h3)+ :is(h3, h4):not(:where([data-shared-fragment] *)) {
+  margin-block-start: var(--space32);
+}
+
 h2:not(:where([data-shared-fragment] *)) {
-  font-size: var(--font-size-xlarge);
+  font: var(--textHeadingLarge);
+  margin-block-start: var(--space56);
 }
 
 h3:not(:where([data-shared-fragment] *)) {
-  font-size: var(--font-size-large);
+  font: var(--textHeadingMedium);
+  margin-block-start: var(--space48);
 }
 
 h4:not(:where([data-shared-fragment] *)) {
-  font-size: var(--font-size-regular);
+  font: var(--textHeadingSmall);
+  margin-block-start: var(--space40);
 }
 
 h5:not(:where([data-shared-fragment] *)) {
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight600);
+  line-height: var(--lineHeightXSmall);
+  margin-block-start: var(--space32);
 }
 
 h6:not(:where([data-shared-fragment] *)) {
-  font-size: var(--font-size-small);
+  font-size: var(--fontSizeSmall);
+  font-weight: var(--fontWeight600);
+  line-height: var(--lineHeightXSmall);
+  margin-block-start: var(--space24);
 }
 
 img {
@@ -237,8 +242,8 @@ img {
 
 .image__caption {
   color: var(--color-heading);
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight400);
   text-align: left;
 }
 
@@ -274,15 +279,17 @@ input {
 mark {
   color: unset;
   background-color: transparent;
-  font-weight: bold;
+  font-weight: var(--fontWeight700);
 }
 
 strong {
-  font-weight: bold;
-  font-family: var(--bold-font);
+  font-weight: var(--fontWeight700);
+  font-family: var(--fontFamilySystem-ui);
 }
 
-.page-content > *,
+/* Headings are excluded because they set a tighter 12px block-end themselves,
+   which this rule would otherwise outrank on specificity. */
+.page-content > *:not(:is(h2, h3, h4, h5, h6)),
 .page-content > blockquote > *:not(:last-child),
 .page-content > div.info > *:not(:last-child),
 .page-content > div.success > *:not(:last-child),
@@ -306,6 +313,16 @@ strong {
 .page-content ul,
 .page-content ol {
   margin-inline-start: 2rem;
+}
+
+/* Figma puts space/6 above every list item after the first, so consecutive
+   items read as a group while the list still sits tight against the block
+   above it. Only markdown content lists are in scope, and those are the
+   classless ones - the component lists rendered into the article body (recent
+   updates, article cards, the copy markdown menu) all carry a class and space
+   themselves. */
+.page-content :where(ul, ol):not([class])>li+li {
+  padding-block-start: var(--space6);
 }
 
 /* Boxes */
@@ -359,8 +376,9 @@ strong {
 }
 
 .question .answer {
-  font-size: var(--font-size-large);
-  font-weight: bold;
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
+  font-weight: var(--fontWeight700);
   padding-block-start: 0.5em;
 }
 
@@ -369,23 +387,41 @@ strong {
 .question h5,
 .question h6 {
   padding-block-start: 0.5em;
-  font-size: var(--font-size-xlarge);
+  font: var(--textHeadingLarge);
 }
 
 .bookmark-link {
-  border-radius: var(--standard-radius);
-  color: var(--fore-link);
-  display: inline-block;
-  font-size: 1.2rem;
-  height: 1.2em;
-  margin-inline-start: 0.3rem;
-  opacity: 0.5;
-  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* box-sizing is set on html only and does not inherit, so without this the
+     min-width would exclude the padding and the button would be 36px. */
+  box-sizing: border-box;
+  min-width: 28px;
+  min-height: 28px;
+  padding: var(--space4);
+  margin-inline-start: var(--space8);
+  vertical-align: middle;
+  background: var(--colorBackgroundPrimaryDefault);
+  border-radius: var(--borderRadiusSmall);
+  outline: var(--borderWidth1) solid var(--colorBorderPrimary);
+  outline-offset: calc(-1 * var(--borderWidth1));
   text-decoration: none;
-  top: 0.5em;
   opacity: 0;
-  width: 1.25em;
-  white-space: nowrap;
+}
+
+.bookmark-link::before {
+  content: '';
+  width: var(--fontSizeLarge);
+  height: var(--fontSizeLarge);
+  /* ::before is a flex item here and would otherwise shrink. */
+  flex: none;
+  /* A mask uses the file's alpha channel, so its fill attribute is ignored and
+     the color comes from here. Not the anchor's color, which
+     .page-content a:not(.link) outranks and would turn the icon blue. */
+  background-color: var(--colorIconPrimary);
+  -webkit-mask: url('/docs/icons/link-on.svg') center / contain no-repeat;
+  mask: url('/docs/icons/link-on.svg') center / contain no-repeat;
 }
 
 h2:hover .bookmark-link,
@@ -395,12 +431,6 @@ h5:hover .bookmark-link,
 h6:hover .bookmark-link,
 .bookmark-link:focus {
   opacity: 1;
-}
-
-.bookmark-link::before {
-  content: '\f0c1 ';
-  /* Link */
-  font-family: fa-solid;
 }
 
 /* Tables */
@@ -415,7 +445,7 @@ table {
 }
 
 table thead {
-  font-weight: 700;
+  font-weight: var(--fontWeight700);
 }
 
 table tr {
@@ -460,7 +490,7 @@ table th {
 }
 
 .credits td:before {
-  font-weight: bold;
+  font-weight: var(--fontWeight700);
 }
 
 .credits td:nth-of-type(1):before {
@@ -529,7 +559,7 @@ nav.skip-links a:focus {
 
 .octo-header {
   margin-inline: var(--page-inline-margin);
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -597,8 +627,8 @@ nav.skip-links a:focus {
   padding: 0.5rem 0.75rem;
   gap: 0.75rem;
   border-radius: 0.5rem;
-  font-size: var(--font-size-small);
-  font-weight: 600;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight600);
   line-height: 138%;
   transition-property: background-color, color;
   transition-timing-function: ease-in-out;
@@ -670,8 +700,8 @@ nav.skip-links a:focus {
 }
 
 .theme-switcher__icon {
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight700);
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -742,9 +772,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   gap: 1rem;
   text-decoration: none;
   color: var(--octo-blue-lightest);
-  font-family: var(--bold-font);
-  font-size: var(--font-size-large);
-  font-weight: 500;
+  font-family: var(--fontFamilySystem-ui);
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
+  font-weight: var(--fontWeight500);
   align-items: center;
   transition: color var(--duration-default) ease-in-out;
 }
@@ -792,6 +823,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .article-nav .article-nav__details .article-nav__title::after {
+  /* fa-chevron-down */
   content: '\f078';
   font-family: fa-solid;
   float: right;
@@ -813,6 +845,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 
   .article-nav .article-nav__details .article-nav__title::after {
+    /* fa-chevron-down */
     content: '\f078';
     font-family: fa-solid;
     float: right;
@@ -823,9 +856,9 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .article-nav__title {
   color: var(--color-heading);
-  font-family: var(--bold-font);
-  font-size: var(--font-size-medium);
-  font-weight: 700;
+  font-family: var(--fontFamilySystem-ui);
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight700);
   text-transform: uppercase;
   text-decoration: none;
   transition: color var(--duration-default) ease-in-out;
@@ -854,9 +887,9 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .article-nav__link {
   display: flex;
   color: var(--color-subtitle);
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
   line-height: 1.5rem;
-  font-weight: 400;
+  font-weight: var(--fontWeight400);
   text-decoration: none;
   transition-property: font-weight, color, transform;
   transition-timing-function: ease-in-out;
@@ -869,7 +902,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .article-nav__link.highlight,
 .article-nav__item:hover .article-nav__link {
-  font-weight: 600;
+  font-weight: var(--fontWeight600);
   color: var(--badge-color);
 }
 
@@ -944,9 +977,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .card--related-topics .card__title {
   color: var(--color-text);
-  font-family: var(--bold-font);
-  font-size: var(--font-size-large);
-  font-weight: 700;
+  font-family: var(--fontFamilySystem-ui);
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
+  font-weight: var(--fontWeight700);
 }
 
 .card__image {
@@ -984,14 +1018,13 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .card__title {
-  font-size: var(--font-size-regular);
-  font-weight: 600;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight600);
   color: var(--color-heading);
 }
 
 .card__description {
-  font-size: var(--font-size-medium);
-  font-weight: 400;
+  font: var(--textBodyRegularMedium);
   color: var(--blue-grey);
 }
 
@@ -1007,8 +1040,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   align-items: center;
   gap: 0.5rem;
   color: var(--badge-color);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight500);
   padding-bottom: 0.25rem;
   border-bottom: 0.0625rem solid var(--badge-color);
 }
@@ -1061,23 +1094,23 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .icon-tile__title {
   color: var(--color-heading);
-  font-family: var(--bold-font);
-  font-size: var(--font-size-regular);
-  font-weight: 600;
+  font-family: var(--fontFamilySystem-ui);
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight600);
   /* Override global styles */
   padding: 0;
 }
 
 .icon-tile__description {
   color: var(--color-text-secondary);
-  font-size: var(--font-size-small);
-  font-weight: 400;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight400);
 }
 
 /* Breadcrumbs */
 
 .site-breadcrumbs ol {
-  font-size: 0.8rem;
+  font: var(--textBodyRegularMedium);
   margin: 0 auto;
   padding: 1rem 0 2rem 0;
 }
@@ -1088,8 +1121,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .site-breadcrumbs li::before {
+  /* fa-chevron-right */
   content: '\f054';
-  /* Chevron Right */
   color: var(--color-menu-link);
   font-family: fa-solid;
   font-size: 0.8em;
@@ -1130,8 +1163,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   align-self: start;
   overflow: overlay;
   position: sticky;
-  font-size: var(--font-size-small);
-  font-weight: 400;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight400);
   /* line-height: 2.8; */
 }
 
@@ -1184,14 +1217,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   text-decoration: none;
   color: var(--color-menu-link);
   border-radius: var(--standard-radius);
-  font-size: var(--font-size-medium);
-  font-weight: 400;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight400);
 }
 
 .site-nav .sub-nav[open] > .sub-nav__summary .sub-nav__summary-title {
   color: var(--color-menu-link-active);
-  font-family: var(--bold-font);
-  font-weight: 700;
+  font-family: var(--fontFamilySystem-ui);
+  font-weight: var(--fontWeight700);
 }
 
 .site-nav a,
@@ -1235,7 +1268,7 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav a[aria-current] {
-  font-weight: bold;
+  font-weight: var(--fontWeight700);
 }
 
 .site-nav .site-nav__list-item {
@@ -1243,7 +1276,7 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav .site-nav__list-item a[aria-current] {
-  font-family: var(--bold-font);
+  font-family: var(--fontFamilySystem-ui);
   color: var(--color-menu-link-alt);
   transform: translateX(0.25rem);
 }
@@ -1270,8 +1303,8 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .site-nav details > summary::before {
+  /* fa-chevron-down */
   content: '\f078';
-  /* Chevron Down */
   font-family: fa-solid;
   float: right;
   color: var(--color-menu-marker);
@@ -1284,8 +1317,8 @@ li.has-children .sub-nav ul li:focus > a {
   > .site-nav__list
   > .site-nav__list-item:not(.has-children)
   > a::after {
+  /* fa-chevron-right */
   content: '\f054';
-  /* Chevron Right */
   font-family: fa-solid;
   float: right;
   color: var(--color-menu-marker);
@@ -1294,12 +1327,12 @@ li.has-children .sub-nav ul li:focus > a {
 
 .site-nav details[open] > summary {
   background-color: var(--bg-color-menu-open);
-  font-weight: bold;
+  font-weight: var(--fontWeight700);
 }
 
 .site-nav details[open] > summary::before {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   color: var(--color-menu-link-alt);
 }
 
@@ -1499,7 +1532,7 @@ li.has-children .sub-nav ul li:focus > a {
 /* Need to override styles that might be applied to certain font awesome icons */
 .header__icon-wrapper .header__icon:before {
   color: var(--blue-500);
-  font-size: 2rem;
+  font-size: var(--fontSize2xLarge);
 }
 
 .header__icon {
@@ -1527,8 +1560,6 @@ li.has-children .sub-nav ul li:focus > a {
 
 .header__title {
   color: var(--color-text);
-  font-size: var(--font-size-title);
-  font-weight: 700;
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -1538,7 +1569,8 @@ li.has-children .sub-nav ul li:focus > a {
 
 .header__subtitle {
   color: var(--color-subtitle);
-  font-size: var(--font-size-subtitle);
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -1590,8 +1622,8 @@ li.has-children .sub-nav ul li:focus > a {
 
 .page-toc details summary {
   text-decoration: none;
-  font-weight: bold;
-  font-size: var(--font-size-medium);
+  font-weight: var(--fontWeight700);
+  font-size: var(--fontSizeBase);
 }
 
 .page-toc details summary::marker {
@@ -1600,23 +1632,23 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .page-toc details summary::after {
+  /* fa-chevron-down */
   content: '\f078';
-  /* Chevron Down*/
   font-family: fa-solid;
   margin-inline-start: 0.3em;
   float: right;
 }
 
 .page-toc details[open] summary::after {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   font-family: fa-solid;
 }
 
 .page-toc ol {
   margin: 1rem 0 2rem 0;
   list-style: none;
-  font-size: var(--font-size-small);
+  font-size: var(--fontSizeMedium);
 }
 
 .page-toc li a {
@@ -1627,7 +1659,7 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .page-toc li a.highlight {
-  font-weight: bold;
+  font-weight: var(--fontWeight700);
   color: var(--color-menu-link-alt);
 }
 
@@ -1665,7 +1697,7 @@ li.has-children .sub-nav ul li:focus > a {
 
 .post-meta p {
   margin-block-start: 3%;
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
 }
 
 .author-info {
@@ -1673,11 +1705,12 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .author-list {
-  font-size: var(--font-size-large);
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
 }
 
 .author-list time {
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
   color: var(--grey);
 }
 
@@ -1720,7 +1753,7 @@ li.has-children .sub-nav ul li:focus > a {
   left: 2.5rem;
   background: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: var(--fontSize2xLarge);
   stroke: var(--color-menu-link);
 }
 
@@ -1743,7 +1776,8 @@ li.has-children .sub-nav ul li:focus > a {
 }
 
 .post-taxonomy h2 {
-  font-size: 1rem;
+  font-size: var(--fontSizeBase);
+  line-height: var(--lineHeightSmall);
   display: inline;
 }
 
@@ -2090,13 +2124,14 @@ a[data-youtube] {
 }
 
 .article-journey__label {
-  font-size: var(--font-size-medium);
-  font-weight: 400;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight400);
 }
 
 .article-journey__title {
-  font-size: var(--font-size-large);
-  font-weight: 700;
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
+  font-weight: var(--fontWeight700);
 }
 
 /* Related articles */
@@ -2138,13 +2173,13 @@ a[data-youtube] {
 }
 
 .octo-related h3 {
-  font-size: var(--font-size-large);
-  font-weight: 400;
+  font-size: var(--fontSizeLarge);
+  font-weight: var(--fontWeight400);
   color: var(--color-base-primary);
 }
 
 .octo-related a {
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
   color: var(--octo-blue-lightest);
 }
 
@@ -2176,8 +2211,8 @@ a[data-youtube] {
 }
 
 .post-list h3 {
-  font-size: var(--font-size-large);
-  font-weight: 400;
+  font-size: var(--fontSizeLarge);
+  font-weight: var(--fontWeight400);
   padding: 0;
   align-self: center;
 }
@@ -2203,6 +2238,11 @@ a[data-youtube] {
 }
 
 .page-content {
+  /* Heading gaps rely on sibling margin collapsing, which only happens in block
+     flow. Converting this to flex or grid makes every gap additive again -
+     56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
+  display: flow-root;
+
   li:has(figure) {
     display: flex;
     flex-direction: column;
@@ -2239,7 +2279,8 @@ a[data-youtube] {
 .site-footer h2 {
   text-transform: uppercase;
   color: var(--navy-400);
-  font-size: var(--font-size-small);
+  font-size: var(--fontSizeMedium);
+  line-height: var(--lineHeightXSmall);
   letter-spacing: 0.12em;
 }
 
@@ -2260,12 +2301,12 @@ a[data-youtube] {
 
 .site-footer nav {
   text-align: center;
-  font-size: var(--font-size-medium);
+  font-size: var(--fontSizeBase);
 }
 
 .site-footer nav a:after {
+  /* fa-chevron-up */
   content: '\f077';
-  /* Chevron Up */
   font-family: fa-solid;
   padding-inline-start: 0.6em;
 }
@@ -2525,8 +2566,8 @@ a[data-youtube] {
 
 .result-path {
   color: var(--blue-grey-lighter);
-  font-size: var(--font-size-small);
-  font-weight: 400;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight400);
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
@@ -2538,14 +2579,15 @@ a[data-youtube] {
 
 .result-title {
   color: var(--color-text);
-  font-size: var(--font-size-large);
-  font-weight: 700;
+  font-size: var(--fontSizeLarge);
+  line-height: var(--lineHeightMedium);
+  font-weight: var(--fontWeight700);
 }
 
 .result-description {
   color: var(--color-heading);
-  font-size: var(--font-size-medium);
-  font-weight: 400;
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight400);
 }
 
 .site-search > fieldset {
@@ -2603,7 +2645,7 @@ a[data-youtube] {
 
 .site-search .show-more {
   display: inline-block;
-  font-size: var(--font-size-small);
+  font-size: var(--fontSizeMedium);
   border-radius: 100px;
   text-decoration: none;
   text-align: center;
@@ -2758,8 +2800,8 @@ a[data-youtube] {
 }
 
 .i-right:after {
+  /* fa-arrow-right */
   content: '\f061';
-  /* Arrow Right */
   font-family: fa-solid;
 }
 
@@ -2807,9 +2849,10 @@ a[data-youtube] {
 }
 
 .magnify-icon:before {
+  /* fa-magnifying-glass-plus */
   content: '\f00e';
   font-family: fa-solid;
-  font-size: 1.3rem;
+  font-size: var(--fontSizeLarge);
   line-height: 2rem;
 }
 
@@ -2864,9 +2907,9 @@ a.button {
   padding: 0.75rem 1.875rem;
   justify-content: center;
   align-items: center;
-  font-family: var(--bold-font);
-  font-size: var(--font-size-medium);
-  font-weight: 700;
+  font-family: var(--fontFamilySystem-ui);
+  font-size: var(--fontSizeBase);
+  font-weight: var(--fontWeight700);
   line-height: 1.38rem;
   border-radius: 0.5rem;
   border-width: 0.0625rem;
@@ -2963,7 +3006,7 @@ a.button.button--primary:active {
   justify-content: center;
   width: 1.25rem;
   height: 1.25rem;
-  font-size: 1rem;
+  font-size: var(--fontSizeBase);
   line-height: 1;
   color: var(--colorIconPrimary);
 }
@@ -3043,8 +3086,8 @@ img.btn__icon {
   border-radius: var(--standard-radius) var(--standard-radius) 0 0;
   background: var(--bg-color-tab);
   outline: none;
-  font-size: var(--font-size-small);
-  font-weight: bold;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight700);
   text-align: left;
   cursor: pointer;
   color: var(--color-text);

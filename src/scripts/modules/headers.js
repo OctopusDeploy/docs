@@ -9,7 +9,9 @@ function enhanceHeaders() {
     const linkContainer = document.createElement('a');
     linkContainer.href = `#${elem.id}`;
     linkContainer.className = 'bookmark-link';
-    linkContainer.innerHTML = 'Bookmark';
+    // The icon is drawn by .bookmark-link::before, so the anchor has no content
+    // of its own and takes its accessible name from here.
+    linkContainer.setAttribute('aria-label', 'Link to this section');
 
     elem.appendChild(linkContainer);
   });
