@@ -58,44 +58,71 @@ for (let i = 0; i < navPages.length; i++) {
   }
 }
 
-let metaIndex = navPages.length;
+// The derived nav pages and any explicit crumbs render identically, so they
+// share one list. That keeps the schema.org position sequence, which is
+// 1-based, tied to a single index rather than two counters that have to agree.
+type Crumb = {
+  url: string;
+  title: string;
+  ariaCurrent?: string;
+  rel?: string;
+};
+
+const crumbs: Crumb[] = [...navPages, ...(breadcrumbs ?? [])];
 
 stats.stop();
 ---
 
-<nav class="site-breadcrumbs" aria-label={_(Translations.aria.breadcrumbs)}>
+<nav aria-label={_(Translations.aria.breadcrumbs)}>
   <ol vocab="http://schema.org/" typeof="BreadcrumbList">
     {
-      navPages.map((page, index) => (
+      crumbs.map((crumb, index) => (
         <li property="itemListElement" typeof="ListItem">
-          <meta property="position" content={index.toString()} />
+          <meta property="position" content={(index + 1).toString()} />
           <a
             property="item"
             typeof="WebPage"
-            href={accelerator.urlFormatter.formatAddress(page.url)}
-            aria-current={page.ariaCurrent ? page.ariaCurrent : null}
-            rel={page.rel}
+            href={accelerator.urlFormatter.formatAddress(crumb.url)}
+            aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
+            rel={crumb.rel}
           >
-            <span property="name">{page.title}</span>
+            <span property="name">{crumb.title}</span>
           </a>
         </li>
       ))
     }
-    {
-      breadcrumbs &&
-        breadcrumbs.map((crumb) => (
-          <li property="itemListElement" typeof="ListItem">
-            <meta property="position" content={(metaIndex++).toString()} />
-            <a
-              property="item"
-              typeof="WebPage"
-              href={accelerator.urlFormatter.formatAddress(crumb.url)}
-              aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
-            >
-              <span property="name">{crumb.title}</span>
-            </a>
-          </li>
-        ))
-    }
   </ol>
 </nav>
+
+<style>
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space8);
+    list-style: none;
+    padding: var(--space6) 0 var(--space0);
+  }
+
+  li + li::before {
+    content: '/';
+    margin-inline-end: var(--space8);
+    color: var(--color-text-tertiary);
+    font: var(--textBodyRegularSmall);
+  }
+
+  a {
+    color: var(--color-menu-link);
+    font: var(--textBodyRegularMedium);
+    text-decoration: none;
+    transition: color var(--duration-default) ease-in-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-menu-link-alt);
+  }
+</style>

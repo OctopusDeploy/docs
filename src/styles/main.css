@@ -1110,55 +1110,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   font-weight: var(--fontWeight400);
 }
 
-/* Breadcrumbs */
-
-.site-breadcrumbs ol {
-  font: var(--textBodyRegularMedium);
-  margin: 0 auto;
-  padding: 1rem 0 2rem 0;
-}
-
-.site-breadcrumbs li {
-  display: inline;
-  padding: 0.2em;
-}
-
-.site-breadcrumbs li::before {
-  /* fa-chevron-right */
-  content: '\f054';
-  color: var(--color-menu-link);
-  font-family: fa-solid;
-  font-size: 0.8em;
-  padding: 0 0.2rem 0 0;
-}
-
-.site-breadcrumbs li:first-child::before {
-  content: '';
-  padding: 0;
-}
-
-.site-breadcrumbs a {
-  color: var(--color-menu-link);
-  text-decoration: none;
-  transition: color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-}
-
-.site-breadcrumbs a:hover,
-.site-breadcrumbs a:focus {
-  color: var(--color-menu-link-alt);
-}
-
-.site-breadcrumbs a[aria-current],
-.site-breadcrumbs a[aria-current]:hover,
-.site-breadcrumbs a[aria-current]:focus {
-  text-decoration: none;
-  color: var(--color-text);
-}
-
 /* Navigation */
 
 .site-nav,
@@ -1590,7 +1541,13 @@ li.has-children .sub-nav ul li:focus > a {
 
 .content-group main {
   grid-area: content;
-  margin: 0;
+  /* Drops the breadcrumb 56px below the header. The design gives each column
+     its own start height below the header — 16px for the nav, 56px here,
+     100px for the toc — so there is no shared value to put on .content-group,
+     whose margin-top is clearance for the fixed header. Only this column is
+     built to the design so far: the nav still starts at 0 and .side-nav still
+     uses a viewport-relative 10vh. Reset in the restack breakpoint below. */
+  margin: var(--space56) 0 0;
 }
 
 .content-group .side-nav {
@@ -1618,6 +1575,13 @@ li.has-children .sub-nav ul li:focus > a {
   .content-group .page-content {
     width: unset;
     max-width: var(--content-width-mobile);
+  }
+
+  /* The columns stack here, so the toc sits directly above the content and the
+     56px that placed the breadcrumb below the header would read as a gap
+     between the two. */
+  .content-group main {
+    margin-block-start: 0;
   }
 }
 
