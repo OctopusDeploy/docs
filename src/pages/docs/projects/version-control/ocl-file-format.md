@@ -45,7 +45,6 @@ Default: `LetOctopusDecide`
 ### `step.properties`
 
 Properties is a dictionary of key-value-pairs.
-
 Example:
 
 ```ocl
