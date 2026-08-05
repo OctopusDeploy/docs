@@ -1538,7 +1538,11 @@ li.has-children .sub-nav ul li:focus > a {
 
 .content-group main {
   grid-area: content;
-  margin: 0;
+  /* Drops the breadcrumb 56px below the header. This belongs on the column
+     rather than on .content-group, because each column starts at its own
+     offset (nav 16px, content 56px, toc 100px) and .content-group's
+     margin-top is clearance for the fixed header. */
+  margin: var(--space56) 0 0;
 }
 
 .content-group .side-nav {
