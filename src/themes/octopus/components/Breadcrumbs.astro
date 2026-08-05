@@ -63,7 +63,7 @@ let metaIndex = navPages.length;
 stats.stop();
 ---
 
-<nav class="site-breadcrumbs" aria-label={_(Translations.aria.breadcrumbs)}>
+<nav aria-label={_(Translations.aria.breadcrumbs)}>
   <ol vocab="http://schema.org/" typeof="BreadcrumbList">
     {
       navPages.map((page, index) => (
@@ -113,8 +113,7 @@ stats.stop();
   }
 
   li::before {
-    content: '\f054';
-    /* Chevron Right */
+    content: '\f054'; /* Chevron Right */
     color: var(--color-menu-link);
     font-family: fa-solid;
     font-size: 0.8em;
