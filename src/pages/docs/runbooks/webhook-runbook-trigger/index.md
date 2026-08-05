@@ -82,14 +82,13 @@ The runbook run is created as the owner of the API key, which means:
 - The run appears in the audit log and task list as being run by that user, rather than by the Octopus system user.
 
 We recommend using a [service account](/docs/security/users-and-teams/service-accounts) scoped to only what the runbook needs, rather than a key belonging to a person.
- 
+
 ## Rate limiting
 
 The webhook endpoint is rate limited. The limit applies to all webhook triggers on the instance:
 
 - Up to **60** requests can be made in a burst.
 - The bucket replenishes at **1 request per second**.
-
 
 :::div{.hint}
 This limit is separate from the [rate limiting](/docs/administration/managing-infrastructure/rate-limiting) policies you configure under **Configuration ➜ Settings ➜ Rate Limiting**, and is always active.
