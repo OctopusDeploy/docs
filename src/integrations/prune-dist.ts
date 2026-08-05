@@ -1,16 +1,16 @@
 // The built site is proxied onto octopus.com under `/docs/` only, so anything
-// the build emits outside that prefix can never be served. Astro still routes
-// `src/pages/index.md`, `src/pages/components.mdx`, `src/pages/report/**` and
-// friends to the site root, which is useful under `astro dev` but is dead
-// weight in the deployed package. Strip it after the build so the local dev
-// experience keeps working without shipping unreachable files.
-
+// the build emits outside that prefix can never be served. Prune them from the build output to reduce size and keep things clean.
 import type { AstroIntegration } from 'astro';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 
-const KEEP = new Set(['docs']);
+// For things not in this list such as /components, run locally with `pnpm dev` to access. They are not reachable on octopus.com, so we don't want to ship them in the build output.
+const KEEP = new Set([
+  'docs', // This is the main site content, which is served under /docs/ on octopus.com.
+  'index.html', // index.html is the entrypoint for the staging site, so we want to keep it.
+  'report', // index.html links to some reports, so we keep them to avoid dead links, plus they can be useful on staging sites.
+]);
 
 export default function pruneDist(): AstroIntegration {
   return {
