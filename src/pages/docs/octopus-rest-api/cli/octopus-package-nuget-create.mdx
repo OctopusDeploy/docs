@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-19
+modDate: 2026-08-05
 title: octopus package nuget create
 description: Create nuget
 navOrder: 84
@@ -20,6 +20,7 @@ Flags:
       --base-path string          Root folder containing the contents to zip.
       --out-folder string         Folder into which the zip file will be written.
       --include strings           Add a file pattern to include, relative to the base path e.g. /bin/*.dll; defaults to "**".
+      --exclude strings           Add a file pattern to exclude, relative to the base path e.g. **/*.config; applied after --include.
       --verbose                   Verbose output.
       --overwrite                 Allow an existing package file of the same ID/version to be overwritten.
       --author strings            Add author/s to the package metadata.
