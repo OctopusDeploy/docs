@@ -47,6 +47,12 @@ button forced visible. Normally it appears on hover or keyboard focus.
 
 ### Heading 3 \{#heading-3-b}
 
+#### Heading 4 
+
+##### Heading 5
+
+###### Heading 6
+
 <style>
   #heading-2-b .bookmark-link,
   #heading-3-b .bookmark-link {

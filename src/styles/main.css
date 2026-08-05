@@ -23,10 +23,6 @@ html {
 
 body {
   font: var(--textBodyRegularLarge);
-  /* The composite carries weight, size, line-height and family. Figma's
-     text/body/regular/large also names a letter-spacing token, which the
-     composite leaves out, so it is set here. */
-  letter-spacing: var(--letterSpacingNone);
   color: var(--color-text);
   background-color: var(--color-base-primary);
   transition-property: background-color, color;
@@ -164,7 +160,6 @@ h4:not(:where([data-shared-fragment] *)),
 h5:not(:where([data-shared-fragment] *)),
 h6:not(:where([data-shared-fragment] *)) {
   color: var(--color-heading);
-  padding: 2rem 0 0.5rem 0;
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -172,30 +167,40 @@ h6:not(:where([data-shared-fragment] *)) {
   }
 }
 
+/* A heading directly below a larger one reads as a group, so the step is
+   reduced. Only h3 and h4 need it: h5 already sits at 32px and h6 at 24px,
+   where this would space the pair further apart, not closer. */
+:is(h2, h3)+ :is(h3, h4):not(:where([data-shared-fragment] *)) {
+  margin-block-start: var(--space32);
+}
+
 h2:not(:where([data-shared-fragment] *)) {
   font: var(--textHeadingLarge);
-  padding-top: var(--space56);
+  margin-block-start: var(--space56);
 }
 
 h3:not(:where([data-shared-fragment] *)) {
   font: var(--textHeadingMedium);
-  padding-top: var(--space48);
+  margin-block-start: var(--space48);
 }
 
 h4:not(:where([data-shared-fragment] *)) {
   font: var(--textHeadingSmall);
+  margin-block-start: var(--space40);
 }
 
 h5:not(:where([data-shared-fragment] *)) {
   font-size: var(--fontSizeMedium);
   font-weight: var(--fontWeight600);
   line-height: var(--lineHeightXSmall);
+  margin-block-start: var(--space32);
 }
 
 h6:not(:where([data-shared-fragment] *)) {
   font-size: var(--fontSizeSmall);
   font-weight: var(--fontWeight600);
   line-height: var(--lineHeightXSmall);
+  margin-block-start: var(--space24);
 }
 
 img {
@@ -313,7 +318,7 @@ strong {
    classless ones - the component lists rendered into the article body (recent
    updates, article cards, the copy markdown menu) all carry a class and space
    themselves. */
-.page-content :where(ul, ol):not([class]) > li + li {
+.page-content :where(ul, ol):not([class])>li+li {
   padding-block-start: var(--space6);
 }
 
@@ -2230,6 +2235,11 @@ a[data-youtube] {
 }
 
 .page-content {
+  /* Heading gaps rely on sibling margin collapsing, which only happens in block
+     flow. Converting this to flex or grid makes every gap additive again -
+     56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
+  display: flow-root;
+
   li:has(figure) {
     display: flex;
     flex-direction: column;
