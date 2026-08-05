@@ -21,7 +21,11 @@ export default defineConfig({
     ],
     markdown: {
         shikiConfig: {
-            theme: 'light-plus'
+            theme: 'light-plus',
+            // OCL is HCL-derived, so reuse the HCL grammar for ```ocl fences
+            langAlias: {
+                ocl: 'hcl'
+            }
         },
         processor: unified({
             remarkPlugins: [

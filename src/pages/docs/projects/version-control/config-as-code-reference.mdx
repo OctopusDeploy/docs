@@ -202,7 +202,7 @@ The runbooks/ directory will contain runbook-name.ocl files for any published ru
 
 The *deployment_process.ocl* file contains the configuration for your project's steps. Below is an example *deployment_process.ocl* for a project containing a single *Deploy a Package* step.
 
-```hcl
+```ocl
 step "deploy-a-package" {
     name = "Deploy a Package"
     properties = {
@@ -236,7 +236,7 @@ step "deploy-a-package" {
 
 The *deployment_settings.ocl* file contains the configuration for the deployment settings associated with the deployment process. If using the default deployment process settings, the .ocl will be mostly empty.
 
-```hcl
+```ocl
 connectivity_policy {
 }
 
@@ -246,7 +246,7 @@ versioning_strategy {
 
 However, configuring the settings via Octopus will populate the fields with their properties and values.
 
-```hcl
+```ocl
 default_guided_failure_mode = "On"
 deployment_changes_template = <<-EOT
         #{each release in Octopus.Deployment.Changes}
@@ -281,7 +281,7 @@ versioning_strategy {
 
 The *variables.ocl* file contains all non-sensitive variables for the project.
 
-```hcl
+```ocl
 variable "DatabaseName" {
     value "AU-BNE-TST-001" {
         environment = ["test"]

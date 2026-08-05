@@ -23,7 +23,7 @@ The Deployment Process is defined in the `deployment_process.ocl` file. It consi
 
 Each step contains one label, which is the slug of the step. This must be unique throughout the process.
 
-```hcl
+```ocl
 step "<step-slug>" {
     ...
 }
@@ -47,7 +47,7 @@ Default: `LetOctopusDecide`
 
 Properties is a dictionary of key-value-pairs.
 Example:
-```hcl
+```ocl
 properties = {
     Octopus.Account.Id = "My Awesome Account"
     MyCustomProperty = "My Value"
@@ -65,7 +65,7 @@ Default: `StartAfterPrevious`
 Steps generally contain a single action. However, there are some cases where they can contain multiple steps.
 Actions are also defined as OCL blocks.
 
-```hcl
+```ocl
 action "<action-slug>" {
     ...
 }
@@ -79,7 +79,7 @@ Tells Octopus what type of action this is, e.g: `Octopus.Script`, `Octopus.Nginx
 
 A list of channel slugs which this action will be executed for.
 
-```hcl
+```ocl
 channels = ["default", "pre-release"]
 ```
 
@@ -92,7 +92,7 @@ Default: `Success`
 
 A list of environment slugs where this action will be executed.
 
-```hcl
+```ocl
 environments = ["production", "staging"]
 ```
 
@@ -100,7 +100,7 @@ environments = ["production", "staging"]
 
 A list of environment slugs where this action will be excluded from execution.
 
-```hcl
+```ocl
 excluded_environments = ["production", "staging"]
 ```
 
@@ -130,21 +130,21 @@ Same as the Step `properties`.
 
 A list of canonical tenant tag names which this action applies to.
 
-```hcl
+```ocl
 tenant_tags = ["My Tenant/My Tag", "My Tenant/My Other Tag"]
 ```
 
 ### `step.action.worker_pool`
 
 The slug of a worker pool where this action should execute.
-```hcl
+```ocl
 worker_pool = "my-worker-pool"
 ```
 
 ### `step.action.worker_pool_variable`
 
 The name of the variable pointing to a worker pool where this action should execute.
-```hcl
+```ocl
 worker_pool_variable = "WorkerPoolVariable"
 ```
 
@@ -152,7 +152,7 @@ worker_pool_variable = "WorkerPoolVariable"
 
 If the action should be executed in a container, the `container` block can be used to specify the container.
 
-```hcl
+```ocl
 container "<IMAGE_NAME>" {
     feed = "<CONTAINER_FEED_SLUG>"
 }
@@ -162,7 +162,7 @@ container "<IMAGE_NAME>" {
 
 Actions can reference packages using one or more `package` blocks.
 
-```hcl
+```ocl
 packages "<PACKAGE_NAME>" {
     acquisition_location = "Server|ExecutionTarget|NotAcquired"
     feed = "<FEED_SLUG>"
@@ -180,7 +180,7 @@ packages "<PACKAGE_NAME>" {
 
 #### Example
 
-```hcl
+```ocl
 step "Hello world (using PowerShell)" {
 
     action {
@@ -222,7 +222,7 @@ The Variables are defined in the `variables.ocl` file. Variables are defined as 
 
 ### `variable` block
 
-```hcl
+```ocl
 variable "<LABEL>" {
     ...
 }
@@ -234,7 +234,7 @@ The variable block contains one or more value blocks.
 
 ### `variable.value` block
 
-```hcl
+```ocl
 value "<VARIABLE_VALUE>" {
     ...
 }
@@ -246,7 +246,7 @@ Defines the variable type. If omitted, the type is `String` (text). Valid values
 
 #### Example
 
-```hcl
+```ocl
 variable "Backup worker pool" {
 
     value "WorkerPools-3" {
@@ -261,7 +261,7 @@ Defines a description for a variable. This is often used to more fully describe 
 
 #### Example
 
-```hcl
+```ocl
 variable "Logging.Level" {
 
     value "Info" {
@@ -276,7 +276,7 @@ The `value` block can optional contain a `prompt` block. This allows for values 
 
 #### Example
 
-```hcl
+```ocl
 variable "VersionNumber" {
 
     value {
@@ -308,7 +308,7 @@ Defines one or more actions (steps) that the value will apply to.
 
 #### Example
 
-```hcl
+```ocl
 variable "Logging.Level" {
 
     value "Info" {
@@ -323,7 +323,7 @@ Defines one or more channels that the value will apply to.
 
 #### Example
 
-```hcl
+```ocl
 variable "Version.Tag" {
 
     value "2022.3" {
@@ -336,7 +336,7 @@ variable "Version.Tag" {
 
 Defines one or more environments that the value will apply to.
 
-```hcl
+```ocl
 variable "API.Key" {
 
     value "20f5cb22-a4f1-493f-a327-a2206f39edd0" {
@@ -349,7 +349,7 @@ variable "API.Key" {
 
 Defines one or more machines that the value will apply to.
 
-```hcl
+```ocl
 variable "Server.Label" {
 
     value "Test SQL Server" {
@@ -364,7 +364,7 @@ Defines one or more roles that the value will apply to.
 
 #### Example
 
-```hcl
+```ocl
 variable "Application.Name" {
 
     value "HAL Portal" {
