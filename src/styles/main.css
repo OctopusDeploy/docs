@@ -1,7 +1,4 @@
-/* Row backgrounds for the side navigation. These are design tokens that
-   @octopusdeploy/design-system-tokens does not ship yet, so they live here
-   until it does — hence the token-style names rather than this file's usual
-   --kebab-case. */
+/* Row backgrounds for the side navigation. These are design tokens that @octopusdeploy/design-system-tokens does not ship because they are specific to the docs site.*/
 :root {
   --navBackgroundRest: rgba(26, 119, 202, 0);
   --navBackgroundHover: var(--colorScalesSlate100);
@@ -1147,20 +1144,13 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Navigation */
 
-/* Every row in the tree — leaf link, collapsed section, expanded section
-   summary — is the same block: 8px of padding around a 20px line of label with
-   a 20px chevron pinned to the inline end, on a 4px radius. Nested lists add
-   16px of inline-start padding, so a child's block starts where its parent's
-   label does. */
-
 .site-nav {
   align-self: start;
   position: sticky;
   top: 82px;
   height: calc(100vh - 82px);
   box-sizing: border-box;
-  /* No inline-end padding, on this or on the list inside it: rows and the
-     scrollbar both run all the way to the border. */
+  /* No inline-end padding, on this or on the list inside it: rows and the scrollbar both run all the way to the border. */
   padding-block: var(--space16) var(--space32);
   padding-inline: var(--space16) 0;
   background-color: var(--colorBackgroundPrimaryDefault);
@@ -1218,8 +1208,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 }
 
-/* Laying the summary out as a flex box drops the disclosure triangle
-   everywhere except Safari, which needs this. */
+/* Laying the summary out as a flex box drops the disclosure triangle everywhere except Safari, which needs this. */
 .site-nav__link::-webkit-details-marker {
   display: none;
 }
@@ -1228,8 +1217,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   flex: 1 0 0;
   min-width: 1px;
   overflow-wrap: break-word;
-  /* The global `summary > *` rule underlines and recolours everything inside a
-     summary. Nav rows carry their own colour, on the row. */
+  /* The global `summary > *` rule underlines and recolours everything inside a summary. Nav rows carry their own colour, on the row. */
   color: inherit;
   text-decoration: none;
 }
@@ -1249,15 +1237,13 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   color: var(--colorTextPrimary);
 }
 
-/* Only pointing at a row, or reaching it from the keyboard, lights it up.
-   Clicking a section to expand it should not leave the row looking hovered. */
+/* Clicking a section to expand it should not leave the row looking hovered. */
 .site-nav__link:hover,
 .site-nav__link:focus-visible {
   background-color: var(--navBackgroundHover);
 }
 
-/* The row for the page you are on, hovered or not. The chevron stays tertiary;
-   only the label takes the selected colour. */
+/* The row for the page you are on, hovered or not. */
 .site-nav__link[aria-current] {
   background-color: var(--navBackgroundActive);
   color: var(--colorTextSelected);
