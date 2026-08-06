@@ -55,10 +55,23 @@ export function journeyOrder(): NavPage[] {
 
 // Mirrors Navigation.setCurrentPage() in astro-accelerator-utils. Assigns
 // unconditionally, so it is safe to run over cloned nodes carrying stale flags.
+//
+// Both sides are compared without a trailing slash, because whether the reader
+// arrived at /docs/installation/requirements or .../requirements/ is not
+// supposed to decide which row is highlighted. A page only counts as inside
+// another when the prefix ends on a path boundary, or /docs/installation/require
+// would open .../requirements.
 export function applyCurrentPage(pages: NavPage[], currentUrl: URL): void {
+  const trimSlash = (path: string) => path.replace(/\/$/, '');
+  const currentPath = trimSlash(currentUrl.pathname);
+
   for (const page of pages) {
-    page.isOpen = currentUrl.pathname.startsWith(page.url);
-    page.ariaCurrent = page.url === currentUrl.pathname ? 'page' : false;
+    const pagePath = trimSlash(page.url ?? '');
+    page.isOpen =
+      pagePath !== '' &&
+      (currentPath === pagePath || currentPath.startsWith(pagePath + '/'));
+    page.ariaCurrent =
+      pagePath !== '' && currentPath === pagePath ? 'page' : false;
     if (page.children) applyCurrentPage(page.children, currentUrl);
   }
 }
