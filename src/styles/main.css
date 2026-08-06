@@ -1223,7 +1223,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   flex: 1 0 0;
   min-width: 1px;
   overflow-wrap: break-word;
-  /* The global `summary > *` rule underlines and recolours everything inside a summary. Nav rows carry their own colour, on the row. */
+  /* The global `summary > *` rule underlines and recolors everything inside a summary. Nav rows carry their own color, on the row. */
   color: inherit;
   text-decoration: none;
 }
@@ -1245,7 +1245,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask-image: url('../assets/icons/chevron-down.svg');
 }
 
-/* Nav rows never take a link colour. Restating the resting colour is what beats
+/* Nav rows never take a link color. Restating the resting color is what beats
    the global `a:hover, a:focus, summary:hover, summary:focus` rule — including
    after a click, which leaves the summary focused but not focus-visible. */
 .site-nav__link:hover,
