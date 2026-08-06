@@ -96,7 +96,7 @@ Output variables extend indexer notation with a second index for the machine tha
 
 ## Collection variables
 
-A collection variable holds many entries rather than a single value. Several system variables are collections, including the packages, builds, commits, and work items associated with a release, and the changes included in a deployment; see [System variables](/docs/projects/variables/system-variables) for the full list. Knowing how to read a collection lets you work with all of them, because they share the same iteration and indexing syntax.
+<span id="extended-syntax">A collection variable</span> holds many entries rather than a single value. Several system variables are collections, including the packages, builds, commits, and work items associated with a release, and the changes included in a deployment; see [System variables](/docs/projects/variables/system-variables) for the full list. Knowing how to read a collection lets you work with all of them, because they share the same iteration and indexing syntax.
 
 You iterate over a collection with an `#{each}` block. Octopus repeats the content between `#{each}` and `#{/each}` once per entry, binding each entry to the name you choose so you can reference its properties:
 
