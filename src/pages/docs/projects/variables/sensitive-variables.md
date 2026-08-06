@@ -17,7 +17,7 @@ Sensitive variables can be sourced from either:
 
 ## Values from a Secret Manager/Key Vault {#values-from-key-vaults}
 
-Storing sensitive values in Octopus solves many problems, but it's [not a two-way key vault](#how-octopus-handles-sensitive-variables). 
+Storing sensitive values in Octopus solves many problems, but it's [not a two-way key vault](#how-octopus-handles-sensitive-variables).
 For this, there are a number of Secret Manager and Key Vault tools available. They also offer additional functionality such as automatic secret rotation and versioning.
 
 Octopus supports the retrieval of sensitive values from a number of Secret Manager/Key Vaults through the use of [Community step templates](/docs/projects/community-step-templates) that extend the functionality of Octopus to integrate with them.
@@ -44,13 +44,13 @@ View working examples of all of our Secrets Management community step templates 
 
 ## Sensitive variables stored in Octopus {#sensitive-variables-in-octopus}
 
-Variables, such as passwords or API keys can be marked as **sensitive**. 
+Variables, such as passwords or API keys can be marked as **sensitive**.
 
-Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/#use-variables-in-step-definitions) but be careful with any part of your sensitive variable that could unintentionally be interpreted as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
+Just like non-sensitive variables they can [reference other variables](/docs/projects/variables/variable-substitutions/#composite-variables) but be careful with any part of your sensitive variable that could unintentionally be interpreted as an attempted substitution. See also, other [common mistakes](#avoiding-common-mistakes).
 
 ### Configuring sensitive variables {#configure-sensitive-variables}
 
-To make a variable a **sensitive variable**, either select **Change Type** when entering the value and select **Sensitive**, or enter the variable editor when you are creating or editing the variable. 
+To make a variable a **sensitive variable**, either select **Change Type** when entering the value and select **Sensitive**, or enter the variable editor when you are creating or editing the variable.
 
 If using the variable editor, on the variable value, click **Open editor**:
 
@@ -74,7 +74,7 @@ When dealing with sensitive variables, Octopus encrypts these values using:
 
 - **AES-256** encryption when they are stored in the Octopus database in versions 2024.4 and newer.
 - **AES-128** encryption when they are stored in the Octopus database in versions prior to 2024.4.
-- **AES-128 encryption** any time they are in transmission, or when they are stored on a deployment target as part of a deployment. 
+- **AES-128 encryption** any time they are in transmission, or when they are stored on a deployment target as part of a deployment.
 
 You can use these sensitive values in your deployment process just like normal [variables](/docs/projects/variables), with two notable exceptions:
 
@@ -93,7 +93,7 @@ Another common example is building a *composite* value using the [variable subst
 
 In this case you should at least make the `DB.Password` variable sensitive so it will be encrypted in the database and masked from any Octopus task log messages like this:
 
-`Server=db01.my-company.com;Database=my-database;User=my-user;Password=*****`. 
+`Server=db01.my-company.com;Database=my-database;User=my-user;Password=*****`.
 
 You could also make `DB.Username` or any of the other components of this template sensitive.
 
@@ -125,13 +125,14 @@ Write-Output "Hello, the password is $Password"
 
 Octopus would mask the value from the deployment log, leaving:
 
-```
+```text
 Hello, the password is *****
 ```
 
 Note that this method isn't 100% foolproof. Here are a couple of scenarios that you should be extra-careful about if logging sensitive variables:
 
 ### Common language in secrets
+
 If your top secret password is "broke", and someone happened to deploy with a PowerShell script with:
 
 ```powershell
@@ -147,6 +148,7 @@ Or watch the things you gave your life to, *******en
 The obvious solution is, don't use passwords that are likely to occur in normal logging/language, and avoid writing the values of your secure variables to logs anyway.
 
 ### `echo` on Unix-based systems
+
 It's very easy to [unintentionally modify a variable when using `echo`](https://stackoverflow.com/q/29378566/16866455), particularly if the variable contains new-lines or other escape characters.
 
 In particular, you should [always use double-quotes](https://stackoverflow.com/a/29378567/16866455) around what you `echo`, to prevent unintended processing of variable contents.

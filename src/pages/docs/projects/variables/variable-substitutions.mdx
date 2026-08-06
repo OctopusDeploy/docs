@@ -14,9 +14,9 @@ imageAlt:
 ---
 import VariableFiltersInOctostacheConditionals from 'src/shared-content/projects/deployment-process/variable-filters-in-octostache-conditionals.include.md';
 
-Octopus lets you reference variables in scripts, configuration files, and step settings, using a binding syntax powered by [Octostache](https://github.com/OctopusDeploy/Octostache), Octopus's open-source templating engine. 
+Octopus lets you reference variables in scripts, configuration files, and step settings, using a binding syntax powered by [Octostache](https://github.com/OctopusDeploy/Octostache), Octopus's open-source templating engine.
 
-This page explains that syntax: how Octopus binds and evaluates a reference, how to compose a value from other variables, how to work with collections and conditionals, and how to reshape a value with a filter. 
+This page explains that syntax: how Octopus binds and evaluates a reference, how to compose a value from other variables, how to work with collections and conditionals, and how to reshape a value with a filter.
 
 For the built-in variables you can reference, see [System variables](/docs/projects/variables/system-variables).
 
@@ -26,11 +26,11 @@ Variable substitution is how Octopus replaces a reference in your text with the 
 
 You reference a variable by wrapping its name in `#{` and `}`:
 
-```
+```text
 #{VariableName}
 ```
 
-When Octopus runs the step, it evaluates the reference and replaces it with the variable's value. **Every value is a string**, even when it looks like a number or a boolean, because Octopus stores and substitutes all variables as text. 
+When Octopus runs the step, it evaluates the reference and replaces it with the variable's value. **Every value is a string**, even when it looks like a number or a boolean, because Octopus stores and substitutes all variables as text.
 
 Octopus resolves each reference using the most specifically [scoped](/docs/projects/variables/getting-started/#scoping-variables) value that applies to the current deployment, so the same reference can produce a different value in Development than it does in Production.
 
@@ -67,13 +67,13 @@ Escaping compounds with the length of the hash sequence. Given the variable `Nam
 
 A variable reference names the value you want Octopus to substitute, ranging from a plain variable name to a specific value selected out of a structured object. You can combine a reference with surrounding text to compose a new value:
 
-```
+```text
 #{Octopus.Environment.Name}-#{Octopus.Project.Name}
 ```
 
 Some variables are structured, and you select a value from them using indexer notation, where the key inside the square brackets identifies the entry you want. Many system variables use this form to expose per-action, per-machine, or per-package values. For example, this reference selects the target roles for a specific action:
 
-```
+```text
 #{Octopus.Action[Website].TargetRoles}
 ```
 
@@ -90,7 +90,7 @@ The index itself can be another variable reference, which lets you look up a val
 
 Output variables extend indexer notation with a second index for the machine that produced the value. An [output variable](/docs/projects/variables/output-variables) set in one step is available to later steps using the action name and the machine name:
 
-```
+```text
 #{Octopus.Action[Website].Output[WEBSVR01].Package.InstallationDirectoryPath}
 ```
 
@@ -100,7 +100,7 @@ A collection variable holds many entries rather than a single value. Several sys
 
 You iterate over a collection with an `#{each}` block. Octopus repeats the content between `#{each}` and `#{/each}` once per entry, binding each entry to the name you choose so you can reference its properties:
 
-```
+```text
 #{each package in Octopus.Release.Package}
     This release contains #{package.PackageId} #{package.Version}
 #{/each}
@@ -108,7 +108,7 @@ You iterate over a collection with an `#{each}` block. Octopus repeats the conte
 
 Collections can be nested. An entry in one collection can itself hold a collection, which you iterate the same way:
 
-```
+```text
 #{each package in Octopus.Release.Package}
     #{each commit in package.Commits}
         - #{commit.CommitId}: #{commit.Comment}
@@ -118,13 +118,13 @@ Collections can be nested. An entry in one collection can itself hold a collecti
 
 You can also select a single entry directly using indexer notation. Some collections are keyed by an identifier, such as a package ID:
 
-```
+```text
 #{Octopus.Release.Package[Acme.Web].Version}
 ```
 
 Others are keyed by a zero-based integer index, so the first entry is at index 0:
 
-```
+```text
 #{Octopus.Release.Builds[0].BuildUrl}
 ```
 
@@ -137,7 +137,7 @@ A collection doesn't have to come from a system variable. You can define your ow
 | `Endpoint[B].Address` | `http://b.example.com` |
 | `Endpoint[B].Description` | `Replica` |
 
-```
+```text
 #{each endpoint in Endpoint}
  - #{endpoint} at #{endpoint.Address} is #{endpoint.Description}
 #{/each}
@@ -145,7 +145,7 @@ A collection doesn't have to come from a system variable. You can define your ow
 
 A variable containing a comma-separated list also iterates directly, without needing an index at all:
 
-```
+```text
 #{each endpoint in "http://a.example.com,http://b.example.com"}
  - #{endpoint}
 #{/each}
@@ -157,7 +157,7 @@ Octostache parses a JSON-formatted variable value natively, exposing its propert
 
 A JSON array or object iterates using the same `#{each}` syntax as any other collection:
 
-```
+```text
 #{each item in Custom.MyJson.Sizes}
  - #{item.size}: #{item.price}
 #{/each}
@@ -177,7 +177,7 @@ Inside an `#{each}` block, Octopus makes a set of variables available that repor
 
 Given the variable `Endpoints` with the comma-separated value `SV1,SV2,SV3`, the following template prints a marker on only the first and last entries:
 
-```
+```text
 #{each endpoint in Endpoints}
 #{if Octopus.Template.Each.First}First: #{endpoint}#{/if}
 #{if Octopus.Template.Each.Last}Last: #{endpoint}#{/if}
@@ -186,7 +186,7 @@ Given the variable `Endpoints` with the comma-separated value `SV1,SV2,SV3`, the
 
 This produces:
 
-```
+```text
 First: SV1
 Last: SV3
 ```
@@ -215,14 +215,14 @@ A conditional includes or excludes text based on a variable's value, letting you
 
 Two conditional statements are supported: `if`, which evaluates its content when the variable is truthy, and `unless`, which evaluates when the variable is falsy. A value is falsy if it's undefined, an empty string, or (ignoring case and surrounding whitespace) `False`, `No`, or `0`; every other value is truthy.
 
-```
+```text
 #{if VariableName}conditional statements#{/if}
 #{unless VariableName}conditional statements#{/unless}
 ```
 
 An `#{if}` block can include an `#{else}` branch for the case where the condition doesn't hold:
 
-```
+```text
 #{if Octopus.Environment.Name == "Production"}
   ProductionValue
 #{else}
@@ -236,7 +236,7 @@ Beyond a truthy/falsy check, a conditional can compare values directly using `==
 
 Combining `if` and `else` lets you express an effective OR across more than two cases:
 
-```
+```text
 #{if Octopus.Environment.Name == "Development"}
   Do this if it's Development
 #{else}
@@ -258,7 +258,7 @@ A conditional expression can also control whether a step in a deployment process
 
 A filter transforms a variable's value as Octopus substitutes it, so you can reshape a value for its destination without changing the underlying variable. Apply a filter with a pipe after the variable name:
 
-```
+```text
 #{Octopus.Release.Notes | Markdown}
 ```
 
