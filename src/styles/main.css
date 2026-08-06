@@ -392,9 +392,10 @@ strong {
   font: var(--textHeadingLarge);
 }
 
-.copy-heading-url {
+.copy-heading-url.btn {
   position: relative;
   top: -0.1em;
+  font-size: inherit; /* make sure button is centered */
   margin-inline-start: var(--space8);
   vertical-align: middle;
   opacity: 0;
@@ -414,7 +415,7 @@ strong {
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + 10px + var(--borderWidth1));
+  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
   translate: -50% 0;
   padding: var(--space4) var(--space8);
   border-radius: var(--borderRadiusSmall);
@@ -427,13 +428,12 @@ strong {
   opacity: 0;
 }
 
-/* The tooltip arrow. A border triangle, on ::before so the bubble paints over
-   it, and raised 1px so it doesn't show a line. */
+/* The tooltip arrow. A border triangle */
 .copy-heading-url::before {
   content: '';
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + 4px + var(--borderWidth1));
+  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
   translate: -50% 0;
   width: 0;
   height: 0;
