@@ -103,16 +103,14 @@ blockquote cite {
   font-size: var(--fontSizeBase);
 }
 
-/* TODO: Refactor code snippets. This needs to be a component. */
 code {
-  font-family: var(--fontFamilyCode);
   border-radius: var(--borderRadiusSmall);
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
   overflow-wrap: break-word;
   padding: 0 var(--space4);
-  font-size: var(--fontSizeMedium);
+  font: var(--textCodeRegularMedium);
 }
 
 pre {
@@ -121,13 +119,18 @@ pre {
   background: var(--colorBackgroundSecondaryDefault) !important;
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-radius: var(--borderRadiusLarge);
-  font-family: var(--fontFamilyCode);
+  font: var(--textCodeRegularMedium);
   color: var(--color-text);
 }
 
 pre code {
   background-color: unset;
   border: unset;
+  padding: unset;
+}
+
+table code {
+  font: var(--textCodeRegularSmall);
 }
 
 /* TODO: Also will be removed once component is implemented */
@@ -392,47 +395,65 @@ strong {
   font: var(--textHeadingLarge);
 }
 
-.bookmark-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* box-sizing is set on html only and does not inherit, so without this the
-     min-width would exclude the padding and the button would be 36px. */
-  box-sizing: border-box;
-  min-width: 28px;
-  min-height: 28px;
-  padding: var(--space4);
+.copy-heading-url.btn {
+  position: relative;
+  top: -0.1em;
+  font-size: inherit; /* make sure button is centered */
   margin-inline-start: var(--space8);
   vertical-align: middle;
-  background: var(--colorBackgroundPrimaryDefault);
-  border-radius: var(--borderRadiusSmall);
-  outline: var(--borderWidth1) solid var(--colorBorderPrimary);
-  outline-offset: calc(-1 * var(--borderWidth1));
-  text-decoration: none;
   opacity: 0;
 }
 
-.bookmark-link::before {
-  content: '';
-  width: var(--fontSizeLarge);
-  height: var(--fontSizeLarge);
-  /* ::before is a flex item here and would otherwise shrink. */
-  flex: none;
-  /* A mask uses the file's alpha channel, so its fill attribute is ignored and
-     the icon takes the color declared here. The anchor's own color comes from
-     .page-content a:not(.link), which outranks this rule and would render the
-     icon blue. */
+.copy-heading-url__icon {
   background-color: var(--colorIconPrimary);
-  -webkit-mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
   mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
 }
 
-h2:hover .bookmark-link,
-h3:hover .bookmark-link,
-h4:hover .bookmark-link,
-h5:hover .bookmark-link,
-h6:hover .bookmark-link,
-.bookmark-link:focus {
+.copy-heading-url[data-copied] .copy-heading-url__icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
+/* The tooltip bubble. */
+.copy-heading-url::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
+  translate: -50% 0;
+  padding: var(--space4) var(--space8);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundInversePrimary);
+  color: var(--colorTextInversePrimary);
+  font: var(--textBodyRegularXSmall);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* The tooltip arrow. A border triangle */
+.copy-heading-url::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
+  translate: -50% 0;
+  width: 0;
+  height: 0;
+  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
+  border-inline: 7px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+}
+
+:is(h2, h3, h4, h5, h6):hover .copy-heading-url,
+.copy-heading-url:focus-visible,
+.copy-heading-url[data-copied] {
+  opacity: 1;
+}
+
+.copy-heading-url:is(:hover, :focus-visible, [data-copied])::before,
+.copy-heading-url:is(:hover, :focus-visible, [data-copied])::after {
   opacity: 1;
 }
 
@@ -445,26 +466,25 @@ h6:hover .bookmark-link,
 
 table {
   border-collapse: collapse;
+  font-size: var(--fontSizeMedium);
 }
 
 table thead {
+  border-bottom: var(--borderWidth1, 1px) solid var(--colorBorderPrimary);
   font-weight: var(--fontWeight700);
 }
 
 table tr {
-  border-bottom: 1px solid var(--octo-blue);
+  border-bottom: var(--borderWidth1, 1px) solid var(--colorBorderPrimary);
 }
 
 table td {
-  padding: 0.8rem 1rem;
-}
-
-table tr td:first-child {
-  background-color: var(--bg-color-hint);
+  padding: var(--space-16) var(--space-24) var(--space-16) 0;
 }
 
 table th {
-  padding: 0.8rem 1rem;
+  text-align: start;
+  padding: var(--space-12) var(--space-24) var(--space-12) 0;
 }
 
 .table-full-width table {
@@ -1947,8 +1967,10 @@ li.has-children .sub-nav ul li:focus > a {
   content: '\f02d'; /* fa-book */
 }
 
-/* Visually hidden live region for copy-markdown.js status announcements. */
-.octo-copy-md__sr-status {
+/* Live regions for announcing the result of an action, such as copying a URL or
+   a code block. Read by screen readers, never shown. */
+.octo-copy-md__sr-status,
+.copy-heading-url-status {
   position: absolute;
   width: 1px;
   height: 1px;
