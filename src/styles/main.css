@@ -1150,8 +1150,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   top: 82px;
   height: calc(100vh - 82px);
   box-sizing: border-box;
-  /* No inline-end padding, on this or on the list inside it: rows and the scrollbar both run all the way to the border. */
-  padding-block: var(--space16) var(--space32);
+  /* No inline-end padding here — the scrolling list owns that gap, so the
+     scrollbar rides against the border. No block-end padding either: the
+     column runs to the bottom of the window. */
+  padding-block: var(--space16) 0;
   padding-inline: var(--space16) 0;
   background-color: var(--colorBackgroundPrimaryDefault);
   border-inline-end: 1px solid var(--border-default-color);
@@ -1178,6 +1180,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Only the outer list scrolls; the nested ones grow inside it. */
 .site-nav > .site-nav__list {
   height: 100%;
+  /* Keeps row backgrounds off the scrollbar. The chevron sits inside the row,
+     so this is the whole budget for that gap — anything wider here pushes the
+     chevron away from the scrollbar by the same amount. */
+  padding-inline-end: var(--space8);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -1300,7 +1306,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* 100vh less the header, the drawer's theme switcher, and the padding
      above. */
   .site-nav > .site-nav__list {
-    height: calc(100vh - 7.625rem - var(--space48));
+    height: calc(100vh - 7.625rem - var(--space16));
   }
 
   .side-nav {
