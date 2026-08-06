@@ -26,40 +26,6 @@ This page is not shown on the production site.
 - [Oldest content](/report/oldest-content/1)
 - [Taxonomy](/report/taxonomy)
 
-## Headings \{#headings}
-
-In each pair below, the first heading is at rest and the second has the anchor
-button forced visible. Normally it appears on hover or keyboard focus.
-
-<!-- The page title renders as an h1 from frontmatter, so this sample is a second
-     one. Deliberate - this page exists to show the heading styles. -->
-<!-- markdownlint-disable MD025 -->
-
-# Heading 1 (title)
-
-<!-- markdownlint-enable MD025 -->
-
-## Heading 2 \{#heading-2-a}
-
-## Heading 2 \{#heading-2-b}
-
-### Heading 3 \{#heading-3-a}
-
-### Heading 3 \{#heading-3-b}
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
-
-<style>
-  #heading-2-b .bookmark-link,
-  #heading-3-b .bookmark-link {
-    opacity: 1;
-  }
-</style>
-
 ## Body text \{#body-text}
 
 In this tutorial you'll set up a small deployment in Octopus and watch it run.
