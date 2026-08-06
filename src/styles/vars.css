@@ -141,8 +141,6 @@
 
   /* Article header */
   --header-separator-color: var(--colorBorderPrimary);
-  --header-icon-border: var(--border-default-color);
-  --header-icon-background: var(--background-light);
 
   /* Button */
   --button-primary: var(--green);
@@ -216,6 +214,7 @@
   --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
 
   --content-width: 78vw;
+  --content-width-article: 720px;
   --content-width-mobile: calc(100vw - 4rem);
   --toc-width: 250px;
   --grid-max-width: 1250px;
@@ -251,7 +250,6 @@ html[data-theme='dark'] {
   --octopus-logo-text-color: var(--white);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
-  --header-icon-border: transparent;
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */

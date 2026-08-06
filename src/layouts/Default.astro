@@ -27,13 +27,8 @@ import Plausible from 'src/components/Plausible.astro';
 import SharedFooter from 'src/components/SharedFooter.astro';
 import SharedScripts from 'src/components/SharedScripts.astro';
 
-// Extend Frontmatter with icon
-type Frontmatter = OriginalFrontmatter & {
-  icon?: string; // Add the icon property
-};
-
 type Props = {
-  frontmatter: Frontmatter;
+  frontmatter: OriginalFrontmatter;
   headings: { depth: number; slug: string; text: string }[];
   breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
 };
@@ -53,10 +48,6 @@ const title = await accelerator.markdown.getInlineHtmlFrom(
 
 const subtitle = frontmatter.subtitle
   ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
-  : null;
-
-const icon = frontmatter.icon
-  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.icon)
   : null;
 
 const site_url = SITE.url;
@@ -89,12 +80,14 @@ const showSearch = !isSearchPage;
           breadcrumbs={breadcrumbs}
         />
         <article itemscope itemtype="https://schema.org/Article">
-          <ArticleHeader
-            icon={icon}
-            lang={lang}
-            subtitle={subtitle}
-            title={title}
-          />
+          <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
+          <div class="page-actions">
+            <EditOnGithub
+              frontmatter={frontmatter}
+              headings={headings}
+              lang={lang}
+            />
+          </div>
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <slot />
             <Feedback
@@ -105,11 +98,6 @@ const showSearch = !isSearchPage;
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
             <LastUpdated
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
-            <EditOnGithub
               frontmatter={frontmatter}
               headings={headings}
               lang={lang}

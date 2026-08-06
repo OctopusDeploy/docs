@@ -38,8 +38,11 @@ stats.stop();
 
 {
   gitHubUrl && (
-    <div class="octo-github-edit">
-      <a href={gitHubUrl}>{_(Translations.octopus_github.edit_on_github)}</a>
-    </div>
+    <a class="btn btn--small octo-github-edit" href={gitHubUrl}>
+      <span class="btn__icon octo-github-edit__icon" aria-hidden="true" />
+      <span class="btn__label">
+        {_(Translations.octopus_github.edit_on_github)}
+      </span>
+    </a>
   )
 }
