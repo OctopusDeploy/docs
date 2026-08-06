@@ -1,7 +1,8 @@
 ---
 import { accelerator } from '@lib/accelerator';
 import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
-import { SITE } from '@config';
+import ChevronDownIcon from '../../../components/icons/ChevronDownIcon.astro';
+import ChevronRightIcon from '../../../components/icons/ChevronRightIcon.astro';
 
 const stats = new accelerator.statistics(
   'octopus/components/NavigationItem.astro'
@@ -12,11 +13,17 @@ stats.start();
 type Props = {
   lang: string;
   page: NavPage;
+  /**
+   * Set when this render deliberately left the page's children out, so the
+   * link can still advertise that it leads into a section.
+   */
+  leadsToSection?: boolean;
 };
-const { lang, page } = Astro.props satisfies Props;
+const { lang, page, leadsToSection = false } = Astro.props satisfies Props;
 
 // Logic
 const linkTitle = page.title === page.fullTitle ? null : page.fullTitle;
+const isExpandable = page.children.length > 0;
 
 // Backstop logic
 const displayLink = page.title != null;
@@ -25,27 +32,33 @@ stats.stop();
 ---
 
 {
-  displayLink && page.children.length == 0 && (
+  displayLink && !isExpandable && (
     <li class="site-nav__list-item">
       <a
+        class="site-nav__link"
         href={accelerator.urlFormatter.formatAddress(page.url)}
         aria-current={page.ariaCurrent ? page.ariaCurrent : null}
         rel={page.rel}
         title={linkTitle}
       >
-        {page.title}
+        <span class="site-nav__label">{page.title}</span>
+        {leadsToSection && <ChevronRightIcon class="site-nav__chevron" />}
       </a>
     </li>
   )
 }
 {
-  displayLink && page.children.length > 0 && (
-    <li class="site-nav__list-item has-children">
-      <details class="sub-nav" open={page.isOpen}>
-        <summary class="sub-nav__summary">
-          <span class="sub-nav__summary-title">{page.section}</span>
+  displayLink && isExpandable && (
+    <li class="site-nav__list-item">
+      <details class="site-nav__group" open={page.isOpen}>
+        {/* Both chevrons ship so the arrow stays right when the reader toggles
+            the section client-side; CSS shows whichever matches [open]. */}
+        <summary class="site-nav__link">
+          <span class="site-nav__label">{page.section}</span>
+          <ChevronRightIcon class="site-nav__chevron site-nav__chevron--collapsed" />
+          <ChevronDownIcon class="site-nav__chevron site-nav__chevron--expanded" />
         </summary>
-        <ul class="site-nav__list site-nav__list--sub">
+        <ul class="site-nav__list">
           {page.children
             .sort((a, b) => a.order - b.order)
             .map((page) => (
