@@ -1159,7 +1159,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   top: 82px;
   height: calc(100vh - 82px);
   box-sizing: border-box;
-  padding: var(--space16) var(--space16) var(--space32);
+  /* No inline-end padding, on this or on the list inside it: rows and the
+     scrollbar both run all the way to the border. */
+  padding-block: var(--space16) var(--space32);
+  padding-inline: var(--space16) 0;
   background-color: var(--colorBackgroundPrimaryDefault);
   border-inline-end: 1px solid var(--border-default-color);
   transition-property: background-color, border-color;
