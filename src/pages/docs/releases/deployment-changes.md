@@ -125,7 +125,7 @@ The following template only shows the most recent change being deployed, includi
 #{/each}
 ```
 
-This is achieved using the Octopus [special variables](https://octopus.com/docs/projects/variables/variable-substitutions#special-variables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
+This is achieved using the Octopus [loop iteration variables](https://octopus.com/docs/projects/variables/variable-substitutions#loop-iteration-variables), specifically `Octopus.Template.Each.Last` and `Octopus.Template.Each.First` to include a header for each section, and will render like this:
 
 :::figure
 ![Deployment notes rendered using the Octopus.Template.Each.Last variable](/docs/img/releases/images/deployment-notes-template-each-last-example.png)
