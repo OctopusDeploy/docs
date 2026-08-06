@@ -1,8 +1,6 @@
 ---
 import { accelerator } from '@lib/accelerator';
 import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
-import ChevronDownIcon from '../../../components/icons/ChevronDownIcon.astro';
-import ChevronRightIcon from '../../../components/icons/ChevronRightIcon.astro';
 
 const stats = new accelerator.statistics(
   'octopus/components/NavigationItem.astro'
@@ -35,14 +33,16 @@ stats.stop();
   displayLink && !isExpandable && (
     <li class="site-nav__list-item">
       <a
-        class="site-nav__link"
+        class:list={[
+          'site-nav__link',
+          { 'site-nav__link--section': leadsToSection },
+        ]}
         href={accelerator.urlFormatter.formatAddress(page.url)}
         aria-current={page.ariaCurrent ? page.ariaCurrent : null}
         rel={page.rel}
         title={linkTitle}
       >
         <span class="site-nav__label">{page.title}</span>
-        {leadsToSection && <ChevronRightIcon class="site-nav__chevron" />}
       </a>
     </li>
   )
@@ -51,12 +51,8 @@ stats.stop();
   displayLink && isExpandable && (
     <li class="site-nav__list-item">
       <details class="site-nav__group" open={page.isOpen}>
-        {/* Both chevrons ship so the arrow stays right when the reader toggles
-            the section client-side; CSS shows whichever matches [open]. */}
         <summary class="site-nav__link">
           <span class="site-nav__label">{page.section}</span>
-          <ChevronRightIcon class="site-nav__chevron site-nav__chevron--collapsed" />
-          <ChevronDownIcon class="site-nav__chevron site-nav__chevron--expanded" />
         </summary>
         <ul class="site-nav__list">
           {page.children

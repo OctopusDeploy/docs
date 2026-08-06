@@ -1222,11 +1222,21 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   text-decoration: none;
 }
 
-.site-nav__chevron {
+/* Chevrons are masked pseudo-elements rather than inline SVG: the tree renders
+   dozens of rows per page, and shipping the markup once per row cost ~9KB of
+   every page. Expanded sections point theirs down, everything else right. */
+.site-nav__group > .site-nav__link::after,
+.site-nav__link--section::after {
+  content: '';
   flex: none;
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--colorIconTertiary);
+  background-color: var(--colorIconTertiary);
+  mask: url('../assets/icons/chevron-right.svg') center / contain no-repeat;
+}
+
+.site-nav__group[open] > .site-nav__link::after {
+  mask-image: url('../assets/icons/chevron-down.svg');
 }
 
 /* Nav rows never take a link colour. Restating the resting colour is what beats
@@ -1252,11 +1262,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* An expanded section is the only row that goes bold. */
 .site-nav__group[open] > .site-nav__link {
   font: var(--textBodyBoldMedium);
-}
-
-.site-nav__group[open] > .site-nav__link .site-nav__chevron--collapsed,
-.site-nav__group:not([open]) > .site-nav__link .site-nav__chevron--expanded {
-  display: none;
 }
 
 /* Table of contents column */
