@@ -91,7 +91,7 @@ blockquote {
   border-radius: var(--standard-radius);
   font-size: var(--fontSizeLarge);
   line-height: var(--lineHeightMedium);
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem 2.5rem 1.5rem 4.5rem;
   position: relative;
 }
@@ -314,7 +314,7 @@ strong {
 .page-content > div.problem > *:not(:last-child),
 .page-content > div.question > *:not(:last-child),
 .page-content > div.hint > *:not(:last-child) {
-  margin-block-end: 1rem;
+  margin-block-end: var(--space16);
 }
 
 /* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
@@ -329,7 +329,7 @@ strong {
 
 .page-content ul,
 .page-content ol {
-  margin-inline-start: 2rem;
+  margin-inline-start: var(--space24);
 }
 
 /* Figma puts space/6 above every list item after the first, so consecutive
@@ -342,6 +342,10 @@ strong {
   padding-block-start: var(--space6);
 }
 
+.page-content :is(pre, figure) {
+  margin-block: var(--space24);
+}
+
 /* Boxes */
 
 .hint,
@@ -350,7 +354,7 @@ strong {
 .warning,
 .problem {
   border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem;
   border-inline-start: 3px solid #000;
 }
@@ -388,7 +392,7 @@ strong {
 .question {
   background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem;
 }
 
@@ -1326,10 +1330,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   .side-nav summary {
     text-align: center;
   }
-
-  .side-nav .octo-github-edit {
-    display: none;
-  }
 }
 
 .mobile-menu {
@@ -1410,9 +1410,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Main content group */
 
 .content-group {
-  grid-template-columns: var(--navigation-width) minmax(300px, 800px) var(
-      --toc-width
-    );
+  grid-template-columns:
+    var(--navigation-width)
+    minmax(300px, var(--content-width-article))
+    var(--toc-width);
   display: grid;
   grid-template-rows: auto;
   gap: var(--grid-gap-main);
@@ -1425,77 +1426,19 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Article header */
 .header {
   display: flex;
-  gap: 1.62rem;
-  align-items: center;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--header-separator-color);
-  margin-bottom: 1.56rem;
-  transition: border-color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-}
-
-.header__icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5625rem;
-  height: 4.0625rem;
-  width: 4.0625rem;
-  border: 1px solid var(--header-icon-border);
-  background-color: var(--header-icon-background);
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition-property: background-color, border;
-  transition-duration: var(--search-dropdown-duration);
-  transition-timing-function: ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
-  }
-}
-
-.header__icon-wrapper:after {
-  content: '';
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background-color: #1faeff;
-  opacity: 0.65;
-  bottom: -25%;
-  filter: blur(0.835rem);
-}
-
-/* Need to override styles that might be applied to certain font awesome icons */
-.header__icon-wrapper .header__icon:before {
-  color: var(--blue-500);
-  font-size: var(--fontSize2xLarge);
-}
-
-.header__icon {
-  z-index: 1;
-  /* Override image global styles */
-  background: transparent;
-}
-
-.header__icon {
-  &.fa-octopus,
-  &.fa-twitter,
-  &.fa-linkedin,
-  &.fa-github,
-  &.fa-youtube {
-    &:before {
-      padding-inline-end: 0;
-    }
-  }
-}
-
-.header__text {
-  display: flex;
   flex-direction: column;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space12);
+  padding-block-start: var(--space16);
+}
+
+.page-actions:empty {
+  display: none;
 }
 
 .header__title {
@@ -1762,18 +1705,9 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* GitHub Link */
 
-.octo-github-edit {
-  margin-block-start: var(--block-gap);
-}
-
-.octo-github-edit a {
-  color: var(--color-menu-link);
-  text-decoration: none;
-}
-
-.octo-github-edit a:hover,
-.octo-github-edit a:focus {
-  color: var(--color-menu-link-alt);
+.octo-github-edit__icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
 /* "Use Octopus docs with AI" dropdown */
@@ -2197,6 +2131,7 @@ a[data-youtube] {
      flow. Converting this to flex or grid makes every gap additive again -
      56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
   display: flow-root;
+  padding-block-start: var(--space32);
 
   li:has(figure) {
     display: flex;
@@ -2929,6 +2864,7 @@ a.button.button--primary:active {
   -webkit-appearance: none;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
 }
 
 .btn--medium {
