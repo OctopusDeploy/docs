@@ -11,6 +11,41 @@ const SINGLE = '/docs/kubernetes/steps/kustomize';
 // A page holding a code block far taller than the collapse threshold
 const LONG = '/docs/octopus-rest-api/octopus.server.exe-command-line/configure';
 
+// The shell is rendered at build time, so it has to survive without scripting.
+test.describe('code block, no JavaScript', () => {
+  test.use({ javaScriptEnabled: false });
+
+  test('renders the frame, label, language and copy button', async ({
+    page,
+  }) => {
+    await page.goto(SINGLE);
+
+    const block = page.locator('.code-block').first();
+    await expect(block).toBeVisible();
+    await expect(block.locator('.code-block__label')).toHaveText(
+      'Reference a container image package by version'
+    );
+    await expect(block.locator('.code-block__language')).toHaveText('YAML');
+    await expect(block.locator('.code-block__copy')).toBeVisible();
+
+    // The frame, rather than bare text on the page background
+    const border = await block.evaluate(
+      (node) => getComputedStyle(node).borderTopWidth
+    );
+    expect(border).toBe('1px');
+  });
+
+  test('leaves a grouped block readable with every language shown', async ({
+    page,
+  }) => {
+    await page.goto(GROUPED);
+
+    // No menu to switch with, so each language keeps its own block
+    await expect(page.locator('.code-block')).toHaveCount(2);
+    await expect(page.locator('.code-block__languages')).toHaveCount(0);
+  });
+});
+
 test.describe('code block', () => {
   test('wraps a fenced block in a header with its language and a copy button', async ({
     page,
@@ -98,7 +133,10 @@ test.describe('code block', () => {
 
     // Waits out the expand transition before measuring
     await expect
-      .poll(async () => (await block.locator('.code-block__body').boundingBox())!.height)
+      .poll(
+        async () =>
+          (await block.locator('.code-block__body').boundingBox())!.height
+      )
       .toBeGreaterThan(500);
 
     // Clicking away puts it back

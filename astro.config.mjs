@@ -7,6 +7,7 @@ import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/cus
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 import pruneDist from './src/integrations/prune-dist.ts';
 import rehypeWbr from './src/plugins/rehype-wbr.js';
+import shikiCodeBlock from './src/plugins/shiki-code-block.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,16 +37,9 @@ export default defineConfig({
             langAlias: {
                 ocl: 'hcl'
             },
-            transformers: [
-                {
-                    // Shiki drops the fence's meta string, which the code block
-                    // header renders as the block's label
-                    pre(node) {
-                        const label = this.options.meta?.__raw?.trim();
-                        if (label) node.properties['data-label'] = label;
-                    }
-                }
-            ]
+            // A transformer, because rehype plugins registered through
+            // `processor` below never reach .mdx pages
+            transformers: [shikiCodeBlock()]
         },
         processor: unified({
             remarkPlugins: [
