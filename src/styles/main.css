@@ -857,7 +857,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 /* Two classes throughout, so these beat the global `summary:hover,
-   summary:focus` rule — which would otherwise leave the title in a link colour
+   summary:focus` rule — which would otherwise leave the title in a link color
    after it has been clicked open at the restack breakpoint. */
 .article-nav .article-nav__title,
 .article-nav .article-nav__title:hover,
