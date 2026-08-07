@@ -1,17 +1,8 @@
 // @ts-check
 import { qsa } from './query.js';
-
-const REVERT_MS = 2000;
+import { copyOnClick } from './copy-button.js';
 
 const REST = 'Copy URL';
-const COPIED = 'Copied';
-const FAILED = 'Copy failed';
-
-/** @type {HTMLElement | null} */
-let status = null;
-
-/** @type {WeakMap<HTMLElement, ReturnType<typeof setTimeout>>} */
-const timers = new WeakMap();
 
 /**
  * Scoped to .page-content headings with an id: the feedback prompt and the
@@ -41,84 +32,21 @@ function addCopyButtons() {
   });
 }
 
-function addCopyListener() {
-  document.addEventListener('click', (event) => {
-    if (!(event.target instanceof Element)) return;
-
-    const button = event.target.closest('.copy-heading-url');
-    if (button instanceof HTMLElement) copyHeadingUrl(button);
-  });
-}
-
 /**
  * @param {HTMLElement} button
  */
-async function copyHeadingUrl(button) {
+function headingUrl(button) {
   const id = button.closest('h2, h3, h4, h5, h6')?.id;
-  if (!id) return;
+  if (!id) return null;
 
   const url = new URL(window.location.href);
   url.hash = id;
-
-  let message = COPIED;
-  try {
-    // Nothing may be awaited before this: Safari spends the click's user
-    // activation on the first await, and the write then fails.
-    await navigator.clipboard.writeText(url.toString());
-  } catch (error) {
-    console.warn('[headers] clipboard write failed', error);
-    message = FAILED;
-  }
-
-  showResult(button, message);
-  announce(message);
-}
-
-/**
- * @param {HTMLElement} button
- * @param {string} message
- */
-function showResult(button, message) {
-  button.dataset.tooltip = message;
-  button.dataset.copied = '';
-
-  clearTimeout(timers.get(button));
-  timers.set(
-    button,
-    setTimeout(() => {
-      button.dataset.tooltip = REST;
-      delete button.dataset.copied;
-      timers.delete(button);
-    }, REVERT_MS)
-  );
-}
-
-/**
- * The region is appended to the body rather than the heading, so it cannot end
- * up in a heading's accessible name.
- *
- * @param {string} message
- */
-function announce(message) {
-  if (!status) {
-    status = document.createElement('div');
-    status.className = 'copy-heading-url-status';
-    status.setAttribute('aria-live', 'polite');
-    document.body.append(status);
-  }
-
-  // Cleared first, then set on a later task, so copying twice in a row reads as
-  // a change and is announced both times. Same as copy-markdown.js.
-  const region = status;
-  region.textContent = '';
-  setTimeout(() => {
-    region.textContent = message;
-  }, 50);
+  return url.toString();
 }
 
 function enhanceHeaders() {
   addCopyButtons();
-  addCopyListener();
+  copyOnClick('.copy-heading-url', headingUrl);
 }
 
 export { enhanceHeaders };

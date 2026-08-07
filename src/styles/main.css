@@ -1826,8 +1826,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
 .octo-copy-md__sr-status,
-.copy-heading-url-status,
-.code-block-status {
+.copy-status {
   position: absolute;
   width: 1px;
   height: 1px;
