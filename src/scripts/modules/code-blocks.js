@@ -5,8 +5,11 @@ import { copyOnClick } from './copy-button.js';
 // The shell around each block, its copy button included, is rendered at build
 // time by src/plugins/shiki-code-block.js. This wires up what happens next.
 
-/** Taller than this and the block collapses until it is clicked. */
+/** Taller than this and the block collapses until it is opened. */
 const COLLAPSE_HEIGHT = 500;
+
+const SHOW_MORE = 'Show more';
+const SHOW_LESS = 'Show less';
 
 /**
  * @param {HTMLElement} button
@@ -137,18 +140,10 @@ function measure(block) {
 
   block.removeAttribute('data-collapsible');
   const height = body.scrollHeight;
-  const collapsible = height > COLLAPSE_HEIGHT;
 
-  // The code is the only thing in the body that can take focus, and focus is
-  // how a collapsed block is opened without a mouse. Nothing wraps past the
-  // edge, so a block that fits needs no tab stop of its own.
-  qsa('pre', body).forEach((pre) => {
-    if (collapsible) pre.setAttribute('tabindex', '0');
-    else pre.removeAttribute('tabindex');
-  });
-
-  if (!collapsible) {
+  if (height <= COLLAPSE_HEIGHT) {
     block.removeAttribute('data-expanded');
+    setToggle(block, false);
     return;
   }
 
@@ -157,31 +152,48 @@ function measure(block) {
 }
 
 /**
+ * @param {HTMLElement} block
+ * @param {boolean} expanded
+ */
+function setToggle(block, expanded) {
+  const toggle = qs('.code-block__toggle', block);
+  toggle.textContent = expanded ? SHOW_LESS : SHOW_MORE;
+  toggle.setAttribute('aria-expanded', String(expanded));
+}
+
+/**
  * Delegated to the document because detail-tabs.js rebuilds its panels from
  * innerHTML, which drops any listener held on an element inside one.
+ *
+ * Opening is one way apart from the toggle. Collapsing on a click elsewhere
+ * pulled the page up by however tall the block was, which moved everything
+ * under the reader's cursor and lost their place.
  */
 function addCollapseListeners() {
-  /** @param {Element} target */
-  const expand = (target) => {
-    const body = target.closest(
-      '.code-block[data-collapsible] .code-block__body'
-    );
-    body?.closest('.code-block')?.setAttribute('data-expanded', '');
-  };
-
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
-    expand(event.target);
 
-    // The header is part of the block, so copying does not collapse it.
-    qsa('.code-block[data-expanded]').forEach((block) => {
-      if (!block.contains(event.target)) block.removeAttribute('data-expanded');
-    });
-  });
+    const toggle = event.target.closest('.code-block__toggle');
+    if (toggle) {
+      const block = toggle.closest('.code-block');
+      if (!(block instanceof HTMLElement)) return;
 
-  // Tabbing into the code counts as reaching for it, same as a click.
-  document.addEventListener('focusin', (event) => {
-    if (event.target instanceof Element) expand(event.target);
+      const expanded = block.toggleAttribute('data-expanded');
+      setToggle(block, expanded);
+      // A block collapsing above the viewport would leave the reader somewhere
+      // else on the page.
+      if (!expanded) block.scrollIntoView({ block: 'nearest' });
+      return;
+    }
+
+    const body = event.target.closest(
+      '.code-block[data-collapsible] .code-block__body'
+    );
+    const block = body?.closest('.code-block');
+    if (block instanceof HTMLElement && !block.hasAttribute('data-expanded')) {
+      block.setAttribute('data-expanded', '');
+      setToggle(block, true);
+    }
   });
 }
 

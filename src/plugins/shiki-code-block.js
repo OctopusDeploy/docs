@@ -4,6 +4,7 @@
 // <details data-group> set into one block with a language menu.
 
 const REST = 'Copy to clipboard';
+const SHOW_MORE = 'Show more';
 
 /** Display names for the fence languages used across the docs. */
 const LANGUAGE_NAMES = {
@@ -109,12 +110,25 @@ export default function shikiCodeBlock() {
         h('div', { className: ['code-block__fade'] }, []),
       ]);
 
+      // Sits below the body rather than over it, so it stays clear of the code
+      // once the block is open. Hidden until code-blocks.js finds the block too
+      // tall to show whole.
+      const toggle = h(
+        'button',
+        {
+          type: 'button',
+          className: ['code-block__toggle'],
+          'aria-expanded': 'false',
+        },
+        [text(SHOW_MORE)]
+      );
+
       // Replaced in place: assigning to node.children would drop anything else
       // a later Shiki version puts alongside the <pre>.
       node.children[node.children.indexOf(pre)] = h(
         'div',
         { className: ['code-block'] },
-        [header, body]
+        [header, body, toggle]
       );
     },
   };
