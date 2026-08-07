@@ -51,7 +51,7 @@ Given the certificate variable `MyCertificate`, you can access the certificate t
 <details data-group="project-variables-certificate-variables">
 <summary>PowerShell</summary>
 
-```powershell PowerShell
+```powershell
 Write-Host $OctopusParameters["MyCertificate.Thumbprint"]
 ```
 

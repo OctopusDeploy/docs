@@ -33,13 +33,13 @@ Provide values for:
 
 ### Add Microsoft Entra ID identities to single user
 
-```powershell PowerShell (REST API)
+```powershell Add an identity to a single user
 AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -OctopusUsername "OctoUser" -AzureEmailAddress "octouser@exampledomain.com" -AzureDisplayName "Octo User" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
 ```
 
 ### Add Microsoft Entra ID identities for multiple users from CSV file
 
-```powershell PowerShell (REST API)
+```powershell Add identities to every user in a CSV file
 AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOUR-KEY" -Path "/path/to/user_azure_ad_logins.csv" -ContinueOnError $False -Force $False -WhatIf $False -DebugLogging $False
 ```
 

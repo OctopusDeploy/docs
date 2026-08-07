@@ -25,11 +25,27 @@ export default defineConfig({
     ],
     markdown: {
         shikiConfig: {
-            theme: 'light-plus',
+            // Every token carries both sets. main.css picks the dark one up
+            // under html[data-theme='dark']
+            themes: {
+                light: 'light-plus',
+                dark: 'dark-plus'
+            },
+            defaultColor: 'light',
             // OCL is HCL-derived, so reuse the HCL grammar for ```ocl fences
             langAlias: {
                 ocl: 'hcl'
-            }
+            },
+            transformers: [
+                {
+                    // Shiki drops the fence's meta string, which the code block
+                    // header renders as the block's label
+                    pre(node) {
+                        const label = this.options.meta?.__raw?.trim();
+                        if (label) node.properties['data-label'] = label;
+                    }
+                }
+            ]
         },
         processor: unified({
             remarkPlugins: [

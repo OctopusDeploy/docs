@@ -81,7 +81,7 @@ For example, the following scripts write a release marker into the repository be
 <details data-group="deployments-git-commit-to-git-script">
 <summary>PowerShell</summary>
 
-```powershell PowerShell
+```powershell
 # Get the path to the cloned repository
 $repoPath = $OctopusParameters["Octopus.Calamari.Git.RepositoryPath"]
 
@@ -93,7 +93,7 @@ $repoPath = $OctopusParameters["Octopus.Calamari.Git.RepositoryPath"]
 <details data-group="deployments-git-commit-to-git-script">
 <summary>C#</summary>
 
-```csharp C#
+```csharp
 // Get the path to the cloned repository
 var repoPath = OctopusParameters["Octopus.Calamari.Git.RepositoryPath"];
 
@@ -105,7 +105,7 @@ System.IO.File.WriteAllText(System.IO.Path.Combine(repoPath, "release-marker.txt
 <details data-group="deployments-git-commit-to-git-script">
 <summary>Bash</summary>
 
-```bash Bash
+```bash
 # Get the path to the cloned repository
 repo_path=$(get_octopusvariable "Octopus.Calamari.Git.RepositoryPath")
 
@@ -117,7 +117,7 @@ echo "Released #{Octopus.Release.Number} to #{Octopus.Environment.Name}" > "$rep
 <details data-group="deployments-git-commit-to-git-script">
 <summary>Python</summary>
 
-```python Python
+```python
 # Get the path to the cloned repository
 repo_path = get_octopusvariable("Octopus.Calamari.Git.RepositoryPath")
 

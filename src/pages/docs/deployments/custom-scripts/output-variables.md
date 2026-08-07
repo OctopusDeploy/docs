@@ -97,7 +97,7 @@ let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Ins
 <details data-group="using-variable-in-another-step">
 <summary>Python3</summary>
 
-```python Python3
+```python
 appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
