@@ -115,7 +115,13 @@ function enhanceGroups() {
     participants[0].replaceWith(host);
     participants.forEach((details) => details.remove());
 
-    addLanguageSelect(host, entries);
+    // A group of one still loses its <details>, but a switcher holding a single
+    // option would be a control that cannot do anything.
+    if (entries.length === 1) {
+      qs('.code-block__language', host).textContent = entries[0].name;
+    } else {
+      addLanguageSelect(host, entries);
+    }
   });
 }
 
