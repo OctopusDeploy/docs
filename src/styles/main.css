@@ -227,34 +227,15 @@ img {
   background-color: var(--color-base-primary);
 }
 
-/* Image component */
-.image {
-  border-radius: 0.9375rem;
-  border: 0.0625rem solid var(--navy-200);
-  background: var(--grey-lighter);
-  display: flex;
-  flex-direction: column;
-  gap: 1.56rem;
-  padding: 2rem;
-  position: relative;
+figure img {
+  display: block;
+  margin-inline: auto;
+  border-radius: 0.5rem;
+  cursor: zoom-in;
 }
 
-@media (max-width: 930px) {
-  .image {
-    padding: 1rem;
-  }
-}
-
-.image .magnify-container {
-  position: absolute;
-  right: 0;
-}
-
-.image__img {
-  border-radius: 0.6875rem;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
-  width: fit-content;
-  margin: 0 auto;
+figure img[data-hidden='true'] {
+  visibility: hidden;
 }
 
 .image__caption {
@@ -262,29 +243,41 @@ img {
   font-size: var(--fontSizeBase);
   font-weight: var(--fontWeight400);
   text-align: start;
+  margin-block-start: 0.8125rem;
 }
 
-/* TODO: Once all images are used with Image component these styles should be removed */
-figure > p > img {
-  display: flex;
-  margin: 0 auto;
-  border-radius: 0.9375rem;
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--color-base-primary);
+  animation: zoom-fade 200ms ease-out;
 }
 
-figure:has(p > img) {
-  width: fit-content;
+.zoom-overlay--closing {
+  animation: zoom-fade 200ms ease-out reverse forwards;
 }
 
-figure:has(p > img) p {
-  border: 0.0625rem solid var(--navy-200);
-  border-radius: 0.9375rem;
-  background: var(--grey-lighter);
-  padding: 2rem;
+.zoom-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 101;
+  cursor: zoom-out;
 }
 
-@media (max-width: 930px) {
-  figure:has(p > img) p {
-    padding: 1rem;
+.zoom-lightbox > div {
+  position: absolute;
+}
+
+.zoom-lightbox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+@keyframes zoom-fade {
+  from {
+    opacity: 0;
   }
 }
 
@@ -2774,54 +2767,6 @@ a[data-youtube] {
   fill: var(--icon-fill);
   background-color: transparent;
   cursor: pointer;
-}
-
-.magnify-container {
-  max-height: 0px;
-  margin: 0;
-  width: 100%;
-  text-align: end;
-  z-index: 1;
-  position: relative;
-  top: -1rem;
-}
-
-.magnify-icon {
-  opacity: 0;
-  border-radius: 0.2rem;
-  color: var(--body-link-color);
-  display: inline-block;
-  cursor: pointer;
-  background-color: var(--color-base-primary);
-  border-radius: 50%;
-  padding: 2px;
-  width: 2.6rem;
-  height: 2.6rem;
-}
-
-.input-touch .magnify-icon {
-  opacity: 1;
-}
-
-.magnify-icon:before {
-  /* fa-magnifying-glass-plus */
-  content: '\f00e';
-  font-family: fa-solid;
-  font-size: var(--fontSizeLarge);
-  line-height: 2rem;
-}
-
-figure:hover .magnify-icon,
-figure:focus .magnify-icon {
-  opacity: 1;
-}
-
-.magnify-icon:hover,
-.magnify-icon:focus,
-.magnify-icon:focus-within {
-  stroke: var(--fore-link);
-  transform: rotate(4deg);
-  opacity: 1;
 }
 
 /* Custom Divisions */
