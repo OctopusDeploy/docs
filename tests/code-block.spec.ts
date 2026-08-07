@@ -112,6 +112,12 @@ test.describe('code block', () => {
 
     await expect(block).toContainText('repository.Machines.Modify(machine)');
     await expect(block.locator('.code-block__panel:visible')).toHaveCount(1);
+
+    // The box is sized to the longest language, so a shorter one has to sit
+    // against the padding rather than adrift in the middle.
+    expect(await select.evaluate((el) => getComputedStyle(el).textAlign)).toBe(
+      'start'
+    );
   });
 
   test('the select is reachable and operable from the keyboard', async ({
