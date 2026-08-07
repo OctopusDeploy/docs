@@ -160,6 +160,24 @@ test.describe('code block', () => {
     await expect(page.locator('.tab-list').first()).toBeVisible();
   });
 
+  test('only a collapsed block takes a tab stop', async ({ page }) => {
+    await page.goto(SINGLE);
+    // Nothing overflows, so a block that fits needs no tab stop
+    await expect(page.locator('.code-block pre')).not.toHaveAttribute(
+      'tabindex',
+      '0'
+    );
+
+    await page.goto(LONG);
+    const collapsible = page.locator('.code-block[data-collapsible]').first();
+    const pre = collapsible.locator('pre').first();
+    await expect(pre).toHaveAttribute('tabindex', '0');
+
+    // Focus is the keyboard's way in, since clicking the code is the mouse's
+    await pre.focus();
+    await expect(collapsible).toHaveAttribute('data-expanded', '');
+  });
+
   test('collapses a long block until it is clicked', async ({ page }) => {
     await page.goto(LONG);
 
