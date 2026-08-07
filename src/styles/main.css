@@ -902,61 +902,66 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   text-align: left;
 }
 
-/* Article Nav */
-.article-nav {
-  margin-inline-end: 1rem;
+/* Article nav ("On this page") */
+
+/* The <details> only ever collapses at the restack breakpoint, where this
+   column sits above the article. On desktop the component's script forces it
+   open and the summary is inert. */
+.article-nav__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space16);
 }
 
-@media (max-width: 1130px) {
-  .article-nav {
-    margin-bottom: 2rem;
-  }
-}
-
-.article-nav .article-nav__details .article-nav__title::marker {
-  content: '';
-  display: none;
-}
-
-.article-nav .article-nav__details .article-nav__title::after {
-  /* fa-chevron-down */
-  content: '\f078';
-  font-family: fa-solid;
-  float: right;
-  transition: transform var(--duration-default) ease-in-out;
-  display: none;
-}
-
-.article-nav .article-nav__details[open] .article-nav__title::after {
-  transform: rotate(180deg);
+/* Two classes throughout, so these beat the global `summary:hover,
+   summary:focus` rule — which would otherwise leave the title in a link colour
+   after it has been clicked open at the restack breakpoint. */
+.article-nav .article-nav__title,
+.article-nav .article-nav__title:hover,
+.article-nav .article-nav__title:focus {
+  color: var(--colorTextPrimary);
+  text-decoration: none;
 }
 
 .article-nav__title {
+  /* Laying the summary out as a flex box drops the disclosure triangle
+     everywhere except Safari, which needs the -webkit rule below. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space8);
+  padding-block-end: var(--space6);
+  padding-inline-start: var(--space16);
+  font: var(--textBodyBoldMedium);
   pointer-events: none;
 }
 
-@media (max-width: 1130px) {
-  .article-nav__title {
-    pointer-events: auto;
-  }
-
-  .article-nav .article-nav__details .article-nav__title::after {
-    /* fa-chevron-down */
-    content: '\f078';
-    font-family: fa-solid;
-    float: right;
-    transition: transform var(--duration-default) ease-in-out;
-    display: block;
-  }
+.article-nav__title::-webkit-details-marker {
+  display: none;
 }
 
-.article-nav__title {
-  color: var(--color-heading);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight700);
-  text-transform: uppercase;
+/* The rail runs the full height of the list. The current heading paints its own
+   bold segment over the top of it. */
+.article-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space4);
+  list-style: none;
+  border-inline-start: var(--borderWidth2) solid var(--colorBorderPrimary);
+}
+
+/* Two classes throughout, so these beat the global `a:hover, a:focus` rule —
+   including after a click, which leaves the link focused but not
+   focus-visible. */
+.article-nav .article-nav__link {
+  display: block;
+  position: relative;
+  padding-block: var(--space6);
+  padding-inline-start: var(--space16);
+  color: var(--colorTextSecondary);
+  font: var(--textBodyRegularMedium);
   text-decoration: none;
+  overflow-wrap: break-word;
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -964,62 +969,58 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 }
 
-.article-nav .separator {
-  margin: 1rem 0 0.69rem;
+/* `highlight` is applied by scripts/modules/toc.js to whichever heading is in
+   view. */
+.article-nav .article-nav__link.highlight {
+  color: var(--colorTextPrimary);
 }
 
-.article-nav__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style: none;
-  gap: 1rem;
+/* The segment sits one border-width to the left of the link's box, which is
+   where the rail is regardless of how far the heading level indents. */
+.article-nav__link.highlight::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: calc(-1 * var(--borderWidth2));
+  width: var(--borderWidth2);
+  background-color: var(--colorBorderBold);
 }
 
-.article-nav__item {
-  cursor: pointer;
+.article-nav .article-nav__link:hover,
+.article-nav .article-nav__link:focus-visible {
+  color: var(--colorTextLinkDefault);
 }
 
-.article-nav__link {
-  display: flex;
-  color: var(--color-subtitle);
-  font-size: var(--fontSizeBase);
-  line-height: 1.5rem;
-  font-weight: var(--fontWeight400);
-  text-decoration: none;
-  transition-property: font-weight, color, transform;
-  transition-timing-function: ease-in-out;
-  transition-duration: var(--duration-default);
+/* h2 takes the base indent. The design steps two levels in from there and
+   stops, so anything deeper lines up with h4. */
+.article-nav__item--level-3 .article-nav__link {
+  padding-inline-start: var(--space32);
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
+.article-nav__item--level-4 .article-nav__link,
+.article-nav__item--level-5 .article-nav__link,
+.article-nav__item--level-6 .article-nav__link {
+  padding-inline-start: var(--space48);
+}
+
+@media (max-width: 1130px) {
+  .article-nav__title {
+    pointer-events: auto;
   }
-}
 
-.article-nav__link.highlight,
-.article-nav__item:hover .article-nav__link {
-  font-weight: var(--fontWeight600);
-  color: var(--badge-color);
-}
+  /* Masked pseudo-element rather than inline SVG, matching the site nav. */
+  .article-nav__title::after {
+    content: '';
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconTertiary);
+    mask: url('../assets/icons/chevron-right.svg') center / contain no-repeat;
+  }
 
-.article-nav__item:hover .article-nav__link {
-  transform: translateX(0.5rem);
-}
-
-.article-nav .article-nav__item--level-3 {
-  padding-inline-start: 1em;
-}
-
-.article-nav .article-nav__item--level-4 {
-  padding-inline-start: 2em;
-}
-
-.article-nav .article-nav__item--level-5 {
-  padding-inline-start: 3em;
-}
-
-.article-nav .article-nav__item--level-6 {
-  padding-inline-start: 4em;
+  .article-nav__details[open] .article-nav__title::after {
+    mask-image: url('../assets/icons/chevron-down.svg');
+  }
 }
 
 /* Card */
@@ -1335,22 +1336,19 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .side-nav {
   align-self: start;
-  overflow: overlay;
   position: sticky;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight400);
-  margin-block-start: 10vh;
-  height: calc(100vh - 82px - 10.625rem);
-  top: 10.625rem;
-}
-
-.side-nav > ul {
-  padding-inline-end: 1rem;
-  padding-block-end: 3rem;
-}
-
-.side-nav li {
-  list-style: none;
+  /* The last of the three column start heights below the header — 16px for the
+     nav, 56px for the content, 100px here. */
+  margin-block-start: 6.25rem;
+  top: calc(82px + 6.25rem);
+  /* Everything from the sticky top to the bottom of the window, so a long list
+     scrolls inside the column instead of running off the end of it. */
+  height: calc(100vh - 82px - 6.25rem);
+  padding-block-end: var(--space48);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
 }
 
 @media (max-width: 1130px) {
@@ -1370,22 +1368,15 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     height: calc(100vh - 7.625rem - var(--space16));
   }
 
+  /* Stacked above the article rather than beside it, so none of the sticky
+     column geometry applies. */
   .side-nav {
+    position: static;
+    top: auto;
     height: auto;
     margin: 0;
-    padding: 0;
-    position: unset;
-    top: unset;
-  }
-
-  .side-nav details {
-    margin-block: 1rem;
-    width: auto;
-    margin-inline: auto;
-  }
-
-  .side-nav summary {
-    text-align: center;
+    padding-block: var(--space16) var(--space32);
+    overflow: visible;
   }
 }
 
@@ -1530,9 +1521,9 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* Drops the breadcrumb 56px below the header. The design gives each column
      its own start height below the header — 16px for the nav, 56px here,
      100px for the toc — so there is no shared value to put on .content-group,
-     whose margin-top is clearance for the fixed header. Only this column is
-     built to the design so far: the nav still starts at 0 and .side-nav still
-     uses a viewport-relative 10vh. Reset in the restack breakpoint below. */
+     whose margin-top is clearance for the fixed header. The nav is the one
+     column not built to the design yet; it still starts at 0. Reset in the
+     restack breakpoint below. */
   margin: var(--space56) 0 0;
 }
 
