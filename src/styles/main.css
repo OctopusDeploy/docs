@@ -13,6 +13,9 @@ html[data-theme='dark'] {
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
+  /* Always reserved, so locking the scroll behind the lightbox does not
+     reflow the page by the width of the scrollbar */
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -271,6 +274,30 @@ figure img[data-hidden='true'] {
 
 .zoom-lightbox > div {
   position: absolute;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+.zoom-close:hover,
+.zoom-close:focus-visible {
+  background: var(--bg-color-menu);
+}
+
+.zoom-close:before {
+  /* fa-xmark */
+  content: '\f00d';
+  font-family: fa-solid;
+  font-size: var(--fontSizeLarge);
 }
 
 .zoom-lightbox img {

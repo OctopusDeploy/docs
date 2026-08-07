@@ -38,6 +38,24 @@ function targetRect(img) {
 }
 
 /**
+ * The biggest version of an image we can reach. A srcset carries the real
+ * width of each candidate in its descriptor, and an image without one is
+ * already serving its full size.
+ *
+ * @param {HTMLImageElement} img
+ */
+function largest(img) {
+  const candidates = (img.getAttribute('srcset') ?? '')
+    .split(',')
+    .map((candidate) => candidate.trim().split(/\s+/))
+    .filter(([, descriptor]) => descriptor?.endsWith('w'))
+    .map(([url, descriptor]) => ({ url, width: parseInt(descriptor, 10) }))
+    .sort((a, b) => b.width - a.width);
+
+  return candidates[0]?.url ?? img.currentSrc ?? img.src;
+}
+
+/**
  * @param {HTMLElement} node
  * @param {{ left: number, top: number, width: number, height: number }} rect
  */
@@ -60,17 +78,27 @@ function open(img) {
   const lightbox = document.createElement('div');
   lightbox.className = 'zoom-lightbox';
 
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'zoom-close';
+  close.setAttribute('aria-label', 'Close image');
+
   const frame = document.createElement('div');
   const clone = /** @type {HTMLImageElement} */ (img.cloneNode());
 
-  // A viewport-wide candidate beats the one picked for a column-width thumbnail
-  if (clone.srcset) {
-    clone.sizes = '100vw';
-  }
+  // The thumbnail was picked for a column, so it has fewer pixels than the
+  // lightbox needs. Naming the full-size file beats leaving the browser to
+  // reselect, which keeps the small one on screen until the swap lands.
+  clone.removeAttribute('srcset');
+  clone.removeAttribute('sizes');
+  clone.src = largest(img);
 
   frame.appendChild(clone);
-  lightbox.appendChild(frame);
+  lightbox.append(frame, close);
   document.body.append(overlay, lightbox);
+
+  // Reserving the gutter in CSS means hiding the scrollbar shifts nothing
+  document.documentElement.style.overflow = 'hidden';
 
   place(frame, img.getBoundingClientRect());
   img.dataset.hidden = 'true';
@@ -102,6 +130,7 @@ function open(img) {
 
       overlay.remove();
       lightbox.remove();
+      document.documentElement.style.removeProperty('overflow');
       delete img.dataset.hidden;
       img.focus({ preventScroll: true });
     };
@@ -120,6 +149,10 @@ function open(img) {
   overlay.addEventListener('click', () => dismiss?.());
   lightbox.addEventListener('click', () => dismiss?.());
   document.addEventListener('keydown', onKey);
+
+  // Somewhere to land on Tab, and the affordance for anyone who does not read
+  // the cursor as a way out
+  close.focus({ preventScroll: true });
 }
 
 /**
@@ -132,6 +165,17 @@ function open(img) {
 function enhanceFigures() {
   qsa('figure img').forEach((img) => {
     img.tabIndex = 0;
+
+    // Fetching the full size on the way to the click means the zoom does not
+    // spend its first frames showing the column-sized version stretched
+    const warm = () => {
+      const full = largest(img);
+      if (full !== img.currentSrc) new Image().src = full;
+    };
+
+    img.addEventListener('pointerenter', warm, { once: true });
+    img.addEventListener('focus', warm, { once: true });
+    img.addEventListener('touchstart', warm, { once: true, passive: true });
 
     img.addEventListener('click', () => open(img));
     img.addEventListener('keydown', (event) => {
