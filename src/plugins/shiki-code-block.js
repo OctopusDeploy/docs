@@ -112,7 +112,13 @@ export default function shikiCodeBlock() {
         h('div', { className: ['code-block__fade'] }, []),
       ]);
 
-      node.children = [h('div', { className: ['code-block'] }, [header, body])];
+      // Replaced in place: assigning to node.children would drop anything else
+      // a later Shiki version puts alongside the <pre>.
+      node.children[node.children.indexOf(pre)] = h(
+        'div',
+        { className: ['code-block'] },
+        [header, body]
+      );
     },
   };
 }

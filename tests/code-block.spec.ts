@@ -8,6 +8,10 @@ const TABBED = '/docs/kubernetes/targets/kubernetes-agent/permissions';
 
 const SINGLE = '/docs/kubernetes/steps/kustomize';
 
+// The one group in the docs with a single member
+const SINGLE_GROUP =
+  '/docs/administration/reporting/report-on-deployments-using-excel';
+
 // A page holding a code block far taller than the collapse threshold
 const LONG = '/docs/octopus-rest-api/octopus.server.exe-command-line/configure';
 
@@ -122,6 +126,24 @@ test.describe('code block', () => {
     // Free with <select>; the old menu hand-rolled all of this
     await select.press('ArrowDown');
     await expect(select).toHaveValue('1');
+  });
+
+  test('a one-member group gets no switcher', async ({ page }) => {
+    await page.goto(SINGLE_GROUP);
+
+    const block = page
+      .locator('.code-block')
+      .filter({ hasText: 'Invoke-RestMethod' })
+      .first();
+
+    await expect(block).toBeVisible();
+    await expect(block.locator('.code-block__language-select')).toHaveCount(0);
+    await expect(block.locator('.code-block__language')).toHaveText(
+      'PowerShell'
+    );
+
+    // The <details> is gone either way
+    await expect(page.locator('details[data-group]')).toHaveCount(0);
   });
 
   test('leaves a group holding more than code as a tab list', async ({
