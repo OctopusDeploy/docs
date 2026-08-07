@@ -25,7 +25,7 @@ The JSON representation of the output variable is the result of calling `terrafo
 
 While the value only output (which would appear in the logs as a message similar to `Saving variable "Octopus.Action[Apply Template].Output.TerraformValueOutputs[test]" with the value only of "test"`) would look similar to this:
 
-```
+```text
 "hi there"
 ```
 
@@ -41,8 +41,8 @@ $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformValu
 $value = $OctopusParameters["Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test]"] | ConvertFrom-Json  | select -ExpandProperty value
 ```
 
-The syntax for accessing JSON variables as covered by our [documentation here](/docs/projects/variables/variable-substitutions/#json-parsing) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However, the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
+The syntax for accessing JSON variables as covered by our [documentation here](/docs/projects/variables/variable-substitutions/#json-variables) applies to both `TerraformJsonOutputs` as well as `TerraformValueOutputs`. However, the latter is less useful as it can also be a primitive value. In this case Octostache won't know that it should deserialize the value and will provide you with a JSON encoded result. It is therefore recommended to prefer `TerraformJsonOutputs` where possible. The following syntax can be used to access the value using the binding syntax:
 
-```
+```text
 #{Octopus.Action[Apply Template].Output.TerraformJsonOutputs[test].value}
 ```
