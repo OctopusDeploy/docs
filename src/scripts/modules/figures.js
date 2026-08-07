@@ -86,6 +86,16 @@ function enhanceFigures() {
     lightbox.pswp.options.padding = padding();
   });
 
+  // The zoom is a transform, so a border and radius on the image scale with
+  // it - both balloon mid-flight and snap back at the end. Hold them until
+  // the transform has resolved into real dimensions.
+  lightbox.on('openingAnimationEnd', () => {
+    lightbox.pswp?.element?.classList.add('pswp--settled');
+  });
+  lightbox.on('closingAnimationStart', () => {
+    lightbox.pswp?.element?.classList.remove('pswp--settled');
+  });
+
   lightbox.init();
 
   // Keeping the module out of the main bundle costs the first click the time

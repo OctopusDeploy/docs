@@ -262,18 +262,20 @@ html .pswp {
   --pswp-icon-color-secondary: var(--color-base-primary);
 }
 
-.pswp__img {
-  box-sizing: border-box;
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  border-radius: 0.5rem;
-  cursor: zoom-out;
-}
-
-/* The placeholder is the stretched thumbnail shown while the full size
-   decodes. Without the same border it flashes a different shape. */
-.pswp__img--placeholder {
+/* Transparent rather than absent, so revealing the colour later cannot
+   change the image's size */
+html .pswp__img {
   box-sizing: border-box;
   border: var(--borderWidth1) solid transparent;
+  border-radius: 0;
+  cursor: zoom-out;
+  transition:
+    border-color 150ms ease-out,
+    border-radius 150ms ease-out;
+}
+
+html .pswp--settled .pswp__img {
+  border-color: var(--colorBorderPrimary);
   border-radius: 0.5rem;
 }
 
