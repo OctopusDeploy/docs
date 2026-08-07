@@ -2860,9 +2860,12 @@ a[data-youtube] {
   align-items: center;
 }
 
-/* Qualified to outrank the `padding` shorthand `.btn` sets further down */
+/* Qualified to outrank the `padding` and `text-align` `.btn` sets further down.
+   The box is sized to the longest language, so centring leaves a shorter one
+   adrift between the padding and the caret. */
 .code-block .code-block__language-select {
   padding-inline-end: calc(var(--space16) + var(--space8));
+  text-align: start;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
