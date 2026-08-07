@@ -106,6 +106,7 @@ appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Nam
 ## Service message
 
 The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the values processed as an output variable. Note that the properties must be supplied as a base64 encoded UTF-8 string.
-```
+
+```text Write an output variable from standard output
 ##octopus[setVariable name='<Base64Encoded-VariableName>' value='<Base64Encoded-VariableValue>']
 ```

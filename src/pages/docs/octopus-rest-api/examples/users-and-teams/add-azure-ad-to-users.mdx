@@ -22,8 +22,8 @@ Provide values for:
 - Octopus URL
 - Octopus API Key
 - A list of users, supplied from either:
-    - The path to a CSV file containing user records
-    - The Octopus Username, Azure email address and (optionally) Azure display name
+  - The path to a CSV file containing user records
+  - The Octopus Username, Azure email address and (optionally) Azure display name
 - (Optional) whether or not to update the Octopus user's email address
 - (Optional) whether or not to update the Octopus user's display name
 - (Optional) whether or not to continue to the next user if an error occurs
@@ -47,14 +47,16 @@ AddAzureADLogins -OctopusURL "https://your-octopus-url/" -OctopusAPIKey "API-YOU
 
 An example of the expected CSV file format is shown below:
 
-```
+```text Expected CSV format
 OctopusUsername, AzureEmailAddress, AzureDisplayName
 OctoUser, octouser@exampledomain.com, Octo User 
 ```
+
 The first row should be the header row containing the following columns:
- - `OctopusUsername`
- - `AzureEmailAddress`
- - `AzureDisplayName`
+
+- `OctopusUsername`
+- `AzureEmailAddress`
+- `AzureDisplayName`
 
 ### Script
 
