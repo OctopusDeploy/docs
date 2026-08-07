@@ -1,3 +1,15 @@
+/* Row backgrounds for the side navigation. These are design tokens that @octopusdeploy/design-system-tokens does not ship because they are specific to the docs site.*/
+:root {
+  --navBackgroundRest: rgba(26, 119, 202, 0);
+  --navBackgroundHover: var(--colorScalesSlate100);
+  --navBackgroundActive: rgba(26, 119, 202, 0.06);
+}
+
+html[data-theme='dark'] {
+  --navBackgroundHover: var(--colorScalesNavy800);
+  --navBackgroundActive: rgba(26, 119, 202, 0.24);
+}
+
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
@@ -79,7 +91,7 @@ blockquote {
   border-radius: var(--standard-radius);
   font-size: var(--fontSizeLarge);
   line-height: var(--lineHeightMedium);
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem 2.5rem 1.5rem 4.5rem;
   position: relative;
 }
@@ -302,7 +314,7 @@ strong {
 .page-content > div.problem > *:not(:last-child),
 .page-content > div.question > *:not(:last-child),
 .page-content > div.hint > *:not(:last-child) {
-  margin-block-end: 1rem;
+  margin-block-end: var(--space16);
 }
 
 /* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
@@ -317,7 +329,7 @@ strong {
 
 .page-content ul,
 .page-content ol {
-  margin-inline-start: 2rem;
+  margin-inline-start: var(--space24);
 }
 
 /* Figma puts space/6 above every list item after the first, so consecutive
@@ -330,6 +342,10 @@ strong {
   padding-block-start: var(--space6);
 }
 
+.page-content :is(pre, figure) {
+  margin-block: var(--space24);
+}
+
 /* Boxes */
 
 .hint,
@@ -338,7 +354,7 @@ strong {
 .warning,
 .problem {
   border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem;
   border-inline-start: 3px solid #000;
 }
@@ -376,7 +392,7 @@ strong {
 .question {
   background: var(--bg-color-hint);
   border-radius: var(--standard-radius);
-  margin: var(--block-gap) 0;
+  margin: var(--space24) 0;
   padding: 1.5rem;
 }
 
@@ -1132,90 +1148,20 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Navigation */
 
-.site-nav,
-.side-nav {
-  align-self: start;
-  overflow: overlay;
-  position: sticky;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight400);
-  /* line-height: 2.8; */
-}
-
 .site-nav {
-  background-color: var(--bg-color-menu);
-  height: calc(100vh - 82px);
+  align-self: start;
+  position: sticky;
   top: 82px;
-  transition: background-color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-}
-
-.side-nav {
-  margin-block-start: 10vh;
-  height: calc(100vh - 82px - 10.625rem);
-  top: 10.625rem;
-}
-
-.site-nav > ul,
-.side-nav > ul {
-  padding-inline-end: 1rem;
-  padding-block-end: 3rem;
-}
-
-.site-nav ul {
-  padding-inline-start: 1.25rem;
-}
-
-.site-nav > .site-nav__list {
-  padding: 1.81rem 1.19rem 2rem 2.31rem;
-}
-
-.site-nav li,
-.side-nav li {
-  list-style: none;
-  /* margin-block: 1.2em; */
-}
-
-.site-nav h2 {
-  display: none;
-}
-
-.site-nav a,
-.site-nav li.has-children summary,
-.site-nav li.has-children summary span {
-  width: 100%;
-  display: block;
-  text-decoration: none;
-  color: var(--color-menu-link);
-  border-radius: var(--standard-radius);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight400);
-}
-
-.site-nav .sub-nav[open] > .sub-nav__summary .sub-nav__summary-title {
-  color: var(--color-menu-link-active);
-  font-family: var(--fontFamilySystem-ui);
-  font-weight: var(--fontWeight700);
-}
-
-.site-nav a,
-.site-nav li.has-children summary span {
-  padding-block: var(--gap-menu);
-}
-
-.site-nav summary {
-  padding-inline: 0.8em;
-  position: relative;
-  inset-inline-start: -0.8em;
-}
-
-/* TODO: refactor selectors for site-nav */
-.sub-nav__summary-title,
-li.has-children .sub-nav ul li > a {
-  transition-property: color, transform;
+  height: calc(100vh - 82px);
+  box-sizing: border-box;
+  /* No inline-end padding here — the scrolling list owns that gap, so the
+     scrollbar rides against the border. No block-end padding either: the
+     column runs to the bottom of the window. */
+  padding-block: var(--space16) 0;
+  padding-inline: var(--space16) 0;
+  background-color: var(--colorBackgroundPrimaryDefault);
+  border-inline-end: 1px solid var(--border-default-color);
+  transition-property: background-color, border-color;
   transition-duration: var(--duration-default);
   transition-timing-function: ease-in-out;
 
@@ -1224,94 +1170,149 @@ li.has-children .sub-nav ul li > a {
   }
 }
 
-.sub-nav__summary:hover .sub-nav__summary-title,
-li.has-children .sub-nav ul li:hover > a,
-.sub-nav__summary:focus .sub-nav__summary-title,
-li.has-children .sub-nav ul li:focus > a {
-  transform: translateX(0.25rem);
-  cursor: pointer;
-}
-
-.site-nav a:hover,
-.site-nav a:focus,
-.site-nav li.has-children summary:hover,
-.site-nav li.has-children summary:focus,
-.site-nav li.has-children summary:hover span,
-.site-nav li.has-children summary:focus span {
-  color: var(--color-menu-link-alt);
-}
-
-.site-nav a[aria-current] {
-  font-weight: var(--fontWeight700);
-}
-
-.site-nav .site-nav__list-item {
-  cursor: pointer;
-}
-
-.site-nav .site-nav__list-item a[aria-current] {
-  font-family: var(--fontFamilySystem-ui);
-  color: var(--color-menu-link-alt);
-  transform: translateX(0.25rem);
-}
-
-.site-nav details {
-  border-inline-start: 1px solid transparent;
-  position: relative;
-  inset-inline-start: -1px;
-}
-
-/* .site-nav details[open] {
-  border-inline-start: 1px solid var(--border-color-menu-open);
-} */
-
-.site-nav details[open] > .site-nav__list--sub {
-  margin: 1.31rem 0;
-  border-inline-start: 1px solid var(--border-color-menu-open);
-}
-
-.site-nav details summary::-webkit-details-marker,
-.site-nav details summary::marker {
-  content: '';
+.site-nav-title {
   display: none;
 }
 
-.site-nav details > summary::before {
-  /* fa-chevron-down */
-  content: '\f078';
-  font-family: fa-solid;
-  float: right;
-  color: var(--color-menu-marker);
-  margin-inline-end: 0.5rem;
-  padding-block: var(--gap-menu);
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  list-style: none;
 }
 
-/* Right-chevron on top-level section links (navigate, not expand). */
-.site-nav
-  > .site-nav__list
-  > .site-nav__list-item:not(.has-children)
-  > a::after {
-  /* fa-chevron-right */
-  content: '\f054';
-  font-family: fa-solid;
-  float: right;
-  color: var(--color-menu-marker);
-  margin-inline-end: 0.5rem;
+/* Only the outer list scrolls; the nested ones grow inside it. */
+.site-nav > .site-nav__list {
+  height: 100%;
+  /* Keeps row backgrounds off the scrollbar. The chevron sits inside the row,
+     so this is the whole budget for that gap — anything wider here pushes the
+     chevron away from the scrollbar by the same amount. */
+  padding-inline-end: var(--space8);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
 }
 
-.site-nav details[open] > summary {
-  background-color: var(--bg-color-menu-open);
-  font-weight: var(--fontWeight700);
+.site-nav__list .site-nav__list {
+  padding-inline-start: var(--space16);
 }
 
-.site-nav details[open] > summary::before {
-  /* fa-chevron-up */
-  content: '\f077';
-  color: var(--color-menu-link-alt);
+.site-nav__link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space8);
+  padding: var(--space8);
+  border-radius: var(--borderRadiusSmall);
+  background-color: var(--navBackgroundRest);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  text-decoration: none;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: var(--duration-default);
+  transition-timing-function: ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-property: none;
+  }
+}
+
+/* Laying the summary out as a flex box drops the disclosure triangle everywhere except Safari, which needs this. */
+.site-nav__link::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav__label {
+  flex: 1 0 0;
+  min-width: 1px;
+  overflow-wrap: break-word;
+  /* The global `summary > *` rule underlines and recolors everything inside a summary. Nav rows carry their own color, on the row. */
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Chevrons are masked pseudo-elements rather than inline SVG: the tree renders
+   dozens of rows per page, and shipping the markup once per row cost ~9KB of
+   every page. Expanded sections point theirs down, everything else right. */
+.site-nav__group > .site-nav__link::after,
+.site-nav__link--section::after {
+  content: '';
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--colorIconTertiary);
+  mask: url('../assets/icons/chevron-right.svg') center / contain no-repeat;
+}
+
+.site-nav__group[open] > .site-nav__link::after {
+  mask-image: url('../assets/icons/chevron-down.svg');
+}
+
+/* Nav rows never take a link color. Restating the resting color is what beats
+   the global `a:hover, a:focus, summary:hover, summary:focus` rule — including
+   after a click, which leaves the summary focused but not focus-visible. */
+.site-nav__link:hover,
+.site-nav__link:focus {
+  color: var(--colorTextPrimary);
+}
+
+/* Clicking a section to expand it should not leave the row looking hovered. */
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+  background-color: var(--navBackgroundHover);
+}
+
+/* The row for the page you are on, hovered or not. */
+.site-nav__link[aria-current] {
+  background-color: var(--navBackgroundActive);
+  color: var(--colorTextSelected);
+}
+
+/* An expanded section is the only row that goes bold. */
+.site-nav__group[open] > .site-nav__link {
+  font: var(--textBodyBoldMedium);
+}
+
+/* Table of contents column */
+
+.side-nav {
+  align-self: start;
+  overflow: overlay;
+  position: sticky;
+  font-size: var(--fontSizeMedium);
+  font-weight: var(--fontWeight400);
+  margin-block-start: 10vh;
+  height: calc(100vh - 82px - 10.625rem);
+  top: 10.625rem;
+}
+
+.side-nav > ul {
+  padding-inline-end: 1rem;
+  padding-block-end: 3rem;
+}
+
+.side-nav li {
+  list-style: none;
 }
 
 @media (max-width: 1130px) {
-  .site-nav,
+  /* The desktop nav is hidden here and its markup is cloned into the mobile
+     drawer, which reuses these class names. Keep the block padding: the drawer
+     needs it, and only the desktop column's sticky geometry has to go. */
+  .site-nav {
+    position: static;
+    top: auto;
+    height: auto;
+    border-inline-end: 0 none;
+  }
+
+  /* 100vh less the header, the drawer's theme switcher, and the padding
+     above. */
+  .site-nav > .site-nav__list {
+    height: calc(100vh - 7.625rem - var(--space16));
+  }
+
   .side-nav {
     height: auto;
     margin: 0;
@@ -1329,14 +1330,6 @@ li.has-children .sub-nav ul li:focus > a {
   .side-nav summary {
     text-align: center;
   }
-
-  .side-nav .octo-github-edit {
-    display: none;
-  }
-
-  nav.site-nav h2 {
-    display: none;
-  }
 }
 
 .mobile-menu {
@@ -1352,33 +1345,6 @@ li.has-children .sub-nav ul li:focus > a {
     height: var(--navbar-icon-size);
   }
 }
-.site-nav > .site-nav__list {
-  height: 100%;
-  overflow-y: scroll;
-  box-sizing: border-box;
-
-  &::-webkit-scrollbar {
-    width: 0.3125rem;
-    height: 5.0625rem;
-  }
-
-  &::-webkit-scrollbar-corner {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 1.25rem;
-    background: var(--scrollbar-color);
-  }
-
-  @media (max-width: 1130px) {
-    & {
-      /* 100vh - header & theme switcher */
-      height: calc(100vh - 7.625rem);
-    }
-  }
-}
-
 .site-nav__mobile {
   position: absolute;
   width: 100%;
@@ -1444,9 +1410,10 @@ li.has-children .sub-nav ul li:focus > a {
 /* Main content group */
 
 .content-group {
-  grid-template-columns: var(--navigation-width) minmax(300px, 800px) var(
-      --toc-width
-    );
+  grid-template-columns:
+    var(--navigation-width)
+    minmax(300px, var(--content-width-article))
+    var(--toc-width);
   display: grid;
   grid-template-rows: auto;
   gap: var(--grid-gap-main);
@@ -1459,77 +1426,19 @@ li.has-children .sub-nav ul li:focus > a {
 /* Article header */
 .header {
   display: flex;
-  gap: 1.62rem;
-  align-items: center;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--header-separator-color);
-  margin-bottom: 1.56rem;
-  transition: border-color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
-}
-
-.header__icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5625rem;
-  height: 4.0625rem;
-  width: 4.0625rem;
-  border: 1px solid var(--header-icon-border);
-  background-color: var(--header-icon-background);
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition-property: background-color, border;
-  transition-duration: var(--search-dropdown-duration);
-  transition-timing-function: ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
-  }
-}
-
-.header__icon-wrapper:after {
-  content: '';
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background-color: #1faeff;
-  opacity: 0.65;
-  bottom: -25%;
-  filter: blur(0.835rem);
-}
-
-/* Need to override styles that might be applied to certain font awesome icons */
-.header__icon-wrapper .header__icon:before {
-  color: var(--blue-500);
-  font-size: var(--fontSize2xLarge);
-}
-
-.header__icon {
-  z-index: 1;
-  /* Override image global styles */
-  background: transparent;
-}
-
-.header__icon {
-  &.fa-octopus,
-  &.fa-twitter,
-  &.fa-linkedin,
-  &.fa-github,
-  &.fa-youtube {
-    &:before {
-      padding-inline-end: 0;
-    }
-  }
-}
-
-.header__text {
-  display: flex;
   flex-direction: column;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space12);
+  padding-block-start: var(--space16);
+}
+
+.page-actions:empty {
+  display: none;
 }
 
 .header__title {
@@ -1796,18 +1705,9 @@ li.has-children .sub-nav ul li:focus > a {
 
 /* GitHub Link */
 
-.octo-github-edit {
-  margin-block-start: var(--block-gap);
-}
-
-.octo-github-edit a {
-  color: var(--color-menu-link);
-  text-decoration: none;
-}
-
-.octo-github-edit a:hover,
-.octo-github-edit a:focus {
-  color: var(--color-menu-link-alt);
+.octo-github-edit__icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
 /* "Use Octopus docs with AI" dropdown */
@@ -2231,6 +2131,7 @@ a[data-youtube] {
      flow. Converting this to flex or grid makes every gap additive again -
      56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
   display: flow-root;
+  padding-block-start: var(--space32);
 
   li:has(figure) {
     display: flex;
@@ -2963,6 +2864,7 @@ a.button.button--primary:active {
   -webkit-appearance: none;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
 }
 
 .btn--medium {

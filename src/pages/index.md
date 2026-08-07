@@ -9,9 +9,6 @@ pubDate: 2022-10-02
 modDate: 2024-07-04
 keywords: index
 description: This index page is not part of the production site.
-bannerImage:
-    src: /docs/img/blueprint.png
-    alt: A blueprint on grid paper with drawing tools
 ---
 
 This page is not shown on the production site.

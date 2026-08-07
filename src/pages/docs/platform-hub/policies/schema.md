@@ -229,6 +229,7 @@ result := {"allowed": true} if {
 | Name | string | Yes | Display name of the feed |
 | Slug | string | Yes | The URL-safe slug for the feed |
 | Type | string | Yes | The feed type (e.g. `BuiltIn`, `Docker`) |
+| Source | string | Yes | The persistence source of the feed. Can be `Space` or `PlatformHub` |
 | Uri | string | No | The configured endpoint for the feed |
 
 **Example usage:**
@@ -511,9 +512,10 @@ The complete JSON schema for the policy input object is provided below for use w
                     "Name": { "type": "string" },
                     "Slug": { "type": "string" },
                     "Uri": { "type": "string" },
-                    "Type": { "type": "string" }
+                    "Type": { "type": "string" },
+                    "Source": { "type": "string" }
                   },
-                  "required": ["Id", "Name", "Slug", "Type"]
+                  "required": ["Id", "Name", "Slug", "Type", "Source"]
                 }
               },
               "required": ["Id", "Name"]

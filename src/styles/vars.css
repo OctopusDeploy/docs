@@ -67,8 +67,10 @@
   --blue-grey-lighter: var(--colorScalesNavy500);
   --blue-grey-smoke: #c5e6ff66;
 
-  --grey: #555555ff; /* #777777 is low contrast (WCAG) */
-  --grey-500: var(--colorScalesGrey500); /* #777777 is low contrast (WCAG) */
+  --grey: #555555ff;
+  /* #777777 is low contrast (WCAG) */
+  --grey-500: var(--colorScalesGrey500);
+  /* #777777 is low contrast (WCAG) */
   --grey-light: #eef0f2ff;
   --grey-lighter: var(--navy-100);
 
@@ -92,7 +94,7 @@
   --border-color-menu-open: var(--colorBorderPrimary);
   --gap-menu: 0.6em;
 
-  --navigation-width: 21.25rem;
+  --navigation-width: 20rem;
 
   --bg-color-tab: var(--colorBackgroundTertiary);
   --border-color-tab: var(--colorBorderPrimary);
@@ -141,8 +143,6 @@
 
   /* Article header */
   --header-separator-color: var(--colorBorderPrimary);
-  --header-icon-border: var(--border-default-color);
-  --header-icon-background: var(--background-light);
 
   /* Button */
   --button-primary: var(--green);
@@ -166,9 +166,7 @@
   --hamburger-line-width: 1.5rem;
   --hamburger-line-height: 0.2rem;
   --hamburger-line-margin: 0.2rem;
-  --hamburger-translate-y: calc(
-    var(--hamburger-line-height) + var(--hamburger-line-margin)
-  );
+  --hamburger-translate-y: calc(var(--hamburger-line-height) + var(--hamburger-line-margin));
   --hamburger-lines-color: var(--colorIconPrimary);
 
   /* Theme Switcher */
@@ -181,8 +179,7 @@
   /* Card */
   --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
   --card-related-topics-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.1);
-  --card-related-topics-hover-shadow: 0px 10px 35px 0px
-    rgba(133, 152, 165, 0.25);
+  --card-related-topics-hover-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.25);
 
   /* To be checked and cleaned */
 
@@ -216,6 +213,7 @@
   --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
 
   --content-width: 78vw;
+  --content-width-article: 800px;
   --content-width-mobile: calc(100vw - 4rem);
   --toc-width: 250px;
   --grid-max-width: 1250px;
@@ -251,7 +249,6 @@ html[data-theme='dark'] {
   --octopus-logo-text-color: var(--white);
   --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
-  --header-icon-border: transparent;
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */

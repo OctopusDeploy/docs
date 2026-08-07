@@ -1,0 +1,6 @@
+<!-- .icon / global/chevron-right from the design system. The 6.175 x 10 glyph
+     sits inside a 20 x 20 box so it lines up with a 20px line of text and keeps
+     its designed optical offset. Used as a CSS mask, so only alpha matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20" aria-hidden="true">
+  <path d="M8.333 5L7.158 6.175L10.9747 10L7.158 13.825L8.333 15L13.333 10L8.333 5Z" />
+</svg>
