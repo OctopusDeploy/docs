@@ -123,6 +123,10 @@ function open(img) {
     document.removeEventListener('keydown', onKey);
     overlay.classList.add('zoom-overlay--closing');
 
+    // The way out has been taken, so the button has no job for the length of
+    // the animation. Leaving it up reads as the lightbox failing to close.
+    close.remove();
+
     let closed = false;
     const done = () => {
       if (closed) return;
