@@ -229,7 +229,11 @@ img {
 
 figure img {
   display: block;
+  /* Only html is border-box, so without this the border pushes the image
+     2px past the max-width: 100% it inherits from the global img rule */
+  box-sizing: border-box;
   margin-inline: auto;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-radius: 0.5rem;
   cursor: zoom-in;
 }
@@ -270,8 +274,10 @@ figure img[data-hidden='true'] {
 }
 
 .zoom-lightbox img {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-radius: 0.5rem;
 }
 
