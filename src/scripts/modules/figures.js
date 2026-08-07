@@ -81,6 +81,7 @@ function open(img) {
   const close = document.createElement('button');
   close.type = 'button';
   close.className = 'zoom-close';
+  close.textContent = '×';
   close.setAttribute('aria-label', 'Close image');
 
   const frame = document.createElement('div');
@@ -97,8 +98,12 @@ function open(img) {
   lightbox.append(frame, close);
   document.body.append(overlay, lightbox);
 
-  // Reserving the gutter in CSS means hiding the scrollbar shifts nothing
-  document.documentElement.style.overflow = 'hidden';
+  // Refusing the scroll on the overlay itself, the way PhotoSwipe does it.
+  // Hiding the document's overflow would take the scrollbar away, widening
+  // the viewport and shifting the content out from under the fixed header.
+  const refuse = (/** @type {Event} */ event) => event.preventDefault();
+  lightbox.addEventListener('wheel', refuse, { passive: false });
+  lightbox.addEventListener('touchmove', refuse, { passive: false });
 
   place(frame, img.getBoundingClientRect());
   img.dataset.hidden = 'true';
@@ -134,7 +139,6 @@ function open(img) {
 
       overlay.remove();
       lightbox.remove();
-      document.documentElement.style.removeProperty('overflow');
       delete img.dataset.hidden;
       img.focus({ preventScroll: true });
     };
@@ -154,8 +158,9 @@ function open(img) {
   lightbox.addEventListener('click', () => dismiss?.());
   document.addEventListener('keydown', onKey);
 
-  // Somewhere to land on Tab, and the affordance for anyone who does not read
-  // the cursor as a way out
+  // Focus stays on the image otherwise, which is hidden while the lightbox is
+  // open, so the first Tab would walk into the page behind it instead of
+  // reaching the way out.
   close.focus({ preventScroll: true });
 }
 
