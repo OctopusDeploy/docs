@@ -1,6 +1,6 @@
 // Wraps every highlighted block in the code block shell at build time, so the
 // frame, header, label and language are on the page before any script runs.
-// code-blocks.js adds the behaviour: copying, collapsing, and folding a
+// code-blocks.js wires up what happens next: copying, collapsing, and folding a
 // <details data-group> set into one block with a language menu.
 
 const REST = 'Copy to clipboard';

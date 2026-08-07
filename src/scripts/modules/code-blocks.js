@@ -1,23 +1,12 @@
 // @ts-check
 import { qs, qsa } from './query.js';
+import { copyOnClick } from './copy-button.js';
 
-// The shell around each block is rendered at build time by
-// src/plugins/shiki-code-block.js. This adds the behaviour.
-
-const REVERT_MS = 2000;
-
-const REST = 'Copy to clipboard';
-const COPIED = 'Copied';
-const FAILED = 'Copy failed';
+// The shell around each block, its copy button included, is rendered at build
+// time by src/plugins/shiki-code-block.js. This wires up what happens next.
 
 /** Taller than this and the block collapses until it is clicked. */
 const COLLAPSE_HEIGHT = 500;
-
-/** @type {WeakMap<HTMLElement, ReturnType<typeof setTimeout>>} */
-const timers = new WeakMap();
-
-/** @type {HTMLElement | null} */
-let status = null;
 
 /**
  * @param {string} tag
@@ -31,77 +20,17 @@ function el(tag, className, text) {
   return node;
 }
 
-/* Copying ---------------------------------------------------------------- */
-
 /**
  * @param {HTMLElement} button
  */
-async function copyCode(button) {
-  const block = button.closest('.code-block');
-  const code = block?.querySelector('.code-block__panel:not([hidden]) code');
-  if (!code) return;
+function visibleCode(button) {
+  const code = button
+    .closest('.code-block')
+    ?.querySelector('.code-block__panel:not([hidden]) code');
 
-  let message = COPIED;
-  try {
-    // textContent because a collapsed block clips its last lines, and innerText
-    // returns only what is on screen.
-    // Nothing may be awaited before this: Safari spends the click's user
-    // activation on the first await, and the write then fails.
-    await navigator.clipboard.writeText(code.textContent ?? '');
-  } catch (error) {
-    console.warn('[code-blocks] clipboard write failed', error);
-    message = FAILED;
-  }
-
-  showResult(button, message);
-  announce(message);
-}
-
-/**
- * @param {HTMLElement} button
- * @param {string} message
- */
-function showResult(button, message) {
-  button.dataset.tooltip = message;
-  button.dataset.copied = '';
-
-  clearTimeout(timers.get(button));
-  timers.set(
-    button,
-    setTimeout(() => {
-      button.dataset.tooltip = REST;
-      delete button.dataset.copied;
-      timers.delete(button);
-    }, REVERT_MS)
-  );
-}
-
-/**
- * @param {string} message
- */
-function announce(message) {
-  if (!status) {
-    status = el('div', 'code-block-status');
-    status.setAttribute('aria-live', 'polite');
-    document.body.append(status);
-  }
-
-  // Cleared first, then set on a later task, so copying twice in a row reads as
-  // a change and is announced both times. Same as copy-markdown.js.
-  const region = status;
-  region.textContent = '';
-  setTimeout(() => {
-    region.textContent = message;
-  }, 50);
-}
-
-function addCopyListener() {
-  document.addEventListener('click', (event) => {
-    if (!(event.target instanceof Element)) return;
-
-    const button = event.target.closest('.code-block__copy');
-    if (button instanceof HTMLElement) copyCode(button);
-  });
+  // textContent because a collapsed block clips its last lines, and innerText
+  // returns only what is on screen.
+  return code?.textContent ?? null;
 }
 
 /* Language menu ---------------------------------------------------------- */
@@ -319,7 +248,7 @@ function measureAll() {
 
 function enhanceCodeBlocks() {
   enhanceGroups();
-  addCopyListener();
+  copyOnClick('.code-block__copy', visibleCode);
   addCollapseListeners();
   measureAll();
 }
