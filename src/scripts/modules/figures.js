@@ -87,13 +87,12 @@ function enhanceFigures() {
   });
 
   // The zoom is a transform, so a border and radius on the image scale with
-  // it - both balloon mid-flight and snap back at the end. Hold them until
-  // the transform has resolved into real dimensions.
+  // it. Opening scales up, which balloons them until the transform resolves,
+  // so they wait until it has. Closing scales down onto a thumbnail that is
+  // itself rounded, so they stay put and converge on it - taking them off
+  // here would square the corners off for most of the way out.
   lightbox.on('openingAnimationEnd', () => {
     lightbox.pswp?.element?.classList.add('pswp--settled');
-  });
-  lightbox.on('closingAnimationStart', () => {
-    lightbox.pswp?.element?.classList.remove('pswp--settled');
   });
 
   lightbox.init();
