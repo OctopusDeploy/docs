@@ -124,12 +124,12 @@ code {
   font: var(--textCodeRegularMedium);
 }
 
+/* The chrome lives on .code-block, which wraps every fenced block. A bare <pre>
+   only carries the type and the wrapping. */
 pre {
-  padding: 0.5rem 1rem;
+  margin: 0;
   white-space: break-spaces;
-  background: var(--colorBackgroundSecondaryDefault) !important;
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  border-radius: var(--borderRadiusLarge);
+  background: transparent !important;
   font: var(--textCodeRegularMedium);
   color: var(--color-text);
 }
@@ -155,9 +155,14 @@ div.hint code:not(pre code) {
   color: var(--color-text);
 }
 
+/* Shiki writes the light set inline and the dark set to --shiki-dark-*. */
 html[data-theme='dark'] {
-  pre.astro-code code .line {
-    filter: invert(98%) hue-rotate(180deg) brightness(1.1);
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
 
@@ -332,16 +337,6 @@ strong {
 .page-content > div.question > *:not(:last-child),
 .page-content > div.hint > *:not(:last-child) {
   margin-block-end: var(--space16);
-}
-
-/* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
-.page-content > div.info > .copy-container,
-.page-content > div.success > .copy-container,
-.page-content > div.warning > .copy-container,
-.page-content > div.problem > .copy-container,
-.page-content > div.question > .copy-container,
-.page-content > div.hint > .copy-container {
-  margin: 0;
 }
 
 .page-content ul,
@@ -548,47 +543,9 @@ strong {
   mask: url('../assets/icons/check.svg') center / contain no-repeat;
 }
 
-/* The tooltip bubble. */
-.copy-heading-url::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 50%;
-  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
-  translate: -50% 0;
-  padding: var(--space4) var(--space8);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorBackgroundInversePrimary);
-  color: var(--colorTextInversePrimary);
-  font: var(--textBodyRegularXSmall);
-  text-align: center;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* The tooltip arrow. A border triangle */
-.copy-heading-url::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
-  translate: -50% 0;
-  width: 0;
-  height: 0;
-  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
-  border-inline: 7px solid transparent;
-  pointer-events: none;
-  opacity: 0;
-}
-
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
 .copy-heading-url[data-copied] {
-  opacity: 1;
-}
-
-.copy-heading-url:is(:hover, :focus-visible, [data-copied])::before,
-.copy-heading-url:is(:hover, :focus-visible, [data-copied])::after {
   opacity: 1;
 }
 
@@ -2008,7 +1965,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
 .octo-copy-md__sr-status,
-.copy-heading-url-status {
+.copy-heading-url-status,
+.code-block-status {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -2827,20 +2785,174 @@ a[data-youtube] {
   font-family: fa-solid;
 }
 
-.copy-container {
-  max-height: 0px;
+/* Code block, built around every fenced block by code-blocks.js */
+.code-block {
+  margin-block: 1rem;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusMedium);
+  background: var(--colorBackgroundPrimaryDefault);
+}
+
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space16);
+  padding: var(--space8);
+  padding-inline-start: var(--space16);
+  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+}
+
+.code-block__label {
+  flex: 1;
+  min-width: 0;
   margin: 0;
-  width: 100%;
-  text-align: end;
-  z-index: 1;
+  overflow-wrap: break-word;
+  font: var(--textBodyBoldMedium);
+  color: var(--colorTextPrimary);
+}
+
+.code-block__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space8);
+}
+
+/* Clipping sits here so the language menu and copy tooltip can leave the header. */
+.code-block__body {
+  /* html's border-box does not inherit, and the collapsed height has to count
+     the padding to land on 500px. */
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--space16);
+  overflow: clip;
+}
+
+.code-block__copy-icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.code-block__copy[data-copied] .code-block__copy-icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
+/* Edge-aligned: the button sits at the block's right edge, where a centred
+   bubble would hang off the side of the page. */
+.code-block .code-block__copy::after {
+  left: auto;
+  right: 0;
+  translate: 0 0;
+}
+
+/* The single fixed language */
+.code-block__language {
+  font: var(--textBodyRegularMedium);
+  color: var(--colorTextSecondary);
+  white-space: nowrap;
+}
+
+/* The menu, when the block was written in several languages */
+.code-block__languages {
   position: relative;
 }
 
-.copy-button {
-  stroke: var(--icon-stroke);
-  fill: var(--icon-fill);
-  background-color: transparent;
+.code-block__language-trigger {
+  list-style: none;
   cursor: pointer;
+}
+
+/* Qualified to outrank the global rule that styles every <summary> as a link */
+.code-block .code-block__language-trigger,
+.code-block .code-block__language-trigger > * {
+  color: var(--colorTextPrimary);
+  text-decoration: none;
+}
+
+.code-block__language-trigger::-webkit-details-marker {
+  display: none;
+}
+
+/* Qualified to outrank `.page-content ul`, which indents every list */
+.code-block .code-block__language-options {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + var(--space4));
+  z-index: 2;
+  min-width: 100%;
+  margin: 0;
+  padding: var(--space4);
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  box-shadow: var(--octo-shadow-standard-box);
+  list-style: none;
+}
+
+.code-block__language-option {
+  display: block;
+  width: 100%;
+  padding: var(--space4) var(--space8);
+  border: 0;
+  border-radius: var(--borderRadiusSmall);
+  background: transparent;
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  text-align: start;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.code-block__language-option:is(:hover, :focus-visible) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.code-block__language-option[aria-pressed='true'] {
+  font: var(--textBodyBoldMedium);
+}
+
+/* --code-block-height is measured by code-blocks.js: max-height has to resolve
+   to a length for the expansion to animate. */
+.code-block[data-collapsible] .code-block__body {
+  max-height: 500px;
+  cursor: pointer;
+  transition: max-height var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block[data-collapsible][data-expanded] .code-block__body {
+  max-height: var(--code-block-height);
+  cursor: auto;
+}
+
+.code-block__fade {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 59px;
+  background: linear-gradient(
+    to bottom,
+    rgb(from var(--colorBackgroundPrimaryDefault) r g b / 0) 60%,
+    var(--colorBackgroundPrimaryDefault)
+  );
+  pointer-events: none;
+  transition: opacity var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block[data-collapsible] .code-block__fade {
+  display: block;
+}
+
+.code-block[data-expanded] .code-block__fade {
+  opacity: 0;
 }
 
 /* Custom Divisions */
@@ -2925,6 +3037,50 @@ a.button.button--primary:active {
 
 .octo-header a.button {
   width: 120px;
+}
+
+/* Tooltip. Put the label in data-tooltip; the host positions the bubble above
+   itself, so it needs room there and a stacking context of its own. */
+[data-tooltip] {
+  position: relative;
+}
+
+/* The bubble */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
+  translate: -50% 0;
+  padding: var(--space4) var(--space8);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundInversePrimary);
+  color: var(--colorTextInversePrimary);
+  font: var(--textBodyRegularXSmall);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* The arrow. A border triangle */
+[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
+  translate: -50% 0;
+  width: 0;
+  height: 0;
+  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
+  border-inline: 7px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
+[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+  opacity: 1;
 }
 
 /* Buttons side by side e.g. a toolbar or the component showcase */

@@ -111,7 +111,7 @@ Progress messages will display and update a progress bar on your deployment task
 <details data-group="deployments-custom-scripts-logging-messages">
 <summary>PowerShell</summary>
 
-```ps PowerShell
+```ps
 Update-Progress 10
 Update-Progress 50 "We're halfway there!"
 ```
