@@ -95,6 +95,17 @@ function enhanceFigures() {
     lightbox.pswp?.element?.classList.add('pswp--settled');
   });
 
+  // PhotoSwipe hides the thumbnail itself only when it owns the element, and
+  // it is handed bounds rather than a node. The backdrop is translucent for
+  // both animations, so an untouched thumbnail shows through behind the image
+  // it is growing out of, a second bordered rectangle slightly out of step.
+  lightbox.on('openingAnimationStart', () => {
+    if (source) source.dataset.hidden = 'true';
+  });
+  lightbox.on('destroy', () => {
+    if (source) delete source.dataset.hidden;
+  });
+
   lightbox.init();
 
   // Keeping the module out of the main bundle costs the first click the time
