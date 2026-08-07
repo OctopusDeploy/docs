@@ -13,7 +13,7 @@ The following example retrieves a [deployment target](/docs/infrastructure/deplo
 <details data-group="octopus-client-using-resources">
 <summary>PowerShell</summary>
 
-```powershell
+```powershell Rename a deployment target and save it
 $machine = $repository.Machines.Get("machines-1");
 $machine.Name = "Test Server 1";
 $repository.Machines.Modify($machine);
@@ -23,7 +23,7 @@ $repository.Machines.Modify($machine);
 <details data-group="octopus-client-using-resources">
 <summary>C#</summary>
 
-```csharp
+```csharp Rename a deployment target and save it
 // Sync
 var machine = repository.Machines.Get("machines-1");
 machine.Name = "Test Server 1";

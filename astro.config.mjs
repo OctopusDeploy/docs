@@ -7,6 +7,7 @@ import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/cus
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 import pruneDist from './src/integrations/prune-dist.ts';
 import rehypeWbr from './src/plugins/rehype-wbr.js';
+import shikiCodeBlock from './src/plugins/shiki-code-block.js';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,11 +26,20 @@ export default defineConfig({
     ],
     markdown: {
         shikiConfig: {
-            theme: 'light-plus',
+            // Every token carries both sets. main.css picks the dark one up
+            // under html[data-theme='dark']
+            themes: {
+                light: 'light-plus',
+                dark: 'dark-plus'
+            },
+            defaultColor: 'light',
             // OCL is HCL-derived, so reuse the HCL grammar for ```ocl fences
             langAlias: {
                 ocl: 'hcl'
-            }
+            },
+            // A transformer, because rehype plugins registered through
+            // `processor` below never reach .mdx pages
+            transformers: [shikiCodeBlock()]
         },
         processor: unified({
             remarkPlugins: [
