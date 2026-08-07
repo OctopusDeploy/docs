@@ -40,9 +40,9 @@ test.describe('code block, no JavaScript', () => {
   }) => {
     await page.goto(GROUPED);
 
-    // No menu to switch with, so each language keeps its own block
+    // Nothing to switch with, so each language keeps its own block
     await expect(page.locator('.code-block')).toHaveCount(2);
-    await expect(page.locator('.code-block__languages')).toHaveCount(0);
+    await expect(page.locator('.code-block__language-select')).toHaveCount(0);
   });
 });
 
@@ -87,27 +87,41 @@ test.describe('code block', () => {
     });
   });
 
-  test('turns a code-only details group into one block with a language menu', async ({
+  test('turns a code-only details group into one block with a language select', async ({
     page,
   }) => {
     await page.goto(GROUPED);
 
     const block = page.locator('.code-block').first();
-    const trigger = block.locator('.code-block__language-trigger');
-    await expect(trigger).toHaveText('PowerShell');
+    const select = block.locator('.code-block__language-select');
+    await expect(select).toHaveValue('0');
+    expect(await select.locator('option').allTextContents()).toEqual([
+      'PowerShell',
+      'C#',
+    ]);
 
     // Only the selected language is on the page
     await expect(block.locator('.code-block__panel:visible')).toHaveCount(1);
     await expect(block).toContainText('$repository.Machines.Modify');
 
-    await trigger.click();
-    await block
-      .locator('.code-block__language-option', { hasText: 'C#' })
-      .click();
+    await select.selectOption({ label: 'C#' });
 
-    await expect(trigger).toHaveText('C#');
     await expect(block).toContainText('repository.Machines.Modify(machine)');
     await expect(block.locator('.code-block__panel:visible')).toHaveCount(1);
+  });
+
+  test('the select is reachable and operable from the keyboard', async ({
+    page,
+  }) => {
+    await page.goto(GROUPED);
+
+    const select = page.locator('.code-block__language-select').first();
+    await select.focus();
+    await expect(select).toBeFocused();
+
+    // Free with <select>; the old menu hand-rolled all of this
+    await select.press('ArrowDown');
+    await expect(select).toHaveValue('1');
   });
 
   test('leaves a group holding more than code as a tab list', async ({

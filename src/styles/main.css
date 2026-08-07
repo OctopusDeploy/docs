@@ -2851,63 +2851,35 @@ a[data-youtube] {
   white-space: nowrap;
 }
 
-/* The menu, when the block was written in several languages */
-.code-block__languages {
+/* The switcher, when the block was written in several languages. Styled as the
+   design's button; the option list it opens belongs to the browser. */
+.code-block__language-switcher {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.code-block__language-trigger {
-  list-style: none;
+/* Qualified to outrank the `padding` shorthand `.btn` sets further down */
+.code-block .code-block__language-select {
+  padding-inline-end: calc(var(--space16) + var(--space8));
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* Qualified to outrank the global rule that styles every <summary> as a link */
-.code-block .code-block__language-trigger,
-.code-block .code-block__language-trigger > * {
-  color: var(--colorTextPrimary);
-  text-decoration: none;
-}
-
-.code-block__language-trigger::-webkit-details-marker {
-  display: none;
-}
-
-/* Qualified to outrank `.page-content ul`, which indents every list */
-.code-block .code-block__language-options {
+/* On the wrapper, because a <select> renders no pseudo-elements of its own.
+   A mask so the caret takes the icon color in both themes. */
+.code-block__language-switcher::after {
+  content: '';
   position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: calc(100% + var(--space4));
-  z-index: 2;
-  min-width: 100%;
-  margin: 0;
-  padding: var(--space4);
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorBackgroundPrimaryDefault);
-  box-shadow: var(--octo-shadow-standard-box);
-  list-style: none;
-}
-
-.code-block__language-option {
-  display: block;
-  width: 100%;
-  padding: var(--space4) var(--space8);
-  border: 0;
-  border-radius: var(--borderRadiusSmall);
-  background: transparent;
-  color: var(--colorTextPrimary);
-  font: var(--textBodyRegularMedium);
-  text-align: start;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.code-block__language-option:is(:hover, :focus-visible) {
-  background: var(--colorBackgroundPrimaryHover);
-}
-
-.code-block__language-option[aria-pressed='true'] {
-  font: var(--textBodyBoldMedium);
+  inset-inline-end: var(--space6);
+  top: 50%;
+  translate: 0 -50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/caret-down.svg') center / contain no-repeat;
+  pointer-events: none;
 }
 
 /* --code-block-height is measured by code-blocks.js: max-height has to resolve

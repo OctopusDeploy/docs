@@ -9,18 +9,6 @@ import { copyOnClick } from './copy-button.js';
 const COLLAPSE_HEIGHT = 500;
 
 /**
- * @param {string} tag
- * @param {string} className
- * @param {string} [text]
- */
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  node.className = className;
-  if (text) node.textContent = text;
-  return node;
-}
-
-/**
  * @param {HTMLElement} button
  */
 function visibleCode(button) {
@@ -33,90 +21,47 @@ function visibleCode(button) {
   return code?.textContent ?? null;
 }
 
-/* Language menu ---------------------------------------------------------- */
+/* Language switcher ------------------------------------------------------ */
 
 /**
- * Swaps the static language text for a menu over the block's panels.
+ * A <select>, so the keyboard handling, the dismissal and the mobile picker are
+ * the browser's rather than ours.
  *
  * @param {HTMLElement} block
  * @param {{ name: string, label: string }[]} entries
  */
-function addLanguageMenu(block, entries) {
+function addLanguageSelect(block, entries) {
   const panels = Array.from(qsa('.code-block__panel', block));
   const label = qs('.code-block__label', block);
 
-  const menu = document.createElement('details');
-  menu.className = 'code-block__languages';
+  const select = document.createElement('select');
+  select.className = 'code-block__language-select btn btn--small';
+  select.setAttribute('aria-label', 'Language');
 
-  const trigger = document.createElement('summary');
-  trigger.className = 'code-block__language-trigger btn btn--small';
+  entries.forEach((entry, index) => {
+    const option = document.createElement('option');
+    option.value = String(index);
+    option.textContent = entry.name;
+    select.appendChild(option);
+  });
 
-  const caret = el('i', 'fa-solid fa-caret-down btn__icon');
-  caret.setAttribute('aria-hidden', 'true');
-
-  const triggerLabel = el('span', 'btn__label', entries[0].name);
-  trigger.append(triggerLabel, caret);
-
-  // The visible text alone would name the control "PowerShell", which says
-  // nothing about it being a control.
-  const nameTrigger = (name) =>
-    trigger.setAttribute('aria-label', `Language: ${name}. Change language`);
-
-  const select = (index) => {
+  const show = () => {
+    const index = select.selectedIndex;
     panels.forEach((panel, i) => (panel.hidden = i !== index));
     label.textContent = entries[index].label;
     label.hidden = !entries[index].label;
     measure(block);
   };
 
-  const options = el('ul', 'code-block__language-options');
-  entries.forEach((entry, index) => {
-    const option = document.createElement('button');
-    option.type = 'button';
-    option.className = 'code-block__language-option';
-    option.textContent = entry.name;
-    option.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+  select.addEventListener('change', show);
 
-    option.addEventListener('click', () => {
-      triggerLabel.textContent = entry.name;
-      nameTrigger(entry.name);
-      qsa('.code-block__language-option', options).forEach((other) =>
-        other.setAttribute('aria-pressed', String(other === option))
-      );
-      menu.open = false;
-      select(index);
-    });
+  // Wrapped, because a <select> renders no pseudo-element to hang the caret on.
+  const switcher = document.createElement('span');
+  switcher.className = 'code-block__language-switcher';
+  switcher.appendChild(select);
 
-    const item = document.createElement('li');
-    item.appendChild(option);
-    options.appendChild(item);
-  });
-
-  menu.append(trigger, options);
-  addMenuListeners(menu, trigger);
-
-  nameTrigger(entries[0].name);
-  qs('.code-block__language', block).replaceWith(menu);
-  select(0);
-}
-
-/**
- * @param {HTMLDetailsElement} menu
- * @param {HTMLElement} trigger
- */
-function addMenuListeners(menu, trigger) {
-  menu.addEventListener('keydown', (event) => {
-    if (!menu.open || event.key !== 'Escape') return;
-    event.preventDefault();
-    menu.open = false;
-    trigger.focus();
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!menu.open) return;
-    if (event.target instanceof Node && menu.contains(event.target)) return;
-    menu.open = false;
-  });
+  qs('.code-block__language', block).replaceWith(switcher);
+  show();
 }
 
 /**
@@ -170,7 +115,7 @@ function enhanceGroups() {
     participants[0].replaceWith(host);
     participants.forEach((details) => details.remove());
 
-    addLanguageMenu(host, entries);
+    addLanguageSelect(host, entries);
   });
 }
 
