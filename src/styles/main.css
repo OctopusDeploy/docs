@@ -337,7 +337,9 @@ strong {
   padding-block-start: var(--space6);
 }
 
-.page-content :is(pre, figure) {
+/* The block, not the <pre> it wraps: spacing the inner element would push the
+   code away from its own header. */
+.page-content :is(.code-block, figure) {
   margin-block: var(--space24);
 }
 
@@ -2651,9 +2653,9 @@ a[data-youtube] {
   font-family: fa-solid;
 }
 
-/* Code block, built around every fenced block by code-blocks.js */
+/* Code block, built around every fenced block by code-blocks.js. Spacing comes
+   from the .page-content rule it shares with figures. */
 .code-block {
-  margin-block: 1rem;
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-radius: var(--borderRadiusMedium);
   background: var(--colorBackgroundPrimaryDefault);
@@ -2735,17 +2737,16 @@ a[data-youtube] {
 }
 
 /* On the wrapper, because a <select> renders no pseudo-elements of its own.
-   A mask so the caret takes the icon color in both themes. */
+   Same glyph the Button component uses for a dropdown. */
 .code-block__language-switcher::after {
-  content: '';
+  content: '\f0d7'; /* fa-caret-down */
+  font-family: fa-solid;
   position: absolute;
-  inset-inline-end: var(--space6);
+  inset-inline-end: var(--space8);
   top: 50%;
   translate: 0 -50%;
-  width: 1.25rem;
-  height: 1.25rem;
-  background-color: var(--colorIconPrimary);
-  mask: url('../assets/icons/caret-down.svg') center / contain no-repeat;
+  line-height: 1;
+  color: var(--colorIconPrimary);
   pointer-events: none;
 }
 
