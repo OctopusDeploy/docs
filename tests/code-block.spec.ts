@@ -160,38 +160,22 @@ test.describe('code block', () => {
     await expect(page.locator('.tab-list').first()).toBeVisible();
   });
 
-  test('only a collapsed block takes a tab stop', async ({ page }) => {
-    await page.goto(SINGLE);
-    // Nothing overflows, so a block that fits needs no tab stop
-    await expect(page.locator('.code-block pre')).not.toHaveAttribute(
-      'tabindex',
-      '0'
-    );
-
-    await page.goto(LONG);
-    const collapsible = page.locator('.code-block[data-collapsible]').first();
-    const pre = collapsible.locator('pre').first();
-    await expect(pre).toHaveAttribute('tabindex', '0');
-
-    // Focus is the keyboard's way in, since clicking the code is the mouse's
-    await pre.focus();
-    await expect(collapsible).toHaveAttribute('data-expanded', '');
-  });
-
-  test('collapses a long block until it is clicked', async ({ page }) => {
+  test('a long block collapses behind a Show more button', async ({ page }) => {
     await page.goto(LONG);
 
     const block = page.locator('.code-block[data-collapsible]').first();
-    await expect(block).toBeVisible();
+    const toggle = block.locator('.code-block__toggle');
     await expect(block.locator('.code-block__fade')).toBeVisible();
+    await expect(toggle).toHaveText('Show more');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 
     const collapsed = await block.locator('.code-block__body').boundingBox();
     expect(collapsed!.height).toBe(500);
 
-    await block.locator('.code-block__body').click();
+    await toggle.click();
     await expect(block).toHaveAttribute('data-expanded', '');
-
-    // Waits out the expand transition before measuring
+    await expect(toggle).toHaveText('Show less');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await expect
       .poll(
         async () =>
@@ -199,8 +183,31 @@ test.describe('code block', () => {
       )
       .toBeGreaterThan(500);
 
-    // Clicking away puts it back
+    // Clicking elsewhere leaves it open: collapsing under the reader moved the
+    // page out from under them.
     await page.locator('h1').click();
+    await expect(block).toHaveAttribute('data-expanded', '');
+
+    await toggle.click();
     await expect(block).not.toHaveAttribute('data-expanded', '');
+    await expect(toggle).toHaveText('Show more');
+  });
+
+  test('a block that fits shows no toggle', async ({ page }) => {
+    await page.goto(SINGLE);
+
+    const block = page.locator('.code-block').first();
+    await expect(block).not.toHaveAttribute('data-collapsible', '');
+    await expect(block.locator('.code-block__toggle')).toBeHidden();
+    await expect(block.locator('.code-block__fade')).toBeHidden();
+  });
+
+  test('clicking the code opens it too', async ({ page }) => {
+    await page.goto(LONG);
+
+    const block = page.locator('.code-block[data-collapsible]').first();
+    await block.locator('.code-block__body').click();
+    await expect(block).toHaveAttribute('data-expanded', '');
+    await expect(block.locator('.code-block__toggle')).toHaveText('Show less');
   });
 });

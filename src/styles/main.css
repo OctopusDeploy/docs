@@ -2902,15 +2902,17 @@ a[data-youtube] {
   cursor: auto;
 }
 
+/* Tall, and fading from its very top, so the code visibly runs out rather than
+   stopping at an edge that reads as the end of it. */
 .code-block__fade {
   display: none;
   position: absolute;
   inset-inline: 0;
   inset-block-end: 0;
-  height: 59px;
+  height: 7.5rem;
   background: linear-gradient(
     to bottom,
-    rgb(from var(--colorBackgroundPrimaryDefault) r g b / 0) 60%,
+    rgb(from var(--colorBackgroundPrimaryDefault) r g b / 0),
     var(--colorBackgroundPrimaryDefault)
   );
   pointer-events: none;
@@ -2919,6 +2921,44 @@ a[data-youtube] {
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
+}
+
+.code-block__toggle {
+  display: none;
+  width: 100%;
+  padding: var(--space8);
+  border: 0;
+  border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-end-start-radius: var(--borderRadiusMedium);
+  border-end-end-radius: var(--borderRadiusMedium);
+  background: transparent;
+  color: var(--colorTextLinkDefault);
+  font: var(--textBodyRegularMedium);
+  cursor: pointer;
+}
+
+.code-block[data-collapsible] .code-block__toggle {
+  display: block;
+}
+
+.code-block__toggle:is(:hover, :focus-visible) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.code-block__toggle::after {
+  content: '\f0d7'; /* fa-caret-down */
+  font-family: fa-solid;
+  margin-inline-start: var(--space8);
+  display: inline-block;
+  transition: rotate var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block[data-expanded] .code-block__toggle::after {
+  rotate: 180deg;
 }
 
 .code-block[data-collapsible] .code-block__fade {
