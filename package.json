@@ -38,6 +38,7 @@
         "html-to-text": "^10.0.0",
         "keyword-extractor": "^0.0.28",
         "optional": "^0.1.4",
+        "photoswipe": "^5.4.4",
         "remark-directive": "^4.0.0",
         "remark-heading-id": "^1.0.1",
         "sharp": "^0.34.5"

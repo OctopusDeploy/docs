@@ -250,41 +250,39 @@ figure img[data-hidden='true'] {
   margin-block-start: 0.8125rem;
 }
 
-.zoom-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: var(--color-base-primary);
-  animation: zoom-fade 200ms ease-out;
+/* PhotoSwipe ships a dark scrim; the design is the page background, opaque.
+   Its stylesheet is imported by the lazily loaded module, so it lands after
+   this file and an equal-specificity selector would lose. */
+html .pswp {
+  --pswp-bg: var(--color-base-primary);
+  --pswp-icon-color: var(--color-heading);
+  --pswp-icon-color-secondary: var(--color-base-primary);
 }
 
-.zoom-overlay--closing {
-  animation: zoom-fade 200ms ease-out reverse forwards;
-}
-
-.zoom-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 101;
+.pswp__img {
+  box-sizing: border-box;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: 0.5rem;
   cursor: zoom-out;
 }
 
-.zoom-lightbox > div {
-  position: absolute;
-}
-
-.zoom-lightbox img {
+/* The placeholder is the stretched thumbnail shown while the full size
+   decodes. Without the same border it flashes a different shape. */
+.pswp__img--placeholder {
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border: var(--borderWidth1) solid transparent;
   border-radius: 0.5rem;
 }
 
-@keyframes zoom-fade {
-  from {
-    opacity: 0;
-  }
+.pswp__button--close {
+  margin-inline-end: 0.5rem;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.pswp__button--close:hover,
+.pswp__button--close:focus-visible {
+  background: var(--bg-color-menu);
 }
 
 input {

@@ -51,6 +51,9 @@ importers:
       optional:
         specifier: ^0.1.4
         version: 0.1.4
+      photoswipe:
+        specifier: ^5.4.4
+        version: 5.4.4
       remark-directive:
         specifier: ^4.0.0
         version: 4.0.0
@@ -2577,6 +2580,10 @@ packages:
 
   peberminta@0.10.0:
     resolution: {integrity: sha512-80B2AsU+I4Qdb0ZAPSfe9UwvGzwkM37IKIFEvdS3D/3Ndgv2bsuJ0bfG1+iEYO+l7Gfd4EUJmuRyq7efLgRMzQ==}
+
+  photoswipe@5.4.4:
+    resolution: {integrity: sha512-WNFHoKrkZNnvFFhbHL93WDkW3ifwVOXSW3w1UuZZelSmgXpIGiZSNlZJq37rR8YejqME2rHs9EhH9ZvlvFH2NA==}
+    engines: {node: '>= 0.12.0'}
 
   piccolore@0.1.3:
     resolution: {integrity: sha512-o8bTeDWjE086iwKrROaDf31K0qC/BENdm15/uH9usSC/uZjJOKb2YGiVHfLY4GhwsERiPI1jmwI2XrA7ACOxVw==}
@@ -6164,6 +6171,8 @@ snapshots:
       pify: 3.0.0
 
   peberminta@0.10.0: {}
+
+  photoswipe@5.4.4: {}
 
   piccolore@0.1.3: {}
 
