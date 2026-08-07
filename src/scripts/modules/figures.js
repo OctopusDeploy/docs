@@ -88,12 +88,33 @@ function enhanceFigures() {
 
   lightbox.init();
 
+  // Keeping the module out of the main bundle costs the first click the time
+  // it takes to fetch, which on a slow connection reads as a dead click. Any
+  // signal that a click is coming is enough to have it ready.
+  let warmed = false;
+  const warm = () => {
+    if (warmed) return;
+
+    warmed = true;
+    import('photoswipe');
+  };
+
   qsa('figure img').forEach((img) => {
     img.tabIndex = 0;
 
+    img.addEventListener('pointerenter', warm, { once: true });
+    img.addEventListener('focus', warm, { once: true });
+    img.addEventListener('touchstart', warm, { once: true, passive: true });
+
     const open = () => {
       source = img;
-      lightbox.loadAndOpen(0, [{ ...largest(img), alt: img.alt }]);
+
+      // msrc is the already-decoded thumbnail. Without it PhotoSwipe zooms a
+      // grey placeholder box and only swaps in the image once it has loaded,
+      // which reads as the screen going dark before anything appears.
+      lightbox.loadAndOpen(0, [
+        { ...largest(img), msrc: img.currentSrc || img.src, alt: img.alt },
+      ]);
     };
 
     img.addEventListener('click', open);

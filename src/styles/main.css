@@ -255,6 +255,9 @@ figure img[data-hidden='true'] {
    this file and an equal-specificity selector would lose. */
 html .pswp {
   --pswp-bg: var(--color-base-primary);
+  /* Only reached when an image has no thumbnail to grow from; the default
+     #222 flashes dark against an otherwise opaque page background */
+  --pswp-placeholder-bg: var(--color-base-primary);
   --pswp-icon-color: var(--color-heading);
   --pswp-icon-color-secondary: var(--color-base-primary);
 }
