@@ -137,8 +137,17 @@ function measure(block) {
 
   block.removeAttribute('data-collapsible');
   const height = body.scrollHeight;
+  const collapsible = height > COLLAPSE_HEIGHT;
 
-  if (height <= COLLAPSE_HEIGHT) {
+  // The code is the only thing in the body that can take focus, and focus is
+  // how a collapsed block is opened without a mouse. Nothing wraps past the
+  // edge, so a block that fits needs no tab stop of its own.
+  qsa('pre', body).forEach((pre) => {
+    if (collapsible) pre.setAttribute('tabindex', '0');
+    else pre.removeAttribute('tabindex');
+  });
+
+  if (!collapsible) {
     block.removeAttribute('data-expanded');
     return;
   }

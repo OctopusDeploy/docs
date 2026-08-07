@@ -76,9 +76,6 @@ export default function shikiCodeBlock() {
       );
       const label = this.options.meta?.__raw?.trim() ?? '';
 
-      // Focusable so an overflowing panel can be scrolled from the keyboard.
-      pre.properties = { ...pre.properties, tabindex: '0' };
-
       const header = h('div', { className: ['code-block__header'] }, [
         h(
           'p',
