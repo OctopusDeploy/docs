@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-17
-modDate: 2026-07-22
+modDate: 2026-08-10
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -154,6 +154,21 @@ To view ephemeral environments:
 Environments can be filtered by name and by the current state of the environment for the project.
 
 ![Filtering the ephemeral environments used within a project by the name of the environment](/docs/projects/ephemeral-environments/viewing-ephemeral-environments.png)
+
+## Environment URLs
+
+An environment URL is a type of [environment state](/docs/infrastructure/environments/environment-state) that Octopus gives first-class support. When a deployment or runbook run of the ephemeral environment sets an environment URL, Octopus shows it as a clickable link in the table on the **Ephemeral Environments** page, so anyone reviewing the environment can open the running app without digging through task logs. To set an environment URL from a deployment or runbook step, see [Setting an environment URL](/docs/infrastructure/environments/environment-state#setting-an-environment-url).
+
+For example, the following deployment script builds the running app's URL from the namespace it deployed to, and sets an environment URL named `App`:
+
+```powershell PowerShell
+$applicationUrl = "https://$namespace.australiaeast.cloudapp.azure.com"
+Set-EnvironmentUrl "App" "$applicationUrl"
+```
+
+Octopus then shows the `App` URL as a clickable link on the **Ephemeral Environments** page:
+
+![An ephemeral environment's URL shown as a clickable link on the Ephemeral Environments page](/docs/projects/ephemeral-environments/ephemeral-environment-url.png)
 
 ## Updating an existing environment
 

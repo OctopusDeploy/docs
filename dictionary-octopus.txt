@@ -157,6 +157,8 @@ emptytitle
 enableservicemessages
 entra
 environmentids
+environmentstate
+environmenturl
 eprintfn
 esac
 exfiltrate

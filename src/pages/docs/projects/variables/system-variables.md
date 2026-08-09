@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-03
+modDate: 2026-08-07
 title: System variables
 sidebarLabel: System variables
 navOrder: 20
@@ -130,6 +130,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Environment.MachinesInRole[role]` | The machines with the specified target tag being deployed to. | `machines-123,machines-124` |
 | `Octopus.Environment.Name` | The name of the environment. | Production |
 | `Octopus.Environment.SortOrder` | The order applied to the environment on the dashboard and elsewhere. | `3` |
+| `Octopus.Environment.State[key]` | The value of an [environment state](/docs/infrastructure/environments/environment-state) entry with the given key. | `#{Octopus.Environment.State[appUrl]}` |
 | `Octopus.Machine.Id` | The ID of the machine. | `machines-123` |
 | `Octopus.Machine.Name` | The name used to register the machine in Octopus. Not the same as the hostname. | `WEBSVR01` |
 | `Octopus.Machine.Roles` | The target tags associated with the machine. | `web-server,frontend` |
