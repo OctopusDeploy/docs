@@ -4,15 +4,13 @@ pubDate: 2026-08-07
 modDate: 2026-08-08
 title: Environment state
 navTitle: Environment state
-description: Save key/value state against a project, environment, and optionally a tenant during a deployment or runbook run, then read it back in later deployments and runs.
+description: Save key/value state during a deployment or runbook run, then read it back in later deployments and runs.
 navOrder: 30
 ---
 
 Environment state lets a deployment or [runbook](/docs/runbooks) run save key/value pairs scoped to the combination of project, environment, and optionally a tenant. Later deployments and runbook runs for the same project and environment can then read those values back.
 
-Environment state addresses a common problem with [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook often creates infrastructure that later steps depend on, such as a Kubernetes namespace, a connection string, or an application URL. Without environment state, each step must re-derive these values independently, usually by repeating the same expression from one step to the next, which is error-prone. With environment state, the step that creates the infrastructure records each value once, and every later deployment, runbook run, and the deprovisioning runbook reads it directly from Octopus. Although this example shows a use case for ephemeral environments, you can use environment state with any environment.
-
-An environment URL is a type of environment state, but gets first-class support in Octopus. It is stored like any other state, and surfaced as a clickable link in the Octopus Web Portal. For more information, see [Setting an environment URL](#setting-an-environment-url).
+Environment state addresses a common problem with [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook often creates infrastructures that later steps depend on, such as a Kubernetes namespace or an application URL. Without environment state, each step must re-derive these values, which is error-prone. Environment state records each value once, so every later deployment, runbook run, and deprovisioning runbook reads it directly from Octopus. It works with any environment, not just ephemeral ones.
 
 ## How environment state works
 
@@ -24,9 +22,9 @@ Each entry is keyed by project, environment, and optionally a tenant, so state i
 
 ## Setting environment state
 
-Set state from any [script step](/docs/deployments/custom-scripts) using the wrapper functions Octopus provides for PowerShell and Bash.
+Set state from a PowerShell or Bash [script step](/docs/deployments/custom-scripts) using the wrapper functions Octopus provides.
 
-<details data-group="environment-state">
+<details data-group="set-environment-state">
 <summary>PowerShell</summary>
 
 ```powershell
@@ -34,7 +32,7 @@ Set-EnvironmentState -Key "namespace" -Value "webstore-pr-482"
 ```
 
 </details>
-<details data-group="environment-state">
+<details data-group="set-environment-state">
 <summary>Bash</summary>
 
 ```bash
@@ -47,7 +45,7 @@ set_environmentstate "namespace" "webstore-pr-482"
 
 Mark a value as sensitive to store it encrypted at rest and mask it in task logs. Add the `-Sensitive` switch in PowerShell, or `-sensitive` as the third argument in Bash.
 
-<details data-group="environment-state">
+<details data-group="set-sensitive-environment-state">
 <summary>PowerShell</summary>
 
 ```powershell
@@ -55,7 +53,7 @@ Set-EnvironmentState -Key "connectionString" -Value "Server=db;Password=s3cret" 
 ```
 
 </details>
-<details data-group="environment-state">
+<details data-group="set-sensitive-environment-state">
 <summary>Bash</summary>
 
 ```bash
@@ -68,15 +66,9 @@ set_environmentstate "connectionString" "Server=db;Password=s3cret" -sensitive
 
 Octopus makes each state entry available as a [variable](/docs/projects/variables) named `Octopus.Environment.State[key]` in later deployment or runbook run, where `key` is the name you set.
 
-Use the variable in a step field with [variable binding syntax](/docs/projects/variables/variable-substitutions):
+Read it from a script:
 
-```text
-#{Octopus.Environment.State[namespace]}
-```
-
-Or read it from a script:
-
-<details data-group="environment-state">
+<details data-group="consume-environment-state">
 <summary>PowerShell</summary>
 
 ```powershell
@@ -84,7 +76,7 @@ $namespace = $OctopusParameters["Octopus.Environment.State[namespace]"]
 ```
 
 </details>
-<details data-group="environment-state">
+<details data-group="consume-environment-state">
 <summary>Bash</summary>
 
 ```bash
@@ -97,11 +89,11 @@ Environment state variables also appear in the variable helper in the process ed
 
 ## Setting an environment URL
 
-An environment URL is a special kind of environment state. Octopus stores it alongside your other state entries, shows it as a clickable link and makes it available from the API.
+An environment URL is a type of environment state, but gets first-class support in Octopus. It is stored like any other environment state, and surfaced as a clickable link in the Octopus Web Portal and available from the API.
 
 Set a URL with the `Set-EnvironmentUrl` (PowerShell) or `set_environmenturl` (Bash) function. The first argument is the key that names the URL, and the second is the URL itself.
 
-<details data-group="environment-state">
+<details data-group="environment-url">
 <summary>PowerShell</summary>
 
 ```powershell
@@ -109,7 +101,7 @@ Set-EnvironmentUrl -Key "Store front" -Url "https://pr-123.example.com"
 ```
 
 </details>
-<details data-group="environment-state">
+<details data-group="environment-url">
 <summary>Bash</summary>
 
 ```bash
@@ -118,21 +110,21 @@ set_environmenturl "Store front" "https://pr-123.example.com"
 
 </details>
 
-URLs set this way show as clickable links on the **Ephemeral Environments** page in the project, so anyone reviewing the environment can open the running app.
+URLs set this way show as clickable links on the [Ephemeral Environments](/docs/projects/ephemeral-environments#environment-urls) in the project, so anyone reviewing the environment can open the running app.
 
-:::hint
+:::div{.hint}
 A URL is a special kind of environment state, so its key must be unique across your state entries and your URLs for the same project, environment, and tenant. Reusing a key overwrites the value stored under it.
 :::
 
 ### Getting URLs from the API
 
-You can fetch the environment URLs from the API, which is useful for agents and scripts that need a link to the running app without reading the task log:
+You can fetch the environment URLs from the API, which is useful for AI agents and scripts that need a link to the running app without reading the task log. Add an optional `tenantId` query parameter for [tenanted](/docs/tenants) runs.
 
 ```text
 GET /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/urls
 ```
 
-Add an optional `tenantId` query parameter for [tenanted](/docs/tenants) runs. The response is an array of name and URL pairs:
+The response is an array of name and URL pairs:
 
 ```json
 [
