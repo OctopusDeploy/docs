@@ -180,9 +180,12 @@ function addCollapseListeners() {
 
       const expanded = block.toggleAttribute('data-expanded');
       setToggle(block, expanded);
-      // A block collapsing above the viewport would leave the reader somewhere
-      // else on the page.
-      if (!expanded) block.scrollIntoView({ block: 'nearest' });
+      // Closing takes back however tall the block was, so the reader is put at
+      // the top of it rather than wherever that height ran out. Instant,
+      // because animating a jump this large only reads as lag.
+      if (!expanded) {
+        block.scrollIntoView({ block: 'start', behavior: 'instant' });
+      }
       return;
     }
 

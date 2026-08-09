@@ -2926,13 +2926,12 @@ a[data-youtube] {
 .code-block__toggle {
   display: none;
   width: 100%;
-  padding: var(--space8);
+  padding: var(--space12);
   border: 0;
-  border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-end-start-radius: var(--borderRadiusMedium);
   border-end-end-radius: var(--borderRadiusMedium);
   background: transparent;
-  color: var(--colorTextLinkDefault);
+  color: var(--colorTextSecondary);
   font: var(--textBodyRegularMedium);
   cursor: pointer;
 }
