@@ -26,23 +26,43 @@ Each entry is keyed by project, environment, and optionally a tenant, so state i
 
 Set state from any [script step](/docs/deployments/custom-scripts) using the wrapper functions Octopus provides for PowerShell and Bash.
 
-```powershell PowerShell
+<details data-group="environment-state">
+<summary>PowerShell</summary>
+
+```powershell
 Set-EnvironmentState -Key "namespace" -Value "webstore-pr-482"
 ```
-```bash Bash
+
+</details>
+<details data-group="environment-state">
+<summary>Bash</summary>
+
+```bash
 set_environmentstate "namespace" "webstore-pr-482"
 ```
+
+</details>
 
 ### Sensitive values
 
 Mark a value as sensitive to store it encrypted at rest and mask it in task logs. Add the `-Sensitive` switch in PowerShell, or `-sensitive` as the third argument in Bash.
 
-```powershell PowerShell
+<details data-group="environment-state">
+<summary>PowerShell</summary>
+
+```powershell
 Set-EnvironmentState -Key "connectionString" -Value "Server=db;Password=s3cret" -Sensitive
 ```
-```bash Bash
+
+</details>
+<details data-group="environment-state">
+<summary>Bash</summary>
+
+```bash
 set_environmentstate "connectionString" "Server=db;Password=s3cret" -sensitive
 ```
+
+</details>
 
 ## Using environment state in later runs
 
@@ -50,32 +70,53 @@ Octopus makes each state entry available as a [variable](/docs/projects/variable
 
 Use the variable in a step field with [variable binding syntax](/docs/projects/variables/variable-substitutions):
 
-```
+```text
 #{Octopus.Environment.State[namespace]}
 ```
 
 Or read it from a script:
 
-```powershell PowerShell
+<details data-group="environment-state">
+<summary>PowerShell</summary>
+
+```powershell
 $namespace = $OctopusParameters["Octopus.Environment.State[namespace]"]
 ```
-```bash Bash
+
+</details>
+<details data-group="environment-state">
+<summary>Bash</summary>
+
+```bash
 namespace=$(get_octopusvariable "Octopus.Environment.State[namespace]")
 ```
+
+</details>
 
 Environment state variables also appear in the variable helper in the process editor, so you can pick them without typing the full name.
 
 ## Setting an environment URL
+
 An environment URL is a special kind of environment state. Octopus stores it alongside your other state entries, shows it as a clickable link and makes it available from the API.
 
 Set a URL with the `Set-EnvironmentUrl` (PowerShell) or `set_environmenturl` (Bash) function. The first argument is the key that names the URL, and the second is the URL itself.
 
-```powershell PowerShell
+<details data-group="environment-state">
+<summary>PowerShell</summary>
+
+```powershell
 Set-EnvironmentUrl -Key "Store front" -Url "https://pr-123.example.com"
 ```
-```bash Bash
+
+</details>
+<details data-group="environment-state">
+<summary>Bash</summary>
+
+```bash
 set_environmenturl "Store front" "https://pr-123.example.com"
 ```
+
+</details>
 
 URLs set this way show as clickable links on the **Ephemeral Environments** page in the project, so anyone reviewing the environment can open the running app.
 
@@ -87,7 +128,7 @@ A URL is a special kind of environment state, so its key must be unique across y
 
 You can fetch the environment URLs from the API, which is useful for agents and scripts that need a link to the running app without reading the task log:
 
-```
+```text
 GET /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/urls
 ```
 
@@ -102,9 +143,8 @@ Add an optional `tenantId` query parameter for [tenanted](/docs/tenants) runs. T
 This endpoint is also available through the [Octopus MCP server](/docs/octopus-ai/mcp), so agents can discover the URL directly.
 
 ## Availability
-//TODO: confirm version number
 
-Environment state is available to all cloud and self-hosted customers from version `2026.3.X`.
+Environment state is available to all cloud and self-hosted customers from version `2026.3.10863`.
 
 ## Learn more
 
