@@ -11,8 +11,8 @@ function stillFrames() {
 }
 
 /**
- * The rect the image animates to: its own aspect ratio, centred in the
- * viewport, never scaled past the source image's real pixel width.
+ * Where the image lands: its own aspect ratio, centred, never wider than the
+ * source really is.
  *
  * @param {HTMLImageElement} img
  */
@@ -35,32 +35,6 @@ function targetRect(img) {
     width,
     height,
   };
-}
-
-/**
- * The version of an image with the most pixels in it.
- *
- * src is the untouched original, so it is never smaller than anything in the
- * srcset and is the answer whenever the two differ - the widest generated
- * variant stops at 2000px, which throws away most of a 3326px screenshot.
- * When a variant does match the original's width it is the same picture in a
- * newer format, so it wins on weight: 67KB against 183KB for the dashboard.
- *
- * @param {HTMLImageElement} img
- */
-function largest(img) {
-  const original = img.getAttribute('src') ?? img.currentSrc;
-  const native = Number(img.getAttribute('width'));
-  if (!native) return original;
-
-  const widest = (img.getAttribute('srcset') ?? '')
-    .split(',')
-    .map((candidate) => candidate.trim().split(/\s+/))
-    .filter(([, descriptor]) => descriptor?.endsWith('w'))
-    .map(([url, descriptor]) => ({ url, width: parseInt(descriptor, 10) }))
-    .sort((a, b) => b.width - a.width)[0];
-
-  return widest && widest.width >= native ? widest.url : original;
 }
 
 /**
@@ -95,20 +69,17 @@ function open(img) {
   const frame = document.createElement('div');
   const clone = /** @type {HTMLImageElement} */ (img.cloneNode());
 
-  // The thumbnail was picked for a column, so it has fewer pixels than the
-  // lightbox needs. Naming the full-size file beats leaving the browser to
-  // reselect, which keeps the small one on screen until the swap lands.
+  // src is the original. Every srcset entry is a variant generated for a
+  // column, capped at 2000px, so keep the clone off them.
   clone.removeAttribute('srcset');
   clone.removeAttribute('sizes');
-  clone.src = largest(img);
 
   frame.appendChild(clone);
   lightbox.append(frame, close);
   document.body.append(overlay, lightbox);
 
-  // Refusing the scroll on the overlay itself, the way PhotoSwipe does it.
   // Hiding the document's overflow would take the scrollbar away, widening
-  // the viewport and shifting the content out from under the fixed header.
+  // the viewport and shifting the page out from under the fixed header.
   const refuse = (/** @type {Event} */ event) => event.preventDefault();
   lightbox.addEventListener('wheel', refuse, { passive: false });
   lightbox.addEventListener('touchmove', refuse, { passive: false });
@@ -136,8 +107,7 @@ function open(img) {
     document.removeEventListener('keydown', onKey);
     overlay.classList.add('zoom-overlay--closing');
 
-    // The way out has been taken, so the button has no job for the length of
-    // the animation. Leaving it up reads as the lightbox failing to close.
+    // Leaving it up for the length of the animation reads as a missed click
     close.remove();
 
     let closed = false;
@@ -156,7 +126,7 @@ function open(img) {
       return;
     }
 
-    // Recomputed, because the page can scroll while the lightbox is open
+    // Recomputed, because the keyboard can still scroll the page underneath
     place(frame, img.getBoundingClientRect());
     frame.addEventListener('transitionend', done, { once: true });
     setTimeout(done, duration + 50);
@@ -166,28 +136,24 @@ function open(img) {
   lightbox.addEventListener('click', () => dismiss?.());
   document.addEventListener('keydown', onKey);
 
-  // Focus stays on the image otherwise, which is hidden while the lightbox is
-  // open, so the first Tab would walk into the page behind it instead of
-  // reaching the way out.
+  // Focus would otherwise sit on the hidden image, sending the first Tab into
+  // the page behind
   close.focus({ preventScroll: true });
 }
 
 /**
- * Opens content images in a full-viewport lightbox.
- *
- * The image carries the interaction itself, so the markup stays a plain
- * <img>. tabindex is what a wrapping button would otherwise have given for
- * free, and without it the zoom would be mouse-only.
+ * Opens content images in a full-viewport lightbox. The interaction sits on
+ * the image itself, so the markup stays a plain <img> and tabindex keeps it
+ * reachable without a wrapper.
  */
 function enhanceFigures() {
   qsa('figure img').forEach((img) => {
     img.tabIndex = 0;
 
-    // Fetching the full size on the way to the click means the zoom does not
-    // spend its first frames showing the column-sized version stretched
+    // Fetch the original before the click, so the zoom does not open on a
+    // stretched thumbnail
     const warm = () => {
-      const full = largest(img);
-      if (full !== img.currentSrc) new Image().src = full;
+      if (img.src !== img.currentSrc) new Image().src = img.src;
     };
 
     img.addEventListener('pointerenter', warm, { once: true });
