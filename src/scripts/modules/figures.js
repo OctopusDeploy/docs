@@ -38,21 +38,29 @@ function targetRect(img) {
 }
 
 /**
- * The biggest version of an image we can reach. A srcset carries the real
- * width of each candidate in its descriptor, and an image without one is
- * already serving its full size.
+ * The version of an image with the most pixels in it.
+ *
+ * src is the untouched original, so it is never smaller than anything in the
+ * srcset and is the answer whenever the two differ - the widest generated
+ * variant stops at 2000px, which throws away most of a 3326px screenshot.
+ * When a variant does match the original's width it is the same picture in a
+ * newer format, so it wins on weight: 67KB against 183KB for the dashboard.
  *
  * @param {HTMLImageElement} img
  */
 function largest(img) {
-  const candidates = (img.getAttribute('srcset') ?? '')
+  const original = img.getAttribute('src') ?? img.currentSrc;
+  const native = Number(img.getAttribute('width'));
+  if (!native) return original;
+
+  const widest = (img.getAttribute('srcset') ?? '')
     .split(',')
     .map((candidate) => candidate.trim().split(/\s+/))
     .filter(([, descriptor]) => descriptor?.endsWith('w'))
     .map(([url, descriptor]) => ({ url, width: parseInt(descriptor, 10) }))
-    .sort((a, b) => b.width - a.width);
+    .sort((a, b) => b.width - a.width)[0];
 
-  return candidates[0]?.url ?? img.currentSrc ?? img.src;
+  return widest && widest.width >= native ? widest.url : original;
 }
 
 /**
