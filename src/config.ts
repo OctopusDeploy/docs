@@ -30,6 +30,12 @@ export const SITE: Site = {
     month: 'long',
     day: 'numeric',
   },
+  // "Jun 23, 2026" - the footer's last-updated line
+  shortDateOptions: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  },
   cacheMaxAge: 200,
   featureFlags: {
     stickyNav: { top: 112 },

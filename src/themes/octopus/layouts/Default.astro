@@ -5,8 +5,7 @@ import { getImageInfo } from '@util/custom-markdown.mjs';
 import { SITE } from '@config';
 import Head from '@components/HtmlHead.astro';
 import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import Copyright from '@components/Copyright.astro';
+import Footer from 'src/components/Footer.astro';
 import SkipLinks from '@components/SkipLinks.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Navigation from '@components/Navigation.astro';
@@ -90,9 +89,10 @@ stats.stop();
       </main>
       <Navigation lang={lang} />
     </div>
-    <Footer frontmatter={frontmatter} headings={headings} lang={lang}>
-      <Copyright frontmatter={frontmatter} headings={headings} lang={lang} />
-    </Footer>
+    <Footer
+      lang={lang}
+      lastUpdated={frontmatter.modDate ?? frontmatter.pubDate}
+    />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;

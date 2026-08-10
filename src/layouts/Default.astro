@@ -21,11 +21,9 @@ import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
-import LastUpdated from '../components/LastUpdated.astro';
 import CopyMarkdown from '../components/CopyMarkdown.astro';
 import Plausible from 'src/components/Plausible.astro';
-import SharedFooter from 'src/components/SharedFooter.astro';
-import SharedScripts from 'src/components/SharedScripts.astro';
+import Footer from 'src/components/Footer.astro';
 
 type Props = {
   frontmatter: OriginalFrontmatter;
@@ -59,6 +57,9 @@ const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
 
 const showSearch = !isSearchPage;
+
+// The footer prints this; the article keeps it in its schema.org markup.
+const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
 ---
 
 <html dir={textDirection} lang={lang} class="initial" data-theme="light">
@@ -97,11 +98,6 @@ const showSearch = !isSearchPage;
             />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
-            <LastUpdated
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
             <CopyMarkdown lang={lang} />
             <ArticleJourney
               frontmatter={frontmatter}
@@ -109,6 +105,14 @@ const showSearch = !isSearchPage;
               lang={lang}
             />
             {metaImage && <meta itemprop="image" content={metaImage.src} />}
+            {
+              lastUpdated && (
+                <meta
+                  itemprop="dateModified"
+                  content={new Date(lastUpdated).toISOString()}
+                />
+              )
+            }
           </div>
         </article>
       </main>
@@ -122,9 +126,9 @@ const showSearch = !isSearchPage;
         /> -->
         <ArticleNav headings={headings} lang={lang} />
       </div>
+      <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />
-    <SharedFooter />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
@@ -133,7 +137,5 @@ const showSearch = !isSearchPage;
       import '../scripts/main.js';
     </script>
     <Plausible />
-    <script src="//get.octopus.com/js/forms2/js/forms2.min.js" defer></script>
-    <SharedScripts />
   </body>
 </html>
