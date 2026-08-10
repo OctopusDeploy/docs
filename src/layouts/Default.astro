@@ -16,6 +16,7 @@ import Taxonomy from '@components/Taxonomy.astro';
 // Custom components
 import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleNav from '../components/ArticleNav.astro';
+import Feedback from '../components/Feedback.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
@@ -119,6 +120,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           lang={lang}
         /> -->
         <ArticleNav headings={headings} lang={lang} />
+        <Feedback lang={lang} />
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>

@@ -1799,6 +1799,79 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
+/* Feedback */
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space16);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+}
+
+.feedback__vote,
+.feedback__comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space8);
+  width: 100%;
+}
+
+.feedback__actions {
+  display: flex;
+  gap: var(--space8);
+}
+
+/* The exported icons carry a fixed fill, so they are masked to take a themed
+   color. 20px slot, 16x14 glyph, as the design insets them. */
+.feedback__icon {
+  background-color: var(--colorIconPrimary);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 1rem 0.875rem;
+}
+
+.feedback__icon--yes {
+  mask-image: url('../assets/icons/thumbs-up.svg');
+}
+
+.feedback__icon--no {
+  mask-image: url('../assets/icons/thumbs-down.svg');
+}
+
+/* The design calls this out: the label stays regular weight. */
+.feedback__label {
+  font: var(--textBodyRegularMedium);
+}
+
+.feedback__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 4.375rem;
+  padding: var(--space8);
+  border: var(--borderWidth1) solid var(--colorBorderBold);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  resize: vertical;
+}
+
+.feedback__textarea:focus-visible {
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+/* The table of contents column restacks above the article below this width, so
+   the widget would ask the question before anything had been read. */
+@media (max-width: 1130px) {
+  .feedback {
+    display: none;
+  }
+}
+
 /* "Use Octopus docs with AI" dropdown */
 .octo-copy-md {
   margin-block-start: var(--block-gap);

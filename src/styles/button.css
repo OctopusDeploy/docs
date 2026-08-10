@@ -80,6 +80,11 @@ img.btn__icon {
   background: var(--colorBackgroundPrimaryPressed);
 }
 
+/* A toggle button that is currently on holds the pressed background. */
+.btn[aria-pressed='true']:not(:disabled, [aria-disabled='true']) {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
 .btn:is(:disabled, [aria-disabled='true']) {
   background: var(--colorButtonBackgroundDisabled);
   border-color: var(--colorButtonBorderDisabled);

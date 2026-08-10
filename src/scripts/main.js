@@ -12,6 +12,7 @@ import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
 import { enableSharing } from './modules/share.js';
 import { highlightCurrentHeading } from './modules/toc.js';
+import { enhanceFeedback } from './modules/feedback.js';
 
 const resizedEventName = addResizedEvent();
 
@@ -29,6 +30,7 @@ monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');
 highlightCurrentHeading('.article-nav a');
+enhanceFeedback();
 
 // @ts-ignore
 const f = site_features ?? {};

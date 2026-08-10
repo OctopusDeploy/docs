@@ -1,0 +1,61 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { Lang, Translations } from '@util/Languages';
+import Button from './Button.astro';
+
+const stats = new accelerator.statistics('components/Feedback.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+stats.stop();
+---
+
+<section class="feedback" data-feedback aria-labelledby="feedback-question">
+  <div class="feedback__vote">
+    <p class="feedback__question" id="feedback-question">
+      {_(Translations.octopus_feedback.question)}
+    </p>
+    <div class="feedback__actions">
+      <Button
+        label={_(Translations.octopus_feedback.yes)}
+        icon="feedback__icon feedback__icon--yes"
+        size="small"
+        aria-pressed="false"
+        data-feedback-vote="5"
+      />
+      <Button
+        label={_(Translations.octopus_feedback.no)}
+        icon="feedback__icon feedback__icon--no"
+        size="small"
+        aria-pressed="false"
+        data-feedback-vote="1"
+      />
+    </div>
+  </div>
+
+  <div class="feedback__comment" data-feedback-comment hidden>
+    <label class="feedback__label" for="feedback-comment">
+      {_(Translations.octopus_feedback.comment_label)}
+    </label>
+    <textarea class="feedback__textarea" id="feedback-comment" rows="3"
+    ></textarea>
+    <Button
+      label={_(Translations.octopus_feedback.send)}
+      size="small"
+      importance="loud"
+      data-feedback-send
+    />
+  </div>
+
+  <p class="feedback__thanks" data-feedback-thanks role="status" hidden>
+    {_(Translations.octopus_feedback.thanks)}
+  </p>
+</section>
