@@ -113,7 +113,7 @@ set_environmenturl "Store front" "https://pr-123.example.com"
 URLs set this way show as clickable links on the [Ephemeral Environments](/docs/projects/ephemeral-environments#environment-urls) in the project, so anyone reviewing the environment can open the running app.
 
 :::div{.hint}
-A URL is a special kind of environment state, so its key must be unique across your state entries and your URLs for the same project, environment, and tenant. Reusing a key overwrites the value stored under it.
+A URL is a special kind of environment state, the key used must be unique across all state entries (including other URLs) for the same project, environment, and tenant. Reusing a key overwrites the value stored under it.
 :::
 
 ### Getting URLs from the API
