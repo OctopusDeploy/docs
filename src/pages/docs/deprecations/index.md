@@ -29,7 +29,7 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
-## VHD Deployments
+## VHD Deployments {#vhd-deprecation}
 
 The Deploy a VHD step allows for deployment of VHD/VHDX files to Hyper-V. This step has extremely low usage and will be disabled by default in `2026.4` and removed in `2027.1`.
 

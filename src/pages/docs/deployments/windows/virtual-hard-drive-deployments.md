@@ -9,6 +9,10 @@ navOrder: 20
 ---
 
 :::div{.warning}
+The Deploy a VHD step is being deprecated due to extremely low usage. See the [deprecations notice](/docs/deprecations#vhd-deprecation)
+:::
+
+:::div{.warning}
 The Deploy a VHD step requires the target Machine to be running Windows Server 2012 or newer, and the Tentacle service to have Administrator privileges.
 :::
 
