@@ -24,7 +24,7 @@ We list a few scenarios below to help you figure out what is the best setup for 
 1. **Multiple overlays**  
    This is the recommended usage if you are already using Kustomize and just want Octopus to orchestrate the deployment.
    In this scenario, our recommendation is to use `.env` files with Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions), so we can replace secrets and any other data managed via Octopus variables. These `.env` files are then used by [secretGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_secretgenerator_) and/or [configMapGenerator](https://kubectl.docs.kubernetes.io/references/kustomize/builtins/#_configmapgenerator_).  
-   Everything else is defined in the `kustomization.yaml` files directly, and overlays should match the same environment structure defined in Octopus itself. 
+   Everything else is defined in the `kustomization.yaml` files directly, and overlays should match the same environment structure defined in Octopus itself.
 
 2. **Single overlay for Octopus**  
    In this scenario, you may define two overlays, one being for local use outside Octopus, so you can test your `yaml` files. The other overlay is used exclusively by Octopus.  
@@ -49,7 +49,7 @@ This field must be a path to a directory containing the `kustomization.yaml` fil
 During deployment, **Kustomize** reads the `kustomization.yaml` file located at this path to perform manifest yaml transforms.  
 The path is relative to the root of the git repository.
 When using overlays, ensure the path is to the overlay directory containing `kustomization.yaml` file.  
-Also, remember that in Linux workers, the paths are case-sensitive, so it is always good practice to check this. 
+Also, remember that in Linux workers, the paths are case-sensitive, so it is always good practice to check this.
 
 ## Substitute Variables in Files
 
@@ -76,7 +76,7 @@ For example, if you add a container image reference for `nginx`:
 
 You will then be able to select the version of this container image at release creation time. You can use the referenced `nginx` container image in your `kustomization.yaml` file using the following syntax:
 
-```yaml
+```yaml Reference a container image package by version
 # ~/myApp/kustomization.yaml
 
 resources:
@@ -96,4 +96,5 @@ The "`#{Octopus.Action.Package[nginx].PackageVersion}`" Octostache expression wi
 
 - `Kustomize` was renamed to `Deploy with Kustomize`.
 - If you store your project configuration in a Git repository using the [Configuration as code feature](/docs/projects/version-control), you can source your Kustomize files from the same Git repository as your deployment process by selecting Project as the Git repository source. When creating a Release, the commit hash used for your deployment process will also be used to source the Kustomize files. You can learn more in [this blog post](https://octopus.com/blog/git-resources-in-deployments).
+
 :::
