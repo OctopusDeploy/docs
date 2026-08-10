@@ -38,7 +38,7 @@ function addLanguageSelect(block, entries) {
   const label = qs('.code-block__label', block);
 
   const select = document.createElement('select');
-  select.className = 'code-block__language-select btn btn--small';
+  select.className = 'code-block__language-select';
   select.setAttribute('aria-label', 'Language');
 
   entries.forEach((entry, index) => {

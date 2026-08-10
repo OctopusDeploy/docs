@@ -89,18 +89,12 @@ export default function shikiCodeBlock() {
             'button',
             {
               type: 'button',
-              className: ['code-block__copy', 'btn', 'btn--small'],
+              className: ['code-block__copy'],
               'data-tooltip': REST,
               'aria-label': 'Copy code to clipboard',
             },
             // Empty: the glyph is a CSS mask on the span itself.
-            [
-              h(
-                'span',
-                { className: ['code-block__copy-icon', 'btn__icon'] },
-                []
-              ),
-            ]
+            [h('span', { className: ['code-block__copy-icon'] }, [])]
           ),
         ]),
       ]);
