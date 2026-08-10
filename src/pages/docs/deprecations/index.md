@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-07-20
+modDate: 2026-08-10
 title: Deprecations
 description: Upcoming and past deprecations by version for Octopus Server
 navOrder: 300
@@ -28,6 +28,10 @@ If you have questions or need help assessing the impact of a deprecation on your
 :::
 
 ## Planned Deprecations
+
+## VHD Deployments {#vhd-deprecation}
+
+The Deploy a VHD step allows for deployment of VHD/VHDX files to Hyper-V. This step has extremely low usage and will be disabled by default in `2026.4` and removed in `2027.1`.
 
 ## Step Package Framework (SPF) deprecation {#step-package-framework-spf-deprecation}
 
