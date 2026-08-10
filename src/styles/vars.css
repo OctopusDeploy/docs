@@ -221,6 +221,11 @@
   --grid-gap-main: 1rem;
 
   --standard-radius: 0.5rem;
+
+  /* TODO: drop these once color.nav.background.* are available in design-system-tokens */
+  --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
+  --colorNavBackgroundHover: var(--colorScalesSlate100);
+  --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
 }
 
 @media (max-width: 860px) {
@@ -253,4 +258,7 @@ html[data-theme='dark'] {
   --badge-color: var(--octo-blue-lightest);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */
   --icon-tile-background-hover: var(--colorBackgroundTertiary);
+
+  /* TODO: drop once color.nav.background.* are available in design-system-tokens */
+  --colorNavBackgroundHover: var(--colorScalesNavy800);
 }
