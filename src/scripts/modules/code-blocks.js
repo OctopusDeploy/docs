@@ -184,7 +184,9 @@ function addCollapseListeners() {
       // the top of it rather than wherever that height ran out. Instant,
       // because animating a jump this large only reads as lag.
       if (!expanded) {
-        block.scrollIntoView({ block: 'start', behavior: 'auto' });
+        // 'instant' rather than 'auto': the site sets scroll-behavior: smooth
+        // on html, and 'auto' would defer to it and animate the jump.
+        block.scrollIntoView({ block: 'start', behavior: 'instant' });
       }
       return;
     }
