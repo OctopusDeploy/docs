@@ -359,8 +359,70 @@ strong {
   padding-block-start: var(--space6);
 }
 
-.page-content :is(pre, figure) {
+/* The .page-content > * rule only reaches the top level, so blocks stacked
+   inside a list item have no gap at all. The last one is skipped because the
+   space before the next item belongs to the rule above. */
+.page-content :where(ul, ol):not([class]) li > p:not(:last-child) {
+  margin-block-end: var(--space16);
+}
+
+/* A nested list continues the item it hangs off rather than starting a new
+   block, so it keeps list spacing. */
+.page-content :where(ul, ol):not([class]) li > p:has(+ :where(ul, ol)) {
+  margin-block-end: 0;
+}
+
+.page-content :where(ul, ol):not([class]) li > :where(ul, ol) {
+  padding-block-start: var(--space6);
+}
+
+/* Every non-text block embedded in the body carries space/8 above and below on
+   top of the space/16 block gap, so the pair reads as 24px. Inside a list item
+   they need nothing extra: sitting in the li already aligns them to the item
+   text, which is where Figma puts them. */
+.page-content :is(pre, figure, .table-wrap) {
   margin-block: var(--space24);
+}
+
+/* The copy button lives in a zero-height div injected in front of the code
+   block, so the space above the block has to sit on that div - left on the pre
+   it strands the button above the block. */
+.page-content .copy-container:has(+ pre) {
+  margin-block: var(--space24) 0;
+}
+
+.page-content .copy-container + pre {
+  margin-block-start: 0;
+}
+
+/* A callout or quote paints its own padding, so the blocks at either end of one
+   don't add to it. */
+.page-content
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  > :first-child {
+  margin-block-start: 0;
+}
+
+.page-content
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  > :last-child {
+  margin-block-end: 0;
 }
 
 /* Boxes */
@@ -552,12 +614,12 @@ table tr {
 }
 
 table td {
-  padding: var(--space-16) var(--space-24) var(--space-16) 0;
+  padding: var(--space16) var(--space24) var(--space16) 0;
 }
 
 table th {
   text-align: start;
-  padding: var(--space-12) var(--space-24) var(--space-12) 0;
+  padding: var(--space12) var(--space24) var(--space12) 0;
 }
 
 .table-full-width table {
@@ -2208,12 +2270,6 @@ a[data-youtube] {
      56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
   display: flow-root;
   padding-block-start: var(--space32);
-
-  li:has(figure) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
 }
 
 /* Paging */
