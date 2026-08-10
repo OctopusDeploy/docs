@@ -45,6 +45,14 @@ stats.stop();
             </li>
           ))}
         </ol>
+        {/* Slid onto the current heading's link by scripts/modules/toc.js,
+            which measures the links against this element's offset parent —
+            the <details> above. */}
+        <span
+          class="article-nav__indicator"
+          data-article-nav-indicator
+          aria-hidden="true"
+        />
       </details>
     </nav>
   )

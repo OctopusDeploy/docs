@@ -911,6 +911,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   display: flex;
   flex-direction: column;
   gap: var(--space16);
+  /* The containing block the indicator below is positioned against. */
+  position: relative;
 }
 
 /* Two classes throughout, so these beat the global `summary:hover,
@@ -975,15 +977,29 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   color: var(--colorTextPrimary);
 }
 
-/* The segment sits one border-width to the left of the link's box, which is
-   where the rail is regardless of how far the heading level indents. */
-.article-nav__link.highlight::before {
-  content: '';
+/* The nav indicator overlays the list so it can animate up and down and move smoothly as the user scrolls. */
+.article-nav__indicator {
   position: absolute;
-  inset-block: 0;
-  inset-inline-start: calc(-1 * var(--borderWidth2));
+  inset-block-start: 0;
+  inset-inline-start: 0;
   width: var(--borderWidth2);
   background-color: var(--colorBorderBold);
+  /* Nowhere to be until the script has measured a link. */
+  opacity: 0;
+}
+
+/* Added a frame after the first measurement, so the first placement is silent
+   and every later one is animated. Shorter than --duration-default, and eased
+   out, because this trails a scroll: at 300ms it reads as lagging behind. */
+.article-nav__indicator--ready {
+  opacity: 1;
+  transition:
+    transform 150ms ease-out,
+    height 150ms ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .article-nav .article-nav__link:hover,
@@ -1464,19 +1480,22 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Main content group */
 
 .content-group {
+  /* Every gap on this row is a track of its own, so that the one between the
+     article and the toc can differ from the rest.  */
   grid-template-columns:
     var(--navigation-width)
+    minmax(var(--grid-gap-main), 1fr)
     minmax(300px, var(--content-width-article))
-    /* space-between pins this column to the right edge of the window, so the
-       column carries a gutter on top of the width the toc itself is designed
-       to. .side-nav spends it as padding. */
-    calc(var(--toc-width) + var(--space16));
+    var(--toc-offset)
+    /* The toc column carries a gutter on top of the width of the toc itself,
+     which is what keeps it off the right edge of the window */
+    calc(var(--toc-width) + var(--space16))
+    minmax(0, 1fr);
   display: grid;
   grid-template-rows: auto;
-  gap: var(--grid-gap-main);
+  column-gap: 0;
   max-width: 100vw;
-  justify-content: space-between;
-  grid-template-areas: 'menu content toc';
+  grid-template-areas: 'menu . content . toc .';
   margin-top: 82px;
 }
 

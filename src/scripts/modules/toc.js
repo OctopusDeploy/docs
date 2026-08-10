@@ -3,6 +3,7 @@
 import { qsa } from './query.js';
 
 const highlightClass = 'highlight';
+const indicatorReadyClass = 'article-nav__indicator--ready';
 
 /**
  * Marks the link in a table of contents whose section the reader is in, and
@@ -32,6 +33,12 @@ function highlightCurrentHeading(tocSelector) {
     return;
   }
 
+  // Optional: only the article nav draws a sliding indicator, and only when the
+  // component has rendered one.
+  const indicator = entries[0].link
+    .closest('[data-article-nav]')
+    ?.querySelector('[data-article-nav-indicator]');
+
   /** @type {{link: HTMLElement, heading: HTMLElement} | undefined} */
   let current;
   let queued = false;
@@ -40,14 +47,17 @@ function highlightCurrentHeading(tocSelector) {
     queued = false;
 
     const entry = currentEntry(entries);
-    if (entry === current) {
-      return;
+
+    if (entry !== current) {
+      current = entry;
+      entries.forEach((candidate) => {
+        candidate.link.classList.toggle(highlightClass, candidate === entry);
+      });
     }
 
-    current = entry;
-    entries.forEach((candidate) => {
-      candidate.link.classList.toggle(highlightClass, candidate === entry);
-    });
+    // Measured every time rather than only on a change of section: a resize can
+    // rewrap the links under an unchanged one.
+    moveIndicator(indicator, entry.link);
   };
 
   // Scroll fires far more often than the page can paint, so the reading is
@@ -62,6 +72,43 @@ function highlightCurrentHeading(tocSelector) {
   update();
   window.addEventListener('scroll', queue, { passive: true });
   window.addEventListener('resize', queue);
+
+  // A collapsed list has no geometry to measure, so the indicator has to be
+  // placed again once it reopens.
+  entries[0].link.closest('details')?.addEventListener('toggle', queue);
+}
+
+/**
+ * Puts the sliding indicator, where there is one, over a link.
+ *
+ * A hidden link — the list collapsed at the restack breakpoint — measures zero,
+ * so the indicator is taken back to its unplaced state instead: hidden, and
+ * without a transition, so that reopening the list does not animate it in from
+ * wherever it used to be.
+ *
+ * @param {Element | null | undefined} indicator
+ * @param {HTMLElement} link
+ */
+function moveIndicator(indicator, link) {
+  if (!(indicator instanceof HTMLElement)) {
+    return;
+  }
+
+  if (link.offsetHeight === 0) {
+    indicator.classList.remove(indicatorReadyClass);
+    return;
+  }
+
+  indicator.style.transform = `translateY(${link.offsetTop}px)`;
+  indicator.style.height = `${link.offsetHeight}px`;
+
+  // A frame's grace, so the browser has the placement above as the state to
+  // animate from rather than animating the placement itself.
+  if (!indicator.classList.contains(indicatorReadyClass)) {
+    window.requestAnimationFrame(() => {
+      indicator.classList.add(indicatorReadyClass);
+    });
+  }
 }
 
 /**
