@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-04-23
+modDate: 2026-08-10
 title: Virtual hard drives deployments with Octopus
 navTitle: Virtual hard drives
 description: VHD steps allow you to deploy a virtual hard drive and optionally attach it to a Hyper-V virtual machine.
@@ -23,13 +23,13 @@ Octopus Deploy has built-in support for deploying Virtual Hard Drives. The featu
 To deploy a Virtual Hard Drive, add a *Deploy a VHD* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 :::figure
-![](/docs/img/deployments/windows/images/deploying-virtual-hard-drives-add-step.png)
+![Add VHD step](/docs/img/deployments/windows/images/deploying-virtual-hard-drives-add-step.png)
 :::
 
 ## Configuring the step {#configure-step}
 
 :::figure
-![](/docs/img/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png)
+![Configure VHD step](/docs/img/deployments/windows/images/deploying-virtual-hard-drives-configure-step.png)
 :::
 
 ### Step 1: Select a package {#select-package}
@@ -38,11 +38,11 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 ### Step 2: Configure VHD options {#configure-vhd-options}
 
-| Field                       | Meaning                                  |
-| --------------------------------------- | ---------------------------------------- |
-| VHD application path          | The relative path to your application within your VHD. Octopus will use this to run deployment features, such as config transforms and variable substitution in files, only on this folder, rather than on the entire VHD. Examples: `MyApplication` and `PublishedApps\MyApplication`          |
-| Add VHD to Hyper-V  |  Attach the VHD to an existing Hyper-V virtual machine. Octopus will shutdown the virtual machine, add the VHD (replacing the current first virtual drive if there is one) then restart the virtual machine. |
-| Virtual Machine Name  |  The name of the virtual machine to add the VHD to. |
+| Field                | Meaning                                                                                                                                                                                                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VHD application path | The relative path to your application within your VHD. Octopus will use this to run deployment features, such as config transforms and variable substitution in files, only on this folder, rather than on the entire VHD. Examples: `MyApplication` and `PublishedApps\MyApplication` |
+| Add VHD to Hyper-V   | Attach the VHD to an existing Hyper-V virtual machine. Octopus will shutdown the virtual machine, add the VHD (replacing the current first virtual drive if there is one) then restart the virtual machine.                                                                            |
+| Virtual Machine Name | The name of the virtual machine to add the VHD to.                                                                                                                                                                                                                                     |
 
 ## Accessing the VHD in deployment scripts {#access-vhd-in-deployment-scripts}
 
@@ -63,7 +63,7 @@ If you have a VHD with multiple partitions, in step 2 above all partitions are m
 
 To change the behavior when there are multiple partitions create Octopus Variables against your project indexed to the partition (starting at 0). If you have more than one deploy VHD step you will need to scope the variables to each step.
 
-| Octopus Variable                        | Value           | Meaning                                  |
-| --------------------------------------- | --------------- | ---------------------------------------- |
-| OctopusVhdPartitions[0].Mount           | false           | Do not mount this partition              |
+| Octopus Variable                        | Value           | Meaning                                                                                            |
+| --------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------- |
+| OctopusVhdPartitions[0].Mount           | false           | Do not mount this partition                                                                        |
 | OctopusVhdPartitions[0].ApplicationPath | A relative path | Override the VHD application path from the "Configure VHD options" section for just this partition |
