@@ -42,14 +42,15 @@ import Separator from 'src/components/Separator.astro';
 
 ### Button
 
-The Button component renders an HTML `<button>`.
+The Button component renders an HTML `<button>`, or an `<a>` when given an `href`.
 
 1. **label**: Optional text label. Omit for an icon-only button.
 2. **icon** / **iconEnd**: Optional leading and/or trailing icon. Accepts a FontAwesome class (e.g. `iconEnd="fa-solid fa-caret-down"` for a dropdown button) or a URL to an SVG.
 3. **size**: Optional: `medium` (default), `small`, or `xSmall`.
 4. **importance**: Optional: `default` or `loud`
 5. **disabled**: Optional `true`/`false`
-6. **type**: Optional: `button` (default), `submit`, or `reset`.
+6. **href**: Optional. When set, the button renders as a link rather than a `<button>`.
+7. **type**: Optional: `button` (default), `submit`, or `reset`. Ignored when `href` is set.
 
 An icon-only button has no visible text, so include an `aria-label` to give it an accessible name.
 
@@ -119,6 +120,25 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
   </div>
 </div>
 
+#### Links
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <Button label="Docs" href="/docs" />
+    <Button label="Docs" href="/docs" disabled={true} />
+    <Button label="Next" href="/docs" iconEnd="fa-solid fa-arrow-right" />
+    <Button label="Start" href="/docs" importance="loud" />
+  </div>
+  <div>
+    ```
+    <Button label="Docs" href="/docs" />
+    <Button label="Docs" href="/docs" disabled={true} />
+    <Button label="Next" href="/docs" iconEnd="fa-solid fa-arrow-right" />
+    <Button label="Start" href="/docs" importance="loud" />
+    ```
+  </div>
+</div>
+
 #### Disabled
 
 <div class="docs-home simple-grid">
@@ -154,6 +174,7 @@ Temporary showcase for the new, work-in-progress TopNav component.
 // Temporary hack: the nav needs more width than the cap on this page's main column, so the column takes the grid's
 // leftover space and everything except the nav is held back at the width the column normally maxes out at
 }
+
 <style>{`
   @media (min-width: 1131px) {
     .content-group {

@@ -58,8 +58,8 @@ summary > * {
   color: var(--body-link-alt);
 }
 
-a:hover,
-a:focus,
+a:hover:not(.btn),
+a:focus:not(.btn),
 summary:hover,
 summary:focus,
 dt[data-destination]:hover {
@@ -77,12 +77,12 @@ hr {
   border-bottom: 1px solid var(--header-separator-color);
 }
 
-.page-content a:not(.link):not(.top-nav__link) {
+.page-content a:not(.link):not(.top-nav__link):not(.btn) {
   color: var(--octo-blue);
 }
 
-.page-content a:hover:not(.top-nav__link),
-.page-content a:focus:not(.top-nav__link) {
+.page-content a:hover:not(.top-nav__link):not(.btn),
+.page-content a:focus:not(.top-nav__link):not(.btn) {
   color: var(--body-link-color);
 }
 
@@ -2881,8 +2881,8 @@ img.btn__icon {
   transform: translateY(-0.0625rem);
 }
 
-/* Button states */
-.btn:hover:not(:disabled) {
+/* Button states (links can't be `:disabled`, so they use `aria-disabled` instead) */
+.btn:hover:not(:disabled, [aria-disabled='true']) {
   background: var(--colorBackgroundPrimaryHover);
 }
 
@@ -2892,18 +2892,18 @@ img.btn__icon {
   outline-offset: var(--borderWidth1);
 }
 
-.btn:active:not(:disabled) {
+.btn:active:not(:disabled, [aria-disabled='true']) {
   background: var(--colorBackgroundPrimaryPressed);
 }
 
-.btn:disabled {
+.btn:is(:disabled, [aria-disabled='true']) {
   background: var(--colorButtonBackgroundDisabled);
   border-color: var(--colorButtonBorderDisabled);
   color: var(--colorButtonTextDisabled);
   cursor: not-allowed;
 }
 
-.btn:disabled .btn__icon {
+.btn:is(:disabled, [aria-disabled='true']) .btn__icon {
   color: var(--colorButtonIconDisabled);
 }
 
@@ -2920,12 +2920,12 @@ img.btn__icon {
   color: var(--colorButtonIconLoud);
 }
 
-.btn--loud:hover:not(:disabled),
+.btn--loud:hover:not(:disabled, [aria-disabled='true']),
 .btn--loud:focus-visible {
   background: var(--colorButtonBackgroundLoudHover);
 }
 
-.btn--loud:active:not(:disabled) {
+.btn--loud:active:not(:disabled, [aria-disabled='true']) {
   background: var(--colorButtonBackgroundLoudPressed);
 }
 

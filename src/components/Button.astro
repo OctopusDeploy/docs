@@ -1,14 +1,19 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-// Extend the native button attributes
-type Props = HTMLAttributes<'button'> & {
+type SharedProps = {
   label?: string;
   icon?: string; // URL to an SVG or a FontAwesome class
   iconEnd?: string; // URL to an SVG or a FontAwesome class
   size?: 'xSmall' | 'small' | 'medium';
   importance?: 'default' | 'loud';
+  disabled?: boolean;
 };
+
+// Extend the native button attributes, or the anchor ones when an href is given
+type Props =
+  | (HTMLAttributes<'button'> & SharedProps & { href?: never })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL });
 
 const {
   label,
@@ -17,6 +22,7 @@ const {
   size = 'medium',
   importance = 'default',
   disabled = false,
+  href,
   type = 'button',
   class: className,
   ...rest
@@ -27,9 +33,20 @@ if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
 }
 
 const classes = `btn btn--${size.toLowerCase()}${importance === 'loud' ? ' btn--loud' : ''}${className ? ` ${className}` : ''}`;
+
+const tagSpecificProps = href
+  ? {
+      href: disabled ? undefined : href,
+      role: disabled ? 'link' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+      tabindex: disabled ? -1 : undefined,
+    }
+  : { type, disabled };
+
+const Tag = href ? 'a' : 'button';
 ---
 
-<button class={classes} type={type} disabled={disabled} {...rest}>
+<Tag class={classes} {...tagSpecificProps} {...rest}>
   {
     icon &&
       (icon.startsWith('fa-') ? (
@@ -47,4 +64,4 @@ const classes = `btn btn--${size.toLowerCase()}${importance === 'loud' ? ' btn--
         <img src={iconEnd} alt="" class="btn__icon" aria-hidden="true" />
       ))
   }
-</button>
+</Tag>
