@@ -28,13 +28,13 @@ function addCopyButtons() {
 
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'copy-heading-url btn btn--xsmall';
+    button.className = 'copy-heading-url';
     button.dataset.tooltip = REST;
     button.setAttribute('aria-label', 'Copy link to this section');
 
     // Empty: the glyph is a CSS mask on the span itself.
     const icon = document.createElement('span');
-    icon.className = 'copy-heading-url__icon btn__icon';
+    icon.className = 'copy-heading-url__icon';
 
     button.appendChild(icon);
     heading.appendChild(button);
