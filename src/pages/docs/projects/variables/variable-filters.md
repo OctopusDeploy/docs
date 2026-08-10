@@ -76,7 +76,7 @@ The *Format* filter allows for converting of input based on an additionally prov
 
 ### Replace
 
-The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below. 
+The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below.
 
 | MyVar Value | Filter Expression                         | Output                                     |
 | ----------- | ----------------------------------------- | ------------------------------------------ |
@@ -89,7 +89,6 @@ The *Replace* filter performs a regular expression replace function on the varia
 | `abc`       | `#{MyVar \| Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
 | `a\b`       | `#{MyVar \| Replace "\\" "\\\\"}`         | `a\\b`                                     |
 
-
 ### Substring
 
 The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
@@ -99,7 +98,6 @@ The *Substring* filter extracts a range of characters from the input and outputs
 | `Octopus Deploy` | `#{MyVar \| Substring 8 6}` | `Deploy`  |
 | `Octopus Deploy` | `#{MyVar \| Substring 7}`   | `Octopus` |
 | `Octopus Deploy` | `#{MyVar \| Substring 2 3}` | `top`     |
-
 
 ### Trim
 
@@ -124,11 +122,11 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 
 These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
-| Name                                                                 | Purpose                                                                 | Example input    | Example output |
-|----------------------------------------------------------------------|-------------------------------------------------------------------------|------------------|----------------|
-| [`Contains`](#startswith-endswith-and-contains) | Determines whether a string contains a given string                     | `Octopus Dep`    | `true`         |
-| [`EndsWith`](#startswith-endswith-and-contains) | Determines whether the end of a string matches a given string           | `Deploy`         | `true`         |
-| [`Match`](#match) | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"` | `true`         |
+| Name                                              | Purpose                                                                 | Example input    | Example output |
+|---------------------------------------------------|-------------------------------------------------------------------------|------------------|----------------|
+| [`Contains`](#startswith-endswith-and-contains)   | Determines whether a string contains a given string                     | `Octopus Dep`    | `true`         |
+| [`EndsWith`](#startswith-endswith-and-contains)   | Determines whether the end of a string matches a given string           | `Deploy`         | `true`         |
+| [`Match`](#match)                                 | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"` | `true`         |
 | [`StartsWith`](#startswith-endswith-and-contains) | Determines whether the beginning of a string matches a given string     | `Octo`           | `true`         |
 
 ### Match
@@ -248,29 +246,29 @@ These filters apply format-specific escaping rules.
 |------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|--------------------|------------------------|
 | `HtmlEscape`                                                                                                     | Escapes entities for use in HTML content           | `1 < 2`            | `1 \&lt; 2`            |
 | `JsonEscape`                                                                                                     | Escapes data for use in JSON strings               | `He said "Hello!"` | `He said \\"Hello!\\"` |
-| `PropertiesKeyEscape` | Escapes data for use in .properties keys           | `Hey: x=y`         | `Hey\:\ x\=y`          |
-| `PropertiesValueEscape` | Escapes data for use in .properties values         | `a\b=c`            | `a\\b=c`               |
+| `PropertiesKeyEscape`                                                                                            | Escapes data for use in .properties keys           | `Hey: x=y`         | `Hey\:\ x\=y`          |
+| `PropertiesValueEscape`                                                                                          | Escapes data for use in .properties values         | `a\b=c`            | `a\\b=c`               |
 | [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string                                | `A b:c+d/e`        | `A%20b:c+d/e`          |
 | [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string                           | `A b:c+d/e`        | `A%20b%3Ac%2Bd%2Fe`    |
 | `XmlEscape`                                                                                                      | Escapes entities for use in XML content            | `1 < 2`            | `1 \&lt; 2`            |
-| `YamlDoubleQuoteEscape` | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
-| `YamlSingleQuoteEscape` | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
+| `YamlDoubleQuoteEscape`                                                                                          | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
+| `YamlSingleQuoteEscape`                                                                                          | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
 
 ## Extraction filters {#extraction-filters}
 
 These filters extract a part of value.
 
-| Name                                          | Purpose                                                              | Example input                  | Example output |
-|-----------------------------------------------|----------------------------------------------------------------------|--------------------------------|----------------|
-| [`UriPart`](#uripart)                         | Extracts a specified part of a URI string                            | `https://octopus.com/docs`     | `/docs`        |
-| `VersionMajor` | Extracts the major version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `1`            |
-| `VersionMinor` | Extracts the minor version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `2`            |
-| `VersionPatch` | Extracts the patch version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `3`            |
-| `VersionRevision` | Extracts the revision version field from a version string            | `1.2.3.4-my-branch.1.2+build10` | `4`            |
-| `VersionPreRelease` | Extracts the prerelease field from a version string                  | `1.2.3.4-my-branch.1.2+build10` | `my-branch.1.2` |
-| `VersionPreReleasePrefix` | Extracts the prefix from the prerelease field from a version string  | `1.2.3.4-my-branch.1.2+build10` | `my-branch`     |
-| `VersionPreReleaseCounter` | Extracts the counter from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1.2`          |
-| `VersionMetadata` | Extracts the metadata field from a version string                    | `1.2.3.4-my-branch.1.2+build10` | `build10`      |
+| Name | Purpose | Example input | Example output |
+| ----------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------- | ---------------- |
+| [`UriPart`](#uripart) | Extracts a specified part of a URI string | `https://octopus.com/docs` | `/docs` |
+| `VersionMajor` | Extracts the major version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1` |
+| `VersionMinor` | Extracts the minor version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `2` |
+| `VersionPatch` | Extracts the patch version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `3` |
+| `VersionRevision` | Extracts the revision version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `4` |
+| `VersionPreRelease` | Extracts the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `my-branch.1.2` |
+| `VersionPreReleasePrefix` | Extracts the prefix from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `my-branch` |
+| `VersionPreReleaseCounter` | Extracts the counter from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1.2` |
+| `VersionMetadata` | Extracts the metadata field from a version string | `1.2.3.4-my-branch.1.2+build10` | `build10` |
 
 ### UriPart
 
@@ -362,7 +360,7 @@ Numbers:
 
 Objects:
 #{each item in MyObjects}
-	#{item.Key}: #{item.Value.Price}
+ #{item.Key}: #{item.Value.Price}
 #{/each} 
 ```
 
@@ -380,10 +378,10 @@ Dog: 17.5
 ```
 
 ## Older versions
-* Comparison filters are available from Octopus Deploy **2021.2** onwards.
-* `VersionMajor`, `VersionMinor`, `VersionPatch`, `VersionRevision`, `VersionPreRelease`, `VersionPreReleasePrefix`, `VersionPreReleaseCounter` and `VersionMetadata` extraction filters are available from Octopus Deploy **2020.5** onwards.
-* `PropertiesKeyEscape`, `PropertiesValueEscape`, `YamlDoubleQuoteEscape` and `YamlSingleQuoteEscape` escape filters are available from Octopus Deploy **2020.4** onwards.
 
+- Comparison filters are available from Octopus Deploy **2021.2** onwards.
+- `VersionMajor`, `VersionMinor`, `VersionPatch`, `VersionRevision`, `VersionPreRelease`, `VersionPreReleasePrefix`, `VersionPreReleaseCounter` and `VersionMetadata` extraction filters are available from Octopus Deploy **2020.5** onwards.
+- `PropertiesKeyEscape`, `PropertiesValueEscape`, `YamlDoubleQuoteEscape` and `YamlSingleQuoteEscape` escape filters are available from Octopus Deploy **2020.4** onwards.
 
 ## Learn more
 
