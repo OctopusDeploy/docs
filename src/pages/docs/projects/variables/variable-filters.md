@@ -175,10 +175,58 @@ These filters provide a mechanism to convert a value from one form to another.
 
 These filters are used to work with dates.
 
-| Name                                    | Purpose                         | Example input | Example output                 |
-|-----------------------------------------|---------------------------------|---------------|--------------------------------|
-| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date        |               | `2016-11-03T08:53:11.0946448`  |
-| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC |               | `2016-11-02T23:01:46.9441479Z` |
+| Name                                    | Purpose                            | Example input          | Example output                 |
+|-----------------------------------------|------------------------------------|------------------------|--------------------------------|
+| [`AddDays`](#adddays-and-addhours)      | Shifts a date by a number of days  | `2016-11-03T08:53:11`  | `2016-11-05T08:53:11.0000000`  |
+| [`AddHours`](#adddays-and-addhours)     | Shifts a date by a number of hours | `2016-11-03T08:53:11`  | `2016-11-03T10:53:11.0000000`  |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date           |                        | `2016-11-03T08:53:11.0946448`  |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC    |                        | `2016-11-02T23:01:46.9441479Z` |
+
+### AddDays and AddHours
+
+The *AddDays* and *AddHours* filters shift a date by the given amount and output the result in ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip), ready to be chained into [`Format`](#format).
+
+The amount can be negative to shift a date backwards. Fractional values are supported, but must be quoted, because an unquoted argument can't contain a decimal point.
+
+Both filters preserve how the input expressed its time zone: a value with no offset stays without one, a UTC value stays in UTC, and a value with an explicit offset keeps that offset rather than being converted to the server's local time.
+
+If the input isn't a date, or the amount isn't a number, the expression is left unevaluated and appears in the output as written. An unreplaced `#{...}` means the filter couldn't be applied, not that the value was empty.
+
+| MyVar Value                     | Filter Expression                                        | Output                          |
+| ------------------------------- | -------------------------------------------------------- | ------------------------------- |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours 2}`                                 | `2016-11-03T10:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours -2}`                                | `2016-11-03T06:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours "1.5"}`                             | `2016-11-03T10:23:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddDays 2}`                                  | `2016-11-05T08:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddDays 1 \| AddHours 2}`                    | `2016-11-04T10:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` | `2016-11-03 10:53:11`           |
+|                                 | `#{ \| NowDate \| AddHours 2}`                           | `2016-11-03T10:53:11.0946448`   |
+
+#### Deriving a change window from a deployment's start time
+
+A common use is deriving an end time from a start time. For example, to give a ServiceNow change request a two hour implementation window:
+
+| Name                                     | Value                                                                     |
+| ---------------------------------------- | ------------------------------------------------------------------------- |
+| `Octopus.ServiceNow.Field[start_date]`   | `#{Octopus.Task.QueueTime \| Format "yyyy-MM-dd HH:mm:ss"}`               |
+| `Octopus.ServiceNow.Field[end_date]`     | `#{Octopus.Task.QueueTime \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` |
+
+:::div{.warning}
+`Octopus.Task.QueueTime` is the time the task was **queued**, not the time it started executing. The window above therefore starts counting down the moment the deployment joins the queue.
+
+For a deployment that starts straight away this is effectively the current time, so the two are interchangeable. But if the task waits — behind another deployment, on a busy worker pool, or because it was scheduled for later — the window will already be partly or entirely used up by the time the deployment actually runs, and a change request can fall outside its own implementation window before any steps execute.
+
+Where that matters, size the window against the worst-case queue wait rather than the expected run time. To vary it per environment, scope the whole expression rather than just the number of hours:
+
+| Name                  | Value                                                                     | Scope      |
+| --------------------- | ------------------------------------------------------------------------- | ---------- |
+| `ChangeWindowEnd`     | `#{Octopus.Task.QueueTime \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` |            |
+| `ChangeWindowEnd`     | `#{Octopus.Task.QueueTime \| AddHours 8 \| Format "yyyy-MM-dd HH:mm:ss"}` | Production |
+
+then set `Octopus.ServiceNow.Field[end_date]` to `#{ChangeWindowEnd}`.
+
+The number of hours has to be written into each scoped value rather than supplied as `AddHours #{WindowHours}`, because a filter argument that is itself a variable can't be followed by another filter in the same chain. That restriction applies to all filters that take arguments, not just `AddHours`.
+:::
 
 ### NowDate and NowDateUtc
 
