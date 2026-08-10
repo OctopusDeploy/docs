@@ -1806,6 +1806,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space16);
+  margin-block-start: var(--space32);
+  padding-inline-start: var(--space16);
   color: var(--colorTextPrimary);
   font: var(--textBodyRegularMedium);
 }
@@ -1817,6 +1819,11 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   align-items: flex-start;
   gap: var(--space8);
   width: 100%;
+}
+
+/* Two classes, so this beats the `display: flex` above. */
+.feedback [hidden] {
+  display: none;
 }
 
 .feedback__actions {
@@ -1837,8 +1844,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask-image: url('../assets/icons/thumbs-up.svg');
 }
 
+/* Mirrored, as the design pairs the thumbs facing each other. */
 .feedback__icon--no {
   mask-image: url('../assets/icons/thumbs-down.svg');
+  transform: scaleX(-1);
 }
 
 /* The design calls this out: the label stays regular weight. */
