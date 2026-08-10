@@ -10,15 +10,9 @@ navOrder: 30
 
 Environment state lets a deployment or [runbook](/docs/runbooks) run save key/value pairs scoped to the combination of project, environment, and optionally a tenant. Later deployments and runbook runs for the same project and environment can then read those values back.
 
-Environment state addresses a common problem with [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook often creates infrastructures that later steps depend on, such as a Kubernetes namespace or an application URL. Without environment state, each step must re-derive these values, which is error-prone. Environment state records each value once, so every later deployment, runbook run, and deprovisioning runbook reads it directly from Octopus. It works with any environment, not just ephemeral ones.
+Environment state is useful in scenarios where a value produced during one run needs to be reused later. A common example is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook might create a Kubernetes namespace or an application URL that later deployments and the deprovisioning runbook depend on. Recording each value as environment state means Octopus stores it once, so every later run reads it directly instead of re-deriving the value.
 
-## How environment state works
-
-- A step in a deployment or runbook run sets a state entry with a key and a value.
-- Octopus captures the entry when the step completes successfully, and stores it based on the project, environment, and tenant that the deployment or runbook run is executing against.
-- Later deployment or runbook run for the same project, environment, and tenant, can read the value from a variable named `Octopus.Environment.State[key]`.
-
-Each entry is keyed by project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value.
+Each state entry is scoped to project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value.
 
 ## Setting environment state
 

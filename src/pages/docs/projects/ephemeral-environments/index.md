@@ -157,7 +157,7 @@ Environments can be filtered by name and by the current state of the environment
 
 ## Environment URLs
 
-An environment URL is a type of [environment state](/docs/infrastructure/environments/environment-state) that Octopus gives first-class support. When an environment URL is set during a provisioning runbook or deployment, Octopus shows it as a clickable link in the table on the Ephemeral Environments page, making it easy to open the running application without needing to look through task logs. To set an environment URL from a deployment or runbook step, see [Setting an environment URL](/docs/infrastructure/environments/environment-state#setting-an-environment-url).
+An environment URL is a type of [environment state](/docs/infrastructure/environments/environment-state) that Octopus has built-in support for. When an environment URL is set during a provisioning runbook or deployment, Octopus shows it as a clickable link in the table on the Ephemeral Environments page, making it easy to open the running application without needing to look through task logs. To set an environment URL from a deployment or runbook step, see [Setting an environment URL](/docs/infrastructure/environments/environment-state#setting-an-environment-url).
 
 For example, the following deployment script builds the running app's URL from the namespace it deployed to, and sets an environment URL named `App`:
 
