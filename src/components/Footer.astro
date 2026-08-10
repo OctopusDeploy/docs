@@ -1,0 +1,54 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+import { links } from '@data/footer';
+
+const stats = new accelerator.statistics('components/Footer.astro');
+stats.start();
+
+// Properties
+type Props = {
+  lang: string;
+  lastUpdated?: Date | string | null;
+};
+const { lang, lastUpdated = null } = Astro.props satisfies Props;
+
+// Language
+const _ = Lang(lang);
+
+// Logic
+const updatedDate = lastUpdated ? new Date(lastUpdated) : null;
+const updatedLabel = updatedDate
+  ? `${_(Translations.octopus_footer.last_updated)} ${accelerator.dateFormatter.formatShortDate(updatedDate, lang)}`
+  : null;
+const copyright = `${_(Translations.octopus_footer.copyright)} © ${new Date().getFullYear()} ${SITE.owner}`;
+
+stats.stop();
+---
+
+<footer class="site-footer" id="site-footer">
+  <div class="site-footer__content">
+    {
+      updatedDate && (
+        <p class="site-footer__updated">
+          <time datetime={updatedDate.toISOString()}>{updatedLabel}</time>
+        </p>
+      )
+    }
+    <div class="site-footer__meta">
+      <p class="site-footer__copyright">{copyright}</p>
+      <nav aria-label={_(Translations.octopus_footer.links_label)}>
+        <ul class="site-footer__links">
+          {
+            links.map((link) => (
+              <li>
+                <a href={link.url}>{link.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

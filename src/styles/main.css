@@ -847,11 +847,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* */
 
-.last-updated {
-  color: var(--color-subtitle);
-  margin-block-start: var(--block-gap);
-}
-
 .docs-home {
   text-align: center;
   margin-block-start: 5vh;
@@ -1488,6 +1483,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Main content group */
 
+/* The footer gets its own row so the nav can span both. The design runs the
+   nav column the full height of the page, divider and all, past the footer. */
 .content-group {
   /* Every gap on this row is a track of its own, so that the one between the
      article and the toc can differ from the rest.  */
@@ -1501,10 +1498,12 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     calc(var(--toc-width) + var(--space16))
     minmax(0, 1fr);
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto;
   column-gap: 0;
   max-width: 100vw;
-  grid-template-areas: 'menu . content . toc .';
+  grid-template-areas:
+    'menu . content . toc .'
+    'menu . footer  . .   .';
   margin-top: 82px;
 }
 
@@ -1569,6 +1568,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   width: 100%;
 }
 
+.content-group .site-footer {
+  grid-area: footer;
+}
+
 .continue {
   padding-inline-end: 30px;
 }
@@ -1576,13 +1579,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 @media (max-width: 1130px) {
   .content-group {
     grid-template-columns: 1rem auto 1rem;
-    grid-template-rows: auto auto auto;
-    gap: 0;
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: 0;
     grid-template-areas:
       'left top right'
       'left toc right'
       'left content right'
-      'left menu right';
+      'left menu right'
+      'left footer right';
   }
 
   .content-group main,
@@ -2238,68 +2242,39 @@ a[data-youtube] {
 
 /* Footer */
 
-.site-footer {
-  color: var(--footer-link-color);
-  text-align: start;
-  background-color: var(--blue-midnight-dark);
-  padding: 3rem 0 3rem 0;
+.site-footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space32);
+  /* The design's 112px top gap has no spacing token of its own. */
+  padding-block: 112px var(--space64);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
 }
 
-.site-footer h2 {
-  text-transform: uppercase;
-  color: var(--navy-400);
-  font-size: var(--fontSizeMedium);
-  line-height: var(--lineHeightXSmall);
-  letter-spacing: 0.12em;
+.site-footer__meta,
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space16);
 }
 
-.site-footer ul {
+.site-footer__links {
   list-style: none;
-  line-height: 2.5;
 }
 
-.site-footer a {
-  color: var(--footer-link-color);
-  text-decoration: none;
+.site-footer__links a {
+  color: var(--colorTextLinkDefault);
 }
 
-.site-footer a:hover,
-.site-footer a:focus {
-  color: var(--octo-blue-lightest);
+.site-footer__links a:hover,
+.site-footer__links a:focus {
+  color: var(--colorTextLinkHover);
 }
 
-.site-footer nav {
-  text-align: center;
-  font-size: var(--fontSizeBase);
-}
-
-.site-footer nav a:after {
-  /* fa-chevron-up */
-  content: '\f077';
-  font-family: fa-solid;
-  padding-inline-start: 0.6em;
-}
-
-/* Footer columns */
-
-.footer-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  justify-content: center;
-  gap: var(--grid-gap);
-}
-
-.footer-columns img.octo-logo {
-  background-color: transparent;
-  width: 40px;
-  height: auto;
-}
-
-@media (max-width: 680px) {
-  .footer-columns {
-    display: block;
-    width: var(--content-width-mobile);
-    margin: 0 auto;
+@media (max-width: 1130px) {
+  .site-footer {
+    max-width: var(--content-width-mobile);
   }
 }
 

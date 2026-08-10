@@ -199,7 +199,6 @@
   --body-link-color: var(--octo-blue);
   --body-link-alt: var(--blue-grey-light);
   --menu-link-bg: var(--blue-grey-smoke);
-  --footer-link-color: var(--navy-200);
 
   --icon-stroke: var(--white);
   --icon-fill: var(--colorIconSecondary);
@@ -257,7 +256,6 @@ html[data-theme='dark'] {
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
-  --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);
