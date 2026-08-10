@@ -177,7 +177,13 @@ Temporary showcase for the new, work-in-progress TopNav component.
 <style>{`
   @media (min-width: 1131px) {
     .content-group {
-      grid-template-columns: var(--navigation-width) minmax(0, 1fr) var(--toc-width);
+      grid-template-columns:
+        var(--navigation-width)
+        var(--grid-gap-main)
+        minmax(300px, 1fr)
+        var(--toc-offset)
+        calc(var(--toc-width) + var(--space16))
+        0;
     }
 
     main > :not(article),
