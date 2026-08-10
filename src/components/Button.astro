@@ -1,14 +1,19 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-// Extend the native button attributes
-type Props = HTMLAttributes<'button'> & {
+type SharedProps = {
   label?: string;
-  icon?: string; // URL to an SVG or a FontAwesome class
-  iconEnd?: string; // URL to an SVG or a FontAwesome class
+  icon?: string; // URL to an SVG, or a class name e.g. a FontAwesome icon class name
+  iconEnd?: string; // URL to an SVG, or a class name
   size?: 'xSmall' | 'small' | 'medium';
   importance?: 'default' | 'loud';
+  disabled?: boolean;
 };
+
+// Extend the native button attributes, or the anchor ones when an href is given
+type Props =
+  | (HTMLAttributes<'button'> & SharedProps & { href?: never })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL });
 
 const {
   label,
@@ -17,6 +22,7 @@ const {
   size = 'medium',
   importance = 'default',
   disabled = false,
+  href,
   type = 'button',
   class: className,
   ...rest
@@ -27,24 +33,150 @@ if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
 }
 
 const classes = `btn btn--${size.toLowerCase()}${importance === 'loud' ? ' btn--loud' : ''}${className ? ` ${className}` : ''}`;
+
+const tagSpecificProps = href
+  ? {
+      href: disabled ? undefined : href,
+      role: disabled ? 'link' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+      tabindex: disabled ? -1 : undefined,
+    }
+  : { type, disabled };
+
+const iconDetails = (name: string | undefined) => {
+  if (!name) return null;
+  return name.endsWith('.svg')
+    ? { tag: 'img' as const, props: { src: name, alt: '', class: 'btn__icon' } }
+    : { tag: 'span' as const, props: { class: `${name} btn__icon` } };
+};
+
+const startIcon = iconDetails(icon);
+const endIcon = iconDetails(iconEnd);
+const StartIconTag = startIcon?.tag;
+const EndIconTag = endIcon?.tag;
+
+const Tag = href ? 'a' : 'button';
 ---
 
-<button class={classes} type={type} disabled={disabled} {...rest}>
-  {
-    icon &&
-      (icon.startsWith('fa-') ? (
-        <i class={`${icon} btn__icon`} aria-hidden="true" />
-      ) : (
-        <img src={icon} alt="" class="btn__icon" aria-hidden="true" />
-      ))
-  }
+<Tag class={classes} {...tagSpecificProps} {...rest}>
+  {StartIconTag && <StartIconTag {...startIcon!.props} aria-hidden="true" />}
   {label && <span class="btn__label">{label}</span>}
-  {
-    iconEnd &&
-      (iconEnd.startsWith('fa-') ? (
-        <i class={`${iconEnd} btn__icon`} aria-hidden="true" />
-      ) : (
-        <img src={iconEnd} alt="" class="btn__icon" aria-hidden="true" />
-      ))
+  {EndIconTag && <EndIconTag {...endIcon!.props} aria-hidden="true" />}
+</Tag>
+
+<style>
+  .btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space0);
+    min-width: var(--btn-min-size, 2.25rem);
+    min-height: var(--btn-min-size, 2.25rem);
+    padding: calc(var(--btn-padding-block, var(--space8)) - var(--borderWidth1))
+      calc(var(--btn-padding-inline, var(--space6)) - var(--borderWidth1));
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundPrimaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    max-width: fit-content;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
   }
-</button>
+
+  .btn--medium {
+    --btn-min-size: 2.25rem;
+    --btn-padding-block: var(--space8);
+    --btn-padding-inline: var(--space6);
+  }
+
+  .btn--small {
+    --btn-min-size: 2rem;
+    --btn-padding-block: var(--space6);
+    --btn-padding-inline: var(--space6);
+  }
+
+  .btn--xsmall {
+    --btn-min-size: 1.75rem;
+    --btn-padding-block: var(--space4);
+    --btn-padding-inline: var(--space4);
+  }
+
+  .btn__label {
+    padding-inline: var(--space4);
+  }
+
+  /* Qualified with .btn to ensure greater specificity than fontawesome.css */
+  .btn .btn__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: var(--fontSizeBase);
+    line-height: 1;
+    color: var(--colorIconPrimary);
+  }
+
+  img.btn__icon {
+    object-fit: contain;
+  }
+
+  /* Nudge the FontAwesome caret-down slightly so it looks right as part of a dropdown button */
+  .btn .btn__icon.fa-caret-down {
+    transform: translateY(-0.0625rem);
+  }
+
+  /* Button states (links can't be `:disabled`, so they use `aria-disabled` instead) */
+  .btn:hover:not(:disabled, [aria-disabled='true']) {
+    background: var(--colorBackgroundPrimaryHover);
+  }
+
+  .btn:focus-visible {
+    background: var(--colorBackgroundPrimaryHover);
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth1);
+  }
+
+  .btn:active:not(:disabled, [aria-disabled='true']) {
+    background: var(--colorBackgroundPrimaryPressed);
+  }
+
+  .btn:is(:disabled, [aria-disabled='true']) {
+    background: var(--colorButtonBackgroundDisabled);
+    border-color: var(--colorButtonBorderDisabled);
+    color: var(--colorButtonTextDisabled);
+    cursor: not-allowed;
+  }
+
+  .btn:is(:disabled, [aria-disabled='true']) .btn__icon {
+    color: var(--colorButtonIconDisabled);
+  }
+
+  /* Loud importance */
+  .btn--loud {
+    background: var(--colorButtonBackgroundLoudDefault);
+    /* Keep the border there but transparent as an easy way to ensure the geometry is exactly preserved */
+    border-color: transparent;
+    color: var(--colorButtonTextLoud);
+    font: var(--textBodyBoldMedium);
+  }
+
+  .btn--loud .btn__icon {
+    color: var(--colorButtonIconLoud);
+  }
+
+  .btn--loud:hover:not(:disabled, [aria-disabled='true']),
+  .btn--loud:focus-visible {
+    background: var(--colorButtonBackgroundLoudHover);
+  }
+
+  .btn--loud:active:not(:disabled, [aria-disabled='true']) {
+    background: var(--colorButtonBackgroundLoudPressed);
+  }
+</style>

@@ -5,12 +5,13 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 
-// For things not in this list such as /components, run locally with `pnpm dev` to access. They are not reachable on octopus.com, so we don't want to ship them in the build output.
+// For things not in this list, run locally with `pnpm dev` to access. They are not reachable on octopus.com, so we don't want to ship them in the build output.
 const KEEP = new Set([
   'docs', // This is the main site content, which is served under /docs/ on octopus.com.
   'index.html', // index.html is the entrypoint for the staging site, so we want to keep it.
   'report', // index.html links to some reports, so we keep them to avoid dead links, plus they can be useful on staging sites.
   'css', // report pages have their own css in this folder
+  'components', // the component showcase is useful for sharing components in staging sites.
 ]);
 
 export default function pruneDist(): AstroIntegration {

@@ -3,6 +3,7 @@ import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Lang, Translations } from '@util/Languages';
+import Button from './Button.astro';
 
 const stats = new accelerator.statistics(
   'octopus/components/ArticleList.astro'
@@ -38,11 +39,12 @@ stats.stop();
 
 {
   gitHubUrl && (
-    <a class="btn btn--small octo-github-edit" href={gitHubUrl}>
-      <span class="btn__icon octo-github-edit__icon" aria-hidden="true" />
-      <span class="btn__label">
-        {_(Translations.octopus_github.edit_on_github)}
-      </span>
-    </a>
+    <Button
+      class="octo-github-edit"
+      href={gitHubUrl}
+      icon="octo-github-edit__icon"
+      label={_(Translations.octopus_github.edit_on_github)}
+      size="small"
+    />
   )
 }
