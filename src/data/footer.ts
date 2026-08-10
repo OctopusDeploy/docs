@@ -10,5 +10,4 @@ export const links: FooterLink[] = [
   { title: 'Terms', url: 'https://octopus.com/legal/customer-agreement' },
   { title: 'Status', url: 'https://status.octopus.com/' },
   { title: 'Support', url: 'https://octopus.com/support' },
-  { title: 'Community Slack', url: 'https://oc.to/CommunitySlack' },
 ];
