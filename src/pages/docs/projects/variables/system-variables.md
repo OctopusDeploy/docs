@@ -41,7 +41,7 @@ Release-level variables are drawn from the project and release being created, an
 
 ## Release package and build information variables
 
-These variables expose the build information pushed from your build server for the packages in a release. They're populated only when build information has been pushed, and they're available only in project release notes, not in deployment steps. Each variable is a collection; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index collections.
+These variables expose the build information pushed from your build server for the packages in a release. They're populated only when build information has been pushed, and they're available only in project release notes, not in deployment steps. Each variable is a collection; see [Collection variables](/docs/projects/variables/variable-substitutions/#collection-variables) for how to iterate and index collections.
 
 | Variable | Description | Example |
 | --- | --- | --- |
@@ -157,7 +157,7 @@ Deployment-level variables are drawn from the project and release being deployed
 
 ## Deployment change variables
 
-These variables expose the changes included in a deployment, aggregated across the releases being deployed. They're available only where build information has been pushed and, for work items, an issue tracker integration is enabled. Several are JSON collections; see [Variable substitution syntax](/docs/projects/variables/variable-substitutions/) for how to iterate and index them.
+These variables expose the changes included in a deployment, aggregated across the releases being deployed. They're available only where build information has been pushed and, for work items, an issue tracker integration is enabled. Several are JSON collections; see [JSON variables](/docs/projects/variables/variable-substitutions/#json-variables) for how to iterate and index them.
 
 | Variable | Description | Example |
 | --- | --- | --- |

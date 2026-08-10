@@ -15,13 +15,14 @@ Deployment and runbook processes are the series of steps you specify to either d
 
 Aside from the intended usage, there is little difference between a deployment process and a runbook process.  Both can use the same steps.  Both can scope steps to run on specific environments.  Because of that, this section can apply to both the runbooks and deployment processes.
 
-When you run a runbook or do a deployment, all the output is written to the Task Log.  
+When you run a runbook or do a deployment, all the output is written to the Task Log.
 
 :::figure
 ![task log after a deployment](/docs/img/getting-started/best-practices/images/task-log.png)
 :::
 
-The top of the task log allows you to change the information shown.  
+The top of the task log allows you to change the information shown.
+
 - By default, the log level is set to Info, which means only Info, Warnings, and Errors messages are shown.  Changing to Verbose will show all messages.
 - By default, the screen will only show the 20 most recent messages for each step.  Changing the log tail to all will show all messages.
 - Clicking on the **RAW** button will show you all the messages without any formatting.
@@ -34,6 +35,7 @@ The task log represents the deployment or runbook run details but is typically u
 :::
 
 The summary includes:
+
 - List of all steps and any important messages.
 - The task history, which includes who triggered it and when it was triggered.
 - The list of previous deployments to this environment for this project.
@@ -50,7 +52,7 @@ Both the task log and artifacts can be downloaded; there is no need to create ar
 
 ## Logging
 
-You can never have too much logging when running custom PowerShell, Python, or Bash scripts in your deployment or runbook process.  
+You can never have too much logging when running custom PowerShell, Python, or Bash scripts in your deployment or runbook process.
 
 [Octopus Deploy](/docs/deployments/custom-scripts/logging-messages-in-scripts) supplies built-in logging utilities you can leverage in your scripts.  This is one of the few areas where it is okay to directly reference these functions instead of passing them in as parameters.
 
@@ -60,15 +62,15 @@ We also recommend leveraging the different logging levels as Octopus treats each
 - Information: This is shown in the task log by default.  Useful for logging status messages to the user.
 - Warning: Messages are highlighted in yellow in the task log. Helpful if something isn't quite right, but the script was able to recover.
 - Error: Messages are highlighted in red in the task log and task summary.  This message type is for what it says on the tin, error messages.
-- Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about. 
+- Highlight: Messages are highlighted in blue in the task log and task summary.  Use these for important messages you want to let the user know about.
 
 Putting information required for approvals in a log file can make it difficult to find.  Consider artifacts as an alternative.
 
 ## Step naming and descriptions
 
-We recommend having clear, concise names for your steps.  The step name is what appears in the task summary and task log.  
+We recommend having clear, concise names for your steps.  The step name is what appears in the task summary and task log.
 
-By default, Octopus Deploy will only run a step if the previous step is successful.  You can override that behavior, so it always runs, only runs on failure, or runs on a variable condition.  If you override that default behavior, then the name should include that in the step name. 
+By default, Octopus Deploy will only run a step if the previous step is successful.  You can override that behavior, so it always runs, only runs on failure, or runs on a variable condition.  If you override that default behavior, then the name should include that in the step name.
 
 Starting in **Octopus Deploy 2020.5**, you can add a description field to each step.  We highly recommend using that to help other users of your deployment process understand what each step is doing.
 
@@ -95,7 +97,7 @@ The deployment and runbook processes should be the same for all environments, ex
 
 When defining your runbook or deployment process, you can configure a run condition based on a variable.  Generally, that feature is used to skip over a specific step when a particular condition occurs.  For example, skip over a testing step if only .css or image files were deployed.
 
-Octopus Deploy provides an [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it. 
+Octopus Deploy provides [conditional variable syntax](/docs/projects/variables/variable-substitutions/#conditionals) that includes support for if/elseif/else/then statements.  While it is possible to have a complex if/then statement in run condition, we don't recommend it.  Instead, we recommend you run a script and set an [output variable](/docs/projects/variables/output-variables).  Use that output variable in the run condition.  Having the decision made in a script means you can easily test and debug it.
 
 ## Further reading
 

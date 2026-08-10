@@ -22,38 +22,40 @@ Before you can add email steps to your deployment processes, you need to add you
 
 To add your SMTP configuration navigate to **Configuration ➜ SMTP** and set the following values:
 
-| Property           | Description                            | Example |
-| ------------------ | ------------------------------------   | ----------- |
-| SMTP Host          | The DNS hostname for your SMTP server. | smtp.example.com |
-| SMTP Port          | The TCP port for your SMTP server.     | 25 |
-| Timeout            | The timeout for SMTP operations. Value is in milliseconds. | 12000 (12 seconds) |
-| Use SSL/TLS        | This option controls whether or not Octopus enforces using an SSL/TLS-wrapped connection. | True |
-| From Address       | The address which all emails will be sent 'From'. | octopus@mydomain.com |
-| Credentials        | Optional SMTP login / password if your SMTP server requires authentication. | mylogin@mydomain.com / SuperSecretPa$$word |
+| Property | Description | Example |
+| --- | --- | --- |
+| SMTP Host | The DNS hostname for your SMTP server. | smtp.example.com |
+| SMTP Port | The TCP port for your SMTP server. | 25 |
+| Timeout | The timeout for SMTP operations. Value is in milliseconds. | 12000 (12 seconds) |
+| Use SSL/TLS | This option controls whether or not Octopus enforces using an SSL/TLS-wrapped connection. | True |
+| From Address | The address which all emails will be sent 'From'. | `octopus@mydomain.com` |
+| Credentials | Optional SMTP login / password if your SMTP server requires authentication. | `mylogin@mydomain.com` / `SuperSecretPa$$word` |
 
 Click **Save and test** to save the SMTP configuration and verify the values are valid:
 
 :::figure
-![](/docs/img/projects/built-in-step-templates/images/smtp-configuration.png)
+![SMTP configuration page](/docs/img/projects/built-in-step-templates/images/smtp-configuration.png)
 :::
 
 You will be prompted for an email address to send a test email to. Enter a test email address and click **Ok**. A *Send test email* task will start to verify your SMTP Configuration:
 
 :::figure
-![](/docs/img/projects/built-in-step-templates/images/smtp-verify-task.png)
+![Send test email task verifying the SMTP configuration](/docs/img/projects/built-in-step-templates/images/smtp-verify-task.png)
 :::
 
 ### Google OAuth 2.0 Credentials
+
 Optionally you can use Workload Identity Federation and OAuth 2.0 for Google SMTP authentication. To do this, set the following values:
 
-| Property           | Description                            | Example |
-| ------------------ | ------------------------------------   | ----------- |
-| Audience           | The audience set on the Workload Identity Federation | `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}` |
-| Service Account    | The email of the service account which has been granted access | service-account-name@{project-id}.iam.gserviceaccount.com |
+| Property | Description | Example |
+| --- | --- | --- |
+| Audience | The audience set on the Workload Identity Federation | `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/providers/{provider-id}` |
+| Service Account | The email of the service account which has been granted access | `service-account-name@{project-id}.iam.gserviceaccount.com` |
 
 See the [Google cloud documentation](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-providers) for instructions on creating and configuring a Workload Identity Federation.
 
 When setting up the Workload Identity Federation:
+
 - When granting access to the service account, the principal must have the subject attribute name set to `smtp`. Example: `https://iam.googleapis.com/projects/{project-id}/locations/global/workloadIdentityPools/{pool-id}/subject/smtp`.
 - The service account must have domain wide delegation with an OAuth scope of `https://mail.google.com/`, see [documentation](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority) on how to set this up.
 
@@ -65,14 +67,15 @@ Support for Microsoft OAuth 2.0 authentication requires Octopus Server version 2
 
 Optionally for Microsoft SMTP authentication, you can use Federated Credentials and OAuth 2.0. To do this, set the following values:
 
-| Property           | Description                            | Example |
-| ------------------ | ------------------------------------   | ----------- |
-| Audience           | The audience set on the Federated Credential | Defaults to `api://AzureADTokenExchange` |
-| Permission Scopes  | The scopes to be included in the authentication token | Defaults to `https://outlook.office365.com/.default` |
-| Client ID          | The Azure Active Directory Application ID/Client ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| Tenant ID          | The Azure Active Directory Tenant ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| Property | Description | Example |
+| --- | --- | --- |
+| Audience | The audience set on the Federated Credential | Defaults to `api://AzureADTokenExchange` |
+| Permission Scopes | The scopes to be included in the authentication token | Defaults to `https://outlook.office365.com/.default` |
+| Client ID | The Azure Active Directory Application ID/Client ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| Tenant ID | The Azure Active Directory Tenant ID | GUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
 For OAuth 2.0 you will need to:
+
 1. Set up a Microsoft Entra ID App Registration.
     - See [documentation on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=federated-credential%2Cexpose-a-web-api#register-an-application).
     - Set the configuration properties `Client ID` and `Tenant ID` with the values from your registered application.
@@ -93,7 +96,6 @@ From 2025.3, you can specify custom Permission Scopes to be included in the OAut
 This supports the use of Azure Communication Services (ACS). To use this ensure your SMTP Username in Azure matches your specified `From Address`. More information can be found in the [ACS documentation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/email/send-email-smtp/send-email-smtp-oauth).
 :::
 
-
 ## Add an email step
 
 Email steps are added to deployment processes in the same way as other steps.
@@ -111,14 +113,14 @@ Email steps are added to deployment processes in the same way as other steps.
   
    Octopus will build the resulting recipient list during the deployment, remove duplicate email addresses, and send the email to each recipient.
 
-6. Provide a subject line for the emails. The subject can contain Octopus [basic variable syntax](/docs/projects/variables/variable-substitutions/#basic-syntax-variablesubstitutionsyntax-basicsyntax).
-7. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [extended variable syntax](/docs/projects/variables/variable-substitutions/#extended-syntax) to include information about the deployment in the email. See the [email template examples](#email-template-examples) below.
+6. Provide a subject line for the emails. The subject can contain Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions/#variable-substitution).
+7. Add the body of the email. The email can be sent in plain text or HTML, and you can use Octopus [variable substitution syntax](/docs/projects/variables/variable-substitutions) to include information about the deployment in the email. See the [email template examples](#email-template-examples) below.
 8. You can set conditions to determine when the step should run. For instance:
 
    - Send the email only for successful deployments to certain environments.
    - Send a specific email for failed deployments.
    - Send an email based on the value of a variable expression which works well with [output variables](/docs/projects/variables/output-variables).
-9.  Save the deployment process.
+9. Save the deployment process.
 
 ## Email template examples
 
@@ -158,7 +160,7 @@ To use the template in your projects, replace `nuget.org` with the DNS name of y
 The output of the template will be an HTML email like:
 
 :::figure
-![](/docs/img/projects/built-in-step-templates/images/email-output.png)
+![Example HTML email produced by the deployment summary template](/docs/img/projects/built-in-step-templates/images/email-output.png)
 :::
 
 ### Step status summary template
