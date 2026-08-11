@@ -56,7 +56,7 @@ set_environmentstate "connectionString" "Server=db;Password=s3cret" -sensitive
 
 </details>
 
-## Using environment state in later runs
+## Using environment state
 
 Octopus makes each state entry available as a [variable](/docs/projects/variables) named `Octopus.Environment.State[key]` in later deployment or runbook run, where `key` is the name you set.
 
@@ -78,8 +78,6 @@ namespace=$(get_octopusvariable "Octopus.Environment.State[namespace]")
 ```
 
 </details>
-
-Environment state variables also appear in the variable helper in the process editor, so you can pick them without typing the full name.
 
 ## Setting an environment URL
 
@@ -125,8 +123,6 @@ The response is an array of name and URL pairs:
   { "Name": "Store front", "Url": "https://pr-123.example.com" }
 ]
 ```
-
-This endpoint is also available through the [Octopus MCP server](/docs/octopus-ai/mcp), so agents can discover the URL directly.
 
 ## Availability
 
