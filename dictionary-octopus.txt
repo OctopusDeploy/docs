@@ -6,7 +6,6 @@ advfirewall
 agentic
 allatclaims
 ALLUSERSPROFILE
-andré
 anglin
 anotherdir
 Antiforgery
@@ -60,7 +59,6 @@ buildevent
 buildinfo
 buildmetadata
 CAIQ
-çelik
 Ceph
 certkeyName
 Certstore
@@ -184,7 +182,6 @@ fontawesome
 frontmatter
 functionapp
 g3662re9njtelsyfhm7t
-García
 gcloud
 gcore
 getenv
@@ -249,7 +246,6 @@ ITSM
 javac
 jdbc
 jjones
-José
 journalctl
 jsondecode
 JSSE
@@ -313,7 +309,6 @@ msiexec
 mssqldb
 MSSQLSERVER
 MTTR
-Müller
 multifactor
 Multipath
 multistep
