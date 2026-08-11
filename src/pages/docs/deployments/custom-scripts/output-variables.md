@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 icon: fa-solid fa-file-export
@@ -37,14 +37,6 @@ set_octopusvariable "AppInstanceName" "MyAppInstance"
 
 </details>
 <details data-group="creating-an-output-variable">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setVariable "AppInstanceName" "MyAppInstance"
-```
-
-</details>
-<details data-group="creating-an-output-variable">
 <summary>Python3</summary>
 
 ```python
@@ -76,21 +68,6 @@ var appInstanceName = OctopusParameters["Octopus.Action[Determine App Instance N
 
 ```bash
 appInstanceName=$(get_octopusvariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
-```
-
-</details>
-<details data-group="using-variable-in-another-step">
-<summary>F#</summary>
-
-```fsharp
-//throw if not found
-let appInstanceName1 = Octopus.findVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
-
-//supply a default value to use if not found
-let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
-
-//return an Option type
-let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
 ```
 
 </details>

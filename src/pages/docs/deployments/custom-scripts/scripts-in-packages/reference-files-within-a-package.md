@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Reference files within a package
 description: How to reference files within a package.
 icon: fa-solid fa-cubes
@@ -86,29 +86,6 @@ cat "$customPath/subfolder/file.txt"
 #   in pre-deploy this will be the original extract folder
 #   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
 cat "./subfolder/file.txt"
-```
-
-</details>
-<details data-group="deployments-custom-scripts-reference-files-within-package">
-<summary>F#</summary>
-
-```fsharp
-open System
-open System.IO
-
-// in pre-deploy, in post-deploy if custom installation directory has not been defined
-let extractPath = Octopus.findVariable "Octopus.Action.Package.InstallationDirectoryPath"
-// if a custom installation directory has been defined
-let customPath = Octopus.findVariable "Octopus.Action.Package.CustomInstallationDirectory"
-//original extract path,
-printfn "%s" (File.ReadAllText(extractPath + @"\subfolder\file.txt"))
-// or when a custom installation directory has been defined,
-printfn "%s" (File.ReadAllText(customPath + @"\subfolder\file.txt"))
-
-// or as a relative path from the Tentacle's working directory, 
-//   in pre-deploy this will be the original extract folder
-//   in post-deploy this will be the custom install directory (if specified), otherwise the original extract folder
-printfn "%s" (File.ReadAllText(@".\subfolder\file.txt"))
 ```
 
 </details>

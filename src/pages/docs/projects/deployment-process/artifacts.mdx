@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Artifacts
 icon: fa-solid fa-file-lines
 description: Artifacts in Octopus provide a convenient way to collect files from remote machines during deployments.
@@ -65,19 +65,6 @@ new_octopusartifact output.log
 # Collect the hosts file but using a custom name for each machine so you can differentiate between them
 # Note: to collect this artifact would require the SSH user account to be elevated as a high privileged user account
 new_octopusartifact /etc/hosts $(hostname)-hosts.txt
-```
-
-</details>
-<details data-group="deployment-process-artifacts">
-<summary>F#</summary>
-
-```fsharp
-// Collect a custom log file from the current working directory using the file name as the name of the artifact
-Octopus.createArtifact "output.log"
-
-// Collect the hosts file but using a custom name for each machine so you can differentiate between them
-// Note: to collect this artifact would require the Tentacle process to be elevated as a high privileged user account
-Octopus.createArtifact @"C:\Windows\System32\drivers\etc\hosts" (Some (System.Environment.MachineName + "-hosts.txt"))
 ```
 
 </details>

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Output variables
 icon: fa-solid fa-diagram-next
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
@@ -40,14 +40,6 @@ SetVariable("TestResult", "Passed");
 
 ```bash
 set_octopusvariable "TestResult" "Passed"
-```
-
-</details>
-<details data-group="output-variables">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setVariable "TestResult" "Passed"
 ```
 
 </details>
@@ -93,14 +85,6 @@ testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 
 </details>
 <details data-group="output-variables-use-in-other-steps">
-<summary>F#</summary>
-
-```fsharp
-let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
-```
-
-</details>
-<details data-group="output-variables-use-in-other-steps">
 <summary>Python3</summary>
 
 ```python
@@ -132,14 +116,6 @@ SetVariable("Password", "correct horse battery staple", true);
 
 ```bash
 set_octopusvariable "Password" "correct horse battery staple" -sensitive
-```
-
-</details>
-<details data-group="sensitive-output-variables">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 ```
 
 </details>
@@ -240,15 +216,11 @@ In a Bash script you can use the `set_octopusvariable` function to set the name 
 set_octopusvariable "TestResult" "Passed"
 ```
 
-### F# \{#fsharp}
+### Python \{#python}
 
-[FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/main/source/Calamari.Common/Features/Scripting/FSharp)
+[Python Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/main/source/Calamari.Common/Features/Scripting/Python)
 
-From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
-
-```fsharp Set an output variable
-Octopus.setVariable "TestResult" "Passed"
-```
+In a Python script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
 ```python Set an output variable
 set_octopusvariable("TestResult", "Passed")

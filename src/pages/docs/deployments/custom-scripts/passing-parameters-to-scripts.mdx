@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Passing parameters to scripts
 description: Octopus can pass parameters to your custom script files for any of the supported scripting languages.
 icon: fa-solid fa-arrow-right-to-bracket
@@ -103,24 +103,6 @@ You can pass parameters to Bash scripts [as described in Bash manual.](https://w
 environment="$1"
 storagePath="$2"
 echo "$environment storage path: $storagePath"
-```
-
-## Passing parameters to F# scripts \{#passing-parameters-fsharp}
-
-You can pass parameters to FSharp scripts [as described by the F# documentation.](https://docs.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/#using-the-fsi-object-in-f-code)
-
-**Script Parameters in Octopus**
-
-```powershell
-"#{Octopus.Environment.Name}" "#{MyApplication.Storage.Path}"
-```
-
-**Usage in F# script**
-
-```fsharp
-let environment = fsi.CommandLineArgs.[1]
-let storagePath = fsi.CommandLineArgs.[2]
-printfn "$s storage path: $s" environment storagePath
 ```
 
 ## Passing parameters to Python3 scripts \{#passing-parameters-python}
