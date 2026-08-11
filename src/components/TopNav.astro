@@ -1,5 +1,6 @@
 ---
 import Logo from '../assets/octopus-logo-v2.svg';
+import Avatar from './Avatar.astro';
 import Button from './Button.astro';
 
 type Props = {
@@ -50,7 +51,26 @@ const {
     <Button icon="fa-regular fa-moon" aria-label="Switch to dark theme" />
     <!-- TODO: Make these real links -->
     <Button label="Changelog" href="#" />
-    <Button label="Sign in" href="#" />
-    <Button label="Start for free" href="#" importance="loud" />
+    <Button label="Sign in" href="#" data-signed-out-only />
+    <Button
+      label="Start for free"
+      href="#"
+      importance="loud"
+      data-signed-out-only
+    />
+    <Avatar
+      size="medium"
+      shape="circle"
+      alt=""
+      data-signed-in-only
+      data-user-avatar
+      hidden
+    >
+      <span data-user-initials></span>
+    </Avatar>
   </div>
 </header>
+
+<script>
+  import '../scripts/signed-in-user';
+</script>

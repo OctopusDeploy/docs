@@ -1,0 +1,143 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { AvatarShape, AvatarSize } from '../lib/avatar';
+
+type SharedProps = {
+  size: AvatarSize;
+  shape: AvatarShape;
+  src?: string;
+  srcSet?: string;
+  alt?: string;
+  isMuted?: boolean;
+  title?: string;
+};
+
+type Props =
+  | (HTMLAttributes<'div'> & SharedProps & { href?: never })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL });
+
+const {
+  size,
+  shape,
+  src,
+  srcSet,
+  alt = '',
+  isMuted = false,
+  title,
+  href,
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+const classes = `avatar avatar--${size} avatar--${shape}${isMuted ? ' avatar--muted' : ''}${className ? ` ${className}` : ''}`;
+
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  class={classes}
+  title={title}
+  {...href ? { href } : {}}
+  {...rest}
+  data-avatar
+  data-avatar-size={size}
+>
+  <span class="avatar__fallback" data-avatar-fallback><slot /></span>
+  <img
+    class="avatar__image"
+    src={src}
+    srcset={srcSet}
+    alt={alt}
+    data-avatar-image
+    hidden
+  />
+</Tag>
+
+<script>
+  import '../scripts/avatar';
+</script>
+
+<style>
+  .avatar {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    container-type: inline-size;
+    background: var(--colorAvatarBackgroundUserDefault);
+    color: var(--colorAvatarText);
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    user-select: none;
+    transition: background-color 150ms ease-in-out;
+  }
+
+  .avatar[hidden] {
+    display: none;
+  }
+
+  .avatar--small {
+    width: 20px;
+    height: 20px;
+  }
+
+  .avatar--medium {
+    width: 36px;
+    height: 36px;
+  }
+
+  .avatar--large {
+    width: 48px;
+    height: 48px;
+  }
+
+  .avatar--circle {
+    border-radius: var(--borderRadiusCircle);
+  }
+
+  .avatar--rounded {
+    border-radius: var(--borderRadiusSmall);
+  }
+
+  .avatar--muted {
+    opacity: 0.4;
+  }
+
+  .avatar__fallback {
+    display: block;
+    margin: 0;
+    color: var(--colorAvatarText);
+    font-size: 44cqi;
+  }
+
+  .avatar__fallback[hidden] {
+    display: none;
+  }
+
+  .avatar__image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--colorAvatarBackgroundImageDefault);
+    object-fit: scale-down;
+    transition: background-color 150ms ease-in-out;
+  }
+
+  a.avatar:hover,
+  a.avatar:focus-visible {
+    background: var(--colorAvatarBackgroundUserHover);
+    color: var(--colorAvatarText);
+  }
+
+  a.avatar:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth2);
+  }
+
+  a.avatar:hover .avatar__image {
+    background: var(--colorAvatarBackgroundImageHover);
+  }
+</style>

@@ -21,6 +21,10 @@
   text-decoration: none;
 }
 
+.btn[hidden] {
+  display: none;
+}
+
 .btn--medium {
   --btn-min-size: 2.25rem;
   --btn-padding-block: var(--space8);
