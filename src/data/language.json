@@ -33,6 +33,11 @@
             "en": "Edit on GitHub"
         }
     },
+    "octopus_copy_as_md": {
+        "copy": {
+            "en": "Copy as markdown"
+        }
+    },
     "octopus_copy_md": {
         "label": {
             "en": "Use Octopus docs with AI"

@@ -22,6 +22,7 @@ import ArticleJourney from '../components/ArticleJourney.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyMarkdown from '../components/CopyMarkdown.astro';
+import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
@@ -88,6 +89,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
               headings={headings}
               lang={lang}
             />
+            <CopyAsMarkdown lang={lang} />
           </div>
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <slot />

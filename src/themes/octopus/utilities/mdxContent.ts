@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import { SITE } from '@config';
 import {
   eligibleForMarkdownWithLookup,
   pathToSlug as relPathToSlug,
@@ -59,7 +60,7 @@ function globKeyToSlug(globKey: string): string | null {
   return relPathToSlug(m[1]);
 }
 
-// Memoized for builds only: CopyMarkdown.astro calls this on every page, and
+// Memoized for builds only: the page actions call this on every page, and
 // the walk re-parses frontmatter for all ~2,660 docs pages each time (~23ms x
 // ~1,270 pages ≈ 29s of build time). During a build the corpus cannot change,
 // so one pass is enough. In dev it stays uncached so edits to docs frontmatter
@@ -86,4 +87,15 @@ export function getEligibleSlugs(): Set<string> {
   if (import.meta.env.PROD) eligibleSlugsCache = slugs;
 
   return slugs;
+}
+
+// Null when the page has no .md companion, which is what the page actions that
+// hand the markdown to something else key off.
+export function pageMarkdownUrl(pathname: string): string | null {
+  const docsPath = pathname.replace(/\/$/, '');
+  const prefix = SITE.subfolder.replace(/\/$/, '') + '/';
+  if (!docsPath.startsWith(prefix)) return null;
+
+  const slug = docsPath.slice(prefix.length);
+  return getEligibleSlugs().has(slug) ? docsPath + '.md' : null;
 }

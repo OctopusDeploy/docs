@@ -1,0 +1,38 @@
+---
+import { Lang, Translations } from '@util/Languages';
+import { pageMarkdownUrl } from '@util/mdxContent';
+import Button from './Button.astro';
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const pageMdUrl = pageMarkdownUrl(Astro.url.pathname);
+---
+
+{
+  pageMdUrl && (
+    <Button
+      class="octo-copy-as-md"
+      icon="octo-copy-as-md__icon"
+      label={_(Translations.octopus_copy_as_md.copy)}
+      size="small"
+      data-copy-md-url={pageMdUrl}
+    />
+  )
+}
+
+<style>
+  /* `:global()` crosses into Button's scope */
+  :global(.octo-copy-as-md__icon) {
+    background-color: var(--colorIconPrimary);
+    mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+  }
+
+  :global(.octo-copy-as-md[data-copied] .octo-copy-as-md__icon) {
+    mask: url('../assets/icons/check.svg') center / contain no-repeat;
+  }
+</style>

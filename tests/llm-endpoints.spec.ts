@@ -50,10 +50,9 @@ test('llms.txt is spec-shaped', async ({ request }) => {
 
   const linkRe = /\[[^\]]+\]\((https?:\/\/[^)]+)\)/g;
   const urls = Array.from(body.matchAll(linkRe), (m) => m[1]);
-  expect(
-    urls.length,
-    'expected at least one link in llms.txt'
-  ).toBeGreaterThan(0);
+  expect(urls.length, 'expected at least one link in llms.txt').toBeGreaterThan(
+    0
+  );
   for (const u of urls) {
     expect(u, `URL ${u} should end in .md`).toMatch(/\.md(?:[#?].*)?$/);
   }
@@ -81,6 +80,44 @@ test('llms-full.txt is well-formed: intro, summary, page boundaries, no orphaned
     body,
     'unexpected literal `<Image` JSX tag (not the HTML img) left in output'
   ).not.toMatch(/<Image[\s>]/);
+});
+
+test.describe('Copy as markdown page action', () => {
+  test.use({ permissions: ['clipboard-read', 'clipboard-write'] });
+
+  test('puts the page markdown on the clipboard and reports it', async ({
+    page,
+  }) => {
+    await page.goto(STABLE_PLAIN_MD_PATH);
+    const button = page.locator('.octo-copy-as-md');
+
+    await expect(button).toHaveAttribute(
+      'data-copy-md-url',
+      STABLE_PLAIN_MD_PATH + '.md'
+    );
+
+    // Locked before the label shortens, so the buttons beside it stay put.
+    const restingWidth = (await button.boundingBox())!.width;
+    await button.click();
+
+    await expect(button).toHaveAttribute('data-copied', '');
+    expect((await button.boundingBox())!.width).toBe(restingWidth);
+
+    // The platform clipboard drops the BOM the .md carries and rewrites the
+    // newlines, so this checks the body rather than matching it byte for byte.
+    const clipboard = await page.evaluate(() => navigator.clipboard.readText());
+    expect(clipboard).toContain('# Argo CD deployments with Octopus');
+
+    await expect(button).not.toHaveAttribute('data-copied', '', {
+      timeout: 4000,
+    });
+  });
+
+  test('is hidden on the ineligible MDX page', async ({ page }) => {
+    await page.goto(STABLE_MDX_PATH);
+    const count = await page.locator('.octo-copy-as-md').count();
+    expect(count, 'expected no copy button on ineligible page').toBe(0);
+  });
 });
 
 test('CopyMarkdown dropdown advertises a working .md URL on the eligible page', async ({

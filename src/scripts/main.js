@@ -6,6 +6,7 @@ import {
 import { addResizedEvent } from './modules/resizing.js';
 import { addStickyNavigation } from './modules/nav-sticky.js';
 import { mobileNav } from './modules/nav-mobile.js';
+import { copyFetchedOnClick } from './modules/copy-button.js';
 import { copyMarkdownMenus } from './modules/copy-markdown.js';
 import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
@@ -29,6 +30,10 @@ monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');
 highlightCurrentHeading('.article-nav a');
+copyFetchedOnClick(
+  '.octo-copy-as-md',
+  (button) => button.dataset.copyMdUrl ?? null
+);
 
 // @ts-ignore
 const f = site_features ?? {};
