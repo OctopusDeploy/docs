@@ -7,6 +7,7 @@ import Search from '../themes/octopus/components/Search.astro';
 import MobileMenu from './MobileMenu.astro';
 import OctopusLogo from './icons/OctopusLogo.astro';
 import ThemeSwitcher from './ThemeSwitcher.astro';
+import TopNav from './TopNav.astro';
 
 const stats = new accelerator.statistics('components/Header.astro');
 stats.start();
@@ -25,6 +26,41 @@ const _ = Lang(lang);
 
 stats.stop();
 ---
+
+<script is:inline>
+  {
+    const key = 'use-new-nav';
+    const newNavRequested = new URLSearchParams(location.search).get('newnav');
+
+    let useNewNav = false;
+    try {
+      if (newNavRequested == null) {
+        const storedItem = JSON.parse(sessionStorage.getItem(key));
+        if (storedItem) {
+          // Remember the new nav setting for an hour
+          if (Date.now() - storedItem.timestamp < 60 * 60 * 1000) {
+            useNewNav = true;
+          } else {
+            sessionStorage.removeItem(key);
+          }
+        }
+      } else if (newNavRequested !== '0') {
+        useNewNav = true;
+        sessionStorage.setItem(key, JSON.stringify({ timestamp: Date.now() }));
+      } else {
+        sessionStorage.removeItem(key);
+      }
+    } catch {}
+
+    if (useNewNav) {
+      document.documentElement.dataset.nav = 'new';
+    }
+  }
+</script>
+
+<div class="new-top-nav">
+  <TopNav />
+</div>
 
 <header class="octo-header-bkg site-header header-default">
   <div class="octo-header">

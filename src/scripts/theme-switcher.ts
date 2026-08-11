@@ -10,12 +10,22 @@ import {
 } from '../lib/theme';
 
 const CHECKBOX_SELECTOR = '[data-theme-toggle-checkbox]';
+const BUTTON_SELECTOR = '[data-theme-toggle-button]';
+const BUTTON_ICON_SELECTOR = '.btn__icon';
+const BUTTON_ICON_CLASSES: Record<Theme, string> = {
+  light: 'fa-moon',
+  dark: 'fa-sun',
+};
 
 const root = document.documentElement;
 const darkQuery = window.matchMedia(COLOR_SCHEME_QUERY);
 
 function checkboxes() {
   return document.querySelectorAll<HTMLInputElement>(CHECKBOX_SELECTOR);
+}
+
+function buttons() {
+  return document.querySelectorAll<HTMLButtonElement>(BUTTON_SELECTOR);
 }
 
 // localStorage throws in Safari private mode and in cookie-blocked iframes.
@@ -53,6 +63,16 @@ function currentTheme(): Theme {
 function syncControls(theme: Theme) {
   checkboxes().forEach((box) => {
     box.checked = theme === 'dark';
+  });
+
+  buttons().forEach((button) => {
+    button.setAttribute('aria-pressed', String(theme === 'dark'));
+
+    const icon = button.querySelector(BUTTON_ICON_SELECTOR);
+    icon?.classList.remove(
+      BUTTON_ICON_CLASSES[theme === 'dark' ? 'light' : 'dark']
+    );
+    icon?.classList.add(BUTTON_ICON_CLASSES[theme]);
   });
 }
 
@@ -98,6 +118,15 @@ function bind() {
       event.preventDefault();
       box.click();
     });
+  });
+
+  buttons().forEach((button) => {
+    if (button.dataset.themeBound) return;
+    button.dataset.themeBound = 'true';
+
+    button.addEventListener('click', () =>
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark')
+    );
   });
 }
 
