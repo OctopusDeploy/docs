@@ -13,6 +13,7 @@ robots: noindex, follow
 listable: false # stop the oldest-content report from listing this page
 ---
 
+import Avatar from 'src/components/Avatar.astro';
 import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
 import IconTile from 'src/components/IconTile.astro';
@@ -161,6 +162,28 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
     />
     <Button label="Label" size="small" disabled={true} />
     <Button label="Label" size="xSmall" disabled={true} />
+    ```
+  </div>
+</div>
+
+### Avatar
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <Avatar size="small" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="large" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/octopus-deploy-logo.png" alt="">JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/does-not-exist.png" alt="">JD</Avatar>
+  </div>
+  <div>
+    ```
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">JD</Avatar>
     ```
   </div>
 </div>
