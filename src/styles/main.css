@@ -1806,8 +1806,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space16);
-  margin-block-start: var(--space32);
-  padding-inline-start: var(--space16);
+  margin-block-start: var(--space16);
+  padding: var(--space16);
   color: var(--colorTextPrimary);
   font: var(--textBodyRegularMedium);
 }
