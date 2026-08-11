@@ -68,6 +68,42 @@ test('each menu opens independently of the others', async ({ page }) => {
   await expect(menus.nth(0).locator('.split-btn__options')).toBeHidden();
 });
 
+// An anchor name is page-wide unless it is scoped, and an unscoped one leaves
+// every menu on the page hanging off the last control that declared it. The test
+// above cannot see that: both menus still open and close on their own.
+test('each menu hangs off the control it belongs to', async ({ page }) => {
+  await page.goto(PAGE);
+
+  const controls = page.locator('.split-btn');
+  await expect(controls).toHaveCount(2);
+
+  for (const index of [0, 1]) {
+    const control = controls.nth(index);
+    const options = control.locator('.split-btn__options');
+
+    await control.locator('[data-split-trigger]').click();
+    await expect(options).toBeVisible();
+
+    const button = (await control.boundingBox())!;
+    const menu = (await options.boundingBox())!;
+
+    // The menu is wider than the control, so it lines up on whichever edge it
+    // opened towards rather than on both.
+    const alignment = Math.min(
+      Math.abs(menu.x - button.x),
+      Math.abs(menu.x + menu.width - (button.x + button.width))
+    );
+
+    expect(
+      Math.round(alignment),
+      `menu ${index} should line up with its own control`
+    ).toBeLessThanOrEqual(1);
+
+    await page.keyboard.press('Escape');
+    await expect(options).toBeHidden();
+  }
+});
+
 // A guard that the menu is never positioned off the page. The gallery gives the
 // control a wide column to sit at the start of, so it has room on both sides at
 // every width and the flip-to-the-other-side fallback is not what is under test

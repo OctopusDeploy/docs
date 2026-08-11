@@ -58,7 +58,7 @@ const iconTag = (name: string | undefined) =>
     <Button
       as="summary"
       class="split-btn__toggle"
-      icon="fa-solid fa-caret-down"
+      icon="split-btn__caret"
       size={size}
       importance={importance}
       aria-label={menuLabel}
@@ -115,6 +115,12 @@ const iconTag = (name: string | undefined) =>
   </details>
 </div>
 
+<script>
+  // Astro bundles and dedupes this, so a page with several split buttons loads
+  // the controller once, and a page with none does not load it at all.
+  import '../scripts/split-button';
+</script>
+
 <style>
   .split-btn {
     display: inline-flex;
@@ -132,7 +138,9 @@ const iconTag = (name: string | undefined) =>
     margin-inline-start: calc(var(--borderWidth1) * -1);
   }
 
-  /* `:global()` crosses into Button's scope; the `.split-btn` prefix stays scoped */
+  /* Both halves are Buttons, so this markup belongs to Button's scope and
+     `:global()` is Astro's documented way into it; the `.split-btn` prefix keeps
+     the reach contained. */
   .split-btn :global(.split-btn__primary) {
     border-start-end-radius: 0;
     border-end-end-radius: 0;
@@ -142,6 +150,16 @@ const iconTag = (name: string | undefined) =>
     height: 100%;
     border-start-start-radius: 0;
     border-end-start-radius: 0;
+  }
+
+  /* The design names the design system's CaretDownIcon here. Masked rather than
+     given to an `<img>` so it takes the icon colour token through the themes,
+     and drawn at the 24px the design sets, which is wider than the 20px box
+     `.btn__icon` gives it; the glyph itself only fills the middle half of the
+     icon set's 40 x 40 box, so it stays inside the button. */
+  .split-btn :global(.split-btn__caret) {
+    background: var(--colorIconPrimary);
+    mask: url('../assets/icons/caret-down.svg') center / 1.5rem no-repeat;
   }
 
   /* Raise whichever half is interactive so its border and outline sit above the
@@ -164,7 +182,7 @@ const iconTag = (name: string | undefined) =>
     inset-block-start: calc(100% + var(--space4));
     inset-inline-end: 0;
     box-sizing: border-box;
-    width: var(--split-btn-menu-width, 13rem);
+    width: var(--split-btn-menu-width, 16rem);
     margin: 0;
     padding: var(--space8) 0;
     list-style: none;
@@ -177,9 +195,16 @@ const iconTag = (name: string | undefined) =>
      towards depends on where the control has ended up: at the end of a row on
      one line, or at the start of its own once the row wraps. Anchored so the
      browser picks the side with room, which a width breakpoint cannot do. */
-  @supports (anchor-name: --a) {
+  @supports (anchor-scope: --a) {
     .split-btn {
       anchor-name: --split-btn;
+      /* An anchor name is page-wide, so a second split button would leave every
+         menu on the page hanging off the last one. `anchor-scope` keeps each
+         name inside the control that declares it. The block is guarded on
+         `anchor-scope` rather than `anchor-name` so a browser with anchors but
+         no scoping keeps the absolute rule above, which measures from each
+         menu's own parent. */
+      anchor-scope: --split-btn;
     }
 
     /* Fixed so the viewport is what the browser measures the room against; the
@@ -201,10 +226,10 @@ const iconTag = (name: string | undefined) =>
     /* The page has no universal border-box rule, so min-height would otherwise
        measure the content alone and the padding would sit outside the row. */
     box-sizing: border-box;
-    /* 2.25rem is the medium button's height: the design system has no compact
-       MenuList to take this from, so it borrows the step the buttons use. */
-    min-height: 2.25rem;
-    padding: var(--space4) var(--space16);
+    /* MenuList.MenuItem in the design: 48px tall, and padding that only shows
+       once an item wraps past one line. */
+    min-height: 3rem;
+    padding: var(--space6) var(--space16);
     color: var(--colorTextLinkDefault);
     font: var(--textBodyRegularLarge);
   }
@@ -214,11 +239,24 @@ const iconTag = (name: string | undefined) =>
     background: var(--colorMenuListBackgroundHover);
   }
 
+  /* Centred and contained the way `.btn__icon` is. An icon font draws its glyph
+     on its own advance width rather than inside this box, so a wide one spills
+     over the gap and sits against the label; an SVG needs the same box to be
+     scaled into rather than laid out at its intrinsic size. */
   .split-btn__option-icon {
-    display: inline-block;
+    display: inline-flex;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     width: 1rem;
     height: 1rem;
+    font-size: var(--fontSizeBase);
+    line-height: 1;
+    color: var(--colorIconLinkDefault);
+  }
+
+  img.split-btn__option-icon {
+    object-fit: contain;
   }
 
   .split-btn__option-label {

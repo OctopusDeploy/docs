@@ -1,0 +1,6 @@
+<!-- ArrowUpRightFromSquareIcon from @octopusdeploy/design-system-icons, which the
+     design uses to mark a menu item that leaves the site. Used as a CSS mask, so
+     only alpha matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" width="16" height="16" aria-hidden="true">
+  <path d="M23.037 5.5c0-.812.626-1.5 1.503-1.5h9.957C35.374 4 36 4.688 36 5.5v10c0 .875-.626 1.5-1.503 1.5-.814 0-1.503-.625-1.503-1.5V9.125L19.03 23.063a1.373 1.373 0 0 1-2.066 0c-.626-.563-.626-1.5 0-2.125L30.928 7H24.54c-.877 0-1.503-.625-1.503-1.5M8.51 6h8.015c.815 0 1.503.688 1.503 1.5 0 .875-.688 1.5-1.503 1.5H8.51c-.877 0-1.503.688-1.503 1.5v21c0 .875.626 1.5 1.503 1.5h21.04c.815 0 1.504-.625 1.504-1.5v-8c0-.812.626-1.5 1.503-1.5.814 0 1.503.688 1.503 1.5v8c0 2.5-2.067 4.5-4.51 4.5H8.51C6.004 36 4 34 4 31.5v-21C4 8.063 6.004 6 8.509 6" />
+</svg>
