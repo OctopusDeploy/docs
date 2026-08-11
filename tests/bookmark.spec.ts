@@ -92,8 +92,10 @@ const bookmarks = [
 // A bookmark whose page is a Redirect.astro stub follows a meta refresh to an absolute
 // octopus.com URL, so the assertion lands on the live site and the test fails whenever
 // production is slow or unreachable. Serve those from the build under test instead.
+// Scoped to /docs because that is the only prefix this app is proxied under, and eight
+// stubs point at /devops pages it cannot serve — those have to stay absolute.
 test.beforeEach(async ({ page }) => {
-  await page.route('https://octopus.com/**', (route) =>
+  await page.route('https://octopus.com/docs/**', (route) =>
     route.fulfill({
       status: 302,
       headers: {
