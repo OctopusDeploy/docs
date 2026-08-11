@@ -23,6 +23,7 @@ import ArticleJourney from '../components/ArticleJourney.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import MarkdownLinks from '../components/MarkdownLinks.astro';
+import OpenInLlm from '../components/OpenInLlm.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
@@ -85,6 +86,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
           <div class="page-actions">
             <CopyAsMarkdown lang={lang} />
+            <OpenInLlm lang={lang} />
             <EditOnGithub
               frontmatter={frontmatter}
               headings={headings}

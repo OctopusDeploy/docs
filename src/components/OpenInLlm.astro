@@ -1,0 +1,90 @@
+---
+import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+import { getPageMarkdownPath } from '@util/mdxContent';
+import SplitButton from './SplitButton.astro';
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
+
+// The assistant fetches the page itself, so the prompt carries an absolute URL
+// rather than the site-relative one the rest of the site links with.
+const prompt = pageMdUrl
+  ? _(Translations.octopus_open_in_llm.prompt).replace(
+      '{url}',
+      new URL(pageMdUrl, SITE.url).href
+    )
+  : '';
+
+const assistants = [
+  {
+    label: _(Translations.octopus_open_in_llm.open_in_claude),
+    href: 'https://claude.ai/new?q=' + encodeURIComponent(prompt),
+    icon: 'octo-llm__icon octo-llm__icon--claude',
+    iconEnd: 'octo-llm__icon octo-llm__icon--external',
+  },
+  {
+    label: _(Translations.octopus_open_in_llm.open_in_chatgpt),
+    href: 'https://chatgpt.com/?hints=search&q=' + encodeURIComponent(prompt),
+    icon: 'octo-llm__icon octo-llm__icon--chatgpt',
+    iconEnd: 'octo-llm__icon octo-llm__icon--external',
+  },
+];
+
+const [primary] = assistants;
+---
+
+{
+  pageMdUrl && (
+    <SplitButton
+      class="octo-llm"
+      label={primary.label}
+      href={primary.href}
+      icon={primary.icon}
+      size="small"
+      items={assistants}
+      menuLabel={_(Translations.octopus_open_in_llm.more_assistants)}
+      target="_blank"
+      rel="noopener"
+    />
+  )
+}
+
+<style>
+  /* `:global()` crosses into SplitButton's scope, which renders every element
+     these land on; the `.octo-llm` prefix keeps them contained. */
+  .octo-llm :global(.octo-llm__icon) {
+    background-color: currentColor;
+  }
+
+  /* The exported glyphs sit inside a box 25% wider than themselves, so the mask
+     is sized rather than left to fill. */
+  .octo-llm :global(.btn .octo-llm__icon) {
+    --octo-llm-glyph-size: 1rem;
+  }
+
+  .octo-llm :global(.split-btn__option-icon) {
+    --octo-llm-glyph-size: 0.8rem;
+  }
+
+  .octo-llm :global(.octo-llm__icon--claude) {
+    mask: url('../assets/icons/claude.svg') center / var(--octo-llm-glyph-size)
+      no-repeat;
+  }
+
+  .octo-llm :global(.octo-llm__icon--chatgpt) {
+    mask: url('../assets/icons/chatgpt.svg') center / var(--octo-llm-glyph-size)
+      no-repeat;
+  }
+
+  .octo-llm :global(.octo-llm__icon--external) {
+    mask: url('../assets/icons/external-link.svg') center /
+      var(--octo-llm-glyph-size) no-repeat;
+  }
+</style>
