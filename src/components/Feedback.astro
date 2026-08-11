@@ -60,3 +60,86 @@ stats.stop();
     {_(Translations.octopus_feedback.thanks)}
   </p>
 </section>
+
+<style>
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space16);
+    margin-block-start: var(--space16);
+    padding: var(--space16);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+  }
+
+  .feedback__vote,
+  .feedback__comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space8);
+    width: 100%;
+  }
+
+  /* Two classes, so this beats the `display: flex` above. */
+  .feedback [hidden] {
+    display: none;
+  }
+
+  .feedback__actions {
+    display: flex;
+    gap: var(--space8);
+  }
+
+  /* Button.astro renders the icon span, so these sit outside this component's
+     scope. 20px slot, 16x14 glyph, as the design insets them, and masked
+     because the exported icons carry a fixed fill. */
+  .feedback :global(.feedback__icon) {
+    background-color: var(--colorIconPrimary);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 1rem 0.875rem;
+  }
+
+  .feedback :global(.feedback__icon--yes) {
+    mask-image: url('../assets/icons/thumbs-up.svg');
+  }
+
+  /* Mirrored, as the design pairs the thumbs facing each other. */
+  .feedback :global(.feedback__icon--no) {
+    mask-image: url('../assets/icons/thumbs-down.svg');
+    transform: scaleX(-1);
+  }
+
+  /* The design calls this out: the label stays regular weight. */
+  .feedback__label {
+    font: var(--textBodyRegularMedium);
+  }
+
+  .feedback__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 4.375rem;
+    padding: var(--space8);
+    border: var(--borderWidth1) solid var(--colorBorderBold);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundPrimaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    resize: vertical;
+  }
+
+  .feedback__textarea:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth1);
+  }
+
+  /* The table of contents column restacks above the article below this width, so
+     the widget would ask the question before anything had been read. */
+  @media (max-width: 1130px) {
+    .feedback {
+      display: none;
+    }
+  }
+</style>
