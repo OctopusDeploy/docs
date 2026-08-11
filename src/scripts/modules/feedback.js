@@ -14,19 +14,36 @@ import {
  * anything Google answered at all counts as accepted. A change to the form's
  * fields would therefore go unnoticed here.
  *
+ * @param {string} page
  * @param {string} rating
  * @param {string} comment
  * @returns {Promise<void>}
  */
-async function submit(rating, comment) {
+async function submit(page, rating, comment) {
   const body = new URLSearchParams();
-  body.set(FIELD_PAGE, window.location.href);
+  body.set(FIELD_PAGE, page);
   body.set(FIELD_RATING, rating);
   // The comment is marked required on the form, so a blank box still has to
   // send something for the submission to be accepted at all.
   body.set(FIELD_COMMENT, comment.trim() || ' ');
 
   await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body });
+}
+
+/**
+ * The title alone is ambiguous - "Overview" and "Prerequisites" repeat across
+ * the docs - and the URL alone is unreadable in a spreadsheet, so the field
+ * carries both. The hash says which section was open. The query string is
+ * dropped, as campaign parameters say nothing about the page.
+ *
+ * @param {string} title
+ * @returns {string}
+ */
+function pageLabel(title) {
+  const { origin, pathname, hash } = window.location;
+  const url = `${origin}${pathname}${hash}`;
+
+  return title ? `${title} - ${url}` : url;
 }
 
 class Feedback {
@@ -67,7 +84,11 @@ class Feedback {
     this.send.setAttribute('disabled', '');
 
     try {
-      await submit(this.rating, this.textarea.value);
+      await submit(
+        pageLabel(this.root.dataset.feedbackPage ?? ''),
+        this.rating,
+        this.textarea.value
+      );
     } catch (err) {
       // Offline, or blocked by an extension - it never left the browser.
       console.warn('[feedback] submission failed', err);

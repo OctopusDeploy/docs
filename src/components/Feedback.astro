@@ -1,5 +1,6 @@
 ---
 import { accelerator } from '@lib/accelerator';
+import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { Lang, Translations } from '@util/Languages';
 import Button from './Button.astro';
 import { RATING_NO, RATING_YES } from '../scripts/modules/feedback-form.js';
@@ -10,8 +11,12 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
+  frontmatter: Frontmatter;
 };
-const { lang } = Astro.props satisfies Props;
+const { lang, frontmatter } = Astro.props satisfies Props;
+
+// Titles can carry markdown, so they are flattened to text as everywhere else.
+const pageTitle = await accelerator.markdown.getTextFrom(frontmatter.title);
 
 // Language
 const _ = Lang(lang);
@@ -19,7 +24,12 @@ const _ = Lang(lang);
 stats.stop();
 ---
 
-<section class="feedback" data-feedback aria-labelledby="feedback-question">
+<section
+  class="feedback"
+  data-feedback
+  data-feedback-page={pageTitle}
+  aria-labelledby="feedback-question"
+>
   <div class="feedback__vote">
     <p class="feedback__question" id="feedback-question">
       {_(Translations.octopus_feedback.question)}

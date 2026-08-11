@@ -120,7 +120,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           lang={lang}
         /> -->
         <ArticleNav headings={headings} lang={lang} />
-        <Feedback lang={lang} />
+        <Feedback frontmatter={frontmatter} lang={lang} />
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>

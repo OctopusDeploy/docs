@@ -1,5 +1,11 @@
 import { test, expect } from '@playwright/test';
-import { RATING_NO, RATING_YES } from '../src/scripts/modules/feedback-form.js';
+import {
+  FIELD_COMMENT,
+  FIELD_PAGE,
+  FIELD_RATING,
+  RATING_NO,
+  RATING_YES,
+} from '../src/scripts/modules/feedback-form.js';
 
 const PAGE = '/docs/kubernetes/steps/kustomize';
 
@@ -54,6 +60,29 @@ test.describe('feedback widget', () => {
     await expect(page.locator('.feedback__thanks')).toBeVisible();
     await expect(page.locator('.feedback__vote')).toBeHidden();
     await expect(page.locator('.feedback__comment')).toBeHidden();
+  });
+
+  test('sends the page title and url, the rating and the comment', async ({
+    page,
+  }) => {
+    /** @type {string | null} */
+    let body = null;
+    await page.route('**/docs.google.com/**', (route) => {
+      body = route.request().postData();
+      return route.fulfill({ status: 200, body: '' });
+    });
+
+    await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
+    await page.locator('.feedback__textarea').fill('the kustomize page');
+    await page.locator('[data-feedback-send]').click();
+    await expect(page.locator('.feedback__thanks')).toBeVisible();
+
+    const sent = new URLSearchParams(body ?? '');
+    expect(sent.get(FIELD_PAGE)).toBe(
+      `Deploy with Kustomize - http://localhost:3000${PAGE}`
+    );
+    expect(sent.get(FIELD_RATING)).toBe(RATING_YES);
+    expect(sent.get(FIELD_COMMENT)).toBe('the kustomize page');
   });
 
   test('keeps the form up when the submission never leaves the browser', async ({
