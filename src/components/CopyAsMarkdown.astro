@@ -21,6 +21,8 @@ const pageMdUrl = pageMarkdownUrl(Astro.url.pathname);
       label={_(Translations.octopus_copy_as_md.copy)}
       size="small"
       data-copy-md-url={pageMdUrl}
+      data-copied-label={_(Translations.octopus_copy_as_md.copied)}
+      data-error-label={_(Translations.octopus_copy_as_md.error)}
     />
   )
 }

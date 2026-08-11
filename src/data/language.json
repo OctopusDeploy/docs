@@ -36,6 +36,12 @@
     "octopus_copy_as_md": {
         "copy": {
             "en": "Copy as markdown"
+        },
+        "copied": {
+            "en": "Copied"
+        },
+        "error": {
+            "en": "Copy failed"
         }
     },
     "octopus_copy_md": {

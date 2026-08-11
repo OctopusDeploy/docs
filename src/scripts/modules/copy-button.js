@@ -10,8 +10,21 @@
 
 const REVERT_MS = 2000;
 
+// Defaults for the icon-only buttons, whose result reaches the user as a
+// tooltip. A button that shows the result as visible text carries its own
+// translated pair instead.
 const COPIED = 'Copied';
 const FAILED = 'Copy failed';
+
+/**
+ * @param {HTMLElement} button
+ */
+function resultLabels(button) {
+  return {
+    copied: button.dataset.copiedLabel || COPIED,
+    failed: button.dataset.errorLabel || FAILED,
+  };
+}
 
 /** @type {WeakMap<HTMLElement, ReturnType<typeof setTimeout>>} */
 const timers = new WeakMap();
@@ -123,12 +136,13 @@ function onCopyClick(selector, write) {
     const pending = write(button);
     if (pending === null) return;
 
-    let message = COPIED;
+    const labels = resultLabels(button);
+    let message = labels.copied;
     try {
       await pending;
     } catch (error) {
       console.warn('[copy-button] copy failed', error);
-      message = FAILED;
+      message = labels.failed;
     }
 
     showResult(button, message);
