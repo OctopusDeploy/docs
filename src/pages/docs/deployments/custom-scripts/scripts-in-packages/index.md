@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2026-08-11
 title: Scripts in packages
 description: Octopus will run scripts included in your package when the script matches a naming convention.
 icon: fa-solid fa-cubes
@@ -82,8 +82,8 @@ If you are deploying the same package to multiple platforms, you can:
 
 The platform-specific priority order Octopus uses to select scripts is:
 
-- Linux: Bash, Python, C#, F#, PowerShell
-- Windows: PowerShell, Python, C#, F#, Bash
+- Linux: Bash, Python, C#, PowerShell
+- Windows: PowerShell, Python, C#, Bash
 
 Example: You are deploying an application to both Windows and Linux. You can write a single `PreDeploy.py` python script, making sure the python runtime is installed on both platforms. Alternatively, you can write both `PreDeploy.sh` and `PreDeploy.ps1`, and Octopus will run the Bash script on Linux and the PowerShell script on Windows.
 

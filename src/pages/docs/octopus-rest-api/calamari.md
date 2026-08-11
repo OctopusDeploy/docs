@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-12-11
+modDate: 2026-08-11
 title: Calamari
 navOrder: 70
 description: Calamari is the command-line tool invoked by Tentacle during a deployment. It knows how to deploy to Kubernetes, extract and install packages, run scripts and conventions, modify configuration files, and all the other things that happen during a deployment.
@@ -17,7 +17,7 @@ Calamari has commands to support:
 
 - Deploying to Kubernetes via Helm/Kustomize/Yaml.
 - Deploying NuGet packages.
-- Running scripts (PowerShell, ScriptCS, Bash, F#).
+- Running scripts (PowerShell, Bash, C#, Python).
 - Deploying packages to Cloud services (WebApps, Functions etc.).
 - Various other deployment related activities.
 

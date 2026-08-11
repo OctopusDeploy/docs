@@ -15,7 +15,6 @@ const LANGUAGE_NAMES = {
   csharp: 'C#',
   docker: 'Docker',
   dockerfile: 'Dockerfile',
-  fsharp: 'F#',
   go: 'Go',
   hcl: 'HCL',
   html: 'HTML',
