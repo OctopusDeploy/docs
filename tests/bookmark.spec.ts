@@ -89,12 +89,30 @@ const bookmarks = [
   '/docs/security/users-and-teams/auditing#accessing-archived-logs',
 ];
 
+// A bookmark whose page is a Redirect.astro stub follows a meta refresh to an absolute
+// octopus.com URL, so the assertion lands on the live site and the test fails whenever
+// production is slow or unreachable. Serve those from the build under test instead.
+test.beforeEach(async ({ page }) => {
+  await page.route('https://octopus.com/**', (route) =>
+    route.fulfill({
+      status: 302,
+      headers: {
+        location: route.request().url().replace('https://octopus.com', baseUrl),
+      },
+    })
+  );
+});
+
 for (let bookmark of bookmarks) {
   const url = new URL(bookmark, baseUrl);
-  
+
   test(`Check bookmark for ${bookmark}`, async ({ page }) => {
     await page.goto(url.href);
 
     await expect(page.locator(url.hash)).toBeVisible()
+
+    // The anchor only exists on the destination, so reaching here means navigation has
+    // settled. Fail if it settled somewhere other than the build under test.
+    expect(new URL(page.url()).origin).toBe(new URL(baseUrl).origin);
   });
 }
