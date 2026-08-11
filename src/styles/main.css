@@ -1799,17 +1799,27 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
+/* "Copy as markdown" page action */
+.octo-copy-md__icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.octo-copy-md[data-copied] .octo-copy-md__icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
 /* "Use Octopus docs with AI" dropdown */
-.octo-copy-md {
+.octo-md-links {
   margin-block-start: var(--block-gap);
 }
 
-.octo-copy-md__menu {
+.octo-md-links__menu {
   display: inline-block;
   position: relative;
 }
 
-.octo-copy-md__trigger {
+.octo-md-links__trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1830,26 +1840,26 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__trigger > * {
+.octo-md-links__trigger > * {
   text-decoration: none;
   color: inherit;
 }
 
-.octo-copy-md__trigger::-webkit-details-marker,
-.octo-copy-md__trigger::marker {
+.octo-md-links__trigger::-webkit-details-marker,
+.octo-md-links__trigger::marker {
   content: '';
   display: none;
 }
 
-.octo-copy-md__trigger-icon,
-.octo-copy-md__trigger-caret {
+.octo-md-links__trigger-icon,
+.octo-md-links__trigger-caret {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
 
-.octo-copy-md__trigger-icon::before {
+.octo-md-links__trigger-icon::before {
   content: '\f0eb'; /* fa-lightbulb */
   font-family: fa-solid;
   font-size: 0.95em;
@@ -1858,7 +1868,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__trigger-caret::before {
+.octo-md-links__trigger-caret::before {
   content: '\f078'; /* fa-chevron-down */
   font-family: fa-solid;
   font-size: 0.7em;
@@ -1867,30 +1877,30 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__menu[open]
-  > .octo-copy-md__trigger
-  .octo-copy-md__trigger-caret::before {
+.octo-md-links__menu[open]
+  > .octo-md-links__trigger
+  .octo-md-links__trigger-caret::before {
   transform: rotate(180deg);
 }
 
-.octo-copy-md__trigger:hover {
+.octo-md-links__trigger:hover {
   color: var(--color-menu-link-active);
   border-color: var(--color-menu-link-alt);
 }
 
-.octo-copy-md__menu[open] > .octo-copy-md__trigger {
+.octo-md-links__menu[open] > .octo-md-links__trigger {
   color: var(--color-menu-link-active);
   border-color: var(--color-menu-link-alt);
   background-color: var(--bg-color-menu-open);
   box-shadow: 0 0.0625rem 0.25rem rgba(13, 128, 216, 0.08);
 }
 
-.octo-copy-md__trigger:focus-visible {
+.octo-md-links__trigger:focus-visible {
   outline: 2px solid var(--color-menu-link-alt);
   outline-offset: 2px;
 }
 
-.octo-copy-md .octo-copy-md__options {
+.octo-md-links .octo-md-links__options {
   position: absolute;
   z-index: 10;
   inset-block-start: calc(100% + 0.5rem);
@@ -1909,7 +1919,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     0 0.125rem 0.375rem rgba(15, 37, 53, 0.06);
 }
 
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option {
+.octo-md-links .octo-md-links__options .octo-md-links__option {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -1927,14 +1937,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:hover,
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:focus-visible {
+.octo-md-links .octo-md-links__options .octo-md-links__option:hover,
+.octo-md-links .octo-md-links__options .octo-md-links__option:focus-visible {
   background-color: var(--bg-color-menu-open);
   color: var(--color-menu-link-active);
   outline: none;
 }
 
-.octo-copy-md__option::before {
+.octo-md-links__option::before {
   font-family: fa-solid;
   font-size: 0.95em;
   width: 1.1em;
@@ -1944,21 +1954,16 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__option--copy::before {
-  content: '\f0c5'; /* fa-copy */
-}
-
-.octo-copy-md__option--view::before {
+.octo-md-links__option--view::before {
   content: '\f15c'; /* fa-file-lines */
 }
 
-.octo-copy-md__option--all::before {
+.octo-md-links__option--all::before {
   content: '\f02d'; /* fa-book */
 }
 
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
-.octo-copy-md__sr-status,
 .copy-status {
   position: absolute;
   width: 1px;

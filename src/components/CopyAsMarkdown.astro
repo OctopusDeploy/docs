@@ -1,0 +1,33 @@
+---
+import { Lang, Translations } from '@util/Languages';
+import { getPageMarkdownPath } from '@util/mdxContent';
+import Button from './Button.astro';
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
+---
+
+{
+  pageMdUrl && (
+    <Button
+      class="octo-copy-md"
+      icon="octo-copy-md__icon"
+      label={_(Translations.octopus_copy_md.label)}
+      size="small"
+      data-copy-md-url={pageMdUrl}
+      data-copy-md-label={_(Translations.octopus_copy_md.label)}
+      data-copy-md-copied={_(Translations.octopus_copy_md.copied)}
+      data-copy-md-error={_(Translations.octopus_copy_md.error)}
+    />
+  )
+}
+
+<script>
+  import '../scripts/copy-as-markdown';
+</script>
