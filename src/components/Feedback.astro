@@ -2,7 +2,7 @@
 import { accelerator } from '@lib/accelerator';
 import { Lang, Translations } from '@util/Languages';
 import Button from './Button.astro';
-import { RATING_NO, RATING_YES } from '../scripts/modules/feedback.js';
+import { RATING_NO, RATING_YES } from '../scripts/modules/feedback-form.js';
 
 const stats = new accelerator.statistics('components/Feedback.astro');
 stats.start();
@@ -60,6 +60,10 @@ stats.stop();
     {_(Translations.octopus_feedback.thanks)}
   </p>
 </section>
+
+<script>
+  import '../scripts/modules/feedback.js';
+</script>
 
 <style>
   .feedback {

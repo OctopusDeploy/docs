@@ -6,7 +6,7 @@ import {
   FORM_ID,
   RATING_NO,
   RATING_YES,
-} from '../src/scripts/modules/feedback.js';
+} from '../src/scripts/modules/feedback-form.js';
 
 const PAGE = '/docs/kubernetes/steps/kustomize';
 const VIEW_FORM = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform`;
