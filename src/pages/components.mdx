@@ -19,6 +19,7 @@ import Card from 'src/components/Card.astro';
 import IconTile from 'src/components/IconTile.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
+import SplitButton from 'src/components/SplitButton.astro';
 import TopNav from 'src/components/TopNav.astro';
 
 ## Component Usage Guide
@@ -51,8 +52,11 @@ The Button component renders an HTML `<button>`, or an `<a>` when given an `href
 5. **disabled**: Optional `true`/`false`
 6. **href**: Optional. When set, the button renders as a link rather than a `<button>`.
 7. **type**: Optional: `button` (default), `submit`, or `reset`. Ignored when `href` is set.
+8. **as**: Optional: `button` (default) or `summary`. Use `summary` for a button that opens a `<details>` disclosure. Ignored when `href` is set.
 
 An icon-only button has no visible text, so include an `aria-label` to give it an accessible name.
+
+Any other attribute is passed through to the rendered element, so a `class` of your own reaches the button and you can position or reshape it from the parent component. Astro scopes each component's `<style>` to its own markup, so a rule aimed at that class needs `:global()` to cross into Button — keep it behind a scoped ancestor (e.g. `.my-toolbar :global(.my-toolbar__action) { ... }`) so it stays contained. Never copy the `btn` classes into your own markup: the styles are scoped to Button and will not apply.
 
 <div class="docs-home simple-grid">
   <div class="btn-row">
@@ -184,6 +188,62 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
     <Avatar size="medium" shape="rounded">JD</Avatar>
     <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
     <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">JD</Avatar>
+    ```
+  </div>
+</div>
+
+### SplitButton
+
+A Button with a second, narrower half that opens a menu of related actions. It has the same anatomy and tokens as Button, so it takes the same `icon`, `size` and `importance`, and adds the menu.
+
+1. **label** / **href** / **icon**: The primary action, passed straight to Button. The primary is always a link.
+2. **items**: The menu, as an array of `{ label, href, icon?, iconEnd? }`. Icons take the same values Button's do: a class name or a URL to an SVG.
+3. **menuLabel**: Required. The caret half has no text, so this gives it an accessible name.
+4. **size** / **importance**: Optional, applied to both halves so they stay the same height.
+5. **target** / **rel**: Optional, applied to the primary and every menu item.
+
+The menu closes on Escape or a click outside, and opens towards whichever side has room, so it does not need positioning from the parent. Convention is to repeat the primary action as the first menu item, as a split button's two halves should never offer a different set of actions.
+
+Give it a `class` of your own to style what you passed in: the icons land on elements SplitButton renders, so a rule aimed at them needs `:global()` behind that class.
+
+<div class="docs-home simple-grid">
+  <div>
+    <div class="btn-row">
+      <SplitButton
+        label="Open in Claude"
+        href="#split-button-example"
+        menuLabel="Open in another assistant"
+        items={[
+          { label: 'Open in Claude', href: '#split-button-example' },
+          { label: 'Open in ChatGPT', href: '#split-button-example' },
+        ]}
+      />
+    </div>
+    <div class="btn-row">
+      <SplitButton
+        label="Label"
+        href="#split-button-example"
+        icon="fa-solid fa-copy"
+        size="small"
+        menuLabel="More actions"
+        items={[
+          { label: 'First action', href: '#split-button-example' },
+          { label: 'Second action', href: '#split-button-example' },
+        ]}
+      />
+    </div>
+  </div>
+  <div>
+    ```
+    <SplitButton
+      label="Open in Claude"
+      href="/some/url"
+      menuLabel="Open in another assistant"
+      items={[
+        { label: 'Open in Claude', href: '/some/url' },
+        { label: 'Open in ChatGPT', href: '/another/url' },
+      ]}
+    />
     ```
   </div>
 </div>

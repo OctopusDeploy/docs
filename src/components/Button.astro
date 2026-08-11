@@ -10,10 +10,12 @@ type SharedProps = {
   disabled?: boolean;
 };
 
-// Extend the native button attributes, or the anchor ones when an href is given
+// Extend the native button attributes, the anchor ones when an href is given,
+// or the summary ones when the button is a `<details>` disclosure trigger
 type Props =
-  | (HTMLAttributes<'button'> & SharedProps & { href?: never })
-  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL });
+  | (HTMLAttributes<'button'> & SharedProps & { href?: never; as?: 'button' })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL; as?: never })
+  | (HTMLAttributes<'summary'> & SharedProps & { href?: never; as: 'summary' });
 
 const {
   label,
@@ -23,6 +25,7 @@ const {
   importance = 'default',
   disabled = false,
   href,
+  as = 'button',
   type = 'button',
   class: className,
   ...rest
@@ -48,7 +51,9 @@ const tagSpecificProps = href
       'aria-disabled': disabled ? 'true' : undefined,
       tabindex: disabled ? -1 : undefined,
     }
-  : { type, disabled };
+  : as === 'summary'
+    ? { 'aria-disabled': disabled ? 'true' : undefined }
+    : { type, disabled };
 
 const iconDetails = (name: string | undefined) => {
   if (!name) return null;
@@ -62,7 +67,7 @@ const endIcon = iconDetails(iconEnd);
 const StartIconTag = startIcon?.tag;
 const EndIconTag = endIcon?.tag;
 
-const Tag = href ? 'a' : 'button';
+const Tag = href ? 'a' : as;
 ---
 
 <Tag class={classes} {...tagSpecificProps} {...rest}>
