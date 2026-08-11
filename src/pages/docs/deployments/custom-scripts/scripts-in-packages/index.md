@@ -104,13 +104,13 @@ Make sure the scripts are located in the root of your package.
 Make sure the scripts are actually included in your package. Extract your package and inspect the contents to make sure the scripts are included as you expect. For example, if you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action = Content**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277766.png)
+![The Visual Studio file properties pane for Deploy.ps1, with Build Action set to Content](/docs/img/deployments/custom-scripts/scripts-in-packages/3277766.png)
 :::
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277765.png)
+![The Visual Studio file properties pane for Deploy.ps1, with Copy to Output Directory set to Copy if newer](/docs/img/deployments/custom-scripts/scripts-in-packages/3277765.png)
 :::
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack).
