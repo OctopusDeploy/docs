@@ -31,6 +31,35 @@ Support for ScriptCS in Octopus will be removed from `2025.3`.
 To view previous and upcoming deprecations, please visit our [deprecations page](https://octopus.com/docs/deprecations).
 :::
 
+## C# script requirements {#csharp-requirements}
+
+C# scripts (`.csx`) run through [dotnet-script](https://github.com/dotnet-script/dotnet-script), which requires the **.NET SDK** on the machine that runs the script. The .NET runtime on its own is not enough. Depending on where the step runs, that machine is a [deployment target](/docs/infrastructure/deployment-targets), a [worker](/docs/infrastructure/workers), or the Octopus Server.
+
+The SDK is required for every C# script, including scripts that reference no NuGet packages. Before running your script, dotnet-script generates a project file for it and runs `dotnet restore` against that project, and `dotnet restore` is part of the SDK rather than the runtime.
+
+If only the runtime is installed, the step fails with a message that points at your NuGet references instead of the missing SDK:
+
+```text
+Unable to restore packages from '/root/.cache/dotnet-script/work/net8.0/script.csproj'
+Make sure that all script files contains valid NuGet references
+```
+
+The path and target framework in that message vary by machine. If you see it and your script has no NuGet references, the machine running the step is missing the .NET SDK.
+
+### Which version of the .NET SDK {#csharp-sdk-version}
+
+We don't tie C# scripts to a specific version of the SDK, because dotnet-script chooses the target framework itself at run time. It resolves a .NET runtime through the `dotnet` on the path, then generates a project targeting that runtime's version. The SDK on the machine must be able to build for that target framework, so install an SDK that is at least as new as the .NET runtime the machine will resolve. Installing the .NET SDK also installs a matching runtime, so one SDK install covers both.
+
+Calamari's own target framework has no bearing on this. Calamari is [self-contained](/docs/octopus-rest-api/calamari) and carries its own runtime, but your C# script is executed by the `dotnet` installed on the machine.
+
+The [octopusdeploy/worker-tools images](/docs/projects/steps/execution-containers-for-workers/#worker-tools-images) include a .NET SDK, so C# scripts run in an [execution container](/docs/projects/steps/execution-containers-for-workers) without any extra setup.
+
+### NuGet sources for C# scripts {#csharp-nuget-source}
+
+By default, dotnet-script restores packages from `https://api.nuget.org/v3/index.json`. To restore from a different feed, set the `Octopus.Action.Script.CSharp.NuGetSource` [system variable](/docs/projects/variables/system-variables) on the project or step.
+
+Only one source can be supplied, and the value replaces the default rather than adding to it. A script that needs packages from both nuget.org and a private feed can't be expressed with this variable today. Octopus always passes a single source to dotnet-script, and that source overrides any sources configured in a `NuGet.config` on the machine. If your script needs packages from more than one feed, point the variable at a feed that can serve all of them, such as a private feed configured to proxy nuget.org upstream.
+
 ## What you can do with custom scripts
 
 If an activity can be scripted, Octopus can run that script as a standalone activity or as part of a larger orchestration.

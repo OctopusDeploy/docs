@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-07
+modDate: 2026-08-11
 title: System variables
 sidebarLabel: System variables
 navOrder: 20
@@ -240,7 +240,7 @@ You can also read these variables for a different action using indexed notation,
 | `Octopus.Action.Package.SkipIfAlreadyInstalled` | Whether re-deployment is skipped when the package version is already on the machine. | `False` |
 | `Octopus.Action.Script.ScriptBody` | The script being run in a script step. | `Write-Host 'Hello'` |
 | `Octopus.Action.Script.Syntax` | The syntax of the script being run in a script step. | PowerShell |
-| `Octopus.Action.Script.CSharp.NuGetSource` | The NuGet source used by the dotnet executor for C# script steps. | `https://my-nuget-server/nuget` |
+| `Octopus.Action.Script.CSharp.NuGetSource` | The NuGet source used by the dotnet executor for C# script steps. Only one source can be supplied, and it replaces the default source rather than adding to it. See [NuGet sources for C# scripts](/docs/deployments/custom-scripts/#csharp-nuget-source). | `https://my-nuget-server/nuget` |
 | `Octopus.Action.SkipRemainingConventions` | Set as an output variable to finish the action without running further conventions or scripts. | `True` |
 | `Octopus.Action.TargetRoles` | The machine target tags targeted by the action. | `web-server,frontend` |
 | `Octopus.Action.Template.Id` | The ID of the step template the action is based on, if any. | `action-templates-123` |
