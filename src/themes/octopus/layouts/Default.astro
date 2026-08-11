@@ -1,12 +1,11 @@
 ---
-import { Accelerator } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { getImageInfo } from '@util/custom-markdown.mjs';
 import { SITE } from '@config';
 import Head from '@components/HtmlHead.astro';
 import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import Copyright from '@components/Copyright.astro';
+import Footer from 'src/components/Footer.astro';
 import SkipLinks from '@components/SkipLinks.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Navigation from '@components/Navigation.astro';
@@ -15,7 +14,6 @@ import Authors from '@components/Authors.astro';
 import Taxonomy from '@components/Taxonomy.astro';
 import Related from '@components/Related.astro';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/layouts/Default.astro');
 stats.start();
 
@@ -91,13 +89,16 @@ stats.stop();
       </main>
       <Navigation lang={lang} />
     </div>
-    <Footer frontmatter={frontmatter} headings={headings} lang={lang}>
-      <Copyright frontmatter={frontmatter} headings={headings} lang={lang} />
-    </Footer>
+    <Footer
+      lang={lang}
+      lastUpdated={frontmatter.modDate ?? frontmatter.pubDate}
+    />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
     </script>
-    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
+    <script>
+      import '../../../scripts/main.js';
+    </script>
   </body>
 </html>

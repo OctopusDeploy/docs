@@ -1,14 +1,14 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-13
-modDate: 2026-06-03
+modDate: 2026-07-29
 title: AWS Managed Argo CD
 description: Install Argo CD Gateway on EKS with Argo CD Capability
 navOrder: 10
 hideInThisSectionHeader: true
 ---
 
-The Argo CD Gateway can be installed into an AWS EKS cluster and connect to an Argo CD instance managed by the Argo CD Capability.
+The Argo CD Gateway can be installed into an AWS EKS cluster and connect to an Argo CD instance managed by the [EKS Capability for Argo CD](https://docs.aws.amazon.com/eks/latest/userguide/argocd.html).
 
 ## Differences from a standard Argo CD instance
 

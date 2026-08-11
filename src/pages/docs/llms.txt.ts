@@ -1,7 +1,7 @@
 // Generates llms.txt per https://llmstxt.org
 
+import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
-import { Accelerator } from 'astro-accelerator-utils';
 import {
   compareForLlmSurfaces,
   eligibleForMarkdown,
@@ -19,7 +19,6 @@ const allRaws = import.meta.glob<string>(['./**/*.md', './**/*.mdx'], {
 });
 
 async function getData() {
-  const accelerator = new Accelerator(SITE);
   const subfolderPrefix = SITE.subfolder.replace(/\/$/, '') + '/';
 
   type Page = {

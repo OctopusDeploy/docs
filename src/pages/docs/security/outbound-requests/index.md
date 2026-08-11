@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-02-09
+modDate: 2026-07-20
 title: Outbound requests
 description: Traffic details of network requests made by Octopus and Tentacle, and what information is included when Octopus checks for updates.
 navOrder: 25
@@ -41,6 +41,8 @@ From **Octopus 2022.1** some built-in step templates can be automatically update
 
 - `steps-feed.octopus.com`
 - `stepsprodpackages.blob.core.windows.net`. The infrastructure for the service that hosts the updated versions of step templates runs in Azure.
+
+This mechanism only applies to steps built using the Step Package Framework (SPF), which is [being deprecated](/docs/deprecations#step-package-framework-spf-deprecation). Steps migrated off SPF onto native Octopus step types no longer use this update mechanism and instead ship with Octopus Server releases.
 
 ### Community contributed step templates
 

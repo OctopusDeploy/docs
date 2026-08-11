@@ -1,9 +1,9 @@
 ---
-import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering } from 'astro-accelerator-utils';
 import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/Search.astro');
 stats.start();
 
@@ -106,4 +106,6 @@ stats.stop();
   </a>
 </div>
 
-<script src={SITE.subfolder + '/js/search.js'} type="module" defer></script>
+<script>
+  import '../../../scripts/search.js';
+</script>

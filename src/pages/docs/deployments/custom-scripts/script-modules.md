@@ -1,11 +1,11 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-27
+modDate: 2026-08-11
 title: Script modules in Octopus
 navTitle: Script modules
 description: Script modules allow users to create collections of functions that can be used in deployment processes across multiple projects.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 120
 ---
 
@@ -95,7 +95,6 @@ Each language has a slightly different syntax for using the Script Module. Pleas
 - [PowerShell](#powershell)
 - [Bash](#bash)
 - [C#](#csharp-script-modules)
-- [F#](#fsharp-script-modules)
 - [Python](#python-script-modules)
 
 ## PowerShell script modules {#powershell}
@@ -175,44 +174,6 @@ Call it from your Script Step with:
 ```csharp
 #load "CSharpScriptModule.csx"
 SayHello("George");
-```
-
-## F# script modules {#fsharp-script-modules}
-
-F# Script Modules are written as an `.fsx` file next to your script. Import them
-via `#load "MyScriptModule.fsx"`, where `MyScriptModule` is the name of your Script
-Module with invalid characters removed. The help text above the Script Module body
-will show the filename that will be created.
-
-F# script modules need to declare a module name at the top of the Script Module body with `module MyModule`.
-
-Once the Script Module file is loaded, you can either use the functions from the Script Module by prefixing the functions with the module name, or by "opening" the Script Module with `open MyModule`:
-
-```fsharp
-#load "MyScriptModule.fsx"
-// call the function in the module directly
-let result = MyModule.add 1 3
-// Or, open the module, and import the functions into scope
-open MyModule
-let result = add 1 3
-```
-
-The `#load` statement must be at the top of your script.
-
-Given an F# Script Module called `FSharp Script Module`:
-
-```fsharp
-module MyFSharpScriptModule
-let sayHello name =
-    printfn "Hello %s. Welcome to Octopus!" name;
-```
-
-Call it from your Script Step with:
-
-```fsharp
-#load "FSharpScriptModule.fsx"
-open MyFSharpScriptModule
-sayHello "George";
 ```
 
 ## Python script modules {#python-script-modules}

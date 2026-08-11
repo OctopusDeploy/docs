@@ -1,0 +1,69 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type SharedProps = {
+  label?: string;
+  icon?: string; // URL to an SVG, or a class name e.g. a FontAwesome icon class name
+  iconEnd?: string; // URL to an SVG, or a class name
+  size?: 'xSmall' | 'small' | 'medium';
+  importance?: 'default' | 'loud';
+  disabled?: boolean;
+};
+
+// Extend the native button attributes, or the anchor ones when an href is given
+type Props =
+  | (HTMLAttributes<'button'> & SharedProps & { href?: never })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL });
+
+const {
+  label,
+  icon,
+  iconEnd,
+  size = 'medium',
+  importance = 'default',
+  disabled = false,
+  href,
+  type = 'button',
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
+  throw new Error('An icon-only button needs an aria-label for screen readers');
+}
+
+const classes = `btn btn--${size.toLowerCase()}${importance === 'loud' ? ' btn--loud' : ''}${className ? ` ${className}` : ''}`;
+
+const tagSpecificProps = href
+  ? {
+      href: disabled ? undefined : href,
+      role: disabled ? 'link' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+      tabindex: disabled ? -1 : undefined,
+    }
+  : { type, disabled };
+
+const iconDetails = (name: string | undefined) => {
+  if (!name) return null;
+  return name.endsWith('.svg')
+    ? { tag: 'img' as const, props: { src: name, alt: '', class: 'btn__icon' } }
+    : { tag: 'span' as const, props: { class: `${name} btn__icon` } };
+};
+
+const startIcon = iconDetails(icon);
+const endIcon = iconDetails(iconEnd);
+const StartIconTag = startIcon?.tag;
+const EndIconTag = endIcon?.tag;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag class={classes} {...tagSpecificProps} {...rest}>
+  {StartIconTag && <StartIconTag {...startIcon!.props} aria-hidden="true" />}
+  {label && <span class="btn__label">{label}</span>}
+  {EndIconTag && <EndIconTag {...endIcon!.props} aria-hidden="true" />}
+</Tag>
+
+<style>
+  @import '../styles/button.css';
+</style>

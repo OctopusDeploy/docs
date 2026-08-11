@@ -1,10 +1,8 @@
 ---
+import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
-import { Accelerator } from 'astro-accelerator-utils';
-import Separator from './Separator.astro';
 
-const accelerator = new Accelerator(SITE);
 const stats = new accelerator.statistics('octopus/components/ArticleNav.astro');
 stats.start();
 
@@ -32,7 +30,6 @@ stats.stop();
         <summary class="article-nav__title">
           {_(Translations.toc.title)}
         </summary>
-        <Separator />
         <ol class="article-nav__list">
           {headings.map((heading) => (
             <li
@@ -48,6 +45,14 @@ stats.stop();
             </li>
           ))}
         </ol>
+        {/* Slid onto the current heading's link by scripts/modules/toc.js,
+            which measures the links against this element's offset parent —
+            the <details> above. */}
+        <span
+          class="article-nav__indicator"
+          data-article-nav-indicator
+          aria-hidden="true"
+        />
       </details>
     </nav>
   )

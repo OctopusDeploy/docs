@@ -15,16 +15,6 @@ navOrder: 151
 
 You may run into a few issues when setting up your process templates. We've put together this page to help you diagnose and fix common issues.
 
-### Step support
-
-Process templates currently supports most Octopus steps.  It currently doesn't support the following:
-
-1. Deploy a Bicep Template
-2. AWS S3 Create Bucket
-3. AWS ECS
-
-This document will be updated as additional step support is added.
-
 ### Parameters and Variables
 
 If you are migrating an existing process to be used as a process template, you may run into a few issues when using parameters and variables in scripts. When copying a script from a step in a project into a process template step, you must convert project variables to use process template parameters. System variables will still work as normal.
@@ -122,7 +112,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 You cannot clone a process template in Platform Hub through the Octopus UI.  The process for cloning a process template is:
 
 1. Clone the process template OCL file in the Platform Hub Git repository.
-2. Change the name of the cloned OCL file to the desired name.  
+2. Change the name of the cloned OCL file to the desired name.
 3. Change the name of the process template in the OCL file.
 4. Commit and push the changes.
 5. Refresh the process template list in the Octopus Deploy UI and find the newly created template.
@@ -138,7 +128,7 @@ The following account types are not supported:
 Platform Hub accounts cannot be used in the following situations:
 
 - Cannot be used by targets.
-- Cannot be used in Cloud Target Discovery.  
+- Cannot be used in Cloud Target Discovery.
 
 ### Public API
 
@@ -197,7 +187,7 @@ Octopus.ProcessTemplate[ProcessTemplateUsageStepName].Action[StepName].Output.Pr
 
 Consider a process template named **Build and Create Web App** containing a step that runs a script and publishes an output variable `FilePath`:
 
-```hcl
+```ocl
 name = "Build and Create Web App"
 description = ""
 
@@ -222,7 +212,7 @@ Octopus.ProcessTemplate.Action[Collect Details].Output.FilePath
 
 When this process template is used in a project with a process template usage step named **Create Web App**:
 
-```hcl
+```ocl
 process_template "run-a-process-template" {
     name = "Create Web App"
     process_template_slug = "build-and-create-web-app"

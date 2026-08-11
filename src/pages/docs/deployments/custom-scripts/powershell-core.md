@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2023-01-01
 title: PowerShell Core
 description: Enabling PowerShell Core.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 109
 ---
 

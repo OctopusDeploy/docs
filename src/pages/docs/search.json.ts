@@ -2,7 +2,8 @@
 
 // warning: This file is overwritten by Astro Accelerator
 
-import { Accelerator, PostFiltering } from 'astro-accelerator-utils';
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering } from 'astro-accelerator-utils';
 import type { MarkdownInstance } from 'astro';
 import { SITE } from '@config';
 import { convert } from 'html-to-text';
@@ -12,8 +13,6 @@ const getData = async () => {
   //@ts-ignore
   const allPages = import.meta.glob(['./**/*.md', './**/*.mdx']);
   const items = [];
-
-  const accelerator = new Accelerator(SITE);
 
   for (const path in allPages) {
     const page = (await allPages[path]()) as MarkdownInstance<Record<string, any>>;

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-17
-modDate: 2025-11-27
+modDate: 2026-07-22
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -26,6 +26,8 @@ To configure Ephemeral Environments for your project:
 
 ![Getting started with ephemeral environments from within a project](/docs/projects/ephemeral-environments/getting-started.png)
 
+Below, you'll find everything you need to know as you step through the configuration wizard.
+
 ### Parent environment
 
 A parent environment provides [scoping of variables, deployment targets and accounts for ephemeral environments](/docs/infrastructure/ephemeral-environments#scoping-variables-deployment-targets-and-accounts). Parent environments are not included in Lifecycles and cannot be deployed to.
@@ -39,22 +41,21 @@ Give your parent environment a recognizable name that describes what you intend 
 
 ### Auto Deploy
 
-You can choose to automatically deploy releases to ephemeral environments when they created. This can help to streamline your workflows by reducing the number of manual steps required to get your changes deployed.
+You can choose to automatically deploy releases to ephemeral environments when they are created. This can help to streamline your workflows by reducing the number of manual steps required to get your changes deployed.
 
-When auto deployment is configured, Octopus will automatically create a new ephemeral environment for you from releases in your project. The name of each environment can be configured using an Environment Name Template. Templates support the same powerful syntax as Variables. Any [system variable for a release](/docs/projects/variables/system-variables#release) can be used as part of the template.
+When auto deployment is configured, Octopus will automatically create a new ephemeral environment for you from releases in your project. A pattern for naming environments can be configured using an Environment Name Template. Templates support the same powerful syntax as Variables. Any [system variable for a release](/docs/projects/variables/system-variables#release) can be used as part of the template.
 
 When auto deployment is not configured, you need to manually create ephemeral environments and deploy releases to them. You can do this using the Octopus Portal, API and CLI.
-You can also select to manually create and deploy to an environment.
 
 Select whether to automatically deploy releases to ephemeral environments.
-If you select to automatically deploy, you will also have to provide an environment name template that will be used to name the environment.
+If you select to automatically deploy, you will also have to provide the environment name template that will be used to name environments.
 
 #### Environment Name Template
 
 :::div{.hint}
 **Tips:**
 
-- Environment names only support a specific set of characters, Octopus will automatically replace the following invalid characters with a `-`: `< > : " / \ | ? * { }`
+- Environment names only support a specific set of characters, Octopus will automatically replace the following invalid characters with a dash: `< > : " / \ | ? * { }`
 - Environment names can have spaces in them. Leading and trailing dashes and underscores will be removed from your environment name.
 - Environment names have a limit of 50 characters, you can use [Variable filters](/docs/projects/variables/variable-filters) to limit the length of the name if needed.
 
@@ -62,7 +63,7 @@ If you select to automatically deploy, you will also have to provide an environm
 
 ##### Custom Fields
 
-Releases support Custom Fields which can be used to configure the name of an ephemeral environment. See [Using custom fields in releases](/docs/releases/creating-a-release#custom-fields) for more information.
+Releases support Custom Fields, whose values can be used in the name of an ephemeral environment. See [Using custom fields in releases](/docs/releases/creating-a-release#custom-fields) for more information.
 
 :::div{.hint}
 Remember that custom fields referenced in your Environment Name Template must be provided with any release that you use to create an ephemeral environment.
@@ -94,11 +95,11 @@ Review the selected configuration and click Confirm. You can go back and adjust 
 
 ![Confirming the configuration of ephemeral environments for a project](/docs/projects/ephemeral-environments/confirm-ephemeral-environments-configuration.png)
 
-Ephemeral environments are now configured for your project. A new channel has been created in the project to manage the creation and deployment of ephemeral environments.
-
 Click **Got it** to continue to creating a new environment from a release.
 
 ![Ephemeral environments successfully configured for a project](/docs/projects/ephemeral-environments/ephemeral-environments-configured.png)
+
+Ephemeral environments are now configured for your project. A new channel has been created in the project to manage the creation and deployment of ephemeral environments.
 
 ## Creating an ephemeral environment
 
@@ -120,13 +121,9 @@ A release can be created using the:
 Remember to provide any custom fields with the release that are used in the environment name template.
 :::
 
-:::div{.warning}
-Support for providing custom fields is not yet available in the Octopus CLI.
-:::
-
 ### Manually
 
-If automatic deployment is not selected, ephemeral environments can be created using the: 
+If automatic deployment is not selected, ephemeral environments can be created using the:
 
 - Octopus Web Portal
 - Octopus API
@@ -134,10 +131,11 @@ If automatic deployment is not selected, ephemeral environments can be created u
 - [Octopus CLI](/docs/octopus-rest-api/cli)
 
 To manually create an ephemeral environment in the Octopus portal, visit the Ephemeral Environments page within the project then:
+
 - Select **Add Ephemeral Environment** from the Ephemeral Environments page.
 - Enter a name for the environment.
 
-The environment will now be created in the Not Provisioned state, ready for a release to be deployed to it. Provisioning will be performed automatically by the configured runbook when a release is deployed to the environment.
+The environment will now be created in the 'Not Provisioned' state, ready for a release to be deployed to it. The environment will automatically move into a 'Provisioned' state when the provisioning runbook is run successfully or when a release is deployed to the environment.
 
 ## Provisioning infrastructure
 
@@ -151,7 +149,7 @@ Infrastructure required for an ephemeral environment can be provisioned using a 
 To view ephemeral environments:
 
 - Select **Deploy** from the main navigation in the Octopus Web Portal and select your project.
-- Select the Ephemeral Environments navigation menu in the sidebar.
+- Select the **Ephemeral Environments** navigation menu in the sidebar.
 
 Environments can be filtered by name and by the current state of the environment for the project.
 
@@ -222,13 +220,13 @@ To change the ephemeral environment settings for a project:
 
 ## Using multiple projects with ephemeral environments
 
-Ephemeral environments can be used by multiple projects in the same way that other environments in Octopus can be used.
+Ephemeral environments can be used across multiple projects in the same way that long-lived environments are.
 
 Important notes for using multiple projects:
 
 - Each project using the same ephemeral environment must be configured to use the same parent environment.
 - Ephemeral environments are shared across a space, and the name must be unique.
-- If the environment name created from a release using the template is the same as an existing environment used in another project, a new environment will not be created.
+- If the environment name created from a release using the template is the same as an existing environment used in another project, the existing environment will be used and a new environment will not be created.
 - When deprovisioning an ephemeral environment being used by multiple projects, an option can be selected to deprovision and remove the entire environment, or only deprovision the current project and leave the environment in Octopus.
 
 ## Release retention

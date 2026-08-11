@@ -59,9 +59,18 @@ function globKeyToSlug(globKey: string): string | null {
   return relPathToSlug(m[1]);
 }
 
-// No memoization: dev edits to docs frontmatter must be reflected without
-// a server restart. The walk is sub-second on the current corpus.
+// Memoized for builds only: CopyMarkdown.astro calls this on every page, and
+// the walk re-parses frontmatter for all ~2,660 docs pages each time (~23ms x
+// ~1,270 pages ≈ 29s of build time). During a build the corpus cannot change,
+// so one pass is enough. In dev it stays uncached so edits to docs frontmatter
+// are reflected without a server restart.
+let eligibleSlugsCache: Set<string> | null = null;
+
 export function getEligibleSlugs(): Set<string> {
+  if (import.meta.env.PROD && eligibleSlugsCache !== null) {
+    return eligibleSlugsCache;
+  }
+
   const slugs = new Set<string>();
   for (const path in docPageRaws) {
     const raw = docPageRaws[path];
@@ -73,6 +82,8 @@ export function getEligibleSlugs(): Set<string> {
     if (!slug) continue;
     slugs.add(slug);
   }
+
+  if (import.meta.env.PROD) eligibleSlugsCache = slugs;
 
   return slugs;
 }

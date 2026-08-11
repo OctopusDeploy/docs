@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-09-03
+modDate: 2026-07-20
 title: Creating releases from a build server plugin on a version-controlled project
 description: Examples of how to ensure that the right branch is used to create the release when using a build server plugin.
-navOrder: 45 
+navOrder: 45
 icon: fa-brands fa-git-alt
 ---
 
@@ -21,63 +21,88 @@ import BuildServerPluginVersionControlFields from 'src/shared-content/projects/v
 Below are some examples of how to auto populate these fields using build parameters for common build servers.
 
 ## Azure DevOps
- 
+
 Azure DevOps stores information differently based on if the build is triggered by a branch push versus via a Pull Request (PR). You need to use a conditional statement to select the right variable. Here's a suggested method to do so.
 
 For *Git Reference*, use
-```
+
+```text
 $[coalesce(variables['system.pullRequest.sourceBranch'], variables['build.sourceBranch'])]
 ```
 
 For *Git Commit*, use
-```
+
+```text
 $[coalesce(variables['system.pullRequest.sourceCommitId'], variables['build.sourceVersion'])]
 ```
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
-
 
 ## Github Actions
 
 Github Actions provides different event data based on if the build is triggered by a branch push versus via a Pull Request (PR). You need to use a conditional statement to select the right variable. Here's a suggested method to do so.
 
 For *Git Reference*, use
-```
+
+```text
 ${{ github.head_ref || github.ref }}
 ```
 
 For *Git Commit*, use
-```
+
+```text
 ${{ github.event.push.after || github.event.pull_request.head.sha }}
 ```
 
 **Note:** this approach doesn't populate the commit details for manually triggered runs. It is recommended that you provide the values for both branch and commit in this case.
 
-
 ## TeamCity
 
-TeamCity provides different data based on if the build is triggered by a branch push versus via a Pull Request (PR). There is no easy way to automate selecting the right one. Based on your process, we suggest using one of the following options. 
+TeamCity provides different data based on if the build is triggered by a branch push versus via a Pull Request (PR). There is no easy way to automate selecting the right one. Based on your process, we suggest using one of the following options.
 
 ### Git reference
 
-If the build is triggered by a branch push, use 
-```
+If the build is triggered by a branch push, use
+
+```text
 %teamcity.build.branch%
 ```
-If the build is triggered via a PR, use 
-```
+
+If the build is triggered via a PR, use
+
+```text
 %teamcity.pullRequest.source.branch%
 ```
-
 
 ### Git commit
 
 This is the same for both scenarios.
-```
+
+```text
 %build.vcs.number%
 ```
 
 ### Notes
+
 If multiple VCS sources are used in a build, remember to add the fully qualified parameter that includes the VCS Root ID. For example, `teamcity.build.branch.<VCS_Root_ID>` and  `build.vcs.number.<VCS_Root_ID>`.
 
 For a build resulting from a chained step, you may need to reference a parameter from the original build dependency. It will look something like this for a *Git Commit* - `dep.<Dependant_Build_ID>.build.vcs.number` or `dep.<Dependant_Build_ID>.build.vcs.number.<VCS_Root_Id>`.
+
+## Targeting a step's Git resource
+
+The *Git Reference* and *Git Commit* fields above select the branch/commit of the **version-controlled project itself** (its OCL configuration). Separately, a deployment step can read from a Git repository — for example, the source repository of an [Update Argo CD Application Manifests](/docs/argo-cd/steps/update-application-manifests) step — via a *Git resource*. You can choose the branch or tag for a step's Git resource **at release-creation time**, which is what lets you deploy a feature branch. Because it is resolved when the release is created, it can't be set with a deployment variable (those are evaluated later, at deployment time).
+
+This is supported by:
+
+- The [create-release GitHub Action](https://github.com/OctopusDeploy/create-release-action) (`v4.2.0` and later) via the `git_resources` input.
+- The [Octopus CLI](/docs/octopus-rest-api/cli/octopus-release-create) via the `--git-resource` flag.
+
+The value format is `StepName:GitRef` or `StepName:GitResourceName:GitRef`. As with *Git Reference* above, resolve the ref per event so the release tracks the feature branch — use `github.head_ref` on pull requests and `github.ref_name` on pushes (not `github.ref`, which is `refs/pull/<n>/merge` on pull requests):
+
+```yaml
+- uses: OctopusDeploy/create-release-action@v4
+  with:
+    project: 'MyProject'
+    git_resources: |
+      Update Argo CD Application Manifests:refs/heads/${{ github.head_ref || github.ref_name }}
+```

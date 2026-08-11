@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Default.astro
 pubDate: 2025-09-15
-modDate: 2025-09-15
+modDate: 2026-07-21
 title: Scoping Annotations
 description: What annotations are required to link Argo CD applications to Octopus Projects/Environments/Tenants
 navTitle: Scoping Annotations
@@ -91,6 +91,33 @@ spec:
       targetRevision: HEAD
       path: ./
       name: guestbook-service-2
+```
+
+## Scoping applications to spaces
+
+When a gateway is [registered in multiple spaces](/docs/argo-cd/instances/automated-installation#registering-a-gateway-in-multiple-spaces), applications from that Argo CD instance appear in every space the gateway is registered in. If an application should only appear in some of those spaces, add the `argo.octopus.com/space` annotation.
+
+| Annotation               | Required | Value description                                             |
+| ------------------------ | -------- | ------------------------------------------------------------- |
+| `argo.octopus.com/space` | false    | A comma-separated list of Octopus Space *slugs*               |
+
+The space annotation applies to the whole application and cannot be source-scoped. If the annotation is not present, the application appears in all spaces the gateway is registered in, so you only need it when application names would collide across spaces.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+  annotations:
+    argo.octopus.com/space: space-one, space-two
+    argo.octopus.com/environment: development
+    argo.octopus.com/project: argo-cd-guestbook
+spec:
+  source:
+    repoURL: https://github.com/example-org/guestbook.git
+    targetRevision: HEAD
+    path: ./
 ```
 
 ## Updating in Argo CD Web UI

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Output variables
 description: Your scripts can emit variables that are available in subsequent deployment steps.
 icon: fa-solid fa-file-export
@@ -33,14 +33,6 @@ SetVariable("AppInstanceName", "MyAppInstance");
 
 ```bash
 set_octopusvariable "AppInstanceName" "MyAppInstance"
-```
-
-</details>
-<details data-group="creating-an-output-variable">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setVariable "AppInstanceName" "MyAppInstance"
 ```
 
 </details>
@@ -80,24 +72,9 @@ appInstanceName=$(get_octopusvariable "Octopus.Action[Determine App Instance Nam
 
 </details>
 <details data-group="using-variable-in-another-step">
-<summary>F#</summary>
-
-```fsharp
-//throw if not found
-let appInstanceName1 = Octopus.findVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
-
-//supply a default value to use if not found
-let appInstanceName2 = Octopus.findVariableOrDefault "Value if not found" "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
-
-//return an Option type
-let appInstanceName3 = Octopus.tryFindVariable "Octopus.Action[Determine App Instance Name].Output.AppInstanceName"
-```
-
-</details>
-<details data-group="using-variable-in-another-step">
 <summary>Python3</summary>
 
-```python Python3
+```python
 appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Name].Output.AppInstanceName")
 ```
 
@@ -106,6 +83,7 @@ appInstanceName = get_octopusvariable("Octopus.Action[Determine App Instance Nam
 ## Service message
 
 The following service message can be written directly (substituting the properties with the relevant values) to standard output which will be parsed by the server and the values processed as an output variable. Note that the properties must be supplied as a base64 encoded UTF-8 string.
-```
+
+```text Write an output variable from standard output
 ##octopus[setVariable name='<Base64Encoded-VariableName>' value='<Base64Encoded-VariableValue>']
 ```

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-08-28
+modDate: 2026-08-11
 title: Scripts in packages
 description: Octopus will run scripts included in your package when the script matches a naming convention.
 icon: fa-solid fa-cubes
@@ -82,8 +82,8 @@ If you are deploying the same package to multiple platforms, you can:
 
 The platform-specific priority order Octopus uses to select scripts is:
 
-- Linux: Bash, Python, C#, F#, PowerShell
-- Windows: PowerShell, Python, C#, F#, Bash
+- Linux: Bash, Python, C#, PowerShell
+- Windows: PowerShell, Python, C#, Bash
 
 Example: You are deploying an application to both Windows and Linux. You can write a single `PreDeploy.py` python script, making sure the python runtime is installed on both platforms. Alternatively, you can write both `PreDeploy.sh` and `PreDeploy.ps1`, and Octopus will run the Bash script on Linux and the PowerShell script on Windows.
 
@@ -104,13 +104,13 @@ Make sure the scripts are located in the root of your package.
 Make sure the scripts are actually included in your package. Extract your package and inspect the contents to make sure the scripts are included as you expect. For example, if you are using OctoPack for an ASP.NET web application, you'll need to make sure the file is marked as **Build Action = Content**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277766.png)
+![The Visual Studio file properties pane for Deploy.ps1, with Build Action set to Content](/docs/img/deployments/custom-scripts/scripts-in-packages/3277766.png)
 :::
 
 If you are using OctoPack to package a Windows Service or console application, set **Copy to Output Directory** = **Copy if newer**.
 
 :::figure
-![](/docs/img/deployments/custom-scripts/scripts-in-packages/3277765.png)
+![The Visual Studio file properties pane for Deploy.ps1, with Copy to Output Directory set to Copy if newer](/docs/img/deployments/custom-scripts/scripts-in-packages/3277765.png)
 :::
 
 Read more about [using OctoPack](/docs/packaging-applications/create-packages/octopack).

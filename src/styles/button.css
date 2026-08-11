@@ -1,0 +1,118 @@
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space0);
+  min-width: var(--btn-min-size, 2.25rem);
+  min-height: var(--btn-min-size, 2.25rem);
+  padding: calc(var(--btn-padding-block, var(--space8)) - var(--borderWidth1))
+    calc(var(--btn-padding-inline, var(--space6)) - var(--borderWidth1));
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  max-width: fit-content;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn[hidden] {
+  display: none;
+}
+
+.btn--medium {
+  --btn-min-size: 2.25rem;
+  --btn-padding-block: var(--space8);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--small {
+  --btn-min-size: 2rem;
+  --btn-padding-block: var(--space6);
+  --btn-padding-inline: var(--space6);
+}
+
+.btn--xsmall {
+  --btn-min-size: 1.75rem;
+  --btn-padding-block: var(--space4);
+  --btn-padding-inline: var(--space4);
+}
+
+.btn__label {
+  padding-inline: var(--space4);
+}
+
+/* Qualified with .btn to ensure greater specificity than fontawesome.css */
+.btn .btn__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: var(--fontSizeBase);
+  line-height: 1;
+  color: var(--colorIconPrimary);
+}
+
+img.btn__icon {
+  object-fit: contain;
+}
+
+/* Nudge the FontAwesome caret-down slightly so it looks right as part of a dropdown button */
+.btn .btn__icon.fa-caret-down {
+  transform: translateY(-0.0625rem);
+}
+
+/* Button states (links can't be `:disabled`, so they use `aria-disabled` instead) */
+.btn:hover:not(:disabled, [aria-disabled='true']) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.btn:focus-visible {
+  background: var(--colorBackgroundPrimaryHover);
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+.btn:active:not(:disabled, [aria-disabled='true']) {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
+.btn:is(:disabled, [aria-disabled='true']) {
+  background: var(--colorButtonBackgroundDisabled);
+  border-color: var(--colorButtonBorderDisabled);
+  color: var(--colorButtonTextDisabled);
+  cursor: not-allowed;
+}
+
+.btn:is(:disabled, [aria-disabled='true']) .btn__icon {
+  color: var(--colorButtonIconDisabled);
+}
+
+/* Loud importance */
+.btn--loud {
+  background: var(--colorButtonBackgroundLoudDefault);
+  /* Keep the border there but transparent as an easy way to ensure the geometry is exactly preserved */
+  border-color: transparent;
+  color: var(--colorButtonTextLoud);
+  font: var(--textBodyBoldMedium);
+}
+
+.btn--loud .btn__icon {
+  color: var(--colorButtonIconLoud);
+}
+
+.btn--loud:hover:not(:disabled, [aria-disabled='true']),
+.btn--loud:focus-visible {
+  background: var(--colorButtonBackgroundLoudHover);
+}
+
+.btn--loud:active:not(:disabled, [aria-disabled='true']) {
+  background: var(--colorButtonBackgroundLoudPressed);
+}

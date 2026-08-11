@@ -17,6 +17,17 @@
             "en": "Read more"
         }
     },
+    "octopus_footer": {
+        "last_updated": {
+            "en": "Last updated"
+        },
+        "copyright": {
+            "en": "Copyright"
+        },
+        "links_label": {
+            "en": "Legal and support"
+        }
+    },
     "octopus_github": {
         "edit_on_github": {
             "en": "Edit on GitHub"

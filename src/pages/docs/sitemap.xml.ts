@@ -1,14 +1,14 @@
 // warning: This file is overwritten by Astro Accelerator
 
 // Generates an ATOM feed of recent posts
+import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
-import { PostFiltering, Accelerator } from 'astro-accelerator-utils';
+import { PostFiltering } from 'astro-accelerator-utils';
 
 async function getData() {
   //@ts-ignore
   const allPages = import.meta.glob(['./**/*.md', './**/*.mdx']);
 
-  const accelerator = new Accelerator(SITE);
   let pages = [];
 
   for (const path in allPages) {

@@ -30,6 +30,12 @@ export const SITE: Site = {
     month: 'long',
     day: 'numeric',
   },
+  // "Jun 23, 2026" - the footer's last-updated line
+  shortDateOptions: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  },
   cacheMaxAge: 200,
   featureFlags: {
     stickyNav: { top: 112 },
@@ -73,14 +79,6 @@ export const HEADER_SCRIPTS = `
 	<link href="/docs/css/fa/css/brands.css" rel="stylesheet">
 	<link href="/docs/css/fa/css/solid.css" rel="stylesheet">
 	<meta name="google-site-verification" content="nIbWsTU_ELqMnLNxIexH_s6ch3m-s_MaFnl5u8WoaRM" />
-
-	<!-- Inline Script to set the initial theme -->
-	<script>
-		(() => {
-			const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.setAttribute('data-theme', theme);
-		})();
-	</script>
 
   <script defer>
   const whenActivated = new Promise((resolve) => {
