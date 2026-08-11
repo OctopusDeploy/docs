@@ -6,17 +6,22 @@ import { qs, qsa } from './query.js';
 //   entry.128617088  "How useful was the content?"  linear scale 1-5, required
 //   entry.434783109  "...what we did well, or what we could improve"  required
 // Yes maps to 5 and No to 1 - the form has no yes/no field to send to.
-const FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSehVdN2w6tgSvp5QX7lHGnHDmgKi2Yfvko7bM2izgWQaqg-Wg/formResponse';
-const FIELD_PAGE = 'entry.336432709';
-const FIELD_RATING = 'entry.128617088';
-const FIELD_COMMENT = 'entry.434783109';
+export const FORM_ID =
+  '1FAIpQLSehVdN2w6tgSvp5QX7lHGnHDmgKi2Yfvko7bM2izgWQaqg-Wg';
+export const FIELD_PAGE = 'entry.336432709';
+export const FIELD_RATING = 'entry.128617088';
+export const FIELD_COMMENT = 'entry.434783109';
+export const RATING_YES = '5';
+export const RATING_NO = '1';
+
+const FORM_URL = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 
 /**
  * Google Forms sends no CORS headers, so the POST has to go out as no-cors and
  * the response comes back opaque. There is no way to read whether the form
- * accepted it - a rejected submission looks identical to an accepted one. The
- * widget therefore reports success optimistically.
+ * accepted it - a rejected submission looks identical to an accepted one, so
+ * anything Google answered at all counts as accepted. tests/feedback.spec.ts
+ * checks the form's fields in place of the response nobody can read.
  *
  * @param {string} rating
  * @param {string} comment
@@ -73,9 +78,10 @@ class Feedback {
     try {
       await submit(this.rating, this.textarea.value);
     } catch (err) {
-      // A network-level failure. Nothing useful to offer the reader here, and
-      // the design has no error state, so the thank you still shows.
+      // Offline, or blocked by an extension - it never left the browser.
       console.warn('[feedback] submission failed', err);
+      this.send.removeAttribute('disabled');
+      return;
     }
 
     this.root.querySelectorAll('.feedback__vote, .feedback__comment').forEach(

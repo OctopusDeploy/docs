@@ -2,6 +2,7 @@
 import { accelerator } from '@lib/accelerator';
 import { Lang, Translations } from '@util/Languages';
 import Button from './Button.astro';
+import { RATING_NO, RATING_YES } from '../scripts/modules/feedback.js';
 
 const stats = new accelerator.statistics('components/Feedback.astro');
 stats.start();
@@ -29,14 +30,14 @@ stats.stop();
         icon="feedback__icon feedback__icon--yes"
         size="small"
         aria-pressed="false"
-        data-feedback-vote="5"
+        data-feedback-vote={RATING_YES}
       />
       <Button
         label={_(Translations.octopus_feedback.no)}
         icon="feedback__icon feedback__icon--no"
         size="small"
         aria-pressed="false"
-        data-feedback-vote="1"
+        data-feedback-vote={RATING_NO}
       />
     </div>
   </div>
