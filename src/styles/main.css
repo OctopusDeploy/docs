@@ -1799,6 +1799,17 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
+/* Copy as markdown page action */
+
+.octo-copy-as-md__icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.octo-copy-as-md[data-copied] .octo-copy-as-md__icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
 /* "Use Octopus docs with AI" dropdown */
 .octo-copy-md {
   margin-block-start: var(--block-gap);

@@ -24,15 +24,3 @@ const pageMdUrl = pageMarkdownUrl(Astro.url.pathname);
     />
   )
 }
-
-<style>
-  /* `:global()` crosses into Button's scope */
-  :global(.octo-copy-as-md__icon) {
-    background-color: var(--colorIconPrimary);
-    mask: url('../assets/icons/copy.svg') center / contain no-repeat;
-  }
-
-  :global(.octo-copy-as-md[data-copied] .octo-copy-as-md__icon) {
-    mask: url('../assets/icons/check.svg') center / contain no-repeat;
-  }
-</style>

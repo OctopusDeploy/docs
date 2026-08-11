@@ -3,6 +3,10 @@
 // Shared by the heading copy-URL button, the code block copy button and the
 // page action that copies the page as markdown. All swap to a result, revert
 // after a beat, and announce it.
+//
+// One module rather than one per button, because `status` below is the page's
+// only live region. Split this up and a page grows a second announcer, which
+// screen readers treat as a separate status to track.
 
 const REVERT_MS = 2000;
 
@@ -68,6 +72,9 @@ function showResult(button, message) {
     setTimeout(() => {
       write(rest);
       delete button.dataset.copied;
+      // Released so the next copy measures again, in case the text has since
+      // reflowed at a different zoom or font size.
+      button.style.minWidth = '';
       timers.delete(button);
     }, REVERT_MS)
   );
