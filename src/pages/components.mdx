@@ -173,60 +173,6 @@ Any other attribute is passed through to the rendered element, so a `class` of y
   </div>
 </div>
 
-### Avatar
-
-<div class="docs-home simple-grid">
-  <div class="btn-row">
-    <Avatar size="small" shape="circle">
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="circle">
-      JD
-    </Avatar>
-    <Avatar size="large" shape="circle">
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="rounded">
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="circle" isMuted={true}>
-      JD
-    </Avatar>
-    <Avatar
-      size="medium"
-      shape="circle"
-      src="/docs/img/octopus-deploy-logo.png"
-      alt=""
-    >
-      JD
-    </Avatar>
-    <Avatar
-      size="medium"
-      shape="circle"
-      src="/docs/img/does-not-exist.png"
-      alt=""
-    >
-      JD
-    </Avatar>
-  </div>
-  <div>
-    ```
-    <Avatar size="medium" shape="circle">
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="rounded">
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="circle" isMuted={true}>
-      JD
-    </Avatar>
-    <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">
-      JD
-    </Avatar>
-    ```
-  </div>
-</div>
-
 ### SplitButton
 
 A Button with a second, narrower half that opens a menu of related actions. It has the same anatomy and tokens as Button, so it takes the same `icon`, `size` and `importance`, and adds the menu.
@@ -241,8 +187,7 @@ The menu closes on Escape or a click outside, and opens towards whichever side h
 
 Give it a `class` of your own to style what you passed in: the icons land on elements SplitButton renders, so a rule aimed at them needs `:global()` behind that class.
 
-Two of them sit side by side below, each with its own menu, so it is clear that a
-menu belongs to the control it hangs from.
+Two of them sit side by side below, each with its own menu, so it is clear that a menu belongs to the control it hangs from.
 
 <div class="docs-home simple-grid">
   <div class="btn-row">
@@ -251,16 +196,8 @@ menu belongs to the control it hangs from.
       href="#split-button-example"
       menuLabel="Open in another assistant"
       items={[
-        {
-          label: 'Open in Claude',
-          href: '#split-button-example',
-          iconEnd: externalLinkIcon.src,
-        },
-        {
-          label: 'Open in ChatGPT',
-          href: '#split-button-example',
-          iconEnd: externalLinkIcon.src,
-        },
+        { label: 'Open in Claude', href: '#split-button-example', iconEnd: externalLinkIcon.src },
+        { label: 'Open in ChatGPT', href: '#split-button-example', iconEnd: externalLinkIcon.src },
       ]}
     />
     <SplitButton
@@ -270,44 +207,45 @@ menu belongs to the control it hangs from.
       size="small"
       menuLabel="More copy actions"
       items={[
-        {
-          label: 'Copy page',
-          href: '#split-button-example',
-          icon: copyIcon.src,
-        },
-        {
-          label: 'Copy link',
-          href: '#split-button-example',
-          icon: linkIcon.src,
-        },
+        { label: 'Copy page', href: '#split-button-example', icon: copyIcon.src },
+        { label: 'Copy link', href: '#split-button-example', icon: linkIcon.src },
       ]}
     />
   </div>
   <div>
     ```
-    ---
-    import externalLink from 'src/assets/icons/external-link.svg';
-    ---
-
     <SplitButton
       label="Open in Claude"
       href="/some/url"
       menuLabel="Open in another assistant"
       items={[
-        {
-          label: 'Open in Claude',
-          href: '/some/url',
-          iconEnd: externalLink.src,
-        },
-        {
-          label: 'Open in ChatGPT',
-          href: '/another/url',
-          iconEnd: externalLink.src,
-        },
+        { label: 'Open in Claude', href: '/some/url', iconEnd: externalLinkIcon.src },
+        { label: 'Open in ChatGPT', href: '/another/url', iconEnd: externalLinkIcon.src },
       ]}
     />
     ```
+  </div>
+</div>
 
+### Avatar
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <Avatar size="small" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="large" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/octopus-deploy-logo.png" alt="">JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/does-not-exist.png" alt="">JD</Avatar>
+  </div>
+  <div>
+    ```
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">JD</Avatar>
+    ```
   </div>
 </div>
 

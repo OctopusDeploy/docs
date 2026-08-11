@@ -55,9 +55,13 @@ const tagSpecificProps = href
     ? { 'aria-disabled': disabled ? 'true' : undefined }
     : { type, disabled };
 
+// An asset import carries a query in dev (`...svg?origWidth=16`) and none in a
+// build, so the extension is matched where it sits rather than at the end.
+const isSvgUrl = (name: string) => /\.svg(\?|#|$)/.test(name);
+
 const iconDetails = (name: string | undefined) => {
   if (!name) return null;
-  return name.endsWith('.svg')
+  return isSvgUrl(name)
     ? { tag: 'img' as const, props: { src: name, alt: '', class: 'btn__icon' } }
     : { tag: 'span' as const, props: { class: `${name} btn__icon` } };
 };

@@ -39,8 +39,10 @@ if (items.length === 0) {
   throw new Error('A SplitButton with no menu items should just be a Button');
 }
 
+// An asset import carries a query in dev (`...svg?origWidth=16`) and none in a
+// build, so the extension is matched where it sits rather than at the end.
 const iconTag = (name: string | undefined) =>
-  !name ? null : name.endsWith('.svg') ? 'img' : 'span';
+  !name ? null : /\.svg(\?|#|$)/.test(name) ? 'img' : 'span';
 ---
 
 <div class:list={['split-btn', className]} {...rest}>
@@ -153,7 +155,7 @@ const iconTag = (name: string | undefined) =>
   }
 
   /* The design names the design system's CaretDownIcon here. Masked rather than
-     given to an `<img>` so it takes the icon colour token through the themes,
+     given to an `<img>` so it takes the icon color token through the themes,
      and drawn at the 24px the design sets, which is wider than the 20px box
      `.btn__icon` gives it; the glyph itself only fills the middle half of the
      icon set's 40 x 40 box, so it stays inside the button. */

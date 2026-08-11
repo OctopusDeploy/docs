@@ -68,6 +68,21 @@ test('each menu opens independently of the others', async ({ page }) => {
   await expect(menus.nth(0).locator('.split-btn__options')).toBeHidden();
 });
 
+// An asset import carries a query string in dev and none in a build, so an
+// icon picked by the end of its name renders as an image on the built page and
+// puts its own URL in a class attribute on the dev server.
+test('an item given an SVG asset renders it as an image', async ({ page }) => {
+  await page.goto(PAGE);
+
+  const menu = page.locator('[data-split-menu]').first();
+  await menu.locator('[data-split-trigger]').click();
+
+  const icon = menu.locator('img.split-btn__option-icon').first();
+
+  await expect(icon).toBeVisible();
+  await expect(icon).toHaveAttribute('src', /\.svg(\?|$)/);
+});
+
 // An anchor name is page-wide unless it is scoped, and an unscoped one leaves
 // every menu on the page hanging off the last control that declared it. The test
 // above cannot see that: both menus still open and close on their own.
