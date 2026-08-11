@@ -11,8 +11,8 @@ import {
  * Google Forms sends no CORS headers, so the POST has to go out as no-cors and
  * the response comes back opaque. There is no way to read whether the form
  * accepted it - a rejected submission looks identical to an accepted one, so
- * anything Google answered at all counts as accepted. tests/feedback.spec.ts
- * checks the form's fields in place of the response nobody can read.
+ * anything Google answered at all counts as accepted. A change to the form's
+ * fields would therefore go unnoticed here.
  *
  * @param {string} rating
  * @param {string} comment
