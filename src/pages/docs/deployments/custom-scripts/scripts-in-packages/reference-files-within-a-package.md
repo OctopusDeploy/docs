@@ -52,7 +52,7 @@ Get-Content ".\subfolder\file.txt"
 <details data-group="deployments-custom-scripts-reference-files-within-package">
 <summary>C#</summary>
 
-```csharp C#
+```csharp
 // in pre-deploy, in post-deploy if custom installation directory has not been defined
 var extractPath = OctopusParameters["Octopus.Action.Package.InstallationDirectoryPath"];
 // if a custom installation directory has been defined

@@ -166,7 +166,9 @@
   --hamburger-line-width: 1.5rem;
   --hamburger-line-height: 0.2rem;
   --hamburger-line-margin: 0.2rem;
-  --hamburger-translate-y: calc(var(--hamburger-line-height) + var(--hamburger-line-margin));
+  --hamburger-translate-y: calc(
+    var(--hamburger-line-height) + var(--hamburger-line-margin)
+  );
   --hamburger-lines-color: var(--colorIconPrimary);
 
   /* Theme Switcher */
@@ -179,7 +181,8 @@
   /* Card */
   --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
   --card-related-topics-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.1);
-  --card-related-topics-hover-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.25);
+  --card-related-topics-hover-shadow: 0px 10px 35px 0px
+    rgba(133, 152, 165, 0.25);
 
   /* To be checked and cleaned */
 
@@ -196,7 +199,6 @@
   --body-link-color: var(--octo-blue);
   --body-link-alt: var(--blue-grey-light);
   --menu-link-bg: var(--blue-grey-smoke);
-  --footer-link-color: var(--navy-200);
 
   --icon-stroke: var(--white);
   --icon-fill: var(--colorIconSecondary);
@@ -216,6 +218,8 @@
   --content-width-article: 800px;
   --content-width-mobile: calc(100vw - 4rem);
   --toc-width: 250px;
+  /* Space between the article and the toc beside it. */
+  --toc-offset: 80px;
   --grid-max-width: 1250px;
   --grid-gap: 1rem;
   --grid-gap-main: 1rem;
@@ -252,7 +256,6 @@ html[data-theme='dark'] {
   --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
-  --footer-link-color: var(--color-menu-link);
   --search-overlay: rgba(12, 26, 36, 0.8);
   --badge-background: rgba(31, 192, 255, 0.1);
   --badge-color: var(--octo-blue-lightest);

@@ -43,6 +43,13 @@ function enabled(settings, option) {
   return settings && settings.includes(option);
 }
 
+// Ahead of the tabs: a group whose panels are all code becomes one code block
+// with a language menu, and code-blocks.js removes it so tabs skip it.
+if (enabled(f.codeBlocks, 'copy')) {
+  const codeBlocks = await import('./modules/code-blocks.js');
+  codeBlocks.enhanceCodeBlocks();
+}
+
 if (enabled(f.details, 'tabs')) {
   const tabs = await import('./modules/detail-tabs.js');
   tabs.enhanceDetailGroups();
@@ -51,11 +58,6 @@ if (enabled(f.details, 'tabs')) {
 if (enabled(f.youTubeLinks, 'embed')) {
   const youTube = await import('./modules/youtube.js');
   youTube.enhanceYoutubeLinks();
-}
-
-if (enabled(f.codeBlocks, 'copy')) {
-  const codeBlocks = await import('./modules/code-blocks.js');
-  codeBlocks.enhanceCodeBlocks();
 }
 
 if (enabled(f.figures, 'enlarge')) {

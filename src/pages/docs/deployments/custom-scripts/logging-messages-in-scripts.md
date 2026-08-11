@@ -111,7 +111,7 @@ Progress messages will display and update a progress bar on your deployment task
 <details data-group="deployments-custom-scripts-logging-messages">
 <summary>PowerShell</summary>
 
-```ps PowerShell
+```ps
 Update-Progress 10
 Update-Progress 50 "We're halfway there!"
 ```
@@ -205,7 +205,7 @@ def updateprogress(progress, message=None):
 ```bash
 function encode_service_message_value
 {
-	echo -n "$1" | openssl enc -base64 -A
+ echo -n "$1" | openssl enc -base64 -A
 }
 
 echo "##octopus[progress percentage='$(encode_service_message_value "$1")' message='$(encode_service_message_value "$2")']"
@@ -216,7 +216,8 @@ echo "##octopus[progress percentage='$(encode_service_message_value "$1")' messa
 ## Service message
 
 The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard output will be treated with the relevant log level.
-```
+
+```text Set the standard output log level
 ##octopus[stdout-ignore]
 ##octopus[stdout-error]
 ##octopus[stdout-warning]
@@ -226,23 +227,25 @@ The following service messages can be written directly to standard output which 
 ```
 
 To return to the default standard output log level, write the following message:
-```
+
+```text Return to the default standard output log level
 ##octopus[stdout-default]
 ```
 
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level.
 
-The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. 
-```
+```text Set the standard error log level
 ##octopus[stderr-ignore]
 ##octopus[stderr-error]
 ##octopus[stderr-progress]
 ##octopus[stderr-output]
 ```
 
-- `stderr-progress` will cause error log lines to be written as `verbose` log lines. 
-- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`. 
+- `stderr-progress` will cause error log lines to be written as `verbose` log lines.
+- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`.
 
 To return to the default standard error log level, write the following message:
-```
+
+```text Return to the default standard error log level
 ##octopus[stderr-default]
 ```

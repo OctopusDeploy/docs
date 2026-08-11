@@ -123,7 +123,7 @@ Sometimes a script launches a service or application that runs continuously. In 
 <details data-group="deployments-custom-scripts">
 <summary>PowerShell</summary>
 
-```powershell PowerShell
+```powershell
 Start-Process MyService
 ```
 
@@ -131,7 +131,7 @@ Start-Process MyService
 <details data-group="deployments-custom-scripts">
 <summary>Bash</summary>
 
-```bash Bash
+```bash
 screen -d -m -S "MyService" MyService
 ```
 

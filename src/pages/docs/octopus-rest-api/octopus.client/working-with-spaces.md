@@ -32,7 +32,7 @@ $projects = $repositoryForSpace.Projects.GetAll()
 <details data-group="octopus-client-working-with-spaces">
 <summary>C#</summary>
 
-```csharp C#
+```csharp
 // Create endpoint and client
 var endpoint = new OctopusServerEndpoint("https://your-octopus-url", "API-YOUR-KEY");
 var client = new OctopusClient(endpoint);

@@ -18,7 +18,6 @@ import Card from 'src/components/Card.astro';
 import IconTile from 'src/components/IconTile.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
-import Separator from 'src/components/Separator.astro';
 import TopNav from 'src/components/TopNav.astro';
 
 ## Component Usage Guide
@@ -35,7 +34,7 @@ To use Astro components like `Card` and `Separator` in your articles, you will n
 
 ```javascript
 import Card from 'src/components/Card.astro';
-import Separator from 'src/components/Separator.astro';
+import Link from 'src/components/Link.astro';
 ```
 
 ## Components usage
@@ -178,7 +177,13 @@ Temporary showcase for the new, work-in-progress TopNav component.
 <style>{`
   @media (min-width: 1131px) {
     .content-group {
-      grid-template-columns: var(--navigation-width) minmax(0, 1fr) var(--toc-width);
+      grid-template-columns:
+        var(--navigation-width)
+        var(--grid-gap-main)
+        minmax(300px, 1fr)
+        var(--toc-offset)
+        calc(var(--toc-width) + var(--space16))
+        0;
     }
 
     main > :not(article),
@@ -401,16 +406,117 @@ The Link component is designed to provide a standardized way to display links wi
   </div>
 </div>
 
-### Separator
+### Code block
 
-<div class="docs-home simple-grid">
-  <Separator />
-  <div>
-    ```
-    <Separator />
-    ```
-  </div>
-</div>
+Every fenced code block is given a header carrying its language and a copy
+button. There is no component to import, so this works in `.md` as well as
+`.mdx`.
+
+#### Label
+
+Text after the language on the opening fence becomes the block's label. Write
+one that says what the code does; the language is already shown on the right.
+
+````text
+```powershell Write a release marker into the repository
+Write-Host "Hello, World!"
+```
+````
+
+```powershell Write a release marker into the repository
+Write-Host "Hello, World!"
+```
+
+Without a label, the header carries the language and the copy button alone.
+
+```powershell
+Write-Host "Hello, World!"
+```
+
+#### Several languages
+
+Wrap one fence per language in `<details>` elements sharing a `data-group`. Each
+`<summary>` names its language, and the header offers them in a menu.
+
+````text
+<details data-group="components-code-block">
+<summary>PowerShell</summary>
+
+```powershell Rename a deployment target
+$machine = $repository.Machines.Get("machines-1");
+```
+
+</details>
+<details data-group="components-code-block">
+<summary>C#</summary>
+
+```csharp Rename a deployment target
+var machine = repository.Machines.Get("machines-1");
+```
+
+</details>
+````
+
+<details data-group="components-code-block">
+<summary>PowerShell</summary>
+
+```powershell Rename a deployment target
+$machine = $repository.Machines.Get("machines-1");
+$machine.Name = "Test Server 1";
+$repository.Machines.Modify($machine);
+```
+
+</details>
+<details data-group="components-code-block">
+<summary>C#</summary>
+
+```csharp Rename a deployment target
+var machine = repository.Machines.Get("machines-1");
+machine.Name = "Test Server 1";
+repository.Machines.Modify(machine);
+```
+
+</details>
+
+A group whose panels hold anything besides a single code block stays a tab list.
+
+#### Long blocks
+
+A block over 500px tall collapses, fading out at the cut. Clicking the code
+expands it, and clicking away collapses it again.
+
+```yaml A deployment process with every step spelled out
+steps:
+  - name: Approve the release
+    action: manual-intervention
+    instructions: Check the release notes before approving.
+  - name: Deploy to the cluster
+    action: kubernetes-deploy-raw-yaml
+    package: octopus/hello-world
+    namespace: production
+  - name: Smoke test
+    action: run-a-script
+    script: |
+      $response = Invoke-WebRequest -Uri "https://example.com/health"
+      if ($response.StatusCode -ne 200) { throw "Unhealthy" }
+  - name: Notify the team
+    action: send-email
+    to: releases@example.com
+    subject: Deployed #{Octopus.Release.Number}
+  - name: Tag the release
+    action: run-a-script
+    script: |
+      git tag "release/#{Octopus.Release.Number}"
+      git push origin --tags
+  - name: Update the changelog
+    action: run-a-script
+    script: |
+      Add-Content CHANGELOG.md "#{Octopus.Release.Number}"
+  - name: Close the change request
+    action: run-a-script
+    script: |
+      Invoke-RestMethod -Method Post -Uri "https://example.com/changes/close"
+```
 
 ## Layout
 

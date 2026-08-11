@@ -124,12 +124,12 @@ code {
   font: var(--textCodeRegularMedium);
 }
 
+/* The chrome lives on .code-block, which wraps every fenced block. A bare <pre>
+   only carries the type and the wrapping. */
 pre {
-  padding: 0.5rem 1rem;
+  margin: 0;
   white-space: break-spaces;
-  background: var(--colorBackgroundSecondaryDefault) !important;
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  border-radius: var(--borderRadiusLarge);
+  background: transparent !important;
   font: var(--textCodeRegularMedium);
   color: var(--color-text);
 }
@@ -155,9 +155,14 @@ div.hint code:not(pre code) {
   color: var(--color-text);
 }
 
+/* Shiki writes the light set inline and the dark set to --shiki-dark-*. */
 html[data-theme='dark'] {
-  pre.astro-code code .line {
-    filter: invert(98%) hue-rotate(180deg) brightness(1.1);
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
 
@@ -334,16 +339,6 @@ strong {
   margin-block-end: var(--space16);
 }
 
-/* TODO: This is ugly but global styles above requires this to be set - Layout refactor is required to do first, then remove this. */
-.page-content > div.info > .copy-container,
-.page-content > div.success > .copy-container,
-.page-content > div.warning > .copy-container,
-.page-content > div.problem > .copy-container,
-.page-content > div.question > .copy-container,
-.page-content > div.hint > .copy-container {
-  margin: 0;
-}
-
 .page-content ul,
 .page-content ol {
   margin-inline-start: var(--space24);
@@ -359,8 +354,60 @@ strong {
   padding-block-start: var(--space6);
 }
 
-.page-content :is(pre, figure) {
+/* The .page-content > * rule only reaches the top level, so blocks stacked
+   inside a list item have no gap at all. The last one is skipped because the
+   space before the next item belongs to the rule above. */
+.page-content :where(ul, ol):not([class]) li > p:not(:last-child) {
+  margin-block-end: var(--space16);
+}
+
+/* A nested list continues the item it hangs off rather than starting a new
+   block, so it keeps list spacing. */
+.page-content :where(ul, ol):not([class]) li > p:has(+ :where(ul, ol)) {
+  margin-block-end: 0;
+}
+
+.page-content :where(ul, ol):not([class]) li > :where(ul, ol) {
+  padding-block-start: var(--space6);
+}
+
+/* Every non-text block embedded in the body carries space/8 above and below on
+   top of the space/16 block gap, so the pair reads as 24px. Inside a list item
+   they need nothing extra: sitting in the li already aligns them to the item
+   text, which is where Figma puts them. The code block is spaced by its
+   wrapper: the <pre> inside it would push the code off its own header. */
+.page-content :is(.code-block, figure, .table-wrap) {
   margin-block: var(--space24);
+}
+
+/* A callout or quote paints its own padding, so the blocks at either end of one
+   don't add to it. */
+.page-content
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  > :first-child {
+  margin-block-start: 0;
+}
+
+.page-content
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  )
+  > :last-child {
+  margin-block-end: 0;
 }
 
 /* Boxes */
@@ -486,47 +533,9 @@ strong {
   mask: url('../assets/icons/check.svg') center / contain no-repeat;
 }
 
-/* The tooltip bubble. */
-.copy-heading-url::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 50%;
-  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
-  translate: -50% 0;
-  padding: var(--space4) var(--space8);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorBackgroundInversePrimary);
-  color: var(--colorTextInversePrimary);
-  font: var(--textBodyRegularXSmall);
-  text-align: center;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* The tooltip arrow. A border triangle */
-.copy-heading-url::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
-  translate: -50% 0;
-  width: 0;
-  height: 0;
-  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
-  border-inline: 7px solid transparent;
-  pointer-events: none;
-  opacity: 0;
-}
-
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
 .copy-heading-url[data-copied] {
-  opacity: 1;
-}
-
-.copy-heading-url:is(:hover, :focus-visible, [data-copied])::before,
-.copy-heading-url:is(:hover, :focus-visible, [data-copied])::after {
   opacity: 1;
 }
 
@@ -552,12 +561,12 @@ table tr {
 }
 
 table td {
-  padding: var(--space-16) var(--space-24) var(--space-16) 0;
+  padding: var(--space16) var(--space24) var(--space16) 0;
 }
 
 table th {
   text-align: start;
-  padding: var(--space-12) var(--space-24) var(--space-12) 0;
+  padding: var(--space12) var(--space24) var(--space12) 0;
 }
 
 .table-full-width table {
@@ -838,11 +847,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* */
 
-.last-updated {
-  color: var(--color-subtitle);
-  margin-block-start: var(--block-gap);
-}
-
 .docs-home {
   text-align: center;
   margin-block-start: 5vh;
@@ -902,61 +906,68 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   text-align: left;
 }
 
-/* Article Nav */
-.article-nav {
-  margin-inline-end: 1rem;
+/* Article nav ("On this page") */
+
+/* The <details> only ever collapses at the restack breakpoint, where this
+   column sits above the article. On desktop the component's script forces it
+   open and the summary is inert. */
+.article-nav__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space16);
+  /* The containing block the indicator below is positioned against. */
+  position: relative;
 }
 
-@media (max-width: 1130px) {
-  .article-nav {
-    margin-bottom: 2rem;
-  }
-}
-
-.article-nav .article-nav__details .article-nav__title::marker {
-  content: '';
-  display: none;
-}
-
-.article-nav .article-nav__details .article-nav__title::after {
-  /* fa-chevron-down */
-  content: '\f078';
-  font-family: fa-solid;
-  float: right;
-  transition: transform var(--duration-default) ease-in-out;
-  display: none;
-}
-
-.article-nav .article-nav__details[open] .article-nav__title::after {
-  transform: rotate(180deg);
+/* Two classes throughout, so these beat the global `summary:hover,
+   summary:focus` rule — which would otherwise leave the title in a link color
+   after it has been clicked open at the restack breakpoint. */
+.article-nav .article-nav__title,
+.article-nav .article-nav__title:hover,
+.article-nav .article-nav__title:focus {
+  color: var(--colorTextPrimary);
+  text-decoration: none;
 }
 
 .article-nav__title {
+  /* Laying the summary out as a flex box drops the disclosure triangle
+     everywhere except Safari, which needs the -webkit rule below. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space8);
+  padding-block-end: var(--space6);
+  padding-inline-start: var(--space16);
+  font: var(--textBodyBoldMedium);
   pointer-events: none;
 }
 
-@media (max-width: 1130px) {
-  .article-nav__title {
-    pointer-events: auto;
-  }
-
-  .article-nav .article-nav__details .article-nav__title::after {
-    /* fa-chevron-down */
-    content: '\f078';
-    font-family: fa-solid;
-    float: right;
-    transition: transform var(--duration-default) ease-in-out;
-    display: block;
-  }
+.article-nav__title::-webkit-details-marker {
+  display: none;
 }
 
-.article-nav__title {
-  color: var(--color-heading);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight700);
-  text-transform: uppercase;
+/* The rail runs the full height of the list. The current heading paints its own
+   bold segment over the top of it. */
+.article-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space4);
+  list-style: none;
+  border-inline-start: var(--borderWidth2) solid var(--colorBorderPrimary);
+}
+
+/* Two classes throughout, so these beat the global `a:hover, a:focus` rule —
+   including after a click, which leaves the link focused but not
+   focus-visible. */
+.article-nav .article-nav__link {
+  display: block;
+  position: relative;
+  padding-block: var(--space6);
+  padding-inline-start: var(--space16);
+  color: var(--colorTextSecondary);
+  font: var(--textBodyRegularMedium);
   text-decoration: none;
+  overflow-wrap: break-word;
   transition: color var(--duration-default) ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
@@ -964,62 +975,72 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 }
 
-.article-nav .separator {
-  margin: 1rem 0 0.69rem;
+/* `highlight` is applied by scripts/modules/toc.js to whichever heading is in
+   view. */
+.article-nav .article-nav__link.highlight {
+  color: var(--colorTextPrimary);
 }
 
-.article-nav__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style: none;
-  gap: 1rem;
+/* The nav indicator overlays the list so it can animate up and down and move smoothly as the user scrolls. */
+.article-nav__indicator {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: var(--borderWidth2);
+  background-color: var(--colorBorderBold);
+  /* Nowhere to be until the script has measured a link. */
+  opacity: 0;
 }
 
-.article-nav__item {
-  cursor: pointer;
-}
-
-.article-nav__link {
-  display: flex;
-  color: var(--color-subtitle);
-  font-size: var(--fontSizeBase);
-  line-height: 1.5rem;
-  font-weight: var(--fontWeight400);
-  text-decoration: none;
-  transition-property: font-weight, color, transform;
-  transition-timing-function: ease-in-out;
-  transition-duration: var(--duration-default);
+/* Added a frame after the first measurement, so the first placement is silent
+   and every later one is animated. Shorter than --duration-default, and eased
+   out, because this trails a scroll: at 300ms it reads as lagging behind. */
+.article-nav__indicator--ready {
+  opacity: 1;
+  transition:
+    transform 150ms ease-out,
+    height 150ms ease-out;
 
   @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
+    transition: none;
   }
 }
 
-.article-nav__link.highlight,
-.article-nav__item:hover .article-nav__link {
-  font-weight: var(--fontWeight600);
-  color: var(--badge-color);
+.article-nav .article-nav__link:hover,
+.article-nav .article-nav__link:focus-visible {
+  color: var(--colorTextLinkDefault);
 }
 
-.article-nav__item:hover .article-nav__link {
-  transform: translateX(0.5rem);
+/* h2 takes the base indent. The design steps two levels in from there and
+   stops, so anything deeper lines up with h4. */
+.article-nav__item--level-3 .article-nav__link {
+  padding-inline-start: var(--space32);
 }
 
-.article-nav .article-nav__item--level-3 {
-  padding-inline-start: 1em;
+.article-nav__item--level-4 .article-nav__link,
+.article-nav__item--level-5 .article-nav__link,
+.article-nav__item--level-6 .article-nav__link {
+  padding-inline-start: var(--space48);
 }
 
-.article-nav .article-nav__item--level-4 {
-  padding-inline-start: 2em;
-}
+@media (max-width: 1130px) {
+  .article-nav__title {
+    pointer-events: auto;
+  }
 
-.article-nav .article-nav__item--level-5 {
-  padding-inline-start: 3em;
-}
+  /* Masked pseudo-element rather than inline SVG, matching the site nav. */
+  .article-nav__title::after {
+    content: '';
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconTertiary);
+    mask: url('../assets/icons/chevron-right.svg') center / contain no-repeat;
+  }
 
-.article-nav .article-nav__item--level-6 {
-  padding-inline-start: 4em;
+  .article-nav__details[open] .article-nav__title::after {
+    mask-image: url('../assets/icons/chevron-down.svg');
+  }
 }
 
 /* Card */
@@ -1335,22 +1356,24 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 .side-nav {
   align-self: start;
-  overflow: overlay;
   position: sticky;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight400);
-  margin-block-start: 10vh;
-  height: calc(100vh - 82px - 10.625rem);
-  top: 10.625rem;
-}
-
-.side-nav > ul {
-  padding-inline-end: 1rem;
-  padding-block-end: 3rem;
-}
-
-.side-nav li {
-  list-style: none;
+  /* The global reset does not inherit html's border-box, and this column is
+     sized by the grid with padding on top of it. */
+  box-sizing: border-box;
+  /* The last of the three column start heights below the header — 16px for the
+     nav, 56px for the content, 100px here. */
+  margin-block-start: 6.25rem;
+  top: calc(82px + 6.25rem);
+  /* Everything from the sticky top to the bottom of the window, so a long list
+     scrolls inside the column instead of running off the end of it. */
+  height: calc(100vh - 82px - 6.25rem);
+  /* Keeps the toc off the right edge of the window. The grid column is widened
+     to match, so the nav itself keeps its designed width. */
+  padding-inline-end: var(--space16);
+  padding-block-end: var(--space48);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
 }
 
 @media (max-width: 1130px) {
@@ -1370,22 +1393,16 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     height: calc(100vh - 7.625rem - var(--space16));
   }
 
+  /* Stacked above the article rather than beside it, so none of the sticky
+     column geometry applies. */
   .side-nav {
+    position: static;
+    top: auto;
     height: auto;
     margin: 0;
-    padding: 0;
-    position: unset;
-    top: unset;
-  }
-
-  .side-nav details {
-    margin-block: 1rem;
-    width: auto;
-    margin-inline: auto;
-  }
-
-  .side-nav summary {
-    text-align: center;
+    /* The grid's own left and right areas provide the gutters here. */
+    padding: var(--space16) 0 var(--space32);
+    overflow: visible;
   }
 }
 
@@ -1466,17 +1483,27 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Main content group */
 
+/* The footer gets its own row so the nav can span both. The design runs the
+   nav column the full height of the page, divider and all, past the footer. */
 .content-group {
+  /* Every gap on this row is a track of its own, so that the one between the
+     article and the toc can differ from the rest.  */
   grid-template-columns:
     var(--navigation-width)
+    minmax(var(--grid-gap-main), 1fr)
     minmax(300px, var(--content-width-article))
-    var(--toc-width);
+    var(--toc-offset)
+    /* The toc column carries a gutter on top of the width of the toc itself,
+     which is what keeps it off the right edge of the window */
+    calc(var(--toc-width) + var(--space16))
+    minmax(0, 1fr);
   display: grid;
-  grid-template-rows: auto;
-  gap: var(--grid-gap-main);
+  grid-template-rows: auto auto;
+  column-gap: 0;
   max-width: 100vw;
-  justify-content: space-between;
-  grid-template-areas: 'menu content toc';
+  grid-template-areas:
+    'menu . content . toc .'
+    'menu . footer  . .   .';
   margin-top: 82px;
 }
 
@@ -1530,15 +1557,19 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* Drops the breadcrumb 56px below the header. The design gives each column
      its own start height below the header — 16px for the nav, 56px here,
      100px for the toc — so there is no shared value to put on .content-group,
-     whose margin-top is clearance for the fixed header. Only this column is
-     built to the design so far: the nav still starts at 0 and .side-nav still
-     uses a viewport-relative 10vh. Reset in the restack breakpoint below. */
+     whose margin-top is clearance for the fixed header. The nav is the one
+     column not built to the design yet; it still starts at 0. Reset in the
+     restack breakpoint below. */
   margin: var(--space56) 0 0;
 }
 
 .content-group .side-nav {
   grid-area: toc;
   width: 100%;
+}
+
+.content-group .site-footer {
+  grid-area: footer;
 }
 
 .continue {
@@ -1548,13 +1579,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 @media (max-width: 1130px) {
   .content-group {
     grid-template-columns: 1rem auto 1rem;
-    grid-template-rows: auto auto auto;
-    gap: 0;
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: 0;
     grid-template-areas:
       'left top right'
       'left toc right'
       'left content right'
-      'left menu right';
+      'left menu right'
+      'left footer right';
   }
 
   .content-group main,
@@ -1927,7 +1959,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
 .octo-copy-md__sr-status,
-.copy-heading-url-status {
+.copy-status {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -2189,12 +2221,6 @@ a[data-youtube] {
      56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
   display: flow-root;
   padding-block-start: var(--space32);
-
-  li:has(figure) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
 }
 
 /* Paging */
@@ -2216,68 +2242,39 @@ a[data-youtube] {
 
 /* Footer */
 
-.site-footer {
-  color: var(--footer-link-color);
-  text-align: start;
-  background-color: var(--blue-midnight-dark);
-  padding: 3rem 0 3rem 0;
+.site-footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space32);
+  /* The design's 112px top gap has no spacing token of its own. */
+  padding-block: 112px var(--space64);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
 }
 
-.site-footer h2 {
-  text-transform: uppercase;
-  color: var(--navy-400);
-  font-size: var(--fontSizeMedium);
-  line-height: var(--lineHeightXSmall);
-  letter-spacing: 0.12em;
+.site-footer__meta,
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space16);
 }
 
-.site-footer ul {
+.site-footer__links {
   list-style: none;
-  line-height: 2.5;
 }
 
-.site-footer a {
-  color: var(--footer-link-color);
-  text-decoration: none;
+.site-footer__links a {
+  color: var(--colorTextLinkDefault);
 }
 
-.site-footer a:hover,
-.site-footer a:focus {
-  color: var(--octo-blue-lightest);
+.site-footer__links a:hover,
+.site-footer__links a:focus {
+  color: var(--colorTextLinkHover);
 }
 
-.site-footer nav {
-  text-align: center;
-  font-size: var(--fontSizeBase);
-}
-
-.site-footer nav a:after {
-  /* fa-chevron-up */
-  content: '\f077';
-  font-family: fa-solid;
-  padding-inline-start: 0.6em;
-}
-
-/* Footer columns */
-
-.footer-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  justify-content: center;
-  gap: var(--grid-gap);
-}
-
-.footer-columns img.octo-logo {
-  background-color: transparent;
-  width: 40px;
-  height: auto;
-}
-
-@media (max-width: 680px) {
-  .footer-columns {
-    display: block;
-    width: var(--content-width-mobile);
-    margin: 0 auto;
+@media (max-width: 1130px) {
+  .site-footer {
+    max-width: var(--content-width-mobile);
   }
 }
 
@@ -2752,20 +2749,230 @@ a[data-youtube] {
   font-family: fa-solid;
 }
 
-.copy-container {
-  max-height: 0px;
-  margin: 0;
-  width: 100%;
-  text-align: end;
-  z-index: 1;
-  position: relative;
+/* Code block, built around every fenced block by code-blocks.js. Spacing comes
+   from the .page-content rule it shares with figures. */
+.code-block {
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusMedium);
+  background: var(--colorBackgroundPrimaryDefault);
 }
 
-.copy-button {
-  stroke: var(--icon-stroke);
-  fill: var(--icon-fill);
-  background-color: transparent;
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space16);
+  padding: var(--space8);
+  padding-inline-start: var(--space16);
+  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+}
+
+.code-block__label {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: break-word;
+  font: var(--textBodyBoldMedium);
+  color: var(--colorTextPrimary);
+}
+
+.code-block__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space8);
+}
+
+/* Clipping sits here so the language menu and copy tooltip can leave the header. */
+.code-block__body {
+  /* html's border-box does not inherit, and the collapsed height has to count
+     the padding to land on 500px. */
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--space16);
+  overflow: clip;
+}
+
+/* Copied from the button in Button.astro, whose styles are scoped to what that
+   component renders. These two are built by the Shiki transformer and by
+   script, so they never carry its scoping attribute. Same trade as
+   .copy-heading-url: they can drift from <Button>. */
+.code-block__copy,
+.code-block__language-select {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: calc(var(--space6) - var(--borderWidth1));
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundPrimaryDefault);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyRegularMedium);
+  max-width: fit-content;
+  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
+  text-align: center;
+}
+
+.code-block__copy:is(:hover, :focus-visible),
+.code-block__language-select:is(:hover, :focus-visible) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.code-block__copy:focus-visible,
+.code-block__language-select:focus-visible {
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
+}
+
+.code-block__copy:active {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
+.code-block__copy-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.code-block__copy[data-copied] .code-block__copy-icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
+/* Edge-aligned: the button sits at the block's right edge, where a centred
+   bubble would hang off the side of the page. */
+.code-block .code-block__copy::after {
+  left: auto;
+  right: 0;
+  translate: 0 0;
+}
+
+/* The single fixed language */
+.code-block__language {
+  font: var(--textBodyRegularMedium);
+  color: var(--colorTextSecondary);
+  white-space: nowrap;
+}
+
+/* The switcher, when the block was written in several languages. Styled as the
+   design's button; the option list it opens belongs to the browser. */
+.code-block__language-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Qualified to outrank the `padding` and `text-align` `.btn` sets further down.
+   The box is sized to the longest language, so centring leaves a shorter one
+   adrift between the padding and the caret. */
+.code-block .code-block__language-select {
+  padding-inline-end: calc(var(--space16) + var(--space8));
+  text-align: start;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* On the wrapper, because a <select> renders no pseudo-elements of its own.
+   Same glyph the Button component uses for a dropdown. */
+.code-block__language-switcher::after {
+  content: '\f0d7'; /* fa-caret-down */
+  font-family: fa-solid;
+  position: absolute;
+  inset-inline-end: var(--space8);
+  top: 50%;
+  translate: 0 -50%;
+  line-height: 1;
+  color: var(--colorIconPrimary);
+  pointer-events: none;
+}
+
+/* --code-block-height is measured by code-blocks.js: max-height has to resolve
+   to a length for the expansion to animate. */
+.code-block[data-collapsible] .code-block__body {
+  max-height: 500px;
+  cursor: pointer;
+  transition: max-height var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block[data-collapsible][data-expanded] .code-block__body {
+  max-height: var(--code-block-height);
+  cursor: auto;
+}
+
+/* Tall, and fading from its very top, so the code visibly runs out rather than
+   stopping at an edge that reads as the end of it. */
+.code-block__fade {
+  display: none;
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 7.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgb(from var(--colorBackgroundPrimaryDefault) r g b / 0),
+    var(--colorBackgroundPrimaryDefault)
+  );
+  pointer-events: none;
+  transition: opacity var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block__toggle {
+  display: none;
+  width: 100%;
+  padding: var(--space12);
+  border: 0;
+  border-end-start-radius: var(--borderRadiusMedium);
+  border-end-end-radius: var(--borderRadiusMedium);
+  background: transparent;
+  color: var(--colorTextSecondary);
+  font: var(--textBodyRegularMedium);
+  cursor: pointer;
+}
+
+.code-block[data-collapsible] .code-block__toggle {
+  display: block;
+}
+
+.code-block__toggle:is(:hover, :focus-visible) {
+  background: var(--colorBackgroundPrimaryHover);
+}
+
+.code-block__toggle::after {
+  content: '\f0d7'; /* fa-caret-down */
+  font-family: fa-solid;
+  margin-inline-start: var(--space8);
+  display: inline-block;
+  transition: rotate var(--duration-default) ease-in-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.code-block[data-expanded] .code-block__toggle::after {
+  rotate: 180deg;
+}
+
+.code-block[data-collapsible] .code-block__fade {
+  display: block;
+}
+
+.code-block[data-expanded] .code-block__fade {
+  opacity: 0;
 }
 
 /* Custom Divisions */
@@ -2850,6 +3057,50 @@ a.button.button--primary:active {
 
 .octo-header a.button {
   width: 120px;
+}
+
+/* Tooltip. Put the label in data-tooltip; the host positions the bubble above
+   itself, so it needs room there and a stacking context of its own. */
+[data-tooltip] {
+  position: relative;
+}
+
+/* The bubble */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
+  translate: -50% 0;
+  padding: var(--space4) var(--space8);
+  border-radius: var(--borderRadiusSmall);
+  background: var(--colorBackgroundInversePrimary);
+  color: var(--colorTextInversePrimary);
+  font: var(--textBodyRegularXSmall);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* The arrow. A border triangle */
+[data-tooltip]::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
+  translate: -50% 0;
+  width: 0;
+  height: 0;
+  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
+  border-inline: 7px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
+[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+  opacity: 1;
 }
 
 /* Buttons side by side e.g. a toolbar or the component showcase */
