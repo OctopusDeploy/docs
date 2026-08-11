@@ -126,7 +126,7 @@ The response is an array of name and URL pairs:
 
 ## Availability
 
-Environment state is available to all cloud and self-hosted customers from version `2026.3.10863`.
+Environment state is available on Octopus Cloud, and will be available to self-hosted customers from version `2026.3`.
 
 ## Learn more
 
