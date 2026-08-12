@@ -47,22 +47,32 @@ function execCommandCopyFallback(text: string): boolean {
 
 const timers = new WeakMap<HTMLElement, ReturnType<typeof setTimeout>>();
 
-function showResult(button: HTMLElement, message: string, copied: boolean) {
-  const label = button.querySelector<HTMLElement>('.btn__label');
-  const rest = button.dataset.copyMdLabel ?? '';
+// Which label shows, and which glyph the icon masks, is CSS's decision - all
+// three labels are in the DOM, and this only says which state the button is in.
+function showResult(button: HTMLElement, state: 'copied' | 'failed') {
+  // Both are cleared every time, so a failure followed by a success inside the
+  // revert window does not leave the button wearing two states at once.
+  const rest = () => {
+    delete button.dataset.copied;
+    delete button.dataset.failed;
+  };
 
-  if (label) label.textContent = message;
-  if (copied) button.dataset.copied = '';
+  rest();
+  button.dataset[state] = '';
 
   clearTimeout(timers.get(button));
   timers.set(
     button,
     setTimeout(() => {
-      if (label) label.textContent = rest;
-      delete button.dataset.copied;
+      rest();
       timers.delete(button);
     }, REVERT_MS)
   );
+
+  const label = button.querySelector<HTMLElement>(
+    `.octo-copy-md__label--${state}`
+  );
+  announce(label?.textContent?.trim() ?? '');
 }
 
 async function copyPageMarkdown(button: HTMLElement) {
@@ -76,14 +86,10 @@ async function copyPageMarkdown(button: HTMLElement) {
     const written = await writeToClipboard(await response.text());
     if (!written) throw new Error('clipboard-write-failed');
 
-    const message = button.dataset.copyMdCopied ?? 'Copied';
-    showResult(button, message, true);
-    announce(message);
+    showResult(button, 'copied');
   } catch (error) {
     console.error('[copy-as-markdown] failed:', error);
-    const message = button.dataset.copyMdError ?? 'Copy failed';
-    showResult(button, message, false);
-    announce(message);
+    showResult(button, 'failed');
   }
 }
 

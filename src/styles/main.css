@@ -1809,6 +1809,31 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/check.svg') center / contain no-repeat;
 }
 
+/* Slotted, so button.css's scoped .btn__label padding does not reach it. */
+.octo-copy-md__labels {
+  display: grid;
+  padding-inline: var(--space4);
+}
+
+.octo-copy-md__label {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.octo-copy-md__label--rest {
+  visibility: visible;
+}
+
+.octo-copy-md:is([data-copied], [data-failed]) .octo-copy-md__label--rest {
+  visibility: hidden;
+}
+
+.octo-copy-md[data-copied] .octo-copy-md__label--copied,
+.octo-copy-md[data-failed] .octo-copy-md__label--failed {
+  visibility: visible;
+}
+
 /* "Use Octopus docs with AI" dropdown */
 .octo-md-links {
   margin-block-start: var(--block-gap);
