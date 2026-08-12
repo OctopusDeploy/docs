@@ -28,6 +28,26 @@
             "en": "Legal and support"
         }
     },
+    "octopus_feedback": {
+        "question": {
+            "en": "Was this page helpful?"
+        },
+        "yes": {
+            "en": "Yes"
+        },
+        "no": {
+            "en": "No"
+        },
+        "comment_label": {
+            "en": "Why did you give this rating? (optional)"
+        },
+        "send": {
+            "en": "Send"
+        },
+        "thanks": {
+            "en": "Thanks for your feedback!"
+        }
+    },
     "octopus_github": {
         "edit_on_github": {
             "en": "Edit on GitHub"

@@ -16,10 +16,10 @@ import Taxonomy from '@components/Taxonomy.astro';
 // Custom components
 import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleNav from '../components/ArticleNav.astro';
+import Feedback from '../components/Feedback.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
-import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import MarkdownLinks from '../components/MarkdownLinks.astro';
@@ -93,11 +93,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           </div>
           <div class="page-content anim-show-parent" itemprop="articleBody">
             <slot />
-            <Feedback
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
             <MarkdownLinks lang={lang} />
@@ -127,6 +122,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           lang={lang}
         /> -->
         <ArticleNav headings={headings} lang={lang} />
+        <Feedback frontmatter={frontmatter} lang={lang} />
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
