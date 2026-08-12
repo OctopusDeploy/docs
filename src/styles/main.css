@@ -1823,6 +1823,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .octo-copy-md__labels {
   display: grid;
   padding-inline: var(--space4);
+  text-align: start;
 }
 
 .octo-copy-md__label {
