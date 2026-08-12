@@ -19,6 +19,9 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--theme-transition-duration);
+  transition-timing-function: ease-in-out;
 }
 
 .btn[hidden] {
@@ -69,6 +72,11 @@ img.btn__icon {
   transform: translateY(-0.0625rem);
 }
 
+/* A toggle button that is currently on holds the pressed background. */
+.btn[aria-pressed='true']:not(:disabled, [aria-disabled='true']) {
+  background: var(--colorBackgroundPrimaryPressed);
+}
+
 /* Button states (links can't be `:disabled`, so they use `aria-disabled` instead) */
 .btn:hover:not(:disabled, [aria-disabled='true']) {
   background: var(--colorBackgroundPrimaryHover);
@@ -81,11 +89,6 @@ img.btn__icon {
 }
 
 .btn:active:not(:disabled, [aria-disabled='true']) {
-  background: var(--colorBackgroundPrimaryPressed);
-}
-
-/* A toggle button that is currently on holds the pressed background. */
-.btn[aria-pressed='true']:not(:disabled, [aria-disabled='true']) {
   background: var(--colorBackgroundPrimaryPressed);
 }
 
