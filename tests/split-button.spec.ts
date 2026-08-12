@@ -116,19 +116,19 @@ test('each menu hangs off the control it belongs to', async ({ page }) => {
     await control.locator('[data-split-trigger]').click();
     await expect(options).toBeVisible();
 
-    const button = (await control.boundingBox())!;
+    const half = (await control.locator('[data-split-trigger]').boundingBox())!;
     const menu = (await options.boundingBox())!;
 
-    // The menu is wider than the control, so it lines up on whichever edge it
-    // opened towards rather than on both.
+    // The design hangs the list from the menu half, so its start edge lines up
+    // with that half's; a viewport too narrow for it flips it to the end edge.
     const alignment = Math.min(
-      Math.abs(menu.x - button.x),
-      Math.abs(menu.x + menu.width - (button.x + button.width))
+      Math.abs(menu.x - half.x),
+      Math.abs(menu.x + menu.width - (half.x + half.width))
     );
 
     expect(
       Math.round(alignment),
-      `menu ${index} should line up with its own control`
+      `menu ${index} should line up with its own menu half`
     ).toBeLessThanOrEqual(1);
 
     await page.keyboard.press('Escape');

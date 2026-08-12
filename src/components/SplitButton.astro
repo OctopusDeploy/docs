@@ -182,7 +182,7 @@ const iconTag = (name: string | undefined) =>
     position: absolute;
     z-index: 10;
     inset-block-start: calc(100% + var(--space4));
-    inset-inline-end: 0;
+    inset-inline-start: 0;
     box-sizing: border-box;
     width: var(--split-btn-menu-width, 16rem);
     margin: 0;
@@ -193,16 +193,16 @@ const iconTag = (name: string | undefined) =>
     box-shadow: var(--shadowMedium);
   }
 
-  /* The list is wider than the control it hangs from, so which side it opens
-     towards depends on where the control has ended up: at the end of a row on
-     one line, or at the start of its own once the row wraps. Anchored so the
-     browser picks the side with room, which a width breakpoint cannot do. */
+  /* The design hangs the list from the menu half and lets it run past the end of
+     the control, which the page has room for wherever the control sits. Anchored
+     so a viewport too narrow for that can still flip it to the other side, which
+     a width breakpoint cannot judge. */
   @supports (anchor-scope: --a) {
-    .split-btn {
+    .split-btn__menu {
       anchor-name: --split-btn;
       /* An anchor name is page-wide, so a second split button would leave every
          menu on the page hanging off the last one. `anchor-scope` keeps each
-         name inside the control that declares it. The block is guarded on
+         name inside the half that declares it. The block is guarded on
          `anchor-scope` rather than `anchor-name` so a browser with anchors but
          no scoping keeps the absolute rule above, which measures from each
          menu's own parent. */
@@ -214,7 +214,7 @@ const iconTag = (name: string | undefined) =>
     .split-btn__options {
       position: fixed;
       position-anchor: --split-btn;
-      position-area: block-end span-inline-start;
+      position-area: block-end span-inline-end;
       position-try-fallbacks: flip-inline;
       inset: auto;
       margin-block-start: var(--space4);
