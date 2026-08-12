@@ -96,6 +96,57 @@ test('Copy as markdown action advertises a working .md URL on the eligible page'
   expect(target.status()).toBe(200);
 });
 
+test('the copy action puts the page markdown on the clipboard', async ({
+  page,
+  context,
+  request,
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+
+  // copy-button.js logs on its way down the fallback chain, so a quiet console
+  // is the evidence that the ClipboardItem path - the one Safari needs for a
+  // value that is still being fetched - is the path actually taken.
+  const fellBack: string[] = [];
+  page.on('console', (message) => {
+    if (message.text().includes('falling back')) fellBack.push(message.text());
+  });
+
+  await page.goto(STABLE_PLAIN_MD_PATH);
+
+  const button = page.locator('.octo-copy-md');
+  await button.click();
+  await expect(button).toHaveAttribute('data-copied', '');
+
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  const source = await (await request.get(STABLE_PLAIN_MD_PATH + '.md')).text();
+
+  // The Windows clipboard hands back CRLF whatever went in, so newlines are
+  // normalised before the comparison rather than asserted on.
+  const normalise = (text: string) =>
+    text.replace(/^﻿/, '').replace(/\r\n/g, '\n');
+  expect(normalise(copied)).toBe(normalise(source));
+  expect(fellBack, 'expected clipboard.write to succeed first time').toEqual(
+    []
+  );
+});
+
+test('the copy action reports a failure when the markdown cannot be fetched', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto(STABLE_PLAIN_MD_PATH);
+
+  // Routed after the page has loaded, so only the copy's own fetch is refused.
+  await page.route('**/*.md', (route) => route.abort());
+
+  const button = page.locator('.octo-copy-md');
+  await button.click();
+
+  await expect(button).toHaveAttribute('data-failed', '');
+  await expect(button).not.toHaveAttribute('data-copied', '');
+});
+
 // All three labels are always in the DOM, stacked, so reporting a result must
 // not reflow the page actions row.
 test('the copy action keeps its width while it reports a result', async ({
