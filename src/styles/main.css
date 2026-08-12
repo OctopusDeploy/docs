@@ -813,6 +813,16 @@ nav.skip-links a:focus {
   z-index: 2;
 }
 
+.theme-switcher__moon_icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/moon.svg') center / contain no-repeat;
+}
+
+.theme-switcher__sun_icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/sun.svg') center / contain no-repeat;
+}
+
 html[data-theme='dark'] .theme-switcher .switch-slider {
   transform: translateX(100%);
 }
@@ -2879,7 +2889,7 @@ a[data-youtube] {
 .code-block .code-block__copy::after {
   left: auto;
   right: 0;
-  translate: 0 0;
+  translate: 0 var(--tooltip-shift);
 }
 
 /* The single fixed language */
@@ -3093,6 +3103,12 @@ a.button.button--primary:active {
    itself, so it needs room there and a stacking context of its own. */
 [data-tooltip] {
   position: relative;
+  --tooltip-shift: 10px;
+  --tooltip-arrow-size: 7px;
+  --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
+  --tooltip-arrow-offset: calc(
+    var(--tooltip-offset) - var(--tooltip-arrow-size)
+  );
 }
 
 /* The bubble */
@@ -3100,8 +3116,8 @@ a.button.button--primary:active {
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
-  translate: -50% 0;
+  inset-block-end: calc(100% + var(--tooltip-offset));
+  translate: -50% var(--tooltip-shift);
   padding: var(--space4) var(--space8);
   border-radius: var(--borderRadiusSmall);
   background: var(--colorBackgroundInversePrimary);
@@ -3118,19 +3134,51 @@ a.button.button--primary:active {
   content: '';
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
-  translate: -50% 0;
+  inset-block-end: calc(100% + var(--tooltip-arrow-offset));
+  translate: -50% var(--tooltip-shift);
   width: 0;
   height: 0;
-  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
-  border-inline: 7px solid transparent;
+  border-block-start: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+  border-inline: var(--tooltip-arrow-size) solid transparent;
   pointer-events: none;
   opacity: 0;
+}
+
+[data-tooltip][data-tooltip-position='bottom'] {
+  --tooltip-shift: -10px;
+}
+
+[data-tooltip][data-tooltip-position='bottom']::after {
+  inset-block: calc(100% + var(--tooltip-offset)) auto;
+}
+
+[data-tooltip][data-tooltip-position='bottom']::before {
+  inset-block: calc(100% + var(--tooltip-arrow-offset)) auto;
+  border-block-start: 0;
+  border-block-end: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+}
+
+[data-tooltip]::before,
+[data-tooltip]::after {
+  transition:
+    opacity 375ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    translate 375ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied]) {
+  --tooltip-shift: 0px;
 }
 
 [data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
 [data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
   opacity: 1;
+  transition-duration: 350ms;
 }
 
 /* Buttons side by side e.g. a toolbar or the component showcase */

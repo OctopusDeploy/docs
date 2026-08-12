@@ -7,6 +7,9 @@
 
 const REVERT_MS = 2000;
 
+// Matches the tooltip's hide transition in main.css.
+const FADE_MS = 375;
+
 const COPIED = 'Copied';
 const FAILED = 'Copy failed';
 
@@ -46,9 +49,21 @@ function showResult(button, message) {
   timers.set(
     button,
     setTimeout(() => {
-      button.dataset.tooltip = rest;
       delete button.dataset.copied;
-      timers.delete(button);
+
+      if (button.matches(':hover, :focus-visible')) {
+        button.dataset.tooltip = rest;
+        timers.delete(button);
+        return;
+      }
+
+      timers.set(
+        button,
+        setTimeout(() => {
+          button.dataset.tooltip = rest;
+          timers.delete(button);
+        }, FADE_MS)
+      );
     }, REVERT_MS)
   );
 }

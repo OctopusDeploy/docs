@@ -49,11 +49,11 @@ const currentLabel = links
     </nav>
   </div>
   <div class="top-nav__trailing">
-    <!-- TODO: Fix the theme switcher icons -->
     <Button
-      icon="fa-regular fa-moon"
-      aria-label="Dark mode"
-      aria-pressed="false"
+      icon="theme-switcher__moon_icon"
+      aria-label="Toggle theme"
+      data-tooltip="Toggle theme"
+      data-tooltip-position="bottom"
       data-theme-toggle-button
     />
     <!-- TODO: Make this a real link -->
@@ -98,6 +98,9 @@ const currentLabel = links
       calc(var(--space16) - var(--borderWidth1));
     border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
     background: var(--colorBackgroundPrimaryDefault);
+    transition-property: background-color, border-color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
   }
 
   .top-nav__leading,
@@ -120,6 +123,7 @@ const currentLabel = links
     height: 2rem;
     width: auto;
     color: var(--colorTextPrimary);
+    transition: color var(--theme-transition-duration) ease-in-out;
   }
 
   .top-nav__links {
@@ -146,6 +150,9 @@ const currentLabel = links
     font: var(--textBodyRegularMedium);
     text-align: center;
     text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
   }
 
   a.top-nav__link:hover:not(.top-nav__link--active),
