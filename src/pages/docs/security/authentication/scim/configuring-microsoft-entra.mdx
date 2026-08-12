@@ -36,11 +36,11 @@ Review your existing Octopus Deploy users and make sure their email addresses ma
 Entra ID authentication matches users by email address. If the addresses don't match, Entra ID creates new users instead of linking to your existing ones.
 
     :::div{.info}
-    
+
     SCIM makes Entra ID the source of truth for any users and teams it provisions. Octopus Deploy has no way to push changes back to Entra ID, so any edits made to these users or teams in Octopus Deploy get overwritten the next time Entra ID syncs.
 
     Once a user or team is provisioned via SCIM, make any changes to it in Entra ID rather than Octopus Deploy.
-    
+
     :::
 
 ### Configure user authentication and enable SCIM support
@@ -73,7 +73,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
     :::div{.info}
 
     The Octopus Deploy account used by Entra ID needs to have Octopus permissions of the same level or greater than the permissions of the users that it is managing. This is required by Octopus Deploy to avoid escalation of privilege, for example to prevent a low-privilege user from creating an administrator account.
-    
+
     :::
 
     :::figure
