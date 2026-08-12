@@ -118,8 +118,6 @@ const iconTag = (name: string | undefined) =>
 </div>
 
 <script>
-  // Astro bundles and dedupes this, so a page with several split buttons loads
-  // the controller once, and a page with none does not load it at all.
   import '../scripts/split-button';
 </script>
 
@@ -191,6 +189,43 @@ const iconTag = (name: string | undefined) =>
     background: var(--colorMenuListBackgroundDefault);
     border-radius: var(--borderRadiusSmall);
     box-shadow: var(--shadowMedium);
+    opacity: 0;
+    scale: 0.96;
+    transform-origin: top;
+    transition:
+      opacity var(--duration-default) ease-in-out,
+      scale var(--duration-default) ease-in-out;
+  }
+
+  .split-btn__menu[open] .split-btn__options {
+    opacity: 1;
+    scale: 1;
+  }
+
+  /* A closed disclosure skips its contents, so the list has no rendered state
+     for the opening transition to start from until it is given one. */
+  @starting-style {
+    .split-btn__menu[open] .split-btn__options {
+      opacity: 0;
+      scale: 0.96;
+    }
+  }
+
+  /* The menu this is modelled on grows in rather than arriving, so the list
+     scales and fades from the edge it hangs off. The disclosure keeps its
+     content on screen for the length of that so the closing half has something
+     left to animate; the scale goes on the list rather than the disclosure
+     because a transformed ancestor would become the containing block the
+     anchored position is measured against. */
+  .split-btn__menu::details-content {
+    transition: content-visibility var(--duration-default) allow-discrete;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .split-btn__options,
+    .split-btn__menu::details-content {
+      transition: none;
+    }
   }
 
   /* The design hangs the list from the menu half and lets it run past the end of
@@ -216,6 +251,10 @@ const iconTag = (name: string | undefined) =>
       position-anchor: --split-btn;
       position-area: block-end span-inline-end;
       position-try-fallbacks: flip-inline;
+      /* Fixed to the viewport, the list would otherwise hold its place while the
+         button it belongs to scrolls away, leaving it stranded over whatever the
+         page has scrolled to. */
+      position-visibility: anchors-visible;
       inset: auto;
       margin-block-start: var(--space4);
     }

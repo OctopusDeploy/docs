@@ -1,8 +1,18 @@
 import { test, expect } from '@playwright/test';
+import type { Locator } from '@playwright/test';
 
 // The component gallery is where SplitButton is rendered on its own, away from
 // whatever page happens to use it.
 const PAGE = '/components';
+
+// The menu scales as it opens, so a box measured before that finishes is the
+// box part way through the animation rather than the one being asserted on.
+async function opened(options: Locator) {
+  await expect(options).toBeVisible();
+  await options.evaluate((el) =>
+    Promise.all(el.getAnimations().map((animation) => animation.finished))
+  );
+}
 
 test('the menu is closed until the caret is clicked', async ({ page }) => {
   await page.goto(PAGE);
@@ -54,6 +64,26 @@ test('a click outside closes the menu', async ({ page }) => {
   await page.locator('h1').first().click();
 
   await expect(menu.locator('.split-btn__options')).toBeHidden();
+});
+
+// A menu left open behind the reader is one the page keeps positioning against a
+// button they have moved on from, which is how it ends up stranded mid-page once
+// they scroll.
+test('tabbing off the end of the menu closes it', async ({ page }) => {
+  await page.goto(PAGE);
+
+  const menu = page.locator('[data-split-menu]').first();
+  const options = menu.locator('.split-btn__options');
+
+  await menu.locator('[data-split-trigger]').click();
+  await expect(options).toBeVisible();
+
+  // The caret holds focus on opening, so it takes both items to leave the menu.
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
+
+  await expect(options).toBeHidden();
 });
 
 test('each menu opens independently of the others', async ({ page }) => {
@@ -114,7 +144,7 @@ test('each menu hangs off the control it belongs to', async ({ page }) => {
     const options = control.locator('.split-btn__options');
 
     await control.locator('[data-split-trigger]').click();
-    await expect(options).toBeVisible();
+    await opened(options);
 
     const half = (await control.locator('[data-split-trigger]').boundingBox())!;
     const menu = (await options.boundingBox())!;
@@ -150,7 +180,7 @@ for (const width of [1200, 700, 430]) {
     await menu.locator('[data-split-trigger]').click();
 
     const options = menu.locator('.split-btn__options');
-    await expect(options).toBeVisible();
+    await opened(options);
 
     const box = (await options.boundingBox())!;
     const viewport = await page.evaluate(() => ({
