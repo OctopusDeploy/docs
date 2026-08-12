@@ -28,7 +28,14 @@ const {
   ...rest
 } = Astro.props satisfies Props;
 
-if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
+// A slotted label counts: a button whose label changes as you use it supplies
+// its own markup rather than a single `label` string.
+if (
+  !label &&
+  !Astro.slots.has('default') &&
+  !rest['aria-label'] &&
+  !rest['aria-labelledby']
+) {
   throw new Error('An icon-only button needs an aria-label for screen readers');
 }
 
@@ -61,6 +68,7 @@ const Tag = href ? 'a' : 'button';
 <Tag class={classes} {...tagSpecificProps} {...rest}>
   {StartIconTag && <StartIconTag {...startIcon!.props} aria-hidden="true" />}
   {label && <span class="btn__label">{label}</span>}
+  <slot />
   {EndIconTag && <EndIconTag {...endIcon!.props} aria-hidden="true" />}
 </Tag>
 

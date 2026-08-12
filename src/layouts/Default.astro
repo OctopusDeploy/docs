@@ -21,7 +21,8 @@ import Related from '../components/Related.astro';
 import ArticleJourney from '../components/ArticleJourney.astro';
 import Feedback from '../components/Feedback.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
-import CopyMarkdown from '../components/CopyMarkdown.astro';
+import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
+import MarkdownLinks from '../components/MarkdownLinks.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
@@ -83,6 +84,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
         <article itemscope itemtype="https://schema.org/Article">
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
           <div class="page-actions">
+            <CopyAsMarkdown lang={lang} />
             <EditOnGithub
               frontmatter={frontmatter}
               headings={headings}
@@ -98,7 +100,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
             />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
-            <CopyMarkdown lang={lang} />
+            <MarkdownLinks lang={lang} />
             <ArticleJourney
               frontmatter={frontmatter}
               headings={headings}

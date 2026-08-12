@@ -1,0 +1,45 @@
+---
+import { Lang, Translations } from '@util/Languages';
+import { getPageMarkdownPath } from '@util/mdxContent';
+import Button from './Button.astro';
+
+type Props = {
+  lang: string;
+};
+const { lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
+---
+
+{
+  pageMdUrl && (
+    <Button
+      class="octo-copy-md"
+      icon="octo-copy-md__icon"
+      size="small"
+      data-copy-md-url={pageMdUrl}
+    >
+      {/* All three states are rendered, stacked in one grid cell, so the button
+          is sized by its longest label and keeps that width as the state
+          changes. Only the current one is visible, and `visibility` keeps the
+          other two out of the accessible name. */}
+      <span class="btn__label octo-copy-md__labels">
+        <span class="octo-copy-md__label octo-copy-md__label--rest">
+          {_(Translations.octopus_copy_md.label)}
+        </span>
+        <span class="octo-copy-md__label octo-copy-md__label--copied">
+          {_(Translations.octopus_copy_md.copied)}
+        </span>
+        <span class="octo-copy-md__label octo-copy-md__label--failed">
+          {_(Translations.octopus_copy_md.error)}
+        </span>
+      </span>
+    </Button>
+  )
+}
+
+<script>
+  import '../scripts/copy-as-markdown';
+</script>

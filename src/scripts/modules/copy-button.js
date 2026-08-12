@@ -2,6 +2,8 @@
 
 // Shared by the heading copy-URL button and the code block copy button. Both
 // swap their tooltip to a result, revert after a beat, and announce it.
+// `announce` is also used by the "Copy as markdown" page action, which shows
+// its result in a label rather than a tooltip.
 
 const REVERT_MS = 2000;
 
@@ -66,7 +68,7 @@ function announce(message) {
   }
 
   // Cleared first, then set on a later task, so copying twice in a row reads as
-  // a change and is announced both times. Same as copy-markdown.js.
+  // a change and is announced both times.
   const region = status;
   region.textContent = '';
   setTimeout(() => {
@@ -106,4 +108,4 @@ function copyOnClick(selector, read) {
   });
 }
 
-export { copyOnClick };
+export { announce, copyOnClick, REVERT_MS };
