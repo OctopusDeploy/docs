@@ -208,6 +208,7 @@
   --block-gap: 2rem;
 
   --header-pin: 0;
+  --header-height: 82px;
   --scroll-pad: 140px;
 
   --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);

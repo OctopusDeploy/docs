@@ -648,7 +648,7 @@ nav.skip-links a:focus {
 .octo-header-bkg {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background-color: var(--header-bg);
-  min-height: 82px;
+  min-height: var(--header-height);
   position: fixed;
   width: 100%;
   top: 0;
@@ -1229,8 +1229,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .site-nav {
   align-self: start;
   position: sticky;
-  top: 82px;
-  height: calc(100vh - 82px);
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
   box-sizing: border-box;
   /* No inline-end padding here — the scrolling list owns that gap, so the
      scrollbar rides against the border. No block-end padding either: the
@@ -1363,10 +1363,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* The last of the three column start heights below the header — 16px for the
      nav, 56px for the content, 100px here. */
   margin-block-start: 6.25rem;
-  top: calc(82px + 6.25rem);
+  top: calc(var(--header-height) + 6.25rem);
   /* Everything from the sticky top to the bottom of the window, so a long list
      scrolls inside the column instead of running off the end of it. */
-  height: calc(100vh - 82px - 6.25rem);
+  height: calc(100vh - var(--header-height) - 6.25rem);
   /* Keeps the toc off the right edge of the window. The grid column is widened
      to match, so the nav itself keeps its designed width. */
   padding-inline-end: var(--space16);
@@ -1504,7 +1504,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   grid-template-areas:
     'menu . content . toc .'
     'menu . footer  . .   .';
-  margin-top: 82px;
+  margin-top: var(--header-height);
 }
 
 /* Article header */
@@ -3119,80 +3119,24 @@ a.button.button--primary:active {
 /* Button component end */
 
 /* TopNav component */
-.top-nav {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space24);
-  padding: var(--space16) var(--space24)
-    calc(var(--space16) - var(--borderWidth1));
-  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
-  background: var(--colorBackgroundPrimaryDefault);
+.new-top-nav {
+  display: none;
 }
 
-.top-nav__leading,
-.top-nav__trailing {
-  flex-shrink: 0; /* Disallow shrinking so button labels don't wrap across 2 lines */
+html[data-nav='new'] {
+  --header-height: 68px;
 }
 
-.top-nav__leading {
-  display: flex;
-  align-items: center;
-  gap: var(--space64);
-}
-
-.top-nav__logo {
-  display: flex;
-}
-
-.top-nav__logo-mark {
+html[data-nav='new'] .new-top-nav {
   display: block;
-  height: 2rem;
-  width: auto;
-  color: var(--colorTextPrimary);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 11;
 }
 
-.top-nav__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space2);
-}
-
-.top-nav__trailing {
-  display: flex;
-  align-items: center;
-  gap: var(--space12);
-}
-
-a.top-nav__link {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space8) var(--space12);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorNavBackgroundRest);
-  color: var(--colorTextPrimary);
-  font: var(--textBodyRegularMedium);
-  text-align: center;
-  text-decoration: none;
-}
-
-a.top-nav__link:hover:not(.top-nav__link--active),
-a.top-nav__link:focus:not(.top-nav__link--active) {
-  background: var(--colorNavBackgroundHover);
-}
-
-a.top-nav__link:focus-visible {
-  outline: var(--borderWidth2) solid var(--colorBorderSelected);
-  outline-offset: var(--borderWidth1);
-}
-
-a.top-nav__link--active {
-  background: var(--colorNavBackgroundActive);
-  color: var(--colorTextSelected);
-  font: var(--textBodyBoldMedium);
+html[data-nav='new'] .site-header {
+  display: none;
 }
 /* TopNav component end */
 

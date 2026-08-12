@@ -2,8 +2,8 @@ import { test, expect, type Page } from '@playwright/test';
 
 const showcase = '/components';
 
-const nav = '.top-nav';
-const trailing = '.top-nav__trailing';
+const nav = '.top-nav-showcase .top-nav';
+const trailing = `${nav} .top-nav__trailing`;
 const avatar = `${nav} [data-user-avatar]`;
 
 async function signIn(
