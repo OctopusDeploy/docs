@@ -3196,6 +3196,49 @@ a.button.button--primary:active {
 }
 /* Button component end */
 
+/* Icons handed to the SplitButton demos on the component gallery. Button and
+   SplitButton color the icon box they render; masking the asset lets it take
+   that color through both themes, which an `<img>` of a `currentColor` glyph
+   cannot do. The gallery is a page rather than a component, so these live here
+   next to the rest of the page's icons. */
+.showcase-icon {
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  /* A design system icon is drawn with its own margin inside a 40 unit box, so
+     filling the slot lands it at the size the design draws it. */
+  mask-size: contain;
+}
+
+/* The marks exported from Figma are cropped to the glyph instead, so they fill a
+   slot that the design insets them within: 16px of the button's 20px, 12.8px of
+   a menu item's 16px. Both are the same 80% of whichever slot they land in. */
+.showcase-icon--claude,
+.showcase-icon--chatgpt,
+.showcase-icon--external {
+  mask-size: 80%;
+}
+
+.showcase-icon--claude {
+  mask-image: url('../assets/icons/claude.svg');
+}
+
+.showcase-icon--chatgpt {
+  mask-image: url('../assets/icons/chatgpt.svg');
+}
+
+.showcase-icon--external {
+  mask-image: url('../assets/icons/external-link.svg');
+}
+
+.showcase-icon--copy {
+  mask-image: url('../assets/icons/copy.svg');
+}
+
+.showcase-icon--link {
+  mask-image: url('../assets/icons/link-on.svg');
+}
+
 /* TopNav component */
 .new-top-nav {
   display: none;

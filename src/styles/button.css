@@ -46,6 +46,15 @@
   --btn-padding-inline: var(--space4);
 }
 
+summary.btn {
+  list-style: none;
+  user-select: none;
+}
+
+summary.btn::-webkit-details-marker {
+  display: none;
+}
+
 .btn__label {
   padding-inline: var(--space4);
 }
