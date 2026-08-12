@@ -2,13 +2,18 @@
 import Logo from '../assets/octopus-logo-v2.svg';
 import Button from './Button.astro';
 import ProfileMenu from './ProfileMenu.astro';
+import TopNavSearch from './TopNavSearch.astro';
 import { SITE } from '../config';
 
 type Props = {
+  lang?: string;
+  showSearch?: boolean;
   links?: { label: string; href: string }[];
 };
 
 const {
+  lang,
+  showSearch = true,
   links = [
     { label: 'Docs', href: '/docs' },
     { label: 'Learn', href: '#' }, // TODO: Make this a real link
@@ -51,6 +56,7 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
       }
     </nav>
   </div>
+  {showSearch && <TopNavSearch lang={lang} />}
   <div class="top-nav__trailing">
     <Button
       icon="theme-switcher__moon_icon"

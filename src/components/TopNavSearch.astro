@@ -1,0 +1,240 @@
+---
+import { Translations, Lang } from '@util/Languages';
+import { SITE } from '@config';
+
+type Props = {
+  lang?: string;
+};
+
+const { lang = SITE.default.lang } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+const siteUrl = Astro.site ? Astro.site.href : '';
+---
+
+<div
+  class="site-search__wrapper top-nav-search"
+  data-site-search-wrapper
+  data-top-nav-search
+>
+  <div class="site-search__overlay"></div>
+  <form
+    method="GET"
+    action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
+    role="search"
+    class="site-search top-nav-search__field"
+    autocomplete="off"
+    data-sourcedata={SITE.subfolder + '/search.json'}
+    data-site-search
+  >
+    <fieldset class="top-nav-search__fieldset">
+      <input
+        type="hidden"
+        name={SITE.search.fallbackSite ?? 'q'}
+        value={'site:' + siteUrl}
+      />
+      <span class="top-nav-search__icon" aria-hidden="true"></span>
+      <input
+        type="text"
+        name={SITE.search.fallbackSite ?? 'q'}
+        class="site-search-query top-nav-search__input"
+        placeholder="Ask a question or search the docs…"
+        aria-label="Ask a question or search the docs"
+        spellcheck="true"
+        autocomplete="off"
+        data-site-search-query
+      />
+      <kbd class="top-nav-search__shortcut" aria-hidden="true">^K</kbd>
+      <button
+        class="site-search__remove-btn top-nav-search__clear"
+        type="button"
+        aria-label="Clear search"
+        data-site-search-remove
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 11 11"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M7.585 5.5L10.7122 2.37281C11.0959 1.98906 11.0959 1.36687 10.7122 0.982812L10.0172 0.287813C9.63344 -0.0959375 9.01125 -0.0959375 8.62719 0.287813L5.5 3.415L2.37281 0.287813C1.98906 -0.0959375 1.36688 -0.0959375 0.982813 0.287813L0.287813 0.982812C-0.0959375 1.36656 -0.0959375 1.98875 0.287813 2.37281L3.415 5.5L0.287813 8.62719C-0.0959375 9.01094 -0.0959375 9.63312 0.287813 10.0172L0.982813 10.7122C1.36656 11.0959 1.98906 11.0959 2.37281 10.7122L5.5 7.585L8.62719 10.7122C9.01094 11.0959 9.63344 11.0959 10.0172 10.7122L10.7122 10.0172C11.0959 9.63344 11.0959 9.01125 10.7122 8.62719L7.585 5.5Z"
+          ></path>
+        </svg>
+      </button>
+    </fieldset>
+  </form>
+  <div
+    class="site-search-results"
+    data-title={_(Translations.search.results_title)}
+    data-emptytitle={_(Translations.search.no_results_title)}
+    data-site-search-results
+  >
+  </div>
+</div>
+
+<script is:inline>
+  {
+    const search = document.querySelector('[data-top-nav-search]');
+    if (search) {
+      const wiring = [
+        'data-site-search-wrapper',
+        'data-site-search',
+        'data-site-search-query',
+        'data-site-search-results',
+        'data-site-search-remove',
+      ];
+
+      // If the old header is being used, deactivate the (hidden) new header's search functionality
+      // by removing the relevant data attributes, letting it fall back to the old header.
+      if (document.documentElement.dataset.nav !== 'new') {
+        for (const attribute of wiring) {
+          search.removeAttribute(attribute);
+          for (const element of search.querySelectorAll(`[${attribute}]`)) {
+            element.removeAttribute(attribute);
+          }
+        }
+      } else {
+        const input = search.querySelector('[data-site-search-query]');
+        const shortcut = search.querySelector('.top-nav-search__shortcut');
+
+        // Bind Ctrl+K to focus the search on most platforms, Cmd+K on macOS
+        const isApple = navigator.userAgentData
+          ? navigator.userAgentData.platform === 'macOS'
+          : (navigator.platform || navigator.userAgent).includes('Mac');
+        if (shortcut && isApple) shortcut.textContent = '⌘K';
+
+        document.addEventListener('keydown', function (e) {
+          if (
+            (isApple ? e.metaKey : e.ctrlKey) &&
+            e.key.toLowerCase() === 'k'
+          ) {
+            e.preventDefault();
+            input.focus();
+          }
+        });
+      }
+    }
+  }
+</script>
+
+<script>
+  import '../scripts/search.js';
+</script>
+
+<style>
+  .top-nav-search.site-search__wrapper {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    max-width: 50rem;
+    margin-inline: auto;
+  }
+
+  .top-nav-search__field.site-search {
+    box-sizing: border-box;
+    height: auto;
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundPrimaryDefault);
+    transition-property: background-color, border-color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
+  }
+
+  .top-nav-search__field.site-search:focus-within {
+    border-color: var(--colorBorderSelected);
+    outline: var(--borderWidth1) solid var(--colorBorderSelected);
+  }
+
+  .top-nav-search__fieldset {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space6);
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: calc(var(--space8) - var(--borderWidth1));
+    border: 0;
+  }
+
+  .top-nav-search__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconSecondary);
+    mask: url('../assets/icons/sparkles.svg') center / contain no-repeat;
+    transition: background-color var(--theme-transition-duration) ease-in-out;
+  }
+
+  .top-nav-search__input.site-search-query {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    text-overflow: ellipsis;
+  }
+
+  .top-nav-search__input.site-search-query:focus-visible {
+    outline: none;
+  }
+
+  .top-nav-search__input.site-search-query::placeholder {
+    color: var(--colorTextTertiary);
+    opacity: 1;
+  }
+
+  .top-nav-search__shortcut {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-inline: var(--space4);
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundSecondaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textCodeRegularMedium);
+    white-space: nowrap;
+  }
+
+  .top-nav-search__clear.site-search__remove-btn {
+    flex-shrink: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--colorIconSecondary);
+    cursor: pointer;
+  }
+
+  .site-search.is-active .top-nav-search__shortcut {
+    display: none;
+  }
+
+  .site-search.is-active .top-nav-search__clear.site-search__remove-btn {
+    display: inline-flex;
+    visibility: visible;
+  }
+
+  .top-nav-search .site-search-results {
+    top: 100%;
+  }
+
+  .top-nav-search .site-search.is-active + .site-search-results {
+    transform: translateY(var(--space8)) scaleY(1);
+  }
+</style>
