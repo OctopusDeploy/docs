@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-12
 title: Runbooks publishing
 description: Publishing makes a runbook available to scheduled triggers and consumers.
 navOrder: 30
@@ -33,7 +33,11 @@ Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runb
 
 The concept of a published snapshot is designed to help avoid confusion when selecting a version of the runbook you're supposed to run if you're not the author. You can think of it as the "Production" ready version of the runbook, which has been approved for general use.
 
-Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRunCreate` permission, but without the `RunbookEdit` permission).  Triggers and consumers will always execute the published snapshot.
+:::div{.hint}
+The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
+:::
+
+Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRunCreate` permission, but without the `RunbookSnapshotCreate` permission).  Triggers and consumers will always execute the published snapshot.
 
 The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.   
 
@@ -53,7 +57,7 @@ Publish from process:
 ![Publish runbook from process page](/docs/img/runbooks/runbook-publishing/runbook-publish-process.png)
 :::
 
-When a producer (anyone with an appropriately scoped `RunbookEdit` permission) executes a runbook, they will have the option between executing the published version or the current draft.
+When a producer (anyone with an appropriately scoped `RunbookSnapshotCreate` permission) executes a runbook, they will have the option between executing the published version or the current draft.
 
 Running the current draft allows testing changes before publishing.  The latest version of the process and variables will be used and package versions will be prompted for.
 

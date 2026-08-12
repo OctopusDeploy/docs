@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-12
 title: User roles
 description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
@@ -14,7 +14,7 @@ Octopus comes with a set of built-in user roles that are designed to work for mo
 
 | User role            | Description                              |
 | -------------------- | ---------------------------------------- |
-| Build Server         | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. |
+| Build Server         | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. They can't edit a runbook's steps or publish its snapshots. |
 | Certificate Manager  | Certificate managers can edit certificates and export private-keys |
 | Deployment Creator   | Deployment creators can create new deployments and runbook runs. |
 | Environment Manager  | Environment managers can view and edit environments and their machines. |

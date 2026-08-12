@@ -1,19 +1,24 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-12
 title: Runbooks permissions
 description: Permissions are available to help you manage access to Runbooks.
 navOrder: 20
 
 ---
 
+:::div{.hint}
+The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
+:::
+
 Permissions are available to help you manage access to Runbooks, these include:
 
 | Permission  | Description |
 | ------------- | ------------- |
 | RunbookView  | You can view all things runbooks-related (from the runbooks themselves, to their process, runs and snapshots). |
-| RunbookEdit  | You can edit all things runbooks-related. |
+| RunbookEdit  | You can edit a runbook's process, and publish or delete its snapshots. |
+| RunbookSnapshotCreate  | You can create runbook snapshots. |
 | RunbookRunView  | You can view runbook runs. |
 | RunbookRunDelete  | You can delete runbook runs. |
 | RunbookRunCreate  | You can create runbook runs (equivalent of `DeploymentCreate` in the deployment world). |
@@ -34,7 +39,7 @@ Octopus Deploy is built API-first, which means everything you can do through the
 - Project
 - Runbooks _(a project can have many runbooks, with RunbookView/RunbookEdit permissions.)_
 - RunbookProcess _(a runbook has one process / collection of steps, with ProcessEdit permissions.)_
-- RunbookSnapshots _(a runbook can have many snapshots, each with a unique name, with RunbookEdit permissions.)_
+- RunbookSnapshots _(a runbook can have many snapshots, each with a unique name. Creating a snapshot needs RunbookSnapshotCreate, and publishing or deleting one needs RunbookEdit.)_
 - RunbookRuns _(a runbook snapshot will then be run/executed against an environment, with RunbookRunCreate permissions.)_
 
 We have provided lots of helpful functions for building your runbook process in the [.NET SDK](/docs/octopus-rest-api/octopus.client), or you can use the raw HTTP API if that suits your needs better.
