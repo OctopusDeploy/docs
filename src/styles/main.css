@@ -3203,26 +3203,40 @@ a.button.button--primary:active {
    next to the rest of the page's icons. */
 .showcase-icon {
   background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  /* A design system icon is drawn with its own margin inside a 40 unit box, so
+     filling the slot lands it at the size the design draws it. */
+  mask-size: contain;
+}
+
+/* The marks exported from Figma are cropped to the glyph instead, so they fill a
+   slot that the design insets them within: 16px of the button's 20px, 12.8px of
+   a menu item's 16px. Both are the same 80% of whichever slot they land in. */
+.showcase-icon--claude,
+.showcase-icon--chatgpt,
+.showcase-icon--external {
+  mask-size: 80%;
 }
 
 .showcase-icon--claude {
-  mask: url('../assets/icons/claude.svg') center / contain no-repeat;
+  mask-image: url('../assets/icons/claude.svg');
 }
 
 .showcase-icon--chatgpt {
-  mask: url('../assets/icons/chatgpt.svg') center / contain no-repeat;
+  mask-image: url('../assets/icons/chatgpt.svg');
 }
 
 .showcase-icon--external {
-  mask: url('../assets/icons/external-link.svg') center / contain no-repeat;
+  mask-image: url('../assets/icons/external-link.svg');
 }
 
 .showcase-icon--copy {
-  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+  mask-image: url('../assets/icons/copy.svg');
 }
 
 .showcase-icon--link {
-  mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
+  mask-image: url('../assets/icons/link-on.svg');
 }
 
 /* TopNav component */
