@@ -64,17 +64,23 @@ const iconTag = (name: string | undefined) =>
       size={size}
       importance={importance}
       aria-label={menuLabel}
+      aria-haspopup="menu"
       data-split-trigger
     />
-    <ul class="split-btn__options">
+    <ul class="split-btn__options" role="menu" aria-label={menuLabel}>
       {
         items.map((item) => {
           const Leading = iconTag(item.icon);
           const Trailing = iconTag(item.iconEnd);
           return (
-            <li>
+            // The list is the menu, so the items between it and the actions are
+            // not part of that structure; `menuitem` goes on the link so it is
+            // the thing announced and the thing arrow keys move between.
+            <li role="none">
               <a
                 class="split-btn__option"
+                role="menuitem"
+                tabindex="-1"
                 href={item.href}
                 target={target}
                 rel={rel}
@@ -184,7 +190,13 @@ const iconTag = (name: string | undefined) =>
     inset-block-start: calc(100% + var(--space4));
     inset-inline-start: 0;
     box-sizing: border-box;
-    width: var(--split-btn-menu-width, 16rem);
+    /* Sized by its content, as the design system's menu is, with a floor of the
+       184px its items hold themselves to so a short list still reads as a menu,
+       and a ceiling so a long label wraps rather than running the list off the
+       side of the page. */
+    width: max-content;
+    min-width: var(--split-btn-menu-min-width, 11.5rem);
+    max-width: var(--split-btn-menu-max-width, 20rem);
     margin: 0;
     padding: var(--space8) 0;
     list-style: none;
@@ -268,20 +280,29 @@ const iconTag = (name: string | undefined) =>
     display: flex;
     align-items: center;
     gap: var(--space4);
-    /* The page has no universal border-box rule, so min-height would otherwise
-       measure the content alone and the padding would sit outside the row. */
+    /* The page has no universal border-box rule, so the padding would otherwise
+       sit outside a row measured by its content. */
     box-sizing: border-box;
-    /* MenuList.MenuItem in the design: 48px tall, and padding that only shows
-       once an item wraps past one line. */
-    min-height: 3rem;
+    /* The compact MenuItem, which is the one the design settled on: no floor
+       under the row, so it stands at its padding and a line of text. The roomier
+       one holds itself open to 48px. */
     padding: var(--space6) var(--space16);
     color: var(--colorTextLinkDefault);
     font: var(--textBodyRegularLarge);
+    /* Long labels wrap rather than widening the list past the width it is given. */
+    overflow-wrap: anywhere;
   }
 
-  .split-btn__option:hover,
-  .split-btn__option:focus-visible {
+  /* The MenuItem takes the primary text color under the pointer, leaving the
+     link color to say the row is a link when it is at rest. */
+  .split-btn__option:hover {
     background: var(--colorMenuListBackgroundHover);
+    color: var(--colorTextPrimary);
+  }
+
+  .split-btn__option:focus-visible {
+    background: var(--colorMenuListBackgroundActive);
+    color: var(--colorTextPrimary);
   }
 
   /* Centred and contained the way `.btn__icon` is. An icon font draws its glyph
@@ -297,7 +318,9 @@ const iconTag = (name: string | undefined) =>
     height: 1rem;
     font-size: var(--fontSizeBase);
     line-height: 1;
-    color: var(--colorIconLinkDefault);
+    /* Inherited so the glyph turns over with the label it sits beside; the icon
+       and text link tokens carry the same value at rest. */
+    color: inherit;
   }
 
   img.split-btn__option-icon {

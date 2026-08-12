@@ -69,7 +69,7 @@ test('a click outside closes the menu', async ({ page }) => {
 // A menu left open behind the reader is one the page keeps positioning against a
 // button they have moved on from, which is how it ends up stranded mid-page once
 // they scroll.
-test('tabbing off the end of the menu closes it', async ({ page }) => {
+test('tabbing off the menu closes it', async ({ page }) => {
   await page.goto(PAGE);
 
   const menu = page.locator('[data-split-menu]').first();
@@ -78,12 +78,63 @@ test('tabbing off the end of the menu closes it', async ({ page }) => {
   await menu.locator('[data-split-trigger]').click();
   await expect(options).toBeVisible();
 
-  // The caret holds focus on opening, so it takes both items to leave the menu.
-  await page.keyboard.press('Tab');
-  await page.keyboard.press('Tab');
+  // The items are out of the tab order, so one press leaves the whole control
+  // rather than walking the menu.
   await page.keyboard.press('Tab');
 
   await expect(options).toBeHidden();
+});
+
+// The design system's menu holds the page still while it is open. This one lets
+// the page move and closes instead, so the list is never left adrift of the
+// button it hangs off, which is what happens if it is allowed to stay.
+test('scrolling the page closes the menu', async ({ page }) => {
+  await page.goto(PAGE);
+
+  const menu = page.locator('[data-split-menu]').first();
+  const options = menu.locator('.split-btn__options');
+
+  // Keyed onto an item first: focus inside the menu is what kept it alive.
+  await menu.locator('[data-split-trigger]').focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(options).toBeVisible();
+  await expect(options.locator('[role="menuitem"]').first()).toBeFocused();
+
+  await page.mouse.wheel(0, -800);
+
+  await expect(options).toBeHidden();
+});
+
+// The items are reached with the arrow keys instead, which is what the design
+// system's menu does and what the roles the list carries promise.
+test('the arrow keys open the menu and move between its items', async ({
+  page,
+}) => {
+  await page.goto(PAGE);
+
+  const menu = page.locator('[data-split-menu]').first();
+  const options = menu.locator('.split-btn__options');
+  const items = options.locator('[role="menuitem"]');
+
+  await menu.locator('[data-split-trigger]').focus();
+  await page.keyboard.press('ArrowDown');
+
+  await expect(options).toBeVisible();
+  await expect(items.first()).toBeFocused();
+
+  await page.keyboard.press('ArrowDown');
+  await expect(items.nth(1)).toBeFocused();
+
+  // Past the last item comes back to the first, and back again to the last.
+  await page.keyboard.press('ArrowDown');
+  await expect(items.first()).toBeFocused();
+  await page.keyboard.press('ArrowUp');
+  await expect(items.nth(1)).toBeFocused();
+
+  await page.keyboard.press('Home');
+  await expect(items.first()).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(items.nth(1)).toBeFocused();
 });
 
 test('each menu opens independently of the others', async ({ page }) => {
