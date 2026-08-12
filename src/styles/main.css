@@ -3196,6 +3196,35 @@ a.button.button--primary:active {
 }
 /* Button component end */
 
+/* Icons handed to the SplitButton demos on the component gallery. Button and
+   SplitButton color the icon box they render; masking the asset lets it take
+   that color through both themes, which an `<img>` of a `currentColor` glyph
+   cannot do. The gallery is a page rather than a component, so these live here
+   next to the rest of the page's icons. */
+.showcase-icon {
+  background-color: currentColor;
+}
+
+.showcase-icon--claude {
+  mask: url('../assets/icons/claude.svg') center / contain no-repeat;
+}
+
+.showcase-icon--chatgpt {
+  mask: url('../assets/icons/chatgpt.svg') center / contain no-repeat;
+}
+
+.showcase-icon--external {
+  mask: url('../assets/icons/external-link.svg') center / contain no-repeat;
+}
+
+.showcase-icon--copy {
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.showcase-icon--link {
+  mask: url('../assets/icons/link-on.svg') center / contain no-repeat;
+}
+
 /* TopNav component */
 .new-top-nav {
   display: none;

@@ -68,19 +68,36 @@ test('each menu opens independently of the others', async ({ page }) => {
   await expect(menus.nth(0).locator('.split-btn__options')).toBeHidden();
 });
 
-// An asset import carries a query string in dev and none in a build, so an
-// icon picked by the end of its name renders as an image on the built page and
-// puts its own URL in a class attribute on the dev server.
-test('an item given an SVG asset renders it as an image', async ({ page }) => {
+// A design system asset is drawn in `currentColor`, so handing one to an `<img>`
+// leaves it black in both themes. Masking it is what lets it take the color the
+// menu item carries.
+test('menu item icons take the color of the item they sit in', async ({
+  page,
+}) => {
   await page.goto(PAGE);
 
   const menu = page.locator('[data-split-menu]').first();
   await menu.locator('[data-split-trigger]').click();
 
-  const icon = menu.locator('img.split-btn__option-icon').first();
-
+  const icon = menu.locator('.split-btn__option-icon').first();
   await expect(icon).toBeVisible();
-  await expect(icon).toHaveAttribute('src', /\.svg(\?|$)/);
+
+  const paint = await icon.evaluate((el) => {
+    const style = getComputedStyle(el);
+    return {
+      mask: style.maskImage,
+      background: style.backgroundColor,
+      color: style.color,
+    };
+  });
+
+  expect(paint.mask, 'the icon should be masked').toContain('url(');
+  expect(paint.background, 'the mask should take the item color').toBe(
+    paint.color
+  );
+  expect(paint.background, 'a black icon means it took no color').not.toBe(
+    'rgb(0, 0, 0)'
+  );
 });
 
 // An anchor name is page-wide unless it is scoped, and an unscoped one leaves

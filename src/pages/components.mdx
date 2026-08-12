@@ -21,9 +21,6 @@ import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import SplitButton from 'src/components/SplitButton.astro';
 import TopNav from 'src/components/TopNav.astro';
-import copyIcon from 'src/assets/icons/copy.svg';
-import externalLinkIcon from 'src/assets/icons/external-link.svg';
-import linkIcon from 'src/assets/icons/link-on.svg';
 
 ## Component Usage Guide
 
@@ -187,6 +184,8 @@ The menu closes on Escape or a click outside, and opens towards whichever side h
 
 Give it a `class` of your own to style what you passed in: the icons land on elements SplitButton renders, so a rule aimed at them needs `:global()` behind that class.
 
+Reach for a class name rather than a URL when the icon is one of the design system's. Those assets are drawn in `currentColor`, and an `<img>` gives them nothing to take a color from, so they come out black in both themes. A class whose rule masks the asset and sets `background-color: currentColor` picks up the color the button gives its icon box instead.
+
 Two of them sit side by side below, each with its own menu, so it is clear that a menu belongs to the control it hangs from.
 
 <div class="docs-home simple-grid">
@@ -194,21 +193,22 @@ Two of them sit side by side below, each with its own menu, so it is clear that 
     <SplitButton
       label="Open in Claude"
       href="#split-button-example"
+      icon="showcase-icon showcase-icon--claude"
       menuLabel="Open in another assistant"
       items={[
-        { label: 'Open in Claude', href: '#split-button-example', iconEnd: externalLinkIcon.src },
-        { label: 'Open in ChatGPT', href: '#split-button-example', iconEnd: externalLinkIcon.src },
+        { label: 'Open in Claude', href: '#split-button-example', icon: 'showcase-icon showcase-icon--claude', iconEnd: 'showcase-icon showcase-icon--external' },
+        { label: 'Open in ChatGPT', href: '#split-button-example', icon: 'showcase-icon showcase-icon--chatgpt', iconEnd: 'showcase-icon showcase-icon--external' },
       ]}
     />
     <SplitButton
       label="Copy"
       href="#split-button-example"
-      icon={copyIcon.src}
+      icon="showcase-icon showcase-icon--copy"
       size="small"
       menuLabel="More copy actions"
       items={[
-        { label: 'Copy page', href: '#split-button-example', icon: copyIcon.src },
-        { label: 'Copy link', href: '#split-button-example', icon: linkIcon.src },
+        { label: 'Copy page', href: '#split-button-example', icon: 'showcase-icon showcase-icon--copy' },
+        { label: 'Copy link', href: '#split-button-example', icon: 'showcase-icon showcase-icon--link' },
       ]}
     />
   </div>
@@ -217,10 +217,11 @@ Two of them sit side by side below, each with its own menu, so it is clear that 
     <SplitButton
       label="Open in Claude"
       href="/some/url"
+      icon="my-icon my-icon--claude"
       menuLabel="Open in another assistant"
       items={[
-        { label: 'Open in Claude', href: '/some/url', iconEnd: externalLinkIcon.src },
-        { label: 'Open in ChatGPT', href: '/another/url', iconEnd: externalLinkIcon.src },
+        { label: 'Open in Claude', href: '/some/url', icon: 'my-icon my-icon--claude', iconEnd: 'my-icon my-icon--external' },
+        { label: 'Open in ChatGPT', href: '/another/url', icon: 'my-icon my-icon--chatgpt', iconEnd: 'my-icon my-icon--external' },
       ]}
     />
     ```
