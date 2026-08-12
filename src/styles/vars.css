@@ -224,6 +224,24 @@
   --toc-width: 250px;
   /* Space between the article and the toc beside it. */
   --toc-offset: 80px;
+  /* The two columns of an API reference page: the endpoint and the request and
+     response examples beside it. Each takes its full width wherever there is
+     room, and the pair compress together down to their minimums before the
+     examples drop below the endpoint instead. */
+  --api-content-width: 680px;
+  --api-content-min-width: 420px;
+  --api-examples-width: 640px;
+  --api-examples-min-width: 400px;
+  --api-columns-gap: var(--space32);
+  /* The pair together, which is what the article is centred on. */
+  --api-columns-width: calc(
+    var(--api-content-width) + var(--api-columns-gap) +
+      var(--api-examples-width)
+  );
+  --api-columns-min-width: calc(
+    var(--api-content-min-width) + var(--api-columns-gap) +
+      var(--api-examples-min-width)
+  );
   --grid-max-width: 1250px;
   --grid-gap: 1rem;
   --grid-gap-main: 1rem;

@@ -1,0 +1,80 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { Translations, Lang } from '@util/Languages';
+import { apiMenu } from '@lib/apiNavigation';
+
+const stats = new accelerator.statistics('components/ApiNavigation.astro');
+stats.start();
+
+type Props = {
+  lang: string;
+  headings: { depth: number; slug: string; text: string }[];
+};
+const { lang, headings } = Astro.props satisfies Props;
+
+const _ = Lang(lang);
+
+// Only the page the reader is on lists its endpoints. Expanding every page
+// would put thousands of anchors in the markup of all ~100 of them, and it is
+// the rule the site nav follows too: the branch you are inside is the one that
+// opens.
+const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
+
+// An endpoint per H2, which is the first level of content on a generated API
+// page.
+const endpoints = (headings ?? []).filter((heading) => heading.depth === 2);
+
+const pages = apiMenu().map((page) => ({
+  ...page,
+  isCurrent: page.url.replace(/\/$/, '') === currentPath,
+}));
+
+stats.stop();
+---
+
+<nav
+  class="site-nav"
+  id="site-nav"
+  aria-label={_(Translations.aria.site_navigation)}
+>
+  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
+  <ul class="site-nav__list">
+    {
+      pages.map((page) =>
+        page.isCurrent && endpoints.length > 0 ? (
+          <li class="site-nav__list-item">
+            <details class="site-nav__group" open>
+              {/* The summary is the page the reader is already on, so it
+                  labels the group rather than linking back to itself. */}
+              <summary class="site-nav__link" aria-current="page">
+                <span class="site-nav__label">{page.title}</span>
+              </summary>
+              <ul class="site-nav__list">
+                {endpoints.map((heading) => (
+                  <li class="site-nav__list-item">
+                    <a
+                      class="site-nav__link site-nav__link--heading"
+                      href={`#${heading.slug}`}
+                    >
+                      <span class="site-nav__label">{heading.text}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </li>
+        ) : (
+          <li class="site-nav__list-item">
+            <a
+              class="site-nav__link"
+              href={accelerator.urlFormatter.formatAddress(page.url)}
+              aria-current={page.isCurrent ? 'page' : null}
+            >
+              <span class="site-nav__label">{page.title}</span>
+            </a>
+          </li>
+        )
+      )
+    }
+  </ul>
+</nav>

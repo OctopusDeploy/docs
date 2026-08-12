@@ -1358,6 +1358,14 @@ html[data-theme='dark'] img.card__icon {
   color: var(--colorTextSelected);
 }
 
+/* The API nav lists the current page's endpoints in place of a table of
+   contents, so the row for the endpoint in view is marked the way one is
+   there: `highlight` comes from scripts/modules/toc.js. */
+.site-nav__link--heading.highlight {
+  background-color: var(--navBackgroundActive);
+  color: var(--colorTextSelected);
+}
+
 /* An expanded section is the only row that goes bold. */
 .site-nav__group[open] > .site-nav__link {
   font: var(--textBodyBoldMedium);
