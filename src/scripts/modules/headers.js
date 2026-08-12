@@ -1,6 +1,6 @@
 // @ts-check
 import { qsa } from './query.js';
-import { copyOnClick } from './copy-button.js';
+import { copyOnClick } from './clipboard.js';
 
 const REST = 'Copy URL';
 

@@ -137,7 +137,7 @@ function execCommandCopy(text) {
   try {
     copied = document.execCommand('copy');
   } catch (error) {
-    console.warn('[copy-button] execCommand fallback threw', error);
+    console.warn('[clipboard] execCommand fallback threw', error);
     copied = false;
   }
   textarea.remove();
@@ -172,7 +172,7 @@ async function writeToClipboard(value) {
       await clipboard.write([new ClipboardItem({ 'text/plain': blob })]);
       return true;
     } catch (error) {
-      console.warn('[copy-button] clipboard.write failed, falling back', error);
+      console.warn('[clipboard] clipboard.write failed, falling back', error);
     }
   }
 
@@ -185,7 +185,7 @@ async function writeToClipboard(value) {
       await clipboard.writeText(text);
       return true;
     } catch (error) {
-      console.warn('[copy-button] writeText failed, falling back', error);
+      console.warn('[clipboard] writeText failed, falling back', error);
     }
   }
 
@@ -219,11 +219,11 @@ function copyOnClick(selector, read, options = {}) {
     try {
       ok = await writeToClipboard(value);
     } catch (error) {
-      console.warn('[copy-button] copy failed', error);
+      console.warn('[clipboard] copy failed', error);
     }
 
     announce(show(button, ok));
   });
 }
 
-export { announce, copyOnClick, revertAfter, REVERT_MS };
+export { copyOnClick, revertAfter };

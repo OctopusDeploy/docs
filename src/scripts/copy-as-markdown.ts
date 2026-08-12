@@ -1,4 +1,4 @@
-import { copyOnClick, revertAfter } from './modules/copy-button.js';
+import { copyOnClick, revertAfter } from './modules/clipboard.js';
 
 // Which label shows, and which glyph the icon masks, is CSS's decision - all
 // three labels are in the DOM, and this only says which state the button is in.
