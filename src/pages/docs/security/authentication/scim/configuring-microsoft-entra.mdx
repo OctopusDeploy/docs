@@ -90,18 +90,18 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
     If you're on the **App Registration Overview** page instead, select **Managed application in local directory** to get to the matching **Enterprise Application**.
 
 1. Navigate to the **Provisioning** section and select **New configuration**.
-    - For **Select authentication method**, choose **Bearer authentication**.
-    - Enter the **Tenant URL**: `https://your-octopus-url/api/scim/v2/entraid/` (replace `https://your-octopus-url` with your Octopus Server's URL).
-    - For **Secret token**, paste in the API key you created for the Entra ID SCIM service account.
+    - **Select authentication method**: Bearer authentication
+    - **Tenant URL**: `https://<your-octopus-url>/api/scim/v2/entraid/`, replacing `<your-octopus-url>` with your Octopus Server's URL.
+    - **Secret token**: the API key you created for the Entra ID SCIM service account
 1. Select **Test connection**.
 
     :::div{.hint}
 
     If the test is not successful, double-check that:
-    - you enabled SCIM in the Azure AD authentication provider settings and saved the changes
-    - the Octopus Deploy URL has the `/api/scim/v2/entraid/` suffix on it
-    - your Octopus Deploy instance is reachable from the Entra ID IP addresses
-    - the Octopus Deploy API key is valid and has sufficient permissions
+    - SCIM is enabled in the Azure AD authentication provider settings, and the changes are saved
+    - the Tenant URL has the `/api/scim/v2/entraid/` suffix
+    - the Octopus Deploy instance is reachable from the Entra ID IP addresses
+    - the service account API key is valid and has sufficient permissions
 
     :::
 
