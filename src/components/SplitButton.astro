@@ -136,6 +136,8 @@ const iconTag = (name: string | undefined) =>
   .split-btn__menu {
     position: relative;
     margin-inline-start: calc(var(--borderWidth1) * -1);
+    /* The easing the design system's menu animates on. */
+    --split-btn-menu-easing: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Both halves are Buttons, so this markup belongs to Button's scope and
@@ -190,16 +192,17 @@ const iconTag = (name: string | undefined) =>
     border-radius: var(--borderRadiusSmall);
     box-shadow: var(--shadowMedium);
     opacity: 0;
-    scale: 0.96;
-    transform-origin: top;
+    transform: scale(0.75, 0.5625);
+    transform-origin: top left;
     transition:
-      opacity var(--duration-default) ease-in-out,
-      scale var(--duration-default) ease-in-out;
+      opacity var(--duration-default) var(--split-btn-menu-easing),
+      transform calc(var(--duration-default) * 0.66)
+        var(--split-btn-menu-easing);
   }
 
   .split-btn__menu[open] .split-btn__options {
     opacity: 1;
-    scale: 1;
+    transform: none;
   }
 
   /* A closed disclosure skips its contents, so the list has no rendered state
@@ -207,16 +210,17 @@ const iconTag = (name: string | undefined) =>
   @starting-style {
     .split-btn__menu[open] .split-btn__options {
       opacity: 0;
-      scale: 0.96;
+      transform: scale(0.75, 0.5625);
     }
   }
 
-  /* The menu this is modelled on grows in rather than arriving, so the list
-     scales and fades from the edge it hangs off. The disclosure keeps its
-     content on screen for the length of that so the closing half has something
-     left to animate; the scale goes on the list rather than the disclosure
-     because a transformed ancestor would become the containing block the
-     anchored position is measured against. */
+  /* The menu this is modelled on grows in rather than arriving. Measured on its
+     own story, it fades while a shorter transform runs from three quarters of
+     the width and the square of that in height, out of the corner the list
+     hangs off. The disclosure keeps its content on screen for the length of
+     that so the closing half has something left to animate; the transform goes
+     on the list rather than the disclosure because a transformed ancestor would
+     become the containing block the anchored position is measured against. */
   .split-btn__menu::details-content {
     transition: content-visibility var(--duration-default) allow-discrete;
   }
