@@ -8,14 +8,15 @@ navOrder: 30
 ---
 
 :::div{.success}
-Config-as-code runbooks use branches instead of publishing. If your project uses config-as-code runbooks, read about [managing runbooks permissions using branches](/docs/runbooks/config-as-code-runbooks#permissions-by-branch) instead. 
+Config-as-code runbooks use branches instead of publishing. If your project uses config-as-code runbooks, read about [managing runbooks permissions using branches](/docs/runbooks/config-as-code-runbooks#permissions-by-branch) instead.
 :::
 
-Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/releases), a runbook has what is called a Snapshot. 
+Runbooks and deployments define their processes in exactly the same way. However, where a deployment has a [release](/docs/releases), a runbook has what is called a Snapshot.
 
 ## Snapshots
 
 For a given runbook, you can have two snapshots:
+
 - Draft
 - Published
 
@@ -26,7 +27,7 @@ Similar to releases, the version of any packages that are used in the runbook ar
 A draft snapshot of a runbook is exactly what it sounds like, a draft version of the currently published version. Drafts are meant to give you a place to work and save a runbook that is a work in progress or has not yet been approved for general use.
 
 :::div{.hint}
-Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger), only published snapshots can. 
+Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runbooks/scheduled-runbook-trigger), only published snapshots can.
 :::
 
 ## Published snapshot
@@ -39,7 +40,7 @@ The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3** onwa
 
 Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRunCreate` permission, but without the `RunbookSnapshotCreate` permission).  Triggers and consumers will always execute the published snapshot.
 
-The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.   
+The published snapshot contains the process, variables, and packages. This allows editing and testing the runbook without impacting the published version.
 
 ### Publishing a snapshot
 
