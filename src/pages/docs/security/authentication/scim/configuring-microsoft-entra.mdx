@@ -37,9 +37,9 @@ Entra ID authentication matches users by email address. If the addresses don't m
 
     :::div{.info}
     
-    Once users have been linked to their Entra ID accounts via SCIM we recommend that no user edits are made within Octopus Deploy, as they'll be overridden by Entra ID when it next updates the user.
+    SCIM makes Entra ID the source of truth for any users and teams it provisions. Octopus Deploy has no way to push changes back to Entra ID, so any edits made to these users or teams in Octopus Deploy get overwritten the next time Entra ID syncs.
 
-    SCIM makes Entra ID the source-of-truth for your users and teams, so make any edits in Entra ID itself.
+    Once a user or team is provisioned via SCIM, make any changes to it in Entra ID rather than Octopus Deploy.
     
     :::
 
@@ -105,7 +105,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
 
     :::
 
-1. Select **Create**.
+1. Click **Create** to save the provisioning configuration.
 
     :::figure
     ![New provisioning configuration](/docs/img/security/authentication/scim/entraid/new-provisioning-configuration.png)
@@ -134,13 +134,13 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
     - `displayName`
     - `emails[type eq "work"].value`
     - `externalId`
-1. Edit `userName` and set **Matching precedence** to `2`.
-1. Select **Save**.
 1. Edit `externalId`:
-    - Set the source attribute to `objectId`.
+    - Set the **Source attribute** to `objectId`.
     - Set **Match objects using this attribute** to `Yes`.
     - Set **Matching precedence** to `1`.
-1. Select **Save**.
+1. Click **Apply**.
+1. Edit `userName` and set **Matching precedence** to `2`.
+1. Click **Apply**.g
 1. Confirm the completed user mappings look like this:
 
     :::figure
@@ -175,7 +175,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
 
     :::div{.warning}
 
-    If there were any issues with provisioning the single user, review the Entra ID provisioning configuration before proceeding. It's much easier to fix any issues now, rather than when there are a large number of users and groups that have been incorrectly provisioned.
+    If there are any issues with provisioning the single user, review the Entra ID provisioning configuration before proceeding. It's much easier to fix any issues now, rather than when there are a large number of users and groups that have been incorrectly provisioned.
 
     :::
 
@@ -186,7 +186,7 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
 
     :::div{.info}
 
-    Starting provisioning queues an initial sync job in Entra ID, which may take a few minutes to start. The default provisioning interval is 40 minutes, so changes to users or groups can take up to that long to reach Octopus Deploy.
+    **Start provisioning** queues an initial sync job in Entra ID which may take a few minutes to start. The default provisioning interval is 40 minutes, so any changes to users or groups can take up to 40 minutes to be reflected in Octopus Deploy.
 
     :::
 
@@ -197,6 +197,12 @@ Entra ID needs its own Octopus identity to call the SCIM API on your behalf. We 
     :::
 
 Entra ID will now reach out to Octopus Deploy regularly via the SCIM API whenever a user or group needs to be created, updated or deleted.
+
+    :::div{.warning}
+
+    From this point on, avoid making changes in Octopus Deploy to any users or teams provisioned via SCIM. Entra ID is the source of truth for them, and any changes made in Octopus Deploy get overwritten the next time Entra ID syncs. Make changes in Entra ID instead.
+
+    :::
 
 ## Troubleshooting
 
@@ -210,7 +216,6 @@ Entra ID will now reach out to Octopus Deploy regularly via the SCIM API wheneve
 
 ## Known Limitations
 
-- SCIM does not provide a way for Octopus Deploy to push changes back into Entra ID. Avoid making any modifications in Octopus Deploy to any users or teams that are provisioned via SCIM, as these may get overwritten when Entra ID updates them in future. If you need to make changes, perform these changes in the source-of-truth which is Entra ID.
 - Octopus Deploy does not support nested groups. Any requests from Entra ID to add a group as a member of another group will be ignored.
 - Any groups provisioned by Entra ID will be global teams, rather than space-scoped teams, because Azure AD authentication applies to the whole Octopus Deploy instance. You can still apply space-scoped permissions to these teams, but the teams will be visible to all spaces.
 - Octopus Deploy only supports a single email address for each user, whereas Entra ID supports many. Octopus Deploy will ignore any email addresses other than the **Work** email address, ie: `emails[type eq "work"].value`.
