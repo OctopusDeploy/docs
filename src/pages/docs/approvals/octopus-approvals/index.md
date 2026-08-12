@@ -56,6 +56,9 @@ If multiple approval policies match, the policies are merged to a resultant poli
 
 Octopus supports change windows. Change windows are scheduled time periods during which a deployment is allowed to run. If a change request is approved but the change window has not yet opened, Octopus keeps execution paused. If the change window closes before the deployment runs (whether the request is approved or still pending), Octopus terminates the task.
 
+#### Change window creation
+To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment.  Octopus evaluates the approval policy when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
+
 ### Rejection
 
 If any designated approver rejects the change request, Octopus immediately terminates the task. You cannot retry a rejected task; you must trigger a deployment of a new release or runbook run, which will create a fresh change request.
