@@ -1,7 +1,7 @@
 ---
 import Logo from '../assets/octopus-logo-v2.svg';
-import Avatar from './Avatar.astro';
 import Button from './Button.astro';
+import ProfileMenu from './ProfileMenu.astro';
 import { SITE } from '../config';
 
 type Props = {
@@ -68,16 +68,7 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
       importance="loud"
       data-signed-out-only
     />
-    <Avatar
-      size="medium"
-      shape="circle"
-      alt=""
-      data-signed-in-only
-      data-user-avatar
-      hidden
-    >
-      <span data-user-initials></span>
-    </Avatar>
+    <ProfileMenu data-signed-in-only hidden />
   </div>
 </header>
 

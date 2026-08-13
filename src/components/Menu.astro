@@ -1,0 +1,354 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type ItemData = Record<string, string | undefined>;
+
+export type MenuAction = {
+  // link gets visibly decorated with color/underline, action remains as plain text
+  kind?: 'action' | 'link';
+  label: string;
+  description?: string;
+  href?: string | URL;
+  icon?: string; // URL to an SVG, or a class name, as Button takes
+  iconEnd?: string;
+  target?: string;
+  rel?: string;
+  data?: ItemData;
+};
+
+export type MenuDetail = {
+  kind: 'detail';
+  label: string;
+  description?: string;
+  data?: ItemData;
+};
+
+export type MenuDivider = { kind: 'divider' };
+
+export type MenuItem = MenuAction | MenuDetail | MenuDivider;
+
+type Props = HTMLAttributes<'details'> & {
+  label: string; // accessible name for the list, which has no heading
+  items: MenuItem[];
+  align?: 'start' | 'end';
+  density?: 'default' | 'compact';
+  width?: string;
+};
+
+const {
+  label,
+  items,
+  align = 'start',
+  density = 'default',
+  width,
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (items.length === 0) {
+  throw new Error('A Menu needs at least one item');
+}
+
+if (!Astro.slots.has('trigger')) {
+  throw new Error('A Menu needs a <summary> in its trigger slot to open it');
+}
+
+// An asset import carries a query in dev (`...svg?origWidth=16`) and none in a
+// build, so the extension is matched where it sits rather than at the end.
+const isSvgUrl = (name: string) => /\.svg(\?|#|$)/.test(name);
+
+const iconDetails = (name: string | undefined) => {
+  if (!name) return null;
+  return isSvgUrl(name)
+    ? {
+        tag: 'img' as const,
+        props: { src: name, alt: '', class: 'menu__icon' },
+      }
+    : { tag: 'span' as const, props: { class: `${name} menu__icon` } };
+};
+---
+
+<details
+  class:list={[
+    'menu',
+    `menu--${align}`,
+    density === 'compact' && 'menu--compact',
+    className,
+  ]}
+  style={width ? `--menu-width: ${width}` : undefined}
+  data-menu
+  {...rest}
+>
+  <slot name="trigger" />
+  <ul class="menu__list" role="menu" aria-label={label}>
+    {
+      items.map((item) => {
+        if (item.kind === 'divider') {
+          return <li class="menu__divider" role="separator" />;
+        }
+
+        if (item.kind === 'detail') {
+          return (
+            <li
+              class="menu__item menu__item--detail"
+              role="presentation"
+              {...item.data}
+            >
+              <span class="menu__label" data-menu-label>
+                {item.label}
+              </span>
+              {item.description !== undefined && (
+                <span class="menu__description" data-menu-description>
+                  {item.description}
+                </span>
+              )}
+            </li>
+          );
+        }
+
+        const leading = iconDetails(item.icon);
+        const trailing = iconDetails(item.iconEnd);
+        const Leading = leading?.tag;
+        const Trailing = trailing?.tag;
+
+        const Action = item.href ? 'a' : 'button';
+        const actionProps = item.href
+          ? { href: item.href, target: item.target, rel: item.rel }
+          : { type: 'button' as const };
+        const actionClass = `menu__item menu__action${item.kind === 'link' ? ' menu__action--link' : ''}`;
+
+        return (
+          // The list is the menu, so the items between it and the actions are
+          // not part of that structure; `menuitem` goes on the action so it is
+          // the thing announced and the thing arrow keys move between.
+          <li role="none">
+            <Action
+              class={actionClass}
+              role="menuitem"
+              tabindex="-1"
+              {...actionProps}
+              {...item.data}
+            >
+              {Leading && <Leading {...leading!.props} aria-hidden="true" />}
+              <span class="menu__labels">
+                <span class="menu__label" data-menu-label>
+                  {item.label}
+                </span>
+                {item.description !== undefined && (
+                  <span class="menu__description" data-menu-description>
+                    {item.description}
+                  </span>
+                )}
+              </span>
+              {Trailing && <Trailing {...trailing!.props} aria-hidden="true" />}
+            </Action>
+          </li>
+        );
+      })
+    }
+  </ul>
+</details>
+
+<script>
+  import '../scripts/menu';
+</script>
+
+<style>
+  .menu {
+    position: relative;
+    /* The easing the design system's menu animates on. */
+    --menu-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .menu__list {
+    position: absolute;
+    z-index: 10;
+    inset-block-start: calc(100% + var(--space4));
+    inset-inline-start: 0;
+    box-sizing: border-box;
+    /* Sized by its content unless a width is specified, with a floor of the
+       184px its items hold themselves to so a short list still reads as a menu,
+       and a ceiling so a long label wraps rather than running the list off the
+       side of the page. */
+    width: var(--menu-width, max-content);
+    min-width: var(--menu-min-width, 11.5rem);
+    max-width: var(--menu-max-width, 20rem);
+    margin: 0;
+    padding: var(--space8) 0;
+    list-style: none;
+    background: var(--colorMenuListBackgroundDefault);
+    border-radius: var(--borderRadiusSmall);
+    box-shadow: var(--shadowMedium);
+    opacity: 0;
+    transform: scale(0.75, 0.5625);
+    transform-origin: top left;
+    transition:
+      opacity var(--duration-default) var(--menu-easing),
+      transform calc(var(--duration-default) * 0.66) var(--menu-easing);
+  }
+
+  .menu--end .menu__list {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    transform-origin: top right;
+  }
+
+  .menu[open] .menu__list {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* A closed disclosure skips its contents, so the list has no rendered state
+     for the opening transition to start from until it is given one. */
+  @starting-style {
+    .menu[open] .menu__list {
+      opacity: 0;
+      transform: scale(0.75, 0.5625);
+    }
+  }
+
+  /* The menu this is modelled on grows in rather than arriving. Measured on its
+     own story, it fades while a shorter transform runs from three quarters of
+     the width and the square of that in height, out of the corner the list
+     hangs off. The disclosure keeps its content on screen for the length of
+     that so the closing half has something left to animate; the transform goes
+     on the list rather than the disclosure because a transformed ancestor would
+     become the containing block the anchored position is measured against. */
+  .menu:not([open])::details-content {
+    transition: content-visibility var(--duration-default) allow-discrete;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu__list,
+    .menu:not([open])::details-content {
+      transition: none;
+    }
+  }
+
+  /* Let the browser pick which direction the menu will fit */
+  @supports (anchor-scope: --a) {
+    .menu {
+      anchor-name: --menu;
+      /* An anchor name is page-wide, so a second menu would leave every list on
+         the page hanging off the last one. `anchor-scope` keeps each name inside
+         the menu that declares it. The block is guarded on `anchor-scope` rather
+         than `anchor-name` so a browser with anchors but no scoping takes the
+         absolute rules above, which measure from each list's own parent. */
+      anchor-scope: --menu;
+    }
+
+    /* Fixed so the viewport is what the browser measures the room against; the
+       anchor keeps it tracking the control through a scroll. */
+    .menu__list {
+      position: fixed;
+      position-anchor: --menu;
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: flip-inline;
+      /* Fixed to the viewport, the list would otherwise hold its place while the
+         control it belongs to scrolls away, leaving it stranded over whatever
+         the page has scrolled to. */
+      position-visibility: anchors-visible;
+      inset: auto;
+      margin-block-start: var(--space4);
+    }
+
+    .menu--end .menu__list {
+      position-area: block-end span-inline-start;
+    }
+  }
+
+  .menu__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space4);
+    /* The page has no universal border-box rule, so the padding would otherwise
+       sit outside a row measured by its content. */
+    box-sizing: border-box;
+    min-height: 3rem;
+    padding: var(--space6) var(--space16);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularLarge);
+    /* Long labels wrap rather than widening the list past the width it is given. */
+    overflow-wrap: anywhere;
+  }
+
+  /* The compact MenuItem: no floor under the row, so it stands at its padding
+     and a line of text. */
+  .menu--compact .menu__item {
+    min-height: 0;
+  }
+
+  .menu__item--detail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .menu__labels {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .menu__description {
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularSmall);
+  }
+
+  .menu__action {
+    width: 100%;
+    border: 0;
+    background: none;
+    color: var(--colorTextPrimary);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .menu__action--link {
+    color: var(--colorTextLinkDefault);
+  }
+
+  .menu__action--link .menu__label {
+    text-decoration: underline;
+  }
+
+  /* The MenuItem takes the primary text color under the pointer, leaving the
+     link color to say the row is a link when it is at rest. */
+  .menu__action:hover {
+    background: var(--colorMenuListBackgroundHover);
+    color: var(--colorTextPrimary);
+  }
+
+  .menu__action:focus-visible {
+    background: var(--colorMenuListBackgroundActive);
+    color: var(--colorTextPrimary);
+  }
+
+  .menu__divider {
+    margin-block: var(--space8);
+    border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
+  }
+
+  /* Centred and contained the way `.btn__icon` is. An icon font draws its glyph
+     on its own advance width rather than inside this box, so a wide one spills
+     over the gap and sits against the label; an SVG needs the same box to be
+     scaled into rather than laid out at its intrinsic size. */
+  .menu__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    font-size: var(--fontSizeBase);
+    line-height: 1;
+    /* Inherited so the glyph turns over with the label it sits beside; the icon
+       and text link tokens carry the same value at rest. */
+    color: inherit;
+  }
+
+  img.menu__icon {
+    object-fit: contain;
+  }
+</style>
