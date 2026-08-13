@@ -106,13 +106,13 @@ When a manual step is completed, details of the interruption are saved as variab
 
 If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true", and use the `Octopus.Deployment.Error` variable as the conditional. For example:
 
-```
+```text
 #{unless Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION PROCEEDED{/unless}
 ```
 
 or
 
-```
+```text
 #{if Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION WAS ABORTED{/if}
 ```
 

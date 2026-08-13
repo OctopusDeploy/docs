@@ -1,6 +1,8 @@
 {
     "MD013": false,
     "MD041": false,
+    "MD024": { "siblings_only": true },
+    "MD051": { "ignored_pattern": "^[A-Z]" },
     "emphasis": { "style": "asterisk" },
     "no-inline-html": false,
     "ul-style": { "style": "dash" }

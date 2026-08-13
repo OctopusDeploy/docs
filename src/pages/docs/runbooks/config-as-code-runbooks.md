@@ -33,7 +33,7 @@ Once that's done, you should see a branch selector at the top of the **Runbooks*
 
 ### Troubleshooting
 
-**Slug related errors during migration**
+#### Slug related errors during migration
 
 Published runbook snapshots must have unique step slugs. Step slugs were added to Octopus in 2022. If you published snapshots before this feature was added, those snapshots may contain empty or duplicate slugs.
 To identify and fix these issues:

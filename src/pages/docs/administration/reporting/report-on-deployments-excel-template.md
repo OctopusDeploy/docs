@@ -11,7 +11,7 @@ navOrder: 100
 To help you get started, we provide a sample Excel spreadsheet that you can connect to your own Octopus Server.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278354.png)
+![Sample Excel spreadsheet reporting on Octopus deployments](/docs/img/administration/reporting/images/3278354.png)
 :::
 
 ## Getting started
@@ -28,26 +28,26 @@ To change the source of the data:
 
 1. Go to the **DATA** ribbon tab in Excel, then click **Queries & Connections**:
 
-   ![](/docs/img/administration/reporting/images/3278356.png)
+   ![The Queries & Connections button on the Excel Data ribbon](/docs/img/administration/reporting/images/3278356.png)
 
 2. Select the **Octopus Deployment history** connection, then click **Properties...**
 
-   ![](/docs/img/administration/reporting/images/3278357.png)
+   ![The Octopus Deployment history connection selected in the Queries & Connections pane](/docs/img/administration/reporting/images/3278357.png)
 
 3. Go to the **Definition** tab, then click **Browse...**
 
-   ![](/docs/img/administration/reporting/images/3278358.png)
+   ![The Definition tab of the connection properties dialog](/docs/img/administration/reporting/images/3278358.png)
 
 4. In the Select Data Source menu, instead of selecting a file, enter your reporting URL, then Open. To get your reporting URL, see the section below on **Using the XML Feed**.
 
-   ![](/docs/img/administration/reporting/images/3278360.png)
+   ![The Select Data Source dialog with the Octopus reporting URL entered](/docs/img/administration/reporting/images/3278360.png)
 
 ## Refreshing the data
 
 Once you have set up your connection, you can refresh the data from the source whenever you like. If you make your own customizations to the spreadsheet, you can save them, and simply refresh the data in the sheet whenever you like.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278361.png)
+![Refreshing the Octopus deployment data in the spreadsheet](/docs/img/administration/reporting/images/3278361.png)
 :::
 
 ## Using the XML feed
@@ -74,7 +74,7 @@ Since a user-specific API key is used to consume the data, only data that the us
 :::div{.hint}
 If you encounter the following error when using your own Octopus Server
 
-```
+```text
 Unhandled exception from web server: The parameter is incorrect
 System.Net.HttpListenerException (0x80004005): The parameter is incorrect
 at System.Net.HttpResponseStream.Dispose(Boolean disposing)

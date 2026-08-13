@@ -54,7 +54,7 @@ The following are examples of using release notes templates with package [build 
 
 The following example illustrates some sample text followed by the packages, with the packages rendered as a bullet point list:
 
-```
+```text
 Here are the notes for the packages
 #{each package in Octopus.Release.Package}
 - #{package.PackageId} #{package.Version}
@@ -66,7 +66,7 @@ Here are the notes for the packages
 
 Sometimes you might have different packages contributing to an application, e.g. app server and database might be separate packages. In these cases both packages might contain fixes for the same work item, which would look confusing in the release notes. To support this case there is a distinct list of work items, across all packages, included at the top level of the data. An example of using it is as follows:
 
-```
+```text
 #{each workItem in Octopus.Release.WorkItems}
 - [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
 #{/each}
@@ -74,7 +74,7 @@ Sometimes you might have different packages contributing to an application, e.g.
 
 For some use cases there are actually no work items, the nature of the changes is such that the commit messages themselves should form the release notes. The raw commit data is available per package for the release notes templates:
 
-```
+```text
 Here are the notes for the packages
 #{each package in Octopus.Release.Package}
 - #{package.PackageId} #{package.Version}
@@ -86,7 +86,7 @@ Here are the notes for the packages
 
 Build and version control details are exposed by the `Octopus.Release.Builds` variable. The example below lists the details of each build that contributed to the release:
 
-```
+```text
 #{each build in Octopus.Release.Builds}
 * #{build.Packages}
 * #{build.BuildUrl}
@@ -104,7 +104,7 @@ The `Octopus.Release.Builds[].Packages` variable is a JSON array containing the 
 
 The package ID can be used as an index for the `Octopus.Release.Package` variable with a nested Octostache expression:
 
-```
+```text
 #{Octopus.Release.Package[#{Octopus.Release.Builds[0].Packages[0].PackageId}].WorkItems}
 ```
 

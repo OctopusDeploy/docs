@@ -25,7 +25,7 @@ If some of your tenants should be connected to a different subset of environment
 ## Filtering during tenant selection
 
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-filters.png)
+![The Name and Tenant Tag filters in the bulk connection wizard](/docs/img/projects/tenants/bulk-connection-filters.png)
 :::
 You can use the Name and Tenant Tag filters to find a specific tenant or set of tenants to connect to your project. Tenant Tag filters can be accessed by clicking **Expand Filters**.
 
@@ -34,7 +34,7 @@ When filters are active, clicking **Select all \<N\> results** will add all tena
 ## During the connection operation
 
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-in-progress.png)
+![A bulk tenant connection operation in progress](/docs/img/projects/tenants/bulk-connection-in-progress.png)
 :::
 
 A status indicator will show the progress of the operation, and the tenant list will be updated as tenants are connected. You can navigate away from the page at any time, and the operation will continue. All users with permission to view the project will be able to see the progress of the connection.
@@ -44,7 +44,7 @@ Only one bulk connection may be performed at a time, per project. If there's a c
 ## After the connection operation
 
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-completed.png)
+![The results of a completed bulk tenant connection operation](/docs/img/projects/tenants/bulk-connection-completed.png)
 :::
 
 The results of the most recent connection operation for a project will be shown for 24 hours after the operation completes.

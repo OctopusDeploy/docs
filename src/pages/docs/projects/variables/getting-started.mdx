@@ -26,23 +26,23 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
 5. Click **Add another value** and enter the second value for the variable, for instance, *Hello, Production*.
 6. Define the scope for this value, for instance, by selecting the *Production* environment.
 
-:::figure
-![Adding a project variable in Octopus Deploy](/docs/img/projects/variables/images/add-project-variable.png)
-:::
+   :::figure
+   ![Adding a project variable in Octopus Deploy](/docs/img/projects/variables/images/add-project-variable.png)
+   :::
 
 7. Save the variable by clicking **Save**.
 8. In this example, we’ll reference this variable from a **Run a Script** step.
 9. Define your step (Click **Process ➜ Add Step ➜ Run A Script**) and in the **Script** section, enter the following PowerShell script into the script editor:
 
-```powershell
-Write-Host
-```
+   ```powershell
+   Write-Host
+   ```
 
 10. Select the variable Greeting from the insert variable tool (**#\{\}**) in the script editor, and click **Save**.
 
-:::figure
-![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script.png)
-:::
+    :::figure
+    ![Using a variable in a Hello World script in Octopus Deploy](/docs/img/projects/variables/images/hello-world-greeting-script.png)
+    :::
 
 When a release of the project is deployed, the script step will run with the string *Hello, Test* on the Test environment, and with the string *Hello, Production*, on the Production environment.
 
@@ -212,14 +212,14 @@ Prefer using standard characters when naming variables. While it's technically p
 | `WontWork`    | `#{Octopus.Action[StepA].Output.Foo!}` |
 | `Works`       | `#{Octopus.Action[StepA].Output.Ba-r}` |
 
-**Step A**
+#### Step A
 
 ```ps
 Set-OctopusVariable -name "Foo!" -value "FooValue"
 Set-OctopusVariable -name "Ba-r" -value "BarValue"
 ```
 
-**Step B**
+#### Step B
 
 ```ps
 $OctopusParameters["Works"]                             # Returns: BarValue

@@ -26,7 +26,7 @@ When defining a prompted variable, you can provide a friendly name and descripti
 You can identify prompted variables by looking for the icon next to the value:
 
 :::figure
-![](/docs/img/projects/variables/images/prompted-variable-icon.png)
+![The icon shown next to a prompted variable's value](/docs/img/projects/variables/images/prompted-variable-icon.png)
 :::
 
 :::div{.hint}
@@ -70,7 +70,7 @@ Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-
 When Octopus renders prompted variables for a deployment or runbook, they are sorted alphabetically by the prompted variable label. If you want to customize the order in which the variables appear, one option is to include a numerical prefix in the label:
 
 :::figure
-![](/docs/img/projects/variables/images/prompted-variable-custom-sort.png)
+![Prompted variables ordered using a numeric prefix in the label](/docs/img/projects/variables/images/prompted-variable-custom-sort.png)
 :::
 
 ## Learn more

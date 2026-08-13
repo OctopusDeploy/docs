@@ -62,7 +62,7 @@ The Car Rental applications consist of a PHP web UI and a MySQL database backend
 After you've added each deployment target, ensure the target is associated with its respective tenant and tags by updating the **Tenanted Deployments** and **Associated Tenants** sections. For example, to configure the target which will deploy the Alpha version of the application to Des Moines, use the following associations:
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
+![A deployment target configured with the Des Moines tenant and its region tag](/docs/img/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
 :::
 
 ### Example automation script
@@ -149,7 +149,7 @@ Region-specific worker pools are only half of the equation; the deployment still
 The *MySQL - Create Database If Not Exists* step of the Car Rental deployment process is configured to run on a worker and use the `Project.Worker.Pool` variable
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
+![The MySQL - Create Database If Not Exists step configured to run on a worker using the Project.Worker.Pool variable](/docs/img/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
 :::
 
 Because the tenants for the Car Rental application have been assigned their appropriate Azure Region tag, Octopus Deploy will automatically select the correct worker when performing a deployment to the tenant.

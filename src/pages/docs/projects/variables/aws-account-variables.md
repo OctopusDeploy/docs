@@ -26,14 +26,14 @@ Select the AWS account you want to access from the project to assign it to the v
 
 The AWS account variable also exposes the following properties that you can reference in a PowerShell script:
 
-**Access Key account**
+### Access Key account
 
 | Name and description                                     |
 | -------------------------------------------------------- |
 | **`AccessKey`** <br/> The Access Key for the AWS account |
 | **`SecretKey`** <br/> The Secret Key for the AWS account |
 
-**OpenId Connect account**
+### OpenId Connect account
 
 | Name and description                                                      |
 | ------------------------------------------------------------------------- |

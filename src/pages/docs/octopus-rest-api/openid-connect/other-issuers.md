@@ -108,7 +108,7 @@ The OIDC token must be signed by the issuer, with the signature included as part
 
 To use the access token as authentication for a request to the Octopus API, it must be included in the `Authorization` header using the `Bearer scheme`:
 
-```
+```text
 Authorization: Bearer {the-access-token-obtained-from-octopus}
 ```
 

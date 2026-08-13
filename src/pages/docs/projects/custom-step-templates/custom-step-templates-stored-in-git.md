@@ -33,7 +33,7 @@ The built-in steps listed below are compatible with being sourced from Git and c
 - [Plan to apply a Terraform template](/docs/deployments/terraform/plan-terraform)
 - [Plan a Terraform destroy](/docs/deployments/terraform/plan-terraform)
 
-*Note: This is not a complete list as it is anticipated that additional steps will be added*
+*Note: This is not a complete list as it is anticipated that additional steps will be added.*
 
 You may use the filter at the top to help find a step to base your custom step template on:
 ![Base Step Filter](https://github.com/user-attachments/assets/bdae8828-02ab-41c2-b0a1-3604640c955b)

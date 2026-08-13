@@ -165,13 +165,13 @@ After authenticating using OIDC, the `login` command will configure the CLI envi
 
 Usage:
 
-```
+```bash
 octopus login --server {OctopusServerUrl} --service-account-id {ServiceAccountId} --id-token {IdTokenFromProvider}
 ```
 
 For example:
 
-```
+```bash
 octopus login --server https://my.octopus.app --service-account-id 834a7275-b5b8-42a1-8b36-14f11c8eb55e --id-token eyJhbGciOiJQUzI1NiIs...
 ```
 
