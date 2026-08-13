@@ -240,26 +240,6 @@ the article column above it.
 
 ## Docs page layout guidelines
 
-### Title icons
-
-If you are updating a page in Docs which doesn't already have a title icon, please add one. Title icons can be added in the frontmatter for each page by adding a Font Awesome class in the `icon` entry:
-
-```yaml
----
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2024-05-24
-title: Octopus Cloud
-subtitle: We host Octopus for you
-icon: fa-solid fa-cloud
-navTitle: Overview
-navSection: Octopus Cloud
-navOrder: 10
-description: How to work with Octopus Cloud.
-hideInThisSectionHeader: true
----
-```
-
 ### Product screenshots
 
 Product screenshots used in Docs should reflect the UI in the latest version of Octopus. The `figure` component will automatically add a curved border and outline to your image:
