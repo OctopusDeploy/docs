@@ -30,29 +30,6 @@ export function menuTemplate(): NavPage[] {
   return template;
 }
 
-// The prev/next "article journey" is the nav tree flattened to its leaves in
-// menu order. Like the tree itself this is the same for every page - only the
-// reader's position in it changes - so build it once. Cloned first because
-// flattening sorts each level in place and the template must stay untouched.
-let journey: NavPage[] | null = null;
-
-export function journeyOrder(): NavPage[] {
-  if (journey !== null && import.meta.env.PROD) return journey;
-
-  const leaves: NavPage[] = [];
-  const flatten = (nodes: NavPage[]) => {
-    nodes.sort((a, b) => a.order - b.order);
-    for (const node of nodes) {
-      if (node.children.length === 0) leaves.push(node);
-      else flatten(node.children);
-    }
-  };
-  flatten(structuredClone(menuTemplate()));
-
-  if (import.meta.env.PROD) journey = leaves;
-  return leaves;
-}
-
 // Mirrors Navigation.setCurrentPage() in astro-accelerator-utils. Assigns
 // unconditionally, so it is safe to run over cloned nodes carrying stale flags.
 //
