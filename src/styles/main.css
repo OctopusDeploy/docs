@@ -140,7 +140,10 @@ pre code {
   padding: unset;
 }
 
-table code {
+/* <pre> is included so a block in a cell lands on the same size as the inline
+   code beside it — without it the <code> inside shrinks and its wrapper does
+   not. */
+table :is(code, pre) {
   font: var(--textCodeRegularSmall);
 }
 
