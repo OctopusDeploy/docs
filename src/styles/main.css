@@ -535,7 +535,7 @@ strong {
 
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
-.copy-heading-url[data-copied] {
+.copy-heading-url:is([data-copied], [data-failed]) {
   opacity: 1;
 }
 
@@ -1823,6 +1823,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .octo-copy-md__labels {
   display: grid;
   padding-inline: var(--space4);
+  text-align: start;
 }
 
 .octo-copy-md__label {
@@ -3106,8 +3107,10 @@ a.button.button--primary:active {
   --tooltip-shift: 10px;
   --tooltip-arrow-size: 7px;
   --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
+  --tooltip-arrow-overlap: 1px;
   --tooltip-arrow-offset: calc(
-    var(--tooltip-offset) - var(--tooltip-arrow-size)
+    var(--tooltip-offset) - var(--tooltip-arrow-size) +
+      var(--tooltip-arrow-overlap)
   );
 }
 
@@ -3171,12 +3174,12 @@ a.button.button--primary:active {
   }
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied]) {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) {
   --tooltip-shift: 0px;
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::before,
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::after {
   opacity: 1;
   transition-duration: 350ms;
 }
