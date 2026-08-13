@@ -31,19 +31,16 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.o
 
 Since it is self-contained, .NET Core does not need to be installed on the target server. However, there are still some [pre-requisite dependencies](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies) required for .NET Core itself that must be installed.
 
-This covers Calamari itself. Running [C# scripts](#csharp) on the target is a separate requirement.
+This covers Calamari itself; [C# scripts](#csharp) have their own requirement.
 
 ## C# scripts {#csharp}
 
-C# scripts (`.csx`) are executed by [dotnet-script](https://github.com/dotnet-script/dotnet-script), which requires the **.NET SDK** on the target, not just the .NET runtime. This applies to every C# script, including scripts that reference no NuGet packages.
+C# scripts (`.csx`) are executed by [dotnet-script](https://github.com/dotnet-script/dotnet-script), which needs more than the self-contained Calamari runtime. Octopus can run them on an SSH target provided:
 
-Octopus can execute C# scripts on SSH targets provided the following criteria are met:
-
-- The .NET SDK is installed
+- The **.NET SDK** is installed, not just the .NET runtime — this applies to every C# script, including scripts that reference no NuGet packages
 - `dotnet` is on the path for the SSH user executing the deployment
-- The SDK is at least as new as the .NET runtime that `dotnet` resolves on the target
 
-See [C# script requirements](/docs/deployments/custom-scripts/#csharp-requirements) for the failure you'll see if only the runtime is installed.
+See [C# script requirements](/docs/deployments/custom-scripts/#csharp-requirements) for the SDK version to install and the failure you'll see if only the runtime is present.
 
 ## Git-based steps
 
