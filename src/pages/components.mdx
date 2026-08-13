@@ -13,6 +13,7 @@ robots: noindex, follow
 listable: false # stop the oldest-content report from listing this page
 ---
 
+import ApiBadge from 'src/components/ApiBadge.astro';
 import Avatar from 'src/components/Avatar.astro';
 import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
@@ -246,6 +247,64 @@ Two of them sit side by side below, each with its own menu, so it is clear that 
     <Avatar size="medium" shape="rounded">JD</Avatar>
     <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
     <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">JD</Avatar>
+    ```
+  </div>
+</div>
+
+### ApiBadge
+
+The ApiBadge component marks a piece of documentation with the HTTP method it
+describes. Each method carries its own icon and colour, in both light and dark
+themes.
+
+1. **method**: Required: `get`, `post`, `delete`, or `put`. It sets the icon, the
+   colours and the label text.
+2. **hasLabel**: Optional `true` (default) / `false`. Set it to `false` for the
+   icon-only badge, which keeps the method name for screen readers while hiding
+   it visually.
+
+Any other attribute is passed through to the rendered `<span>`, so a `class` of
+your own reaches the badge and you can position it from the parent component.
+Astro scopes each component's `<style>` to its own markup, so a rule aimed at
+that class needs `:global()` to cross into ApiBadge.
+
+The badge is `inline-flex`, so it sits inside a heading or a paragraph as well
+as it does on its own.
+
+#### With label
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <ApiBadge method="get" />
+    <ApiBadge method="post" />
+    <ApiBadge method="delete" />
+    <ApiBadge method="put" />
+  </div>
+  <div>
+    ```
+    <ApiBadge method="get" />
+    <ApiBadge method="post" />
+    <ApiBadge method="delete" />
+    <ApiBadge method="put" />
+    ```
+  </div>
+</div>
+
+#### Icon only
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <ApiBadge method="get" hasLabel={false} />
+    <ApiBadge method="post" hasLabel={false} />
+    <ApiBadge method="delete" hasLabel={false} />
+    <ApiBadge method="put" hasLabel={false} />
+  </div>
+  <div>
+    ```
+    <ApiBadge method="get" hasLabel={false} />
+    <ApiBadge method="post" hasLabel={false} />
+    <ApiBadge method="delete" hasLabel={false} />
+    <ApiBadge method="put" hasLabel={false} />
     ```
   </div>
 </div>

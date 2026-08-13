@@ -232,6 +232,27 @@
   --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
   --colorNavBackgroundHover: var(--colorScalesSlate100);
   --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
+
+  /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
+  --colorApiBadgeBackgroundGet: #eefaf5;
+  --colorApiBadgeBorderGet: #b8e7d3;
+  --colorApiBadgeIconGet: #006a3d;
+  --colorApiBadgeTextGet: #006a3d;
+
+  --colorApiBadgeBackgroundPost: #f2f8fd;
+  --colorApiBadgeBorderPost: #cde4f7;
+  --colorApiBadgeIconPost: #155ea0;
+  --colorApiBadgeTextPost: #155ea0;
+
+  --colorApiBadgeBackgroundDelete: #fff3f3;
+  --colorApiBadgeBorderDelete: #ffd8d8;
+  --colorApiBadgeIconDelete: #aa3030;
+  --colorApiBadgeTextDelete: #aa3030;
+
+  --colorApiBadgeBackgroundPut: #fff7d9;
+  --colorApiBadgeBorderPut: #ffdf62;
+  --colorApiBadgeIconPut: #745801;
+  --colorApiBadgeTextPut: #745801;
 }
 
 :root[data-theme-transition] {
@@ -276,4 +297,25 @@ html[data-theme='dark'] {
 
   /* TODO: drop once color.nav.background.* are available in design-system-tokens */
   --colorNavBackgroundHover: var(--colorScalesNavy800);
+
+  /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
+  --colorApiBadgeBackgroundGet: #001e11;
+  --colorApiBadgeBorderGet: #00502e;
+  --colorApiBadgeIconGet: #5ecd9e;
+  --colorApiBadgeTextGet: #5ecd9e;
+
+  --colorApiBadgeBackgroundPost: #041a2d;
+  --colorApiBadgeBorderPost: #0f4778;
+  --colorApiBadgeIconPost: #87bfec;
+  --colorApiBadgeTextPost: #87bfec;
+
+  --colorApiBadgeBackgroundDelete: #310e0e;
+  --colorApiBadgeBorderDelete: #802424;
+  --colorApiBadgeIconDelete: #ff9f9f;
+  --colorApiBadgeTextDelete: #ff9f9f;
+
+  --colorApiBadgeBackgroundPut: #201800;
+  --colorApiBadgeBorderPut: #584201;
+  --colorApiBadgeIconPut: #e5b203;
+  --colorApiBadgeTextPut: #e5b203;
 }
