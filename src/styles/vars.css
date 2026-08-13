@@ -234,25 +234,25 @@
   --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
 
   /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
-  --colorApiBadgeBackgroundGet: #eefaf5;
-  --colorApiBadgeBorderGet: #b8e7d3;
-  --colorApiBadgeIconGet: #006a3d;
-  --colorApiBadgeTextGet: #006a3d;
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen200);
+  --colorApiBadgeIconGet: var(--colorScalesGreen600);
+  --colorApiBadgeTextGet: var(--colorScalesGreen600);
 
-  --colorApiBadgeBackgroundPost: #f2f8fd;
-  --colorApiBadgeBorderPost: #cde4f7;
-  --colorApiBadgeIconPost: #155ea0;
-  --colorApiBadgeTextPost: #155ea0;
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue100);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue200);
+  --colorApiBadgeIconPost: var(--colorScalesBlue600);
+  --colorApiBadgeTextPost: var(--colorScalesBlue600);
 
-  --colorApiBadgeBackgroundDelete: #fff3f3;
-  --colorApiBadgeBorderDelete: #ffd8d8;
-  --colorApiBadgeIconDelete: #aa3030;
-  --colorApiBadgeTextDelete: #aa3030;
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed100);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed200);
+  --colorApiBadgeIconDelete: var(--colorScalesRed600);
+  --colorApiBadgeTextDelete: var(--colorScalesRed600);
 
-  --colorApiBadgeBackgroundPut: #fff7d9;
-  --colorApiBadgeBorderPut: #ffdf62;
-  --colorApiBadgeIconPut: #745801;
-  --colorApiBadgeTextPut: #745801;
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow100);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow200);
+  --colorApiBadgeIconPut: var(--colorScalesYellow600);
+  --colorApiBadgeTextPut: var(--colorScalesYellow600);
 }
 
 :root[data-theme-transition] {
@@ -299,23 +299,23 @@ html[data-theme='dark'] {
   --colorNavBackgroundHover: var(--colorScalesNavy800);
 
   /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
-  --colorApiBadgeBackgroundGet: #001e11;
-  --colorApiBadgeBorderGet: #00502e;
-  --colorApiBadgeIconGet: #5ecd9e;
-  --colorApiBadgeTextGet: #5ecd9e;
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen900);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen700);
+  --colorApiBadgeIconGet: var(--colorScalesGreen300);
+  --colorApiBadgeTextGet: var(--colorScalesGreen300);
 
-  --colorApiBadgeBackgroundPost: #041a2d;
-  --colorApiBadgeBorderPost: #0f4778;
-  --colorApiBadgeIconPost: #87bfec;
-  --colorApiBadgeTextPost: #87bfec;
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue900);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue700);
+  --colorApiBadgeIconPost: var(--colorScalesBlue300);
+  --colorApiBadgeTextPost: var(--colorScalesBlue300);
 
-  --colorApiBadgeBackgroundDelete: #310e0e;
-  --colorApiBadgeBorderDelete: #802424;
-  --colorApiBadgeIconDelete: #ff9f9f;
-  --colorApiBadgeTextDelete: #ff9f9f;
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed900);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed700);
+  --colorApiBadgeIconDelete: var(--colorScalesRed300);
+  --colorApiBadgeTextDelete: var(--colorScalesRed300);
 
-  --colorApiBadgeBackgroundPut: #201800;
-  --colorApiBadgeBorderPut: #584201;
-  --colorApiBadgeIconPut: #e5b203;
-  --colorApiBadgeTextPut: #e5b203;
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow900);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow700);
+  --colorApiBadgeIconPut: var(--colorScalesYellow300);
+  --colorApiBadgeTextPut: var(--colorScalesYellow300);
 }
