@@ -19,7 +19,6 @@ import ArticleNav from '../components/ArticleNav.astro';
 import Feedback from '../components/Feedback.astro';
 import Header from '../components/Header.astro';
 import Related from '../components/Related.astro';
-import ArticleJourney from '../components/ArticleJourney.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import MarkdownLinks from '../components/MarkdownLinks.astro';
@@ -96,11 +95,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
             <MarkdownLinks lang={lang} />
-            <ArticleJourney
-              frontmatter={frontmatter}
-              headings={headings}
-              lang={lang}
-            />
             {metaImage && <meta itemprop="image" content={metaImage.src} />}
             {
               lastUpdated && (
@@ -127,6 +121,8 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />
+    <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
+    <div style="position: fixed;"></div>
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
