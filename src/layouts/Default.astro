@@ -121,8 +121,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />
-    <!-- Chromium fix. See: https://www.stevefenton.co.uk/blog/2022/12/mobile-position-sticky-issue/ -->
-    <div style="position: fixed;"></div>
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
