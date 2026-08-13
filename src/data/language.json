@@ -75,6 +75,20 @@
             "en": "Copy failed"
         }
     },
+    "octopus_open_in_llm": {
+        "open_in_claude": {
+            "en": "Open in Claude"
+        },
+        "open_in_chatgpt": {
+            "en": "Open in ChatGPT"
+        },
+        "more_assistants": {
+            "en": "Open in another AI assistant"
+        },
+        "prompt": {
+            "en": "Read {url} so I can ask questions about it."
+        }
+    },
     "post": {
         "written_by": {
             "en": ""
