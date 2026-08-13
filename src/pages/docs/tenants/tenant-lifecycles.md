@@ -149,7 +149,7 @@ Add a new tag called **Pinned** to a new or existing tenant tag set with a color
 Now we will configure the project channels to make sure we never deploy any releases to pinned tenants. We will do this using a similar method to the [EAP Beta program](#early-access-program), but in this case, we are making sure none of the channels allow deployments to tenants tagged as pinned.
 
 1. Find the channel in your project that represents normal releases - this is called **1.x Normal** in this example.
-1. Restrict deployments of releases in this channel to the following tenant tags: 
+1. Restrict deployments of releases in this channel to the following tenant tags:
     - **Early adopter**
     - **Stable**
     - **Tester**

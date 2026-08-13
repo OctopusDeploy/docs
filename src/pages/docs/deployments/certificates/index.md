@@ -43,10 +43,11 @@ There is a "Certificate expiry events" event-group, and three events:
 :::div{.info}
 
 The background task which raises the certificate-expiry events runs:
+
 - 10 minutes after the Octopus Server service starts
 - Every 4 hours
 
-Certificate-expiry events are _not_ raised for [archived](/docs/deployments/certificates/archiving-and-deleting-certificates) certificates.
+Certificate-expiry events are *not* raised for [archived](/docs/deployments/certificates/archiving-and-deleting-certificates) certificates.
 :::
 
 ## Import certificates into the Windows certificate store  
@@ -57,9 +58,10 @@ Certificates can be imported to Windows Certificate Stores as part of a deployme
 ![](/docs/img/deployments/certificates/images/import-certificate-step-select.png)
 :::
 
-## Use certificates for HTTPS bindings when deploying IIS websites   
+## Use certificates for HTTPS bindings when deploying IIS websites
 
 When configuring HTTPS bindings for [IIS Websites](/docs/deployments/windows/iis-websites-and-application-pools), a certificate can be configured either by:
+
 - entering the thumbprint directly (this assumes the certificate has already been installed on the machine).
 - selecting a certificate-typed variable (this will automatically install the certificate).
 

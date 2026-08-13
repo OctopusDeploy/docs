@@ -95,6 +95,7 @@ This is due to that the revocation information for the certificate is not retrie
 7. Cancel the File Open dialog.
 8. Cancel the Data Connection Wizard.
 9. Paste the URL in the File Name field.
+
 :::
 
 ## Learn more

@@ -26,7 +26,7 @@ The first step is to create an OIDC identity for your issuer to access the Octop
 5. Enter the URL of the identity. Octopus uses OpenID Configuration Discovery to validate the OIDC token provided by the issuer.
    1. The issuer URL must be HTTPS.
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
-6. Enter the subject of the identity. This must match the subject that is provided in the OIDC token and is _case-sensitive_, wildcards for matching multiple characters `*` and single characters `?` can be used. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
+6. Enter the subject of the identity. This must match the subject that is provided in the OIDC token and is *case-sensitive*, wildcards for matching multiple characters `*` and single characters `?` can be used. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Optionally enter a custom audience of the identity if required.
 8. Click Save.
 
@@ -97,7 +97,7 @@ The OIDC token must conform to the [JSON Web Token](https://datatracker.ietf.org
 
 | Claim | Value                                                                                                                                                                      | Example                              |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `iss` | The issuer of the token. This must match exactly the issuer on the OIDC identity.                                                                                          | https://my-oidc.issuer.com           |
+| `iss` | The issuer of the token. This must match exactly the issuer on the OIDC identity.                                                                                          | <https://my-oidc.issuer.com>         |
 | `sub` | The subject of the token. This must match exactly the subject on the OIDC identity.                                                                                        | scope:a-scope-to-restrict-the-usage  |
 | `aud` | The audience of the token. This must match exactly the audience on the OIDC identity. Generally this will be the id of the service account to exchange the OIDC token for. | 863b4b7d-6308-456e-8375-8d9270e9be44 |
 | `exp` | The expiration time of the token. The token must not be expired.                                                                                                           | 1632493567                           |

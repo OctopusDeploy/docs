@@ -27,4 +27,3 @@ The example below is an automatic deployment trigger that fires when a [deploym
 - [Scheduled deployment triggers](/docs/projects/project-triggers/scheduled-deployment-trigger): define a recurring time-based schedule to automate deploying releases for your project.
 - [External feed triggers](/docs/projects/project-triggers/external-feed-triggers): specify container images or Helm charts that will automatically trigger a release of your project.
 - [Built-in package repository triggers](/docs/projects/project-triggers/built-in-package-repository-triggers): specify which package updates from the built-in package repository will automatically trigger a release of your project.
-

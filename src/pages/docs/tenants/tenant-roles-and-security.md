@@ -69,19 +69,19 @@ Now we will create a team for all the account managers and add the role we creat
 ![](/docs/img/tenants/images/add-account-manager-team.png)
 :::
 
-2. Navigate to **User Roles** click **Include user role**.
+1. Navigate to **User Roles** click **Include user role**.
 
 :::figure
 ![](/docs/img/tenants/images/multi-tenant-include-user-role.png)
 :::
 
-3. From the dropdown, select the **Tenant project deployer** role.
+1. From the dropdown, select the **Tenant project deployer** role.
 
 :::figure
 ![](/docs/img/tenants/images/multi-tenant-select-user-role.png)
 :::
 
-4. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
+1. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
 
 ### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
 
@@ -110,7 +110,8 @@ Bob is a member of the IT infrastructure team for [Car Rental](https://samples.o
 Similarly to the previous example, we will create a custom role with minimum permissions to view tenant details. Later on, we will create a team that combines multiple roles to achieve the desired effect.
 
 1. Create a role called **Tenant viewer** with the following permissions:
-  - TenantView
+
+- TenantView
 
 ### Step 2: Configure the tenant environment managers team {#step-2-configure-environment-managers-team}
 
@@ -125,7 +126,7 @@ In this example, we will create a new team and combine multiple roles to achieve
 4. Add any specific members
 
 ## Self-service {#self-service}
- 
+
 [OctoPetShop](https://samples.octopus.app/app#/Spaces-682/projects/octopetshop/deployments) has development teams that work concurrently.  These teams deploy to Development in upwards of ten times a day and need the autonomy to deploy themselves.
 
 ### Step 1: Configure a team for the tenant {#step-1-configure-self-service-team}

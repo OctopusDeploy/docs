@@ -12,7 +12,7 @@ Octopus periodically runs health checks on deployment targets and workers to ens
 
 However, often it can be useful to check the health of deployment targets when executing a runbook or deployment, particularly with [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure/) and [transient deployment targets](/docs/deployments/patterns/elastic-and-transient-environments/deploying-to-transient-targets).
 
-This can be achieved using the _Health Check_ step.
+This can be achieved using the *Health Check* step.
 
 :::figure
 ![Health check step search](/docs/img/projects/built-in-step-templates/images/health-check-step-search.png)
@@ -29,7 +29,7 @@ Health check steps are added to deployment and runbook processes in the same way
 1. Add a new *Health Check* step to your [project's deployment process](/docs/projects/steps).
 
     ![Health check step](/docs/img/projects/built-in-step-templates/images/health-check-step-select.png)
-2. Select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against. 
+2. Select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the deployment targets you want to run a health check against.
 
 3. In the **Health check** section, select an option for **Health check type**:
     - Perform a full health check - this will run the [health check script](/docs/infrastructure/deployment-targets/machine-policies/#custom-health-check-scripts) defined by the machine policy.
@@ -40,7 +40,7 @@ Health check steps are added to deployment and runbook processes in the same way
     - Skip deployment targets that are unavailable.
 4. In the **Machine Selection** section, select which action to take for any new machines found as a result of the health check:
     - Ignore any newly available deployment targets (default)
-    - Include new deployment targets in the deployment - This option is recommended in dynamic deployments that involve targets that are created as part of the _current deployment_.
+    - Include new deployment targets in the deployment - This option is recommended in dynamic deployments that involve targets that are created as part of the *current deployment*.
 
 ## Maximum number of concurrent health checks
 

@@ -26,7 +26,7 @@ Learn more about the differences between [tenanted and untenanted deployments](/
 
 ## Configuring targets for tenanted deployments {#configuring-targets-tenanted-deploy}
 
-By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, Select **Deployment Targets** from the main navigation. 
+By default, deployment targets in Octopus Deploy aren't configured for tenanted deployments.  To configure the target for tenanted deployments, Select **Deployment Targets** from the main navigation.
 
 :::figure
 ![](/docs/img/tenants/images/octopus-deployment-targets.png)
@@ -62,7 +62,7 @@ Dedicated hosting ensures the applications for some tenants are completely isola
 
 To configure deployment targets as dedicated hosts for one or more tenants:
 
-1. Select **Deployment Targets** from the main navigation and find the deployment targets that will be used to host the applications for the tenant. 
+1. Select **Deployment Targets** from the main navigation and find the deployment targets that will be used to host the applications for the tenant.
 2. Configure each deployment target as a dedicated host for the tenant:
 
 :::figure
@@ -79,7 +79,7 @@ The final step is to deploy a connected project for this tenant and see the resu
 
 ## Shared hosting {#shared-hosting}
 
-Shared hosting allows you to host the applications of multiple tenants on the same machines to reduce hosting costs by increasing density. To implement shared hosting, you need to create a shared server farm and indicate which tenants will be hosted on that farm. 
+Shared hosting allows you to host the applications of multiple tenants on the same machines to reduce hosting costs by increasing density. To implement shared hosting, you need to create a shared server farm and indicate which tenants will be hosted on that farm.
 
 This is very similar to the dedicated hosting scenario. Instead of choosing a single tenant, you use a tenant tag to indicate these servers will be hosting applications for multiple tenants.
 
@@ -90,7 +90,7 @@ Firstly let's create a tag set to identify which tenants should be hosted on whi
 1. Select **Tenant Tag Sets** from the main navigation and create a new tag set called **Hosting**.
 2. Add a tag called **Shared-Farm-1** and set the color to green to help identify tenants on shared hosting more quickly:
 
-:::figure   
+:::figure
 ![](/docs/img/tenants/images/multi-tenant-shared-tag.png)
 :::
 

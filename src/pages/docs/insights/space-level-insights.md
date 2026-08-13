@@ -18,6 +18,7 @@ Space level insights requires an [enterprise subscription](https://octopus.com/p
 To get started with space level insights, choose the **Insights** item from the navigation menu. From there you can create one or more reports.
 
 We recommend creating separate reports for each purpose. A report would typically be configured in one of the following ways:
+
 - One project or a small set of closely related projects and all the relevant environments
 - Many projects and only similar environments (e.g. Production-like environments)
 
@@ -40,7 +41,7 @@ The included channels can be specified via the three fields:
 - **Projects** - The default channels of those projects are included
 - **Channels** - The selected channels are included.
 
-There must be at least one channel selected, directly or indirectly, for the report to generate data. If a channel exists multiple times in the selection, it will not be double counted. 
+There must be at least one channel selected, directly or indirectly, for the report to generate data. If a channel exists multiple times in the selection, it will not be double counted.
 
 ### Environments
 
@@ -64,7 +65,6 @@ The data is real time and based on the deployment completion time.
 
 See the [trend indicators](/docs/insights/trend-indicators) section for more details on the trend indicator and trend tables on each page.
 
-
 ## Tables
 
 Below the chart on the single metric pages are various tables showing a more detailed view of the data.
@@ -75,7 +75,7 @@ Below that there are tables showing a particular measure grouped by project, env
 
 ## Permissions
 
-Permissions are available to help you manage access to Insights reports. You can limit your team's ability to view, edit, delete and create Insights reports by customizing the roles. 
+Permissions are available to help you manage access to Insights reports. You can limit your team's ability to view, edit, delete and create Insights reports by customizing the roles.
 
 :::div{.warning}
 By creating a report, permission to view the aggregated data is granted to anyone with the `InsightsReportView` permission. Someone who has restricted view permissions will be able to see the aggregated data but not the name of the object.
@@ -83,26 +83,26 @@ By creating a report, permission to view the aggregated data is granted to anyon
 
 The permissions are:
 
-| Permission           | Description            |
-| -------------------- | ---------------------- |
-| InsightsReportView   | You can view Insights reports. |
+| Permission           | Description                                                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| InsightsReportView   | You can view Insights reports.                                                                                   |
 | InsightsReportEdit   | You can edit Insights reports, including changing the report's project groups, projects, and environment groups. |
-| InsightsReportDelete | You can delete Insights reports. |
-| InsightsReportCreate | You can create Insights reports. |
+| InsightsReportDelete | You can delete Insights reports.                                                                                 |
+| InsightsReportCreate | You can create Insights reports.                                                                                 |
 
 There is a built-in role to for users who create reports:
 
-| Role                    | Description            |
-| ----------------------- | ---------------------- |
+| Role                    | Description                                                                                                                                                                                                                                                     |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Insights report manager | Insights report managers can view, edit, create, and delete Insights reports.  They can also view environments, project groups, projects, tenants, and deployment processes and channels. These view permissions are necessary to see the Insights report data. |
 
 By default, built-in roles also include these permissions:
 
-| Permission           | Roles            |
-| -------------------- | ---------------------- |
+| Permission           | Roles                                                                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | InsightsReportView   | Project initiator, Project contributor, Project lead, Project deployer, Project viewer, Release creator, Deployment creator, Build server |
-| InsightsReportEdit   | Project initiator, Project contributor, Project lead, Project deployer |
-| InsightsReportDelete | Project initiator |
-| InsightsReportCreate | Project initiator |
+| InsightsReportEdit   | Project initiator, Project contributor, Project lead, Project deployer                                                                    |
+| InsightsReportDelete | Project initiator                                                                                                                         |
+| InsightsReportCreate | Project initiator                                                                                                                         |
 
 For more information on how to do this, please see [creating user roles](https://octopus.com/docs/security/users-and-teams/user-roles#UserRoles-CreatingUserRoles).

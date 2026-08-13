@@ -8,7 +8,7 @@ description: Insights helps spot performance trends
 navOrder: 120
 ---
 
-The trend of a metric is shown by a number and an icon indicating the direction. 
+The trend of a metric is shown by a number and an icon indicating the direction.
 
 The value is calculated by comparing the last 28 days of deployments with the 28 days prior to that (56 days in total). The blocks are calculated from the current instant, so may shift during the day even if no activity occurs. For each of the two blocks, a single average (mean) is calculated and then compared.
 

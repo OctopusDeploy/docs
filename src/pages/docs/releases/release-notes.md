@@ -22,7 +22,7 @@ When you create a release, you can add notes:
 
 Release notes may contain variable expressions. These will be evaluated and substituted when the release is created.
 
-Only variables in scope when the release is created will be available for use in release notes. Variables scoped to environments, tenants, target roles, or targets will _not_ be available as these scopes apply only during deployments.   
+Only variables in scope when the release is created will be available for use in release notes. Variables scoped to environments, tenants, target roles, or targets will *not* be available as these scopes apply only during deployments.
 
 [Build information](/docs/packaging-applications/build-servers/build-information) associated with packages in the release may also be used in release notes.
 
@@ -40,14 +40,14 @@ Release notes are also rolled up into the [deployment changes](/docs/releases/de
 
 A release notes template can be configured in **Project ➜ Settings ➜ Release Notes Template**
 
-A release notes template is a convenient way to keep release notes consistent and avoid entering the same text repeatedly.   
+A release notes template is a convenient way to keep release notes consistent and avoid entering the same text repeatedly.
 
 Release notes templates will generally be most useful when combined with package build information, pushed from the build server.
 
 The following are examples of using release notes templates with package [build information](/docs/packaging-applications/build-servers/build-information/) and [issues](/docs/releases/issue-tracking).
 
 :::div{.hint}
-4 spaces of indentation in a Release Note template indicates a code block. 
+4 spaces of indentation in a Release Note template indicates a code block.
 :::
 
 ### Example templates
@@ -108,7 +108,7 @@ The package ID can be used as an index for the `Octopus.Release.Package` variabl
 #{Octopus.Release.Package[#{Octopus.Release.Builds[0].Packages[0].PackageId}].WorkItems}
 ```
 
-### Release notes accumulation 
+### Release notes accumulation
 
 Inherent in building software is the idea that over time the product is the accumulation of the features, issues, and bugs that have been built, released, and deployed.  When software is deployed to a particular environment it is an aggregate of functionality that has been added since the last deployment.  
 

@@ -16,6 +16,6 @@ Certificates can be downloaded from Octopus to your local machine.  The certific
 
 ## Private-keys
 
-If the certificate includes a private-key, then user requires the _Export certificate private-keys_ permission to download the certificate in a format which includes the private-key.
+If the certificate includes a private-key, then user requires the *Export certificate private-keys* permission to download the certificate in a format which includes the private-key.
 
 Exporting a certificate with a private-key will be [audited](/docs/security/users-and-teams/auditing).

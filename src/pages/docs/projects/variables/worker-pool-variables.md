@@ -25,13 +25,13 @@ In Octopus, you can [scope](/docs/projects/variables/getting-started/#scoping-va
 ![Add worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-add.png)
 :::
 
-2. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
+1. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
 
 :::figure
 ![Add worker pool variable type](/docs/img/projects/variables/images/workerpoolvariable-changetype.png)
 :::
 
-3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to target tags or targets as the pool is resolved during the planning phase of the deployment.
+1. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to target tags or targets as the pool is resolved during the planning phase of the deployment.
 
 ## Step Configuration
 
@@ -49,7 +49,7 @@ By default, deployment steps are not configured to run on a worker pool set by a
 ![Select the worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-selection.png)
 :::
 
-4. Save the step.
+1. Save the step.
 
 ## Worker pool variable examples
 
@@ -98,7 +98,8 @@ Licensing requirements of software installed on workers may mean that the softwa
 :::
 
 ## Older versions
-* Worker pool variables are available from Octopus Deploy **2020.1.0** onwards.
+
+- Worker pool variables are available from Octopus Deploy **2020.1.0** onwards.
 
 ## Learn more
 
