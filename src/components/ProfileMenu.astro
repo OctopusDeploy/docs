@@ -1,0 +1,93 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Avatar from './Avatar.astro';
+import Menu, { type MenuItem } from './Menu.astro';
+
+type Props = HTMLAttributes<'div'> & {
+  label?: string;
+  controlCenterHref?: string;
+  profileHref?: string;
+  signOutHref?: string;
+};
+
+const {
+  label = 'Account',
+  controlCenterHref = 'https://billing.octopus.com',
+  profileHref = 'https://id.octopus.com/profile',
+  signOutHref = 'https://octopus.com/signout',
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+const leaving = {
+  kind: 'link' as const,
+  iconEnd: 'profile-menu__icon--external',
+  target: '_blank',
+  rel: 'noopener noreferrer',
+};
+
+const items: MenuItem[] = [
+  {
+    // Details start out empty, signed-in-user.ts fills things in through Menu's hooks
+    kind: 'detail',
+    label: '',
+    description: '',
+    data: { 'data-user-details': '' },
+  },
+  { label: 'Control Center', href: controlCenterHref, ...leaving },
+  { label: 'Profile', href: profileHref, ...leaving },
+  { kind: 'divider' },
+  { label: 'Sign out', href: signOutHref },
+];
+---
+
+<div class:list={['profile-menu', className]} {...rest}>
+  <Menu label={label} items={items} align="end" width="16rem">
+    <summary
+      slot="trigger"
+      class="profile-menu__trigger"
+      aria-label={label}
+      aria-haspopup="menu"
+    >
+      <Avatar size="medium" shape="circle" alt="" data-user-avatar>
+        <span data-user-initials></span>
+      </Avatar>
+    </summary>
+  </Menu>
+</div>
+
+<style>
+  .profile-menu {
+    display: flex;
+  }
+
+  .profile-menu[hidden] {
+    display: none;
+  }
+
+  .profile-menu__trigger {
+    display: flex;
+    border-radius: var(--borderRadiusCircle);
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .profile-menu__trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .profile-menu__trigger:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth2);
+  }
+
+  .profile-menu__trigger:hover :global(.avatar) {
+    background: var(--colorAvatarBackgroundUserHover);
+  }
+
+  .profile-menu :global(.profile-menu__icon--external) {
+    background-color: currentColor;
+    mask: url('../assets/icons/external-link.svg') center / 80% no-repeat;
+  }
+</style>

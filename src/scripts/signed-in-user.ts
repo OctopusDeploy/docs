@@ -15,6 +15,9 @@ const SIGNED_OUT_ONLY_SELECTOR = '[data-signed-out-only]';
 const SIGNED_IN_ONLY_SELECTOR = '[data-signed-in-only]';
 const USER_AVATAR_SELECTOR = '[data-user-avatar]';
 const USER_INITIALS_SELECTOR = '[data-user-initials]';
+const USER_DETAILS_SELECTOR = '[data-user-details]';
+const MENU_LABEL_SELECTOR = '[data-menu-label]';
+const MENU_DESCRIPTION_SELECTOR = '[data-menu-description]';
 
 function displayName(user: SignedInUser): string {
   return user.fullName?.trim() || user.email?.trim() || '';
@@ -40,6 +43,26 @@ function apply() {
   if (user) {
     const name = displayName(user);
     const imageUrl = safeImageUrl(user.profileImageUrl);
+
+    const emailTrimmed = user.email?.trim() ?? '';
+    document
+      .querySelectorAll<HTMLElement>(USER_DETAILS_SELECTOR)
+      .forEach((row) => {
+        const nameTarget = row.querySelector<HTMLElement>(MENU_LABEL_SELECTOR);
+        const emailTarget = row.querySelector<HTMLElement>(
+          MENU_DESCRIPTION_SELECTOR
+        );
+
+        if (nameTarget) nameTarget.textContent = name;
+
+        // As displayName falls back to the email when there is no name, drop the second line in
+        // that scenario rather than repeating the email.
+        if (emailTarget) {
+          const shouldHideEmail = !emailTrimmed || emailTrimmed === name;
+          emailTarget.textContent = shouldHideEmail ? '' : emailTrimmed;
+          emailTarget.hidden = shouldHideEmail;
+        }
+      });
 
     document
       .querySelectorAll<HTMLElement>(USER_AVATAR_SELECTOR)

@@ -17,21 +17,21 @@ async function opened(options: Locator) {
 test('the menu is closed until the caret is clicked', async ({ page }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  const options = menu.locator('.split-btn__options');
+  const menu = page.locator('.split-btn [data-menu]').first();
+  const options = menu.locator('.menu__list');
 
   await expect(options).toBeHidden();
 
-  await menu.locator('[data-split-trigger]').click();
+  await menu.locator('summary').click();
 
   await expect(options).toBeVisible();
-  await expect(options.locator('.split-btn__option')).toHaveCount(2);
+  await expect(options.locator('.menu__action')).toHaveCount(2);
 });
 
 test('the caret has an accessible name of its own', async ({ page }) => {
   await page.goto(PAGE);
 
-  const trigger = page.locator('[data-split-trigger]').first();
+  const trigger = page.locator('.split-btn summary').first();
 
   await expect(trigger).toHaveAccessibleName('Open in another assistant');
 });
@@ -41,29 +41,29 @@ test('Escape closes the menu and returns focus to the caret', async ({
 }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  const trigger = menu.locator('[data-split-trigger]');
+  const menu = page.locator('.split-btn [data-menu]').first();
+  const trigger = menu.locator('summary');
 
   await trigger.click();
-  await expect(menu.locator('.split-btn__options')).toBeVisible();
+  await expect(menu.locator('.menu__list')).toBeVisible();
 
   await page.keyboard.press('Escape');
 
-  await expect(menu.locator('.split-btn__options')).toBeHidden();
+  await expect(menu.locator('.menu__list')).toBeHidden();
   await expect(trigger).toBeFocused();
 });
 
 test('a click outside closes the menu', async ({ page }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
+  const menu = page.locator('.split-btn [data-menu]').first();
 
-  await menu.locator('[data-split-trigger]').click();
-  await expect(menu.locator('.split-btn__options')).toBeVisible();
+  await menu.locator('summary').click();
+  await expect(menu.locator('.menu__list')).toBeVisible();
 
   await page.locator('h1').first().click();
 
-  await expect(menu.locator('.split-btn__options')).toBeHidden();
+  await expect(menu.locator('.menu__list')).toBeHidden();
 });
 
 // A menu left open behind the reader is one the page keeps positioning against a
@@ -72,10 +72,10 @@ test('a click outside closes the menu', async ({ page }) => {
 test('tabbing off the menu closes it', async ({ page }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  const options = menu.locator('.split-btn__options');
+  const menu = page.locator('.split-btn [data-menu]').first();
+  const options = menu.locator('.menu__list');
 
-  await menu.locator('[data-split-trigger]').click();
+  await menu.locator('summary').click();
   await expect(options).toBeVisible();
 
   // The items are out of the tab order, so one press leaves the whole control
@@ -91,11 +91,11 @@ test('tabbing off the menu closes it', async ({ page }) => {
 test('scrolling the page closes the menu', async ({ page }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  const options = menu.locator('.split-btn__options');
+  const menu = page.locator('.split-btn [data-menu]').first();
+  const options = menu.locator('.menu__list');
 
   // Keyed onto an item first: focus inside the menu is what kept it alive.
-  await menu.locator('[data-split-trigger]').focus();
+  await menu.locator('summary').focus();
   await page.keyboard.press('ArrowDown');
   await expect(options).toBeVisible();
   await expect(options.locator('[role="menuitem"]').first()).toBeFocused();
@@ -112,11 +112,11 @@ test('the arrow keys open the menu and move between its items', async ({
 }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  const options = menu.locator('.split-btn__options');
+  const menu = page.locator('.split-btn [data-menu]').first();
+  const options = menu.locator('.menu__list');
   const items = options.locator('[role="menuitem"]');
 
-  await menu.locator('[data-split-trigger]').focus();
+  await menu.locator('summary').focus();
   await page.keyboard.press('ArrowDown');
 
   await expect(options).toBeVisible();
@@ -140,13 +140,13 @@ test('the arrow keys open the menu and move between its items', async ({
 test('each menu opens independently of the others', async ({ page }) => {
   await page.goto(PAGE);
 
-  const menus = page.locator('[data-split-menu]');
+  const menus = page.locator('.split-btn [data-menu]');
   await expect(menus).toHaveCount(2);
 
-  await menus.nth(1).locator('[data-split-trigger]').click();
+  await menus.nth(1).locator('summary').click();
 
-  await expect(menus.nth(1).locator('.split-btn__options')).toBeVisible();
-  await expect(menus.nth(0).locator('.split-btn__options')).toBeHidden();
+  await expect(menus.nth(1).locator('.menu__list')).toBeVisible();
+  await expect(menus.nth(0).locator('.menu__list')).toBeHidden();
 });
 
 // A design system asset is drawn in `currentColor`, so handing one to an `<img>`
@@ -157,10 +157,10 @@ test('menu item icons take the color of the item they sit in', async ({
 }) => {
   await page.goto(PAGE);
 
-  const menu = page.locator('[data-split-menu]').first();
-  await menu.locator('[data-split-trigger]').click();
+  const menu = page.locator('.split-btn [data-menu]').first();
+  await menu.locator('summary').click();
 
-  const icon = menu.locator('.split-btn__option-icon').first();
+  const icon = menu.locator('.menu__icon').first();
   await expect(icon).toBeVisible();
 
   const paint = await icon.evaluate((el) => {
@@ -192,12 +192,12 @@ test('each menu hangs off the control it belongs to', async ({ page }) => {
 
   for (const index of [0, 1]) {
     const control = controls.nth(index);
-    const options = control.locator('.split-btn__options');
+    const options = control.locator('.menu__list');
 
-    await control.locator('[data-split-trigger]').click();
+    await control.locator('summary').click();
     await opened(options);
 
-    const half = (await control.locator('[data-split-trigger]').boundingBox())!;
+    const half = (await control.locator('summary').boundingBox())!;
     const menu = (await options.boundingBox())!;
 
     // The design hangs the list from the menu half, so its start edge lines up
@@ -227,10 +227,10 @@ for (const width of [1200, 700, 430]) {
     await page.setViewportSize({ width, height: 800 });
     await page.goto(PAGE);
 
-    const menu = page.locator('[data-split-menu]').first();
-    await menu.locator('[data-split-trigger]').click();
+    const menu = page.locator('.split-btn [data-menu]').first();
+    await menu.locator('summary').click();
 
-    const options = menu.locator('.split-btn__options');
+    const options = menu.locator('.menu__list');
     await opened(options);
 
     const box = (await options.boundingBox())!;
