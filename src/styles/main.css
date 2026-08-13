@@ -231,6 +231,17 @@ img {
   background-color: var(--color-base-primary);
 }
 
+/* Content screenshots and diagrams are captured against a light UI and exported
+   with transparency, so the theme plate shows through in dark mode and swallows
+   their dark labels. --white is a scale token, invariant across both themes.
+   Component icons keep the theme plate: they are drawn to sit on either
+   surface. */
+.page-content
+  img:not(.avatar__image, .card__image, .icon-tile__icon, .link__icon),
+.zoom-lightbox img {
+  background-color: var(--white);
+}
+
 figure img {
   display: block;
   /* Only html is border-box, so without this the border pushes the image
