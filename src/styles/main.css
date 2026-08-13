@@ -330,12 +330,7 @@ strong {
    which this rule would otherwise outrank on specificity. */
 .page-content > *:not(:is(h2, h3, h4, h5, h6)),
 .page-content > blockquote > *:not(:last-child),
-.page-content > div.info > *:not(:last-child),
-.page-content > div.success > *:not(:last-child),
-.page-content > div.warning > *:not(:last-child),
-.page-content > div.problem > *:not(:last-child),
-.page-content > div.question > *:not(:last-child),
-.page-content > div.hint > *:not(:last-child) {
+.page-content > div.question > *:not(:last-child) {
   margin-block-end: var(--space16);
 }
 
@@ -376,7 +371,17 @@ strong {
    they need nothing extra: sitting in the li already aligns them to the item
    text, which is where Figma puts them. The code block is spaced by its
    wrapper: the <pre> inside it would push the code off its own header. */
-.page-content :is(.code-block, figure, .table-wrap) {
+.page-content
+  :is(
+    .code-block,
+    figure,
+    .table-wrap,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem
+  ) {
   margin-block: var(--space24);
 }
 
@@ -417,40 +422,99 @@ strong {
 .success,
 .warning,
 .problem {
-  border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
-  margin: var(--space24) 0;
-  padding: 1.5rem;
-  border-inline-start: 3px solid #000;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: var(--space8);
+  margin-block: var(--space24);
+  padding: var(--space16);
+  border-radius: var(--borderRadiusMedium);
+  color: var(--color-callout-body);
+  font: var(--textBodyRegularMedium);
+}
+
+/* Pulled up 2px so the 24px glyph centers on the 20px first line beside it. */
+.hint::before,
+.info::before,
+.success::before,
+.warning::before,
+.problem::before {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-block-start: -0.125rem;
+  mask: center / contain no-repeat;
+}
+
+.hint > *,
+.info > *,
+.success > *,
+.warning > *,
+.problem > * {
+  grid-column: 2;
+}
+
+:is(.hint, .info, .success, .warning, .problem) > *:not(:last-child) {
+  margin-block-end: var(--space12);
+}
+
+/* A bold lead-in stands in for the design's title, which markdown can't carry. */
+:is(.hint, .info, .success, .warning, .problem) :is(strong, b) {
+  color: var(--callout-title-color);
+}
+
+:is(.hint, .info, .success, .warning, .problem) :where(a) {
+  color: var(--colorTextPrimary);
+  text-decoration: underline;
 }
 
 .hint {
-  color: var(--color-hint);
-  border-color: var(--border-color-hint);
+  --callout-title-color: var(--color-hint);
   background-color: var(--bg-color-hint);
 }
 
+.hint::before {
+  background-color: var(--icon-color-hint);
+  mask-image: url('../assets/icons/info-circle.svg');
+}
+
 .info {
-  color: var(--color-info);
-  border-color: var(--border-color-info);
+  --callout-title-color: var(--color-info);
   background-color: var(--bg-color-info);
 }
 
+.info::before {
+  background-color: var(--icon-color-info);
+  mask-image: url('../assets/icons/info-circle.svg');
+}
+
 .success {
-  color: var(--color-success);
-  border-color: var(--border-color-success);
+  --callout-title-color: var(--color-success);
   background-color: var(--bg-color-success);
 }
 
+.success::before {
+  background-color: var(--icon-color-success);
+  mask-image: url('../assets/icons/check-circle.svg');
+}
+
 .warning {
-  color: var(--color-warning);
-  border-color: var(--border-color-warning);
+  --callout-title-color: var(--color-warning);
   background-color: var(--bg-color-warning);
 }
 
+.warning::before {
+  background-color: var(--icon-color-warning);
+  mask-image: url('../assets/icons/exclamation-triangle.svg');
+}
+
 .problem {
-  color: var(--color-problem);
-  border-color: var(--border-color-problem);
+  --callout-title-color: var(--color-problem);
   background-color: var(--bg-color-problem);
+}
+
+.problem::before {
+  background-color: var(--icon-color-problem);
+  mask-image: url('../assets/icons/exclamation-circle.svg');
 }
 
 .question {
