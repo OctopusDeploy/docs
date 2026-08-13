@@ -228,12 +228,10 @@
 
   --standard-radius: 0.5rem;
 
-  /* TODO: drop these once color.nav.background.* are available in design-system-tokens */
   --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
   --colorNavBackgroundHover: var(--colorScalesSlate100);
   --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
 
-  /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
   --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
   --colorApiBadgeBorderGet: var(--colorScalesGreen200);
   --colorApiBadgeIconGet: var(--colorScalesGreen600);
@@ -295,10 +293,8 @@ html[data-theme='dark'] {
   /* Tiles sit one step above the page so hover has somewhere lighter to go */
   --icon-tile-background-hover: var(--colorBackgroundTertiary);
 
-  /* TODO: drop once color.nav.background.* are available in design-system-tokens */
   --colorNavBackgroundHover: var(--colorScalesNavy800);
 
-  /* TODO: drop these once color.apiBadge.* are available in design-system-tokens */
   --colorApiBadgeBackgroundGet: var(--colorScalesGreen900);
   --colorApiBadgeBorderGet: var(--colorScalesGreen700);
   --colorApiBadgeIconGet: var(--colorScalesGreen300);
