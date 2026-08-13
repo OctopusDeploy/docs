@@ -5,17 +5,33 @@ import {
   THEME_CHANGE_EVENT,
   THEME_PREFERENCE_ATTRIBUTE,
   THEME_STORAGE_KEY,
+  THEME_TRANSITION_ATTRIBUTE,
   type Theme,
   type ThemePreference,
 } from '../lib/theme';
 
+// Matches --duration-default in vars.css.
+const TRANSITION_MS = 300;
+
 const CHECKBOX_SELECTOR = '[data-theme-toggle-checkbox]';
+
+const BUTTON_SELECTOR = '[data-theme-toggle-button]';
+const BUTTON_ICON_SELECTOR = '.btn__icon';
+
+const BUTTON_ICON_CLASSES: Record<Theme, string> = {
+  light: 'theme-switcher__moon_icon',
+  dark: 'theme-switcher__sun_icon',
+};
 
 const root = document.documentElement;
 const darkQuery = window.matchMedia(COLOR_SCHEME_QUERY);
 
 function checkboxes() {
   return document.querySelectorAll<HTMLInputElement>(CHECKBOX_SELECTOR);
+}
+
+function buttons() {
+  return document.querySelectorAll<HTMLButtonElement>(BUTTON_SELECTOR);
 }
 
 // localStorage throws in Safari private mode and in cookie-blocked iframes.
@@ -54,10 +70,30 @@ function syncControls(theme: Theme) {
   checkboxes().forEach((box) => {
     box.checked = theme === 'dark';
   });
+
+  buttons().forEach((button) => {
+    const icon = button.querySelector(BUTTON_ICON_SELECTOR);
+    icon?.classList.remove(
+      BUTTON_ICON_CLASSES[theme === 'dark' ? 'light' : 'dark']
+    );
+    icon?.classList.add(BUTTON_ICON_CLASSES[theme]);
+  });
+}
+
+let transitionTimer: ReturnType<typeof setTimeout> | undefined;
+
+function markTransition() {
+  root.setAttribute(THEME_TRANSITION_ATTRIBUTE, '');
+  clearTimeout(transitionTimer);
+  transitionTimer = setTimeout(() => {
+    root.removeAttribute(THEME_TRANSITION_ATTRIBUTE);
+    transitionTimer = undefined;
+  }, TRANSITION_MS);
 }
 
 function apply(preference: ThemePreference) {
   const theme = resolve(preference);
+  if (theme !== currentTheme()) markTransition();
   root.setAttribute(THEME_ATTRIBUTE, theme);
   root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
   syncControls(theme);
@@ -98,6 +134,15 @@ function bind() {
       event.preventDefault();
       box.click();
     });
+  });
+
+  buttons().forEach((button) => {
+    if (button.dataset.themeBound) return;
+    button.dataset.themeBound = 'true';
+
+    button.addEventListener('click', () =>
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark')
+    );
   });
 }
 

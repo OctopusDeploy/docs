@@ -121,6 +121,7 @@
   --border-color-problem: var(--colorCalloutBorderDanger);
 
   --duration-default: 300ms;
+  --theme-transition-duration: 0s;
 
   /* Backgrounds */
   --background-light: var(--colorBackgroundSecondaryDefault);
@@ -208,6 +209,7 @@
   --block-gap: 2rem;
 
   --header-pin: 0;
+  --header-height: 82px;
   --scroll-pad: 140px;
 
   --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
@@ -230,6 +232,16 @@
   --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
   --colorNavBackgroundHover: var(--colorScalesSlate100);
   --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
+}
+
+:root[data-theme-transition] {
+  --theme-transition-duration: var(--duration-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme-transition] {
+    --theme-transition-duration: 0s;
+  }
 }
 
 @media (max-width: 860px) {

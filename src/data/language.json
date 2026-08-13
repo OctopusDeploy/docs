@@ -28,26 +28,48 @@
             "en": "Legal and support"
         }
     },
+    "octopus_feedback": {
+        "question": {
+            "en": "Was this page helpful?"
+        },
+        "yes": {
+            "en": "Yes"
+        },
+        "no": {
+            "en": "No"
+        },
+        "comment_label": {
+            "en": "Why did you give this rating? (optional)"
+        },
+        "send": {
+            "en": "Send"
+        },
+        "thanks": {
+            "en": "Thanks for your feedback!"
+        }
+    },
     "octopus_github": {
         "edit_on_github": {
             "en": "Edit on GitHub"
         }
     },
-    "octopus_copy_md": {
+    "octopus_markdown_links": {
         "label": {
             "en": "Use Octopus docs with AI"
-        },
-        "copy": {
-            "en": "Copy this page as markdown"
-        },
-        "copied": {
-            "en": "Copied!"
         },
         "view_raw": {
             "en": "Open this page as markdown"
         },
         "download_all": {
             "en": "Open all docs as markdown"
+        }
+    },
+    "octopus_copy_md": {
+        "label": {
+            "en": "Copy as markdown"
+        },
+        "copied": {
+            "en": "Copied"
         },
         "error": {
             "en": "Copy failed"

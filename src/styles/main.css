@@ -535,7 +535,7 @@ strong {
 
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
-.copy-heading-url[data-copied] {
+.copy-heading-url:is([data-copied], [data-failed]) {
   opacity: 1;
 }
 
@@ -648,7 +648,7 @@ nav.skip-links a:focus {
 .octo-header-bkg {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   background-color: var(--header-bg);
-  min-height: 82px;
+  min-height: var(--header-height);
   position: fixed;
   width: 100%;
   top: 0;
@@ -811,6 +811,16 @@ nav.skip-links a:focus {
   align-items: center;
   gap: 0.25rem;
   z-index: 2;
+}
+
+.theme-switcher__moon_icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/moon.svg') center / contain no-repeat;
+}
+
+.theme-switcher__sun_icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/sun.svg') center / contain no-repeat;
 }
 
 html[data-theme='dark'] .theme-switcher .switch-slider {
@@ -1229,8 +1239,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .site-nav {
   align-self: start;
   position: sticky;
-  top: 82px;
-  height: calc(100vh - 82px);
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
   box-sizing: border-box;
   /* No inline-end padding here — the scrolling list owns that gap, so the
      scrollbar rides against the border. No block-end padding either: the
@@ -1363,10 +1373,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* The last of the three column start heights below the header — 16px for the
      nav, 56px for the content, 100px here. */
   margin-block-start: 6.25rem;
-  top: calc(82px + 6.25rem);
+  top: calc(var(--header-height) + 6.25rem);
   /* Everything from the sticky top to the bottom of the window, so a long list
      scrolls inside the column instead of running off the end of it. */
-  height: calc(100vh - 82px - 6.25rem);
+  height: calc(100vh - var(--header-height) - 6.25rem);
   /* Keeps the toc off the right edge of the window. The grid column is widened
      to match, so the nav itself keeps its designed width. */
   padding-inline-end: var(--space16);
@@ -1504,7 +1514,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   grid-template-areas:
     'menu . content . toc .'
     'menu . footer  . .   .';
-  margin-top: 82px;
+  margin-top: var(--header-height);
 }
 
 /* Article header */
@@ -1799,17 +1809,53 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
+/* "Copy as markdown" page action */
+.octo-copy-md__icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+}
+
+.octo-copy-md[data-copied] .octo-copy-md__icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
+}
+
+/* Slotted, so button.css's scoped .btn__label padding does not reach it. */
+.octo-copy-md__labels {
+  display: grid;
+  padding-inline: var(--space4);
+  text-align: start;
+}
+
+.octo-copy-md__label {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.octo-copy-md__label--rest {
+  visibility: visible;
+}
+
+.octo-copy-md:is([data-copied], [data-failed]) .octo-copy-md__label--rest {
+  visibility: hidden;
+}
+
+.octo-copy-md[data-copied] .octo-copy-md__label--copied,
+.octo-copy-md[data-failed] .octo-copy-md__label--failed {
+  visibility: visible;
+}
+
 /* "Use Octopus docs with AI" dropdown */
-.octo-copy-md {
+.octo-md-links {
   margin-block-start: var(--block-gap);
 }
 
-.octo-copy-md__menu {
+.octo-md-links__menu {
   display: inline-block;
   position: relative;
 }
 
-.octo-copy-md__trigger {
+.octo-md-links__trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1830,26 +1876,26 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__trigger > * {
+.octo-md-links__trigger > * {
   text-decoration: none;
   color: inherit;
 }
 
-.octo-copy-md__trigger::-webkit-details-marker,
-.octo-copy-md__trigger::marker {
+.octo-md-links__trigger::-webkit-details-marker,
+.octo-md-links__trigger::marker {
   content: '';
   display: none;
 }
 
-.octo-copy-md__trigger-icon,
-.octo-copy-md__trigger-caret {
+.octo-md-links__trigger-icon,
+.octo-md-links__trigger-caret {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
 
-.octo-copy-md__trigger-icon::before {
+.octo-md-links__trigger-icon::before {
   content: '\f0eb'; /* fa-lightbulb */
   font-family: fa-solid;
   font-size: 0.95em;
@@ -1858,7 +1904,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__trigger-caret::before {
+.octo-md-links__trigger-caret::before {
   content: '\f078'; /* fa-chevron-down */
   font-family: fa-solid;
   font-size: 0.7em;
@@ -1867,30 +1913,30 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__menu[open]
-  > .octo-copy-md__trigger
-  .octo-copy-md__trigger-caret::before {
+.octo-md-links__menu[open]
+  > .octo-md-links__trigger
+  .octo-md-links__trigger-caret::before {
   transform: rotate(180deg);
 }
 
-.octo-copy-md__trigger:hover {
+.octo-md-links__trigger:hover {
   color: var(--color-menu-link-active);
   border-color: var(--color-menu-link-alt);
 }
 
-.octo-copy-md__menu[open] > .octo-copy-md__trigger {
+.octo-md-links__menu[open] > .octo-md-links__trigger {
   color: var(--color-menu-link-active);
   border-color: var(--color-menu-link-alt);
   background-color: var(--bg-color-menu-open);
   box-shadow: 0 0.0625rem 0.25rem rgba(13, 128, 216, 0.08);
 }
 
-.octo-copy-md__trigger:focus-visible {
+.octo-md-links__trigger:focus-visible {
   outline: 2px solid var(--color-menu-link-alt);
   outline-offset: 2px;
 }
 
-.octo-copy-md .octo-copy-md__options {
+.octo-md-links .octo-md-links__options {
   position: absolute;
   z-index: 10;
   inset-block-start: calc(100% + 0.5rem);
@@ -1909,7 +1955,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     0 0.125rem 0.375rem rgba(15, 37, 53, 0.06);
 }
 
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option {
+.octo-md-links .octo-md-links__options .octo-md-links__option {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -1927,14 +1973,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
     color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:hover,
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:focus-visible {
+.octo-md-links .octo-md-links__options .octo-md-links__option:hover,
+.octo-md-links .octo-md-links__options .octo-md-links__option:focus-visible {
   background-color: var(--bg-color-menu-open);
   color: var(--color-menu-link-active);
   outline: none;
 }
 
-.octo-copy-md__option::before {
+.octo-md-links__option::before {
   font-family: fa-solid;
   font-size: 0.95em;
   width: 1.1em;
@@ -1944,21 +1990,16 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.octo-copy-md__option--copy::before {
-  content: '\f0c5'; /* fa-copy */
-}
-
-.octo-copy-md__option--view::before {
+.octo-md-links__option--view::before {
   content: '\f15c'; /* fa-file-lines */
 }
 
-.octo-copy-md__option--all::before {
+.octo-md-links__option--all::before {
   content: '\f02d'; /* fa-book */
 }
 
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
-.octo-copy-md__sr-status,
 .copy-status {
   position: absolute;
   width: 1px;
@@ -2849,7 +2890,7 @@ a[data-youtube] {
 .code-block .code-block__copy::after {
   left: auto;
   right: 0;
-  translate: 0 0;
+  translate: 0 var(--tooltip-shift);
 }
 
 /* The single fixed language */
@@ -3063,6 +3104,14 @@ a.button.button--primary:active {
    itself, so it needs room there and a stacking context of its own. */
 [data-tooltip] {
   position: relative;
+  --tooltip-shift: 10px;
+  --tooltip-arrow-size: 7px;
+  --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
+  --tooltip-arrow-overlap: 1px;
+  --tooltip-arrow-offset: calc(
+    var(--tooltip-offset) - var(--tooltip-arrow-size) +
+      var(--tooltip-arrow-overlap)
+  );
 }
 
 /* The bubble */
@@ -3070,8 +3119,8 @@ a.button.button--primary:active {
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
-  translate: -50% 0;
+  inset-block-end: calc(100% + var(--tooltip-offset));
+  translate: -50% var(--tooltip-shift);
   padding: var(--space4) var(--space8);
   border-radius: var(--borderRadiusSmall);
   background: var(--colorBackgroundInversePrimary);
@@ -3088,19 +3137,51 @@ a.button.button--primary:active {
   content: '';
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
-  translate: -50% 0;
+  inset-block-end: calc(100% + var(--tooltip-arrow-offset));
+  translate: -50% var(--tooltip-shift);
   width: 0;
   height: 0;
-  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
-  border-inline: 7px solid transparent;
+  border-block-start: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+  border-inline: var(--tooltip-arrow-size) solid transparent;
   pointer-events: none;
   opacity: 0;
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+[data-tooltip][data-tooltip-position='bottom'] {
+  --tooltip-shift: -10px;
+}
+
+[data-tooltip][data-tooltip-position='bottom']::after {
+  inset-block: calc(100% + var(--tooltip-offset)) auto;
+}
+
+[data-tooltip][data-tooltip-position='bottom']::before {
+  inset-block: calc(100% + var(--tooltip-arrow-offset)) auto;
+  border-block-start: 0;
+  border-block-end: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+}
+
+[data-tooltip]::before,
+[data-tooltip]::after {
+  transition:
+    opacity 375ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    translate 375ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) {
+  --tooltip-shift: 0px;
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::before,
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::after {
   opacity: 1;
+  transition-duration: 350ms;
 }
 
 /* Buttons side by side e.g. a toolbar or the component showcase */
@@ -3118,81 +3199,68 @@ a.button.button--primary:active {
 }
 /* Button component end */
 
+/* Icons handed to the SplitButton demos on the component gallery. Button and
+   SplitButton color the icon box they render; masking the asset lets it take
+   that color through both themes, which an `<img>` of a `currentColor` glyph
+   cannot do. The gallery is a page rather than a component, so these live here
+   next to the rest of the page's icons. */
+.showcase-icon {
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  /* A design system icon is drawn with its own margin inside a 40 unit box, so
+     filling the slot lands it at the size the design draws it. */
+  mask-size: contain;
+}
+
+/* The marks exported from Figma are cropped to the glyph instead, so they fill a
+   slot that the design insets them within: 16px of the button's 20px, 12.8px of
+   a menu item's 16px. Both are the same 80% of whichever slot they land in. */
+.showcase-icon--claude,
+.showcase-icon--chatgpt,
+.showcase-icon--external {
+  mask-size: 80%;
+}
+
+.showcase-icon--claude {
+  mask-image: url('../assets/icons/claude.svg');
+}
+
+.showcase-icon--chatgpt {
+  mask-image: url('../assets/icons/chatgpt.svg');
+}
+
+.showcase-icon--external {
+  mask-image: url('../assets/icons/external-link.svg');
+}
+
+.showcase-icon--copy {
+  mask-image: url('../assets/icons/copy.svg');
+}
+
+.showcase-icon--link {
+  mask-image: url('../assets/icons/link-on.svg');
+}
+
 /* TopNav component */
-.top-nav {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space24);
-  padding: var(--space16) var(--space24)
-    calc(var(--space16) - var(--borderWidth1));
-  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
-  background: var(--colorBackgroundPrimaryDefault);
+.new-top-nav {
+  display: none;
 }
 
-.top-nav__leading,
-.top-nav__trailing {
-  flex-shrink: 0; /* Disallow shrinking so button labels don't wrap across 2 lines */
+html[data-nav='new'] {
+  --header-height: 68px;
 }
 
-.top-nav__leading {
-  display: flex;
-  align-items: center;
-  gap: var(--space64);
-}
-
-.top-nav__logo {
-  display: flex;
-}
-
-.top-nav__logo-mark {
+html[data-nav='new'] .new-top-nav {
   display: block;
-  height: 2rem;
-  width: auto;
-  color: var(--colorTextPrimary);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 11;
 }
 
-.top-nav__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space2);
-}
-
-.top-nav__trailing {
-  display: flex;
-  align-items: center;
-  gap: var(--space12);
-}
-
-a.top-nav__link {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space8) var(--space12);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorNavBackgroundRest);
-  color: var(--colorTextPrimary);
-  font: var(--textBodyRegularMedium);
-  text-align: center;
-  text-decoration: none;
-}
-
-a.top-nav__link:hover:not(.top-nav__link--active),
-a.top-nav__link:focus:not(.top-nav__link--active) {
-  background: var(--colorNavBackgroundHover);
-}
-
-a.top-nav__link:focus-visible {
-  outline: var(--borderWidth2) solid var(--colorBorderSelected);
-  outline-offset: var(--borderWidth1);
-}
-
-a.top-nav__link--active {
-  background: var(--colorNavBackgroundActive);
-  color: var(--colorTextSelected);
-  font: var(--textBodyBoldMedium);
+html[data-nav='new'] .site-header {
+  display: none;
 }
 /* TopNav component end */
 

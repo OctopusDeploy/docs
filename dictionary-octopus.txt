@@ -333,6 +333,7 @@ netstandard
 newcert
 newguid
 NEWID
+newnav
 Newtonsoft
 nfsadmin
 nlog

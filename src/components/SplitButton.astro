@@ -1,0 +1,333 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Button from './Button.astro';
+
+export type SplitButtonItem = {
+  label: string;
+  href: string | URL;
+  icon?: string; // URL to an SVG, or a class name, as Button takes
+  iconEnd?: string;
+};
+
+type Props = HTMLAttributes<'div'> & {
+  label: string;
+  href: string | URL;
+  icon?: string;
+  size?: 'xSmall' | 'small' | 'medium';
+  importance?: 'default' | 'loud';
+  items: SplitButtonItem[];
+  menuLabel: string; // accessible name for the caret, which has no text
+  target?: string;
+  rel?: string;
+};
+
+const {
+  label,
+  href,
+  icon,
+  size = 'medium',
+  importance = 'default',
+  items,
+  menuLabel,
+  target,
+  rel,
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (items.length === 0) {
+  throw new Error('A SplitButton with no menu items should just be a Button');
+}
+
+// An asset import carries a query in dev (`...svg?origWidth=16`) and none in a
+// build, so the extension is matched where it sits rather than at the end.
+const iconTag = (name: string | undefined) =>
+  !name ? null : /\.svg(\?|#|$)/.test(name) ? 'img' : 'span';
+---
+
+<div class:list={['split-btn', className]} {...rest}>
+  <Button
+    class="split-btn__primary"
+    href={href}
+    icon={icon}
+    label={label}
+    size={size}
+    importance={importance}
+    target={target}
+    rel={rel}
+  />
+  <details class="split-btn__menu" data-split-menu>
+    <Button
+      as="summary"
+      class="split-btn__toggle"
+      icon="split-btn__caret"
+      size={size}
+      importance={importance}
+      aria-label={menuLabel}
+      aria-haspopup="menu"
+      data-split-trigger
+    />
+    <ul class="split-btn__options" role="menu" aria-label={menuLabel}>
+      {
+        items.map((item) => {
+          const Leading = iconTag(item.icon);
+          const Trailing = iconTag(item.iconEnd);
+          return (
+            // The list is the menu, so the items between it and the actions are
+            // not part of that structure; `menuitem` goes on the link so it is
+            // the thing announced and the thing arrow keys move between.
+            <li role="none">
+              <a
+                class="split-btn__option"
+                role="menuitem"
+                tabindex="-1"
+                href={item.href}
+                target={target}
+                rel={rel}
+              >
+                {Leading &&
+                  (Leading === 'img' ? (
+                    <img
+                      src={item.icon}
+                      alt=""
+                      class="split-btn__option-icon"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span
+                      class={`${item.icon} split-btn__option-icon`}
+                      aria-hidden="true"
+                    />
+                  ))}
+                <span class="split-btn__option-label">{item.label}</span>
+                {Trailing &&
+                  (Trailing === 'img' ? (
+                    <img
+                      src={item.iconEnd}
+                      alt=""
+                      class="split-btn__option-icon"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <span
+                      class={`${item.iconEnd} split-btn__option-icon`}
+                      aria-hidden="true"
+                    />
+                  ))}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </details>
+</div>
+
+<script>
+  import '../scripts/split-button';
+</script>
+
+<style>
+  .split-btn {
+    display: inline-flex;
+    align-items: stretch;
+    /* A flex or grid parent turns `inline-flex` into a block-level box, which
+       would then stretch to fill it. Same guard `.btn` uses. */
+    max-width: fit-content;
+  }
+
+  /* Both halves keep the border `.btn` gives them so nothing clips their focus
+     rings; the negative margin collapses the touching pair into the single
+     divider the design asks for. */
+  .split-btn__menu {
+    position: relative;
+    margin-inline-start: calc(var(--borderWidth1) * -1);
+    /* The easing the design system's menu animates on. */
+    --split-btn-menu-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Both halves are Buttons, so this markup belongs to Button's scope and
+     `:global()` is Astro's documented way into it; the `.split-btn` prefix keeps
+     the reach contained. */
+  .split-btn :global(.split-btn__primary) {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  .split-btn :global(.split-btn__toggle) {
+    height: 100%;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+
+  /* The design names the design system's CaretDownIcon here. Masked rather than
+     given to an `<img>` so it takes the icon color token through the themes,
+     and drawn at the 24px the design sets, which is wider than the 20px box
+     `.btn__icon` gives it; the glyph itself only fills the middle half of the
+     icon set's 40 x 40 box, so it stays inside the button. */
+  .split-btn :global(.split-btn__caret) {
+    background: var(--colorIconPrimary);
+    mask: url('../assets/icons/caret-down.svg') center / 1.5rem no-repeat;
+  }
+
+  /* Raise whichever half is interactive so its border and outline sit above the
+     half they overlap. */
+  .split-btn :global(.split-btn__primary:hover),
+  .split-btn :global(.split-btn__primary:focus-visible),
+  .split-btn__menu:has(:hover),
+  .split-btn__menu:has(:focus-visible),
+  .split-btn__menu[open] {
+    z-index: 1;
+  }
+
+  .split-btn__menu[open] > :global(.split-btn__toggle) {
+    background: var(--colorBackgroundPrimaryPressed);
+  }
+
+  .split-btn__options {
+    position: absolute;
+    z-index: 10;
+    inset-block-start: calc(100% + var(--space4));
+    inset-inline-start: 0;
+    box-sizing: border-box;
+    /* Sized by its content, as the design system's menu is, with a floor of the
+       184px its items hold themselves to so a short list still reads as a menu,
+       and a ceiling so a long label wraps rather than running the list off the
+       side of the page. */
+    width: max-content;
+    min-width: var(--split-btn-menu-min-width, 11.5rem);
+    max-width: var(--split-btn-menu-max-width, 20rem);
+    margin: 0;
+    padding: var(--space8) 0;
+    list-style: none;
+    background: var(--colorMenuListBackgroundDefault);
+    border-radius: var(--borderRadiusSmall);
+    box-shadow: var(--shadowMedium);
+    opacity: 0;
+    transform: scale(0.75, 0.5625);
+    transform-origin: top left;
+    transition:
+      opacity var(--duration-default) var(--split-btn-menu-easing),
+      transform calc(var(--duration-default) * 0.66)
+        var(--split-btn-menu-easing);
+  }
+
+  .split-btn__menu[open] .split-btn__options {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* A closed disclosure skips its contents, so the list has no rendered state
+     for the opening transition to start from until it is given one. */
+  @starting-style {
+    .split-btn__menu[open] .split-btn__options {
+      opacity: 0;
+      transform: scale(0.75, 0.5625);
+    }
+  }
+
+  /* The menu this is modelled on grows in rather than arriving. Measured on its
+     own story, it fades while a shorter transform runs from three quarters of
+     the width and the square of that in height, out of the corner the list
+     hangs off. The disclosure keeps its content on screen for the length of
+     that so the closing half has something left to animate; the transform goes
+     on the list rather than the disclosure because a transformed ancestor would
+     become the containing block the anchored position is measured against. */
+  .split-btn__menu::details-content {
+    transition: content-visibility var(--duration-default) allow-discrete;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .split-btn__options,
+    .split-btn__menu::details-content {
+      transition: none;
+    }
+  }
+
+  /* The design hangs the list from the menu half and lets it run past the end of
+     the control, which the page has room for wherever the control sits. Anchored
+     so a viewport too narrow for that can still flip it to the other side, which
+     a width breakpoint cannot judge. */
+  @supports (anchor-scope: --a) {
+    .split-btn__menu {
+      anchor-name: --split-btn;
+      /* An anchor name is page-wide, so a second split button would leave every
+         menu on the page hanging off the last one. `anchor-scope` keeps each
+         name inside the half that declares it. The block is guarded on
+         `anchor-scope` rather than `anchor-name` so a browser with anchors but
+         no scoping keeps the absolute rule above, which measures from each
+         menu's own parent. */
+      anchor-scope: --split-btn;
+    }
+
+    /* Fixed so the viewport is what the browser measures the room against; the
+       anchor keeps it tracking the button through a scroll. */
+    .split-btn__options {
+      position: fixed;
+      position-anchor: --split-btn;
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: flip-inline;
+      /* Fixed to the viewport, the list would otherwise hold its place while the
+         button it belongs to scrolls away, leaving it stranded over whatever the
+         page has scrolled to. */
+      position-visibility: anchors-visible;
+      inset: auto;
+      margin-block-start: var(--space4);
+    }
+  }
+
+  .split-btn__option {
+    display: flex;
+    align-items: center;
+    gap: var(--space4);
+    /* The page has no universal border-box rule, so the padding would otherwise
+       sit outside a row measured by its content. */
+    box-sizing: border-box;
+    /* The compact MenuItem, which is the one the design settled on: no floor
+       under the row, so it stands at its padding and a line of text. The roomier
+       one holds itself open to 48px. */
+    padding: var(--space6) var(--space16);
+    color: var(--colorTextLinkDefault);
+    font: var(--textBodyRegularLarge);
+    /* Long labels wrap rather than widening the list past the width it is given. */
+    overflow-wrap: anywhere;
+  }
+
+  /* The MenuItem takes the primary text color under the pointer, leaving the
+     link color to say the row is a link when it is at rest. */
+  .split-btn__option:hover {
+    background: var(--colorMenuListBackgroundHover);
+    color: var(--colorTextPrimary);
+  }
+
+  .split-btn__option:focus-visible {
+    background: var(--colorMenuListBackgroundActive);
+    color: var(--colorTextPrimary);
+  }
+
+  /* Centred and contained the way `.btn__icon` is. An icon font draws its glyph
+     on its own advance width rather than inside this box, so a wide one spills
+     over the gap and sits against the label; an SVG needs the same box to be
+     scaled into rather than laid out at its intrinsic size. */
+  .split-btn__option-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    font-size: var(--fontSizeBase);
+    line-height: 1;
+    /* Inherited so the glyph turns over with the label it sits beside; the icon
+       and text link tokens carry the same value at rest. */
+    color: inherit;
+  }
+
+  img.split-btn__option-icon {
+    object-fit: contain;
+  }
+
+  .split-btn__option-label {
+    text-decoration: underline;
+  }
+</style>

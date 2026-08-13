@@ -76,7 +76,7 @@ The *Format* filter allows for converting of input based on an additionally prov
 
 ### Replace
 
-The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below. 
+The *Replace* filter performs a regular expression replace function on the variable. The regular expression should be provided in the [.NET format](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). Double quotes need to be used around any expressions that contain whitespace or special characters. Expressions containing double quotes can not be expressed inline, but can be done via nested variables. If both the search and replace expressions are variables, ensure there is no space between the expressions. For using Replace on special characters, you should escape the first parameter which will be the regex but the second parameter can be left as a string - see last example below.
 
 | MyVar Value | Filter Expression                         | Output                                     |
 | ----------- | ----------------------------------------- | ------------------------------------------ |
@@ -89,7 +89,6 @@ The *Replace* filter performs a regular expression replace function on the varia
 | `abc`       | `#{MyVar \| Replace #{match} _}`          | `a_c` (when `match`=`b`)                   |
 | `a\b`       | `#{MyVar \| Replace "\\" "\\\\"}`         | `a\\b`                                     |
 
-
 ### Substring
 
 The *Substring* filter extracts a range of characters from the input and outputs them. If two arguments are supplied, they are interpreted as start and end offsets of the range. If only one argument is supplied, it is interpreted as the end offset of a range starting at 0.
@@ -99,7 +98,6 @@ The *Substring* filter extracts a range of characters from the input and outputs
 | `Octopus Deploy` | `#{MyVar \| Substring 8 6}` | `Deploy`  |
 | `Octopus Deploy` | `#{MyVar \| Substring 7}`   | `Octopus` |
 | `Octopus Deploy` | `#{MyVar \| Substring 2 3}` | `top`     |
-
 
 ### Trim
 
@@ -124,11 +122,11 @@ The *Truncate* filter limits the length of the input. If the input is longer tha
 
 These filters return `true` or `false` depending on the result of a comparison. They are typically useful for specifying the condition in an `#{if}` block.
 
-| Name                                                                 | Purpose                                                                 | Example input    | Example output |
-|----------------------------------------------------------------------|-------------------------------------------------------------------------|------------------|----------------|
-| [`Contains`](#startswith-endswith-and-contains) | Determines whether a string contains a given string                     | `Octopus Dep`    | `true`         |
-| [`EndsWith`](#startswith-endswith-and-contains) | Determines whether the end of a string matches a given string           | `Deploy`         | `true`         |
-| [`Match`](#match) | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"` | `true`         |
+| Name                                              | Purpose                                                                 | Example input    | Example output |
+|---------------------------------------------------|-------------------------------------------------------------------------|------------------|----------------|
+| [`Contains`](#startswith-endswith-and-contains)   | Determines whether a string contains a given string                     | `Octopus Dep`    | `true`         |
+| [`EndsWith`](#startswith-endswith-and-contains)   | Determines whether the end of a string matches a given string           | `Deploy`         | `true`         |
+| [`Match`](#match)                                 | Determines whether a string contains a given regular expression pattern | `"Octo.*Deploy"` | `true`         |
 | [`StartsWith`](#startswith-endswith-and-contains) | Determines whether the beginning of a string matches a given string     | `Octo`           | `true`         |
 
 ### Match
@@ -175,10 +173,58 @@ These filters provide a mechanism to convert a value from one form to another.
 
 These filters are used to work with dates.
 
-| Name                                    | Purpose                         | Example input | Example output                 |
-|-----------------------------------------|---------------------------------|---------------|--------------------------------|
-| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date        |               | `2016-11-03T08:53:11.0946448`  |
-| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC |               | `2016-11-02T23:01:46.9441479Z` |
+| Name                                    | Purpose                            | Example input          | Example output                 |
+|-----------------------------------------|------------------------------------|------------------------|--------------------------------|
+| [`AddDays`](#adddays-and-addhours)      | Shifts a date by a number of days  | `2016-11-03T08:53:11`  | `2016-11-05T08:53:11.0000000`  |
+| [`AddHours`](#adddays-and-addhours)     | Shifts a date by a number of hours | `2016-11-03T08:53:11`  | `2016-11-03T10:53:11.0000000`  |
+| [`NowDate`](#nowdate-and-nowdateutc)    | Outputs the current date           |                        | `2016-11-03T08:53:11.0946448`  |
+| [`NowDateUtc`](#nowdate-and-nowdateutc) | Outputs the current date in UTC    |                        | `2016-11-02T23:01:46.9441479Z` |
+
+### AddDays and AddHours
+
+The *AddDays* and *AddHours* filters shift a date by the given amount and output the result in ISO-8601 [Round-trip format](https://msdn.microsoft.com/en-us/library/az4se3k1#Roundtrip), ready to be chained into [`Format`](#format).
+
+The amount can be negative to shift a date backwards. Fractional values are supported, but must be quoted, because an unquoted argument can't contain a decimal point.
+
+Both filters preserve how the input expressed its time zone: a value with no offset stays without one, a UTC value stays in UTC, and a value with an explicit offset keeps that offset rather than being converted to the server's local time.
+
+If the input isn't a date, or the amount isn't a number, the expression is left unevaluated and appears in the output as written. An unreplaced `#{...}` means the filter couldn't be applied, not that the value was empty.
+
+| MyVar Value                     | Filter Expression                                        | Output                          |
+| ------------------------------- | -------------------------------------------------------- | ------------------------------- |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours 2}`                                 | `2016-11-03T10:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours -2}`                                | `2016-11-03T06:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours "1.5"}`                             | `2016-11-03T10:23:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddDays 2}`                                  | `2016-11-05T08:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddDays 1 \| AddHours 2}`                    | `2016-11-04T10:53:11.0000000`   |
+| `2016-11-03T08:53:11`           | `#{MyVar \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` | `2016-11-03 10:53:11`           |
+|                                 | `#{ \| NowDate \| AddHours 2}`                           | `2016-11-03T10:53:11.0946448`   |
+
+#### Deriving a change window from a deployment's start time
+
+A common use is deriving an end time from a start time. For example, to give a ServiceNow change request a two hour implementation window:
+
+| Name                                     | Value                                                                     |
+| ---------------------------------------- | ------------------------------------------------------------------------- |
+| `Octopus.ServiceNow.Field[start_date]`   | `#{Octopus.Task.QueueTime \| Format "yyyy-MM-dd HH:mm:ss"}`               |
+| `Octopus.ServiceNow.Field[end_date]`     | `#{Octopus.Task.QueueTime \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` |
+
+:::div{.warning}
+`Octopus.Task.QueueTime` is the time the task was **queued**, not the time it started executing. The window above therefore starts counting down the moment the deployment joins the queue.
+
+For a deployment that starts straight away this is effectively the current time, so the two are interchangeable. But if the task waits — behind another deployment, on a busy worker pool, or because it was scheduled for later — the window will already be partly or entirely used up by the time the deployment actually runs, and a change request can fall outside its own implementation window before any steps execute.
+
+Where that matters, size the window against the worst-case queue wait rather than the expected run time. To vary it per environment, scope the whole expression rather than just the number of hours:
+
+| Name                  | Value                                                                     | Scope      |
+| --------------------- | ------------------------------------------------------------------------- | ---------- |
+| `ChangeWindowEnd`     | `#{Octopus.Task.QueueTime \| AddHours 2 \| Format "yyyy-MM-dd HH:mm:ss"}` |            |
+| `ChangeWindowEnd`     | `#{Octopus.Task.QueueTime \| AddHours 8 \| Format "yyyy-MM-dd HH:mm:ss"}` | Production |
+
+then set `Octopus.ServiceNow.Field[end_date]` to `#{ChangeWindowEnd}`.
+
+The number of hours has to be written into each scoped value rather than supplied as `AddHours #{WindowHours}`, because a filter argument that is itself a variable can't be followed by another filter in the same chain. That restriction applies to all filters that take arguments, not just `AddHours`.
+:::
 
 ### NowDate and NowDateUtc
 
@@ -200,29 +246,29 @@ These filters apply format-specific escaping rules.
 |------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|--------------------|------------------------|
 | `HtmlEscape`                                                                                                     | Escapes entities for use in HTML content           | `1 < 2`            | `1 \&lt; 2`            |
 | `JsonEscape`                                                                                                     | Escapes data for use in JSON strings               | `He said "Hello!"` | `He said \\"Hello!\\"` |
-| `PropertiesKeyEscape` | Escapes data for use in .properties keys           | `Hey: x=y`         | `Hey\:\ x\=y`          |
-| `PropertiesValueEscape` | Escapes data for use in .properties values         | `a\b=c`            | `a\\b=c`               |
+| `PropertiesKeyEscape`                                                                                            | Escapes data for use in .properties keys           | `Hey: x=y`         | `Hey\:\ x\=y`          |
+| `PropertiesValueEscape`                                                                                          | Escapes data for use in .properties values         | `a\b=c`            | `a\\b=c`               |
 | [`UriEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapeuristring?view=netframework-4.0)      | Escape a URI string                                | `A b:c+d/e`        | `A%20b:c+d/e`          |
 | [`UriDataEscape`](https://docs.microsoft.com/en-us/dotnet/api/system.uri.escapedatastring?view=netframework-4.0) | Escape a URI data string                           | `A b:c+d/e`        | `A%20b%3Ac%2Bd%2Fe`    |
 | `XmlEscape`                                                                                                      | Escapes entities for use in XML content            | `1 < 2`            | `1 \&lt; 2`            |
-| `YamlDoubleQuoteEscape` | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
-| `YamlSingleQuoteEscape` | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
+| `YamlDoubleQuoteEscape`                                                                                          | Escapes data for use in YAML double quoted strings | `"Hello"\Goodbye`  | `\"Hello\"\\Goodbye`   |
+| `YamlSingleQuoteEscape`                                                                                          | Escapes data for use in YAML single quoted strings | `The bee's knees`  | `The bee''s knees`     |
 
 ## Extraction filters {#extraction-filters}
 
 These filters extract a part of value.
 
-| Name                                          | Purpose                                                              | Example input                  | Example output |
-|-----------------------------------------------|----------------------------------------------------------------------|--------------------------------|----------------|
-| [`UriPart`](#uripart)                         | Extracts a specified part of a URI string                            | `https://octopus.com/docs`     | `/docs`        |
-| `VersionMajor` | Extracts the major version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `1`            |
-| `VersionMinor` | Extracts the minor version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `2`            |
-| `VersionPatch` | Extracts the patch version field from a version string               | `1.2.3.4-my-branch.1.2+build10` | `3`            |
-| `VersionRevision` | Extracts the revision version field from a version string            | `1.2.3.4-my-branch.1.2+build10` | `4`            |
-| `VersionPreRelease` | Extracts the prerelease field from a version string                  | `1.2.3.4-my-branch.1.2+build10` | `my-branch.1.2` |
-| `VersionPreReleasePrefix` | Extracts the prefix from the prerelease field from a version string  | `1.2.3.4-my-branch.1.2+build10` | `my-branch`     |
-| `VersionPreReleaseCounter` | Extracts the counter from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1.2`          |
-| `VersionMetadata` | Extracts the metadata field from a version string                    | `1.2.3.4-my-branch.1.2+build10` | `build10`      |
+| Name | Purpose | Example input | Example output |
+| ----------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------- | ---------------- |
+| [`UriPart`](#uripart) | Extracts a specified part of a URI string | `https://octopus.com/docs` | `/docs` |
+| `VersionMajor` | Extracts the major version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1` |
+| `VersionMinor` | Extracts the minor version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `2` |
+| `VersionPatch` | Extracts the patch version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `3` |
+| `VersionRevision` | Extracts the revision version field from a version string | `1.2.3.4-my-branch.1.2+build10` | `4` |
+| `VersionPreRelease` | Extracts the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `my-branch.1.2` |
+| `VersionPreReleasePrefix` | Extracts the prefix from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `my-branch` |
+| `VersionPreReleaseCounter` | Extracts the counter from the prerelease field from a version string | `1.2.3.4-my-branch.1.2+build10` | `1.2` |
+| `VersionMetadata` | Extracts the metadata field from a version string | `1.2.3.4-my-branch.1.2+build10` | `build10` |
 
 ### UriPart
 
@@ -314,7 +360,7 @@ Numbers:
 
 Objects:
 #{each item in MyObjects}
-	#{item.Key}: #{item.Value.Price}
+ #{item.Key}: #{item.Value.Price}
 #{/each} 
 ```
 
@@ -332,10 +378,10 @@ Dog: 17.5
 ```
 
 ## Older versions
-* Comparison filters are available from Octopus Deploy **2021.2** onwards.
-* `VersionMajor`, `VersionMinor`, `VersionPatch`, `VersionRevision`, `VersionPreRelease`, `VersionPreReleasePrefix`, `VersionPreReleaseCounter` and `VersionMetadata` extraction filters are available from Octopus Deploy **2020.5** onwards.
-* `PropertiesKeyEscape`, `PropertiesValueEscape`, `YamlDoubleQuoteEscape` and `YamlSingleQuoteEscape` escape filters are available from Octopus Deploy **2020.4** onwards.
 
+- Comparison filters are available from Octopus Deploy **2021.2** onwards.
+- `VersionMajor`, `VersionMinor`, `VersionPatch`, `VersionRevision`, `VersionPreRelease`, `VersionPreReleasePrefix`, `VersionPreReleaseCounter` and `VersionMetadata` extraction filters are available from Octopus Deploy **2020.5** onwards.
+- `PropertiesKeyEscape`, `PropertiesValueEscape`, `YamlDoubleQuoteEscape` and `YamlSingleQuoteEscape` escape filters are available from Octopus Deploy **2020.4** onwards.
 
 ## Learn more
 

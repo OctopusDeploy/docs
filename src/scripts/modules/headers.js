@@ -1,12 +1,12 @@
 // @ts-check
 import { qsa } from './query.js';
-import { copyOnClick } from './copy-button.js';
+import { copyOnClick } from './clipboard.js';
 
 const REST = 'Copy URL';
 
 /**
- * Scoped to .page-content headings with an id: the feedback prompt and the
- * navigation render their own headings, and those have nothing to link to.
+ * Scoped to .page-content headings with an id: the navigation renders its own
+ * headings, and those have nothing to link to.
  *
  * Each heading is given an aria-label of its own text. A heading is named from
  * its contents, and those contents include a nested control's name, so without

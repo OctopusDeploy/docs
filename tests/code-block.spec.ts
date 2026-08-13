@@ -80,6 +80,11 @@ test.describe('code block', () => {
     const copy = page.locator('.code-block__copy').first();
     await expect(copy).toHaveAttribute('data-tooltip', 'Copy to clipboard');
 
+    // The button is server-rendered, so it can be clicked before main.js has
+    // wired the listener up. The heading buttons are built on the way past, and
+    // after the code blocks, so their arrival is the signal to go.
+    await expect(page.locator('.copy-heading-url').first()).toBeAttached();
+
     await copy.click();
     await expect(copy).toHaveAttribute('data-tooltip', 'Copied');
 
