@@ -100,25 +100,27 @@
   --border-color-tab: var(--colorBorderPrimary);
   --border-color-tab-active: var(--colorBorderSelected);
 
+  --color-callout-body: var(--colorCalloutTextBody);
+
   --color-hint: var(--colorCalloutTextInfo);
   --bg-color-hint: var(--colorCalloutBackgroundInfoDefault);
-  --border-color-hint: var(--colorCalloutBorderInfo);
+  --icon-color-hint: var(--colorCalloutIconInfo);
 
   --color-info: var(--colorCalloutTextInfo);
   --bg-color-info: var(--colorCalloutBackgroundInfoDefault);
-  --border-color-info: var(--colorCalloutBorderInfo);
+  --icon-color-info: var(--colorCalloutIconInfo);
 
   --color-success: var(--colorCalloutTextSuccess);
   --bg-color-success: var(--colorCalloutBackgroundSuccessDefault);
-  --border-color-success: var(--colorCalloutBorderSuccess);
+  --icon-color-success: var(--colorCalloutIconSuccess);
 
   --color-warning: var(--colorCalloutTextWarning);
   --bg-color-warning: var(--colorCalloutBackgroundWarningDefault);
-  --border-color-warning: var(--colorCalloutBorderWarning);
+  --icon-color-warning: var(--colorCalloutIconWarning);
 
   --color-problem: var(--colorCalloutTextDanger);
   --bg-color-problem: var(--colorCalloutBackgroundDangerDefault);
-  --border-color-problem: var(--colorCalloutBorderDanger);
+  --icon-color-problem: var(--colorCalloutIconDanger);
 
   --duration-default: 300ms;
   --theme-transition-duration: 0s;
