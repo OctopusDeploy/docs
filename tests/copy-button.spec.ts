@@ -51,6 +51,34 @@ test('the two buttons revert to different labels', async ({ page }) => {
   await expect(code).toHaveAttribute('data-tooltip', 'Copy to clipboard');
 });
 
+// The arrow and the bubble are separate boxes. Sharing an exact edge lets them
+// round to different device pixels and show the page through the join, so the
+// arrow is grown into the bubble far enough that rounding cannot part them.
+test('the tooltip arrow overlaps the bubble it points from', async ({
+  page,
+}) => {
+  await page.goto(PAGE);
+
+  const geometry = await page
+    .locator('.copy-heading-url')
+    .first()
+    .evaluate((button) => {
+      const bubble = getComputedStyle(button, '::after');
+      const arrow = getComputedStyle(button, '::before');
+      return {
+        bubbleBottom: parseFloat(bubble.bottom),
+        arrowBottom: parseFloat(arrow.bottom),
+        arrowHeight: parseFloat(arrow.borderTopWidth),
+      };
+    });
+
+  const arrowTop = geometry.arrowBottom + geometry.arrowHeight;
+  expect(
+    arrowTop - geometry.bubbleBottom,
+    'expected the arrow to reach past the bubble’s edge'
+  ).toBeGreaterThan(0);
+});
+
 test('copying announces the result once, from a single live region', async ({
   page,
 }) => {

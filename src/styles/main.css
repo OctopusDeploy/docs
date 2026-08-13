@@ -3107,8 +3107,10 @@ a.button.button--primary:active {
   --tooltip-shift: 10px;
   --tooltip-arrow-size: 7px;
   --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
+  --tooltip-arrow-overlap: 1px;
   --tooltip-arrow-offset: calc(
-    var(--tooltip-offset) - var(--tooltip-arrow-size)
+    var(--tooltip-offset) - var(--tooltip-arrow-size) +
+      var(--tooltip-arrow-overlap)
   );
 }
 
