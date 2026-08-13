@@ -535,7 +535,7 @@ strong {
 
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
-.copy-heading-url[data-copied] {
+.copy-heading-url:is([data-copied], [data-failed]) {
   opacity: 1;
 }
 
@@ -3174,12 +3174,12 @@ a.button.button--primary:active {
   }
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied]) {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) {
   --tooltip-shift: 0px;
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::before,
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::after {
   opacity: 1;
   transition-duration: 350ms;
 }

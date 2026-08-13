@@ -79,10 +79,51 @@ test('the tooltip arrow overlaps the bubble it points from', async ({
   ).toBeGreaterThan(0);
 });
 
+test('a failed copy reports a failure rather than a check', async ({
+  page,
+}) => {
+  // Every rung of the write chain refused, so the button has to report one.
+  await page.addInitScript(() => {
+    const refuse = () => Promise.reject(new Error('refused'));
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { write: refuse, writeText: refuse },
+    });
+    document.execCommand = () => false;
+  });
+
+  await page.goto(PAGE);
+
+  const heading = page.locator('.page-content h2[id]').first();
+  const button = heading.locator('.copy-heading-url');
+  const icon = () =>
+    button
+      .locator('.copy-heading-url__icon')
+      .evaluate((el) => getComputedStyle(el).maskImage);
+
+  const resting = await icon();
+
+  await heading.hover();
+  await button.click();
+
+  await expect(button).toHaveAttribute('data-tooltip', 'Copy failed');
+  await expect(button).toHaveAttribute('data-failed', '');
+  await expect(button).not.toHaveAttribute('data-copied', '');
+
+  expect(await icon(), 'expected no success check beside “Copy failed”').toBe(
+    resting
+  );
+});
+
 test('copying announces the result once, from a single live region', async ({
   page,
 }) => {
   await page.goto(PAGE);
+
+  // The code block's button is server-rendered, so it can be clicked before
+  // main.js has wired the listener up. The heading buttons are built on the way
+  // past, and after the code blocks, so their arrival is the signal to go.
+  await expect(page.locator('.copy-heading-url').first()).toBeAttached();
 
   await page.locator('.code-block__copy').first().click();
 

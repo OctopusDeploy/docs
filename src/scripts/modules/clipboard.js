@@ -71,11 +71,17 @@ function showTooltipResult(button, ok) {
   const message = ok ? COPIED : FAILED;
   const rest = restLabel(button);
 
+  const clearState = () => {
+    delete button.dataset.copied;
+    delete button.dataset.failed;
+  };
+
+  clearState();
   button.dataset.tooltip = message;
-  button.dataset.copied = '';
+  button.dataset[ok ? 'copied' : 'failed'] = '';
 
   revertAfter(button, () => {
-    delete button.dataset.copied;
+    clearState();
 
     // Dropping the attribute starts the bubble fading, and swapping the label
     // underneath it would be visible for as long as that runs. A pointer or
