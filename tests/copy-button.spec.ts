@@ -59,23 +59,24 @@ test('the tooltip arrow overlaps the bubble it points from', async ({
 }) => {
   await page.goto(PAGE);
 
-  const geometry = await page
-    .locator('.copy-heading-url')
-    .first()
-    .evaluate((button) => {
-      const bubble = getComputedStyle(button, '::after');
-      const arrow = getComputedStyle(button, '::before');
-      return {
-        bubbleBottom: parseFloat(bubble.bottom),
-        arrowBottom: parseFloat(arrow.bottom),
-        arrowHeight: parseFloat(arrow.borderTopWidth),
-      };
-    });
+  const button = page.locator('.copy-heading-url').first();
+  await button.locator('.tooltip').waitFor({ state: 'attached' });
 
-  const arrowTop = geometry.arrowBottom + geometry.arrowHeight;
+  const overlap = await button.evaluate((el) => {
+    const bubble = el.querySelector('.tooltip');
+    if (!bubble) throw new Error('expected the button to have a .tooltip bubble');
+
+    const caret = getComputedStyle(bubble, '::after');
+    const bubbleHeight = bubble.getBoundingClientRect().height;
+    const caretTop = parseFloat(caret.top);
+    const caretShiftY = parseFloat(caret.translate.split(' ')[1] ?? '0');
+
+    return bubbleHeight - (caretTop + caretShiftY);
+  });
+
   expect(
-    arrowTop - geometry.bubbleBottom,
-    'expected the arrow to reach past the bubble’s edge'
+    overlap,
+    'expected the caret to reach past the bubble’s edge'
   ).toBeGreaterThan(0);
 });
 

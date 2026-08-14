@@ -2867,10 +2867,16 @@ a[data-youtube] {
 
 /* Edge-aligned: the button sits at the block's right edge, where a centred
    bubble would hang off the side of the page. */
-.code-block .code-block__copy::after {
+.code-block .code-block__copy .tooltip {
   left: auto;
   right: 0;
   translate: 0 var(--tooltip-shift);
+}
+
+.code-block .code-block__copy .tooltip::after {
+  left: auto;
+  right: calc(1rem - var(--tooltip-arrow-size));
+  translate: 0 calc(-1 * var(--tooltip-arrow-overlap));
 }
 
 /* The single fixed language */
@@ -3088,15 +3094,10 @@ a.button.button--primary:active {
   --tooltip-arrow-size: 7px;
   --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
   --tooltip-arrow-overlap: 1px;
-  --tooltip-arrow-offset: calc(
-    var(--tooltip-offset) - var(--tooltip-arrow-size) +
-      var(--tooltip-arrow-overlap)
-  );
 }
 
 /* The bubble */
-[data-tooltip]::after {
-  content: attr(data-tooltip);
+.tooltip {
   position: absolute;
   left: 50%;
   inset-block-end: calc(100% + var(--tooltip-offset));
@@ -3110,41 +3111,6 @@ a.button.button--primary:active {
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-}
-
-/* The arrow. A border triangle */
-[data-tooltip]::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  inset-block-end: calc(100% + var(--tooltip-arrow-offset));
-  translate: -50% var(--tooltip-shift);
-  width: 0;
-  height: 0;
-  border-block-start: var(--tooltip-arrow-size) solid
-    var(--colorBackgroundInversePrimary);
-  border-inline: var(--tooltip-arrow-size) solid transparent;
-  pointer-events: none;
-  opacity: 0;
-}
-
-[data-tooltip][data-tooltip-position='bottom'] {
-  --tooltip-shift: -10px;
-}
-
-[data-tooltip][data-tooltip-position='bottom']::after {
-  inset-block: calc(100% + var(--tooltip-offset)) auto;
-}
-
-[data-tooltip][data-tooltip-position='bottom']::before {
-  inset-block: calc(100% + var(--tooltip-arrow-offset)) auto;
-  border-block-start: 0;
-  border-block-end: var(--tooltip-arrow-size) solid
-    var(--colorBackgroundInversePrimary);
-}
-
-[data-tooltip]::before,
-[data-tooltip]::after {
   transition:
     opacity 375ms cubic-bezier(0.165, 0.84, 0.44, 1),
     translate 375ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -3154,12 +3120,42 @@ a.button.button--primary:active {
   }
 }
 
+/* The arrow. A border triangle */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  translate: -50% calc(-1 * var(--tooltip-arrow-overlap));
+  width: 0;
+  height: 0;
+  border-inline: var(--tooltip-arrow-size) solid transparent;
+  border-block-start: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+}
+
+[data-tooltip][data-tooltip-position='bottom'] {
+  --tooltip-shift: -10px;
+}
+
+[data-tooltip][data-tooltip-position='bottom'] .tooltip {
+  inset-block: calc(100% + var(--tooltip-offset)) auto;
+}
+
+[data-tooltip][data-tooltip-position='bottom'] .tooltip::after {
+  top: auto;
+  bottom: 100%;
+  translate: -50% var(--tooltip-arrow-overlap);
+  border-block-start: 0;
+  border-block-end: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+}
+
 [data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) {
   --tooltip-shift: 0px;
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::before,
-[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])::after {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) .tooltip {
   opacity: 1;
   transition-duration: 350ms;
 }

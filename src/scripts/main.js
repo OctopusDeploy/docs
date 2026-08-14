@@ -12,9 +12,11 @@ import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
 import { enableSharing } from './modules/share.js';
 import { highlightCurrentHeading } from './modules/toc.js';
+import { enhanceTooltips } from './modules/tooltips';
 
 const resizedEventName = addResizedEvent();
 
+enhanceTooltips();
 setClickableBlocks();
 setExternalLinkAttributes();
 addStickyNavigation(
