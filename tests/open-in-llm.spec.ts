@@ -67,9 +67,9 @@ for (const width of [700, 430]) {
   test(`the menu opens on screen at ${width}px wide`, async ({ page }) => {
     await page.setViewportSize({ width, height: 800 });
     await page.goto(STABLE_PLAIN_MD_PATH);
-    await page.locator('.octo-llm [data-split-trigger]').click();
+    await page.locator('.octo-llm [data-menu] summary').click();
 
-    const menu = page.locator('.octo-llm .split-btn__options');
+    const menu = page.locator('.octo-llm .menu__list');
     await opened(menu);
 
     const box = (await menu.boundingBox())!;
