@@ -11,9 +11,9 @@ When something goes wrong in Octopus we may ask you to provide a Crash Dump to h
 
 To enable crash dumps for Octopus you'll need to add a registry key for the Octopus process. The following code can be saved to a .reg file to automatically update the necessary registry keys
 
-**RecordOctopusDump.reg**
+## RecordOctopusDump.reg
 
-```
+```text
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\Octopus.Server.exe]
@@ -27,7 +27,7 @@ If you'd like to check the other options for these settings refer to the [Micros
 After you run the .reg file, if you want to check the entries in regedit, it should look like this:
 
 :::figure
-![](/docs/img/support/images/3278137.png)
+![The crash dump registry entries shown in regedit](/docs/img/support/images/3278137.png)
 :::
 
 Once you have a dump they'll then be written to `C:\Dumps\` named something similar to `Octopus.Server.exe.6127.dmp`. Next just zip the dump and upload it to the link that we'll have provided you.

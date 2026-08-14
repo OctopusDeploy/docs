@@ -26,7 +26,7 @@ To create a runbook to perform updates on your Windows machines:
 ```powershell
 function Get-NugetPackageProviderNotInstalled
 {
-	# See if the nuget package provider has been installed
+ # See if the nuget package provider has been installed
     return ($null -eq (Get-PackageProvider -ListAvailable -Name Nuget -ErrorAction SilentlyContinue))
 }
 
@@ -71,7 +71,7 @@ Write-Output "Checking for PowerShell module PSWindowsUpdate ..."
 
 if ((Get-ModuleInstalled -PowerShellModuleName "PSWindowsUpdate") -ne $true)
 {
-	Write-Output "PSWindowsUpdate not found, installing ..."
+ Write-Output "PSWindowsUpdate not found, installing ..."
     
     # Install PSWindowsUpdate
     Install-Module PSWindowsUpdate -Force
@@ -86,14 +86,15 @@ $windowsUpdates = Get-WindowsUpdate
 # Check to see if there's anything to install
 if ($windowsUpdates.Count -gt 0)
 {
-	Write-Output "Installing updates ..."
-	Install-WindowsUpdate -AcceptAll -AutoReboot
+ Write-Output "Installing updates ..."
+ Install-WindowsUpdate -AcceptAll -AutoReboot
 }
 else
 {
-	Write-Output "There are no updates available."
+ Write-Output "There are no updates available."
 }
 ```
+
 :::div{.warning}
 Be aware that the `AutoReboot` switch will reboot the machine after the first update that needs it.  If there is more than one update that requires a reboot, you may need to run the above PowerShell again to install the rest of the available updates.
 :::
@@ -113,7 +114,6 @@ With the process defined, you can set the update to execute automatically with a
    - Select timezone: Select the timezone to use when evaluating when to run.
 
 Using this method, you can set it and forget it.
-
 
 ## Samples
 

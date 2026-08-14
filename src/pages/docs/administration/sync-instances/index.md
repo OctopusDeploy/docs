@@ -40,6 +40,7 @@ We've been asked if splitting environments, tenants or deployment targets by spa
 :::
 
 ### Built-in role-based access control
+
 In talking to users, the primary reason for splitting an instance is due to permissions.  Before doing splitting an instance, research the built-in role-based access control as it supports a variety of common permissions use cases.
 
 - Developers can modify the deployment process, deploy to **Development**, **Test**, and **Staging** but not **Production**.
@@ -48,14 +49,16 @@ In talking to users, the primary reason for splitting an instance is due to perm
 - Release managers can modify the variables on a set of tenants assigned to them.  All other tenants are read-only.
 
 ### Approval process
+
 Another reason we hear about is needing an approval process for changes to the deployment process.  Please see our [config as code feature](/docs/projects/version-control) as that integrates with git, which allows for branching and pull requests.  
 
 ### Performance improvement
+
 The final reason we hear about is to "speed up the deployment."  We typically hear this when Octopus is located in one data center and deployment targets are located in a data center in another country or continent.  That can lead to long package acquisition from the built-in repository and latency.
 
 - If package acquisition is taking a long time to transfer to the targets, consider:
-    - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers) to reduce the amount of data to transfer.  
-    - Leveraging an external feed such as Artifactory, GitHub Packages, AWS CodeArtifact, or Feedz.io and configure Octopus to download the packages directly from the external feeds.
+  - Enabling [delta compression for package transfers](/docs/deployments/packages/delta-compression-for-package-transfers) to reduce the amount of data to transfer.  
+  - Leveraging an external feed such as Artifactory, GitHub Packages, AWS CodeArtifact, or Feedz.io and configure Octopus to download the packages directly from the external feeds.
 - If there appears to be latency when running scripts on the Octopus Server to make database changes, run e2e tests, or any other similar task, then leverage [workers](/docs/infrastructure/workers).  Workers can execute tasks that don't need to run on individual deployment targets.  They can be located in the same data center as your database or applications.
 
 ## Unsuitable Scenarios
@@ -74,9 +77,9 @@ Do not split an instance and sync it for any of the following use cases.
 
 Syncing is not the same as cloning.  Cloning an instance will result in an exact replica (or copy) of data from the source.  In addition to having all the same targets, environments, variables, tenants, projects, etc., the unique identifiers stored in the Octopus database will be the same; including the Server thumbprint and database master key.  Cloning is typically a one-time operation, such as standing up a new server.  
 
-Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.   
+Syncing instances involves copying projects and all required scaffolding data between Octopus Deploy instances with different environments, accounts, lifecycles, targets, tenants, or even variable values.  Each instance will have different ids, Server thumbprint, and database master key.
 
-## Tools and features to avoid 
+## Tools and features to avoid
 
 Unfortunately, there is not first-class tooling available to support syncing two instances, due to the many decisions and business rules when working with different environments, tenants, variable values, etc.  In the past, our users have attempted to repurpose provided features and tooling to support their syncing process.  However, they were not designed for syncing use cases; the result was often frustration because of lack of customization, or hand editing files causing corrupted projects.
 
@@ -92,7 +95,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) includes the [export](/do
 
 ### Config as Code and Octopus Terraform Provider
 
-Terraform uses Hashicorp Configuration Language or HCL.  The [Config as Code feature](/docs/projects/version-control) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a comparison tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail. 
+Terraform uses Hashicorp Configuration Language or HCL.  The [Config as Code feature](/docs/projects/version-control) uses Octopus Configuration Language (OCL) and that is based on HCL.  HCL does not support complex logic.  That means you'd need a unique set of files per instance.  To sync instances using these features, you'd need to use a comparison tool such as Beyond Compare to move changes between instances manually.  Anything manual is error-prone and will eventually fail.
 
 You can write a tool to compare files between instances automatically and make the necessary modifications.  You will run into the a lot of the same roadblocks as below as you'll need to consider dependencies, environment mis-matches, and more.  
 
@@ -135,33 +138,33 @@ It's okay to have known differences between the instances, such as different env
 Octopus Deploy is more than a deployment process and variables.  A lot of scaffolding data is needed for everything to work correctly.  The syncing process should allow for the syncing of the following data:
 
 - Infrastructure
-    - Accounts        
-    - Environments
-    - Worker Pools        
+  - Accounts
+  - Environments
+  - Worker Pools
 - Library
-    - Certificates
-    - External Feeds
-    - Lifecycles
-    - Script Modules
-    - Step Templates   
-    - Variable Sets 
-    - Tenant Tags
-    - Packages
+  - Certificates
+  - External Feeds
+  - Lifecycles
+  - Script Modules
+  - Step Templates
+  - Variable Sets
+  - Tenant Tags
+  - Packages
 - Server Configuration
-    - Teams
-    - User Roles
+  - Teams
+  - User Roles
 - Tenants
 - Project Groups
-    - Projects
-        - Deployment Process
-        - Runbooks and Runbook Processes            
-        - Variables
-        - Channels
-        - Settings
+  - Projects
+    - Deployment Process
+    - Runbooks and Runbook Processes
+    - Variables
+    - Channels
+    - Settings
 
 ### Matching by name
 
-Each instance will have different database identifiers.  For example, Project "OctoFx" in the source instance can have an id of `Projects-1234` while the destination instance's project id is `Projects-7789`.  That means all data matching between instances must be by name.   
+Each instance will have different database identifiers.  For example, Project "OctoFx" in the source instance can have an id of `Projects-1234` while the destination instance's project id is `Projects-7789`.  That means all data matching between instances must be by name.
 
 What makes that complex is that items such as lifecycles, environments, accounts, etc., are referred to by id in projects, deployment process steps, and more.  For example, a project has a default lifecycle.  When syncing any project, the process will need to:
 
@@ -169,7 +172,7 @@ What makes that complex is that items such as lifecycles, environments, accounts
 2. Translate the lifecycle name to the lifecycle id on the destination instance.
 3. Update the project's default lifecycle id before saving it on the destination instance.
 
-That complexity is further exacerbated by the fact that some data is required, for example, a project's default lifecycle, while other data is not, for example, a step scoped to an environment. 
+That complexity is further exacerbated by the fact that some data is required, for example, a project's default lifecycle, while other data is not, for example, a step scoped to an environment.
 
 ### Data that must be an exact match
 
@@ -186,41 +189,42 @@ Most of the data referenced by your deployment and runbook processes have to exi
 The data that must exist but can have different details is:
 
 - Infrastructure
-    - Accounts: Same account type, different credentials           
-    - Worker Pools: Different workers
-    - Machine Policies: Different health check frequency, tentacle, and calamari update settings
+  - Accounts: Same account type, different credentials
+  - Worker Pools: Different workers
+  - Machine Policies: Different health check frequency, tentacle, and calamari update settings
 - Library
-    - Certificates: same certificate type, different cert
-    - External Feeds: same feed type, different credentials
-    - Lifecycles: different phases and retention policies
+  - Certificates: same certificate type, different cert
+  - External Feeds: same feed type, different credentials
+  - Lifecycles: different phases and retention policies
 - Server Configuration
-    - Teams: user role mapping, different members
+  - Teams: user role mapping, different members
 - Project Groups: You don't have to sync all the projects in a project group; only the project group has to exist.
 
-Variables can be used instead of directly referencing that data in a deployment or runbook process.  The deployment process will work as long as the variable exists, is of the correct type, and is assigned to something that exists on the destination instance.  For example, a variable named `Project.AWS.Account` refers to an account called `Dev/Test Account` on the source instance.  That same variable can refer to the `Staging/Prod Account` on the destination instance. 
+Variables can be used instead of directly referencing that data in a deployment or runbook process.  The deployment process will work as long as the variable exists, is of the correct type, and is assigned to something that exists on the destination instance.  For example, a variable named `Project.AWS.Account` refers to an account called `Dev/Test Account` on the source instance.  That same variable can refer to the `Staging/Prod Account` on the destination instance.
 
 Items that can be variables are:
+
 - Infrastructure
-    - Accounts
-    - Worker Pools
+  - Accounts
+  - Worker Pools
 - Library
-    - Certificates
+  - Certificates
 
 ### Data not to sync
 
 The astute reader will note that the above list of data items is not ALL the data stored in Octopus Deploy.  It is possible to sync the following data, though we recommend against it.  
 
 - Infrastructure
-    - Deployment Targets
-    - Workers
-    - Machine Proxies
+  - Deployment Targets
+  - Workers
+  - Machine Proxies
 - System Configuration
-    - System Settings (server folders, SMTP, etc.)
-    - External Auth Providers
-    - Issue Trackers
-    - Users
-    - Subscriptions
-    - System Level Teams
+  - System Settings (server folders, SMTP, etc.)
+  - External Auth Providers
+  - Issue Trackers
+  - Users
+  - Subscriptions
+  - System Level Teams
 
 One of the primary reasons for having separate instances is to isolate deployment targets and workers.  Besides, each tentacle would have to be configured to trust all the instances.
 
@@ -238,23 +242,23 @@ Packages size can be substantial; we've seen some that are 1 GB+ in size.  Synci
 The Octopus Deploy REST API is powerful, but it has intentional limits put in place for security and auditability.  Namely, it doesn't return sensitive information or allow you to modify audit history.  Because of that, you cannot sync:
 
 - Sensitive Data
-    - Sensitive Variables
-    - External Feed Credentials
-    - User Passwords
-    - Infrastructure Account Credentials
+  - Sensitive Variables
+  - External Feed Credentials
+  - User Passwords
+  - Infrastructure Account Credentials
 - Audit Data
-    - Releases
-    - Runbook Snapshots
-    - Deployments
-    - Runbook Runs
-    - Audit history
-    - Task history
+  - Releases
+  - Runbook Snapshots
+  - Deployments
+  - Runbook Runs
+  - Audit history
+  - Task history
 
 For sensitive data, decrypting and returning that data via the API has never been built into Octopus Deploy.  We have considered it, but there are several security concerns, and we'd want to ensure they were all met or mitigated before adding such functionality.
 
 For auditability, Octopus Deploy prevents the updating of any auditable / snapshot data as well as limiting how that data is created.  For example, the release endpoint accepts a `POST` command.  In addition to creating a release, the variables, package versions, and deployment process is snapshotted using data as it exists at that point in time.  That prevents the ability to sync a release created six months ago via the Octopus Deploy REST API.  If you did, it wouldn't use the variables and deployment process from six months ago; it would use the variables and deployment process as it exists right now on the destination instance.
 
-A deployment, and runbook run, have the same limitation.  Issuing a `POST` command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to sync _did not happen_ on the destination instance, only the source instance.  Not only that, the associated releases and runbook snapshots will have different variable values and deployment processes.  
+A deployment, and runbook run, have the same limitation.  Issuing a `POST` command to those endpoints will trigger a deployment or a runbook run.  You cannot copy the task history, artifacts, or task logs via the Octopus Deploy REST API.  That is because that deployment or runbook run you are attempting to sync *did not happen* on the destination instance, only the source instance.  Not only that, the associated releases and runbook snapshots will have different variable values and deployment processes.  
 
 What this comes back to is auditability.  If that data can be modified by any outside process then it is not auditable.
 
@@ -263,43 +267,43 @@ What this comes back to is auditability.  If that data can be modified by any ou
 In our experience, it is far easier to group data by type and sync them all together.  For example, sync all the Project Groups before syncing Projects.  That requires an order of precedence in syncing due to data dependencies.  That order of precedence is:
 
 - No Dependencies, can be done in any order
-    - Environments
-    - Project Groups
-    - Tenant Tags
-    - External Feeds
-    - Teams (exclude any scoped permissions on creation)
-    - Machine Policies
-    - Worker Pools (not workers)
+  - Environments
+  - Project Groups
+  - Tenant Tags
+  - External Feeds
+  - Teams (exclude any scoped permissions on creation)
+  - Machine Policies
+  - Worker Pools (not workers)
 - Dependencies, order matters
-    - Infrastructure Accounts
-    - Step Templates
-    - Script Modules
-    - Lifecycles
-    - Tenants (Tenant name only)
-    - Workers
-    - Targets
-    - Certificates
-    - Variable Sets
-    - Projects
-        - Project Settings
-        - Channels (no channel version rules)
-        - Deployment Process
-        - Runbooks and Runbook Processes
-        - Variables
-        - Channel Version Rules
-        - Release Version Strategy
-        - Built-in package repository trigger
-        - Logo
-    - Tenants
-        - Tenant / Project relationship 
-        - Variables
-    - Team Permissions
+  - Infrastructure Accounts
+  - Step Templates
+  - Script Modules
+  - Lifecycles
+  - Tenants (Tenant name only)
+  - Workers
+  - Targets
+  - Certificates
+  - Variable Sets
+  - Projects
+    - Project Settings
+    - Channels (no channel version rules)
+    - Deployment Process
+    - Runbooks and Runbook Processes
+    - Variables
+    - Channel Version Rules
+    - Release Version Strategy
+    - Built-in package repository trigger
+    - Logo
+  - Tenants
+    - Tenant / Project relationship
+    - Variables
+  - Team Permissions
 
 ### Keep a log of data to clean-up
 
 The syncing process will encounter data it can't sync precisely because of a limitation, for example, a sensitive variable.  The variable name must exist on both the source and destination instances because it is referenced by the Deployment or Runbook process.  But the value will be different.  If the sensitive variable name doesn't exist on the destination instance, it should create the variable but insert dummy data.  When that occurs, a log entry should be written to know that data needs to be clean-up once the syncing process is complete.
 
-**Please Note:** The syncing process should only do that only for new data.  Any existing data where it can't match and sync exactly should be left alone.  For example, if the sensitive variable already exists on the destination instance. 
+**Please Note:** The syncing process should only do that only for new data.  Any existing data where it can't match and sync exactly should be left alone.  For example, if the sensitive variable already exists on the destination instance.
 
 ### Log everything
 
@@ -307,27 +311,27 @@ Log everything, from API calls, before and after logic gates, to lookups.  There
 
 ## Handling different environments
 
-There is a ripple effect when the source and destination instance have different environments.  These are the three possible use cases for instances with different environments.    
+There is a ripple effect when the source and destination instance have different environments.  These are the three possible use cases for instances with different environments.
 
 - The destination instance has a subset of environments of the source instance.  For example, **Dev/Test/Staging/Production** on the source instance and **Staging/Production** on the destination.  
 - The destination and source instance has a different set of environments.  For example, **Dev/Test** on the source instance and **Staging/Production** on the destination.
-- It is a combo of both use cases.  For example, **Dev/Test/Staging** on the source and **Staging/Production** on the destination. 
+- It is a combo of both use cases.  For example, **Dev/Test/Staging** on the source and **Staging/Production** on the destination.
 
 One or more environments are excluded from the syncing process in all those use cases.  Consider all the data that can reference an environment:
 
 - Infrastructure
-    - Accounts
-    - Deployment Targets    
+  - Accounts
+  - Deployment Targets
 - Library
-    - Certificates
-    - Lifecycles
-    - Variable Sets
+  - Certificates
+  - Lifecycles
+  - Variable Sets
 - Tenants
 - Projects
-    - Channels
-    - Deployment Process Steps
-    - Runbook Process Steps
-    - Variables
+  - Channels
+  - Deployment Process Steps
+  - Runbook Process Steps
+  - Variables
 
 ### Lifecycles and Channels
 
@@ -342,8 +346,8 @@ The project to be synced also has two channels on the source instance:
 
 - Default channel
 - QA channel
-    - A manual intervention step is scoped to only run on the QA channel.
-    - A variable value is scoped to the QA channel.
+  - A manual intervention step is scoped to only run on the QA channel.
+  - A variable value is scoped to the QA channel.
 
 The destination instance has **Staging** and **Production**.
 
@@ -355,6 +359,7 @@ It makes sense to include the Default lifecycle and channel and exclude the QA l
 ### Tenants
 
 In Octopus Deploy, a Tenant is tied to both a Project and 1 to N Environments.  There are two data items to consider when mixing tenants and environments:
+
 - Not all tenants should be synced between instances.  It is common to have a different list of tenants on each instance.  There could be some overlap (typically with test tenants) or no overlap.  
 - The environments a tenant is scoped to for a project affect the Tenant Variables to copy over.
 
@@ -376,7 +381,8 @@ A common use for environments is to scope them to steps in Deployment and Runboo
 Both Accounts and Certificates are referenced by variables in either projects or variable sets.  They can be scoped to environments directly or by environment variable scoping.  
 
 Best practices recommend different AWS, GCP, and Azure accounts per environment or instance.  For example, an AWS account for **Non-Production** workloads and another account for **Production**.
-- Certificates can either be a wildcard, for example, `*.octopusdemos.app`, or tied to a specific domain and subdomain, for example, `mail.octopusdemos.app`.  We typically see either a different domain per environment, `testoctopusdemos.app` and `octopusdemos.app` or different subdomains, `test.octopusdemos.app` and `octopusdemos.app`.   
+
+- Certificates can either be a wildcard, for example, `*.octopusdemos.app`, or tied to a specific domain and subdomain, for example, `mail.octopusdemos.app`.  We typically see either a different domain per environment, `testoctopusdemos.app` and `octopusdemos.app` or different subdomains, `test.octopusdemos.app` and `octopusdemos.app`.
 
 In most cases, it doesn't make much sense to sync Accounts and Certificates.  But the variables referencing the Accounts and Certificates are used in Deployment and Runbook processes.  You have a few options:
 
@@ -384,32 +390,33 @@ In most cases, it doesn't make much sense to sync Accounts and Certificates.  Bu
 - Re-use the same variable name but associate it to different Accounts or Certificates.  The syncing process will only create new variables and insert dummy data.
 
 ### Variable scoping
+
 Syncing variables between instances with different environments is very complex due to scoping and variable types.
 
 For all the examples below, the source instance has **Development** and **Test** while the destination instance has **Staging** and **Production**.  The source instance has the following variables.
 
-| Variable Name             | Value        | Scope       |
-| ------------------------- | ------------ | ----------- |
-| Application.Database.Name | `OctoFx-Dev `  | Development |
-|  | `OctoFX-Test`  | Test        |
-| ConnectionString          | `Database=#{Application.Database.Name}` | |
+| Variable Name             | Value                                   | Scope       |
+| ------------------------- | --------------------------------------- | ----------- |
+| Application.Database.Name | `OctoFx-Dev`                            | Development |
+|                           | `OctoFX-Test`                           | Test        |
+| ConnectionString          | `Database=#{Application.Database.Name}` |             |
 
 Syncing `ConnectionString` as-is to the destination instance makes sense as it has no scoping.  You'll need to sync over the variable `Application.Database.Name` as `ConnectionString` references it.  But what about the values?  Those values are tied to environments that do not exist on the destination instance.  
 
 There are a couple of options.  Clone the variable values as-is with no environment scoping and then change the values after the sync.  That is useful when the destination instance has unique values per environment.  The initial sync would look like this:
 
-| Variable Name             | Value        | Scope       |
-| ------------------------- | ------------ | ----------- |
-| Application.Database.Name | `OctoFx-Dev`   | |
-|  | `OctoFX-Test`  |         |
-| ConnectionString          | `Database=#{Application.Database.Name}` | |
+| Variable Name             | Value                                   | Scope |
+| ------------------------- | --------------------------------------- | ----- |
+| Application.Database.Name | `OctoFx-Dev`                            |       |
+|                           | `OctoFX-Test`                           |       |
+| ConnectionString          | `Database=#{Application.Database.Name}` |       |
 
 The downside to the above option is knowing the values to clean up.  Another option is to copy the variable name with text indicating that it needed replacing and exclude any scoping.  The initial sync would look like this:
 
-| Variable Name             | Value        | Scope       |
-| ------------------------- | ------------ | ----------- |
-| Application.Database.Name | `Replace Me`   | |
-| ConnectionString          | `Database=#{Application.Database.Name}` | |
+| Variable Name             | Value                                   | Scope |
+| ------------------------- | --------------------------------------- | ----- |
+| Application.Database.Name | `Replace Me`                            |       |
+| ConnectionString          | `Database=#{Application.Database.Name}` |       |
 
 That only covers the initial sync.  Recurring syncs will add additional challenges, as there will be a combination of:
 
@@ -429,23 +436,23 @@ The syncing process will need to compare the variable lists and determine the st
 - Deployment Targets
 - Tenant Tags
 
-Some of those items, Tenant Tags, Roles, Process Owner, will be _exactly_ alike between instances.  While other items, Environments, Channels, Deployment Process Steps, Deployment Targets, will be different.  
+Some of those items, Tenant Tags, Roles, Process Owner, will be *exactly* alike between instances.  While other items, Environments, Channels, Deployment Process Steps, Deployment Targets, will be different.  
 
 For example, the variables on the source instance were changed from:
 
-| Variable Name             | Value        | Scope       |
-| ------------------------- | ------------ | ----------- |
-| Application.Database.Name | `OctoFx-Dev`   | Development |
-|  | `OctoFX-Test`  | Test        |
-| ConnectionString          | `Database=#{Application.Database.Name}` | |
+| Variable Name             | Value                                   | Scope       |
+| ------------------------- | --------------------------------------- | ----------- |
+| Application.Database.Name | `OctoFx-Dev`                            | Development |
+|                           | `OctoFX-Test`                           | Test        |
+| ConnectionString          | `Database=#{Application.Database.Name}` |             |
 
 To this:
 
-| Variable Name             | Value        | Scope       |
-| ------------------------- | ------------ | ----------- |
-| Application.Database.Name | `OctoFx-#{Octopus.Environment.Name}`   | |
-| ConnectionString          | `Database=#{Application.Database.Name}` | SQL-Server (role) |
-|           | `Data Source=#{Application.Database.Name}` | Oracle (role) |
+| Variable Name             | Value                                      | Scope             |
+| ------------------------- | ------------------------------------------ | ----------------- |
+| Application.Database.Name | `OctoFx-#{Octopus.Environment.Name}`       |                   |
+| ConnectionString          | `Database=#{Application.Database.Name}`    | SQL-Server (role) |
+|                           | `Data Source=#{Application.Database.Name}` | Oracle (role)     |
 
 The desired result on the destination instance will be:
 
@@ -457,19 +464,19 @@ Variable syncing is so complex because the rules for each project and variable s
 
 - Should you ever overwrite values on the destination instance?
 - How to handle scoping mismatches.
-    - Options
-        - Skip the variable unless the scoping is an exact match.  For example, a variable on Dev/Test is scoped to the role `OctoFX-Web`; any variables with the same name would be ignored unless it is also scoped to `OctoFX-Web`.
-        - Skip the variable unless the scoping is a partial match.  For example, a variable is scoped to **Staging** and **Production** on a source instance with **Dev/Test/Staging/Prod**.  The destination instance only has **Production**.  Include the variable value because it is scope to one of the environments.
-        - Ignore mismatch.  Clone the value regardless of the scoping.
-        - Ignore mismatch on new but leave existing alone.  If the variable is new, ignore the mismatch; otherwise, leave everything as is.
-    - Potential Scoping Mismatches
-        - Environments: guaranteed to be different.
-        - Channels: will most likely be different.
-        - Process Owners: will be the same (unless runbooks are not synced).
-        - Deployment Process Steps: will most likely be the same (depends on the rules for syncing the deployment process)
-        - Roles: will be the same.
-        - Deployment Targets: guaranteed to be different.
-        - Tenant Tags: will most likely be the same.
+  - Options
+    - Skip the variable unless the scoping is an exact match.  For example, a variable on Dev/Test is scoped to the role `OctoFX-Web`; any variables with the same name would be ignored unless it is also scoped to `OctoFX-Web`.
+    - Skip the variable unless the scoping is a partial match.  For example, a variable is scoped to **Staging** and **Production** on a source instance with **Dev/Test/Staging/Prod**.  The destination instance only has **Production**.  Include the variable value because it is scope to one of the environments.
+    - Ignore mismatch.  Clone the value regardless of the scoping.
+    - Ignore mismatch on new but leave existing alone.  If the variable is new, ignore the mismatch; otherwise, leave everything as is.
+  - Potential Scoping Mismatches
+    - Environments: guaranteed to be different.
+    - Channels: will most likely be different.
+    - Process Owners: will be the same (unless runbooks are not synced).
+    - Deployment Process Steps: will most likely be the same (depends on the rules for syncing the deployment process)
+    - Roles: will be the same.
+    - Deployment Targets: guaranteed to be different.
+    - Tenant Tags: will most likely be the same.
 
 ## Handling different Tenants
 
@@ -489,7 +496,7 @@ The one thing to watch out for is that it is possible to scope variables to spec
 
 ### Accounts and Certificates
 
-Both Accounts and Certificates are referenced by variables in either projects or variable sets.  It is common to have different Accounts and Certificates per Tenant. 
+Both Accounts and Certificates are referenced by variables in either projects or variable sets.  It is common to have different Accounts and Certificates per Tenant.
 
 In most cases, it doesn't make much sense to sync Accounts and Certificates.  But the variables referencing the Accounts and Certificates are used in Deployment and Runbook processes.  In this case, the best option is to re-use the same variable name but associate it with different Accounts or Certificates.
 

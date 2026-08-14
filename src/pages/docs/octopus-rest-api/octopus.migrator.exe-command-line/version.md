@@ -8,9 +8,9 @@ description: Shows the version information for this release of the Octopus Migra
 
 Shows the version information for this release of the Octopus Migrator
 
-**version options**
+## version options
 
-```
+```text
 Usage: octopus.migrator version [<options>]
 
 Where [<options>] is any of:
@@ -22,4 +22,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-

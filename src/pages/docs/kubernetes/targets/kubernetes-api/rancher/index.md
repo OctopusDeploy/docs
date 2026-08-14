@@ -19,6 +19,7 @@ Before you can add your Rancher managed cluster, you must first create a means o
 1. We recommend adding a description so you know what this key will be used for, then click **Create**.
 
 After you click create, you will be shown the API Key information:
+
 - Access Key (username): Used for Username/Password accounts in Octopus Deploy.
 - Secret Key (password): Used for Username/Password accounts in Octopus Deploy.
 - Bearer Token: Used for Token accounts in Octopus Deploy.
@@ -50,7 +51,6 @@ Use one of the methods Rancher provided you with, *Username and Password* or *To
 1. Click **ADD ACCOUNT**.
 1. Select which account type you want to create.
 1. Enter the values for your selection, then click **SAVE**.
-
 
 ## Connecting a Rancher Kubernetes Deployment Target
 

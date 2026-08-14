@@ -9,23 +9,25 @@ navOrder: 10
 ---
 
 ## Azure Service Principal account
-Command: **_New-OctopusAzureServicePrincipalAccount_**
 
-_**New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Service Principal account in Octopus from within a running deployment_
+Command: ***New-OctopusAzureServicePrincipalAccount***
 
-| Parameters                    | Value                                                                                                      |
-|-------------------------------|------------------------------------------------------------------------------------------------------------|
-| `-name`                       | Name for the Azure Service Principal account                                                             |
-| `-azureSubscription`          | GUID Id of the Azure Subscription                                                                          |
-| `-azureApplicationId`         | GUID Id of the Microsoft Entra ID Application                                                                           |
-| `-azureTenantId`              | GUID Id of the Microsoft Entra ID Tenant                                                                             |
-| `-azurePassword`              | Microsoft Entra ID Password                                                                                          |
-| `-azureEnvironment`           | Azure Environment Identifier,  see [Azure Environment Options](#azure-environment-options) below           |
-| `-azureBaseUri`               | Azure Base Login URI, see [Azure Environment Options](#azure-environment-options) below                    |
-| `-azureResourceManagementUri` | Azure Resource Management URI,  see [Azure Environment Options](#azure-environment-options) below          |
-| `-updateIfExisting`           | Will update an existing account with the same name, create if it doesn't exist |
+***New-OctopusAzureServicePrincipalAccount** allows you to create an Azure Service Principal account in Octopus from within a running deployment*
+
+| Parameters                    | Value                                                                                             |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- |
+| `-name`                       | Name for the Azure Service Principal account                                                      |
+| `-azureSubscription`          | GUID Id of the Azure Subscription                                                                 |
+| `-azureApplicationId`         | GUID Id of the Microsoft Entra ID Application                                                     |
+| `-azureTenantId`              | GUID Id of the Microsoft Entra ID Tenant                                                          |
+| `-azurePassword`              | Microsoft Entra ID Password                                                                       |
+| `-azureEnvironment`           | Azure Environment Identifier,  see [Azure Environment Options](#azure-environment-options) below  |
+| `-azureBaseUri`               | Azure Base Login URI, see [Azure Environment Options](#azure-environment-options) below           |
+| `-azureResourceManagementUri` | Azure Resource Management URI,  see [Azure Environment Options](#azure-environment-options) below |
+| `-updateIfExisting`           | Will update an existing account with the same name, create if it doesn't exist                    |
 
 Example:
+
 ```powershell
 # Targeting the Azure Global Cloud
 New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
@@ -49,11 +51,13 @@ New-OctopusAzureServicePrincipalAccount -name "My Azure Account" `
 ### Azure environment options
 
 The valid options for `-azureEnvironment` are available via the following command:
+
 ```powershell
 Get-AzureRmEnvironment | Select-Object -Property Name,ActiveDirectoryAuthority,ResourceManagerUrl
 ```
 
 Valid Azure cloud names are:
+
 - AzureChina
 - AzureCloud
 - AzureGermanCloud

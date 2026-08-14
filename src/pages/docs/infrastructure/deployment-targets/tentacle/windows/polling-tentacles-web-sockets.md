@@ -36,7 +36,7 @@ An SSL certificate must be configured for the chosen address and port (the path 
 
 Once selected the Octopus Server can be configured to listen on that prefix using the following commands:
 
-```
+```text
 .\Octopus.Server.exe service --instance OctopusServer --stop
 .\Octopus.Server.exe configure --instance OctopusServer --commsListenWebSocket https://+:443/OctopusComms
 .\Octopus.Server.exe service --instance OctopusServer --start
@@ -76,6 +76,7 @@ To change an existing Tentacle to poll using WebSockets, run the following comma
 ```
 
 ### High Availability
+
 When issuing the `poll-server` command to add additional nodes to poll, omit the `--server-comms-port` parameter and specify the `--server-web-socket <address>` parameter. For example:
 
 ```powershell
@@ -83,8 +84,9 @@ poll-server --instance MyInstance --server "https://example.com/"  --server-web-
 ```
 
 ## Certificate
+
 Windows will need to be configured with a SSL certificate on the selected address and port. Usually this is done by the other application sharing the port.
-The certificate does _not_ need have a valid chain of trust to a certificate authority. Therefore, [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
+The certificate does *not* need have a valid chain of trust to a certificate authority. Therefore, [Self signed certificates](https://octopus.com/blog/why-self-signed-certificates) can be used. The certificate also does not need to match the hostname.
 It does need to be installed into the Personal certificate store of the Machine account.
 
 The easiest way to get the SSL certificate set up is to configure [Octopus to use HTTPS](/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https) on that address and port.
@@ -104,4 +106,5 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=966857B08601B9ACA9A9F10E7D469
 For more details instructions, see Microsoft's [certificate HowTo](https://msdn.microsoft.com/en-us/library/ms733791(v=vs.110).aspx).
 
 ## Thumbprints
+
 Unlike other Tentacle configurations, the Tentacle must be configured to trust the thumbprint of the SSL certificate and not the thumbprint Octopus uses for other methods of Tentacle communication. This is due to HTTP.sys performing the certificate exchange (not the Octopus Server) and then delegating the connection. Both the Tentacle and server still verify the certificate thumbprint match the trusted thumbprint.

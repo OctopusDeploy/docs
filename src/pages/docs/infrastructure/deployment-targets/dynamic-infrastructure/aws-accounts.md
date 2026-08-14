@@ -8,9 +8,10 @@ navOrder: 10
 ---
 
 ## AWS account
-Command: **_New-OctopusAwsAccount_**
 
-_**New-OctopusAwsAccount** allows you to create an AWS account in Octopus from within a running deployment_
+Command: ***New-OctopusAwsAccount***
+
+***New-OctopusAwsAccount** allows you to create an AWS account in Octopus from within a running deployment*
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -20,9 +21,10 @@ _**New-OctopusAwsAccount** allows you to create an AWS account in Octopus from w
 | `-updateIfExisting`           | Will update an existing account with the same name, create if it doesn't exist                             |
 
 Example:
+
 ```powershell
 New-OctopusAwsAccount -name "My AWS Account" `
-                      -secretKey "7U4MhdfjgcAk9niwPgXD81pTYY+fIvVsN3m" `
+                      -secretKey "YOUR-SECRET-KEY" `
                       -accessKey "AKIAVY29QTUTKPJC3R5K" `
                       -updateIfExisting
 ```

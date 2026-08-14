@@ -16,7 +16,7 @@ Generate a report of deployment steps that were skipped to identify conditional 
 
 ## 📝 Prompt
 
-```
+```text
 List all skipped steps in the last 30 deployments
 ```
 

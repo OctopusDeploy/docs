@@ -19,8 +19,8 @@ Out-of-the-box, Octopus provides built-in steps to deploy to the following Azure
 - [Executing PowerShell scripts using the Azure cmdlets](/docs/deployments/custom-scripts/azure-powershell-scripts/). Follow our guide on [running Azure PowerShell scripts](/docs/deployments/azure/running-azure-powershell).
 - The one you are looking for is not here? [Share your product feedback](https://roadmap.octopus.com/submit-idea) to let us know how we can help you have happy deployments.
 
-
 With [runbooks](/docs/runbooks), Octopus provides built-in steps to help manage your infrastructure in Azure:
+
 - [Resource Group Templates](/docs/runbooks/runbook-examples/azure/resource-groups).
 
 :::div{.hint}

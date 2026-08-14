@@ -8,9 +8,9 @@ description: Using the Tentacle.exe command line executable to delete an instanc
 
 Deletes an instance of the Tentacle service.
 
-**Delete instance options**
+## Delete instance options
 
-```
+```text
 Usage: tentacle delete-instance [<options>]
 
 Where [<options>] is any of:
@@ -27,6 +27,6 @@ Or one of the common options:
 
 This example deletes the Tentacle instance `MyNewInstance`:
 
-```
+```text
 tentacle delete-instance --instance="MyNewInstance"
 ```

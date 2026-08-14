@@ -16,10 +16,10 @@ Lifecycles contain 1 to N phases, representing a stage in your deployment lifecy
 
 ## Manually set your phases
 
-A lifecycle with no phases will result in Octopus calculating the phases automatically for you containing all environments.  The order of the phases is dependent on the order of the environments on the environment page.    
+A lifecycle with no phases will result in Octopus calculating the phases automatically for you containing all environments.  The order of the phases is dependent on the order of the environments on the environment page.
 
 :::div{.hint}
-Every space has a default lifecycle without any phases.  We do this to make it easy to get started with a proof of concept.   
+Every space has a default lifecycle without any phases.  We do this to make it easy to get started with a proof of concept.
 :::
 
 We recommend manually configuring the phases in your lifecycles, including the default lifecycle.  
@@ -39,7 +39,7 @@ Suppose you have the typical set of environments, **development**, **test** (or 
 
 Two lifecycles allow you to have your standard workflow, where all the feature branch work goes to **development** and **test**.  Once the work is finished and merged into main, the code goes directly to **staging** and then **production**.
 
-We **_never_** recommend having a lifecycle with only **production**.  Any deployment to **production** must deploy to at least one other environment to verify the fix.  Skipping straight to **production**, especially during an emergency, will make a bad situation worse.
+We ***never*** recommend having a lifecycle with only **production**.  Any deployment to **production** must deploy to at least one other environment to verify the fix.  Skipping straight to **production**, especially during an emergency, will make a bad situation worse.
 
 :::div{.hint}
 A lifecycle with a single phase is an anti-pattern. We typically see this when users strictly adhere to the [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branching strategy. If you create a new build, that build should be deployed to at least one environment to ensure it will work in **production**.  
@@ -61,7 +61,7 @@ The ITSM integration is limited to customers on the new Enterprise license tier.
 
 If you cannot leverage ITSM integration, we recommend two approaches to **production** approvals.  These are listed in order of precedence.
 
-1.  Restrict who can deploy to **production** to your operations or systems admins.  Ensure they cannot make changes to the deployment process.  When they click the deploy button, that is their "approval" to deploy to **production**.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.  
+1. Restrict who can deploy to **production** to your operations or systems admins.  Ensure they cannot make changes to the deployment process.  When they click the deploy button, that is their "approval" to deploy to **production**.  See [common RBAC scenarios](/docs/getting-started/best-practices/users-roles-and-teams) on how to set that up.  
 2. Add a **prod approval** environment to your lifecycle.  An example lifecycle with a **prod approval** environment is **development ➜ test ➜ staging ➜ prod approval ➜ production**.
 
 The **prod approval** environment has all the manual intervention steps required for approval.  After the release is "deployed" to the **prod approval** environment, it can then be scheduled for a **production** deployment.  No manual intervention steps will be required in **production** as all approvals happened earlier.

@@ -34,7 +34,7 @@ This applies to:
 
 This functionality requires the Azure CLI version 2.0 or above to be installed on the worker.
 
-**Choosing the right Azure account type**
+## Choosing the right Azure account type
 
 Azure supports two authentication methods, each of which provides access to a different set of Azure APIs:
 
@@ -59,10 +59,10 @@ To use your own version of the Azure CLI or Azure PowerShell cmdlets when using 
 Octopus Deploy provides a *Run an Azure PowerShell Script* step type, for executing PowerShell in the context of an Azure Subscription. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 :::figure
-![](/docs/img/deployments/azure/running-azure-powershell/5865912.png)
+![The Run an Azure PowerShell Script step](/docs/img/deployments/azure/running-azure-powershell/5865912.png)
 :::
 
-![](/docs/img/deployments/azure/running-azure-powershell/azure-new-powershell-script-step.png)
+![Adding a new Run an Azure PowerShell Script step](/docs/img/deployments/azure/running-azure-powershell/azure-new-powershell-script-step.png)
 
 ## Learn more
 

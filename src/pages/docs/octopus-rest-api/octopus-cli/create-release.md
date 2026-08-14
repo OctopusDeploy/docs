@@ -11,7 +11,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to automate th
 
 This command creates a release, and optionally deploy it to one or more environments:
 
-```
+```text
 Creates (and, optionally, deploys) a release.
 
 Usage: octo create-release [<options>]
@@ -189,7 +189,7 @@ Common options:
 
 ## Basic Examples
 
-This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting: 
+This creates a new release of the *HelloWorld* project using the latest available NuGet packages for each step in the project. The version number of the release will be the highest version according to the [Release Versioning](/docs/releases/release-versioning) project setting:
 
 ```bash
 octo create-release --project HelloWorld --server https://your-octopus-url --apiKey API-YOUR-KEY
@@ -219,7 +219,7 @@ For each step that has a package, the version is determined in the following ord
 
  1. The step name matches a `--package` parameter or a file filename found by `--packagesFolder`.
  1. The package id matches a `--package` parameter or a file found by `--packagesFolder`.
- 1. The value from the ` --defaultpackageversion` or `--packageversion` parameter.
+ 1. The value from the `--defaultpackageversion` or `--packageversion` parameter.
 
  If there are duplicate names/ids resulting from the `--package` and `--packagesFolder` parameters, the last one specified is used.
 
@@ -247,7 +247,7 @@ octo create-release --project HelloWorld --version 1.0.3 --package StepA:1.0.1 -
 
 The example above uses `1.0.1` for `StepA`, and the latest version available at the moment for `StepB`.
 
-For steps which have multiple packages (e.g. _Run a Script_ steps can [reference multiple packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages
+For steps which have multiple packages (e.g. *Run a Script* steps can [reference multiple packages](/docs/deployments/custom-scripts/run-a-script-step/#referencing-packages
 )), the format `StepName:PackageName:Version` can also be used:  
 
 ```bash
@@ -280,7 +280,7 @@ If the `--deployTo` parameter is specified and the [lifecycle](/docs/releases/li
 ## Release notes supported syntax
 
 We use [Showdown](https://github.com/showdownjs/showdown) to render release notes on the dashboard.
-Showdown supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax.
+Showdown supports the common markdown syntax as well as a rich set of extras such as tables and task lists. For the full list see <https://github.com/showdownjs/showdown/wiki/Showdown's-Markdown-syntax>.
 
 ## Learn more
 

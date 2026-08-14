@@ -8,6 +8,7 @@ navOrder: 30
 ---
 
 Octopus integrates with GitHub issues. The integration includes the ability to:
+
 - Automatically add links to GitHub issues from releases and deployments in Octopus.
 - Retrieve release notes from GitHub for automatic release note generation.
 
@@ -32,11 +33,12 @@ Octopus integrates with GitHub issues. The integration includes the ability to:
 
 The ability to push the build information to Octopus, which is required for GitHub integration, is currently only available in the official Octopus plugins:
 
- - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
- - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
- - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/)
- - [GitHub Actions](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+- [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
+- [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
+- [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
+- [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/)
+- [GitHub Actions](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+
 ## Configuring GitHub integration
 
 The following steps explain how to integrate Octopus with GitHub issues:  
@@ -54,7 +56,6 @@ To supply the commit messages:
 
 2. Update your build process to add and configure the [Octopus Build Information step](/docs/packaging-applications/build-servers/build-information/#build-information-step).
 
-
 ## Connect Octopus to GitHub {#connect-octopus-to-github}
 
 1. Configure the GitHub extension.
@@ -62,7 +63,7 @@ To supply the commit messages:
     In the Octopus Web Portal, navigate to **Configuration ➜ Settings ➜ GitHub Issue Tracker** and set the
     **GitHub Base URL**. This is required when resolving issue references that cross repository boundaries. For example, you might have a commit message with the following content:
 
-    ```
+    ```text
     Fix bug with X
 
     Resolves MyOrg/SomeOtherRepo#1234
@@ -74,7 +75,7 @@ To supply the commit messages:
 
 2. Configure the Release Note Options (optional).
 
-    - **Username/password**: Set these values to allow Octopus to connect to GitHub and retrieve issue (work item) details from _private repositories_ when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
+    - **Username/password**: Set these values to allow Octopus to connect to GitHub and retrieve issue (work item) details from *private repositories* when viewing packages or creating releases. If these are not provided, just the raw work item references will be used as the work item link descriptions. If they are provided the work item's title will be used as the work item link's description.
 
     The password should be a personal access token, rather than an actual password. You can create a token in your GitHub account settings in the 'Developer settings' area.
 
@@ -92,4 +93,4 @@ The Octopus extension looks for these same keywords, and ignores issue reference
 
 ## Learn more
 
- - [Build information](/docs/packaging-applications/build-servers/build-information).
+- [Build information](/docs/packaging-applications/build-servers/build-information).

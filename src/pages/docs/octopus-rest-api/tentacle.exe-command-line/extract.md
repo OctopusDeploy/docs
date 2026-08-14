@@ -8,9 +8,9 @@ description: Extracts a NuGet package
 
 Extracts a NuGet package.
 
-**extract options**
+## extract options
 
-```
+```text
 Usage: tentacle extract [<options>]
 
 Where [<options>] is any of:
@@ -29,11 +29,12 @@ This example extracts a package file to a destination directory:
 
 Windows:
 
-```
+```text
 tentacle extract --package="c:\temp\OctoFX.Web.1.0.20181.124538.nupkg" --destination="c:\temp\octofx"
 ```
+
 Linux:
 
-```
+```text
 tentacle extract --package="/tmp/OctoFX.Web.1.0.20181.124538.nupkg" --destination="/tmp/octofx"
 ```

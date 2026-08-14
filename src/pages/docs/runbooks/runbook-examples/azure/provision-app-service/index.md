@@ -7,11 +7,12 @@ description: Provision an Azure App Service using a runbook
 navOrder: 20
 ---
 
-One of the most convenient aspects of Platform as a Service (PaaS) is the ability to spin up and tear down resources quickly.  This ability can be used for a number of different reasons: feature branching, testing, cost savings, etc... 
+One of the most convenient aspects of Platform as a Service (PaaS) is the ability to spin up and tear down resources quickly.  This ability can be used for a number of different reasons: feature branching, testing, cost savings, etc...
 
 You can use runbooks in Octopus to spin up resources in Azure.
 
 To provision an Azure App Service, there are a couple of things that need to be in place:
+
 - Resource group
 - App Service Plan
 
@@ -41,10 +42,11 @@ if ((az group exists --name $resourceGroupName) -eq $false)
     az group create --location $resourceGroupLocation --name $resourceGroupName --tags "Space=#{Octopus.Space.Name}" "Environment=Space"
 }
 ```
-6. Add a **Deploy an Azure Resource Manager Template** step.
-7. Add the template code (example below):
 
-```
+1. Add a **Deploy an Azure Resource Manager Template** step.
+2. Add the template code (example below):
+
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -94,9 +96,10 @@ if ((az group exists --name $resourceGroupName) -eq $false)
     ]
 }
 ```
+
 Fill in the parameters from the template:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | name | Name of the App Service Plan | ASP-#{Octopus.Space.Name} |
 | location | The region the service plan will be in | centralus |
@@ -108,9 +111,10 @@ Fill in the parameters from the template:
 
 With the Resource Group and App Service Plan created, you can create an Azure Web App target.
 
-8. Add a **Deploy an Azure Resource Manager Template** step.
-9. Add the template code (example below):
-```
+1. Add a **Deploy an Azure Resource Manager Template** step.
+2. Add the template code (example below):
+
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -173,9 +177,10 @@ With the Resource Group and App Service Plan created, you can create an Azure We
     ]
 }
 ```
+
 Fill in the parameters from the template:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | name | Name of the web app | OctPetShop-Web |
 | location | Region of the web app | centralus |
@@ -184,9 +189,9 @@ Fill in the parameters from the template:
 | alwaysOn | Whether you want to configure Always On | false |
 | currentStack | Name of the stack to use | dotnetcore |
 | phpVersion | Version of PHP | OFF |
-| errorLink | Uri of the error link | https://s-octopetshop.scm.azurewebsites.net/detectors?type=tools&name=eventviewer |
+| errorLink | Uri of the error link | <https://s-octopetshop.scm.azurewebsites.net/detectors?type=tools&name=eventviewer> |
 
-10. Add a **Run a script** step to register the Azure Web App as a target:
+ 1. Add a **Run a script** step to register the Azure Web App as a target:
 
 ```powershell
 # Define parameters
@@ -205,7 +210,7 @@ $machinePolicy = (Invoke-RestMethod -Method Get -Uri "$baseUrl/api/$spaceId/mach
 
 # Build JSON payload
 $jsonPayload = @{
-	Id = $null
+ Id = $null
     MachinePolicyId = $machinePolicy.Id
     Name = $name
     IsDisabled = $false
@@ -214,7 +219,7 @@ $jsonPayload = @{
     StatusSummary = $null
     IsInProcess = $true
     EndPoint = @{
-    	Id = $null
+     Id = $null
         CommunicationStyle = "AzureWebApp"
         Links = $null
         AccountId = $azureAccount
@@ -224,10 +229,10 @@ $jsonPayload = @{
     Links = $null
     TenantedDeploymentParticipation = "Untenanted"
     Roles = @(
-    	"OctoPetShop-Web"
+     "OctoPetShop-Web"
     )
     EnvironmentIds = @(
-    	$environmentId
+     $environmentId
     )
     TenantIds = @()
     TenantTags = @()
@@ -236,7 +241,8 @@ $jsonPayload = @{
 # Register the target to Octopus Deploy
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/$spaceId/machines" -Headers @{"X-Octopus-ApiKey"="$apiKey"} -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
-11. Add another **Run a script** step to force a health check:
+
+ 1. Add another **Run a script** step to force a health check:
 
 ```powershell
 # Define parameters
@@ -252,12 +258,12 @@ $machine = (Invoke-RestMethod -Method Get -Uri "$baseUrl/api/$spaceId/machines/a
 
 # Build payload
 $jsonPayload = @{
-	Name = "Health"
+ Name = "Health"
     Description = "Check $spaceName-$environmentName health"
     Arguments = @{
-    	Timeout = "00:05:00"
+     Timeout = "00:05:00"
         MachineIds = @(
-        	$machine.Id
+         $machine.Id
         )
     OnlyTestConnection = "false"
     }

@@ -11,7 +11,7 @@ navOrder: 2
 By default, Octopus will use a 100-year, self-signed certificate for Octopus - Tentacle communication. It is unlikely you will need to follow this process outside of extenuating circumstances. If you are looking to update your SSL certificate for the Octopus web portal, please see [Updating the SSL Certificate of an existing web portal binding](https://octopus.com/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https#updating-the-ssl-certificate-of-an-existing-web-portal-binding). If in doubt, please reach out our [support team](https://octopus.com/support).
 :::
 
-Octopus uses self-signed certificates to securely communicate between Tentacles and the Octopus Server. Prior to Octopus 3.14, the certificates were SHA1, and following the [shattered](https://octopus.com/blog/shattered) exploit, the certificate generation was upgraded to SHA256. 
+Octopus uses self-signed certificates to securely communicate between Tentacles and the Octopus Server. Prior to Octopus 3.14, the certificates were SHA1, and following the [shattered](https://octopus.com/blog/shattered) exploit, the certificate generation was upgraded to SHA256.
 
 This guide walks through the process of regenerating certificates to use the new algorithm. This is useful for upgrading from SHA1 to SHA256 and for rotating certificates.
 
@@ -28,11 +28,11 @@ It's important to consider the impact of updating an existing Octopus Server or 
 
 At a high level, changing the certificate on an Octopus Server involves the following steps:
 
-* Backup your existing certificate.
-* Generate a new certificate to a file.
-* Make the Tentacles trust the new certificate.
-* Replace the certificate on the Octopus Server.
-* Remove the old trusted certificate from the Tentacles.
+- Backup your existing certificate.
+- Generate a new certificate to a file.
+- Make the Tentacles trust the new certificate.
+- Replace the certificate on the Octopus Server.
+- Remove the old trusted certificate from the Tentacles.
 
 :::div{.hint}
 At present, this process is more manual than we would prefer, but we aim to improve it over time.
@@ -59,7 +59,7 @@ Octopus.Server.exe export-certificate --instance OctopusServer --export-pfx="C:\
 
 This will display output similar to the following:
 
-```
+```text
 Checking the Octopus Master Key has been configured.
 ...
 Exporting certificate...
@@ -69,10 +69,10 @@ The certificate has been written to C:\PathToCertificate\oldcert.pfx.
 Save this certificate and the specified password somewhere secure.
 
 :::div{.hint}
-If you see a warning message about `The X509 certificate CN=Octopus Portal was loaded but the private key was not loaded.`, you are most likely not running with elevated permissions. 
+If you see a warning message about `The X509 certificate CN=Octopus Portal was loaded but the private key was not loaded.`, you are most likely not running with elevated permissions.
 :::
 
-2. Execute the following statement at the command line on the same server:
+1. Execute the following statement at the command line on the same server:
 
 <details data-group="regenerate-certificate-export-pfx">
 <summary>Windows</summary>
@@ -93,7 +93,7 @@ Octopus.Server.exe new-certificate --instance OctopusServer --export-pfx="C:\Pat
 
 This will display output similar to the following:
 
-```
+```text
 Checking the Octopus Master Key has been configured.
 ...
 Generating certificate...
@@ -106,7 +106,7 @@ The new certificate has been written to C:\PathToCertificate\newcert.pfx.
 
 Take note of the new certificate's thumbprint (`1234567890123456789012345678901234567890` in the output above). We will use this thumbprint when we update the Tentacles to trust the new certificate.
 
-3. The next step is to update all Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command line.
+1. The next step is to update all Tentacles to trust the new certificate. At present, this functionality is not exposed in the UI; it has to be done via the command line.
 
 On each Tentacle machine, execute the following command to trust the thumbprint of the newly-created certificate in the directory that the Tentacle agent is installed (Defaults: `C:\Program Files\OctopusDeploy\Tentacle\` and `/opt/octopus/tentacle/`):
 
@@ -124,8 +124,10 @@ Tentacle.exe configure --trust="1234567890123456789012345678901234567890"
 ```powershell
 Tentacle.exe update-trust --oldThumbprint "1111111111111111111111111111111111111111" --newThumbprint "1234567890123456789012345678901234567890"
 ```
+
 This will display output similar to the following:
-```
+
+```text
 Updating Octopus servers thumbprint from 1111111111111111111111111111111111111111 to 1234567890123456789012345678901234567890
 Finding existing Octopus Server registrations trusting the thumbprint 1111111111111111111111111111111111111111 and updating them to trust the thumbprint 1234567890123456789012345678901234567890:
 Updating polling tentacle https://your.octopus.app:10943/ 1111111111111111111111111111111111111111 - changing to trust 1234567890123456789012345678901234567890
@@ -141,7 +143,8 @@ These changes require a restart of the Tentacle.
 ```
 
 This will display output similar to the following:
-```
+
+```text
 Adding 1 trusted Octopus Servers
 These changes require a restart of the Tentacle.
 ```
@@ -155,15 +158,17 @@ These changes require a restart of the Tentacle.
 ```
 
 This will display output similar to the following:
-```
+
+```text
 Updating Octopus servers thumbprint from 1111111111111111111111111111111111111111 to 1234567890123456789012345678901234567890
 Finding existing Octopus Server registrations trusting the thumbprint 1111111111111111111111111111111111111111 and updating them to trust the thumbprint 1234567890123456789012345678901234567890:
 Updating polling tentacle https://your.octopus.app:10943/ 1111111111111111111111111111111111111111 - changing to trust 1234567890123456789012345678901234567890
 These changes require a restart of the Tentacle.
 ```
+
 </details>
 
-You will need to restart each Tentacle at this point: 
+You will need to restart each Tentacle at this point:
 
 <details data-group="regenerate-certificate-restart-tentacle">
 <summary>Windows</summary>
@@ -182,7 +187,7 @@ tentacle.exe service --restart
 
 </details>
 
-4. Now that the Tentacles all trust the new certificate, we can update the Octopus Server certificate to the new one we created earlier. In the command prompt on the Octopus Server run:
+1. Now that the Tentacles all trust the new certificate, we can update the Octopus Server certificate to the new one we created earlier. In the command prompt on the Octopus Server run:
 
 <details data-group="regenerate-certificate-update-server">
 <summary>Windows</summary>
@@ -205,7 +210,7 @@ Octopus.Server.exe service --instance OctopusServer --restart
 
 This will display something like the following:
 
-```
+```text
 Importing the certificate stored in PFX file in C:\PathToCertificate\newcert.pfx using the provided password...
 Checking the Octopus Master Key has been configured.
 ...
@@ -214,9 +219,9 @@ Certificate imported successfully.
 These changes require a restart of the Octopus Server.
 ```
 
-5. Run a healthcheck on the associated Tentacles and confirm they are all healthy.
+1. Run a healthcheck on the associated Tentacles and confirm they are all healthy.
 
-6. Now we are trusting the new certificate, we can now stop the Listening Tentacles trusting the old certificate. On each of the Listening Tentacle machines run:
+2. Now we are trusting the new certificate, we can now stop the Listening Tentacles trusting the old certificate. On each of the Listening Tentacle machines run:
 
 <details data-group="regenerate-certificate-remove-trust">
 <summary>Windows</summary>
@@ -237,9 +242,9 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --instance Tentacle
 
 </details>
 
-7. Run a health check, and confirm all Tentacles are healthy.
+1. Run a health check, and confirm all Tentacles are healthy.
 
-8. Confirm on the **Configuration ➜ Thumbprint** page that the new certificate is using the `sha256` algorithm.
+2. Confirm on the **Configuration ➜ Thumbprint** page that the new certificate is using the `sha256` algorithm.
 
 ## Configuring a Tentacle to use a new certificate {#ConfiguringATentacleToUseANewCertificate}
 
@@ -264,4 +269,4 @@ C:\Program Files\OctopusDeploy\Tentacle\Tentacle.exe service --restart
 
 </details>
 
-2. After this is generated on the Tentacle, it can be updated on the Octopus Server. Navigate to **Infrastructure ➜ Deployment Targets** and update the Thumbprint for the updated target.
+1. After this is generated on the Tentacle, it can be updated on the Octopus Server. Navigate to **Infrastructure ➜ Deployment Targets** and update the Thumbprint for the updated target.

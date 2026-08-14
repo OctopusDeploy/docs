@@ -20,9 +20,9 @@ The fields that Octopus logs for each request cannot currently be changed. It wi
 #Version: 1.0
 #Date: 2015-08-10 00:25:21
 #Fields: date time cs-method cs-uri-stem s-port cs-username c-ip sc-status time-taken
-2015-08-10	00:25:21	GET	/api/dashboard	8065	-		::1	503	46
-2015-08-10	00:25:22	GET	/api			8065	admin	::1	200	365
-2015-08-10	00:25:23	GET	/api/users/me	8065	admin	::1	200	67
+2015-08-10 00:25:21 GET /api/dashboard 8065 -  ::1 503 46
+2015-08-10 00:25:22 GET /api   8065 admin ::1 200 365
+2015-08-10 00:25:23 GET /api/users/me 8065 admin ::1 200 67
 ```
 
 Octopus writes to a new log file each day, and keeps up to 7 files. Older logs are automatically deleted.
@@ -55,27 +55,27 @@ For exploratory analysis of the logs to look for performance issues or trends, t
 3. Click the button to configure the logs folder to look at.
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/performance/images/3278330.png)
+![Configuring the logs folder in Log Parser Studio](/docs/img/administration/managing-infrastructure/performance/images/3278330.png)
 :::
 
-4. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension. 
+1. By default, Octopus logs are written to `C:\Octopus\Server\Logs\`, and have the `*.log` extension.
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/performance/images/3278331.png)
+![The Octopus logs folder set to C:\Octopus\Server\Logs](/docs/img/administration/managing-infrastructure/performance/images/3278331.png)
 :::
 
-5. The Library tab shows a list of sample scripts that will help you get started. Scroll down to the IIS section - these queries are a good starting point:
+1. The Library tab shows a list of sample scripts that will help you get started. Scroll down to the IIS section - these queries are a good starting point:
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/performance/images/3278332.png)
+![The IIS section of the Log Parser Studio sample script library](/docs/img/administration/managing-infrastructure/performance/images/3278332.png)
 :::
 
-6. Double-click a view to open it, for example, the *IIS: Top 25 Slow URLs* view. You can then modify the query, or simply execute it.
+1. Double-click a view to open it, for example, the *IIS: Top 25 Slow URLs* view. You can then modify the query, or simply execute it.
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/performance/images/3278333.png)
+![The IIS: Top 25 Slow URLs query open for editing](/docs/img/administration/managing-infrastructure/performance/images/3278333.png)
 :::
 
-7. Executing the query will display the results in a grid:
+1. Executing the query will display the results in a grid:
 
-![](/docs/img/administration/managing-infrastructure/performance/images/3278334.png)
+![Query results displayed in a grid](/docs/img/administration/managing-infrastructure/performance/images/3278334.png)

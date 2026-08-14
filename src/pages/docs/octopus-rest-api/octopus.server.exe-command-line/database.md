@@ -9,9 +9,9 @@ navOrder: 40
 
 Use the database command to create or drop the Octopus database.
 
-**Database options**
+## Database options
 
-```
+```text
 Usage: octopus.server database [<options>]
 
 Where [<options>] is any of:
@@ -47,7 +47,7 @@ Or one of the common options:
 
 This example creates a new database for the `MyNewInstance` instance.  This example expects the database for instance `MyNewInstance` not to exist. If it does, it will say it already exists and won't do anything:
 
-```
+```text
 octopus.server database --create --instance="MyNewInstance"
 ```
 
@@ -66,7 +66,8 @@ This example creates a new database for the `MyInstance` instance using a suppli
     ```bash
     DVNbYEHJ9hmmH7YsVfLJQw==
     ```
+
 2. Use the database command with the `--masterKey` parameter, replacing `<MASTER_KEY>` with your generated value:
 
-    ```
+    ```text
     octopus.server database --create --instance="MyInstance" --connectionString "<DB_CONN_STRING>" --masterKey "<MASTER_KEY>"

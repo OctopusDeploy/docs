@@ -27,11 +27,11 @@ The Docker Registries you configure need to be accessed by both the Octopus Serv
 The Octopus Server will contact your registry to obtain information on available images while designing and maintaining your projects. During deployment the `docker pull` command will be executed on the deployment targets themselves and they will pull the Images directly from the Docker Registry.
 
 ## Docker registry API version discovery {#version-discovery}
-When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click _Save and Test_ once you have entered the registry details to allow the version detection to take place and confirm that your credentials are correct.
+
+When you add your Docker Registry as a feed in Octopus Deploy, Octopus will attempt to detect and connect using the appropriate version based on specifications outlined in the relevant Docker API documentation. If your registry does not support the API correctly, it is possible that the connection will not be able to take place. We advise you to click *Save and Test* once you have entered the registry details to allow the version detection to take place and confirm that your credentials are correct.
 
 According to the Docker API documentation, the [version 1](https://docs.docker.com/v1.6/reference/api/registry_api/) API should have a `/_ping` endpoint which will respond with a `X-Docker-Registry-Version` HTTP header in the response.
 Similarly, the [version 2](https://docs.docker.com/registry/spec/api/) API expects a `Docker-Distribution-API-Version` HTTP header with a value of `registry/2.0`. Both of these endpoints are expected to be located at an absolute path of either `/v1` or `/v2` from the host.
-
 
 :::div{.success}
 **Accessing Docker registries from different security zones**
@@ -43,13 +43,13 @@ It is possible that the URI to the Docker Registry will be different for the Oct
 Docker images with the same name are grouped together and referred to (in Docker terminology) as a **repository**. This is very similar to how Octopus, and other package managers like NuGet, treat Packages with the same Name or ID. When you configure a Docker step in Octopus you choose an Image by its Name, just like you would choose a Package ID for any of the other [supported packages](/docs/packaging-applications/#supported-formats).
 
 :::figure
-![](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865827.png)
+![Docker images with the same name grouped into a repository](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865827.png)
 :::
 
 When you create a release in Octopus, you need to choose the "version" of the Image(s) you want as part of the release. Octopus will load the Tags for the Image(s) and attempt to parse them as an [Octopus Version](https://oc.to/OctopusVersionRegex/).
 
 :::figure
-![](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865828.png)
+![Choosing an image tag as the version when creating a release](/docs/img/packaging-applications/package-repositories/docker-registries/images/5865828.png)
 :::
 
 :::div{.hint}
@@ -68,30 +68,32 @@ docker run -d -p 5000:5000 --name registry registry:2
 This image supports custom storage locations, certificates for HTTPS and authentication. For more details on setting up the registry checkout the [official docs](https://docs.docker.com/registry/deploying/).
 
 ## Other registry options
+
 There are many other options for private registries such as self hosting through [Docker Trusted Registry](https://docs.docker.com/docker-trusted-registry/) or [Artifactory](https://jfrog.com/artifactory/), or using a cloud provider like [Azure](https://azure.microsoft.com/en-au/services/container-registry/), [Cloudsmith](https://www.cloudsmith.com), [AWS](https://aws.amazon.com/ecr/) or [Quay](https://quay.io/).
 
 We have provided further details on setting up a Octopus Feed to the following Docker Registries:
+
 - [Docker Hub](/docs/packaging-applications/package-repositories/guides/container-registries/docker-hub)
 - [Azure Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/azure-container-services)
 - [Amazon EC2 Container Services](/docs/packaging-applications/package-repositories/guides/container-registries/amazon-ec2-container-services)
 - [Cloudsmith](/docs/packaging-applications/package-repositories/guides/cloudsmith-feed)
 
-
 ### Known limitations
+
 In the current version of ProGet (version 4.6.7 (Build 2)), their Docker Registry Feed does not expose the full Docker API and is missing the [_catalog endpoint](https://docs.docker.com/registry/spec/api/#/listing-repositories) which is required to list the available packages for release selection. It has been indicated that this may change in a future release.
 
 Authentication to [GitLab container registries using a GitLab deploy token](https://github.com/OctopusDeploy/Issues/issues/8156) is not supported.
 
-
 Although a search feature is available in the v1 registry API, as of the time of writing there is no built-in search ability in the v2 specifications. There are ongoing discussions around an open [GitHub ticket](https://github.com/docker/distribution/issues/206) in the Docker registry Github repository however there is no clear indication if one will be provided due to changes in the philosophy behind the registry responsibilities. The current workaround, and one that Octopus Deploy uses when a v2 Docker registry is provided, is to retrieve the full catalog via the [/v2/\_catalog](https://docs.docker.com/registry/spec/api/#/listing-repositories) endpoint and search for the required image locally.
 
-## Troubleshooting Registry Connections ##
+## Troubleshooting Registry Connections
+
 If your Octopus Deploy instance is having problems trying to connect with your Docker Registry when running the **Save and Test** operation, it may failing due to reasons outside the control of Octopus Deploy.
 
 Try to connect to your registry directly through the browser from the same machine that Octopus is hosted on. Use the feed url you provided and ensure that either `/v1` or `/v2` is appended to the end of the path depending on what version of the Docker Registry API you are running. If the connection is valid then you should receive a `200` response, possibly receiving a user auth challenge (see API details above under [Docker Registry API version discovery](#version-discovery)). If this does not occur then you may be having issues with your registry or network which you may need to fix before using through Octopus Deploy.
 
 ## Learn more
 
- - Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
- - [Docker blog posts](https://octopus.com/blog/tag/docker/1).
- - [Linux blog posts](https://octopus.com/blog/tag/linux/1).
+- Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
+- [Docker blog posts](https://octopus.com/blog/tag/docker/1).
+- [Linux blog posts](https://octopus.com/blog/tag/linux/1).

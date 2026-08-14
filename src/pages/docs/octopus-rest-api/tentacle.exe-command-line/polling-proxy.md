@@ -8,9 +8,9 @@ description: Using the Tentacle.exe command line executable to configure the HTT
 
 Configure the HTTP proxy used by Polling Tentacles to reach the Octopus Server
 
-**Polling proxy options**
+## Polling proxy options
 
-```
+```text
 Usage: tentacle polling-proxy [<options>]
 
 Where [<options>] is any of:
@@ -36,12 +36,12 @@ Or one of the common options:
 
 This example configures the polling Tentacle to use the default Internet Explorer proxy:
 
-```
+```text
 tentacle polling-proxy --proxyHost="" --proxyEnable="true"
 ```
 
 This example disables the proxy server for the polling Tentacle instance `MyNewInstance`:
 
-```
+```text
 tentacle polling-proxy --proxyEnable="false" --instance="MyNewInstance"
-``` 
+```

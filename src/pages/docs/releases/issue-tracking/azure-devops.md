@@ -33,7 +33,7 @@ Azure work items aren't currently supported unless the `BuildEnvironment` is Azu
 ![Octopus release with Azure DevOps work items](/docs/img/releases/issue-tracking/images/octo-azure-devops-release-details.png)
 :::
 
-4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).  
+1. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).  
 
 :::figure
 ![Octopus deployment with generated release notes](/docs/img/releases/issue-tracking/images/octo-azure-devops-release-notes.png)
@@ -43,10 +43,10 @@ Azure work items aren't currently supported unless the `BuildEnvironment` is Azu
 
 The ability to push the build information to Octopus, which is required for Azure DevOps integration, is currently only available in the official Octopus plugins:
 
- - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
- - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
- - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
- - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
+- [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
+- [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
+- [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
+- [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
 
 ### Deployment updates not supported {#deployment-updates-unsupported}
 
@@ -84,14 +84,14 @@ If you had previously been using the older functionality on the Create Octopus R
 
     - **Azure DevOps Base URL**. This tells Octopus where the Azure DevOps instance is located.
     - **Personal Access Token (PAT)**. Unless the Azure DevOps instance is public, you'll need to supply an access token, created in the Azure DevOps User Settings (under Personal access tokens), with authorization to read scopes `Build` and `Work items`.
-    -  **Release Note Prefix**. This value is *optional*. If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note. This will then be available in the [build information](/docs/packaging-applications/build-servers/build-information) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item. 
-    
+    - **Release Note Prefix**. This value is *optional*. If specified, Octopus will look for a work item comment that starts with the given prefix text and use whatever text appears after the prefix as the release note. This will then be available in the [build information](/docs/packaging-applications/build-servers/build-information) as the work item's description. If no comment is found with the prefix then Octopus will default back to using the title for that work item.
+
         For example, a prefix of `Release note:` can be used to identify a customer friendly work item title vs a technical feature or bug fix title.
 
     :::div{.hint}
     **Multiple Azure DevOps connections:**
     If you need to connect to more than one Azure DevOps organization, repeat this step.
-    
+
     Support for multiple Azure DevOps connections was added in Octopus **2021.3**.
     :::
 
@@ -103,5 +103,4 @@ When configured, this integration will retrieve Azure DevOps work item details a
 
 ## Learn more
 
- - [Build information](/docs/packaging-applications/build-servers/build-information).
-
+- [Build information](/docs/packaging-applications/build-servers/build-information).

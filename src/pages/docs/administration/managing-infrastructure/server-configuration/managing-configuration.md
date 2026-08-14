@@ -26,7 +26,7 @@ Using [Octopus.Client](/docs/octopus-rest-api/octopus.client), each of the confi
 This requires version 15.2.0 or later of the client library.
 :::
 
-### .Net / C#
+### C# and .NET
 
 To access the API from .Net you will need to add a NuGet reference to the [Octopus.Client](https://www.nuget.org/packages/Octopus.Client/) library and to at least one of the above Extensibility libraries.
 

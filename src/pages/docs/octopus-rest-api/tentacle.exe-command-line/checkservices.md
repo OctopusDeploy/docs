@@ -8,9 +8,9 @@ description: Checks the Tentacle instances are running
 
 The checkservices command checks the Octopus Tentacle instances to see if they are running, and start them if they're not. The watchdog command sets up a scheduled task that calls checkservices.
 
-**checkservices options**
+## checkservices options
 
-```
+```text
 Usage: tentacle checkservices [<options>]
 
 Where [<options>] is any of:
@@ -27,6 +27,6 @@ Or one of the common options:
 
 This example checks to see if the `default` instance is running and start it if it's not:
 
-```
+```text
 Tentacle checkservices --instances="default"
 ```

@@ -25,13 +25,13 @@ Naked scripting allows you to transfer and extract your package on remote target
 
 Here is a sample application that will prompt the user to press a key before exiting:
 
-**PressAnyKey.java**
+### PressAnyKey.java
 
 ```java
 public class PressAnyKey {
     public static void main(String[] args) throws java.io.IOException {
         System.out.println("Press any key to continue.");
-	System.in.read();
+ System.in.read();
     }
 }
 ```
@@ -48,8 +48,8 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 javac PressAnyKey.java
 ```
 
-2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
-3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
+1. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
+2. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
 
 ### Step 2: Create the project and deployment process
 
@@ -58,20 +58,20 @@ javac PressAnyKey.java
 3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`.
 4. Configure the step to run a [post-deployment script](/docs/deployments/custom-scripts) to start the application.
 
-**PowerShell**
+#### PowerShell
 
 ```powershell
 Start-Process java PressAnyKey
 ```
 
-**Bash**
+##### Bash
 
 ```bash
 screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
 
 :::figure
-![](/docs/img/deployments/java/5866219.png)
+![The deployment log for a Java application launched in a new process](/docs/img/deployments/java/5866219.png)
 :::
 
 :::div{.hint}

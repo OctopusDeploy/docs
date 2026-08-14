@@ -8,9 +8,9 @@ description: Configure a scheduled task to monitor the Tentacle service(s)
 
 Configure a scheduled task to monitor the Tentacle service(s).
 
-**watchdog options**
+## watchdog options
 
-```
+```text
 Usage: tentacle watchdog [<options>]
 
 Where [<options>] is any of:
@@ -27,7 +27,7 @@ Or one of the common options:
       --help                 Show detailed help for this command
 ```
 
-## Basic examples 
+## Basic examples
 
 :::div{.warning}
 **Windows only**
@@ -36,18 +36,18 @@ These examples apply to Tentacles installed on Windows only.
 
 This example creates the watchdog scheduled task for all instances:
 
-```
+```text
 tentacle watchdog --create --instances=*
 ```
 
 This example creates the workdog scheduled task for instances `default` and `MyNewInstance`:
 
-```
+```text
 tentacle watchdog --create --instances="Default,MyNewInstance"
 ```
 
 This example deletes all watchdog scheduled tasks:
 
-```
+```text
 tentacle watchdog --delete
 ```

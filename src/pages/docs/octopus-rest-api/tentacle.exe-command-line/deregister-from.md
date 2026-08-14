@@ -8,9 +8,9 @@ description: Using the Tentacle.exe command line executable to deregister a depl
 
 Deregisters this deployment target from an Octopus Server.
 
-**Deregister from options**
+## Deregister from options
 
-```
+```text
 Usage: tentacle deregister-from [<options>]
 
 Where [<options>] is any of:
@@ -40,12 +40,12 @@ Or one of the common options:
 
 This example deregisters a Tentacle from the Octopus Server:
 
-```
+```text
 tentacle deregister-from --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 This example deregisters the instance `MyNewInstance` from the space `MyNewSpace`:
 
-```
+```text
 tentacle deregister-from --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --instance="MyNewInstance" --space="MyNewSpace"
 ```

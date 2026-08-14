@@ -16,7 +16,7 @@ Analyze lifecycle definitions and find opportunities to accelerate progression t
 
 ## 📝 Prompt
 
-```
+```text
 Identify ways to speed up lifecycle phases without compromising reliability
 ```
 

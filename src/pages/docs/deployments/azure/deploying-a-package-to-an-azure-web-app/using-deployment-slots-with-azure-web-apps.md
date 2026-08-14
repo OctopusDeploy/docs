@@ -32,12 +32,12 @@ Follow the steps for [Azure Web App targets](/docs/infrastructure/deployment-tar
 Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-powershell) step.
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-powershell-script-step.png)
+![Creating a Run an Azure PowerShell Script step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-powershell-script-step.png)
 :::
 
 Your script should be:
 
-**Azure Service Management**
+#### Azure Service Management
 
 ```powershell
 #Remove the staging slot if it exists
@@ -47,7 +47,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-**Azure Resource Manager**
+##### Azure Resource Manager
 
 ```powershell
 #Remove the staging slot if it exists
@@ -64,7 +64,7 @@ The first line of the script removes the Staging Slot to ensure we are deploying
 So your step should look like:
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-remove-staging-slot-script.png)
+![The script that removes the staging slot](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-remove-staging-slot-script.png)
 :::
 
 ### Step 3: Deploy your package {#UsingDeploymentSlotsWithAzureWebApps-Step2-DeployYourPackage}
@@ -72,21 +72,21 @@ So your step should look like:
 The next step is to deploy your package to the Staging slot.  We do this by creating a [Deploy an Azure Web App](/docs/deployments/azure/deploying-a-package-to-an-azure-web-app) step.
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploy-azure-web-app-step.png)
+![The Deploy an Azure Web App step targeting the Staging slot](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploy-azure-web-app-step.png)
 :::
 
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-selector-with-slot.png)
+![The Azure Web App selector with a deployment slot chosen](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-selector-with-slot.png)
 
 You can enter the name of deployment slot in the **Deployment Slot** field, or to use a variable for the Slot name, click the "Bind" button, and enter
 
-```
+```text
 #{WebAppSlotName}
 ```
 
 As shown below:
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-slot-binding.png)
+![A variable bound to the Deployment Slot field](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-slot-binding.png)
 :::
 
 :::div{.info}
@@ -100,14 +100,14 @@ The final step is to create another Azure PowerShell step to swap the Staging an
 
 Use the PowerShell:
 
-**Azure Service Management**
+#### Azure Service Management
 
 ```powershell
 # Swap the staging slot into production
 Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
 
-**Azure Resource Management**
+## Azure Resource Management
 
 ```powershell
 # Swap the staging slot into production
@@ -117,16 +117,15 @@ Switch-AzureRmWebAppSlot -ResourceGroupName #{ResourceGroup} -Name #{Website} -S
 So your step will appear as:
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-swap-slots-script.png)
+![The script that swaps the staging and production slots](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-swap-slots-script.png)
 :::
 
 At this point you should have a working Blue-Green deployment process for your Azure Web App.
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-with-slots-process.png)
+![The full deployment process for a blue-green Azure Web App deployment](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/azure-web-app-with-slots-process.png)
 :::
 
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

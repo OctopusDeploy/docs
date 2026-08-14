@@ -30,9 +30,11 @@ If you need guidance installing Jenkins for the first time, see the [Jenkins doc
 Plugins are central to expanding Jenkins' functionality, and a number of plugins are may be needed depending on the projects you are building. Before you start, you'll need to ensure the following plugins are installed and enabled.
 
 If you're building a .NET project:
+
 - [MSBuild Plugin](https://plugins.jenkins.io/msbuild/): to compile your Visual Studio solution.
 
 If you're building a Java project:
+
 - [Maven Plugin](https://plugins.jenkins.io/maven-plugin/): to compile your Java project.
 
 Once any of the above plugins are installed, you can then search and install the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
@@ -53,13 +55,14 @@ This is a good time to install the [Octopus CLI](/docs/octopus-rest-api/octopus-
  The [OctopusDeploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli), the Octopus command line tool for creating and deploying releases, such as `/home/your-user-name/.dotnet/tools/dotnet-octo`.
 
 You can do either of these:
-  - Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
-  - [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
+
+- Use the `dotnet tool install` command to install it, the [Octopus CLI Global Tool](/docs/octopus-rest-api/octopus-cli/install-global-tool) this works great on Linux and Windows.
+- [Download Octopus CLI](https://octopus.com/downloads) and extract it to a folder on your Jenkins server, such as `C:\Tools\Octo` or `/usr/local/bin`.
 
 Then we can let the plugin know where it is installed.
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/global-tools-cli-configure.png)
+![Telling the Jenkins plugin where the Octopus CLI is installed](/docs/img/packaging-applications/build-servers/jenkins/images/global-tools-cli-configure.png)
 :::
 
 ### Configure system
@@ -71,7 +74,7 @@ Next, navigate to **Manage Jenkins ➜ Configure System**.
 Here you can create the link to your Octopus Server. You can add more than one if your organization uses multiple servers. This is where you supply an API Key, select a Service Account with suitable permission and see [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) for it.
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/octopusdeploy-servers.png)
+![The Octopus Deploy servers section of the Jenkins configuration](/docs/img/packaging-applications/build-servers/jenkins/images/octopusdeploy-servers.png)
 :::
 
 After the [Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/) is configured, you can configure a Jenkins *Freestyle* or *Pipeline* Project.
@@ -90,6 +93,7 @@ Jenkins uses the MSBuild plugin to compile .NET solutions, the Maven Plugin for 
 ## Add build steps
 
 The Octopus Jenkins plugin comes with these Octopus Build Steps:
+
   1. **Octopus Deploy: Package Application** Create a NuGet or Zip formatted package.
   1. **Octopus Deploy: Push Build Information** Add information about the build, including work items and commit messages, that is then stored in Octopus Deploy.
   1. **Octopus Deploy: Push Packages** Push packages to the Octopus Deploy built-in repository.
@@ -98,7 +102,7 @@ The Octopus Jenkins plugin comes with these Octopus Build Steps:
 
   You can make use of any combination of these to achieve your deployment objective. They are Build Steps so you can have multiple instances of any of the types, it is a Jenkins limitation to have that with post-build actions.
 
- ![](/docs/img/packaging-applications/build-servers/jenkins/images/menu-options.png)
+ ![The Octopus Deploy actions available in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/menu-options.png)
 
 ## Package application \{#package-application}
 
@@ -113,7 +117,7 @@ To see the full set of additional arguments that can be supplied see the [pack d
 [Pack syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#pack)
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/package-application.png)
+![The Package Application action in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/package-application.png)
 :::
 
 This action works well combined with the next action `Push Packages`.
@@ -131,7 +135,7 @@ Note that the package paths defined here should be full paths, not including any
 [Push Package syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#push)
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/push-packages.png)
+![The Push Packages action in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/push-packages.png)
 :::
 
 ## Push build information \{#push-build-information}
@@ -142,16 +146,16 @@ Build information is passed to Octopus as a file using a custom format. The Jenk
 
 The build information is associated with a package and includes:
 
- - Build URL: A link to the build which produced the package.
- - Commits: Details of the source commits related to the build.
- - Issues: Issue references parsed from the commit messages.
+- Build URL: A link to the build which produced the package.
+- Commits: Details of the source commits related to the build.
+- Issues: Issue references parsed from the commit messages.
 
 This allows you to capture all related details and create clear traceability between build and deployment.
 
 [Push Build Information syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#build-information)
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/push-build-information.png)
+![The Push Build Information action in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/push-build-information.png)
 :::
 
 As an example here is what build information looks like when attached to a release:
@@ -163,7 +167,6 @@ As an example here is what build information looks like when attached to a relea
 ## Creating a release \{#create-release}
 
 Jenkins is compiling our code and publishing packages to Octopus Deploy. If we wish, we can also have Jenkins automatically create (and optionally, deploy) a release in Octopus along with other supporting actions.
-
 
 :::div{.success}
 **Octopus CLI more information**
@@ -177,7 +180,7 @@ As an example here, we're relying on the `${BUILD_NUMBER}` value generated by Je
 [Create Release syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#create-release)
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/create-release.png)
+![The Create Release action in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/create-release.png)
 :::
 
 ## Deploying releases \{#deploying-releases}
@@ -187,7 +190,7 @@ You might like to configure Jenkins to not only create a release, but deploy it 
 Alternatively, you can use the `Deploy Release` action if you need to specify more deployment criteria, for example the channel or other required packages.
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/deploy-release.png)
+![The Deploy Release action in Jenkins](/docs/img/packaging-applications/build-servers/jenkins/images/deploy-release.png)
 :::
 
 A successful run looks like this:
@@ -195,7 +198,7 @@ A successful run looks like this:
 [Deploy Release syntax for Pipeline](/docs/packaging-applications/build-servers/jenkins/pipeline/#deploy-release)
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/jenkins/images/random-quotes-successful-run.png)
+![A successful Jenkins run for the Random Quotes project](/docs/img/packaging-applications/build-servers/jenkins/images/random-quotes-successful-run.png)
 :::
 
 :::div{.success}

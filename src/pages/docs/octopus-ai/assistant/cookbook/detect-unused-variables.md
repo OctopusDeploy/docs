@@ -16,7 +16,7 @@ Identify variables that are defined but not used in deployment steps or runbooks
 
 ## 📝 Prompt
 
-```
+```text
 Find and list unused variables across this project
 ```
 

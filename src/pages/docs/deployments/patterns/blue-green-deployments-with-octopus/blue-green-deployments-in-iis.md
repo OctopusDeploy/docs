@@ -29,18 +29,27 @@ Every scenario is slightly different which is why this page is written more as a
 The general steps for this kind of deployment would be:
 
 1. Use a [custom script](/docs/deployments/custom-scripts) step to calculate a new port number so we can configure a binding you can use to warm up the new instance of your application. See this [blog post](https://octopus.com/blog/changing-website-port-on-each-deployment) for more details.
-  * The new port number should end up in a variable like `#{Octopus.Action[Calculate port number].Output.Port}`.
-2. Use the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools) step to deploy a new instance of your web application into a new Web Site and Application Pool.
-  * Use an expression like `MyApp-#{Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name.
-  * Configure a binding to `http://localhost:#{Octopus.Action[Calculate port number].Output.Port}`.
-3. Make sure your new instance is warmed up and completely ready to process requests.
-  * This may involve making some requests to the localhost binding you configured earlier.
-4. Start routing new requests to the new instance.
-  * You might decide to perform on-the-fly reconfiguration of your on-server reverse-proxy (ARR, IIS Web Farm, NGINX, etc).
-  * Alternatively you might configure the on-server reverse-proxy to use health checks to determine which instances are able handle requests.
-5. Use a custom script step to delete the old Web Site and Application Pool.
-  * The name for the previous instance can be calculated by an expression like this: `MyApp-#{Octopus.Release.PreviousForEnvironment.Number}`.
-  * You may want to wait for outstanding web requests to finish processing using something like this: `Get-Item IIS:\AppPools\MyApp-#{Octopus.Release.PreviousForEnvironment.Number} | Get-WebRequest`.
+
+- The new port number should end up in a variable like `#{Octopus.Action[Calculate port number].Output.Port}`.
+
+1. Use the [IIS Websites and Application Pools](/docs/deployments/windows/iis-websites-and-application-pools) step to deploy a new instance of your web application into a new Web Site and Application Pool.
+
+- Use an expression like `MyApp-#{Octopus.Release.CurrentForEnvironment.Number}` for the Web Site Name and Application Pool Name.
+- Configure a binding to `http://localhost:#{Octopus.Action[Calculate port number].Output.Port}`.
+
+1. Make sure your new instance is warmed up and completely ready to process requests.
+
+- This may involve making some requests to the localhost binding you configured earlier.
+
+1. Start routing new requests to the new instance.
+
+- You might decide to perform on-the-fly reconfiguration of your on-server reverse-proxy (ARR, IIS Web Farm, NGINX, etc).
+- Alternatively you might configure the on-server reverse-proxy to use health checks to determine which instances are able handle requests.
+
+1. Use a custom script step to delete the old Web Site and Application Pool.
+
+- The name for the previous instance can be calculated by an expression like this: `MyApp-#{Octopus.Release.PreviousForEnvironment.Number}`.
+- You may want to wait for outstanding web requests to finish processing using something like this: `Get-Item IIS:\AppPools\MyApp-#{Octopus.Release.PreviousForEnvironment.Number} | Get-WebRequest`.
 
 ### Using application request routing (ARR)
 

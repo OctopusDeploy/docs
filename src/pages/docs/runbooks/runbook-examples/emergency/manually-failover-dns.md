@@ -18,7 +18,7 @@ Updating the IP address of a DNS entry is quick and easy, but you are at the mer
 
 Popular IaaS providers such as Azure, AWS, or GCP provide a CLI to make it easy update your DNS record to point to another site with just a couple of commands.
 
-The following example uses the Azure CLI to update the DNS record for www.octopussamples.com
+The following example uses the Azure CLI to update the DNS record for <www.octopussamples.com>
 
 ## Create the runbook
 

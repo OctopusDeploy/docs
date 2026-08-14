@@ -10,7 +10,7 @@ import SamplesInstance from 'src/shared-content/samples/samples-instance.include
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list all machines in your environments.
 
-```
+```text
 Lists all machines.
 
 Usage: octo list-machines [<options>]
@@ -97,25 +97,25 @@ Common options:
 
 This example lists all machines on the instance:
 
-```
+```bash
 octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 
 This example lists all machines that are in the Test environment:
 
-```
+```bash
 octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Test"
 ```
 
 This example lists all machines that are in the Development environment and the Production environment:
 
-```
+```bash
 octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --environment="Production"
 ```
 
 This example lists all machines that need a Calamari upgrade in space [Target - Hybrid](https://samples.octopus.app/app#/Spaces-342):
 
-```
+```bash
 octo list-machines --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --calamari-outdated="true" --space="Target - Hybrid"
 ```
 

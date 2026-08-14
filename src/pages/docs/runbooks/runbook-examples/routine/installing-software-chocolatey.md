@@ -120,14 +120,15 @@ Chocolatey can also be used to install Windows features by leveraging [DISM, or 
 :::div{.hint}
 To find out what features are available to install on the machine, you can run the command:
 
-```
+```text
 Dism /online /Get-Features
 ```
+
 :::
 
 The command to install DISM features through Chocolatey is:
 
-```
+```text
 choco install [Feature Name] /y /source windowsfeatures
 ```
 
@@ -157,7 +158,7 @@ if ([string]::IsNullOrWhiteSpace($dismAppList) -eq $false){
 }
 ```
 
-5. Add a project [variable](/docs/projects/variables) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
+1. Add a project [variable](/docs/projects/variables) called `Project.Chocolatey.DISM.RequiredFeatures` and include the features you wish to install. For example the following variable will install three Windows features:
 
 :::figure
 ![Chocolately DISM variable](/docs/img/runbooks/runbook-examples/routine/images/install-chocolatey-dism-variable.png)

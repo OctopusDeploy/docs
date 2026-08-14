@@ -31,14 +31,16 @@ The scheduled task's name for the above will be **Octopus Watchdog Tentacle**.
 
 :::div{.hint}
 **Tips:**
+
 - By default, the task will be configured to run as the Local System account, but that can be changed using the Windows Task Scheduler.
 - If the watchdog has already been configured, running the command again will reconfigure the instances and interval for the scheduled task.  Any other values that have been changed in Windows Task Scheduler will not be changed.
 
 - To specify only the default instance, use the name **Tentacle**. For example:
 
-```
+```text
 Tentacle.exe watchdog --create --instances Tentacle --interval 10
 ```
+
 :::
 
 ### Cancel the watchdog {#ServiceWatchdog-CancelingTheWatchdog}
@@ -52,6 +54,7 @@ If you have scheduled the watchdog to monitor all instances on a server but you 
 
 - Disable the service for that instance, the watchdog will attempt to start it but will not be able to (which will be reflected in it's log)
 - Edit the watchdog to only check the other instances
+
 :::
 
 ### Recreating the Watchdog {#ServiceWatchdog-RecreatingTheWatchdog}
@@ -79,9 +82,10 @@ The above commands work equally for Octopus Server and Tentacle (by using **Octo
 :::div{.hint}
 To specify only the default instance for server, use the name **OctopusServer**. For example,
 
-```
+```text
 Octopus.Server.exe watchdog --create --instances OctopusServer --interval 10
 ```
+
 :::
 
 ## Installation locations {#ServiceWatchdog-InstallationLocations}

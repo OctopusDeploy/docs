@@ -72,13 +72,13 @@ Octopus Tentacle Specific Registries - Check in each folder for a key with a Dis
 Removing entries from the registry can have serious implications. Please make sure you understand and are comfortable with the potential risks. Remember to always [backup any keys](https://support.microsoft.com/en-us/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) before they are modified. If you have any questions or need assistance, please [contact us](https://octopus.com/support).
 :::
 
-5. Find and delete any Octopus folders from:
+1. Find and delete any Octopus folders from:
    - **`%ProgramData%\Octopus`** - used for storing instance configuration and can be used for log files when a Home Directory cannot be discovered
    - **`%LocalAppData%\Octopus`** - could be used for log files when a Home Directory cannot be discovered
-6. Find and delete any Octopus certificates from the following certificate stores:
+2. Find and delete any Octopus certificates from the following certificate stores:
    - **`Local Computer\Octopus`**
    - **`Current User\Octopus`** - do this for any user accounts that have been used as the account for the Tentacle Windows service
-7. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog) associated with the Tentacle Windows service
+3. Find and delete any [scheduled tasks](/docs/administration/managing-infrastructure/service-watchdog) associated with the Tentacle Windows service
 
 ### Manually removing Tentacle without affecting the deployed applications {#ManuallyuninstallTentacle-ManuallyremovingTentaclewithoutaffectingthedeployedapplications}
 

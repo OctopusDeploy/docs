@@ -15,98 +15,57 @@ The Helm values paths are based on the `v2` version of the Helm chart.
 
 ## octopusdeploy/kubernetes-agent-tentacle
 
-**Default registry**
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-tentacle)
 
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-tentacle)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/OctopusTentacle)
 
-**Source code**
+**Helm values path**: `.agent.image`
 
-[GitHub](https://github.com/OctopusDeploy/OctopusTentacle)
-
-**Helm values path**
-
-`.agent.image`
-
-**Purpose**
-
-The main application container. Provides registration and communication with Octopus Server and manages the script pods.
+**Purpose**: The main application container. Provides registration and communication with Octopus Server and manages the script pods.
 
 ## octopusdeploy/nfs-server
 
-**Default registry**
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/nfs-server)
 
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/nfs-server)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/nfs-server-alpine)
 
-**Source code**
+**Helm values path**: `.persistence.nfs.image`
 
-[GitHub](https://github.com/OctopusDeploy/nfs-server-alpine)
-
-**Helm values path**
-
-`.persistence.nfs.image` 
-
-**Purpose**
-
-A small Alpine-based NFS server. Runs in a separate pod when a custom storage class is not provided.
+**Purpose**: A small Alpine-based NFS server. Runs in a separate pod when a custom storage class is not provided.
 
 ## octopusdeploy/kubernetes-agent-nfs-watchdog
 
-**Default registry**
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-nfs-watchdog)
 
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-nfs-watchdog)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/kubernetes-agent-nfs-watchdog)
 
-**Source code**
+**Helm values path**: `.persistence.nfs.watchdog.image`
 
-[GitHub](https://github.com/OctopusDeploy/kubernetes-agent-nfs-watchdog)
-
-**Helm values path**
-
-`.persistence.nfs.watchdog.image`
-
-**Purpose**
-
-A small application that monitors the health of the NFS mount. Terminates the Tentacle or running script pod if the NFS mount is deemed to be unhealthy. Only runs when the NFS pod is running.
+**Purpose**: A small application that monitors the health of the NFS mount. Terminates the Tentacle or running script pod if the NFS mount is deemed to be unhealthy. Only runs when the NFS pod is running.
 
 ## octopusdeploy/kubernetes-agent-tools-base
 
-**Default registry**
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-tools-base)
 
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/kubernetes-agent-tools-base)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/kubernetes-agent-tools-base)
 
-**Source code**
+**Helm values path**: `.scriptPods.deploymentTarget.image`
 
-[GitHub](https://github.com/OctopusDeploy/kubernetes-agent-tools-base)
-
-**Helm values path**
-
-`.scriptPods.deploymentTarget.image`
-
-**Purpose**
-
-The default image used for deployments when running as a deployment target. If no values are specified, uses the tag that matches the cluster version.  
+**Purpose**: The default image used for deployments when running as a deployment target. If no values are specified, uses the tag that matches the cluster version.
 
 ## octopusdeploy/worker-tools
 
-**Default registry**
+**Default registry**: [Docker Hub](https://hub.docker.com/r/octopusdeploy/worker-tools)
 
-[Docker Hub](https://hub.docker.com/r/octopusdeploy/worker-tools)
+**Source code**: [GitHub](https://github.com/OctopusDeploy/WorkerTools)
 
-**Source code**
+**Helm values path**: `.scriptPods.worker.image`
 
-[GitHub](https://github.com/OctopusDeploy/WorkerTools)
-
-**Helm values path**
-
-`.scriptPods.worker.image`  
-
-**Purpose**
-
-The default image used for workloads when running as a worker.
-
+**Purpose**: The default image used for workloads when running as a worker.
 
 :::div{.hint}
 
-For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom Docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images). 
+For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom Docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images).
 
 ### octopuslabs/k8s-workertools
 

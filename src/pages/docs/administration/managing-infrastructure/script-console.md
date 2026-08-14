@@ -24,10 +24,11 @@ Any machines registered with Octopus as [workers](/docs/infrastructure/workers/)
 The Script Console can be found under the Tasks area:
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/tasks-script-console-button.png)
+![The Script Console button in the Tasks area](/docs/img/administration/managing-infrastructure/images/tasks-script-console-button.png)
 :::
 
 Inside the Script Console, you can choose whether to run your script on:
+
 - One or more individual [deployment targets](/docs/infrastructure/deployment-targets).
 - One or more individual [workers](/docs/infrastructure/workers).
 - All workers in a set of [worker pools](/docs/infrastructure/workers/worker-pools).
@@ -39,19 +40,19 @@ The options shown inside the Script Console may differ from the ones described h
 :::
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/inside-script-console.png)
+![The options available inside the Script Console](/docs/img/administration/managing-infrastructure/images/inside-script-console.png)
 :::
 
 When you run the script, you'll be taken to the task output page which shows the progress and any output from the script:
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/script-console-task-log.png)
+![The task output page showing script progress and output](/docs/img/administration/managing-infrastructure/images/script-console-task-log.png)
 :::
 
 The **Script Body** tab can be used to see the contents of the script, and you can use the **Modify and re-run** button in the ... overflow menu to change or run the script again.
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/script-console-modify-rerun.png)
+![The Modify and re-run button in the overflow menu](/docs/img/administration/managing-infrastructure/images/script-console-modify-rerun.png)
 :::
 
 ## Targeting the Octopus Server
@@ -67,7 +68,8 @@ If you want to run ad-hoc tasks on [Octopus Cloud](/docs/octopus-cloud/), you sh
 ## Script Console permissions
 
 To access the Script Console, you'll need to have either:
-- The `AdministerSystem` permission or 
+
+- The `AdministerSystem` permission or
 - The `TaskCreate` permission assigned to the [Space](/docs/administration/spaces) you're working in.
 
 The permissions needed to execute a task will depend on the options chosen inside the Script Console.
@@ -89,4 +91,4 @@ Sometimes you might like to collect files from each of the machines as part of y
 
 Besides making it easy to run a script on many servers, the other advantage of using the Script Console is auditing. Ad-hoc scripts run via the Script Console will appear in the [Audit](/docs/security/users-and-teams/auditing) tab in the Configuration area.
 
-![](/docs/img/administration/managing-infrastructure/images/script-console-audit.png)
+![A Script Console run recorded in the audit log](/docs/img/administration/managing-infrastructure/images/script-console-audit.png)

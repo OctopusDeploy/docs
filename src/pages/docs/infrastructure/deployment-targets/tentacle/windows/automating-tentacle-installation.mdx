@@ -61,7 +61,7 @@ When configuring your Tentacle, you can configure advanced options, such as [pro
 
 The following example configures a [listening Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#listening-tentacles-recommended), and registers it with an Octopus Server:
 
-**Using Tentacle.exe to create Listening Tentacle instance**
+### Using Tentacle.exe to create Listening Tentacle instance
 
 ```bash
 cd "C:\Program Files\Octopus Deploy\Tentacle"
@@ -78,7 +78,7 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 
 You can also register a Tentacle with the Octopus Server after it has been installed by using Octopus.Client (i.e. register-with could be omitted above and the following could be used after the instance has started.  See below for how to obtain the Tentacle's thumbprint):
 
-**Using Octopus.Client to register a Tentacle in an Octopus Server**
+#### Using Octopus.Client to register a Tentacle in an Octopus Server
 
 ```powershell
 Add-Type -Path 'Newtonsoft.Json.dll'
@@ -112,7 +112,7 @@ Want to register your Tentacles another way? Take a look at our [examples](/docs
 
 The following example configures a [Polling Tentacle](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles), and registers it with an Octopus Server:
 
-**Polling Tentacle**
+### Polling Tentacle
 
 ```bash
 cd "C:\Program Files\Octopus Deploy\Tentacle"
@@ -127,8 +127,10 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 
 :::div{.hint}
 **Tips:**
+
 - If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
 - Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
+
 :::
 
 ## Obtaining the Tentacle thumbprint \{#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
@@ -181,7 +183,7 @@ Tentacles can also be installed via [Desired State Configuration](https://docs.m
 
 The following PowerShell script will install a Tentacle listening on port `10933` against the Octopus Server at `https://YOUR_OCTOPUS`, add it to the `Development` environment and assign the `web-server` and `app-server` target tags:
 
-**DSC Configuration**
+### DSC Configuration
 
 ```powershell
 Configuration SampleConfig
@@ -223,10 +225,10 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
+
 ### Settings and properties
 
 To review the latest available settings and properties, refer to the [OctopusDSC Tentacle readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) in the GitHub repository.
-
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://docs.microsoft.com/en-us/powershell/scripting/dsc/pull-server/pullserver), [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), or even via configuration management tools such as [Chef](https://docs.chef.io/resources/dsc_resource/) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Channel 9 Getting Started with DSC series](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-DSC).
 

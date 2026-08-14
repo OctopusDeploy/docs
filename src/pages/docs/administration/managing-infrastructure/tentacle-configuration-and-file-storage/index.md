@@ -21,7 +21,8 @@ If you need to re-configure your Tentacle instance, you can do that using the Te
 ## File storage {#Tentacleconfigurationandfilestorage-Filestorage}
 
 By default, the Octopus Tentacle stores all files in the following folder:
-- For Windows Tentacles, the default directory is: `C:\Octopus/<Instance>`. 
+
+- For Windows Tentacles, the default directory is: `C:\Octopus/<Instance>`.
 - For Linux Tentacles, the default directory is: `/etc/octopus/<Instance>`
 
 This is known as the Tentacle Home Directory where `<Instance>` is an optional instance name in case you have multiple instances of Tentacle on the same computer. This is where both the Tentacle config file and deployment journal is stored.
@@ -29,19 +30,19 @@ This is known as the Tentacle Home Directory where `<Instance>` is an optional i
 The Octopus Tentacle stores additional files in sub-folders of the home directory:
 
 - `<Tentacle Home>\Tools`
-    - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
+  - This is where the Calamari packages and other tools are installed so Tentacle can execute deployments on your behalf.
 - `<Tentacle Home>\Files`
-    - This is the package cache used to store the most recent packages in case they need to be used again.
+  - This is the package cache used to store the most recent packages in case they need to be used again.
 - `<Tentacle Home>\Logs`
-    - This is where the Tentacle log files are stored.
+  - This is where the Tentacle log files are stored.
 - `<Tentacle Home>\Work`
-    - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
+  - This is the temporary working directory used when Tentacle and Calamari execute deployments on your behalf.
 
 ## Clean up for older Tentacle versions {#cleanup-older-tentacles}
 
 For Octopus Server versions older than **2020.2**, Calamari packages were stored in:
 
-- `<Tentacle Home>\Calamari`. 
+- `<Tentacle Home>\Calamari`.
 
 This folder can be safely removed after upgrading to a newer version.
 

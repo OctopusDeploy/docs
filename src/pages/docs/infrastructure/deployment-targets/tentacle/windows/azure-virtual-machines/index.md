@@ -8,9 +8,9 @@ navOrder: 80
 hideInThisSectionHeader: true
 ---
 
-Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [here](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc).
+Tentacles can be configured during virtual machine provisioning via Desired State Configuration (DSC). The process for integrating DSC with Azure VM provisioning is documented [provisioning via an ARM template with DSC](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc).
 
-An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However, the VM extension has limited functionality, with no support for spaces or workers. 
+An Azure VM extension is also available, and has been tested on Windows 2008R2, Windows 2012, Windows 2012R2 and Windows 2016. However, the VM extension has limited functionality, with no support for spaces or workers.
 
 :::div{.problem}
 
@@ -21,7 +21,7 @@ Support was available for the VM extension until the end of 2020, during which t
 **All customers using the VM extension should migrate to [DSC](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc).**
 :::
 
-**Important Note**
+## Important Note
 
 When using the extension, you should not apply additional configuration to the Tentacle via the Octopus Portal. This will result in the configuration on the Octopus Server being overwritten in certain circumstances (such as an extension upgrade). There needs to be only one "source of truth" for the configuration - the extension.
 

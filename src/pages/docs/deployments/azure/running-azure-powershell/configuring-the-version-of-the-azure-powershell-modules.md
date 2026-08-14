@@ -14,13 +14,13 @@ We recommend you configure Octopus Deploy to use your own version of the Azure P
 
 To determine the versions of the various Azure modules that are present on your worker, add the PowerShell below to an Azure Script Step:
 
-**AzureRM Module Versions**
+## AzureRM Module Versions
 
 ```powershell
 Get-Module -ListAvailable -Name Azure*
 ```
 
-**Az Module Versions**
+### Az Module Versions
 
 ```powershell
 Get-Module -ListAvailable -Name Az*

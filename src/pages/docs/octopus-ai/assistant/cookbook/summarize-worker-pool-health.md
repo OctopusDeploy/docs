@@ -16,7 +16,7 @@ Provide a status overview of worker pools and individual workers, flagging offli
 
 ## 📝 Prompt
 
-```
+```text
 Report on the current health of all worker pools
 ```
 

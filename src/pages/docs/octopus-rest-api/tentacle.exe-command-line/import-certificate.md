@@ -8,9 +8,9 @@ description: Using the Tentacle.exe command line executable to replace the certi
 
 Replace the certificate that Tentacle uses to authenticate itself.
 
-**Import certificate options**
+## Import certificate options
 
-```
+```text
 Usage: tentacle import-certificate [<options>]
 
 Where [<options>] is any of:
@@ -41,11 +41,12 @@ This command will import the first certificate it finds.  If the .pfx file conta
 
 Windows:
 
-```
+```text
 tentacle import-certificate --from-file="c:\temp\MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
 ```
+
 Linux:
 
-```
+```text
 tentacle import-certificate --from-file="/tmp/MyCertificate.pfx" --pfx-password="$uper$ecretP@ssw0rd!"
 ```

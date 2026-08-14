@@ -16,7 +16,7 @@ Examine where and how step templates are being used across projects to identify 
 
 ## 📝 Prompt
 
-```
+```text
 Summarize where each step template is used across all projects
 ```
 

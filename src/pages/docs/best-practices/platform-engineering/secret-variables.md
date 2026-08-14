@@ -111,8 +111,8 @@ Following these rules ensures the Octostache templates defining the default valu
 
 Dedicating an environment to the process of serializing and deploying downstream projects allows the upstream environment to scope sensitive variables such that:
 
-* They are made available when deploying downstream projects
-* They dot no leak into any regular deployment environments
+- They are made available when deploying downstream projects
+- They dot no leak into any regular deployment environments
 
 This documentation and the step templates assumes this environment is called `Sync`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensures any variables scoped to the `Sync` environment do not leak into regular deployments.
 
@@ -122,15 +122,15 @@ Octoterra excludes the `Sync` environment from the variable scopes in exported p
 
 Any sensitive values in the upstream project must have one value assigned to them. For example, if you had a sensitive variable for a database password, and the value was unique per environment, it must be captured as three variables e.g.:
 
-* `Dev.Database.Password` scoped to the `Dev` and `Sync` environments
-* `Test.Database.Password` scoped to the `Test` and `Sync` environments
-* `Production.Database.Password` scoped to the `Production` and `Sync` environments
+- `Dev.Database.Password` scoped to the `Dev` and `Sync` environments
+- `Test.Database.Password` scoped to the `Test` and `Sync` environments
+- `Production.Database.Password` scoped to the `Production` and `Sync` environments
 
 These three variables can then be referenced by a non-sensitive variable scoped to all three environments:
 
-* `Database.Password` set to `#{Dev.Database.Password}` and scoped to the `Dev` environment
-* `Database.Password` set to `#{Test.Database.Password}` and scoped to the `Test` environment
-* `Database.Password` set to `#{Production.Database.Password}` and scoped to the `Production` environment
+- `Database.Password` set to `#{Dev.Database.Password}` and scoped to the `Dev` environment
+- `Database.Password` set to `#{Test.Database.Password}` and scoped to the `Test` environment
+- `Database.Password` set to `#{Production.Database.Password}` and scoped to the `Production` environment
 
 The deployment process can then reference `#{Database.Password}` to receive the environment scoped sensitive variable during deployment.
 
@@ -138,7 +138,7 @@ The deployment process can then reference `#{Database.Password}` to receive the 
 
 All sensitive variables must be available to the `Sync` environment. This means:
 
-* Sensitive variables have no scope
-* Sensitive variables scoped to any environments must also be scoped to the `Sync` environment
+- Sensitive variables have no scope
+- Sensitive variables scoped to any environments must also be scoped to the `Sync` environment
 
 This ensures the steps deploying downstream projects have access to all sensitive variables, and replace the Octostache template syntax in files matching the pattern `project_variable_sensitive*.tf` with the correct value.

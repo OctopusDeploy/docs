@@ -17,7 +17,7 @@ The easiest way to import a database is to restore from a .bak file, and this is
 ![Backup SQL database in SQL Server Management Studio](/docs/img/support/images/sql_server_management_studio_backup_db.png)
 :::
 
-2. Encrypt your Master Key.
+1. Encrypt your Master Key.
 
 :::div{.hint}
 You can get your Master Key using [Octopus Manager](/docs/security/data-encryption#your-master-key) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).
@@ -25,7 +25,7 @@ You can get your Master Key using [Octopus Manager](/docs/security/data-encrypti
 
 We have a PowerShell snippet which will encrypt your Master Key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your Master Key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.
 
-```
+```powershell
 $octopusPublicKey = "MIIDnzCCAwigAwIBAgIJAK5yFHmnxrYxMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJBVTEMMAoGA1UECBMDUUxEMREwDwYDVQQHEwhCcmlzYmFuZTEhMB8GA1UEChMYT2N0b3B1cyBEZXBsb3kgUHR5LiBMdGQuMRcwFQYDVQQDEw5PY3RvcHVzIERlcGxveTEmMCQGCSqGSIb3DQEJARYXaGVsbG9Ab
 2N0b3B1c2RlcGxveS5jb20wHhcNMTQwNzI1MTE0NzI2WhcNMzIxMDA4MTE0NzI2WjCBkjELMAkGA1UEBhMCQVUxDDAKBgNVBAgTA1FMRDERMA8GA1UEBxMIQnJpc2JhbmUxITAfBgNVBAoTGE9jdG9wdXMgRGVwbG95IFB0eS4gTHRkLjEXMBUGA1UEAxMOT2N0b3B1cyBEZXBsb3kxJjAkBgkqhkiG9w0BCQ
 EWF2hlbGxvQG9jdG9wdXNkZXBsb3kuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD532q7wcbDAE65sZn5kdWQEv+yFHTUn9wPXEfPztv1cc/xjLts6zuKcfcRVITyB+n02Rg/VAGpNdZeAIWTtptKLkcdttwf+xoySPF13jc7DSnYabGamRR/hqzn9QcLq87WHIQF8olecpokoTsdBfE6e3idR8
@@ -47,6 +47,6 @@ $message = Encrypt-ForOctopusEyesOnly "YourMasterKey"
 write-host $message
 ```
 
-3. Upload your database backup and encrypted Master Key.
+1. Upload your database backup and encrypted Master Key.
 
 In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup and the encrypted Master Key. Only we have access to view and download these files, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been, to ensure only you and our team can see the link.

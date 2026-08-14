@@ -74,16 +74,15 @@ To make sure Octopus can run the .NET configuration transforms for your Windows 
 3. Double-check the package you build for deployment actually contains the **`YourService.exe.config`** and all expected configuration transform files.
 
 :::figure
-![](/docs/img/projects/steps/configuration-features/configuration-transforms/images/console-support.png)
+![Configuration transform output in the deployment log](/docs/img/projects/steps/configuration-features/configuration-transforms/images/console-support.png)
 :::
-
 
 ## Additional .NET configuration transforms
 
 You might have additional transforms to run outside of Debug, Environment or Release. You can define these in the Additional transforms box. If defined, these transforms will run regardless of the state of the `Automatically run .NET configuration transformation files` check-box.
 
 :::figure
-![](/docs/img/projects/steps/configuration-features/configuration-transforms/images/additional-transforms.png)
+![The Additional transforms box](/docs/img/projects/steps/configuration-features/configuration-transforms/images/additional-transforms.png)
 :::
 
 Octopus supports explicit, wildcard and relative path configuration transform definitions on any XML file with any file extension. Octopus will iterate through all files in all directories (ie, recursively) of your deployed application to find any matching files. Your target file also must exist; it will not be created by Octopus.
@@ -91,7 +90,7 @@ As a general rule, you should not include the path to the files unless the trans
 
 ### Explicit
 
-**Explicit .NET configuration transform**
+#### Explicit .NET configuration transform
 
 ```powershell
 Transform.config => Target.config
@@ -101,7 +100,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 
 ### Relative path
 
-**Relative path .NET configuration transform**
+#### Relative path .NET configuration transform
 
 ```powershell
 Path\Transform.config => Target.config
@@ -115,7 +114,7 @@ Wildcards can be used to select any matching file. For example, **\*.config** wi
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
 
-**Wildcard .NET configuration transform**
+#### Wildcard .NET configuration transform
 
 ```powershell
 *.Transform.config => *.config
@@ -123,7 +122,7 @@ They can be used anywhere in the transform filename (the left side), but only at
 
 The above transform definition will apply **foo.Transform.config** to **foo.config** and **bar.Transform.config** to **bar.config**.
 
-**Wildcard .NET configuration transform**
+##### Wildcard .NET configuration transform
 
 ```powershell
 *.Transform.config => Target.config
@@ -131,7 +130,7 @@ The above transform definition will apply **foo.Transform.config** to **foo.conf
 
 The above transform definition will apply **foo.Transform.config** and **bar.Transform.config** to **Target.config**.
 
-**Wildcard .NET configuration transform**
+###### Wildcard .NET configuration transform
 
 ```powershell
 Transform.config => Path\*.config
@@ -147,7 +146,7 @@ If you would like to define the order of all of your transformations, if you lis
 
 Exceptions that are thrown by the Microsoft .NET configuration transformation process will be treated as errors by Octopus, failing the deployment. This typically involves explicit transformations for elements that don't exist in the source .config file and will surface with errors similar to the below:
 
-```
+```text
 Warning    14:56:06
 (31:18) Argument 'debug' did not match any attributes
 Error    14:56:06

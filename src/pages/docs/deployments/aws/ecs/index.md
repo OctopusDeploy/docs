@@ -16,15 +16,15 @@ The `Deploy Amazon ECS Service` step was added in Octopus **2021.3**. Presently 
 
 At a high level, the `Deploy Amazon ECS Service` step will:
 
-* Select the Docker image tags for the task definition (version selection is performed when creating a release).
-* Build a CloudFormation template with:
-    * A task definition with the details specific to the deployment for the selected environment and Docker image tags.
-    * A service that references the task definition.
-* Perform variable substitution on the CloudFormation template.
-* Deploy a CloudFormation stack with the template.
-* In subsequent deployments, update the deployed CloudFormation stack with an updated task definition.
+- Select the Docker image tags for the task definition (version selection is performed when creating a release).
+- Build a CloudFormation template with:
+  - A task definition with the details specific to the deployment for the selected environment and Docker image tags.
+  - A service that references the task definition.
+- Perform variable substitution on the CloudFormation template.
+- Deploy a CloudFormation stack with the template.
+- In subsequent deployments, update the deployed CloudFormation stack with an updated task definition.
 
-The followed instructions can be used to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI). 
+The followed instructions can be used to configure the `Deploy Amazon ECS Service` step. We have chosen not to document some fields here as they map directly to ECS settings and are well documented in the AWS documentation (a link to the relevant documentation section is typically provided in each fields' notes in the Octopus UI).
 
 ## Step 1: Make a note of your ECS cluster's settings
 
@@ -34,10 +34,10 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
 
 Configuring an ECS service for the first time can be quite intimidating due to a large number of available options. Fortunately, most of them are optional. At a minimum the following settings will need to be configured:
 
-* Name of the ECS cluster
-* Cluster's region
-* Ids of the VPC subnets the service and task will be deployed within
-* Ids of the security groups the service and task will be associated with
+- Name of the ECS cluster
+- Cluster's region
+- Ids of the VPC subnets the service and task will be deployed within
+- Ids of the security groups the service and task will be associated with
 
 ## Step 2: Create a deployment target for your ECS cluster
 
@@ -159,7 +159,7 @@ Specify additional options for the running container, such as `Entry Point`, `Wo
 
 In this section, you can specify mount points for the running container. Mount points can refer to the volumes specified in the **Volumes** section of the ECS step.
 
-For container logging the step can either autoconfigure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs autoconfigured, please ensure that you have specified a Task Execution Role ARN for this step. 
+For container logging the step can either autoconfigure CloudWatch logs, or you can provide logging configuration manually. If you choose to have CloudWatch logs autoconfigured, please ensure that you have specified a Task Execution Role ARN for this step.
 
 :::figure
 ![ECS Step Container Definition Storage and Logging](/docs/img/deployments/aws/ecs/images/ecs-container-storage-and-logging.png)
@@ -257,11 +257,11 @@ In addition, there are several states that a stack can be in where the only way 
 
 The following states are those that require the stack to be deleted before it can be recreated:
 
-* CREATE_FAILED
-* ROLLBACK_COMPLETE
-* ROLLBACK_FAILED
-* DELETE_FAILED
-* UPDATE_ROLLBACK_FAILED
+- CREATE_FAILED
+- ROLLBACK_COMPLETE
+- ROLLBACK_FAILED
+- DELETE_FAILED
+- UPDATE_ROLLBACK_FAILED
 
 The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#w2ab2c15c15c17c11) contains more details on the CloudFormation state states.
 
@@ -275,7 +275,7 @@ If a deployment failure is detected, the step will attempt to extract error mess
 
 ### ECS Deployment Deploy Failed
 
-This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed. 
+This error is raised if the CloudFormation stack is not in one of the expected states after the deployment has completed.
 
 :::div{.hint}
 CloudFormation stack only owns the task definition and the service. Therefore, this failure indicates that either the task definition or service definition themselves has failed to deploy (for example, due to an invalid set of parameters), not the tasks spawned from the service definition.
@@ -284,17 +284,19 @@ CloudFormation stack only owns the task definition and the service. Therefore, t
 We will attempt to retrieve the error message behind the stack's status and any events that have occurred. Please note, that due to the limitations in the AWS SDK, some presented events could be related to previous deployments.
 
 The following states are considered unsuccessful:
-* `UPDATE_ROLLBACK_COMPLETE`
-* `UPDATE_ROLLBACK_FAILED`
-* `ROLLBACK_COMPLETE`
-* `ROLLBACK_FAILED`
-* `DELETE_FAILED`
-* `CREATE_FAILED`
-* `UPDATE_FAILED`
+
+- `UPDATE_ROLLBACK_COMPLETE`
+- `UPDATE_ROLLBACK_FAILED`
+- `ROLLBACK_COMPLETE`
+- `ROLLBACK_FAILED`
+- `DELETE_FAILED`
+- `CREATE_FAILED`
+- `UPDATE_FAILED`
 
 ### ECS Deploy Validation Error
 
 This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The ECS step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
-* Specifying more than 20 tags per task definition.
-* Non-unique tag keys.
-* Bound expressions resolving to empty values when the field is required.
+
+- Specifying more than 20 tags per task definition.
+- Non-unique tag keys.
+- Bound expressions resolving to empty values when the field is required.

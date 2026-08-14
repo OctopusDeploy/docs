@@ -12,7 +12,7 @@ Azure Service Fabric Cluster deployment targets let you reference existing Servi
 ## Requirements
 
 1. The **Service Fabric SDK** must be installed on the Octopus Server. For details, see [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload).
-  If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
+  If this SDK is missing, the step will fail with an error: *"Could not find the Azure Service Fabric SDK on this server."*
 
 2. The **PowerShell script execution** may also need to be enabled. For details see [Enable PowerShell script execution](https://oc.to/ServiceFabricEnableScriptExection).
 
@@ -29,15 +29,15 @@ Once you have a Service Fabric Cluster application setup within your Azure subsc
 To create an Azure Service Fabric Cluster target within Octopus:
 
 - Navigate to **Infrastructure ➜ Deployment Targets ➜ Add Deployment Target**.
-- Select **Azure Service Fabric Cluster** from the list of available targets and click _Next_.
+- Select **Azure Service Fabric Cluster** from the list of available targets and click *Next*.
 - Fill out the necessary fields, being sure to provide a unique target tag that clearly identifies your Azure Service Fabric Cluster target.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/create-azure-service-fabric-cluster-target.png)
+![Creating an Azure Service Fabric Cluster target](/docs/img/infrastructure/deployment-targets/azure/service-fabric-cluster-targets/create-azure-service-fabric-cluster-target.png)
 :::
 
-- After clicking _Save_ your deployment target will be added and a health check task will run to ensure Octopus can connect to the target.
-- If all goes well, you should see your newly created target in your **Deployment Targets** list with a status of _Healthy_.
+- After clicking *Save* your deployment target will be added and a health check task will run to ensure Octopus can connect to the target.
+- If all goes well, you should see your newly created target in your **Deployment Targets** list with a status of *Healthy*.
 
 ## Troubleshooting
 

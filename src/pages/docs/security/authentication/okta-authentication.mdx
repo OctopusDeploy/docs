@@ -31,26 +31,28 @@ After signing up to Okta you will receive your own url to access the Okta portal
 
 1. Select the Applications tab and click the **Create App Integration** button.
 
-   ![](/docs/img/security/authentication/okta/okta-add-app.png)
+   ![The Create App Integration button on the Okta Applications tab](/docs/img/security/authentication/okta/okta-add-app.png)
 
 2. Choose **Web** for the **OIDC - OpenID Connect** for the **Sign-in method** and **Web Application** for the **Application type** and click the **Next** button.
 
-   ![](/docs/img/security/authentication/okta/okta-new-app-integration.png)
+   ![Choosing OIDC and Web Application for the new Okta app integration](/docs/img/security/authentication/okta/okta-new-app-integration.png)
 
 3. Enter an **App integration name** like Octopus Deploy and for the **Sign-in redirect URIs** enter `https://octopus.example.com/api/users/authenticatedToken/Okta` replacing `https://octopus.example.com` with the public URL of your Octopus Server, remove any default **Sign-out redirect URIs** and click the **Save** button.
 
-   ![](/docs/img/security/authentication/okta/okta-create-openid-integration.png)
+   ![The app integration name and sign-in redirect URI](/docs/img/security/authentication/okta/okta-create-openid-integration.png)
 
 :::div{.hint}
 **Tips:**
+
 - **Reply URLs are case-sensitive** - Please take care when adding this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters.
 - **Not using SSL?** - We highly recommend using SSL, but we know its not always possible. You can use `http` if you do not have SSL enabled on your Octopus Server. Please beware of the security implications in accepting a security token over an insecure channel.
 Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration) making it easier to setup SSL on your Octopus Server.
+
 :::
 
-   If you want to allow users to log in directly from Okta then change the **Login initiated by** to _Either Okta or App_, set **Login flow** to _Redirect to app to initiate login_, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
+   If you want to allow users to log in directly from Okta then change the **Login initiated by** to *Either Okta or App*, set **Login flow** to *Redirect to app to initiate login*, and set the **Initiate login URI** to `https://octopus.example.com/#/users/sign-in`.
 
-   ![](/docs/img/security/authentication/okta/okta-initiate-login.png)
+   ![The Okta initiate login settings](/docs/img/security/authentication/okta/okta-initiate-login.png)
 
 :::div{.warning}
 Support for OAuth code flow with PKCE was introduced in **Octopus 2022.2.4498**. If you are using a version older than this you will also need to select the **Implicit (hybrid)** grant type.
@@ -63,12 +65,12 @@ There are two values you will need from the Okta configuration to complete the O
 Select the **Sign On** tab and scroll down to the **OpenID Connect ID Token** section. Take note of the **Issuer** and **Audience** as you will need both these values to configure your Octopus Server.
 
 :::figure
-![](/docs/img/security/authentication/okta/okta-openid-token.png)
+![The OpenID Connect ID Token section showing the Issuer and Audience](/docs/img/security/authentication/okta/okta-openid-token.png)
 :::
 
 #### Okta group integration \{#okta-groups}
 
-If you want Okta groups to flow through to Octopus, you'll need to change the _Groups claim_ fields as follows:
+If you want Okta groups to flow through to Octopus, you'll need to change the *Groups claim* fields as follows:
 
 :::figure
 ![Okta Groups claim](/docs/img/security/authentication/okta/okta-groups-claim-type.png)
@@ -78,16 +80,17 @@ Note that the Regex is ```.*```, the period is important!
 
 #### Active Directory integration
 
-If you want to configure Okta to present your active directory groups, use a similar approach to [Okta group integration](#okta-groups), however we recommend that you use a _Groups claim type_ of **Expression** instead of **Filter**.
+If you want to configure Okta to present your active directory groups, use a similar approach to [Okta group integration](#okta-groups), however we recommend that you use a *Groups claim type* of **Expression** instead of **Filter**.
 
 For example, if you have all of your Octopus groups prefixed with `Octopus.` (e.g. `Octopus.Admins`, `Octopus.Deployers`, etc.) then you could use the following expression to pass along the correct AD groups:
 
-```
+```text
 Groups.startsWith("active_directory", "Octopus.", 10)
 ```
+
 This expression will search `active_directory` for any groups that start with the name `Octopus.` and only return the first 10 results.
 
-> A complete guide to Okta's group expressions are available [here](https://developer.okta.com/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
+> A complete guide to Okta's group expressions are available [Okta's guide to dynamic group claims](https://developer.okta.com/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
 
 ### Assign app
 
@@ -95,7 +98,7 @@ Next you will need to assign your app to people or groups within your Okta direc
 
 1. Select the **Assignments** tab and click the **Assign** button. You can assign your app to people, and to groups.
 
-   ![](/docs/img/security/authentication/okta/okta-assign-app.png)
+   ![Assigning the Okta app to users and groups](/docs/img/security/authentication/okta/okta-assign-app.png)
 
 2. The app may be assigned to **Everyone** by default. If not, to assign the app to all users, you can simply assign the default **Everyone** group to the app, and click **Done**.
 
@@ -133,7 +136,8 @@ The request to Okta from Octopus will need to include the required scopes. See t
 :::
 
 Run the command below as an Administrator to configure the scopes OpenId, Profile, Email, and Groups:
-```
+
+```text
 octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"
 ```
 
@@ -162,7 +166,7 @@ We do our best to log warnings to your Octopus Server log whenever possible. If 
 You can also check Okta logs by clicking the **View Logs** link on the Okta admin portal.
 
 :::figure
-![](/docs/img/security/authentication/okta/okta-view-logs.png)
+![The View Logs link in the Okta admin portal](/docs/img/security/authentication/okta/okta-view-logs.png)
 :::
 
 ### Double- and triple-check your configuration
@@ -191,19 +195,19 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 1. Open the Developer Tools of your browser and enable Network logging making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log". In Firefox this is called "Persist Logs".
 
-   ![](/docs/img/security/authentication/images/5866122.png)
+   ![The Preserve Log option in the browser developer tools network tab](/docs/img/security/authentication/images/5866122.png)
 
 3. Attempt to sign into Octopus using Okta and find the HTTP POST coming back to your Octopus instance from Okta on a route like `/api/users/authenticatedToken/Okta`. You should see an `id_token` field in the HTTP POST body.
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.
 
-   ![](/docs/img/security/authentication/images/5866123.png)
+   ![An Okta id_token decoded at jwt.io](/docs/img/security/authentication/images/5866123.png)
 
 :::div{.hint}
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
 :::
 
-5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
-6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+1. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+2. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
 
 ### Inspect the request to Okta for scope \{#inspect-request}
 
@@ -213,8 +217,6 @@ If your request to Okta does not contain all appropriate scopes inside of it, th
 2. In Chrome Dev Tools this is called "Preserve Log". In Firefox this is called "Persist Logs".
 3. Attempt to sign into Octopus using Okta and find the HTTP GET that is sent to Okta. Inside of this request you will see request scopes.
 
-   ![](/docs/img/security/authentication/images/okta-request-scope.png)
-   
+   ![The scopes included in the sign-in request sent to Okta](/docs/img/security/authentication/images/okta-request-scope.png)
+
 4. Within the URL request, look at the scope section. In the example above, you will see the scope includes **openid, profile, email, and groups**. These are the default scopes Octopus expects. If the scope section of your URL doesn't contain these four scopes, you will need to remediate this by remoting into the Octopus Server and running the following in a command prompt or PowerShell as an Administrator: `octopus.server.exe configure --oktaScope="openid%20profile%20email%20groups"`
-
-

@@ -10,9 +10,9 @@ navOrder: 20
 Octopus Deploy supports deployment of [Azure Service Fabric applications](https://azure.microsoft.com/en-au/services/service-fabric/).
 
 :::div{.hint}
-The [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: _"Could not find the Azure Service Fabric SDK on this server."_
+The [Service Fabric SDK](https://oc.to/ServiceFabricSdkDownload) must be installed on the Octopus Server. If this SDK is missing, the step will fail with an error: *"Could not find the Azure Service Fabric SDK on this server."*
 
-**PowerShell Script Execution** may also need to be enabled. See the _"Enable PowerShell script execution"_ section from the above link for more details.
+**PowerShell Script Execution** may also need to be enabled. See the *"Enable PowerShell script execution"* section from the above link for more details.
 
 After the above SDK has been installed, you need to restart your Octopus service for the changes to take effect.
 :::
@@ -31,7 +31,7 @@ You will need to create a [Service Fabric Deployment Target](/docs/infrastructur
 
 ## Step 4: Create the Service Fabric application deployment step
 
-Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section. 
+Add a new Service Fabric application deployment step to your project. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
 ## Step 5: Configure your Service Fabric application step
 
@@ -41,16 +41,16 @@ Select and configure the security mode required to connect to your cluster. The 
 
 Various options are available to deploy your Service Fabric application.
 
-| Setting                                                | Default     | Description                              |
+| Setting | Default | Description |
 | ------------------------------------------------------ | ----------- | ---------------------------------------- |
-| Publish profile file                                   | PublishProfiles\Cloud.xml | Path to the file containing the publish profile |
-| Deploy only                                            | Disabled | Indicates that the Service Fabric application should not be created or upgraded after registering the application type |
-| Unregister unused application versions after upgrade   | Disabled | Indicates whether to unregister any unused application versions that exist after an upgrade is finished |
-| Override upgrade behavior                              |     None        | Indicates the behavior used to override the upgrade settings specified by the publish profile. Options are _None_, _ForceUpgrade_, _VetoUpgrade_. To force an upgrade regardless of the publish profile setting set this option to _ForceUpgrade_. To use the setting defined in publish profile set this setting to _None_. |
-| Overwrite behavior                                     | SameAppTypeAndVersion | Overwrite Behavior if an application exists in the cluster with the same name. Available options are _Never_, _Always_, _SameAppTypeAndVersion_. This setting is not applicable when upgrading an application |
-| Skip package validation                                | Disabled | Switch signaling whether the package should be validated or not before deployment |
-| Copy package timeout (seconds)                         | SDK Default | Timeout in seconds for copying application package to image store |
-| Register Application Type Timeout (seconds)            | SDK Default | Timeout in seconds for registering application type. Requires Service Fabric SDK version 6.2+ |
+| Publish profile file | PublishProfiles\Cloud.xml | Path to the file containing the publish profile |
+| Deploy only | Disabled | Indicates that the Service Fabric application should not be created or upgraded after registering the application type |
+| Unregister unused application versions after upgrade | Disabled | Indicates whether to unregister any unused application versions that exist after an upgrade is finished |
+| Override upgrade behavior | None | Indicates the behavior used to override the upgrade settings specified by the publish profile. Options are *None*, *ForceUpgrade*, *VetoUpgrade*. To force an upgrade regardless of the publish profile setting set this option to *ForceUpgrade*. To use the setting defined in publish profile set this setting to *None*. |
+| Overwrite behavior | SameAppTypeAndVersion | Overwrite Behavior if an application exists in the cluster with the same name. Available options are *Never*, *Always*, *SameAppTypeAndVersion*. This setting is not applicable when upgrading an application |
+| Skip package validation | Disabled | Switch signaling whether the package should be validated or not before deployment |
+| Copy package timeout (seconds) | SDK Default | Timeout in seconds for copying application package to image store |
+| Register Application Type Timeout (seconds) | SDK Default | Timeout in seconds for registering application type. Requires Service Fabric SDK version 6.2+ |
 
 :::div{.success}
 **Use Variable Binding Expressions**
@@ -98,7 +98,7 @@ Setting the `Octopus.Action.ServiceFabric.LogExtractedApplicationPackage` variab
 The deployment is performed using a PowerShell script called `DeployToServiceFabric.ps1`. If a file with this name exists within the root of your package, Octopus will invoke it. Otherwise, Octopus will use a bundled version of the script as a default. You can **[view the bundled script here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Scripts/DeployAzureServiceFabricApplication.ps1)**, and use it as a basis for creating your own custom deployment script.
 
 :::div{.hint}
-If you choose to override the deployment script, remember that your `DeployToServiceFabric.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [here](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Behaviours/DeployAzureServiceFabricAppBehaviour.cs).
+If you choose to override the deployment script, remember that your `DeployToServiceFabric.ps1` file must exist at **the root** of your package. It cannot be located in a subfolder. For reference, you can see how this filename is detected in your extracted package [the Calamari source](https://github.com/OctopusDeploy/Sashimi.AzureServiceFabric/blob/main/source/Calamari/Behaviours/DeployAzureServiceFabricAppBehaviour.cs).
 :::
 
 ## Deploying to multiple geographic regions
@@ -115,7 +115,6 @@ Both methods allow you to modify your deployment process and variables per-regio
 
 To learn more about how you can automate Service Fabric versioning with Octopus, see our guide on [Version Automation with Service Fabric application packages](/docs/deployments/azure/service-fabric/version-automation-with-service-fabric-application-packages).
 
-
 ## Troubleshooting
 
 Due to the complexity of the PowerShell deployment script, it's likely you'll run into unsupported actions or unforeseen edge cases. The most common type of errors are related to the wrong action type chosen by the script due to either unforeseen edge cases or unsupported cases. For this reason, we highly recommend using [a customized version of the PowerShell script](/docs/deployments/azure/service-fabric/deploying-a-package-to-a-service-fabric-cluster/#customizing-the-deployment-process) that comes with Visual Studio for Service Fabric for most scenarios.
@@ -127,7 +126,8 @@ Octopus will not modify the service fabric script due to the complexity associat
 ### Application name already exists
 
 When the `RegisterAndCreate` is used when the type and name already exists, you may be presented with the following error:
-```
+
+```text
 An application with name 'fabric:/name' already exists, its Type is 'TypeName' and Version is 'version'. You must first remove the existing application before a new application can be deployed or provide a new name for the application.
 ```
 
@@ -137,4 +137,3 @@ as [this](https://github.com/OctopusDeploy/Calamari/blob/4a7a5d2b571246181701e74
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

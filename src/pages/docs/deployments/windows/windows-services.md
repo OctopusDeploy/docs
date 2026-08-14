@@ -13,7 +13,6 @@ When deploying, `sc.exe` is used to create a Windows Service using the configure
 
 To deploy a Windows Service, add a *Deploy a Windows Service* step. For information about adding a step to the deployment process, see the [add step](/docs/projects/steps) section.
 
-
 ## Configuring the step {#WindowsServices-ConfiguringTheStep}
 
 :::figure
@@ -26,17 +25,17 @@ Use the Package Feed and Package ID fields to select the [package](/docs/packagi
 
 ### Step 2: Configure Windows Service options {#WindowsServices-Step2-ConfigureWindowsServiceOptions}
 
-| Field               | Meaning                                  |
-| ------------------- | ---------------------------------------- |
-| **Service Name**    | The name of the Windows Service to create, or re-configure if it already exists. |
-| **Display Name**    | Optional display name of the service. If empty, the Service Name will be used instead. |
-| **Description**     | A short description of service that will appear in the services control manager. |
-| **Executable path** | The relative path to the executable in the package that the Windows Service will point to. Examples:  `MyService.exe`,  `bin\MyService.exe`, `foo\bin\MyService.exe`, `C:\Windows\myservice.exe` |
-| **Arguments**       | Arguments that will always be passed to the service when it starts |
+| Field               | Meaning                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Service Name**    | The name of the Windows Service to create, or re-configure if it already exists.                                                                                                                                                                                                                                                                                  |
+| **Display Name**    | Optional display name of the service. If empty, the Service Name will be used instead.                                                                                                                                                                                                                                                                            |
+| **Description**     | A short description of service that will appear in the services control manager.                                                                                                                                                                                                                                                                                  |
+| **Executable path** | The relative path to the executable in the package that the Windows Service will point to. Examples:  `MyService.exe`,  `bin\MyService.exe`, `foo\bin\MyService.exe`, `C:\Windows\myservice.exe`                                                                                                                                                                  |
+| **Arguments**       | Arguments that will always be passed to the service when it starts                                                                                                                                                                                                                                                                                                |
 | **Service account** | The account that the Windows Service should run under. Options are: Local System, Network Service, Local Service, Custom user (you can specify the username and password). <br><br>See below for [Security Considerations](#WindowsServices-SecurityConsiderations) and [Using Managed Service Accounts (MSA)](#WindowsServices-UsingManagedServiceAccounts(MSA)) |
-| **Start mode**      | When will the service start: Automatic, Automatic (delayed), Manual, Disabled, Unchanged |
-| **State**           | The state of the service after the deployment has completed |
-| **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP` |
+| **Start mode**      | When will the service start: Automatic, Automatic (delayed), Manual, Disabled, Unchanged                                                                                                                                                                                                                                                                          |
+| **State**           | The state of the service after the deployment has completed                                                                                                                                                                                                                                                                                                       |
+| **Dependencies**    | Any dependencies that the service has. Separate the names using forward slashes (/). For example: `LanmanWorkstation/TCPIP`                                                                                                                                                                                                                                       |
 
 ## How does Octopus actually deploy my Windows Service? {#WindowsServices-HowDoesOctopusActuallyDeployMyWindowsService?}
 
@@ -69,27 +68,27 @@ You can inject your own logic into this process using [custom scripts](/docs/dep
 
 This table shows how the combination of the `Start Mode`, `State` and the state of any existing services determines is the service will be started or left stopped after the deployment is completed.
 
-| Start Mode | State | Existing Service Exists | Existing Service State | Resulting State |
-|-|-|-|-|-|
-| Disabled | n/a | n/a | n/a |Stopped |
-| Automatic / Automatic (delayed) | Started | n/a | n/a | Running |
-| Manual | Started | n/a | n/a | Running |
-| Unchanged | Started | n/a | n/a | Running |
-| Automatic / Automatic (delayed) | Stopped | n/a | n/a | Stopped |
-| Manual | Stopped | n/a | n/a | Stopped |
-| Unchanged | Stopped | n/a | n/a | Stopped |
-| Automatic / Automatic (delayed) | Unchanged | Exists | Running | Running |
-| Manual | Unchanged | Exists | Running | Running |
-| Unchanged | Unchanged | Exists | Running | Running |
-| Automatic / Automatic (delayed) | Unchanged | Exists | Stopped | Stopped |
-| Manual | Unchanged | Exists | Stopped | Stopped |
-| Unchanged | Unchanged | Exists | Stopped | Stopped |
-| Automatic / Automatic (delayed) | Unchanged | Does not exist | n/a | Stopped |
-| Manual | Unchanged | Does not exist | n/a | Stopped |
-| Unchanged | Unchanged | Does not exist | n/a | Stopped |
-| Automatic / Automatic (delayed) | Default | n/a | n/a | Running |
-| Manual | Default | n/a | n/a | Stopped |
-| Unchanged | Default | n/a | n/a | Stopped |
+| Start Mode                      | State     | Existing Service Exists | Existing Service State | Resulting State |
+| ------------------------------- | --------- | ----------------------- | ---------------------- | --------------- |
+| Disabled                        | n/a       | n/a                     | n/a                    | Stopped         |
+| Automatic / Automatic (delayed) | Started   | n/a                     | n/a                    | Running         |
+| Manual                          | Started   | n/a                     | n/a                    | Running         |
+| Unchanged                       | Started   | n/a                     | n/a                    | Running         |
+| Automatic / Automatic (delayed) | Stopped   | n/a                     | n/a                    | Stopped         |
+| Manual                          | Stopped   | n/a                     | n/a                    | Stopped         |
+| Unchanged                       | Stopped   | n/a                     | n/a                    | Stopped         |
+| Automatic / Automatic (delayed) | Unchanged | Exists                  | Running                | Running         |
+| Manual                          | Unchanged | Exists                  | Running                | Running         |
+| Unchanged                       | Unchanged | Exists                  | Running                | Running         |
+| Automatic / Automatic (delayed) | Unchanged | Exists                  | Stopped                | Stopped         |
+| Manual                          | Unchanged | Exists                  | Stopped                | Stopped         |
+| Unchanged                       | Unchanged | Exists                  | Stopped                | Stopped         |
+| Automatic / Automatic (delayed) | Unchanged | Does not exist          | n/a                    | Stopped         |
+| Manual                          | Unchanged | Does not exist          | n/a                    | Stopped         |
+| Unchanged                       | Unchanged | Does not exist          | n/a                    | Stopped         |
+| Automatic / Automatic (delayed) | Default   | n/a                     | n/a                    | Running         |
+| Manual                          | Default   | n/a                     | n/a                    | Stopped         |
+| Unchanged                       | Default   | n/a                     | n/a                    | Stopped         |
 
 ## Setting advanced configuration options {#WindowsServices-SettingAdvancedConfigurationOptions}
 
@@ -97,7 +96,7 @@ Windows Services support some advanced settings not exposed by this feature. You
 
 This example configures the service **Failure Action** to **Restart.**
 
-**PostDeploy.ps1**
+### PostDeploy.ps1
 
 ```powershell
 $serviceName = $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]

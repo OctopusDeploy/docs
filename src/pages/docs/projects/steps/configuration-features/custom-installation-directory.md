@@ -26,35 +26,37 @@ The standard convention for deploying packages is often the best and simplest wa
 
 When you return to your deployment process, you will see the **Custom Install Directory** option has been added to the **Features** section of the deployment process.
 
-3. Add the [step](/docs/projects/steps) details:
-  - Enter a name for the step.
-  - Select the targets where the step should run.
-  - Select the [package feed](/docs/packaging-applications/package-repositories/) where the [package](/docs/packaging-applications) will be available.
-  - Enter the [package ID](/docs/packaging-applications/#package-id) for the package to be deployed.
-4. Enter the path for the **custom installation directory**, or you can insert a [variable](/docs/projects/variables) if you have defined the path as a variable.
+1. Add the [step](/docs/projects/steps) details:
+
+- Enter a name for the step.
+- Select the targets where the step should run.
+- Select the [package feed](/docs/packaging-applications/package-repositories/) where the [package](/docs/packaging-applications) will be available.
+- Enter the [package ID](/docs/packaging-applications/#package-id) for the package to be deployed.
+
+1. Enter the path for the **custom installation directory**, or you can insert a [variable](/docs/projects/variables) if you have defined the path as a variable.
 
 Defining a [variable](/docs/projects/variables) with the directory path, means you can scope different values to different environments. For instance:
 
- | Variable Name    | Value     | Scope    |
+ | Variable Name | Value | Scope |
  | ----------------------- | --------------- | -------- |
  | CustomInstallDirectory | \path\to\test\directory\ | Test |
  | CustomInstallDirectory | \path\to\production\directory\ | Production |
 
  Read more about [variables](/docs/projects/variables).
 
-5. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** check-box.
-6. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the **Exclude from purge** list.
+1. If you would like to remove existing files from the custom installation directory before your deployed files are copied to it, check the **Purge** check-box.
+2. If there are files you would like to exclude from the purge, add the files and directories you want to keep to the **Exclude from purge** list.
 
 The **Exclude from purge** list must be a newline-separated list of file or directory names, relative to the installation directory. To exclude an entire directory specify it by name without a wildcard. Extended wildcard syntax is supported. For instance:
 
-```
+```text
 appsettings.config
 Config
 Config\*.config
 **\*.config
 ```
 
-7. Add any [conditions](/docs/projects/steps/conditions) you need to specify for the step, and then click **SAVE**.
+1. Add any [conditions](/docs/projects/steps/conditions) you need to specify for the step, and then click **SAVE**.
 
 This will save and display the step you've just created. From here you can use the project overview menu to continue defining your [deployment process](/docs/projects/deployment-process/), or click **CREATE RELEASE** to create a [release](/docs/releases) and deploy your application.
 

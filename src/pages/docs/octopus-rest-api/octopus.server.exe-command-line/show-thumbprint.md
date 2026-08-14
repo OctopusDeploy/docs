@@ -9,9 +9,9 @@ navOrder: 193
 
 Use the show thumbprint command to show the thumbprint of the server instance.
 
-**Show thumbprint options**
+## Show thumbprint options
 
-```
+```text
 Usage: octopus.server show-thumbprint [<options>]
 
 Where [<options>] is any of:
@@ -31,12 +31,12 @@ Or one of the common options:
 
 This example displays the thumbprint of the default instance:
 
-```
+```text
 octopus.server show-thumbprint
 ```
 
 This example exports the thumbprint for the instance named `MyNewInstance` to a file in JSON format:
 
-```
+```text
 octopus.server show-thumbprint --instance="MyNewInstance" --export-file="c:\temp\thumbprint.json" --format="json"
 ```

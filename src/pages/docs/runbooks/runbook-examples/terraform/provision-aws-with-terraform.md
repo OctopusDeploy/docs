@@ -10,6 +10,7 @@ navOrder: 20
 AWS CloudFormation is a great tool to use to provisions resources, however, it doesn't keep track of state.  With runbooks, you can use Terraform to provision resources on AWS as well as keep them in the desired state.
 
 The following example will use Terraform to dynamically create worker machines based on auto-scaling rules.  Instead of defining the Terraform template directly in the step template, this example will make use of a package.  The package will consist of the following files:
+
 - autoscaling.tf
 - autoscaling-policy.tf
 - backend.tf
@@ -29,7 +30,7 @@ This file contains the definitions for creating the auto-scaling configuration i
 <summary>autoscaling.tf</summary>
 <p>
 
-```
+```xml
 resource "aws_launch_configuration" "dynamic-linux-worker-launch-config" {
     name_prefix = "dynamic-linux-worker-launch-config"
     image_id = "${var.LINUX_AMIS}"
@@ -107,6 +108,7 @@ resource "aws_autoscaling_group" "dynamic-windows-worker-autoscaling" {
     }
 }
 ```
+
 </p>
 </details>
 
@@ -118,7 +120,7 @@ This file contains the policy definition that goes with the auto-scaling definit
 <summary>autoscaling-policy.tf</summary>
 <p>
 
-```
+```csharp
 # scale up alarm
 
 resource "aws_autoscaling_policy" "linux-worker-cpu-policy" {
@@ -235,6 +237,7 @@ resource "aws_cloudwatch_metric_alarm" "windows-worker-cpu-alarm-scale-down" {
   alarm_actions   = ["${aws_autoscaling_policy.windows-worker-cpu-policy-scale-down.arn}"]
 }
 ```
+
 </p>
 </details>
 
@@ -246,7 +249,7 @@ It is important to note that due to retention policy settings, the folder in whi
 <summary>backend.tf</summary>
 <p>
 
-```
+```text
 terraform {
     backend "s3" {
         bucket = "#{Project.AWS.S3.Bucket}"
@@ -255,6 +258,7 @@ terraform {
     }
 }
 ```
+
 </p>
 </details>
 
@@ -301,26 +305,29 @@ echo "Registering the worker $name with server $serverUrl"
 sudo /opt/octopus/tentacle/Tentacle register-worker --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --comms-style "TentacleActive" --server-comms-port $serverCommsPort --workerPool "$workerPool" --policy "$machinePolicy" --space "$space"
 sudo /opt/octopus/tentacle/Tentacle service --install --start
 ```
+
 </p>
 </details>
 
 ## provider.tf
+
 Contains the provider information for Terraform:
 
-```
+```hcl
 provider "aws" {
   region     = "${var.AWS_REGION}"
 }
 ```
 
 ## securitygroup.tf
+
 This contains the security group information for AWS:
 
 <details>
 <summary>securitygroup.tf</summary>
 <p>
 
-```
+```hcl
 resource "aws_security_group" "allow-octopus-server" {
   vpc_id      = "${aws_vpc.worker_vpc.id}"
   name        = "allow-octopus-server"
@@ -358,17 +365,19 @@ resource "aws_security_group" "allow-octopus-server" {
   }
 }
 ```
+
 </p>
 </details>
 
 ## vars.tf
+
 This contains the variables that are referenced in other files. Note there are Octostache (Octopus variable syntax) to make use of Octopus variables:
 
 <details>
 <summary>vars.tf</summary>
 <p>
 
-```
+```text
 
 
 variable "AWS_REGION" {
@@ -395,17 +404,19 @@ variable "INSTANCE_USERNAME" {
   default = "ubuntu"
 }
 ```
+
 </p>
 </details>
 
 ## vpc.tf
+
 This contains the definition of the VPC and other network resources that other AWS resources will use:
 
 <details>
 <summary>vpc.tf</summary>
 <p>
 
-```
+```hcl
 # Internet VPC
 resource "aws_vpc" "worker_vpc" {
   cidr_block           = "10.0.0.0/16"
@@ -524,6 +535,7 @@ resource "aws_route_table_association" "worker-public-3-a" {
 }
 
 ```
+
 </p>
 </details>
 
@@ -534,6 +546,7 @@ resource "aws_route_table_association" "worker-public-3-a" {
 1. Click **DEFINE YOUR RUNBOOK PROCESS**, then click **ADD STEP**.
 1. Add a **Apply a Terraform template** step.
 1. Fill in the template properties
+
 - Template Source: File inside a package
 - Package: Choose the package which contains the files above
 

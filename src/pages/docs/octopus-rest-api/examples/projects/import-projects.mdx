@@ -15,11 +15,13 @@ Please note there are some items to consider before using this script:
 
 - This script uses an API endpoint introduced in **Octopus 2021.1** for the [Export/Import Projects feature](/docs/projects/export-import). Using this script in earlier versions of Octopus will not work.
 - Automating the import of projects as part of a backup/restore process is **not recommended**. See our [supported scenarios](/docs/projects/export-import/#scenarios) when using the API from this feature.
+
 :::
 
 ## Usage
 
 Provide values for the following:
+
 - Octopus URL
 - Octopus API Key
 - Name of the space where the projects were exported from
@@ -27,7 +29,7 @@ Provide values for the following:
 - The export Server Task Id to use as the source for import e.g. `ServerTasks-12345`
 - The password used to protect sensitive values in the exported data
 - Boolean whether or not to wait for the import task to finish
-    - Timeout in seconds to wait before attempting to cancel the task.
+  - Timeout in seconds to wait before attempting to cancel the task.
 
 ## Script
 

@@ -11,9 +11,9 @@ Use the regenerate certificate command to regenerate one or more of the certific
 
 **Deprecated**: The `regenerate-certificate` option has been deprecated and will be removed in a future version. Please use `new-certificate` in conjunction with `import-certificate` instead.
 
-**Regenerate Certificate options**
+## Regenerate Certificate options
 
-```
+```text
 Usage: Octopus.Server regenerate-certificate [<options>]
 
 Where [<options>] is any of:

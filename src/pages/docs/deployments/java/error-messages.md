@@ -31,11 +31,11 @@ There was an error deploying the package to the server group.
 
 This may be due to duplicate context paths. Check that the context path is not already assigned to an existing application.
 
-See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
+See [Defining Context Paths](/docs/deployments/java#context_path) for more information on how context paths are assigned in WildFly.
 
 This may also occur if invalid server group names where supplied when deploying to a domain controller. Look for entries like this in the verbose log output:
 
-```
+```text
 INFO: Result as JSON: {
     "outcome" : "failed",
     "failure-description" : "WFLYCTL0216: Management resource '[(\"server-group\" => \"invalid-server-group-name\")]' not found",
@@ -53,7 +53,7 @@ There was an error deploying the package to the standalone server.
 
 This may be due to duplicate context paths. Check that the context path is not already assigned to an existing application.
 
-See [Defining Context Paths](#context_path) for more information on how context paths are assigned in WildFly.
+See [Defining Context Paths](/docs/deployments/java#context_path) for more information on how context paths are assigned in WildFly.
 
 This may also be caused by an error that prevents the application being deployed from starting up. Check the application server logs for more information.
 
@@ -133,14 +133,14 @@ There was an error enabling or disabling a package in Tomcat
 
 This is a catch all error message for unexpected errors during a Tomcat deployment. Ensure that:
 
-* The manager URL is correct. Ensure the URL includes the context of the manager application, and that the port and hostname/IP address are correct. Also ensure that the hostname/IP address can be resolved from the target machine hosting the Tentacle. A common example of a correct manager URL is `http://localhost:8080/manager`.
-* The Tomcat credentials are correct, and that the Tomcat user has been granted the `manager-script` role.
-* The firewall allows connection to the Tomcat server.
-* Tomcat is started and running.
+- The manager URL is correct. Ensure the URL includes the context of the manager application, and that the port and hostname/IP address are correct. Also ensure that the hostname/IP address can be resolved from the target machine hosting the Tentacle. A common example of a correct manager URL is `http://localhost:8080/manager`.
+- The Tomcat credentials are correct, and that the Tomcat user has been granted the `manager-script` role.
+- The firewall allows connection to the Tomcat server.
+- Tomcat is started and running.
 
 If you see errors such as:
 
-```
+```text
 23:22:33   Error    |       TOMCAT-DEPLOY-ERROR-0005: An exception was thrown during the deployment. https://oc.to/JavaAppDeploy#tomcat-deploy-error-0005
 23:22:33   Error    |       org.apache.http.conn.HttpHostConnectException: Connect to tomcat-server:8080 [tomcat-server/127.0.1.1] failed: Connection refused
 ```
@@ -199,9 +199,10 @@ To solve this problem, either deploy the certificate using the same protocol tha
 
 Tomcat 8.5 and above do not support the BIO protocol.
 
-## TOMCAT-HTTPS-ERROR-0008:
+## TOMCAT-HTTPS-ERROR-0008
 
 If we have an existing configuration like this:
+
 ```xml
 <Connector
   defaultSSLHostConfigName="myHostName"
@@ -212,7 +213,9 @@ If we have an existing configuration like this:
   SSLCertificateFile="/usr/local/ssl/server.crt"
   SSLCertificateKeyFile="/usr/local/ssl/server.pem"/>
 ```
+
 then this certificate configuration is assumed to have the hostName of `myHostName`, because it is derived from the `defaultSSLHostConfigName` attribute. At this point trying to add another default `<SSLHostConfig>` element will fail. For example, this is not a valid configuration:
+
 ```xml
  <Connector
   defaultSSLHostConfigName="myHostName"
@@ -227,6 +230,7 @@ then this certificate configuration is assumed to have the hostName of `myHostNa
       </SSLHostConfig>
   </Connector>
 ```
+
 The above will throw an error about having duplicate default configurations.
 
 The error `TOMCAT-HTTPS-ERROR-0008` means Octopus prevented a certificate deployment that would lead to this invalid configuration.
@@ -307,7 +311,7 @@ There was an error configuring the Elytron server SSL context
 
 There was an error removing the legacy security realm, or an error creating the keystore file.
 
-Check for an error like `java.io.FileNotFoundException: /opt/wildfly/standalone/configuration/Internet_Widgets_Pty_Ltd1.keystore (Permission denied) `, and ensure the Tentacle user account has the correct permissions to create the keystore file.
+Check for an error like `java.io.FileNotFoundException: /opt/wildfly/standalone/configuration/Internet_Widgets_Pty_Ltd1.keystore (Permission denied)`, and ensure the Tentacle user account has the correct permissions to create the keystore file.
 
 ## WILDFLY-HTTPS-ERROR-0006
 
@@ -383,7 +387,7 @@ There was an error adding a new https listener in undertow.
 
 This can happen if the application server fails to start an existing https listener. Check the log files for messages like:
 
-```
+```text
 No SSL Context available from security realm 'realmname'. Either the realm is not configured for SSL, or the server has not been reloaded since the SSL config was added.
 ```
 

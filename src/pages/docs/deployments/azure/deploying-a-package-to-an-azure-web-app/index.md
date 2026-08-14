@@ -37,31 +37,31 @@ If instead you want to **dynamically** create you account during your deployment
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps).
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
+![Adding a Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
 :::
 
-2. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
+1. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
 - Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets).
 
 - Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure)
 
-3. On the **Package** section, select your **Package Feed** and **Package ID**.
+1. On the **Package** section, select your **Package Feed** and **Package ID**.
 
 :::figure
-![](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)
+![The Package section of the Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)
 :::
 
-4. On the **Deployment** section you can configure any of the below settings which are related to _how_ your files are going to be pushed to Azure.
+1. On the **Deployment** section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
 
-| Setting                     | Default     | Description                                                                                                                                                                                                                                                                                                                           |
-| --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan.                                                                                                                                                                                                                                |
-| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\WWWRoot\foo'. Leave blank to deploy to root.                                                                                                                                                                                             |
-| **Remove additional files** | _False_     | When _True_ instructs Web Deploy to delete files from the destination that aren't in the source package                                                                                                                                                                                                                               |
-| **Preserve App_Data**       | _False_     | When _True_ instructs Web Deploy to skip Delete operations in the **App_Data** directory                                                                                                                                                                                                                                              |
-| **Enable AppOffline**       | _False_     | When _True_ instructs Web Deploy to place _app_offline.htm_ in root deployment directory to safely bring down the app domain.</br>Click [here](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details.                                                     |
-| **File comparison method**  | _Timestamp_ | Can be _timestamp_ or _checksum_ and instructs web deploy to use the selected algorithm to determine which files to update.</br>_Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [here](https://octopus.com/blog/reliably-deploying-large-azure-web-apps)._ |
+| Setting                     | Default     | Description                                                                                                                                                                                                                                                                                                                                                              |
+| --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Deployment Slot**         |             | The target slot to deploy the application to. Requires a **Standard** or **Premium** App Service Plan.                                                                                                                                                                                                                                                                   |
+| **Physical Path**           |             | The physical path relative to site root on the web app host. e.g. 'foo' will deploy to 'site\WWWRoot\foo'. Leave blank to deploy to root.                                                                                                                                                                                                                                |
+| **Remove additional files** | *False*     | When *True* instructs Web Deploy to delete files from the destination that aren't in the source package                                                                                                                                                                                                                                                                  |
+| **Preserve App_Data**       | *False*     | When *True* instructs Web Deploy to skip Delete operations in the **App_Data** directory                                                                                                                                                                                                                                                                                 |
+| **Enable AppOffline**       | *False*     | When *True* instructs Web Deploy to place *app_offline.htm* in root deployment directory to safely bring down the app domain.</br>See [taking an application offline before publishing](http://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) for more details.                                               |
+| **File comparison method**  | *Timestamp* | Can be *timestamp* or *checksum* and instructs web deploy to use the selected algorithm to determine which files to update.</br>*Note: There have been some issues with checksum in earlier versions of web deploy, and we've written about that in detail [reliably deploying large Azure web apps](https://octopus.com/blog/reliably-deploying-large-azure-web-apps).* |
 
 :::div{.success}
 **Use variable binding expressions**

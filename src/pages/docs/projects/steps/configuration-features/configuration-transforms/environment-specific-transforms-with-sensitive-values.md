@@ -53,13 +53,13 @@ We also have a `Web.Release.Config` transform file with the following contents:
 
 Finally, we have the following [variables](/docs/projects/variables) configured in Octopus:
 
-| Name       | Value   | Scope   |
+| Name | Value | Scope |
 | ------------- | ------- | ------ |
 | OctoFXDatabase | server=staging-server;Database=OctoFX;Trusted_connection=SSPI | Staging |
 | OctoFXDatabase | server=(local)\SQLEXPRESS;Database=OctoFX-Development;Trusted_connection=SSPI | Development |
 | OctoFXDatabase | server=prod-server;Database=OctoFx;Trusted_connection=SSPI | Production |
-| RunTestMode   | False    | Production, Staging |
-| RunTestMode   | True     | Development         |
+| RunTestMode | False | Production, Staging |
+| RunTestMode | True | Development |
 
 On deployment to your Staging environment, your process would go like this:
 

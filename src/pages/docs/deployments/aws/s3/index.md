@@ -58,12 +58,14 @@ The **Variable Substitution File Patterns field** for the **Upload a package to 
 
 A newline-separated list of file names to transform, relative to the package contents. Extended wildcard syntax is supported. E.g., `Notes.txt`, `Config\*.json`, `**\specific-folder\*.config`.
 This field supports extended template syntax. Conditional `if` and `unless`:
-```
+
+```text
 #{if MyVar}...#{/if}
 ```
 
 Iteration over variable sets or comma-separated values with `each`:
-```
+
+```text
 #{each mv in MyVar}...#{mv}...#{/each}
 ```
 
@@ -73,7 +75,7 @@ Iteration over variable sets or comma-separated values with `each`:
 The **Structured Variable File Patterns** field for the **Upload a package to an AWS S3 bucket** step was added in Octopus **2022.2**.
 :::
 
-A list of files to perform structured variable substitution on. 
+A list of files to perform structured variable substitution on.
 
 Target files need to be newline-separated, relative to the package contents. Extended wildcard syntax is supported. E.g., `appsettings.json`, `Config\*.xml`, `**\specific-folder\*.yaml`. Learn more about the [Structured Configuration Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature) feature and view [Structured Variables](/docs/projects/steps/configuration-features/structured-configuration-variables-feature#variable-replacement) examples.
 
@@ -87,7 +89,7 @@ The option **Use filename with embedded content hash** for the **Upload a packag
 ![Use filename with embedded content hash options](/docs/img/deployments/aws/s3/filename-with-content-hash-option.png)
 :::
 
-Select this option to allow the hash of the contents of the package to be included in the resulting bucket key. 
+Select this option to allow the hash of the contents of the package to be included in the resulting bucket key.
 
 The hash should appear before the extension in the format of `filename@hash.extension`. The hash value is based on the contents of the zip package and is calculated after any variable substitutions/replacements.
 
@@ -114,13 +116,14 @@ File selections aren't formally removed or added until the step has been saved.
 A prefix delimited with forward slash `/` characters is seen in S3 as folders.
 Here are a few examples to help you get those files in the right folder structure:
 
-| Package files            | S3 destination    | Prefix            |
-| ------------------------ | ----------------- | ----------------- |
-| \*\*/\*                  | /Content/External | `Content/External/` |
-| Images/\*\*/\*           | /Content/Images   | `Content/Images/`   |
-| Resource/\*\*/Special/\*\*/\* | /Files/\*\*/Special | `Files/` |
+| Package files                 | S3 destination      | Prefix              |
+| ----------------------------- | ------------------- | ------------------- |
+| \*\*/\*                       | /Content/External   | `Content/External/` |
+| Images/\*\*/\*                | /Content/Images     | `Content/Images/`   |
+| Resource/\*\*/Special/\*\*/\* | /Files/\*\*/Special | `Files/`            |
 
 #### Single file selection
+
 The single file selection lets you upload a single file to an S3 bucket which must exist within the package. If the file is not found an associated error will be raised. This selection also allows for the bucket key to be explicit.
 
 :::figure
@@ -128,11 +131,12 @@ The single file selection lets you upload a single file to an S3 bucket which mu
 :::
 
 #### Bucket keys
+
 A custom key delimited with forward slash `/` characters is seen in S3 as folders.
 Here are a few examples to help you get those files in the right structure:
 
 | Package file | S3 destination              | Custom key                   |
-|--------------|-----------------------------|------------------------------|
+| ------------ | --------------------------- | ---------------------------- |
 | Logo.gif     | /Images/Logos/Logo.gif      | `Images/Logos/Logo.gif`      |
 | xyz.gif      | /Images/Animals/Giraffe.gif | `Images/Animals/Giraffe.gif` |
 
@@ -141,6 +145,7 @@ The bucket key used for a single file selection will uniquely identify the file 
 :::
 
 #### Multiple file selections
+
 Multiple file selections allow one or more files from the package to be uploaded to the S3 bucket using globbing patterns. The behavior is slightly different from single file selections as you have less control over the bucket key which will be used while no error will be raised if *no* files matched the globbing pattern. Files uploaded will have the bucket key prefix added to the file name. That is a file matched by the globbing pattern `path/to/file/File.template` with a prefix of `templates/` will be uploaded with the bucket key `templates/File.template`.
 
 :::figure
@@ -152,16 +157,20 @@ Any metadata and tags provided will be applied to all files uploaded to the buck
 :::
 
 ### Metadata and tags
+
 Metadata and tags can be provided for the package, for file selections for the package, or for individual files. See the [AWS documentation](https://oc.to/AwsS3UsingMetadata) for more information regarding the usage of metadata.
 
 ### Canned ACL
+
 The canned ACL must be specified when uploading files as it dictates the permissions for a file within the S3 bucket. Please see the [AWS documentation](https://oc.to/AwsS3CannedAcl) for information regarding Canned ACLs.
 
 ### Storage class
+
 The storage class for files specify the performance access requirements for a file.
 Please see the [AWS documentation](https://oc.to/AwsS3StorageClasses) for more information regarding Storage classes.
 
 ### Upload behavior
+
 Uploads are skipped if the content hash is the same as an existing object in the target bucket. This is done to avoid unnecessary uploads and may require special care to be taken when using custom bucket
 keys.
 
@@ -180,18 +189,17 @@ Octopus will create several output variables storing the properties of any uploa
 Here is the list of variables created after **a single file** has been uploaded:
 
 | Variable                                                 | Description                                                                                                      | Example                                                             |
-|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | Octopus.Action[`step-name`].Output.Package.Key           | The key to the uploaded file, including any prefix which may have been specified                                 | `Octopus.Action[Upload package to S3].Output.Package.Key`           |
 | Octopus.Action[`step-name`].Output.Package.S3Uri         | The S3 Uri to the uploaded file, of the form `s3://bucket-name/key`                                              | `Octopus.Action[Upload package to S3].Output.Package.S3Uri`         |
 | Octopus.Action[`step-name`].Output.Package.Uri           | The virtual-hosted-style Uri to the uploaded file, of the form `https://bucket-name.s3.region.amazonaws.com/key` | `Octopus.Action[Upload package to S3].Output.Package.Uri`           |
 | Octopus.Action[`step-name`].Output.Package.Arn           | The ARN for the uploaded file, of the form `arn:aws:s3:::bucket-name/key`                                        | `Octopus.Action[Upload package to S3].Output.Package.Arn`           |
 | Octopus.Action[`step-name`].Output.Package.ObjectVersion | The version of the object, if applicable. (`Not versioned` is returned if the object doesn't have a version)     | `Octopus.Action[Upload package to S3].Output.Package.ObjectVersion` |
 
-
 Here is the list of variables created after **multiple files** have been uploaded:
 
 | Variable                                                              | Description                                                                                                      | Example                                                                       |
-|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Octopus.Action[`step-name`].Output.Package.Key[`file-name`]           | The key to the uploaded file, including any prefix which may have been specified                                 | `Octopus.Action[Upload package to S3].Output.Package.Key[Logo.gif]`           |
 | Octopus.Action[`step-name`].Output.Package.S3Uri[`file-name`]         | The S3 Uri to the uploaded file, of the form `s3://bucket-name/key`                                              | `Octopus.Action[Upload package to S3].Output.Package.S3Uri[Logo.gif]`         |
 | Octopus.Action[`step-name`].Output.Package.Uri[`file-name`]           | The virtual-hosted-style Uri to the uploaded file, of the form `https://bucket-name.s3.region.amazonaws.com/key` | `Octopus.Action[Upload package to S3].Output.Package.Uri[Logo.gif]`           |
@@ -199,9 +207,11 @@ Here is the list of variables created after **multiple files** have been uploade
 | Octopus.Action[`step-name`].Output.Package.ObjectVersion[`file-name`] | The version of the object, if applicable. (`Not versioned` is returned if the object doesn't have a version)     | `Octopus.Action[Upload package to S3].Output.Package.ObjectVersion[Logo.gif]` |
 
 ## Error messages
+
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors and any additional troubleshooting steps that can be taken to rectify them.
 
 ### AWS-S3-ERROR-0001
+
 The AWS account used to perform the operation does not have the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
 
 An exception was thrown while contacting the AWS API.
@@ -211,6 +221,7 @@ This can happen when accessing AWS via a proxy, and the response from AWS indica
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0002
+
 The AWS account used to perform the operation does not have the required permissions to upload to the bucket.
 
 An exception was thrown while contacting the AWS API.
@@ -220,6 +231,7 @@ This can happen when accessing AWS via a proxy, and the response from AWS indica
 An incorrect AWS region can result in this error. Ensure that the region matches one from the [AWS documentation](https://oc.to/AWSRegions).
 
 ### AWS-S3-ERROR-0003
+
 An error occurred uploading a file to a bucket possibly due to metadata. Specified value has invalid HTTP header characters.
 
 This can happen if the metadata key and or value has invalid characters. Ensure characters as per the [AWS documentation](https://oc.to/AwsS3UsingMetadata) is not used as part of
@@ -229,7 +241,7 @@ metadata.
 
 The AWS account or role used to perform the operation does not have the required permissions to create and/or upload to the bucket. This error can be caused by a user and/or bucket policy that is too restrictive. The following user and bucket policy examples contain the minimum required permissions for this step:
 
-#### Example User Policy:
+#### Example User Policy
 
 ```json
 {
@@ -267,7 +279,9 @@ The AWS account or role used to perform the operation does not have the required
     ]
 }
 ```
-#### Example Bucket Policy:
+
+#### Example Bucket Policy
+
 ```json
 {
     "Version": "2012-10-17",

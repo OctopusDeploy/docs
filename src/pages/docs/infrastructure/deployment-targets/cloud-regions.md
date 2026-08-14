@@ -18,12 +18,12 @@ In this case you could modify your deployment process to become multi-region by:
  1. Creating the three different cloud regions
  2. Scoping the existing region-specific variables to the Asia/Pacific cloud region
  3. Creating new region-specific variables and scoping those to the appropriate cloud region
- 
+
 Now when you deploy OctoFX you can create a [rolling deployment](/docs/deployments/patterns/rolling-deployments-with-octopus) targeting these regions one at a time, or in parallel.
 :::
 
 :::div{.success}
-We originally considered calling these _generic targets_ because they can be used as a target for any steps that run on the Octopus Server. For example if you have a script step you want to run multiple times with different variable values, without installing Tentacles, you can take advantage of cloud regions. A concrete example is running the same SQL scripts against both production and disaster-recovery database servers. Maybe cloud regions can help with your deployment design even if you aren't deploying to the cloud.
+We originally considered calling these *generic targets* because they can be used as a target for any steps that run on the Octopus Server. For example if you have a script step you want to run multiple times with different variable values, without installing Tentacles, you can take advantage of cloud regions. A concrete example is running the same SQL scripts against both production and disaster-recovery database servers. Maybe cloud regions can help with your deployment design even if you aren't deploying to the cloud.
 :::
 
 You can create cloud regions just like other deployment targets.
@@ -33,27 +33,27 @@ You can create cloud regions just like other deployment targets.
 2. Select **Cloud Region** from the list of available deployment target types.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region.png)
+![Cloud Region in the list of deployment target types](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region.png)
 :::
 
-3. Give the cloud region a name and select the roles for the cloud region.
+1. Give the cloud region a name and select the roles for the cloud region.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png)
+![Naming a cloud region and selecting its roles](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png)
 :::
 
-4. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
+1. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/cloud-region-list.png)
+![Cloud regions listed under Infrastructure ➜ Deployment Targets](/docs/img/infrastructure/deployment-targets/images/cloud-region-list.png)
 :::
 
-5. To make use of your cloud regions you should scope region-specific variables to them appropriately.
+1. To make use of your cloud regions you should scope region-specific variables to them appropriately.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png)
+![Project variables scoped to individual cloud regions](/docs/img/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png)
 :::
 
-6. Now when you deploy your application, the appropriate steps will run once per region.
+1. Now when you deploy your application, the appropriate steps will run once per region.
 
-![](/docs/img/infrastructure/deployment-targets/images/cloud-region-deployment-complete.png)
+![A completed deployment that ran once per region](/docs/img/infrastructure/deployment-targets/images/cloud-region-deployment-complete.png)

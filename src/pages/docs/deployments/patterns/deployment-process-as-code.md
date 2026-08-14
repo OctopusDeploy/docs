@@ -48,7 +48,7 @@ When you manage your **scripts as code**, Octopus still makes sure your deployme
 
 ### Introducing changes safely using scripts as code {#scripts-as-code-change-safely}
 
-Branches in source control let you test application code changes in isolation before integrating them with other code changes. You can use the exact same approach to introduce changes to your scripts as code. This lets you make changes to your scripts without breaking deployments from your `main` (default) branch. 
+Branches in source control let you test application code changes in isolation before integrating them with other code changes. You can use the exact same approach to introduce changes to your scripts as code. This lets you make changes to your scripts without breaking deployments from your `main` (default) branch.
 
 - **Modifying an existing script**: If you modify a script in a branch, that change flows through the whole process just like the changes to your application code. When you deploy a release from that branch, your modified script will be used. When you merge your branch into the `main` branch, your modified script will be used for deployments from the `main` branch.
 - **Adding a new script**: Add an empty script to your `main` branch, configure Octopus to execute the script, and then author the script content on your branch. This enables you to test your new script in isolation. Merge into `main` when you are ready to integrate.
@@ -124,8 +124,8 @@ In this approach you will be pushing configuration changes from **one specific b
 
 The general process should look something like this, tailored to your situation:
 
-1. Create a channel to match your branch, with package version rules to enforce the integrity of the release process. _You can create channels manually, or automatically as part of your build pipeline if that suits._
-1. Make the changes on your branch, making sure to scope your changes to your channel to avoid interrupting deployments from other branches. _You can scope each step, action and variable value to a specific channel for isolation._
+1. Create a channel to match your branch, with package version rules to enforce the integrity of the release process. *You can create channels manually, or automatically as part of your build pipeline if that suits.*
+1. Make the changes on your branch, making sure to scope your changes to your channel to avoid interrupting deployments from other branches. *You can scope each step, action and variable value to a specific channel for isolation.*
 1. Get a peer to review your configuration change on your branch.
 1. Merge your configuration change to the `main` branch so your changes are actually pushed into Octopus.
 1. Test your change by deploying releases through your channel.

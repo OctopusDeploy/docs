@@ -10,14 +10,16 @@ navOrder: 60
 [Service resources](https://oc.to/KubernetesServiceResource), expose Pod resources either internally within Kubernetes cluster, or externally to public clients. The `Configure and apply a Kubernetes Service` steps can be used to configure and deploy a Service resource.
 
 ## Service name
+
 Each Service resource requires a unique name, defined in the `Name` field. The names must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.
 
 ## Service type
 
 A Service resource can be one of three different types:
-* Cluster IP
-* Node Port
-* Load Balancer
+
+- Cluster IP
+- Node Port
+- Load Balancer
 
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
@@ -83,4 +85,5 @@ There are some advanced use cases where creating a Service resource without sele
 **2024.1:**
 
 - `Deploy Kubernetes service resource` was renamed to `Configure and apply a Kubernetes Service`.
+
 :::

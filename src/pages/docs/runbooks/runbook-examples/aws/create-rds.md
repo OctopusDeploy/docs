@@ -23,7 +23,7 @@ In this example, we'll use the built-in steps of Octopus Deploy to create an AWS
 This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The ID's of these resources will be needed for our RDS instance.
 :::
 
-5. Paste in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
+1. Paste in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
 
 ```powershell
 # Get reference to VPC
@@ -32,7 +32,7 @@ $vpcList = $(aws ec2 describe-vpcs --filter Name=tag:Name,Values=#{AWS.CloudForm
 # Check to see if anything was returned
 if (($null -eq $vpcList))
 {
-	Write-Error "Failed retrieving vpc list." 
+ Write-Error "Failed retrieving vpc list." 
 }
 
 # Get VPC Id
@@ -63,10 +63,11 @@ Set-OctopusVariable -name "AWS.Subnet1.Id" -value $subnet1Id
 Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
-6. Add a **Deploy an AWS CloudFormation template** step.
-7. Fill in the parameters for the step:
 
-| Parameter  | Description | Example |
+1. Add a **Deploy an AWS CloudFormation template** step.
+2. Fill in the parameters for the step:
+
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
 | Region | The region your resources will be located in | us-west-1 |
@@ -75,11 +76,13 @@ Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 | Select IAM Capability | Capability of IAM | Use dropdown to select capability |
 | Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
 
-8. Paste in the following template code:
+1. Paste in the following template code:
+
 :::div{.info}
 
 Note the use of Octostache variables, you will need to make sure you create these for this example to work.  You will also see use of the output variables created in the previous step.
 :::
+
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:

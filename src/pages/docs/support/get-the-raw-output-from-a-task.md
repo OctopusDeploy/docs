@@ -15,13 +15,13 @@ To download the task log do the following:
 2. Select the **Task Log** tab.
 
 :::figure
-![](/docs/img/support/images/tasklog.png)
+![The Task Log tab of a task](/docs/img/support/images/tasklog.png)
 :::
 
-3. Click the **Download** button on the right to download the raw task log.
+1. Click the **Download** button on the right to download the raw task log.
 
 :::figure
-![](/docs/img/support/images/tasklog2.png)
+![The Download button on the task log](/docs/img/support/images/tasklog2.png)
 :::
 
 Send this file to us, or attach it to your support request.

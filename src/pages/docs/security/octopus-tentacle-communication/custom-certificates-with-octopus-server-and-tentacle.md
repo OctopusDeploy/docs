@@ -32,7 +32,7 @@ This assumes you have already installed Octopus on the target server.
 Octopus.Server.exe export-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
 ```
 
-3. Execute the following statement at a command line on the same server.  Note that the password is optional.
+1. Execute the following statement at a command line on the same server.  Note that the password is optional.
 
 ```batch
 Octopus.Server.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
@@ -71,14 +71,14 @@ The new certificate has been written to C:\PathToCertificate\cert.pfx.
 Then import the new certificate (see step 2 above).
 :::
 
-3. Restart the OctopusDeploy service.
-4. The next step is to update all the associated Tentacles to trust the new certificate.  This is done by stopping the Tentacle service you wish to update and then executing the following statement with the new thumbprint from the step above.  Finally, restart the Tentacle service.
+1. Restart the OctopusDeploy service.
+2. The next step is to update all the associated Tentacles to trust the new certificate.  This is done by stopping the Tentacle service you wish to update and then executing the following statement with the new thumbprint from the step above.  Finally, restart the Tentacle service.
 
 ```powershell
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-## Configuring Tentacle to use custom certificates 
+## Configuring Tentacle to use custom certificates
 
 This assumes you have already installed a Tentacle on the target server.
 
@@ -116,8 +116,8 @@ DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 Import the new certificate as above.
 :::
 
-3. Restart the Tentacle service.
-4. Execute the following command to display the updated thumbprint.
+1. Restart the Tentacle service.
+2. Execute the following command to display the updated thumbprint.
 
 ```batch
 Tentacle.exe show-thumbprint
@@ -130,6 +130,6 @@ Octopus Deploy: Tentacle version 3.12.x
 The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
 ```
 
-5. Open the Octopus Web Portal and select to the Tentacle on the Environments Page.
-6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.
-7. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double-check the Octopus Server and Tentacle thumbprints to ensure they are correct.
+1. Open the Octopus Web Portal and select to the Tentacle on the Environments Page.
+2. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.
+3. Select the Connectivity tab and then click Check health to verify the connection is working.  If it's not, double-check the Octopus Server and Tentacle thumbprints to ensure they are correct.

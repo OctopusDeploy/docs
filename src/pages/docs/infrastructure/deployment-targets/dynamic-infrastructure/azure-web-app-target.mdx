@@ -10,21 +10,20 @@ import CreateDeploymentTargetsHint from 'src/shared-content/infrastructure/creat
 
 ## Azure Web App
 
-Command: **_New-OctopusAzureWebAppTarget_**
+Command: ***New-OctopusAzureWebAppTarget***
 
-| Parameter                           | Value                                         |
-| ----------------------------------- | --------------------------------------------- |
-| `-name`                             | name for the Octopus deployment target        |
-| `-azureWebApp`                      | Name of the Azure Web App                     |
-| `-azureWebAppSlot`                  | Name of the Azure Web App Slot                |
-| `-azureResourceGroupName`           | Name of the Azure Resource Group              |
-| `-octopusAccountIdOrName`           | Name or Id of the Account Resource in Octopus |
-| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign       |
-| `-updateIfExisting`                 | Will update an existing Web App target with the same name, create if it doesn't exist |
-| `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0. |
+| Parameter                           | Value                                                                                                |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `-name`                             | name for the Octopus deployment target                                                               |
+| `-azureWebApp`                      | Name of the Azure Web App                                                                            |
+| `-azureWebAppSlot`                  | Name of the Azure Web App Slot                                                                       |
+| `-azureResourceGroupName`           | Name of the Azure Resource Group                                                                     |
+| `-octopusAccountIdOrName`           | Name or Id of the Account Resource in Octopus                                                        |
+| `-octopusRoles`                     | Comma separated list of [target tags](/docs/infrastructure/deployment-targets/target-tags) to assign |
+| `-updateIfExisting`                 | Will update an existing Web App target with the same name, create if it doesn't exist                |
+| `-octopusDefaultWorkerPoolIdOrName` | Name or Id of the Worker Pool for the deployment target to use. (Optional). Added in 2020.6.0.       |
 
 ### Examples
-
 
 ```powershell
 # Using default options

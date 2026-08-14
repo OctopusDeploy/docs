@@ -9,4 +9,3 @@ hideInThisSectionHeader: true
 ---
 
 You can use the REST API to manage a project's [deployment process](/docs/projects/deployment-process). Typical tasks might include:
-

@@ -8,9 +8,9 @@ description: Using the Tentacle.exe command line executable to configure Tentacl
 
 Sets Tentacle settings such as the port number and thumbprints.
 
-**Configure options**
+## Configure options
 
-```
+```text
 Usage: tentacle configure [<options>]
 
 Where [<options>] is any of:
@@ -41,13 +41,13 @@ Or one of the common options:
 
 This example removes all trusted Octopus Servers:
 
-```
+```text
 tentacle configure --reset-trust
 ```
 
 This example configures the Tentacle to trust the thumbprint from an Octopus Server of `9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40`:
 
-```
+```text
 tentacle configure --trust="9202C9DCB8C14A62ED9A4C25F9F83DD04CC3CD40"
 ```
 
@@ -55,11 +55,12 @@ This example changes the Tentacle home directory to `NewHome`:
 
 Windows:
 
-```
+```text
 tentacle configure --homedir="c:\NewHome"
 ```
+
 Linux:
 
-```
+```text
 Tentacle configure --homedir="/NewHome"
 ```

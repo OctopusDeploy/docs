@@ -21,7 +21,7 @@ octo list-projects --server https://your-octopus-url --apiKey API-YOUR-KEY --out
 
 This command outputs the list of projects in parsable JSON format:
 
-```
+```text
 [
   {
     "Id": "Projects-81",
@@ -35,6 +35,7 @@ This command outputs the list of projects in parsable JSON format:
 ```
 
 You can also work with the JSON output in PowerShell:
+
 ```powershell
 $json = (./octo list-releases --server https://your-octopus-url --apikey API-YOUR-KEY --project=OctoLifecycle --outputformat=json) | ConvertFrom-Json
 $json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).AddMonths(-1))}
@@ -42,7 +43,7 @@ $json | select -expand Releases | where {[datetime]$_.Assembled -gt ((Get-Date).
 
 This script writes out a list of releases for the last month:
 
-```
+```text
 Version Assembled                     PackageVersions ReleaseNotes
 ------- ---------                     --------------- ------------
 0.0.16  2018-01-04T14:27:25.221+10:00 Deploy1 0.0.1
@@ -59,4 +60,3 @@ Version Assembled                     PackageVersions ReleaseNotes
 
 - [Octopus CLI](/docs/octopus-rest-api/octopus-cli)
 - [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)
-

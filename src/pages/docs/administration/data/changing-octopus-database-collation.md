@@ -23,7 +23,7 @@ For this reason, when modifying the SQL Server Database during Octopus upgrades,
 
 ## Errors during Octopus Server upgrades {#errors-during-upgrades}
 
-*Database update prevented: One or more columns in the database are not using the default collation*
+> Database update prevented: One or more columns in the database are not using the default collation
 
 If you have received the error above while upgrading your Octopus Server, it is likely that at some point the collation on your Octopus database was changed without changing the collation of the existing objects.
 
@@ -33,7 +33,7 @@ If you have received the error above, your database has not been modified, and y
 
 You can run the following SQL against your Octopus database to identify any columns that don't use the database's default collation:
 
-**Identify columns with non-default collation**
+### Identify columns with non-default collation
 
 ```sql
 DECLARE @DatabaseCollation VARCHAR(100)

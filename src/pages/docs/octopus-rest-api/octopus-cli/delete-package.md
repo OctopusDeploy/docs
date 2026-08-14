@@ -9,9 +9,9 @@ navOrder: 100
 
 Deletes a package from the built-in NuGet repository in an Octopus Server.
 
-**delete-package options**
+## delete-package options
 
-```
+```text
 Deletes a package from the built-in NuGet repository in an Octopus Server.
 
 Usage: octo delete-package [<options>]
@@ -76,4 +76,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

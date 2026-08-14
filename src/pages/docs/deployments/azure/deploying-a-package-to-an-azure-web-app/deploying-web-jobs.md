@@ -63,6 +63,6 @@ Below is a sample of a nuspec file which could be used to produce the layout abo
 
 If you are packaging and deploying your Web Job independently to the containing Web App (and possibly other Web Jobs and sub-applications), then it is important you set the Physical Path field to the appropriate location.  For example:
 
-```
+```text
 App_Data\Jobs\Triggered\WebJob1
 ```

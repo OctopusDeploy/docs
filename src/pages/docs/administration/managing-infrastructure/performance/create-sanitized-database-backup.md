@@ -21,7 +21,7 @@ BACKUP DATABASE [OctopusDeploy]
       WITH FORMAT;
 ```
 
-2. Restore the backup to a different server.
+1. Restore the backup to a different server.
 
 That new database is the database we are going to sanitize.  The easiest way to do this is to use SQL Server Management Studio, right-click on **Databases**, select **Restore Database** and follow the wizard.  We recommend naming it `OctopusDeploy_Sanitized` to make it clear as to the intention.
 
@@ -38,7 +38,7 @@ RESTORE DATABASE [OctopusDeploy_Sanitized]
 GO
 ```
 
-3. Disable deployment targets, project triggers, workers, and more.
+1. Disable deployment targets, project triggers, workers, and more.
 
 Run the following T-SQL script to disable as much as possible on that database.  In the next step, you'll create an Octopus Deploy instance.  This script will prevent anything from running in the background that could potentially deploy or change anything in production.
 
@@ -56,7 +56,7 @@ IF EXISTS (SELECT null FROM sys.tables WHERE name = 'Worker')
 DELETE FROM ExtensionConfiguration WHERE Id in ('authentication-octopusid', 'jira-integration')
 ```
 
-4. On a new server, install Octopus Deploy.
+1. On a new server, install Octopus Deploy.
 
 The installed version of Octopus Deploy should be the same version of Octopus Deploy you are running in production.  After installing Octopus Deploy, the Octopus Manager will appear.  You can close that and instead run these scripts to create the Octopus Deploy instance.
 
@@ -75,7 +75,7 @@ Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 When you run the above commands, you will get a warning about being unable to decrypt the database.  You can ignore that.
 :::
 
-5. Sanitize the database.
+1. Sanitize the database.
 
 This command will clean out all sensitive variables and PII data and generate a new master key on the database.  
 
@@ -89,7 +89,7 @@ Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 .\Octopus.Server.exe lost-master-key --instance "Octopus" --iReallyWantToResetAllMySensitiveData --upgradeDatabase --scrubPii --iHaveBackedUpMyDatabase
 ```
 
-6. Create a new database backup.
+1. Create a new database backup.
 
 Create a new backup for the `OctopusDeploy_Sanitized` database.  This is the backup you will upload to Octopus.
 
@@ -99,6 +99,6 @@ BACKUP DATABASE [OctopusDeploy_Sanitized]
       WITH FORMAT;
 ```
 
-7. Upload your database backup.
+1. Upload your database backup.
 
 In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup. Only we have access to view and download files uploaded to this location, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been to ensure only you and our team can see the link.

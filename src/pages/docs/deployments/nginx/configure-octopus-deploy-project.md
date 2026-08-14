@@ -14,7 +14,7 @@ Assuming you are starting with a clean install of Octopus Deploy, the following 
 - On the *Environments* page, add an environment named **Production**.
 
 :::figure
-![](/docs/img/deployments/nginx/images/production_environment.png)
+![A Production environment added on the Environments page](/docs/img/deployments/nginx/images/production_environment.png)
 :::
 
 :::div{.success}
@@ -41,28 +41,28 @@ The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via **Projects ➜ All** and then click the *Add Project* button.
 - Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **Add Step ➜ Deploy to NGINX**.
-    * Give the step a name (for example *Deploy NginxSampleWebApp*)
-    * Ensure that the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches that which was assigned to the machine in the previous step and
-    * Select *NGINXSampleWebApp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
+  - Give the step a name (for example *Deploy NginxSampleWebApp*)
+  - Ensure that the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches that which was assigned to the machine in the previous step and
+  - Select *NGINXSampleWebApp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
 
 :::figure
-![](/docs/img/deployments/nginx/images/deployment_process_name_role_and_package.png)
+![The step name, target tag and NGINXSampleWebApp package ID](/docs/img/deployments/nginx/images/deployment_process_name_role_and_package.png)
 :::
 
 ### NGINX web server
 
 To configure NGINX to send traffic to your application you need to fill in a few details.
 
-| Field                     | Meaning                                  | Examples                                 | Notes                                    |
-| ------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| **Host Name**             | The `Host` header that this server will listen on. | `www.contoso.com`              | **[Optional]** The value can be a full (exact) name, a wildcard, or a regular expression. A wildcard is a character string that includes the asterisk (`*`) at its beginning, end, or both; the asterisk matches any sequence of characters. Leave empty to use any `Host` header. |
-| **Bindings**              | Specify any number of HTTP/HTTPS bindings that should be added to the NGINX virtual server. |                                          |                                          |
-| **Locations**             | Specify any number of locations that NGINX should test request URIs against to send traffic to your application. |                                          |                                          |
+| Field         | Meaning                                                                                                          | Examples          | Notes                                                                                                                                                                                                                                                                              |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Host Name** | The `Host` header that this server will listen on.                                                               | `www.contoso.com` | **[Optional]** The value can be a full (exact) name, a wildcard, or a regular expression. A wildcard is a character string that includes the asterisk (`*`) at its beginning, end, or both; the asterisk matches any sequence of characters. Leave empty to use any `Host` header. |
+| **Bindings**  | Specify any number of HTTP/HTTPS bindings that should be added to the NGINX virtual server.                      |                   |                                                                                                                                                                                                                                                                                    |
+| **Locations** | Specify any number of locations that NGINX should test request URIs against to send traffic to your application. |                   |                                                                                                                                                                                                                                                                                    |
 
 When defining **locations** you can configure NGINX to deliver files from the file system , or proxy requests to another server. For our sample application we want requests to `http://<IPorDNSofServer>/` to deliver the `index.html` file from the `WWWRoot` folder of our ASP.NET Core project and requests to `http://<IPorDNSofServer>/api/` to be proxied to our ASP.NET Core project running on `http://localhost:5000`.
 
 :::figure
-![](/docs/img/deployments/nginx/images/deployment_process_nginx_feature.png)
+![The NGINX feature configured with locations for the sample application](/docs/img/deployments/nginx/images/deployment_process_nginx_feature.png)
 :::
 
 ### Starting and managing our ASP.NET Core project
@@ -72,7 +72,7 @@ To get the ASP.NET Core process started up you can manually call *dotnet <name_o
 - Click the *Configure features* link at the bottom of the step and enable the *Custom deployment scripts* feature.
 - Add the following code as a **bash** script for the **post-deployment** phase.
 
-** Post-deployment Bash script to configure systemd services **
+#### Post-deployment Bash script to configure systemd services
 
 ```bash
 SYSTEMD_CONF=/etc/systemd/system
@@ -86,7 +86,7 @@ ROOTDIR=$(get_octopusvariable "Octopus.Action[Deploy NginxSampleWebApp].Output.P
 SYSTEMD_SERVICE_FILE=${SYSTEMD_CONF}/${APPNAME}.service
 
 if [ -f $SYSTEMD_SERVICE_FILE ]; then
-	serviceRestartRequired=True
+ serviceRestartRequired=True
 fi
 
 # Application systemd service configuration
@@ -160,19 +160,19 @@ The package will be uploaded to the server and unpacked, and the environment spe
 Navigating to the host machine after deploying to the *Production* environment should then result in our static AngularJS application being served up and looks something like this:
 
 :::figure
-![](/docs/img/deployments/nginx/images/production_deployment_homepage.png)
+![The deployed AngularJS application served by NGINX](/docs/img/deployments/nginx/images/production_deployment_homepage.png)
 :::
 
 Navigating to `Fetch data` will call the backend to retrieve the data and should result in a page that looks something like this:
 
 :::figure
-![](/docs/img/deployments/nginx/images/production_deployment_fetchdata_page.png)
+![The Fetch data page of the deployed application](/docs/img/deployments/nginx/images/production_deployment_fetchdata_page.png)
 :::
 
 Navigating to the backend directly (by entering `http://<IPorDNSofServer>/api/SampleData/WeatherForecasts` into the browser address bar) should return something like this:
 
 :::figure
-![](/docs/img/deployments/nginx/images/production_deployment_api_result.png)
+![The JSON returned by the backend weather forecast API](/docs/img/deployments/nginx/images/production_deployment_api_result.png)
 :::
 
 ## Learn more

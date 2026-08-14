@@ -49,16 +49,18 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 ```
 
 1. Create the variables in Octopus. From the [project](/docs/projects) overview page, click **Variables**:
-  - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
-  - Enter the value for the variable, for instance, `ABCDEFG`.
-  - Scope the variable to the environment, for instance, `Test`.
-  - Repeat the process for the **Production** environment, to give you a different value for the `AWSAccessKey` variable for each environment.
-2. Repeat this for each element you want to replace in your configuration file.
-3. Click **SAVE**.
+
+- Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
+- Enter the value for the variable, for instance, `ABCDEFG`.
+- Scope the variable to the environment, for instance, `Test`.
+- Repeat the process for the **Production** environment, to give you a different value for the `AWSAccessKey` variable for each environment.
+
+1. Repeat this for each element you want to replace in your configuration file.
+2. Click **SAVE**.
 
 In this example, you would have variables similar to the following:
 
-| Variable Name    | Value     | Sensitive    | Scope |
+| Variable Name | Value | Sensitive | Scope |
 | ----------------------- | --------------- | -------- | -------- |
 | `AWSAccessKey` | `ABCDEFG` | `No` | `Test` |
 | `AWSAccessKey` | `XXXXXXX` | `No` | `Production` |
@@ -73,7 +75,7 @@ In this example, you would have variables similar to the following:
 Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
 :::
 
-4. Deploy your project to the `Test` environment, and Octopus will update the configuration file to:
+1. Deploy your project to the `Test` environment, and Octopus will update the configuration file to:
 
 ```xml
 <configuration>
@@ -94,7 +96,7 @@ Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the
 </configuration>
 ```
 
-5. Deploy your project to the `Production` environment, and Octopus will update the configuration file to:
+1. Deploy your project to the `Production` environment, and Octopus will update the configuration file to:
 
 ```xml
 <configuration>

@@ -40,17 +40,18 @@ ssh-keygen -t rsa -m PEM
 
 This will bring up an interactive dialog, prompting for:
 
-2. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
-3. Enter a passphrase (or press enter for no passphrase).
-4. If you entered a passphrase, re-enter the passphrase.
+1. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
+2. Enter a passphrase (or press enter for no passphrase).
+3. If you entered a passphrase, re-enter the passphrase.
 
 You now have two files:
+
 - `id_ed25519` or `id_rsa` (the private key)
 - `id_ed25519.pub` or `id_rsa.pub` (the public key)
 
 The public key will be stored on this (the Linux) server and the private key will be copied to the Octopus Server.
 
-5. Copy the public key to the `authorized_keys` file that is used during authentication:
+1. Copy the public key to the `authorized_keys` file that is used during authentication:
 
 <details data-group="copy-key-to-authorized-keys">
 <summary>ED25519</summary>
@@ -69,13 +70,13 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 </details>
 
-6. Modify the permissions of the `authorized_keys` file:
+1. Modify the permissions of the `authorized_keys` file:
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-7. Copy the private key to the machine your Octopus Server is installed on.
+1. Copy the private key to the machine your Octopus Server is installed on.
 
 Proceed to [creating the SSH key pair account](#create-ssh-account).
 
@@ -83,10 +84,10 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 ### Generating a key pair on Windows {#generate-key-pair-windows}
 
-The easiest way to generate valid keys on Windows is to use a tool like[ PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
+The easiest way to generate valid keys on Windows is to use a tool like[PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
 :::figure
-![](/docs/img/infrastructure/accounts/ssh-key-create-putty.png)
+![Generating an SSH key pair in PuTTYgen](/docs/img/infrastructure/accounts/ssh-key-create-putty.png)
 :::
 
 Provide your passphrase if desired and export the private key to the accepted format by going to **Conversions ➜ Export OpenSSH Key**.  Clicking "Save private key" will actually produce a file that, while it can be used by this tool again, is not compatible with the standard SSH process. To get the public key over to the server you can either click "Save public key", copy the file across to the server and add the key to `~/.ssh/authorized_keys` as outlined above, or just cut+paste the content from the textbox directly into the remote file.

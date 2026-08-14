@@ -12,25 +12,25 @@ navOrder: 25
 In addition to Octopus Deploy, the following items are required.  This guide provides examples using Azure DevOps and TeamCity as the CI too, however, the core concepts are the same with all the tools.  
 
 - Redgate SQL Toolbelt:
-    - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
+  - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
 - CI Tool (pick one):
-    - [Jenkins](https://www.jenkins.io/download/)
-    - [TeamCity](https://www.jetbrains.com/teamcity/download/)
-    - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
-    - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
-    - [Bamboo](https://www.atlassian.com/software/bamboo/download)
+  - [Jenkins](https://www.jenkins.io/download/)
+  - [TeamCity](https://www.jetbrains.com/teamcity/download/)
+  - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
+  - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
+  - [Bamboo](https://www.atlassian.com/software/bamboo/download)
 - SQL Server Management Studio (SSMS):
-    - [Free download](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+  - [Free download](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 - SQL Server (pick one):
-    - [SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
-    - [SQL Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+  - [SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
+  - [SQL Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 ## Octopus Deploy preparation work
 
 The following preparation needs to be completed prior to creating and configuring projects in Octopus Deploy:  
 
 1. [Configure a worker pool](#configure-a-worker-pool) for Redgate SQL change automation to run on.
-2. Install a [Tentacle on a Windows VM](#install-the-tentacle-on-a-windows-server). 
+2. Install a [Tentacle on a Windows VM](#install-the-tentacle-on-a-windows-server).
 3. Install the **Redgate** [step template](#install-step-templates).
 
 ### Configure a worker pool
@@ -44,8 +44,8 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 ![Create worker pool modal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-pool-modal.png)
 :::
 
-3. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
-4. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
+1. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
+2. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
 
 :::figure
 ![Tentacle communication mode selection in the Octopus Web Portal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-select-tentacle-type.png)
@@ -139,17 +139,17 @@ A build server, such as Jenkins, TeamCity, Azure DevOps, Bamboo, Bitbucket Pipel
 Octopus Deploy and Redgate provide a number of plugins for several build servers.  
 
 - Jenkins:
-    - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
-    - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci/).
+  - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
+  - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci/).
 - TeamCity:
-    - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
-    - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
+  - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
+  - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
 - Azure DevOps:
-    - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
-    - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
+  - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
+  - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
 - Bamboo:
-    - [Octopus plugin](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
-    - [Redgate plugin](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
+  - [Octopus plugin](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
+  - [Redgate plugin](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
 
 ### Azure DevOps
 
@@ -165,13 +165,13 @@ The push package to Octopus step can be a little tricky.  The folder where the p
 
 The full path for this example is:
 
-```
+```text
     $(Build.Repository.LocalPath)\RandomQuotes-SQLChangeAutomation.1.0.$(Build.BuildNumber).nupkg
 ```
 
 The Octopus Server must be configured in Azure DevOps.  The steps to do that are detailed in [this documentation](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension/#add-a-connection-to-octopus-deploy).
 
-The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking _Show Deployment Progress_ will stop the build and force it to wait for Octopus to complete.
+The last step is to create a release in Octopus Deploy and deploy it to dev using the plugin.  Select the project from the drop-down list, and enter the same build number as the package.  Expand the **Deployment** section and select an environment to deploy to.  Clicking *Show Deployment Progress* will stop the build and force it to wait for Octopus to complete.
 
 :::figure
 ![The release step in Azure DevOps](/docs/img/deployments/databases/sql-server/images/azure-devops-create-octopus-database-release.png)
