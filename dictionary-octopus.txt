@@ -548,6 +548,8 @@ struct
 stylesheet
 subcomponent
 subcontext
+subpath
+subpaths
 sunsetting
 swaggerui
 systemprofile

@@ -66,7 +66,7 @@ test('the avatar opens the menu', async ({
   );
   await expect(items.nth(2)).toHaveAttribute(
     'href',
-    'https://octopus.com/signout'
+    'https://octopus.com/signout?ReturnUrl=/docs'
   );
 
   await expect(menu.locator('[role="separator"]')).toHaveCount(1);
