@@ -14,7 +14,10 @@ const {
   label = 'Account',
   controlCenterHref = 'https://billing.octopus.com',
   profileHref = 'https://id.octopus.com/profile',
-  signOutHref = 'https://octopus.com/signout',
+
+  // Arbitrary subpaths of /docs are blocked on the server side, returning to /docs is the best we can do
+  signOutHref = 'https://octopus.com/signout?ReturnUrl=/docs',
+
   class: className,
   ...rest
 } = Astro.props satisfies Props;
