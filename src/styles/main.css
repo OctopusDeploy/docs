@@ -30,7 +30,9 @@ html {
 }
 
 .input-keyboard :focus {
-  outline: 2px dashed silver;
+  z-index: 4;
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
 }
 
 body {
@@ -3276,6 +3278,11 @@ html[data-nav='new'] .site-header {
   border-bottom: none;
   border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
   display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
   gap: var(--space0);
   background-color: var(--colorBackgroundSecondaryDefault);
 }
@@ -3288,11 +3295,13 @@ html[data-nav='new'] .site-header {
   display: inline-block;
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
   background: none;
   border: none;
   outline: none;
   font: var(--textBodyRegularMedium);
   text-align: center;
+  white-space: nowrap;
   cursor: pointer;
   color: var(--colorTextSecondary);
   padding: var(--space12) var(--space16);
@@ -3306,22 +3315,9 @@ html[data-nav='new'] .site-header {
 .tab-list button[aria-selected='true'] {
   margin-block-start: 0;
   color: var(--colorTextPrimary);
-  bottom: calc(-1 * var(--borderWidth1));
   font: var(--textBodyBoldMedium);
   background-color: var(--colorBackgroundPrimaryDefault);
   border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
-}
-
-.tab-list button span.focus {
-  display: inline-block;
-  outline: none;
-}
-
-.tab-list button:focus-visible {
-  z-index: 4;
-  outline: var(--borderWidth2) solid var(--colorBorderSelected);
-  border-radius: var(--borderRadiusExtraSmall);
-  outline-offset: var(--borderWidth1);
 }
 
 .tab-list button:has(+ button[aria-selected='true'])::before,
@@ -3381,15 +3377,13 @@ html[data-nav='new'] .site-header {
 [role='tabpanel'] :is(.code-block, .table-wrap):first-child,
 [role='tabpanel']
   :is(
-    :is(
-      blockquote,
-      div.hint,
-      div.info,
-      div.success,
-      div.warning,
-      div.problem,
-      div.question
-    )
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
   ):first-child {
   margin-block-start: 0;
 }
@@ -3397,15 +3391,13 @@ html[data-nav='new'] .site-header {
 [role='tabpanel'] :is(.code-block, .table-wrap):last-child,
 [role='tabpanel']
   :is(
-    :is(
-      blockquote,
-      div.hint,
-      div.info,
-      div.success,
-      div.warning,
-      div.problem,
-      div.question
-    )
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
   ):last-child {
   margin-block-end: 0;
 }
