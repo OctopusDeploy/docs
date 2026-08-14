@@ -13,6 +13,10 @@ html[data-theme='dark'] {
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
+  /* Search and the mobile nav lock scrolling by hiding the body's overflow,
+     which takes the scrollbar with it. Holding the gutter open keeps the
+     viewport a constant width, so the fixed header stays put. */
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -48,23 +52,6 @@ body {
 
 body.no-scroll {
   overflow: hidden;
-}
-
-/* Search locks the page while its dropdown is open. Hiding the overflow takes
-   the scrollbar away and widens the viewport, so hold the width it was using
-   open — otherwise the page and the viewport-sized fixed header both grow into
-   it and their contents jump to the right. --scroll-lock-gutter is measured and
-   set by search.js, and is 0 when there was no scrollbar to lose. */
-body.search-scroll-lock {
-  overflow: hidden;
-  padding-inline-end: var(--scroll-lock-gutter, 0px);
-}
-
-body.search-scroll-lock .octo-header-bkg {
-  /* html's border-box does not inherit, so width: 100% would grow by the
-     padding instead of absorbing it. */
-  box-sizing: border-box;
-  padding-inline-end: var(--scroll-lock-gutter, 0px);
 }
 
 a,
