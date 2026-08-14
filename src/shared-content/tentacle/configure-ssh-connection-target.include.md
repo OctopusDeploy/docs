@@ -9,11 +9,11 @@ The Octopus Server will attempt to perform the required protocol handshakes and 
 
 If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
-5. Give the target a name.
-6. Select which environment the deployment target will be assigned to.
-7. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target tags](/docs/infrastructure/deployment-targets/target-tags).
-8. Select the account that will be used for the Octopus Server and the SSH target to communicate.
-9. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
+1. Give the target a name.
+2. Select which environment the deployment target will be assigned to.
+3. Choose or create at least one target role for the deployment target and click **Save**. Learn about [target tags](/docs/infrastructure/deployment-targets/target-tags).
+4. Select the account that will be used for the Octopus Server and the SSH target to communicate.
+5. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
 
 :::div{.hint}
 From Octopus Server **2024.2.6856** both SHA256 and MD5 fingerprints are supported. We recommend using SHA256 fingerprints.
@@ -31,6 +31,6 @@ For Octopus Server prior to **2024.2.6856** use the following:
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
 ```
 
-10. Select the **Platform** (OS and architecture) of the target server.
+ 1. Select the **Platform** (OS and architecture) of the target server.
 
-11. Click **Save**.
+ 2. Click **Save**.

@@ -11,13 +11,13 @@ With the **Structured Configuration Variables** feature you can define [variable
 1. To enable Structured Configuration Variables on a [step](/docs/projects/steps) that supports the feature, click the **CONFIGURE FEATURES** link, select **Structured Configuration Variables**, then click **OK**.
 2. In the **Structured Configuration Variables** section of the step, specify the relative paths to your structured configuration files, relative to the working directory. For instance:
 
-```
+```text
 approot\packages\ASPNET.Core.Sample\1.0.0\root\appSettings.json
 ```
 
 or
 
-```
+```text
 **/application.yaml
 ```
 
@@ -34,23 +34,27 @@ Specify files that should have variable replacement applied to them. Multiple fi
 
 You can supply full paths to files, use wildcards to find multiple files in a directory, or use wildcards for a directory to find all files at that level or deeper:
 
-**Specific file path**
-```
+#### Specific file path
+
+```text
 ExampleProject\appSettings.json
 ```
 
-**Match any .yaml files in the root directory**
-```
+##### Match any .yaml files in the root directory
+
+```text
 *.yaml
 ```
 
-**Match any .json files in the specified directory**
-```
+###### Match any .json files in the specified directory
+
+```text
 Config\*.json
 ```
 
-**Match any .xml files in the specified directory or deeper**
-```
+###### Match any .xml files in the specified directory or deeper
+
+```text
 Application/**/*.xml
 ```
 
@@ -68,22 +72,22 @@ If the file extension is not recognized (for example, a file with a `config` fil
 
 Octopus uses variable names to identify the structures that should be replaced within the target files. If a structure within a target file has a hierarchical location that matches a variable name, its content will be replaced with the variable's value. The hierarchical location is identified differently depending on the type of target file:
 
-- In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`. 
-- In XML files, structures can be identified by setting Octopus variable names to XPath expressions. 
-- In Java Properties files, they have their keys matched against Octopus variable names. 
+- In JSON and YAML files, each location is identified by the sequence of keys leading to it from the root level, separated by `:`.
+- In XML files, structures can be identified by setting Octopus variable names to XPath expressions.
+- In Java Properties files, they have their keys matched against Octopus variable names.
 
 An example for each supported file type can be found in the following table:
 
 | Format | Input file | Octopus variable name | Octopus variable value | Output file |
 | ------ | ---------- | ---- | ----- | ----------- |
-| JSON   | {"app": {"port": 80 }} | `app:port` | 4444 | {"app": {"port": 4444}} |
-| YAML   | app:<br/>&nbsp;&nbsp;port: 80 | `app:port` | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
-| XML    | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | `/app/port` | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
+| JSON | {"app": {"port": 80 }} | `app:port` | 4444 | {"app": {"port": 4444}} |
+| YAML | app:<br/>&nbsp;&nbsp;port: 80 | `app:port` | 4444 | app:<br/>&nbsp;&nbsp;port: 4444 |
+| XML | &lt;app&gt;&lt;port&gt;80&lt;/port&gt;&lt;/app&gt; | `/app/port` | 4444 | &lt;app&gt;&lt;port&gt;4444&lt;/port&gt;&lt;/app&gt; |
 | Java Properties | app_port: 80 | `app_port` | 4444 | app_port: 4444 |
 
 #### Variable names starting with the word Octopus
 
-When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables) that start with the word `Octopus` that aren't intended for use with this feature. 
+When targeting JSON and YAML files, care should be taken when naming variables to be used with the Structured Configuration Variables feature; Specifically, to avoid the use of the word `Octopus` in the name where possible. This is because Octopus provides a number of [system variables](/docs/projects/variables/system-variables) that start with the word `Octopus` that aren't intended for use with this feature.
 
 :::div{.warning}
 Any variables that start with `Octopus` that **aren't** followed with a `:` are ignored when performing variable replacement on JSON and YAML files.
@@ -101,11 +105,11 @@ Consider the following JSON input file:
 
 If you had a variable named `OctopusServer:WebPort` with value `8080`, the value would *not be replaced* as the variable name starts with the word `Octopus`.
 
-The easiest way to workaround this is to change the name of your variable to start with something other than the word `Octopus`. 
+The easiest way to workaround this is to change the name of your variable to start with something other than the word `Octopus`.
 
 #### Variable casing
 
-Octopus matches variable names to the structure in target files in a **case-insensitive way**. 
+Octopus matches variable names to the structure in target files in a **case-insensitive way**.
 
 For example, given the following JSON input file:
 
@@ -165,7 +169,8 @@ It is common (and encouraged) to use hierarchical variables in Structured config
 
 For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus variables `weatherApi:url` and `weatherApi:key`.
 
-**Hierarchical JSON**
+#### Hierarchical JSON
+
 ```json
 {
    "weatherApi": {
@@ -175,7 +180,8 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in the
 }
 ```
 
-**Hierarchical YAML**
+##### Hierarchical YAML
+
 ```yaml
 weatherApi:
   url: dev.weather.com
@@ -184,7 +190,8 @@ weatherApi:
 
 You can also replace an entire object. For the example above, you could set Octopus variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
 
-**Replaced Hierarchical JSON**
+###### Replaced Hierarchical JSON
+
 ```json
 {
    "weatherApi": {
@@ -194,7 +201,8 @@ You can also replace an entire object. For the example above, you could set Octo
 }
 ```
 
-**Replaced Hierarchical YAML**
+###### Replaced Hierarchical YAML
+
 ```yaml
 weatherApi:
   url: test.weather.com
@@ -205,7 +213,8 @@ weatherApi:
 
 Octopus can replace a value in a JSON array or a YAML sequence by using the zero-based index of the array or sequence in the variable name. If we take the following examples:
 
-**Example Hierarchical JSON**
+#### Example Hierarchical JSON
+
 ```json
 {
    "foo": {
@@ -217,7 +226,8 @@ Octopus can replace a value in a JSON array or a YAML sequence by using the zero
 }
 ```
 
-**Example Hierarchical YAML**
+##### Example Hierarchical YAML
+
 ```yaml
 foo:
   bar:
@@ -227,7 +237,8 @@ foo:
 
 Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux`, like so:
 
-**Replaced Array Index Hierarchical JSON**
+###### Replaced Array Index Hierarchical JSON
+
 ```json
 {
    "foo": {
@@ -239,7 +250,8 @@ Variables can be set for `foo:bar:1` with a value `qux` which will update the va
 }
 ```
 
-**Replaced Sequence Index Hierarchical YAML**
+###### Replaced Sequence Index Hierarchical YAML
+
 ```yaml
 foo:
   bar:
@@ -249,7 +261,8 @@ foo:
 
 It's possible to replace an entire array or sequence too. In the previous example, if the Octopus variable `foo:bar` was set to `["baz","qux"]`, it would create outputs like:
 
-**Replaced Array Hierarchical JSON**
+###### Replaced Array Hierarchical JSON
+
 ```json
 {
    "foo": {
@@ -261,7 +274,8 @@ It's possible to replace an entire array or sequence too. In the previous exampl
 }
 ```
 
-**Replaced Sequence Hierarchical YAML**
+###### Replaced Sequence Hierarchical YAML
+
 ```yaml
 foo:
   bar:
@@ -271,7 +285,8 @@ foo:
 
 The properties of objects in arrays can be replaced. In the example below, defining an Octopus variable `foo:bar:0:url` with the value of `test.weather.com` replaces the `url` property of the first object in the array:
 
-**Replaced Object Property in Array Hierarchical JSON**
+###### Replaced Object Property in Array Hierarchical JSON
+
 ```json
 {
    "foo": {
@@ -285,7 +300,8 @@ The properties of objects in arrays can be replaced. In the example below, defin
 }
 ```
 
-**Replaced Map Property in Sequence Hierarchical YAML**
+###### Replaced Map Property in Sequence Hierarchical YAML
+
 ```yaml
 foo:
   bar:
@@ -323,7 +339,8 @@ This behavior of escaping special characters is [a requirement of the XML specif
 
 It's worth noting that an empty element, such as `<rules />`, contains no element structures and will only be filled with text. For example, assume the target file contains the following:
 
-**Empty XML Element**
+#### Empty XML Element
+
 ```xml
 <configuration>
    <logging>
@@ -334,7 +351,8 @@ It's worth noting that an empty element, such as `<rules />`, contains no elemen
 
 If the Octopus variable `/configuration/logging/rules` is specified with the value `<rule level="trace" />`, the value will be encoded as text, becoming:
 
-**Empty XML Element Filled**
+##### Empty XML Element Filled
+
 ```xml
 <configuration>
   <logging>
@@ -345,7 +363,8 @@ If the Octopus variable `/configuration/logging/rules` is specified with the val
 
 However, if the variable is named `/configuration/logging` to match the parent element, with the value `<rules><rule level="trace" /></rules>`, the value will be treated as an XML fragment because it is replacing an element structure (the `<rules />` element). This becomes:
 
-**Empty XML Element Parent Replaced**
+###### Empty XML Element Parent Replaced
+
 ```xml
 <configuration>
   <logging>
@@ -416,19 +435,20 @@ Similar to the examples above, you can also replace other attribute values.  Wit
 </configuration>
 ```
 
-
 ### XML CDATA sections
 
 CDATA sections can be replaced just like any other node by selecting them with the XPath. When the content of the CDATA section is replaced, the CDATA presentation is maintained in the output. In the following example, `development` in the CDATA tag can be replaced with `prod<1>` by having a variable `/document/environment/text()` with the value `prod<1>`:
 
-**XML Structure with CDATA**
+#### XML Structure with CDATA
+
 ```xml
 <document>
     <environment><![CDATA[development]]></environment>
 </document>
 ```
 
-**XML Structure with CDATA Replaced**
+##### XML Structure with CDATA Replaced
+
 ```xml
 <document>
   <environment><![CDATA[prod<1>]]></environment>
@@ -439,7 +459,8 @@ CDATA sections can be replaced just like any other node by selecting them with t
 
 Processing instructions can be replaced using the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
 
-**XML Structure Processing Instruction**
+#### XML Structure Processing Instruction
+
 ```xml
 <document>
    <?xml-stylesheet type="text/xsl" href="/Content/Glossary/main.xsl"?>
@@ -448,7 +469,8 @@ Processing instructions can be replaced using the XPath processing instruction s
 
 When the Octopus variable `/document/processing-instruction('xml-stylesheet')` is set to `new value` the output will be the following:
 
-**XML Structure Processing Instruction Replaced**
+##### XML Structure Processing Instruction Replaced
+
 ```xml
 <document>
    <?xml-stylesheet new-value ?>
@@ -461,12 +483,12 @@ When parsing the XML document, Octopus collects all namespace declarations for u
 
 One limitation is that if the same prefix is declared more than once in a document, only the first will be available in XPath expressions. Because this is a potentially surprising situation, a warning will be logged, similar to the following:
 
-```
+```text
 The namespace 'http://octopus.com' could not be mapped to the 'octopus' prefix, as another namespace 'http://octopus.com/xml' is already mapped to that prefix. XPath selectors using this prefix may not return the expected nodes. You can avoid this by ensuring all namespaces in your document have unique prefixes.
 ```
 
 **Root elements with namespaces**
-If you have xml files that have a namespace on the root element, you might find your XPath expression doesn't match the root node. 
+If you have xml files that have a namespace on the root element, you might find your XPath expression doesn't match the root node.
 XPath provides different ways to select an element. One option to try is using a wildcard namespace in your XPath expression like `/*:rootelement/*:childelement`
 
 Given the following xml:
@@ -478,13 +500,14 @@ Given the following xml:
   </properties>
 </server>
 ```
+
 If you wanted to replace the value `localhost`, you could use the XPath expression of: `/*:server/*:properties/*:property[@name='host.name']/@value`
 
-## Java properties 
+## Java properties
 
 Given this example of a target properties file:
 
-```
+```text
 weatherApiUrl = dev.weather.com
 weatherApiKey = DEV1234567
 tempImageFolder = C:\\temp\\img
@@ -495,7 +518,7 @@ debug = true
 
 If you define [variables](/docs/projects/variables) in your Octopus project called `weatherApiUrl`, `weatherApiKey`, `tempImageFolder`, `port`, and `debug` with the values `test.weather.com`, `TEST7654321`, `D:\temp\img`, `80`, and `false`, the target properties file is updated to become:
 
-```
+```text
 weatherApiUrl = test.weather.com
 weatherApiKey = TEST7654321
 tempImageFolder = D:\\temp\\img
@@ -504,6 +527,6 @@ port = 80
 debug = false
 ```
 
-Note that the `logsFolder` setting remains untouched as there was no variable defined to override the value and that `tempImageFolder` has been encoded with the double `\`. Octopus will encode the variable in the correct encoding for the properties file format. 
+Note that the `logsFolder` setting remains untouched as there was no variable defined to override the value and that `tempImageFolder` has been encoded with the double `\`. Octopus will encode the variable in the correct encoding for the properties file format.
 
-Unlike JSON, YAML, and XML, it's not possible to do hierarchical replacement in a properties file as properties files are simple key value files. 
+Unlike JSON, YAML, and XML, it's not possible to do hierarchical replacement in a properties file as properties files are simple key value files.

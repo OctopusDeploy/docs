@@ -9,6 +9,7 @@ We strongly recommend testing Hydra against a small subset of "canary" machines 
 1. Create a new "canary" machine role and assign it to a few machines.
 2. Set the Update Octopus Tentacle step to run on machines with the "canary" role.
 3. Once you are confident the Tentacle upgrade works as expected, you can use Hydra to upgrade all remaining machines.
+
 :::
 
 #### How does Hydra work?
@@ -39,7 +40,8 @@ Hydra performs a Reinstall of each Tentacle. As part of the reinstall, the Servi
 ```powershell
 Tentacle.exe service --instance "Tentacle" --reconfigure --username=DOMAIN\ACCOUNT --password=your-password --start --console
 ```
-#### Let's upgrade these Tentacles!
+
+#### Let's upgrade these Tentacles
 
 To use Hydra, follow these steps:
 
@@ -51,23 +53,23 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 2. Use the Upload Package feature of the library to upload the OctopusDeploy. Hydra package to the built-in NuGet repository on your **Octopus 2.6.5** server.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png)
+![Uploading the OctopusDeploy.Hydra package to the built-in repository](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278019.png)
 :::
 
-3. Import the [Hydra step template](https://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
+1. Import the [Hydra step template](https://library.octopus.com/step-templates/d4fb1945-f0a8-4de4-9045-8441e14057fa/actiontemplate-hydra-update-octopus-tentacle) from the Community Library.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278018.png)
+![Importing the Hydra step template from the Community Library](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278018.png)
 :::
 
-4. Create a [new project](/docs/projects) with a single "Update Octopus Tentacle" step from the step template.
+1. Create a [new project](/docs/projects) with a single "Update Octopus Tentacle" step from the step template.
 
- 1. Ensure you choose or create a [Lifecycle](/docs/releases/lifecycles) that allows you to deploy to all Tentacles.
- 2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
- 3. Set the `Server Mapping` field:
+1. Ensure you choose or create a [Lifecycle](/docs/releases/lifecycles) that allows you to deploy to all Tentacles.
+1. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
+1. Set the `Server Mapping` field:
 
-   - If you only use listening Tentacles you can leave the `Server Mapping` field blank.
-   - If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
+- If you only use listening Tentacles you can leave the `Server Mapping` field blank.
+- If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.
 
 :::div{.hint}
 **Server mapping for Polling Tentacles**
@@ -75,20 +77,25 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 It is very important you get this value correct. An incorrect value will result in a polling Tentacle that can't be contacted by neither a 2.6.5 or 2018.10 LTS server. Several different scenarios are supported:
 
 1. A single Polling Tentacle instance on a machine pointing to a single Octopus Server **the most common case**:
-  - Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934`
-2. Multiple Polling Tentacle instances on the same machine pointing to a single Octopus Server:
-  - Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934` and Hydra will automatically update all Tentacles to point to the new server's address
-3. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
-  - Use this syntax to tell Hydra the mapping from your old Octopus Server to your new Octopus Server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
 
-Click the ![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278017.png) help button for more detailed instructions.
+- Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934`
+
+1. Multiple Polling Tentacle instances on the same machine pointing to a single Octopus Server:
+
+- Just point to the new server's polling address `https://newserver:newport` like `https://octopus3.mycompany.com:10934` and Hydra will automatically update all Tentacles to point to the new server's address
+
+1. Multiple Polling Tentacle instances on the same machine pointing to different Octopus Servers **a very rare case**:
+
+- Use this syntax to tell Hydra the mapping from your old Octopus Server to your new Octopus Server: `https://oldserver:oldport=>https://newserver:newport,https://oldserver2:oldport2/=>https://newserver2:newport2` where each pair is separated by commas. This will match the first case and replace it => with the second case.
+
+Click the ![help button icon](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278017.png) for more detailed instructions.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278014.png)
+![The Hydra step template's server mapping field](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278014.png)
 :::
 
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278015.png)
+![The Hydra step configured with the server mapping](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278015.png)
 :::
 
-5. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
-    ![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278010.png)
+1. Create a release and deploy. The deployment should succeed, and one minute later the Tentacles will be upgraded.
+    ![Tentacles upgraded after the Hydra deployment](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3278010.png)

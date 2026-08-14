@@ -9,10 +9,10 @@ The Octopus Server will attempt to perform the required protocol handshakes and 
 
 If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
-5. Add a display name for the Worker.
-6. Select which [worker pools](/docs/infrastructure/workers/worker-pools) the Worker will be assigned to.
-7. Select the account that will be used for the Octopus Server and the SSH target to communicate.
-8. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
+1. Add a display name for the Worker.
+2. Select which [worker pools](/docs/infrastructure/workers/worker-pools) the Worker will be assigned to.
+3. Select the account that will be used for the Octopus Server and the SSH target to communicate.
+4. If entering the details manually, enter the **Host**, **Port** and the host's fingerprint.
 
 :::div{.hint}
 From Octopus Server **2024.2.6856** both SHA256 and MD5 fingerprints are supported. We recommend using SHA256 fingerprints.
@@ -30,9 +30,9 @@ For Octopus Server prior to **2024.2.6856** use the following:
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
 ```
 
-9. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
+1. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
 
-  - [Calamari on Mono](#mono-calamari) built against the full .NET framework.
-  - [Self-contained version of Calamari](#self-contained-calamari) built against .NET Core.
+- Calamari on Mono, built against the full .NET framework.
+- Self-contained version of Calamari, built against .NET Core.
 
-10. Click **Save**.
+ 1. Click **Save**.

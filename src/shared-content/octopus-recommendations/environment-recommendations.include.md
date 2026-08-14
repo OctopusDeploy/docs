@@ -12,15 +12,15 @@ or
 
 These are clearer than:
 
-> "I'm pushing to Dev Omaha 45." 
+> "I'm pushing to Dev Omaha 45."
 
-Without context, it's not clear what _Omaha_ refers to, or what the significance of _45_ is.
+Without context, it's not clear what *Omaha* refers to, or what the significance of *45* is.
 
 A good sign that you have well-modeled environments is that the names don't need an explanation. You should consider changing a name if it is not clear.
 
 ## Keep environment numbers low
 
-In general, try to keep the number of environments under ten. Having fewer environments makes configuring and maintaining your Octopus Server easier. 
+In general, try to keep the number of environments under ten. Having fewer environments makes configuring and maintaining your Octopus Server easier.
 
 We recommend creating a standard set of environments. For example, Dev, Test, Staging, and Production. If you have [dynamic infrastructure](/docs/infrastructure/deployment-targets/dynamic-infrastructure), you might also need SpinUp, TearDown, and Maintenance.
 
@@ -42,7 +42,7 @@ In this section, we walk you through some common scenarios we've seen with envir
 
 Cloud providers such as Azure, AWS, and Google Cloud make deploying to many data centers commonplace. You might need to deploy the software at specific intervals or in a specific order. For example, you might deploy to a data center in Illinois before deploying to one in Texas.
 
-It can be tempting to name environments to match a data center location. For example _Production [Data Center]_ or _Production Omaha_. This is convenient as you can deploy to an individual data center at a time. You can also see what version of code is deployed in each data center.
+It can be tempting to name environments to match a data center location. For example *Production [Data Center]* or *Production Omaha*. This is convenient as you can deploy to an individual data center at a time. You can also see what version of code is deployed in each data center.
 
 Unfortunately, this doesn't scale very well. Every time you add a new data center, your infrastructure and Octopus configuration will need modification, such as:
 
@@ -76,9 +76,9 @@ We also see customers deploy the same project to multiple clients.
 
 Each of their customers gets their own set of machines and other resources. It's possible to configure a unique set of environments for each customer. You could create:
 
-- _Dev [Customer Name]_
-- _Staging [Customer Name]_
-- _Production [Customer Name]_
+- *Dev [Customer Name]*
+- *Staging [Customer Name]*
+- *Production [Customer Name]*
 
 This will work for the first few customers, but again, it doesn't scale very well. Imagine if you had five clients:
 

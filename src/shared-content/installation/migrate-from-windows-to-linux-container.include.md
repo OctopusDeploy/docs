@@ -1,4 +1,4 @@
-## Prep Work 
+## Prep Work
 
 We recommend making the following changes and testing them on your existing Octopus Deploy instance before the move.  This prep work will keep the number of changes made during the actual migration low.
 
@@ -80,7 +80,7 @@ To migrate from Active Directory to LDAP, you will need to:
 
 If you currently have many PowerShell and C# script steps configured to run on the Octopus Server, you will need to configure a Windows Worker to handle that responsibility.  
 
-Under the covers, the Octopus Server includes a [built-in worker](/docs/security/built-in-worker).  When you configure a step to run on the Octopus Server, it runs on the built-in worker.  Switching from the Windows to the Linux Container means changing the underlying OS those steps previously ran on.  If your scripts are not PowerShell Core compliant, this means they will fail.  The vast majority of scripts we encounter work with both PowerShell 5.1 and PowerShell Core.  However, if you have a lot of older scripts, there is a chance they could fail.      
+Under the covers, the Octopus Server includes a [built-in worker](/docs/security/built-in-worker).  When you configure a step to run on the Octopus Server, it runs on the built-in worker.  Switching from the Windows to the Linux Container means changing the underlying OS those steps previously ran on.  If your scripts are not PowerShell Core compliant, this means they will fail.  The vast majority of scripts we encounter work with both PowerShell 5.1 and PowerShell Core.  However, if you have a lot of older scripts, there is a chance they could fail.
 
 Instead of running directly on the Octopus Server's built-in worker, you will need to offload that work onto Windows [workers](/docs/infrastructure/workers).  
 
@@ -92,7 +92,7 @@ Our recommendation is to keep that risk to a minimum.
 1. Create the new Windows Servers and configure them as workers.  Register them to the `Windows Worker Pool`.
 1. Pick a handful of projects and update the deployment process to use the new `Windows Worker Pool`.
 1. Create some test releases and deployments to ensure the new Windows Workers are working correctly.
-1. Assuming the testing is successful, you can add those workers to the `Default Worker Pool` or update the remaining steps. 
+1. Assuming the testing is successful, you can add those workers to the `Default Worker Pool` or update the remaining steps.
 
 ### Copy Files
 
@@ -112,6 +112,7 @@ Failure to copy files over to the new storage location for the Linux Container t
 - Project, Step Template, and Tenant images will not appear.
 - Attempting to download any existing artifacts will fail.
 - If you are using the built-in repository, any existing deployments that use packages hosted there will fail as they won't be able to access them.
+
 :::
 
 ### Polling Tentacles
@@ -119,19 +120,19 @@ Failure to copy files over to the new storage location for the Linux Container t
 Polling Tentacles are designed to handle connection interruptions.  For example, when the Octopus Server is restarted.  When the Octopus Server comes back online, any running Polling Tentacles will re-connect.  If you are currently using Polling Tentacles, you will need to ensure:
 
 1. The same server URL will be used after the move.
-1. You enable the communication port used (default: `10943`) on the Octopus Server Linux Container. 
+1. You enable the communication port used (default: `10943`) on the Octopus Server Linux Container.
 
 If you wish to use a new URL, you will need to run this script on each machine hosting the polling tentacles.  Replace the server and API key with values specific to your instance.
 
 Windows:
 
-```
+```text
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY --server-comms-port=10943
 ```
 
 Linux:
 
-```
+```text
 /opt/octopus/tentacle/Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY --server-comms-port=10943
 ```
 
@@ -141,14 +142,14 @@ The Dockerfile runs the Octopus Server installer each time the Octopus Server Wi
 
 For example:
 
-```
+```text
 ./Octopus.Server path --instance OctopusServer --nugetRepository "/repository" --artifacts "/artifacts" --taskLogs "/taskLogs" --eventExports "/eventExports" --cacheDirectory="/cache" --skipDatabaseCompatibilityCheck --skipDatabaseSchemaUpgradeCheck
 ```
 
 Just like the Octopus Server Windows Container, you will want to provide the following volume mounts.
 
-|  Name       |    |
-| ------------- | ------- |
+|Name||
+|-------------|-------|
 |**/repository**|Package path for the built-in package repository|
 |**/artifacts**|Path where artifacts are stored|
 |**/taskLogs**|Path where task logs are stored|
