@@ -85,25 +85,14 @@ hr {
   color: var(--body-link-color);
 }
 
+/* The tinted card is the callout's shape. Almost every `>` in the docs holds
+   error text, UI copy, or an example value, so a quote takes the quieter rule
+   and stays at body size. */
 blockquote {
-  background: var(--bg-color-hint);
-  border-radius: var(--standard-radius);
-  font-size: var(--fontSizeLarge);
-  line-height: var(--lineHeightMedium);
+  border-inline-start: var(--borderWidth3) solid var(--colorBorderPrimary);
+  color: var(--colorTextSecondary);
   margin: var(--space24) 0;
-  padding: 1.5rem 2.5rem 1.5rem 4.5rem;
-  position: relative;
-}
-
-blockquote::before {
-  content: ' ';
-  position: absolute;
-  left: 1.5rem;
-  top: 1.8rem;
-  width: 28px;
-  height: 21px;
-  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0nMjgnIGhlaWdodD0nMjEnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTI3Ljg1NSAyLjhjLTIuMDI3LjY0LTMuNjU0IDEuNi00Ljg4IDIuODgtMS4xNzQgMS4yOC0xLjYyNyAyLjkzMy0xLjM2IDQuOTYuNTg2LjQ4IDEuNDEzLjk4NyAyLjQ4IDEuNTIgMS4wNjYuNDggMiAuODUzIDIuOCAxLjEyLjIxMy44NTMuMjEzIDEuNjggMCAyLjQ4LS4yMTQuOC0uNTYgMS41Mi0xLjA0IDIuMTZhNy42MTYgNy42MTYgMCAwMS0xLjY4IDEuNTJjLS42NC4zNzMtMS4yMjcuNTg3LTEuNzYuNjQtMS44NjctLjE2LTMuNDk0LS44NTMtNC44OC0yLjA4LTEuMzg3LTEuMjI3LTIuMDgtMi45ODctMi4wOC01LjI4IDAtMS4zMzMuMjEzLTIuNjY3LjY0LTRhMTIuNTkgMTIuNTkgMCAwMTIuMDgtMy42OGMuOTA2LTEuMTczIDIuMDUzLTIuMTg3IDMuNDQtMy4wNEMyMyAxLjA5MyAyNC42NTUuNDUzIDI2LjU3NS4wOGwxLjI4IDIuNzJ6bS0xNC41NiAwYy0yLjAyNy42NC0zLjY1NCAxLjYtNC44OCAyLjg4LTEuMTc0IDEuMjgtMS42MjcgMi45MzMtMS4zNiA0Ljk2LjU4Ni40OCAxLjQxMy45ODcgMi40OCAxLjUyIDEuMDY2LjQ4IDIgLjg1MyAyLjggMS4xMi4yMTMuODUzLjIxMyAxLjY4IDAgMi40OC0uMjE0LjgtLjU2IDEuNTItMS4wNCAyLjE2YTcuNjE1IDcuNjE1IDAgMDEtMS42OCAxLjUyYy0uNjQuMzczLTEuMjI3LjU4Ny0xLjc2LjY0LTEuODY3LS4xNi0zLjQ5NC0uODUzLTQuODgtMi4wOC0xLjM4Ny0xLjIyNy0yLjA4LTIuOTg3LTIuMDgtNS4yOCAwLTEuMzMzLjIxMy0yLjY2Ny42NC00YTEyLjU5MSAxMi41OTEgMCAwMTIuMDgtMy42OEM0LjUyIDMuODY3IDUuNjY4IDIuODUzIDcuMDU1IDJjMS4zODYtLjkwNyAzLjA0LTEuNTQ3IDQuOTYtMS45MmwxLjI4IDIuNzJ6JyBmaWxsPScjMTExODFEJy8+PC9zdmc+);
-  background-repeat: no-repeat;
+  padding: var(--space4) 0 var(--space4) var(--space16);
 }
 
 blockquote cite {
@@ -111,7 +100,6 @@ blockquote cite {
   text-align: end;
   margin-block-start: var(--block-gap);
   font-style: italic;
-  font-size: var(--fontSizeBase);
 }
 
 code {
