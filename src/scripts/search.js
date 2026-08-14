@@ -138,17 +138,35 @@ function initializeSearch() {
   // Dropdown accessibility controls
   document.addEventListener('keydown', handleDropdownKeyboardNavigation);
 
+  // Locking the page hides the body's overflow, which takes the scrollbar with
+  // it and widens the viewport. The header is fixed, so it is sized to the
+  // viewport and its contents would jump outward. Record the width the
+  // scrollbar was occupying so the CSS can hold that space open.
+  function lockScroll() {
+    const gutter = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty(
+      '--scroll-lock-gutter',
+      gutter + 'px'
+    );
+    document.body.classList.add('search-scroll-lock');
+  }
+
+  function unlockScroll() {
+    document.body.classList.remove('search-scroll-lock');
+    document.documentElement.style.removeProperty('--scroll-lock-gutter');
+  }
+
   function activateInput() {
     if (siteSearchWrapper.classList.contains('is-active')) return;
     siteSearchWrapper.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
+    lockScroll();
   }
 
   function deactivateInput() {
     if (!siteSearchWrapper.classList.contains('is-active')) return;
     siteSearchWrapper.classList.remove('is-active');
     siteSearchInput.blur();
-    document.body.style.overflow = '';
+    unlockScroll();
   }
 
   function openDropdown() {
@@ -168,7 +186,7 @@ function initializeSearch() {
         window.innerHeight - siteSearchElementRect.bottom;
 
       if (offsetFromBottomToElement < dropdownHeight) {
-        document.body.style.overflow = '';
+        unlockScroll();
 
         // Scroll to the siteSearchElement
         siteSearchElement.scrollIntoView({
@@ -176,9 +194,10 @@ function initializeSearch() {
           block: 'start',
         });
 
-        // Delay the overflow to allow for smooth scrolling
+        // Delay the lock to allow for smooth scrolling. The search can be
+        // dismissed inside those 300ms, which would leave the page locked.
         setTimeout(() => {
-          document.body.style.overflow = 'hidden';
+          if (siteSearchWrapper.classList.contains('is-active')) lockScroll();
         }, 300);
       }
     });
