@@ -30,7 +30,9 @@ html {
 }
 
 .input-keyboard :focus {
-  outline: 2px dashed silver;
+  z-index: 4;
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
 }
 
 body {
@@ -3250,58 +3252,101 @@ html[data-nav='new'] .site-header {
 /* Detail tabs */
 
 .tab-list {
-  padding-inline: 10px;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-bottom: none;
+  border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+  gap: var(--space0);
+  background-color: var(--colorBackgroundSecondaryDefault);
+}
+
+.page-content > .tab-list {
   margin-block-end: 0;
 }
 
-.tab-list button,
-.tab-list button:focus,
-.tab-list button:hover {
+.tab-list button {
   display: inline-block;
   position: relative;
   z-index: 2;
-  top: 2px;
-  margin: 0;
-  margin-block-start: 4px;
-  border: 2px solid var(--border-color-tab);
-  border-radius: var(--standard-radius) var(--standard-radius) 0 0;
-  background: var(--bg-color-tab);
+  flex-shrink: 0;
+  background: none;
+  border: none;
   outline: none;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight700);
-  text-align: start;
+  font: var(--textBodyRegularMedium);
+  text-align: center;
+  white-space: nowrap;
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--colorTextSecondary);
+  padding: var(--space12) var(--space16);
+  top: 0;
+}
+
+.tab-list button:hover {
+  color: var(--colorTextPrimary);
+}
+
+/* .tab-list scrolls horizontally, so the default focus ring gets clipped. This pulls it inside the button's own box instead, where it can't be clipped. */
+.input-keyboard .tab-list button:focus {
+  outline-offset: calc(-1 * var(--borderWidth2));
 }
 
 .tab-list button[aria-selected='true'] {
   margin-block-start: 0;
-  border-width: 2px;
-  border-top-width: 6px;
-  border-top-color: var(--border-color-tab-active);
-  border-inline-color: var(--border-color-tab-active);
-  border-bottom-color: var(--color-base-primary);
-  background-color: var(--color-base-primary);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
+  background-color: var(--colorBackgroundPrimaryDefault);
+  border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
 }
 
-.tab-list button[aria-selected='false'] {
-  top: 0px;
+.tab-list button:has(+ button[aria-selected='true'])::before,
+.tab-list button[aria-selected='true'] + button::before {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: var(--borderRadiusLarge);
+  height: var(--borderRadiusLarge);
+  background: var(--colorBackgroundPrimaryDefault);
 }
 
-.tab-list button span.focus {
-  display: inline-block;
-  margin: 2px;
-  padding: 4px 6px;
-  outline: none;
+.tab-list button:has(+ button[aria-selected='true'])::before {
+  right: 0;
+}
+.tab-list button[aria-selected='true'] + button::before {
+  left: 0;
+}
+
+.tab-list button:has(+ button[aria-selected='true'])::after,
+.tab-list button[aria-selected='true'] + button::after {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: calc(var(--borderRadiusLarge) * 2);
+  height: calc(var(--borderRadiusLarge) * 2);
+  border-radius: 50%;
+  background: var(--colorBackgroundSecondaryDefault);
+}
+
+.tab-list button:has(+ button[aria-selected='true'])::after {
+  right: 0;
+}
+.tab-list button[aria-selected='true'] + button::after {
+  left: 0;
 }
 
 [role='tabpanel'] {
   position: relative;
-  padding: 1rem;
-  border: 2px solid var(--border-color-tab-active);
-  border-radius: var(--standard-radius);
-  background: var(--color-base-primary);
-  overflow: auto;
+  overflow: visible;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-top: none;
+  border-radius: 0 0 var(--borderRadiusLarge) var(--borderRadiusLarge);
+  padding: var(--space16);
 }
 
 [role='tabpanel'].is-hidden {
@@ -3310,6 +3355,34 @@ html[data-nav='new'] .site-header {
 
 [role='tabpanel'] p {
   margin: 0;
+}
+
+[role='tabpanel'] :is(.code-block, .table-wrap):first-child,
+[role='tabpanel']
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):first-child {
+  margin-block-start: 0;
+}
+
+[role='tabpanel'] :is(.code-block, .table-wrap):last-child,
+[role='tabpanel']
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):last-child {
+  margin-block-end: 0;
 }
 
 /* Animation */
