@@ -126,11 +126,10 @@ const siteUrl = Astro.site ? Astro.site.href : '';
 
 <style>
   .top-nav-search.site-search__wrapper {
-    flex: 1 1 auto;
+    grid-column: 2;
     width: auto;
     min-width: 0;
-    max-width: 50rem;
-    margin-inline: auto;
+    max-width: none;
   }
 
   .top-nav-search__field.site-search {
@@ -199,6 +198,7 @@ const siteUrl = Astro.site ? Astro.site.href : '';
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    height: 1.25rem;
     padding-inline: var(--space4);
     border: var(--borderWidth1) solid var(--colorBorderPrimary);
     border-radius: var(--borderRadiusSmall);

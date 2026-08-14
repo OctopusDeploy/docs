@@ -85,13 +85,36 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
 
 <style>
   .top-nav {
+    /* Align the search bar with the content if possible */
+    --top-nav-content-start: calc(
+      var(--navigation-width) +
+        max(
+          var(--grid-gap-main),
+          (
+              100% -
+                (
+                  var(--navigation-width) + var(--content-width-article) +
+                    var(--toc-offset) + var(--toc-width) + var(--space16)
+                )
+            ) /
+            2
+        )
+    );
+    --top-nav-content-width: min(
+      var(--content-width-article),
+      100% - var(--top-nav-content-start) - var(--toc-offset) -
+        var(--toc-width) - var(--space16)
+    );
+
     box-sizing: border-box;
-    display: flex;
+    display: grid;
+    grid-template-columns:
+      minmax(max-content, var(--top-nav-content-start))
+      minmax(0, var(--top-nav-content-width))
+      minmax(max-content, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space24);
-    padding: var(--space16) var(--space24)
-      calc(var(--space16) - var(--borderWidth1));
+    column-gap: 0;
+    padding: var(--space16) 0 calc(var(--space16) - var(--borderWidth1));
     border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
     background: var(--colorBackgroundPrimaryDefault);
     transition-property: background-color, border-color;
@@ -99,15 +122,11 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
     transition-timing-function: ease-in-out;
   }
 
-  .top-nav__leading,
-  .top-nav__trailing {
-    flex-shrink: 0; /* Disallow shrinking so button labels don't wrap across 2 lines */
-  }
-
   .top-nav__leading {
     display: flex;
     align-items: center;
     gap: var(--space64);
+    padding-inline: var(--space24);
   }
 
   .top-nav__logo {
@@ -129,9 +148,12 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
   }
 
   .top-nav__trailing {
+    grid-column: 3;
+    justify-self: end;
     display: flex;
     align-items: center;
     gap: var(--space12);
+    padding-inline: var(--space24);
   }
 
   a.top-nav__link {
