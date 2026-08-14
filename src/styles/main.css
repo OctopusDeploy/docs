@@ -3312,6 +3312,11 @@ html[data-nav='new'] .site-header {
   color: var(--colorTextPrimary);
 }
 
+/* .tab-list scrolls horizontally, so the default focus ring gets clipped. This pulls it inside the button's own box instead, where it can't be clipped. */
+.input-keyboard .tab-list button:focus {
+  outline-offset: calc(-1 * var(--borderWidth2));
+}
+
 .tab-list button[aria-selected='true'] {
   margin-block-start: 0;
   color: var(--colorTextPrimary);
