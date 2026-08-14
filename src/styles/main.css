@@ -2438,6 +2438,17 @@ a[data-youtube] {
   visibility: visible;
 }
 
+/* The overlay is fixed, so it stops at the reserved scrollbar gutter and leaves
+   that strip showing the undimmed page colour once the scrollbar goes. Painting
+   the same wash onto the canvas carries the dimming across it. */
+html:has(.site-search__wrapper.is-active) {
+  background-color: var(--color-base-primary);
+  background-image: linear-gradient(
+    var(--search-overlay),
+    var(--search-overlay)
+  );
+}
+
 .site-search__icon path {
   fill: var(--blue-grey-light);
 }
