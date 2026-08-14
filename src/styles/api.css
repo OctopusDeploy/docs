@@ -1,0 +1,82 @@
+:is(.api-get, .api-post, .api-delete, .api-put) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space4);
+  padding-block: calc(var(--space2) - var(--borderWidth1));
+  padding-inline: calc(var(--space2) - var(--borderWidth1))
+    calc(var(--space4) - var(--borderWidth1));
+  border: var(--borderWidth1) solid;
+  border-radius: var(--borderRadiusSmall);
+  max-width: fit-content;
+  font-family: var(--fontFamilySystem-ui-monospace);
+  font-size: var(--fontSizeXSmall);
+  font-weight: 400;
+  line-height: var(--lineHeightXSmall);
+  letter-spacing: var(--letterSpacingNone);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+:is(.api-get, .api-post, .api-delete, .api-put)::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.api-icon-only {
+  padding-inline-end: calc(var(--space2) - var(--borderWidth1));
+}
+
+.api-get {
+  border-color: var(--colorApiBadgeBorderGet);
+  background: var(--colorApiBadgeBackgroundGet);
+  color: var(--colorApiBadgeTextGet);
+}
+
+.api-get::before {
+  background-color: var(--colorApiBadgeIconGet);
+  mask-image: url('../assets/icons/arrow-down-left.svg');
+  mask-size: 60%;
+}
+
+.api-post {
+  border-color: var(--colorApiBadgeBorderPost);
+  background: var(--colorApiBadgeBackgroundPost);
+  color: var(--colorApiBadgeTextPost);
+}
+
+.api-post::before {
+  background-color: var(--colorApiBadgeIconPost);
+  mask-image: url('../assets/icons/arrow-up-right.svg');
+  mask-size: 60%;
+}
+
+.api-delete {
+  border-color: var(--colorApiBadgeBorderDelete);
+  background: var(--colorApiBadgeBackgroundDelete);
+  color: var(--colorApiBadgeTextDelete);
+}
+
+.api-delete::before {
+  background-color: var(--colorApiBadgeIconDelete);
+  mask-image: url('../assets/icons/xmark.svg');
+  mask-size: 50%;
+}
+
+.api-put {
+  border-color: var(--colorApiBadgeBorderPut);
+  background: var(--colorApiBadgeBackgroundPut);
+  color: var(--colorApiBadgeTextPut);
+}
+
+.api-put::before {
+  background-color: var(--colorApiBadgeIconPut);
+  mask-image: url('../assets/icons/pen-line.svg');
+  mask-size: 90% 80%;
+}

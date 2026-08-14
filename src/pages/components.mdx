@@ -249,6 +249,60 @@ Two of them sit side by side below, each with its own menu, so it is clear that 
   </div>
 </div>
 
+### API method badge
+
+A badge marks a piece of documentation with the HTTP method it describes. Each
+method carries its own icon and colour, in both light and dark themes.
+
+There is no component to import. The styles live in `src/styles/api.css`, which
+every page loads, so this works in `.md` as well as `.mdx`.
+
+One class does the work: `api-get`, `api-post`, `api-delete` or `api-put`. It
+carries the colours and draws the icon from a `::before`, so the only thing to
+write is the label.
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <span class="api-get">Get</span>
+    <span class="api-post">Post</span>
+    <span class="api-delete">Delete</span>
+    <span class="api-put">Put</span>
+  </div>
+  <div>
+    ```html
+    <span class="api-get">Get</span>
+    <span class="api-post">Post</span>
+    <span class="api-delete">Delete</span>
+    <span class="api-put">Put</span>
+    ```
+  </div>
+</div>
+
+#### Icon only
+
+Add `api-icon-only` for the icon on its own. There is no text left to read, so
+name it with `role="img"` and an `aria-label`.
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <span class="api-get api-icon-only" role="img" aria-label="Get"></span>
+    <span class="api-post api-icon-only" role="img" aria-label="Post"></span>
+    <span class="api-delete api-icon-only" role="img" aria-label="Delete"></span>
+    <span class="api-put api-icon-only" role="img" aria-label="Put"></span>
+  </div>
+  <div>
+    ```html
+    <span class="api-get api-icon-only" role="img" aria-label="Get"></span>
+    <span class="api-post api-icon-only" role="img" aria-label="Post"></span>
+    <span class="api-delete api-icon-only" role="img" aria-label="Delete"></span>
+    <span class="api-put api-icon-only" role="img" aria-label="Put"></span>
+    ```
+  </div>
+</div>
+
+The badge is `inline-flex`, so it sits inside a heading or a paragraph as well
+as it does on its own.
+
 ### TopNav
 
 Temporary showcase for the new, work-in-progress TopNav component.
