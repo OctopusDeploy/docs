@@ -15,11 +15,11 @@ listable: false # stop the oldest-content report from listing this page
 import Avatar from 'src/components/Avatar.astro';
 import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
-import Helm from 'src/components/icons/Helm.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import SplitButton from 'src/components/SplitButton.astro';
 import TopNav from 'src/components/TopNav.astro';
+import Helm from 'src/components/icons/Helm.astro';
 
 ## Component Usage Guide
 
@@ -343,12 +343,12 @@ Temporary showcase for the new, work-in-progress TopNav component.
 
 ### Cards
 
-A clickable surface for a title, an optional description, and an optional image or icon, all leading to a single destination.
+A clickable container for a title, an optional description, and an optional image or icon, all linked to a single destination.
 
 1. **title**: Required. Shown as the card's heading, and also builds the accessible name for the link (`Open {title}`) since the whole card is one link, not just the title text.
 2. **description**: Optional supporting text shown under the title.
 3. **link**: Required. Where the card goes — clicking anywhere on the card follows it, not just the title or image.
-4. **icon** / **imgSrc** + **imgAlt**: Optional, and mutually exclusive — pass one or the other, or neither. **icon** takes a component, for a design-system icon; **imgSrc** takes a URL, with **imgAlt** for its alt text.
+4. **icon** / **imgSrc** + **imgAlt**: Optional, and mutually exclusive — pass one or the other, or neither. **icon** takes an icon asset; **imgSrc** takes a URL, with **imgAlt** for its alt text.
 5. **`featured` variant**: Only used on home page to emphasise featured content.
 
 If **imgSrc** fails to load, the image falls back to a default placeholder logo automatically, so a broken URL does not leave the card with a blank gap where the image should be.
