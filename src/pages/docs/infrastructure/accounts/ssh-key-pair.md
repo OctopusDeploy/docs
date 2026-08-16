@@ -21,28 +21,28 @@ From **Octopus 2021.1.7466**, Octopus supports newer ED25519 SSH keys. For older
 
 1. Run the following command on your Linux server:
 
-<details data-group="generate-key-pair-linux">
-<summary>ED25519</summary>
+    <details data-group="generate-key-pair-linux">
+    <summary>ED25519</summary>
 
-```bash
-ssh-keygen -t ed25519
-```
+    ```bash
+    ssh-keygen -t ed25519
+    ```
 
-</details>
-<details data-group="generate-key-pair-linux">
-<summary>RSA</summary>
+    </details>
+    <details data-group="generate-key-pair-linux">
+    <summary>RSA</summary>
 
-```bash
-ssh-keygen -t rsa -m PEM
-```
+    ```bash
+    ssh-keygen -t rsa -m PEM
+    ```
 
-</details>
+    </details>
 
-This will bring up an interactive dialog, prompting for:
+    This will bring up an interactive dialog, prompting for:
 
-1. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
-2. Enter a passphrase (or press enter for no passphrase).
-3. If you entered a passphrase, re-enter the passphrase.
+2. The folder that the generated will be placed, defaulting to `~/.ssh/id_ed25519` or `~/.ssh/id_rsa`, depending on your selection above.
+3. Enter a passphrase (or press enter for no passphrase).
+4. If you entered a passphrase, re-enter the passphrase.
 
 You now have two files:
 
@@ -51,32 +51,32 @@ You now have two files:
 
 The public key will be stored on this (the Linux) server and the private key will be copied to the Octopus Server.
 
-1. Copy the public key to the `authorized_keys` file that is used during authentication:
+5. Copy the public key to the `authorized_keys` file that is used during authentication:
 
-<details data-group="copy-key-to-authorized-keys">
-<summary>ED25519</summary>
+    <details data-group="copy-key-to-authorized-keys">
+    <summary>ED25519</summary>
 
-```bash ED25519
-cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
-```
+    ```bash ED25519
+    cat ~/.ssh/id_ed25519.pub >> ~/.ssh/authorized_keys
+    ```
 
-</details>
-<details data-group="copy-key-to-authorized-keys">
-<summary>RSA</summary>
+    </details>
+    <details data-group="copy-key-to-authorized-keys">
+    <summary>RSA</summary>
 
-```bash RSA
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-```
+    ```bash RSA
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    ```
 
-</details>
+    </details>
 
-1. Modify the permissions of the `authorized_keys` file:
+6. Modify the permissions of the `authorized_keys` file:
 
-```bash
-chmod 600 ~/.ssh/authorized_keys
-```
+    ```bash
+    chmod 600 ~/.ssh/authorized_keys
+    ```
 
-1. Copy the private key to the machine your Octopus Server is installed on.
+7. Copy the private key to the machine your Octopus Server is installed on.
 
 Proceed to [creating the SSH key pair account](#create-ssh-account).
 

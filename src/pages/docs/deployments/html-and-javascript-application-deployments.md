@@ -73,24 +73,24 @@ We've crafted and packaged v1.0.0 of this sample application for you to try out 
 Now we need to create the project and configure it ready to deploy our JavaScript application.
 
 1. Create a new Project and choose an appropriate Lifecycle for testing this sample application.
-1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
-1. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/projects/variables/variable-substitutions/) including an [Octopus System Variable](/docs/projects/variables/system-variables).*
-![Project variables matching the expressions in the JavaScript application](/docs/img/deployments/images/5866206.png)
-1. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example are associated with the **web-server** [target tag](/docs/infrastructure/deployment-targets/target-tags).
+ 1. Remember you need to target a web server running IIS in order to follow this guide verbatim.
+2. Configure some project variables to match the JavaScript shown above. *You can use these values or any other values you wish - we've chosen to show a [complex expression](/docs/projects/variables/variable-substitutions/) including an [Octopus System Variable](/docs/projects/variables/system-variables).*
+    ![Project variables matching the expressions in the JavaScript application](/docs/img/deployments/images/5866206.png)
+3. Configure the deployment process to deploy the MyApp package and host it in an IIS Web Site. Our web servers in this example are associated with the **web-server** [target tag](/docs/infrastructure/deployment-targets/target-tags).
 
-:::figure
-![The deployment process deploying the MyApp package to an IIS website](/docs/img/deployments/images/5866207.png)
-:::
+    :::figure
+    ![The deployment process deploying the MyApp package to an IIS website](/docs/img/deployments/images/5866207.png)
+    :::
 
-1. Configure the IIS Web Site you want Octopus to set up on your behalf.
+4. Configure the IIS Web Site you want Octopus to set up on your behalf.
 
-:::figure
-![The IIS website settings for the step](/docs/img/deployments/images/5866208.png)
-:::
+    :::figure
+    ![The IIS website settings for the step](/docs/img/deployments/images/5866208.png)
+    :::
 
-![The IIS website bindings for the step](/docs/img/deployments/images/5866209.png)
+    ![The IIS website bindings for the step](/docs/img/deployments/images/5866209.png)
 
-1. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
+5. Enable the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature and configure it to replace the expressions in our `MyApp.html` file with variable values we defined earlier.
 
 :::figure
 ![The Substitute Variables in Templates feature configured for MyApp.html](/docs/img/deployments/images/5866210.png)
@@ -118,9 +118,9 @@ This approach also works perfectly with minified sources. This is because the mi
 
 1. Unpack the MyApp.1.0.0.zip file.
 2. Minify the contents of the `<script>` tag. We used [https://jscompress.com/](https://jscompress.com/) to minify the JavaScript.
-3. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
-4. Pack the HTML file into a new package and name the file MyApp.1.0.1.zip. This new version of our package has been enhanced with minified sources and will be much faster to download!
-5. Push the new package into the built-in repository, create a new release and deploy that release. You should see the same result as before, but now with minified sources!
+1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
+3. Pack the HTML file into a new package and name the file MyApp.1.0.1.zip. This new version of our package has been enhanced with minified sources and will be much faster to download!
+4. Push the new package into the built-in repository, create a new release and deploy that release. You should see the same result as before, but now with minified sources!
 
 #### MyApp.html with minified JavaScript
 

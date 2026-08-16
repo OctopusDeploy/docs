@@ -47,12 +47,12 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 ![New App registration](/docs/img/security/authentication/images/aad-new-app-registration.png)
 :::
 
-1. Choose a **Name** such as *Octopus Deploy*, select the correct **Supported account type** for Single or Multi-Tenant, choose **Web** from the drop down and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
+4. Choose a **Name** such as *Octopus Deploy*, select the correct **Supported account type** for Single or Multi-Tenant, choose **Web** from the drop down and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
 
-- The URL must use HTTPS.
-- When users input their credentials, the value you specify for **Name** will appear at the top of the Azure authentication page.
-- The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
-- Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL.
+ - The URL must use HTTPS.
+ - When users input their credentials, the value you specify for **Name** will appear at the top of the Azure authentication page.
+ - The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
+ - Include `/api/users/authenticatedToken/AzureAD` at the end of your Octopus URL.
 
 :::div{.hint}
 Take care when you add this URL. They are **case-sensitive** and can be sensitive to trailing **slash** characters. You cannot use `HTTP` here and need to use `https`. You will need to use an SSL certificate from a Certificate Authority, such as [LetsEncrypt](https://letsencrypt.org/). You can do this by using Octopus Deploy [Let's Encrypt Integration](/docs/security/exposing-octopus/lets-encrypt-integration) or one from Active Directory Certificate Services.
@@ -173,7 +173,7 @@ After the App Role(s) have been defined, users/groups from Microsoft Entra ID ma
 ![Editing App registration users role](/docs/img/security/authentication/images/aad-edit-app-registration-users-role.png)
 :::
 
-1. To save your changes, select the **Assign** button.
+4. To save your changes, select the **Assign** button.
 
 :::div{.hint}
 If you have only one role, it will be automatically assigned. If you have multiple roles, a pop-up will appear when you click the **Assign** button so you can select the role to assign.
@@ -240,13 +240,13 @@ If you followed the optional steps to modify the App registration's manifest to 
 
 3. Under the **Members** section, select the option **Add External Group/Role**.
 
-![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
+    ![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
 
-1. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
+4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
 
-![Add Octopus Teams Dialog](/docs/img/security/authentication/images/add-octopus-teams-external-dialog.png)
+    ![Add Octopus Teams Dialog](/docs/img/security/authentication/images/add-octopus-teams-external-dialog.png)
 
-1. Save your changes by clicking the **Save** button.
+5. Save your changes by clicking the **Save** button.
 
 ### Octopus user accounts are still required
 
@@ -304,18 +304,18 @@ Sometimes the contents of the security token sent back by Microsoft Entra ID are
 1. Open your browser's Developer Tools and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools, this is called "Preserve Log".
 
-:::figure
-![Preserve Logs](/docs/img/security/authentication/images/5866122.png)
-:::
+    :::figure
+    ![Preserve Logs](/docs/img/security/authentication/images/5866122.png)
+    :::
 
-1. Attempt to sign into Octopus using Microsoft Entra ID and find the HTTP POST coming back to your Octopus instance from Microsoft Entra ID on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
-2. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
+3. Attempt to sign into Octopus using Microsoft Entra ID and find the HTTP POST coming back to your Octopus instance from Microsoft Entra ID on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
+4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
 
-:::figure
-![ID Token](/docs/img/security/authentication/images/5866123.png)
-:::
+    :::figure
+    ![ID Token](/docs/img/security/authentication/images/5866123.png)
+    :::
 
-1. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
+5. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
 
 ### EntraID Users with 200+ security groups
 

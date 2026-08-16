@@ -206,8 +206,8 @@ Perhaps the contents of the security token sent back by Okta aren't exactly the 
 Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Okta.
 :::
 
-1. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
-2. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+5. Octopus uses most of the data to validate the token, but primarily uses the `sub`, `email` and `name` claims. If these claims are not present you will likely see unexpected behavior.
+6. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
 
 ### Inspect the request to Okta for scope \{#inspect-request}
 

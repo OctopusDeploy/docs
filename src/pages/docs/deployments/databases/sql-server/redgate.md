@@ -12,18 +12,18 @@ navOrder: 25
 In addition to Octopus Deploy, the following items are required.  This guide provides examples using Azure DevOps and TeamCity as the CI too, however, the core concepts are the same with all the tools.  
 
 - Redgate SQL Toolbelt:
-  - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
+    - [14-day free trial](https://www.red-gate.com/dynamic/products/sql-development/sql-toolbelt/download)
 - CI Tool (pick one):
-  - [Jenkins](https://www.jenkins.io/download/)
-  - [TeamCity](https://www.jetbrains.com/teamcity/download/)
-  - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
-  - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
-  - [Bamboo](https://www.atlassian.com/software/bamboo/download)
+    - [Jenkins](https://www.jenkins.io/download/)
+    - [TeamCity](https://www.jetbrains.com/teamcity/download/)
+    - [Azure DevOps Server](https://azure.microsoft.com/en-us/services/devops/server/)
+    - [Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=2014881)
+    - [Bamboo](https://www.atlassian.com/software/bamboo/download)
 - SQL Server Management Studio (SSMS):
-  - [Free download](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+    - [Free download](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 - SQL Server (pick one):
-  - [SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
-  - [SQL Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+    - [SQL Express](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
+    - [SQL Developer](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
 ## Octopus Deploy preparation work
 
@@ -40,12 +40,12 @@ This documentation assumes a Windows VM already has the Tentacle installed on it
 1. To configure a worker pool in the Octopus Web portal, go to **Infrastructure ➜ Worker Pools**, and click **Add Worker Pool**.
 2. When the modal window appears, enter a name, and if you see the **Static** and **Dynamic** options, select **Static** as the worker pool type:
 
-:::figure
-![Create worker pool modal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-pool-modal.png)
-:::
+    :::figure
+    ![Create worker pool modal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-pool-modal.png)
+    :::
 
-1. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
-2. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
+3. Next, add the VM the Tentacle was installed on by clicking **Add Worker**.
+4. Select **Windows** and the Tentacle communication mode you plan to use.  It is up to you on which communication mode the worker will use.  There are pros and cons to each mode:
 
 :::figure
 ![Tentacle communication mode selection in the Octopus Web Portal](/docs/img/deployments/databases/sql-server/images/redgate-octopus-create-worker-select-tentacle-type.png)
@@ -139,17 +139,17 @@ A build server, such as Jenkins, TeamCity, Azure DevOps, Bamboo, Bitbucket Pipel
 Octopus Deploy and Redgate provide a number of plugins for several build servers.  
 
 - Jenkins:
-  - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
-  - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci/).
+    - [Octopus plugin](https://plugins.jenkins.io/octopusdeploy/).
+    - [Redgate plugin](https://plugins.jenkins.io/redgate-sql-ci/).
 - TeamCity:
-  - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
-  - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
+    - [Octopus plugin](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration).
+    - [Redgate plugin](https://www.red-gate.com/dlmas/TeamCity-download).
 - Azure DevOps:
-  - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
-  - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
+    - [Octopus plugin](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
+    - [Redgate plugin](https://marketplace.visualstudio.com/items?itemName=redgatesoftware.redgateDlmAutomationBuild).
 - Bamboo:
-  - [Octopus plugin](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
-  - [Redgate plugin](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
+    - [Octopus plugin](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview).
+    - [Redgate plugin](https://marketplace.atlassian.com/apps/1213347/redgate-dlm-automation-for-bamboo?hosting=server&tab=overview).
 
 ### Azure DevOps
 

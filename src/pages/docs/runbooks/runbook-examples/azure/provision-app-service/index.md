@@ -43,8 +43,8 @@ if ((az group exists --name $resourceGroupName) -eq $false)
 }
 ```
 
-1. Add a **Deploy an Azure Resource Manager Template** step.
-2. Add the template code (example below):
+6. Add a **Deploy an Azure Resource Manager Template** step.
+7. Add the template code (example below):
 
 ```json
 {
@@ -111,8 +111,8 @@ Fill in the parameters from the template:
 
 With the Resource Group and App Service Plan created, you can create an Azure Web App target.
 
-1. Add a **Deploy an Azure Resource Manager Template** step.
-2. Add the template code (example below):
+8. Add a **Deploy an Azure Resource Manager Template** step.
+9. Add the template code (example below):
 
 ```json
 {
@@ -191,7 +191,7 @@ Fill in the parameters from the template:
 | phpVersion | Version of PHP | OFF |
 | errorLink | Uri of the error link | <https://s-octopetshop.scm.azurewebsites.net/detectors?type=tools&name=eventviewer> |
 
- 1. Add a **Run a script** step to register the Azure Web App as a target:
+ 10. Add a **Run a script** step to register the Azure Web App as a target:
 
 ```powershell
 # Define parameters
@@ -242,7 +242,7 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/$spaceId/machines" -Headers @{"X-Octopus-ApiKey"="$apiKey"} -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
 
- 1. Add another **Run a script** step to force a health check:
+ 11. Add another **Run a script** step to force a health check:
 
 ```powershell
 # Define parameters

@@ -29,11 +29,11 @@ Azure work items aren't currently supported unless the `BuildEnvironment` is Azu
 2. The Octopus Deploy [plugin](/docs/packaging-applications/build-servers) for your build server [pushes the commits to Octopus](/docs/packaging-applications/build-servers/build-information/#passing-build-information-to-octopus).  These are associated with a package ID and version (The package can be in the built-in Octopus repository or an external repository).
 3. The Azure DevOps Issue Tracker extension in Octopus uses the build information to request work item references from Azure DevOps.
 
-:::figure
-![Octopus release with Azure DevOps work items](/docs/img/releases/issue-tracking/images/octo-azure-devops-release-details.png)
-:::
+    :::figure
+    ![Octopus release with Azure DevOps work items](/docs/img/releases/issue-tracking/images/octo-azure-devops-release-details.png)
+    :::
 
-1. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).  
+4. When creating the release which contains the package version, the work items are associated with the release.  These are available for use in [release notes](/docs/packaging-applications/build-servers/build-information/#build-info-in-release-notes), and will be visible on [deployments](/docs/releases/deployment-changes).  
 
 :::figure
 ![Octopus deployment with generated release notes](/docs/img/releases/issue-tracking/images/octo-azure-devops-release-notes.png)
@@ -43,10 +43,10 @@ Azure work items aren't currently supported unless the `BuildEnvironment` is Azu
 
 The ability to push the build information to Octopus, which is required for Azure DevOps integration, is currently only available in the official Octopus plugins:
 
-- [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
-- [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
-- [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
-- [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
+ - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
+ - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
+ - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
+ - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/).
 
 ### Deployment updates not supported {#deployment-updates-unsupported}
 
@@ -103,4 +103,4 @@ When configured, this integration will retrieve Azure DevOps work item details a
 
 ## Learn more
 
-- [Build information](/docs/packaging-applications/build-servers/build-information).
+ - [Build information](/docs/packaging-applications/build-servers/build-information).

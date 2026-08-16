@@ -21,17 +21,17 @@ In Octopus, you can [scope](/docs/projects/variables/getting-started/#scoping-va
 
 1. Enter the variable name and select **Open Editor** select the **Change Type** drop-down and select **worker pool**.
 
-:::figure
-![Add worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-add.png)
-:::
+    :::figure
+    ![Add worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-add.png)
+    :::
 
-1. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
+2. In the **Add Variable** window, it lists all the available worker pools. Select the worker pool and then define the scope of the worker pool.
 
-:::figure
-![Add worker pool variable type](/docs/img/projects/variables/images/workerpoolvariable-changetype.png)
-:::
+    :::figure
+    ![Add worker pool variable type](/docs/img/projects/variables/images/workerpoolvariable-changetype.png)
+    :::
 
-1. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to target tags or targets as the pool is resolved during the planning phase of the deployment.
+3. If required, add multiple values, binding each to the required scope. Worker pool variables can not be scoped to target tags or targets as the pool is resolved during the planning phase of the deployment.
 
 ## Step Configuration
 
@@ -45,11 +45,11 @@ By default, deployment steps are not configured to run on a worker pool set by a
 2. Select **Runs on a worker from a pool selected via a variable**.
 3. Pick the worker pool variable.
 
-:::figure
-![Select the worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-selection.png)
-:::
+    :::figure
+    ![Select the worker pool variable](/docs/img/projects/variables/images/workerpoolvariable-selection.png)
+    :::
 
-1. Save the step.
+4. Save the step.
 
 ## Worker pool variable examples
 

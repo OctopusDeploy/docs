@@ -277,11 +277,11 @@ Ensure the [target tag](/docs/infrastructure/deployment-targets/target-tags) mat
 3. Enable the *Substitute variables in templates* feature.
 4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
-:::figure
-![The Substitute Variables in Templates feature targeting the config file](/docs/img/deployments/node-js/images/substitute-variables.png)
-:::
+    :::figure
+    ![The Substitute Variables in Templates feature targeting the config file](/docs/img/deployments/node-js/images/substitute-variables.png)
+    :::
 
-1. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
+5. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
 
 ### Starting and managing the process
 

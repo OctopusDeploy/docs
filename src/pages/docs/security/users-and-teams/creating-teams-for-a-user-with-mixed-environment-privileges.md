@@ -22,8 +22,8 @@ Start by clicking the **Teams** tab under **Configuration** in the Octopus Web P
 
 When you create the team, it is possible to change the visibility of the team to either:
 
-- Visible only within the space we are in.
-- Visible to all spaces.
+ - Visible only within the space we are in.
+ - Visible to all spaces.
 
 For this example, we'll choose this team to only be visible in the space we are currently in.
 

@@ -12,7 +12,7 @@ This page outlines our recommended steps for moving your SQL database to another
 ## Step-by-step process {#step-by-step-process}
 
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager or the command line using the following command.
-`Octopus.Server.exe service --stop`
+    `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption#your-master-key).
 3. Take a backup of your Octopus database.
 4. Restore the database on your new server.
@@ -37,20 +37,20 @@ When using [Octopus High Availability](/docs/administration/high-availability) c
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode)
 2. Toggle the [Drain](/docs/administration/high-availability/maintain/maintain-high-availability-nodes) option for each Octopus Server node in **Configuration ➜ Nodes**
 3. Stop the service on each Octopus Server node when all deployments have finished. You can stop the service via the Octopus Manager or the command line using the following command.
-`Octopus.Server.exe service --stop`
+    `Octopus.Server.exe service --stop`
 4. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption#your-master-key).
 5. Take a backup of your Octopus database.
 6. Restore the database on your new server.
 7. On each Octopus Server node, run the following command to update the connection string (where "VALUE" is your connection string).
 
-```text
-Octopus.Server.exe database --connectionString="VALUE"
-```
+    ```text
+    Octopus.Server.exe database --connectionString="VALUE"
+    ```
 
-1. Start the service on each Octopus Server node. You can start the service via the Octopus Manager or the command line using the following command.
-`Octopus.Server.exe service --start`
-2. Disable the Node Drain option for each Octopus Server node in **Configuration ➜ Nodes**
-3. Take your Octopus instance out of Maintenance Mode.
+8. Start the service on each Octopus Server node. You can start the service via the Octopus Manager or the command line using the following command.
+    `Octopus.Server.exe service --start`
+9. Disable the Node Drain option for each Octopus Server node in **Configuration ➜ Nodes**
+10. Take your Octopus instance out of Maintenance Mode.
 
 ## Moving from Azure SQL to AWS RDS
 

@@ -36,17 +36,17 @@ If instead you want to **dynamically** create you account during your deployment
 
 1. Add a new **Deploy an Azure Web App** step to your [project's deployment process](/docs/projects/steps).
 
-:::figure
-![Adding a Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
-:::
+    :::figure
+    ![Adding a Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/5865899.png)
+    :::
 
-1. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
+2. On the **Execution Location** section, select the [target tags](/docs/infrastructure/deployment-targets/target-tags) that match the *Azure Web App Targets* you want to deploy to. Remember that you can create these targets using any of the following approaches:
 
 - Manually before running your deployment. [See documentation](/docs/infrastructure/deployment-targets/azure/web-app-targets).
 
 - Dynamically during the deployment using scripts. [See documentation](/docs/infrastructure/deployment-targets/dynamic-infrastructure)
 
-1. On the **Package** section, select your **Package Feed** and **Package ID**.
+3. On the **Package** section, select your **Package Feed** and **Package ID**.
 
 :::figure
 ![The Package section of the Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)

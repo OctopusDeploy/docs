@@ -94,6 +94,6 @@ Try to connect to your registry directly through the browser from the same machi
 
 ## Learn more
 
-- Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
-- [Docker blog posts](https://octopus.com/blog/tag/docker/1).
-- [Linux blog posts](https://octopus.com/blog/tag/linux/1).
+ - Generate an Octopus guide for [Docker Registries and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?packageRepository=Docker%20Registry).
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1).
+ - [Linux blog posts](https://octopus.com/blog/tag/linux/1).

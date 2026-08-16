@@ -12,11 +12,11 @@ Node.js is a popular cross-platform, JavaScript runtime for creating web apps. O
 
 With Octopus Deploy and Node you can:
 
-- Package your Node applications and any dependencies they need to run.
-- Deploy the same code into Testing and Production and take advantage of Octopus's configuration features to provide environment specific variables and settings.
-- Register your app with process managers like StrongLoop, PM2, Forever, and SystemD to start, stop, or monitor your Node application.
-- Deploy your applications to Windows and Linux deployment targets.
-- Create custom deployment scripts with Bash, PowerShell, and Python.
+ - Package your Node applications and any dependencies they need to run.
+ - Deploy the same code into Testing and Production and take advantage of Octopus's configuration features to provide environment specific variables and settings.
+ - Register your app with process managers like StrongLoop, PM2, Forever, and SystemD to start, stop, or monitor your Node application.
+ - Deploy your applications to Windows and Linux deployment targets.
+ - Create custom deployment scripts with Bash, PowerShell, and Python.
 
 ## Learn more
 

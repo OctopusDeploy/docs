@@ -102,22 +102,22 @@ Perhaps the contents of the security token sent back by Google Workspace aren't 
 1. Open your browser's Developer Tools and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log":
 
-:::figure
-![Preserve Log Checkbox](/docs/img/security/authentication/images/5866122.png)
-:::
+    :::figure
+    ![Preserve Log Checkbox](/docs/img/security/authentication/images/5866122.png)
+    :::
 
-1. Attempt to sign into Octopus using Google Workspace and find the HTTP POST coming back to your Octopus instance from Google Workspace on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body.
+3. Attempt to sign into Octopus using Google Workspace and find the HTTP POST coming back to your Octopus instance from Google Workspace on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body.
 
-:::figure
-![ID Token](/docs/img/security/authentication/images/5866125.png)
-:::
+    :::figure
+    ![ID Token](/docs/img/security/authentication/images/5866125.png)
+    :::
 
-1. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
+4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
 
-:::figure
-![jwt.io](/docs/img/security/authentication/images/5866123.png)
-:::
+    :::figure
+    ![jwt.io](/docs/img/security/authentication/images/5866123.png)
+    :::
 
-1. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Google Workspace.
-2. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior.
-3. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.
+5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Google Workspace.
+6. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior.
+7. If you are not able to figure out what is going wrong, please send a copy of the decoded payload to our [support team](https://octopus.com/support) and let them know what behavior you are experiencing.

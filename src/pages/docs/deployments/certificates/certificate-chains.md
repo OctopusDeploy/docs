@@ -38,8 +38,8 @@ When downloading a certificate containing a chain, the behavior depends on the f
 - `PFX`: The entire chain will be included in the exported file.
 - `DER`: Only the subject certificate will be included.  DER files never contain chains.
 - `PEM`: Download-dialog provides options to include:
-  - Primary Certificate
-  - Primary and Chain Certificates
-  - Chain Certificates Only
+   - Primary Certificate
+   - Primary and Chain Certificates
+   - Chain Certificates Only
 
 ![Download Chain in PEM format dialog](/docs/img/deployments/certificates/images/download-pem-chain.png)

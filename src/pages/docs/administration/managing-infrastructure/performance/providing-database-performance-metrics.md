@@ -77,7 +77,7 @@ If you are seeing error messages with a specific query in your server logs or th
 
 then it may be more useful to focus in on that specific query and get the execution plan that the database engine is executing. In that case follow the above steps but after step 6, when configuring the filters, include the following steps:
 
-1. Configure filters.
+6. Configure filters.
     - With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.  
     - At the Events Selection tab tick the `Show all events` check-box, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
 

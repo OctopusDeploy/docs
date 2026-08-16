@@ -15,9 +15,9 @@ Configuring IIS is an essential part of deploying any ASP.NET web application. O
 1. Select the package feed and enter the package ID of the package to be deployed.
 1. Choose the IIS deployment type:
 
-- [Web Site](#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
-- [Virtual Directory](#iiswebsitesandapplicationpools-DeployIISVirtualDirectoryvirtual-directory)
-- [Web Application](#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
+  - [Web Site](#IISWebsitesandApplicationPools-DeployIISWebSiteweb-site)
+  - [Virtual Directory](#iiswebsitesandapplicationpools-DeployIISVirtualDirectoryvirtual-directory)
+  - [Web Application](#IISWebsitesandApplicationPools-DeployIISWebApplicationweb-application)
 
   Understanding the difference between Sites, Applications, and Virtual Directories is important to understand how to use the IIS Websites and Application Pools features in Octopus. Learn more about [Sites, Applications, and Virtual Directories in IIS](https://www.iis.net/learn/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis).
 

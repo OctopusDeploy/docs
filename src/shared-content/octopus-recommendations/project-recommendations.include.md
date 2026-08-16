@@ -47,11 +47,11 @@ For example, in your Octopus instance you have the following environments.
 For most branching strategies, we'd recommend two lifecycles in this example, each with two environments.
 
 - Development Lifecycle
-  - Dev
-  - QA
+    - Dev
+    - QA
 - Release Lifecycle
-  - Staging
-  - Production
+    - Staging
+    - Production
 
 The workflow would be as follows:
 

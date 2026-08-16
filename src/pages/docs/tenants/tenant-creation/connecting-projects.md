@@ -26,17 +26,17 @@ By connecting tenants to projects, you can control which projects will be deploy
 4. Once you have selected the projects you want to connect, click **NEXT**.
 5. Choose the [environments](/docs/infrastructure/environments) you want the tenant to be connected to for each project. You can select just one or two from the drop-down menu, or click **Assign all available environments** to select all available environments.
 
-:::div{.info}
-Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
-:::
+    :::div{.info}
+    Not seeing the environment you want? Make sure at least one lifecycle used by your project includes that environment.
+    :::
 
-1. A preview of the selected projects and environments is shown in the connection preview panel. The selected environments will be assigned to each project based on whether they are part of any lifecycle in the project. If an environment is not part of any lifecycle in the project, it will not be assigned to the project.
+6. A preview of the selected projects and environments is shown in the connection preview panel. The selected environments will be assigned to each project based on whether they are part of any lifecycle in the project. If an environment is not part of any lifecycle in the project, it will not be assigned to the project.
 
    :::figure
    ![A preview of the selected projects and their environments](/docs/img/tenants/tenant-creation/images/multi-tenant-connect-environments.png)
    :::
 
-2. Click **CONNECT PROJECTS**
+7. Click **CONNECT PROJECTS**
 
 You can connect each tenant to any number of projects and, for each project, any combination of environments that each project can target. This gives you the most flexibility when designing your multi-tenant deployments.
 

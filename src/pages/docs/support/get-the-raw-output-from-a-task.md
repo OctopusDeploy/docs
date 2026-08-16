@@ -14,11 +14,11 @@ To download the task log do the following:
 1. Select the deployment/task that you're having an issue with.
 2. Select the **Task Log** tab.
 
-:::figure
-![The Task Log tab of a task](/docs/img/support/images/tasklog.png)
-:::
+    :::figure
+    ![The Task Log tab of a task](/docs/img/support/images/tasklog.png)
+    :::
 
-1. Click the **Download** button on the right to download the raw task log.
+3. Click the **Download** button on the right to download the raw task log.
 
 :::figure
 ![The Download button on the task log](/docs/img/support/images/tasklog2.png)

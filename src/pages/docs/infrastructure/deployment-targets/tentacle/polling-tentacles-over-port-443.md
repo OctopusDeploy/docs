@@ -27,9 +27,9 @@ It may be helpful to know that the Tentacle agent supports command-line operatio
 
 The setup of a Polling Tentacle for an [Octopus Cloud](/docs/octopus-cloud) instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
 
-- Omit the `--server-comms-port` parameter.
-- Specify the `--server-comms-address <address>` parameter.
-  - The address to use is your [Octopus Cloud](/docs/octopus-cloud) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
+ - Omit the `--server-comms-port` parameter.
+ - Specify the `--server-comms-address <address>` parameter.
+   - The address to use is your [Octopus Cloud](/docs/octopus-cloud) instance URL prefixed with `polling.` (e.g. `https://polling.<yoururl>.octopus.app`).
 
 ### Registering a new Tentacle
 
@@ -83,9 +83,9 @@ For example:
 
 The setup of a Polling Tentacle for your self-hosted instance over port 443 is the same as a [Polling Tentacle over port 10943](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles), except when registering the Tentacle. Change the `register-with` and `register-worker` commands:
 
-- Omit the `--server-comms-port` parameter.
-- Specify the `--server-comms-address <address>` parameter.
-  - The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
+ - Omit the `--server-comms-port` parameter.
+ - Specify the `--server-comms-address <address>` parameter.
+   - The address to use is your new DNS record (e.g. `https://<your-polling-url>/`).
 
 ### Registering a new Tentacle
 

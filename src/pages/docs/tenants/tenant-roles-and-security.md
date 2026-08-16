@@ -65,23 +65,23 @@ Now we will create a team for all the account managers and add the role we creat
 
 1. In **Configuration ➜ Teams** click **Add team** and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then click **Save**.
 
-:::figure
-![Creating a team called Toby's clients](/docs/img/tenants/images/add-account-manager-team.png)
-:::
+    :::figure
+    ![Creating a team called Toby's clients](/docs/img/tenants/images/add-account-manager-team.png)
+    :::
 
-1. Navigate to **User Roles** click **Include user role**.
+2. Navigate to **User Roles** click **Include user role**.
 
-:::figure
-![The Include user role button on the team's User Roles tab](/docs/img/tenants/images/multi-tenant-include-user-role.png)
-:::
+    :::figure
+    ![The Include user role button on the team's User Roles tab](/docs/img/tenants/images/multi-tenant-include-user-role.png)
+    :::
 
-1. From the dropdown, select the **Tenant project deployer** role.
+3. From the dropdown, select the **Tenant project deployer** role.
 
-:::figure
-![Selecting the Tenant project deployer role](/docs/img/tenants/images/multi-tenant-select-user-role.png)
-:::
+    :::figure
+    ![Selecting the Tenant project deployer role](/docs/img/tenants/images/multi-tenant-select-user-role.png)
+    :::
 
-1. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
+4. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
 
 ### Step 3: Reduce the scope of the team {#step-3-reduce-team-scope}
 
@@ -111,7 +111,7 @@ Similarly to the previous example, we will create a custom role with minimum per
 
 1. Create a role called **Tenant viewer** with the following permissions:
 
-- TenantView
+  - TenantView
 
 ### Step 2: Configure the tenant environment managers team {#step-2-configure-environment-managers-team}
 

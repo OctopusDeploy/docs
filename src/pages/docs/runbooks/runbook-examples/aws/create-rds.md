@@ -23,7 +23,7 @@ In this example, we'll use the built-in steps of Octopus Deploy to create an AWS
 This example assumes that you already have a Virtual Private Cloud (VPC), subnets, and security groups created.  The ID's of these resources will be needed for our RDS instance.
 :::
 
-1. Paste in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
+5. Paste in the following example code, this will find the VPC, subnet, and security group ID values and assign them to output variables to be used later:
 
 ```powershell
 # Get reference to VPC
@@ -64,19 +64,19 @@ Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
 
-1. Add a **Deploy an AWS CloudFormation template** step.
-2. Fill in the parameters for the step:
+6. Add a **Deploy an AWS CloudFormation template** step.
+7. Fill in the parameters for the step:
 
-| Parameter | Description | Example |
-| ------------- | ------------- | ------------- |
-| AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
-| Region | The region your resources will be located in | us-west-1 |
-| CloudFormation stack name | Name of the stack you're creating | MySuperStack |
-| Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
-| Select IAM Capability | Capability of IAM | Use dropdown to select capability |
-| Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
+    | Parameter | Description | Example |
+    | ------------- | ------------- | ------------- |
+    | AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
+    | Region | The region your resources will be located in | us-west-1 |
+    | CloudFormation stack name | Name of the stack you're creating | MySuperStack |
+    | Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
+    | Select IAM Capability | Capability of IAM | Use dropdown to select capability |
+    | Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
 
-1. Paste in the following template code:
+8. Paste in the following template code:
 
 :::div{.info}
 

@@ -19,7 +19,7 @@ Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are h
   The `/fl` argument configures `msbuild.exe` to write the output to a log file which will usually look like `msbuild.log`.   Refer to the [MSBuild documentation](https://msdn.microsoft.com/en-us/library/ms171470.aspx) for more details.
   Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.
 
-1. Inspect the [MSBuild output log file](https://msdn.microsoft.com/en-us/library/ms171470.aspx). If OctoPack has executed successfully you should see log entries like the ones shown below generated using OctoPack 3.0.42:
+2. Inspect the [MSBuild output log file](https://msdn.microsoft.com/en-us/library/ms171470.aspx). If OctoPack has executed successfully you should see log entries like the ones shown below generated using OctoPack 3.0.42:
 
 ```powershell
 Target "OctoPack" in file "c:\dev\MyApplication\source\packages\OctoPack.3.0.42\tools\OctoPack.targets" from project "c:\dev\MyApplication\source\MyApplication.Web\MyApplication.Web.csproj" (target "Build" depends on it):
@@ -100,8 +100,8 @@ Done building target "OctoPack" in project "MyApplication.Web.csproj".
 
 ## Next
 
-- [Packaging applications](/docs/packaging-applications)
-- [Use the Octopus CLI to create packages](/docs/packaging-applications/create-packages/octopus-cli)
-- Use [OctoPack to Include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files)
-- [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack)
-- [Package deployments](/docs/deployments/packages)
+ - [Packaging applications](/docs/packaging-applications)
+ - [Use the Octopus CLI to create packages](/docs/packaging-applications/create-packages/octopus-cli)
+ - Use [OctoPack to Include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack)
+ - [Package deployments](/docs/deployments/packages)

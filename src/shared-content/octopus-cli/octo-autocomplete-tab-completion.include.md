@@ -6,13 +6,13 @@ Tab completion is available for the following shell environments: `powershell`, 
 
 1. Check that `octo` is available on your path:
 
-```bash
-which octo
-```
+    ```bash
+    which octo
+    ```
 
-This should return a valid location on your path like `/usr/bin/octo`.
+    This should return a valid location on your path like `/usr/bin/octo`.
 
-1. Install tab completion scripts into your profile, choosing from `powershell`, `pwsh`, `bash` or `zsh`:
+2. Install tab completion scripts into your profile, choosing from `powershell`, `pwsh`, `bash` or `zsh`:
 
 ```bash
 octo install-autocomplete --shell zsh
@@ -30,33 +30,33 @@ octo install-autocomplete --shell powershell --dryRun
 
 :::
 
-1. Either restart your shell environment or 'dot source' your profile:
+3. Either restart your shell environment or 'dot source' your profile:
 
-<details data-group="restart-shell-environment">
-<summary>Bash</summary>
+    <details data-group="restart-shell-environment">
+    <summary>Bash</summary>
 
-```bash
-. ~/.bashrc
-```
+    ```bash
+    . ~/.bashrc
+    ```
 
-</details>
-<details data-group="restart-shell-environment">
-<summary>Zsh</summary>
+    </details>
+    <details data-group="restart-shell-environment">
+    <summary>Zsh</summary>
 
-```bash
-. ~/.zshrc
-```
+    ```bash
+    . ~/.zshrc
+    ```
 
-</details>
-<details data-group="restart-shell-environment">
-<summary>PowerShell</summary>
+    </details>
+    <details data-group="restart-shell-environment">
+    <summary>PowerShell</summary>
 
-```powershell
-. $PROFILE
-```
+    ```powershell
+    . $PROFILE
+    ```
 
-</details>
+    </details>
 
-1. You can now discover sub-commands by typing `octo [search-term]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
+4. You can now discover sub-commands by typing `octo [search-term]` and hitting the [tab] key. If you don't provide a search term, the full list of available sub-commands will be shown.
 
 ![animation showing the tab completion feature in Zsh to list all environments in the default space](/docs/shared-content/images/autocomplete.gif)

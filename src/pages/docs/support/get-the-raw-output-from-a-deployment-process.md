@@ -13,7 +13,7 @@ When you contact Octopus Deploy support with a deployment related issue, we'll s
 
   ![The deployment process screen](/docs/img/support/images/deploymentprocess.png)
 
-1. Click `Download as JSON` from the ... overflow menu  
+2. Click `Download as JSON` from the ... overflow menu  
 
   ![The Download as JSON option in the overflow menu](/docs/img/support/images/deploymentprocessjson.png)
 

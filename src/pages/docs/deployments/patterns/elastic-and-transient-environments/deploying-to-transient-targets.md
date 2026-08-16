@@ -45,8 +45,8 @@ In this example, OctoFX will deploy to **RateServer** and then run a Health Chec
 
 6. Deploy OctoFX to an environment that has some deployment targets with the **TradingWebServer** target tag that are disabled.  While the deployment is in progress (but before the Health Check step), enable the disabled targets and disable the enabled targets. When the Health Check step runs:
 
-- Any enabled targets that were disabled at the start of the deployment will be included in the deployment.
-- Any disabled targets that were enabled at the start of the deployment will be excluded from the deployment.
+ - Any enabled targets that were disabled at the start of the deployment will be included in the deployment.
+ - Any disabled targets that were enabled at the start of the deployment will be excluded from the deployment.
 
 In this case, the machine **SWeb01** has been found and included in the rest of the deployment:
 

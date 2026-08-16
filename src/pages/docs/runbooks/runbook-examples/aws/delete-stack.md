@@ -24,7 +24,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 ![Delete Stack](/docs/img/runbooks/runbook-examples/aws/images/deploy-cloudformation-step.png)
 :::
 
-1. Fill in the parameters for the step:
+5. Fill in the parameters for the step:
 
 | Parameter | Description | Example |
 | ------------- | ------------- | ------------- |

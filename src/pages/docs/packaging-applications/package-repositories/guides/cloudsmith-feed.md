@@ -345,8 +345,8 @@ Private Cloudsmith repositories require authentication. If you used a token in t
 
 You can choose between two types of authentication:
 
-- Entitlement Token Authentication
-- HTTP Basic Authentication.
+ - Entitlement Token Authentication
+ - HTTP Basic Authentication.
 
 The setup method will differ depending on what authentication type you choose to use.
 

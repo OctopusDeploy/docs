@@ -35,11 +35,11 @@ The project has been created, now we connect it to a database. This example uses
 2. Click **Select Connection**.
 3. Add the **Server Name** and select the type of authentication. In this screenshot, a SQL Account is used to connect to the database server.  
 
-:::figure
-![Connection details for the database](/docs/img/deployments/databases/sql-server/images/visual-studio-2019-connect-database.png)
-:::
+    :::figure
+    ![Connection details for the database](/docs/img/deployments/databases/sql-server/images/visual-studio-2019-connect-database.png)
+    :::
 
-1. Click **Connect** and then click **Start** to import the database.
+4. Click **Connect** and then click **Start** to import the database.
 
 Importing the database will populate your project with the existing objects from the database. You will see a summary of the importing process:
 
@@ -86,23 +86,23 @@ Note, this example uses the classic editor without YAML.
 3. Choose a build pool, then click on the **+** to add a step to the build definition.
 4. Click on the Build category and scroll down to **Visual Studio build**.
 
-:::div{.hint}
-An MSBuild task will accomplish the same thing
-:::
+    :::div{.hint}
+    An MSBuild task will accomplish the same thing
+    :::
 
-1. Add `/p:OutDir=$(build.StagingDirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
+5. Add `/p:OutDir=$(build.StagingDirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
-:::figure
-![MSBuild arguments](/docs/img/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png)
-:::
+    :::figure
+    ![MSBuild arguments](/docs/img/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png)
+    :::
 
-1. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
+6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
-:::div{.hint}
-The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
-:::
+    :::div{.hint}
+    The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
+    :::
 
-1. Add the properties for the task:
+7. Add the properties for the task:
     - **Package ID**: Give the package a meaningful name.
     - **Package Format**: Chose whichever package type you wish.
     - **Package Version**:  Use the build server build number to associate a package version back to a build number.
@@ -113,12 +113,12 @@ The Octopus Deploy extension is available in the Marketplace, install the extens
 For Azure DevOps, the build number can be formatted on the Options tab under Build number format.  This guide uses the format `$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)`.
 :::
 
-1. Expand the Advanced Options section and add:
+8. Expand the Advanced Options section and add:
     - **Include**: The only file we need for deployment is the .dacpac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
-2. The final step in the definition pushes the package to a repository.  This guide uses Octopus Deploy's built-in package repository. Click on the **+**, select **Package**, and select **Push Package(s) to Octopus**.
-3. Next, create a connection to the Octopus Server, by clicking **+ New** and add the connection details, then click **OK**.
-4. Select the space in your Octopus instance to push to from the drop-down menu.
-5. Enter the package(s) that you would like pushed to the Octopus repository and the individual packages or use wildcard syntax:
+9. The final step in the definition pushes the package to a repository.  This guide uses Octopus Deploy's built-in package repository. Click on the **+**, select **Package**, and select **Push Package(s) to Octopus**.
+10. Next, create a connection to the Octopus Server, by clicking **+ New** and add the connection details, then click **OK**.
+11. Select the space in your Octopus instance to push to from the drop-down menu.
+12. Enter the package(s) that you would like pushed to the Octopus repository and the individual packages or use wildcard syntax:
     - Individual packages, for instance, `$(build.StagingDirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
     - A wildcard `$(build.StagingDirectory)\*.nupkg`.
 
@@ -141,11 +141,11 @@ Now that the build server has been configured to push the artifact to the Octopu
 1. Click **Variables** from the project's overview screen.
 2. Define the following variables:
 
-- `Project.SQLServer.Name`
-- `Project.SQLServer.Admin.User.Name` (optional)
-- `Project.SQLServer.Admin.User.Password` (optional)
-- `Project.Database.Name`
-- `Project.DACPAC.Name`
+    - `Project.SQLServer.Name`
+    - `Project.SQLServer.Admin.User.Name` (optional)
+    - `Project.SQLServer.Admin.User.Password` (optional)
+    - `Project.Database.Name`
+    - `Project.DACPAC.Name`
 
 It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
 
@@ -167,23 +167,23 @@ With variables defined, we can add steps to our deployment process.
 2. Click  **ADD STEP**.
 3. Search for `dacpac` steps, select the **SQL - Deploy DACPAC using SqlPackage** step, and enter the following details:
 
-- **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
-- **Publish profile name**: Complete this field if you use Publish profiles.
-- **Report**: True.
-- **Script**: True.
-- **Deploy**: False.
-- **Target Servername**: `Project.SQLServer.Name` variable.
-- **Target Database**: `Project.Database.Name` variable.
-- **Authentication type**: Choose the authentication for your use case.
-- **Username**: `Project.SQLServer.Admin.User.Name` variable (used only with SQL Authentication type).
-- **Password**: `Project.SQLServer.Admin.User.Password` variable (used only with SQL Authentication type).
-- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
-- **Command Timeout**: Override the default script execution timeout.
-- **SqlPackage executable location**: If you have the sqlpackage.exe installed, specify the location, otherwise, leave blank to dynamically download it.
-- **Additional arguments**: Any additional sqlpackage.exe arguments not provided by the template.
+    - **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
+    - **Publish profile name**: Complete this field if you use Publish profiles.
+    - **Report**: True.
+    - **Script**: True.
+    - **Deploy**: False.
+    - **Target Servername**: `Project.SQLServer.Name` variable.
+    - **Target Database**: `Project.Database.Name` variable.
+    - **Authentication type**: Choose the authentication for your use case.
+    - **Username**: `Project.SQLServer.Admin.User.Name` variable (used only with SQL Authentication type).
+    - **Password**: `Project.SQLServer.Admin.User.Password` variable (used only with SQL Authentication type).
+    - **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
+    - **Command Timeout**: Override the default script execution timeout.
+    - **SqlPackage executable location**: If you have the sqlpackage.exe installed, specify the location, otherwise, leave blank to dynamically download it.
+    - **Additional arguments**: Any additional sqlpackage.exe arguments not provided by the template.
 
-1. Add a manual intervention step, scoped to production, so the report from the previous step can be examined before deploying to production.
-2. Add another **SQL - Deploy DACPAC using SqlPackage** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
+4. Add a manual intervention step, scoped to production, so the report from the previous step can be examined before deploying to production.
+5. Add another **SQL - Deploy DACPAC using SqlPackage** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
 
 The deployment process should look like this:
 

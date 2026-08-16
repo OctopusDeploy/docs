@@ -24,7 +24,7 @@ You may need to move your Octopus Server and database installation. The followin
 Below are instructions on how to move your Octopus Server and SQL Database.
 
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager or the command line using the following command.
-`Octopus.Server.exe service --stop`
+    `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption#your-master-key).
 3. Take a backup of your Octopus database.
 4. Restore the database on your new server.
@@ -40,7 +40,7 @@ Below are instructions on how to move your Octopus Server and SQL Database.
 The database stores the locations for these directories. After you connect to the database, your settings will be the same as they were on your original server. You can change the locations for these directories, but we recommend first moving the directories to their original location and then pointing to the new location. This process is outlined in the [moving the home directory](/docs/administration/managing-infrastructure/moving-your-octopus/move-the-home-directory) page.
 :::
 
-1. Finally, if you have automatic package indexing enabled, restart your new Octopus instance to index the packages. You can restart Octopus Server with Octopus Manager or via the command line with the below command. If package indexing is disabled please trigger a manual update with the Sync Now button on your **Deploy ➜ Manage ➜ Packages** page.
+8. Finally, if you have automatic package indexing enabled, restart your new Octopus instance to index the packages. You can restart Octopus Server with Octopus Manager or via the command line with the below command. If package indexing is disabled please trigger a manual update with the Sync Now button on your **Deploy ➜ Manage ➜ Packages** page.
 
 ```text
 Octopus.Server.exe service --stop

@@ -69,7 +69,7 @@ git tag 1.0.0
 git push --tags
 ```
 
-1. Optionally add release notes to the tagged commit from within GitHub.
+2. Optionally add release notes to the tagged commit from within GitHub.
 (Note additional resources currently do not get included in the Octopus deployment). The pre-release state of a release is also tied to the pre-release component of the tag name.
 
 :::figure
@@ -82,9 +82,9 @@ If Octopus can link a particular version (which in the context of GitHub feeds r
 
  ![GitHub Script Source](/docs/img/packaging-applications/package-repositories/images/github-scriptsource.png)
 
- 1. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as SemVer 2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/releases/channels/#version-rules) will be applied.
+ 4. When you create a new release Octopus will query the GitHub api to determine the list of tags which can be parsed as SemVer 2 versions. As with standard package feeds the latest version will be selected by default and any [channel version rules](/docs/releases/channels/#version-rules) will be applied.
 
- 2. When the release is deployed and the [package acquisition](/docs/deployments/packages/stage-package-uploads) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
+ 5. When the release is deployed and the [package acquisition](/docs/deployments/packages/stage-package-uploads) process begins, Octopus will pull down a copy of the repository based on the commit linked to the tag selected as the package version. This artifact is then treated as a zip and is deployed using the standard package deployment rules that applied previously.
 
 ## Deployments without a build
 

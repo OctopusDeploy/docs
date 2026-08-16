@@ -65,7 +65,7 @@ On deployment to your Staging environment, your process would go like this:
 
 1. Your package, complete with your original `Web.Config` and your `Web.Release.Config` transform file, will be extracted to the target.
 2. Variable Substitution will run against your `Web.Release.Config` file (assuming it's been listed in the Target files setting).
-This will change the `#{OctoFXDatabase}` string to the Staging connection string, and will insert `False` into the `TestMode` element.
+    This will change the `#{OctoFXDatabase}` string to the Staging connection string, and will insert `False` into the `TestMode` element.
 3. Then, the .NET configuration transformation feature will run and apply this new transform file to your `Web.Config`.
 
 The end result is a correctly transformed configuration for your staging environment. All without a specific Staging transform file, and while keeping your `Web.Config` file clean for development.

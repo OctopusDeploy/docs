@@ -115,9 +115,9 @@ These are known issues to be aware of with other compression libraries:
 
 ## Learn more
 
-- [Packaging application](/docs/packaging-applications)
-- [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack).
-- [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity).
-- [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension).
-- [Package repositories](/docs/packaging-applications).
-- [Package deployments](/docs/deployments/packages).
+ - [Packaging application](/docs/packaging-applications)
+ - [Create packages with Octopack](/docs/packaging-applications/create-packages/octopack).
+ - [TeamCity plugin](/docs/packaging-applications/build-servers/teamcity).
+ - [Azure DevOps plugin](/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension).
+ - [Package repositories](/docs/packaging-applications).
+ - [Package deployments](/docs/deployments/packages).

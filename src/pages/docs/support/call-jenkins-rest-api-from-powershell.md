@@ -113,5 +113,5 @@ RelationLink      : {}
 
 ## Learn more
 
-- [Jira blog posts](https://octopus.com/blog/tag/jira/1)
-- [PowerShell blog posts](https://octopus.com/blog/tag/powershell/1)
+ - [Jira blog posts](https://octopus.com/blog/tag/jira/1)
+ - [PowerShell blog posts](https://octopus.com/blog/tag/powershell/1)

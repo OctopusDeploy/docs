@@ -20,26 +20,26 @@ In this example we will create a machine policy to automatically delete machines
 1. Navigate to the *Machine policies* screen.
 2. Create a new machine policy by selecting **Add machine policy**:
 
-:::figure
-![The Add machine policy button](/docs/img/deployments/patterns/elastic-and-transient-environments/images/creating-machine-policy.png)
-:::
+    :::figure
+    ![The Add machine policy button](/docs/img/deployments/patterns/elastic-and-transient-environments/images/creating-machine-policy.png)
+    :::
 
-1. Name the machine policy "Clean up machines".
-2. Change the setting "Clean up unavailable machines" to "Automatically delete unavailable machines".  By selecting this option and setting the time to 0, any machines that fail a health check and become unavailable will be deleted:
+3. Name the machine policy "Clean up machines".
+4. Change the setting "Clean up unavailable machines" to "Automatically delete unavailable machines".  By selecting this option and setting the time to 0, any machines that fail a health check and become unavailable will be deleted:
 
-:::figure
-![The Clean up unavailable machines setting](/docs/img/deployments/patterns/elastic-and-transient-environments/images/cleanup-setting.png)
-:::
+    :::figure
+    ![The Clean up unavailable machines setting](/docs/img/deployments/patterns/elastic-and-transient-environments/images/cleanup-setting.png)
+    :::
 
-1. Save the machine policy.
+5. Save the machine policy.
 
-2. Assign the machine policy to a machine by selecting a machine and using the *Policy* drop down to select the machine policy:
+6. Assign the machine policy to a machine by selecting a machine and using the *Policy* drop down to select the machine policy:
 
-:::figure
-![Assigning a machine policy to a machine](/docs/img/deployments/patterns/elastic-and-transient-environments/images/assign-to-machine.png)
-:::
+    :::figure
+    ![Assigning a machine policy to a machine](/docs/img/deployments/patterns/elastic-and-transient-environments/images/assign-to-machine.png)
+    :::
 
-1. Turn the machine off and run a health check.
+7. Turn the machine off and run a health check.
 
 Machine deletion happens as part of health checks.
 

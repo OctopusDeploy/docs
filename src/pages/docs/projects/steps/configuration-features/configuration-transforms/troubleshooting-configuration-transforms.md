@@ -194,8 +194,8 @@ c:\
 
 Then the transform **c:\transforms\web.mytransform.config** => **web.config** will:
 
-- Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**.
-- Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**.
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**.
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**.
 
 ## Applying a transform with an absolute path to a target in the extraction path root {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Usinganabsolutepathtothetransformxtractiondirectoryroot}
 
@@ -222,7 +222,7 @@ c:\
 
 Then the transform **c:\transforms\web.mytransform.config => .\web.config** will:
 
-- Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**.
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **web.config**.
 
 ## Applying a transform with an absolute path to a target relative to the extraction path {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-UsinganabsolutepathtothetransformRelativetoextractiondirectory}
 
@@ -245,7 +245,7 @@ c:\
 
 Then the **transform c:\transforms\web.mytransform.config => .\subdir\web.config** will:
 
-- Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**.
+ - Apply the transform **c:\transforms\web.mytransform.config** to file **subdir\web.config**.
 
 ## Applying a transform with an absolute path against multiple files in a different directory {#AdvancedConfigurationTransformsExamples-AdvancedConfigurationTransformsExamples-Applyingatransformwithanabsolutepathagainstmultiplefilesinadifferentdirectory}
 

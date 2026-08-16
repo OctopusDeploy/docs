@@ -235,7 +235,7 @@ The recommended task sequence for a deployment project in Bamboo is this:
 
 1. A `Octopus Deploy: Push Packages` task in the Bamboo build plan with a package version number linked to the Bamboo build number and the `Force overwrite existing packages` selected.
 1. A `Octopus Deploy: Create Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number, the `Ignore existing releases` option selected, and no `Environments(s)` set to deploy to.
-1. A `Octopus Deploy: Deploy Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number.
+2. A `Octopus Deploy: Deploy Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number.
 
 These steps will allow packages to be pushed and re-pushed, and new releases to be created, deployed and rolled back to previous releases.
 

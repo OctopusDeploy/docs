@@ -43,9 +43,9 @@ To identify and fix these issues:
 - [Check for blank slugs in runbook snapshots](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/CheckForBlankSlugsInFrozenSnapshots.ps1)
 - [Check for duplicate slugs in runbook snapshots](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/REST/PowerShell/Runbooks/CheckForDuplicateSlugs.ps1)
 
-1. For any affected runbooks, ensure all steps have unique slugs
-2. Publish new snapshots of the affected runbooks
-3. Retry the runbook migration
+2. For any affected runbooks, ensure all steps have unique slugs
+3. Publish new snapshots of the affected runbooks
+4. Retry the runbook migration
 
 ## Drafts vs branches
 

@@ -10,12 +10,12 @@ hideInThisSection: true
 
 Octopus can consume package feeds from the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository), and supports the following external repositories:
 
-- [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries).
-- [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds).
-- [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds).
-- [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
-- Helm feeds.
-- AWS ECR feeds.
+ - [Docker feeds](/docs/packaging-applications/package-repositories/docker-registries).
+ - [GitHub feeds](/docs/packaging-applications/package-repositories/github-feeds).
+ - [Maven feeds](/docs/packaging-applications/package-repositories/maven-feeds).
+ - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
+ - Helm feeds.
+ - AWS ECR feeds.
 
 This section provides instructions on how to set-up a number of these external feeds from third-parties for use within Octopus.
 

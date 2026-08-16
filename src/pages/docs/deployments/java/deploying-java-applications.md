@@ -44,12 +44,12 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 
 1. Compile the application:
 
-```powershell
-javac PressAnyKey.java
-```
+    ```powershell
+    javac PressAnyKey.java
+    ```
 
-1. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
-2. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
+2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
+3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
 
 ### Step 2: Create the project and deployment process
 

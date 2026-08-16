@@ -131,4 +131,4 @@ Setting the environment variable `DISABLE_DIND` to `Y` prevents Docker-in-Docker
 
 ## Learn more
 
-- [Docker blog posts](https://octopus.com/blog/tag/docker/1)
+ - [Docker blog posts](https://octopus.com/blog/tag/docker/1)

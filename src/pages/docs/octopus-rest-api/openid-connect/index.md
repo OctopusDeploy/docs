@@ -71,15 +71,15 @@ After the OIDC identity for GitHub Actions has been created, a snippet of the `O
 2. Paste the `OctopusDeploy/login` step into your workflow job.
 3. Add `id-token: write` to the `permissions` on the workflow job. This is required to allow the `OctopusDeploy/login` action to request an OIDC token from GitHub to use.
 
-:::div{.hint}
-When `permissions` are specified on a workflow job, any built-in permissions for the job are reset. This means that some existing steps in your workflow may now require setting explicit permissions in order to work correctly.
+    :::div{.hint}
+    When `permissions` are specified on a workflow job, any built-in permissions for the job are reset. This means that some existing steps in your workflow may now require setting explicit permissions in order to work correctly.
 
-For example to checkout source code using the `actions/checkout` action you will need to add `contents: read` to the permissions.
+    For example to checkout source code using the `actions/checkout` action you will need to add `contents: read` to the permissions.
 
-For more information see [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs/).
-:::
+    For more information see [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs/).
+    :::
 
-1. Add any additional Octopus provided GitHub Actions that you require e.g. [`OctopusDeploy/create-release-action`](https://github.com/OctopusDeploy/create-release-action). These actions will automatically work with OIDC. Any script steps that use the `octopus` cli will also automatically work with OIDC.
+4. Add any additional Octopus provided GitHub Actions that you require e.g. [`OctopusDeploy/create-release-action`](https://github.com/OctopusDeploy/create-release-action). These actions will automatically work with OIDC. Any script steps that use the `octopus` cli will also automatically work with OIDC.
 
 When the workflow runs the `OctopusDeploy/login` action will authenticate with Octopus using OIDC and configure the remainder of the workflow job to work without needing to provide the `server` or `api_key` values.
 

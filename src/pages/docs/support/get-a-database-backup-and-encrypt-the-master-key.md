@@ -11,13 +11,13 @@ When you contact Octopus Deploy support, sometimes we aren't able to reproduce t
 
 1. Create the database backup.
 
-The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced from [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click on the Octopus database, and select **Tasks ➜ Back Up...**, and select the directory where the .bak file will save to.
+    The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced from [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click on the Octopus database, and select **Tasks ➜ Back Up...**, and select the directory where the .bak file will save to.
 
-:::figure
-![Backup SQL database in SQL Server Management Studio](/docs/img/support/images/sql_server_management_studio_backup_db.png)
-:::
+    :::figure
+    ![Backup SQL database in SQL Server Management Studio](/docs/img/support/images/sql_server_management_studio_backup_db.png)
+    :::
 
-1. Encrypt your Master Key.
+2. Encrypt your Master Key.
 
 :::div{.hint}
 You can get your Master Key using [Octopus Manager](/docs/security/data-encryption#your-master-key) or by using the `show-master-key` command in [Octopus.Server.exe](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).
@@ -47,6 +47,6 @@ $message = Encrypt-ForOctopusEyesOnly "YourMasterKey"
 write-host $message
 ```
 
-1. Upload your database backup and encrypted Master Key.
+3. Upload your database backup and encrypted Master Key.
 
 In your email or forum thread with Octopus support, we will provide you with a secure and private link to upload your database backup and the encrypted Master Key. Only we have access to view and download these files, and we will only allow upload access to you. We will also ensure your forum thread is marked as private if it hasn't already been, to ensure only you and our team can see the link.

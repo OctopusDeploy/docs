@@ -32,14 +32,14 @@ To learn more on how to package your software using your CI server of choice and
 
 The following tools are available to integrate your continuous integration/build server with Octopus Deploy:
 
-- [AppVeyor](/docs/packaging-applications/build-servers/appveyor)
-- [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops)
-- [Bamboo](/docs/packaging-applications/build-servers/bamboo)
-- [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines)
-- [Codefresh Pipelines](/docs/packaging-applications/build-servers/codefresh-pipelines)
-- [Continua CI](/docs/packaging-applications/build-servers/continua-ci)
-- [Github Actions](/docs/packaging-applications/build-servers/github-actions)
-- [Jenkins](/docs/packaging-applications/build-servers/jenkins)
-- [TeamCity](/docs/packaging-applications/build-servers/teamcity)
+ - [AppVeyor](/docs/packaging-applications/build-servers/appveyor)
+ - [Azure DevOps & Team Foundation Server](/docs/packaging-applications/build-servers/tfs-azure-devops)
+ - [Bamboo](/docs/packaging-applications/build-servers/bamboo)
+ - [BitBucket Pipelines](/docs/packaging-applications/build-servers/bitbucket-pipelines)
+ - [Codefresh Pipelines](/docs/packaging-applications/build-servers/codefresh-pipelines)
+ - [Continua CI](/docs/packaging-applications/build-servers/continua-ci)
+ - [Github Actions](/docs/packaging-applications/build-servers/github-actions)
+ - [Jenkins](/docs/packaging-applications/build-servers/jenkins)
+ - [TeamCity](/docs/packaging-applications/build-servers/teamcity)
 
 Octopus supports uploading [Build information](/docs/packaging-applications/build-servers/build-information) from your build server, manually or with the use of one of the plugins, to Octopus Deploy.

@@ -36,7 +36,7 @@ The next section shows how you can create runbooks to manage DNS records:
 The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#use-variables-in-step-definitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#use-variables-in-step-definitions).
 :::
   
-1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+9. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 :::div{.hint}
 Note the use of Octopus project variables, you will need to make sure you create these for this example to work.  You will also see use of an output variable for the IP address created in a step not shown here.

@@ -53,18 +53,18 @@ configuration OctopusTentacle
 }
 ```
 
-1. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up.
+3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up.
 
-:::div{.hint}
-If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
-:::
+    :::div{.hint}
+    If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
+    :::
 
-:::figure
-![A brief description of the image](/docs/img/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
-:::
+    :::figure
+    ![A brief description of the image](/docs/img/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
+    :::
 
-1. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
-2. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
+4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
+5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
 
 ```json
 {
@@ -437,7 +437,7 @@ If you are using your own template, and not the sample above, you can just add t
 
 Note that if you are using a private Azure storage location that requires a SAS Token, add this under `protectedSettings` as `configurationUrlSasToken`.
 
-1. Create an ARM template properties file (eg `arm-template.properties.json`) with the parameters you need:
+6. Create an ARM template properties file (eg `arm-template.properties.json`) with the parameters you need:
 
 ```json
 {

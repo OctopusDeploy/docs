@@ -40,7 +40,7 @@ The supplied account can optionally be used to assume a different AWS service ro
 If you select **Yes** to **Execute using the AWS service  role for an EC2 instance**, you do not need an AWS account or account variable. Instead, the AWS service role for the EC2 instance executing the deployment will be used. See the [AWS documentation](https://oc.to/AwsDocsRolesTermsAndConcepts) for more information on service roles.
 :::
   
-1. In the **Inline source code** section, add the following code as a **PowerShell** script:
+9. In the **Inline source code** section, add the following code as a **PowerShell** script:
 
 ```powershell
 $listenerArn = $OctopusParameters["Project.AWS.ALB.ListenerArn"]

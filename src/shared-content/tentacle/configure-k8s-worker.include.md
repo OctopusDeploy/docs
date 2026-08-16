@@ -20,11 +20,11 @@ kubectl config view
 4. Select the desired shell (bash or PowerShell) and copy and the supplied command
 5. Execute the copied command in a terminal configured with your k8s cluster, and click **NEXT**
    1. This step is not required if the NFS driver already exists in your cluster (due to prior installs of k8s worker or deployment target)
-6. Select the desired shell (bash or PowerShell), then copy the supplied command
-7. Execute the copied command in a terminal configured with your k8s cluster.
+5. Select the desired shell (bash or PowerShell), then copy the supplied command
+6. Execute the copied command in a terminal configured with your k8s cluster.
    1. Installing the Helm chart will take some time (potentially minutes depending on infrastructure).
-8. A green 'success' bar will appear when the Helm Chart has completed installation, and the worker has registered with the Octopus Server.
-9. Click the **View Worker** button to display the settings of the created worker, or  **Cancel** to return to the **Add Worker** page
+6. A green 'success' bar will appear when the Helm Chart has completed installation, and the worker has registered with the Octopus Server.
+7. Click the **View Worker** button to display the settings of the created worker, or  **Cancel** to return to the **Add Worker** page
 
 :::div{.warning}
 As the display name is used for the Helm release name, this name must be unique for a given cluster. This means that if you have a Kubernetes agent and Kubernetes worker with the same name (e.g. `production`), then they will clash during installation.

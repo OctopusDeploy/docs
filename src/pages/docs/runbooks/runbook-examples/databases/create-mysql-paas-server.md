@@ -45,40 +45,40 @@ else {
 Set-OctopusVariable -name "DatabaseDoesntExist" -value $dbDoesntExist
 ```
 
-1. Add another **Run a script** with the run condition of `#{Octopus.Action[Check if MySQL instance exists].Output.DatabaseDoesntExist}` is true:
+5. Add another **Run a script** with the run condition of `#{Octopus.Action[Check if MySQL instance exists].Output.DatabaseDoesntExist}` is true:
 
-```powershell
-$zone = $OctopusParameters["GCP.Zone"]
-$projectName = $OctopusParameters["Project.GCP.ProjectName"]
-$instanceName = $OctopusParameters["Project.GCP.MySQL.InstanceName"]
-$machineTier = $OctopusParameters["Project.GCP.MySQL.MachineTier"]
-$storageType = $OctopusParameters["Project.GCP.MySQL.StorageType"]
-$storageAutoIncreaseLimit = $OctopusParameters["Project.GCP.MySQL.StorageIncreaseLimitInGB"]
-$vpcNetworkName = $OctopusParameters["GCP.Network.VPC.Default"]
-$rootPassword = $OctopusParameters["MySQL.Database.Admin.UserPassword"]
+    ```powershell
+    $zone = $OctopusParameters["GCP.Zone"]
+    $projectName = $OctopusParameters["Project.GCP.ProjectName"]
+    $instanceName = $OctopusParameters["Project.GCP.MySQL.InstanceName"]
+    $machineTier = $OctopusParameters["Project.GCP.MySQL.MachineTier"]
+    $storageType = $OctopusParameters["Project.GCP.MySQL.StorageType"]
+    $storageAutoIncreaseLimit = $OctopusParameters["Project.GCP.MySQL.StorageIncreaseLimitInGB"]
+    $vpcNetworkName = $OctopusParameters["GCP.Network.VPC.Default"]
+    $rootPassword = $OctopusParameters["MySQL.Database.Admin.UserPassword"]
 
-Write-Host "Running gcloud beta sql instances create"
-Write-Host "##octopus[stderr-progress]"
+    Write-Host "Running gcloud beta sql instances create"
+    Write-Host "##octopus[stderr-progress]"
 
-& gcloud beta sql instances create $instanceName `
---tier=$machineTier `
---root-password=$rootPassword `
---zone=$zone --project=$projectName `
---no-backup `
---network=$vpcNetworkName `
---storage-type=$storageType `
---storage-auto-increase `
---storage-auto-increase-limit=$storageAutoIncreaseLimit `
---no-assign-ip `
---quiet
+    & gcloud beta sql instances create $instanceName `
+    --tier=$machineTier `
+    --root-password=$rootPassword `
+    --zone=$zone --project=$projectName `
+    --no-backup `
+    --network=$vpcNetworkName `
+    --storage-type=$storageType `
+    --storage-auto-increase `
+    --storage-auto-increase-limit=$storageAutoIncreaseLimit `
+    --no-assign-ip `
+    --quiet
 
   
-Test-LastExit "gcloud beta sql instances create"
+    Test-LastExit "gcloud beta sql instances create"
 
-Write-Host "Completed creating mysql instance"
-```
+    Write-Host "Completed creating mysql instance"
+    ```
 
-1. Add project [variables](/docs/projects/variables) for use with the scripts
+6. Add project [variables](/docs/projects/variables) for use with the scripts
 
 :::div{.hint}
 If you have a keen eye, you may have noticed that the script above uses the gcloud `beta` option to create the MySQL database server. This is done to allow use of the `--network` flag where you can specify a specific network in which to place the database server. This can be useful if you want to specify a [private ip address](https://cloud.google.com/sql/docs/mysql/configure-private-ip) for your server.

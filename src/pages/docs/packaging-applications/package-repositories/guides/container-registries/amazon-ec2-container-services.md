@@ -79,7 +79,7 @@ Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use Ope
 }
 ```
 
-1. Go back to the AWS feed in Octopus and click **TEST**, search for a package in any ECR feeds the role has access to.
+7. Go back to the AWS feed in Octopus and click **TEST**, search for a package in any ECR feeds the role has access to.
 
 Refer to the AWS docs for [more information on the role permissions required for ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html).
 Please read [OpenID Connect Subject Identifier](/docs/infrastructure/accounts/openid-connect#subject-keys) on how to customize the **Subject** value.

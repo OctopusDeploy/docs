@@ -53,7 +53,7 @@ To create a runbook to perform updates on your Linux machines:
 
     This step will download a list of available updates then display them.  This step is split out from the actual update process so that you can place any gates such as approvals between listing what is available for update and actually performing the update.
 
-1. Repeat steps 3-7 above, adding the following code to perform the update in the **Inline source code** section that matches your Linux distro:
+8. Repeat steps 3-7 above, adding the following code to perform the update in the **Inline source code** section that matches your Linux distro:
 
     ```bash Ubuntu
     # Perform upgrade

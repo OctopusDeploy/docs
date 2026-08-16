@@ -22,7 +22,7 @@ You may want to move only the Octopus Server itself, and continue using your exi
 ### Process
 
 1. Place your Octopus instance into [Maintenance Mode](/docs/administration/managing-infrastructure/maintenance-mode) and stop the service when all deployments have completed. You can stop the service via the Octopus Manager or the command line using the following command.
-`Octopus.Server.exe service --stop`
+    `Octopus.Server.exe service --stop`
 2. Ensure you have saved a copy of your [Master Key](/docs/security/data-encryption#your-master-key).
 3. Create a new Octopus instance using the same Octopus version as your original instance. You can find an older version and download the MSI in our [previous releases](https://octopus.com/downloads/previous) page.
 4. When installing your new instance, select your existing database. It will prompt for the Master Key.

@@ -276,6 +276,6 @@ In addition to the common arguments above, OctoPack has a number of other parame
 
 ## Learn more
 
-- Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files)
-- [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack)
-- [Package deployments](/docs/deployments/packages)
+ - Use [OctoPack to include BuildEvent files](/docs/packaging-applications/create-packages/octopack/octopack-to-include-buildevent-files)
+ - [Troubleshooting OctoPack](/docs/packaging-applications/create-packages/octopack/troubleshooting-octopack)
+ - [Package deployments](/docs/deployments/packages)

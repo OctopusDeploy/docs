@@ -33,11 +33,11 @@ Octopus integrates with GitHub issues. The integration includes the ability to:
 
 The ability to push the build information to Octopus, which is required for GitHub integration, is currently only available in the official Octopus plugins:
 
-- [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
-- [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
-- [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
-- [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/)
-- [GitHub Actions](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
+ - [JetBrains TeamCity](https://plugins.jetbrains.com/plugin/9038-octopus-deploy-integration)
+ - [Atlassian Bamboo](https://marketplace.atlassian.com/apps/1217235/octopus-deploy-bamboo-add-on?hosting=server&tab=overview)
+ - [Azure DevOps](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks)
+ - [Jenkins Octopus Deploy Plugin](https://plugins.jenkins.io/octopusdeploy/)
+ - [GitHub Actions](https://github.com/marketplace/actions/push-build-information-to-octopus-deploy)
 
 ## Configuring GitHub integration
 
@@ -93,4 +93,4 @@ The Octopus extension looks for these same keywords, and ignores issue reference
 
 ## Learn more
 
-- [Build information](/docs/packaging-applications/build-servers/build-information).
+ - [Build information](/docs/packaging-applications/build-servers/build-information).

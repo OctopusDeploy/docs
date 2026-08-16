@@ -32,28 +32,28 @@ You can create cloud regions just like other deployment targets.
 
 2. Select **Cloud Region** from the list of available deployment target types.
 
-:::figure
-![Cloud Region in the list of deployment target types](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region.png)
-:::
+    :::figure
+    ![Cloud Region in the list of deployment target types](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region.png)
+    :::
 
-1. Give the cloud region a name and select the roles for the cloud region.
+3. Give the cloud region a name and select the roles for the cloud region.
 
-:::figure
-![Naming a cloud region and selecting its roles](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png)
-:::
+    :::figure
+    ![Naming a cloud region and selecting its roles](/docs/img/infrastructure/deployment-targets/images/adding-new-cloud-region-part2.png)
+    :::
 
-1. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
+4. Now you can see the cloud regions in the **Infrastructure ➜ Deployment Targets** page, just like the other deployment targets.
 
-:::figure
-![Cloud regions listed under Infrastructure ➜ Deployment Targets](/docs/img/infrastructure/deployment-targets/images/cloud-region-list.png)
-:::
+    :::figure
+    ![Cloud regions listed under Infrastructure ➜ Deployment Targets](/docs/img/infrastructure/deployment-targets/images/cloud-region-list.png)
+    :::
 
-1. To make use of your cloud regions you should scope region-specific variables to them appropriately.
+5. To make use of your cloud regions you should scope region-specific variables to them appropriately.
 
-:::figure
-![Project variables scoped to individual cloud regions](/docs/img/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png)
-:::
+    :::figure
+    ![Project variables scoped to individual cloud regions](/docs/img/infrastructure/deployment-targets/images/project-with-cloud-region-scoped-variables.png)
+    :::
 
-1. Now when you deploy your application, the appropriate steps will run once per region.
+6. Now when you deploy your application, the appropriate steps will run once per region.
 
 ![A completed deployment that ran once per region](/docs/img/infrastructure/deployment-targets/images/cloud-region-deployment-complete.png)

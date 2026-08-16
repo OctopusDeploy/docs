@@ -84,9 +84,9 @@ Once you know the deployment mode, you can enable or disable steps using [output
 
 The step template [Calculate Deployment Mode](https://library.octopus.com/step-templates/d166457a-1421-4731-b143-dd6766fb95d5/actiontemplate-calculate-deployment-mode) includes a number of [output variables](/docs/projects/variables/output-variables).
 
-- **DeploymentMode**: Will be `Deploy`, `Rollback`, or `Redeploy`.
-- **Trigger**: This indicates if the deployment was caused by a deployment target trigger or a scheduled trigger.  It will be `True` or `False`.
-- **VersionChange**: Will be `Identical`, `Major`, `Minor`, `Build`, or `Revision`.
+ - **DeploymentMode**: Will be `Deploy`, `Rollback`, or `Redeploy`.
+ - **Trigger**: This indicates if the deployment was caused by a deployment target trigger or a scheduled trigger.  It will be `True` or `False`.
+ - **VersionChange**: Will be `Identical`, `Major`, `Minor`, `Build`, or `Revision`.
 
 It also includes a number of output variables to use in variable run conditions.
 

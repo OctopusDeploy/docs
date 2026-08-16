@@ -18,17 +18,17 @@ Triggers are per-project settings that execute an action in response to an event
 1. Navigate to the project *Triggers* page.
 2. Create a new trigger by selecting **Create trigger**:
 
-:::figure
-![The Create trigger button](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
-:::
+    :::figure
+    ![The Create trigger button](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
+    :::
 
-1. Add events to the trigger.
+3. Add events to the trigger.
 
 - For **Octopus 3.6** and above, select the event group *"Machine becomes available for deployment"*.
 
-1. Select the environments (**Test A**) that this trigger applies to.
+4. Select the environments (**Test A**) that this trigger applies to.
 
-2. Select the deployment target tags (**TradingWebServer**) that this trigger applies to.
+5. Select the deployment target tags (**TradingWebServer**) that this trigger applies to.
 
 :::figure
 ![The TradingWebServer target tag selected on the trigger](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
@@ -42,17 +42,17 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 
 1. Disable a target with the target tag **TradingWebServer** in the **Test A** environment:
 
-:::figure
-![A disabled target with the TradingWebServer tag in the Test A environment](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
-:::
+    :::figure
+    ![A disabled target with the TradingWebServer tag in the Test A environment](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
+    :::
 
-1. Create a new release of OctoFX and deploy it to the **Test A** environment. It will skip the steps that have been scoped to the **TradingWebServer** target tag because no deployment targets are associated with that tag:
+2. Create a new release of OctoFX and deploy it to the **Test A** environment. It will skip the steps that have been scoped to the **TradingWebServer** target tag because no deployment targets are associated with that tag:
 
-:::figure
-![A deployment skipping steps scoped to the TradingWebServer tag](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
-:::
+    :::figure
+    ![A deployment skipping steps scoped to the TradingWebServer tag](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
+    :::
 
-1. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed. The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
+3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed. The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 :::figure
 ![A re-queued deployment running only for the TAWeb01 target](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
