@@ -15,7 +15,7 @@ listable: false # stop the oldest-content report from listing this page
 import Avatar from 'src/components/Avatar.astro';
 import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
-import IconTile from 'src/components/IconTile.astro';
+import Helm from 'src/components/icons/Helm.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import SplitButton from 'src/components/SplitButton.astro';
@@ -57,7 +57,7 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
 
 Any other attribute is passed through to the rendered element, so a `class` of your own reaches the button and you can position or reshape it from the parent component. Astro scopes each component's `<style>` to its own markup, so a rule aimed at that class needs `:global()` to cross into Button — keep it behind a scoped ancestor (e.g. `.my-toolbar :global(.my-toolbar__action) { ... }`) so it stays contained. Never copy the `btn` classes into your own markup: the styles are scoped to Button and will not apply.
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
     <Button label="Label" />
     <Button label="Label" size="small" />
@@ -74,7 +74,7 @@ Any other attribute is passed through to the rendered element, so a `class` of y
 
 #### Button with icons
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div>
     <div class="btn-row">
       <Button label="Copy" icon="fa-solid fa-copy" />
@@ -125,7 +125,7 @@ Any other attribute is passed through to the rendered element, so a `class` of y
 
 #### Links
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
     <Button label="Docs" href="/docs" />
     <Button label="Docs" href="/docs" disabled={true} />
@@ -144,7 +144,7 @@ Any other attribute is passed through to the rendered element, so a `class` of y
 
 #### Disabled
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
     <Button
       label="Label"
@@ -187,7 +187,7 @@ Reach for a class name rather than a URL when the icon is one of the design syst
 
 Two of them sit side by side below, each with its own menu, so it is clear that a menu belongs to the control it hangs from.
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
     <SplitButton
       label="Open in Claude"
@@ -229,7 +229,7 @@ Two of them sit side by side below, each with its own menu, so it is clear that 
 
 ### Avatar
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
     <Avatar size="small" shape="circle">JD</Avatar>
     <Avatar size="medium" shape="circle">JD</Avatar>
@@ -341,15 +341,72 @@ Temporary showcase for the new, work-in-progress TopNav component.
   <TopNav />
 </div>
 
-### Card
+### Cards
 
-The Card component displays content in a card format, suitable for highlights, features, or related topics.
+A clickable surface for a title, an optional description, and an optional image or icon, all leading to a single destination.
 
-<div class="docs-home simple-grid">
+1. **title**: Required. Shown as the card's heading, and also builds the accessible name for the link (`Open {title}`) since the whole card is one link, not just the title text.
+2. **description**: Optional supporting text shown under the title.
+3. **link**: Required. Where the card goes — clicking anywhere on the card follows it, not just the title or image.
+4. **icon** / **imgSrc** + **imgAlt**: Optional, and mutually exclusive — pass one or the other, or neither. **icon** takes a component, for a design-system icon; **imgSrc** takes a URL, with **imgAlt** for its alt text.
+5. **`featured` variant**: Only used on home page to emphasise featured content.
+
+If **imgSrc** fails to load, the image falls back to a default placeholder logo automatically, so a broken URL does not leave the card with a blank gap where the image should be.
+
+<details data-group="card-variant">
+<summary>No custom element</summary>
+
+<div class="docs-home col-2">
 
 <Card
   title="Example Title"
-  description="Example description of the feature."
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  link="/docs/deployments/kubernetes"
+/>
+
+<div>
+  ```
+  <Card
+    title="Example Title"
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    link="/docs/deployments/kubernetes"
+  />
+  ```
+</div>
+
+</div>
+
+<div class="docs-home col-2">
+
+<Card
+  description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
+  link="/docs/deployments/kubernetes"
+  title="Featured Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
+  <Card
+    description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
+    link="/docs/deployments/kubernetes"
+    title="Featured Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+
+</div>
+
+</details>
+<details data-group="card-variant">
+<summary>Image</summary>
+
+<div class="docs-home col-2">
+
+<Card
+  title="Example Title"
+  description="Keep the description brief, up to two sentences and maximum four lines."
   imgSrc="/docs/img/octopus-deploy-logo.png"
   imgAlt="Example Alt Text"
   link="/docs/deployments/kubernetes"
@@ -359,7 +416,7 @@ The Card component displays content in a card format, suitable for highlights, f
   ```
   <Card
     title="Example Title"
-    description="Example description of the feature."
+    description="Keep the description brief, up to two sentences and maximum four lines."
     imgSrc="/docs/img/octopus-deploy-logo.png"
     imgAlt="Example Alt Text"
     link="/docs/deployments/kubernetes"
@@ -369,122 +426,87 @@ The Card component displays content in a card format, suitable for highlights, f
 
 </div>
 
-#### Card related topics
+<div class="docs-home col-2">
 
-<div class="docs-home simple-grid">
+<Card
+  description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
+  imgAlt="Example Alt Text"
+  imgSrc="/docs/img/octopus-deploy-logo.png"
+  link="/docs/deployments/kubernetes"
+  title="Featured Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
   <Card
-    imgAlt="Example Alt Text"
-    imgSrc="/docs/img/octopus-deploy-logo.png"
-    link="https://www.youtube.com/watch?v=example"
-    title="Watch Our Tutorial"
-    variant="related-topics"
-  />
-  <div>
-    ```
-    <Card
-      imgAlt="Example Alt Text"
-      imgSrc="/docs/img/octopus-deploy-logo.png"
-      link="https://www.youtube.com/watch?v=example"
-      title="Watch Our Tutorial"
-      variant="related-topics"
-    />
-    ```
-  </div>
-  <Card
+    description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
     imgAlt="Example Alt Text"
     imgSrc="/docs/img/octopus-deploy-logo.png"
     link="/docs/deployments/kubernetes"
-    title="Watch Our Tutorial"
-    variant="related-topics"
+    title="Featured Example Title"
+    variant="featured"
   />
-  <div>
-    ```
-    <Card
-      imgAlt="Example Alt Text"
-      imgSrc="/docs/img/octopus-deploy-logo.png"
-      link="/docs/deployments/kubernetes"
-      title="Watch Our Tutorial"
-      variant="related-topics"
-    />
-    ```
-  </div>
+  ```
 </div>
 
-#### Card padded
+</div>
 
-<div class="docs-home simple-grid">
+</details>
+<details data-group="card-variant">
+<summary>Icon</summary>
+
+<div class="docs-home col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={Helm}
+  link="/docs/deployments/kubernetes"
+  title="Icon Example Title"
+/>
+
+<div>
+  ```
   <Card
-    description="Example description with added padding for emphasis."
-    imgAlt="Example Alt Text"
-    imgSrc="/docs/img/octopus-deploy-logo.png"
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={Helm}
     link="/docs/deployments/kubernetes"
-    title="Padded Example Title"
-    variant="padded"
+    title="Icon Example Title"
   />
-  <div>
-    ```
-    <Card
-      description="Example description with added padding for emphasis."
-      imgAlt="Example Alt Text"
-      imgSrc="/docs/img/octopus-deploy-logo.png"
-      link="/docs/deployments/kubernetes"
-      title="Padded Example Title"
-      variant="padded"
-    />
-    ```
-  </div>
+  ```
 </div>
 
-### IconTile
-
-The IconTile component is used for creating clickable tiles with an icon, a title, and a description.
-
-1. **iconAlt**: Alternative text for the icon (not required with font awesome icon)
-
-2. **title**: Keep it short for this component
-
-3. **description**: Keep it short for this component
-
-<div class="docs-home simple-grid">
-  <IconTile
-    description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-    iconSrc="/docs/img/octopus.svg"
-    iconAlt="Example Alt Text"
-    link="/docs/deployments/kubernetes"
-    title="Kubernetes Deployment"
-  />
-  <div>
-    ```
-    <IconTile
-      description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-      iconSrc="/docs/img/octopus.svg"
-      iconAlt="Example Alt Text"
-      link="/docs/deployments/kubernetes"
-      title="Kubernetes Deployment"
-    />
-    ```
-  </div>
-  <IconTile
-    iconSrc="/docs/img/octopus.svg"
-    iconAlt="Example Alt Text"
-    link="/docs/deployments/kubernetes"
-    title="Kubernetes Deployment"
-  />
-  <div>
-    ```
-    <IconTile
-      iconSrc="/docs/img/octopus.svg"
-      iconAlt="Example Alt Text"
-      link="/docs/deployments/kubernetes"
-      title="Kubernetes Deployment"
-    />
-    ```
-  </div>
 </div>
+
+<div class="docs-home col-2">
+
+<Card
+  description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
+  icon={Helm}
+  link="/docs/deployments/kubernetes"
+  title="Featured Icon Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
+  <Card
+    description="Only use on the homepage to feature content. Keep the description brief, up to two sentences and maximum four lines."
+    icon={Helm}
+    link="/docs/deployments/kubernetes"
+    title="Featured Icon Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+
+</div>
+
+</details>
 
 ### Image
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <Image
     src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
     alt="Example Alt Text"
@@ -498,7 +520,7 @@ The IconTile component is used for creating clickable tiles with an icon, a titl
 
 #### Image with caption
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <Image
     src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
     alt="Example Alt Text"
@@ -525,7 +547,7 @@ The Link component is designed to provide a standardized way to display links wi
 
 3. **newTab**: Optional;; Accepts `true/false` values. If `true`, the link opens in a new tab `target="_blank"`.
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <Link
     link="/docs/deployments/kubernetes"
     text="Link with Icon Example"
@@ -663,7 +685,7 @@ steps:
 #### 2 columns
 
 <div>
-  <div class="docs-home simple-grid">
+  <div class="docs-home col-2">
     <Card
       imgAlt="Example Alt Text"
       imgSrc="/docs/img/octopus-deploy-logo.png"
@@ -681,7 +703,7 @@ steps:
   </div>
   <div>
     ```
-    <div class="docs-home simple-grid">
+    <div class="docs-home col-2">
       <Card
         imgAlt="Example Alt Text"
         imgSrc="/docs/img/octopus-deploy-logo.png"
@@ -703,54 +725,48 @@ steps:
 #### 3 columns
 
 <div>
-  <div class="docs-home simple-grid-3">
-    <IconTile
-      description="Learn more about deploying"
-      iconSrc="/docs/img/octopus.svg"
-      iconAlt="Example Alt Text"
-      link="/docs/deployments/kubernetes"
-      title="Deployments"
-    />
-    <IconTile
-      description="Learn more about deploying"
-      iconSrc="/docs/img/octopus.svg"
-      iconAlt="Example Alt Text"
-      link="/docs/deployments/kubernetes"
-      title="Deployments"
-    />
-    <IconTile
-      description="Learn more about deploying"
-      iconSrc="/docs/img/octopus.svg"
-      iconAlt="Example Alt Text"
-      link="/docs/deployments/kubernetes"
-      title="Deployments"
-    />
+  <div class="docs-home col-3">
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
   </div>
   <div>
     ```
-    <div class="docs-home simple-grid-3">
-      <IconTile
-        description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-        iconSrc="/docs/img/octopus.svg"
-        iconAlt="Example Alt Text"
-        link="/docs/deployments/kubernetes"
-        title="Kubernetes Deployment"
+    <div class="docs-home col-3">
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
       />
-      <IconTile
-        description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-        iconSrc="/docs/img/octopus.svg"
-        iconAlt="Example Alt Text"
-        link="/docs/deployments/kubernetes"
-        title="Kubernetes Deployment"
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
       />
-      <IconTile
-        description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-        iconSrc="/docs/img/octopus.svg"
-        iconAlt="Example Alt Text"
-        link="/docs/deployments/kubernetes"
-        title="Kubernetes Deployment"
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={Helm}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
       />
-    </div>
+  </div>
     ```
   </div>
 </div>

@@ -1,62 +1,59 @@
 ---
-import Arrow from './icons/Arrow.astro';
-import List from './icons/List.astro';
-import Youtube from './icons/Youtube.astro';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 
 // Properties
+// `icon` and `imgSrc` are mutually exclusive: a card can have one, the other, or neither.
 type Props = {
   description?: string;
-  imgAlt: string;
-  imgSrc: string;
   link: string;
   title: string;
-  variant?: 'padded' | 'related-topics';
-};
+  variant?: 'featured';
+} & (
+  | { icon: AstroComponentFactory; imgAlt?: never; imgSrc?: never }
+  | { icon?: never; imgAlt?: string; imgSrc?: string }
+);
 
-const { description, imgAlt, imgSrc, link, title, variant } =
-  Astro.props satisfies Props;
+const {
+  description,
+  icon: Icon,
+  imgAlt,
+  imgSrc,
+  link,
+  title,
+  variant,
+} = Astro.props satisfies Props;
 
 // Build class list based on the variant
-const classList = [
-  'card',
-  variant === 'padded' ? 'card--padded' : '',
-  variant === 'related-topics' ? 'card--related-topics' : '',
-]
+const classList = ['card', variant === 'featured' ? 'card--featured' : '']
   .join(' ')
   .trim();
-
-// Determine the icon type based on the link
-const isYouTubeLink = link.includes('youtube.com') || link.includes('youtu.be');
-const IconComponent = isYouTubeLink ? Youtube : List;
-
-// Bottom label for related topics variant
-const labelText = isYouTubeLink ? 'Watch Video' : 'Learn More';
 ---
 
 <article class={classList}>
   <a href={link} class="card__link" role="link" aria-label={`Open ${title}`}>
-    <div class="card__image-wrapper">
-      <img
-        src={imgSrc}
-        alt={imgAlt}
-        class="card__image"
-        onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
-        loading="lazy"
-      />
-    </div>
-    <div class="card__copy">
-      <p class="card__title">{title}</p>
-      {description && <p class="card__description">{description}</p>}
+    {
+      imgSrc && (
+        <div class="card__image-wrapper">
+          <img
+            src={imgSrc}
+            alt={imgAlt}
+            class="card__image"
+            onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+    <div class="card__content">
       {
-        variant === 'related-topics' && (
-          <div class="card__bottom">
-            <span class="card__label">
-              {labelText} <Arrow />
-            </span>
-            <IconComponent />
+        Icon && (
+          <div class="card__icon-wrapper">
+            <Icon />
           </div>
         )
       }
+      <p class="card__title">{title}</p>
+      {description && <p class="card__description">{description}</p>}
     </div>
   </a>
 </article>
