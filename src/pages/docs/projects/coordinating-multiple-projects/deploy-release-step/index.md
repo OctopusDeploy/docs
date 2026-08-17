@@ -77,9 +77,9 @@ Octopus.Action[Deploy Release Step Name].Output.Deployment[Child Step Name][Mach
 
 Where:
 
-*Deploy Release Step Name:* The name of the *Deploy a Release* step in the parent process.
-*Child Step Name:* The name of the step in the child deployment process which set the output variable.
-*VariableName:* The original name of the output variable. e.g. for `Set-OctopusVariable -Name "Foo" -Value "Bar"` this would be `Foo`.
+*Deploy Release Step Name:* The name of the *Deploy a Release* step in the parent process.  
+*Child Step Name:* The name of the step in the child deployment process which set the output variable.  
+*VariableName:* The original name of the output variable. e.g. for `Set-OctopusVariable -Name "Foo" -Value "Bar"` this would be `Foo`.  
 *Machine Name:* The machine the child process was targeting when the output variable was set.
 
 :::div{.hint}
@@ -121,7 +121,7 @@ A project can contain multiple *Deploy a Release* steps which deploy a combinati
 When executing a rolling deployment containing a *Deploy a Release* step, child deployments will be created per deployment target, as each target is rolled over.  i.e. if the rolling step specifies a target role which matches 10 deployment targets, then 10 child deployments will be created.
 
 :::div{.hint}
-When configuring a *Deploy a Release* step as a child step in a rolling deployment, the [deployment condition](#conditional-deployment) should be set to `Deploy Always`.
+When configuring a *Deploy a Release* step as a child step in a rolling deployment, the [deployment condition](#conditional-deployment) should be set to `Deploy Always`.  
 Otherwise, as the step rolls across multiple machines, it will see the current release as having already been deployed to the environment, and execution will be skipped.  
 :::
 

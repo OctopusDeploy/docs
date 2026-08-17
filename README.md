@@ -107,12 +107,15 @@ Indent figures, code blocks and hints so they sit inside the step they belong to
 
 Numbering may also run on across headings, which renders as `<ol start="7">` and is intentional. `MD007`, `MD005` and `MD029` are turned off in `.markdownlint.json` so the linter leaves list indentation and numbering alone.
 
-#### Two auto-fixes to avoid
+#### Three auto-fixes to avoid
 
 `markdownlint-cli2 --fix` is safe for most rules, but check the diff for these:
 
+- `MD009` deletes hard line breaks. Two trailing spaces are a `<br>`, and that is what the rule allows, but a line with three or more gets trimmed to zero rather than back to two, so the break disappears. Trim those lines to exactly two spaces by hand.
 - `MD034` rewrites bare URLs and email addresses as `<url>` autolinks. Valid in `.md`, but MDX parses the angle brackets as JSX and the build fails. Write an explicit `[text](url)` link in `.mdx`.
 - `MD010` rewrites a leading tab as a single space, which is too shallow to nest a list item, so the item silently escapes its parent. Use four spaces instead.
+
+None of these show up as a lint failure afterwards, because the fix leaves the file passing. They only show up in the rendered page, so the diff is the only place to catch them.
 
 ### Spell check
 

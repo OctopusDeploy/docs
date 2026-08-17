@@ -22,7 +22,7 @@ The store name can be one of the built-in Windows stores, or you can define a cu
 
 ### Private key
 
-If the certificate has a private-key, it can be marked as exportable, and access can be granted to specific users.
+If the certificate has a private-key, it can be marked as exportable, and access can be granted to specific users.  
 The Administrators group on the target machine will always be granted access to the private-key.
 
 :::figure
@@ -35,5 +35,5 @@ The Administrators group on the target machine will always be granted access to 
 It is recommended to allow Octopus to perform the initial import of a certificate.
 :::
 
-This avoids potential issues with accessing certificates imported by different accounts.
+This avoids potential issues with accessing certificates imported by different accounts.  
 If the certificate is already imported on the target machine and issues are encountered, try removing the certificate.
