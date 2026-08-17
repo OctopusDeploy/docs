@@ -114,7 +114,9 @@ ${date:universalTime=true:format=yyyy-MM-dd HH\:mm\:ss.ffff}Z
 
 :::div{.hint}
 **Note:** Colons in date format strings must be escaped with a backslash (`\:`) because colons are used as parameter delimiters in NLog layout syntax.
-::: For example, to include the logger name:
+:::
+
+For example, to include the logger name:
 
 ```xml
 <variable name="normalLayout" value="${longdate} ${uppercase:${level}:padding=5} [${logger:shortName=true}] ${message}${onexception:${newline}${exception:format=ToString}}"/>
