@@ -215,11 +215,13 @@ function setup(dialog: HTMLDialogElement) {
   input.addEventListener('input', schedule);
 
   dialog.addEventListener('keydown', (event) => {
-    const steps: Record<string, (last: number) => number> = {
+    // Up and Down only. Home and End belong to the query, which is what an
+    // editable combobox does with them, and taking them would leave no way to
+    // put the caret back at the start — which is what frees Left for the tabs.
+    // Both directions wrap, so the first and last result are one press apart.
+    const steps: Record<string, () => number> = {
       ArrowDown: () => active + 1,
       ArrowUp: () => active - 1,
-      Home: () => 0,
-      End: (last) => last,
     };
 
     const step = steps[event.key];
@@ -227,7 +229,7 @@ function setup(dialog: HTMLDialogElement) {
       const rows = options();
       if (rows.length === 0) return;
       event.preventDefault();
-      setActive(step(rows.length - 1));
+      setActive(step());
       return;
     }
 
@@ -240,16 +242,36 @@ function setup(dialog: HTMLDialogElement) {
     // Left/Right move between tabs only while a tab has focus, so they stay
     // available for editing the query the rest of the time.
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-      const current = document.activeElement;
-      if (!(current instanceof HTMLElement) || !current.dataset.facet) return;
-
+      const forward = event.key === 'ArrowRight';
       const strip = facetTabs().filter((tab) => !tab.hidden);
-      const at = strip.indexOf(current);
-      if (at === -1) return;
+      if (strip.length < 2) return;
+
+      const current = document.activeElement;
+      const onTab = current instanceof HTMLElement && current.dataset.facet;
+
+      // From the input, only once the caret has nowhere left to go. Anywhere
+      // else in the query these keys are how you edit it, and taking them would
+      // cost more than the tabs are worth.
+      if (!onTab) {
+        if (current !== input) return;
+        const at = input!.selectionStart;
+        if (at === null || at !== input!.selectionEnd) return;
+        if (forward ? at !== input!.value.length : at !== 0) return;
+      }
+
+      const from = onTab
+        ? strip.indexOf(current as HTMLElement)
+        : strip.findIndex((tab) => tab.dataset.facet === facet);
+      if (from === -1) return;
 
       event.preventDefault();
-      const delta = event.key === 'ArrowRight' ? 1 : -1;
-      strip[(at + delta + strip.length) % strip.length].focus();
+      const next =
+        strip[(from + (forward ? 1 : -1) + strip.length) % strip.length];
+      selectTab(next.dataset.facet!);
+      // Focus follows selection on a tab strip, but only when the strip already
+      // had it — driving from the input has to leave the query editable.
+      if (onTab) next.focus();
+      run();
     }
   });
 

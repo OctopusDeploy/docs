@@ -93,17 +93,6 @@ test('the arrow keys move the active result without moving focus', async ({
     'demo-search-option-0'
   );
 
-  await page.keyboard.press('End');
-  await expect(input).toHaveAttribute(
-    'aria-activedescendant',
-    'demo-search-option-3'
-  );
-  await page.keyboard.press('Home');
-  await expect(input).toHaveAttribute(
-    'aria-activedescendant',
-    'demo-search-option-0'
-  );
-
   // Exactly one result carries the state at a time.
   await expect(demo.locator('[role="option"][data-active]')).toHaveCount(1);
 });
@@ -140,6 +129,78 @@ test('a tab narrows the results to its own section', async ({ page }) => {
   await expect(demo.locator('.docs-search__row-title')).toHaveText(
     'octopus feed list'
   );
+});
+
+// Focus stays in the input, so the tabs would be unreachable without this. The
+// caret has to be at the end before Right is free to mean anything else.
+test('the left and right keys move through the tabs from the input', async ({
+  page,
+}) => {
+  await page.goto(PAGE);
+  const demo = await opened(page);
+  const input = demo.locator('[data-docs-search-input]');
+
+  await input.fill('feed');
+  await expect(demo.locator('[role="option"]')).toHaveCount(4);
+  await expect(demo.locator('[data-facet="all"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+
+  await page.keyboard.press('ArrowRight');
+
+  await expect(demo.locator('[data-facet="docs"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+  await expect(demo.locator('[role="option"]')).toHaveCount(2);
+  // The query stays editable, so the caret keeps focus rather than the strip.
+  await expect(input).toBeFocused();
+
+  // The strip wraps, so going forward reaches every tab and comes back round.
+  await page.keyboard.press('ArrowRight');
+  await expect(demo.locator('[data-facet="api"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+  await page.keyboard.press('ArrowRight');
+  await expect(demo.locator('[data-facet="cli"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+  await page.keyboard.press('ArrowRight');
+  await expect(demo.locator('[data-facet="all"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+  await expect(demo.locator('[role="option"]')).toHaveCount(4);
+
+  // Back the other way, from the start of the query where Left is free.
+  await page.keyboard.press('Home');
+  await page.keyboard.press('ArrowLeft');
+  await expect(demo.locator('[data-facet="cli"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+});
+
+// Editing the query has to keep working, or the tabs cost more than they give.
+test('the arrow keys still move the caret inside the query', async ({
+  page,
+}) => {
+  await page.goto(PAGE);
+  const demo = await opened(page);
+  const input = demo.locator('[data-docs-search-input]');
+
+  await input.fill('feed');
+  // Caret off the end, so Left is an edit rather than a tab move.
+  await page.keyboard.press('ArrowLeft');
+
+  await expect(demo.locator('[data-facet="all"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+  await expect(input).toHaveJSProperty('selectionStart', 3);
 });
 
 test('a query with no results says so', async ({ page }) => {

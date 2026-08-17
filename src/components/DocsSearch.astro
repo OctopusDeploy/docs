@@ -33,7 +33,7 @@ type Props = HTMLAttributes<'dialog'> & {
 
 const {
   name = 'site',
-  placeholder = 'Ask a question or search the docs…',
+  placeholder = 'Search the docs…',
   facets = FACETS,
   demoResults,
   class: className,
@@ -223,6 +223,10 @@ const listboxId = `${name}-search-listbox`;
     background: var(--colorBackgroundPrimaryDefault);
     box-shadow: var(--shadowMedium);
     overflow: hidden;
+    /* A modal dialog paints in the top layer but still inherits from wherever it
+       sits in the DOM, so a centred container — the showcase page is one —
+       centres every row. The overlay reads the same wherever it is placed. */
+    text-align: start;
   }
 
   .docs-search__header {
