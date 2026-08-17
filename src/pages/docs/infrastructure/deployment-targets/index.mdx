@@ -40,7 +40,7 @@ You select the target type when you add it to Octopus. Based on the type, you'll
 
 ## Environment scoping
 
-Deployment targets must be associated with at least one environment. While a deployment target is associated with a long-lived environment or [parent environment](/docs/infrastructure/ephemeral-environments#scoping-variables-deployment-targets-and-accounts), Octopus will prevent that environment from being deleted.
+Deployment targets must be associated with at least one environment. While a deployment target is associated with a [long-lived environment](/docs/infrastructure/environments) or [parent environment](/docs/infrastructure/ephemeral-environments#scoping-variables-deployment-targets-and-accounts), Octopus will prevent that environment from being deleted.
 
 In the case where a deployment target is associated with an [ephemeral environment](/docs/infrastructure/ephemeral-environments), the association will be removed when the ephemeral environment deprovisions. If a target has no remaining environments, it will also be automatically deleted.
 
