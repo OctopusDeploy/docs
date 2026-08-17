@@ -116,9 +116,11 @@ stats.stop();
     href={SITE.subfolder + '/sitemap.xml'}
     type="application/rss+xml"
   />
+  <!-- Raster fallback first: Safari only gained SVG favicon support in v26. -->
   <link
     rel="icon"
-    href={SITE.subfolder + '/icons/favicon.ico'}
+    href={SITE.subfolder + '/icons/favicon-32x32.png'}
+    type="image/png"
     sizes="32x32"
   />
   <link
