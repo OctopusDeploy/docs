@@ -9,19 +9,13 @@ type Props = {
   title: string;
   variant?: 'featured';
 } & (
-  | {
-      icon: AstroComponentFactory;
-      iconProps?: Record<string, unknown>;
-      imgAlt?: never;
-      imgSrc?: never;
-    }
-  | { icon?: never; iconProps?: never; imgAlt?: string; imgSrc?: string }
+  | { icon: AstroComponentFactory; imgAlt?: never; imgSrc?: never }
+  | { icon?: never; imgAlt?: string; imgSrc?: string }
 );
 
 const {
   description,
   icon: Icon,
-  iconProps,
   imgAlt,
   imgSrc,
   link,
@@ -54,7 +48,7 @@ const classList = ['card', variant === 'featured' ? 'card--featured' : '']
       {
         Icon && (
           <div class="card__icon-wrapper">
-            <Icon {...iconProps} />
+            <Icon />
           </div>
         )
       }
