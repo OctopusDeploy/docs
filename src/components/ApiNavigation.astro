@@ -9,8 +9,28 @@ stats.start();
 type Props = {
   lang: string;
   headings: { depth: number; slug: string; text: string }[];
+  // One entry per endpoint, in heading order, left on the frontmatter by
+  // plugins/rehype-api-examples.js. Endpoints the generator writes without a
+  // method, and pages that never reach that plugin, simply have none.
+  apiMethods?: { text: string; method: string | null }[] | null;
 };
-const { lang, headings } = Astro.props satisfies Props;
+const { lang, headings, apiMethods } = Astro.props satisfies Props;
+
+// The four the API badges in api.css cover. Title case because the badge is an
+// image to a screen reader, and reads as a word rather than as shouting.
+const METHOD_LABELS: Record<string, string> = {
+  get: 'Get',
+  post: 'Post',
+  put: 'Put',
+  delete: 'Delete',
+};
+
+// Astro escapes a brace in heading text as `${`, so a title that is a route —
+// "GET /api/{spaceId}/environments" — survives being read as an expression. The
+// methods are collected before that happens, so the two are compared unescaped.
+function headingText(text: string): string {
+  return text.replace(/\$\{/g, '{').trim();
+}
 
 const _ = Lang(lang);
 
@@ -22,7 +42,23 @@ const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
 
 // An endpoint per H2, which is the first level of content on a generated API
 // page.
-const endpoints = (headings ?? []).filter((heading) => heading.depth === 2);
+//
+// The methods are in the same order, an endpoint each, so they pair off by
+// position — two endpoints on a page can share a title, which is what rules out
+// pairing them by it. The title is checked all the same: if the two lists have
+// drifted apart, the nav goes without badges rather than hanging the wrong one
+// on a row.
+const endpoints = (headings ?? [])
+  .filter((heading) => heading.depth === 2)
+  .map((heading, index) => {
+    const endpoint = apiMethods?.[index];
+    const method =
+      endpoint?.text === headingText(heading.text)
+        ? (endpoint.method ?? '')
+        : '';
+
+    return { ...heading, method: method in METHOD_LABELS ? method : null };
+  });
 
 const pages = apiMenu().map((page) => ({
   ...page,
@@ -56,6 +92,15 @@ stats.stop();
                       class="site-nav__link site-nav__link--heading"
                       href={`#${heading.slug}`}
                     >
+                      {/* The badge is the method: an icon in the nav, where
+                          there is no room for the word beside the title. */}
+                      {heading.method && (
+                        <span
+                          class={`api-${heading.method} api-icon-only`}
+                          role="img"
+                          aria-label={METHOD_LABELS[heading.method]}
+                        />
+                      )}
                       <span class="site-nav__label">{heading.text}</span>
                     </a>
                   </li>

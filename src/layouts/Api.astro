@@ -22,7 +22,11 @@ import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
 type Props = {
-  frontmatter: OriginalFrontmatter;
+  // `apiMethods` is not written by hand: plugins/rehype-api-examples.js leaves
+  // it on the frontmatter for the left nav, an entry per endpoint.
+  frontmatter: OriginalFrontmatter & {
+    apiMethods?: { text: string; method: string | null }[];
+  };
   headings: { depth: number; slug: string; text: string }[];
   breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
 };
@@ -103,7 +107,11 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
         </article>
         <Feedback frontmatter={frontmatter} lang={lang} />
       </main>
-      <ApiNavigation headings={headings} lang={lang} />
+      <ApiNavigation
+        headings={headings}
+        lang={lang}
+        apiMethods={frontmatter.apiMethods}
+      />
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
     <Related frontmatter={frontmatter} headings={headings} lang={lang} />

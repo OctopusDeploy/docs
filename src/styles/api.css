@@ -4,6 +4,16 @@
   color: var(--colorTextInfo);
 }
 
+/* Inline code is dense enough on these pages that the box around each span
+   reads as noise, so it keeps the monospaced type and drops the chrome. Same
+   specificity as the callout rule in main.css, and later in the cascade, so it
+   wins inside callouts too. */
+.content-group--api code:not(pre code) {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
 /* ----- The API docs have a different layout than the rest of the docs ----- */
 
 /*
@@ -133,6 +143,14 @@ section so its examples can sit beside it. */
 }
 
 /* ----- Styles for API badges ----- */
+
+/* A badge in the left nav labels the endpoint the row links to. The row starts
+   its items at the top, so the badge overrides that and centres on the title it
+   belongs to however many lines that title runs to. */
+.site-nav__link > :is(.api-get, .api-post, .api-delete, .api-put) {
+  flex: none;
+  align-self: center;
+}
 
 :is(.api-get, .api-post, .api-delete, .api-put) {
   box-sizing: border-box;

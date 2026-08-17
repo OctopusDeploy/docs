@@ -12,6 +12,37 @@ import { accelerator } from './accelerator';
 
 const API_LAYOUT = '/Api.astro';
 
+// Astro only gives a page module a `url` when its file resolves inside
+// src/pages. The generated pages are usually copied in, but they are symlinked
+// in during local development, and a symlink resolves to wherever the generator
+// wrote it — so those modules arrive with a file outside the site and no url at
+// all. The glob keys are the paths the site routes on either way, so the url is
+// rebuilt from them and the module's own url is only a fallback.
+const API_SOURCE = import.meta.glob<{ file?: string }>(
+  '/src/pages/docs/api/**/*.md',
+  { eager: true }
+);
+
+const PAGES_ROOT = '/src/pages';
+
+function urlFromSourcePath(path: string): string {
+  return path
+    .slice(PAGES_ROOT.length)
+    .replace(/\.md$/, '')
+    .replace(/\/index$/, '');
+}
+
+// Read on the way past rather than at module load: these are page modules, and
+// this one is imported from a page's own layout, so at load time whichever page
+// is being rendered is still initializing and has nothing on it to read yet.
+function urlsByFile(): Map<string, string> {
+  return new Map(
+    Object.entries(API_SOURCE)
+      .filter(([, post]) => post.file != null)
+      .map(([path, post]) => [post.file as string, urlFromSourcePath(path)])
+  );
+}
+
 export type ApiNavPage = {
   title: string;
   url: string;
@@ -31,12 +62,16 @@ export function apiMenu(): ApiNavPage[] {
   // in the nav without restarting the server.
   if (pages !== null && import.meta.env.PROD) return pages;
 
+  const urls = urlsByFile();
+
   const menu = accelerator.posts
     .all()
     .filter(isApiPage)
     .map((post) => ({
       title: post.frontmatter.navTitle ?? post.frontmatter.title,
-      url: accelerator.urlFormatter.addSlashToAddress(post.url ?? '/'),
+      url: accelerator.urlFormatter.addSlashToAddress(
+        post.url ?? urls.get(post.file) ?? '/'
+      ),
       order: post.frontmatter.navOrder ?? Number.MAX_SAFE_INTEGER,
     }))
     // The pages are generated one per API area and carry no navOrder, so the
