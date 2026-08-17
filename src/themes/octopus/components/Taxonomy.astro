@@ -33,7 +33,7 @@ stats.stop();
       {tags.length > 0 && (
         <div class="post-tag">
           <h2>{_(Translations.articles.tag_title)}: </h2>
-          <ul itemprop="keywords">
+          <ul>
             {tags.map((tag) => (
               <li>
                 <a href={links.getTagLink(tag)}>{tag}</a>
@@ -48,12 +48,7 @@ stats.stop();
           <ul>
             {categories.map((category) => (
               <li>
-                <a
-                  href={links.getCategoryLink(category)}
-                  itemprop="articleSection"
-                >
-                  {category}
-                </a>
+                <a href={links.getCategoryLink(category)}>{category}</a>
               </li>
             ))}
           </ul>

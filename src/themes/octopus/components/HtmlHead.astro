@@ -4,6 +4,7 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE, OPEN_GRAPH, HEADER_SCRIPTS } from '@config';
 import { getEligibleSlugs } from '@util/mdxContent';
 import JsonLd from '@components/JsonLd.astro';
+import type { Crumb } from '@util/breadcrumbs';
 import ThemeScript from '@components/ThemeScript.astro';
 
 // Design tokens as CSS custom properties. globals and textTheme apply at :root;
@@ -31,8 +32,9 @@ type Props = {
   lang: string;
   frontmatter: Frontmatter;
   headings: { depth: number; slug: string; text: string }[];
+  crumbs?: ReadonlyArray<Crumb> | null;
 };
-const { frontmatter } = Astro.props;
+const { frontmatter, crumbs } = Astro.props;
 
 // Logic
 const imageSrc = frontmatter.bannerImage?.src ?? OPEN_GRAPH.image.src;
@@ -152,6 +154,7 @@ stats.stop();
     socialTitle={socialTitle}
     imageURL={canonicalImageSrc.toString()}
     authors={authorList}
+    crumbs={crumbs}
   />
   <Fragment set:html={HEADER_SCRIPTS} />
 </head>

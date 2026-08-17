@@ -1,13 +1,7 @@
 ---
 import { accelerator } from '@lib/accelerator';
-import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
-
-// Extend Frontmatter with crumbTitle
-type Frontmatter = OriginalFrontmatter & {
-  crumbTitle?: string;
-};
+import type { Crumb } from '@util/breadcrumbs';
 
 const stats = new accelerator.statistics(
   'octopus/components/Breadcrumbs.astro'
@@ -17,76 +11,27 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter;
-  headings: { depth: number; slug: string; text: string }[];
-  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+  crumbs?: ReadonlyArray<Crumb> | null;
 };
-const { lang, breadcrumbs } = Astro.props satisfies Props;
+const { lang, crumbs } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
-
-// Logic
-const currentUrl = new URL(Astro.request.url);
-const navPages = accelerator.navigation.breadcrumbs(
-  currentUrl,
-  SITE.subfolder,
-  breadcrumbs?.length ?? 0
-);
-
-const allPages = accelerator.posts.all();
-
-// Apply crumbTitle from frontmatter if available
-for (let i = 0; i < navPages.length; i++) {
-  const matchingPage = allPages.find((p) => {
-    const pageUrl = accelerator.urlFormatter.addSlashToAddress(p.url ?? '/');
-    return pageUrl === navPages[i].url;
-  });
-
-  if (matchingPage) {
-    const fm = matchingPage.frontmatter as Frontmatter;
-    if (fm.crumbTitle) {
-      // Use crumbTitle if it's set in frontmatter
-      navPages[i].title = fm.crumbTitle;
-    } else {
-      // Fall back to original behavior
-      navPages[i].title = navPages[i].section || navPages[i].title;
-    }
-  } else {
-    // No matching page found, use original behavior
-    navPages[i].title = navPages[i].section || navPages[i].title;
-  }
-}
-
-// The derived nav pages and any explicit crumbs render identically, so they
-// share one list. That keeps the schema.org position sequence, which is
-// 1-based, tied to a single index rather than two counters that have to agree.
-type Crumb = {
-  url: string;
-  title: string;
-  ariaCurrent?: string;
-  rel?: string;
-};
-
-const crumbs: Crumb[] = [...navPages, ...(breadcrumbs ?? [])];
 
 stats.stop();
 ---
 
 <nav aria-label={_(Translations.aria.breadcrumbs)}>
-  <ol vocab="http://schema.org/" typeof="BreadcrumbList">
+  <ol>
     {
-      crumbs.map((crumb, index) => (
-        <li property="itemListElement" typeof="ListItem">
-          <meta property="position" content={(index + 1).toString()} />
+      (crumbs ?? []).map((crumb) => (
+        <li>
           <a
-            property="item"
-            typeof="WebPage"
             href={accelerator.urlFormatter.formatAddress(crumb.url)}
             aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
             rel={crumb.rel}
           >
-            <span property="name">{crumb.title}</span>
+            {crumb.title}
           </a>
         </li>
       ))
