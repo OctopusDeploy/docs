@@ -399,6 +399,7 @@ onlylogs
 onmicrosoft
 openon
 operationalize
+orama
 outfile
 outputformat
 OWASP

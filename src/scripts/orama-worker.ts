@@ -1,6 +1,6 @@
 // Holds the Orama index off the main thread.
 //
-// Restoring a serialised index is CPU-bound and proportional to the corpus, so
+// Restoring a serialized index is CPU-bound and proportional to the corpus, so
 // on the main thread it would freeze the page for as long as it takes. The
 // overlay is open and taking keystrokes while this runs.
 //

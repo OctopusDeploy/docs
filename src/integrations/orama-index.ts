@@ -1,4 +1,4 @@
-// Builds an Orama index and serialises it for the browser to restore.
+// Builds an Orama index and serializes it for the browser to restore.
 //
 // The corpus is the `.md` files `llm-md-emitter.ts` has already written into
 // `dist/docs/`. That emitter runs the same eligibility predicate search uses, so
@@ -114,11 +114,11 @@ export default function oramaIndex(): AstroIntegration {
 
         await insertMultiple(db, documents);
 
-        const serialised = JSON.stringify(save(db));
+        const serialized = JSON.stringify(save(db));
         const target = path.join(docsDir, 'search-index.json');
-        fs.writeFileSync(target, serialised, 'utf8');
+        fs.writeFileSync(target, serialized, 'utf8');
 
-        const megabytes = (serialised.length / 1024 / 1024).toFixed(1);
+        const megabytes = (serialized.length / 1024 / 1024).toFixed(1);
         logger.info(
           `indexed ${documents.length} pages into docs/search-index.json (${megabytes}MB)`
         );
