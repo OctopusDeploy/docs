@@ -1,5 +1,6 @@
 ---
 import { accelerator } from '@lib/accelerator';
+import { pageByCrumbUrl } from '@lib/page-index';
 import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { Translations, Lang } from '@util/Languages';
@@ -34,14 +35,9 @@ const navPages = accelerator.navigation.breadcrumbs(
   breadcrumbs?.length ?? 0
 );
 
-const allPages = accelerator.posts.all();
-
 // Apply crumbTitle from frontmatter if available
 for (let i = 0; i < navPages.length; i++) {
-  const matchingPage = allPages.find((p) => {
-    const pageUrl = accelerator.urlFormatter.addSlashToAddress(p.url ?? '/');
-    return pageUrl === navPages[i].url;
-  });
+  const matchingPage = pageByCrumbUrl(navPages[i].url);
 
   if (matchingPage) {
     const fm = matchingPage.frontmatter as Frontmatter;
