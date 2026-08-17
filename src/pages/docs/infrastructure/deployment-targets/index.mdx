@@ -36,6 +36,12 @@ Deployments to Kubernetes clusters are performed by a lightweight agent that run
 
 You select the target type when you add it to Octopus. Based on the type, you'll be prompted to set up the appropriate connection using a simple form.
 
+## Environment scoping
+
+Deployment targets must be associated with at least one environment. While a deployment target is associated with a long-lived environment or [parent environment](/docs/infrastructure/ephemeral-environments#scoping-variables-deployment-targets-and-accounts), Octopus will prevent that environment from being deleted.
+
+In the case where a deployment target is associated with an [ephemeral environment](/docs/infrastructure/ephemeral-environments), the association will be removed when the ephemeral environment deprovisions. If a target has no remaining environments, it will also be automatically deleted.
+
 ## Learn more
 - [How Octopus counts deployment targets](/docs/infrastructure/deployment-targets/how-octopus-counts-deployment-targets)
 - [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)

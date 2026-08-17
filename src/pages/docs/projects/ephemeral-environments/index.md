@@ -172,6 +172,10 @@ When an ephemeral environment is no longer needed it can be deprovisioned and an
 - For projects using runbooks stored in Octopus the published snapshot will be used to run the runbook.
 - For projects using runbooks stored in version control, the Git reference used to provision the environment will be used to run the runbook.
 
+:::div{.info}
+When an ephemeral environment is deprovisioned, it will automatically be removed from any associated deployment targets. If there are no environments remaining on a target, the target will also be deleted.
+:::
+
 Ephemeral environments can be deprovisioned via the:
 
 - Octopus Web Portal
