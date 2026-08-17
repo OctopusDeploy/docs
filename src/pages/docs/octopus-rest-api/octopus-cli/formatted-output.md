@@ -21,7 +21,7 @@ octo list-projects --server https://your-octopus-url --apiKey API-YOUR-KEY --out
 
 This command outputs the list of projects in parsable JSON format:
 
-```text
+```json
 [
   {
     "Id": "Projects-81",
