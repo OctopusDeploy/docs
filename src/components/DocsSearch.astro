@@ -326,6 +326,10 @@ const listboxId = `${name}-search-listbox`;
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: var(--space16) var(--space8);
+    /* The default scrollbar keeps its light chrome in dark mode. Same treatment
+       as the other scroll containers in main.css. */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
   }
 
   .docs-search__results {

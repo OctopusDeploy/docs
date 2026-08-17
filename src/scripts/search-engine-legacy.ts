@@ -238,13 +238,14 @@ export function legacyEngine(indexUrl: string): SearchEngine {
         .sort(byRelevance)
         .slice(0, RESULT_LIMIT)
         .map((entry): SearchResult => {
-          // Same-origin results become paths so they navigate without a round
-          // trip through the absolute URL the index stores.
-          const address = new URL(entry.url, window.location.origin);
-          const path = address.pathname;
+          // The index stores absolute production URLs, and every entry in it is
+          // a page of this site. Keeping only the path is what makes a result
+          // stay on whatever host is serving it — an ephemeral environment or
+          // localhost would otherwise send you to production.
+          const path = new URL(entry.url, window.location.origin).pathname;
 
           return {
-            url: address.origin === window.location.origin ? path : entry.url,
+            url: path,
             title: entry.title,
             excerpt: highlight(escapeHtml(entry.description), highlightTerms),
             breadcrumb: breadcrumbFrom(path),

@@ -22,9 +22,7 @@ test('the overlay is closed until a trigger opens it', async ({ page }) => {
 
   await opened(page);
 
-  await expect(
-    overlay(page).locator('[data-docs-search-input]')
-  ).toBeFocused();
+  await expect(overlay(page).locator('[data-docs-search-input]')).toBeFocused();
 });
 
 // Two overlays on one page is the case the gallery creates; the site's own must
@@ -120,7 +118,9 @@ test('Enter follows the active result', async ({ page }) => {
   await page.keyboard.press('ArrowDown');
   await page.keyboard.press('Enter');
 
-  await expect(page).toHaveURL(/\/docs\/deployments\/packages\/feeds\/maven-feeds$/);
+  await expect(page).toHaveURL(
+    /\/docs\/deployments\/packages\/feeds\/maven-feeds$/
+  );
 });
 
 test('a tab narrows the results to its own section', async ({ page }) => {
@@ -132,12 +132,7 @@ test('a tab narrows the results to its own section', async ({ page }) => {
 
   // A section the query misses has no tab at all.
   const tabs = demo.locator('[data-facet]:not([hidden])');
-  await expect(tabs).toHaveText([
-    'All (4)',
-    'Docs (2)',
-    'API (1)',
-    'CLI (1)',
-  ]);
+  await expect(tabs).toHaveText(['All (4)', 'Docs (2)', 'API (1)', 'CLI (1)']);
 
   await demo.locator('[data-facet="cli"]').click();
 
@@ -169,9 +164,7 @@ test('Escape closes the overlay and returns focus to the trigger', async ({
   await page.keyboard.press('Escape');
 
   await expect(demo).toBeHidden();
-  await expect(
-    page.locator('[data-docs-search-trigger="demo"]')
-  ).toBeFocused();
+  await expect(page.locator('[data-docs-search-trigger="demo"]')).toBeFocused();
 });
 
 test('the close button closes the overlay', async ({ page }) => {
@@ -214,6 +207,33 @@ test('the query is left in the field that opened the overlay', async ({
 
   await expect(site).toBeHidden();
   await expect(trigger).toHaveValue('tentacle');
+});
+
+// The index stores absolute production URLs. A result that keeps one sends you
+// from an ephemeral environment or localhost straight to octopus.com, which is
+// exactly what happened the first time this shipped.
+test('results stay on the host that served them', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('tentacle');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  const hrefs = await site
+    .locator('[role="option"]')
+    .evaluateAll((rows) => rows.map((row) => row.getAttribute('href') ?? ''));
+
+  expect(hrefs.length).toBeGreaterThan(0);
+  for (const href of hrefs) {
+    expect(href, 'a result href must be a path, not an absolute URL').toMatch(
+      /^\/docs\//
+    );
+  }
 });
 
 // Ctrl/Cmd+K belongs to the page's own search. A demo instance in an article must
@@ -261,9 +281,10 @@ test('result icons are masked so they theme', async ({ page }) => {
     });
 
   expect(paint.mask, 'the icon should be masked').toContain('url(');
-  expect(paint.background, 'an unpainted icon means no color reached it').not.toBe(
-    'rgba(0, 0, 0, 0)'
-  );
+  expect(
+    paint.background,
+    'an unpainted icon means no color reached it'
+  ).not.toBe('rgba(0, 0, 0, 0)');
 });
 
 // Astro scopes a component's styles to the markup it can see at build time, so a
@@ -296,8 +317,10 @@ for (const width of [1440, 768, 320]) {
       scroll: document.documentElement.scrollWidth,
     }));
 
-    expect(Math.round(box.x), 'panel should not run off the start edge')
-      .toBeGreaterThanOrEqual(0);
+    expect(
+      Math.round(box.x),
+      'panel should not run off the start edge'
+    ).toBeGreaterThanOrEqual(0);
     expect(
       Math.round(box.x + box.width),
       'panel should not run off the end edge'
