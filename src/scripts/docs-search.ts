@@ -14,7 +14,7 @@ import {
   type SearchEngine,
   type SearchResult,
 } from './search-engine';
-import { legacyEngine } from './search-engine-legacy';
+import { oramaEngine } from './search-engine-orama';
 
 const DEBOUNCE_MS = 150;
 const SITE_SEARCH = 'site';
@@ -41,7 +41,7 @@ function setup(dialog: HTMLDialogElement) {
   const demo = dialog.dataset.demoResults;
   const engine: SearchEngine = demo
     ? fixtureEngine(JSON.parse(demo))
-    : legacyEngine(dialog.dataset.indexUrl ?? '/docs/search.json');
+    : oramaEngine(dialog.dataset.indexUrl ?? '/docs/search-index.json');
 
   let facet = 'all';
   let active = -1;

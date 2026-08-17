@@ -33,13 +33,12 @@
         "astro-accelerator-utils": "^0.3.84",
         "glob": "^13.0.6",
         "gray-matter": "^4.0.3",
-        "html-to-text": "^10.0.0",
-        "keyword-extractor": "^0.0.28",
         "optional": "^0.1.4",
         "satteri": "^0.9.5",
         "sharp": "^0.34.5"
     },
     "devDependencies": {
+        "@orama/orama": "^3.1.18",
         "@playwright/test": "^1.60.0",
         "@pnpm/exe": "^11.0.9",
         "cspell": "^10.0.0",
