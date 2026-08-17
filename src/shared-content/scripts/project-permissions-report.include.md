@@ -516,6 +516,7 @@ foreach ($space in $spaceList)
             ArtifactViewPermissions = @()
             RunbookViewPermissions = @()
             RunbookEditPermissions = @()
+            RunbookSnapshotCreatePermissions = @()
             RunbookRunViewPermissions = @()
             RunbookRunCreatePermissions = @()
             ManualInterventionViewPermissions = @()
@@ -590,6 +591,7 @@ foreach ($space in $spaceList)
                     
                     $projectPermission.RunbookViewPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookViewPermissions -permissionToCheck "RunbookView" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $false -projectEnvironmentList $projectEnvironmentList)
                     $projectPermission.RunbookEditPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookEditPermissions -permissionToCheck "RunbookEdit" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $false -projectEnvironmentList $projectEnvironmentList)
+                    $projectPermission.RunbookSnapshotCreatePermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookSnapshotCreatePermissions -permissionToCheck "RunbookSnapshotCreate" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $false -projectEnvironmentList $projectEnvironmentList)
                     $projectPermission.RunbookRunViewPermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookRunViewPermissions -permissionToCheck "RunbookRunView" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
                     $projectPermission.RunbookRunCreatePermissions = @(Get-UserPermission -space $space -project $project -userRole $userRole -projectPermissionList $projectPermission.RunbookRunCreatePermissions -permissionToCheck "RunbookRunCreate" -environmentList $environmentList -tenantList $tenantList -user $user -scopedRole $scopedRole -includeScope $true -projectEnvironmentList $projectEnvironmentList)
 
@@ -637,6 +639,7 @@ foreach ($permission in $permissionsReport)
     
     Write-PermissionList -permissionName "Runbook View" -permissionList $permission.RunbookViewPermissions -permission $permission -reportPath $reportPath
     Write-PermissionList -permissionName "Runbook Edit" -permissionList $permission.RunbookEditPermissions -permission $permission -reportPath $reportPath
+    Write-PermissionList -permissionName "Runbook Snapshot Create" -permissionList $permission.RunbookSnapshotCreatePermissions -permission $permission -reportPath $reportPath
     Write-PermissionList -permissionName "Runbook Run View" -permissionList $permission.RunbookRunViewPermissions -permission $permission -reportPath $reportPath
     Write-PermissionList -permissionName "Runbook Run Create" -permissionList $permission.RunbookRunCreatePermissions -permission $permission -reportPath $reportPath   
     
