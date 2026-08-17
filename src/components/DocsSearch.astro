@@ -1,0 +1,518 @@
+---
+// The site search overlay. One dialog serves the whole page: both the new top
+// nav and the old header point their fields at it, so there is a single result
+// list to style and a single set of keyboard rules to get right.
+//
+// The results themselves come from a `SearchEngine` (see
+// `src/scripts/search-engine.ts`), which is the seam the index sits behind.
+import type { HTMLAttributes } from 'astro/types';
+import { SITE } from '@config';
+import {
+  FACETS,
+  type Facet,
+  type SearchResult,
+} from '../scripts/search-engine';
+
+import magnifyingGlass from '../assets/icons/magnifying-glass.svg';
+import xmark from '../assets/icons/xmark.svg';
+import file from '../assets/icons/file.svg';
+import commandLine from '../assets/icons/command-line.svg';
+import arrowNested from '../assets/icons/arrow-nested.svg';
+import arrowUpDown from '../assets/icons/arrow-up-down.svg';
+
+type Props = HTMLAttributes<'dialog'> & {
+  /** Which overlay this is. A trigger opens the one it names, and only `site`
+   *  answers Ctrl/Cmd+K and `?q=` links. */
+  name?: string;
+  placeholder?: string;
+  facets?: Facet[];
+  /** Fixed results, for the component showcase and for tests. Given these, the
+   *  overlay never fetches an index. */
+  demoResults?: SearchResult[];
+};
+
+const {
+  name = 'site',
+  placeholder = 'Ask a question or search the docs…',
+  facets = FACETS,
+  demoResults,
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (facets.length === 0) {
+  throw new Error('DocsSearch needs at least one facet for its tab strip');
+}
+
+const indexUrl = `${SITE.subfolder}/search.json`;
+const listboxId = `${name}-search-listbox`;
+---
+
+<dialog
+  class:list={['docs-search', className]}
+  aria-label="Search the documentation"
+  data-docs-search={name}
+  data-index-url={indexUrl}
+  data-demo-results={demoResults ? JSON.stringify(demoResults) : undefined}
+  {...rest}
+>
+  <div class="docs-search__panel">
+    <div class="docs-search__header">
+      <span class="docs-search__glyph" aria-hidden="true"></span>
+      <!-- The combobox owns the keyboard: focus stays here while
+           `aria-activedescendant` moves down the list. -->
+      <!-- Deliberately not type="search": that hands Escape to the browser,
+           which clears the field instead of letting the dialog close. -->
+      <input
+        type="text"
+        class="docs-search__input"
+        role="combobox"
+        aria-expanded="false"
+        aria-controls={listboxId}
+        aria-autocomplete="list"
+        aria-label={placeholder}
+        placeholder={placeholder}
+        autocomplete="off"
+        spellcheck="true"
+        data-docs-search-input
+      />
+      <button
+        type="button"
+        class="docs-search__close"
+        aria-label="Close search"
+        data-docs-search-close></button>
+    </div>
+
+    <div
+      class="docs-search__tabs"
+      role="tablist"
+      aria-label="Filter results by section"
+      hidden
+      data-docs-search-tabs
+    >
+      <button
+        type="button"
+        class="docs-search__tab"
+        role="tab"
+        aria-selected="true"
+        data-facet="all">All <span class="docs-search__count"></span></button
+      >
+      {
+        facets.map((facet) => (
+          <button
+            type="button"
+            class="docs-search__tab"
+            role="tab"
+            aria-selected="false"
+            tabindex="-1"
+            hidden
+            data-facet={facet.key}
+          >
+            {facet.label} <span class="docs-search__count" />
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="docs-search__body" data-docs-search-body hidden>
+      <ul
+        class="docs-search__results"
+        id={listboxId}
+        role="listbox"
+        aria-label="Search results"
+        data-docs-search-results
+      >
+      </ul>
+      <p class="docs-search__empty" hidden data-docs-search-empty>
+        No results for <strong data-docs-search-echo></strong>.
+      </p>
+    </div>
+
+    <!-- Astro scopes a component's styles to the markup it can see at build
+         time, so a row assembled from `createElement` would come out unstyled.
+         Cloning this template carries the scope with it. -->
+    <template data-docs-search-row>
+      <li role="presentation">
+        <a class="docs-search__row" role="option" aria-selected="false">
+          <span class="docs-search__row-icon" aria-hidden="true"></span>
+          <span class="docs-search__row-body">
+            <span class="docs-search__row-title"></span>
+            <span class="docs-search__row-excerpt"></span>
+            <span class="docs-search__row-trail"></span>
+          </span>
+          <span class="docs-search__row-enter" aria-hidden="true"></span>
+        </a>
+      </li>
+    </template>
+
+    <div class="docs-search__footer">
+      <span class="docs-search__hint">
+        <span class="docs-search__hint-icon docs-search__hint-icon--navigate"
+        ></span>
+        Navigate
+      </span>
+      <span class="docs-search__hint">
+        <span class="docs-search__hint-icon docs-search__hint-icon--select"
+        ></span>
+        Select
+      </span>
+      <span class="docs-search__hint docs-search__hint--end">
+        <kbd class="docs-search__kbd">Esc</kbd>
+        Close
+      </span>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import '../scripts/docs-search';
+</script>
+
+<style
+  define:vars={{
+    magnifyingGlass: `url('${magnifyingGlass.src}')`,
+    xmark: `url('${xmark.src}')`,
+    file: `url('${file.src}')`,
+    commandLine: `url('${commandLine.src}')`,
+    arrowNested: `url('${arrowNested.src}')`,
+    arrowUpDown: `url('${arrowUpDown.src}')`,
+  }}
+>
+  /* The dialog is the backdrop's element, so it takes the whole viewport and
+     the panel inside it is what gets sized and offset. `position` stays out of
+     this file: the top layer handles placement, and the flex column below does
+     the rest. */
+  .docs-search {
+    /* Border-box, or the padding below is added to a full-viewport width and the
+       panel is pushed off the end edge on a narrow screen. */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: var(--space12);
+    border: 0;
+    background: none;
+    overflow: hidden;
+  }
+
+  .docs-search::backdrop {
+    background: var(--search-overlay);
+  }
+
+  /* The UA rule for `[hidden]` loses to a class selector, and the regions below
+     are hidden until there is a query to fill them. */
+  .docs-search [hidden] {
+    display: none;
+  }
+
+  .docs-search__panel {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* Offset from the top rather than centred, so the panel does not jump as
+       results arrive and the list grows. */
+    margin: min(6vh, var(--space80)) auto 0;
+    width: 50rem;
+    max-width: 100%;
+    /* Capped so a long result list scrolls inside the panel rather than running
+       the panel itself to the bottom of the window. */
+    max-height: min(40rem, calc(100% - min(6vh, var(--space80))));
+    border-radius: var(--borderRadiusLarge);
+    background: var(--colorBackgroundPrimaryDefault);
+    box-shadow: var(--shadowMedium);
+    overflow: hidden;
+  }
+
+  .docs-search__header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space12);
+    box-sizing: border-box;
+    min-height: 3.5rem;
+    padding-inline: var(--space24);
+    border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+  }
+
+  .docs-search__glyph {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconSecondary);
+    mask: var(--magnifyingGlass) center / contain no-repeat;
+  }
+
+  .docs-search__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--space16) 0;
+    border: 0;
+    background: none;
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+  }
+
+  .docs-search__input:focus-visible {
+    outline: none;
+  }
+
+  .docs-search__input::placeholder {
+    color: var(--colorTextTertiary);
+    opacity: 1;
+  }
+
+  .docs-search__close {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background-color: var(--colorIconSecondary);
+    mask: var(--xmark) center / contain no-repeat;
+    cursor: pointer;
+  }
+
+  .docs-search__close:hover {
+    background-color: var(--colorIconPrimary);
+  }
+
+  .docs-search__close:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--space2);
+  }
+
+  .docs-search__tabs {
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--space24);
+    padding-inline: var(--space24);
+    border-block-end: var(--borderWidth1) solid var(--colorNavTabBorderPrimary);
+  }
+
+  .docs-search__tab {
+    padding: var(--space12) 0;
+    border: 0;
+    /* The strip's own rule is the resting state; the selected tab overdraws it
+       in the active colour, which keeps both on the same pixel row. */
+    border-block-end: var(--borderWidth2) solid transparent;
+    margin-block-end: calc(var(--borderWidth1) * -1);
+    background: none;
+    color: var(--colorNavTabTextDefault);
+    font: var(--textBodyRegularMedium);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .docs-search__tab:hover {
+    color: var(--colorNavTabTextHover);
+  }
+
+  .docs-search__tab:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: calc(var(--space2) * -1);
+  }
+
+  .docs-search__tab[aria-selected='true'] {
+    border-block-end-color: var(--colorNavTabTextActive);
+    color: var(--colorNavTabTextActive);
+    font: var(--textBodyBoldMedium);
+  }
+
+  .docs-search__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: var(--space16) var(--space8);
+  }
+
+  .docs-search__results {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .docs-search__row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: var(--space12);
+    padding: var(--space12);
+    border-radius: var(--borderRadiusSmall);
+    color: var(--colorTextPrimary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .docs-search__row:hover {
+    background: var(--colorNavBackgroundHover);
+  }
+
+  /* Focus never leaves the input, so the active row is the only thing telling
+     you where Enter will take you. It has to be the loudest state here. */
+  .docs-search__row[data-active] {
+    background: var(--colorNavBackgroundActive);
+  }
+
+  .docs-search__row-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--colorIconSecondary);
+  }
+
+  /* Blocked so the single-line excerpt below has a width to be clipped against;
+     an inline wrapper would size to its content and never overflow. */
+  .docs-search__row-body {
+    display: block;
+    min-width: 0;
+  }
+
+  .docs-search__row-icon--page {
+    mask: var(--file) center / contain no-repeat;
+  }
+
+  .docs-search__row-icon--command {
+    mask: var(--commandLine) center / contain no-repeat;
+  }
+
+  .docs-search__row-title {
+    display: block;
+    font: var(--textHeadingSmall);
+  }
+
+  .docs-search__row-excerpt {
+    display: block;
+    margin-block-start: var(--space2);
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularMedium);
+    /* One line, so every row keeps the same height and the list scans. */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .docs-search__row-excerpt :global(mark) {
+    background: none;
+    color: var(--colorTextPrimary);
+    font: var(--textBodyBoldMedium);
+  }
+
+  .docs-search__row-trail {
+    display: block;
+    margin-block-start: var(--space2);
+    color: var(--colorTextTertiary);
+    font: var(--textBodyRegularXSmall);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .docs-search__row-trail:empty,
+  .docs-search__row-excerpt:empty {
+    display: none;
+  }
+
+  .docs-search__row-enter {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* Aligned to the title rather than the top of the row. */
+    margin-block-start: var(--space2);
+    background-color: var(--colorIconTertiary);
+    mask: var(--arrowNested) center / contain no-repeat;
+    visibility: hidden;
+  }
+
+  .docs-search__row[data-active] .docs-search__row-enter {
+    visibility: visible;
+  }
+
+  .docs-search__empty {
+    margin: 0;
+    padding: var(--space12);
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularMedium);
+  }
+
+  .docs-search__footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space24);
+    box-sizing: border-box;
+    min-height: 3.25rem;
+    padding-inline: var(--space24);
+    border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularMedium);
+  }
+
+  .docs-search__hint {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space6);
+  }
+
+  .docs-search__hint--end {
+    margin-inline-start: auto;
+  }
+
+  .docs-search__hint-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconSecondary);
+  }
+
+  .docs-search__hint-icon--navigate {
+    mask: var(--arrowUpDown) center / contain no-repeat;
+  }
+
+  .docs-search__hint-icon--select {
+    mask: var(--arrowNested) center / contain no-repeat;
+  }
+
+  .docs-search__kbd {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    height: 1.25rem;
+    padding-inline: var(--space4);
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundSecondaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textCodeRegularMedium);
+  }
+
+  /* The footer hints describe keys, so they are noise on a narrow screen where
+     there is no keyboard to press them on. */
+  @media (max-width: 32rem) {
+    .docs-search__hint:not(.docs-search__hint--end) {
+      display: none;
+    }
+
+    .docs-search__panel {
+      margin-block-start: 0;
+      max-height: 100%;
+    }
+  }
+
+  .docs-search[open] .docs-search__panel {
+    animation: docs-search-in var(--duration-default)
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes docs-search-in {
+    from {
+      opacity: 0;
+      transform: translateY(calc(var(--space8) * -1));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .docs-search[open] .docs-search__panel {
+      animation: none;
+    }
+  }
+</style>
