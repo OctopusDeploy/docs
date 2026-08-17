@@ -1,6 +1,5 @@
 ---
 import { accelerator } from '@lib/accelerator';
-import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { Translations, Lang } from '@util/Languages';
 import type { Crumb } from '@util/breadcrumbs';
 
@@ -12,8 +11,6 @@ stats.start();
 // Properties
 type Props = {
   lang: string;
-  frontmatter: Frontmatter;
-  headings: { depth: number; slug: string; text: string }[];
   crumbs?: ReadonlyArray<Crumb> | null;
 };
 const { lang, crumbs } = Astro.props satisfies Props;
