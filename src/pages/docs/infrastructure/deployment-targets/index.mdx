@@ -12,6 +12,7 @@ import DeploymentTargets from "src/shared-content/infrastructure/deployment-targ
 import TargetRoles from "src/shared-content/infrastructure/target-roles.include.md";
 
 Locations that software may be deployed to and run can include:
+
 - Containers running in clusters
 - Cloud-managed services, platforms, or serverless functions
 - Virtual machines or infrastructure as a service
@@ -19,9 +20,10 @@ Locations that software may be deployed to and run can include:
 - Point-of-sale devices in retail stores
 - Medical devices in hospitals
 
-All these places are different kinds of deployment targets. 
+All these places are different kinds of deployment targets.
 
-A deployment target is a location that will host your software. We've used the term _deployment target_ as this could refer to many different destinations, such as:
+A deployment target is a location that will host your software. We've used the term *deployment target* as this could refer to many different destinations, such as:
+
 - Kubernetes clusters
 - Cloud apps or services
 - Cloud storage
@@ -43,5 +45,6 @@ Deployment targets must be associated with at least one environment. While a dep
 In the case where a deployment target is associated with an [ephemeral environment](/docs/infrastructure/ephemeral-environments), the association will be removed when the ephemeral environment deprovisions. If a target has no remaining environments, it will also be automatically deleted.
 
 ## Learn more
+
 - [How Octopus counts deployment targets](/docs/infrastructure/deployment-targets/how-octopus-counts-deployment-targets)
 - [Adding deployment targets](/docs/getting-started/first-deployment/add-deployment-targets)
