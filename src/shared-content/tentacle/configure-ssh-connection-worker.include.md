@@ -32,7 +32,7 @@
 
 9. Specify whether Mono is installed on the SSH target or not to determine which version of [Calamari](/docs/octopus-rest-api/calamari) will be installed.
 
- - Calamari on Mono, built against the full .NET framework.
- - Self-contained version of Calamari, built against .NET Core.
+  - Calamari on Mono, built against the full .NET framework.
+  - Self-contained version of Calamari, built against .NET Core.
 
 10. Click **Save**.
