@@ -12,17 +12,6 @@ import { accelerator } from './accelerator';
 
 const API_LAYOUT = '/Api.astro';
 
-// Astro only gives a page module a `url` when its file resolves inside
-// src/pages. The generated pages are usually copied in, but they are symlinked
-// in during local development, and a symlink resolves to wherever the generator
-// wrote it — so those modules arrive with a file outside the site and no url at
-// all. The glob keys are the paths the site routes on either way, so the url is
-// rebuilt from them and the module's own url is only a fallback.
-const API_SOURCE = import.meta.glob<{ file?: string }>(
-  '/src/pages/docs/api/**/*.md',
-  { eager: true }
-);
-
 const PAGES_ROOT = '/src/pages';
 
 function urlFromSourcePath(path: string): string {
@@ -32,13 +21,28 @@ function urlFromSourcePath(path: string): string {
     .replace(/\/index$/, '');
 }
 
-// Read on the way past rather than at module load: these are page modules, and
-// this one is imported from a page's own layout, so at load time whichever page
-// is being rendered is still initializing and has nothing on it to read yet.
+// Astro only gives a page module a `url` when its file resolves inside
+// src/pages. The generated pages are usually copied in, but they are symlinked
+// in during local development, and a symlink resolves to wherever the generator
+// wrote it — so those modules arrive with a file outside the site and no url at
+// all. The glob keys are the paths the site routes on either way, so the url is
+// rebuilt from them and the module's own url is only a fallback.
 function urlsByFile(): Map<string, string> {
+  // The glob call stays inside the function on purpose. These pages render
+  // through src/layouts/Api.astro, which imports ApiNavigation.astro, which
+  // imports this module — so the eager glob closes a cycle back onto itself.
+  // Vite hoists the imports but builds the map object where the call sits, so
+  // at module load the first page in the cycle is still initializing and a
+  // top-level call captures `undefined` for it permanently. Called from in here
+  // the object is built on the way past, once everything has settled.
+  const source = import.meta.glob<{ file?: string }>(
+    '/src/pages/docs/api/**/*.md',
+    { eager: true }
+  );
+
   return new Map(
-    Object.entries(API_SOURCE)
-      .filter(([, post]) => post.file != null)
+    Object.entries(source)
+      .filter(([, post]) => post?.file != null)
       .map(([path, post]) => [post.file as string, urlFromSourcePath(path)])
   );
 }
