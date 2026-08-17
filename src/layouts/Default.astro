@@ -63,6 +63,39 @@ const showSearch = !isSearchPage;
 
 // The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
+
+// Search indexing. The same predicate `PostFiltering.showInSearch` applies at
+// the point the page is rendered — redirect stubs never reach this layout at
+// all, so only the frontmatter opt-outs have to be reproduced here.
+const indexable =
+  frontmatter.navSearch !== false &&
+  frontmatter.listable !== false &&
+  frontmatter.draft !== true;
+
+// Which tab a result lands under. Longest match first: every CLI page also sits
+// under the REST API tree. Mirrors `classify()` in `src/scripts/search-engine.ts`,
+// which is what the old index derives the same value from at query time.
+const sections: [string, RegExp][] = [
+  [
+    'cli',
+    /^\/docs\/octopus-rest-api\/(cli|octopus-cli|[a-z.]+-command-line)(\/|$)/,
+  ],
+  ['api', /^\/docs\/octopus-rest-api(\/|$)/],
+  ['integrations', /^\/docs\/api-and-integration(\/|$)/],
+];
+const section =
+  sections.find(([, prefix]) => prefix.test(Astro.url.pathname))?.[0] ?? 'docs';
+
+// The trail the result row prints, taken from the path so it matches whatever
+// the page is actually filed under.
+const trail = Astro.url.pathname
+  .split('/')
+  .filter(Boolean)
+  .slice(1, -1)
+  .map((segment) =>
+    segment.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase())
+  )
+  .join(' / ');
 ---
 
 <html
@@ -84,9 +117,22 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
     <div class="content-group">
       <main id="site-main">
         <Breadcrumbs lang={lang} crumbs={crumbs} />
-        <article>
+        {
+          /* Scoping the index to the article is what keeps every sidebar link
+             and footer word out of every page's search terms. Without it the
+             index is still built and search still "works" — it is just bad,
+             which is why the integration asserts on the page count.
+
+             The article rather than `.page-content`, so the heading inside it is
+             there for Pagefind to take the result title from. */
+        }
+        <article
+          data-pagefind-body={indexable ? true : undefined}
+          data-pagefind-filter={indexable ? `section:${section}` : undefined}
+          data-pagefind-meta={indexable ? `trail:${trail}` : undefined}
+        >
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
-          <div class="page-actions">
+          <div class="page-actions" data-pagefind-ignore>
             <CopyAsMarkdown lang={lang} />
             <OpenInLlm lang={lang} />
             <EditOnGithub
