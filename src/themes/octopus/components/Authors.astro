@@ -47,11 +47,7 @@ stats.stop();
         <span class="author-list">
           {_(Translations.post.written_by) + ' '}
           {authorList.mainAuthor && (
-            <span
-              itemprop="author"
-              itemscope
-              itemtype="https://schema.org/Person"
-            >
+            <span>
               <a
                 href={
                   // TODO: `formatAddress(...) + '1/'` produces `<slug>1/`,
@@ -61,11 +57,8 @@ stats.stop();
                     authorList.mainAuthor.url
                   ) + '1/'
                 }
-                itemprop="url"
               >
-                <span itemprop="name">
-                  {authorList.mainAuthor.frontmatter.title}
-                </span>
+                <span>{authorList.mainAuthor.frontmatter.title}</span>
               </a>
             </span>
           )}
@@ -73,18 +66,13 @@ stats.stop();
             {authorList.contributors.map((writer, index) => (
               <>
                 {index > 0 && ', '}
-                <span
-                  itemprop="contributor"
-                  itemscope
-                  itemtype="https://schema.org/Person"
-                >
+                <span>
                   <a
                     href={
                       accelerator.urlFormatter.formatAddress(writer.url) + '1/'
                     }
-                    itemprop="url"
                   >
-                    <span itemprop="name">{writer.frontmatter.title}</span>
+                    <span>{writer.frontmatter.title}</span>
                   </a>
                 </span>
               </>
@@ -93,10 +81,7 @@ stats.stop();
           <>
             <>
               <br />
-              <time
-                datetime={frontmatter.pubDate.toString()}
-                itemprop="datePublished"
-              >
+              <time datetime={frontmatter.pubDate.toString()}>
                 {accelerator.dateFormatter.formatDate(
                   frontmatter.pubDate,
                   lang
@@ -106,10 +91,7 @@ stats.stop();
             {frontmatter.modDate && (
               <>
                 <br />
-                <time
-                  datetime={frontmatter.modDate.toString()}
-                  itemprop="dateModified"
-                >
+                <time datetime={frontmatter.modDate.toString()}>
                   {_(Translations.post.last_modified) +
                     ' ' +
                     accelerator.dateFormatter.formatDate(

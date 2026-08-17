@@ -3,7 +3,7 @@ import { accelerator } from '@lib/accelerator';
 import { PostFiltering } from 'astro-accelerator-utils';
 import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
-import { getImageInfo } from '@util/custom-markdown.mjs';
+import { buildCrumbs, type Crumb } from '@util/breadcrumbs';
 
 // Theme components
 import Head from '@components/HtmlHead.astro';
@@ -30,18 +30,16 @@ import DocsSearch from '../components/DocsSearch.astro';
 type Props = {
   frontmatter: OriginalFrontmatter;
   headings: { depth: number; slug: string; text: string }[];
-  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+  breadcrumbs?: Crumb[] | null;
 };
 const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const crumbs = buildCrumbs(Astro.url, breadcrumbs);
 
 const lang = frontmatter.lang ?? SITE.default.lang;
 const textDirection = frontmatter.dir ?? SITE.default.dir;
 
 // Logic
-const metaImage = frontmatter.bannerImage
-  ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
-  : null;
-
 const title = await accelerator.markdown.getInlineHtmlFrom(
   frontmatter.title ?? SITE.title
 );
@@ -60,12 +58,17 @@ const isSearchPage =
 
 const showSearch = !isSearchPage;
 
-// The footer prints this; the article keeps it in its schema.org markup.
+// The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
 ---
 
 <html dir={textDirection} lang={lang} class="initial" data-theme="light">
-  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
+  <Head
+    frontmatter={frontmatter}
+    headings={headings}
+    lang={lang}
+    crumbs={crumbs}
+  />
   <body>
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
     <Header
@@ -80,9 +83,9 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
           frontmatter={frontmatter}
           headings={headings}
           lang={lang}
-          breadcrumbs={breadcrumbs}
+          crumbs={crumbs}
         />
-        <article itemscope itemtype="https://schema.org/Article">
+        <article>
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
           <div class="page-actions">
             <CopyAsMarkdown lang={lang} />
@@ -93,20 +96,11 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
               lang={lang}
             />
           </div>
-          <div class="page-content anim-show-parent" itemprop="articleBody">
+          <div class="page-content anim-show-parent">
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
             <MarkdownLinks lang={lang} />
-            {metaImage && <meta itemprop="image" content={metaImage.src} />}
-            {
-              lastUpdated && (
-                <meta
-                  itemprop="dateModified"
-                  content={new Date(lastUpdated).toISOString()}
-                />
-              )
-            }
           </div>
         </article>
       </main>

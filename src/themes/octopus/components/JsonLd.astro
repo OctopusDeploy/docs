@@ -1,9 +1,11 @@
 ---
+import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import type { AuthorList } from 'astro-accelerator-utils/types/AuthorList';
 import { STRUCTURED_DATA } from '@config';
 import {
   buildArticle,
+  buildBreadcrumbList,
   buildOrganization,
   buildPersonNodes,
   buildWebSite,
@@ -14,6 +16,7 @@ import {
   toGraphPayload,
   type GraphNode,
 } from '@util/structured-data';
+import type { Crumb } from '@util/breadcrumbs';
 
 type Props = {
   frontmatter: Frontmatter;
@@ -21,9 +24,10 @@ type Props = {
   socialTitle: string;
   imageURL?: string;
   authors?: AuthorList | null;
+  crumbs?: ReadonlyArray<Crumb> | null;
 };
 
-const { frontmatter, canonicalURL, socialTitle, imageURL, authors } =
+const { frontmatter, canonicalURL, socialTitle, imageURL, authors, crumbs } =
   Astro.props;
 
 type Payload = ReturnType<typeof toGraphPayload>;
@@ -56,7 +60,7 @@ function buildPayload(): Payload | null {
   const pathname = normalizePathname(
     pathnameFromCanonical(canonicalURL, Astro.url.pathname)
   );
-  const articleType = pickArticleType(pathname, frontmatter);
+  const articleType = pickArticleType(frontmatter);
   const headline = cleanHeadline(socialTitle);
 
   // Author branch is unreachable today (no author pages); kept wired.
@@ -87,6 +91,18 @@ function buildPayload(): Payload | null {
   }
 
   const nodes: GraphNode[] = [article, buildWebSite(), buildOrganization()];
+
+  const breadcrumbList = crumbs?.length
+    ? buildBreadcrumbList(
+        crumbs.map((c) => ({
+          url: accelerator.urlFormatter.formatAddress(c.url),
+          title: c.title,
+        })),
+        canonicalURL
+      )
+    : null;
+  if (breadcrumbList) nodes.push(breadcrumbList);
+
   return toGraphPayload(nodes);
 }
 
