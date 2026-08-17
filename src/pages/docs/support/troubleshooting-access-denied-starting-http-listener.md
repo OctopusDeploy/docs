@@ -7,6 +7,8 @@ description: A guide for troubleshooting start up error "Access Denied starting 
 navOrder: 9
 ---
 
+<!-- cspell:ignore authbind -->
+
 Octopus requires certain permissions to launch the HTTP Listener - the web server that serves up the Octopus Portal.
 
 When the user that launches Octopus does not have these permissions, you will receive an error:

@@ -1,3 +1,4 @@
+<!-- cspell:ignore mytentacle -->
 ## Rootless Instance Creation {#rootless-instance-creation}
 
 Creating a named instance with the `--instance` parameter as shown in the examples above will register the instance details in a central registry to allow it to be easily managed via its unique name. Access to this central registry on the target machine is under `C:\ProgramData\Octopus` on Windows and `/etc/octopus` on other Platforms. For some high-security low-trust environments, access to these locations may not be possible, so Octopus supports creating Tentacle instances that isolate all their configuration in a single directory.

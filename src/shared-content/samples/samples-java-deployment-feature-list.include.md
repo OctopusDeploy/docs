@@ -1,3 +1,5 @@
+<!-- cspell:ignore Springboot -->
+
 ## Pattern - Blue-Green
 
 - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/deployments/process" target="_blank">Random Quotes Java</a>: <i>Deploys the Java version of Random Quotes to Tomcat using the Blue/Green environment pattern. [Build definition](https://bamboo.octopussamples.com/browse/RAN-JAVA)</i>
@@ -5,9 +7,9 @@
 
 ### Pattern - Rollbacks
 
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1624/deployments/process" target="_blank">01 PetClinic - Original</a>: <i>PetClinic Java Spring Boot application deploying to MySQL, Wildfly, and Tomcat</i>
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1625/deployments/process" target="_blank">02 PetClinic - SimpleRollback</a>: <i>PetClinic Java Spring Boot application deploying to MySQL, Wildfly, and Tomcat</i>
-- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1626/deployments/process" target="_blank">03 PetClinic - ComplexRollback</a>: <i>PetClinic Java Spring Boot application deploying to MySQL, Wildfly, and Tomcat</i>
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1624/deployments/process" target="_blank">01 PetClinic - Original</a>: <i>PetClinic Java Springboot application deploying to MySQL, Wildfly, and Tomcat</i>
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1625/deployments/process" target="_blank">02 PetClinic - SimpleRollback</a>: <i>PetClinic Java Springboot application deploying to MySQL, Wildfly, and Tomcat</i>
+- <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1626/deployments/process" target="_blank">03 PetClinic - ComplexRollback</a>: <i>PetClinic Java Springboot application deploying to MySQL, Wildfly, and Tomcat</i>
 
 #### Pattern - Rolling
 

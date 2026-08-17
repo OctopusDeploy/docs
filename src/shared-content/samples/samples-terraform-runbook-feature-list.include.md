@@ -1,3 +1,4 @@
+<!-- cspell:ignore deregistering -->
 ## Pattern - IaC
 
 - Dynamic worker army

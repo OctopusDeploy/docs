@@ -7,6 +7,8 @@ description: With Octopus Deploy you can create a MySQL PaaS database server wit
 navOrder: 50
 ---
 
+<!-- cspell:ignore Doesnt -->
+
 Cloud based applications often need databases to store their data.  Cloud providers such as Azure, AWS, and Google Cloud Platform (GCP) all offer database Platform as a Service (PaaS) which allows you to create a database server without having to create the underlying infrastructure that goes along with it.  These servers are fully managed by the cloud platform provider, allowing you to focus on delivering software instead of worrying about maintenance.  This can easily be automated using a runbook.
 
 In this example, we'll create a MySQL database server on [Google Cloud](https://cloud.google.com/gcp).

@@ -1,3 +1,5 @@
+<!-- cspell:ignore eksctl -->
+
 ## Pattern - Blue-Green
 
 - Random Quotes .NET

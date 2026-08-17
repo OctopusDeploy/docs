@@ -7,6 +7,8 @@ description:  Import a license key
 navOrder: 120
 ---
 
+<!-- cspell:ignore licensekey -->
+
 Use the license command to import a license key.
 
 ## License options

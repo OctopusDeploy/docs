@@ -1,3 +1,5 @@
+<!-- cspell:ignore eksctl -->
+
 ## Pattern - Rollbacks
 
 - <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1641/deployments/process" target="_blank">01 Kubernetes Original</a>: <i>A sample project showing deployments of PetClinic to Kubernetes *without* any rollback functionality.</i>

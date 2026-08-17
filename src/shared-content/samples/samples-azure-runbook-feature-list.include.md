@@ -1,3 +1,5 @@
+<!-- cspell:ignore Payara -->
+
 ## Octopus Admin
 
 - Artifactory Sample Management
