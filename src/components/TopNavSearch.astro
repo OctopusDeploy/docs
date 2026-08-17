@@ -39,7 +39,7 @@ const siteUrl = Astro.site ? Astro.site.href : '';
         autocomplete="off"
         data-docs-search-trigger
       />
-      <kbd class="top-nav-search__shortcut" aria-hidden="true">^K</kbd>
+      <kbd class="top-nav-search__shortcut" aria-hidden="true">Ctrl+K</kbd>
     </fieldset>
   </form>
 </div>
@@ -68,6 +68,7 @@ const siteUrl = Astro.site ? Astro.site.href : '';
   .top-nav-search__field.site-search {
     box-sizing: border-box;
     height: auto;
+    overflow: hidden;
     border: var(--borderWidth1) solid var(--colorBorderPrimary);
     border-radius: var(--borderRadiusSmall);
     background: var(--colorBackgroundPrimaryDefault);

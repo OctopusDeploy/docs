@@ -16,7 +16,7 @@ const {
   showSearch = true,
   links = [
     { label: 'Docs', href: '/docs' },
-    { label: 'Learn', href: '#' }, // TODO: Make this a real link
+    // TODO: { label: 'Learn', href: '/docs/?' },
     { label: 'API', href: '/docs/octopus-rest-api' },
     { label: 'CLI', href: '/docs/octopus-rest-api/cli' },
   ],
@@ -65,8 +65,6 @@ const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.
       data-tooltip-position="bottom"
       data-theme-toggle-button
     />
-    <!-- TODO: Make this a real link -->
-    <Button label="Changelog" href="#" />
     <Button label="Sign in" href={signInHref} data-signed-out-only />
     <Button
       label="Start for free"
