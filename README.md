@@ -282,7 +282,7 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 
 ```markdown
 :::figure
-![](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+![The Octopus Cloud architecture](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 ```
 
