@@ -5,87 +5,141 @@ modDate: 2026-08-11
 title: Tasks
 ---
 
-## Lists all of the tasks in the supplied Octopus Deploy Space. The results will be sorted from newest to oldest
+## List all of the tasks in the supplied Octopus Deploy Space. The results will be sorted from newest to oldest
 
-`GET` `/api/{spaceId}/tasks`
+:span[GET]{.api-get} `/api/{spaceId}/tasks`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`active`** <span class="type-label">boolean</span>
-- **`batch`** <span class="type-label">string</span>
-- **`description`** <span class="type-label">string</span>
-- **`environment`** <span class="type-label">string</span>
-- **`fromCompletedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`fromQueueDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`fromStartDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`hasPendingInterruptions`** <span class="type-label">boolean</span>
-- **`hasPendingPreconditions`** <span class="type-label">boolean</span>
-- **`hasWarningsOrErrors`** <span class="type-label">boolean</span>
-- **`ids`** <span class="type-label">array of string</span>
-- **`name`** <span class="type-label">array of string</span>
-- **`node`** <span class="type-label">string</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`project`** <span class="type-label">string</span>
-- **`runbook`** <span class="type-label">string</span>
-- **`running`** <span class="type-label">boolean</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`states`** <span class="type-label">array of string</span>
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
-- **`tenant`** <span class="type-label">string</span>
-- **`tenantTag`** <span class="type-label">string</span>
-- **`toCompletedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`toQueueDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`toStartDate`** <span class="type-label">string</span> — Format `date-time`.
+**Query Parameters**
+
+- **`active`** :span[boolean]{.type-label}  
+  Set to true for tasks that have not finished (New, Queued, Executing or Cancelling), or false for tasks that have.
+- **`batch`** :span[string]{.type-label}
+- **`description`** :span[string]{.type-label}  
+  Text to match within a task's description, such as a project or release name. This is a partial match, not an exact one.
+- **`environment`** :span[string]{.type-label}  
+  The ID of an environment, to return only tasks against that environment. This is an ID such as 'Environments-1', not an environment name.
+- **`fromCompletedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`fromQueueDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`fromStartDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`hasPendingInterruptions`** :span[boolean]{.type-label}
+- **`hasPendingPreconditions`** :span[boolean]{.type-label}
+- **`hasWarningsOrErrors`** :span[boolean]{.type-label}
+- **`ids`** :span[array of string]{.type-label}  
+  Task IDs to return, such as 'ServerTasks-1'.
+- **`name`** :span[array of string]{.type-label}  
+  Task type names to match exactly, such as 'Deploy' or 'RunbookRun'. Use ListServerTaskTypes to get the supported values.
+- **`node`** :span[string]{.type-label}  
+  The ID of the Octopus Server node a task ran on, to return only tasks from that node.
+- **`partialName`** :span[string]{.type-label}  
+  A partial task type name, to match tasks whose type name includes it.
+- **`project`** :span[string]{.type-label}  
+  The ID of a project, to return only tasks against that project. This is an ID such as 'Projects-1', not a project name.
+- **`runbook`** :span[string]{.type-label}  
+  The ID of a runbook, to return only runs of that runbook.
+- **`running`** :span[boolean]{.type-label}  
+  Set to true for tasks currently in progress (Executing or Cancelling), or false for tasks that are not.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`states`** :span[array of string]{.type-label}  
+  Task states to match. One or more of New, Queued, Executing, Cancelling, Success, Failed, Canceled, TimedOut.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`tenant`** :span[string]{.type-label}  
+  The ID of a tenant, to return only tasks against that tenant. This is an ID such as 'Tenants-1', not a tenant name.
+- **`tenantTag`** :span[string]{.type-label}  
+  A tenant tag in canonical form, such as 'Regions/EMEA', to return only tasks against tenants carrying it.
+- **`toCompletedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`toQueueDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`toStartDate`** :span[string]{.type-label}  
+  Format `date-time`.
 
 **Response**
 
 `200` — Holds a TaskResourceCollection generated in response to a ListServerTasksRequest
 
-`TaskResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-  - **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-  - **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-  - **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-  - **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-  - **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-  - **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-  - **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-  - **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-  - **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-  - **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-  - **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-  - **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-  - **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-  - **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-  - **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-  - **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-  - **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-  - **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Arguments`** :span[object]{.type-label}  
+    Gets or sets any arguments to the task.
+  - **`CanRerun`** :span[boolean]{.type-label}  
+    If true, then the task can be used as the basis for a new task with the same effect.
+  - **`Completed`** :span[string]{.type-label}  
+    Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+  - **`CompletedTime`** :span[string]{.type-label}  
+    Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+  - **`Duration`** :span[string]{.type-label}  
+    Gets or sets a string indicating how long the task took to run.
+  - **`ErrorMessage`** :span[string]{.type-label}  
+    Gets or sets a short summary of the errors encountered when the task ran (if any).
+  - **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+  - **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task ran to completion successfully.
+  - **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+    Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+  - **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+    True if the task has any pending interruptions.
+  - **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+    True if the task has any pending preconditions.
+  - **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+    True if any warnings or non-fatal errors were recorded in the task log during execution.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsCompleted`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastUpdatedTime`** :span[string]{.type-label}  
+    Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+  - **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+    Contains a list of the types of any pending interruptions.  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+  - **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+    Contains a list of the types of any pending preconditions.
+  - **`ProjectId`** :span[string]{.type-label}  
+    If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+  - **`QueueTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task was queued. Format `date-time`.
+  - **`QueueTimeExpiry`** :span[string]{.type-label}  
+    Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+  - **`ServerNode`** :span[string]{.type-label}  
+    Gets the ID of the Octopus server that created and will control this task.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StartTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task started executing. Format `date-time`.
+  - **`State`** :span[enum]{.type-label}  
+    Gets or sets the current state of the task.  
+    Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -153,27 +207,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```
 </div>
 
-## Creates a new Task
+## Create a new Task
 
-`POST` `/api/{spaceId}/tasks`
+:span[POST]{.api-post} `/api/{spaceId}/tasks`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateServerTaskCommand`
-
-- **`Arguments`** <span class="type-label">object</span>
-- **`Description`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`QueueTime`** <span class="type-label">string</span> — Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Format `date-time`.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Weight`** <span class="type-label">number</span>
+- **`Arguments`** :span[object]{.type-label}
+- **`Description`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`QueueTime`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Weight`** :span[number]{.type-label}
 
 <div data-example="Request">
 
@@ -198,37 +253,64 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
 `201` — Created
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -279,52 +361,81 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```
 </div>
 
-## Creates a new task and executes it, using a given task as the input. Note that deployment tasks cannot be re-run
+## Create a new task and execute it, using a given task as the input. Note that deployment tasks cannot be re-run
 
-`POST` `/api/{spaceId}/tasks/rerun/{id}`
+:span[POST]{.api-post} `/api/{spaceId}/tasks/rerun/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/rerun/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Task to re-run.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task to re-run.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — Carries the new task created in response to re-running an existing task via RerunServerTaskCommand.
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -375,25 +486,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
 ```
 </div>
 
-## Lists supported task types
+## List supported task types
 
-`GET` `/api/{spaceId}/tasks/tasktypes`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/tasktypes`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/tasktypes`, `/api/tasks/tasktypes`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Holds a list of supported task types, generated in response to a ListServerTaskTypesRequest
 
-an array of `TaskTypeResource`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
-- **`Name`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
+- **`Name`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -414,50 +523,79 @@ an array of `TaskTypeResource`.
 
 ## Get a single Task by ID
 
-`GET` `/api/{spaceId}/tasks/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Task to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — Holds a task, returned in response to GetServerTaskByIdRequest
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -508,52 +646,81 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
 ```
 </div>
 
-## Marks the given task as canceled
+## Mark the given task as canceled
 
-`POST` `/api/{spaceId}/tasks/{id}/cancel`
+:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/cancel`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks/{id}/cancel`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Task to cancel.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task to cancel.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — Returned in response to CancelServerTaskRequest. If the ServerTask cancellation failed, clients should receive an error instead.
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -604,76 +771,116 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
 ```
 </div>
 
-## Gets a single task by ID, including the full task log as a tree of activity elements
+## Get a single task by ID, including the full task log as a tree of activity elements
 
-`GET` `/api/{spaceId}/tasks/{id}/details`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/details`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/tasks/{id}/details`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the task to load details for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the task to load details for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ranges`** <span class="type-label">string</span>
-- **`tail`** <span class="type-label">integer</span> — If set, determines how many log entries will be returned.
-- **`verbose`** <span class="type-label">boolean</span> — If true, includes verbose output.
+**Query Parameters**
+
+- **`ranges`** :span[string]{.type-label}
+- **`tail`** :span[integer]{.type-label}  
+  If set, determines how many log entries will be returned.
+- **`verbose`** :span[boolean]{.type-label}  
+  If true, includes verbose output.
 
 **Response**
 
 `200` — Returns details about a specific server task
 
-`TaskDetailsResource`.
-
-- **`ActivityLogs`** <span class="type-label">array of object</span>
-  - **`Children`** <span class="type-label">array of object</span>
-  - **`Ended`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`LogElements`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProgressMessage`** <span class="type-label">string</span>
-  - **`ProgressPercentage`** <span class="type-label">integer</span>
-  - **`ShowAtSummaryLevel`** <span class="type-label">boolean</span>
-  - **`Started`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `Pending`, `Running`, `Success`, `Failed`, `Skipped`, `SuccessWithWarning`, `Canceled`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`PhysicalLogSize`** <span class="type-label">integer</span>
-- **`Progress`** <span class="type-label">object</span>
-  - **`EstimatedTimeRemaining`** <span class="type-label">string</span>
-  - **`ProgressPercentage`** <span class="type-label">integer</span>
-- **`Task`** <span class="type-label">object</span>
-  - **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-  - **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-  - **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-  - **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-  - **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-  - **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-  - **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-  - **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-  - **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-  - **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-  - **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-  - **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-  - **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-  - **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-  - **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-  - **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-  - **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-  - **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-  - **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`ActivityLogs`** :span[array of object]{.type-label}
+  - **`Children`** :span[array of object]{.type-label}
+  - **`Ended`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Id`** :span[string]{.type-label}
+  - **`LogElements`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`ProgressMessage`** :span[string]{.type-label}
+  - **`ProgressPercentage`** :span[integer]{.type-label}
+  - **`ShowAtSummaryLevel`** :span[boolean]{.type-label}
+  - **`Started`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `Pending`, `Running`, `Success`, `Failed`, `Skipped`, `SuccessWithWarning`, `Canceled`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`PhysicalLogSize`** :span[integer]{.type-label}
+- **`Progress`** :span[object]{.type-label}
+  - **`EstimatedTimeRemaining`** :span[string]{.type-label}
+  - **`ProgressPercentage`** :span[integer]{.type-label}
+- **`Task`** :span[object]{.type-label}
+  - **`Arguments`** :span[object]{.type-label}  
+    Gets or sets any arguments to the task.
+  - **`CanRerun`** :span[boolean]{.type-label}  
+    If true, then the task can be used as the basis for a new task with the same effect.
+  - **`Completed`** :span[string]{.type-label}  
+    Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+  - **`CompletedTime`** :span[string]{.type-label}  
+    Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+  - **`Duration`** :span[string]{.type-label}  
+    Gets or sets a string indicating how long the task took to run.
+  - **`ErrorMessage`** :span[string]{.type-label}  
+    Gets or sets a short summary of the errors encountered when the task ran (if any).
+  - **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+  - **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task ran to completion successfully.
+  - **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+    Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+  - **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+    True if the task has any pending interruptions.
+  - **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+    True if the task has any pending preconditions.
+  - **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+    True if any warnings or non-fatal errors were recorded in the task log during execution.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsCompleted`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastUpdatedTime`** :span[string]{.type-label}  
+    Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+  - **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+    Contains a list of the types of any pending interruptions.  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+  - **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+    Contains a list of the types of any pending preconditions.
+  - **`ProjectId`** :span[string]{.type-label}  
+    If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+  - **`QueueTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task was queued. Format `date-time`.
+  - **`QueueTimeExpiry`** :span[string]{.type-label}  
+    Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+  - **`ServerNode`** :span[string]{.type-label}  
+    Gets the ID of the Octopus server that created and will control this task.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StartTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task started executing. Format `date-time`.
+  - **`State`** :span[enum]{.type-label}  
+    Gets or sets the current state of the task.  
+    Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -757,78 +964,114 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
 
 ## Prioritize given task to the top of the Task Queue
 
-`POST` `/api/{spaceId}/tasks/{id}/prioritize`
+:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/prioritize`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/prioritize`, `/api/tasks/{id}/prioritize`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Gets a list of tasks that this task is currently queued behind
+## Get a list of tasks that this task is currently queued behind
 
-`GET` `/api/{spaceId}/tasks/{id}/queued-behind`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/queued-behind`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/api/tasks/{id}/queued-behind`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Task.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Holds the list of tasks that a task is currently queued behind. Response to GetServerTaskQueuedBehindRequest.
 
-`TaskResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-  - **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-  - **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-  - **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-  - **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-  - **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-  - **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-  - **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-  - **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-  - **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-  - **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-  - **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-  - **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-  - **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-  - **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-  - **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-  - **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-  - **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-  - **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Arguments`** :span[object]{.type-label}  
+    Gets or sets any arguments to the task.
+  - **`CanRerun`** :span[boolean]{.type-label}  
+    If true, then the task can be used as the basis for a new task with the same effect.
+  - **`Completed`** :span[string]{.type-label}  
+    Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+  - **`CompletedTime`** :span[string]{.type-label}  
+    Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+  - **`Duration`** :span[string]{.type-label}  
+    Gets or sets a string indicating how long the task took to run.
+  - **`ErrorMessage`** :span[string]{.type-label}  
+    Gets or sets a short summary of the errors encountered when the task ran (if any).
+  - **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+  - **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task ran to completion successfully.
+  - **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+    Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+  - **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+    True if the task has any pending interruptions.
+  - **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+    True if the task has any pending preconditions.
+  - **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+    True if any warnings or non-fatal errors were recorded in the task log during execution.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsCompleted`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastUpdatedTime`** :span[string]{.type-label}  
+    Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+  - **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+    Contains a list of the types of any pending interruptions.  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+  - **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+    Contains a list of the types of any pending preconditions.
+  - **`ProjectId`** :span[string]{.type-label}  
+    If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+  - **`QueueTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task was queued. Format `date-time`.
+  - **`QueueTimeExpiry`** :span[string]{.type-label}  
+    Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+  - **`ServerNode`** :span[string]{.type-label}  
+    Gets the ID of the Octopus server that created and will control this task.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StartTime`** :span[string]{.type-label}  
+    Gets or sets the time at which the task started executing. Format `date-time`.
+  - **`State`** :span[enum]{.type-label}  
+    Gets or sets the current state of the task.  
+    Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -896,16 +1139,18 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 ```
 </div>
 
-## Gets the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
+## Get the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
 
-`GET` `/api/{spaceId}/tasks/{id}/raw`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/raw`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{id}/raw`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the task.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the task.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
@@ -920,23 +1165,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{i
 
 ## Change the state of a task
 
-`POST` `/api/{spaceId}/tasks/{id}/state`
+:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/state`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/{id}/state`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the task.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the task.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyServerTaskStateCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the task.
-- **`Reason`** <span class="type-label">string</span> *(required)* — The reason for the state change. Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> — The ID of the space containing the resource(s).
-- **`State`** <span class="type-label">enum</span> *(required)* — The state to set the task to. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the task.
+- **`Reason`** :span[string]{.type-label} *(required)*  
+  The reason for the state change. Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label}  
+  The ID of the space containing the resource(s).
+- **`State`** :span[enum]{.type-label} *(required)*  
+  The state to set the task to.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Request">
 
@@ -954,37 +1204,64 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
 
 `200` — Returns the Task resource after the state has been changed in response to a ModifyServerTaskStateCommand
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -1037,29 +1314,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
 
 ## Get messages for a single Task by Id
 
-`GET` `/api/{spaceId}/tasks/{id}/status/messages`
+:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/status/messages`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/api/tasks/{id}/status/messages`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Task to load status messages for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Task to load status messages for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — The requested Task Status Messages
 
-`GetServerTaskStatusMessagesResponse`.
-
-- **`Messages`** <span class="type-label">array of object</span>
-  - **`Category`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Message`** <span class="type-label">string</span>
-  - **`Title`** <span class="type-label">string</span>
+- **`Messages`** :span[array of object]{.type-label}
+  - **`Category`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Message`** :span[string]{.type-label}
+  - **`Title`** :span[string]{.type-label}
 
 <div data-example="Response">
 

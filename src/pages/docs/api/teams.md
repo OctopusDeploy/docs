@@ -5,54 +5,75 @@ modDate: 2026-08-11
 title: Teams
 ---
 
-## Gets a list of Teams
+## Get a list of Teams
 
-`GET` `/api/{spaceId}/teams`
+:span[GET]{.api-get} `/api/{spaceId}/teams`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
 Lists all of the Teams in the system or Octopus Deploy Space (if provided). The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
-- **`ids`** <span class="type-label">array of string</span> — A list of Team IDs, to limit the matching of Teams to those with a particular ID. Example: ["Teams-1", "Teams-2"].
-- **`name`** <span class="type-label">string</span> — The exact name of a Team to be matched.
-- **`partialName`** <span class="type-label">string</span> — A partial name, to limit the set of Teams to those with a name that includes the partial name.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Team IDs, to limit the matching of Teams to those with a particular ID. Example: ["Teams-1", "Teams-2"].
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Team to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  A partial name, to limit the set of Teams to those with a name that includes the partial name.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Requested list of Teams
 
-`TeamResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanBeDeleted`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
-  - **`CanBeRenamed`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
-  - **`CanChangeMembers`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
-  - **`CanChangeRoles`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
-  - **`Description`** <span class="type-label">string</span>
-  - **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this team.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanBeDeleted`** :span[boolean]{.type-label}  
+    Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
+  - **`CanBeRenamed`** :span[boolean]{.type-label}  
+    Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
+  - **`CanChangeMembers`** :span[boolean]{.type-label}  
+    Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
+  - **`CanChangeRoles`** :span[boolean]{.type-label}  
+    Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
+  - **`Description`** :span[string]{.type-label}
+  - **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+    The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MemberUserIds`** :span[array of string]{.type-label}  
+    The users who belong to the team.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this team.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -103,27 +124,32 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
 
 ## Create a new team
 
-`POST` `/api/{spaceId}/teams`
+:span[POST]{.api-post} `/api/{spaceId}/teams`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The space in which to create the team.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The space in which to create the team.
 
 **Request Body**
 
-`CreateTeamCommand`
-
-- **`Description`** <span class="type-label">string</span> — The description for the team.
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> *(required)* — The externally-managed security groups (e.g., Active Directory groups) who will belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`MemberUserIds`** <span class="type-label">array of string</span> *(required)* — The users who will belong to the team.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the team. Minimum length 1. Maximum length 200.
-- **`Slug`** <span class="type-label">string</span> — The slug of the team.
-- **`SpaceId`** <span class="type-label">string</span> — The space in which to create the team.
+- **`Description`** :span[string]{.type-label}  
+  The description for the team.
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label} *(required)*  
+  The externally-managed security groups (e.g., Active Directory groups) who will belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`MemberUserIds`** :span[array of string]{.type-label} *(required)*  
+  The users who will belong to the team.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the team. Minimum length 1. Maximum length 200.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the team.
+- **`SpaceId`** :span[string]{.type-label}  
+  The space in which to create the team.
 
 <div data-example="Request">
 
@@ -151,25 +177,34 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
 `201` — Created
 
-`TeamResource`.
-
-- **`CanBeDeleted`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
-- **`CanBeRenamed`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
-- **`CanChangeMembers`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
-- **`CanChangeRoles`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this team.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`CanBeDeleted`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
+- **`CanBeRenamed`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
+- **`CanChangeMembers`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
+- **`CanChangeRoles`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MemberUserIds`** :span[array of string]{.type-label}  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this team.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -207,39 +242,48 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
 ## Get a list of Teams
 
-`GET` `/api/{spaceId}/teams/all`
+:span[GET]{.api-get} `/api/{spaceId}/teams/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/all`, `/api/teams/all`.
 
 Lists all of the Teams in the supplied Octopus Deploy Space. The results will be sorted by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested list of Teams
 
-an array of `TeamResource`.
-
-- **`CanBeDeleted`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
-- **`CanBeRenamed`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
-- **`CanChangeMembers`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
-- **`CanChangeRoles`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this team.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`CanBeDeleted`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
+- **`CanBeRenamed`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
+- **`CanChangeMembers`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
+- **`CanChangeRoles`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MemberUserIds`** :span[array of string]{.type-label}  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this team.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -279,38 +323,49 @@ an array of `TeamResource`.
 
 ## Get a Team by ID
 
-`GET` `/api/{spaceId}/teams/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/teams/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the team.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the team.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — The requested Team
 
-`TeamResource`.
-
-- **`CanBeDeleted`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
-- **`CanBeRenamed`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
-- **`CanChangeMembers`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
-- **`CanChangeRoles`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this team.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`CanBeDeleted`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
+- **`CanBeRenamed`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
+- **`CanChangeMembers`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
+- **`CanChangeRoles`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MemberUserIds`** :span[array of string]{.type-label}  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this team.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -346,33 +401,36 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 ```
 </div>
 
-## Modifies an existing Team
+## Modify an existing Team
 
-`PUT` `/api/{spaceId}/teams/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/teams/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
 The Everyone Team is treated as a special case and its members and external groups may not be changed.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Gets or sets a unique identifier for this resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  Gets or sets a unique identifier for this resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyTeamCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — Gets or sets a unique identifier for this resource.
-- **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> *(required)* — Gets or sets the name of this team. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  Gets or sets a unique identifier for this resource.
+- **`MemberUserIds`** :span[array of string]{.type-label}  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Gets or sets the name of this team. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -401,25 +459,34 @@ The Everyone Team is treated as a special case and its members and external grou
 
 `200` — Indicates the team was modified, containing the updated Team
 
-`TeamResource`.
-
-- **`CanBeDeleted`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
-- **`CanBeRenamed`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
-- **`CanChangeMembers`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
-- **`CanChangeRoles`** <span class="type-label">boolean</span> — Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MemberUserIds`** <span class="type-label">array of string</span> — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this team.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`CanBeDeleted`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be deleted. The built-in teams provided by Octopus generally cannot be deleted.
+- **`CanBeRenamed`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team can be renamed. The built-in teams provided by Octopus generally cannot be renamed.
+- **`CanChangeMembers`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the members of this team can be changed. The built-in Everyone team provided by Octopus cannot have its members changed, as it will always contain all users.
+- **`CanChangeRoles`** :span[boolean]{.type-label}  
+  Gets or sets a flag indicating whether the team's roles can be changed. The built-in Octopus Administrators team provided by Octopus cannot have its roles modified; all other teams can.
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MemberUserIds`** :span[array of string]{.type-label}  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this team.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -455,16 +522,17 @@ The Everyone Team is treated as a special case and its members and external grou
 ```
 </div>
 
-## Deletes an existing Team
+## Delete an existing Team
 
-`DELETE` `/api/{spaceId}/teams/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/teams/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Team to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Team to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -472,47 +540,57 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
 ## Get a list of a Team's Scoped User Roles
 
-`GET` `/api/{spaceId}/teams/{id}/scopeduserroles`
+:span[GET]{.api-get} `/api/{spaceId}/teams/{id}/scopeduserroles`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}/scopeduserroles`, `/api/teams/{id}/scopeduserroles`.
 
 List all the Scoped User Roles for the Team. Results will be sorted by Space Id with System Teams being sorted before Space Teams.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Scoped User Roles
 
-`ScopedUserRoleResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TeamId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`UserRoleId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TeamId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`UserRoleId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

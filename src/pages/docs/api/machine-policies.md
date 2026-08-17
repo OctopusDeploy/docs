@@ -7,54 +7,71 @@ title: Machine Policies
 
 ## Get a paginated list of the Machine Policies in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/machinepolicies`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies`
 
 Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machinepolicies`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — Specific machine policy IDs to filter out.
-- **`partialName`** <span class="type-label">string</span> — A partial machine policy name used for a sub-string search.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  Specific machine policy IDs to filter out.
+- **`partialName`** :span[string]{.type-label}  
+  A partial machine policy name used for a sub-string search.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of the Machine Policies in the supplied Octopus Deploy Space (sorted alphabetically by name).
 
-`MachinePolicyResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-  - **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-  - **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDefault`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+  - **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDefault`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -131,56 +148,72 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 ```
 </div>
 
-## Creates a new Machine Policy
+## Create a new Machine Policy
 
-`POST` `/api/{spaceId}/machinepolicies`
+:span[POST]{.api-post} `/api/{spaceId}/machinepolicies`
 
 Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machinepolicies`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateMachinePolicyCommand`
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -242,48 +275,67 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 
 `201` — Created
 
-`MachinePolicyResource`.
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span>
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label}
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -351,60 +403,79 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 
 ## Get a list of Machine Policies
 
-`GET` `/api/{spaceId}/machinepolicies/all`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/all`
 
 Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/machinepolicies/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — All the Machine Policies in the supplied Octopus Deploy Space.
 
-an array of `MachinePolicyResource`.
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span>
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label}
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -472,62 +543,81 @@ an array of `MachinePolicyResource`.
 ```
 </div>
 
-## Gets a template for a new Machine Policy, which includes any defaults
+## Get a template for a new Machine Policy, which includes any defaults
 
-`GET` `/api/{spaceId}/machinepolicies/template`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/template`
 
 Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier}/machinepolicies/template`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Machine Policy Template
 
-`MachinePolicyResource`.
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span>
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label}
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -595,61 +685,82 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
 
 ## Get a Machine Policy by ID
 
-`GET` `/api/{spaceId}/machinepolicies/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}`
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Machine Policy.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Machine Policy.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested machine policy
 
-`MachinePolicyResource`.
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span>
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label}
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -715,58 +826,78 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 ```
 </div>
 
-## Modifies an existing Machine Policy
+## Modify an existing Machine Policy
 
-`PUT` `/api/{spaceId}/machinepolicies/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/machinepolicies/{id}`
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The Machine Policy ID.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The Space ID.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The Machine Policy ID.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The Space ID.
 
 **Request Body**
 
-`ModifyMachinePolicyCommand`
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — The Machine Policy ID.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The Space ID.
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The Machine Policy ID.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The Space ID.
 
 <div data-example="Request">
 
@@ -829,48 +960,67 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 
 `200` — Confirmation that the Machine Policy was modified, containing the new Policy
 
-`MachinePolicyResource`.
-
-- **`ConnectionConnectTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryCountLimit`** <span class="type-label">integer</span>
-- **`ConnectionRetrySleepInterval`** <span class="type-label">string</span> — Format `date-span`.
-- **`ConnectionRetryTimeLimit`** <span class="type-label">string</span> — Format `date-span`.
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachineCleanupPolicy`** <span class="type-label">object</span>
-  - **`DeleteMachinesBehavior`** <span class="type-label">enum</span> — Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
-  - **`DeleteMachinesElapsedTimeSpan`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineConnectivityPolicy`** <span class="type-label">object</span>
-  - **`MachineConnectivityBehavior`** <span class="type-label">enum</span> — Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
-- **`MachineHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`BashHealthCheckPolicy`** <span class="type-label">object</span>
-  - **`HealthCheckCron`** <span class="type-label">string</span>
-  - **`HealthCheckCronTimezone`** <span class="type-label">string</span>
-  - **`HealthCheckInterval`** <span class="type-label">string</span> — Format `date-span`.
-  - **`HealthCheckType`** <span class="type-label">enum</span> — Allowed values: `RunScript`, `OnlyConnectivity`.
-  - **`PowerShellHealthCheckPolicy`** <span class="type-label">object</span>
-- **`MachinePackageCacheRetentionPolicy`** <span class="type-label">object</span>
-  - **`PackageUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-  - **`QuantityOfPackagesToKeep`** <span class="type-label">integer</span>
-  - **`QuantityOfVersionsToKeep`** <span class="type-label">integer</span>
-  - **`Strategy`** <span class="type-label">enum</span> — Allowed values: `Default`, `Quantities`.
-  - **`VersionUnit`** <span class="type-label">enum</span> — Allowed values: `Items`.
-- **`MachineRpcCallRetryPolicy`** <span class="type-label">object</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-  - **`HealthCheckRetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-  - **`RetryDuration`** <span class="type-label">string</span> — Format `date-span`.
-- **`MachineUpdatePolicy`** <span class="type-label">object</span>
-  - **`CalamariUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
-  - **`KubernetesAgentUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`, `Block`.
-  - **`TentacleUpdateAccountId`** <span class="type-label">string</span>
-  - **`TentacleUpdateBehavior`** <span class="type-label">enum</span> — Allowed values: `NeverUpdate`, `Update`.
-- **`Name`** <span class="type-label">string</span>
-- **`PollingRequestQueueTimeout`** <span class="type-label">string</span> — Format `date-span`.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`ConnectionConnectTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryCountLimit`** :span[integer]{.type-label}
+- **`ConnectionRetrySleepInterval`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`ConnectionRetryTimeLimit`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachineCleanupPolicy`** :span[object]{.type-label}
+  - **`DeleteMachinesBehavior`** :span[enum]{.type-label}  
+    Allowed values: `DoNotDelete`, `DeleteUnavailableMachines`.
+  - **`DeleteMachinesElapsedTimeSpan`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineConnectivityPolicy`** :span[object]{.type-label}
+  - **`MachineConnectivityBehavior`** :span[enum]{.type-label}  
+    Allowed values: `ExpectedToBeOnline`, `MayBeOfflineAndCanBeSkipped`.
+- **`MachineHealthCheckPolicy`** :span[object]{.type-label}
+  - **`BashHealthCheckPolicy`** :span[object]{.type-label}
+  - **`HealthCheckCron`** :span[string]{.type-label}
+  - **`HealthCheckCronTimezone`** :span[string]{.type-label}
+  - **`HealthCheckInterval`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`HealthCheckType`** :span[enum]{.type-label}  
+    Allowed values: `RunScript`, `OnlyConnectivity`.
+  - **`PowerShellHealthCheckPolicy`** :span[object]{.type-label}
+- **`MachinePackageCacheRetentionPolicy`** :span[object]{.type-label}
+  - **`PackageUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+  - **`QuantityOfPackagesToKeep`** :span[integer]{.type-label}
+  - **`QuantityOfVersionsToKeep`** :span[integer]{.type-label}
+  - **`Strategy`** :span[enum]{.type-label}  
+    Allowed values: `Default`, `Quantities`.
+  - **`VersionUnit`** :span[enum]{.type-label}  
+    Allowed values: `Items`.
+- **`MachineRpcCallRetryPolicy`** :span[object]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+  - **`HealthCheckRetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+  - **`RetryDuration`** :span[string]{.type-label}  
+    Format `date-span`.
+- **`MachineUpdatePolicy`** :span[object]{.type-label}
+  - **`CalamariUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `UpdateOnDeployment`, `UpdateOnNewMachine`, `UpdateAlways`.
+  - **`KubernetesAgentUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`, `Block`.
+  - **`TentacleUpdateAccountId`** :span[string]{.type-label}
+  - **`TentacleUpdateBehavior`** :span[enum]{.type-label}  
+    Allowed values: `NeverUpdate`, `Update`.
+- **`Name`** :span[string]{.type-label}
+- **`PollingRequestQueueTimeout`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -936,78 +1086,94 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 ```
 </div>
 
-## Deletes the specified Machine Policy
+## Delete the specified Machine Policy
 
-`DELETE` `/api/{spaceId}/machinepolicies/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/machinepolicies/{id}`
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Machine Policy to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Machine Policy to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Gets a paginated list of the machines that belong to the given Machine Policy
+## Get a paginated list of the machines that belong to the given Machine Policy
 
-`GET` `/api/{spaceId}/machinepolicies/{id}/machines`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}/machines`
 
 Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/machines`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Machine Policy.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Machine Policy.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 10. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 10. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of the machines that belong to the given Machine Policy
 
-`MachineResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`Roles`** <span class="type-label">array of string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`Roles`** :span[array of string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1079,22 +1245,22 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
 ```
 </div>
 
-## Deletes the specified Machine Policy
+## Delete the specified Machine Policy
 
-`DELETE` `/api/{spaceId}/machinepolicies/{id}/v1`
+:span[DELETE]{.api-delete} `/api/{spaceId}/machinepolicies/{id}/v1`
 
 Also reachable at `/api/machinepolicies/{id}/v1`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Machine Policy to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Machine Policy to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the Machine Policy has been deleted
-
-`DeleteMachinePolicyResponse`.
 
 <div data-example="Response">
 
@@ -1103,59 +1269,72 @@ Also reachable at `/api/machinepolicies/{id}/v1`, `/api/spaces/{spaceIdentifier}
 ```
 </div>
 
-## Gets a paginated list of the workers that belong to the given Machine Policy
+## Get a paginated list of the workers that belong to the given Machine Policy
 
-`GET` `/api/{spaceId}/machinepolicies/{id}/workers`
+:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}/workers`
 
 Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/workers`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Machine Policy.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Machine Policy.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 10. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 10. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of the machines that belong to the given Machine Policy
 
-`WorkerResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-  - **`WorkerPoolIds`** <span class="type-label">array of string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+  - **`WorkerPoolIds`** :span[array of string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

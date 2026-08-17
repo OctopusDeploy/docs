@@ -5,23 +5,22 @@ modDate: 2026-08-11
 title: Project Templates
 ---
 
-## Command to share a project template to spaces
+## Share a project template to spaces
 
-`POST` `/api/platformhub/{gitRef}/projecttemplates/{slug}/share`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/projecttemplates/{slug}/share`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ShareProjectTemplateCommand`
-
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`IndividuallySharedSpaceIds`** <span class="type-label">array of string</span> *(required)*
-- **`ShareToAllSpaces`** <span class="type-label">boolean</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label} *(required)*
+- **`ShareToAllSpaces`** :span[boolean]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -41,11 +40,9 @@ title: Project Templates
 
 `200` — Response containing the results of the share project template command
 
-`ShareProjectTemplateResponse`.
-
-- **`IndividuallySharedSpaceIds`** <span class="type-label">array of string</span>
-- **`IndividuallyUnsharedSpaceIds`** <span class="type-label">array of string</span>
-- **`SharedToAllSpaces`** <span class="type-label">boolean</span>
+- **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label}
+- **`IndividuallyUnsharedSpaceIds`** :span[array of string]{.type-label}
+- **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 

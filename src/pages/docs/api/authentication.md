@@ -7,7 +7,7 @@ title: Authentication
 
 ## Get authentication providers
 
-`GET` `/api/authentication`
+:span[GET]{.api-get} `/api/authentication`
 
 Provides the details of the enabled authentication providers.
 
@@ -15,27 +15,30 @@ Provides the details of the enabled authentication providers.
 
 `200` — The requested Authentication Information
 
-`AuthenticationResource`.
-
-- **`AnyAuthenticationProvidersSupportPasswordManagement`** <span class="type-label">boolean</span>
-- **`ApiKeyDefaultExpiryDays`** <span class="type-label">integer</span>
-- **`ApiKeyMaxExpiryDays`** <span class="type-label">integer</span>
-- **`AuthenticationProviders`** <span class="type-label">array of object</span>
-  - **`CSSLinks`** <span class="type-label">array of string</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`FormsLoginEnabled`** <span class="type-label">boolean</span>
-  - **`IdentityType`** <span class="type-label">enum</span> — Allowed values: `Guest`, `UsernamePassword`, `ActiveDirectory`, `OAuth`.
-  - **`JavascriptLinks`** <span class="type-label">array of string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`AutoLoginEnabled`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OctopusIdDynamicRegistrationPending`** <span class="type-label">boolean</span>
-- **`RememberMeEnabled`** <span class="type-label">boolean</span>
-- **`UserApiKeysEnabled`** <span class="type-label">boolean</span>
+- **`AnyAuthenticationProvidersSupportPasswordManagement`** :span[boolean]{.type-label}
+- **`ApiKeyDefaultExpiryDays`** :span[integer]{.type-label}
+- **`ApiKeyMaxExpiryDays`** :span[integer]{.type-label}
+- **`AuthenticationProviders`** :span[array of object]{.type-label}
+  - **`CSSLinks`** :span[array of string]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`FormsLoginEnabled`** :span[boolean]{.type-label}
+  - **`IdentityType`** :span[enum]{.type-label}  
+    Allowed values: `Guest`, `UsernamePassword`, `ActiveDirectory`, `OAuth`.
+  - **`JavascriptLinks`** :span[array of string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`AutoLoginEnabled`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OctopusIdDynamicRegistrationPending`** :span[boolean]{.type-label}
+- **`RememberMeEnabled`** :span[boolean]{.type-label}
+- **`UserApiKeysEnabled`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -79,15 +82,14 @@ Provides the details of the enabled authentication providers.
 ```
 </div>
 
-## Given a URL query string, determines whether an external server (.e.g Okta) has initiated login and if so the provider's name
+## Determine whether an external server (.e.g Okta) has initiated login from a URL query string and, if so, get the provider's name
 
-`POST` `/api/authentication/checklogininitiated`
+:span[POST]{.api-post} `/api/authentication/checklogininitiated`
 
 **Request Body**
 
-`CheckLoginInitiatedCommand`
-
-- **`EncodedQueryString`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`EncodedQueryString`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -102,14 +104,16 @@ Provides the details of the enabled authentication providers.
 
 `200` — Whether the external server has initiated login and if so the provider's name
 
-`LoginInitiatedResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProviderName`** <span class="type-label">string</span>
-- **`WasLoginInitiated`** <span class="type-label">boolean</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProviderName`** :span[string]{.type-label}
+- **`WasLoginInitiated`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 

@@ -5,24 +5,25 @@ modDate: 2026-08-11
 title: Open ID Connect
 ---
 
-## Gets OpenID Connect configuration
+## Get OpenID Connect configuration
 
-`GET` `/api/.well-known/openid-configuration`
+:span[GET]{.api-get} `/api/.well-known/openid-configuration`
 
 **Response**
 
 `200` — OpenID Configuration response
 
-`GetOpenIdConfigurationResponse`.
-
-- **`claims_supported`** <span class="type-label">array of string</span>
-- **`id_token_signing_alg_values_supported`** <span class="type-label">array of string</span>
-- **`issuer`** <span class="type-label">string</span> — Minimum length 1.
-- **`jwks_uri`** <span class="type-label">string</span> — Minimum length 1.
-- **`response_types_supported`** <span class="type-label">array of string</span>
-- **`scopes_supported`** <span class="type-label">array of string</span>
-- **`subject_types_supported`** <span class="type-label">array of string</span>
-- **`token_endpoint`** <span class="type-label">string</span> — Minimum length 1.
+- **`claims_supported`** :span[array of string]{.type-label}
+- **`id_token_signing_alg_values_supported`** :span[array of string]{.type-label}
+- **`issuer`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`jwks_uri`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`response_types_supported`** :span[array of string]{.type-label}
+- **`scopes_supported`** :span[array of string]{.type-label}
+- **`subject_types_supported`** :span[array of string]{.type-label}
+- **`token_endpoint`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -52,7 +53,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticate/AzureAD
 
-`POST` `/api/users/authenticate/AzureAD`
+:span[POST]{.api-post} `/api/users/authenticate/AzureAD`
 
 **Response**
 
@@ -60,7 +61,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticate/GenericOidc
 
-`POST` `/api/users/authenticate/GenericOidc`
+:span[POST]{.api-post} `/api/users/authenticate/GenericOidc`
 
 **Response**
 
@@ -68,7 +69,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticate/GoogleApps
 
-`POST` `/api/users/authenticate/GoogleApps`
+:span[POST]{.api-post} `/api/users/authenticate/GoogleApps`
 
 **Response**
 
@@ -76,7 +77,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticate/OctopusID
 
-`POST` `/api/users/authenticate/OctopusID`
+:span[POST]{.api-post} `/api/users/authenticate/OctopusID`
 
 **Response**
 
@@ -84,7 +85,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticate/Okta
 
-`POST` `/api/users/authenticate/Okta`
+:span[POST]{.api-post} `/api/users/authenticate/Okta`
 
 **Response**
 
@@ -92,7 +93,7 @@ title: Open ID Connect
 
 ## GET /api/users/authenticatedToken/AzureAD
 
-`GET` `/api/users/authenticatedToken/AzureAD`
+:span[GET]{.api-get} `/api/users/authenticatedToken/AzureAD`
 
 **Response**
 
@@ -100,7 +101,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticatedToken/AzureAD
 
-`POST` `/api/users/authenticatedToken/AzureAD`
+:span[POST]{.api-post} `/api/users/authenticatedToken/AzureAD`
 
 **Response**
 
@@ -108,7 +109,7 @@ title: Open ID Connect
 
 ## GET /api/users/authenticatedToken/GenericOidc
 
-`GET` `/api/users/authenticatedToken/GenericOidc`
+:span[GET]{.api-get} `/api/users/authenticatedToken/GenericOidc`
 
 **Response**
 
@@ -116,7 +117,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticatedToken/GenericOidc
 
-`POST` `/api/users/authenticatedToken/GenericOidc`
+:span[POST]{.api-post} `/api/users/authenticatedToken/GenericOidc`
 
 **Response**
 
@@ -124,7 +125,7 @@ title: Open ID Connect
 
 ## GET /api/users/authenticatedToken/GoogleApps
 
-`GET` `/api/users/authenticatedToken/GoogleApps`
+:span[GET]{.api-get} `/api/users/authenticatedToken/GoogleApps`
 
 **Response**
 
@@ -132,7 +133,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticatedToken/GoogleApps
 
-`POST` `/api/users/authenticatedToken/GoogleApps`
+:span[POST]{.api-post} `/api/users/authenticatedToken/GoogleApps`
 
 **Response**
 
@@ -140,7 +141,7 @@ title: Open ID Connect
 
 ## GET /api/users/authenticatedToken/OctopusID
 
-`GET` `/api/users/authenticatedToken/OctopusID`
+:span[GET]{.api-get} `/api/users/authenticatedToken/OctopusID`
 
 **Response**
 
@@ -148,7 +149,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticatedToken/OctopusID
 
-`POST` `/api/users/authenticatedToken/OctopusID`
+:span[POST]{.api-post} `/api/users/authenticatedToken/OctopusID`
 
 **Response**
 
@@ -156,7 +157,7 @@ title: Open ID Connect
 
 ## GET /api/users/authenticatedToken/Okta
 
-`GET` `/api/users/authenticatedToken/Okta`
+:span[GET]{.api-get} `/api/users/authenticatedToken/Okta`
 
 **Response**
 
@@ -164,7 +165,7 @@ title: Open ID Connect
 
 ## POST /api/users/authenticatedToken/Okta
 
-`POST` `/api/users/authenticatedToken/Okta`
+:span[POST]{.api-post} `/api/users/authenticatedToken/Okta`
 
 **Response**
 

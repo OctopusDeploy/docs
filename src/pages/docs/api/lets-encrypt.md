@@ -5,29 +5,32 @@ modDate: 2026-08-11
 title: Lets Encrypt
 ---
 
-## Requests the current Let's Encrypt configuration
+## Request the current Let's Encrypt configuration
 
-`GET` `/api/letsencryptconfiguration`
+:span[GET]{.api-get} `/api/letsencryptconfiguration`
 
 **Response**
 
 `200` — The current Let's Encrypt configuration for this Octopus Server
 
-`LetsEncryptConfigurationResource`.
-
-- **`AcceptLetsEncryptTermsOfService`** <span class="type-label">boolean</span>
-- **`CertificateExpiryDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateThumbprint`** <span class="type-label">string</span>
-- **`DnsName`** <span class="type-label">string</span>
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`HttpsPort`** <span class="type-label">integer</span>
-- **`IPAddress`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Path`** <span class="type-label">string</span>
-- **`RegistrationEmailAddress`** <span class="type-label">string</span>
+- **`AcceptLetsEncryptTermsOfService`** :span[boolean]{.type-label}
+- **`CertificateExpiryDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateThumbprint`** :span[string]{.type-label}
+- **`DnsName`** :span[string]{.type-label}
+- **`Enabled`** :span[boolean]{.type-label}
+- **`HttpsPort`** :span[integer]{.type-label}
+- **`IPAddress`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Path`** :span[string]{.type-label}
+- **`RegistrationEmailAddress`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -54,15 +57,13 @@ title: Lets Encrypt
 ```
 </div>
 
-## Allows you to disable the Let's Encrypt configuration for this Octopus Server
+## Allow you to disable the Let's Encrypt configuration for this Octopus Server
 
-`PUT` `/api/letsencryptconfiguration`
+:span[PUT]{.api-put} `/api/letsencryptconfiguration`
 
 **Request Body**
 
-`ModifyLetsEncryptConfigurationCommand`
-
-- **`Enabled`** <span class="type-label">boolean</span> *(required)*
+- **`Enabled`** :span[boolean]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -77,21 +78,24 @@ title: Lets Encrypt
 
 `200` — The updated configuration
 
-`LetsEncryptConfigurationResource`.
-
-- **`AcceptLetsEncryptTermsOfService`** <span class="type-label">boolean</span>
-- **`CertificateExpiryDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateThumbprint`** <span class="type-label">string</span>
-- **`DnsName`** <span class="type-label">string</span>
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`HttpsPort`** <span class="type-label">integer</span>
-- **`IPAddress`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Path`** <span class="type-label">string</span>
-- **`RegistrationEmailAddress`** <span class="type-label">string</span>
+- **`AcceptLetsEncryptTermsOfService`** :span[boolean]{.type-label}
+- **`CertificateExpiryDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateThumbprint`** :span[string]{.type-label}
+- **`DnsName`** :span[string]{.type-label}
+- **`Enabled`** :span[boolean]{.type-label}
+- **`HttpsPort`** :span[integer]{.type-label}
+- **`IPAddress`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Path`** :span[string]{.type-label}
+- **`RegistrationEmailAddress`** :span[string]{.type-label}
 
 <div data-example="Response">
 

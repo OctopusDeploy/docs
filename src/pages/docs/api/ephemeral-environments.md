@@ -7,24 +7,23 @@ title: Ephemeral Environments
 
 ## Deprovision an ephemeral environment
 
-`POST` `/api/{spaceId}/environments/ephemeral/{id}/deprovision`
+:span[POST]{.api-post} `/api/{spaceId}/environments/ephemeral/{id}/deprovision`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/deprovision`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the ephemeral environment to deprovision.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the ephemeral environment to deprovision.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Deprovision an ephemeral environment response
 
-`DeprovisionEphemeralEnvironmentResponse`.
-
-- **`DeprovisioningRuns`** <span class="type-label">array of object</span>
-  - **`RunbookRunId`** <span class="type-label">string</span>
-  - **`TaskId`** <span class="type-label">string</span>
+- **`DeprovisioningRuns`** :span[array of object]{.type-label}
+  - **`RunbookRunId`** :span[string]{.type-label}
+  - **`TaskId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -40,24 +39,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/dep
 ```
 </div>
 
-## Allows the creation of an ephemeral environment in a given space
+## Allow the creation of an ephemeral environment in a given space
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateEphemeralEnvironmentCommand`
-
-- **`EnvironmentName`** <span class="type-label">string</span> *(required)* — The name to give the new ephemeral environment. Minimum length 1.
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`EnvironmentName`** :span[string]{.type-label} *(required)*  
+  The name to give the new ephemeral environment. Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -74,9 +72,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 `201` — Created
 
-`CreateEphemeralEnvironmentResponse`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -89,25 +85,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Deprovision an ephemeral environment for a specific project
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovision`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovision`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovision`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Deprovision an ephemeral environment response
 
-`DeprovisionEphemeralEnvironmentForProjectResponse`.
-
-- **`DeprovisioningRun`** <span class="type-label">object</span>
-  - **`RunbookRunId`** <span class="type-label">string</span>
-  - **`TaskId`** <span class="type-label">string</span>
+- **`DeprovisioningRun`** :span[object]{.type-label}
+  - **`RunbookRunId`** :span[string]{.type-label}
+  - **`TaskId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -121,24 +115,22 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Command to mark a failed deprovisioning as successful for an ephemeral environment
+## Mark a failed deprovisioning as successful for an ephemeral environment
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/mark-successful`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/mark-successful`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/mark-successful`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response to mark deprovisioning as successful for an ephemeral environment
 
-`MarkEphemeralEnvironmentDeprovisioningSuccessfulResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -146,27 +138,25 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Command to retry deprovisioning an ephemeral environment
+## Retry deprovisioning an ephemeral environment
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/retry`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/retry`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/retry`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response to retry deprovisioning an ephemeral environment
 
-`RetryDeprovisioningEphemeralEnvironmentResponse`.
-
-- **`DeprovisioningRun`** <span class="type-label">object</span>
-  - **`RunbookRunId`** <span class="type-label">string</span>
-  - **`TaskId`** <span class="type-label">string</span>
+- **`DeprovisioningRun`** :span[object]{.type-label}
+  - **`RunbookRunId`** :span[string]{.type-label}
+  - **`TaskId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -180,23 +170,21 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Command to mark a failed provisioning as successful for an ephemeral environment
+## Mark a failed provisioning as successful for an ephemeral environment
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/mark-successful`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/mark-successful`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/mark-successful`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response to mark provisioning as successful for an ephemeral environment
-
-`MarkEphemeralEnvironmentProvisioningSuccessfulResponse`.
 
 <div data-example="Response">
 
@@ -205,27 +193,25 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Command to retry provisioning an ephemeral environment
+## Retry provisioning an ephemeral environment
 
-`POST` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/retry`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/retry`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/retry`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response to retry provisioning an ephemeral environment
 
-`RetryProvisioningEphemeralEnvironmentResponse`.
-
-- **`ProvisioningRun`** <span class="type-label">object</span>
-  - **`RunbookRunId`** <span class="type-label">string</span>
-  - **`TaskId`** <span class="type-label">string</span>
+- **`ProvisioningRun`** :span[object]{.type-label}
+  - **`RunbookRunId`** :span[string]{.type-label}
+  - **`TaskId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -239,25 +225,24 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Gets the status of an ephemeral environment for a given project
+## Get the status of an ephemeral environment for a given project
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{id}/status`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{id}/status`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{id}/status`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the ephemeral environment whose status to report.
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the ephemeral environment whose status to report.
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-`GetEphemeralEnvironmentProjectStatusResponse`.
-
-- **`Status`** <span class="type-label">string</span>
+- **`Status`** :span[string]{.type-label}
 
 <div data-example="Response">
 

@@ -7,50 +7,69 @@ title: Users
 
 ## Get a list of Users
 
-`GET` `/api/users`
+:span[GET]{.api-get} `/api/users`
 
 Lists all of the Users in the current Octopus Deploy instance, from all Teams. The results will be sorted alphabetically by username.
 
-**Parameters**
+**Query Parameters**
 
-- **`filter`** <span class="type-label">string</span> — Filters the Users by Username/DisplayName/EmailAddress/IdentificationToken using the specified `filter` fragment.
-- **`isActive`** <span class="type-label">boolean</span> — A filter to return only active (true) or disabled (false) users. Omit to return both.
-- **`isServiceAccount`** <span class="type-label">boolean</span> — A filter to return only service account users.
-- **`serviceAccountType`** <span class="type-label">enum</span> — A filter to return only service accounts of the specified type. Allowed values: `Standard`, `Agent`.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`filter`** :span[string]{.type-label}  
+  Filters the Users by Username/DisplayName/EmailAddress/IdentificationToken using the specified `filter` fragment.
+- **`isActive`** :span[boolean]{.type-label}  
+  A filter to return only active (true) or disabled (false) users. Omit to return both.
+- **`isServiceAccount`** :span[boolean]{.type-label}  
+  A filter to return only service account users.
+- **`serviceAccountType`** :span[enum]{.type-label}  
+  A filter to return only service accounts of the specified type.  
+  Allowed values: `Standard`, `Agent`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Users that meet the filter conditions
 
-`UserResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-  - **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`Identities`** <span class="type-label">array of object</span>
-  - **`IsActive`** <span class="type-label">boolean</span>
-  - **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-  - **`IsService`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Password`** <span class="type-label">string</span>
-  - **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-  - **`Username`** <span class="type-label">string</span> — Maximum length 64.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`DisplayName`** :span[string]{.type-label}  
+    Maximum length 64.
+  - **`EmailAddress`** :span[string]{.type-label}  
+    Format `email`. Maximum length 256.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`Identities`** :span[array of object]{.type-label}
+  - **`IsActive`** :span[boolean]{.type-label}
+  - **`IsRequestor`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether this user resource represents the user who requested it.
+  - **`IsService`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Password`** :span[string]{.type-label}
+  - **`ServiceAccountType`** :span[enum]{.type-label}  
+    Allowed values: `Standard`, `Agent`.
+  - **`Username`** :span[string]{.type-label}  
+    Maximum length 64.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -98,24 +117,25 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 ```
 </div>
 
-## Creates a new user
+## Create a new user
 
-`POST` `/api/users`
+:span[POST]{.api-post} `/api/users`
 
 **Request Body**
 
-`CreateUserCommand`
-
-- **`DisplayName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`EmailAddress`** <span class="type-label">string</span>
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsService`** <span class="type-label">boolean</span>
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`DisplayName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`EmailAddress`** :span[string]{.type-label}
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsService`** :span[boolean]{.type-label}
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -146,25 +166,33 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 
 `201` — Created
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -204,7 +232,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 
 ## Get a list of Users
 
-`GET` `/api/users/all`
+:span[GET]{.api-get} `/api/users/all`
 
 Lists all the Users in the System. The results will be sorted alphabetically by `Username`.
 
@@ -212,25 +240,33 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
 
 `200` — A list of all the users
 
-an array of `UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -266,32 +302,31 @@ an array of `UserResource`.
 ```
 </div>
 
-## Provides the details of the enabled authentication providers and whether the current user can edit logins for the given user
+## Provide the details of the enabled authentication providers and whether the current user can edit logins for the given user
 
-`GET` `/api/users/authentication/{userId}`
+:span[GET]{.api-get} `/api/users/authentication/{userId}`
 
 Also reachable at `/api/users/authentication`.
 
-**Parameters**
+**Path Parameters**
 
-- **`userId`** <span class="type-label">string</span> *(required)*
+- **`userId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The currently enabled authentication providers
 
-`GetUserAuthenticationProvidersResponse`.
-
-- **`AuthenticationProviders`** <span class="type-label">array of object</span>
-  - **`CSSLinks`** <span class="type-label">array of string</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`FormsLoginEnabled`** <span class="type-label">boolean</span>
-  - **`IdentityType`** <span class="type-label">enum</span> — Allowed values: `Guest`, `UsernamePassword`, `ActiveDirectory`, `OAuth`.
-  - **`JavascriptLinks`** <span class="type-label">array of string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`CanCurrentUserEditIdentitiesForUser`** <span class="type-label">boolean</span>
-- **`Links`** <span class="type-label">object</span>
+- **`AuthenticationProviders`** :span[array of object]{.type-label}
+  - **`CSSLinks`** :span[array of string]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`FormsLoginEnabled`** :span[boolean]{.type-label}
+  - **`IdentityType`** :span[enum]{.type-label}  
+    Allowed values: `Guest`, `UsernamePassword`, `ActiveDirectory`, `OAuth`.
+  - **`JavascriptLinks`** :span[array of string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`CanCurrentUserEditIdentitiesForUser`** :span[boolean]{.type-label}
+- **`Links`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -326,23 +361,21 @@ Also reachable at `/api/users/authentication`.
 ```
 </div>
 
-## Searches for users, using the authentication providers
+## Search for users, using the authentication providers
 
-`GET` `/api/users/external-search`
+:span[GET]{.api-get} `/api/users/external-search`
 
-**Parameters**
+**Query Parameters**
 
-- **`partialName`** <span class="type-label">string</span> *(required)*
+- **`partialName`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The results of the external user provider search
 
-`SearchExternalAuthenticationProvidersResponse`.
-
-- **`Links`** <span class="type-label">object</span>
-- **`Results`** <span class="type-label">array of object</span>
-  - **`Identities`** <span class="type-label">array of object</span>
+- **`Links`** :span[object]{.type-label}
+- **`Results`** :span[array of object]{.type-label}
+  - **`Identities`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 
@@ -364,22 +397,20 @@ Also reachable at `/api/users/authentication`.
 ```
 </div>
 
-## Gets the metadata to describe the claims/fields used by authentication providers that support identities
+## Get the metadata to describe the claims/fields used by authentication providers that support identities
 
-`GET` `/api/users/identity-metadata`
+:span[GET]{.api-get} `/api/users/identity-metadata`
 
 **Response**
 
 `200` — The user identity metadata
 
-`GetUserIdentityMetadataResponse`.
-
-- **`Links`** <span class="type-label">object</span>
-- **`Providers`** <span class="type-label">array of object</span>
-  - **`ClaimDescriptors`** <span class="type-label">array of object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`ScimEnabled`** <span class="type-label">boolean</span>
+- **`Links`** :span[object]{.type-label}
+- **`Providers`** :span[array of object]{.type-label}
+  - **`ClaimDescriptors`** :span[array of object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`ScimEnabled`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -408,21 +439,25 @@ Also reachable at `/api/users/authentication`.
 ```
 </div>
 
-## A command resource used for logging in
+## Log in
 
-`POST` `/api/users/login`
+:span[POST]{.api-post} `/api/users/login`
 
 **Request Body**
 
-`LoginUserCommand`
-
-- **`Password`** <span class="type-label">string</span> *(required)* — The password to log in with. Minimum length 1.
-- **`RememberMe`** <span class="type-label">boolean</span> — Whether the cookie should be persistent.
-- **`RemoteIpAddress`** <span class="type-label">string</span> — IP Address of the user.
-- **`State`** <span class="type-label">object</span>
-  - **`RedirectAfterLoginTo`** <span class="type-label">string</span> — The Url, relative to the portal site, to redirect to post successful login.
-  - **`UsingSecureConnection`** <span class="type-label">boolean</span> — Whether the client says it's using a secure connection. We need this because SSL offloading can obscure this and the server cannot tell whether the client initiated the call using a secure connection.
-- **`Username`** <span class="type-label">string</span> *(required)* — The username to log in with. Minimum length 1.
+- **`Password`** :span[string]{.type-label} *(required)*  
+  The password to log in with. Minimum length 1.
+- **`RememberMe`** :span[boolean]{.type-label}  
+  Whether the cookie should be persistent.
+- **`RemoteIpAddress`** :span[string]{.type-label}  
+  IP Address of the user.
+- **`State`** :span[object]{.type-label}
+  - **`RedirectAfterLoginTo`** :span[string]{.type-label}  
+    The Url, relative to the portal site, to redirect to post successful login.
+  - **`UsingSecureConnection`** :span[boolean]{.type-label}  
+    Whether the client says it's using a secure connection. We need this because SSL offloading can obscure this and the server cannot tell whether the client initiated the call using a secure connection.
+- **`Username`** :span[string]{.type-label} *(required)*  
+  The username to log in with. Minimum length 1.
 
 <div data-example="Request">
 
@@ -444,25 +479,33 @@ Also reachable at `/api/users/authentication`.
 
 `200` — The details of a successful login
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -502,7 +545,7 @@ Also reachable at `/api/users/authentication`.
 
 ## POST /api/users/logout
 
-`POST` `/api/users/logout`
+:span[POST]{.api-post} `/api/users/logout`
 
 Logs out the current user.
 
@@ -510,33 +553,41 @@ Logs out the current user.
 
 `200` — Success
 
-## Gets information about the current user
+## Get information about the current user
 
-`GET` `/api/users/me`
+:span[GET]{.api-get} `/api/users/me`
 
 **Response**
 
 `200` — The current user's details
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -574,22 +625,24 @@ Logs out the current user.
 ```
 </div>
 
-## Registers a new user and responds with an authentication cookie. Unless the first administrator user is being registered, an invitation code must be provided
+## Register a new user and responds with an authentication cookie. Unless the first administrator user is being registered, an invitation code must be provided
 
-`POST` `/api/users/register`
+:span[POST]{.api-post} `/api/users/register`
 
 **Request Body**
 
-`RegisterUserCommand`
-
-- **`DisplayName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`EmailAddress`** <span class="type-label">string</span>
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`InvitationCode`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Password`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`DisplayName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`EmailAddress`** :span[string]{.type-label}
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`InvitationCode`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Password`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Username`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -618,25 +671,33 @@ Logs out the current user.
 
 `201` — Created
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -676,35 +737,44 @@ Logs out the current user.
 
 ## Get a User by ID
 
-`GET` `/api/users/{id}`
+:span[GET]{.api-get} `/api/users/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the User to load.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the User to load.
 
 **Response**
 
 `200` — The user details
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -742,27 +812,27 @@ Logs out the current user.
 ```
 </div>
 
-## Modifies an existing user
+## Modify an existing user
 
-`PUT` `/api/users/{id}`
+:span[PUT]{.api-put} `/api/users/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyUserCommand`
-
-- **`DisplayName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`EmailAddress`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span> *(required)*
-- **`Password`** <span class="type-label">string</span>
-- **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`DisplayName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`EmailAddress`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label} *(required)*
+- **`Password`** :span[string]{.type-label}
+- **`Username`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -792,25 +862,33 @@ Logs out the current user.
 
 `200` — The updated user
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -848,31 +926,31 @@ Logs out the current user.
 ```
 </div>
 
-## Deletes an existing User
+## Delete an existing User
 
-`DELETE` `/api/users/{id}`
+:span[DELETE]{.api-delete} `/api/users/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the user to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the user to delete.
 
 **Response**
 
 `200` — Success
 
-## Revokes all sessions for a user
+## Revoke all sessions for a user
 
-`PUT` `/api/users/{userId}/revoke-sessions`
+:span[PUT]{.api-put} `/api/users/{userId}/revoke-sessions`
 
-**Parameters**
+**Path Parameters**
 
-- **`userId`** <span class="type-label">string</span> *(required)* — ID of the User to revoke.
+- **`userId`** :span[string]{.type-label} *(required)*  
+  ID of the User to revoke.
 
 **Response**
 
 `200` — Empty response, indicating the sessions have been revoked
-
-`RevokeUserSessionsResponse`.
 
 <div data-example="Response">
 

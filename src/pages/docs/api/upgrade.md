@@ -5,23 +5,29 @@ modDate: 2026-08-11
 title: Upgrade
 ---
 
-## Gets information about the upgrade configuration in use by the Octopus Server
+## Get information about the upgrade configuration in use by the Octopus Server
 
-`GET` `/api/upgradeconfiguration`
+:span[GET]{.api-get} `/api/upgradeconfiguration`
 
 **Response**
 
 `200` — The current upgrade configuration
 
-`UpgradeConfigurationResource`.
-
-- **`AllowChecking`** <span class="type-label">boolean</span> — Whether to check octopus.com to see if a new version is available.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludeStatistics`** <span class="type-label">boolean</span> — Deprecated: please use the [dedicated telemetry page](" + OctoLink.BaseAddress + "telemetry) to determine whether octopus sends usage statistics. See [our documentation](" + OctoLink.BaseAddress + "WhatIsIncludedInUsageStatistics) for information about what is included.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NotificationMode`** <span class="type-label">enum</span> — Controls which notifications are shown in the portal when an upgrade is available. Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
+- **`AllowChecking`** :span[boolean]{.type-label}  
+  Whether to check octopus.com to see if a new version is available.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludeStatistics`** :span[boolean]{.type-label}  
+  Deprecated: please use the [dedicated telemetry page](" + OctoLink.BaseAddress + "telemetry) to determine whether octopus sends usage statistics. See [our documentation](" + OctoLink.BaseAddress + "WhatIsIncludedInUsageStatistics) for information about what is included.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NotificationMode`** :span[enum]{.type-label}  
+  Controls which notifications are shown in the portal when an upgrade is available.  
+  Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
 <div data-example="Response">
 
@@ -42,17 +48,19 @@ title: Upgrade
 ```
 </div>
 
-## Updates the upgrade configuration used by the Octopus Server
+## Update the upgrade configuration used by the Octopus Server
 
-`PUT` `/api/upgradeconfiguration`
+:span[PUT]{.api-put} `/api/upgradeconfiguration`
 
 **Request Body**
 
-`SetUpgradeConfigurationCommand`
-
-- **`AllowChecking`** <span class="type-label">boolean</span> *(required)* — Whether to check octopus.com to see if a new version is available.
-- **`IncludeStatistics`** <span class="type-label">boolean</span> *(required)* — Deprecated: please use the [dedicated telemetry page](https://oc.to/telemetry) to determine whether octopus sends usage statistics. See [our documentation](https://oc.to/WhatIsIncludedInUsageStatistics) for information about what is included.
-- **`NotificationMode`** <span class="type-label">enum</span> *(required)* — Controls which notifications are shown in the portal when an upgrade is available. Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
+- **`AllowChecking`** :span[boolean]{.type-label} *(required)*  
+  Whether to check octopus.com to see if a new version is available.
+- **`IncludeStatistics`** :span[boolean]{.type-label} *(required)*  
+  Deprecated: please use the [dedicated telemetry page](https://oc.to/telemetry) to determine whether octopus sends usage statistics. See [our documentation](https://oc.to/WhatIsIncludedInUsageStatistics) for information about what is included.
+- **`NotificationMode`** :span[enum]{.type-label} *(required)*  
+  Controls which notifications are shown in the portal when an upgrade is available.  
+  Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
 <div data-example="Request">
 
@@ -69,15 +77,21 @@ title: Upgrade
 
 `200` — The updated upgrade configuration
 
-`UpgradeConfigurationResource`.
-
-- **`AllowChecking`** <span class="type-label">boolean</span> — Whether to check octopus.com to see if a new version is available.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludeStatistics`** <span class="type-label">boolean</span> — Deprecated: please use the [dedicated telemetry page](" + OctoLink.BaseAddress + "telemetry) to determine whether octopus sends usage statistics. See [our documentation](" + OctoLink.BaseAddress + "WhatIsIncludedInUsageStatistics) for information about what is included.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NotificationMode`** <span class="type-label">enum</span> — Controls which notifications are shown in the portal when an upgrade is available. Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
+- **`AllowChecking`** :span[boolean]{.type-label}  
+  Whether to check octopus.com to see if a new version is available.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludeStatistics`** :span[boolean]{.type-label}  
+  Deprecated: please use the [dedicated telemetry page](" + OctoLink.BaseAddress + "telemetry) to determine whether octopus sends usage statistics. See [our documentation](" + OctoLink.BaseAddress + "WhatIsIncludedInUsageStatistics) for information about what is included.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NotificationMode`** :span[enum]{.type-label}  
+  Controls which notifications are shown in the portal when an upgrade is available.  
+  Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
 <div data-example="Response">
 

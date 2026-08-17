@@ -7,7 +7,7 @@ title: Directory Services
 
 ## Search for Active Directory groups
 
-`GET` `/api/externalgroups/directoryServices`
+:span[GET]{.api-get} `/api/externalgroups/directoryServices`
 
 Also reachable at `/api/externalgroups/ldap`.
 
@@ -19,7 +19,7 @@ Search for Active Directory groups
 
 ## Search for Active Directory users
 
-`GET` `/api/externalusers/directoryServices`
+:span[GET]{.api-get} `/api/externalusers/directoryServices`
 
 Also reachable at `/api/externalusers/ldap`.
 

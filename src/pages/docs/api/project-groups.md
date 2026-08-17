@@ -5,48 +5,65 @@ modDate: 2026-08-11
 title: Project Groups
 ---
 
-## Gets a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/projectgroups`
+:span[GET]{.api-get} `/api/{spaceId}/projectgroups`
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — A comma separated list of Project Group IDs to filter on.
-- **`name`** <span class="type-label">string</span> — The exact name of a Project Group to be matched.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to limit the set of retrieved Project Groups to. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A comma separated list of Project Group IDs to filter on.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Project Group to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to limit the set of retrieved Project Groups to. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
-`ProjectGroupResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span> — Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this project group.
-  - **`RetentionPolicyId`** <span class="type-label">string</span> — Gets or sets the ID of the retention policy that will apply to projects in this group.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}  
+    Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this project group.
+  - **`RetentionPolicyId`** :span[string]{.type-label}  
+    Gets or sets the ID of the retention policy that will apply to projects in this group.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -89,24 +106,26 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 ```
 </div>
 
-## Creates a new project group
+## Create a new project group
 
-`POST` `/api/{spaceId}/projectgroups`
+:span[POST]{.api-post} `/api/{spaceId}/projectgroups`
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateProjectGroupCommand`
-
-- **`Description`** <span class="type-label">string</span> — The description of the project group.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the project group. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}  
+  The description of the project group.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the project group. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -124,18 +143,23 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 
 `201` — Created
 
-`ProjectGroupResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentIds`** <span class="type-label">array of string</span> — Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this project group.
-- **`RetentionPolicyId`** <span class="type-label">string</span> — Gets or sets the ID of the retention policy that will apply to projects in this group.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this project group.
+- **`RetentionPolicyId`** :span[string]{.type-label}  
+  Gets or sets the ID of the retention policy that will apply to projects in this group.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -161,32 +185,37 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 ```
 </div>
 
-## Lists the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/projectgroups/all`
+:span[GET]{.api-get} `/api/{spaceId}/projectgroups/all`
 
 Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/projectgroups/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results are sorted alphabetically by name."
 
-an array of `ProjectGroupResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentIds`** <span class="type-label">array of string</span> — Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this project group.
-- **`RetentionPolicyId`** <span class="type-label">string</span> — Gets or sets the ID of the retention policy that will apply to projects in this group.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this project group.
+- **`RetentionPolicyId`** :span[string]{.type-label}  
+  Gets or sets the ID of the retention policy that will apply to projects in this group.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -216,31 +245,38 @@ an array of `ProjectGroupResource`.
 
 ## Get a Project Group by ID
 
-`GET` `/api/{spaceId}/projectgroups/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/projectgroups/{id}`
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the ProjectGroup to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the ProjectGroup to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested project group
 
-`ProjectGroupResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentIds`** <span class="type-label">array of string</span> — Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this project group.
-- **`RetentionPolicyId`** <span class="type-label">string</span> — Gets or sets the ID of the retention policy that will apply to projects in this group.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this project group.
+- **`RetentionPolicyId`** :span[string]{.type-label}  
+  Gets or sets the ID of the retention policy that will apply to projects in this group.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -266,26 +302,30 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 ```
 </div>
 
-## Modifies an existing project group
+## Modify an existing project group
 
-`PUT` `/api/{spaceId}/projectgroups/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/projectgroups/{id}`
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the project group.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the project group.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyProjectGroupCommand`
-
-- **`Description`** <span class="type-label">string</span> — The description of the project group.
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the project group.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the project group. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}  
+  The description of the project group.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the project group.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the project group. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -304,18 +344,23 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 
 `200` — The modified project group
 
-`ProjectGroupResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentIds`** <span class="type-label">array of string</span> — Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this project group.
-- **`RetentionPolicyId`** <span class="type-label">string</span> — Gets or sets the ID of the retention policy that will apply to projects in this group.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  Gets or sets a collection of environment ID's. If this collection is empty, projects in this group can be deployed to any environment. If the collection is non-empty, then projects in the group are limited to only deploying to the environments listed in this collection. Obsolete. Environments are now controlled by lifecycles as of Oct 2014, version 2.6.5.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this project group.
+- **`RetentionPolicyId`** :span[string]{.type-label}  
+  Gets or sets the ID of the retention policy that will apply to projects in this group.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -341,92 +386,111 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 ```
 </div>
 
-## Deletes an existing Project Group
+## Delete an existing Project Group
 
-`DELETE` `/api/{spaceId}/projectgroups/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/projectgroups/{id}`
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the project group to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the project group to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Gets a paginated list of the Projects that belong to the given Project Group
+## Get a paginated list of the Projects that belong to the given Project Group
 
-`GET` `/api/{spaceId}/projectgroups/{id}/projects`
+:span[GET]{.api-get} `/api/{spaceId}/projectgroups/{id}/projects`
 
 Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}/projects`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the project group.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the project group.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of the Projects that belong to the given Project Group
 
-`ProjectResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-  - **`AutoCreateRelease`** <span class="type-label">boolean</span>
-  - **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`ClonedFromProjectId`** <span class="type-label">string</span>
-  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-  - **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-  - **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-  - **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-  - **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-  - **`DeploymentProcessId`** <span class="type-label">string</span>
-  - **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-  - **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ForcePackageDownload`** <span class="type-label">boolean</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-  - **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsVersionControlled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LifecycleId`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`ProjectGroupId`** <span class="type-label">string</span>
-  - **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-  - **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`ProvisioningRunbookId`** <span class="type-label">string</span>
-  - **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span>
-  - **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`VariableSetId`** <span class="type-label">string</span>
-  - **`VersioningStrategy`** <span class="type-label">object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+  - **`AutoCreateRelease`** :span[boolean]{.type-label}
+  - **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`ClonedFromProjectId`** :span[string]{.type-label}
+  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+  - **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+    Allowed values: `EnvironmentDefault`, `Off`, `On`.
+  - **`DefaultPowerShellEdition`** :span[string]{.type-label}
+  - **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+  - **`DeploymentChangesTemplate`** :span[string]{.type-label}
+  - **`DeploymentProcessId`** :span[string]{.type-label}
+  - **`DeprovisioningRunbookId`** :span[string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+    Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+  - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ForcePackageDownload`** :span[boolean]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+    Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+  - **`IsBadgesEnabled`** :span[boolean]{.type-label}
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsVersionControlled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LifecycleId`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`PersistenceSettings`** :span[object]{.type-label}
+  - **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`ProjectGroupId`** :span[string]{.type-label}
+  - **`ProjectTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this project.
+  - **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`ProvisioningRunbookId`** :span[string]{.type-label}
+  - **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ReleaseNotesTemplate`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}
+  - **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`VariableSetId`** :span[string]{.type-label}
+  - **`VersioningStrategy`** :span[object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

@@ -9,9 +9,8 @@
    specificity as the callout rule in main.css, and later in the cascade, so it
    wins inside callouts too. */
 .content-group--api code:not(pre code) {
-  border: none;
-  background: none;
-  padding: 0;
+  /* border: none;
+  background: none; */
 }
 
 /* ----- The API docs have a different layout than the rest of the docs ----- */

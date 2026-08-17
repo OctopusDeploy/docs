@@ -5,16 +5,15 @@ modDate: 2026-08-11
 title: Deprecations
 ---
 
-## Toggles a deprecation on or off in Octopus Server. Used to test the impact of deprecations
+## Toggle a deprecation on or off in Octopus Server. Used to test the impact of deprecations
 
-`POST` `/api/deprecations/toggle`
+:span[POST]{.api-post} `/api/deprecations/toggle`
 
 **Request Body**
 
-`ToggleDeprecationCommand`
-
-- **`Deprecation`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Enabled`** <span class="type-label">boolean</span> *(required)*
+- **`Deprecation`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Enabled`** :span[boolean]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -29,8 +28,6 @@ title: Deprecations
 **Response**
 
 `200` — Confirmation that the Toggle has been deprecated
-
-`ToggleDeprecationResponse`.
 
 <div data-example="Response">
 
@@ -39,16 +36,15 @@ title: Deprecations
 ```
 </div>
 
-## Toggles a deprecation on or off in Octopus Server. Used to test the impact of deprecations
+## Toggle a deprecation on or off in Octopus Server. Used to test the impact of deprecations
 
-`POST` `/api/deprecations/toggle/v1`
+:span[POST]{.api-post} `/api/deprecations/toggle/v1`
 
 **Request Body**
 
-`ToggleDeprecationCommand`
-
-- **`Deprecation`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Enabled`** <span class="type-label">boolean</span> *(required)*
+- **`Deprecation`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Enabled`** :span[boolean]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -63,8 +59,6 @@ title: Deprecations
 **Response**
 
 `200` — Confirmation that the Toggle has been deprecated
-
-`ToggleDeprecationResponse`.
 
 <div data-example="Response">
 

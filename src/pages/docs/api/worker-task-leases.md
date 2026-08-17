@@ -7,36 +7,43 @@ title: Worker Task Leases
 
 ## Get WorkerTaskLeases
 
-`GET` `/api/{spaceId}/workertaskleases`
+:span[GET]{.api-get} `/api/{spaceId}/workertaskleases`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workertaskleases`.
 
 Gets a paginated set of WorkerTaskLeases.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the WorkerTaskLease.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the WorkerTaskLease.
 
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Minimum `0`.
 
 **Response**
 
 `200` — Rseponse to getting set of WorkerTaskLeases
 
-`GetWorkerTaskLeasesResponse`.
-
-- **`WorkerTaskLeases`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`ItemType`** <span class="type-label">string</span>
-  - **`Items`** <span class="type-label">array of object</span>
-  - **`ItemsPerPage`** <span class="type-label">integer</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastPageNumber`** <span class="type-label">integer</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`NumberOfPages`** <span class="type-label">integer</span>
-  - **`TotalResults`** <span class="type-label">integer</span>
+- **`WorkerTaskLeases`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`ItemType`** :span[string]{.type-label}
+  - **`Items`** :span[array of object]{.type-label}
+  - **`ItemsPerPage`** :span[integer]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastPageNumber`** :span[integer]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`NumberOfPages`** :span[integer]{.type-label}
+  - **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

@@ -7,11 +7,11 @@ title: Git Hub
 
 ## Get the installation URL for the GitHub App
 
-`GET` `/api/github/accounts/install-url`
+:span[GET]{.api-get} `/api/github/accounts/install-url`
 
-**Parameters**
+**Query Parameters**
 
-- **`redirectUri`** <span class="type-label">string</span> *(required)*
+- **`redirectUri`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -19,16 +19,14 @@ title: Git Hub
 
 ## Get the settings for the GitHub App
 
-`GET` `/api/github/app/settings`
+:span[GET]{.api-get} `/api/github/app/settings`
 
 **Response**
 
 `200` — Success
 
-`GetGitHubAppSettingsResponse`.
-
-- **`CanUseGitHubApp`** <span class="type-label">boolean</span>
-- **`CanUseTrustedFlow`** <span class="type-label">boolean</span>
+- **`CanUseGitHubApp`** :span[boolean]{.type-label}
+- **`CanUseTrustedFlow`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -42,15 +40,14 @@ title: Git Hub
 
 ## Get the status of the registration between Octopus Server and the GitHub App
 
-`GET` `/api/github/app/status`
+:span[GET]{.api-get} `/api/github/app/status`
 
 **Response**
 
 `200` — Response containing the status of the registration between Octopus Server and the GitHub App
 
-`GetGitHubAppStatusResponse`.
-
-- **`Status`** <span class="type-label">string</span> — The status of the GitHub App registration. Valid values are: Connected, RegistrationInvalid, Error. Minimum length 1.
+- **`Status`** :span[string]{.type-label}  
+  The status of the GitHub App registration. Valid values are: Connected, RegistrationInvalid, Error. Minimum length 1.
 
 <div data-example="Response">
 
@@ -63,30 +60,33 @@ title: Git Hub
 
 ## Get GitHub App connections for the space
 
-`GET` `/api/{spaceId}/github/connections`
+:span[GET]{.api-get} `/api/{spaceId}/github/connections`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — All GitHub App connections for the space
 
-`GetGitHubAppConnectionsResponse`.
-
-- **`Connections`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Installation`** <span class="type-label">object</span>
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `ConnectionNotFound`, `InstallationNotFound`, `InstallationSuspended`, `Connected`, `Error`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Connections`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Installation`** :span[object]{.type-label}
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `ConnectionNotFound`, `InstallationNotFound`, `InstallationSuspended`, `Connected`, `Error`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -115,21 +115,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
 ## Create a new GitHub App connection for an installation
 
-`POST` `/api/{spaceId}/github/connections`
+:span[POST]{.api-post} `/api/{spaceId}/github/connections`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateGitHubAppConnectionCommand`
-
-- **`InstallationId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`InstallationId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -157,30 +156,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
 ## Get the GitHub repositories for the current connection
 
-`GET` `/api/{spaceId}/github/connections/{connectionId}/repositories`
+:span[GET]{.api-get} `/api/{spaceId}/github/connections/{connectionId}/repositories`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionId}/repositories`.
 
-**Parameters**
+**Path Parameters**
 
-- **`connectionId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`connectionId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — GitHub repositories available for the current connection
 
-`GetGitHubRepositoriesForConnectionResponse`.
-
-- **`Repositories`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span>
-  - **`GitUrl`** <span class="type-label">string</span>
-  - **`IsAdmin`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`Language`** <span class="type-label">string</span>
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
-  - **`Visibility`** <span class="type-label">string</span>
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -204,44 +201,45 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionI
 
 ## Get a single GitHub app connection by id
 
-`GET` `/api/{spaceId}/github/connections/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/github/connections/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — A GitHub app connection
 
-`GetGitHubAppConnectionByIdResponse`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Installation`** <span class="type-label">object</span>
-  - **`AccountAvatarUrl`** <span class="type-label">string</span>
-  - **`AccountId`** <span class="type-label">string</span>
-  - **`AccountLogin`** <span class="type-label">string</span>
-  - **`AccountType`** <span class="type-label">string</span>
-  - **`AllRepositories`** <span class="type-label">boolean</span> — true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
-  - **`InstallationId`** <span class="type-label">string</span>
-- **`Repositories`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span>
-  - **`GitUrl`** <span class="type-label">string</span>
-  - **`IsAdmin`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`Language`** <span class="type-label">string</span>
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
-  - **`Visibility`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Status`** <span class="type-label">string</span> — Minimum length 1.
-- **`StatusUserMessage`** <span class="type-label">string</span>
-- **`UnknownRepositories`** <span class="type-label">array of object</span> — Repositories IDs that are configured on the connection but do not have a matching repository returned from GitHub.
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Installation`** :span[object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`StatusUserMessage`** :span[string]{.type-label}
+- **`UnknownRepositories`** :span[array of object]{.type-label}  
+  Repositories IDs that are configured on the connection but do not have a matching repository returned from GitHub.
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -283,22 +281,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 ## Update a GitHub App connection with a new set of repositories
 
-`PUT` `/api/{spaceId}/github/connections/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/github/connections/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyGitHubAppConnectionCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -317,8 +313,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 `200` — GitHub app connection modified result
 
-`ModifyGitHubAppConnectionResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -326,22 +320,22 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 ```
 </div>
 
-## Used to indicate that a GitHub App Connection should be deleted
+## Delete a GitHub App Connection
 
-`DELETE` `/api/{spaceId}/github/connections/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/github/connections/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the GitHub connection to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the GitHub connection to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Used to indicate that a GitHub App Connection has been deleted
-
-`DeleteGitHubAppConnectionByIdResponse`.
 
 <div data-example="Response">
 
@@ -352,22 +346,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 ## Recover GitHub App connection after the registration has changed
 
-`POST` `/api/{spaceId}/github/connections/{id}/recover`
+:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/recover`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`RecoverGitHubAppConnectionCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -386,8 +378,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 `200` — GitHub app connection recovery result
 
-`RecoverGitHubAppConnectionResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -397,23 +387,21 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 ## Recover GitHub App connection after the installation was not found
 
-`POST` `/api/{spaceId}/github/connections/{id}/recover-not-found`
+:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/recover-not-found`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover-not-found`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`RecoverNotFoundGitHubAppConnectionCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`InstallationId`** <span class="type-label">string</span> *(required)*
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`InstallationId`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -433,8 +421,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 `200` — GitHub app connection not-found recovery result
 
-`RecoverNotFoundGitHubAppConnectionResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -444,20 +430,18 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 ## Refresh the GitHub App connection token
 
-`POST` `/api/{spaceId}/github/connections/{id}/refresh`
+:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/refresh`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — GitHub app connection has been refreshed
-
-`RefreshGitHubAppConnectionByIdResponse`.
 
 <div data-example="Response">
 
@@ -468,29 +452,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
-`GET` `/api/{spaceId}/github/installations`
+:span[GET]{.api-get} `/api/{spaceId}/github/installations`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`excludeConnected`** <span class="type-label">boolean</span>
+**Query Parameters**
+
+- **`excludeConnected`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — List of GitHub organisations accessible to the current GitHub OAuth user
 
-`GetGitHubAppInstallationsForUserResponse`.
-
-- **`Installations`** <span class="type-label">array of object</span>
-  - **`AccountAvatarUrl`** <span class="type-label">string</span>
-  - **`AccountId`** <span class="type-label">string</span>
-  - **`AccountLogin`** <span class="type-label">string</span>
-  - **`AccountType`** <span class="type-label">string</span>
-  - **`AllRepositories`** <span class="type-label">boolean</span> — true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
-  - **`InstallationId`** <span class="type-label">string</span>
+- **`Installations`** :span[array of object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -510,14 +495,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 ```
 </div>
 
-## Response from GitHub after an application has been installed or updated
+## Handle the response from GitHub after an application has been installed or updated
 
-`GET` `/api/github/installations/updated`
+:span[GET]{.api-get} `/api/github/installations/updated`
 
-**Parameters**
+**Query Parameters**
 
-- **`installation_id`** <span class="type-label">string</span>
-- **`redirectUri`** <span class="type-label">string</span> *(required)*
+- **`installation_id`** :span[string]{.type-label}
+- **`redirectUri`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -525,35 +510,37 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Get the GitHub repositories for an installation visible to the current user https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
 
-`GET` `/api/github/installations/{installationId}/repositories`
+:span[GET]{.api-get} `/api/github/installations/{installationId}/repositories`
 
-**Parameters**
+**Path Parameters**
 
-- **`installationId`** <span class="type-label">string</span> *(required)*
+- **`installationId`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`GitHubRepositoryResponsePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span>
-  - **`GitUrl`** <span class="type-label">string</span>
-  - **`IsAdmin`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`Language`** <span class="type-label">string</span>
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
-  - **`Visibility`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -582,13 +569,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
 
-`POST` `/api/github/reset-registration`
+:span[POST]{.api-post} `/api/github/reset-registration`
 
 **Response**
 
 `200` — GitHub app registration was successfully deleted
-
-`ResetGitHubAppRegistrationResponse`.
 
 <div data-example="Response">
 
@@ -599,36 +584,38 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
 
-`GET` `/api/github/search/{accountName}/repositories`
+:span[GET]{.api-get} `/api/github/search/{accountName}/repositories`
 
-**Parameters**
+**Path Parameters**
 
-- **`accountName`** <span class="type-label">string</span> *(required)*
+- **`accountName`** :span[string]{.type-label} *(required)*
 
-- **`keyword`** <span class="type-label">string</span>
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`keyword`** :span[string]{.type-label}
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`GitHubRepositoryResponsePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span>
-  - **`GitUrl`** <span class="type-label">string</span>
-  - **`IsAdmin`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`Language`** <span class="type-label">string</span>
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
-  - **`Visibility`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -657,27 +644,27 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Get status of the users current authorization
 
-`GET` `/api/github/user/app/authorization_status`
+:span[GET]{.api-get} `/api/github/user/app/authorization_status`
 
-**Parameters**
+**Query Parameters**
 
-- **`includeUserDetails`** <span class="type-label">boolean</span>
+- **`includeUserDetails`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — Get the status of the user's current authorization.
 
-`GetGitHubUserAuthorizationStatusResponse`.
-
-- **`CanAuthorize`** <span class="type-label">boolean</span>
-- **`IsAuthorized`** <span class="type-label">boolean</span>
-- **`UserDetails`** <span class="type-label">object</span>
-  - **`AvatarUrl`** <span class="type-label">string</span>
-  - **`Login`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`PrimaryEmail`** <span class="type-label">string</span>
-  - **`RefreshTokenValidTo`** <span class="type-label">string</span> — Format `date-time`.
-  - **`TokenValidTo`** <span class="type-label">string</span> — Format `date-time`.
+- **`CanAuthorize`** :span[boolean]{.type-label}
+- **`IsAuthorized`** :span[boolean]{.type-label}
+- **`UserDetails`** :span[object]{.type-label}
+  - **`AvatarUrl`** :span[string]{.type-label}
+  - **`Login`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`PrimaryEmail`** :span[string]{.type-label}
+  - **`RefreshTokenValidTo`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TokenValidTo`** :span[string]{.type-label}  
+    Format `date-time`.
 
 <div data-example="Response">
 
@@ -699,13 +686,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Authorize the current user with the Octopus GitHub app
 
-`POST` `/api/github/user/app/authorize`
+:span[POST]{.api-post} `/api/github/user/app/authorize`
 
 **Request Body**
 
-`AuthorizeGitHubAppCommand`
-
-- **`RedirectUri`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`RedirectUri`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -720,9 +706,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — GitHub URL to authorize the GitHub app
 
-`AuthorizeGitHubAppResponse`.
-
-- **`AuthorizeUri`** <span class="type-label">string</span> — Minimum length 1.
+- **`AuthorizeUri`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -735,13 +720,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
-`POST` `/api/github/user/app/exchange-access-code`
+:span[POST]{.api-post} `/api/github/user/app/exchange-access-code`
 
 **Request Body**
 
-`ExchangeAccessCodeForTokenCommand`
-
-- **`Code`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`Code`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -756,10 +740,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — Reports the success of exchanging a GitHub App authorization code for an access token
 
-`ExchangeAccessCodeForTokenResponse`.
-
-- **`ErrorMessage`** <span class="type-label">string</span>
-- **`Status`** <span class="type-label">string</span> — Minimum length 1.
+- **`ErrorMessage`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -773,12 +756,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
-`GET` `/api/github/user/app/token`
+:span[GET]{.api-get} `/api/github/user/app/token`
 
-**Parameters**
+**Query Parameters**
 
-- **`code`** <span class="type-label">string</span> *(required)*
-- **`redirectUri`** <span class="type-label">string</span> *(required)*
+- **`code`** :span[string]{.type-label} *(required)*
+- **`redirectUri`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -786,13 +769,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Deauthorize the GitHub app for the current user, removing this users GitHub tokens from Octopus
 
-`DELETE` `/api/github/user/app/token`
+:span[DELETE]{.api-delete} `/api/github/user/app/token`
 
 **Response**
 
 `200` — Deauthorized GitHub app user
-
-`DeauthorizeGitHubAppResponse`.
 
 <div data-example="Response">
 
@@ -803,13 +784,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Refresh the GitHub current app user. Refreshing the users token and cached GitHub account details
 
-`POST` `/api/github/user/app/token/refresh`
+:span[POST]{.api-post} `/api/github/user/app/token/refresh`
 
 **Response**
 
 `200` — GitHub App user has been successfully refreshed
-
-`RefreshGitHubAppUserResponse`.
 
 <div data-example="Response">
 
@@ -820,15 +799,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Test connectivity to GitHub using the provided credentials
 
-`POST` `/api/githubissuetracker/connectivitycheck`
+:span[POST]{.api-post} `/api/githubissuetracker/connectivitycheck`
 
 **Request Body**
 
-`GitHubConnectivityCheckRequest`
-
-- **`BaseUrl`** <span class="type-label">string</span> *(required)* — The GitHub base URL to test connectivity to. Minimum length 1.
-- **`Password`** <span class="type-label">string</span> — The GitHub personal access token or password for authentication. If not provided, will be retrieved from configuration.
-- **`UserName`** <span class="type-label">string</span> — The GitHub username for authentication.
+- **`BaseUrl`** :span[string]{.type-label} *(required)*  
+  The GitHub base URL to test connectivity to. Minimum length 1.
+- **`Password`** :span[string]{.type-label}  
+  The GitHub personal access token or password for authentication. If not provided, will be retrieved from configuration.
+- **`UserName`** :span[string]{.type-label}  
+  The GitHub username for authentication.
 
 <div data-example="Request">
 
@@ -845,11 +825,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — Result of testing connectivity to GitHub
 
-`GitHubConnectivityCheckResponse`.
-
-- **`Messages`** <span class="type-label">array of object</span> — Messages from the connectivity check.
-  - **`Category`** <span class="type-label">enum</span> — Allowed values: `Info`, `Warning`, `Error`.
-  - **`Message`** <span class="type-label">string</span> — Minimum length 1.
+- **`Messages`** :span[array of object]{.type-label}  
+  Messages from the connectivity check.
+  - **`Category`** :span[enum]{.type-label}  
+    Allowed values: `Info`, `Warning`, `Error`.
+  - **`Message`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 

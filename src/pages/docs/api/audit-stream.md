@@ -5,23 +5,25 @@ modDate: 2026-08-11
 title: Audit Stream
 ---
 
-## Gets the audit stream configuration
+## Get the audit stream configuration
 
-`GET` `/api/audit-stream`
+:span[GET]{.api-get} `/api/audit-stream`
 
 **Response**
 
 `200` — The Audit Stream configuration
 
-`AuditStreamConfigurationResource`.
-
-- **`Active`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`StreamConfigurationResource`** <span class="type-label">object</span>
+- **`Active`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`StreamConfigurationResource`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -42,17 +44,15 @@ title: Audit Stream
 ```
 </div>
 
-## Modifies the audit stream configuration
+## Modify the audit stream configuration
 
-`PUT` `/api/audit-stream`
+:span[PUT]{.api-put} `/api/audit-stream`
 
 **Request Body**
 
-`ModifyAuditStreamConfigurationCommand`
-
-- **`Active`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span>
-- **`StreamConfigurationResource`** <span class="type-label">object</span>
+- **`Active`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`StreamConfigurationResource`** :span[object]{.type-label}
 
 <div data-example="Request">
 
@@ -69,15 +69,17 @@ title: Audit Stream
 
 `200` — The modified Audit Stream configuration
 
-`AuditStreamConfigurationResource`.
-
-- **`Active`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`StreamConfigurationResource`** <span class="type-label">object</span>
+- **`Active`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`StreamConfigurationResource`** :span[object]{.type-label}
 
 <div data-example="Response">
 

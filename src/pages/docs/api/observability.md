@@ -5,24 +5,25 @@ modDate: 2026-08-11
 title: Observability
 ---
 
-## Registers and trusts new Kubernetes Monitor
+## Register and trusts new Kubernetes Monitor
 
-`POST` `/api/{spaceId}/observability/agents`
+:span[POST]{.api-post} `/api/{spaceId}/observability/agents`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors`, `/api/{spaceId}/observability/kubernetes-monitors`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`RegisterKubernetesMonitorCommand`
-
-- **`InstallationId`** <span class="type-label">string</span> *(required)* — Installation ID of that uniquely identifies the physical installation of the agent. Format `uuid`.
-- **`MachineId`** <span class="type-label">string</span> *(required)* — Machine ID of that uniquely identifies the deployment target or worker that is being observed.
-- **`PreserveAuthenticationToken`** <span class="type-label">boolean</span> — Controls whether the authentication token should be preserved during re-registration. If not supplied (null), the token will be regenerated (default behavior). If false, the token will be regenerated. If true, the existing token will be preserved.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`InstallationId`** :span[string]{.type-label} *(required)*  
+  Installation ID of that uniquely identifies the physical installation of the agent. Format `uuid`.
+- **`MachineId`** :span[string]{.type-label} *(required)*  
+  Machine ID of that uniquely identifies the deployment target or worker that is being observed.
+- **`PreserveAuthenticationToken`** :span[boolean]{.type-label}  
+  Controls whether the authentication token should be preserved during re-registration. If not supplied (null), the token will be regenerated (default behavior). If false, the token will be regenerated. If true, the existing token will be preserved.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -40,15 +41,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
 
 `200` — Response containing the registered agent.
 
-`RegisterKubernetesMonitorResponse`.
-
-- **`AuthenticationToken`** <span class="type-label">string</span> — Authentication token for the monitor. Will be null if PreserveAuthenticationToken was set to true in the request and not registering a new monitor.
-- **`CertificateThumbprint`** <span class="type-label">string</span> — Minimum length 1.
-- **`Resource`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`InstallationId`** <span class="type-label">string</span> — Format `uuid`.
-  - **`MachineId`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`AuthenticationToken`** :span[string]{.type-label}  
+  Authentication token for the monitor. Will be null if PreserveAuthenticationToken was set to true in the request and not registering a new monitor.
+- **`CertificateThumbprint`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Resource`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`InstallationId`** :span[string]{.type-label}  
+    Format `uuid`.
+  - **`MachineId`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -66,26 +68,25 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
 ```
 </div>
 
-## Command to request the Kubernetes monitor to start sending events for the specified resource
+## Request the Kubernetes monitor to start sending events for the specified resource
 
-`POST` `/api/{spaceId}/observability/events/sessions`
+:span[POST]{.api-post} `/api/{spaceId}/observability/events/sessions`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`BeginResourceEventsSessionCommand`
-
-- **`DesiredOrKubernetesMonitoredResourceId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-- **`MachineId`** <span class="type-label">string</span> *(required)*
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span>
+- **`DesiredOrKubernetesMonitoredResourceId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`EnvironmentId`** :span[string]{.type-label} *(required)*
+- **`MachineId`** :span[string]{.type-label} *(required)*
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -105,9 +106,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 
 `200` — Confirmation response containing a session ID for the event session
 
-`BeginResourceEventsSessionResponse`.
-
-- **`SessionId`** <span class="type-label">string</span> — Format `uuid`.
+- **`SessionId`** :span[string]{.type-label}  
+  Format `uuid`.
 
 <div data-example="Response">
 
@@ -120,36 +120,36 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 
 ## Request to fetch all the events for the specified session
 
-`GET` `/api/{spaceId}/observability/events/sessions/{sessionId}`
+:span[GET]{.api-get} `/api/{spaceId}/observability/events/sessions/{sessionId}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{sessionId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`sessionId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`sessionId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response containing the events for a sessionID
 
-`GetResourceEventsResponse`.
-
-- **`Error`** <span class="type-label">object</span>
-  - **`ErrorCode`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ErrorMessage`** <span class="type-label">string</span> — Minimum length 1.
-- **`Events`** <span class="type-label">array of object</span>
-  - **`Action`** <span class="type-label">string</span>
-  - **`Count`** <span class="type-label">integer</span>
-  - **`FirstObservedTime`** <span class="type-label">string</span>
-  - **`LastObservedTime`** <span class="type-label">string</span>
-  - **`Manifest`** <span class="type-label">string</span>
-  - **`Note`** <span class="type-label">string</span>
-  - **`Reason`** <span class="type-label">string</span>
-  - **`ReportingController`** <span class="type-label">string</span>
-  - **`ReportingInstance`** <span class="type-label">string</span>
-  - **`Type`** <span class="type-label">string</span>
-- **`IsSessionCompleted`** <span class="type-label">boolean</span>
+- **`Error`** :span[object]{.type-label}
+  - **`ErrorCode`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ErrorMessage`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`Events`** :span[array of object]{.type-label}
+  - **`Action`** :span[string]{.type-label}
+  - **`Count`** :span[integer]{.type-label}
+  - **`FirstObservedTime`** :span[string]{.type-label}
+  - **`LastObservedTime`** :span[string]{.type-label}
+  - **`Manifest`** :span[string]{.type-label}
+  - **`Note`** :span[string]{.type-label}
+  - **`Reason`** :span[string]{.type-label}
+  - **`ReportingController`** :span[string]{.type-label}
+  - **`ReportingInstance`** :span[string]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+- **`IsSessionCompleted`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -180,26 +180,27 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{
 
 ## Get a Kubernetes Monitor by ID
 
-`GET` `/api/{spaceId}/observability/kubernetes-monitors/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/observability/kubernetes-monitors/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Kubernetes Monitor.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Kubernetes Monitor.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Kubernetes Monitor
 
-`GetKubernetesMonitorByIdResponse`.
-
-- **`Resource`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`InstallationId`** <span class="type-label">string</span> — Format `uuid`.
-  - **`MachineId`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`Resource`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`InstallationId`** :span[string]{.type-label}  
+    Format `uuid`.
+  - **`MachineId`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -217,20 +218,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 
 ## Delete a Kubernetes Monitor by ID
 
-`DELETE` `/api/{spaceId}/observability/kubernetes-monitors/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/observability/kubernetes-monitors/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Kubernetes Monitor.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Kubernetes Monitor.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Response for deleting a Kubernetes Monitor
-
-`DeleteKubernetesMonitorByIdResponse`.
 
 <div data-example="Response">
 
@@ -239,29 +240,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 ```
 </div>
 
-## Command to request the Kubernetes monitor to start sending logs for the specified container
+## Request the Kubernetes monitor to start sending logs for the specified container
 
-`POST` `/api/{spaceId}/observability/logs/sessions`
+:span[POST]{.api-post} `/api/{spaceId}/observability/logs/sessions`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`BeginContainerLogsSessionCommand`
-
-- **`ContainerName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`DesiredOrKubernetesMonitoredResourceId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-- **`MachineId`** <span class="type-label">string</span> *(required)*
-- **`PodName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`ShowPreviousContainer`** <span class="type-label">boolean</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span>
+- **`ContainerName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`DesiredOrKubernetesMonitoredResourceId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`EnvironmentId`** :span[string]{.type-label} *(required)*
+- **`MachineId`** :span[string]{.type-label} *(required)*
+- **`PodName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`ShowPreviousContainer`** :span[boolean]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -284,9 +286,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 
 `200` — Confirmation response containing any errors that might have occurred during communications with the Kubernetes Monitor
 
-`BeginContainerLogsSessionResponse`.
-
-- **`SessionId`** <span class="type-label">string</span> — Format `uuid`.
+- **`SessionId`** :span[string]{.type-label}  
+  Format `uuid`.
 
 <div data-example="Response">
 
@@ -299,28 +300,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 
 ## Request to fetch all the logs for the specified session
 
-`GET` `/api/{spaceId}/observability/logs/sessions/{sessionId}`
+:span[GET]{.api-get} `/api/{spaceId}/observability/logs/sessions/{sessionId}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{sessionId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`sessionId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`sessionId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response containing the logs for a sessionID
 
-`GetContainerLogsResponse`.
-
-- **`Error`** <span class="type-label">object</span>
-  - **`ErrorCode`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ErrorMessage`** <span class="type-label">string</span> — Minimum length 1.
-- **`IsSessionCompleted`** <span class="type-label">boolean</span>
-- **`Logs`** <span class="type-label">array of object</span>
-  - **`Message`** <span class="type-label">string</span>
-  - **`Timestamp`** <span class="type-label">string</span>
+- **`Error`** :span[object]{.type-label}
+  - **`ErrorCode`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ErrorMessage`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`IsSessionCompleted`** :span[boolean]{.type-label}
+- **`Logs`** :span[array of object]{.type-label}
+  - **`Message`** :span[string]{.type-label}
+  - **`Timestamp`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -343,37 +344,41 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{se
 
 ## Request the live status for a Project/Environment/Tenant
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/livestatus`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/livestatus`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/livestatus`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/livestatus`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/livestatus`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
-- **`orphansOnly`** <span class="type-label">boolean</span>
-- **`summaryOnly`** <span class="type-label">boolean</span>
+**Query Parameters**
+
+- **`orphansOnly`** :span[boolean]{.type-label}
+- **`summaryOnly`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — Live status for a given Project/Environment/Tenant
 
-`GetLiveStatusResponse`.
-
-- **`MachineStatuses`** <span class="type-label">array of object</span>
-  - **`MachineId`** <span class="type-label">string</span>
-  - **`Resources`** <span class="type-label">array of object</span>
-  - **`Status`** <span class="type-label">string</span> — Minimum length 1.
-- **`Summary`** <span class="type-label">object</span>
-  - **`HealthStatus`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LastUpdated`** <span class="type-label">string</span>
-  - **`Status`** <span class="type-label">string</span> — Minimum length 1.
-  - **`SyncStatus`** <span class="type-label">string</span> — Minimum length 1.
-  - **`SyncStatusMessage`** <span class="type-label">string</span>
-  - **`TotalOrphanCount`** <span class="type-label">integer</span>
+- **`MachineStatuses`** :span[array of object]{.type-label}
+  - **`MachineId`** :span[string]{.type-label}
+  - **`Resources`** :span[array of object]{.type-label}
+  - **`Status`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`Summary`** :span[object]{.type-label}
+  - **`HealthStatus`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LastUpdated`** :span[string]{.type-label}
+  - **`Status`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`SyncStatus`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`SyncStatusMessage`** :span[string]{.type-label}
+  - **`TotalOrphanCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -400,43 +405,46 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```
 </div>
 
-## Gets a detailed summary of a live Kubernetes resource - either a top-level resource or a child resource
+## Get a detailed summary of a live Kubernetes resource - either a top-level resource or a child resource
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`desiredOrKubernetesMonitoredResourceId`** <span class="type-label">string</span> *(required)*
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`sourceId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`desiredOrKubernetesMonitoredResourceId`** :span[string]{.type-label} *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`sourceId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Response containing detailed summary of a live kubernetes resource - Either a top level resource or a child resource
 
-`GetResourceResponse`.
-
-- **`Resource`** <span class="type-label">object</span>
-  - **`Children`** <span class="type-label">array of object</span>
-  - **`DesiredResourceId`** <span class="type-label">string</span> — Format `uuid`.
-  - **`ExternalLink`** <span class="type-label">object</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Stale`.
-  - **`HealthStatusMessage`** <span class="type-label">string</span>
-  - **`Kind`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LastUpdated`** <span class="type-label">string</span>
-  - **`ManifestSummary`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Namespace`** <span class="type-label">string</span>
-  - **`ResourceId`** <span class="type-label">string</span> — Format `uuid`.
-  - **`ResourceSourceId`** <span class="type-label">string</span>
-  - **`SourceType`** <span class="type-label">enum</span> — Allowed values: `KubernetesMonitor`, `ArgoCDInstance`, `ArgoCDApplication`.
-  - **`SyncStatus`** <span class="type-label">string</span>
-  - **`SyncStatusMessage`** <span class="type-label">string</span>
+- **`Resource`** :span[object]{.type-label}
+  - **`Children`** :span[array of object]{.type-label}
+  - **`DesiredResourceId`** :span[string]{.type-label}  
+    Format `uuid`.
+  - **`ExternalLink`** :span[object]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Stale`.
+  - **`HealthStatusMessage`** :span[string]{.type-label}
+  - **`Kind`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LastUpdated`** :span[string]{.type-label}
+  - **`ManifestSummary`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Namespace`** :span[string]{.type-label}
+  - **`ResourceId`** :span[string]{.type-label}  
+    Format `uuid`.
+  - **`ResourceSourceId`** :span[string]{.type-label}
+  - **`SourceType`** :span[enum]{.type-label}  
+    Allowed values: `KubernetesMonitor`, `ArgoCDInstance`, `ArgoCDApplication`.
+  - **`SyncStatus`** :span[string]{.type-label}
+  - **`SyncStatusMessage`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -481,31 +489,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`.
 
-**Parameters**
+**Path Parameters**
 
-- **`desiredOrKubernetesMonitoredResourceId`** <span class="type-label">string</span> *(required)*
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`sourceId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`desiredOrKubernetesMonitoredResourceId`** :span[string]{.type-label} *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`sourceId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Contains the manifest for a live resource
 
-`GetResourceManifestResponse`.
-
-- **`DesiredManifest`** <span class="type-label">string</span>
-- **`Diff`** <span class="type-label">object</span>
-  - **`Diff`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Left`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Right`** <span class="type-label">string</span> — Minimum length 1.
-- **`LiveManifest`** <span class="type-label">string</span> — Minimum length 1.
+- **`DesiredManifest`** :span[string]{.type-label}
+- **`Diff`** :span[object]{.type-label}
+  - **`Diff`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Left`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Right`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`LiveManifest`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -524,31 +534,32 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`desiredOrKubernetesMonitoredResourceId`** <span class="type-label">string</span> *(required)*
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`sourceId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`desiredOrKubernetesMonitoredResourceId`** :span[string]{.type-label} *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`sourceId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Contains the manifest for a live resource
 
-`GetResourceManifestResponseV2`.
-
-- **`DesiredManifest`** <span class="type-label">string</span>
-- **`Diff`** <span class="type-label">object</span>
-  - **`Diff`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Left`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Right`** <span class="type-label">string</span> — Minimum length 1.
-- **`LiveManifest`** <span class="type-label">string</span>
+- **`DesiredManifest`** :span[string]{.type-label}
+- **`Diff`** :span[object]{.type-label}
+  - **`Diff`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Left`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Right`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`LiveManifest`** :span[string]{.type-label}
 
 <div data-example="Response">
 

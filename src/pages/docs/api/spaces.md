@@ -7,43 +7,55 @@ title: Spaces
 
 ## Get a collection of Git credentials
 
-`GET` `/api/{spaceId}/git-credentials`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`name`** <span class="type-label">string</span> — Filters credentials matching any part of the `name` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`name`** :span[string]{.type-label}  
+  Filters credentials matching any part of the `name` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Git Credentials
 
-`GitCredentialResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -92,27 +104,29 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 ## Create a new Git credential
 
-`POST` `/api/{spaceId}/git-credentials`
+:span[POST]{.api-post} `/api/{spaceId}/git-credentials`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -143,10 +157,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 `201` — Created
 
-`CreateGitCredentialResponse`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -164,35 +176,43 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 ## Get a collection of Git credentials
 
-`GET` `/api/{spaceId}/git-credentials/v1`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`name`** <span class="type-label">string</span> — Filters credentials matching any part of the `name` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`name`** :span[string]{.type-label}  
+  Filters credentials matching any part of the `name` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Git Credentials
 
-`GetGitCredentialsResponse`.
-
-- **`GitCredentials`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`ItemType`** <span class="type-label">string</span>
-  - **`Items`** <span class="type-label">array of object</span>
-  - **`ItemsPerPage`** <span class="type-label">integer</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastPageNumber`** <span class="type-label">integer</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`NumberOfPages`** <span class="type-label">integer</span>
-  - **`TotalResults`** <span class="type-label">integer</span>
+- **`GitCredentials`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`ItemType`** :span[string]{.type-label}
+  - **`Items`** :span[array of object]{.type-label}
+  - **`ItemsPerPage`** :span[integer]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastPageNumber`** :span[integer]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`NumberOfPages`** :span[integer]{.type-label}
+  - **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -232,27 +252,29 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
 ## Create a new Git credential
 
-`POST` `/api/{spaceId}/git-credentials/v1`
+:span[POST]{.api-post} `/api/{spaceId}/git-credentials/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -283,10 +305,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
 `201` — Created
 
-`CreateGitCredentialResponse`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -304,38 +324,44 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
 ## Get a collection of Git credentials
 
-`GET` `/api/{spaceId}/git-credentials/v2`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`name`** <span class="type-label">string</span> — Filters credentials matching any part of the `name` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`name`** :span[string]{.type-label}  
+  Filters credentials matching any part of the `name` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`GitCredentialResourceV2PaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span>
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -371,26 +397,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 ## Create a new Git credential
 
-`POST` `/api/{spaceId}/git-credentials/v2`
+:span[POST]{.api-post} `/api/{spaceId}/git-credentials/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateGitCredentialCommandV2`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -416,9 +444,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 `201` — Created
 
-`CreateGitCredentialResponseV2`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -429,35 +455,40 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 ```
 </div>
 
-## Gets a specific Git credential
+## Get a specific Git credential
 
-`GET` `/api/{spaceId}/git-credentials/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Git Credential
 
-`GitCredentialResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -489,29 +520,31 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 ## Modify an existing Git credential
 
-`PUT` `/api/{spaceId}/git-credentials/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -543,8 +576,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 `200` — Confirmation that the Git Credential was modified
 
-`ModifyGitCredentialResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -554,20 +585,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 ## Delete an existing Git credential
 
-`DELETE` `/api/{spaceId}/git-credentials/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/git-credentials/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the Git Credential has been deleted
-
-`DeleteGitCredentialResponse`.
 
 <div data-example="Response">
 
@@ -576,29 +607,31 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 ```
 </div>
 
-## Gets usage of a specific Git credential
+## Get usage of a specific Git credential
 
-`GET` `/api/{spaceId}/git-credentials/{id}/usage`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/usage`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get usage for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get usage for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Git Credential Usage
 
-`GetGitCredentialUsageByIdResponse`.
-
-- **`OtherProjects`** <span class="type-label">integer</span>
-- **`Projects`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`RepositoryUrl`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`OtherProjects`** :span[integer]{.type-label}
+- **`Projects`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`RepositoryUrl`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -617,29 +650,31 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
 ```
 </div>
 
-## Gets usage of a specific Git credential
+## Get usage of a specific Git credential
 
-`GET` `/api/{spaceId}/git-credentials/{id}/usage/v1`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/usage/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get usage for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get usage for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Git Credential Usage
 
-`GetGitCredentialUsageByIdResponse`.
-
-- **`OtherProjects`** <span class="type-label">integer</span>
-- **`Projects`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`RepositoryUrl`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`OtherProjects`** :span[integer]{.type-label}
+- **`Projects`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`RepositoryUrl`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -658,33 +693,37 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
 ```
 </div>
 
-## Gets a specific Git credential
+## Get a specific Git credential
 
-`GET` `/api/{spaceId}/git-credentials/{id}/v1`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Git Credential
 
-`GetGitCredentialByIdResponse`.
-
-- **`GitCredential`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`GitCredential`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -718,29 +757,31 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 ## Modify an existing Git credential
 
-`PUT` `/api/{spaceId}/git-credentials/{id}/v1`
+:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -772,8 +813,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 `200` — Confirmation that the Git Credential was modified
 
-`ModifyGitCredentialResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -783,20 +822,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 ## Delete an existing Git credential
 
-`DELETE` `/api/{spaceId}/git-credentials/{id}/v1`
+:span[DELETE]{.api-delete} `/api/{spaceId}/git-credentials/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the Git Credential has been deleted
-
-`DeleteGitCredentialResponse`.
 
 <div data-example="Response">
 
@@ -805,32 +844,34 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 ```
 </div>
 
-## Gets a specific Git credential
+## Get a specific Git credential
 
-`GET` `/api/{spaceId}/git-credentials/{id}/v2`
+:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Git Credential
 
-`GetGitCredentialByIdResponseV2`.
-
-- **`GitCredential`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span>
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`GitCredential`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -859,28 +900,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
 ## Modify an existing Git credential
 
-`PUT` `/api/{spaceId}/git-credentials/{id}/v2`
+:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyGitCredentialCommandV2`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -907,8 +950,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
 `200` — Confirmation that the Git Credential was modified
 
-`ModifyGitCredentialResponseV2`.
-
 <div data-example="Response">
 
 ```json
@@ -916,35 +957,43 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 ```
 </div>
 
-## Gets the git references that match the given rule pattern for a project
+## Get the git references that match the given rule pattern for a project
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/refs`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/refs`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`patterns`** <span class="type-label">array of string</span> *(required)*
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
+**Query Parameters**
+
+- **`patterns`** :span[array of string]{.type-label} *(required)*
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
 
 **Response**
 
 `200` — Response contain a set of Git references that match the rule pattern for the project
 
-`GetMatchingRefsResponseV1`.
-
-- **`References`** <span class="type-label">array of object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`TotalCount`** <span class="type-label">integer</span>
+- **`References`** :span[array of object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`TotalCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -971,48 +1020,59 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
 
 ## Get a list of Spaces
 
-`GET` `/api/spaces`
+:span[GET]{.api-get} `/api/spaces`
 
 Lists all of the Spaces in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Query Parameters**
 
-- **`ids`** <span class="type-label">array of string</span> — Comma separated list of Ids.
-- **`name`** <span class="type-label">string</span> — The exact name of a Space to be matched.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`ids`** :span[array of string]{.type-label}  
+  Comma separated list of Ids.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Space to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Spaces
 
-`SpaceResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDefault`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-  - **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-  - **`TaskQueueStopped`** <span class="type-label">boolean</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDefault`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+  - **`SpaceManagersTeams`** :span[array of string]{.type-label}
+  - **`TaskQueueStopped`** :span[boolean]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1066,21 +1126,21 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 ```
 </div>
 
-## Creates a new Space
+## Create a new Space
 
-`POST` `/api/spaces`
+:span[POST]{.api-post} `/api/spaces`
 
 **Request Body**
 
-`CreateSpaceCommandV1`
-
-- **`Description`** <span class="type-label">string</span>
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span> — Maximum length 50.
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span> *(required)*
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}  
+  Maximum length 50.
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label} *(required)*
+- **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -1105,26 +1165,30 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 
 `201` — Created
 
-`SpaceResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`IsPrivate`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`IsPrivate`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+- **`SpaceManagersTeams`** :span[array of string]{.type-label}
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1166,38 +1230,43 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 
 ## Get a list of Spaces
 
-`GET` `/api/spaces/all`
+:span[GET]{.api-get} `/api/spaces/all`
 
 Lists all Spaces. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Query Parameters**
 
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a `contains` style match against the supplied name or name-fragment.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a `contains` style match against the supplied name or name-fragment.
 
 **Response**
 
 `200` — The requested list of Spaces
 
-an array of `SpaceResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`IsPrivate`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`IsPrivate`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+- **`SpaceManagersTeams`** :span[array of string]{.type-label}
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1239,21 +1308,21 @@ an array of `SpaceResource`.
 ```
 </div>
 
-## Creates a new Space
+## Create a new Space
 
-`POST` `/api/spaces/v1`
+:span[POST]{.api-post} `/api/spaces/v1`
 
 **Request Body**
 
-`CreateSpaceCommandV1`
-
-- **`Description`** <span class="type-label">string</span>
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span> — Maximum length 50.
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span> *(required)*
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}  
+  Maximum length 50.
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label} *(required)*
+- **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -1278,23 +1347,25 @@ an array of `SpaceResource`.
 
 `201` — Created
 
-`CreateSpaceResponseV1`.
-
-- **`Space`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDefault`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-  - **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-  - **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Space`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDefault`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+  - **`SpaceManagersTeams`** :span[array of string]{.type-label}
+  - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1338,36 +1409,41 @@ an array of `SpaceResource`.
 
 ## Get a Space by ID
 
-`GET` `/api/spaces/{id}`
+:span[GET]{.api-get} `/api/spaces/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Space to load.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Space to load.
 
 **Response**
 
 `200` — Returns a space
 
-`SpaceResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`IsPrivate`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`IsPrivate`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+- **`SpaceManagersTeams`** :span[array of string]{.type-label}
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1407,26 +1483,26 @@ an array of `SpaceResource`.
 ```
 </div>
 
-## Updates a Space
+## Update a Space
 
-`PUT` `/api/spaces/{id}`
+:span[PUT]{.api-put} `/api/spaces/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifySpaceCommandV1`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`IsDefault`** <span class="type-label">boolean</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span> — Maximum length 50.
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span> *(required)*
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span> *(required)*
-- **`TaskQueueStopped`** <span class="type-label">boolean</span> *(required)*
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`IsDefault`** :span[boolean]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}  
+  Maximum length 50.
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label} *(required)*
+- **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
+- **`TaskQueueStopped`** :span[boolean]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -1452,26 +1528,30 @@ an array of `SpaceResource`.
 
 `200` — Confirmation that the Space was modified, contains the updated Space
 
-`SpaceResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`IsPrivate`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`IsPrivate`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+- **`SpaceManagersTeams`** :span[array of string]{.type-label}
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1511,27 +1591,29 @@ an array of `SpaceResource`.
 ```
 </div>
 
-## Deletes an existing Space
+## Delete an existing Space
 
-`DELETE` `/api/spaces/{id}`
+:span[DELETE]{.api-delete} `/api/spaces/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Space to be deleted.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Space to be deleted.
 
 **Response**
 
 `200` — Success
 
-## Gets the logo for the space with the given space ID
+## Get the logo for the space with the given space ID
 
-`GET` `/api/spaces/{id}/logo`
+:span[GET]{.api-get} `/api/spaces/{id}/logo`
 
 Gets the logo associated with the space.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
 
 **Response**
 
@@ -1544,59 +1626,68 @@ Gets the logo associated with the space.
 ```
 </div>
 
-## Modifies the logo of the space with the given space ID
+## Modify the logo of the space with the given space ID
 
-`POST` `/api/spaces/{id}/logo`
+:span[POST]{.api-post} `/api/spaces/{id}/logo`
 
 Modifies the logo associated with the space.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
 
 **Response**
 
 `200` — Success
 
-## Modifies the logo of the space with the given space ID
+## Modify the logo of the space with the given space ID
 
-`PUT` `/api/spaces/{id}/logo`
+:span[PUT]{.api-put} `/api/spaces/{id}/logo`
 
 Modifies the logo associated with the space.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
 
 **Response**
 
 `200` — Success
 
-## Searches in the supplied Octopus Deploy Space using the given keyword
+## Search in the supplied Octopus Deploy Space using the given keyword
 
-`GET` `/api/{spaceId}/spaces/{id}/search`
+:span[GET]{.api-get} `/api/{spaceId}/spaces/{id}/search`
 
 Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spaces/{id}/search`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Space to search.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Space to search.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`keyword`** <span class="type-label">string</span> *(required)* — A keyword to search. Example: ABC.
+**Query Parameters**
+
+- **`keyword`** :span[string]{.type-label} *(required)*  
+  A keyword to search. Example: ABC.
 
 **Response**
 
 `200` — The requested Space Search Results
 
-an array of `SpaceSearchResult`.
-
-- **`Id`** <span class="type-label">string</span> — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Owner`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Type`** <span class="type-label">string</span> — Minimum length 1.
-- **`Type`** <span class="type-label">string</span> — Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Owner`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Type`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`Type`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -1615,19 +1706,18 @@ an array of `SpaceSearchResult`.
 ```
 </div>
 
-## Deletes an existing Space
+## Delete an existing Space
 
-`DELETE` `/api/spaces/{id}/v1`
+:span[DELETE]{.api-delete} `/api/spaces/{id}/v1`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Space to be deleted.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Space to be deleted.
 
 **Response**
 
 `200` — Empty response indicating the Space was deleted
-
-`DeleteSpaceResponse`.
 
 <div data-example="Response">
 
@@ -1636,38 +1726,43 @@ an array of `SpaceSearchResult`.
 ```
 </div>
 
-## Gets a list of spaces available to the current authenticated user only
+## Get a list of spaces available to the current authenticated user only
 
-`GET` `/api/users/{id}/spaces`
+:span[GET]{.api-get} `/api/users/{id}/spaces`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the user whose spaces we are looking up.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the user whose spaces we are looking up.
 
 **Response**
 
 `200` — The requested list of Spaces available to the user
 
-an array of `SpaceResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span>
-- **`IsPrivate`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceManagersTeamMembers`** <span class="type-label">array of string</span>
-- **`SpaceManagersTeams`** <span class="type-label">array of string</span>
-- **`TaskQueueStopped`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}
+- **`IsPrivate`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceManagersTeamMembers`** :span[array of string]{.type-label}
+- **`SpaceManagersTeams`** :span[array of string]{.type-label}
+- **`TaskQueueStopped`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 

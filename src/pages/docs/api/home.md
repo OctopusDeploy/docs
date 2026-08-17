@@ -7,24 +7,27 @@ title: Home
 
 ## GET /api/{spaceId}
 
-`GET` `/api/{spaceId}`
+:span[GET]{.api-get} `/api/{spaceId}`
 
 Returns a document describing the specified Space and links to other parts of the API that apply to the Space.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — Must match `Spaces-\d+`.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  Must match `Spaces-\d+`.
 
 **Response**
 
 `200` — Success
 
-`SpaceRootResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -44,7 +47,7 @@ Returns a document describing the specified Space and links to other parts of th
 
 ## GET /api/
 
-`GET` `/api/`
+:span[GET]{.api-get} `/api/`
 
 Returns a document describing the current Octopus Server and links to other parts of the API.
 
@@ -52,18 +55,23 @@ Returns a document describing the current Octopus Server and links to other part
 
 `200` — Success
 
-`RootResource`.
-
-- **`ApiVersion`** <span class="type-label">string</span>
-- **`Application`** <span class="type-label">string</span>
-- **`HasLongTermSupport`** <span class="type-label">boolean</span> — Every release from 2020.1 onwards of Octopus Server comes with long-term support. I wanted to remove this from the API, but that would be a breaking change. @michaelnoonan 2020-04-20.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`InstallationId`** <span class="type-label">string</span> — Format `uuid`.
-- **`IsEarlyAccessProgram`** <span class="type-label">boolean</span> — Defaults to `false`.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Version`** <span class="type-label">string</span>
+- **`ApiVersion`** :span[string]{.type-label}
+- **`Application`** :span[string]{.type-label}
+- **`HasLongTermSupport`** :span[boolean]{.type-label}  
+  Every release from 2020.1 onwards of Octopus Server comes with long-term support. I wanted to remove this from the API, but that would be a breaking change. @michaelnoonan 2020-04-20.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`InstallationId`** :span[string]{.type-label}  
+  Format `uuid`.
+- **`IsEarlyAccessProgram`** :span[boolean]{.type-label}  
+  Defaults to `false`.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Version`** :span[string]{.type-label}
 
 <div data-example="Response">
 

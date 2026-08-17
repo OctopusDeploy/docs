@@ -5,704 +5,709 @@ modDate: 2026-08-11
 title: Permissions
 ---
 
-## Gets all the available permissions and their descriptions and restrictions
+## Get all the available permissions and their descriptions and restrictions
 
-`GET` `/api/permissions/all`
+:span[GET]{.api-get} `/api/permissions/all`
 
 **Response**
 
 `200` — A dictionary keyed by permission with their description
 
-- **`AccountCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`AccountDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`AccountEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`AccountView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ActionTemplateCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ActionTemplateDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ActionTemplateEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ActionTemplateView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`AdministerSystem`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`AiAgentTranscriptView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ApprovalPolicyAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ArtifactCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ArtifactDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ArtifactEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ArtifactView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`BuildInformationAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`BuildInformationPush`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`BuiltInFeedAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`BuiltInFeedDownload`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`BuiltInFeedPush`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`CertificateCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`CertificateDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`CertificateEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`CertificateExportPrivateKey`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`CertificateView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ConfigureServer`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DefectReport`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DefectResolve`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DeployedResourceAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DeploymentCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DeploymentDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DeploymentFreezeAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`DeploymentView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EnvironmentCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EnvironmentDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EnvironmentEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EnvironmentView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EventRetentionDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EventRetentionView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`EventView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`FeatureToggleEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`FeedEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`FeedView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`GitCredentialEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`GitCredentialView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InsightsReportCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InsightsReportDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InsightsReportEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InsightsReportView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InterruptionSubmit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InterruptionView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`InterruptionViewSubmitResponsible`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LibraryVariableSetCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LibraryVariableSetDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LibraryVariableSetEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LibraryVariableSetView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LifecycleCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LifecycleDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LifecycleEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`LifecycleView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachineCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachineDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachineEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachinePolicyCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachinePolicyDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachinePolicyEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachinePolicyView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`MachineView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`PlatformHubEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`PlatformHubView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProcessEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProcessView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectGroupCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectGroupDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectGroupEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectGroupView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProjectView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProxyCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProxyDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProxyEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ProxyView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ReleaseCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ReleaseDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ReleaseEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`ReleaseView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RetentionAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RunbookEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RunbookRunCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RunbookRunDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RunbookRunView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`RunbookView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SpaceCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SpaceDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SpaceEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SpaceView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SshKnownHostsAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SshKnownHostsView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SubscriptionCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SubscriptionDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SubscriptionEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`SubscriptionView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TagSetCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TagSetDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TagSetEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TargetTagAdminister`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TargetTagView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TaskCancel`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TaskCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TaskEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TaskPrioritize`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TaskView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TeamCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TeamDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TeamEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TeamView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TelemetryView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TenantCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TenantDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TenantEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TenantView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TriggerCreate`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TriggerDelete`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TriggerEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`TriggerView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`UserEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`UserInvite`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`UserRoleEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`UserRoleView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`UserView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`VariableEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`VariableEditUnscoped`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`VariableView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`VariableViewUnscoped`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`WorkerEdit`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
-- **`WorkerView`** <span class="type-label">object</span>
-  - **`CanApplyAtSpaceLevel`** <span class="type-label">boolean</span>
-  - **`CanApplyAtSystemLevel`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`SupportedRestrictions`** <span class="type-label">array of string</span>
+- **`AccountCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`AccountDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`AccountEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`AccountView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ActionTemplateCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ActionTemplateDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ActionTemplateEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ActionTemplateView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`AdministerSystem`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`AiAgentTranscriptView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ApprovalPolicyAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ArtifactCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ArtifactDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ArtifactEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ArtifactView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`BuildInformationAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`BuildInformationPush`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`BuiltInFeedAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`BuiltInFeedDownload`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`BuiltInFeedPush`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`CertificateCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`CertificateDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`CertificateEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`CertificateExportPrivateKey`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`CertificateView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ConfigureServer`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DefectReport`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DefectResolve`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DeployedResourceAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DeploymentCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DeploymentDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DeploymentFreezeAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`DeploymentView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EnvironmentCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EnvironmentDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EnvironmentEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EnvironmentView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EventRetentionDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EventRetentionView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`EventView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`FeatureToggleEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`FeedEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`FeedView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`GitCredentialEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`GitCredentialView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InsightsReportCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InsightsReportDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InsightsReportEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InsightsReportView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InterruptionSubmit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InterruptionView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`InterruptionViewSubmitResponsible`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LibraryVariableSetCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LibraryVariableSetDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LibraryVariableSetEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LibraryVariableSetView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LifecycleCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LifecycleDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LifecycleEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`LifecycleView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachineCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachineDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachineEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachinePolicyCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachinePolicyDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachinePolicyEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachinePolicyView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`MachineView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`PlatformHubEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`PlatformHubView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProcessEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProcessView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectGroupCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectGroupDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectGroupEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectGroupView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProjectView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProxyCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProxyDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProxyEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ProxyView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ReleaseCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ReleaseDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ReleaseEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`ReleaseView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RetentionAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookRunCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookRunDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookRunView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookSnapshotCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`RunbookView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SpaceCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SpaceDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SpaceEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SpaceView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SshKnownHostsAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SshKnownHostsView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SubscriptionCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SubscriptionDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SubscriptionEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`SubscriptionView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TagSetCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TagSetDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TagSetEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TargetTagAdminister`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TargetTagView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TaskCancel`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TaskCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TaskEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TaskPrioritize`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TaskView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TeamCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TeamDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TeamEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TeamView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TelemetryView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TenantCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TenantDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TenantEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TenantView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TriggerCreate`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TriggerDelete`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TriggerEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`TriggerView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`UserEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`UserInvite`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`UserRoleEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`UserRoleView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`UserView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`VariableEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`VariableEditUnscoped`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`VariableView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`VariableViewUnscoped`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`WorkerEdit`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
+- **`WorkerView`** :span[object]{.type-label}
+  - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
+  - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`SupportedRestrictions`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -1445,6 +1450,14 @@ title: Permissions
     ]
   },
   "RunbookRunView": {
+    "CanApplyAtSpaceLevel": true,
+    "CanApplyAtSystemLevel": true,
+    "Description": "string",
+    "SupportedRestrictions": [
+      "string"
+    ]
+  },
+  "RunbookSnapshotCreate": {
     "CanApplyAtSpaceLevel": true,
     "CanApplyAtSystemLevel": true,
     "Description": "string",

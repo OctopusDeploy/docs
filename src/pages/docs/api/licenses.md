@@ -5,22 +5,24 @@ modDate: 2026-08-11
 title: Licenses
 ---
 
-## Returns the details of the current license in use by the Octopus Cluster
+## Return the details of the current license in use by the Octopus Cluster
 
-`GET` `/api/licenses/licenses-current`
+:span[GET]{.api-get} `/api/licenses/licenses-current`
 
 **Response**
 
 `200` — The requested License
 
-`LicenseResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LicenseText`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SerialNumber`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LicenseText`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SerialNumber`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -42,16 +44,14 @@ title: Licenses
 
 ## Update the current Octopus cluster license
 
-`PUT` `/api/licenses/licenses-current`
+:span[PUT]{.api-put} `/api/licenses/licenses-current`
 
 Updates the license for the Octopus cluster.
 
 **Request Body**
 
-`ModifyCurrentLicenseCommand`
-
-- **`LicenseText`** <span class="type-label">string</span>
-- **`SerialNumber`** <span class="type-label">string</span>
+- **`LicenseText`** :span[string]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -67,14 +67,16 @@ Updates the license for the Octopus cluster.
 
 `200` — Confirmation that the Current License has been modified, containing the new License
 
-`LicenseResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LicenseText`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SerialNumber`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LicenseText`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SerialNumber`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -94,17 +96,15 @@ Updates the license for the Octopus cluster.
 ```
 </div>
 
-## Returns a list of enabled features from the license
+## Return a list of enabled features from the license
 
-`GET` `/api/licenses/licenses-current-features`
+:span[GET]{.api-get} `/api/licenses/licenses-current-features`
 
 **Response**
 
 `200` — The list of enabled features from the license
 
-`GetCurrentLicenseFeaturesResponse`.
-
-- **`EnabledFeatures`** <span class="type-label">array of string</span>
+- **`EnabledFeatures`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -119,7 +119,7 @@ Updates the license for the Octopus cluster.
 
 ## Get the status of the current Octopus license
 
-`GET` `/api/licenses/licenses-current-status`
+:span[GET]{.api-get} `/api/licenses/licenses-current-status`
 
 Calculates the status of the current Octopus license including compliance and maintenance expiry.
 
@@ -127,44 +127,51 @@ Calculates the status of the current Octopus license including compliance and ma
 
 `200` — The requested License Status
 
-`LicenseStatusResource`.
-
-- **`ComplianceSummary`** <span class="type-label">string</span>
-- **`DaysToEffectiveExpiryDate`** <span class="type-label">integer</span>
-- **`DoesExpiryBlockKeyActivities`** <span class="type-label">boolean</span>
-- **`EffectiveClusterTaskLimit`** <span class="type-label">integer</span>
-- **`EffectiveExpiryDate`** <span class="type-label">string</span>
-- **`EffectiveNodeTaskLimit`** <span class="type-label">integer</span>
-- **`EffectiveStartDate`** <span class="type-label">string</span>
-- **`HostingEnvironment`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsClusterTaskLimitControlledByLicense`** <span class="type-label">boolean</span>
-- **`IsCompliant`** <span class="type-label">boolean</span>
-- **`IsInitialisationLicense`** <span class="type-label">boolean</span>
-- **`IsNodeTaskLimitControlledByLicense`** <span class="type-label">boolean</span>
-- **`IsPtm`** <span class="type-label">boolean</span>
-- **`IsTrial`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Limits`** <span class="type-label">array of object</span>
-  - **`CurrentUsage`** <span class="type-label">integer</span>
-  - **`Disposition`** <span class="type-label">enum</span> — Allowed values: `Information`, `Notice`, `Warning`, `Error`.
-  - **`EffectiveLimit`** <span class="type-label">integer</span>
-  - **`EffectiveLimitDescription`** <span class="type-label">string</span>
-  - **`IsUnlimited`** <span class="type-label">boolean</span>
-  - **`LicenseLimitDescription`** <span class="type-label">string</span>
-  - **`LicensedLimit`** <span class="type-label">integer</span>
-  - **`LimitStatus`** <span class="type-label">enum</span> — Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
-  - **`Message`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`TargetTypes`** <span class="type-label">array of string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Messages`** <span class="type-label">array of object</span>
-  - **`Disposition`** <span class="type-label">enum</span> — Allowed values: `Information`, `Notice`, `Warning`, `Error`.
-  - **`Message`** <span class="type-label">string</span>
-  - **`MessagePolicy`** <span class="type-label">enum</span> — Allowed values: `LicensePeriodPolicy`, `AuditStreamPolicy`, `InsightsLicensePolicy`, `TimeLimitedPolicy`, `MaintenancePeriodPolicy`, `TimeLimitedTestLicensePolicy`, `CommunityEditionPolicy`, `NodeLimitPolicy`.
-- **`PermissionsMode`** <span class="type-label">enum</span> — Allowed values: `Unspecified`, `Restricted`, `Full`.
-- **`SerialNumber`** <span class="type-label">string</span>
+- **`ComplianceSummary`** :span[string]{.type-label}
+- **`DaysToEffectiveExpiryDate`** :span[integer]{.type-label}
+- **`DoesExpiryBlockKeyActivities`** :span[boolean]{.type-label}
+- **`EffectiveClusterTaskLimit`** :span[integer]{.type-label}
+- **`EffectiveExpiryDate`** :span[string]{.type-label}
+- **`EffectiveNodeTaskLimit`** :span[integer]{.type-label}
+- **`EffectiveStartDate`** :span[string]{.type-label}
+- **`HostingEnvironment`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsClusterTaskLimitControlledByLicense`** :span[boolean]{.type-label}
+- **`IsCompliant`** :span[boolean]{.type-label}
+- **`IsInitialisationLicense`** :span[boolean]{.type-label}
+- **`IsNodeTaskLimitControlledByLicense`** :span[boolean]{.type-label}
+- **`IsPtm`** :span[boolean]{.type-label}
+- **`IsTrial`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Limits`** :span[array of object]{.type-label}
+  - **`CurrentUsage`** :span[integer]{.type-label}
+  - **`Disposition`** :span[enum]{.type-label}  
+    Allowed values: `Information`, `Notice`, `Warning`, `Error`.
+  - **`EffectiveLimit`** :span[integer]{.type-label}
+  - **`EffectiveLimitDescription`** :span[string]{.type-label}
+  - **`IsUnlimited`** :span[boolean]{.type-label}
+  - **`LicenseLimitDescription`** :span[string]{.type-label}
+  - **`LicensedLimit`** :span[integer]{.type-label}
+  - **`LimitStatus`** :span[enum]{.type-label}  
+    Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
+  - **`Message`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`TargetTypes`** :span[array of string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Messages`** :span[array of object]{.type-label}
+  - **`Disposition`** :span[enum]{.type-label}  
+    Allowed values: `Information`, `Notice`, `Warning`, `Error`.
+  - **`Message`** :span[string]{.type-label}
+  - **`MessagePolicy`** :span[enum]{.type-label}  
+    Allowed values: `LicensePeriodPolicy`, `AuditStreamPolicy`, `InsightsLicensePolicy`, `TimeLimitedPolicy`, `MaintenancePeriodPolicy`, `TimeLimitedTestLicensePolicy`, `CommunityEditionPolicy`, `NodeLimitPolicy`.
+- **`PermissionsMode`** :span[enum]{.type-label}  
+  Allowed values: `Unspecified`, `Restricted`, `Full`.
+- **`SerialNumber`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -224,7 +231,7 @@ Calculates the status of the current Octopus license including compliance and ma
 
 ## Get the usage of the current Octopus server
 
-`GET` `/api/licenses/licenses-current-usage`
+:span[GET]{.api-get} `/api/licenses/licenses-current-usage`
 
 Calculates the usage of the current Octopus server.
 
@@ -232,31 +239,35 @@ Calculates the usage of the current Octopus server.
 
 `200` — Success
 
-`LicenseUsageResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsPtm`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Limits`** <span class="type-label">array of object</span>
-  - **`CurrentUsage`** <span class="type-label">integer</span>
-  - **`Disposition`** <span class="type-label">enum</span> — Allowed values: `Information`, `Notice`, `Warning`, `Error`.
-  - **`EffectiveLimit`** <span class="type-label">integer</span>
-  - **`EffectiveLimitDescription`** <span class="type-label">string</span>
-  - **`IsUnlimited`** <span class="type-label">boolean</span>
-  - **`LicenseLimitDescription`** <span class="type-label">string</span>
-  - **`LicensedLimit`** <span class="type-label">integer</span>
-  - **`LimitStatus`** <span class="type-label">enum</span> — Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
-  - **`LimitUsageDescription`** <span class="type-label">string</span>
-  - **`Message`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`TargetTypes`** <span class="type-label">array of string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SpacesUsage`** <span class="type-label">array of object</span>
-  - **`MachinesCount`** <span class="type-label">integer</span>
-  - **`ProjectsCount`** <span class="type-label">integer</span>
-  - **`SpaceName`** <span class="type-label">string</span>
-  - **`TenantsCount`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsPtm`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Limits`** :span[array of object]{.type-label}
+  - **`CurrentUsage`** :span[integer]{.type-label}
+  - **`Disposition`** :span[enum]{.type-label}  
+    Allowed values: `Information`, `Notice`, `Warning`, `Error`.
+  - **`EffectiveLimit`** :span[integer]{.type-label}
+  - **`EffectiveLimitDescription`** :span[string]{.type-label}
+  - **`IsUnlimited`** :span[boolean]{.type-label}
+  - **`LicenseLimitDescription`** :span[string]{.type-label}
+  - **`LicensedLimit`** :span[integer]{.type-label}
+  - **`LimitStatus`** :span[enum]{.type-label}  
+    Allowed values: `UnderLimit`, `AlmostAtLimit`, `AtLimit`, `InOverrun`, `ExceedingLimit`.
+  - **`LimitUsageDescription`** :span[string]{.type-label}
+  - **`Message`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`TargetTypes`** :span[array of string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SpacesUsage`** :span[array of object]{.type-label}
+  - **`MachinesCount`** :span[integer]{.type-label}
+  - **`ProjectsCount`** :span[integer]{.type-label}
+  - **`SpaceName`** :span[string]{.type-label}
+  - **`TenantsCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

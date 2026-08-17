@@ -5,22 +5,25 @@ modDate: 2026-08-11
 title: Cloud Template
 ---
 
-## Requests the metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
+## Request the metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
 
-`POST` `/api/cloudtemplate/{id}/metadata`
+:span[POST]{.api-post} `/api/cloudtemplate/{id}/metadata`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of a supported cloud template type, eg `CloudFormation`, `Terraform`, `AzureAppService`, `Kubernetes`, etc.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of a supported cloud template type, eg `CloudFormation`, `Terraform`, `AzureAppService`, `Kubernetes`, etc.
 
 **Request Body**
 
-`GetCloudTemplateMetadataRequest`
-
-- **`FeedId`** <span class="type-label">string</span> — Id of the feed from which to load the package. Obsolete.
-- **`Id`** <span class="type-label">string</span> *(required)* — The id of a supported cloud template type, eg `CloudFormation`, `Terraform`, `AzureAppService`, `Kubernetes`, etc.
-- **`PackageId`** <span class="type-label">string</span> — Id of the package to load and parse. Obsolete.
-- **`Template`** <span class="type-label">string</span> *(required)* — The cloud template to evaluate and extract parameters and values from. Minimum length 1.
+- **`FeedId`** :span[string]{.type-label}  
+  Id of the feed from which to load the package. Obsolete.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The id of a supported cloud template type, eg `CloudFormation`, `Terraform`, `AzureAppService`, `Kubernetes`, etc.
+- **`PackageId`** :span[string]{.type-label}  
+  Id of the package to load and parse. Obsolete.
+- **`Template`** :span[string]{.type-label} *(required)*  
+  The cloud template to evaluate and extract parameters and values from. Minimum length 1.
 
 <div data-example="Request">
 
@@ -38,12 +41,10 @@ title: Cloud Template
 
 `200` — The metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
 
-`CloudTemplateMetadata`.
-
-- **`Metadata`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Types`** <span class="type-label">array of object</span>
-- **`Values`** <span class="type-label">string</span>
+- **`Metadata`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Types`** :span[array of object]{.type-label}
+- **`Values`** :span[string]{.type-label}
 
 <div data-example="Response">
 

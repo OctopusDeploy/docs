@@ -5,21 +5,24 @@ modDate: 2026-08-11
 title: Performance
 ---
 
-## Requests the current performance configuration
+## Request the current performance configuration
 
-`GET` `/api/performanceconfiguration`
+:span[GET]{.api-get} `/api/performanceconfiguration`
 
 **Response**
 
 `200` — The current performance configuration
 
-`PerformanceConfigurationResource`.
-
-- **`DefaultDashboardRenderMode`** <span class="type-label">enum</span> — Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`DefaultDashboardRenderMode`** :span[enum]{.type-label}  
+  Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -38,15 +41,14 @@ title: Performance
 ```
 </div>
 
-## Sets the performance configuration
+## Set the performance configuration
 
-`PUT` `/api/performanceconfiguration`
+:span[PUT]{.api-put} `/api/performanceconfiguration`
 
 **Request Body**
 
-`SetPerformanceConfigurationCommand`
-
-- **`DefaultDashboardRenderMode`** <span class="type-label">enum</span> *(required)* — Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
+- **`DefaultDashboardRenderMode`** :span[enum]{.type-label} *(required)*  
+  Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
 
 <div data-example="Request">
 
@@ -61,13 +63,16 @@ title: Performance
 
 `200` — The updated performance configuration
 
-`PerformanceConfigurationResource`.
-
-- **`DefaultDashboardRenderMode`** <span class="type-label">enum</span> — Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`DefaultDashboardRenderMode`** :span[enum]{.type-label}  
+  Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 

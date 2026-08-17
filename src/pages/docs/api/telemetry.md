@@ -7,7 +7,7 @@ title: Telemetry
 
 ## Get the latest telemetry data
 
-`GET` `/api/telemetry/download`
+:span[GET]{.api-get} `/api/telemetry/download`
 
 **Response**
 
@@ -22,43 +22,70 @@ title: Telemetry
 
 ## Get the last telemetry task
 
-`GET` `/api/telemetry/lastTask`
+:span[GET]{.api-get} `/api/telemetry/lastTask`
 
 **Response**
 
 `200` — The requested last Telemetry Task
 
-`TaskResource`.
-
-- **`Arguments`** <span class="type-label">object</span> — Gets or sets any arguments to the task.
-- **`CanRerun`** <span class="type-label">boolean</span> — If true, then the task can be used as the basis for a new task with the same effect.
-- **`Completed`** <span class="type-label">string</span> — Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
-- **`CompletedTime`** <span class="type-label">string</span> — Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
-- **`Duration`** <span class="type-label">string</span> — Gets or sets a string indicating how long the task took to run.
-- **`ErrorMessage`** <span class="type-label">string</span> — Gets or sets a short summary of the errors encountered when the task ran (if any).
-- **`EstimatedRemainingQueueDurationSeconds`** <span class="type-label">integer</span>
-- **`FinishedSuccessfully`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task ran to completion successfully.
-- **`HasBeenPickedUpByProcessor`** <span class="type-label">boolean</span> — Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
-- **`HasPendingInterruptions`** <span class="type-label">boolean</span> — True if the task has any pending interruptions.
-- **`HasPendingPreconditions`** <span class="type-label">boolean</span> — True if the task has any pending preconditions.
-- **`HasWarningsOrErrors`** <span class="type-label">boolean</span> — True if any warnings or non-fatal errors were recorded in the task log during execution.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompleted`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastUpdatedTime`** <span class="type-label">string</span> — Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
-- **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Contains a list of the types of any pending interruptions. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`PendingPreconditionTypes`** <span class="type-label">array of string</span> — Contains a list of the types of any pending preconditions.
-- **`ProjectId`** <span class="type-label">string</span> — If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
-- **`QueueTime`** <span class="type-label">string</span> — Gets or sets the time at which the task was queued. Format `date-time`.
-- **`QueueTimeExpiry`** <span class="type-label">string</span> — Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
-- **`ServerNode`** <span class="type-label">string</span> — Gets the ID of the Octopus server that created and will control this task.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StartTime`** <span class="type-label">string</span> — Gets or sets the time at which the task started executing. Format `date-time`.
-- **`State`** <span class="type-label">enum</span> — Gets or sets the current state of the task. Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+- **`Arguments`** :span[object]{.type-label}  
+  Gets or sets any arguments to the task.
+- **`CanRerun`** :span[boolean]{.type-label}  
+  If true, then the task can be used as the basis for a new task with the same effect.
+- **`Completed`** :span[string]{.type-label}  
+  Gets or sets a value indicating the completion status of the task. May be "Timed out", "Queued...", "Executing...", or the time at which the task completed for completed tasks.
+- **`CompletedTime`** :span[string]{.type-label}  
+  Gets or sets the date/time that the task completed. Will be null if the task has not yet completed. Format `date-time`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short, human-understandable description of this task. An example might be "Manual database backup". This is the name that will be shown in the task list.
+- **`Duration`** :span[string]{.type-label}  
+  Gets or sets a string indicating how long the task took to run.
+- **`ErrorMessage`** :span[string]{.type-label}  
+  Gets or sets a short summary of the errors encountered when the task ran (if any).
+- **`EstimatedRemainingQueueDurationSeconds`** :span[integer]{.type-label}
+- **`FinishedSuccessfully`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task ran to completion successfully.
+- **`HasBeenPickedUpByProcessor`** :span[boolean]{.type-label}  
+  Gets or sets a boolean value indicating whether the Octopus Server is processing this task.
+- **`HasPendingInterruptions`** :span[boolean]{.type-label}  
+  True if the task has any pending interruptions.
+- **`HasPendingPreconditions`** :span[boolean]{.type-label}  
+  True if the task has any pending preconditions.
+- **`HasWarningsOrErrors`** :span[boolean]{.type-label}  
+  True if any warnings or non-fatal errors were recorded in the task log during execution.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompleted`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the task has completed (that is, not queued, not running, and not paused; may have finished successfully or failed).
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastUpdatedTime`** :span[string]{.type-label}  
+  Gets or sets the time that the Octopus server last updated the status of this task. For a running task this should happen at least every couple of minutes. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of the task to create. This name must be one of the list of possible names documented in the create API operation documentation.
+- **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+  Contains a list of the types of any pending interruptions.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`PendingPreconditionTypes`** :span[array of string]{.type-label}  
+  Contains a list of the types of any pending preconditions.
+- **`ProjectId`** :span[string]{.type-label}  
+  If the task belongs to a project (e.g. a deployment), the ID of the project it belongs to.
+- **`QueueTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task was queued. Format `date-time`.
+- **`QueueTimeExpiry`** :span[string]{.type-label}  
+  Gets or sets the time at which the task will timeout if it has not started executing. Format `date-time`.
+- **`ServerNode`** :span[string]{.type-label}  
+  Gets the ID of the Octopus server that created and will control this task.
+- **`SpaceId`** :span[string]{.type-label}
+- **`StartTime`** :span[string]{.type-label}  
+  Gets or sets the time at which the task started executing. Format `date-time`.
+- **`State`** :span[enum]{.type-label}  
+  Gets or sets the current state of the task.  
+  Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
 <div data-example="Response">
 
@@ -111,21 +138,24 @@ title: Telemetry
 
 ## Get the Telemetry configuration
 
-`GET` `/api/telemetryconfiguration`
+:span[GET]{.api-get} `/api/telemetryconfiguration`
 
 **Response**
 
 `200` — The requested Telemetry Configuration
 
-`TelemetryConfigurationResource`.
-
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsTelemetryEnforced`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ShowAsNewUntil`** <span class="type-label">string</span> — Format `date-time`.
+- **`Enabled`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsTelemetryEnforced`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ShowAsNewUntil`** :span[string]{.type-label}  
+  Format `date-time`.
 
 <div data-example="Response">
 
@@ -146,21 +176,24 @@ title: Telemetry
 ```
 </div>
 
-## Updates the Telemetry Configuration
+## Update the Telemetry Configuration
 
-`PUT` `/api/telemetryconfiguration`
+:span[PUT]{.api-put} `/api/telemetryconfiguration`
 
 **Request Body**
 
-`ModifyTelemetryConfigurationCommand`
-
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsTelemetryEnforced`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ShowAsNewUntil`** <span class="type-label">string</span> — Format `date-time`.
+- **`Enabled`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsTelemetryEnforced`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ShowAsNewUntil`** :span[string]{.type-label}  
+  Format `date-time`.
 
 <div data-example="Request">
 
@@ -185,15 +218,18 @@ title: Telemetry
 
 `200` — Confirmation that Telemetry Configuration was modified, containing the new configuration
 
-`TelemetryConfigurationResource`.
-
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsTelemetryEnforced`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ShowAsNewUntil`** <span class="type-label">string</span> — Format `date-time`.
+- **`Enabled`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsTelemetryEnforced`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ShowAsNewUntil`** :span[string]{.type-label}  
+  Format `date-time`.
 
 <div data-example="Response">
 

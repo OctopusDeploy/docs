@@ -11,35 +11,43 @@ See https://octopus.com/docs/administration/managing-infrastructure/rate-limitin
 
 ## List all rate limiting policies
 
-`GET` `/api/ratelimitingpolicies`
+:span[GET]{.api-get} `/api/ratelimitingpolicies`
 
 There are three builtin policies, so while this returns a paginated response, there is only ever a single page. - Unauthenticated requests - Authenticated requests - AI Agent requests
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Minimum `0`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`RateLimitingPolicyResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`AuditMode`** <span class="type-label">boolean</span> — When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
-  - **`BurstLimit`** <span class="type-label">integer</span> — Maximum capacity of the token bucket.
-  - **`Id`** <span class="type-label">string</span> — The ID of this policy.
-  - **`IsBuiltIn`** <span class="type-label">boolean</span> — Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
-  - **`IsEnabled`** <span class="type-label">boolean</span> — Whether this policy is actively enforced.
-  - **`Name`** <span class="type-label">string</span> — The display name of this policy. Minimum length 1.
-  - **`RequestsPerMinute`** <span class="type-label">integer</span> — Number of requests permitted per minute.
-  - **`ScopeType`** <span class="type-label">string</span> — The scope this policy applies to.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`AuditMode`** :span[boolean]{.type-label}  
+    When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
+  - **`BurstLimit`** :span[integer]{.type-label}  
+    Maximum capacity of the token bucket.
+  - **`Id`** :span[string]{.type-label}  
+    The ID of this policy.
+  - **`IsBuiltIn`** :span[boolean]{.type-label}  
+    Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
+  - **`IsEnabled`** :span[boolean]{.type-label}  
+    Whether this policy is actively enforced.
+  - **`Name`** :span[string]{.type-label}  
+    The display name of this policy. Minimum length 1.
+  - **`RequestsPerMinute`** :span[integer]{.type-label}  
+    Number of requests permitted per minute.
+  - **`ScopeType`** :span[string]{.type-label}  
+    The scope this policy applies to.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -68,26 +76,33 @@ There are three builtin policies, so while this returns a paginated response, th
 
 ## Get a rate limiting policy by ID
 
-`GET` `/api/ratelimitingpolicies/{id}`
+:span[GET]{.api-get} `/api/ratelimitingpolicies/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the rate limiting policy.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the rate limiting policy.
 
 **Response**
 
-`200` — A rate limiting policy that controls request throughput using token bucket semantics.
+`200` — A Rate Limiting Policy
 
-`RateLimitingPolicyResource`.
-
-- **`AuditMode`** <span class="type-label">boolean</span> — When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
-- **`BurstLimit`** <span class="type-label">integer</span> — Maximum capacity of the token bucket.
-- **`Id`** <span class="type-label">string</span> — The ID of this policy.
-- **`IsBuiltIn`** <span class="type-label">boolean</span> — Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
-- **`IsEnabled`** <span class="type-label">boolean</span> — Whether this policy is actively enforced.
-- **`Name`** <span class="type-label">string</span> — The display name of this policy. Minimum length 1.
-- **`RequestsPerMinute`** <span class="type-label">integer</span> — Number of requests permitted per minute.
-- **`ScopeType`** <span class="type-label">string</span> — The scope this policy applies to.
+- **`AuditMode`** :span[boolean]{.type-label}  
+  When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
+- **`BurstLimit`** :span[integer]{.type-label}  
+  Maximum capacity of the token bucket.
+- **`Id`** :span[string]{.type-label}  
+  The ID of this policy.
+- **`IsBuiltIn`** :span[boolean]{.type-label}  
+  Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
+- **`IsEnabled`** :span[boolean]{.type-label}  
+  Whether this policy is actively enforced.
+- **`Name`** :span[string]{.type-label}  
+  The display name of this policy. Minimum length 1.
+- **`RequestsPerMinute`** :span[integer]{.type-label}  
+  Number of requests permitted per minute.
+- **`ScopeType`** :span[string]{.type-label}  
+  The scope this policy applies to.
 
 <div data-example="Response">
 
@@ -107,34 +122,40 @@ There are three builtin policies, so while this returns a paginated response, th
 
 ## Modify an existing rate limiting policy
 
-`PUT` `/api/ratelimitingpolicies/{id}`
+:span[PUT]{.api-put} `/api/ratelimitingpolicies/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the policy to modify.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the policy to modify.
 
 **Request Body**
 
-`ModifyRateLimitingPolicyCommand`
-
-- **`AuditMode`** <span class="type-label">boolean</span> *(required)* — When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
-- **`BurstLimit`** <span class="type-label">integer</span> *(required)* — Maximum capacity of the token bucket.
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the policy to modify.
-- **`IsEnabled`** <span class="type-label">boolean</span> *(required)* — Whether this policy is actively enforced.
-- **`Name`** <span class="type-label">string</span> *(required)* — The display name of the policy. Minimum length 1.
-- **`RequestsPerMinute`** <span class="type-label">integer</span> *(required)* — Number of requests permitted per minute.
-- **`ScopeType`** <span class="type-label">string</span> *(required)* — The scope this policy applies to.
+- **`AuditMode`** :span[boolean]{.type-label} *(required)*  
+  When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
+- **`BurstLimit`** :span[integer]{.type-label} *(required)*  
+  Maximum capacity of the token bucket.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the policy to modify.
+- **`IsEnabled`** :span[boolean]{.type-label} *(required)*  
+  Whether this policy is actively enforced.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The display name of the policy. Minimum length 1.
+- **`RequestsPerMinute`** :span[integer]{.type-label} *(required)*  
+  Number of requests permitted per minute.
+- **`ScopeType`** :span[string]{.type-label} *(required)*  
+  The scope this policy applies to.
 
 <div data-example="Request">
 
 ```json
 {
   "AuditMode": true,
-  "BurstLimit": 0,
-  "Id": "string",
+  "BurstLimit": 200,
+  "Id": "RateLimitingPolicies-1",
   "IsEnabled": true,
-  "Name": "string",
-  "RequestsPerMinute": 0,
+  "Name": "Authenticated requests",
+  "RequestsPerMinute": 600,
   "ScopeType": "string"
 }
 ```
@@ -142,18 +163,24 @@ There are three builtin policies, so while this returns a paginated response, th
 
 **Response**
 
-`200` — A rate limiting policy that controls request throughput using token bucket semantics.
+`200` — A Rate Limiting Policy
 
-`RateLimitingPolicyResource`.
-
-- **`AuditMode`** <span class="type-label">boolean</span> — When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
-- **`BurstLimit`** <span class="type-label">integer</span> — Maximum capacity of the token bucket.
-- **`Id`** <span class="type-label">string</span> — The ID of this policy.
-- **`IsBuiltIn`** <span class="type-label">boolean</span> — Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
-- **`IsEnabled`** <span class="type-label">boolean</span> — Whether this policy is actively enforced.
-- **`Name`** <span class="type-label">string</span> — The display name of this policy. Minimum length 1.
-- **`RequestsPerMinute`** <span class="type-label">integer</span> — Number of requests permitted per minute.
-- **`ScopeType`** <span class="type-label">string</span> — The scope this policy applies to.
+- **`AuditMode`** :span[boolean]{.type-label}  
+  When enabled, the policy logs requests that would be rate limited without rejecting them (no 429 response).
+- **`BurstLimit`** :span[integer]{.type-label}  
+  Maximum capacity of the token bucket.
+- **`Id`** :span[string]{.type-label}  
+  The ID of this policy.
+- **`IsBuiltIn`** :span[boolean]{.type-label}  
+  Whether this is a built-in policy that cannot be deleted or have its name or scope changed.
+- **`IsEnabled`** :span[boolean]{.type-label}  
+  Whether this policy is actively enforced.
+- **`Name`** :span[string]{.type-label}  
+  The display name of this policy. Minimum length 1.
+- **`RequestsPerMinute`** :span[integer]{.type-label}  
+  Number of requests permitted per minute.
+- **`ScopeType`** :span[string]{.type-label}  
+  The scope this policy applies to.
 
 <div data-example="Response">
 

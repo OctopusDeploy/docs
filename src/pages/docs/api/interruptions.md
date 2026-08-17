@@ -5,57 +5,84 @@ modDate: 2026-08-11
 title: Interruptions
 ---
 
-## Lists interruptions for user attention. The results will be sorted by date from most recently to least recently created
+## List interruptions for user attention. The results will be sorted by date from most recently to least recently created
 
-`GET` `/api/{spaceId}/interruptions`
+:span[GET]{.api-get} `/api/{spaceId}/interruptions`
 
 Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interruptions`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`ids`** <span class="type-label">array of string</span> — List of specific interruption IDs to load.
-- **`pendingOnly`** <span class="type-label">boolean</span> — If true, lists only pending interruptions.
-- **`regarding`** <span class="type-label">string</span> — Lists interruptions related to a specific other document, specified by its ID (e.g. a ServerTasks-*, Projects-* or Environments-* ID).
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  List of specific interruption IDs to load.
+- **`pendingOnly`** :span[boolean]{.type-label}  
+  If true, lists only pending interruptions.
+- **`regarding`** :span[string]{.type-label}  
+  Lists interruptions related to a specific other document, specified by its ID (e.g. a ServerTasks-*, Projects-* or Environments-* ID).
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Holds a list of interruptions returned in response to ListInterruptionsRequest
 
-`InterruptionResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanTakeResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
-  - **`CorrelationId`** <span class="type-label">string</span> — Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
-  - **`Created`** <span class="type-label">string</span> — Gets the time at which the interruption was created. Format `date-time`.
-  - **`Form`** <span class="type-label">object</span>
-  - **`HasResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has responsibility for this interruption.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsLinkedToOtherInterruption`** <span class="type-label">boolean</span> — If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
-  - **`IsPending`** <span class="type-label">boolean</span> — True if the interruption is waiting for user action; otherwise, false.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`PullRequests`** <span class="type-label">array of object</span> — Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
-  - **`RelatedDocumentIds`** <span class="type-label">array of string</span> — Gets the ids of documents related to this interruption.
-  - **`ResponsibleTeamIds`** <span class="type-label">array of string</span> — Gets the ids of groups that can take responsibility for this interruption.
-  - **`ResponsibleUserId`** <span class="type-label">string</span> — Gets or sets the.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TaskId`** <span class="type-label">string</span> — Gets or sets the id of the Server Task raising the interruption.
-  - **`Title`** <span class="type-label">string</span> — Gets or sets a title for this interruption.
-  - **`Type`** <span class="type-label">enum</span> — Gets or sets the type of interruption. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanTakeResponsibility`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+  - **`CorrelationId`** :span[string]{.type-label}  
+    Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
+  - **`Created`** :span[string]{.type-label}  
+    Gets the time at which the interruption was created. Format `date-time`.
+  - **`Form`** :span[object]{.type-label}
+  - **`HasResponsibility`** :span[boolean]{.type-label}  
+    Gets or sets a value indicating whether the current user has responsibility for this interruption.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsLinkedToOtherInterruption`** :span[boolean]{.type-label}  
+    If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
+  - **`IsPending`** :span[boolean]{.type-label}  
+    True if the interruption is waiting for user action; otherwise, false.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`PullRequests`** :span[array of object]{.type-label}  
+    Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
+  - **`RelatedDocumentIds`** :span[array of string]{.type-label}  
+    Gets the ids of documents related to this interruption.
+  - **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
+    Gets the ids of groups that can take responsibility for this interruption.
+  - **`ResponsibleUserId`** :span[string]{.type-label}  
+    Gets or sets the.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TaskId`** :span[string]{.type-label}  
+    Gets or sets the id of the Server Task raising the interruption.
+  - **`Title`** :span[string]{.type-label}  
+    Gets or sets a title for this interruption.
+  - **`Type`** :span[enum]{.type-label}  
+    Gets or sets the type of interruption.  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -118,49 +145,70 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 
 ## Get an Interruption by ID
 
-`GET` `/api/{spaceId}/interruptions/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/interruptions/{id}`
 
 Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/interruptions/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Interruption to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the Space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Interruption to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the Space.
 
 **Response**
 
 `200` — The requested Interruption
 
-`InterruptionResource`.
-
-- **`CanTakeResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
-- **`CorrelationId`** <span class="type-label">string</span> — Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
-- **`Created`** <span class="type-label">string</span> — Gets the time at which the interruption was created. Format `date-time`.
-- **`Form`** <span class="type-label">object</span>
-  - **`Elements`** <span class="type-label">array of object</span> — Elements of the form.
-  - **`Values`** <span class="type-label">object</span> — Values supplied for the form elements.
-- **`HasResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has responsibility for this interruption.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsLinkedToOtherInterruption`** <span class="type-label">boolean</span> — If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
-- **`IsPending`** <span class="type-label">boolean</span> — True if the interruption is waiting for user action; otherwise, false.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`PullRequests`** <span class="type-label">array of object</span> — Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
-  - **`Id`** <span class="type-label">string</span>
-  - **`InterruptionId`** <span class="type-label">string</span>
-  - **`Number`** <span class="type-label">integer</span>
-  - **`RepositoryUrl`** <span class="type-label">string</span>
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `Unknown`, `Open`, `Merged`, `Closed`, `UnknownGitVendor`.
-  - **`Title`** <span class="type-label">string</span>
-  - **`Url`** <span class="type-label">string</span>
-- **`RelatedDocumentIds`** <span class="type-label">array of string</span> — Gets the ids of documents related to this interruption.
-- **`ResponsibleTeamIds`** <span class="type-label">array of string</span> — Gets the ids of groups that can take responsibility for this interruption.
-- **`ResponsibleUserId`** <span class="type-label">string</span> — Gets or sets the.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TaskId`** <span class="type-label">string</span> — Gets or sets the id of the Server Task raising the interruption.
-- **`Title`** <span class="type-label">string</span> — Gets or sets a title for this interruption.
-- **`Type`** <span class="type-label">enum</span> — Gets or sets the type of interruption. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`CanTakeResponsibility`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+- **`CorrelationId`** :span[string]{.type-label}  
+  Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
+- **`Created`** :span[string]{.type-label}  
+  Gets the time at which the interruption was created. Format `date-time`.
+- **`Form`** :span[object]{.type-label}
+  - **`Elements`** :span[array of object]{.type-label}  
+    Elements of the form.
+  - **`Values`** :span[object]{.type-label}  
+    Values supplied for the form elements.
+- **`HasResponsibility`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the current user has responsibility for this interruption.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsLinkedToOtherInterruption`** :span[boolean]{.type-label}  
+  If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
+- **`IsPending`** :span[boolean]{.type-label}  
+  True if the interruption is waiting for user action; otherwise, false.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`PullRequests`** :span[array of object]{.type-label}  
+  Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
+  - **`Id`** :span[string]{.type-label}
+  - **`InterruptionId`** :span[string]{.type-label}
+  - **`Number`** :span[integer]{.type-label}
+  - **`RepositoryUrl`** :span[string]{.type-label}
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `Open`, `Merged`, `Closed`, `UnknownGitVendor`.
+  - **`Title`** :span[string]{.type-label}
+  - **`Url`** :span[string]{.type-label}
+- **`RelatedDocumentIds`** :span[array of string]{.type-label}  
+  Gets the ids of documents related to this interruption.
+- **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
+  Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserId`** :span[string]{.type-label}  
+  Gets or sets the.
+- **`SpaceId`** :span[string]{.type-label}
+- **`TaskId`** :span[string]{.type-label}  
+  Gets or sets the id of the Server Task raising the interruption.
+- **`Title`** :span[string]{.type-label}  
+  Gets or sets a title for this interruption.
+- **`Type`** :span[enum]{.type-label}  
+  Gets or sets the type of interruption.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
 
 <div data-example="Response">
 
@@ -220,55 +268,67 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 ```
 </div>
 
-## Gets the User that is currently responsible for this Interruption (if any)
+## Get the User that is currently responsible for this Interruption (if any)
 
-`GET` `/api/{spaceId}/interruptions/{id}/responsible`
+:span[GET]{.api-get} `/api/{spaceId}/interruptions/{id}/responsible`
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Interruption.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the Space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Interruption.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the Space.
 
 **Response**
 
 `200` — OK
 
-## Allows the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
+## Allow the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
 
-`PUT` `/api/{spaceId}/interruptions/{id}/responsible`
+:span[PUT]{.api-put} `/api/{spaceId}/interruptions/{id}/responsible`
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Interruption.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the Space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Interruption.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the Space.
 
 **Response**
 
 `200` — The User responsible for the requested Interruption
 
-`UserResource`.
-
-- **`CanPasswordBeEdited`** <span class="type-label">boolean</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`DisplayName`** <span class="type-label">string</span> — Maximum length 64.
-- **`EmailAddress`** <span class="type-label">string</span> — Format `email`. Maximum length 256.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`Identities`** <span class="type-label">array of object</span>
-  - **`Claims`** <span class="type-label">object</span>
-  - **`IdentityProviderName`** <span class="type-label">string</span>
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`IsRequestor`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether this user resource represents the user who requested it.
-- **`IsService`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Password`** <span class="type-label">string</span>
-- **`ServiceAccountType`** <span class="type-label">enum</span> — Allowed values: `Standard`, `Agent`.
-- **`Username`** <span class="type-label">string</span> — Maximum length 64.
+- **`CanPasswordBeEdited`** :span[boolean]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`DisplayName`** :span[string]{.type-label}  
+  Maximum length 64.
+- **`EmailAddress`** :span[string]{.type-label}  
+  Format `email`. Maximum length 256.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`Identities`** :span[array of object]{.type-label}
+  - **`Claims`** :span[object]{.type-label}
+  - **`IdentityProviderName`** :span[string]{.type-label}
+- **`IsActive`** :span[boolean]{.type-label}
+- **`IsRequestor`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether this user resource represents the user who requested it.
+- **`IsService`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Password`** :span[string]{.type-label}
+- **`ServiceAccountType`** :span[enum]{.type-label}  
+  Allowed values: `Standard`, `Agent`.
+- **`Username`** :span[string]{.type-label}  
+  Maximum length 64.
 
 <div data-example="Response">
 
@@ -306,27 +366,33 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 ```
 </div>
 
-## Submits a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
+## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
 
-`POST` `/api/{spaceId}/interruptions/{id}/submit`
+:span[POST]{.api-post} `/api/{spaceId}/interruptions/{id}/submit`
 
 Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/submit`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Interruption.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the Space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Interruption.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the Space.
 
 **Request Body**
 
-`SubmitInterruptionCommand`
-
-- **`Guidance`** <span class="type-label">string</span> — Used for Guided Failure Interruptions. Should be one of "Fail", "Retry", "Ignore" or "Exclude".
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Interruption. Minimum length 1.
-- **`Instructions`** <span class="type-label">string</span> — Optional free-text instructions recorded with the submission.
-- **`Notes`** <span class="type-label">string</span> — Optional notes recorded with the submission and included in the audit log entry.
-- **`Result`** <span class="type-label">string</span> — Used for Manual Intervention Interruptions. Should be one of "Proceed" or "Abort".
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — ID of the Space.
+- **`Guidance`** :span[string]{.type-label}  
+  Used for Guided Failure Interruptions. Should be one of "Fail", "Retry", "Ignore" or "Exclude".
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Interruption. Minimum length 1.
+- **`Instructions`** :span[string]{.type-label}  
+  Optional free-text instructions recorded with the submission.
+- **`Notes`** :span[string]{.type-label}  
+  Optional notes recorded with the submission and included in the audit log entry.
+- **`Result`** :span[string]{.type-label}  
+  Used for Manual Intervention Interruptions. Should be one of "Proceed" or "Abort".
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  ID of the Space.
 
 <div data-example="Request">
 
@@ -346,36 +412,55 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
 
 `200` — Confirms that the Interruption has been submitted successfully, containing the updated Interruption
 
-`InterruptionResource`.
-
-- **`CanTakeResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
-- **`CorrelationId`** <span class="type-label">string</span> — Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
-- **`Created`** <span class="type-label">string</span> — Gets the time at which the interruption was created. Format `date-time`.
-- **`Form`** <span class="type-label">object</span>
-  - **`Elements`** <span class="type-label">array of object</span> — Elements of the form.
-  - **`Values`** <span class="type-label">object</span> — Values supplied for the form elements.
-- **`HasResponsibility`** <span class="type-label">boolean</span> — Gets or sets a value indicating whether the current user has responsibility for this interruption.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsLinkedToOtherInterruption`** <span class="type-label">boolean</span> — If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
-- **`IsPending`** <span class="type-label">boolean</span> — True if the interruption is waiting for user action; otherwise, false.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`PullRequests`** <span class="type-label">array of object</span> — Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
-  - **`Id`** <span class="type-label">string</span>
-  - **`InterruptionId`** <span class="type-label">string</span>
-  - **`Number`** <span class="type-label">integer</span>
-  - **`RepositoryUrl`** <span class="type-label">string</span>
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `Unknown`, `Open`, `Merged`, `Closed`, `UnknownGitVendor`.
-  - **`Title`** <span class="type-label">string</span>
-  - **`Url`** <span class="type-label">string</span>
-- **`RelatedDocumentIds`** <span class="type-label">array of string</span> — Gets the ids of documents related to this interruption.
-- **`ResponsibleTeamIds`** <span class="type-label">array of string</span> — Gets the ids of groups that can take responsibility for this interruption.
-- **`ResponsibleUserId`** <span class="type-label">string</span> — Gets or sets the.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TaskId`** <span class="type-label">string</span> — Gets or sets the id of the Server Task raising the interruption.
-- **`Title`** <span class="type-label">string</span> — Gets or sets a title for this interruption.
-- **`Type`** <span class="type-label">enum</span> — Gets or sets the type of interruption. Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+- **`CanTakeResponsibility`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the current user has permissions to take responsibility for this interruption.
+- **`CorrelationId`** :span[string]{.type-label}  
+  Gets or sets the correlation ID of the activity in which the interruption was requested, if any.
+- **`Created`** :span[string]{.type-label}  
+  Gets the time at which the interruption was created. Format `date-time`.
+- **`Form`** :span[object]{.type-label}
+  - **`Elements`** :span[array of object]{.type-label}  
+    Elements of the form.
+  - **`Values`** :span[object]{.type-label}  
+    Values supplied for the form elements.
+- **`HasResponsibility`** :span[boolean]{.type-label}  
+  Gets or sets a value indicating whether the current user has responsibility for this interruption.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsLinkedToOtherInterruption`** :span[boolean]{.type-label}  
+  If this interruption is linked to another it will be automatically completed when the other one is. Used to handle interruptions in child deployments.
+- **`IsPending`** :span[boolean]{.type-label}  
+  True if the interruption is waiting for user action; otherwise, false.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`PullRequests`** :span[array of object]{.type-label}  
+  Gets or sets a list of pull requests associated with this interruption. This will only be populated when Type is PullRequestCompletion.
+  - **`Id`** :span[string]{.type-label}
+  - **`InterruptionId`** :span[string]{.type-label}
+  - **`Number`** :span[integer]{.type-label}
+  - **`RepositoryUrl`** :span[string]{.type-label}
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `Unknown`, `Open`, `Merged`, `Closed`, `UnknownGitVendor`.
+  - **`Title`** :span[string]{.type-label}
+  - **`Url`** :span[string]{.type-label}
+- **`RelatedDocumentIds`** :span[array of string]{.type-label}  
+  Gets the ids of documents related to this interruption.
+- **`ResponsibleTeamIds`** :span[array of string]{.type-label}  
+  Gets the ids of groups that can take responsibility for this interruption.
+- **`ResponsibleUserId`** :span[string]{.type-label}  
+  Gets or sets the.
+- **`SpaceId`** :span[string]{.type-label}
+- **`TaskId`** :span[string]{.type-label}  
+  Gets or sets the id of the Server Task raising the interruption.
+- **`Title`** :span[string]{.type-label}  
+  Gets or sets a title for this interruption.
+- **`Type`** :span[enum]{.type-label}  
+  Gets or sets the type of interruption.  
+  Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
 
 <div data-example="Response">
 

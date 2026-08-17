@@ -5,22 +5,20 @@ modDate: 2026-08-11
 title: Process Templates
 ---
 
-## Gets the sharing configuration for a given process template
+## Get the sharing configuration for a given process template
 
-`GET` `/api/platformhub/processtemplates/{slug}/share`
+:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/share`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The sharing configuration of the requested process template
 
-`GetProcessTemplateSharingConfigurationResponse`.
-
-- **`IndividuallySharedSpaceIds`** <span class="type-label">array of string</span>
-- **`SharedToAllSpaces`** <span class="type-label">boolean</span>
+- **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label}
+- **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -34,55 +32,71 @@ title: Process Templates
 ```
 </div>
 
-## Lists the process template versions for a given process template
+## List the process template versions for a given process template
 
-`GET` `/api/platformhub/processtemplates/{slug}/versions`
+:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/versions`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
-- **`fromPublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
-- **`toPublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`versionMask`** <span class="type-label">string</span>
+**Query Parameters**
+
+- **`fromPublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`toPublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`versionMask`** :span[string]{.type-label}
 
 **Response**
 
 `200` — The requested process template version
 
-an array of `ProcessTemplateVersionResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitCommit`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span>
-- **`IsPreRelease`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`Steps`** <span class="type-label">array of object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
-- **`Version`** <span class="type-label">string</span> — Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitCommit`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}
+- **`IsPreRelease`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`PublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Steps`** :span[array of object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`Version`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -136,29 +150,28 @@ an array of `ProcessTemplateVersionResource`.
 
 ## Retrieve a single published process template and its version by version mask (no space context)
 
-`GET` `/api/platformhub/processtemplates/{slug}/{versionMask}`
+:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/{versionMask}`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
-- **`versionMask`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
+- **`versionMask`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested published process template and its version
 
-`GetPublishedProcessTemplateByVersionMaskResponse`.
-
-- **`ProcessTemplate`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`GitRef`** <span class="type-label">string</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Parameters`** <span class="type-label">array of object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`Steps`** <span class="type-label">array of object</span>
-- **`ProcessTemplateVersion`** <span class="type-label">string</span> — Minimum length 1.
+- **`ProcessTemplate`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Parameters`** :span[array of object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`Steps`** :span[array of object]{.type-label}
+- **`ProcessTemplateVersion`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -209,20 +222,19 @@ an array of `ProcessTemplateVersionResource`.
 
 ## Create a new process template in the provided source
 
-`POST` `/api/platformhub/{gitRef}/processtemplates`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateProcessTemplateCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -240,33 +252,38 @@ an array of `ProcessTemplateVersionResource`.
 
 `201` — Created
 
-`ProcessTemplateResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`Steps`** <span class="type-label">array of object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`Steps`** :span[array of object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
 <div data-example="Response">
 
@@ -322,44 +339,49 @@ an array of `ProcessTemplateVersionResource`.
 
 ## Get a single process template by slug
 
-`GET` `/api/platformhub/{gitRef}/processtemplates/{slug}`
+:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates/{slug}`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-`ProcessTemplateResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`Steps`** <span class="type-label">array of object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`Steps`** :span[array of object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
 <div data-example="Response">
 
@@ -413,23 +435,22 @@ an array of `ProcessTemplateVersionResource`.
 ```
 </div>
 
-## Command to share new process template to spaces
+## Share new process template to spaces
 
-`POST` `/api/platformhub/{gitRef}/processtemplates/{slug}/share`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates/{slug}/share`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ShareProcessTemplateCommand`
-
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`IndividuallySharedSpaceIds`** <span class="type-label">array of string</span> *(required)*
-- **`ShareToAllSpaces`** <span class="type-label">boolean</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label} *(required)*
+- **`ShareToAllSpaces`** :span[boolean]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -449,11 +470,9 @@ an array of `ProcessTemplateVersionResource`.
 
 `200` — Response containing the results of the share process template command
 
-`ShareProcessTemplateResponse`.
-
-- **`IndividuallySharedSpaceIds`** <span class="type-label">array of string</span>
-- **`IndividuallyUnsharedSpaceIds`** <span class="type-label">array of string</span>
-- **`SharedToAllSpaces`** <span class="type-label">boolean</span>
+- **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label}
+- **`IndividuallyUnsharedSpaceIds`** :span[array of string]{.type-label}
+- **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -472,12 +491,12 @@ an array of `ProcessTemplateVersionResource`.
 
 ## Get all the available variable names for a process template
 
-`GET` `/api/platformhub/{gitRef}/processtemplates/{slug}/variables/names`
+:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates/{slug}/variables/names`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -492,23 +511,23 @@ an array of `ProcessTemplateVersionResource`.
 ```
 </div>
 
-## Creates a process template version
+## Create a process template version
 
-`POST` `/api/platformhub/{gitRef}/processtemplates/{slug}/versions`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates/{slug}/versions`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateProcessTemplateVersionCommand`
-
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`IsPreRelease`** <span class="type-label">boolean</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> *(required)* — The version of the process template. Must follow the semantic versioning format. Minimum length 1.
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`IsPreRelease`** :span[boolean]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label} *(required)*  
+  The version of the process template. Must follow the semantic versioning format. Minimum length 1.
 
 <div data-example="Request">
 
@@ -526,37 +545,47 @@ an array of `ProcessTemplateVersionResource`.
 
 `201` — Created
 
-`ProcessTemplateVersionResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitCommit`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span>
-- **`IsPreRelease`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`Steps`** <span class="type-label">array of object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
-- **`Version`** <span class="type-label">string</span> — Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitCommit`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}
+- **`IsPreRelease`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`PublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Steps`** :span[array of object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`Version`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -614,44 +643,51 @@ an array of `ProcessTemplateVersionResource`.
 ```
 </div>
 
-## Modifies an existing process template
+## Modify an existing process template
 
-`PUT` `/api/platformhub/{gitref}/processtemplates/{slug}`
+:span[PUT]{.api-put} `/api/platformhub/{gitref}/processtemplates/{slug}`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitref`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitref`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyProcessTemplateCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Parameters`** <span class="type-label">array of object</span> *(required)*
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Steps`** <span class="type-label">array of object</span> *(required)*
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Parameters`** :span[array of object]{.type-label} *(required)*
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Steps`** :span[array of object]{.type-label} *(required)*
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
 <div data-example="Request">
 
@@ -709,33 +745,38 @@ an array of `ProcessTemplateVersionResource`.
 
 `200` — Success
 
-`ProcessTemplateResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`IsOptional`** <span class="type-label">boolean</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">array of object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`Steps`** <span class="type-label">array of object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Condition`** <span class="type-label">enum</span> — Allowed values: `Success`, `Failure`, `Always`, `Variable`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageRequirement`** <span class="type-label">enum</span> — Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`StartTrigger`** <span class="type-label">enum</span> — Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
-  - **`Type`** <span class="type-label">string</span> — Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`IsOptional`** :span[boolean]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Values`** :span[array of object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`Steps`** :span[array of object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Condition`** :span[enum]{.type-label}  
+    Allowed values: `Success`, `Failure`, `Always`, `Variable`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageRequirement`** :span[enum]{.type-label}  
+    Allowed values: `LetOctopusDecide`, `BeforePackageAcquisition`, `AfterPackageAcquisition`.
+  - **`Properties`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`StartTrigger`** :span[enum]{.type-label}  
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+  - **`Type`** :span[string]{.type-label}  
+    Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
 <div data-example="Response">
 
@@ -789,22 +830,21 @@ an array of `ProcessTemplateVersionResource`.
 ```
 </div>
 
-## Deletes an existing process template
+## Delete an existing process template
 
-`DELETE` `/api/platformhub/{gitref}/processtemplates/{slug}`
+:span[DELETE]{.api-delete} `/api/platformhub/{gitref}/processtemplates/{slug}`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitref`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitref`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`DeleteProcessTemplateCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -823,32 +863,31 @@ an array of `ProcessTemplateVersionResource`.
 
 ## Retrieve a single process template and its version by version mask
 
-`GET` `/api/{spaceId}/processtemplates/{slug}/{versionMask}`
+:span[GET]{.api-get} `/api/{spaceId}/processtemplates/{slug}/{versionMask}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versionMask}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`versionMask`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`versionMask`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested process template and its version
 
-`GetProcessTemplateByVersionMaskResponse`.
-
-- **`ProcessTemplate`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`GitRef`** <span class="type-label">string</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Parameters`** <span class="type-label">array of object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`Steps`** <span class="type-label">array of object</span>
-- **`ProcessTemplateVersion`** <span class="type-label">string</span> — Minimum length 1.
+- **`ProcessTemplate`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Parameters`** :span[array of object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`Steps`** :span[array of object]{.type-label}
+- **`ProcessTemplateVersion`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -897,17 +936,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
 ```
 </div>
 
-## Gets the icon for a given process template version
+## Get the icon for a given process template version
 
-`GET` `/api/{spaceId}/processtemplates/{slug}/{versionMask}/icon`
+:span[GET]{.api-get} `/api/{spaceId}/processtemplates/{slug}/{versionMask}/icon`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versionMask}/icon`.
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`versionMask`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`versionMask`** :span[string]{.type-label} *(required)*
 
 **Response**
 

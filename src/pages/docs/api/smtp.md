@@ -5,27 +5,30 @@ modDate: 2026-08-11
 title: Smtp
 ---
 
-## Gets information about the SMTP (email) settings in use by the Octopus Server
+## Get information about the SMTP (email) settings in use by the Octopus Server
 
-`GET` `/api/smtpconfiguration`
+:span[GET]{.api-get} `/api/smtpconfiguration`
 
 **Response**
 
 `200` — The requested SMTP configuration
 
-`SmtpConfigurationResource`.
-
-- **`Details`** <span class="type-label">object</span>
-  - **`CredentialType`** <span class="type-label">string</span>
-- **`EnableSsl`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SendEmailFrom`** <span class="type-label">string</span>
-- **`SmtpHost`** <span class="type-label">string</span>
-- **`SmtpPort`** <span class="type-label">number</span> — Minimum `0`. Maximum `65535`.
-- **`Timeout`** <span class="type-label">integer</span>
+- **`Details`** :span[object]{.type-label}
+  - **`CredentialType`** :span[string]{.type-label}
+- **`EnableSsl`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SendEmailFrom`** :span[string]{.type-label}
+- **`SmtpHost`** :span[string]{.type-label}
+- **`SmtpPort`** :span[number]{.type-label}  
+  Minimum `0`. Maximum `65535`.
+- **`Timeout`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -51,21 +54,20 @@ title: Smtp
 ```
 </div>
 
-## Updates the SMTP settings used by the Octopus Server
+## Update the SMTP settings used by the Octopus Server
 
-`PUT` `/api/smtpconfiguration`
+:span[PUT]{.api-put} `/api/smtpconfiguration`
 
 **Request Body**
 
-`ModifySmtpConfigurationCommand`
-
-- **`Details`** <span class="type-label">object</span>
-  - **`CredentialType`** <span class="type-label">string</span>
-- **`EnableSsl`** <span class="type-label">boolean</span>
-- **`SendEmailFrom`** <span class="type-label">string</span>
-- **`SmtpHost`** <span class="type-label">string</span>
-- **`SmtpPort`** <span class="type-label">integer</span> — Minimum `0`. Maximum `65535`.
-- **`Timeout`** <span class="type-label">integer</span>
+- **`Details`** :span[object]{.type-label}
+  - **`CredentialType`** :span[string]{.type-label}
+- **`EnableSsl`** :span[boolean]{.type-label}
+- **`SendEmailFrom`** :span[string]{.type-label}
+- **`SmtpHost`** :span[string]{.type-label}
+- **`SmtpPort`** :span[integer]{.type-label}  
+  Minimum `0`. Maximum `65535`.
+- **`Timeout`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -87,19 +89,22 @@ title: Smtp
 
 `200` — Confirmation that SMTP Configuration was modified, containing the new configuration
 
-`SmtpConfigurationResource`.
-
-- **`Details`** <span class="type-label">object</span>
-  - **`CredentialType`** <span class="type-label">string</span>
-- **`EnableSsl`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SendEmailFrom`** <span class="type-label">string</span>
-- **`SmtpHost`** <span class="type-label">string</span>
-- **`SmtpPort`** <span class="type-label">number</span> — Minimum `0`. Maximum `65535`.
-- **`Timeout`** <span class="type-label">integer</span>
+- **`Details`** :span[object]{.type-label}
+  - **`CredentialType`** :span[string]{.type-label}
+- **`EnableSsl`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SendEmailFrom`** :span[string]{.type-label}
+- **`SmtpHost`** :span[string]{.type-label}
+- **`SmtpPort`** :span[number]{.type-label}  
+  Minimum `0`. Maximum `65535`.
+- **`Timeout`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -125,21 +130,23 @@ title: Smtp
 ```
 </div>
 
-## A low privilege check to determine if SMTP is configured
+## Check whether SMTP is configured with low privileges
 
-`GET` `/api/smtpconfiguration/isconfigured`
+:span[GET]{.api-get} `/api/smtpconfiguration/isconfigured`
 
 **Response**
 
 `200` — The requested information about whether SMTP is configured
 
-`SmtpIsConfiguredResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsConfigured`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsConfigured`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -158,22 +165,24 @@ title: Smtp
 ```
 </div>
 
-## A low privilege check to determine if SMTP is configured
+## Check whether SMTP is configured with low privileges
 
-`GET` `/api/smtpconfiguration/isconfigured/v1`
+:span[GET]{.api-get} `/api/smtpconfiguration/isconfigured/v1`
 
 **Response**
 
 `200` — The requested information about whether SMTP is configured
 
-`GetSmtpIsConfiguredResponse`.
-
-- **`SmtpIsConfigured`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsConfigured`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SmtpIsConfigured`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsConfigured`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -194,27 +203,30 @@ title: Smtp
 ```
 </div>
 
-## Gets information about the SMTP (email) settings in use by the Octopus Server
+## Get information about the SMTP (email) settings in use by the Octopus Server
 
-`GET` `/api/smtpconfiguration/v1`
+:span[GET]{.api-get} `/api/smtpconfiguration/v1`
 
 **Response**
 
 `200` — The requested SMTP configuration
 
-`GetSmtpConfigurationResponse`.
-
-- **`SmtpConfiguration`** <span class="type-label">object</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`EnableSsl`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`SendEmailFrom`** <span class="type-label">string</span>
-  - **`SmtpHost`** <span class="type-label">string</span>
-  - **`SmtpPort`** <span class="type-label">number</span> — Minimum `0`. Maximum `65535`.
-  - **`Timeout`** <span class="type-label">integer</span>
+- **`SmtpConfiguration`** :span[object]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`EnableSsl`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`SendEmailFrom`** :span[string]{.type-label}
+  - **`SmtpHost`** :span[string]{.type-label}
+  - **`SmtpPort`** :span[number]{.type-label}  
+    Minimum `0`. Maximum `65535`.
+  - **`Timeout`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

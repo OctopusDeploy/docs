@@ -5,97 +5,128 @@ modDate: 2026-08-11
 title: Dashboard
 ---
 
-## Returns information required to render the Octopus dashboard
+## Return information required to render the Octopus dashboard
 
-`GET` `/api/{spaceId}/dashboard`
+:span[GET]{.api-get} `/api/{spaceId}/dashboard`
 
 Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`highestLatestVersionPerProjectAndEnvironment`** <span class="type-label">boolean</span>
-- **`projectId`** <span class="type-label">string</span>
-- **`releaseId`** <span class="type-label">string</span>
-- **`selectedTags`** <span class="type-label">array of string</span>
-- **`selectedTenants`** <span class="type-label">array of string</span>
-- **`showAll`** <span class="type-label">boolean</span>
+**Query Parameters**
+
+- **`highestLatestVersionPerProjectAndEnvironment`** :span[boolean]{.type-label}
+- **`projectId`** :span[string]{.type-label}
+- **`releaseId`** :span[string]{.type-label}
+- **`selectedTags`** :span[array of string]{.type-label}
+- **`selectedTenants`** :span[array of string]{.type-label}
+- **`showAll`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — The requested Dashboard
 
-`DashboardResource`.
-
-- **`Environments`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsFiltered`** <span class="type-label">boolean</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`CompletedTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`DeploymentId`** <span class="type-label">string</span>
-  - **`Duration`** <span class="type-label">string</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ErrorMessage`** <span class="type-label">string</span>
-  - **`HasPendingInterruptions`** <span class="type-label">boolean</span>
-  - **`HasPendingPreconditions`** <span class="type-label">boolean</span>
-  - **`HasWarningsOrErrors`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsCompleted`** <span class="type-label">boolean</span>
-  - **`IsCurrent`** <span class="type-label">boolean</span>
-  - **`IsPrevious`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-  - **`PendingPreconditionTypes`** <span class="type-label">array of string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`QueueTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`ReleaseVersion`** <span class="type-label">string</span>
-  - **`StartTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`State`** <span class="type-label">enum</span> — Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
-  - **`TaskId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectGroups`** <span class="type-label">array of object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-- **`ProjectLimit`** <span class="type-label">integer</span>
-- **`Projects`** <span class="type-label">array of object</span>
-  - **`CanPerformUntenantedDeployment`** <span class="type-label">boolean</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectGroupId`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Tenants`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectEnvironments`** <span class="type-label">object</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
+- **`Environments`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsFiltered`** :span[boolean]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`CompletedTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`DeploymentId`** :span[string]{.type-label}
+  - **`Duration`** :span[string]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ErrorMessage`** :span[string]{.type-label}
+  - **`HasPendingInterruptions`** :span[boolean]{.type-label}
+  - **`HasPendingPreconditions`** :span[boolean]{.type-label}
+  - **`HasWarningsOrErrors`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsCompleted`** :span[boolean]{.type-label}
+  - **`IsCurrent`** :span[boolean]{.type-label}
+  - **`IsPrevious`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+  - **`PendingPreconditionTypes`** :span[array of string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`QueueTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`ReleaseVersion`** :span[string]{.type-label}
+  - **`StartTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`State`** :span[enum]{.type-label}  
+    Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+  - **`TaskId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectGroups`** :span[array of object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+- **`ProjectLimit`** :span[integer]{.type-label}
+- **`Projects`** :span[array of object]{.type-label}
+  - **`CanPerformUntenantedDeployment`** :span[boolean]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectGroupId`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Tenants`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectEnvironments`** :span[object]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -232,94 +263,125 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
 ```
 </div>
 
-## Returns the information required to render the dynamic dashboard. Deprecated
+## Return the information required to render the dynamic dashboard. Deprecated
 
-`GET` `/api/{spaceId}/dashboard/dynamic`
+:span[GET]{.api-get} `/api/{spaceId}/dashboard/dynamic`
 
 Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashboard/dynamic`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`environments`** <span class="type-label">array of string</span>
-- **`includePrevious`** <span class="type-label">boolean</span>
-- **`projects`** <span class="type-label">array of string</span>
+**Query Parameters**
+
+- **`environments`** :span[array of string]{.type-label}
+- **`includePrevious`** :span[boolean]{.type-label}
+- **`projects`** :span[array of string]{.type-label}
 
 **Response**
 
 `200` — The requested Dynamic Dashboared
 
-`DashboardResource`.
-
-- **`Environments`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsFiltered`** <span class="type-label">boolean</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`CompletedTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`DeploymentId`** <span class="type-label">string</span>
-  - **`Duration`** <span class="type-label">string</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ErrorMessage`** <span class="type-label">string</span>
-  - **`HasPendingInterruptions`** <span class="type-label">boolean</span>
-  - **`HasPendingPreconditions`** <span class="type-label">boolean</span>
-  - **`HasWarningsOrErrors`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsCompleted`** <span class="type-label">boolean</span>
-  - **`IsCurrent`** <span class="type-label">boolean</span>
-  - **`IsPrevious`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`PendingInterruptionTypes`** <span class="type-label">array of enum</span> — Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
-  - **`PendingPreconditionTypes`** <span class="type-label">array of string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`QueueTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`ReleaseVersion`** <span class="type-label">string</span>
-  - **`StartTime`** <span class="type-label">string</span> — Format `date-time`.
-  - **`State`** <span class="type-label">enum</span> — Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
-  - **`TaskId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectGroups`** <span class="type-label">array of object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-- **`ProjectLimit`** <span class="type-label">integer</span>
-- **`Projects`** <span class="type-label">array of object</span>
-  - **`CanPerformUntenantedDeployment`** <span class="type-label">boolean</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectGroupId`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Tenants`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectEnvironments`** <span class="type-label">object</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
+- **`Environments`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsFiltered`** :span[boolean]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`CompletedTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`DeploymentId`** :span[string]{.type-label}
+  - **`Duration`** :span[string]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ErrorMessage`** :span[string]{.type-label}
+  - **`HasPendingInterruptions`** :span[boolean]{.type-label}
+  - **`HasPendingPreconditions`** :span[boolean]{.type-label}
+  - **`HasWarningsOrErrors`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsCompleted`** :span[boolean]{.type-label}
+  - **`IsCurrent`** :span[boolean]{.type-label}
+  - **`IsPrevious`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`PendingInterruptionTypes`** :span[array of enum]{.type-label}  
+    Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
+  - **`PendingPreconditionTypes`** :span[array of string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`QueueTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`ReleaseVersion`** :span[string]{.type-label}
+  - **`StartTime`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`State`** :span[enum]{.type-label}  
+    Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
+  - **`TaskId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectGroups`** :span[array of object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+- **`ProjectLimit`** :span[integer]{.type-label}
+- **`Projects`** :span[array of object]{.type-label}
+  - **`CanPerformUntenantedDeployment`** :span[boolean]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectGroupId`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Tenants`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectEnvironments`** :span[object]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 

@@ -5,67 +5,88 @@ modDate: 2026-08-11
 title: Workers
 ---
 
-## Lists all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/workers`
+:span[GET]{.api-get} `/api/{spaceId}/workers`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`commStyles`** <span class="type-label">array of string</span> — List of communication styles which if specified, filters the result to only include Workers with matching communication styles.
-- **`healthStatuses`** <span class="type-label">array of string</span> — List of health statuses which if specified, filters the result to only include Deployment Targets with matching health statuses.
-- **`ids`** <span class="type-label">array of string</span> — List of Worker IDs which if specified, filters the result to only include Workers with matching IDs.
-- **`isDisabled`** <span class="type-label">boolean</span> — A filter to return only disabled/enabled Workers.
-- **`name`** <span class="type-label">string</span> — The exact name of a Worker to be matched.
-- **`operatingSystemNames`** <span class="type-label">array of string</span> — List of operating system names which if specified, filters the result to only include Workers with matching operating systems.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`shellNames`** <span class="type-label">array of string</span> — List of shell names which if specified, filters the result to only include Workers with matching shells.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
-- **`workerPoolIds`** <span class="type-label">array of string</span> — List of Worker Pool IDs which if specified, filters the result to only include Workers belonging to these Worker Pools.
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}  
+  List of communication styles which if specified, filters the result to only include Workers with matching communication styles.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  List of health statuses which if specified, filters the result to only include Deployment Targets with matching health statuses.
+- **`ids`** :span[array of string]{.type-label}  
+  List of Worker IDs which if specified, filters the result to only include Workers with matching IDs.
+- **`isDisabled`** :span[boolean]{.type-label}  
+  A filter to return only disabled/enabled Workers.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Worker to be matched.
+- **`operatingSystemNames`** :span[array of string]{.type-label}  
+  List of operating system names which if specified, filters the result to only include Workers with matching operating systems.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`shellNames`** :span[array of string]{.type-label}  
+  List of shell names which if specified, filters the result to only include Workers with matching shells.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`workerPoolIds`** :span[array of string]{.type-label}  
+  List of Worker Pool IDs which if specified, filters the result to only include Workers belonging to these Worker Pools.
 
 **Response**
 
 `200` — A paginated list of Workers
 
-`WorkerResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-  - **`WorkerPoolIds`** <span class="type-label">array of string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+  - **`WorkerPoolIds`** :span[array of string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -129,31 +150,41 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 ## Create a new worker
 
-`POST` `/api/{spaceId}/workers`
+:span[POST]{.api-post} `/api/{spaceId}/workers`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateWorkerCommand`
-
-- **`Endpoint`** <span class="type-label">object</span> *(required)*
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`IsDisabled`** <span class="type-label">boolean</span> *(required)* — Whether the worker is disabled or not.
-- **`MachinePolicyId`** <span class="type-label">string</span> — The policy the worker must adhere to.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the worker. Minimum length 1.
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`WorkerPoolIds`** <span class="type-label">array of string</span> *(required)* — The worker pools the worker belongs to.
+- **`Endpoint`** :span[object]{.type-label} *(required)*
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`IsDisabled`** :span[boolean]{.type-label} *(required)*  
+  Whether the worker is disabled or not.
+- **`MachinePolicyId`** :span[string]{.type-label}  
+  The policy the worker must adhere to.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the worker. Minimum length 1.
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`WorkerPoolIds`** :span[array of string]{.type-label} *(required)*  
+  The worker pools the worker belongs to.
 
 <div data-example="Request">
 
@@ -187,36 +218,45 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 `201` — Created
 
-`WorkerResource`.
-
-- **`Architecture`** <span class="type-label">string</span>
-- **`Endpoint`** <span class="type-label">object</span>
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`HasLatestCalamari`** <span class="type-label">boolean</span>
-- **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsInProcess`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachinePolicyId`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`OperatingSystem`** <span class="type-label">string</span>
-- **`OperatingSystemVersion`** <span class="type-label">string</span>
-- **`ShellName`** <span class="type-label">string</span>
-- **`ShellVersion`** <span class="type-label">string</span>
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StatusSummary`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Uri`** <span class="type-label">string</span>
-- **`WorkerPoolIds`** <span class="type-label">array of string</span>
+- **`Architecture`** :span[string]{.type-label}
+- **`Endpoint`** :span[object]{.type-label}
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`HasLatestCalamari`** :span[boolean]{.type-label}
+- **`HealthStatus`** :span[enum]{.type-label}  
+  Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsInProcess`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachinePolicyId`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`OperatingSystem`** :span[string]{.type-label}
+- **`OperatingSystemVersion`** :span[string]{.type-label}
+- **`ShellName`** :span[string]{.type-label}
+- **`ShellVersion`** :span[string]{.type-label}
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`StatusSummary`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Uri`** :span[string]{.type-label}
+- **`WorkerPoolIds`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -267,53 +307,67 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 ## Get a list of Workers
 
-`GET` `/api/{spaceId}/workers/all`
+:span[GET]{.api-get} `/api/{spaceId}/workers/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/all`, `/api/workers/all`.
 
 Lists all of the Workers in the supplied Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — A list of Worker resource IDs used to filter a query.
-- **`thumbprint`** <span class="type-label">string</span> — A thumbprint used to filter a query.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Worker resource IDs used to filter a query.
+- **`thumbprint`** :span[string]{.type-label}  
+  A thumbprint used to filter a query.
 
 **Response**
 
 `200` — The requested list of Workers
 
-an array of `WorkerResource`.
-
-- **`Architecture`** <span class="type-label">string</span>
-- **`Endpoint`** <span class="type-label">object</span>
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`HasLatestCalamari`** <span class="type-label">boolean</span>
-- **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsInProcess`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachinePolicyId`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`OperatingSystem`** <span class="type-label">string</span>
-- **`OperatingSystemVersion`** <span class="type-label">string</span>
-- **`ShellName`** <span class="type-label">string</span>
-- **`ShellVersion`** <span class="type-label">string</span>
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StatusSummary`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Uri`** <span class="type-label">string</span>
-- **`WorkerPoolIds`** <span class="type-label">array of string</span>
+- **`Architecture`** :span[string]{.type-label}
+- **`Endpoint`** :span[object]{.type-label}
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`HasLatestCalamari`** :span[boolean]{.type-label}
+- **`HealthStatus`** :span[enum]{.type-label}  
+  Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsInProcess`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachinePolicyId`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`OperatingSystem`** :span[string]{.type-label}
+- **`OperatingSystemVersion`** :span[string]{.type-label}
+- **`ShellName`** :span[string]{.type-label}
+- **`ShellVersion`** :span[string]{.type-label}
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`StatusSummary`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Uri`** :span[string]{.type-label}
+- **`WorkerPoolIds`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -366,53 +420,70 @@ an array of `WorkerResource`.
 
 ## Interrogate a machine for communication details so that it may be added to the installation
 
-`GET` `/api/{spaceId}/workers/discover`
+:span[GET]{.api-get} `/api/{spaceId}/workers/discover`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/workers/discover`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`host`** <span class="type-label">string</span> *(required)* — The hostname of the machine to discover.
-- **`port`** <span class="type-label">integer</span> — The port of the machine to discover.
-- **`proxyId`** <span class="type-label">string</span> — The ID of the proxy to go through.
-- **`type`** <span class="type-label">enum</span> — The type of endpoint on the machine. Allowed values: `TentaclePassive`, `TentacleActive`, `Ssh`.
+**Query Parameters**
+
+- **`host`** :span[string]{.type-label} *(required)*  
+  The hostname of the machine to discover.
+- **`port`** :span[integer]{.type-label}  
+  The port of the machine to discover.
+- **`proxyId`** :span[string]{.type-label}  
+  The ID of the proxy to go through.
+- **`type`** :span[enum]{.type-label}  
+  The type of endpoint on the machine.  
+  Allowed values: `TentaclePassive`, `TentacleActive`, `Ssh`.
 
 **Response**
 
 `200` — The worker which was discovered
 
-`WorkerResource`.
-
-- **`Architecture`** <span class="type-label">string</span>
-- **`Endpoint`** <span class="type-label">object</span>
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`HasLatestCalamari`** <span class="type-label">boolean</span>
-- **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsInProcess`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachinePolicyId`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`OperatingSystem`** <span class="type-label">string</span>
-- **`OperatingSystemVersion`** <span class="type-label">string</span>
-- **`ShellName`** <span class="type-label">string</span>
-- **`ShellVersion`** <span class="type-label">string</span>
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StatusSummary`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Uri`** <span class="type-label">string</span>
-- **`WorkerPoolIds`** <span class="type-label">array of string</span>
+- **`Architecture`** :span[string]{.type-label}
+- **`Endpoint`** :span[object]{.type-label}
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`HasLatestCalamari`** :span[boolean]{.type-label}
+- **`HealthStatus`** :span[enum]{.type-label}  
+  Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsInProcess`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachinePolicyId`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`OperatingSystem`** :span[string]{.type-label}
+- **`OperatingSystemVersion`** :span[string]{.type-label}
+- **`ShellName`** :span[string]{.type-label}
+- **`ShellVersion`** :span[string]{.type-label}
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`StatusSummary`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Uri`** :span[string]{.type-label}
+- **`WorkerPoolIds`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -461,15 +532,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
 ```
 </div>
 
-## Gets all operating system names for workers. The result will be a string array
+## Get all operating system names for workers. The result will be a string array
 
-`GET` `/api/{spaceId}/workers/operatingsystem/names/all`
+:span[GET]{.api-get} `/api/{spaceId}/workers/operatingsystem/names/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/names/all`, `/api/workers/operatingsystem/names/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -484,15 +555,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/names/a
 ```
 </div>
 
-## Gets all operating system shell names for workers. The result will be a string array
+## Get all operating system shell names for workers. The result will be a string array
 
-`GET` `/api/{spaceId}/workers/operatingsystem/shells/all`
+:span[GET]{.api-get} `/api/{spaceId}/workers/operatingsystem/shells/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/all`, `/api/workers/operatingsystem/shells/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -507,42 +578,53 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/
 ```
 </div>
 
-## Lists all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/workers/v2`
+:span[GET]{.api-get} `/api/{spaceId}/workers/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`commStyles`** <span class="type-label">array of string</span> — List of communication styles which if specified, filters the result to only include Workers with matching communication styles.
-- **`healthStatuses`** <span class="type-label">array of string</span> — List of health statuses which if specified, filters the result to only include Workers with matching health statuses.
-- **`ids`** <span class="type-label">array of string</span> — List of Worker IDs which if specified, filters the result to only include Workers with matching IDs.
-- **`isDisabled`** <span class="type-label">boolean</span> — A filter to return only disabled/enabled Workers.
-- **`name`** <span class="type-label">string</span> — The exact name of a Worker to be matched.
-- **`operatingSystemNames`** <span class="type-label">array of string</span> — List of operating system names which if specified, filters the result to only include Workers with matching operating systems.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`shellNames`** <span class="type-label">array of string</span> — List of shell names which if specified, filters the result to only include Workers with matching shells.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
-- **`workerPoolIds`** <span class="type-label">array of string</span> — List of Worker Pool IDs which if specified, filters the result to only include Workers belonging to these Worker Pools.
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}  
+  List of communication styles which if specified, filters the result to only include Workers with matching communication styles.
+- **`healthStatuses`** :span[array of string]{.type-label}  
+  List of health statuses which if specified, filters the result to only include Workers with matching health statuses.
+- **`ids`** :span[array of string]{.type-label}  
+  List of Worker IDs which if specified, filters the result to only include Workers with matching IDs.
+- **`isDisabled`** :span[boolean]{.type-label}  
+  A filter to return only disabled/enabled Workers.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Worker to be matched.
+- **`operatingSystemNames`** :span[array of string]{.type-label}  
+  List of operating system names which if specified, filters the result to only include Workers with matching operating systems.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`shellNames`** :span[array of string]{.type-label}  
+  List of shell names which if specified, filters the result to only include Workers with matching shells.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`workerPoolIds`** :span[array of string]{.type-label}  
+  List of Worker Pool IDs which if specified, filters the result to only include Workers belonging to these Worker Pools.
 
 **Response**
 
 `200` — The list of alphabetically sorted workers that matched the request.
 
-`GetWorkersResponseV2`.
-
-- **`WorkerCountPerHealthStatus`** <span class="type-label">object</span>
-- **`Workers`** <span class="type-label">object</span>
-  - **`ItemType`** <span class="type-label">string</span>
-  - **`Items`** <span class="type-label">array of object</span>
-  - **`ItemsPerPage`** <span class="type-label">integer</span>
-  - **`LastPageNumber`** <span class="type-label">integer</span>
-  - **`NumberOfPages`** <span class="type-label">integer</span>
-  - **`TotalResults`** <span class="type-label">integer</span>
+- **`WorkerCountPerHealthStatus`** :span[object]{.type-label}
+- **`Workers`** :span[object]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}
+  - **`Items`** :span[array of object]{.type-label}
+  - **`ItemsPerPage`** :span[integer]{.type-label}
+  - **`LastPageNumber`** :span[integer]{.type-label}
+  - **`NumberOfPages`** :span[integer]{.type-label}
+  - **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -595,49 +677,60 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
 
 ## Get a Worker by ID
 
-`GET` `/api/{spaceId}/workers/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/workers/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the Worker to retrieve.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the Worker to retrieve.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Return the Worker Resource
 
-`WorkerResource`.
-
-- **`Architecture`** <span class="type-label">string</span>
-- **`Endpoint`** <span class="type-label">object</span>
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`HasLatestCalamari`** <span class="type-label">boolean</span>
-- **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsInProcess`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachinePolicyId`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`OperatingSystem`** <span class="type-label">string</span>
-- **`OperatingSystemVersion`** <span class="type-label">string</span>
-- **`ShellName`** <span class="type-label">string</span>
-- **`ShellVersion`** <span class="type-label">string</span>
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StatusSummary`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Uri`** <span class="type-label">string</span>
-- **`WorkerPoolIds`** <span class="type-label">array of string</span>
+- **`Architecture`** :span[string]{.type-label}
+- **`Endpoint`** :span[object]{.type-label}
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`HasLatestCalamari`** :span[boolean]{.type-label}
+- **`HealthStatus`** :span[enum]{.type-label}  
+  Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsInProcess`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachinePolicyId`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`OperatingSystem`** :span[string]{.type-label}
+- **`OperatingSystemVersion`** :span[string]{.type-label}
+- **`ShellName`** :span[string]{.type-label}
+- **`ShellVersion`** :span[string]{.type-label}
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`StatusSummary`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Uri`** :span[string]{.type-label}
+- **`WorkerPoolIds`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -686,34 +779,46 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 ```
 </div>
 
-## Modifies an existing worker machine
+## Modify an existing worker machine
 
-`PUT` `/api/{spaceId}/workers/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/workers/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the worker.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the worker.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyWorkerCommand`
-
-- **`Endpoint`** <span class="type-label">object</span> *(required)*
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the worker.
-- **`IsDisabled`** <span class="type-label">boolean</span> *(required)* — Whether the worker is disabled or not.
-- **`MachinePolicyId`** <span class="type-label">string</span> — The policy the worker must adhere to.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the worker. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`WorkerPoolIds`** <span class="type-label">array of string</span> *(required)* — The worker pools the worker belongs to.
+- **`Endpoint`** :span[object]{.type-label} *(required)*
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the worker.
+- **`IsDisabled`** :span[boolean]{.type-label} *(required)*  
+  Whether the worker is disabled or not.
+- **`MachinePolicyId`** :span[string]{.type-label}  
+  The policy the worker must adhere to.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the worker. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`WorkerPoolIds`** :span[array of string]{.type-label} *(required)*  
+  The worker pools the worker belongs to.
 
 <div data-example="Request">
 
@@ -747,36 +852,45 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 `200` — The modified worker
 
-`WorkerResource`.
-
-- **`Architecture`** <span class="type-label">string</span>
-- **`Endpoint`** <span class="type-label">object</span>
-  - **`CommunicationStyle`** <span class="type-label">enum</span> — This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType. Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`HasLatestCalamari`** <span class="type-label">boolean</span>
-- **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsInProcess`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MachinePolicyId`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`OperatingSystem`** <span class="type-label">string</span>
-- **`OperatingSystemVersion`** <span class="type-label">string</span>
-- **`ShellName`** <span class="type-label">string</span>
-- **`ShellVersion`** <span class="type-label">string</span>
-- **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`StatusSummary`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Uri`** <span class="type-label">string</span>
-- **`WorkerPoolIds`** <span class="type-label">array of string</span>
+- **`Architecture`** :span[string]{.type-label}
+- **`Endpoint`** :span[object]{.type-label}
+  - **`CommunicationStyle`** :span[enum]{.type-label}  
+    This is for legacy support in client. Server no longer uses this for determining endpoint types, it uses DeploymentTargetType.  
+    Allowed values: `None`, `TentaclePassive`, `TentacleActive`, `Ssh`, `OfflineDrop`, `AzureWebApp`, `Ftp`, `AzureCloudService`, `AzureServiceFabricCluster`, `Kubernetes`, `StepPackage`, `KubernetesTentacle`, `AwsEcsCluster`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`HasLatestCalamari`** :span[boolean]{.type-label}
+- **`HealthStatus`** :span[enum]{.type-label}  
+  Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsInProcess`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MachinePolicyId`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`OperatingSystem`** :span[string]{.type-label}
+- **`OperatingSystemVersion`** :span[string]{.type-label}
+- **`ShellName`** :span[string]{.type-label}
+- **`ShellVersion`** :span[string]{.type-label}
+- **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`StatusSummary`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Uri`** :span[string]{.type-label}
+- **`WorkerPoolIds`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -827,14 +941,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 ## Delete an existing Worker
 
-`DELETE` `/api/{spaceId}/workers/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/workers/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the Worker to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the Worker to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
@@ -842,36 +958,42 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 ## Get the status of the network connection between the Octopus server and a worker
 
-`GET` `/api/{spaceId}/workers/{id}/connection`
+:span[GET]{.api-get} `/api/{spaceId}/workers/{id}/connection`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api/workers/{id}/connection`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the worker.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the worker.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The connection status of the worker
 
-`MachineConnectionStatus`.
-
-- **`CurrentTentacleVersion`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastChecked`** <span class="type-label">string</span> — Format `date-time`.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Logs`** <span class="type-label">array of object</span>
-  - **`Category`** <span class="type-label">string</span>
-  - **`Detail`** <span class="type-label">string</span>
-  - **`GapLastNumber`** <span class="type-label">integer</span>
-  - **`MessageText`** <span class="type-label">string</span>
-  - **`Number`** <span class="type-label">integer</span>
-  - **`OccurredAt`** <span class="type-label">string</span> — Format `date-time`.
-- **`MachineId`** <span class="type-label">string</span>
-- **`Status`** <span class="type-label">string</span>
+- **`CurrentTentacleVersion`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastChecked`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Logs`** :span[array of object]{.type-label}
+  - **`Category`** :span[string]{.type-label}
+  - **`Detail`** :span[string]{.type-label}
+  - **`GapLastNumber`** :span[integer]{.type-label}
+  - **`MessageText`** :span[string]{.type-label}
+  - **`Number`** :span[integer]{.type-label}
+  - **`OccurredAt`** :span[string]{.type-label}  
+    Format `date-time`.
+- **`MachineId`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}
 
 <div data-example="Response">
 

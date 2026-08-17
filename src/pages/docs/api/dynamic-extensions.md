@@ -5,22 +5,21 @@ modDate: 2026-08-11
 title: Dynamic Extensions
 ---
 
-## Requests the current dynamic extensions feature metadata
+## Request the current dynamic extensions feature metadata
 
-`GET` `/api/dynamic-extensions/features/metadata`
+:span[GET]{.api-get} `/api/dynamic-extensions/features/metadata`
 
 **Response**
 
 `200` — The current dynamic extensions feature metadata
 
-`DynamicExtensionsFeaturesMetadataResource`.
-
-- **`Features`** <span class="type-label">array of object</span>
-  - **`Default`** <span class="type-label">string</span>
-  - **`Description`** <span class="type-label">string</span> — Markdown formatted.
-  - **`Key`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Options`** <span class="type-label">object</span>
+- **`Features`** :span[array of object]{.type-label}
+  - **`Default`** :span[string]{.type-label}
+  - **`Description`** :span[string]{.type-label}  
+    Markdown formatted.
+  - **`Key`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Options`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -43,17 +42,15 @@ title: Dynamic Extensions
 ```
 </div>
 
-## Requests the current dynamic extensions feature values
+## Request the current dynamic extensions feature values
 
-`GET` `/api/dynamic-extensions/features/values`
+:span[GET]{.api-get} `/api/dynamic-extensions/features/values`
 
 **Response**
 
 `200` — The current dynamic extensions feature values
 
-`DynamicExtensionsFeaturesValuesResource`.
-
-- **`Values`** <span class="type-label">object</span>
+- **`Values`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -68,15 +65,13 @@ title: Dynamic Extensions
 ```
 </div>
 
-## Modifies the current dynamic extensions feature values
+## Modify the current dynamic extensions feature values
 
-`PUT` `/api/dynamic-extensions/features/values`
+:span[PUT]{.api-put} `/api/dynamic-extensions/features/values`
 
 **Request Body**
 
-`SetDynamicExtensionsFeaturesValuesCommand`
-
-- **`Values`** <span class="type-label">object</span> *(required)*
+- **`Values`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -95,9 +90,7 @@ title: Dynamic Extensions
 
 `200` — The new dynamic extensions feature values
 
-`DynamicExtensionsFeaturesValuesResource`.
-
-- **`Values`** <span class="type-label">object</span>
+- **`Values`** :span[object]{.type-label}
 
 <div data-example="Response">
 

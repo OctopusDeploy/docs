@@ -5,47 +5,58 @@ modDate: 2026-08-11
 title: Scoped User Roles
 ---
 
-## Lists the name and ID of all of the scoped user roles in the supplied Octopus Deploy Space. The results will be sorted by name
+## List the name and ID of all of the scoped user roles in the supplied Octopus Deploy Space. The results will be sorted by name
 
-`GET` `/api/{spaceId}/scopeduserroles`
+:span[GET]{.api-get} `/api/{spaceId}/scopeduserroles`
 
 Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopeduserroles`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
-- **`ids`** <span class="type-label">array of string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Scoped User Roles
 
-`ScopedUserRoleResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TeamId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`UserRoleId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TeamId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`UserRoleId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -97,25 +108,25 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 
 ## Create a scoped user role
 
-`POST` `/api/{spaceId}/scopeduserroles`
+:span[POST]{.api-post} `/api/{spaceId}/scopeduserroles`
 
 Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopeduserroles`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateScopedUserRoleCommand`
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`UserRoleId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`UserRoleId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -144,19 +155,21 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 
 `201` — Created
 
-`ScopedUserRoleResource`.
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`UserRoleId`** <span class="type-label">string</span>
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`UserRoleId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -191,32 +204,35 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 
 ## Get a Scoped User Role by ID
 
-`GET` `/api/{spaceId}/scopeduserroles/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/scopeduserroles/{id}`
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — Scoped User Role.
 
-`ScopedUserRoleResource`.
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`UserRoleId`** <span class="type-label">string</span>
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`UserRoleId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -251,27 +267,29 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 
 ## Modify a scoped user role
 
-`PUT` `/api/{spaceId}/scopeduserroles/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/scopeduserroles/{id}`
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the scoped user role to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the scoped user role to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyScopedUserRoleCommand`
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the scoped user role to modify. Minimum length 1.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`UserRoleId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the scoped user role to modify. Minimum length 1.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`UserRoleId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -301,19 +319,21 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 
 `200` — Confirmation that the Scoped User Role was modified, containing the updated Role
 
-`ScopedUserRoleResource`.
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`UserRoleId`** <span class="type-label">string</span>
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`UserRoleId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -346,16 +366,18 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 ```
 </div>
 
-## Deletes an existing Scoped User Role
+## Delete an existing Scoped User Role
 
-`DELETE` `/api/{spaceId}/scopeduserroles/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/scopeduserroles/{id}`
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Scoped User Role to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Scoped User Role to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 

@@ -7,39 +7,49 @@ title: Deployment Freeze
 
 ## Get DeploymentFreezes
 
-`GET` `/api/deploymentfreezes`
+:span[GET]{.api-get} `/api/deploymentfreezes`
 
 Gets a paginated set of DeploymentFreezes.
 
-**Parameters**
+**Query Parameters**
 
-- **`effectiveDate`** <span class="type-label">string</span> — URL encoded timestamp to search recurring deployment freezes at a given point in time. Format `date-time`.
-- **`environmentIds`** <span class="type-label">array of string</span> — List of Environment IDs which if specified, filters the result to only include DeploymentFreeze with matching Environment IDs.
-- **`ids`** <span class="type-label">array of string</span> — List of DeploymentFreeze IDs which if specified, filters the result to only include DeploymentFreeze with matching IDs.
-- **`includeComplete`** <span class="type-label">boolean</span> — Set to false to only return active Deployment Freezes.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`projectIds`** <span class="type-label">array of string</span> — List of Project IDs which if specified, filters the result to only include DeploymentFreeze with matching Project IDs.
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`status`** <span class="type-label">string</span>
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
-- **`tenantIds`** <span class="type-label">array of string</span> — List of Tenant IDs which if specified, filters the result to only include DeploymentFreeze with matching Tenant IDs.
+- **`effectiveDate`** :span[string]{.type-label}  
+  URL encoded timestamp to search recurring deployment freezes at a given point in time. Format `date-time`.
+- **`environmentIds`** :span[array of string]{.type-label}  
+  List of Environment IDs which if specified, filters the result to only include DeploymentFreeze with matching Environment IDs.
+- **`ids`** :span[array of string]{.type-label}  
+  List of DeploymentFreeze IDs which if specified, filters the result to only include DeploymentFreeze with matching IDs.
+- **`includeComplete`** :span[boolean]{.type-label}  
+  Set to false to only return active Deployment Freezes.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`projectIds`** :span[array of string]{.type-label}  
+  List of Project IDs which if specified, filters the result to only include DeploymentFreeze with matching Project IDs.
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`status`** :span[string]{.type-label}
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`tenantIds`** :span[array of string]{.type-label}  
+  List of Tenant IDs which if specified, filters the result to only include DeploymentFreeze with matching Tenant IDs.
 
 **Response**
 
 `200` — Requested list of DeploymentFreezes
 
-`GetDeploymentFreezesResponse`.
-
-- **`Count`** <span class="type-label">integer</span>
-- **`DeploymentFreezes`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`End`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-  - **`RecurringSchedule`** <span class="type-label">object</span>
-  - **`Start`** <span class="type-label">string</span> — Format `date-time`.
-  - **`TenantProjectEnvironmentScope`** <span class="type-label">array of object</span>
+- **`Count`** :span[integer]{.type-label}
+- **`DeploymentFreezes`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`End`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectEnvironmentScope`** :span[object]{.type-label}
+  - **`RecurringSchedule`** :span[object]{.type-label}
+  - **`Start`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 
@@ -83,19 +93,20 @@ Gets a paginated set of DeploymentFreezes.
 ```
 </div>
 
-## Creates a new deployment freeze
+## Create a new deployment freeze
 
-`POST` `/api/deploymentfreezes`
+:span[POST]{.api-post} `/api/deploymentfreezes`
 
 **Request Body**
 
-`CreateDeploymentFreezeCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`End`** <span class="type-label">string</span> *(required)* — Format `date-time`.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 200.
-- **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-- **`Start`** <span class="type-label">string</span> *(required)* — Format `date-time`.
+- **`Description`** :span[string]{.type-label}
+- **`End`** :span[string]{.type-label} *(required)*  
+  Format `date-time`.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 200.
+- **`ProjectEnvironmentScope`** :span[object]{.type-label}
+- **`Start`** :span[string]{.type-label} *(required)*  
+  Format `date-time`.
 
 <div data-example="Request">
 
@@ -124,27 +135,33 @@ Gets a paginated set of DeploymentFreezes.
 
 `201` — Created
 
-`CreateDeploymentFreezeResponse`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`End`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-- **`RecurringSchedule`** <span class="type-label">object</span>
-  - **`EndAfterOccurrences`** <span class="type-label">integer</span>
-  - **`EndDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndOnDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndType`** <span class="type-label">enum</span> — Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
-  - **`StartDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
-  - **`Unit`** <span class="type-label">integer</span>
-  - **`UserUtcOffsetInMinutes`** <span class="type-label">integer</span>
-- **`Start`** <span class="type-label">string</span> — Format `date-time`.
-- **`TenantProjectEnvironmentScope`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`End`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectEnvironmentScope`** :span[object]{.type-label}
+- **`RecurringSchedule`** :span[object]{.type-label}
+  - **`EndAfterOccurrences`** :span[integer]{.type-label}
+  - **`EndDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndOnDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndType`** :span[enum]{.type-label}  
+    Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
+  - **`StartDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
+  - **`Unit`** :span[integer]{.type-label}
+  - **`UserUtcOffsetInMinutes`** :span[integer]{.type-label}
+- **`Start`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -189,37 +206,44 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Get a deployment freeze by ID
 
-`GET` `/api/deploymentfreezes/{id}`
+:span[GET]{.api-get} `/api/deploymentfreezes/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the deployment freeze.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the deployment freeze.
 
 **Response**
 
 `200` — The requested deployment freeze
 
-`GetDeploymentFreezeByIdResponse`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`End`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-- **`RecurringSchedule`** <span class="type-label">object</span>
-  - **`EndAfterOccurrences`** <span class="type-label">integer</span>
-  - **`EndDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndOnDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndType`** <span class="type-label">enum</span> — Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
-  - **`StartDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
-  - **`Unit`** <span class="type-label">integer</span>
-  - **`UserUtcOffsetInMinutes`** <span class="type-label">integer</span>
-- **`Start`** <span class="type-label">string</span> — Format `date-time`.
-- **`TenantProjectEnvironmentScope`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`End`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectEnvironmentScope`** :span[object]{.type-label}
+- **`RecurringSchedule`** :span[object]{.type-label}
+  - **`EndAfterOccurrences`** :span[integer]{.type-label}
+  - **`EndDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndOnDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndType`** :span[enum]{.type-label}  
+    Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
+  - **`StartDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
+  - **`Unit`** :span[integer]{.type-label}
+  - **`UserUtcOffsetInMinutes`** :span[integer]{.type-label}
+- **`Start`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -262,37 +286,43 @@ Gets a paginated set of DeploymentFreezes.
 ```
 </div>
 
-## Creates a new deployment freeze
+## Create a new deployment freeze
 
-`PUT` `/api/deploymentfreezes/{id}`
+:span[PUT]{.api-put} `/api/deploymentfreezes/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyDeploymentFreezeCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`End`** <span class="type-label">string</span> *(required)* — Format `date-time`.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 200.
-- **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-- **`RecurringSchedule`** <span class="type-label">object</span>
-  - **`EndAfterOccurrences`** <span class="type-label">integer</span>
-  - **`EndDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndOnDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndType`** <span class="type-label">enum</span> — Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
-  - **`StartDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
-  - **`Unit`** <span class="type-label">integer</span>
-  - **`UserUtcOffsetInMinutes`** <span class="type-label">integer</span>
-- **`Start`** <span class="type-label">string</span> *(required)* — Format `date-time`.
-- **`TenantProjectEnvironmentScope`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-  - **`ProjectId`** <span class="type-label">string</span> *(required)*
-  - **`TenantId`** <span class="type-label">string</span> *(required)*
+- **`Description`** :span[string]{.type-label}
+- **`End`** :span[string]{.type-label} *(required)*  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 200.
+- **`ProjectEnvironmentScope`** :span[object]{.type-label}
+- **`RecurringSchedule`** :span[object]{.type-label}
+  - **`EndAfterOccurrences`** :span[integer]{.type-label}
+  - **`EndDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndOnDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndType`** :span[enum]{.type-label}  
+    Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
+  - **`StartDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
+  - **`Unit`** :span[integer]{.type-label}
+  - **`UserUtcOffsetInMinutes`** :span[integer]{.type-label}
+- **`Start`** :span[string]{.type-label} *(required)*  
+  Format `date-time`.
+- **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label} *(required)*
+  - **`ProjectId`** :span[string]{.type-label} *(required)*
+  - **`TenantId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -339,27 +369,33 @@ Gets a paginated set of DeploymentFreezes.
 
 `200` — Modifies an existing deployment freeze
 
-`ModifyDeploymentFreezeResponse`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`End`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectEnvironmentScope`** <span class="type-label">object</span>
-- **`RecurringSchedule`** <span class="type-label">object</span>
-  - **`EndAfterOccurrences`** <span class="type-label">integer</span>
-  - **`EndDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndOnDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`EndType`** <span class="type-label">enum</span> — Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
-  - **`StartDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
-  - **`Unit`** <span class="type-label">integer</span>
-  - **`UserUtcOffsetInMinutes`** <span class="type-label">integer</span>
-- **`Start`** <span class="type-label">string</span> — Format `date-time`.
-- **`TenantProjectEnvironmentScope`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`End`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectEnvironmentScope`** :span[object]{.type-label}
+- **`RecurringSchedule`** :span[object]{.type-label}
+  - **`EndAfterOccurrences`** :span[integer]{.type-label}
+  - **`EndDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndOnDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`EndType`** :span[enum]{.type-label}  
+    Allowed values: `Never`, `OnDate`, `AfterOccurrences`.
+  - **`StartDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Daily`, `Weekly`, `Monthly`, `Annually`.
+  - **`Unit`** :span[integer]{.type-label}
+  - **`UserUtcOffsetInMinutes`** :span[integer]{.type-label}
+- **`Start`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -402,13 +438,14 @@ Gets a paginated set of DeploymentFreezes.
 ```
 </div>
 
-## Deletes a deployment freeze
+## Delete a deployment freeze
 
-`DELETE` `/api/deploymentfreezes/{id}`
+:span[DELETE]{.api-delete} `/api/deploymentfreezes/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the DeploymentFreeze to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the DeploymentFreeze to delete.
 
 **Response**
 
@@ -416,61 +453,72 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Override a deployment freeze to create a deployment
 
-`POST` `/api/{spaceId}/deployments/override`
+:span[POST]{.api-post} `/api/{spaceId}/deployments/override`
 
 Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/deployments/override`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateDeploymentFreezeOverrideCommand`
-
-- **`CreateDeploymentCommand`** <span class="type-label">object</span> *(required)*
-  - **`ChangeRequestSettings`** <span class="type-label">array of object</span>
-  - **`Changes`** <span class="type-label">array of object</span>
-  - **`ChangesMarkdown`** <span class="type-label">string</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`Comments`** <span class="type-label">string</span>
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`DebugMode`** <span class="type-label">string</span>
-  - **`DeployedBy`** <span class="type-label">string</span>
-  - **`DeployedById`** <span class="type-label">string</span>
-  - **`DeployedToMachineIds`** <span class="type-label">array of string</span>
-  - **`DeploymentProcessId`** <span class="type-label">string</span>
-  - **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-  - **`ExcludedMachineIds`** <span class="type-label">array of string</span> — A collection of machines in the target environment that should be excluded from the deployment.
-  - **`ExcludedTargetTagIds`** <span class="type-label">array of string</span> — A collection of target tag IDs that should be excluded from the deployment. Only deployment targets that have none of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
-  - **`ExecutionPlanLogContext`** <span class="type-label">object</span>
-  - **`FailTargetDiscovery`** <span class="type-label">boolean</span>
-  - **`FailureEncountered`** <span class="type-label">boolean</span>
-  - **`ForcePackageDownload`** <span class="type-label">boolean</span>
-  - **`ForcePackageRedeployment`** <span class="type-label">boolean</span>
-  - **`FormValues`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`ManifestVariableSetId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Priority`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`QueueTime`** <span class="type-label">string</span> — If set this time will be the used to schedule the deployment to a later time, null is assumed to mean the time will be executed immediately. Format `date-time`.
-  - **`QueueTimeExpiry`** <span class="type-label">string</span> — Format `date-time`.
-  - **`ReleaseId`** <span class="type-label">string</span> *(required)*
-  - **`SkipActions`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`SpecificMachineIds`** <span class="type-label">array of string</span> — A collection of machines in the target environment that should be deployed to. If the collection is empty, all enabled machines are deployed.
-  - **`SpecificTargetTagIds`** <span class="type-label">array of string</span> — A collection of target tag IDs that should be included in the deployment. Only deployment targets that have at least one of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
-  - **`TaskId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-  - **`TentacleRetentionPeriod`** <span class="type-label">object</span>
-  - **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
-- **`FreezeIds`** <span class="type-label">array of string</span> *(required)*
-- **`Reason`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
+- **`CreateDeploymentCommand`** :span[object]{.type-label} *(required)*
+  - **`ChangeRequestSettings`** :span[array of object]{.type-label}
+  - **`Changes`** :span[array of object]{.type-label}
+  - **`ChangesMarkdown`** :span[string]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`Comments`** :span[string]{.type-label}
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`DebugMode`** :span[string]{.type-label}
+  - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedById`** :span[string]{.type-label}
+  - **`DeployedToMachineIds`** :span[array of string]{.type-label}
+  - **`DeploymentProcessId`** :span[string]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label} *(required)*
+  - **`ExcludedMachineIds`** :span[array of string]{.type-label}  
+    A collection of machines in the target environment that should be excluded from the deployment.
+  - **`ExcludedTargetTagIds`** :span[array of string]{.type-label}  
+    A collection of target tag IDs that should be excluded from the deployment. Only deployment targets that have none of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
+  - **`ExecutionPlanLogContext`** :span[object]{.type-label}
+  - **`FailTargetDiscovery`** :span[boolean]{.type-label}
+  - **`FailureEncountered`** :span[boolean]{.type-label}
+  - **`ForcePackageDownload`** :span[boolean]{.type-label}
+  - **`ForcePackageRedeployment`** :span[boolean]{.type-label}
+  - **`FormValues`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`ManifestVariableSetId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Priority`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`QueueTime`** :span[string]{.type-label}  
+    If set this time will be the used to schedule the deployment to a later time, null is assumed to mean the time will be executed immediately. Format `date-time`.
+  - **`QueueTimeExpiry`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`ReleaseId`** :span[string]{.type-label} *(required)*
+  - **`SkipActions`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`SpecificMachineIds`** :span[array of string]{.type-label}  
+    A collection of machines in the target environment that should be deployed to. If the collection is empty, all enabled machines are deployed.
+  - **`SpecificTargetTagIds`** :span[array of string]{.type-label}  
+    A collection of target tag IDs that should be included in the deployment. Only deployment targets that have at least one of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
+  - **`TaskId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+  - **`TentacleRetentionPeriod`** :span[object]{.type-label}
+  - **`UseGuidedFailure`** :span[boolean]{.type-label}  
+    If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`FreezeIds`** :span[array of string]{.type-label} *(required)*
+- **`Reason`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -577,48 +625,58 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
 
 `201` — Created
 
-`CreateDeploymentFreezeOverrideResponse`.
-
-- **`Deployment`** <span class="type-label">object</span>
-  - **`ChangeRequestSettings`** <span class="type-label">array of object</span>
-  - **`Changes`** <span class="type-label">array of object</span>
-  - **`ChangesMarkdown`** <span class="type-label">string</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`Comments`** <span class="type-label">string</span>
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`DebugMode`** <span class="type-label">string</span>
-  - **`DeployedBy`** <span class="type-label">string</span>
-  - **`DeployedById`** <span class="type-label">string</span>
-  - **`DeployedToMachineIds`** <span class="type-label">array of string</span>
-  - **`DeploymentProcessId`** <span class="type-label">string</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ExcludedMachineIds`** <span class="type-label">array of string</span> — A collection of machines in the target environment that should be excluded from the deployment.
-  - **`ExcludedTargetTagIds`** <span class="type-label">array of string</span> — A collection of target tag IDs that should be excluded from the deployment. Only deployment targets that have none of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
-  - **`ExecutionPlanLogContext`** <span class="type-label">object</span>
-  - **`FailTargetDiscovery`** <span class="type-label">boolean</span>
-  - **`FailureEncountered`** <span class="type-label">boolean</span>
-  - **`ForcePackageDownload`** <span class="type-label">boolean</span>
-  - **`ForcePackageRedeployment`** <span class="type-label">boolean</span>
-  - **`FormValues`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`ManifestVariableSetId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Priority`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`QueueTime`** <span class="type-label">string</span> — If set this time will be the used to schedule the deployment to a later time, null is assumed to mean the time will be executed immediately. Format `date-time`.
-  - **`QueueTimeExpiry`** <span class="type-label">string</span> — Format `date-time`.
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`SkipActions`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`SpecificMachineIds`** <span class="type-label">array of string</span> — A collection of machines in the target environment that should be deployed to. If the collection is empty, all enabled machines are deployed.
-  - **`SpecificTargetTagIds`** <span class="type-label">array of string</span> — A collection of target tag IDs that should be included in the deployment. Only deployment targets that have at least one of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
-  - **`TaskId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-  - **`TentacleRetentionPeriod`** <span class="type-label">object</span>
-  - **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`Deployment`** :span[object]{.type-label}
+  - **`ChangeRequestSettings`** :span[array of object]{.type-label}
+  - **`Changes`** :span[array of object]{.type-label}
+  - **`ChangesMarkdown`** :span[string]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`Comments`** :span[string]{.type-label}
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`DebugMode`** :span[string]{.type-label}
+  - **`DeployedBy`** :span[string]{.type-label}
+  - **`DeployedById`** :span[string]{.type-label}
+  - **`DeployedToMachineIds`** :span[array of string]{.type-label}
+  - **`DeploymentProcessId`** :span[string]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ExcludedMachineIds`** :span[array of string]{.type-label}  
+    A collection of machines in the target environment that should be excluded from the deployment.
+  - **`ExcludedTargetTagIds`** :span[array of string]{.type-label}  
+    A collection of target tag IDs that should be excluded from the deployment. Only deployment targets that have none of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
+  - **`ExecutionPlanLogContext`** :span[object]{.type-label}
+  - **`FailTargetDiscovery`** :span[boolean]{.type-label}
+  - **`FailureEncountered`** :span[boolean]{.type-label}
+  - **`ForcePackageDownload`** :span[boolean]{.type-label}
+  - **`ForcePackageRedeployment`** :span[boolean]{.type-label}
+  - **`FormValues`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`ManifestVariableSetId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Priority`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`QueueTime`** :span[string]{.type-label}  
+    If set this time will be the used to schedule the deployment to a later time, null is assumed to mean the time will be executed immediately. Format `date-time`.
+  - **`QueueTimeExpiry`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`SkipActions`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`SpecificMachineIds`** :span[array of string]{.type-label}  
+    A collection of machines in the target environment that should be deployed to. If the collection is empty, all enabled machines are deployed.
+  - **`SpecificTargetTagIds`** :span[array of string]{.type-label}  
+    A collection of target tag IDs that should be included in the deployment. Only deployment targets that have at least one of these tags will be deployed to. Tag IDs are in the format "TagSets-{id}/Tags-{id}".
+  - **`TaskId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+  - **`TentacleRetentionPeriod`** :span[object]{.type-label}
+  - **`UseGuidedFailure`** :span[boolean]{.type-label}  
+    If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 

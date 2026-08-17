@@ -5,25 +5,25 @@ modDate: 2026-08-11
 title: Variables
 ---
 
-## Returns a summary of the variables that will be migrated to Git
+## Return a summary of the variables that will be migrated to Git
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — Id of the project to convert.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  Id of the project to convert.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the requested Project Variables were converted to git
 
-`ConvertProjectVariablesToGitSummaryResponse`.
-
-- **`SensitiveVariableCount`** <span class="type-label">integer</span>
-- **`TextVariableCount`** <span class="type-label">integer</span>
+- **`SensitiveVariableCount`** :span[integer]{.type-label}
+- **`TextVariableCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -35,26 +35,27 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 ```
 </div>
 
-## Converts all non-sensitive project variables to be stored in Git rather than the database
+## Convert all non-sensitive project variables to be stored in Git rather than the database
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ConvertProjectVariablesToGitCommand`
-
-- **`Branch`** <span class="type-label">string</span> *(required)*
-- **`CommitMessage`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`CreateBranch`** <span class="type-label">boolean</span>
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Branch`** :span[string]{.type-label} *(required)*
+- **`CommitMessage`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`CreateBranch`** :span[boolean]{.type-label}
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -73,8 +74,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 `200` — Empty response indicating the Project Variables were converted
 
-`ConvertProjectVariablesToGitResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -82,52 +81,59 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 ```
 </div>
 
-## Gets variables for a project
+## Get variables for a project
 
-`GET` `/api/{spaceId}/projects/{projectId}/variables`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Variable Set
 
-`ProjectVariablesResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -296,47 +302,47 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 ```
 </div>
 
-## Modifies variables for the project
+## Modify variables for the project
 
-`PUT` `/api/{spaceId}/projects/{projectId}/variables`
+:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyProjectVariableSetInDatabaseCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`ScopeValues`** <span class="type-label">object</span> *(required)*
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`Variables`** <span class="type-label">array of object</span> *(required)*
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`ScopeValues`** :span[object]{.type-label} *(required)*
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`Variables`** :span[array of object]{.type-label} *(required)*
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -502,8 +508,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 
 `200` — Confirms that a Project Variable Set has been modified
 
-`ModifyProjectVariableSetInDatabaseResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -511,53 +515,60 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 ```
 </div>
 
-## Gets variables for a project
+## Get variables for a project
 
-`GET` `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Variable Set
 
-`ProjectVariablesResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -726,49 +737,49 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 ```
 </div>
 
-## Modifies variables for the project
+## Modify variables for the project
 
-`PUT` `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
+:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyProjectVariableSetInGitCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`ScopeValues`** <span class="type-label">object</span> *(required)*
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`Variables`** <span class="type-label">array of object</span> *(required)*
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`ScopeValues`** :span[object]{.type-label} *(required)*
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`Variables`** :span[array of object]{.type-label} *(required)*
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -935,8 +946,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 
 `200` — Confirms that a Project Variable Set has been modified
 
-`ModifyProjectVariableSetInGitResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -946,53 +955,62 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 
 ## Get a list of Variable Sets
 
-`GET` `/api/{spaceId}/variables/all`
+:span[GET]{.api-get} `/api/{spaceId}/variables/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/all`, `/api/variables/all`.
 
 Lists all the Variable Sets in the supplied Space.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — A list of Variable Set resource IDs used to filter a query.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Variable Set resource IDs used to filter a query.
 
 **Response**
 
 `200` — The requested list of Variable Sets
 
-an array of `VariableSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -1065,20 +1083,27 @@ an array of `VariableSetResource`.
 
 ## Get a list of Variable names
 
-`GET` `/api/{spaceId}/variables/names`
+:span[GET]{.api-get} `/api/{spaceId}/variables/names`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/names`, `/api/variables/names`.
 
 List the names of variables that can be used in deployment actions. If a project is specified, this will include variables in that project. If a project environments filter is specified, project variables which are scoped to an unspecified environment will be excluded.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`gitRef`** <span class="type-label">string</span> — GitRef for the project variables.
-- **`project`** <span class="type-label">string</span> — ID of the Project.
-- **`projectEnvironmentsFilter`** <span class="type-label">array of string</span> — ID of the Deployment Environments to filter on.
-- **`runbook`** <span class="type-label">string</span> — ID of the Runbook.
+**Query Parameters**
+
+- **`gitRef`** :span[string]{.type-label}  
+  GitRef for the project variables.
+- **`project`** :span[string]{.type-label}  
+  ID of the Project.
+- **`projectEnvironmentsFilter`** :span[array of string]{.type-label}  
+  ID of the Deployment Environments to filter on.
+- **`runbook`** :span[string]{.type-label}  
+  ID of the Runbook.
 
 **Response**
 
@@ -1095,61 +1120,78 @@ List the names of variables that can be used in deployment actions. If a project
 
 ## Get a Variable Set preview
 
-`GET` `/api/{spaceId}/variables/preview`
+:span[GET]{.api-get} `/api/{spaceId}/variables/preview`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/preview`, `/api/variables/preview`.
 
 Lists the evaluated Variables for a deployment.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`action`** <span class="type-label">string</span> — ID of the Action.
-- **`channel`** <span class="type-label">string</span> — ID of the Channel.
-- **`environment`** <span class="type-label">string</span> — ID of the Deployment Environment.
-- **`gitRef`** <span class="type-label">string</span> — GitRef for the project variables.
-- **`machine`** <span class="type-label">string</span> — ID of the Machine.
-- **`project`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`role`** <span class="type-label">string</span> — Name of the Role.
-- **`runbook`** <span class="type-label">string</span> — ID of the Runbook.
-- **`tenant`** <span class="type-label">string</span> — ID of the Tenant.
+**Query Parameters**
+
+- **`action`** :span[string]{.type-label}  
+  ID of the Action.
+- **`channel`** :span[string]{.type-label}  
+  ID of the Channel.
+- **`environment`** :span[string]{.type-label}  
+  ID of the Deployment Environment.
+- **`gitRef`** :span[string]{.type-label}  
+  GitRef for the project variables.
+- **`machine`** :span[string]{.type-label}  
+  ID of the Machine.
+- **`project`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`role`** :span[string]{.type-label}  
+  Name of the Role.
+- **`runbook`** :span[string]{.type-label}  
+  ID of the Runbook.
+- **`tenant`** :span[string]{.type-label}  
+  ID of the Tenant.
 
 **Response**
 
 `200` — The requested Variable Set Preview
 
-`VariableSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -1320,50 +1362,57 @@ Lists the evaluated Variables for a deployment.
 
 ## Get a Variable Set by Id
 
-`GET` `/api/{spaceId}/variables/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/variables/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variables/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Variable Set.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Variable Set.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Variable Set
 
-`VariableSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -1532,50 +1581,56 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 ```
 </div>
 
-## Updates a Variable Set
+## Update a Variable Set
 
-`PUT` `/api/{spaceId}/variables/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/variables/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variables/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Gets or sets a unique identifier for this resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  Gets or sets a unique identifier for this resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyVariableSetCommand`
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Request">
 
@@ -1748,37 +1803,42 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 
 `200` — Confirms that a variable set has been modified, containing the updated variable set
 
-`VariableSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`OwnerId`** <span class="type-label">string</span> — Gets or sets the ID of the document that owns these variables.
-- **`ScopeValues`** <span class="type-label">object</span>
-  - **`Actions`** <span class="type-label">array of object</span>
-  - **`Channels`** <span class="type-label">array of object</span>
-  - **`EnvironmentParameters`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of object</span>
-  - **`Machines`** <span class="type-label">array of object</span>
-  - **`ProcessTemplateSteps`** <span class="type-label">array of object</span>
-  - **`Processes`** <span class="type-label">array of object</span>
-  - **`Roles`** <span class="type-label">array of object</span>
-  - **`TargetTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTagParameters`** <span class="type-label">array of object</span>
-  - **`TenantTags`** <span class="type-label">array of object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span> — Gets the collection of variables.
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsEditable`** <span class="type-label">boolean</span>
-  - **`IsSensitive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Prompt`** <span class="type-label">object</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`OwnerId`** :span[string]{.type-label}  
+  Gets or sets the ID of the document that owns these variables.
+- **`ScopeValues`** :span[object]{.type-label}
+  - **`Actions`** :span[array of object]{.type-label}
+  - **`Channels`** :span[array of object]{.type-label}
+  - **`EnvironmentParameters`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of object]{.type-label}
+  - **`Machines`** :span[array of object]{.type-label}
+  - **`ProcessTemplateSteps`** :span[array of object]{.type-label}
+  - **`Processes`** :span[array of object]{.type-label}
+  - **`Roles`** :span[array of object]{.type-label}
+  - **`TargetTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTagParameters`** :span[array of object]{.type-label}
+  - **`TenantTags`** :span[array of object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}  
+  Gets the collection of variables.
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsEditable`** :span[boolean]{.type-label}
+  - **`IsSensitive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Prompt`** :span[object]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 

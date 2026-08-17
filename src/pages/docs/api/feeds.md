@@ -7,46 +7,63 @@ title: Feeds
 
 ## Get a list of feeds
 
-`GET` `/api/{spaceId}/feeds`
+:span[GET]{.api-get} `/api/{spaceId}/feeds`
 
 Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Feed.
 
-- **`feedType`** <span class="type-label">array of string</span> — The feed types to be matched, provided as a comma separated list of strings.
-- **`ids`** <span class="type-label">array of string</span> — The feed ids to be matched, provided as a comma separated list of strings.
-- **`name`** <span class="type-label">string</span> — The exact name of a feed to be matched.
-- **`partialName`** <span class="type-label">string</span> — The partial name of feeds to be matched.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`feedType`** :span[array of string]{.type-label}  
+  The feed types to be matched, provided as a comma separated list of strings.
+- **`ids`** :span[array of string]{.type-label}  
+  The feed ids to be matched, provided as a comma separated list of strings.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a feed to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  The partial name of feeds to be matched.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Feeds
 
-`FeedResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`FeedType`** :span[enum]{.type-label}  
+    Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+    Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -90,38 +107,45 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 ## Create a feed
 
-`POST` `/api/{spaceId}/feeds`
+:span[POST]{.api-post} `/api/{spaceId}/feeds`
 
 Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the feed.
 
 **Request Body**
 
-`CreateFeedCommand`
-
-- **`ClientVersion`** <span class="type-label">object</span>
-  - **`Format`** <span class="type-label">enum</span> — Allowed values: `Semver`, `Maven`, `Docker`, `Octopus`, `Lexicographic`.
-  - **`HasMetadata`** <span class="type-label">boolean</span>
-  - **`IsLegacyVersion`** <span class="type-label">boolean</span>
-  - **`IsPrerelease`** <span class="type-label">boolean</span>
-  - **`IsSemVer2`** <span class="type-label">boolean</span>
-  - **`Major`** <span class="type-label">integer</span>
-  - **`Metadata`** <span class="type-label">string</span>
-  - **`Minor`** <span class="type-label">integer</span>
-  - **`OriginalString`** <span class="type-label">string</span>
-  - **`Patch`** <span class="type-label">integer</span>
-  - **`Release`** <span class="type-label">string</span>
-  - **`ReleaseLabels`** <span class="type-label">array of string</span>
-  - **`Revision`** <span class="type-label">integer</span>
-  - **`Version`** <span class="type-label">string</span>
-- **`FeedType`** <span class="type-label">enum</span> *(required)* — The type of the feed. Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the feed. Maximum length 44.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — The feed's package acquisition location options. Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — The slug of the feed.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the feed.
+- **`ClientVersion`** :span[object]{.type-label}
+  - **`Format`** :span[enum]{.type-label}  
+    Allowed values: `Semver`, `Maven`, `Docker`, `Octopus`, `Lexicographic`.
+  - **`HasMetadata`** :span[boolean]{.type-label}
+  - **`IsLegacyVersion`** :span[boolean]{.type-label}
+  - **`IsPrerelease`** :span[boolean]{.type-label}
+  - **`IsSemVer2`** :span[boolean]{.type-label}
+  - **`Major`** :span[integer]{.type-label}
+  - **`Metadata`** :span[string]{.type-label}
+  - **`Minor`** :span[integer]{.type-label}
+  - **`OriginalString`** :span[string]{.type-label}
+  - **`Patch`** :span[integer]{.type-label}
+  - **`Release`** :span[string]{.type-label}
+  - **`ReleaseLabels`** :span[array of string]{.type-label}
+  - **`Revision`** :span[integer]{.type-label}
+  - **`Version`** :span[string]{.type-label}
+- **`FeedType`** :span[enum]{.type-label} *(required)*  
+  The type of the feed.  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the feed. Maximum length 44.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  The feed's package acquisition location options.  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the feed.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the feed.
 
 <div data-example="Request">
 
@@ -160,17 +184,21 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 `201` — Created
 
-`FeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -197,29 +225,34 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 ## Get all Feeds
 
-`GET` `/api/{spaceId}/feeds/all`
+:span[GET]{.api-get} `/api/{spaceId}/feeds/all`
 
 Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Feed.
 
 **Response**
 
 `200` — The requested list of Feeds
 
-an array of `FeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -248,25 +281,28 @@ an array of `FeedResource`.
 
 ## Get all feed statistics
 
-`GET` `/api/{spaceId}/feeds/stats`
+:span[GET]{.api-get} `/api/{spaceId}/feeds/stats`
 
 Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Feed.
 
 **Response**
 
 `200` — The requested Feed Statistics
 
-`BuiltInFeedStatsResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`TotalPackages`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`TotalPackages`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -287,30 +323,36 @@ Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats
 
 ## Get a feed resource by ID
 
-`GET` `/api/{spaceId}/feeds/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}`
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the feed.
 
 **Response**
 
 `200` — The requested Feed
 
-`FeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -337,40 +379,49 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 ## Modify a feed by ID
 
-`PUT` `/api/{spaceId}/feeds/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/feeds/{id}`
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the feed.
 
 **Request Body**
 
-`ModifyFeedCommand`
-
-- **`ClientVersion`** <span class="type-label">object</span>
-  - **`Format`** <span class="type-label">enum</span> — Allowed values: `Semver`, `Maven`, `Docker`, `Octopus`, `Lexicographic`.
-  - **`HasMetadata`** <span class="type-label">boolean</span>
-  - **`IsLegacyVersion`** <span class="type-label">boolean</span>
-  - **`IsPrerelease`** <span class="type-label">boolean</span>
-  - **`IsSemVer2`** <span class="type-label">boolean</span>
-  - **`Major`** <span class="type-label">integer</span>
-  - **`Metadata`** <span class="type-label">string</span>
-  - **`Minor`** <span class="type-label">integer</span>
-  - **`OriginalString`** <span class="type-label">string</span>
-  - **`Patch`** <span class="type-label">integer</span>
-  - **`Release`** <span class="type-label">string</span>
-  - **`ReleaseLabels`** <span class="type-label">array of string</span>
-  - **`Revision`** <span class="type-label">integer</span>
-  - **`Version`** <span class="type-label">string</span>
-- **`FeedType`** <span class="type-label">enum</span> *(required)* — The type of the feed. Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> *(required)* — The id of the feed.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the feed. Maximum length 44.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — The feed's package acquisition location options. Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — The slug of the feed.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the feed.
+- **`ClientVersion`** :span[object]{.type-label}
+  - **`Format`** :span[enum]{.type-label}  
+    Allowed values: `Semver`, `Maven`, `Docker`, `Octopus`, `Lexicographic`.
+  - **`HasMetadata`** :span[boolean]{.type-label}
+  - **`IsLegacyVersion`** :span[boolean]{.type-label}
+  - **`IsPrerelease`** :span[boolean]{.type-label}
+  - **`IsSemVer2`** :span[boolean]{.type-label}
+  - **`Major`** :span[integer]{.type-label}
+  - **`Metadata`** :span[string]{.type-label}
+  - **`Minor`** :span[integer]{.type-label}
+  - **`OriginalString`** :span[string]{.type-label}
+  - **`Patch`** :span[integer]{.type-label}
+  - **`Release`** :span[string]{.type-label}
+  - **`ReleaseLabels`** :span[array of string]{.type-label}
+  - **`Revision`** :span[integer]{.type-label}
+  - **`Version`** :span[string]{.type-label}
+- **`FeedType`** :span[enum]{.type-label} *(required)*  
+  The type of the feed.  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The id of the feed.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the feed. Maximum length 44.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  The feed's package acquisition location options.  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the feed.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the feed.
 
 <div data-example="Request">
 
@@ -410,17 +461,21 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 `200` — The response returned from the request to modify a feed.
 
-`FeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -447,56 +502,68 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 ## Delete an existing Feed
 
-`DELETE` `/api/{spaceId}/feeds/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/feeds/{id}`
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the Feed.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space that contains the Feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the Feed.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space that contains the Feed.
 
 **Response**
 
 `200` — Success
 
-## Searches the specified feed for packages based on the provided search term
+## Search the specified feed for packages based on the provided search term
 
-`GET` `/api/{spaceId}/feeds/{id}/packages/search`
+:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}/packages/search`
 
 Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifier}/feeds/{id}/packages/search`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Feed.
 
-- **`packageType`** <span class="type-label">string</span> — The package type to filter results by. Used by feeds that can contain multiple package types. Valid values are ContainerImage and HelmChart.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 20. Minimum `0`.
-- **`term`** <span class="type-label">string</span> — The term to search for.
+**Query Parameters**
+
+- **`packageType`** :span[string]{.type-label}  
+  The package type to filter results by. Used by feeds that can contain multiple package types. Valid values are ContainerImage and HelmChart.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 20. Minimum `0`.
+- **`term`** :span[string]{.type-label}  
+  The term to search for.
 
 **Response**
 
 `200` — Holds a paginated collection of searched package descriptions
 
-`PackageDescriptionResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LatestVersion`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LatestVersion`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -532,53 +599,73 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
 ```
 </div>
 
-## Lists available package versions for the specified feed and package
+## List available package versions for the specified feed and package
 
-`GET` `/api/{spaceId}/feeds/{id}/packages/versions`
+:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}/packages/versions`
 
 Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdentifier}/feeds/{id}/packages/versions`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Feed.
 
-- **`filter`** <span class="type-label">string</span> — Version number text to filter by.
-- **`includePreRelease`** <span class="type-label">boolean</span> — Flag to include pre-release versions, defaults to true.
-- **`includeReleaseNotes`** <span class="type-label">boolean</span> — Flag to include release notes, defaults to false.
-- **`packageId`** <span class="type-label">string</span> *(required)* — The id of the package.
-- **`preReleaseTag`** <span class="type-label">string</span> — The semver tag regex pattern to filter by.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
-- **`versionRange`** <span class="type-label">string</span> — The range of versions to filter by.
-- **`versionTagRegex`** <span class="type-label">string</span> — The version-tag regex, applied to the full version string when set.
-- **`versioningStrategy`** <span class="type-label">string</span> — The versioning strategy: SemVer or MostRecentlyPublished.
+**Query Parameters**
+
+- **`filter`** :span[string]{.type-label}  
+  Version number text to filter by.
+- **`includePreRelease`** :span[boolean]{.type-label}  
+  Flag to include pre-release versions, defaults to true.
+- **`includeReleaseNotes`** :span[boolean]{.type-label}  
+  Flag to include release notes, defaults to false.
+- **`packageId`** :span[string]{.type-label} *(required)*  
+  The id of the package.
+- **`preReleaseTag`** :span[string]{.type-label}  
+  The semver tag regex pattern to filter by.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`versionRange`** :span[string]{.type-label}  
+  The range of versions to filter by.
+- **`versionTagRegex`** :span[string]{.type-label}  
+  The version-tag regex, applied to the full version string when set.
+- **`versioningStrategy`** :span[string]{.type-label}  
+  The versioning strategy: SemVer or MostRecentlyPublished.
 
 **Response**
 
 `200` — Contains a paginated collection of package versions returned from a search
 
-`PackageVersionResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`FeedId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`PackageId`** <span class="type-label">string</span>
-  - **`Published`** <span class="type-label">string</span> — Date the package was published. Optional Property. Format `date-time`.
-  - **`ReleaseNotes`** <span class="type-label">string</span> — Release notes for the package.
-  - **`SizeBytes`** <span class="type-label">integer</span> — Size of package in bytes. Optional Property.
-  - **`Title`** <span class="type-label">string</span> — Title of the package. This may be just the package name if the feed does not expose any version specific name.
-  - **`Version`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`FeedId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`PackageId`** :span[string]{.type-label}
+  - **`Published`** :span[string]{.type-label}  
+    Date the package was published. Optional Property. Format `date-time`.
+  - **`ReleaseNotes`** :span[string]{.type-label}  
+    Release notes for the package.
+  - **`SizeBytes`** :span[integer]{.type-label}  
+    Size of package in bytes. Optional Property.
+  - **`Title`** :span[string]{.type-label}  
+    Title of the package. This may be just the package name if the feed does not expose any version specific name.
+  - **`Version`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

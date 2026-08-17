@@ -7,26 +7,32 @@ title: Scheduled Jobs
 
 ## Get the status of all the scheduled jobs
 
-`GET` `/api/scheduler`
+:span[GET]{.api-get} `/api/scheduler`
 
 **Response**
 
 `200` — The Status of all the scheduled jobs
 
-`SchedulerStatusResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsRunning`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`TaskStatus`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsEnabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsRunning`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`TaskStatus`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsEnabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -59,32 +65,14 @@ title: Scheduled Jobs
 ```
 </div>
 
-## Enables a scheduled job or the job scheduler
+## Enable a scheduled job or the job scheduler
 
-`GET` `/api/scheduler/start`
+:span[GET]{.api-get} `/api/scheduler/start`
 
-**Parameters**
+**Query Parameters**
 
-- **`task`** <span class="type-label">string</span> — The name of the Job to enable. If null the job scheduler itself will be enabled.
-
-**Response**
-
-`200` — Success
-
-<div data-example="Response">
-
-```json
-"string"
-```
-</div>
-
-## Disables a scheduled job or the job scheduler
-
-`GET` `/api/scheduler/stop`
-
-**Parameters**
-
-- **`task`** <span class="type-label">string</span> — The name of the Job to disable. If null the job scheduler itself will be disableped.
+- **`task`** :span[string]{.type-label}  
+  The name of the Job to enable. If null the job scheduler itself will be enabled.
 
 **Response**
 
@@ -97,13 +85,14 @@ title: Scheduled Jobs
 ```
 </div>
 
-## Triggers a scheduled job immediately and waits for it to complete
+## Disable a scheduled job or the job scheduler
 
-`GET` `/api/scheduler/trigger`
+:span[GET]{.api-get} `/api/scheduler/stop`
 
-**Parameters**
+**Query Parameters**
 
-- **`task`** <span class="type-label">string</span> *(required)*
+- **`task`** :span[string]{.type-label}  
+  The name of the Job to disable. If null the job scheduler itself will be disableped.
 
 **Response**
 
@@ -116,38 +105,64 @@ title: Scheduled Jobs
 ```
 </div>
 
-## Gets the structured log for a scheduled job
+## Trigger a scheduled job immediately and waits for it to complete
 
-`GET` `/api/scheduler/{name}/logs`
+:span[GET]{.api-get} `/api/scheduler/trigger`
 
-**Parameters**
+**Query Parameters**
 
-- **`name`** <span class="type-label">string</span> *(required)*
+- **`task`** :span[string]{.type-label} *(required)*
 
-- **`tail`** <span class="type-label">integer</span>
-- **`verbose`** <span class="type-label">boolean</span>
+**Response**
+
+`200` — Success
+
+<div data-example="Response">
+
+```json
+"string"
+```
+</div>
+
+## Get the structured log for a scheduled job
+
+:span[GET]{.api-get} `/api/scheduler/{name}/logs`
+
+**Path Parameters**
+
+- **`name`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`tail`** :span[integer]{.type-label}
+- **`verbose`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — The structured log for a scheduled job
 
-`ScheduledTaskDetailsResource`.
-
-- **`ActivityLog`** <span class="type-label">object</span>
-  - **`Children`** <span class="type-label">array of object</span>
-  - **`Ended`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`LogElements`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProgressMessage`** <span class="type-label">string</span>
-  - **`ProgressPercentage`** <span class="type-label">integer</span>
-  - **`ShowAtSummaryLevel`** <span class="type-label">boolean</span>
-  - **`Started`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `Pending`, `Running`, `Success`, `Failed`, `Skipped`, `SuccessWithWarning`, `Canceled`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ActivityLog`** :span[object]{.type-label}
+  - **`Children`** :span[array of object]{.type-label}
+  - **`Ended`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Id`** :span[string]{.type-label}
+  - **`LogElements`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`ProgressMessage`** :span[string]{.type-label}
+  - **`ProgressPercentage`** :span[integer]{.type-label}
+  - **`ShowAtSummaryLevel`** :span[boolean]{.type-label}
+  - **`Started`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `Pending`, `Running`, `Success`, `Failed`, `Skipped`, `SuccessWithWarning`, `Canceled`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -186,13 +201,13 @@ title: Scheduled Jobs
 ```
 </div>
 
-## Gets the raw log for a scheduled job
+## Get the raw log for a scheduled job
 
-`GET` `/api/scheduler/{name}/logs/raw`
+:span[GET]{.api-get} `/api/scheduler/{name}/logs/raw`
 
-**Parameters**
+**Path Parameters**
 
-- **`name`** <span class="type-label">string</span> *(required)*
+- **`name`** :span[string]{.type-label} *(required)*
 
 **Response**
 

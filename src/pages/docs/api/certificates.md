@@ -7,73 +7,98 @@ title: Certificates
 
 ## List X.509 certificates managed by Octopus
 
-`GET` `/api/{spaceId}/certificates`
+:span[GET]{.api-get} `/api/{spaceId}/certificates`
 
 Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificates`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`archived`** <span class="type-label">boolean</span> — If true, returns only archived Certificates. Otherwise, returns only non-archived Certificates.
-- **`firstResult`** <span class="type-label">string</span> — Certificate ID which if specified, adds the Certificate with matching ID to the result if it is not already included.
-- **`ids`** <span class="type-label">string</span> — Comma delimited list of Certificate IDs which if specified, filters the result to only include Certificates with matching IDs.
-- **`orderBy`** <span class="type-label">string</span> — If the value is 'recent' (case-insensitive), then the result will be sorted by Created instead of NotAfter.
-- **`partialName`** <span class="type-label">string</span> — Alternative parameter to Search; filters Certificates by Name/Subject/Thumbprint.
-- **`search`** <span class="type-label">string</span> — Filters Certificates by Name/Subject/Thumbprint.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 15. Minimum `0`.
-- **`tenant`** <span class="type-label">string</span> — Tenant ID which if specified, filters the result to only include Certificates which are related to the provided Tenant.
+**Query Parameters**
+
+- **`archived`** :span[boolean]{.type-label}  
+  If true, returns only archived Certificates. Otherwise, returns only non-archived Certificates.
+- **`firstResult`** :span[string]{.type-label}  
+  Certificate ID which if specified, adds the Certificate with matching ID to the result if it is not already included.
+- **`ids`** :span[string]{.type-label}  
+  Comma delimited list of Certificate IDs which if specified, filters the result to only include Certificates with matching IDs.
+- **`orderBy`** :span[string]{.type-label}  
+  If the value is 'recent' (case-insensitive), then the result will be sorted by Created instead of NotAfter.
+- **`partialName`** :span[string]{.type-label}  
+  Alternative parameter to Search; filters Certificates by Name/Subject/Thumbprint.
+- **`search`** :span[string]{.type-label}  
+  Filters Certificates by Name/Subject/Thumbprint.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 15. Minimum `0`.
+- **`tenant`** :span[string]{.type-label}  
+  Tenant ID which if specified, filters the result to only include Certificates which are related to the provided Tenant.
 
 **Response**
 
 `200` — The requested Certificates
 
-`CertificateResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-  - **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`HasPrivateKey`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsExpired`** <span class="type-label">boolean</span>
-  - **`IssuerCommonName`** <span class="type-label">string</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`IssuerOrganization`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Notes`** <span class="type-label">string</span>
-  - **`Password`** <span class="type-label">sensitive value</span>
-  - **`ReplacedBy`** <span class="type-label">string</span>
-  - **`SelfSigned`** <span class="type-label">boolean</span>
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-  - **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Archived`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`CertificateChain`** :span[array of object]{.type-label}
+  - **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`CertificateDataFormat`** :span[enum]{.type-label}  
+    Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`HasPrivateKey`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsExpired`** :span[boolean]{.type-label}
+  - **`IssuerCommonName`** :span[string]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`IssuerOrganization`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Notes`** :span[string]{.type-label}
+  - **`Password`** :span[sensitive value]{.type-label}
+  - **`ReplacedBy`** :span[string]{.type-label}
+  - **`SelfSigned`** :span[boolean]{.type-label}
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+  - **`SubjectCommonName`** :span[string]{.type-label}  
+    The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`SubjectOrganization`** :span[string]{.type-label}  
+    The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -155,37 +180,38 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 ```
 </div>
 
-## Creates a new certificate
+## Create a new certificate
 
-`POST` `/api/{spaceId}/certificates`
+:span[POST]{.api-post} `/api/{spaceId}/certificates`
 
 Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificates`.
 
 Adds a new certificate
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateCertificateCommand`
-
-- **`CertificateData`** <span class="type-label">sensitive value</span> *(required)*
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Notes`** <span class="type-label">string</span> — Maximum length 10240.
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`CertificateData`** :span[sensitive value]{.type-label} *(required)*
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Notes`** :span[string]{.type-label}  
+  Maximum length 10240.
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
 <div data-example="Request">
 
@@ -222,55 +248,66 @@ Adds a new certificate
 
 `201` — Created
 
-`CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -346,71 +383,86 @@ Adds a new certificate
 
 ## Get a list of Certificates
 
-`GET` `/api/{spaceId}/certificates/all`
+:span[GET]{.api-get} `/api/{spaceId}/certificates/all`
 
 Also reachable at `/api/certificates/all`, `/api/spaces/{spaceIdentifier}/certificates/all`.
 
 Lists X.509 certificates managed by Octopus.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — A set of Certificate IDs to retrieve Certificates for. Example: Certificate-101,Certificate-201.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A set of Certificate IDs to retrieve Certificates for. Example: Certificate-101,Certificate-201.
 
 **Response**
 
 `200` — The list of requested Certificates
 
-an array of `CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -488,7 +540,7 @@ an array of `CertificateResource`.
 
 ## Get the global Certificate
 
-`GET` `/api/certificates/certificate-global`
+:span[GET]{.api-get} `/api/certificates/certificate-global`
 
 Returns the server thumbprint used to identify this Octopus Server to any Tentacles when executing a deployment. Deprecated.
 
@@ -496,15 +548,17 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
 
 `200` — The requested global Certificate
 
-`CertificateConfigurationResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`SignatureAlgorithm`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`SignatureAlgorithm`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -527,66 +581,78 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
 
 ## Create a self-signed Certificate
 
-`POST` `/api/{spaceId}/certificates/generate`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/generate`
 
 Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/certificates/generate`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateSelfSignedCertificateCommand`
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SelfSignedCertificateCurve`** <span class="type-label">string</span> — Elliptic curve for the generated key pair: nistP256, nistP384 or nistP521. Defaults to nistP384 when omitted.
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SelfSignedCertificateCurve`** :span[string]{.type-label}  
+  Elliptic curve for the generated key pair: nistP256, nistP384 or nistP521. Defaults to nistP384 when omitted.
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -665,55 +731,66 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 
 `200` — The newly-created self-signed Certificate.
 
-`CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -787,72 +864,92 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 ```
 </div>
 
-## Lists the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
+## List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
 
-`GET` `/api/{spaceId}/certificates/v2`
+:span[GET]{.api-get} `/api/{spaceId}/certificates/v2`
 
 Also reachable at `/api/certificates/v2`, `/api/spaces/{spaceIdentifier}/certificates/v2`.
 
 Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`archived`** <span class="type-label">boolean</span> — When true, returns only archived certificates. Otherwise, returns only current (non-archived) certificates.
-- **`firstResult`** <span class="type-label">string</span> — A certificate to return at the top of the first page even if it does not match the other filters, or is archived. Intended for a selector that has to show the currently selected certificate whatever else it lists.
-- **`ids`** <span class="type-label">array of string</span> — Filters the certificates using the specified ids.
-- **`orderBy`** <span class="type-label">string</span> — The order to return current certificates in: Expiry (the default, soonest to expire first) or Created (most recently added first). Ignored when Archived is true, since archived certificates are always returned most recently archived first. An unrecognised value is treated as Expiry.
-- **`search`** <span class="type-label">string</span> — Filters the certificates using the specified fragment, matched against each certificate's name, subject and thumbprint.
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
-- **`tenant`** <span class="type-label">string</span> — Filters the certificates to those the specified Tenant can use, honouring both direct tenant links and tenant tags.
+**Query Parameters**
+
+- **`archived`** :span[boolean]{.type-label}  
+  When true, returns only archived certificates. Otherwise, returns only current (non-archived) certificates.
+- **`firstResult`** :span[string]{.type-label}  
+  A certificate to return at the top of the first page even if it does not match the other filters, or is archived. Intended for a selector that has to show the currently selected certificate whatever else it lists.
+- **`ids`** :span[array of string]{.type-label}  
+  Filters the certificates using the specified ids.
+- **`orderBy`** :span[string]{.type-label}  
+  The order to return current certificates in: Expiry (the default, soonest to expire first) or Created (most recently added first). Ignored when Archived is true, since archived certificates are always returned most recently archived first. An unrecognised value is treated as Expiry.
+- **`search`** :span[string]{.type-label}  
+  Filters the certificates using the specified fragment, matched against each certificate's name, subject and thumbprint.
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`tenant`** :span[string]{.type-label}  
+  Filters the certificates to those the specified Tenant can use, honouring both direct tenant links and tenant tags.
 
 **Response**
 
 `200` — Success
 
-`CertificateResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-  - **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`HasPrivateKey`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsExpired`** <span class="type-label">boolean</span>
-  - **`IssuerCommonName`** <span class="type-label">string</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`IssuerOrganization`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Notes`** <span class="type-label">string</span>
-  - **`Password`** <span class="type-label">sensitive value</span>
-  - **`ReplacedBy`** <span class="type-label">string</span>
-  - **`SelfSigned`** <span class="type-label">boolean</span>
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-  - **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Archived`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`CertificateChain`** :span[array of object]{.type-label}
+  - **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`CertificateDataFormat`** :span[enum]{.type-label}  
+    Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`HasPrivateKey`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsExpired`** :span[boolean]{.type-label}
+  - **`IssuerCommonName`** :span[string]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`IssuerOrganization`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Notes`** :span[string]{.type-label}
+  - **`Password`** :span[sensitive value]{.type-label}
+  - **`ReplacedBy`** :span[string]{.type-label}
+  - **`SelfSigned`** :span[boolean]{.type-label}
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+  - **`SubjectCommonName`** :span[string]{.type-label}  
+    The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`SubjectOrganization`** :span[string]{.type-label}  
+    The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -928,68 +1025,81 @@ Skip and Take are required. TotalResults is always the real count of matching ce
 
 ## Get a Certificate by ID or Thumbprint
 
-`GET` `/api/{spaceId}/certificates/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}`
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID or Thumbprint of the Certificate.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID or Thumbprint of the Certificate.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Certificate
 
-`CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1065,29 +1175,38 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
 
 ## Modify a certificate by ID
 
-`PUT` `/api/{spaceId}/certificates/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/certificates/{id}`
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
 Modifies an existing certificate
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the certificate.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the certificate.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
 
 **Request Body**
 
-`ModifyCertificateCommand`
-
-- **`EnvironmentIds`** <span class="type-label">array of string</span> — The environments allowed to use this certificate.
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the certificate.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the certificate. Minimum length 1.
-- **`Notes`** <span class="type-label">string</span> — Additional information on the certificate.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space.
-- **`TenantIds`** <span class="type-label">array of string</span> — The tenants this certificate should be associated with.
-- **`TenantTags`** <span class="type-label">array of string</span> — The tags this certificate should be associated with.
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — The kind of deployments where this certificate should be included. Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}  
+  The environments allowed to use this certificate.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the certificate.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the certificate. Minimum length 1.
+- **`Notes`** :span[string]{.type-label}  
+  Additional information on the certificate.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
+- **`TenantIds`** :span[array of string]{.type-label}  
+  The tenants this certificate should be associated with.
+- **`TenantTags`** :span[array of string]{.type-label}  
+  The tags this certificate should be associated with.
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  The kind of deployments where this certificate should be included.  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
 <div data-example="Request">
 
@@ -1115,55 +1234,66 @@ Modifies an existing certificate
 
 `200` — The modified certificate resource
 
-`CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1237,52 +1367,56 @@ Modifies an existing certificate
 ```
 </div>
 
-## Deletes an existing Certificate
+## Delete an existing Certificate
 
-`DELETE` `/api/{spaceId}/certificates/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/certificates/{id}`
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Archives an existing Certificate
+## Archive an existing Certificate
 
-`POST` `/api/{spaceId}/certificates/{id}/archive`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/archive`
 
 Also reachable at `/api/certificates/{id}/archive`, `/api/spaces/{spaceIdentifier}/certificates/{id}/archive`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to archive.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to archive.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Archives an existing Certificate
+## Archive an existing Certificate
 
-`POST` `/api/{spaceId}/certificates/{id}/archive/v1`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/archive/v1`
 
 Also reachable at `/api/certificates/{id}/archive/v1`, `/api/spaces/{spaceIdentifier}/certificates/{id}/archive/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to archive.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to archive.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the Certificate has been archived
-
-`ArchiveCertificateResponse`.
 
 <div data-example="Response">
 
@@ -1291,21 +1425,31 @@ Also reachable at `/api/certificates/{id}/archive/v1`, `/api/spaces/{spaceIdenti
 ```
 </div>
 
-## Exports the certificate
+## Export the certificate
 
-`GET` `/api/{spaceId}/certificates/{id}/export`
+:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}/export`
 
 Also reachable at `/api/certificates/{id}/export`, `/api/spaces/{spaceIdentifier}/certificates/{id}/export`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the certificate to export.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the certificate to export.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the space.
 
-- **`format`** <span class="type-label">enum</span> — The file format in which to export the certificate. Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`includePrivateKey`** <span class="type-label">boolean</span> — Whether the private key should be included in the exported file.
-- **`password`** <span class="type-label">string</span> — The password to read the stored certificate.
-- **`pemOptions`** <span class="type-label">enum</span> — Whether the exported PEM file should include the certificate chain. Allowed values: `PrimaryOnly`, `PrimaryAndChain`, `ChainOnly`.
+**Query Parameters**
+
+- **`format`** :span[enum]{.type-label}  
+  The file format in which to export the certificate.  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`includePrivateKey`** :span[boolean]{.type-label}  
+  Whether the private key should be included in the exported file.
+- **`password`** :span[string]{.type-label}  
+  The password to read the stored certificate.
+- **`pemOptions`** :span[enum]{.type-label}  
+  Whether the exported PEM file should include the certificate chain.  
+  Allowed values: `PrimaryOnly`, `PrimaryAndChain`, `ChainOnly`.
 
 **Response**
 
@@ -1318,25 +1462,28 @@ Also reachable at `/api/certificates/{id}/export`, `/api/spaces/{spaceIdentifier
 ```
 </div>
 
-## Replaces an existing Certificate with another
+## Replace an existing Certificate with another
 
-`POST` `/api/{spaceId}/certificates/{id}/replace`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/replace`
 
 Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifier}/certificates/{id}/replace`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to Replace.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to Replace.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ReplaceCertificateCommand`
-
-- **`CertificateData`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to Replace.
-- **`Password`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`CertificateData`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to Replace.
+- **`Password`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -1354,55 +1501,66 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 
 `200` — Confirmation that the Certificate has been replaced
 
-`CertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`EnvironmentIds`** <span class="type-label">array of string</span>
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`EnvironmentIds`** :span[array of string]{.type-label}
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1476,37 +1634,39 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 ```
 </div>
 
-## Unarchives an existing archived Certificate
+## Unarchive an existing archived Certificate
 
-`POST` `/api/{spaceId}/certificates/{id}/unarchive`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/unarchive`
 
 Also reachable at `/api/certificates/{id}/unarchive`, `/api/spaces/{spaceIdentifier}/certificates/{id}/unarchive`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to unarchive.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to unarchive.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Unarchives an existing archived Certificate
+## Unarchive an existing archived Certificate
 
-`POST` `/api/{spaceId}/certificates/{id}/unarchive/v1`
+:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/unarchive/v1`
 
 Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIdentifier}/certificates/{id}/unarchive/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Certificate to unarchive.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Certificate to unarchive.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Confirmation that the Certificate has been un-archived
-
-`UnarchiveCertificateResponse`.
 
 <div data-example="Response">
 
@@ -1517,124 +1677,159 @@ Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIden
 
 ## GET /api/{spaceId}/certificates/{id}/usages
 
-`GET` `/api/{spaceId}/certificates/{id}/usages`
+:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}/usages`
 
 Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier}/certificates/{id}/usages`.
 
 Get the usages of a certificate
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the certificate.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the certificate.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the space.
 
 **Response**
 
 `200` — The requested Certificate usages
 
-`CertificateUsageResource`.
-
-- **`DeploymentTargetUsages`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`Roles`** <span class="type-label">array of string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariableSetUsages`** <span class="type-label">array of object</span>
-  - **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-  - **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectUsages`** <span class="type-label">array of object</span>
-  - **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-  - **`AutoCreateRelease`** <span class="type-label">boolean</span>
-  - **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`ClonedFromProjectId`** <span class="type-label">string</span>
-  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-  - **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-  - **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-  - **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-  - **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-  - **`DeploymentProcessId`** <span class="type-label">string</span>
-  - **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-  - **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ForcePackageDownload`** <span class="type-label">boolean</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-  - **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsVersionControlled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LifecycleId`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`ProjectGroupId`** <span class="type-label">string</span>
-  - **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-  - **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`ProvisioningRunbookId`** <span class="type-label">string</span>
-  - **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span>
-  - **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`VariableSetId`** <span class="type-label">string</span>
-  - **`VersioningStrategy`** <span class="type-label">object</span>
-- **`TenantUsages`** <span class="type-label">array of object</span>
-  - **`ClonedFromTenantId`** <span class="type-label">string</span>
-  - **`CustomFields`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectEnvironments`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`DeploymentTargetUsages`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`Roles`** :span[array of string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariableSetUsages`** :span[array of object]{.type-label}
+  - **`ContentType`** :span[enum]{.type-label}  
+    Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+    Allowed values: `Variables`, `ScriptModule`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}  
+    Gets the variable templates.
+  - **`VariableSetId`** :span[string]{.type-label}  
+    Gets or sets the id of the associated variable set.
+  - **`Version`** :span[integer]{.type-label}  
+    Gets or sets the version number.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectUsages`** :span[array of object]{.type-label}
+  - **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+  - **`AutoCreateRelease`** :span[boolean]{.type-label}
+  - **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`ClonedFromProjectId`** :span[string]{.type-label}
+  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+  - **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+    Allowed values: `EnvironmentDefault`, `Off`, `On`.
+  - **`DefaultPowerShellEdition`** :span[string]{.type-label}
+  - **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+  - **`DeploymentChangesTemplate`** :span[string]{.type-label}
+  - **`DeploymentProcessId`** :span[string]{.type-label}
+  - **`DeprovisioningRunbookId`** :span[string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+    Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+  - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ForcePackageDownload`** :span[boolean]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+    Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+  - **`IsBadgesEnabled`** :span[boolean]{.type-label}
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsVersionControlled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LifecycleId`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`PersistenceSettings`** :span[object]{.type-label}
+  - **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`ProjectGroupId`** :span[string]{.type-label}
+  - **`ProjectTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this project.
+  - **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`ProvisioningRunbookId`** :span[string]{.type-label}
+  - **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ReleaseNotesTemplate`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}
+  - **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`VariableSetId`** :span[string]{.type-label}
+  - **`VersioningStrategy`** :span[object]{.type-label}
+- **`TenantUsages`** :span[array of object]{.type-label}
+  - **`ClonedFromTenantId`** :span[string]{.type-label}
+  - **`CustomFields`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectEnvironments`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}  
+    Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
 <div data-example="Response">
 
@@ -1842,40 +2037,48 @@ Get the usages of a certificate
 ```
 </div>
 
-## Requests the list of Certificate Configurations
+## Request the list of Certificate Configurations
 
-`GET` `/api/configuration/certificates`
+:span[GET]{.api-get} `/api/configuration/certificates`
 
 Only returns configurations for the global Certificate
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Certificate Configurations
 
-`CertificateConfigurationResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`SignatureAlgorithm`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`SignatureAlgorithm`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1915,25 +2118,28 @@ Only returns configurations for the global Certificate
 
 ## Get a Certificate Configuration by ID
 
-`GET` `/api/configuration/certificates/{id}`
+:span[GET]{.api-get} `/api/configuration/certificates/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the CertificateConfiguration to load.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the CertificateConfiguration to load.
 
 **Response**
 
 `200` — The certificate configuration matching the supplied ID
 
-`CertificateConfigurationResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`SignatureAlgorithm`** <span class="type-label">string</span>
-- **`Thumbprint`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`SignatureAlgorithm`** :span[string]{.type-label}
+- **`Thumbprint`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1956,13 +2162,14 @@ Only returns configurations for the global Certificate
 
 ## Get public certificate
 
-`GET` `/api/configuration/certificates/{id}/public-cer`
+:span[GET]{.api-get} `/api/configuration/certificates/{id}/public-cer`
 
 Downloads the public portion of the certificate in .cer format
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The Id of the certificate to retrieve the public portion of.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The Id of the certificate to retrieve the public portion of.
 
 **Response**
 

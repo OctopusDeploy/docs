@@ -5,50 +5,69 @@ modDate: 2026-08-11
 title: Library Variable Sets
 ---
 
-## Lists all of the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List all of the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/libraryvariablesets`
+:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets`
 
 Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/libraryvariablesets`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`contentType`** <span class="type-label">string</span> — Filters by the purpose of the set: 'Variables' for ordinary variable sets or 'ScriptModule' for script modules. Omit to return both.
-- **`ids`** <span class="type-label">array of string</span>
-- **`name`** <span class="type-label">string</span> — The exact name of a Library Variable Set to be matched.
-- **`partialName`** <span class="type-label">string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`contentType`** :span[string]{.type-label}  
+  Filters by the purpose of the set: 'Variables' for ordinary variable sets or 'ScriptModule' for script modules. Omit to return both.
+- **`ids`** :span[array of string]{.type-label}
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Library Variable Set to be matched.
+- **`partialName`** :span[string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — All of the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
-`LibraryVariableSetResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-  - **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`ContentType`** :span[enum]{.type-label}  
+    Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+    Allowed values: `Variables`, `ScriptModule`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}  
+    Gets the variable templates.
+  - **`VariableSetId`** :span[string]{.type-label}  
+    Gets or sets the id of the associated variable set.
+  - **`Version`** :span[integer]{.type-label}  
+    Gets or sets the version number.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -92,31 +111,34 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 ```
 </div>
 
-## Creates a new library variable set
+## Create a new library variable set
 
-`POST` `/api/{spaceId}/libraryvariablesets`
+:span[POST]{.api-post} `/api/{spaceId}/libraryvariablesets`
 
 Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/libraryvariablesets`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateLibraryVariableSetsCommand`
-
-- **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-- **`Description`** <span class="type-label">string</span> — A description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of this variable set. This should be short, preferably 5-20 characters. Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Templates`** <span class="type-label">array of object</span> — Variable templates for tenant-specific values: each template defines a variable (name, label, help text, control type and default value) that every tenant connected to a linked project must supply a value for. Leave empty unless working with tenants.
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
+- **`ContentType`** :span[enum]{.type-label}  
+  Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+  Allowed values: `Variables`, `ScriptModule`.
+- **`Description`** :span[string]{.type-label}  
+  A description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of this variable set. This should be short, preferably 5-20 characters. Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Templates`** :span[array of object]{.type-label}  
+  Variable templates for tenant-specific values: each template defines a variable (name, label, help text, control type and default value) that every tenant connected to a linked project must supply a value for. Leave empty unless working with tenants.
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -152,25 +174,34 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 
 `201` — Created
 
-`LibraryVariableSetResource`.
-
-- **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`ContentType`** :span[enum]{.type-label}  
+  Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+  Allowed values: `Variables`, `ScriptModule`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}  
+  Gets the variable templates.
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`VariableSetId`** :span[string]{.type-label}  
+  Gets or sets the id of the associated variable set.
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -214,42 +245,56 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 
 ## Get a list of Library Variable Sets
 
-`GET` `/api/{spaceId}/libraryvariablesets/all`
+:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/all`
 
 Also reachable at `/api/libraryvariablesets/all`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/all`.
 
 Lists all the Library Variable Sets in the supplied Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`contentType`** <span class="type-label">string</span> — A content type use to filter Library Variable Sets.
-- **`ids`** <span class="type-label">array of string</span> — A list of Library Variable Set ids used to filter.
+**Query Parameters**
+
+- **`contentType`** :span[string]{.type-label}  
+  A content type use to filter Library Variable Sets.
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Library Variable Set ids used to filter.
 
 **Response**
 
 `200` — Requested list of Library Variable Sets
 
-an array of `LibraryVariableSetResource`.
-
-- **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`ContentType`** :span[enum]{.type-label}  
+  Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+  Allowed values: `Variables`, `ScriptModule`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}  
+  Gets the variable templates.
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`VariableSetId`** :span[string]{.type-label}  
+  Gets or sets the id of the associated variable set.
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -287,37 +332,51 @@ an array of `LibraryVariableSetResource`.
 
 ## Get a list of Library Variable Sets
 
-`GET` `/api/{spaceId}/libraryvariablesets/all/v1`
+:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/all/v1`
 
 Also reachable at `/api/libraryvariablesets/all/v1`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/all/v1`.
 
 Lists all the Library Variable Sets in the supplied Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`contentType`** <span class="type-label">string</span> — A content type use to filter Library Variable Sets.
-- **`ids`** <span class="type-label">array of string</span> — A list of Library Variable Set ids used to filter.
+**Query Parameters**
+
+- **`contentType`** :span[string]{.type-label}  
+  A content type use to filter Library Variable Sets.
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Library Variable Set ids used to filter.
 
 **Response**
 
 `200` — Requested list of Library Variable Sets
 
-`GetAllLibraryVariableSetsResponse`.
-
-- **`LibraryVariableSets`** <span class="type-label">array of object</span>
-  - **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-  - **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`LibraryVariableSets`** :span[array of object]{.type-label}
+  - **`ContentType`** :span[enum]{.type-label}  
+    Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+    Allowed values: `Variables`, `ScriptModule`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}  
+    Gets the variable templates.
+  - **`VariableSetId`** :span[string]{.type-label}  
+    Gets or sets the id of the associated variable set.
+  - **`Version`** :span[integer]{.type-label}  
+    Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -350,35 +409,49 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a list of Library Variable Sets
 
-`POST` `/api/{spaceId}/libraryvariablesets/all/v1`
+:span[POST]{.api-post} `/api/{spaceId}/libraryvariablesets/all/v1`
 
 Lists all the Library Variable Sets in the supplied Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`contentType`** <span class="type-label">string</span> — A content type use to filter Library Variable Sets.
-- **`ids`** <span class="type-label">array of string</span> — A list of Library Variable Set ids used to filter.
+**Query Parameters**
+
+- **`contentType`** :span[string]{.type-label}  
+  A content type use to filter Library Variable Sets.
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Library Variable Set ids used to filter.
 
 **Response**
 
 `200` — Requested list of Library Variable Sets
 
-`GetAllLibraryVariableSetsResponse`.
-
-- **`LibraryVariableSets`** <span class="type-label">array of object</span>
-  - **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-  - **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`LibraryVariableSets`** :span[array of object]{.type-label}
+  - **`ContentType`** :span[enum]{.type-label}  
+    Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+    Allowed values: `Variables`, `ScriptModule`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}  
+    Gets the variable templates.
+  - **`VariableSetId`** :span[string]{.type-label}  
+    Gets or sets the id of the associated variable set.
+  - **`Version`** :span[integer]{.type-label}  
+    Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -411,37 +484,51 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a list of Library Variable Sets
 
-`POST` `/api/spaces/{spaceIdentifier}/libraryvariablesets/all/v1`
+:span[POST]{.api-post} `/api/spaces/{spaceIdentifier}/libraryvariablesets/all/v1`
 
 Also reachable at `/api/libraryvariablesets/all/v1`.
 
 Lists all the Library Variable Sets in the supplied Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
 
-- **`contentType`** <span class="type-label">string</span> — A content type use to filter Library Variable Sets.
-- **`ids`** <span class="type-label">array of string</span> — A list of Library Variable Set ids used to filter.
+**Query Parameters**
+
+- **`contentType`** :span[string]{.type-label}  
+  A content type use to filter Library Variable Sets.
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Library Variable Set ids used to filter.
 
 **Response**
 
 `200` — Requested list of Library Variable Sets
 
-`GetAllLibraryVariableSetsResponse`.
-
-- **`LibraryVariableSets`** <span class="type-label">array of object</span>
-  - **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-  - **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`LibraryVariableSets`** :span[array of object]{.type-label}
+  - **`ContentType`** :span[enum]{.type-label}  
+    Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+    Allowed values: `Variables`, `ScriptModule`.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}  
+    Gets the variable templates.
+  - **`VariableSetId`** :span[string]{.type-label}  
+    Gets or sets the id of the associated variable set.
+  - **`Version`** :span[integer]{.type-label}  
+    Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -474,38 +561,48 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a Library Variable Set by ID
 
-`GET` `/api/{spaceId}/libraryvariablesets/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/{id}`
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Library Variable Set to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Library Variable Set to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The Library Variable Set with matching ID.
 
-`LibraryVariableSetResource`.
-
-- **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`ContentType`** :span[enum]{.type-label}  
+  Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+  Allowed values: `Variables`, `ScriptModule`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}  
+  Gets the variable templates.
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`VariableSetId`** :span[string]{.type-label}  
+  Gets or sets the id of the associated variable set.
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -547,33 +644,34 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 ```
 </div>
 
-## Modifies an existing library variable set
+## Modify an existing library variable set
 
-`PUT` `/api/{spaceId}/libraryvariablesets/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/libraryvariablesets/{id}`
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the library variable set.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the library variable set.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyLibraryVariableSetCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the library variable set.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the library variable set.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -610,25 +708,34 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 
 `200` — The modified library variable set.
 
-`LibraryVariableSetResource`.
-
-- **`ContentType`** <span class="type-label">enum</span> — Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately. Allowed values: `Variables`, `ScriptModule`.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span> — Gets the variable templates.
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`VariableSetId`** <span class="type-label">string</span> — Gets or sets the id of the associated variable set.
-- **`Version`** <span class="type-label">integer</span> — Gets or sets the version number.
+- **`ContentType`** :span[enum]{.type-label}  
+  Describes the purpose of the variable set. Clients can use this to offer an editing experience appropriately.  
+  Allowed values: `Variables`, `ScriptModule`.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a description of this variable set that explains the purpose of the variable set to other users. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this variable set. This should be short, preferably 5-20 characters.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}  
+  Gets the variable templates.
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`VariableSetId`** :span[string]{.type-label}  
+  Gets or sets the id of the associated variable set.
+- **`Version`** :span[integer]{.type-label}  
+  Gets or sets the version number.
 
 <div data-example="Response">
 
@@ -670,48 +777,49 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 ```
 </div>
 
-## Deletes an existing Library Variable Set
+## Delete an existing Library Variable Set
 
-`DELETE` `/api/{spaceId}/libraryvariablesets/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/libraryvariablesets/{id}`
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Library Variable Set to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Library Variable Set to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Lists projects and deployments which are using an library variable set
+## List projects and deployments which are using an library variable set
 
-`GET` `/api/{spaceId}/libraryvariablesets/{id}/usages`
+:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/{id}/usages`
 
 Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}/usages`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the Library Variable Set.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the Library Variable Set.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space.
 
 **Response**
 
 `200` — The usages of the library variable set.
 
-`GetLibraryVariableSetUsageResponse`.
-
-- **`CountOfProjectsUserCannotSee`** <span class="type-label">integer</span>
-- **`CountOfReleasesUserCannotSee`** <span class="type-label">integer</span>
-- **`CountOfRunbookSnapshotsUserCannotSee`** <span class="type-label">integer</span>
-- **`Projects`** <span class="type-label">array of object</span>
-  - **`IsCurrentlyBeingUsedInProject`** <span class="type-label">boolean</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`ProjectSlug`** <span class="type-label">string</span>
-  - **`Releases`** <span class="type-label">array of object</span>
-  - **`RunbookSnapshots`** <span class="type-label">array of object</span>
+- **`CountOfProjectsUserCannotSee`** :span[integer]{.type-label}
+- **`CountOfReleasesUserCannotSee`** :span[integer]{.type-label}
+- **`CountOfRunbookSnapshotsUserCannotSee`** :span[integer]{.type-label}
+- **`Projects`** :span[array of object]{.type-label}
+  - **`IsCurrentlyBeingUsedInProject`** :span[boolean]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`ProjectSlug`** :span[string]{.type-label}
+  - **`Releases`** :span[array of object]{.type-label}
+  - **`RunbookSnapshots`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 

@@ -7,7 +7,7 @@ title: Integrated Authentication
 
 ## GET /api/integrated-challenge
 
-`GET` `/api/integrated-challenge`
+:span[GET]{.api-get} `/api/integrated-challenge`
 
 **Response**
 

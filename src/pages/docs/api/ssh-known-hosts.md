@@ -5,29 +5,30 @@ modDate: 2026-08-11
 title: Ssh Known Hosts
 ---
 
-## Gets a list of SSH Known Hosts
+## Get a list of SSH Known Hosts
 
-`GET` `/api/sshknownhosts`
+:span[GET]{.api-get} `/api/sshknownhosts`
 
-**Parameters**
+**Query Parameters**
 
-- **`partialHost`** <span class="type-label">string</span> — Filters known hosts matching any part of the `host` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`partialHost`** :span[string]{.type-label}  
+  Filters known hosts matching any part of the `host` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Contains a list of SSH Known Hosts
 
-`GetSshKnownHostsResponse`.
-
-- **`FilteredCount`** <span class="type-label">integer</span>
-- **`Resources`** <span class="type-label">array of object</span>
-  - **`Host`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`KeyType`** <span class="type-label">string</span>
-  - **`PublicKey`** <span class="type-label">string</span>
-- **`TotalCount`** <span class="type-label">integer</span>
+- **`FilteredCount`** :span[integer]{.type-label}
+- **`Resources`** :span[array of object]{.type-label}
+  - **`Host`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`KeyType`** :span[string]{.type-label}
+  - **`PublicKey`** :span[string]{.type-label}
+- **`TotalCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -47,15 +48,13 @@ title: Ssh Known Hosts
 ```
 </div>
 
-## Adds new SSH Known Hosts from a list of entries
+## Add new SSH Known Hosts from a list of entries
 
-`POST` `/api/sshknownhosts`
+:span[POST]{.api-post} `/api/sshknownhosts`
 
 **Request Body**
 
-`AddSshKnownHostsCommand`
-
-- **`KnownHostEntries`** <span class="type-label">array of string</span> *(required)*
+- **`KnownHostEntries`** :span[array of string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -72,13 +71,11 @@ title: Ssh Known Hosts
 
 `200` — Contains a list of added SSH Known Hosts
 
-`AddSshKnownHostsResponse`.
-
-- **`AddedResources`** <span class="type-label">array of object</span>
-  - **`Host`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`KeyType`** <span class="type-label">string</span>
-  - **`PublicKey`** <span class="type-label">string</span>
+- **`AddedResources`** :span[array of object]{.type-label}
+  - **`Host`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`KeyType`** :span[string]{.type-label}
+  - **`PublicKey`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -96,19 +93,17 @@ title: Ssh Known Hosts
 ```
 </div>
 
-## Deletes the specific SSH Known Host
+## Delete the specific SSH Known Host
 
-`DELETE` `/api/sshknownhosts/{id}`
+:span[DELETE]{.api-delete} `/api/sshknownhosts/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — An empty response
-
-`DeleteSshKnownHostResponse`.
 
 <div data-example="Response">
 

@@ -5,15 +5,16 @@ modDate: 2026-08-11
 title: Machine Roles
 ---
 
-## Gets all machine roles that have been defined in this Octopus installation
+## Get all machine roles that have been defined in this Octopus installation
 
-`GET` `/api/{spaceId}/machineroles/all`
+:span[GET]{.api-get} `/api/{spaceId}/machineroles/all`
 
 Also reachable at `/api/machineroles/all`, `/api/spaces/{spaceIdentifier}/machineroles/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
@@ -28,23 +29,22 @@ Also reachable at `/api/machineroles/all`, `/api/spaces/{spaceIdentifier}/machin
 ```
 </div>
 
-## Gets all machine roles that have been defined in this Octopus installation
+## Get all machine roles that have been defined in this Octopus installation
 
-`GET` `/api/{spaceId}/machineroles/all/v1`
+:span[GET]{.api-get} `/api/{spaceId}/machineroles/all/v1`
 
 Also reachable at `/api/machineroles/all/v1`, `/api/spaces/{spaceIdentifier}/machineroles/all/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested list of Machine Roles
 
-`GetAllMachineRolesResponse`.
-
-- **`MachineRoles`** <span class="type-label">array of string</span>
+- **`MachineRoles`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 

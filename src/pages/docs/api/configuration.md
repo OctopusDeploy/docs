@@ -5,32 +5,39 @@ modDate: 2026-08-11
 title: Configuration
 ---
 
-## Returns a list of configuration section settings
+## Return a list of configuration section settings
 
-`GET` `/api/configuration`
+:span[GET]{.api-get} `/api/configuration`
 
 **Response**
 
 `200` — The list of configuration section settings
 
-`ConfigurationSectionCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -67,26 +74,29 @@ title: Configuration
 ```
 </div>
 
-## Returns a single configuration section for the given id
+## Return a single configuration section for the given id
 
-`GET` `/api/configuration/{id}`
+:span[GET]{.api-get} `/api/configuration/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested configuration section
 
-`ConfigurationSection`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -106,24 +116,22 @@ title: Configuration
 ```
 </div>
 
-## Returns a structure that describes how to dynamically render the configuration section
+## Return a structure that describes how to dynamically render the configuration section
 
-`GET` `/api/configuration/{id}/metadata`
+:span[GET]{.api-get} `/api/configuration/{id}/metadata`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested configuration section metadata
 
-`Metadata`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Types`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Properties`** <span class="type-label">array of object</span>
+- **`Description`** :span[string]{.type-label}
+- **`Types`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Properties`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 
@@ -142,13 +150,13 @@ title: Configuration
 ```
 </div>
 
-## Returns the current configuration for a specific configuration section
+## Return the current configuration for a specific configuration section
 
-`GET` `/api/configuration/{id}/values`
+:span[GET]{.api-get} `/api/configuration/{id}/values`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -161,15 +169,15 @@ title: Configuration
 ```
 </div>
 
-## Updates the configuration values for a specific configuration section
+## Update the configuration values for a specific configuration section
 
-`PUT` `/api/configuration/{id}/values`
+:span[PUT]{.api-put} `/api/configuration/{id}/values`
 
 Refer to the configuration/{id}/metadata endpoint for details on the specific data structure required for a given configuration section id.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 

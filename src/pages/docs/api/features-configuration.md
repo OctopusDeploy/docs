@@ -7,7 +7,7 @@ title: Features Configuration
 
 ## Get features configuration
 
-`GET` `/api/featuresconfiguration`
+:span[GET]{.api-get} `/api/featuresconfiguration`
 
 Gets the features configuration of the current instance
 
@@ -15,27 +15,29 @@ Gets the features configuration of the current instance
 
 `200` — The requested features configuration
 
-`FeaturesConfigurationResource`.
-
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`HelpSidebarSupportLink`** <span class="type-label">string</span>
-- **`HelpSidebarSupportLinkLabel`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsAutomaticStepUpdatesEnabled`** <span class="type-label">boolean</span>
-- **`IsBuiltInWorkerEnabled`** <span class="type-label">boolean</span>
-- **`IsCommunityActionTemplatesEnabled`** <span class="type-label">boolean</span>
-- **`IsCompositeDockerHubRegistryFeedEnabled`** <span class="type-label">boolean</span>
-- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** <span class="type-label">boolean</span>
-- **`IsExperimentalUIFeatureEnabled`** <span class="type-label">boolean</span>
-- **`IsGitHubAppEnabled`** <span class="type-label">boolean</span>
-- **`IsHelpSidebarEnabled`** <span class="type-label">boolean</span>
-- **`IsKubernetesCloudTargetDiscoveryEnabled`** <span class="type-label">boolean</span>
-- **`IsProjectsPageOnboardingEnabled`** <span class="type-label">boolean</span>
-- **`IsProjectsPageOptimizationEnabled`** <span class="type-label">boolean</span>
-- **`IsWebhookTriggerEnabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`HelpSidebarSupportLink`** :span[string]{.type-label}
+- **`HelpSidebarSupportLinkLabel`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}
+- **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}
+- **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}
+- **`IsCompositeDockerHubRegistryFeedEnabled`** :span[boolean]{.type-label}
+- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** :span[boolean]{.type-label}
+- **`IsExperimentalUIFeatureEnabled`** :span[boolean]{.type-label}
+- **`IsGitHubAppEnabled`** :span[boolean]{.type-label}
+- **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
+- **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
+- **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
+- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
+- **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -70,31 +72,46 @@ Gets the features configuration of the current instance
 
 ## Update features configuration
 
-`PUT` `/api/featuresconfiguration`
+:span[PUT]{.api-put} `/api/featuresconfiguration`
 
 Updates the features configuration of the current instance
 
 **Request Body**
 
-`UpdateFeaturesConfigurationCommand`
-
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span> — Default PowerShell edition for deployments and runbooks.
-- **`HelpSidebarSupportLink`** <span class="type-label">string</span> — Enable help sidebar support link feature.
-- **`HelpSidebarSupportLinkLabel`** <span class="type-label">string</span> — Custom label for the help sidebar support link.
-- **`Id`** <span class="type-label">string</span> — The id of features configuration resource.
-- **`IsAutomaticStepUpdatesEnabled`** <span class="type-label">boolean</span> — Enable automatic step updates feature.
-- **`IsBuiltInWorkerEnabled`** <span class="type-label">boolean</span> — Enable built-in worker feature.
-- **`IsCommunityActionTemplatesEnabled`** <span class="type-label">boolean</span> — Enable community action templates feature.
-- **`IsCompositeDockerHubRegistryFeedEnabled`** <span class="type-label">boolean</span> — Enable composite DockerHub registry feed feature.
-- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** <span class="type-label">boolean</span> — Enable local or SMB paths for feeds feature.
-- **`IsExperimentalUIFeatureEnabled`** <span class="type-label">boolean</span> — Enable experimental UI feature.
-- **`IsGitHubAppEnabled`** <span class="type-label">boolean</span> — Enable the Octopus Deploy GitHub App.
-- **`IsHelpSidebarEnabled`** <span class="type-label">boolean</span> — Enable help sidebar feature.
-- **`IsKubernetesCloudTargetDiscoveryEnabled`** <span class="type-label">boolean</span> — Enable Kubernetes cloud target discovery feature.
-- **`IsNavigationVisualUpliftEnabled`** <span class="type-label">boolean</span> — Enable navigation visual uplift feature.
-- **`IsProjectsPageOnboardingEnabled`** <span class="type-label">boolean</span> — Enable projects page onboarding experience.
-- **`IsProjectsPageOptimizationEnabled`** <span class="type-label">boolean</span> — Enable new project page bff datasource.
-- **`IsWebhookTriggerEnabled`** <span class="type-label">boolean</span> — Enable the webhook triggers feature.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}  
+  Default PowerShell edition for deployments and runbooks.
+- **`HelpSidebarSupportLink`** :span[string]{.type-label}  
+  Enable help sidebar support link feature.
+- **`HelpSidebarSupportLinkLabel`** :span[string]{.type-label}  
+  Custom label for the help sidebar support link.
+- **`Id`** :span[string]{.type-label}  
+  The id of features configuration resource.
+- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}  
+  Enable automatic step updates feature.
+- **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}  
+  Enable built-in worker feature.
+- **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}  
+  Enable community action templates feature.
+- **`IsCompositeDockerHubRegistryFeedEnabled`** :span[boolean]{.type-label}  
+  Enable composite DockerHub registry feed feature.
+- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** :span[boolean]{.type-label}  
+  Enable local or SMB paths for feeds feature.
+- **`IsExperimentalUIFeatureEnabled`** :span[boolean]{.type-label}  
+  Enable experimental UI feature.
+- **`IsGitHubAppEnabled`** :span[boolean]{.type-label}  
+  Enable the Octopus Deploy GitHub App.
+- **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}  
+  Enable help sidebar feature.
+- **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}  
+  Enable Kubernetes cloud target discovery feature.
+- **`IsNavigationVisualUpliftEnabled`** :span[boolean]{.type-label}  
+  Enable navigation visual uplift feature.
+- **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}  
+  Enable projects page onboarding experience.
+- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}  
+  Enable new project page bff datasource.
+- **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}  
+  Enable the webhook triggers feature.
 
 <div data-example="Request">
 
@@ -125,27 +142,29 @@ Updates the features configuration of the current instance
 
 `200` — Confirmation that features configuration has been updated, containing the new configuration
 
-`FeaturesConfigurationResource`.
-
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`HelpSidebarSupportLink`** <span class="type-label">string</span>
-- **`HelpSidebarSupportLinkLabel`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsAutomaticStepUpdatesEnabled`** <span class="type-label">boolean</span>
-- **`IsBuiltInWorkerEnabled`** <span class="type-label">boolean</span>
-- **`IsCommunityActionTemplatesEnabled`** <span class="type-label">boolean</span>
-- **`IsCompositeDockerHubRegistryFeedEnabled`** <span class="type-label">boolean</span>
-- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** <span class="type-label">boolean</span>
-- **`IsExperimentalUIFeatureEnabled`** <span class="type-label">boolean</span>
-- **`IsGitHubAppEnabled`** <span class="type-label">boolean</span>
-- **`IsHelpSidebarEnabled`** <span class="type-label">boolean</span>
-- **`IsKubernetesCloudTargetDiscoveryEnabled`** <span class="type-label">boolean</span>
-- **`IsProjectsPageOnboardingEnabled`** <span class="type-label">boolean</span>
-- **`IsProjectsPageOptimizationEnabled`** <span class="type-label">boolean</span>
-- **`IsWebhookTriggerEnabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`HelpSidebarSupportLink`** :span[string]{.type-label}
+- **`HelpSidebarSupportLinkLabel`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsAutomaticStepUpdatesEnabled`** :span[boolean]{.type-label}
+- **`IsBuiltInWorkerEnabled`** :span[boolean]{.type-label}
+- **`IsCommunityActionTemplatesEnabled`** :span[boolean]{.type-label}
+- **`IsCompositeDockerHubRegistryFeedEnabled`** :span[boolean]{.type-label}
+- **`IsConfigureFeedsWithLocalOrSmbPathsEnabled`** :span[boolean]{.type-label}
+- **`IsExperimentalUIFeatureEnabled`** :span[boolean]{.type-label}
+- **`IsGitHubAppEnabled`** :span[boolean]{.type-label}
+- **`IsHelpSidebarEnabled`** :span[boolean]{.type-label}
+- **`IsKubernetesCloudTargetDiscoveryEnabled`** :span[boolean]{.type-label}
+- **`IsProjectsPageOnboardingEnabled`** :span[boolean]{.type-label}
+- **`IsProjectsPageOptimizationEnabled`** :span[boolean]{.type-label}
+- **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 

@@ -7,51 +7,71 @@ title: Environments
 
 ## Get a list of Environments
 
-`GET` `/api/{spaceId}/environments`
+:span[GET]{.api-get} `/api/{spaceId}/environments`
 
 Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environments`.
 
 Lists all of the environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — Environment Ids to filter results to only Environments with the given Ids.
-- **`name`** <span class="type-label">string</span> — Filters the returned environments by the specified `name` fragment. Left for backwards compatibility; prefer PartialName.
-- **`partialName`** <span class="type-label">string</span> — Filters the documents using the specified `partialName` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 10. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  Environment Ids to filter results to only Environments with the given Ids.
+- **`name`** :span[string]{.type-label}  
+  Filters the returned environments by the specified `name` fragment. Left for backwards compatibility; prefer PartialName.
+- **`partialName`** :span[string]{.type-label}  
+  Filters the documents using the specified `partialName` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 10. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Environments
 
-`EnvironmentResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-  - **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+    If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+  - **`EnvironmentTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this environment.
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SortOrder`** :span[integer]{.type-label}  
+    Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`UseGuidedFailure`** :span[boolean]{.type-label}  
+    If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -99,31 +119,30 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 ```
 </div>
 
-## Creates a new environment
+## Create a new environment
 
-`POST` `/api/{spaceId}/environments`
+:span[POST]{.api-post} `/api/{spaceId}/environments`
 
 Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environments`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateEnvironmentCommand`
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentTags`** <span class="type-label">array of string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentTags`** :span[array of string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -153,23 +172,31 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 
 `201` — Created
 
-`EnvironmentResource`.
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-- **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+  If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this environment.
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}  
+  If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 
@@ -205,41 +232,55 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 
 ## Get a list of Environments
 
-`GET` `/api/{spaceId}/environments/all`
+:span[GET]{.api-get} `/api/{spaceId}/environments/all`
 
 Also reachable at `/api/environments/all`, `/api/spaces/{spaceIdentifier}/environments/all`.
 
 Lists the name and ID of all of the environments in the supplied Space. The results will be sorted by the `SortOrder` field on each environment.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`channelId`** <span class="type-label">string</span> — A Channel Id used to filter a query.
-- **`ids`** <span class="type-label">array of string</span> — A comma separated list of Deployment Environment resource ids used to filter a query.
-- **`projectId`** <span class="type-label">string</span> — A project Id used to filter a query.
+**Query Parameters**
+
+- **`channelId`** :span[string]{.type-label}  
+  A Channel Id used to filter a query.
+- **`ids`** :span[array of string]{.type-label}  
+  A comma separated list of Deployment Environment resource ids used to filter a query.
+- **`projectId`** :span[string]{.type-label}  
+  A project Id used to filter a query.
 
 **Response**
 
 `200` — Requested list of Environments
 
-an array of `EnvironmentResource`.
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-- **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+  If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this environment.
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}  
+  If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 
@@ -277,40 +318,54 @@ an array of `EnvironmentResource`.
 
 ## Get a list of Environments
 
-`GET` `/api/{spaceId}/environments/all/v1`
+:span[GET]{.api-get} `/api/{spaceId}/environments/all/v1`
 
 Also reachable at `/api/environments/all/v1`, `/api/spaces/{spaceIdentifier}/environments/all/v1`.
 
 Lists the name and ID of all of the environments in the supplied Space. The results will be sorted by the `SortOrder` field on each environment.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`channelId`** <span class="type-label">string</span> — A Channel Id used to filter a query.
-- **`ids`** <span class="type-label">array of string</span> — A comma separated list of Deployment Environment resource ids used to filter a query.
-- **`projectId`** <span class="type-label">string</span> — A project Id used to filter a query.
+**Query Parameters**
+
+- **`channelId`** :span[string]{.type-label}  
+  A Channel Id used to filter a query.
+- **`ids`** :span[array of string]{.type-label}  
+  A comma separated list of Deployment Environment resource ids used to filter a query.
+- **`projectId`** :span[string]{.type-label}  
+  A project Id used to filter a query.
 
 **Response**
 
 `200` — Requested list of Environments
 
-`GetAllEnvironmentsResponse`.
-
-- **`Environments`** <span class="type-label">array of object</span>
-  - **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-  - **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`Environments`** :span[array of object]{.type-label}
+  - **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+    If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+  - **`EnvironmentTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this environment.
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SortOrder`** :span[integer]{.type-label}  
+    Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`UseGuidedFailure`** :span[boolean]{.type-label}  
+    If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 
@@ -347,15 +402,15 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 
 ## PUT /api/{spaceId}/environments/sortorder
 
-`PUT` `/api/{spaceId}/environments/sortorder`
+:span[PUT]{.api-put} `/api/{spaceId}/environments/sortorder`
 
 Also reachable at `/api/environments/sortorder`, `/api/spaces/{spaceIdentifier}/environments/sortorder`.
 
 Takes an array of environment IDs as the request body, uses the order of items in the array to sort the environments on the server. The ID of every environment must be specified.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
@@ -374,59 +429,59 @@ A `array of string` payload.
 
 `200` — Success
 
-## Lists all environments, including a summary of machine information
+## List all environments, including a summary of machine information
 
-`GET` `/api/{spaceId}/environments/summary`
+:span[GET]{.api-get} `/api/{spaceId}/environments/summary`
 
 Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/environments/summary`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`commStyles`** <span class="type-label">array of string</span>
-- **`deploymentTargetTypes`** <span class="type-label">array of string</span>
-- **`environmentTags`** <span class="type-label">array of string</span>
-- **`healthStatuses`** <span class="type-label">array of string</span>
-- **`hideEmptyEnvironments`** <span class="type-label">boolean</span>
-- **`ids`** <span class="type-label">array of string</span>
-- **`isDisabled`** <span class="type-label">boolean</span>
-- **`machinePartialName`** <span class="type-label">string</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`roles`** <span class="type-label">array of string</span>
-- **`shellNames`** <span class="type-label">array of string</span>
-- **`targetTags`** <span class="type-label">array of string</span>
-- **`tenantIds`** <span class="type-label">array of string</span>
-- **`tenantTags`** <span class="type-label">array of string</span>
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}
+- **`environmentTags`** :span[array of string]{.type-label}
+- **`healthStatuses`** :span[array of string]{.type-label}
+- **`hideEmptyEnvironments`** :span[boolean]{.type-label}
+- **`ids`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}
+- **`machinePartialName`** :span[string]{.type-label}
+- **`partialName`** :span[string]{.type-label}
+- **`roles`** :span[array of string]{.type-label}
+- **`shellNames`** :span[array of string]{.type-label}
+- **`targetTags`** :span[array of string]{.type-label}
+- **`tenantIds`** :span[array of string]{.type-label}
+- **`tenantTags`** :span[array of string]{.type-label}
 
 **Response**
 
 `200` — Contains the machines et al associated with a given environment.
 
-`EnvironmentsSummaryResource`.
-
-- **`DeploymentTargetSummaries`** <span class="type-label">object</span>
-- **`EnvironmentSummaries`** <span class="type-label">array of object</span>
-  - **`DeploymentTargetSummaries`** <span class="type-label">object</span>
-  - **`Environment`** <span class="type-label">object</span>
-  - **`MachineEndpointSummaries`** <span class="type-label">object</span>
-  - **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-  - **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-  - **`MachineIdsForTentacleUpgrade`** <span class="type-label">array of string</span>
-  - **`MachineTenantSummaries`** <span class="type-label">object</span>
-  - **`MachineTenantTagSummaries`** <span class="type-label">object</span>
-  - **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-  - **`TotalDisabledMachines`** <span class="type-label">integer</span>
-  - **`TotalMachines`** <span class="type-label">integer</span>
-- **`MachineEndpointSummaries`** <span class="type-label">object</span>
-- **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-- **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-- **`MachineIdsForTentacleUpgrade`** <span class="type-label">array of string</span>
-- **`MachineTenantSummaries`** <span class="type-label">object</span>
-- **`MachineTenantTagSummaries`** <span class="type-label">object</span>
-- **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-- **`TotalDisabledMachines`** <span class="type-label">integer</span>
-- **`TotalMachines`** <span class="type-label">integer</span>
+- **`DeploymentTargetSummaries`** :span[object]{.type-label}
+- **`EnvironmentSummaries`** :span[array of object]{.type-label}
+  - **`DeploymentTargetSummaries`** :span[object]{.type-label}
+  - **`Environment`** :span[object]{.type-label}
+  - **`MachineEndpointSummaries`** :span[object]{.type-label}
+  - **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+  - **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+  - **`MachineIdsForTentacleUpgrade`** :span[array of string]{.type-label}
+  - **`MachineTenantSummaries`** :span[object]{.type-label}
+  - **`MachineTenantTagSummaries`** :span[object]{.type-label}
+  - **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+  - **`TotalDisabledMachines`** :span[integer]{.type-label}
+  - **`TotalMachines`** :span[integer]{.type-label}
+- **`MachineEndpointSummaries`** :span[object]{.type-label}
+- **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+- **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+- **`MachineIdsForTentacleUpgrade`** :span[array of string]{.type-label}
+- **`MachineTenantSummaries`** :span[object]{.type-label}
+- **`MachineTenantTagSummaries`** :span[object]{.type-label}
+- **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+- **`TotalDisabledMachines`** :span[integer]{.type-label}
+- **`TotalMachines`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -527,59 +582,60 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
 ```
 </div>
 
-## Lists all environments, including a summary of machine information
+## List all environments, including a summary of machine information
 
-`GET` `/api/{spaceId}/environments/summary/v2`
+:span[GET]{.api-get} `/api/{spaceId}/environments/summary/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`commStyles`** <span class="type-label">array of string</span>
-- **`deploymentTargetTypes`** <span class="type-label">array of string</span>
-- **`environmentTags`** <span class="type-label">array of string</span>
-- **`healthStatuses`** <span class="type-label">array of string</span>
-- **`hideEmptyEnvironments`** <span class="type-label">boolean</span>
-- **`ids`** <span class="type-label">array of string</span>
-- **`isDisabled`** <span class="type-label">boolean</span>
-- **`machinePartialName`** <span class="type-label">string</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`roles`** <span class="type-label">array of string</span>
-- **`shellNames`** <span class="type-label">array of string</span>
-- **`targetTags`** <span class="type-label">array of string</span>
-- **`tenantIds`** <span class="type-label">array of string</span>
-- **`tenantTags`** <span class="type-label">array of string</span>
-- **`type`** <span class="type-label">array of string</span> — Filters the environment summaries using the specified environment EnvironmentType.
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}
+- **`environmentTags`** :span[array of string]{.type-label}
+- **`healthStatuses`** :span[array of string]{.type-label}
+- **`hideEmptyEnvironments`** :span[boolean]{.type-label}
+- **`ids`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}
+- **`machinePartialName`** :span[string]{.type-label}
+- **`partialName`** :span[string]{.type-label}
+- **`roles`** :span[array of string]{.type-label}
+- **`shellNames`** :span[array of string]{.type-label}
+- **`targetTags`** :span[array of string]{.type-label}
+- **`tenantIds`** :span[array of string]{.type-label}
+- **`tenantTags`** :span[array of string]{.type-label}
+- **`type`** :span[array of string]{.type-label}  
+  Filters the environment summaries using the specified environment EnvironmentType.
 
 **Response**
 
 `200` — Contains the machines et al associated with a given environment.
 
-`GetEnvironmentsSummaryResponseV2`.
-
-- **`DeploymentTargetSummaries`** <span class="type-label">object</span>
-- **`EnvironmentSummaries`** <span class="type-label">array of object</span>
-  - **`DeploymentTargetSummaries`** <span class="type-label">object</span>
-  - **`Environment`** <span class="type-label">object</span>
-  - **`MachineEndpointSummaries`** <span class="type-label">object</span>
-  - **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-  - **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-  - **`MachineIdsForTentacleUpgrade`** <span class="type-label">array of string</span>
-  - **`MachineTenantSummaries`** <span class="type-label">object</span>
-  - **`MachineTenantTagSummaries`** <span class="type-label">object</span>
-  - **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-  - **`TotalDisabledMachines`** <span class="type-label">integer</span>
-  - **`TotalMachines`** <span class="type-label">integer</span>
-- **`MachineEndpointSummaries`** <span class="type-label">object</span>
-- **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-- **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-- **`MachineTenantSummaries`** <span class="type-label">object</span>
-- **`MachineTenantTagSummaries`** <span class="type-label">object</span>
-- **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-- **`TotalDisabledMachines`** <span class="type-label">integer</span>
-- **`TotalMachines`** <span class="type-label">integer</span>
+- **`DeploymentTargetSummaries`** :span[object]{.type-label}
+- **`EnvironmentSummaries`** :span[array of object]{.type-label}
+  - **`DeploymentTargetSummaries`** :span[object]{.type-label}
+  - **`Environment`** :span[object]{.type-label}
+  - **`MachineEndpointSummaries`** :span[object]{.type-label}
+  - **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+  - **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+  - **`MachineIdsForTentacleUpgrade`** :span[array of string]{.type-label}
+  - **`MachineTenantSummaries`** :span[object]{.type-label}
+  - **`MachineTenantTagSummaries`** :span[object]{.type-label}
+  - **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+  - **`TotalDisabledMachines`** :span[integer]{.type-label}
+  - **`TotalMachines`** :span[integer]{.type-label}
+- **`MachineEndpointSummaries`** :span[object]{.type-label}
+- **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+- **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+- **`MachineTenantSummaries`** :span[object]{.type-label}
+- **`MachineTenantTagSummaries`** :span[object]{.type-label}
+- **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+- **`TotalDisabledMachines`** :span[integer]{.type-label}
+- **`TotalMachines`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -671,39 +727,49 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 
 ## Get a list of Environments
 
-`GET` `/api/{spaceId}/environments/v1`
+:span[GET]{.api-get} `/api/{spaceId}/environments/v1`
 
 Also reachable at `/api/environments/v1`, `/api/spaces/{spaceIdentifier}/environments/v1`.
 
 Lists all of the environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — Environment Ids to filter results to only Environments with the given Ids.
-- **`name`** <span class="type-label">string</span> — Filters the returned environments by the specified `name` fragment. Left for backwards compatibility; prefer PartialName.
-- **`partialName`** <span class="type-label">string</span> — Filters the documents using the specified `partialName` fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 10. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  Environment Ids to filter results to only Environments with the given Ids.
+- **`name`** :span[string]{.type-label}  
+  Filters the returned environments by the specified `name` fragment. Left for backwards compatibility; prefer PartialName.
+- **`partialName`** :span[string]{.type-label}  
+  Filters the documents using the specified `partialName` fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 10. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Environments
 
-`GetEnvironmentsResponse`.
-
-- **`Environments`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`ItemType`** <span class="type-label">string</span>
-  - **`Items`** <span class="type-label">array of object</span>
-  - **`ItemsPerPage`** <span class="type-label">integer</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastPageNumber`** <span class="type-label">integer</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`NumberOfPages`** <span class="type-label">integer</span>
-  - **`TotalResults`** <span class="type-label">integer</span>
+- **`Environments`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`ItemType`** :span[string]{.type-label}
+  - **`Items`** :span[array of object]{.type-label}
+  - **`ItemsPerPage`** :span[integer]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastPageNumber`** :span[integer]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`NumberOfPages`** :span[integer]{.type-label}
+  - **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -749,42 +815,53 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 ```
 </div>
 
-## Lists Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments)
+## List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments)
 
-`GET` `/api/{spaceId}/environments/v2`
+:span[GET]{.api-get} `/api/{spaceId}/environments/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — Filter environments using ids.
-- **`name`** <span class="type-label">string</span> — The exact name of an Environment to be matched.
-- **`partialName`** <span class="type-label">string</span> — Filters the documents using the specified `partialName` fragment.
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`type`** <span class="type-label">array of string</span> — Filters the documents using the specified environment EnvironmentType.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  Filter environments using ids.
+- **`name`** :span[string]{.type-label}  
+  The exact name of an Environment to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  Filters the documents using the specified `partialName` fragment.
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`type`** :span[array of string]{.type-label}  
+  Filters the documents using the specified environment EnvironmentType.
 
 **Response**
 
 `200` — Success
 
-`BaseEnvironmentV2ResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-  - **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Type`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+  - **`EnvironmentTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this environment.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -812,33 +889,32 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
 ```
 </div>
 
-## Modifies an existing environment
+## Modify an existing environment
 
-`PUT` `/api/{spaceId}/environments/{environmentId}`
+:span[PUT]{.api-put} `/api/{spaceId}/environments/{environmentId}`
 
 Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyEnvironmentCommand`
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-- **`EnvironmentTags`** <span class="type-label">array of string</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentId`** :span[string]{.type-label} *(required)*
+- **`EnvironmentTags`** :span[array of string]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -869,23 +945,31 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 
 `200` — The environment after modifications have been applied.
 
-`EnvironmentResource`.
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-- **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+  If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this environment.
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}  
+  If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 
@@ -919,27 +1003,27 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 ```
 </div>
 
-## Gets the environment custom settings metadata from the extensions
+## Get the environment custom settings metadata from the extensions
 
-`GET` `/api/{spaceId}/environments/{environmentId}/metadata`
+:span[GET]{.api-get} `/api/{spaceId}/environments/{environmentId}/metadata`
 
 Also reachable at `/api/environments/{environmentId}/metadata`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}/metadata`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)* — The Id of the environment for which metadata is to be retrieved.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The Id of the space containing the environment.
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  The Id of the environment for which metadata is to be retrieved.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The Id of the space containing the environment.
 
 **Response**
 
 `200` — The requested Environment Metadata
 
-an array of `DeploymentEnvironmentSettingsMetadata`.
-
-- **`ExtensionId`** <span class="type-label">string</span>
-- **`Metadata`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Types`** <span class="type-label">array of object</span>
+- **`ExtensionId`** :span[string]{.type-label}
+- **`Metadata`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Types`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 
@@ -958,26 +1042,24 @@ an array of `DeploymentEnvironmentSettingsMetadata`.
 ```
 </div>
 
-## Lists all the variable set names (projects and library variable sets) that have variables that are scoped to only the given environment
+## List all the variable set names (projects and library variable sets) that have variables that are scoped to only the given environment
 
-`GET` `/api/{spaceId}/environments/{environmentId}/singlyScopedVariableDetails`
+:span[GET]{.api-get} `/api/{spaceId}/environments/{environmentId}/singlyScopedVariableDetails`
 
 Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}/singlyScopedVariableDetails`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The names of LibraryVariableSets and VariableSets which contain one or more variables scoped to the requested environment. Along with boolean indication to show that there are unviewable/editable projects/libraries which also contain scoped variables.
 
-`VariablesScopedToDocumentResource`.
-
-- **`HasUnauthorizedLibraryVariableSetVariables`** <span class="type-label">boolean</span>
-- **`HasUnauthorizedProjectVariables`** <span class="type-label">boolean</span>
-- **`VariableMap`** <span class="type-label">object</span>
+- **`HasUnauthorizedLibraryVariableSetVariables`** :span[boolean]{.type-label}
+- **`HasUnauthorizedProjectVariables`** :span[boolean]{.type-label}
+- **`VariableMap`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -1006,38 +1088,47 @@ Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails
 ```
 </div>
 
-## Gets a specific Deployment Environment
+## Get a specific Deployment Environment
 
-`GET` `/api/{spaceId}/environments/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/environments/{id}`
 
 Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/environments/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Environment to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Environment to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Deployment Environment
 
-`EnvironmentResource`.
-
-- **`AllowDynamicInfrastructure`** <span class="type-label">boolean</span> — If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-- **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span> — If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
+- **`AllowDynamicInfrastructure`** :span[boolean]{.type-label}  
+  If set to true, deployments to this environment will be allowed to contain steps that manage infrastructure. This relies on DeploymentActionResource being set to allow managing resource for a step.
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this environment.
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this environment. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this environment in sort order. Environments with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}  
+  If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
 <div data-example="Response">
 
@@ -1071,88 +1162,104 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
 ```
 </div>
 
-## Deletes an existing Environment
+## Delete an existing Environment
 
-`DELETE` `/api/{spaceId}/environments/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/environments/{id}`
 
 Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/environments/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Environment to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Environment to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-## Returns the list of machines in an environment that matches the filters requested by the user
+## Return the list of machines in an environment that matches the filters requested by the user
 
-`GET` `/api/{spaceId}/environments/{id}/machines`
+:span[GET]{.api-get} `/api/{spaceId}/environments/{id}/machines`
 
 Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifier}/environments/{id}/machines`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Environment.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Environment.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the space.
 
-- **`commStyles`** <span class="type-label">array of string</span>
-- **`deploymentTargetTypes`** <span class="type-label">array of string</span>
-- **`healthStatuses`** <span class="type-label">array of string</span>
-- **`isDisabled`** <span class="type-label">boolean</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`roles`** <span class="type-label">array of string</span>
-- **`shellNames`** <span class="type-label">array of string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items per page. Defaults to 20. Minimum `0`.
-- **`targetTags`** <span class="type-label">array of string</span>
-- **`tenantIds`** <span class="type-label">array of string</span>
-- **`tenantTags`** <span class="type-label">array of string</span>
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}
+- **`healthStatuses`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}
+- **`partialName`** :span[string]{.type-label}
+- **`roles`** :span[array of string]{.type-label}
+- **`shellNames`** :span[array of string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items per page. Defaults to 20. Minimum `0`.
+- **`targetTags`** :span[array of string]{.type-label}
+- **`tenantIds`** :span[array of string]{.type-label}
+- **`tenantTags`** :span[array of string]{.type-label}
 
 **Response**
 
 `200` — The lists of all machines that belong to the given environment, and matches any specified filters.
 
-`MachineResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`EnvironmentIds`** <span class="type-label">array of string</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`Roles`** <span class="type-label">array of string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TenantedDeploymentParticipation`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`EnvironmentIds`** :span[array of string]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`Roles`** :span[array of string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1224,30 +1331,34 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
 ```
 </div>
 
-## Gets a specific Static, Parent or Ephemeral Environment by ID
+## Get a specific Static, Parent or Ephemeral Environment by ID
 
-`GET` `/api/{spaceId}/environments/{id}/v2`
+:span[GET]{.api-get} `/api/{spaceId}/environments/{id}/v2`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Environment to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Environment to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource.
 
 **Response**
 
 `200` — The requested Static, Parent or Ephemeral Environment
 
-`BaseEnvironmentV2Resource`.
-
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-- **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Type`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+- **`EnvironmentTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this environment.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label}
+- **`Type`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1266,41 +1377,51 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
 ```
 </div>
 
-## Lists environments available for a project
+## List environments available for a project
 
-`GET` `/api/{spaceId}/projects/{projectId}/environments`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — The ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`partialName`** <span class="type-label">string</span> — Filters the environments by partial name fragment.
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
-- **`type`** <span class="type-label">array of string</span> — Filters the environments by EnvironmentType.
+**Query Parameters**
+
+- **`partialName`** :span[string]{.type-label}  
+  Filters the environments by partial name fragment.
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+- **`type`** :span[array of string]{.type-label}  
+  Filters the environments by EnvironmentType.
 
 **Response**
 
 `200` — Success
 
-`BaseEnvironmentV2ResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
-  - **`EnvironmentTags`** <span class="type-label">array of string</span> — List of tags assigned to this environment.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Type`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short description of this environment that can be used to explain the purpose of the environment to other users. This field may contain markdown.
+  - **`EnvironmentTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this environment.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this environment. This should be short, preferably 5-20 characters. Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

@@ -5,58 +5,77 @@ modDate: 2026-08-11
 title: Tenants
 ---
 
-## Gets a list of tenants
+## Get a list of tenants
 
-`GET` `/api/{spaceId}/tenants`
+:span[GET]{.api-get} `/api/{spaceId}/tenants`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants`, `/api/tenants`.
 
 Lists all of the tenants in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name, and returned 30 at a time.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`clonedFromTenantId`** <span class="type-label">string</span> — A Tenant ID, to limit the included Tenants to those cloned from that Tenant. Example: Tenants-1.
-- **`ids`** <span class="type-label">array of string</span> — A list of Tenant IDs, to limit the matching of Tenants to those with a particular ID. Example: ["Tenants-1", "Tenants-2"].
-- **`isDisabled`** <span class="type-label">boolean</span> — Disabled Status, to limit the set of retrieved Tenants to those with the specified disabled status.
-- **`name`** <span class="type-label">string</span> — (Obsolete) A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
-- **`partialName`** <span class="type-label">string</span> — A partial name, to limit the set of Tenants to those with a name that includes the partial name.
-- **`projectId`** <span class="type-label">string</span> — A Project ID, to limit the set of Tenants to those connected to a particular Project. Example: Projects-1.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`tags`** <span class="type-label">array of string</span> — A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`clonedFromTenantId`** :span[string]{.type-label}  
+  A Tenant ID, to limit the included Tenants to those cloned from that Tenant. Example: Tenants-1.
+- **`ids`** :span[array of string]{.type-label}  
+  A list of Tenant IDs, to limit the matching of Tenants to those with a particular ID. Example: ["Tenants-1", "Tenants-2"].
+- **`isDisabled`** :span[boolean]{.type-label}  
+  Disabled Status, to limit the set of retrieved Tenants to those with the specified disabled status.
+- **`name`** :span[string]{.type-label}  
+  (Obsolete) A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
+- **`partialName`** :span[string]{.type-label}  
+  A partial name, to limit the set of Tenants to those with a name that includes the partial name.
+- **`projectId`** :span[string]{.type-label}  
+  A Project ID, to limit the set of Tenants to those connected to a particular Project. Example: Projects-1.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`tags`** :span[array of string]{.type-label}  
+  A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Requested list of Tenants
 
-`TenantResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`ClonedFromTenantId`** <span class="type-label">string</span>
-  - **`CustomFields`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`ProjectEnvironments`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`ClonedFromTenantId`** :span[string]{.type-label}
+  - **`CustomFields`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`ProjectEnvironments`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantTags`** :span[array of string]{.type-label}  
+    Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -118,30 +137,33 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 ```
 </div>
 
-## Creates a new Tenant
+## Create a new Tenant
 
-`POST` `/api/{spaceId}/tenants`
+:span[POST]{.api-post} `/api/{spaceId}/tenants`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants`, `/api/tenants`.
 
 Creates a new Tenant, optionally cloning an existing tenant if the clone query string parameter is provided.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateTenantCommand`
-
-- **`Clone`** <span class="type-label">string</span> — The ID of the Tenant to clone. Example: Tenants-101.
-- **`Description`** <span class="type-label">string</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ProjectEnvironments`** <span class="type-label">object</span> — The projects the tenant is connected to, as an object keyed by project ID where each value is the array of environment IDs the tenant can deploy to for that project. Example: {"Projects-1": ["Environments-1", "Environments-2"]}.
-- **`Slug`** <span class="type-label">string</span> — A URL-friendly, unique identifier for the tenant. Generated from the name when omitted, which is usually what you want.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantTags`** <span class="type-label">array of string</span> — Tags to apply to the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Only tags from tenant-scoped tag sets are valid.
+- **`Clone`** :span[string]{.type-label}  
+  The ID of the Tenant to clone. Example: Tenants-101.
+- **`Description`** :span[string]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ProjectEnvironments`** :span[object]{.type-label}  
+  The projects the tenant is connected to, as an object keyed by project ID where each value is the array of environment IDs the tenant can deploy to for that project. Example: {"Projects-1": ["Environments-1", "Environments-2"]}.
+- **`Slug`** :span[string]{.type-label}  
+  A URL-friendly, unique identifier for the tenant. Generated from the name when omitted, which is usually what you want.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantTags`** :span[array of string]{.type-label}  
+  Tags to apply to the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Only tags from tenant-scoped tag sets are valid.
 
 <div data-example="Request">
 
@@ -175,24 +197,29 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 
 `201` — Created
 
-`TenantResource`.
-
-- **`ClonedFromTenantId`** <span class="type-label">string</span>
-- **`CustomFields`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`ProjectEnvironments`** <span class="type-label">object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`ClonedFromTenantId`** :span[string]{.type-label}
+- **`CustomFields`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`ProjectEnvironments`** :span[object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}  
+  Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
 <div data-example="Response">
 
@@ -237,47 +264,61 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 ```
 </div>
 
-## Lists all tenants
+## List all tenants
 
-`GET` `/api/{spaceId}/tenants/all`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/all`, `/api/tenants/all`.
 
 Lists all of the tenants in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — A set of Tenant IDs to retrieve Tenants for.
-- **`isDisabled`** <span class="type-label">boolean</span> — Disabled Status, to limit the set of retrieved Tenants to those with the specified disabled status.
-- **`name`** <span class="type-label">string</span> — (Obsolete) A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`projectId`** <span class="type-label">string</span> — A Project ID, to limit the set of retrieved Tenants to those connected to a particular Project.
-- **`tags`** <span class="type-label">array of string</span> — A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  A set of Tenant IDs to retrieve Tenants for.
+- **`isDisabled`** :span[boolean]{.type-label}  
+  Disabled Status, to limit the set of retrieved Tenants to those with the specified disabled status.
+- **`name`** :span[string]{.type-label}  
+  (Obsolete) A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to limit the set of retrieved Tenants to. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`projectId`** :span[string]{.type-label}  
+  A Project ID, to limit the set of retrieved Tenants to those connected to a particular Project.
+- **`tags`** :span[array of string]{.type-label}  
+  A set of Tenant Tags, to limit the set of retrieved Tenants to those which are tagged with the specific tags. Example: Alpha,Beta,Stable.
 
 **Response**
 
 `200` — Requested list of Tenants
 
-an array of `TenantResource`.
-
-- **`ClonedFromTenantId`** <span class="type-label">string</span>
-- **`CustomFields`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`ProjectEnvironments`** <span class="type-label">object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`ClonedFromTenantId`** :span[string]{.type-label}
+- **`CustomFields`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`ProjectEnvironments`** :span[object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}  
+  Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
 <div data-example="Response">
 
@@ -324,29 +365,31 @@ an array of `TenantResource`.
 ```
 </div>
 
-## Reports back the status of multi-tenancy
+## Report back the status of multi-tenancy
 
-`GET` `/api/{spaceId}/tenants/status`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/status`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/status`, `/api/tenants/status`.
 
 If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be false.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The status of multi-tenancy.
 
-`MultiTenancyStatusResource`.
-
-- **`Enabled`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Enabled`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -365,18 +408,23 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
 ```
 </div>
 
-## Checks tenants for matching tags
+## Check tenants for matching tags
 
-`GET` `/api/{spaceId}/tenants/tag-test`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/tag-test`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenants/tag-test`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`tags`** <span class="type-label">array of string</span> — A list of Tenant Tags to limit the matching to.
-- **`tenantIds`** <span class="type-label">array of string</span> — A list of Tenant IDs to limit the matching to.
+**Query Parameters**
+
+- **`tags`** :span[array of string]{.type-label}  
+  A list of Tenant Tags to limit the matching to.
+- **`tenantIds`** :span[array of string]{.type-label}  
+  A list of Tenant IDs to limit the matching to.
 
 **Response**
 
@@ -414,36 +462,40 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenant
 ```
 </div>
 
-## Returns a list of tenants who are missing required variables
+## Return a list of tenants who are missing required variables
 
-`GET` `/api/{spaceId}/tenants/variables-missing`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/variables-missing`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/api/tenants/variables-missing`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`environmentId`** <span class="type-label">string</span> — An Environment ID, to limit the set of inspected Tenants to those connected to a particular Environment. Example: Environments-202.
-- **`includeDetails`** <span class="type-label">boolean</span> — A switch to indicate whether missing variable details should be returned along with names. When false, each result names only the tenant, which is enough to check whether a tenant is missing anything at all.
-- **`projectId`** <span class="type-label">string</span> — A Project ID, to limit the set of inspected Tenants to those connected to a particular Project. Example: Projects-202.
-- **`tenantId`** <span class="type-label">string</span> — An ID for a Tenant. If supplied, will limit the result to variables missing for the Tenant identified by the ID. Example: Tenants-101.
+**Query Parameters**
+
+- **`environmentId`** :span[string]{.type-label}  
+  An Environment ID, to limit the set of inspected Tenants to those connected to a particular Environment. Example: Environments-202.
+- **`includeDetails`** :span[boolean]{.type-label}  
+  A switch to indicate whether missing variable details should be returned along with names. When false, each result names only the tenant, which is enough to check whether a tenant is missing anything at all.
+- **`projectId`** :span[string]{.type-label}  
+  A Project ID, to limit the set of inspected Tenants to those connected to a particular Project. Example: Projects-202.
+- **`tenantId`** :span[string]{.type-label}  
+  An ID for a Tenant. If supplied, will limit the result to variables missing for the Tenant identified by the ID. Example: Tenants-101.
 
 **Response**
 
 `200` — List of tenants who are missing required variables.
 
-an array of `TenantsMissingVariablesResource`.
-
-- **`Links`** <span class="type-label">object</span>
-- **`MissingVariables`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`VariableTemplateId`** <span class="type-label">string</span>
-  - **`VariableTemplateName`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
+- **`Links`** :span[object]{.type-label}
+- **`MissingVariables`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`VariableTemplateId`** :span[string]{.type-label}
+  - **`VariableTemplateName`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -473,37 +525,43 @@ an array of `TenantsMissingVariablesResource`.
 
 ## Get a tenant by it's Id
 
-`GET` `/api/{spaceId}/tenants/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Returns a tenant
 
-`TenantResource`.
-
-- **`ClonedFromTenantId`** <span class="type-label">string</span>
-- **`CustomFields`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`ProjectEnvironments`** <span class="type-label">object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`ClonedFromTenantId`** :span[string]{.type-label}
+- **`CustomFields`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`ProjectEnvironments`** :span[object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}  
+  Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
 <div data-example="Response">
 
@@ -548,29 +606,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 ```
 </div>
 
-## Modifies an existing Tenant
+## Modify an existing Tenant
 
-`PUT` `/api/{spaceId}/tenants/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyTenantCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ProjectEnvironments`** <span class="type-label">object</span> — The complete set of projects the tenant is connected to, as an object keyed by project ID where each value is the array of environment IDs the tenant can deploy to for that project. Example: {"Projects-1": ["Environments-1"]}. Replaces the tenant's current connections; omitting an existing project disconnects it and deletes the tenant's variable values for it.
-- **`Slug`** <span class="type-label">string</span> — A URL-friendly, unique identifier for the tenant. Resubmit the tenant's current slug unless you intend to change it; changing it breaks existing links that use the old slug.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantTags`** <span class="type-label">array of string</span> — The complete set of tags for the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Replaces the tenant's current tags; any existing tag omitted here is removed.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ProjectEnvironments`** :span[object]{.type-label}  
+  The complete set of projects the tenant is connected to, as an object keyed by project ID where each value is the array of environment IDs the tenant can deploy to for that project. Example: {"Projects-1": ["Environments-1"]}. Replaces the tenant's current connections; omitting an existing project disconnects it and deletes the tenant's variable values for it.
+- **`Slug`** :span[string]{.type-label}  
+  A URL-friendly, unique identifier for the tenant. Resubmit the tenant's current slug unless you intend to change it; changing it breaks existing links that use the old slug.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantTags`** :span[array of string]{.type-label}  
+  The complete set of tags for the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Replaces the tenant's current tags; any existing tag omitted here is removed.
 
 <div data-example="Request">
 
@@ -604,24 +666,29 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 
 `200` — Confirms that a Tenant has been modified, containing the updated Tenant
 
-`TenantResource`.
-
-- **`ClonedFromTenantId`** <span class="type-label">string</span>
-- **`CustomFields`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`ProjectEnvironments`** <span class="type-label">object</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantTags`** <span class="type-label">array of string</span> — Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
+- **`ClonedFromTenantId`** :span[string]{.type-label}
+- **`CustomFields`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`ProjectEnvironments`** :span[object]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantTags`** :span[array of string]{.type-label}  
+  Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
 <div data-example="Response">
 
@@ -666,31 +733,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 ```
 </div>
 
-## Deletes an existing Tenant
+## Delete an existing Tenant
 
-`DELETE` `/api/{spaceId}/tenants/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/tenants/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Gets the logo associated with the Tenant
+## Get the logo associated with the Tenant
 
-`GET` `/api/{spaceId}/tenants/{id}/logo`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}/logo`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenants/{id}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to retrieve the logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to retrieve the logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -703,76 +772,83 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenan
 ```
 </div>
 
-## Modifies the logo associated with the tenant
+## Modify the logo associated with the tenant
 
-`POST` `/api/{spaceId}/tenants/{id}/logo`
+:span[POST]{.api-post} `/api/{spaceId}/tenants/{id}/logo`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenants/{id}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to update the logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-
-**Response**
-
-`200` — Success
-
-## Modifies the logo associated with the tenant
-
-`PUT` `/api/{spaceId}/tenants/{id}/logo`
-
-**Parameters**
-
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to update the logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to update the logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Modifies the logo associated with the tenant
+## Modify the logo associated with the tenant
 
-`PUT` `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`
+:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}/logo`
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to update the logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — Success
+
+## Modify the logo associated with the tenant
+
+:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`
 
 Also reachable at `/api/tenants/{id}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to update the logo for.
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to update the logo for.
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
 
 **Response**
 
 `200` — Success
 
-## Gets variables associated with the provided tenant ID
+## Get variables associated with the provided tenant ID
 
-`GET` `/api/{spaceId}/tenants/{id}/variables`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/tenants/{id}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Tenant to retrieve variables for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Tenant to retrieve variables for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Variables associated with the provided tenant ID.
 
-`TenantVariableResource`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -900,27 +976,27 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 ```
 </div>
 
-## Creates or Updates the variables associated with the tenant
+## Create or Update the variables associated with the tenant
 
-`POST` `/api/{spaceId}/tenants/{id}/variables`
+:span[POST]{.api-post} `/api/{spaceId}/tenants/{id}/variables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/tenants/{id}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -1044,18 +1120,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 
 `200` — The variables associated with the tenant.
 
-`TenantVariableResource`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1183,25 +1261,25 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 ```
 </div>
 
-## Creates or Updates the variables associated with the tenant
+## Create or Update the variables associated with the tenant
 
-`PUT` `/api/{spaceId}/tenants/{id}/variables`
+:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}/variables`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -1325,18 +1403,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 
 `200` — The variables associated with the tenant.
 
-`TenantVariableResource`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1464,27 +1544,28 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 ```
 </div>
 
-## Creates or Updates the variables associated with the tenant
+## Create or Update the variables associated with the tenant
 
-`PUT` `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`
+:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`
 
 Also reachable at `/api/tenants/{id}/variables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
 
 **Request Body**
 
-`ModifyVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)* — ID of the Tenant to modify.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*  
+  ID of the Tenant to modify.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -1608,18 +1689,20 @@ Also reachable at `/api/tenants/{id}/variables`.
 
 `200` — The variables associated with the tenant.
 
-`TenantVariableResource`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1747,42 +1830,48 @@ Also reachable at `/api/tenants/{id}/variables`.
 ```
 </div>
 
-## Gets the common variables associated with the tenant
+## Get the common variables associated with the tenant
 
-`GET` `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`, `/api/tenants/{tenantId}/commonvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)* — The ID of the tenant to read common variable values for. Example: Tenants-101.
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*  
+  The ID of the tenant to read common variable values for. Example: Tenants-101.
 
-- **`includeMissingVariables`** <span class="type-label">boolean</span> — When true, the response also lists the library variable set templates the tenant is required to supply a value for but has not, along with each template's default value.
+**Query Parameters**
+
+- **`includeMissingVariables`** :span[boolean]{.type-label}  
+  When true, the response also lists the library variable set templates the tenant is required to supply a value for but has not, along with each template's default value.
 
 **Response**
 
 `200` — The common variables associated with a tenant.
 
-`GetCommonVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`MissingVariables`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`MissingVariables`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`LibraryVariableSetName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`LibraryVariableSetName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -1845,30 +1934,32 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```
 </div>
 
-## Creates or Updates the common variables associated with the tenant
+## Create or Update the common variables associated with the tenant
 
-`POST` `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`, `/api/tenants/{tenantId}/commonvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyCommonVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -1902,18 +1993,19 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 
 `200` — The common variables associated with a tenant.
 
-`ModifyCommonVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`LibraryVariableSetName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -1951,28 +2043,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```
 </div>
 
-## Creates or Updates the common variables associated with the tenant
+## Create or Update the common variables associated with the tenant
 
-`PUT` `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:span[PUT]{.api-put} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyCommonVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2006,18 +2100,19 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 
 `200` — The common variables associated with a tenant.
 
-`ModifyCommonVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`LibraryVariableSetName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2055,30 +2150,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```
 </div>
 
-## Creates or Updates the common variables associated with the tenant
+## Create or Update the common variables associated with the tenant
 
-`PUT` `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`
+:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`
 
 Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyCommonVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of common variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the library variable set ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2112,18 +2210,19 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 
 `200` — The common variables associated with a tenant.
 
-`ModifyCommonVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LibraryVariableSetId`** <span class="type-label">string</span>
-  - **`LibraryVariableSetName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LibraryVariableSetId`** :span[string]{.type-label}
+  - **`LibraryVariableSetName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2161,42 +2260,48 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 ```
 </div>
 
-## Gets the project variables associated with the tenant
+## Get the project variables associated with the tenant
 
-`GET` `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:span[GET]{.api-get} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`, `/api/tenants/{tenantId}/projectvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)* — The ID of the tenant to read project variable values for. Example: Tenants-101.
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*  
+  The ID of the tenant to read project variable values for. Example: Tenants-101.
 
-- **`includeMissingVariables`** <span class="type-label">boolean</span> — When true, the response also lists the project variable templates the tenant is required to supply a value for but has not, along with each template's default value.
+**Query Parameters**
+
+- **`includeMissingVariables`** :span[boolean]{.type-label}  
+  When true, the response also lists the project variable templates the tenant is required to supply a value for but has not, along with each template's default value.
 
 **Response**
 
 `200` — The project variables associated with a tenant.
 
-`GetProjectVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`MissingVariables`** <span class="type-label">array of object</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`MissingVariables`** :span[array of object]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2259,30 +2364,32 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```
 </div>
 
-## Creates or Updates the project variables associated with the tenant
+## Create or Update the project variables associated with the tenant
 
-`POST` `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`, `/api/tenants/{tenantId}/projectvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyProjectVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2316,18 +2423,19 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 
 `200` — The project variables associated with a tenant.
 
-`ModifyProjectVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2365,28 +2473,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```
 </div>
 
-## Creates or Updates the project variables associated with the tenant
+## Create or Update the project variables associated with the tenant
 
-`PUT` `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:span[PUT]{.api-put} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyProjectVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2420,18 +2530,19 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 
 `200` — The project variables associated with a tenant.
 
-`ModifyProjectVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2469,30 +2580,33 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```
 </div>
 
-## Creates or Updates the project variables associated with the tenant
+## Create or Update the project variables associated with the tenant
 
-`PUT` `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`
+:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`
 
 Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
-- **`tenantId`** <span class="type-label">string</span> *(required)*
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
+- **`tenantId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyProjectVariablesByTenantIdCommand`
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantId`** <span class="type-label">string</span> *(required)*
-- **`Variables`** <span class="type-label">array of object</span> *(required)* — The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
-  - **`Id`** <span class="type-label">string</span>
-  - **`OwnerId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Scope`** <span class="type-label">object</span> *(required)*
-  - **`TemplateId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span> *(required)*
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  The concurrency token returned when reading the tenant's variables. Always pass it back so the write is rejected if someone else changed the variables since your read; omitting it skips the check and risks silently overwriting their changes.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantId`** :span[string]{.type-label} *(required)*
+- **`Variables`** :span[array of object]{.type-label} *(required)*  
+  The complete set of project variable values for the tenant; existing values omitted here are deleted. Each item is an object: 'Id' (the existing value's ID when updating; omit when adding), 'OwnerId' (the project ID), 'TemplateId' (the variable template ID), 'Value' (a plain string for non-sensitive values, or {"HasValue": true, "NewValue": "secret"} for sensitive ones), and 'Scope' ({"EnvironmentIds": [...]} limiting the value to those environments; empty applies to all).
+  - **`Id`** :span[string]{.type-label}
+  - **`OwnerId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Scope`** :span[object]{.type-label} *(required)*
+  - **`TemplateId`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2526,18 +2640,19 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 
 `200` — The project variables associated with a tenant.
 
-`ModifyProjectVariablesByTenantIdResponse`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span> — Minimum length 1.
-- **`TenantId`** <span class="type-label">string</span>
-- **`Variables`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`Scope`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">object</span>
-  - **`TemplateId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Value`** <span class="type-label">object</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`TenantId`** :span[string]{.type-label}
+- **`Variables`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`Scope`** :span[object]{.type-label}
+  - **`Template`** :span[object]{.type-label}
+  - **`TemplateId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Value`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -2575,34 +2690,40 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 ```
 </div>
 
-## Lists all of the tenant variables in the supplied Octopus Deploy Space. The results will be sorted alphabetically by id
+## List all of the tenant variables in the supplied Octopus Deploy Space. The results will be sorted alphabetically by id
 
-`GET` `/api/{spaceId}/tenantvariables/all`
+:span[GET]{.api-get} `/api/{spaceId}/tenantvariables/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/tenantvariables/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`projectId`** <span class="type-label">string</span> — ID of a project that tenants must be connected to, to be included in the result set. For matching tenants, variables from all projects are still returned.
+**Query Parameters**
+
+- **`projectId`** :span[string]{.type-label}  
+  ID of a project that tenants must be connected to, to be included in the result set. For matching tenants, variables from all projects are still returned.
 
 **Response**
 
 `200` — All of the tenant variables in the supplied Octopus Deploy Space (sorted alphabetically by id).
 
-an array of `TenantVariableResource`.
-
-- **`ConcurrencyToken`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LibraryVariables`** <span class="type-label">object</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProjectVariables`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantId`** <span class="type-label">string</span>
-- **`TenantName`** <span class="type-label">string</span>
+- **`ConcurrencyToken`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LibraryVariables`** :span[object]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProjectVariables`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantId`** :span[string]{.type-label}
+- **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 

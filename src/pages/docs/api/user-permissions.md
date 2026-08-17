@@ -5,177 +5,191 @@ modDate: 2026-08-11
 title: User Permissions
 ---
 
-## Gets the user's permission information
+## Get the user's permission information
 
-`GET` `/api/{spaceId}/users/{id}/permissions`
+:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/users/{id}/permissions`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the user.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space to get permissions for.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the user.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to get permissions for.
 
-- **`includeSystem`** <span class="type-label">boolean</span> — Whether to include permission information from the system context.
+**Query Parameters**
+
+- **`includeSystem`** :span[boolean]{.type-label}  
+  Whether to include permission information from the system context.
 
 **Response**
 
 `200` — The user's exported permissions
 
-`UserPermissionSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsPermissionsComplete`** <span class="type-label">boolean</span> — If the requesting user had sufficient access to see a complete view of the permissions.
-- **`IsTeamsComplete`** <span class="type-label">boolean</span> — If the requesting user had sufficient access to see a complete view of the teams that may drive permissions.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SpacePermissions`** <span class="type-label">object</span> — Lists individual permissions granted, including restrictions where applicable.
-  - **`AccountCreate`** <span class="type-label">array of object</span>
-  - **`AccountDelete`** <span class="type-label">array of object</span>
-  - **`AccountEdit`** <span class="type-label">array of object</span>
-  - **`AccountView`** <span class="type-label">array of object</span>
-  - **`ActionTemplateCreate`** <span class="type-label">array of object</span>
-  - **`ActionTemplateDelete`** <span class="type-label">array of object</span>
-  - **`ActionTemplateEdit`** <span class="type-label">array of object</span>
-  - **`ActionTemplateView`** <span class="type-label">array of object</span>
-  - **`AdministerSystem`** <span class="type-label">array of object</span>
-  - **`AiAgentTranscriptView`** <span class="type-label">array of object</span>
-  - **`ApprovalPolicyAdminister`** <span class="type-label">array of object</span>
-  - **`ArtifactCreate`** <span class="type-label">array of object</span>
-  - **`ArtifactDelete`** <span class="type-label">array of object</span>
-  - **`ArtifactEdit`** <span class="type-label">array of object</span>
-  - **`ArtifactView`** <span class="type-label">array of object</span>
-  - **`BuildInformationAdminister`** <span class="type-label">array of object</span>
-  - **`BuildInformationPush`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedAdminister`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedDownload`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedPush`** <span class="type-label">array of object</span>
-  - **`CertificateCreate`** <span class="type-label">array of object</span>
-  - **`CertificateDelete`** <span class="type-label">array of object</span>
-  - **`CertificateEdit`** <span class="type-label">array of object</span>
-  - **`CertificateExportPrivateKey`** <span class="type-label">array of object</span>
-  - **`CertificateView`** <span class="type-label">array of object</span>
-  - **`ConfigureServer`** <span class="type-label">array of object</span>
-  - **`DefectReport`** <span class="type-label">array of object</span>
-  - **`DefectResolve`** <span class="type-label">array of object</span>
-  - **`DeployedResourceAdminister`** <span class="type-label">array of object</span>
-  - **`DeploymentCreate`** <span class="type-label">array of object</span>
-  - **`DeploymentDelete`** <span class="type-label">array of object</span>
-  - **`DeploymentFreezeAdminister`** <span class="type-label">array of object</span>
-  - **`DeploymentView`** <span class="type-label">array of object</span>
-  - **`EnvironmentCreate`** <span class="type-label">array of object</span>
-  - **`EnvironmentDelete`** <span class="type-label">array of object</span>
-  - **`EnvironmentEdit`** <span class="type-label">array of object</span>
-  - **`EnvironmentView`** <span class="type-label">array of object</span>
-  - **`EventRetentionDelete`** <span class="type-label">array of object</span>
-  - **`EventRetentionView`** <span class="type-label">array of object</span>
-  - **`EventView`** <span class="type-label">array of object</span>
-  - **`FeatureToggleEdit`** <span class="type-label">array of object</span>
-  - **`FeedEdit`** <span class="type-label">array of object</span>
-  - **`FeedView`** <span class="type-label">array of object</span>
-  - **`GitCredentialEdit`** <span class="type-label">array of object</span>
-  - **`GitCredentialView`** <span class="type-label">array of object</span>
-  - **`InsightsReportCreate`** <span class="type-label">array of object</span>
-  - **`InsightsReportDelete`** <span class="type-label">array of object</span>
-  - **`InsightsReportEdit`** <span class="type-label">array of object</span>
-  - **`InsightsReportView`** <span class="type-label">array of object</span>
-  - **`InterruptionSubmit`** <span class="type-label">array of object</span>
-  - **`InterruptionView`** <span class="type-label">array of object</span>
-  - **`InterruptionViewSubmitResponsible`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetCreate`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetDelete`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetEdit`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetView`** <span class="type-label">array of object</span>
-  - **`LifecycleCreate`** <span class="type-label">array of object</span>
-  - **`LifecycleDelete`** <span class="type-label">array of object</span>
-  - **`LifecycleEdit`** <span class="type-label">array of object</span>
-  - **`LifecycleView`** <span class="type-label">array of object</span>
-  - **`MachineCreate`** <span class="type-label">array of object</span>
-  - **`MachineDelete`** <span class="type-label">array of object</span>
-  - **`MachineEdit`** <span class="type-label">array of object</span>
-  - **`MachinePolicyCreate`** <span class="type-label">array of object</span>
-  - **`MachinePolicyDelete`** <span class="type-label">array of object</span>
-  - **`MachinePolicyEdit`** <span class="type-label">array of object</span>
-  - **`MachinePolicyView`** <span class="type-label">array of object</span>
-  - **`MachineView`** <span class="type-label">array of object</span>
-  - **`PlatformHubEdit`** <span class="type-label">array of object</span>
-  - **`PlatformHubView`** <span class="type-label">array of object</span>
-  - **`ProcessEdit`** <span class="type-label">array of object</span>
-  - **`ProcessView`** <span class="type-label">array of object</span>
-  - **`ProjectCreate`** <span class="type-label">array of object</span>
-  - **`ProjectDelete`** <span class="type-label">array of object</span>
-  - **`ProjectEdit`** <span class="type-label">array of object</span>
-  - **`ProjectGroupCreate`** <span class="type-label">array of object</span>
-  - **`ProjectGroupDelete`** <span class="type-label">array of object</span>
-  - **`ProjectGroupEdit`** <span class="type-label">array of object</span>
-  - **`ProjectGroupView`** <span class="type-label">array of object</span>
-  - **`ProjectView`** <span class="type-label">array of object</span>
-  - **`ProxyCreate`** <span class="type-label">array of object</span>
-  - **`ProxyDelete`** <span class="type-label">array of object</span>
-  - **`ProxyEdit`** <span class="type-label">array of object</span>
-  - **`ProxyView`** <span class="type-label">array of object</span>
-  - **`ReleaseCreate`** <span class="type-label">array of object</span>
-  - **`ReleaseDelete`** <span class="type-label">array of object</span>
-  - **`ReleaseEdit`** <span class="type-label">array of object</span>
-  - **`ReleaseView`** <span class="type-label">array of object</span>
-  - **`RetentionAdminister`** <span class="type-label">array of object</span>
-  - **`RunbookEdit`** <span class="type-label">array of object</span>
-  - **`RunbookRunCreate`** <span class="type-label">array of object</span>
-  - **`RunbookRunDelete`** <span class="type-label">array of object</span>
-  - **`RunbookRunView`** <span class="type-label">array of object</span>
-  - **`RunbookView`** <span class="type-label">array of object</span>
-  - **`SpaceCreate`** <span class="type-label">array of object</span>
-  - **`SpaceDelete`** <span class="type-label">array of object</span>
-  - **`SpaceEdit`** <span class="type-label">array of object</span>
-  - **`SpaceView`** <span class="type-label">array of object</span>
-  - **`SshKnownHostsAdminister`** <span class="type-label">array of object</span>
-  - **`SshKnownHostsView`** <span class="type-label">array of object</span>
-  - **`SubscriptionCreate`** <span class="type-label">array of object</span>
-  - **`SubscriptionDelete`** <span class="type-label">array of object</span>
-  - **`SubscriptionEdit`** <span class="type-label">array of object</span>
-  - **`SubscriptionView`** <span class="type-label">array of object</span>
-  - **`TagSetCreate`** <span class="type-label">array of object</span>
-  - **`TagSetDelete`** <span class="type-label">array of object</span>
-  - **`TagSetEdit`** <span class="type-label">array of object</span>
-  - **`TargetTagAdminister`** <span class="type-label">array of object</span>
-  - **`TargetTagView`** <span class="type-label">array of object</span>
-  - **`TaskCancel`** <span class="type-label">array of object</span>
-  - **`TaskCreate`** <span class="type-label">array of object</span>
-  - **`TaskEdit`** <span class="type-label">array of object</span>
-  - **`TaskPrioritize`** <span class="type-label">array of object</span>
-  - **`TaskView`** <span class="type-label">array of object</span>
-  - **`TeamCreate`** <span class="type-label">array of object</span>
-  - **`TeamDelete`** <span class="type-label">array of object</span>
-  - **`TeamEdit`** <span class="type-label">array of object</span>
-  - **`TeamView`** <span class="type-label">array of object</span>
-  - **`TelemetryView`** <span class="type-label">array of object</span>
-  - **`TenantCreate`** <span class="type-label">array of object</span>
-  - **`TenantDelete`** <span class="type-label">array of object</span>
-  - **`TenantEdit`** <span class="type-label">array of object</span>
-  - **`TenantView`** <span class="type-label">array of object</span>
-  - **`TriggerCreate`** <span class="type-label">array of object</span>
-  - **`TriggerDelete`** <span class="type-label">array of object</span>
-  - **`TriggerEdit`** <span class="type-label">array of object</span>
-  - **`TriggerView`** <span class="type-label">array of object</span>
-  - **`UserEdit`** <span class="type-label">array of object</span>
-  - **`UserInvite`** <span class="type-label">array of object</span>
-  - **`UserRoleEdit`** <span class="type-label">array of object</span>
-  - **`UserRoleView`** <span class="type-label">array of object</span>
-  - **`UserView`** <span class="type-label">array of object</span>
-  - **`VariableEdit`** <span class="type-label">array of object</span>
-  - **`VariableEditUnscoped`** <span class="type-label">array of object</span>
-  - **`VariableView`** <span class="type-label">array of object</span>
-  - **`VariableViewUnscoped`** <span class="type-label">array of object</span>
-  - **`WorkerEdit`** <span class="type-label">array of object</span>
-  - **`WorkerView`** <span class="type-label">array of object</span>
-- **`SystemPermissions`** <span class="type-label">array of enum</span> — Lists individual system permissions granted, these do not have restrictions. Allowed values: `AdministerSystem`, `ProjectEdit`, `ProjectView`, `ProjectCreate`, `ProjectDelete`, `ProcessView`, `ProcessEdit`, `VariableEdit`, `VariableEditUnscoped`, `VariableView`, `VariableViewUnscoped`, `ReleaseCreate`, `ReleaseView`, `ReleaseEdit`, `ReleaseDelete`, `DefectReport`, `DefectResolve`, `DeploymentCreate`, `DeploymentDelete`, `DeploymentView`, `EnvironmentView`, `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, `MachineCreate`, `MachineEdit`, `MachineView`, `MachineDelete`, `ArtifactView`, `ArtifactCreate`, `ArtifactEdit`, `ArtifactDelete`, `FeedView`, `EventView`, `LibraryVariableSetView`, `LibraryVariableSetCreate`, `LibraryVariableSetEdit`, `LibraryVariableSetDelete`, `ProjectGroupView`, `ProjectGroupCreate`, `ProjectGroupEdit`, `ProjectGroupDelete`, `TeamCreate`, `TeamView`, `TeamEdit`, `TeamDelete`, `UserView`, `UserInvite`, `UserRoleView`, `UserRoleEdit`, `TaskView`, `TaskCreate`, `TaskCancel`, `TaskEdit`, `TaskPrioritize`, `InterruptionView`, `InterruptionSubmit`, `InterruptionViewSubmitResponsible`, `BuiltInFeedPush`, `BuiltInFeedAdminister`, `BuiltInFeedDownload`, `ActionTemplateView`, `ActionTemplateCreate`, `ActionTemplateEdit`, `ActionTemplateDelete`, `LifecycleCreate`, `LifecycleView`, `LifecycleEdit`, `LifecycleDelete`, `AccountView`, `AccountEdit`, `AccountCreate`, `AccountDelete`, `TenantCreate`, `TenantEdit`, `TenantView`, `TenantDelete`, `TagSetCreate`, `TagSetEdit`, `TagSetDelete`, `TelemetryView`, `MachinePolicyCreate`, `MachinePolicyView`, `MachinePolicyEdit`, `MachinePolicyDelete`, `ProxyCreate`, `ProxyView`, `ProxyEdit`, `ProxyDelete`, `SubscriptionCreate`, `SubscriptionView`, `SubscriptionEdit`, `SubscriptionDelete`, `TriggerCreate`, `TriggerView`, `TriggerEdit`, `TriggerDelete`, `CertificateView`, `CertificateCreate`, `CertificateEdit`, `CertificateDelete`, `CertificateExportPrivateKey`, `UserEdit`, `ConfigureServer`, `FeedEdit`, `WorkerView`, `WorkerEdit`, `SpaceEdit`, `SpaceView`, `SpaceDelete`, `SpaceCreate`, `BuildInformationPush`, `BuildInformationAdminister`, `RunbookView`, `RunbookEdit`, `RunbookRunView`, `RunbookRunDelete`, `RunbookRunCreate`, `GitCredentialView`, `GitCredentialEdit`, `EventRetentionDelete`, `EventRetentionView`, `InsightsReportView`, `InsightsReportCreate`, `InsightsReportEdit`, `InsightsReportDelete`, `DeploymentFreezeAdminister`, `TargetTagView`, `TargetTagAdminister`, `PlatformHubView`, `PlatformHubEdit`, `RetentionAdminister`, `FeatureToggleEdit`, `ApprovalPolicyAdminister`, `SshKnownHostsAdminister`, `SshKnownHostsView`, `AiAgentTranscriptView`, `DeployedResourceAdminister`.
-- **`Teams`** <span class="type-label">array of object</span> — Gets the teams that the user is a member of.
-  - **`ExternalSecurityGroups`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsDirectlyAssigned`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsPermissionsComplete`** :span[boolean]{.type-label}  
+  If the requesting user had sufficient access to see a complete view of the permissions.
+- **`IsTeamsComplete`** :span[boolean]{.type-label}  
+  If the requesting user had sufficient access to see a complete view of the teams that may drive permissions.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SpacePermissions`** :span[object]{.type-label}  
+  Lists individual permissions granted, including restrictions where applicable.
+  - **`AccountCreate`** :span[array of object]{.type-label}
+  - **`AccountDelete`** :span[array of object]{.type-label}
+  - **`AccountEdit`** :span[array of object]{.type-label}
+  - **`AccountView`** :span[array of object]{.type-label}
+  - **`ActionTemplateCreate`** :span[array of object]{.type-label}
+  - **`ActionTemplateDelete`** :span[array of object]{.type-label}
+  - **`ActionTemplateEdit`** :span[array of object]{.type-label}
+  - **`ActionTemplateView`** :span[array of object]{.type-label}
+  - **`AdministerSystem`** :span[array of object]{.type-label}
+  - **`AiAgentTranscriptView`** :span[array of object]{.type-label}
+  - **`ApprovalPolicyAdminister`** :span[array of object]{.type-label}
+  - **`ArtifactCreate`** :span[array of object]{.type-label}
+  - **`ArtifactDelete`** :span[array of object]{.type-label}
+  - **`ArtifactEdit`** :span[array of object]{.type-label}
+  - **`ArtifactView`** :span[array of object]{.type-label}
+  - **`BuildInformationAdminister`** :span[array of object]{.type-label}
+  - **`BuildInformationPush`** :span[array of object]{.type-label}
+  - **`BuiltInFeedAdminister`** :span[array of object]{.type-label}
+  - **`BuiltInFeedDownload`** :span[array of object]{.type-label}
+  - **`BuiltInFeedPush`** :span[array of object]{.type-label}
+  - **`CertificateCreate`** :span[array of object]{.type-label}
+  - **`CertificateDelete`** :span[array of object]{.type-label}
+  - **`CertificateEdit`** :span[array of object]{.type-label}
+  - **`CertificateExportPrivateKey`** :span[array of object]{.type-label}
+  - **`CertificateView`** :span[array of object]{.type-label}
+  - **`ConfigureServer`** :span[array of object]{.type-label}
+  - **`DefectReport`** :span[array of object]{.type-label}
+  - **`DefectResolve`** :span[array of object]{.type-label}
+  - **`DeployedResourceAdminister`** :span[array of object]{.type-label}
+  - **`DeploymentCreate`** :span[array of object]{.type-label}
+  - **`DeploymentDelete`** :span[array of object]{.type-label}
+  - **`DeploymentFreezeAdminister`** :span[array of object]{.type-label}
+  - **`DeploymentView`** :span[array of object]{.type-label}
+  - **`EnvironmentCreate`** :span[array of object]{.type-label}
+  - **`EnvironmentDelete`** :span[array of object]{.type-label}
+  - **`EnvironmentEdit`** :span[array of object]{.type-label}
+  - **`EnvironmentView`** :span[array of object]{.type-label}
+  - **`EventRetentionDelete`** :span[array of object]{.type-label}
+  - **`EventRetentionView`** :span[array of object]{.type-label}
+  - **`EventView`** :span[array of object]{.type-label}
+  - **`FeatureToggleEdit`** :span[array of object]{.type-label}
+  - **`FeedEdit`** :span[array of object]{.type-label}
+  - **`FeedView`** :span[array of object]{.type-label}
+  - **`GitCredentialEdit`** :span[array of object]{.type-label}
+  - **`GitCredentialView`** :span[array of object]{.type-label}
+  - **`InsightsReportCreate`** :span[array of object]{.type-label}
+  - **`InsightsReportDelete`** :span[array of object]{.type-label}
+  - **`InsightsReportEdit`** :span[array of object]{.type-label}
+  - **`InsightsReportView`** :span[array of object]{.type-label}
+  - **`InterruptionSubmit`** :span[array of object]{.type-label}
+  - **`InterruptionView`** :span[array of object]{.type-label}
+  - **`InterruptionViewSubmitResponsible`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetCreate`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetDelete`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetEdit`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetView`** :span[array of object]{.type-label}
+  - **`LifecycleCreate`** :span[array of object]{.type-label}
+  - **`LifecycleDelete`** :span[array of object]{.type-label}
+  - **`LifecycleEdit`** :span[array of object]{.type-label}
+  - **`LifecycleView`** :span[array of object]{.type-label}
+  - **`MachineCreate`** :span[array of object]{.type-label}
+  - **`MachineDelete`** :span[array of object]{.type-label}
+  - **`MachineEdit`** :span[array of object]{.type-label}
+  - **`MachinePolicyCreate`** :span[array of object]{.type-label}
+  - **`MachinePolicyDelete`** :span[array of object]{.type-label}
+  - **`MachinePolicyEdit`** :span[array of object]{.type-label}
+  - **`MachinePolicyView`** :span[array of object]{.type-label}
+  - **`MachineView`** :span[array of object]{.type-label}
+  - **`PlatformHubEdit`** :span[array of object]{.type-label}
+  - **`PlatformHubView`** :span[array of object]{.type-label}
+  - **`ProcessEdit`** :span[array of object]{.type-label}
+  - **`ProcessView`** :span[array of object]{.type-label}
+  - **`ProjectCreate`** :span[array of object]{.type-label}
+  - **`ProjectDelete`** :span[array of object]{.type-label}
+  - **`ProjectEdit`** :span[array of object]{.type-label}
+  - **`ProjectGroupCreate`** :span[array of object]{.type-label}
+  - **`ProjectGroupDelete`** :span[array of object]{.type-label}
+  - **`ProjectGroupEdit`** :span[array of object]{.type-label}
+  - **`ProjectGroupView`** :span[array of object]{.type-label}
+  - **`ProjectView`** :span[array of object]{.type-label}
+  - **`ProxyCreate`** :span[array of object]{.type-label}
+  - **`ProxyDelete`** :span[array of object]{.type-label}
+  - **`ProxyEdit`** :span[array of object]{.type-label}
+  - **`ProxyView`** :span[array of object]{.type-label}
+  - **`ReleaseCreate`** :span[array of object]{.type-label}
+  - **`ReleaseDelete`** :span[array of object]{.type-label}
+  - **`ReleaseEdit`** :span[array of object]{.type-label}
+  - **`ReleaseView`** :span[array of object]{.type-label}
+  - **`RetentionAdminister`** :span[array of object]{.type-label}
+  - **`RunbookEdit`** :span[array of object]{.type-label}
+  - **`RunbookRunCreate`** :span[array of object]{.type-label}
+  - **`RunbookRunDelete`** :span[array of object]{.type-label}
+  - **`RunbookRunView`** :span[array of object]{.type-label}
+  - **`RunbookSnapshotCreate`** :span[array of object]{.type-label}
+  - **`RunbookView`** :span[array of object]{.type-label}
+  - **`SpaceCreate`** :span[array of object]{.type-label}
+  - **`SpaceDelete`** :span[array of object]{.type-label}
+  - **`SpaceEdit`** :span[array of object]{.type-label}
+  - **`SpaceView`** :span[array of object]{.type-label}
+  - **`SshKnownHostsAdminister`** :span[array of object]{.type-label}
+  - **`SshKnownHostsView`** :span[array of object]{.type-label}
+  - **`SubscriptionCreate`** :span[array of object]{.type-label}
+  - **`SubscriptionDelete`** :span[array of object]{.type-label}
+  - **`SubscriptionEdit`** :span[array of object]{.type-label}
+  - **`SubscriptionView`** :span[array of object]{.type-label}
+  - **`TagSetCreate`** :span[array of object]{.type-label}
+  - **`TagSetDelete`** :span[array of object]{.type-label}
+  - **`TagSetEdit`** :span[array of object]{.type-label}
+  - **`TargetTagAdminister`** :span[array of object]{.type-label}
+  - **`TargetTagView`** :span[array of object]{.type-label}
+  - **`TaskCancel`** :span[array of object]{.type-label}
+  - **`TaskCreate`** :span[array of object]{.type-label}
+  - **`TaskEdit`** :span[array of object]{.type-label}
+  - **`TaskPrioritize`** :span[array of object]{.type-label}
+  - **`TaskView`** :span[array of object]{.type-label}
+  - **`TeamCreate`** :span[array of object]{.type-label}
+  - **`TeamDelete`** :span[array of object]{.type-label}
+  - **`TeamEdit`** :span[array of object]{.type-label}
+  - **`TeamView`** :span[array of object]{.type-label}
+  - **`TelemetryView`** :span[array of object]{.type-label}
+  - **`TenantCreate`** :span[array of object]{.type-label}
+  - **`TenantDelete`** :span[array of object]{.type-label}
+  - **`TenantEdit`** :span[array of object]{.type-label}
+  - **`TenantView`** :span[array of object]{.type-label}
+  - **`TriggerCreate`** :span[array of object]{.type-label}
+  - **`TriggerDelete`** :span[array of object]{.type-label}
+  - **`TriggerEdit`** :span[array of object]{.type-label}
+  - **`TriggerView`** :span[array of object]{.type-label}
+  - **`UserEdit`** :span[array of object]{.type-label}
+  - **`UserInvite`** :span[array of object]{.type-label}
+  - **`UserRoleEdit`** :span[array of object]{.type-label}
+  - **`UserRoleView`** :span[array of object]{.type-label}
+  - **`UserView`** :span[array of object]{.type-label}
+  - **`VariableEdit`** :span[array of object]{.type-label}
+  - **`VariableEditUnscoped`** :span[array of object]{.type-label}
+  - **`VariableView`** :span[array of object]{.type-label}
+  - **`VariableViewUnscoped`** :span[array of object]{.type-label}
+  - **`WorkerEdit`** :span[array of object]{.type-label}
+  - **`WorkerView`** :span[array of object]{.type-label}
+- **`SystemPermissions`** :span[array of enum]{.type-label}  
+  Lists individual system permissions granted, these do not have restrictions.  
+  Allowed values: `AdministerSystem`, `ProjectEdit`, `ProjectView`, `ProjectCreate`, `ProjectDelete`, `ProcessView`, `ProcessEdit`, `VariableEdit`, `VariableEditUnscoped`, `VariableView`, `VariableViewUnscoped`, `ReleaseCreate`, `ReleaseView`, `ReleaseEdit`, `ReleaseDelete`, `DefectReport`, `DefectResolve`, `DeploymentCreate`, `DeploymentDelete`, `DeploymentView`, `EnvironmentView`, `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, `MachineCreate`, `MachineEdit`, `MachineView`, `MachineDelete`, `ArtifactView`, `ArtifactCreate`, `ArtifactEdit`, `ArtifactDelete`, `FeedView`, `EventView`, `LibraryVariableSetView`, `LibraryVariableSetCreate`, `LibraryVariableSetEdit`, `LibraryVariableSetDelete`, `ProjectGroupView`, `ProjectGroupCreate`, `ProjectGroupEdit`, `ProjectGroupDelete`, `TeamCreate`, `TeamView`, `TeamEdit`, `TeamDelete`, `UserView`, `UserInvite`, `UserRoleView`, `UserRoleEdit`, `TaskView`, `TaskCreate`, `TaskCancel`, `TaskEdit`, `TaskPrioritize`, `InterruptionView`, `InterruptionSubmit`, `InterruptionViewSubmitResponsible`, `BuiltInFeedPush`, `BuiltInFeedAdminister`, `BuiltInFeedDownload`, `ActionTemplateView`, `ActionTemplateCreate`, `ActionTemplateEdit`, `ActionTemplateDelete`, `LifecycleCreate`, `LifecycleView`, `LifecycleEdit`, `LifecycleDelete`, `AccountView`, `AccountEdit`, `AccountCreate`, `AccountDelete`, `TenantCreate`, `TenantEdit`, `TenantView`, `TenantDelete`, `TagSetCreate`, `TagSetEdit`, `TagSetDelete`, `TelemetryView`, `MachinePolicyCreate`, `MachinePolicyView`, `MachinePolicyEdit`, `MachinePolicyDelete`, `ProxyCreate`, `ProxyView`, `ProxyEdit`, `ProxyDelete`, `SubscriptionCreate`, `SubscriptionView`, `SubscriptionEdit`, `SubscriptionDelete`, `TriggerCreate`, `TriggerView`, `TriggerEdit`, `TriggerDelete`, `CertificateView`, `CertificateCreate`, `CertificateEdit`, `CertificateDelete`, `CertificateExportPrivateKey`, `UserEdit`, `ConfigureServer`, `FeedEdit`, `WorkerView`, `WorkerEdit`, `SpaceEdit`, `SpaceView`, `SpaceDelete`, `SpaceCreate`, `BuildInformationPush`, `BuildInformationAdminister`, `RunbookView`, `RunbookEdit`, `RunbookSnapshotCreate`, `RunbookRunView`, `RunbookRunDelete`, `RunbookRunCreate`, `GitCredentialView`, `GitCredentialEdit`, `EventRetentionDelete`, `EventRetentionView`, `InsightsReportView`, `InsightsReportCreate`, `InsightsReportEdit`, `InsightsReportDelete`, `DeploymentFreezeAdminister`, `TargetTagView`, `TargetTagAdminister`, `PlatformHubView`, `PlatformHubEdit`, `RetentionAdminister`, `FeatureToggleEdit`, `ApprovalPolicyAdminister`, `SshKnownHostsAdminister`, `SshKnownHostsView`, `AiAgentTranscriptView`, `DeployedResourceAdminister`.
+- **`Teams`** :span[array of object]{.type-label}  
+  Gets the teams that the user is a member of.
+  - **`ExternalSecurityGroups`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsDirectlyAssigned`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1773,6 +1787,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
         "SpaceId": "string"
       }
     ],
+    "RunbookSnapshotCreate": [
+      {
+        "RestrictedToEnvironmentIds": [
+          "string"
+        ],
+        "RestrictedToProjectGroupIds": [
+          "string"
+        ],
+        "RestrictedToProjectIds": [
+          "string"
+        ],
+        "RestrictedToTenantIds": [
+          "string"
+        ],
+        "SpaceId": "string"
+      }
+    ],
     "RunbookView": [
       {
         "RestrictedToEnvironmentIds": [
@@ -2557,179 +2588,195 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
 ```
 </div>
 
-## Gets the user's permission information
+## Get the user's permission information
 
-`GET` `/api/{spaceId}/users/{id}/permissions/configuration`
+:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions/configuration`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configuration`, `/api/users/{id}/permissions/configuration`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the user.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space to get permissions for.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the user.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to get permissions for.
 
-- **`apiKeyId`** <span class="type-label">string</span> — When supplied, computes the permission set as it would apply through this existing API key. The key must belong to the user.
-- **`includeSystem`** <span class="type-label">boolean</span> — Whether to include permission information from the system context.
-- **`previewReadOnly`** <span class="type-label">boolean</span> — When supplied, previews the permission set of a hypothetical new API key with the given read-only flag. Mutually exclusive with ApiKeyId.
+**Query Parameters**
+
+- **`apiKeyId`** :span[string]{.type-label}  
+  When supplied, computes the permission set as it would apply through this existing API key. The key must belong to the user.
+- **`includeSystem`** :span[boolean]{.type-label}  
+  Whether to include permission information from the system context.
+- **`previewReadOnly`** :span[boolean]{.type-label}  
+  When supplied, previews the permission set of a hypothetical new API key with the given read-only flag. Mutually exclusive with ApiKeyId.
 
 **Response**
 
 `200` — The user's exported permissions
 
-`UserPermissionSetResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsPermissionsComplete`** <span class="type-label">boolean</span> — If the requesting user had sufficient access to see a complete view of the permissions.
-- **`IsTeamsComplete`** <span class="type-label">boolean</span> — If the requesting user had sufficient access to see a complete view of the teams that may drive permissions.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SpacePermissions`** <span class="type-label">object</span> — Lists individual permissions granted, including restrictions where applicable.
-  - **`AccountCreate`** <span class="type-label">array of object</span>
-  - **`AccountDelete`** <span class="type-label">array of object</span>
-  - **`AccountEdit`** <span class="type-label">array of object</span>
-  - **`AccountView`** <span class="type-label">array of object</span>
-  - **`ActionTemplateCreate`** <span class="type-label">array of object</span>
-  - **`ActionTemplateDelete`** <span class="type-label">array of object</span>
-  - **`ActionTemplateEdit`** <span class="type-label">array of object</span>
-  - **`ActionTemplateView`** <span class="type-label">array of object</span>
-  - **`AdministerSystem`** <span class="type-label">array of object</span>
-  - **`AiAgentTranscriptView`** <span class="type-label">array of object</span>
-  - **`ApprovalPolicyAdminister`** <span class="type-label">array of object</span>
-  - **`ArtifactCreate`** <span class="type-label">array of object</span>
-  - **`ArtifactDelete`** <span class="type-label">array of object</span>
-  - **`ArtifactEdit`** <span class="type-label">array of object</span>
-  - **`ArtifactView`** <span class="type-label">array of object</span>
-  - **`BuildInformationAdminister`** <span class="type-label">array of object</span>
-  - **`BuildInformationPush`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedAdminister`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedDownload`** <span class="type-label">array of object</span>
-  - **`BuiltInFeedPush`** <span class="type-label">array of object</span>
-  - **`CertificateCreate`** <span class="type-label">array of object</span>
-  - **`CertificateDelete`** <span class="type-label">array of object</span>
-  - **`CertificateEdit`** <span class="type-label">array of object</span>
-  - **`CertificateExportPrivateKey`** <span class="type-label">array of object</span>
-  - **`CertificateView`** <span class="type-label">array of object</span>
-  - **`ConfigureServer`** <span class="type-label">array of object</span>
-  - **`DefectReport`** <span class="type-label">array of object</span>
-  - **`DefectResolve`** <span class="type-label">array of object</span>
-  - **`DeployedResourceAdminister`** <span class="type-label">array of object</span>
-  - **`DeploymentCreate`** <span class="type-label">array of object</span>
-  - **`DeploymentDelete`** <span class="type-label">array of object</span>
-  - **`DeploymentFreezeAdminister`** <span class="type-label">array of object</span>
-  - **`DeploymentView`** <span class="type-label">array of object</span>
-  - **`EnvironmentCreate`** <span class="type-label">array of object</span>
-  - **`EnvironmentDelete`** <span class="type-label">array of object</span>
-  - **`EnvironmentEdit`** <span class="type-label">array of object</span>
-  - **`EnvironmentView`** <span class="type-label">array of object</span>
-  - **`EventRetentionDelete`** <span class="type-label">array of object</span>
-  - **`EventRetentionView`** <span class="type-label">array of object</span>
-  - **`EventView`** <span class="type-label">array of object</span>
-  - **`FeatureToggleEdit`** <span class="type-label">array of object</span>
-  - **`FeedEdit`** <span class="type-label">array of object</span>
-  - **`FeedView`** <span class="type-label">array of object</span>
-  - **`GitCredentialEdit`** <span class="type-label">array of object</span>
-  - **`GitCredentialView`** <span class="type-label">array of object</span>
-  - **`InsightsReportCreate`** <span class="type-label">array of object</span>
-  - **`InsightsReportDelete`** <span class="type-label">array of object</span>
-  - **`InsightsReportEdit`** <span class="type-label">array of object</span>
-  - **`InsightsReportView`** <span class="type-label">array of object</span>
-  - **`InterruptionSubmit`** <span class="type-label">array of object</span>
-  - **`InterruptionView`** <span class="type-label">array of object</span>
-  - **`InterruptionViewSubmitResponsible`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetCreate`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetDelete`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetEdit`** <span class="type-label">array of object</span>
-  - **`LibraryVariableSetView`** <span class="type-label">array of object</span>
-  - **`LifecycleCreate`** <span class="type-label">array of object</span>
-  - **`LifecycleDelete`** <span class="type-label">array of object</span>
-  - **`LifecycleEdit`** <span class="type-label">array of object</span>
-  - **`LifecycleView`** <span class="type-label">array of object</span>
-  - **`MachineCreate`** <span class="type-label">array of object</span>
-  - **`MachineDelete`** <span class="type-label">array of object</span>
-  - **`MachineEdit`** <span class="type-label">array of object</span>
-  - **`MachinePolicyCreate`** <span class="type-label">array of object</span>
-  - **`MachinePolicyDelete`** <span class="type-label">array of object</span>
-  - **`MachinePolicyEdit`** <span class="type-label">array of object</span>
-  - **`MachinePolicyView`** <span class="type-label">array of object</span>
-  - **`MachineView`** <span class="type-label">array of object</span>
-  - **`PlatformHubEdit`** <span class="type-label">array of object</span>
-  - **`PlatformHubView`** <span class="type-label">array of object</span>
-  - **`ProcessEdit`** <span class="type-label">array of object</span>
-  - **`ProcessView`** <span class="type-label">array of object</span>
-  - **`ProjectCreate`** <span class="type-label">array of object</span>
-  - **`ProjectDelete`** <span class="type-label">array of object</span>
-  - **`ProjectEdit`** <span class="type-label">array of object</span>
-  - **`ProjectGroupCreate`** <span class="type-label">array of object</span>
-  - **`ProjectGroupDelete`** <span class="type-label">array of object</span>
-  - **`ProjectGroupEdit`** <span class="type-label">array of object</span>
-  - **`ProjectGroupView`** <span class="type-label">array of object</span>
-  - **`ProjectView`** <span class="type-label">array of object</span>
-  - **`ProxyCreate`** <span class="type-label">array of object</span>
-  - **`ProxyDelete`** <span class="type-label">array of object</span>
-  - **`ProxyEdit`** <span class="type-label">array of object</span>
-  - **`ProxyView`** <span class="type-label">array of object</span>
-  - **`ReleaseCreate`** <span class="type-label">array of object</span>
-  - **`ReleaseDelete`** <span class="type-label">array of object</span>
-  - **`ReleaseEdit`** <span class="type-label">array of object</span>
-  - **`ReleaseView`** <span class="type-label">array of object</span>
-  - **`RetentionAdminister`** <span class="type-label">array of object</span>
-  - **`RunbookEdit`** <span class="type-label">array of object</span>
-  - **`RunbookRunCreate`** <span class="type-label">array of object</span>
-  - **`RunbookRunDelete`** <span class="type-label">array of object</span>
-  - **`RunbookRunView`** <span class="type-label">array of object</span>
-  - **`RunbookView`** <span class="type-label">array of object</span>
-  - **`SpaceCreate`** <span class="type-label">array of object</span>
-  - **`SpaceDelete`** <span class="type-label">array of object</span>
-  - **`SpaceEdit`** <span class="type-label">array of object</span>
-  - **`SpaceView`** <span class="type-label">array of object</span>
-  - **`SshKnownHostsAdminister`** <span class="type-label">array of object</span>
-  - **`SshKnownHostsView`** <span class="type-label">array of object</span>
-  - **`SubscriptionCreate`** <span class="type-label">array of object</span>
-  - **`SubscriptionDelete`** <span class="type-label">array of object</span>
-  - **`SubscriptionEdit`** <span class="type-label">array of object</span>
-  - **`SubscriptionView`** <span class="type-label">array of object</span>
-  - **`TagSetCreate`** <span class="type-label">array of object</span>
-  - **`TagSetDelete`** <span class="type-label">array of object</span>
-  - **`TagSetEdit`** <span class="type-label">array of object</span>
-  - **`TargetTagAdminister`** <span class="type-label">array of object</span>
-  - **`TargetTagView`** <span class="type-label">array of object</span>
-  - **`TaskCancel`** <span class="type-label">array of object</span>
-  - **`TaskCreate`** <span class="type-label">array of object</span>
-  - **`TaskEdit`** <span class="type-label">array of object</span>
-  - **`TaskPrioritize`** <span class="type-label">array of object</span>
-  - **`TaskView`** <span class="type-label">array of object</span>
-  - **`TeamCreate`** <span class="type-label">array of object</span>
-  - **`TeamDelete`** <span class="type-label">array of object</span>
-  - **`TeamEdit`** <span class="type-label">array of object</span>
-  - **`TeamView`** <span class="type-label">array of object</span>
-  - **`TelemetryView`** <span class="type-label">array of object</span>
-  - **`TenantCreate`** <span class="type-label">array of object</span>
-  - **`TenantDelete`** <span class="type-label">array of object</span>
-  - **`TenantEdit`** <span class="type-label">array of object</span>
-  - **`TenantView`** <span class="type-label">array of object</span>
-  - **`TriggerCreate`** <span class="type-label">array of object</span>
-  - **`TriggerDelete`** <span class="type-label">array of object</span>
-  - **`TriggerEdit`** <span class="type-label">array of object</span>
-  - **`TriggerView`** <span class="type-label">array of object</span>
-  - **`UserEdit`** <span class="type-label">array of object</span>
-  - **`UserInvite`** <span class="type-label">array of object</span>
-  - **`UserRoleEdit`** <span class="type-label">array of object</span>
-  - **`UserRoleView`** <span class="type-label">array of object</span>
-  - **`UserView`** <span class="type-label">array of object</span>
-  - **`VariableEdit`** <span class="type-label">array of object</span>
-  - **`VariableEditUnscoped`** <span class="type-label">array of object</span>
-  - **`VariableView`** <span class="type-label">array of object</span>
-  - **`VariableViewUnscoped`** <span class="type-label">array of object</span>
-  - **`WorkerEdit`** <span class="type-label">array of object</span>
-  - **`WorkerView`** <span class="type-label">array of object</span>
-- **`SystemPermissions`** <span class="type-label">array of enum</span> — Lists individual system permissions granted, these do not have restrictions. Allowed values: `AdministerSystem`, `ProjectEdit`, `ProjectView`, `ProjectCreate`, `ProjectDelete`, `ProcessView`, `ProcessEdit`, `VariableEdit`, `VariableEditUnscoped`, `VariableView`, `VariableViewUnscoped`, `ReleaseCreate`, `ReleaseView`, `ReleaseEdit`, `ReleaseDelete`, `DefectReport`, `DefectResolve`, `DeploymentCreate`, `DeploymentDelete`, `DeploymentView`, `EnvironmentView`, `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, `MachineCreate`, `MachineEdit`, `MachineView`, `MachineDelete`, `ArtifactView`, `ArtifactCreate`, `ArtifactEdit`, `ArtifactDelete`, `FeedView`, `EventView`, `LibraryVariableSetView`, `LibraryVariableSetCreate`, `LibraryVariableSetEdit`, `LibraryVariableSetDelete`, `ProjectGroupView`, `ProjectGroupCreate`, `ProjectGroupEdit`, `ProjectGroupDelete`, `TeamCreate`, `TeamView`, `TeamEdit`, `TeamDelete`, `UserView`, `UserInvite`, `UserRoleView`, `UserRoleEdit`, `TaskView`, `TaskCreate`, `TaskCancel`, `TaskEdit`, `TaskPrioritize`, `InterruptionView`, `InterruptionSubmit`, `InterruptionViewSubmitResponsible`, `BuiltInFeedPush`, `BuiltInFeedAdminister`, `BuiltInFeedDownload`, `ActionTemplateView`, `ActionTemplateCreate`, `ActionTemplateEdit`, `ActionTemplateDelete`, `LifecycleCreate`, `LifecycleView`, `LifecycleEdit`, `LifecycleDelete`, `AccountView`, `AccountEdit`, `AccountCreate`, `AccountDelete`, `TenantCreate`, `TenantEdit`, `TenantView`, `TenantDelete`, `TagSetCreate`, `TagSetEdit`, `TagSetDelete`, `TelemetryView`, `MachinePolicyCreate`, `MachinePolicyView`, `MachinePolicyEdit`, `MachinePolicyDelete`, `ProxyCreate`, `ProxyView`, `ProxyEdit`, `ProxyDelete`, `SubscriptionCreate`, `SubscriptionView`, `SubscriptionEdit`, `SubscriptionDelete`, `TriggerCreate`, `TriggerView`, `TriggerEdit`, `TriggerDelete`, `CertificateView`, `CertificateCreate`, `CertificateEdit`, `CertificateDelete`, `CertificateExportPrivateKey`, `UserEdit`, `ConfigureServer`, `FeedEdit`, `WorkerView`, `WorkerEdit`, `SpaceEdit`, `SpaceView`, `SpaceDelete`, `SpaceCreate`, `BuildInformationPush`, `BuildInformationAdminister`, `RunbookView`, `RunbookEdit`, `RunbookRunView`, `RunbookRunDelete`, `RunbookRunCreate`, `GitCredentialView`, `GitCredentialEdit`, `EventRetentionDelete`, `EventRetentionView`, `InsightsReportView`, `InsightsReportCreate`, `InsightsReportEdit`, `InsightsReportDelete`, `DeploymentFreezeAdminister`, `TargetTagView`, `TargetTagAdminister`, `PlatformHubView`, `PlatformHubEdit`, `RetentionAdminister`, `FeatureToggleEdit`, `ApprovalPolicyAdminister`, `SshKnownHostsAdminister`, `SshKnownHostsView`, `AiAgentTranscriptView`, `DeployedResourceAdminister`.
-- **`Teams`** <span class="type-label">array of object</span> — Gets the teams that the user is a member of.
-  - **`ExternalSecurityGroups`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsDirectlyAssigned`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsPermissionsComplete`** :span[boolean]{.type-label}  
+  If the requesting user had sufficient access to see a complete view of the permissions.
+- **`IsTeamsComplete`** :span[boolean]{.type-label}  
+  If the requesting user had sufficient access to see a complete view of the teams that may drive permissions.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SpacePermissions`** :span[object]{.type-label}  
+  Lists individual permissions granted, including restrictions where applicable.
+  - **`AccountCreate`** :span[array of object]{.type-label}
+  - **`AccountDelete`** :span[array of object]{.type-label}
+  - **`AccountEdit`** :span[array of object]{.type-label}
+  - **`AccountView`** :span[array of object]{.type-label}
+  - **`ActionTemplateCreate`** :span[array of object]{.type-label}
+  - **`ActionTemplateDelete`** :span[array of object]{.type-label}
+  - **`ActionTemplateEdit`** :span[array of object]{.type-label}
+  - **`ActionTemplateView`** :span[array of object]{.type-label}
+  - **`AdministerSystem`** :span[array of object]{.type-label}
+  - **`AiAgentTranscriptView`** :span[array of object]{.type-label}
+  - **`ApprovalPolicyAdminister`** :span[array of object]{.type-label}
+  - **`ArtifactCreate`** :span[array of object]{.type-label}
+  - **`ArtifactDelete`** :span[array of object]{.type-label}
+  - **`ArtifactEdit`** :span[array of object]{.type-label}
+  - **`ArtifactView`** :span[array of object]{.type-label}
+  - **`BuildInformationAdminister`** :span[array of object]{.type-label}
+  - **`BuildInformationPush`** :span[array of object]{.type-label}
+  - **`BuiltInFeedAdminister`** :span[array of object]{.type-label}
+  - **`BuiltInFeedDownload`** :span[array of object]{.type-label}
+  - **`BuiltInFeedPush`** :span[array of object]{.type-label}
+  - **`CertificateCreate`** :span[array of object]{.type-label}
+  - **`CertificateDelete`** :span[array of object]{.type-label}
+  - **`CertificateEdit`** :span[array of object]{.type-label}
+  - **`CertificateExportPrivateKey`** :span[array of object]{.type-label}
+  - **`CertificateView`** :span[array of object]{.type-label}
+  - **`ConfigureServer`** :span[array of object]{.type-label}
+  - **`DefectReport`** :span[array of object]{.type-label}
+  - **`DefectResolve`** :span[array of object]{.type-label}
+  - **`DeployedResourceAdminister`** :span[array of object]{.type-label}
+  - **`DeploymentCreate`** :span[array of object]{.type-label}
+  - **`DeploymentDelete`** :span[array of object]{.type-label}
+  - **`DeploymentFreezeAdminister`** :span[array of object]{.type-label}
+  - **`DeploymentView`** :span[array of object]{.type-label}
+  - **`EnvironmentCreate`** :span[array of object]{.type-label}
+  - **`EnvironmentDelete`** :span[array of object]{.type-label}
+  - **`EnvironmentEdit`** :span[array of object]{.type-label}
+  - **`EnvironmentView`** :span[array of object]{.type-label}
+  - **`EventRetentionDelete`** :span[array of object]{.type-label}
+  - **`EventRetentionView`** :span[array of object]{.type-label}
+  - **`EventView`** :span[array of object]{.type-label}
+  - **`FeatureToggleEdit`** :span[array of object]{.type-label}
+  - **`FeedEdit`** :span[array of object]{.type-label}
+  - **`FeedView`** :span[array of object]{.type-label}
+  - **`GitCredentialEdit`** :span[array of object]{.type-label}
+  - **`GitCredentialView`** :span[array of object]{.type-label}
+  - **`InsightsReportCreate`** :span[array of object]{.type-label}
+  - **`InsightsReportDelete`** :span[array of object]{.type-label}
+  - **`InsightsReportEdit`** :span[array of object]{.type-label}
+  - **`InsightsReportView`** :span[array of object]{.type-label}
+  - **`InterruptionSubmit`** :span[array of object]{.type-label}
+  - **`InterruptionView`** :span[array of object]{.type-label}
+  - **`InterruptionViewSubmitResponsible`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetCreate`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetDelete`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetEdit`** :span[array of object]{.type-label}
+  - **`LibraryVariableSetView`** :span[array of object]{.type-label}
+  - **`LifecycleCreate`** :span[array of object]{.type-label}
+  - **`LifecycleDelete`** :span[array of object]{.type-label}
+  - **`LifecycleEdit`** :span[array of object]{.type-label}
+  - **`LifecycleView`** :span[array of object]{.type-label}
+  - **`MachineCreate`** :span[array of object]{.type-label}
+  - **`MachineDelete`** :span[array of object]{.type-label}
+  - **`MachineEdit`** :span[array of object]{.type-label}
+  - **`MachinePolicyCreate`** :span[array of object]{.type-label}
+  - **`MachinePolicyDelete`** :span[array of object]{.type-label}
+  - **`MachinePolicyEdit`** :span[array of object]{.type-label}
+  - **`MachinePolicyView`** :span[array of object]{.type-label}
+  - **`MachineView`** :span[array of object]{.type-label}
+  - **`PlatformHubEdit`** :span[array of object]{.type-label}
+  - **`PlatformHubView`** :span[array of object]{.type-label}
+  - **`ProcessEdit`** :span[array of object]{.type-label}
+  - **`ProcessView`** :span[array of object]{.type-label}
+  - **`ProjectCreate`** :span[array of object]{.type-label}
+  - **`ProjectDelete`** :span[array of object]{.type-label}
+  - **`ProjectEdit`** :span[array of object]{.type-label}
+  - **`ProjectGroupCreate`** :span[array of object]{.type-label}
+  - **`ProjectGroupDelete`** :span[array of object]{.type-label}
+  - **`ProjectGroupEdit`** :span[array of object]{.type-label}
+  - **`ProjectGroupView`** :span[array of object]{.type-label}
+  - **`ProjectView`** :span[array of object]{.type-label}
+  - **`ProxyCreate`** :span[array of object]{.type-label}
+  - **`ProxyDelete`** :span[array of object]{.type-label}
+  - **`ProxyEdit`** :span[array of object]{.type-label}
+  - **`ProxyView`** :span[array of object]{.type-label}
+  - **`ReleaseCreate`** :span[array of object]{.type-label}
+  - **`ReleaseDelete`** :span[array of object]{.type-label}
+  - **`ReleaseEdit`** :span[array of object]{.type-label}
+  - **`ReleaseView`** :span[array of object]{.type-label}
+  - **`RetentionAdminister`** :span[array of object]{.type-label}
+  - **`RunbookEdit`** :span[array of object]{.type-label}
+  - **`RunbookRunCreate`** :span[array of object]{.type-label}
+  - **`RunbookRunDelete`** :span[array of object]{.type-label}
+  - **`RunbookRunView`** :span[array of object]{.type-label}
+  - **`RunbookSnapshotCreate`** :span[array of object]{.type-label}
+  - **`RunbookView`** :span[array of object]{.type-label}
+  - **`SpaceCreate`** :span[array of object]{.type-label}
+  - **`SpaceDelete`** :span[array of object]{.type-label}
+  - **`SpaceEdit`** :span[array of object]{.type-label}
+  - **`SpaceView`** :span[array of object]{.type-label}
+  - **`SshKnownHostsAdminister`** :span[array of object]{.type-label}
+  - **`SshKnownHostsView`** :span[array of object]{.type-label}
+  - **`SubscriptionCreate`** :span[array of object]{.type-label}
+  - **`SubscriptionDelete`** :span[array of object]{.type-label}
+  - **`SubscriptionEdit`** :span[array of object]{.type-label}
+  - **`SubscriptionView`** :span[array of object]{.type-label}
+  - **`TagSetCreate`** :span[array of object]{.type-label}
+  - **`TagSetDelete`** :span[array of object]{.type-label}
+  - **`TagSetEdit`** :span[array of object]{.type-label}
+  - **`TargetTagAdminister`** :span[array of object]{.type-label}
+  - **`TargetTagView`** :span[array of object]{.type-label}
+  - **`TaskCancel`** :span[array of object]{.type-label}
+  - **`TaskCreate`** :span[array of object]{.type-label}
+  - **`TaskEdit`** :span[array of object]{.type-label}
+  - **`TaskPrioritize`** :span[array of object]{.type-label}
+  - **`TaskView`** :span[array of object]{.type-label}
+  - **`TeamCreate`** :span[array of object]{.type-label}
+  - **`TeamDelete`** :span[array of object]{.type-label}
+  - **`TeamEdit`** :span[array of object]{.type-label}
+  - **`TeamView`** :span[array of object]{.type-label}
+  - **`TelemetryView`** :span[array of object]{.type-label}
+  - **`TenantCreate`** :span[array of object]{.type-label}
+  - **`TenantDelete`** :span[array of object]{.type-label}
+  - **`TenantEdit`** :span[array of object]{.type-label}
+  - **`TenantView`** :span[array of object]{.type-label}
+  - **`TriggerCreate`** :span[array of object]{.type-label}
+  - **`TriggerDelete`** :span[array of object]{.type-label}
+  - **`TriggerEdit`** :span[array of object]{.type-label}
+  - **`TriggerView`** :span[array of object]{.type-label}
+  - **`UserEdit`** :span[array of object]{.type-label}
+  - **`UserInvite`** :span[array of object]{.type-label}
+  - **`UserRoleEdit`** :span[array of object]{.type-label}
+  - **`UserRoleView`** :span[array of object]{.type-label}
+  - **`UserView`** :span[array of object]{.type-label}
+  - **`VariableEdit`** :span[array of object]{.type-label}
+  - **`VariableEditUnscoped`** :span[array of object]{.type-label}
+  - **`VariableView`** :span[array of object]{.type-label}
+  - **`VariableViewUnscoped`** :span[array of object]{.type-label}
+  - **`WorkerEdit`** :span[array of object]{.type-label}
+  - **`WorkerView`** :span[array of object]{.type-label}
+- **`SystemPermissions`** :span[array of enum]{.type-label}  
+  Lists individual system permissions granted, these do not have restrictions.  
+  Allowed values: `AdministerSystem`, `ProjectEdit`, `ProjectView`, `ProjectCreate`, `ProjectDelete`, `ProcessView`, `ProcessEdit`, `VariableEdit`, `VariableEditUnscoped`, `VariableView`, `VariableViewUnscoped`, `ReleaseCreate`, `ReleaseView`, `ReleaseEdit`, `ReleaseDelete`, `DefectReport`, `DefectResolve`, `DeploymentCreate`, `DeploymentDelete`, `DeploymentView`, `EnvironmentView`, `EnvironmentCreate`, `EnvironmentEdit`, `EnvironmentDelete`, `MachineCreate`, `MachineEdit`, `MachineView`, `MachineDelete`, `ArtifactView`, `ArtifactCreate`, `ArtifactEdit`, `ArtifactDelete`, `FeedView`, `EventView`, `LibraryVariableSetView`, `LibraryVariableSetCreate`, `LibraryVariableSetEdit`, `LibraryVariableSetDelete`, `ProjectGroupView`, `ProjectGroupCreate`, `ProjectGroupEdit`, `ProjectGroupDelete`, `TeamCreate`, `TeamView`, `TeamEdit`, `TeamDelete`, `UserView`, `UserInvite`, `UserRoleView`, `UserRoleEdit`, `TaskView`, `TaskCreate`, `TaskCancel`, `TaskEdit`, `TaskPrioritize`, `InterruptionView`, `InterruptionSubmit`, `InterruptionViewSubmitResponsible`, `BuiltInFeedPush`, `BuiltInFeedAdminister`, `BuiltInFeedDownload`, `ActionTemplateView`, `ActionTemplateCreate`, `ActionTemplateEdit`, `ActionTemplateDelete`, `LifecycleCreate`, `LifecycleView`, `LifecycleEdit`, `LifecycleDelete`, `AccountView`, `AccountEdit`, `AccountCreate`, `AccountDelete`, `TenantCreate`, `TenantEdit`, `TenantView`, `TenantDelete`, `TagSetCreate`, `TagSetEdit`, `TagSetDelete`, `TelemetryView`, `MachinePolicyCreate`, `MachinePolicyView`, `MachinePolicyEdit`, `MachinePolicyDelete`, `ProxyCreate`, `ProxyView`, `ProxyEdit`, `ProxyDelete`, `SubscriptionCreate`, `SubscriptionView`, `SubscriptionEdit`, `SubscriptionDelete`, `TriggerCreate`, `TriggerView`, `TriggerEdit`, `TriggerDelete`, `CertificateView`, `CertificateCreate`, `CertificateEdit`, `CertificateDelete`, `CertificateExportPrivateKey`, `UserEdit`, `ConfigureServer`, `FeedEdit`, `WorkerView`, `WorkerEdit`, `SpaceEdit`, `SpaceView`, `SpaceDelete`, `SpaceCreate`, `BuildInformationPush`, `BuildInformationAdminister`, `RunbookView`, `RunbookEdit`, `RunbookSnapshotCreate`, `RunbookRunView`, `RunbookRunDelete`, `RunbookRunCreate`, `GitCredentialView`, `GitCredentialEdit`, `EventRetentionDelete`, `EventRetentionView`, `InsightsReportView`, `InsightsReportCreate`, `InsightsReportEdit`, `InsightsReportDelete`, `DeploymentFreezeAdminister`, `TargetTagView`, `TargetTagAdminister`, `PlatformHubView`, `PlatformHubEdit`, `RetentionAdminister`, `FeatureToggleEdit`, `ApprovalPolicyAdminister`, `SshKnownHostsAdminister`, `SshKnownHostsView`, `AiAgentTranscriptView`, `DeployedResourceAdminister`.
+- **`Teams`** :span[array of object]{.type-label}  
+  Gets the teams that the user is a member of.
+  - **`ExternalSecurityGroups`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsDirectlyAssigned`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -4327,6 +4374,23 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
         "SpaceId": "string"
       }
     ],
+    "RunbookSnapshotCreate": [
+      {
+        "RestrictedToEnvironmentIds": [
+          "string"
+        ],
+        "RestrictedToProjectGroupIds": [
+          "string"
+        ],
+        "RestrictedToProjectIds": [
+          "string"
+        ],
+        "RestrictedToTenantIds": [
+          "string"
+        ],
+        "SpaceId": "string"
+      }
+    ],
     "RunbookView": [
       {
         "RestrictedToEnvironmentIds": [
@@ -5111,16 +5175,18 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
 ```
 </div>
 
-## Gets a list of permissions for the currently authenticated user
+## Get a list of permissions for the currently authenticated user
 
-`GET` `/api/{spaceId}/users/{id}/permissions/export`
+:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions/export`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/export`, `/api/users/{id}/permissions/export`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the user.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the user.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 

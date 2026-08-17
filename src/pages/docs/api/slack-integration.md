@@ -7,7 +7,7 @@ title: Slack Integration
 
 ## GET /api/integrations/slack/channels
 
-`GET` `/api/integrations/slack/channels`
+:span[GET]{.api-get} `/api/integrations/slack/channels`
 
 **Response**
 
@@ -15,7 +15,7 @@ title: Slack Integration
 
 ## GET /api/integrations/slack/channels/resolve
 
-`GET` `/api/integrations/slack/channels/resolve`
+:span[GET]{.api-get} `/api/integrations/slack/channels/resolve`
 
 **Response**
 
@@ -23,7 +23,7 @@ title: Slack Integration
 
 ## GET /api/integrations/slack/configuration
 
-`GET` `/api/integrations/slack/configuration`
+:span[GET]{.api-get} `/api/integrations/slack/configuration`
 
 **Response**
 
@@ -31,7 +31,7 @@ title: Slack Integration
 
 ## DELETE /api/integrations/slack/connection
 
-`DELETE` `/api/integrations/slack/connection`
+:span[DELETE]{.api-delete} `/api/integrations/slack/connection`
 
 **Response**
 
@@ -39,7 +39,7 @@ title: Slack Integration
 
 ## POST /api/integrations/slack/connection/test
 
-`POST` `/api/integrations/slack/connection/test`
+:span[POST]{.api-post} `/api/integrations/slack/connection/test`
 
 **Response**
 
@@ -47,7 +47,7 @@ title: Slack Integration
 
 ## POST /api/integrations/slack/credentials
 
-`POST` `/api/integrations/slack/credentials`
+:span[POST]{.api-post} `/api/integrations/slack/credentials`
 
 **Response**
 
@@ -55,7 +55,7 @@ title: Slack Integration
 
 ## GET /api/integrations/slack/oauth/callback
 
-`GET` `/api/integrations/slack/oauth/callback`
+:span[GET]{.api-get} `/api/integrations/slack/oauth/callback`
 
 **Response**
 
@@ -63,7 +63,7 @@ title: Slack Integration
 
 ## GET /api/integrations/slack/oauth/start
 
-`GET` `/api/integrations/slack/oauth/start`
+:span[GET]{.api-get} `/api/integrations/slack/oauth/start`
 
 **Response**
 

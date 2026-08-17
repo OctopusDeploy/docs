@@ -5,44 +5,59 @@ modDate: 2026-08-11
 title: Branches
 ---
 
-## Requests the list of Branches for a given Project
+## Request the list of Branches for a given Project
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/branches`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/branches`
 
 Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`searchByName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`searchByName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Branches
 
-`GitBranchResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsProtected`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsProtected`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -82,23 +97,24 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
 
 ## Create a branch given a project, the base git ref, and the new branch's name
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/branches/v2`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/branches/v2`
 
 Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches/v2`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`CreateBranchCommandV2`
-
-- **`BaseGitRef`** <span class="type-label">string</span> *(required)*
-- **`NewBranchName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`BaseGitRef`** :span[string]{.type-label} *(required)*
+- **`NewBranchName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -116,15 +132,19 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 
 `200` — The newly-created Branch
 
-`GitBranchResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsProtected`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsProtected`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -147,31 +167,38 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 
 ## Get a Git branch by name
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/branches/{branchName}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/branches/{branchName}`
 
 Also reachable at `/api/projects/{projectId}/git/branches/{branchName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches/{branchName}`.
 
 Gets a named version control branch for a project.
 
-**Parameters**
+**Path Parameters**
 
-- **`branchName`** <span class="type-label">string</span> *(required)* — Name of the branch.
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`branchName`** :span[string]{.type-label} *(required)*  
+  Name of the branch.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Branch
 
-`GitBranchResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsProtected`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsProtected`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -194,30 +221,37 @@ Gets a named version control branch for a project.
 
 ## Get a Git commit by hash
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/commits/{hash}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/commits/{hash}`
 
 Also reachable at `/api/projects/{projectId}/git/commits/{hash}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/commits/{hash}`.
 
 Gets a git commit for a project.
 
-**Parameters**
+**Path Parameters**
 
-- **`hash`** <span class="type-label">string</span> *(required)* — Hash of the commit.
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`hash`** :span[string]{.type-label} *(required)*  
+  Hash of the commit.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Commit
 
-`GitCommitResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -239,31 +273,38 @@ Gets a git commit for a project.
 
 ## Get a Git named reference by name
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/refs/{refName}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/refs/{refName}`
 
 Also reachable at `/api/projects/{projectId}/git/refs/{refName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs/{refName}`.
 
 Gets a named version control reference for a project.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`refName`** <span class="type-label">string</span> *(required)* — Name of the git reference.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`refName`** :span[string]{.type-label} *(required)*  
+  Name of the git reference.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Named Git Reference
 
-`GitNamedRefByNameResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsProtected`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsProtected`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -284,43 +325,58 @@ Gets a named version control reference for a project.
 ```
 </div>
 
-## Requests a list of Git Tags for the project
+## Request a list of Git Tags for the project
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/tags`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/tags`
 
 Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/tags`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`searchByName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`searchByName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Git Tags
 
-`GitTagResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -357,30 +413,37 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
 ```
 </div>
 
-## Gets an individual Git Tag; searching for it by Name
+## Get an individual Git Tag; searching for it by Name
 
-`GET` `/api/{spaceId}/projects/{projectId}/git/tags/{tagName}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/tags/{tagName}`
 
 Also reachable at `/api/projects/{projectId}/git/tags/{tagName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/tags/{tagName}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`tagName`** <span class="type-label">string</span> *(required)* — Name of the tag.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`tagName`** :span[string]{.type-label} *(required)*  
+  Name of the tag.
 
 **Response**
 
 `200` — The requested Tag
 
-`GitTagResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 

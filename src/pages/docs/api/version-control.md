@@ -5,15 +5,13 @@ modDate: 2026-08-11
 title: Version Control
 ---
 
-## Clears the local Git cache
+## Clear the local Git cache
 
-`POST` `/api/configuration/versioncontrol/clear-cache`
+:span[POST]{.api-post} `/api/configuration/versioncontrol/clear-cache`
 
 **Response**
 
 `200` — Confirmation that the Git Cache was cleared
-
-`ClearGitCacheResponse`.
 
 <div data-example="Response">
 
@@ -22,15 +20,13 @@ title: Version Control
 ```
 </div>
 
-## Clears the local Git cache
+## Clear the local Git cache
 
-`POST` `/api/configuration/versioncontrol/clear-cache/v1`
+:span[POST]{.api-post} `/api/configuration/versioncontrol/clear-cache/v1`
 
 **Response**
 
 `200` — Confirmation that the Git Cache was cleared
-
-`ClearGitCacheResponse`.
 
 <div data-example="Response">
 

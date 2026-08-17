@@ -5,21 +5,23 @@ modDate: 2026-08-11
 title: Server
 ---
 
-## Requests the current server configuration
+## Request the current server configuration
 
-`GET` `/api/serverconfiguration`
+:span[GET]{.api-get} `/api/serverconfiguration`
 
 **Response**
 
 `200` — The current server configuration
 
-`ServerConfigurationResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ServerUri`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ServerUri`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -38,15 +40,13 @@ title: Server
 ```
 </div>
 
-## Sets the server configuration
+## Set the server configuration
 
-`PUT` `/api/serverconfiguration`
+:span[PUT]{.api-put} `/api/serverconfiguration`
 
 **Request Body**
 
-`SetServerConfigurationCommand`
-
-- **`ServerUri`** <span class="type-label">string</span> *(required)*
+- **`ServerUri`** :span[string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -61,13 +61,15 @@ title: Server
 
 `200` — The updated server configuration
 
-`ServerConfigurationResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ServerUri`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ServerUri`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -86,21 +88,19 @@ title: Server
 ```
 </div>
 
-## Requests the current server configuration settings
+## Request the current server configuration settings
 
-`GET` `/api/serverconfiguration/settings`
+:span[GET]{.api-get} `/api/serverconfiguration/settings`
 
 **Response**
 
 `200` — The current server configuration settings
 
-an array of `ServerConfigurationSettingsResource`.
-
-- **`ConfigurationSet`** <span class="type-label">string</span>
-- **`ConfigurationValues`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Key`** <span class="type-label">string</span>
-  - **`Value`** <span class="type-label">string</span>
+- **`ConfigurationSet`** :span[string]{.type-label}
+- **`ConfigurationValues`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Key`** :span[string]{.type-label}
+  - **`Value`** :span[string]{.type-label}
 
 <div data-example="Response">
 

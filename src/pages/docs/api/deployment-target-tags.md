@@ -7,23 +7,23 @@ title: Deployment Target Tags
 
 ## Get a DeploymentTargetTag by ID or Slug
 
-`GET` `/api/{spaceId}/deploymentTargetTags/{tag}`
+:span[GET]{.api-get} `/api/{spaceId}/deploymentTargetTags/{tag}`
 
 Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifier}/deploymentTargetTags/{tag}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`tag`** <span class="type-label">string</span> *(required)* — ID or Slug of the DeploymentTargetTag.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`tag`** :span[string]{.type-label} *(required)*  
+  ID or Slug of the DeploymentTargetTag.
 
 **Response**
 
 `200` — The requested DeploymentTargetTag
 
-`GetDeploymentTargetTagByTagResponse`.
-
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Tag`** <span class="type-label">string</span>
+- **`SpaceId`** :span[string]{.type-label}
+- **`Tag`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -37,31 +37,36 @@ Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifi
 
 ## Get DeploymentTargetTags by DeploymentTargetTag IDs and Machine ID (deployment target ID)
 
-`GET` `/api/{spaceId}/deploymenttargettags`
+:span[GET]{.api-get} `/api/{spaceId}/deploymenttargettags`
 
 Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/deploymenttargettags`.
 
 Gets a paginated list of DeploymentTargetTag.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space to which the DeploymentTargetTags belong.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space to which the DeploymentTargetTags belong.
 
-- **`machineIds`** <span class="type-label">array of string</span> — The Machine ID to filter by.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`tags`** <span class="type-label">array of string</span> — The DeploymentTargetTag IDs to filter by.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`machineIds`** :span[array of string]{.type-label}  
+  The Machine ID to filter by.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`tags`** :span[array of string]{.type-label}  
+  The DeploymentTargetTag IDs to filter by.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested DeploymentTargetTags.
 
-`GetDeploymentTargetTagsResponse`.
-
-- **`Count`** <span class="type-label">integer</span>
-- **`DeploymentTargetTags`** <span class="type-label">array of object</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Tag`** <span class="type-label">string</span>
+- **`Count`** :span[integer]{.type-label}
+- **`DeploymentTargetTags`** :span[array of object]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Tag`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -80,20 +85,21 @@ Gets a paginated list of DeploymentTargetTag.
 
 ## Create a new DeploymentTargetTag
 
-`POST` `/api/{spaceId}/deploymenttargettags`
+:span[POST]{.api-post} `/api/{spaceId}/deploymenttargettags`
 
 Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/deploymenttargettags`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space for the DeploymentTargetTag.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space for the DeploymentTargetTag.
 
 **Request Body**
 
-`CreateDeploymentTargetTagCommand`
-
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space for the DeploymentTargetTag.
-- **`Tag`** <span class="type-label">string</span> *(required)* — The name or tag of the DeploymentTargetTag. Minimum length 1. Maximum length 200.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space for the DeploymentTargetTag.
+- **`Tag`** :span[string]{.type-label} *(required)*  
+  The name or tag of the DeploymentTargetTag. Minimum length 1. Maximum length 200.
 
 <div data-example="Request">
 
@@ -109,10 +115,8 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 
 `201` — Created
 
-`CreateDeploymentTargetTagResponse`.
-
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Tag`** <span class="type-label">string</span>
+- **`SpaceId`** :span[string]{.type-label}
+- **`Tag`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -126,14 +130,16 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 
 ## Delete a DeploymentTargetTag
 
-`DELETE` `/api/{spaceId}/deploymenttargettags/{tag}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/deploymenttargettags/{tag}`
 
 Also reachable at `/api/deploymenttargettags/{tag}`, `/api/spaces/{spaceIdentifier}/deploymenttargettags/{tag}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`tag`** <span class="type-label">string</span> *(required)* — The Tag of the DeploymentTargetTag to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`tag`** :span[string]{.type-label} *(required)*  
+  The Tag of the DeploymentTargetTag to delete.
 
 **Response**
 

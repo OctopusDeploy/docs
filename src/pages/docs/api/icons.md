@@ -7,21 +7,19 @@ title: Icons
 
 ## Get details of all icons
 
-`GET` `/api/icons/all`
+:span[GET]{.api-get} `/api/icons/all`
 
 **Response**
 
 `200` — The requested list of Icons
 
-`GetAllIconsResponse`.
-
-- **`icons`** <span class="type-label">array of object</span>
-  - **`iconHeight`** <span class="type-label">integer</span>
-  - **`iconPath`** <span class="type-label">string</span>
-  - **`iconWidth`** <span class="type-label">integer</span>
-  - **`id`** <span class="type-label">string</span>
-  - **`label`** <span class="type-label">string</span>
-  - **`searchTerms`** <span class="type-label">array of string</span>
+- **`icons`** :span[array of object]{.type-label}
+  - **`iconHeight`** :span[integer]{.type-label}
+  - **`iconPath`** :span[string]{.type-label}
+  - **`iconWidth`** :span[integer]{.type-label}
+  - **`id`** :span[string]{.type-label}
+  - **`label`** :span[string]{.type-label}
+  - **`searchTerms`** :span[array of string]{.type-label}
 
 <div data-example="Response">
 
@@ -45,15 +43,13 @@ title: Icons
 
 ## Get all icon categories and icon IDs contained in each category
 
-`GET` `/api/icons/categories`
+:span[GET]{.api-get} `/api/icons/categories`
 
 **Response**
 
 `200` — The requested Icon Categories
 
-`GetIconCategoriesResponse`.
-
-- **`categories`** <span class="type-label">object</span>
+- **`categories`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -74,21 +70,23 @@ title: Icons
 ```
 </div>
 
-## Modifies the logo of a Space to be a specified icon
+## Modify the logo of a Space to be a specified icon
 
-`POST` `/api/spaces/{spaceId}/logo/icon`
+:span[POST]{.api-post} `/api/spaces/{spaceId}/logo/icon`
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space to change logo for. Example: 'Space-1'.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space to change logo for. Example: 'Space-1'.
 
 **Request Body**
 
-`ModifySpaceIconCommand`
-
-- **`IconColor`** <span class="type-label">string</span> *(required)* — Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
-- **`IconId`** <span class="type-label">string</span> *(required)* — ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space to change logo for. Example: 'Space-1'.
+- **`IconColor`** :span[string]{.type-label} *(required)*  
+  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+- **`IconId`** :span[string]{.type-label} *(required)*  
+  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space to change logo for. Example: 'Space-1'.
 
 <div data-example="Request">
 
@@ -105,8 +103,6 @@ title: Icons
 
 `200` — Confirmation that the Space Icon has been modified
 
-`ModifySpaceIconResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -114,25 +110,29 @@ title: Icons
 ```
 </div>
 
-## Modifies the logo of a project to be a specified icon
+## Modify the logo of a project to be a specified icon
 
-`POST` `/api/{spaceId}/projects/{projectId}/logo/icon`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/logo/icon`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — The ID of the project to change logo for. Example: 'Projects-1'.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project to change logo for. Example: 'Projects-1'.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyProjectIconCommand`
-
-- **`IconColor`** <span class="type-label">string</span> *(required)* — Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
-- **`IconId`** <span class="type-label">string</span> *(required)* — ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
-- **`ProjectId`** <span class="type-label">string</span> *(required)* — The ID of the project to change logo for. Example: 'Projects-1'.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`IconColor`** :span[string]{.type-label} *(required)*  
+  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+- **`IconId`** :span[string]{.type-label} *(required)*  
+  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project to change logo for. Example: 'Projects-1'.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -150,8 +150,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 
 `200` — Confirmation that the Project Icon has been modified
 
-`ModifyProjectIconResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -159,25 +157,29 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 ```
 </div>
 
-## Modifies the logo of a tenant to be a specified icon
+## Modify the logo of a tenant to be a specified icon
 
-`POST` `/api/{spaceId}/tenants/{tenantId}/logo/icon`
+:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/logo/icon`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`tenantId`** <span class="type-label">string</span> *(required)* — The ID of the tenant to change logo for. Example: 'Tenants-1'.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`tenantId`** :span[string]{.type-label} *(required)*  
+  The ID of the tenant to change logo for. Example: 'Tenants-1'.
 
 **Request Body**
 
-`ModifyTenantIconCommand`
-
-- **`IconColor`** <span class="type-label">string</span> *(required)* — Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
-- **`IconId`** <span class="type-label">string</span> *(required)* — ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`TenantId`** <span class="type-label">string</span> *(required)* — The ID of the tenant to change logo for. Example: 'Tenants-1'.
+- **`IconColor`** :span[string]{.type-label} *(required)*  
+  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+- **`IconId`** :span[string]{.type-label} *(required)*  
+  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`TenantId`** :span[string]{.type-label} *(required)*  
+  The ID of the tenant to change logo for. Example: 'Tenants-1'.
 
 <div data-example="Request">
 
@@ -194,8 +196,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
 **Response**
 
 `200` — Confirmation that the Tenant Icon has been modified
-
-`ModifyTenantIconResponse`.
 
 <div data-example="Response">
 

@@ -5,80 +5,97 @@ modDate: 2026-08-11
 title: Projects
 ---
 
-## Lists all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name
+## List all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/projects`
+:span[GET]{.api-get} `/api/{spaceId}/projects`
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`clonedFromProjectId`** <span class="type-label">string</span>
-- **`ids`** <span class="type-label">array of string</span>
-- **`name`** <span class="type-label">string</span> — (Obsolete) A partial or complete name to limit the set of retrieved Projects to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
-- **`partialName`** <span class="type-label">string</span> — A partial name, to limit the set of Projects to those with a name that includes the partial name.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`clonedFromProjectId`** :span[string]{.type-label}
+- **`ids`** :span[array of string]{.type-label}
+- **`name`** :span[string]{.type-label}  
+  (Obsolete) A partial or complete name to limit the set of retrieved Projects to. This will perform a "contains" style match against the supplied name or name-fragment. Left for backwards compatibility.
+- **`partialName`** :span[string]{.type-label}  
+  A partial name, to limit the set of Projects to those with a name that includes the partial name.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
-`200` — Lists all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name.
+`200` — List all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name.
 
-`ProjectResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-  - **`AutoCreateRelease`** <span class="type-label">boolean</span>
-  - **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`ClonedFromProjectId`** <span class="type-label">string</span>
-  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-  - **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-  - **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-  - **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-  - **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-  - **`DeploymentProcessId`** <span class="type-label">string</span>
-  - **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-  - **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-  - **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ForcePackageDownload`** <span class="type-label">boolean</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-  - **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsVersionControlled`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LifecycleId`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`ProjectGroupId`** <span class="type-label">string</span>
-  - **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-  - **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`ProvisioningRunbookId`** <span class="type-label">string</span>
-  - **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`Templates`** <span class="type-label">array of object</span>
-  - **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-  - **`VariableSetId`** <span class="type-label">string</span>
-  - **`VersioningStrategy`** <span class="type-label">object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+  - **`AutoCreateRelease`** :span[boolean]{.type-label}
+  - **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`ClonedFromProjectId`** :span[string]{.type-label}
+  - **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+  - **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+    Allowed values: `EnvironmentDefault`, `Off`, `On`.
+  - **`DefaultPowerShellEdition`** :span[string]{.type-label}
+  - **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+  - **`DeploymentChangesTemplate`** :span[string]{.type-label}
+  - **`DeploymentProcessId`** :span[string]{.type-label}
+  - **`DeprovisioningRunbookId`** :span[string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+    Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+  - **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+  - **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ForcePackageDownload`** :span[boolean]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+    Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+  - **`IsBadgesEnabled`** :span[boolean]{.type-label}
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsVersionControlled`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LifecycleId`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`PersistenceSettings`** :span[object]{.type-label}
+  - **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`ProjectGroupId`** :span[string]{.type-label}
+  - **`ProjectTags`** :span[array of string]{.type-label}  
+    List of tags assigned to this project.
+  - **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`ProvisioningRunbookId`** :span[string]{.type-label}
+  - **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ReleaseNotesTemplate`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`Templates`** :span[array of object]{.type-label}
+  - **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+  - **`VariableSetId`** :span[string]{.type-label}
+  - **`VersioningStrategy`** :span[object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -182,69 +199,78 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 ```
 </div>
 
-## Creates a new project
+## Create a new project
 
-`POST` `/api/{spaceId}/projects`
+:span[POST]{.api-post} `/api/{spaceId}/projects`
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateProjectCommand`
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`Clone`** <span class="type-label">string</span> — ID of an existing project in the same space whose configuration (deployment process, variables, channels, runbooks, triggers) is copied into the new project. The source project must store its configuration in the database, not Git.
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LifecycleId`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span> *(required)*
-- **`ProjectTags`** <span class="type-label">array of string</span> — Tags to apply to the project, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). Call find_tag_sets to discover which tag sets apply to projects and what tags they contain.
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`RetainTenantConnections`** <span class="type-label">boolean</span> — When cloning, copy the source project's tenant connections to the new project. Only honoured when Clone is set. Defaults to false.
-- **`Slug`** <span class="type-label">string</span> — URL-friendly short identifier for the project, unique within the space (for example "web-store"). Leave unset to have one generated from the name.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`Clone`** :span[string]{.type-label}  
+  ID of an existing project in the same space whose configuration (deployment process, variables, channels, runbooks, triggers) is copied into the new project. The source project must store its configuration in the database, not Git.
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label} *(required)*
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  Tags to apply to the project, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). Call find_tag_sets to discover which tag sets apply to projects and what tags they contain.
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`RetainTenantConnections`** :span[boolean]{.type-label}  
+  When cloning, copy the source project's tenant connections to the new project. Only honoured when Clone is set. Defaults to false.
+- **`Slug`** :span[string]{.type-label}  
+  URL-friendly short identifier for the project, unique within the space (for example "web-store"). Leave unset to have one generated from the name.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -340,74 +366,86 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
 `201` — Created
 
-`ProjectResource`.
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeploymentProcessId`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsVersionControlled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LifecycleId`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span>
-- **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-- **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`IsShared`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`VersionMask`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span>
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VariableSetId`** <span class="type-label">string</span>
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeploymentProcessId`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsVersionControlled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LifecycleId`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label}
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this project.
+- **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`IsShared`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`VersionMask`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VariableSetId`** :span[string]{.type-label}
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -522,90 +560,106 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 ```
 </div>
 
-## Lists all of the projects in the supplied Octopus Deploy Space
+## List all of the projects in the supplied Octopus Deploy Space
 
-`GET` `/api/{spaceId}/projects/all`
+:span[GET]{.api-get} `/api/{spaceId}/projects/all`
 
 Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the space.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the space.
 
-- **`ids`** <span class="type-label">array of string</span> — Project Ids of Projects to filter results to.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  Project Ids of Projects to filter results to.
 
 **Response**
 
 `200` — All of the project resources in the supplied Octopus Deploy Space.
 
-an array of `ProjectResource`.
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeploymentProcessId`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsVersionControlled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LifecycleId`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span>
-- **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-- **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`IsShared`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`VersionMask`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span>
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VariableSetId`** <span class="type-label">string</span>
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeploymentProcessId`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsVersionControlled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LifecycleId`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label}
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this project.
+- **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`IsShared`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`VersionMask`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VariableSetId`** :span[string]{.type-label}
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -714,16 +768,18 @@ an array of `ProjectResource`.
 ```
 </div>
 
-## Gets the logo associated with the project
+## Get the logo associated with the project
 
-`GET` `/api/{spaceId}/projects/{id}/logo`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{id}/logo`
 
 Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/projects/{id}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the resource.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — ID of the space.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the resource.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  ID of the space.
 
 **Response**
 
@@ -738,87 +794,100 @@ Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/proj
 
 ## Get a Project by ID or slug
 
-`GET` `/api/{spaceId}/projects/{projectId}`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}`
 
 Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unusedGitRef}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{unusedGitRef}`, `/api/{spaceId}/projects/{projectId}/{unusedGitRef}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project to return.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project to return.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Project.
 
-`ProjectResource`.
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeploymentProcessId`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsVersionControlled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LifecycleId`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span>
-- **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-- **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`IsShared`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`VersionMask`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span>
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VariableSetId`** <span class="type-label">string</span>
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeploymentProcessId`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsVersionControlled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LifecycleId`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label}
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this project.
+- **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`IsShared`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`VersionMask`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VariableSetId`** :span[string]{.type-label}
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -933,75 +1002,88 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
 ```
 </div>
 
-## Modifies an existing Project
+## Modify an existing Project
 
-`PUT` `/api/{spaceId}/projects/{projectId}`
+:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}`
 
 Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the project to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the project to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyProjectCommand`
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ChangeDescription`** <span class="type-label">string</span> — The change description.
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span> — Which edition of PowerShell the project's script steps run under: "Desktop" (Windows PowerShell) or "Core" (cross-platform PowerShell). Leave unset to inherit the server default.
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span> — ID of a runbook in this project that tears down an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a separate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`LifecycleId`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span> *(required)*
-- **`ProjectId`** <span class="type-label">string</span> *(required)* — ID of the project to modify.
-- **`ProjectTags`** <span class="type-label">array of string</span> — The project's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). This replaces the project's current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to projects.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span> — ID of a runbook in this project that provisions an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — URL-friendly short identifier for the project, unique within the space. Leave unset to keep the project's current slug.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ChangeDescription`** :span[string]{.type-label}  
+  The change description.
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}  
+  Which edition of PowerShell the project's script steps run under: "Desktop" (Windows PowerShell) or "Core" (cross-platform PowerShell). Leave unset to inherit the server default.
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}  
+  ID of a runbook in this project that tears down an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a separate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label} *(required)*
+- **`ProjectId`** :span[string]{.type-label} *(required)*  
+  ID of the project to modify.
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  The project's complete set of tags, each written as "TagSet/Tag" using either the names or the IDs of the tag set and tag (for example "Regions/us-east"). This replaces the project's current tags, so resubmit the existing ones you want to keep. Call find_tag_sets to discover which tag sets apply to projects.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}  
+  ID of a runbook in this project that provisions an ephemeral environment. Must be an existing runbook of this project; call find_runbooks to look one up. Only relevant to projects using ephemeral environments.
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  URL-friendly short identifier for the project, unique within the space. Leave unset to keep the project's current slug.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -1102,74 +1184,86 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 
 `200` — Confirms that the Project has been modified, containing the updated Project
 
-`ProjectResource`.
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeploymentProcessId`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsVersionControlled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LifecycleId`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span>
-- **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-- **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`IsShared`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`VersionMask`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span>
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VariableSetId`** <span class="type-label">string</span>
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeploymentProcessId`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsVersionControlled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LifecycleId`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label}
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this project.
+- **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`IsShared`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`VersionMask`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VariableSetId`** :span[string]{.type-label}
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1284,43 +1378,44 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 ```
 </div>
 
-## Deletes an existing Project
+## Delete an existing Project
 
-`DELETE` `/api/{spaceId}/projects/{projectId}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}`
 
 Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Tests the Git settings to make sure we can connect
+## Test the Git settings to make sure we can connect
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/connectivity-test`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/connectivity-test`
 
 Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/connectivity-test`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`TestGitSettingsCommand`
-
-- **`BasePath`** <span class="type-label">string</span> *(required)*
-- **`Credentials`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
-- **`DefaultBranch`** <span class="type-label">string</span> *(required)*
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Url`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`BasePath`** :span[string]{.type-label} *(required)*
+- **`Credentials`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
+- **`DefaultBranch`** :span[string]{.type-label} *(required)*
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Url`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -1342,11 +1437,11 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
 
 `200` — The results from testing git settings.
 
-`TestGitSettingsResponse`.
-
-- **`Messages`** <span class="type-label">array of object</span>
-  - **`Category`** <span class="type-label">enum</span> — Allowed values: `Info`, `Error`.
-  - **`Message`** <span class="type-label">string</span> — Minimum length 1.
+- **`Messages`** :span[array of object]{.type-label}
+  - **`Category`** :span[enum]{.type-label}  
+    Allowed values: `Info`, `Error`.
+  - **`Message`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -1362,36 +1457,41 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
 ```
 </div>
 
-## Converts an existing project to store its configuration in version control
+## Convert an existing project to store its configuration in version control
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/convert`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/convert`
 
 Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/convert`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ConvertProjectToVersionControlledCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`CommitMessage`** <span class="type-label">string</span>
-- **`InitialCommitBranchName`** <span class="type-label">string</span>
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`VersionControlSettings`** <span class="type-label">object</span> *(required)*
-  - **`BasePath`** <span class="type-label">string</span> *(required)*
-  - **`ConversionState`** <span class="type-label">object</span>
-  - **`Credentials`** <span class="type-label">object</span> *(required)*
-  - **`DefaultBranch`** <span class="type-label">string</span> *(required)*
-  - **`ProtectedBranchNamePatterns`** <span class="type-label">array of string</span>
-  - **`ProtectedDefaultBranch`** <span class="type-label">boolean</span>
-  - **`SerializationFormat`** <span class="type-label">enum</span> — Allowed values: `Ocl`, `Yaml`.
-  - **`Type`** <span class="type-label">enum</span> *(required)* — Allowed values: `Database`, `VersionControlled`. Defaults to `VersionControlled`.
-  - **`Url`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`ChangeDescription`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`CommitMessage`** :span[string]{.type-label}
+- **`InitialCommitBranchName`** :span[string]{.type-label}
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`VersionControlSettings`** :span[object]{.type-label} *(required)*
+  - **`BasePath`** :span[string]{.type-label} *(required)*
+  - **`ConversionState`** :span[object]{.type-label}
+  - **`Credentials`** :span[object]{.type-label} *(required)*
+  - **`DefaultBranch`** :span[string]{.type-label} *(required)*
+  - **`ProtectedBranchNamePatterns`** :span[array of string]{.type-label}
+  - **`ProtectedDefaultBranch`** :span[boolean]{.type-label}
+  - **`SerializationFormat`** :span[enum]{.type-label}  
+    Allowed values: `Ocl`, `Yaml`.
+  - **`Type`** :span[enum]{.type-label} *(required)*  
+    Defaults to `VersionControlled`.  
+    Allowed values: `Database`, `VersionControlled`.
+  - **`Url`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
 
 <div data-example="Request">
 
@@ -1428,8 +1528,6 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
 
 `200` — Empty response indicating the Project was converted
 
-`ConvertProjectToVersionControlledResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -1437,26 +1535,28 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
 ```
 </div>
 
-## Converts all Runbooks to be stored in Git rather than the database
+## Convert all Runbooks to be stored in Git rather than the database
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/migrate-runbooks`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/migrate-runbooks`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-runbooks`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ConvertProjectRunbooksToGitCommand`
-
-- **`Branch`** <span class="type-label">string</span> — Branch to commit the migrated Runbooks to. Required if there are Runbooks to migrate.
-- **`CommitMessage`** <span class="type-label">string</span> — Commit message to use when committing the migrated Runbooks to Git. Required if there are Runbooks to migrate.
-- **`CreateBranch`** <span class="type-label">boolean</span>
-- **`ProjectId`** <span class="type-label">string</span> *(required)*
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Branch`** :span[string]{.type-label}  
+  Branch to commit the migrated Runbooks to. Required if there are Runbooks to migrate.
+- **`CommitMessage`** :span[string]{.type-label}  
+  Commit message to use when committing the migrated Runbooks to Git. Required if there are Runbooks to migrate.
+- **`CreateBranch`** :span[boolean]{.type-label}
+- **`ProjectId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -1475,15 +1575,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 `200` — Indicates that the project runbooks were converted to Git
 
-`ConvertProjectRunbooksToGitResponse`.
-
-- **`DraftRunbooks`** <span class="type-label">array of object</span>
-  - **`RunbookId`** <span class="type-label">string</span>
-  - **`RunbookName`** <span class="type-label">string</span>
-- **`PublishedRunbooks`** <span class="type-label">array of object</span>
-  - **`RunbookId`** <span class="type-label">string</span>
-  - **`RunbookName`** <span class="type-label">string</span>
-- **`ServerTaskId`** <span class="type-label">string</span>
+- **`DraftRunbooks`** :span[array of object]{.type-label}
+  - **`RunbookId`** :span[string]{.type-label}
+  - **`RunbookName`** :span[string]{.type-label}
+- **`PublishedRunbooks`** :span[array of object]{.type-label}
+  - **`RunbookId`** :span[string]{.type-label}
+  - **`RunbookName`** :span[string]{.type-label}
+- **`ServerTaskId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1506,138 +1604,73 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 ```
 </div>
 
-## Validates the provided git ref
+## Update the logo associated with the project
 
-`POST` `/api/{spaceId}/projects/{projectId}/git/validate`
-
-Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/validate`.
-
-**Deprecated.** This endpoint may be removed in a future release.
-
-**Parameters**
-
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-
-**Request Body**
-
-`ValidateGitRefCommand`
-
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`ProjectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-
-<div data-example="Request">
-
-```json
-{
-  "GitRef": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
-}
-```
-</div>
-
-**Response**
-
-`200` — Validated Git ref or error message
-
-`ValidateGitRefResponse`.
-
-- **`Error`** <span class="type-label">string</span>
-- **`ValidatedGitRef`** <span class="type-label">object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-
-<div data-example="Response">
-
-```json
-{
-  "Error": "string",
-  "ValidatedGitRef": {
-    "CanonicalName": "string",
-    "Id": "string",
-    "LastModifiedBy": "string",
-    "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-    "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
-    },
-    "Name": "string"
-  }
-}
-```
-</div>
-
-## Updates the logo associated with the project
-
-`POST` `/api/{spaceId}/projects/{projectId}/logo`
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/logo`
 
 Also reachable at `/api/projects/{projectId}/logo`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — The ID of the project to change logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
-
-**Response**
-
-`200` — Success
-
-## Updates the logo associated with the project
-
-`PUT` `/api/{spaceId}/projects/{projectId}/logo`
-
-**Parameters**
-
-- **`projectId`** <span class="type-label">string</span> *(required)* — The ID of the project to change logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project to change logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Updates the logo associated with the project
+## Update the logo associated with the project
 
-`PUT` `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo`
+:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/logo`
+
+**Path Parameters**
+
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project to change logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — Success
+
+## Update the logo associated with the project
+
+:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo`
 
 Also reachable at `/api/projects/{projectId}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — The ID of the project to change logo for.
-- **`spaceIdentifier`** <span class="type-label">string</span> *(required)* — Identifier (ID or slug) of the space.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project to change logo for.
+- **`spaceIdentifier`** :span[string]{.type-label} *(required)*  
+  Identifier (ID or slug) of the space.
 
 **Response**
 
 `200` — Success
 
-## Gets the custom settings metadata from the extensions
+## Get the custom settings metadata from the extensions
 
-`GET` `/api/{spaceId}/projects/{projectId}/metadata`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/metadata`
 
 Also reachable at `/api/projects/{projectId}/metadata`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/metadata`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The custom settings metadata from the extensions.
 
-an array of `ProjectSettingsMetadata`.
-
-- **`ExtensionId`** <span class="type-label">string</span> — Minimum length 1.
-- **`Metadata`** <span class="type-label">object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Types`** <span class="type-label">array of object</span>
+- **`ExtensionId`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Metadata`** :span[object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Types`** :span[array of object]{.type-label}
 
 <div data-example="Response">
 
@@ -1656,26 +1689,26 @@ an array of `ProjectSettingsMetadata`.
 ```
 </div>
 
-## Gets a summary of project-specific information
+## Get a summary of project-specific information
 
-`GET` `/api/{spaceId}/projects/{projectId}/summary`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/summary`
 
 Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/summary`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Summary
 
-`GetProjectSummaryInDatabaseResponse`.
-
-- **`HasBeenSuccessfullyDeployed`** <span class="type-label">boolean</span>
-- **`HasDeploymentProcess`** <span class="type-label">boolean</span>
-- **`HasRunbooks`** <span class="type-label">boolean</span>
+- **`HasBeenSuccessfullyDeployed`** :span[boolean]{.type-label}
+- **`HasDeploymentProcess`** :span[boolean]{.type-label}
+- **`HasRunbooks`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1688,26 +1721,26 @@ Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdenti
 ```
 </div>
 
-## Gets a summary of project-specific information
+## Get a summary of project-specific information
 
-`GET` `/api/{spaceId}/projects/{projectId}/summary/v1`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/summary/v1`
 
 Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/summary/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Summary
 
-`GetProjectSummaryInDatabaseResponse`.
-
-- **`HasBeenSuccessfullyDeployed`** <span class="type-label">boolean</span>
-- **`HasDeploymentProcess`** <span class="type-label">boolean</span>
-- **`HasRunbooks`** <span class="type-label">boolean</span>
+- **`HasBeenSuccessfullyDeployed`** :span[boolean]{.type-label}
+- **`HasDeploymentProcess`** :span[boolean]{.type-label}
+- **`HasRunbooks`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1720,27 +1753,27 @@ Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIde
 ```
 </div>
 
-## Gets a summary of project-specific information
+## Get a summary of project-specific information
 
-`GET` `/api/{spaceId}/projects/{projectId}/{gitRef}/summary`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/summary`
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/summary`.
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Summary
 
-`GetProjectSummaryInGitResponse`.
-
-- **`HasBeenSuccessfullyDeployed`** <span class="type-label">boolean</span>
-- **`HasDeploymentProcess`** <span class="type-label">boolean</span>
-- **`HasRunbooks`** <span class="type-label">boolean</span>
+- **`HasBeenSuccessfullyDeployed`** :span[boolean]{.type-label}
+- **`HasDeploymentProcess`** :span[boolean]{.type-label}
+- **`HasRunbooks`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1753,27 +1786,27 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{sp
 ```
 </div>
 
-## Gets a summary of project-specific information
+## Get a summary of project-specific information
 
-`GET` `/api/{spaceId}/projects/{projectId}/{gitRef}/summary/v1`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/summary/v1`
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/summary/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Project Summary
 
-`GetProjectSummaryInGitResponse`.
-
-- **`HasBeenSuccessfullyDeployed`** <span class="type-label">boolean</span>
-- **`HasDeploymentProcess`** <span class="type-label">boolean</span>
-- **`HasRunbooks`** <span class="type-label">boolean</span>
+- **`HasBeenSuccessfullyDeployed`** :span[boolean]{.type-label}
+- **`HasDeploymentProcess`** :span[boolean]{.type-label}
+- **`HasRunbooks`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1782,6 +1815,80 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/
   "HasBeenSuccessfullyDeployed": true,
   "HasDeploymentProcess": true,
   "HasRunbooks": true
+}
+```
+</div>
+
+## Validate the provided git ref
+
+:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/validate`
+
+Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/validate`.
+
+:::div{.warning}
+**Deprecated.** This endpoint may be removed in a future release.
+:::
+
+**Path Parameters**
+
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`ProjectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+
+<div data-example="Request">
+
+```json
+{
+  "GitRef": "string",
+  "ProjectId": "string",
+  "SpaceId": "string"
+}
+```
+</div>
+
+**Response**
+
+`200` — Validated Git ref or error message
+
+- **`Error`** :span[string]{.type-label}
+- **`ValidatedGitRef`** :span[object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+
+<div data-example="Response">
+
+```json
+{
+  "Error": "string",
+  "ValidatedGitRef": {
+    "CanonicalName": "string",
+    "Id": "string",
+    "LastModifiedBy": "string",
+    "LastModifiedOn": "2020-01-01T00:00:00.000Z",
+    "Links": {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    },
+    "Name": "string"
+  }
 }
 ```
 </div>

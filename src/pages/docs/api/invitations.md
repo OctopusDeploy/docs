@@ -7,20 +7,21 @@ title: Invitations
 
 ## Create an invitation to allow a new person to join this Octopus instance
 
-`POST` `/api/{spaceId}/users/invitations`
+:span[POST]{.api-post} `/api/{spaceId}/users/invitations`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users/invitations`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space to create the invitation in.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space to create the invitation in.
 
 **Request Body**
 
-`CreateInvitationCommand`
-
-- **`AddToTeamIds`** <span class="type-label">array of string</span> *(required)* — The teams the user will be invited to join.
-- **`SpaceId`** <span class="type-label">string</span> — The ID of the space to create the invitation in.
+- **`AddToTeamIds`** :span[array of string]{.type-label} *(required)*  
+  The teams the user will be invited to join.
+- **`SpaceId`** :span[string]{.type-label}  
+  The ID of the space to create the invitation in.
 
 <div data-example="Request">
 
@@ -38,16 +39,20 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
 
 `201` — Created
 
-`InvitationResource`.
-
-- **`AddToTeamIds`** <span class="type-label">array of string</span>
-- **`Expires`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`InvitationCode`** <span class="type-label">string</span> — Minimum length 1.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`AddToTeamIds`** :span[array of string]{.type-label}
+- **`Expires`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`InvitationCode`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -73,29 +78,35 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
 
 ## Get an Invitation by ID
 
-`GET` `/api/{spaceId}/users/invitations/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/users/invitations/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/users/invitations/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Invitation to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Invitation to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
 **Response**
 
 `200` — An Invitation object
 
-`InvitationResource`.
-
-- **`AddToTeamIds`** <span class="type-label">array of string</span>
-- **`Expires`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`InvitationCode`** <span class="type-label">string</span> — Minimum length 1.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`SpaceId`** <span class="type-label">string</span>
+- **`AddToTeamIds`** :span[array of string]{.type-label}
+- **`Expires`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`InvitationCode`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 

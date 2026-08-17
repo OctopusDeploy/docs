@@ -7,7 +7,7 @@ title: External Security Group Providers
 
 ## GET /api/externalsecuritygroupproviders
 
-`GET` `/api/externalsecuritygroupproviders`
+:span[GET]{.api-get} `/api/externalsecuritygroupproviders`
 
 Lists the authentication providers that support external group lookups and are currently enabled
 
@@ -15,13 +15,11 @@ Lists the authentication providers that support external group lookups and are c
 
 `200` — The requested External Security Group Providers
 
-an array of `AuthenticationProviderThatSupportsGroups`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`IsRoleBased`** <span class="type-label">boolean</span>
-- **`LookupUri`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`SupportsGroupLookup`** <span class="type-label">boolean</span>
+- **`Id`** :span[string]{.type-label}
+- **`IsRoleBased`** :span[boolean]{.type-label}
+- **`LookupUri`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`SupportsGroupLookup`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 

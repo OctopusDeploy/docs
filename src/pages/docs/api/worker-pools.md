@@ -7,50 +7,69 @@ title: Worker Pools
 
 ## Get a list of Worker Pools
 
-`GET` `/api/{spaceId}/workerpools`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools`.
 
 Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each Worker Pool.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — List of Worker Pool IDs which if specified, filters the result to only include Worker Pools with matching IDs.
-- **`name`** <span class="type-label">string</span> — The exact name of a Worker Pool to be matched.
-- **`partialName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 10. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  List of Worker Pool IDs which if specified, filters the result to only include Worker Pools with matching IDs.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Worker Pool to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 10. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Worker Pools
 
-`WorkerPoolResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanAddWorkers`** <span class="type-label">boolean</span>
-  - **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`WorkerPoolType`** <span class="type-label">enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanAddWorkers`** :span[boolean]{.type-label}
+  - **`Description`** :span[string]{.type-label}  
+    Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDefault`** :span[boolean]{.type-label}  
+    Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
+  - **`Slug`** :span[string]{.type-label}
+  - **`SortOrder`** :span[integer]{.type-label}  
+    Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`WorkerPoolType`** :span[enum]{.type-label}  
+    Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -93,28 +112,31 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 ```
 </div>
 
-## Creates a new Worker Pool
+## Create a new Worker Pool
 
-`POST` `/api/{spaceId}/workerpools`
+:span[POST]{.api-post} `/api/{spaceId}/workerpools`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateWorkerPoolCommand`
-
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-- **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-- **`Name`** <span class="type-label">string</span> *(required)* — Gets or sets the name of this pool. This should be short, preferably 5-20 characters. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`WorkerPoolType`** <span class="type-label">enum</span> *(required)* — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
-- **`WorkerType`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+- **`IsDefault`** :span[boolean]{.type-label}  
+  Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Gets or sets the name of this pool. This should be short, preferably 5-20 characters. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`WorkerPoolType`** :span[enum]{.type-label} *(required)*  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`WorkerType`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -136,20 +158,27 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 
 `201` — Created
 
-`WorkerPoolResource`.
-
-- **`CanAddWorkers`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`WorkerPoolType`** <span class="type-label">enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`CanAddWorkers`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}  
+  Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`WorkerPoolType`** :span[enum]{.type-label}  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
 <div data-example="Response">
 
@@ -177,36 +206,47 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 
 ## Get a list of Worker Pools
 
-`GET` `/api/{spaceId}/workerpools/all`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/all`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/all`, `/api/workerpools/all`.
 
 Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each Worker Pool.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`ids`** <span class="type-label">array of string</span> — List of Worker Pool IDs which if specified, filters the result to only include Worker Pools with matching IDs.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}  
+  List of Worker Pool IDs which if specified, filters the result to only include Worker Pools with matching IDs.
 
 **Response**
 
 `200` — The list of requested Worker Pools
 
-an array of `WorkerPoolResource`.
-
-- **`CanAddWorkers`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`WorkerPoolType`** <span class="type-label">enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`CanAddWorkers`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}  
+  Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`WorkerPoolType`** :span[enum]{.type-label}  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
 <div data-example="Response">
 
@@ -234,33 +274,34 @@ an array of `WorkerPoolResource`.
 ```
 </div>
 
-## Lists the available Worker Types for the Dynamic Worker Pool
+## List the available Worker Types for the Dynamic Worker Pool
 
-`GET` `/api/{spaceId}/workerpools/dynamicworkertypes`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/dynamicworkertypes`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/dynamicworkertypes`, `/api/workerpools/dynamicworkertypes`.
 
 Returns a list of the available Worker Types for the Dynamic Worker Pool
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Dynamic Worker Types
 
-`WorkerPoolDynamicWorkerTypesResource`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
-- **`WorkerTypes`** <span class="type-label">array of object</span>
-  - **`DeprecationDateUtc`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Description`** <span class="type-label">string</span>
-  - **`EndOfLifeDateUtc`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`StartDateUtc`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Type`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
+- **`WorkerTypes`** :span[array of object]{.type-label}
+  - **`DeprecationDateUtc`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Description`** :span[string]{.type-label}
+  - **`EndOfLifeDateUtc`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Id`** :span[string]{.type-label}
+  - **`StartDateUtc`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Type`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -292,15 +333,15 @@ Returns a list of the available Worker Types for the Dynamic Worker Pool
 
 ## PUT /api/{spaceId}/workerpools/sortorder
 
-`PUT` `/api/{spaceId}/workerpools/sortorder`
+:span[PUT]{.api-put} `/api/{spaceId}/workerpools/sortorder`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/sortorder`, `/api/workerpools/sortorder`.
 
 Takes an array of work pool IDs as the request body, uses the order of items in the array to sort the worker pools on the server. The ID of every worker pool must be specified.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
@@ -319,49 +360,49 @@ A `array of string` payload.
 
 `200` — Success
 
-## Lists all worker pools, including a summary of worker information
+## List all worker pools, including a summary of worker information
 
-`GET` `/api/{spaceId}/workerpools/summary`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/summary`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/summary`, `/api/workerpools/summary`.
 
 Lists all worker pools, including a summary of machine information.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`commStyles`** <span class="type-label">array of string</span>
-- **`healthStatuses`** <span class="type-label">array of string</span>
-- **`hideEmptyWorkerPools`** <span class="type-label">boolean</span>
-- **`ids`** <span class="type-label">array of string</span>
-- **`isDisabled`** <span class="type-label">boolean</span>
-- **`machinePartialName`** <span class="type-label">string</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`shellNames`** <span class="type-label">array of string</span>
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}
+- **`healthStatuses`** :span[array of string]{.type-label}
+- **`hideEmptyWorkerPools`** :span[boolean]{.type-label}
+- **`ids`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}
+- **`machinePartialName`** :span[string]{.type-label}
+- **`partialName`** :span[string]{.type-label}
+- **`shellNames`** :span[array of string]{.type-label}
 
 **Response**
 
 `200` — The requested Worker Pool Summary
 
-`WorkerPoolsSummaryResource`.
-
-- **`MachineEndpointSummaries`** <span class="type-label">object</span>
-- **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-- **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-- **`MachineIdsForTentacleUpgrade`** <span class="type-label">array of string</span>
-- **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-- **`TotalDisabledMachines`** <span class="type-label">integer</span>
-- **`TotalMachines`** <span class="type-label">integer</span>
-- **`WorkerPoolSummaries`** <span class="type-label">array of object</span>
-  - **`MachineEndpointSummaries`** <span class="type-label">object</span>
-  - **`MachineHealthStatusSummaries`** <span class="type-label">object</span>
-  - **`MachineIdsForCalamariUpgrade`** <span class="type-label">array of string</span>
-  - **`MachineIdsForTentacleUpgrade`** <span class="type-label">array of string</span>
-  - **`TentacleUpgradesRequired`** <span class="type-label">boolean</span>
-  - **`TotalDisabledMachines`** <span class="type-label">integer</span>
-  - **`TotalMachines`** <span class="type-label">integer</span>
-  - **`WorkerPool`** <span class="type-label">object</span>
+- **`MachineEndpointSummaries`** :span[object]{.type-label}
+- **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+- **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+- **`MachineIdsForTentacleUpgrade`** :span[array of string]{.type-label}
+- **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+- **`TotalDisabledMachines`** :span[integer]{.type-label}
+- **`TotalMachines`** :span[integer]{.type-label}
+- **`WorkerPoolSummaries`** :span[array of object]{.type-label}
+  - **`MachineEndpointSummaries`** :span[object]{.type-label}
+  - **`MachineHealthStatusSummaries`** :span[object]{.type-label}
+  - **`MachineIdsForCalamariUpgrade`** :span[array of string]{.type-label}
+  - **`MachineIdsForTentacleUpgrade`** :span[array of string]{.type-label}
+  - **`TentacleUpgradesRequired`** :span[boolean]{.type-label}
+  - **`TotalDisabledMachines`** :span[integer]{.type-label}
+  - **`TotalMachines`** :span[integer]{.type-label}
+  - **`WorkerPool`** :span[object]{.type-label}
 
 <div data-example="Response">
 
@@ -427,27 +468,26 @@ Lists all worker pools, including a summary of machine information.
 ```
 </div>
 
-## Gets the available Worker Pool types
+## Get the available Worker Pool types
 
-`GET` `/api/{spaceId}/workerpools/supportedtypes`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/supportedtypes`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/supportedtypes`, `/api/workerpools/supportedtypes`.
 
 Lists the available Worker Pool types.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The list of Supported Worker Pool Types
 
-`WorkerPoolSupportedTypesResource`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
-- **`SupportedPoolTypes`** <span class="type-label">array of enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
+- **`SupportedPoolTypes`** :span[array of enum]{.type-label}  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
 <div data-example="Response">
 
@@ -468,33 +508,40 @@ Lists the available Worker Pool types.
 
 ## Get a Worker Pool by ID
 
-`GET` `/api/{spaceId}/workerpools/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Worker Pool.
 
-`WorkerPoolResource`.
-
-- **`CanAddWorkers`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`WorkerPoolType`** <span class="type-label">enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`CanAddWorkers`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}  
+  Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`WorkerPoolType`** :span[enum]{.type-label}  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
 <div data-example="Response">
 
@@ -520,30 +567,37 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 ```
 </div>
 
-## Modifies an existing worker pool
+## Modify an existing worker pool
 
-`PUT` `/api/{spaceId}/workerpools/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/workerpools/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
 Updates an existing worker pool.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the worker pool.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the worker pool.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyWorkerPoolCommand`
-
-- **`Description`** <span class="type-label">string</span> — The description of the worker pool.
-- **`Id`** <span class="type-label">string</span> *(required)* — The ID of the worker pool.
-- **`IsDefault`** <span class="type-label">boolean</span> *(required)* — Whether the worker pool is the default or not.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the worker pool. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — The slug of the worker pool.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`WorkerType`** <span class="type-label">string</span> — The worker image.
+- **`Description`** :span[string]{.type-label}  
+  The description of the worker pool.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the worker pool.
+- **`IsDefault`** :span[boolean]{.type-label} *(required)*  
+  Whether the worker pool is the default or not.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the worker pool. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the worker pool.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`WorkerType`** :span[string]{.type-label}  
+  The worker image.
 
 <div data-example="Request">
 
@@ -564,20 +618,27 @@ Updates an existing worker pool.
 
 `200` — Confirms that a Worker Pool was modified, containing the updated Worker Pool
 
-`WorkerPoolResource`.
-
-- **`CanAddWorkers`** <span class="type-label">boolean</span>
-- **`Description`** <span class="type-label">string</span> — Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDefault`** <span class="type-label">boolean</span> — Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span> — Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
-- **`SpaceId`** <span class="type-label">string</span>
-- **`WorkerPoolType`** <span class="type-label">enum</span> — Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
+- **`CanAddWorkers`** :span[boolean]{.type-label}
+- **`Description`** :span[string]{.type-label}  
+  Gets or sets a short description of this pool that can be used to explain the purpose of the pool to other users. May describe the kinds of machines in the pool. This field may contain markdown.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDefault`** :span[boolean]{.type-label}  
+  Is this the default pool. The default pool is used for steps that don't specify a worker pool. The default pool, if empty, uses the builtin worker to run steps.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Gets or sets the name of this pool. This should be short, preferably 5-20 characters.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}  
+  Gets or sets a number indicating the priority of this pool in sort order. Pools with a lower sort order will appear in the UI before items with a higher sort order.
+- **`SpaceId`** :span[string]{.type-label}
+- **`WorkerPoolType`** :span[enum]{.type-label}  
+  Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
 <div data-example="Response">
 
@@ -603,16 +664,17 @@ Updates an existing worker pool.
 ```
 </div>
 
-## Deletes an existing Worker Pool
+## Delete an existing Worker Pool
 
-`DELETE` `/api/{spaceId}/workerpools/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/workerpools/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Worker Pool to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Worker Pool to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
@@ -620,66 +682,78 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 
 ## Get a list of WorkerResources for the given WorkerPoolResource
 
-`GET` `/api/{spaceId}/workerpools/{id}/workers`
+:span[GET]{.api-get} `/api/{spaceId}/workerpools/{id}/workers`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}/workers`, `/api/workerpools/{id}/workers`.
 
 Lists all of the machines that belong to the given worker pool.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the WorkerPool.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the WorkerPool.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`commStyles`** <span class="type-label">array of string</span>
-- **`deploymentTargetTypes`** <span class="type-label">array of string</span>
-- **`healthStatuses`** <span class="type-label">array of string</span>
-- **`isDisabled`** <span class="type-label">boolean</span>
-- **`operatingSystemNames`** <span class="type-label">array of string</span>
-- **`partialName`** <span class="type-label">string</span>
-- **`shellNames`** <span class="type-label">array of string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 20. Minimum `0`.
+**Query Parameters**
+
+- **`commStyles`** :span[array of string]{.type-label}
+- **`deploymentTargetTypes`** :span[array of string]{.type-label}
+- **`healthStatuses`** :span[array of string]{.type-label}
+- **`isDisabled`** :span[boolean]{.type-label}
+- **`operatingSystemNames`** :span[array of string]{.type-label}
+- **`partialName`** :span[string]{.type-label}
+- **`shellNames`** :span[array of string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 20. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Workers within a Worker Pool
 
-`WorkerResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Architecture`** <span class="type-label">string</span>
-  - **`Endpoint`** <span class="type-label">object</span>
-  - **`HasLatestCalamari`** <span class="type-label">boolean</span>
-  - **`HealthStatus`** <span class="type-label">enum</span> — Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsDisabled`** <span class="type-label">boolean</span>
-  - **`IsInProcess`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`MachinePolicyId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OperatingSystem`** <span class="type-label">string</span>
-  - **`OperatingSystemVersion`** <span class="type-label">string</span>
-  - **`ShellName`** <span class="type-label">string</span>
-  - **`ShellVersion`** <span class="type-label">string</span>
-  - **`SkipInitialHealthCheck`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`StatusSummary`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Uri`** <span class="type-label">string</span>
-  - **`WorkerPoolIds`** <span class="type-label">array of string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Architecture`** :span[string]{.type-label}
+  - **`Endpoint`** :span[object]{.type-label}
+  - **`HasLatestCalamari`** :span[boolean]{.type-label}
+  - **`HealthStatus`** :span[enum]{.type-label}  
+    Allowed values: `Healthy`, `Unavailable`, `Unknown`, `HasWarnings`, `Unhealthy`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsDisabled`** :span[boolean]{.type-label}
+  - **`IsInProcess`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`MachinePolicyId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OperatingSystem`** :span[string]{.type-label}
+  - **`OperatingSystemVersion`** :span[string]{.type-label}
+  - **`ShellName`** :span[string]{.type-label}
+  - **`ShellVersion`** :span[string]{.type-label}
+  - **`SkipInitialHealthCheck`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`StatusSummary`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Uri`** :span[string]{.type-label}
+  - **`WorkerPoolIds`** :span[array of string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

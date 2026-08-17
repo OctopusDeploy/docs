@@ -5,35 +5,37 @@ modDate: 2026-08-11
 title: Team Memberships
 ---
 
-## Gets a list of Team Memberships for a user
+## Get a list of Team Memberships for a user
 
-`GET` `/api/{spaceId}/teammembership`
+:span[GET]{.api-get} `/api/{spaceId}/teammembership`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teammembership`, `/api/spaces/{spaceIdentifier}/users/{userId}/teams`, `/api/teammembership`, `/api/users/{userId}/teams`, `/api/{spaceId}/users/{userId}/teams`.
 
 Lists all Teams a user is a member of, including any from external auth-provider security groups. Memberships are filtered by userId.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resources.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resources.
 
-- **`userId`** <span class="type-label">string</span> *(required)* — ID of the user.
+**Query Parameters**
+
+- **`userId`** :span[string]{.type-label} *(required)*  
+  ID of the user.
 
 **Response**
 
 `200` — The requested Team Membership
 
-an array of `TeamMembership`.
-
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span>
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`IsDirectlyAssigned`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span>
-- **`TeamName`** <span class="type-label">string</span>
-- **`UserId`** <span class="type-label">string</span>
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`IsDirectlyAssigned`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label}
+- **`TeamName`** :span[string]{.type-label}
+- **`UserId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -59,30 +61,31 @@ an array of `TeamMembership`.
 
 ## Preview Users that would belong to the specified Team
 
-`POST` `/api/{spaceId}/teammembership/previewteam`
+:span[POST]{.api-post} `/api/{spaceId}/teammembership/previewteam`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teammembership/previewteam`, `/api/teammembership/previewteam`.
 
 Lists all the Users that would belong to the specified Team, including information about whether they are directly assigned and/or indirectly assigned via external security groups.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`GetTeamMembershipPreviewRequest`
-
-- **`Description`** <span class="type-label">string</span>
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span> *(required)* — The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`MemberUserIds`** <span class="type-label">array of string</span> *(required)* — The users who belong to the team.
-- **`Name`** <span class="type-label">string</span> *(required)* — Gets or sets the name of this team. Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label} *(required)*  
+  The externally-managed security groups (e.g., Active Directory groups) who belong to the team.
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`MemberUserIds`** :span[array of string]{.type-label} *(required)*  
+  The users who belong to the team.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Gets or sets the name of this team. Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -111,17 +114,15 @@ Lists all the Users that would belong to the specified Team, including informati
 
 `200` — The requested Preview of Team Membership
 
-an array of `TeamMembershipPreview`.
-
-- **`ExternalSecurityGroups`** <span class="type-label">array of object</span>
-  - **`DisplayIdAndName`** <span class="type-label">boolean</span>
-  - **`DisplayName`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-- **`IsDirectlyAssigned`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TeamId`** <span class="type-label">string</span>
-- **`TeamName`** <span class="type-label">string</span>
-- **`UserId`** <span class="type-label">string</span>
+- **`ExternalSecurityGroups`** :span[array of object]{.type-label}
+  - **`DisplayIdAndName`** :span[boolean]{.type-label}
+  - **`DisplayName`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+- **`IsDirectlyAssigned`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TeamId`** :span[string]{.type-label}
+- **`TeamName`** :span[string]{.type-label}
+- **`UserId`** :span[string]{.type-label}
 
 <div data-example="Response">
 

@@ -5,59 +5,75 @@ modDate: 2026-08-11
 title: Build Information
 ---
 
-## Retrieves a list of build information records describing the vcs information for a given package
+## Retrieve a list of build information records describing the vcs information for a given package
 
-`GET` `/api/{spaceId}/build-information`
+:span[GET]{.api-get} `/api/{spaceId}/build-information`
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`filter`** <span class="type-label">string</span> — A version to look for.
-- **`includeWorkItems`** <span class="type-label">boolean</span>
-- **`latest`** <span class="type-label">boolean</span> — If true, returns only the latest build information.
-- **`packageId`** <span class="type-label">string</span> — An exact package to look for.
-- **`partialPackageId`** <span class="type-label">string</span> — A partial package ID used for a sub-string search.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`filter`** :span[string]{.type-label}  
+  A version to look for.
+- **`includeWorkItems`** :span[boolean]{.type-label}
+- **`latest`** :span[boolean]{.type-label}  
+  If true, returns only the latest build information.
+- **`packageId`** :span[string]{.type-label}  
+  An exact package to look for.
+- **`partialPackageId`** :span[string]{.type-label}  
+  A partial package ID used for a sub-string search.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Build Information
 
-`OctopusPackageVersionBuildInformationMappedResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Branch`** <span class="type-label">string</span>
-  - **`BuildEnvironment`** <span class="type-label">string</span>
-  - **`BuildNumber`** <span class="type-label">string</span>
-  - **`BuildUrl`** <span class="type-label">string</span>
-  - **`Commits`** <span class="type-label">array of object</span>
-  - **`Created`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IncompleteDataWarning`** <span class="type-label">string</span>
-  - **`IssueTrackerName`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`PackageId`** <span class="type-label">string</span>
-  - **`VcsCommitNumber`** <span class="type-label">string</span>
-  - **`VcsCommitUrl`** <span class="type-label">string</span>
-  - **`VcsRoot`** <span class="type-label">string</span>
-  - **`VcsType`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">string</span>
-  - **`WorkItems`** <span class="type-label">array of object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Branch`** :span[string]{.type-label}
+  - **`BuildEnvironment`** :span[string]{.type-label}
+  - **`BuildNumber`** :span[string]{.type-label}
+  - **`BuildUrl`** :span[string]{.type-label}
+  - **`Commits`** :span[array of object]{.type-label}
+  - **`Created`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IncompleteDataWarning`** :span[string]{.type-label}
+  - **`IssueTrackerName`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`PackageId`** :span[string]{.type-label}
+  - **`VcsCommitNumber`** :span[string]{.type-label}
+  - **`VcsCommitUrl`** :span[string]{.type-label}
+  - **`VcsRoot`** :span[string]{.type-label}
+  - **`VcsType`** :span[string]{.type-label}
+  - **`Version`** :span[string]{.type-label}
+  - **`WorkItems`** :span[array of object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -111,34 +127,35 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 ```
 </div>
 
-## Creates or updates a specific build information record describing the vcs information for a given package
+## Create or update a specific build information record describing the vcs information for a given package
 
-`POST` `/api/{spaceId}/build-information`
+:span[POST]{.api-post} `/api/{spaceId}/build-information`
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateBuildInformationCommand`
-
-- **`OctopusBuildInformation`** <span class="type-label">object</span> *(required)*
-  - **`Branch`** <span class="type-label">string</span>
-  - **`BuildEnvironment`** <span class="type-label">string</span>
-  - **`BuildNumber`** <span class="type-label">string</span>
-  - **`BuildUrl`** <span class="type-label">string</span>
-  - **`Commits`** <span class="type-label">array of object</span>
-  - **`VcsCommitNumber`** <span class="type-label">string</span>
-  - **`VcsRoot`** <span class="type-label">string</span>
-  - **`VcsType`** <span class="type-label">string</span>
-- **`OverwriteMode`** <span class="type-label">enum</span> — Allowed values: `FailIfExists`, `OverwriteExisting`, `IgnoreIfExists`.
-- **`PackageId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Replace`** <span class="type-label">boolean</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`Version`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`OctopusBuildInformation`** :span[object]{.type-label} *(required)*
+  - **`Branch`** :span[string]{.type-label}
+  - **`BuildEnvironment`** :span[string]{.type-label}
+  - **`BuildNumber`** :span[string]{.type-label}
+  - **`BuildUrl`** :span[string]{.type-label}
+  - **`Commits`** :span[array of object]{.type-label}
+  - **`VcsCommitNumber`** :span[string]{.type-label}
+  - **`VcsRoot`** :span[string]{.type-label}
+  - **`VcsType`** :span[string]{.type-label}
+- **`OverwriteMode`** :span[enum]{.type-label}  
+  Allowed values: `FailIfExists`, `OverwriteExisting`, `IgnoreIfExists`.
+- **`PackageId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Replace`** :span[boolean]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`Version`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -172,34 +189,37 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 
 `200` — Build information updated.
 
-`OctopusPackageVersionBuildInformationMappedResource`.
-
-- **`Branch`** <span class="type-label">string</span>
-- **`BuildEnvironment`** <span class="type-label">string</span>
-- **`BuildNumber`** <span class="type-label">string</span>
-- **`BuildUrl`** <span class="type-label">string</span>
-- **`Commits`** <span class="type-label">array of object</span>
-  - **`Comment`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LinkUrl`** <span class="type-label">string</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncompleteDataWarning`** <span class="type-label">string</span>
-- **`IssueTrackerName`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`PackageId`** <span class="type-label">string</span>
-- **`VcsCommitNumber`** <span class="type-label">string</span>
-- **`VcsCommitUrl`** <span class="type-label">string</span>
-- **`VcsRoot`** <span class="type-label">string</span>
-- **`VcsType`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">string</span>
-- **`WorkItems`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LinkUrl`** <span class="type-label">string</span>
-  - **`Source`** <span class="type-label">string</span>
+- **`Branch`** :span[string]{.type-label}
+- **`BuildEnvironment`** :span[string]{.type-label}
+- **`BuildNumber`** :span[string]{.type-label}
+- **`BuildUrl`** :span[string]{.type-label}
+- **`Commits`** :span[array of object]{.type-label}
+  - **`Comment`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LinkUrl`** :span[string]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncompleteDataWarning`** :span[string]{.type-label}
+- **`IssueTrackerName`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`PackageId`** :span[string]{.type-label}
+- **`VcsCommitNumber`** :span[string]{.type-label}
+- **`VcsCommitUrl`** :span[string]{.type-label}
+- **`VcsRoot`** :span[string]{.type-label}
+- **`VcsType`** :span[string]{.type-label}
+- **`Version`** :span[string]{.type-label}
+- **`WorkItems`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LinkUrl`** :span[string]{.type-label}
+  - **`Source`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -245,22 +265,23 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 ```
 </div>
 
-## Bulk deletes specific Build Information records
+## Bulk delete specific Build Information records
 
-`DELETE` `/api/{spaceId}/build-information/bulk`
+:span[DELETE]{.api-delete} `/api/{spaceId}/build-information/bulk`
 
 Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/build-information/bulk`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`BulkDeleteBuildInformationCommand`
-
-- **`Ids`** <span class="type-label">array of string</span> *(required)* — IDs of the multiple Build Information to delete.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`Ids`** :span[array of string]{.type-label} *(required)*  
+  IDs of the multiple Build Information to delete.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -278,49 +299,54 @@ Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/
 
 `200` — Success
 
-## Retrieves a specific build information record describing the vcs information for a given package
+## Retrieve a specific build information record describing the vcs information for a given package
 
-`GET` `/api/{spaceId}/build-information/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/build-information/{id}`
 
 Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/build-information/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The build information id to retrieve.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The build information id to retrieve.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Build Information
 
-`OctopusPackageVersionBuildInformationMappedResource`.
-
-- **`Branch`** <span class="type-label">string</span>
-- **`BuildEnvironment`** <span class="type-label">string</span>
-- **`BuildNumber`** <span class="type-label">string</span>
-- **`BuildUrl`** <span class="type-label">string</span>
-- **`Commits`** <span class="type-label">array of object</span>
-  - **`Comment`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LinkUrl`** <span class="type-label">string</span>
-- **`Created`** <span class="type-label">string</span> — Format `date-time`.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncompleteDataWarning`** <span class="type-label">string</span>
-- **`IssueTrackerName`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`PackageId`** <span class="type-label">string</span>
-- **`VcsCommitNumber`** <span class="type-label">string</span>
-- **`VcsCommitUrl`** <span class="type-label">string</span>
-- **`VcsRoot`** <span class="type-label">string</span>
-- **`VcsType`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">string</span>
-- **`WorkItems`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`LinkUrl`** <span class="type-label">string</span>
-  - **`Source`** <span class="type-label">string</span>
+- **`Branch`** :span[string]{.type-label}
+- **`BuildEnvironment`** :span[string]{.type-label}
+- **`BuildNumber`** :span[string]{.type-label}
+- **`BuildUrl`** :span[string]{.type-label}
+- **`Commits`** :span[array of object]{.type-label}
+  - **`Comment`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LinkUrl`** :span[string]{.type-label}
+- **`Created`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncompleteDataWarning`** :span[string]{.type-label}
+- **`IssueTrackerName`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`PackageId`** :span[string]{.type-label}
+- **`VcsCommitNumber`** :span[string]{.type-label}
+- **`VcsCommitUrl`** :span[string]{.type-label}
+- **`VcsRoot`** :span[string]{.type-label}
+- **`VcsType`** :span[string]{.type-label}
+- **`Version`** :span[string]{.type-label}
+- **`WorkItems`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`LinkUrl`** :span[string]{.type-label}
+  - **`Source`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -366,16 +392,18 @@ Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/
 ```
 </div>
 
-## Deletes a specific Build Information record
+## Delete a specific Build Information record
 
-`DELETE` `/api/{spaceId}/build-information/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/build-information/{id}`
 
 Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/build-information/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Build Information to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Build Information to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 

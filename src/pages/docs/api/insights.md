@@ -7,53 +7,66 @@ title: Insights
 
 ## Get a list of Insights Reports
 
-`GET` `/api/{spaceId}/insights/reports`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports`.
 
 Returns a paginated list of the Insights Reports in the supplied Octopus Deploy Space.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`InsightsReportResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`AllTenants`** <span class="type-label">boolean</span>
-  - **`ChannelIds`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`IconColor`** <span class="type-label">string</span>
-  - **`IconId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TimeZone`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`AllTenants`** :span[boolean]{.type-label}
+  - **`ChannelIds`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`IconColor`** :span[string]{.type-label}
+  - **`IconId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TimeZone`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -116,34 +129,45 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
 
 ## Create an Insights Report
 
-`POST` `/api/{spaceId}/insights/reports`
+:span[POST]{.api-post} `/api/{spaceId}/insights/reports`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports`.
 
 Creates a new Insights Report.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateInsightsReportCommand`
-
-- **`AllTenants`** <span class="type-label">boolean</span> — If true, all tenants in the space will be included in the report.
-- **`ChannelIds`** <span class="type-label">array of string</span> *(required)* — The channels for the report.
-- **`Description`** <span class="type-label">string</span> — The description for the report.
-- **`EnvironmentGroups`** <span class="type-label">array of object</span> *(required)* — The environment groups for the report.
-  - **`Environments`** <span class="type-label">array of string</span> *(required)*
-  - **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the report. Minimum length 1. Maximum length 200.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span> *(required)* — The project groups for the report.
-- **`ProjectIds`** <span class="type-label">array of string</span> *(required)* — The projects for the report.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantIds`** <span class="type-label">array of string</span> *(required)* — The tenants for the report.
-- **`TenantMode`** <span class="type-label">enum</span> — The kind of deployments that will be included in this report. Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span> *(required)* — The tenant tags the report.
-- **`TimeZone`** <span class="type-label">string</span> *(required)* — The timezone of the report.
+- **`AllTenants`** :span[boolean]{.type-label}  
+  If true, all tenants in the space will be included in the report.
+- **`ChannelIds`** :span[array of string]{.type-label} *(required)*  
+  The channels for the report.
+- **`Description`** :span[string]{.type-label}  
+  The description for the report.
+- **`EnvironmentGroups`** :span[array of object]{.type-label} *(required)*  
+  The environment groups for the report.
+  - **`Environments`** :span[array of string]{.type-label} *(required)*
+  - **`Name`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the report. Minimum length 1. Maximum length 200.
+- **`ProjectGroupIds`** :span[array of string]{.type-label} *(required)*  
+  The project groups for the report.
+- **`ProjectIds`** :span[array of string]{.type-label} *(required)*  
+  The projects for the report.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantIds`** :span[array of string]{.type-label} *(required)*  
+  The tenants for the report.
+- **`TenantMode`** :span[enum]{.type-label}  
+  The kind of deployments that will be included in this report.  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label} *(required)*  
+  The tenant tags the report.
+- **`TimeZone`** :span[string]{.type-label} *(required)*  
+  The timezone of the report.
 
 <div data-example="Request">
 
@@ -186,28 +210,33 @@ Creates a new Insights Report.
 
 `200` — Success
 
-`InsightsReportResource`.
-
-- **`AllTenants`** <span class="type-label">boolean</span>
-- **`ChannelIds`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`IconColor`** <span class="type-label">string</span>
-- **`IconId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TimeZone`** <span class="type-label">string</span>
+- **`AllTenants`** :span[boolean]{.type-label}
+- **`ChannelIds`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`IconColor`** :span[string]{.type-label}
+- **`IconId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -258,34 +287,45 @@ Creates a new Insights Report.
 
 ## Create an Insights Report
 
-`POST` `/api/{spaceId}/insights/reports/v1`
+:span[POST]{.api-post} `/api/{spaceId}/insights/reports/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/v1`.
 
 Creates a new Insights Report.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateInsightsReportCommand`
-
-- **`AllTenants`** <span class="type-label">boolean</span> — If true, all tenants in the space will be included in the report.
-- **`ChannelIds`** <span class="type-label">array of string</span> *(required)* — The channels for the report.
-- **`Description`** <span class="type-label">string</span> — The description for the report.
-- **`EnvironmentGroups`** <span class="type-label">array of object</span> *(required)* — The environment groups for the report.
-  - **`Environments`** <span class="type-label">array of string</span> *(required)*
-  - **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the report. Minimum length 1. Maximum length 200.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span> *(required)* — The project groups for the report.
-- **`ProjectIds`** <span class="type-label">array of string</span> *(required)* — The projects for the report.
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`TenantIds`** <span class="type-label">array of string</span> *(required)* — The tenants for the report.
-- **`TenantMode`** <span class="type-label">enum</span> — The kind of deployments that will be included in this report. Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span> *(required)* — The tenant tags the report.
-- **`TimeZone`** <span class="type-label">string</span> *(required)* — The timezone of the report.
+- **`AllTenants`** :span[boolean]{.type-label}  
+  If true, all tenants in the space will be included in the report.
+- **`ChannelIds`** :span[array of string]{.type-label} *(required)*  
+  The channels for the report.
+- **`Description`** :span[string]{.type-label}  
+  The description for the report.
+- **`EnvironmentGroups`** :span[array of object]{.type-label} *(required)*  
+  The environment groups for the report.
+  - **`Environments`** :span[array of string]{.type-label} *(required)*
+  - **`Name`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the report. Minimum length 1. Maximum length 200.
+- **`ProjectGroupIds`** :span[array of string]{.type-label} *(required)*  
+  The project groups for the report.
+- **`ProjectIds`** :span[array of string]{.type-label} *(required)*  
+  The projects for the report.
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`TenantIds`** :span[array of string]{.type-label} *(required)*  
+  The tenants for the report.
+- **`TenantMode`** :span[enum]{.type-label}  
+  The kind of deployments that will be included in this report.  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label} *(required)*  
+  The tenant tags the report.
+- **`TimeZone`** :span[string]{.type-label} *(required)*  
+  The timezone of the report.
 
 <div data-example="Request">
 
@@ -328,27 +368,31 @@ Creates a new Insights Report.
 
 `200` — Success
 
-`CreateInsightsReportResponse`.
-
-- **`Report`** <span class="type-label">object</span>
-  - **`AllTenants`** <span class="type-label">boolean</span>
-  - **`ChannelIds`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`IconColor`** <span class="type-label">string</span>
-  - **`IconId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TimeZone`** <span class="type-label">string</span>
+- **`Report`** :span[object]{.type-label}
+  - **`AllTenants`** :span[boolean]{.type-label}
+  - **`ChannelIds`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`IconColor`** :span[string]{.type-label}
+  - **`IconId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -401,41 +445,47 @@ Creates a new Insights Report.
 
 ## GET /api/{spaceId}/insights/reports/{id}
 
-`GET` `/api/{spaceId}/insights/reports/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-`InsightsReportResource`.
-
-- **`AllTenants`** <span class="type-label">boolean</span>
-- **`ChannelIds`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`IconColor`** <span class="type-label">string</span>
-- **`IconId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TimeZone`** <span class="type-label">string</span>
+- **`AllTenants`** :span[boolean]{.type-label}
+- **`ChannelIds`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`IconColor`** :span[string]{.type-label}
+- **`IconId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -486,36 +536,51 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
 ## Update an existing Insights Report
 
-`PUT` `/api/{spaceId}/insights/reports/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/insights/reports/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
 Updates an existing Insights Report
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The Id of the Insights Report.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The Id of the Insights Report.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyInsightsReportCommand`
-
-- **`AllTenants`** <span class="type-label">boolean</span> *(required)* — If true, all tenants in the space will be included in the report.
-- **`ChannelIds`** <span class="type-label">array of string</span> *(required)* — The channels for the report.
-- **`Description`** <span class="type-label">string</span> — The description for the report.
-- **`EnvironmentGroups`** <span class="type-label">array of object</span> *(required)* — The environment groups for the report.
-  - **`Environments`** <span class="type-label">array of string</span> *(required)*
-  - **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)* — The Id of the Insights Report.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the report. Minimum length 1. Maximum length 200.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span> *(required)* — The project groups for the report.
-- **`ProjectIds`** <span class="type-label">array of string</span> *(required)* — The projects for the report.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`TenantIds`** <span class="type-label">array of string</span> *(required)* — The tenants for the report.
-- **`TenantMode`** <span class="type-label">enum</span> *(required)* — The kind of deployments that will be included in this report. Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span> *(required)* — The tenant tags for the report.
-- **`TimeZone`** <span class="type-label">string</span> *(required)* — The timezone of the report.
+- **`AllTenants`** :span[boolean]{.type-label} *(required)*  
+  If true, all tenants in the space will be included in the report.
+- **`ChannelIds`** :span[array of string]{.type-label} *(required)*  
+  The channels for the report.
+- **`Description`** :span[string]{.type-label}  
+  The description for the report.
+- **`EnvironmentGroups`** :span[array of object]{.type-label} *(required)*  
+  The environment groups for the report.
+  - **`Environments`** :span[array of string]{.type-label} *(required)*
+  - **`Name`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The Id of the Insights Report.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the report. Minimum length 1. Maximum length 200.
+- **`ProjectGroupIds`** :span[array of string]{.type-label} *(required)*  
+  The project groups for the report.
+- **`ProjectIds`** :span[array of string]{.type-label} *(required)*  
+  The projects for the report.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`TenantIds`** :span[array of string]{.type-label} *(required)*  
+  The tenants for the report.
+- **`TenantMode`** :span[enum]{.type-label} *(required)*  
+  The kind of deployments that will be included in this report.  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label} *(required)*  
+  The tenant tags for the report.
+- **`TimeZone`** :span[string]{.type-label} *(required)*  
+  The timezone of the report.
 
 <div data-example="Request">
 
@@ -559,28 +624,33 @@ Updates an existing Insights Report
 
 `200` — Success
 
-`InsightsReportResource`.
-
-- **`AllTenants`** <span class="type-label">boolean</span>
-- **`ChannelIds`** <span class="type-label">array of string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`Environments`** <span class="type-label">array of string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`IconColor`** <span class="type-label">string</span>
-- **`IconId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span>
-- **`ProjectIds`** <span class="type-label">array of string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TenantIds`** <span class="type-label">array of string</span>
-- **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span>
-- **`TimeZone`** <span class="type-label">string</span>
+- **`AllTenants`** :span[boolean]{.type-label}
+- **`ChannelIds`** :span[array of string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`Environments`** :span[array of string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`IconColor`** :span[string]{.type-label}
+- **`IconId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ProjectGroupIds`** :span[array of string]{.type-label}
+- **`ProjectIds`** :span[array of string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TenantIds`** :span[array of string]{.type-label}
+- **`TenantMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label}
+- **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -631,16 +701,18 @@ Updates an existing Insights Report
 
 ## Delete an Insights Report by ID
 
-`DELETE` `/api/{spaceId}/insights/reports/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/insights/reports/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
 Deletes an existing Insights Report.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Insights Report to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Insights Report to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
@@ -648,40 +720,45 @@ Deletes an existing Insights Report.
 
 ## GET /api/{spaceId}/insights/reports/{id}/v1
 
-`GET` `/api/{spaceId}/insights/reports/{id}/v1`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
 
-`GetInsightsReportByIdResponse`.
-
-- **`Report`** <span class="type-label">object</span>
-  - **`AllTenants`** <span class="type-label">boolean</span>
-  - **`ChannelIds`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`IconColor`** <span class="type-label">string</span>
-  - **`IconId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TimeZone`** <span class="type-label">string</span>
+- **`Report`** :span[object]{.type-label}
+  - **`AllTenants`** :span[boolean]{.type-label}
+  - **`ChannelIds`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`IconColor`** :span[string]{.type-label}
+  - **`IconId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -734,36 +811,51 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
 ## Update an existing Insights Report
 
-`PUT` `/api/{spaceId}/insights/reports/{id}/v1`
+:span[PUT]{.api-put} `/api/{spaceId}/insights/reports/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
 Updates an existing Insights Report
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The Id of the Insights Report.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The Id of the Insights Report.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyInsightsReportCommand`
-
-- **`AllTenants`** <span class="type-label">boolean</span> *(required)* — If true, all tenants in the space will be included in the report.
-- **`ChannelIds`** <span class="type-label">array of string</span> *(required)* — The channels for the report.
-- **`Description`** <span class="type-label">string</span> — The description for the report.
-- **`EnvironmentGroups`** <span class="type-label">array of object</span> *(required)* — The environment groups for the report.
-  - **`Environments`** <span class="type-label">array of string</span> *(required)*
-  - **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)* — The Id of the Insights Report.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the report. Minimum length 1. Maximum length 200.
-- **`ProjectGroupIds`** <span class="type-label">array of string</span> *(required)* — The project groups for the report.
-- **`ProjectIds`** <span class="type-label">array of string</span> *(required)* — The projects for the report.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
-- **`TenantIds`** <span class="type-label">array of string</span> *(required)* — The tenants for the report.
-- **`TenantMode`** <span class="type-label">enum</span> *(required)* — The kind of deployments that will be included in this report. Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-- **`TenantTags`** <span class="type-label">array of string</span> *(required)* — The tenant tags for the report.
-- **`TimeZone`** <span class="type-label">string</span> *(required)* — The timezone of the report.
+- **`AllTenants`** :span[boolean]{.type-label} *(required)*  
+  If true, all tenants in the space will be included in the report.
+- **`ChannelIds`** :span[array of string]{.type-label} *(required)*  
+  The channels for the report.
+- **`Description`** :span[string]{.type-label}  
+  The description for the report.
+- **`EnvironmentGroups`** :span[array of object]{.type-label} *(required)*  
+  The environment groups for the report.
+  - **`Environments`** :span[array of string]{.type-label} *(required)*
+  - **`Name`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The Id of the Insights Report.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the report. Minimum length 1. Maximum length 200.
+- **`ProjectGroupIds`** :span[array of string]{.type-label} *(required)*  
+  The project groups for the report.
+- **`ProjectIds`** :span[array of string]{.type-label} *(required)*  
+  The projects for the report.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`TenantIds`** :span[array of string]{.type-label} *(required)*  
+  The tenants for the report.
+- **`TenantMode`** :span[enum]{.type-label} *(required)*  
+  The kind of deployments that will be included in this report.  
+  Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+- **`TenantTags`** :span[array of string]{.type-label} *(required)*  
+  The tenant tags for the report.
+- **`TimeZone`** :span[string]{.type-label} *(required)*  
+  The timezone of the report.
 
 <div data-example="Request">
 
@@ -807,27 +899,31 @@ Updates an existing Insights Report
 
 `200` — Success
 
-`ModifyInsightsReportResponse`.
-
-- **`Report`** <span class="type-label">object</span>
-  - **`AllTenants`** <span class="type-label">boolean</span>
-  - **`ChannelIds`** <span class="type-label">array of string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`EnvironmentGroups`** <span class="type-label">array of object</span>
-  - **`IconColor`** <span class="type-label">string</span>
-  - **`IconId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ProjectGroupIds`** <span class="type-label">array of string</span>
-  - **`ProjectIds`** <span class="type-label">array of string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TenantIds`** <span class="type-label">array of string</span>
-  - **`TenantMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
-  - **`TenantTags`** <span class="type-label">array of string</span>
-  - **`TimeZone`** <span class="type-label">string</span>
+- **`Report`** :span[object]{.type-label}
+  - **`AllTenants`** :span[boolean]{.type-label}
+  - **`ChannelIds`** :span[array of string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`EnvironmentGroups`** :span[array of object]{.type-label}
+  - **`IconColor`** :span[string]{.type-label}
+  - **`IconId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ProjectGroupIds`** :span[array of string]{.type-label}
+  - **`ProjectIds`** :span[array of string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TenantIds`** :span[array of string]{.type-label}
+  - **`TenantMode`** :span[enum]{.type-label}  
+    Allowed values: `Untenanted`, `TenantedAndUntenanted`, `Tenanted`.
+  - **`TenantTags`** :span[array of string]{.type-label}
+  - **`TimeZone`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -880,22 +976,22 @@ Updates an existing Insights Report
 
 ## Delete an Insights Report by ID
 
-`DELETE` `/api/{spaceId}/insights/reports/{id}/v1`
+:span[DELETE]{.api-delete} `/api/{spaceId}/insights/reports/{id}/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
 Deletes an existing Insights Report.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Insights Report to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Insights Report to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
-
-`DeleteInsightsReportResponse`.
 
 <div data-example="Response">
 
@@ -904,34 +1000,35 @@ Deletes an existing Insights Report.
 ```
 </div>
 
-## Requests Insights Deployments for a Report
+## Request Insights Deployments for a Report
 
-`GET` `/api/{spaceId}/insights/reports/{reportId}/deployments`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/deployments`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/deployments`, `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/deployments/csv`, `/api/{spaceId}/insights/reports/{reportId}/deployments/csv`.
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — ID of the Insights Report.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  ID of the Insights Report.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — The requested Insights Deployments
 
-`GetInsightsDeploymentsForReportResponse`.
-
-- **`ReportName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Streams`** <span class="type-label">array of object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ChannelName`** <span class="type-label">string</span>
-  - **`Deployments`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`EnvironmentName`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-  - **`TenantName`** <span class="type-label">string</span>
+- **`ReportName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Streams`** :span[array of object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ChannelName`** :span[string]{.type-label}
+  - **`Deployments`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`EnvironmentName`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+  - **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -959,14 +1056,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
 
 ## GET /api/{spaceId}/insights/reports/{reportId}/logo
 
-`GET` `/api/{spaceId}/insights/reports/{reportId}/logo`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/logo`
 
 Also reachable at `/api/insights/reports/{reportId}/logo`, `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
@@ -979,40 +1077,45 @@ Also reachable at `/api/insights/reports/{reportId}/logo`, `/api/spaces/{spaceId
 ```
 </div>
 
-## Updates the logo associated with the report
+## Update the logo associated with the report
 
-`POST` `/api/{spaceId}/insights/reports/{reportId}/logo`
+:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo`.
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — The ID of the Insights report.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  The ID of the Insights report.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Success
 
-## Modifies the logo of an insights report to be a specified icon
+## Modify the logo of an insights report to be a specified icon
 
-`POST` `/api/{spaceId}/insights/reports/{reportId}/logo/icon`
+:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo/icon`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo/icon`.
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — The ID of the insights report to change logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  The ID of the insights report to change logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyInsightsReportIconCommand`
-
-- **`IconColor`** <span class="type-label">string</span> *(required)* — Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
-- **`IconId`** <span class="type-label">string</span> *(required)* — ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
-- **`ReportId`** <span class="type-label">string</span> *(required)* — The ID of the insights report to change logo for.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`IconColor`** :span[string]{.type-label} *(required)*  
+  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+- **`IconId`** :span[string]{.type-label} *(required)*  
+  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+- **`ReportId`** :span[string]{.type-label} *(required)*  
+  The ID of the insights report to change logo for.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -1029,8 +1132,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 **Response**
 
 `200` — Confirmation that the Insights Report Icon has been modified
-
-`ModifyInsightsReportIconResponse`.
 
 <div data-example="Response">
 
@@ -1039,25 +1140,29 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 ```
 </div>
 
-## Modifies the logo of an insights report to be a specified icon
+## Modify the logo of an insights report to be a specified icon
 
-`POST` `/api/{spaceId}/insights/reports/{reportId}/logo/icon/v1`
+:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo/icon/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo/icon/v1`.
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — The ID of the insights report to change logo for.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  The ID of the insights report to change logo for.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Request Body**
 
-`ModifyInsightsReportIconCommand`
-
-- **`IconColor`** <span class="type-label">string</span> *(required)* — Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
-- **`IconId`** <span class="type-label">string</span> *(required)* — ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
-- **`ReportId`** <span class="type-label">string</span> *(required)* — The ID of the insights report to change logo for.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`IconColor`** :span[string]{.type-label} *(required)*  
+  Color of the icon in hex format. Example: '#0D80D8'. Minimum length 1. Must match `^#[0-9a-fA-F]{6}$`.
+- **`IconId`** :span[string]{.type-label} *(required)*  
+  ID of the icon. Example: 'octopus-deploy'. Minimum length 1.
+- **`ReportId`** :span[string]{.type-label} *(required)*  
+  The ID of the insights report to change logo for.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 <div data-example="Request">
 
@@ -1074,8 +1179,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 **Response**
 
 `200` — Confirmation that the Insights Report Icon has been modified
-
-`ModifyInsightsReportIconResponse`.
 
 <div data-example="Response">
 
@@ -1086,31 +1189,41 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 
 ## Get Insights metrics series for the Insights Report
 
-`GET` `/api/{spaceId}/insights/reports/{reportId}/metrics`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/metrics`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/metrics`.
 
 Returns the aggregated insights metrics for this insights report for the chosen granularity and time period grouped by the chosen split
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — ID of the Insights Report.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  ID of the Insights Report.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`granularity`** <span class="type-label">enum</span> — The data grouping granularity, defaults to weekly if not supplied. Allowed values: `Monthly`, `Weekly`, `Daily`.
-- **`split`** <span class="type-label">enum</span> *(required)* — How to split the metrics. Allowed values: `None`, `Project`, `ProjectGroup`, `Environment`, `EnvironmentGroup`, `Tenant`, `TenantTagSet`.
-- **`tenantTagSetId`** <span class="type-label">string</span> — If TenantTagSet is chosen for Split, this is required, otherwise it is ignored. It is the tag set to split on.
-- **`timeRange`** <span class="type-label">enum</span> — The time period to get data for, defaults to last quarter if not supplied. Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
+**Query Parameters**
+
+- **`granularity`** :span[enum]{.type-label}  
+  The data grouping granularity, defaults to weekly if not supplied.  
+  Allowed values: `Monthly`, `Weekly`, `Daily`.
+- **`split`** :span[enum]{.type-label} *(required)*  
+  How to split the metrics.  
+  Allowed values: `None`, `Project`, `ProjectGroup`, `Environment`, `EnvironmentGroup`, `Tenant`, `TenantTagSet`.
+- **`tenantTagSetId`** :span[string]{.type-label}  
+  If TenantTagSet is chosen for Split, this is required, otherwise it is ignored. It is the tag set to split on.
+- **`timeRange`** :span[enum]{.type-label}  
+  The time period to get data for, defaults to last quarter if not supplied.  
+  Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
 
 **Response**
 
 `200` — Success
 
-`GetInsightsMetricsSeriesForReportResponse`.
-
-- **`Series`** <span class="type-label">array of object</span>
-  - **`Intervals`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`Series`** :span[array of object]{.type-label}
+  - **`Intervals`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -1130,31 +1243,41 @@ Returns the aggregated insights metrics for this insights report for the chosen 
 
 ## Get Insights metrics series for the Insights Report
 
-`GET` `/api/{spaceId}/insights/reports/{reportId}/metrics/v1`
+:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/metrics/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/metrics/v1`.
 
 Returns the aggregated insights metrics for this insights report for the chosen granularity and time period grouped by the chosen split
 
-**Parameters**
+**Path Parameters**
 
-- **`reportId`** <span class="type-label">string</span> *(required)* — ID of the Insights Report.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`reportId`** :span[string]{.type-label} *(required)*  
+  ID of the Insights Report.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`granularity`** <span class="type-label">enum</span> — The data grouping granularity, defaults to weekly if not supplied. Allowed values: `Monthly`, `Weekly`, `Daily`.
-- **`split`** <span class="type-label">enum</span> *(required)* — How to split the metrics. Allowed values: `None`, `Project`, `ProjectGroup`, `Environment`, `EnvironmentGroup`, `Tenant`, `TenantTagSet`.
-- **`tenantTagSetId`** <span class="type-label">string</span> — If TenantTagSet is chosen for Split, this is required, otherwise it is ignored. It is the tag set to split on.
-- **`timeRange`** <span class="type-label">enum</span> — The time period to get data for, defaults to last quarter if not supplied. Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
+**Query Parameters**
+
+- **`granularity`** :span[enum]{.type-label}  
+  The data grouping granularity, defaults to weekly if not supplied.  
+  Allowed values: `Monthly`, `Weekly`, `Daily`.
+- **`split`** :span[enum]{.type-label} *(required)*  
+  How to split the metrics.  
+  Allowed values: `None`, `Project`, `ProjectGroup`, `Environment`, `EnvironmentGroup`, `Tenant`, `TenantTagSet`.
+- **`tenantTagSetId`** :span[string]{.type-label}  
+  If TenantTagSet is chosen for Split, this is required, otherwise it is ignored. It is the tag set to split on.
+- **`timeRange`** :span[enum]{.type-label}  
+  The time period to get data for, defaults to last quarter if not supplied.  
+  Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
 
 **Response**
 
 `200` — Success
 
-`GetInsightsMetricsSeriesForReportResponse`.
-
-- **`Series`** <span class="type-label">array of object</span>
-  - **`Intervals`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`Series`** :span[array of object]{.type-label}
+  - **`Intervals`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -1174,37 +1297,45 @@ Returns the aggregated insights metrics for this insights report for the chosen 
 
 ## Get Insights Deployments for a Project
 
-`GET` `/api/{spaceId}/projects/{projectId}/insights/deployments`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/deployments`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/deployments`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/deployments/csv`, `/api/{spaceId}/projects/{projectId}/insights/deployments/csv`.
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`channelId`** <span class="type-label">string</span> *(required)* — ID of the Channel.
-- **`environmentId`** <span class="type-label">string</span> *(required)* — ID of the Environment.
-- **`tenantFilter`** <span class="type-label">enum</span> — How to filter for tenants, defaults to untenanted and all tenants if not supplied. Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
-- **`tenantId`** <span class="type-label">string</span> — ID of the Tenant.
+**Query Parameters**
+
+- **`channelId`** :span[string]{.type-label} *(required)*  
+  ID of the Channel.
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  ID of the Environment.
+- **`tenantFilter`** :span[enum]{.type-label}  
+  How to filter for tenants, defaults to untenanted and all tenants if not supplied.  
+  Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
+- **`tenantId`** :span[string]{.type-label}  
+  ID of the Tenant.
 
 **Response**
 
 `200` — The requested Insights Deployments
 
-`GetInsightsDeploymentsForProjectResponse`.
-
-- **`ProjectName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Streams`** <span class="type-label">array of object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ChannelName`** <span class="type-label">string</span>
-  - **`Deployments`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`EnvironmentName`** <span class="type-label">string</span>
-  - **`ProjectId`** <span class="type-label">string</span>
-  - **`ProjectName`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-  - **`TenantName`** <span class="type-label">string</span>
+- **`ProjectName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Streams`** :span[array of object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ChannelName`** :span[string]{.type-label}
+  - **`Deployments`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`EnvironmentName`** :span[string]{.type-label}
+  - **`ProjectId`** :span[string]{.type-label}
+  - **`ProjectName`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+  - **`TenantName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1232,34 +1363,47 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/d
 
 ## Get Insights metrics series for the project
 
-`GET` `/api/{spaceId}/projects/{projectId}/insights/metrics`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/metrics`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/metrics`.
 
 Returns the aggregated insights metrics for this project for the chosen granularity and time period
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`channelId`** <span class="type-label">string</span> *(required)* — ID of the Channel.
-- **`environmentId`** <span class="type-label">string</span> *(required)* — ID of the Environment.
-- **`granularity`** <span class="type-label">enum</span> — The data grouping granularity, defaults to weekly if not supplied. Allowed values: `Monthly`, `Weekly`, `Daily`.
-- **`tenantFilter`** <span class="type-label">enum</span> — How to filter for tenants, defaults to untenanted and all tenants (combined) if not supplied. Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
-- **`tenantId`** <span class="type-label">string</span> — ID of the Tenant.
-- **`timeRange`** <span class="type-label">enum</span> — The time period to get data for, defaults to last quarter if not supplied. Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
-- **`timeZone`** <span class="type-label">string</span> — The IANA timezone to use when grouping data, defaults to UTC if not supplied.
+**Query Parameters**
+
+- **`channelId`** :span[string]{.type-label} *(required)*  
+  ID of the Channel.
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  ID of the Environment.
+- **`granularity`** :span[enum]{.type-label}  
+  The data grouping granularity, defaults to weekly if not supplied.  
+  Allowed values: `Monthly`, `Weekly`, `Daily`.
+- **`tenantFilter`** :span[enum]{.type-label}  
+  How to filter for tenants, defaults to untenanted and all tenants (combined) if not supplied.  
+  Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
+- **`tenantId`** :span[string]{.type-label}  
+  ID of the Tenant.
+- **`timeRange`** :span[enum]{.type-label}  
+  The time period to get data for, defaults to last quarter if not supplied.  
+  Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
+- **`timeZone`** :span[string]{.type-label}  
+  The IANA timezone to use when grouping data, defaults to UTC if not supplied.
 
 **Response**
 
 `200` — Success
 
-`GetInsightsMetricsSeriesForProjectResponse`.
-
-- **`Series`** <span class="type-label">array of object</span>
-  - **`Intervals`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`Series`** :span[array of object]{.type-label}
+  - **`Intervals`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 
@@ -1279,34 +1423,47 @@ Returns the aggregated insights metrics for this project for the chosen granular
 
 ## Get Insights metrics series for the project
 
-`GET` `/api/{spaceId}/projects/{projectId}/insights/metrics/v1`
+:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/metrics/v1`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/metrics/v1`.
 
 Returns the aggregated insights metrics for this project for the chosen granularity and time period
 
-**Parameters**
+**Path Parameters**
 
-- **`projectId`** <span class="type-label">string</span> *(required)* — ID of the Project.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  ID of the Project.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
-- **`channelId`** <span class="type-label">string</span> *(required)* — ID of the Channel.
-- **`environmentId`** <span class="type-label">string</span> *(required)* — ID of the Environment.
-- **`granularity`** <span class="type-label">enum</span> — The data grouping granularity, defaults to weekly if not supplied. Allowed values: `Monthly`, `Weekly`, `Daily`.
-- **`tenantFilter`** <span class="type-label">enum</span> — How to filter for tenants, defaults to untenanted and all tenants (combined) if not supplied. Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
-- **`tenantId`** <span class="type-label">string</span> — ID of the Tenant.
-- **`timeRange`** <span class="type-label">enum</span> — The time period to get data for, defaults to last quarter if not supplied. Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
-- **`timeZone`** <span class="type-label">string</span> — The IANA timezone to use when grouping data, defaults to UTC if not supplied.
+**Query Parameters**
+
+- **`channelId`** :span[string]{.type-label} *(required)*  
+  ID of the Channel.
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  ID of the Environment.
+- **`granularity`** :span[enum]{.type-label}  
+  The data grouping granularity, defaults to weekly if not supplied.  
+  Allowed values: `Monthly`, `Weekly`, `Daily`.
+- **`tenantFilter`** :span[enum]{.type-label}  
+  How to filter for tenants, defaults to untenanted and all tenants (combined) if not supplied.  
+  Allowed values: `UntenantedAndAllTenants`, `Untenanted`, `SingleTenant`.
+- **`tenantId`** :span[string]{.type-label}  
+  ID of the Tenant.
+- **`timeRange`** :span[enum]{.type-label}  
+  The time period to get data for, defaults to last quarter if not supplied.  
+  Allowed values: `LastMonth`, `LastQuarter`, `LastYear`.
+- **`timeZone`** :span[string]{.type-label}  
+  The IANA timezone to use when grouping data, defaults to UTC if not supplied.
 
 **Response**
 
 `200` — Success
 
-`GetInsightsMetricsSeriesForProjectResponse`.
-
-- **`Series`** <span class="type-label">array of object</span>
-  - **`Intervals`** <span class="type-label">array of object</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`Series`** :span[array of object]{.type-label}
+  - **`Intervals`** :span[array of object]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
 
 <div data-example="Response">
 

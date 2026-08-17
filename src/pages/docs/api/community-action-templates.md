@@ -7,41 +7,45 @@ title: Community Action Templates
 
 ## Get a list of Community Action Templates
 
-`GET` `/api/communityactiontemplates`
+:span[GET]{.api-get} `/api/communityactiontemplates`
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — List of Community Action Templates.
 
-`CommunityActionTemplateResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Author`** <span class="type-label">string</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`HistoryUrl`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Links`** <span class="type-label">object</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Packages`** <span class="type-label">array of object</span>
-  - **`Parameters`** <span class="type-label">array of object</span>
-  - **`Properties`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-  - **`Website`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Author`** :span[string]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`HistoryUrl`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Links`** :span[object]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Packages`** :span[array of object]{.type-label}
+  - **`Parameters`** :span[array of object]{.type-label}
+  - **`Properties`** :span[object]{.type-label}
+  - **`Type`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+  - **`Website`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -94,44 +98,49 @@ title: Community Action Templates
 
 ## Get a Community Action Template by ID
 
-`GET` `/api/communityactiontemplates/{id}`
+:span[GET]{.api-get} `/api/communityactiontemplates/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the CommunityActionTemplate to load.
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the CommunityActionTemplate to load.
 
 **Response**
 
 `200` — The requested Community Action Template.
 
-`CommunityActionTemplateResource`.
-
-- **`Author`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`HistoryUrl`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span>
-- **`Name`** <span class="type-label">string</span>
-- **`Packages`** <span class="type-label">array of object</span>
-  - **`AcquisitionLocation`** <span class="type-label">string</span> — The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
-  - **`FeedId`** <span class="type-label">string</span> — Feed ID, name or a variable-expression.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
-  - **`PackageId`** <span class="type-label">string</span> — Package ID or a variable-expression.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span> — This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
-  - **`Version`** <span class="type-label">string</span> — Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`Properties`** <span class="type-label">object</span>
-- **`Type`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
-- **`Website`** <span class="type-label">string</span>
+- **`Author`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`HistoryUrl`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`Packages`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
+  - **`FeedId`** :span[string]{.type-label}  
+    Feed ID, name or a variable-expression.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
+  - **`PackageId`** :span[string]{.type-label}  
+    Package ID or a variable-expression.
+  - **`Properties`** :span[object]{.type-label}
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}  
+    This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
+  - **`Version`** :span[string]{.type-label}  
+    Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`Properties`** :span[object]{.type-label}
+- **`Type`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
+- **`Website`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -217,59 +226,74 @@ title: Community Action Templates
 ```
 </div>
 
-## Gets installed version of the template
+## Get installed version of the template
 
-`GET` `/api/communityactiontemplates/{id}/actiontemplate/{actiontemplatespaceId}`
+:span[GET]{.api-get} `/api/communityactiontemplates/{id}/actiontemplate/{actiontemplatespaceId}`
 
 Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 
-**Parameters**
+**Path Parameters**
 
-- **`actiontemplatespaceId`** <span class="type-label">string</span> *(required)* — Then ID of the space where the Action Template can be located.
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the Community Action Template.
+- **`actiontemplatespaceId`** :span[string]{.type-label} *(required)*  
+  Then ID of the space where the Action Template can be located.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the Community Action Template.
 
 **Response**
 
 `200` — The installed version of the template.
 
-`ActionTemplateResource`.
-
-- **`ActionType`** <span class="type-label">string</span> — Minimum length 1.
-- **`CommunityActionTemplateId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`GitDependencies`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span> — Minimum length 1.
-  - **`FilePathFilters`** <span class="type-label">array of string</span>
-  - **`GitCredentialId`** <span class="type-label">string</span>
-  - **`GitCredentialType`** <span class="type-label">string</span> — Minimum length 1.
-  - **`GitHubConnectionId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`RepositoryUri`** <span class="type-label">string</span> — Minimum length 1.
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Packages`** <span class="type-label">array of object</span>
-  - **`AcquisitionLocation`** <span class="type-label">string</span> — The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
-  - **`FeedId`** <span class="type-label">string</span> — Feed ID, name or a variable-expression.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
-  - **`PackageId`** <span class="type-label">string</span> — Package ID or a variable-expression.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span> — This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
-  - **`Version`** <span class="type-label">string</span> — Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`Properties`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`ActionType`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`CommunityActionTemplateId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`GitDependencies`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`FilePathFilters`** :span[array of string]{.type-label}
+  - **`GitCredentialId`** :span[string]{.type-label}
+  - **`GitCredentialType`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`GitHubConnectionId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`RepositoryUri`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Packages`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
+  - **`FeedId`** :span[string]{.type-label}  
+    Feed ID, name or a variable-expression.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
+  - **`PackageId`** :span[string]{.type-label}  
+    Package ID or a variable-expression.
+  - **`Properties`** :span[object]{.type-label}
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}  
+    This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
+  - **`Version`** :span[string]{.type-label}  
+    Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`Properties`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -370,59 +394,74 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 ```
 </div>
 
-## Installs community step template
+## Install community step template
 
-`POST` `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
+:span[POST]{.api-post} `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
 
 Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
-**Parameters**
+**Path Parameters**
 
-- **`actiontemplatespaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space where the action template should be installed.
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the community action template.
+- **`actiontemplatespaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space where the action template should be installed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the community action template.
 
 **Response**
 
 `201` — Created
 
-`ActionTemplateResource`.
-
-- **`ActionType`** <span class="type-label">string</span> — Minimum length 1.
-- **`CommunityActionTemplateId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`GitDependencies`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span> — Minimum length 1.
-  - **`FilePathFilters`** <span class="type-label">array of string</span>
-  - **`GitCredentialId`** <span class="type-label">string</span>
-  - **`GitCredentialType`** <span class="type-label">string</span> — Minimum length 1.
-  - **`GitHubConnectionId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`RepositoryUri`** <span class="type-label">string</span> — Minimum length 1.
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Packages`** <span class="type-label">array of object</span>
-  - **`AcquisitionLocation`** <span class="type-label">string</span> — The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
-  - **`FeedId`** <span class="type-label">string</span> — Feed ID, name or a variable-expression.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
-  - **`PackageId`** <span class="type-label">string</span> — Package ID or a variable-expression.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span> — This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
-  - **`Version`** <span class="type-label">string</span> — Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`Properties`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`ActionType`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`CommunityActionTemplateId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`GitDependencies`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`FilePathFilters`** :span[array of string]{.type-label}
+  - **`GitCredentialId`** :span[string]{.type-label}
+  - **`GitCredentialType`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`GitHubConnectionId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`RepositoryUri`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Packages`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
+  - **`FeedId`** :span[string]{.type-label}  
+    Feed ID, name or a variable-expression.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
+  - **`PackageId`** :span[string]{.type-label}  
+    Package ID or a variable-expression.
+  - **`Properties`** :span[object]{.type-label}
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}  
+    This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
+  - **`Version`** :span[string]{.type-label}  
+    Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`Properties`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -523,59 +562,74 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 ```
 </div>
 
-## Updates installed community step template to the latest version
+## Update installed community step template to the latest version
 
-`PUT` `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
+:span[PUT]{.api-put} `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
 
 Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
-**Parameters**
+**Path Parameters**
 
-- **`actiontemplatespaceId`** <span class="type-label">string</span> *(required)* — The ID of the Space where the action template should be installed.
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the community action template.
+- **`actiontemplatespaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the Space where the action template should be installed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the community action template.
 
 **Response**
 
 `200` — The updated Action Template.
 
-`ActionTemplateResource`.
-
-- **`ActionType`** <span class="type-label">string</span> — Minimum length 1.
-- **`CommunityActionTemplateId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`GitDependencies`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span> — Minimum length 1.
-  - **`FilePathFilters`** <span class="type-label">array of string</span>
-  - **`GitCredentialId`** <span class="type-label">string</span>
-  - **`GitCredentialType`** <span class="type-label">string</span> — Minimum length 1.
-  - **`GitHubConnectionId`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`RepositoryUri`** <span class="type-label">string</span> — Minimum length 1.
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Packages`** <span class="type-label">array of object</span>
-  - **`AcquisitionLocation`** <span class="type-label">string</span> — The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
-  - **`FeedId`** <span class="type-label">string</span> — Feed ID, name or a variable-expression.
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
-  - **`PackageId`** <span class="type-label">string</span> — Package ID or a variable-expression.
-  - **`Properties`** <span class="type-label">object</span>
-  - **`StepPackageInputsReferenceId`** <span class="type-label">string</span> — This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
-  - **`Version`** <span class="type-label">string</span> — Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
-- **`Parameters`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`Properties`** <span class="type-label">object</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`ActionType`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`CommunityActionTemplateId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`GitDependencies`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`FilePathFilters`** :span[array of string]{.type-label}
+  - **`GitCredentialId`** :span[string]{.type-label}
+  - **`GitCredentialType`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`GitHubConnectionId`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`RepositoryUri`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Packages`** :span[array of object]{.type-label}
+  - **`AcquisitionLocation`** :span[string]{.type-label}  
+    The package-acquisition location. One of PackageAcquisitionLocationResource or a variable-expression.
+  - **`FeedId`** :span[string]{.type-label}  
+    Feed ID, name or a variable-expression.
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    A name for the package-reference. This may be empty. This is used to discriminate the package-references. Package ID isn't suitable because an action may potentially have multiple references to the same package ID (e.g. if you wanted to use different versions of the same package). Also, the package ID may be a variable-expression.
+  - **`PackageId`** :span[string]{.type-label}  
+    Package ID or a variable-expression.
+  - **`Properties`** :span[object]{.type-label}
+  - **`StepPackageInputsReferenceId`** :span[string]{.type-label}  
+    This reference identifier is populated when a step package step contains a package reference It allows us to correlate the reference within the step package inputs to this Server package reference.
+  - **`Version`** :span[string]{.type-label}  
+    Specific version to use for this package. If not specified, package can be selected at release creation or runbook run time.
+- **`Parameters`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`Properties`** :span[object]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -676,13 +730,14 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 ```
 </div>
 
-## Gets the logo associated with the community step template
+## Get the logo associated with the community step template
 
-`GET` `/api/communityactiontemplates/{id}/logo`
+:span[GET]{.api-get} `/api/communityactiontemplates/{id}/logo`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the community action template.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the community action template.
 
 **Response**
 

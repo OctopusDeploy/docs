@@ -7,7 +7,7 @@ title: Azure Dev Ops
 
 ## POST /api/azuredevopsissuetracker/connectivitycheck
 
-`POST` `/api/azuredevopsissuetracker/connectivitycheck`
+:span[POST]{.api-post} `/api/azuredevopsissuetracker/connectivitycheck`
 
 **Response**
 

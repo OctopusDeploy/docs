@@ -5,49 +5,60 @@ modDate: 2026-08-11
 title: Lifecycles
 ---
 
-## A paginated list of the Lifecycles in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name
 
-`GET` `/api/{spaceId}/lifecycles`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles`
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`ids`** <span class="type-label">array of string</span>
-- **`name`** <span class="type-label">string</span> — The exact name of a Lifecycle to be matched.
-- **`partialName`** <span class="type-label">string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label}
+- **`name`** :span[string]{.type-label}  
+  The exact name of a Lifecycle to be matched.
+- **`partialName`** :span[string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of lifecycles
 
-`LifecycleResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`Phases`** <span class="type-label">array of object</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`SpaceId`** <span class="type-label">string</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`Phases`** :span[array of object]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`SpaceId`** :span[string]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -103,42 +114,48 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
 ## Create a new Lifecycle
 
-`POST` `/api/{spaceId}/lifecycles`
+:span[POST]{.api-post} `/api/{spaceId}/lifecycles`
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the Space for the Lifecycle.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the Space for the Lifecycle.
 
 **Request Body**
 
-`CreateLifecycleCommand`
-
-- **`Description`** <span class="type-label">string</span> — A description of the Lifecycle.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the Lifecycle. Minimum length 1.
-- **`Phases`** <span class="type-label">array of object</span> — The promotion phases in order. Each phase lists environments deployed to automatically (AutomaticDeploymentTargets) or manually (OptionalDeploymentTargets); an environment may appear in only one phase, and at most one phase may list no environments, meaning all remaining environments. MinimumEnvironmentsBeforePromotion is how many of the phase's environments must be deployed before a release can progress (0 means all). IsOptionalPhase allows skipping the phase, but not every phase may be optional. Per-phase retention policies override the lifecycle-level ones. Leave each phase's Id blank; the server assigns it.
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span> — A slug for the Lifecycle.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The id of the Space for the Lifecycle.
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}  
+  A description of the Lifecycle.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the Lifecycle. Minimum length 1.
+- **`Phases`** :span[array of object]{.type-label}  
+  The promotion phases in order. Each phase lists environments deployed to automatically (AutomaticDeploymentTargets) or manually (OptionalDeploymentTargets); an environment may appear in only one phase, and at most one phase may list no environments, meaning all remaining environments. MinimumEnvironmentsBeforePromotion is how many of the phase's environments must be deployed before a release can progress (0 means all). IsOptionalPhase allows skipping the phase, but not every phase may be optional. Per-phase retention policies override the lifecycle-level ones. Leave each phase's Id blank; the server assigns it.
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}  
+  A slug for the Lifecycle.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The id of the Space for the Lifecycle.
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Request">
 
@@ -195,36 +212,40 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
 `201` — Created
 
-`LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -285,50 +306,54 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 ```
 </div>
 
-## Lists all the lifecycles in the supplied Octopus Deploy Space
+## List all the lifecycles in the supplied Octopus Deploy Space
 
-`GET` `/api/{spaceId}/lifecycles/all`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles/all`
 
 Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycles/all`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — All of the lifecycles in the supplied Octopus Deploy Space.
 
-an array of `LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -383,50 +408,58 @@ an array of `LifecycleResource`.
 
 ## Get a list of Lifecycle previews
 
-`GET` `/api/{spaceId}/lifecycles/previews`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles/previews`
 
 Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lifecycles/previews`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The Space ID of the Lifecycles.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The Space ID of the Lifecycles.
 
-- **`ids`** <span class="type-label">array of string</span> *(required)* — The IDs of the Lifecycles to retrieve.
+**Query Parameters**
+
+- **`ids`** :span[array of string]{.type-label} *(required)*  
+  The IDs of the Lifecycles to retrieve.
 
 **Response**
 
 `200` — Get a list of Lifecycle previews
 
-an array of `LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -479,53 +512,57 @@ an array of `LifecycleResource`.
 ```
 </div>
 
-## Gets a specific Lifecycle
+## Get a specific Lifecycle
 
-`GET` `/api/{spaceId}/lifecycles/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}`
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
 This request does not support getting Lifecycles that belong to Templated Projects
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Lifecycle
 
-`LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -588,44 +625,52 @@ This request does not support getting Lifecycles that belong to Templated Projec
 
 ## Modify a Lifecycle
 
-`PUT` `/api/{spaceId}/lifecycles/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/lifecycles/{id}`
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The Id of the Lifecycle to modify.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the Space for the Lifecycle.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The Id of the Lifecycle to modify.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the Space for the Lifecycle.
 
 **Request Body**
 
-`ModifyLifecycleCommand`
-
-- **`Description`** <span class="type-label">string</span> — A description of the Lifecycle.
-- **`Id`** <span class="type-label">string</span> *(required)* — The Id of the Lifecycle to modify.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the Lifecycle. Minimum length 1.
-- **`Phases`** <span class="type-label">array of object</span> — The complete list of promotion phases in order; existing phases not resubmitted are deleted. Each phase lists environments deployed to automatically (AutomaticDeploymentTargets) or manually (OptionalDeploymentTargets); an environment may appear in only one phase, and at most one phase may list no environments, meaning all remaining environments. MinimumEnvironmentsBeforePromotion is how many of the phase's environments must be deployed before a release can progress (0 means all). IsOptionalPhase allows skipping the phase, but not every phase may be optional. Per-phase retention policies override the lifecycle-level ones.
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span> — The slug of the Lifecycle.
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The id of the Space for the Lifecycle.
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}  
+  A description of the Lifecycle.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The Id of the Lifecycle to modify.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the Lifecycle. Minimum length 1.
+- **`Phases`** :span[array of object]{.type-label}  
+  The complete list of promotion phases in order; existing phases not resubmitted are deleted. Each phase lists environments deployed to automatically (AutomaticDeploymentTargets) or manually (OptionalDeploymentTargets); an environment may appear in only one phase, and at most one phase may list no environments, meaning all remaining environments. MinimumEnvironmentsBeforePromotion is how many of the phase's environments must be deployed before a release can progress (0 means all). IsOptionalPhase allows skipping the phase, but not every phase may be optional. Per-phase retention policies override the lifecycle-level ones.
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the Lifecycle.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The id of the Space for the Lifecycle.
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Request">
 
@@ -683,36 +728,40 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 
 `200` — Contains a Lifecycle resource which represents changes to the Lifecycle.
 
-`LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -773,22 +822,22 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 ```
 </div>
 
-## Deletes an existing Lifecycle
+## Delete an existing Lifecycle
 
-`DELETE` `/api/{spaceId}/lifecycles/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/lifecycles/{id}`
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The ID of the lifecycle to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  The ID of the lifecycle to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
 `200` — Success
-
-`DeleteLifecycleResponse`.
 
 <div data-example="Response">
 
@@ -797,51 +846,57 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 ```
 </div>
 
-## Gets a Lifecycle preview by Lifecycle id
+## Get a Lifecycle preview by Lifecycle id
 
-`GET` `/api/{spaceId}/lifecycles/{id}/preview`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}/preview`
 
 Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}/preview`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the Lifecycle.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Lifecycle.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the Lifecycle.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Lifecycle.
 
 **Response**
 
 `200` — Returns a Lifecycle preview
 
-`LifecycleResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`Phases`** <span class="type-label">array of object</span>
-  - **`AutomaticDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`IsOptionalPhase`** <span class="type-label">boolean</span>
-  - **`IsPriorityPhase`** <span class="type-label">boolean</span>
-  - **`MinimumEnvironmentsBeforePromotion`** <span class="type-label">integer</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`OptionalDeploymentTargets`** <span class="type-label">array of string</span>
-  - **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-- **`ReleaseRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`TentacleRetentionPolicy`** <span class="type-label">object</span>
-  - **`QuantityToKeep`** <span class="type-label">integer</span>
-  - **`ShouldKeepForever`** <span class="type-label">boolean</span>
-  - **`Strategy`** <span class="type-label">string</span>
-  - **`Unit`** <span class="type-label">enum</span> — Allowed values: `Days`, `Items`.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`Phases`** :span[array of object]{.type-label}
+  - **`AutomaticDeploymentTargets`** :span[array of string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`IsOptionalPhase`** :span[boolean]{.type-label}
+  - **`IsPriorityPhase`** :span[boolean]{.type-label}
+  - **`MinimumEnvironmentsBeforePromotion`** :span[integer]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`OptionalDeploymentTargets`** :span[array of string]{.type-label}
+  - **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`TentacleRetentionPolicy`** :span[object]{.type-label}
+- **`ReleaseRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`TentacleRetentionPolicy`** :span[object]{.type-label}
+  - **`QuantityToKeep`** :span[integer]{.type-label}
+  - **`ShouldKeepForever`** :span[boolean]{.type-label}
+  - **`Strategy`** :span[string]{.type-label}
+  - **`Unit`** :span[enum]{.type-label}  
+    Allowed values: `Days`, `Items`.
 
 <div data-example="Response">
 
@@ -902,89 +957,103 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
 ```
 </div>
 
-## Gets all projects that use this lifecycle
+## Get all projects that use this lifecycle
 
-`GET` `/api/{spaceId}/lifecycles/{id}/projects`
+:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}/projects`
 
 Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}/projects`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the Lifecycle.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space for the Lifecycle and projects.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the Lifecycle.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space for the Lifecycle and projects.
 
 **Response**
 
-`200` — Gets all projects that use this lifecycle.
+`200` — Get all projects that use this lifecycle.
 
-an array of `ProjectResource`.
-
-- **`AllowIgnoreChannelRules`** <span class="type-label">boolean</span>
-- **`AutoCreateRelease`** <span class="type-label">boolean</span>
-- **`AutoDeployReleaseOverrides`** <span class="type-label">array of object</span>
-  - **`EnvironmentId`** <span class="type-label">string</span>
-  - **`ReleaseId`** <span class="type-label">string</span>
-  - **`TenantId`** <span class="type-label">string</span>
-- **`ClonedFromProjectId`** <span class="type-label">string</span>
-- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** <span class="type-label">boolean</span>
-- **`DefaultGuidedFailureMode`** <span class="type-label">enum</span> — Allowed values: `EnvironmentDefault`, `Off`, `On`.
-- **`DefaultPowerShellEdition`** <span class="type-label">string</span>
-- **`DefaultToSkipIfAlreadyInstalled`** <span class="type-label">boolean</span>
-- **`DeploymentChangesTemplate`** <span class="type-label">string</span>
-- **`DeploymentProcessId`** <span class="type-label">string</span>
-- **`DeprovisioningRunbookId`** <span class="type-label">string</span>
-- **`Description`** <span class="type-label">string</span>
-- **`DiscreteChannelRelease`** <span class="type-label">boolean</span> — Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
-- **`ExecuteDeploymentsOnEventBasedPipeline`** <span class="type-label">boolean</span>
-- **`ExtensionSettings`** <span class="type-label">array of object</span>
-  - **`ExtensionId`** <span class="type-label">string</span>
-  - **`Values`** <span class="type-label">string</span>
-- **`ForcePackageDownload`** <span class="type-label">boolean</span>
-- **`Icon`** <span class="type-label">object</span>
-  - **`Color`** <span class="type-label">string</span> — Icon background colour, as a Hex string.
-  - **`Id`** <span class="type-label">string</span> — Font Awesome Icon Id.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IncludedLibraryVariableSetIds`** <span class="type-label">array of string</span> — Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
-- **`IsBadgesEnabled`** <span class="type-label">boolean</span>
-- **`IsDisabled`** <span class="type-label">boolean</span>
-- **`IsVersionControlled`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LifecycleId`** <span class="type-label">string</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`PersistenceSettings`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Database`, `VersionControlled`.
-- **`ProjectConnectivityPolicy`** <span class="type-label">object</span>
-  - **`AllowDeploymentsToNoTargets`** <span class="type-label">boolean</span>
-  - **`ExcludeUnhealthyTargets`** <span class="type-label">boolean</span>
-  - **`SkipMachineBehavior`** <span class="type-label">enum</span> — Allowed values: `None`, `SkipUnavailableMachines`.
-  - **`TargetRoles`** <span class="type-label">array of string</span>
-- **`ProjectGroupId`** <span class="type-label">string</span>
-- **`ProjectTags`** <span class="type-label">array of string</span> — List of tags assigned to this project.
-- **`ProjectTemplateDetails`** <span class="type-label">object</span>
-  - **`IsShared`** <span class="type-label">boolean</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`VersionMask`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProvisioningRunbookId`** <span class="type-label">string</span>
-- **`ReleaseCreationStrategy`** <span class="type-label">object</span>
-  - **`ChannelId`** <span class="type-label">string</span>
-  - **`ReleaseCreationPackage`** <span class="type-label">object</span>
-- **`ReleaseNotesTemplate`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`Templates`** <span class="type-label">array of object</span>
-  - **`DefaultValue`** <span class="type-label">object</span>
-  - **`DisplaySettings`** <span class="type-label">object</span>
-  - **`HelpText`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Label`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`TenantedDeploymentMode`** <span class="type-label">enum</span> — Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
-- **`VariableSetId`** <span class="type-label">string</span>
-- **`VersioningStrategy`** <span class="type-label">object</span>
-  - **`DonorPackage`** <span class="type-label">object</span>
-  - **`Template`** <span class="type-label">string</span>
+- **`AllowIgnoreChannelRules`** :span[boolean]{.type-label}
+- **`AutoCreateRelease`** :span[boolean]{.type-label}
+- **`AutoDeployReleaseOverrides`** :span[array of object]{.type-label}
+  - **`EnvironmentId`** :span[string]{.type-label}
+  - **`ReleaseId`** :span[string]{.type-label}
+  - **`TenantId`** :span[string]{.type-label}
+- **`ClonedFromProjectId`** :span[string]{.type-label}
+- **`CombineHealthAndSyncStatusInDashboardLiveStatus`** :span[boolean]{.type-label}
+- **`DefaultGuidedFailureMode`** :span[enum]{.type-label}  
+  Allowed values: `EnvironmentDefault`, `Off`, `On`.
+- **`DefaultPowerShellEdition`** :span[string]{.type-label}
+- **`DefaultToSkipIfAlreadyInstalled`** :span[boolean]{.type-label}
+- **`DeploymentChangesTemplate`** :span[string]{.type-label}
+- **`DeploymentProcessId`** :span[string]{.type-label}
+- **`DeprovisioningRunbookId`** :span[string]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`DiscreteChannelRelease`** :span[boolean]{.type-label}  
+  Treats releases of different channels to the same environment as a seperate deployment dimension. 'False' indicates a "hotfix"-style usage of channels (single release active per environment ignoring channels), whereas `True` indicates "microservice"-style usage (single release per environment per channel).
+- **`ExecuteDeploymentsOnEventBasedPipeline`** :span[boolean]{.type-label}
+- **`ExtensionSettings`** :span[array of object]{.type-label}
+  - **`ExtensionId`** :span[string]{.type-label}
+  - **`Values`** :span[string]{.type-label}
+- **`ForcePackageDownload`** :span[boolean]{.type-label}
+- **`Icon`** :span[object]{.type-label}
+  - **`Color`** :span[string]{.type-label}  
+    Icon background colour, as a Hex string.
+  - **`Id`** :span[string]{.type-label}  
+    Font Awesome Icon Id.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
+  Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
+- **`IsBadgesEnabled`** :span[boolean]{.type-label}
+- **`IsDisabled`** :span[boolean]{.type-label}
+- **`IsVersionControlled`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LifecycleId`** :span[string]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`PersistenceSettings`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Database`, `VersionControlled`.
+- **`ProjectConnectivityPolicy`** :span[object]{.type-label}
+  - **`AllowDeploymentsToNoTargets`** :span[boolean]{.type-label}
+  - **`ExcludeUnhealthyTargets`** :span[boolean]{.type-label}
+  - **`SkipMachineBehavior`** :span[enum]{.type-label}  
+    Allowed values: `None`, `SkipUnavailableMachines`.
+  - **`TargetRoles`** :span[array of string]{.type-label}
+- **`ProjectGroupId`** :span[string]{.type-label}
+- **`ProjectTags`** :span[array of string]{.type-label}  
+  List of tags assigned to this project.
+- **`ProjectTemplateDetails`** :span[object]{.type-label}
+  - **`IsShared`** :span[boolean]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`VersionMask`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProvisioningRunbookId`** :span[string]{.type-label}
+- **`ReleaseCreationStrategy`** :span[object]{.type-label}
+  - **`ChannelId`** :span[string]{.type-label}
+  - **`ReleaseCreationPackage`** :span[object]{.type-label}
+- **`ReleaseNotesTemplate`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Templates`** :span[array of object]{.type-label}
+  - **`DefaultValue`** :span[object]{.type-label}
+  - **`DisplaySettings`** :span[object]{.type-label}
+  - **`HelpText`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Label`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`TenantedDeploymentMode`** :span[enum]{.type-label}  
+  Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
+- **`VariableSetId`** :span[string]{.type-label}
+- **`VersioningStrategy`** :span[object]{.type-label}
+  - **`DonorPackage`** :span[object]{.type-label}
+  - **`Template`** :span[string]{.type-label}
 
 <div data-example="Response">
 

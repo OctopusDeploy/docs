@@ -7,34 +7,45 @@ title: Compliance Policies
 
 ## Request the published versions for a policy
 
-`GET` `/api/platformhub/policies/{slug}/versions`
+:span[GET]{.api-get} `/api/platformhub/policies/{slug}/versions`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested policy version
 
-an array of `CompliancePolicyVersionResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitCommit`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Minimum length 1.
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`RegoConditions`** <span class="type-label">string</span> — Minimum length 1.
-- **`RegoScope`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`GitCommit`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`IsActive`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`RegoConditions`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`RegoScope`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -61,40 +72,51 @@ an array of `CompliancePolicyVersionResource`.
 
 ## Request the published versions for a policy
 
-`GET` `/api/platformhub/policies/{slug}/versions/v2`
+:span[GET]{.api-get} `/api/platformhub/policies/{slug}/versions/v2`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`CompliancePolicyVersionResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`GitCommit`** <span class="type-label">string</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`IsActive`** <span class="type-label">boolean</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`RegoConditions`** <span class="type-label">string</span> — Minimum length 1.
-  - **`RegoScope`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Version`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ViolationReason`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`GitCommit`** :span[string]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`IsActive`** :span[boolean]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PublishedDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`RegoConditions`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`RegoScope`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Version`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ViolationAction`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ViolationReason`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -128,20 +150,20 @@ an array of `CompliancePolicyVersionResource`.
 
 ## Modify the activation status for a policy version
 
-`POST` `/api/platformhub/policies/{slug}/versions/{version}/modify-status`
+:span[POST]{.api-post} `/api/platformhub/policies/{slug}/versions/{version}/modify-status`
 
-**Parameters**
+**Path Parameters**
 
-- **`slug`** <span class="type-label">string</span> *(required)*
-- **`version`** <span class="type-label">string</span> *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
+- **`version`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyCompliancePolicyVersionActivationStatusCommand`
-
-- **`IsActive`** <span class="type-label">boolean</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`IsActive`** :span[boolean]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -158,21 +180,28 @@ an array of `CompliancePolicyVersionResource`.
 
 `200` — The requested policy version
 
-`CompliancePolicyVersionResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitCommit`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Minimum length 1.
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`RegoConditions`** <span class="type-label">string</span> — Minimum length 1.
-- **`RegoScope`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`GitCommit`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`IsActive`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`RegoConditions`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`RegoScope`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -195,36 +224,44 @@ an array of `CompliancePolicyVersionResource`.
 ```
 </div>
 
-## Requests a paginated set of CompliancePolicyResource sorted by name
+## Request a paginated set of CompliancePolicyResource sorted by name
 
-`GET` `/api/platformhub/{gitRef}/policies`
+:span[GET]{.api-get} `/api/platformhub/{gitRef}/policies`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
 
-- **`partialName`** <span class="type-label">string</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`partialName`** :span[string]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated set of CompliancePolicyResource sorted by name
 
-`GetAllCompliancePoliciesResponse`.
-
-- **`FilteredItemsCount`** <span class="type-label">integer</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`Policies`** <span class="type-label">array of object</span>
-  - **`ConditionsRego`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Description`** <span class="type-label">string</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ScopeRego`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-  - **`ViolationReason`** <span class="type-label">string</span>
-- **`TotalItemsCount`** <span class="type-label">integer</span>
+- **`FilteredItemsCount`** :span[integer]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`Policies`** :span[array of object]{.type-label}
+  - **`ConditionsRego`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Description`** :span[string]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ScopeRego`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ViolationAction`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`ViolationReason`** :span[string]{.type-label}
+- **`TotalItemsCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -251,25 +288,28 @@ an array of `CompliancePolicyVersionResource`.
 
 ## Create a new policy
 
-`POST` `/api/platformhub/{gitRef}/policies`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/policies`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateCompliancePolicyCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`ConditionsRego`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ScopeRego`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`ConditionsRego`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ScopeRego`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -292,16 +332,20 @@ an array of `CompliancePolicyVersionResource`.
 
 `201` — Created
 
-`CompliancePolicyResource`.
-
-- **`ConditionsRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ScopeRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`ConditionsRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ScopeRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -319,29 +363,33 @@ an array of `CompliancePolicyVersionResource`.
 ```
 </div>
 
-## Requests a single CompliancePolicyResource by slug and git reference
+## Request a single CompliancePolicyResource by slug and git reference
 
-`GET` `/api/platformhub/{gitRef}/policies/{slug}`
+:span[GET]{.api-get} `/api/platformhub/{gitRef}/policies/{slug}`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Represents a Compliance Policy
 
-`CompliancePolicyResource`.
-
-- **`ConditionsRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ScopeRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`ConditionsRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ScopeRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -359,28 +407,31 @@ an array of `CompliancePolicyVersionResource`.
 ```
 </div>
 
-## Modifies an existing policy
+## Modify an existing policy
 
-`PUT` `/api/platformhub/{gitRef}/policies/{slug}`
+:span[PUT]{.api-put} `/api/platformhub/{gitRef}/policies/{slug}`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyCompliancePolicyCommand`
-
-- **`ChangeDescription`** <span class="type-label">string</span>
-- **`ConditionsRego`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ScopeRego`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`ChangeDescription`** :span[string]{.type-label}
+- **`ConditionsRego`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ScopeRego`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -403,16 +454,20 @@ an array of `CompliancePolicyVersionResource`.
 
 `200` — Represents a Compliance Policy
 
-`CompliancePolicyResource`.
-
-- **`ConditionsRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Description`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ScopeRego`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`ConditionsRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ScopeRego`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -432,20 +487,20 @@ an array of `CompliancePolicyVersionResource`.
 
 ## Create new version of policy
 
-`POST` `/api/platformhub/{gitRef}/policies/{slug}/publish`
+:span[POST]{.api-post} `/api/platformhub/{gitRef}/policies/{slug}/publish`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
-- **`slug`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
+- **`slug`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`PublishCompliancePolicyCommand`
-
-- **`GitRef`** <span class="type-label">string</span> *(required)*
-- **`Slug`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`GitRef`** :span[string]{.type-label} *(required)*
+- **`Slug`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -462,21 +517,28 @@ an array of `CompliancePolicyVersionResource`.
 
 `200` — The requested policy version
 
-`CompliancePolicyVersionResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`GitCommit`** <span class="type-label">string</span>
-- **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Minimum length 1.
-- **`IsActive`** <span class="type-label">boolean</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-- **`RegoConditions`** <span class="type-label">string</span> — Minimum length 1.
-- **`RegoScope`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationAction`** <span class="type-label">string</span> — Minimum length 1.
-- **`ViolationReason`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`GitCommit`** :span[string]{.type-label}
+- **`GitRef`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`IsActive`** :span[boolean]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PublishedDate`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`RegoConditions`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`RegoScope`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Version`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationAction`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`ViolationReason`** :span[string]{.type-label}
 
 <div data-example="Response">
 

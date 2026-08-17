@@ -14,7 +14,7 @@ The Octopus Server REST API, grouped by the area of the product each endpoint be
 - [Build Information](./build-information.md) — 5 endpoints
 - [Capabilities](./capabilities.md) — 2 endpoints
 - [Certificates](./certificates.md) — 19 endpoints
-- [Channels](./channels.md) — 15 endpoints
+- [Channels](./channels.md) — 20 endpoints
 - [Cloud Template](./cloud-template.md) — 1 endpoint
 - [Community Action Templates](./community-action-templates.md) — 6 endpoints
 - [Compliance Policies](./compliance-policies.md) — 8 endpoints
@@ -69,17 +69,17 @@ The Octopus Server REST API, grouped by the area of the product each endpoint be
 - [Progression](./progression.md) — 5 endpoints
 - [Project Groups](./project-groups.md) — 7 endpoints
 - [Project Templates](./project-templates.md) — 1 endpoint
-- [Project Triggers](./project-triggers.md) — 7 endpoints
+- [Project Triggers](./project-triggers.md) — 10 endpoints
 - [Projects](./projects.md) — 19 endpoints
 - [Proxies](./proxies.md) — 6 endpoints
 - [Rate Limiting](./rate-limiting.md) — 3 endpoints
-- [Releases](./releases.md) — 21 endpoints
+- [Releases](./releases.md) — 22 endpoints
 - [Reporting](./reporting.md) — 1 endpoint
 - [Retention](./retention.md) — 4 endpoints
-- [Runbook Processes](./runbook-processes.md) — 8 endpoints
-- [Runbook Runs](./runbook-runs.md) — 8 endpoints
-- [Runbook Snapshots](./runbook-snapshots.md) — 17 endpoints
-- [Runbooks](./runbooks.md) — 30 endpoints
+- [Runbook Processes](./runbook-processes.md) — 10 endpoints
+- [Runbook Runs](./runbook-runs.md) — 11 endpoints
+- [Runbook Snapshots](./runbook-snapshots.md) — 24 endpoints
+- [Runbooks](./runbooks.md) — 40 endpoints
 - [Scheduled Jobs](./scheduled-jobs.md) — 6 endpoints
 - [Scoped User Roles](./scoped-user-roles.md) — 5 endpoints
 - [Server](./server.md) — 3 endpoints

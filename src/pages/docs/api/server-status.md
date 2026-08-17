@@ -7,7 +7,7 @@ title: Server Status
 
 ## Get the status of Octopus Server
 
-`GET` `/api/serverstatus`
+:span[GET]{.api-get} `/api/serverstatus`
 
 Shows information about the status of the Octopus Server.
 
@@ -15,20 +15,22 @@ Shows information about the status of the Octopus Server.
 
 `200` — A snapshot of the server's current status
 
-`ServerStatusResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsDatabaseEncrypted`** <span class="type-label">boolean</span>
-- **`IsInMaintenanceMode`** <span class="type-label">boolean</span>
-- **`IsMajorMinorUpgrade`** <span class="type-label">boolean</span>
-- **`IsPotentialClone`** <span class="type-label">boolean</span>
-- **`IsUpgradeAvailable`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MaintenanceExpires`** <span class="type-label">string</span>
-- **`MaximumAvailableVersion`** <span class="type-label">string</span>
-- **`MaximumAvailableVersionCoveredByLicense`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsDatabaseEncrypted`** :span[boolean]{.type-label}
+- **`IsInMaintenanceMode`** :span[boolean]{.type-label}
+- **`IsMajorMinorUpgrade`** :span[boolean]{.type-label}
+- **`IsPotentialClone`** :span[boolean]{.type-label}
+- **`IsUpgradeAvailable`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MaintenanceExpires`** :span[string]{.type-label}
+- **`MaximumAvailableVersion`** :span[string]{.type-label}
+- **`MaximumAvailableVersionCoveredByLicense`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -56,7 +58,7 @@ Shows information about the status of the Octopus Server.
 
 ## Get counts of documents in the server
 
-`GET` `/api/serverstatus/counts`
+:span[GET]{.api-get} `/api/serverstatus/counts`
 
 List counts of various document types to assist in diagnosing issues with the server.
 
@@ -64,28 +66,26 @@ List counts of various document types to assist in diagnosing issues with the se
 
 `200` — The requested Server Document Counts
 
-`ServerDocumentCounts`.
-
-- **`Global`** <span class="type-label">object</span>
-  - **`Spaces`** <span class="type-label">integer</span>
-  - **`Teams`** <span class="type-label">integer</span>
-  - **`Users`** <span class="type-label">integer</span>
-- **`Infrastructure`** <span class="type-label">object</span>
-  - **`DeploymentTargets`** <span class="type-label">integer</span>
-  - **`Environments`** <span class="type-label">integer</span>
-  - **`Tenants`** <span class="type-label">integer</span>
-  - **`WorkerPools`** <span class="type-label">integer</span>
-  - **`Workers`** <span class="type-label">integer</span>
-- **`Library`** <span class="type-label">object</span>
-  - **`Certificates`** <span class="type-label">integer</span>
-  - **`Packages`** <span class="type-label">integer</span>
-  - **`VariableSets`** <span class="type-label">integer</span>
-- **`Project`** <span class="type-label">object</span>
-  - **`Deployments`** <span class="type-label">integer</span>
-  - **`Projects`** <span class="type-label">integer</span>
-  - **`Releases`** <span class="type-label">integer</span>
-  - **`RunbookRuns`** <span class="type-label">integer</span>
-  - **`Runbooks`** <span class="type-label">integer</span>
+- **`Global`** :span[object]{.type-label}
+  - **`Spaces`** :span[integer]{.type-label}
+  - **`Teams`** :span[integer]{.type-label}
+  - **`Users`** :span[integer]{.type-label}
+- **`Infrastructure`** :span[object]{.type-label}
+  - **`DeploymentTargets`** :span[integer]{.type-label}
+  - **`Environments`** :span[integer]{.type-label}
+  - **`Tenants`** :span[integer]{.type-label}
+  - **`WorkerPools`** :span[integer]{.type-label}
+  - **`Workers`** :span[integer]{.type-label}
+- **`Library`** :span[object]{.type-label}
+  - **`Certificates`** :span[integer]{.type-label}
+  - **`Packages`** :span[integer]{.type-label}
+  - **`VariableSets`** :span[integer]{.type-label}
+- **`Project`** :span[object]{.type-label}
+  - **`Deployments`** :span[integer]{.type-label}
+  - **`Projects`** :span[integer]{.type-label}
+  - **`Releases`** :span[integer]{.type-label}
+  - **`RunbookRuns`** :span[integer]{.type-label}
+  - **`Runbooks`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -119,9 +119,9 @@ List counts of various document types to assist in diagnosing issues with the se
 ```
 </div>
 
-## Forces a GC collect
+## Force a GC collect
 
-`POST` `/api/serverstatus/gc-collect`
+:span[POST]{.api-post} `/api/serverstatus/gc-collect`
 
 Triggers a garbage collection pass for all heap generations, including the large object heap.
 
@@ -129,17 +129,15 @@ Triggers a garbage collection pass for all heap generations, including the large
 
 `200` — OK
 
-## Forces a GC collect
+## Force a GC collect
 
-`POST` `/api/serverstatus/gc-collect/v1`
+:span[POST]{.api-post} `/api/serverstatus/gc-collect/v1`
 
 Triggers a garbage collection pass for all heap generations, including the large object heap.
 
 **Response**
 
 `200` — Internal
-
-`TriggerGarbageCollectionResponse`.
 
 <div data-example="Response">
 
@@ -150,7 +148,7 @@ Triggers a garbage collection pass for all heap generations, including the large
 
 ## Get the general health of Octopus Server
 
-`GET` `/api/serverstatus/health`
+:span[GET]{.api-get} `/api/serverstatus/health`
 
 Provides a super simple interface perfect for checking the general health of your entire Octopus Server cluster.
 
@@ -158,17 +156,19 @@ Provides a super simple interface perfect for checking the general health of you
 
 `200` — A snapshot of the server or cluster's current health
 
-`ServerStatusHealthResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsCompliantWithLicense`** <span class="type-label">boolean</span>
-- **`IsEntireClusterDrainingTasks`** <span class="type-label">boolean</span>
-- **`IsEntireClusterReadOnly`** <span class="type-label">boolean</span>
-- **`IsOperatingNormally`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsCompliantWithLicense`** :span[boolean]{.type-label}
+- **`IsEntireClusterDrainingTasks`** :span[boolean]{.type-label}
+- **`IsEntireClusterReadOnly`** :span[boolean]{.type-label}
+- **`IsOperatingNormally`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
 <div data-example="Response">
 
@@ -195,28 +195,29 @@ Provides a super simple interface perfect for checking the general health of you
 
 - **`418`** — Indicates that the server is not operating normally
 
-## Retrieves the most recent high-priority log messages from this execution of the Octopus Server process
+## Retrieve the most recent high-priority log messages from this execution of the Octopus Server process
 
-`GET` `/api/serverstatus/logs`
+:span[GET]{.api-get} `/api/serverstatus/logs`
 
-**Parameters**
+**Query Parameters**
 
-- **`includeDetail`** <span class="type-label">boolean</span>
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`includeDetail`** :span[boolean]{.type-label}
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The most recent high-priority log messages from this execution of the Octopus Server process
 
-an array of `ActivityLogElement`.
-
-- **`Category`** <span class="type-label">string</span>
-- **`Detail`** <span class="type-label">string</span>
-- **`GapLastNumber`** <span class="type-label">integer</span>
-- **`MessageText`** <span class="type-label">string</span>
-- **`Number`** <span class="type-label">integer</span>
-- **`OccurredAt`** <span class="type-label">string</span> — Format `date-time`.
+- **`Category`** :span[string]{.type-label}
+- **`Detail`** :span[string]{.type-label}
+- **`GapLastNumber`** :span[integer]{.type-label}
+- **`MessageText`** :span[string]{.type-label}
+- **`Number`** :span[integer]{.type-label}
+- **`OccurredAt`** :span[string]{.type-label}  
+  Format `date-time`.
 
 <div data-example="Response">
 
@@ -234,27 +235,30 @@ an array of `ActivityLogElement`.
 ```
 </div>
 
-## Provides information about the Octopus Server process and the machine on which it is running
+## Provide information about the Octopus Server process and the machine on which it is running
 
-`GET` `/api/serverstatus/system-info`
+:span[GET]{.api-get} `/api/serverstatus/system-info`
 
 **Response**
 
 `200` — Information about the Octopus Server process and the machine on which it is running.
 
-`SystemInfoResource`.
-
-- **`ClrVersion`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`MinThreadPoolCount`** <span class="type-label">integer</span>
-- **`OSVersion`** <span class="type-label">string</span>
-- **`ThreadCount`** <span class="type-label">integer</span>
-- **`Uptime`** <span class="type-label">string</span> — Format `date-span`.
-- **`Version`** <span class="type-label">string</span>
-- **`WorkingSetBytes`** <span class="type-label">integer</span>
+- **`ClrVersion`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`MinThreadPoolCount`** :span[integer]{.type-label}
+- **`OSVersion`** :span[string]{.type-label}
+- **`ThreadCount`** :span[integer]{.type-label}
+- **`Uptime`** :span[string]{.type-label}  
+  Format `date-span`.
+- **`Version`** :span[string]{.type-label}
+- **`WorkingSetBytes`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -279,13 +283,14 @@ an array of `ActivityLogElement`.
 ```
 </div>
 
-## Creates a .zip archive containing an aggregate of the other system information APIs
+## Create a .zip archive containing an aggregate of the other system information APIs
 
-`GET` `/api/serverstatus/system-report`
+:span[GET]{.api-get} `/api/serverstatus/system-report`
 
-**Parameters**
+**Query Parameters**
 
-- **`nodeSpecificOnly`** <span class="type-label">boolean</span> — When true, only node-specific sections are included (recent logs, system info, filesystem logs). Defaults to false (full report) when not set.
+- **`nodeSpecificOnly`** :span[boolean]{.type-label}  
+  When true, only node-specific sections are included (recent logs, system info, filesystem logs). Defaults to false (full report) when not set.
 
 **Response**
 
@@ -298,22 +303,24 @@ an array of `ActivityLogElement`.
 ```
 </div>
 
-## Lists timezones supported by the server
+## List timezones supported by the server
 
-`GET` `/api/serverstatus/timezones`
+:span[GET]{.api-get} `/api/serverstatus/timezones`
 
 **Response**
 
 `200` — The requested list of timezones supported by the server.
 
-an array of `ServerTimezoneResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsLocal`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsLocal`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
 
 <div data-example="Response">
 

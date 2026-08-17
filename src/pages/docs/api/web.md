@@ -7,16 +7,14 @@ title: Web
 
 ## POST /api/jiraservicemanagement-integration/connectivity-test
 
-`POST` `/api/jiraservicemanagement-integration/connectivity-test`
+:span[POST]{.api-post} `/api/jiraservicemanagement-integration/connectivity-test`
 
 **Request Body**
 
-`JiraServiceManagementConnectionCheckRequest`
-
-- **`BaseUrl`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`Token`** <span class="type-label">string</span>
-- **`Username`** <span class="type-label">string</span>
+- **`BaseUrl`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Token`** :span[string]{.type-label}
+- **`Username`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -36,18 +34,16 @@ title: Web
 
 ## POST /api/servicenow-integration/connectivity-test
 
-`POST` `/api/servicenow-integration/connectivity-test`
+:span[POST]{.api-post} `/api/servicenow-integration/connectivity-test`
 
 **Request Body**
 
-`ServiceNowConnectionCheckRequest`
-
-- **`BaseUrl`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`OAuthClientId`** <span class="type-label">string</span>
-- **`OAuthClientSecret`** <span class="type-label">string</span>
-- **`UserPassword`** <span class="type-label">string</span>
-- **`Username`** <span class="type-label">string</span>
+- **`BaseUrl`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`OAuthClientId`** :span[string]{.type-label}
+- **`OAuthClientSecret`** :span[string]{.type-label}
+- **`UserPassword`** :span[string]{.type-label}
+- **`Username`** :span[string]{.type-label}
 
 <div data-example="Request">
 

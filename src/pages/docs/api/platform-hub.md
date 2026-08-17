@@ -5,34 +5,38 @@ modDate: 2026-08-11
 title: Platform Hub
 ---
 
-## Gets Platform Hub accounts
+## Get Platform Hub accounts
 
-`GET` `/api/platformhub/accounts`
+:span[GET]{.api-get} `/api/platformhub/accounts`
 
-**Parameters**
+**Query Parameters**
 
-- **`accountType`** <span class="type-label">array of string</span> — The type of accounts to return.
-- **`name`** <span class="type-label">string</span> — Filter by partial name match.
-- **`skip`** <span class="type-label">integer</span> — Number of records to skip.
-- **`take`** <span class="type-label">integer</span> — Number of records to take.
+- **`accountType`** :span[array of string]{.type-label}  
+  The type of accounts to return.
+- **`name`** :span[string]{.type-label}  
+  Filter by partial name match.
+- **`skip`** :span[integer]{.type-label}  
+  Number of records to skip.
+- **`take`** :span[integer]{.type-label}  
+  Number of records to take.
 
 **Response**
 
 `200` — Success
 
-`PlatformHubAccountResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -60,17 +64,16 @@ title: Platform Hub
 
 ## Create a new Platform Hub account
 
-`POST` `/api/platformhub/accounts`
+:span[POST]{.api-post} `/api/platformhub/accounts`
 
 **Request Body**
 
-`CreatePlatformHubAccountCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`AccountType`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`AccountType`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -90,9 +93,7 @@ title: Platform Hub
 
 `201` — Created
 
-`CreatePlatformHubAccountResponse`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -103,26 +104,27 @@ title: Platform Hub
 ```
 </div>
 
-## Gets a specific Platform Hub account
+## Get a specific Platform Hub account
 
-`GET` `/api/platformhub/accounts/{id}`
+:span[GET]{.api-get} `/api/platformhub/accounts/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the account to get.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the account to get.
 
 **Response**
 
 `200` — An Account within the Platform Hub
 
-`PlatformHubAccountResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span>
-  - **`AccountType`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -141,22 +143,21 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub account
 
-`PUT` `/api/platformhub/accounts/{id}`
+:span[PUT]{.api-put} `/api/platformhub/accounts/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyPlatformHubAccountCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`AccountType`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`AccountType`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -177,8 +178,6 @@ title: Platform Hub
 
 `200` — Indicates that the Platform Hub account was successfully modified.
 
-`ModifyPlatformHubAccountResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -188,17 +187,16 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub account
 
-`DELETE` `/api/platformhub/accounts/{id}`
+:span[DELETE]{.api-delete} `/api/platformhub/accounts/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the account to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the account to delete.
 
 **Response**
 
 `200` — Confirmation that the Platform Hub account has been deleted
-
-`DeletePlatformHubAccountResponse`.
 
 <div data-example="Response">
 
@@ -207,62 +205,79 @@ title: Platform Hub
 ```
 </div>
 
-## Gets Platform Hub certificates
+## Get Platform Hub certificates
 
-`GET` `/api/platformhub/certificates`
+:span[GET]{.api-get} `/api/platformhub/certificates`
 
-**Parameters**
+**Query Parameters**
 
-- **`archived`** <span class="type-label">boolean</span> — If true, returns only archived certificates. Otherwise, returns only non-archived certificates.
-- **`firstResult`** <span class="type-label">string</span> — Certificate ID which if specified, adds the certificate with matching ID to the result if it is not already included.
-- **`ids`** <span class="type-label">string</span> — Comma delimited list of certificate IDs used to filter the result.
-- **`orderBy`** <span class="type-label">string</span> — If the value is 'recent' (case-insensitive), the result is sorted by Created instead of NotAfter.
-- **`partialName`** <span class="type-label">string</span> — Alternative parameter to Search; filters certificates by Name, Subject, or Thumbprint.
-- **`search`** <span class="type-label">string</span> — Filters certificates by Name, Subject, or Thumbprint.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 15. Minimum `0`.
+- **`archived`** :span[boolean]{.type-label}  
+  If true, returns only archived certificates. Otherwise, returns only non-archived certificates.
+- **`firstResult`** :span[string]{.type-label}  
+  Certificate ID which if specified, adds the certificate with matching ID to the result if it is not already included.
+- **`ids`** :span[string]{.type-label}  
+  Comma delimited list of certificate IDs used to filter the result.
+- **`orderBy`** :span[string]{.type-label}  
+  If the value is 'recent' (case-insensitive), the result is sorted by Created instead of NotAfter.
+- **`partialName`** :span[string]{.type-label}  
+  Alternative parameter to Search; filters certificates by Name, Subject, or Thumbprint.
+- **`search`** :span[string]{.type-label}  
+  Filters certificates by Name, Subject, or Thumbprint.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 15. Minimum `0`.
 
 **Response**
 
 `200` — The requested Platform Hub certificates.
 
-`PlatformHubCertificateResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-  - **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-  - **`HasPrivateKey`** <span class="type-label">boolean</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsExpired`** <span class="type-label">boolean</span>
-  - **`IssuerCommonName`** <span class="type-label">string</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`IssuerOrganization`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Notes`** <span class="type-label">string</span>
-  - **`Password`** <span class="type-label">sensitive value</span>
-  - **`ReplacedBy`** <span class="type-label">string</span>
-  - **`SelfSigned`** <span class="type-label">boolean</span>
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-  - **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-  - **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Archived`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`CertificateChain`** :span[array of object]{.type-label}
+  - **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`CertificateDataFormat`** :span[enum]{.type-label}  
+    Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+  - **`HasPrivateKey`** :span[boolean]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsExpired`** :span[boolean]{.type-label}
+  - **`IssuerCommonName`** :span[string]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`IssuerOrganization`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Notes`** :span[string]{.type-label}
+  - **`Password`** :span[sensitive value]{.type-label}
+  - **`ReplacedBy`** :span[string]{.type-label}
+  - **`SelfSigned`** :span[boolean]{.type-label}
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`Slug`** :span[string]{.type-label}  
+    The slug of the certificate.
+  - **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+  - **`SubjectCommonName`** :span[string]{.type-label}  
+    The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`SubjectOrganization`** :span[string]{.type-label}  
+    The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -326,25 +341,25 @@ title: Platform Hub
 ```
 </div>
 
-## Creates a new Platform Hub certificate
+## Create a new Platform Hub certificate
 
-`POST` `/api/platformhub/certificates`
+:span[POST]{.api-post} `/api/platformhub/certificates`
 
 **Request Body**
 
-`CreatePlatformHubCertificateCommand`
-
-- **`CertificateData`** <span class="type-label">sensitive value</span> *(required)*
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Notes`** <span class="type-label">string</span> — Maximum length 10240.
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
+- **`CertificateData`** :span[sensitive value]{.type-label} *(required)*
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Notes`** :span[string]{.type-label}  
+  Maximum length 10240.
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -371,51 +386,62 @@ title: Platform Hub
 
 `201` — Created
 
-`PlatformHubCertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -479,58 +505,69 @@ title: Platform Hub
 ```
 </div>
 
-## Creates a self-signed Platform Hub certificate
+## Create a self-signed Platform Hub certificate
 
-`POST` `/api/platformhub/certificates/generate`
+:span[POST]{.api-post} `/api/platformhub/certificates/generate`
 
 **Request Body**
 
-`CreateSelfSignedPlatformHubCertificateCommand`
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SelfSignedCertificateCurve`** <span class="type-label">string</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SelfSignedCertificateCurve`** :span[string]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -599,51 +636,62 @@ title: Platform Hub
 
 `200` — The created self-signed Platform Hub certificate.
 
-`PlatformHubCertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -707,63 +755,74 @@ title: Platform Hub
 ```
 </div>
 
-## Gets a Platform Hub certificate by ID or Thumbprint
+## Get a Platform Hub certificate by ID or Thumbprint
 
-`GET` `/api/platformhub/certificates/{id}`
+:span[GET]{.api-get} `/api/platformhub/certificates/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Platform Hub certificate.
 
-`PlatformHubCertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -827,22 +886,21 @@ title: Platform Hub
 ```
 </div>
 
-## Modifies an existing Platform Hub certificate
+## Modify an existing Platform Hub certificate
 
-`PUT` `/api/platformhub/certificates/{id}`
+:span[PUT]{.api-put} `/api/platformhub/certificates/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyPlatformHubCertificateCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Notes`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Notes`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -860,51 +918,62 @@ title: Platform Hub
 
 `200` — The modified Platform Hub certificate.
 
-`PlatformHubCertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -968,20 +1037,18 @@ title: Platform Hub
 ```
 </div>
 
-## Deletes an existing archived Platform Hub certificate
+## Delete an existing archived Platform Hub certificate
 
-`DELETE` `/api/platformhub/certificates/{id}`
+:span[DELETE]{.api-delete} `/api/platformhub/certificates/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Confirmation that the Platform Hub certificate has been deleted.
 
-`DeletePlatformHubCertificateResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -989,20 +1056,18 @@ title: Platform Hub
 ```
 </div>
 
-## Archives an existing Platform Hub certificate
+## Archive an existing Platform Hub certificate
 
-`POST` `/api/platformhub/certificates/{id}/archive`
+:span[POST]{.api-post} `/api/platformhub/certificates/{id}/archive`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Confirmation that the Platform Hub certificate has been archived.
 
-`ArchivePlatformHubCertificateResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -1010,18 +1075,22 @@ title: Platform Hub
 ```
 </div>
 
-## Exports the Platform Hub certificate
+## Export the Platform Hub certificate
 
-`GET` `/api/platformhub/certificates/{id}/export`
+:span[GET]{.api-get} `/api/platformhub/certificates/{id}/export`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
-- **`format`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`includePrivateKey`** <span class="type-label">boolean</span>
-- **`password`** <span class="type-label">string</span>
-- **`pemOptions`** <span class="type-label">enum</span> — Allowed values: `PrimaryOnly`, `PrimaryAndChain`, `ChainOnly`.
+**Query Parameters**
+
+- **`format`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`includePrivateKey`** :span[boolean]{.type-label}
+- **`password`** :span[string]{.type-label}
+- **`pemOptions`** :span[enum]{.type-label}  
+  Allowed values: `PrimaryOnly`, `PrimaryAndChain`, `ChainOnly`.
 
 **Response**
 
@@ -1034,21 +1103,20 @@ title: Platform Hub
 ```
 </div>
 
-## Replaces an existing Platform Hub certificate with another
+## Replace an existing Platform Hub certificate with another
 
-`POST` `/api/platformhub/certificates/{id}/replace`
+:span[POST]{.api-post} `/api/platformhub/certificates/{id}/replace`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ReplacePlatformHubCertificateCommand`
-
-- **`CertificateData`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Password`** <span class="type-label">string</span>
+- **`CertificateData`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Password`** :span[string]{.type-label}
 
 <div data-example="Request">
 
@@ -1065,51 +1133,62 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub certificate has been replaced.
 
-`PlatformHubCertificateResource`.
-
-- **`Archived`** <span class="type-label">string</span> — Format `date-time`.
-- **`CertificateChain`** <span class="type-label">array of object</span>
-  - **`IssuerDistinguishedName`** <span class="type-label">string</span>
-  - **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-  - **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-  - **`SerialNumber`** <span class="type-label">string</span>
-  - **`SignatureAlgorithmName`** <span class="type-label">string</span>
-  - **`SubjectDistinguishedName`** <span class="type-label">string</span>
-  - **`Thumbprint`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">integer</span>
-- **`CertificateData`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`CertificateDataFormat`** <span class="type-label">enum</span> — Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
-- **`HasPrivateKey`** <span class="type-label">boolean</span>
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsExpired`** <span class="type-label">boolean</span>
-- **`IssuerCommonName`** <span class="type-label">string</span>
-- **`IssuerDistinguishedName`** <span class="type-label">string</span>
-- **`IssuerOrganization`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span>
-- **`NotAfter`** <span class="type-label">string</span> — Format `date-time`.
-- **`NotBefore`** <span class="type-label">string</span> — Format `date-time`.
-- **`Notes`** <span class="type-label">string</span>
-- **`Password`** <span class="type-label">sensitive value</span>
-  - **`HasValue`** <span class="type-label">boolean</span>
-  - **`Hint`** <span class="type-label">string</span>
-  - **`NewValue`** <span class="type-label">string</span>
-- **`ReplacedBy`** <span class="type-label">string</span>
-- **`SelfSigned`** <span class="type-label">boolean</span>
-- **`SerialNumber`** <span class="type-label">string</span>
-- **`SignatureAlgorithmName`** <span class="type-label">string</span>
-- **`Slug`** <span class="type-label">string</span> — The slug of the certificate.
-- **`SubjectAlternativeNames`** <span class="type-label">array of string</span>
-- **`SubjectCommonName`** <span class="type-label">string</span> — The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`SubjectDistinguishedName`** <span class="type-label">string</span>
-- **`SubjectOrganization`** <span class="type-label">string</span> — The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
-- **`Thumbprint`** <span class="type-label">string</span>
-- **`Version`** <span class="type-label">integer</span>
+- **`Archived`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`CertificateChain`** :span[array of object]{.type-label}
+  - **`IssuerDistinguishedName`** :span[string]{.type-label}
+  - **`NotAfter`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`NotBefore`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`SerialNumber`** :span[string]{.type-label}
+  - **`SignatureAlgorithmName`** :span[string]{.type-label}
+  - **`SubjectDistinguishedName`** :span[string]{.type-label}
+  - **`Thumbprint`** :span[string]{.type-label}
+  - **`Version`** :span[integer]{.type-label}
+- **`CertificateData`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`CertificateDataFormat`** :span[enum]{.type-label}  
+  Allowed values: `Pkcs12`, `Der`, `Pem`, `Unknown`.
+- **`HasPrivateKey`** :span[boolean]{.type-label}
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsExpired`** :span[boolean]{.type-label}
+- **`IssuerCommonName`** :span[string]{.type-label}
+- **`IssuerDistinguishedName`** :span[string]{.type-label}
+- **`IssuerOrganization`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}
+- **`NotAfter`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`NotBefore`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Notes`** :span[string]{.type-label}
+- **`Password`** :span[sensitive value]{.type-label}
+  - **`HasValue`** :span[boolean]{.type-label}
+  - **`Hint`** :span[string]{.type-label}
+  - **`NewValue`** :span[string]{.type-label}
+- **`ReplacedBy`** :span[string]{.type-label}
+- **`SelfSigned`** :span[boolean]{.type-label}
+- **`SerialNumber`** :span[string]{.type-label}
+- **`SignatureAlgorithmName`** :span[string]{.type-label}
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the certificate.
+- **`SubjectAlternativeNames`** :span[array of string]{.type-label}
+- **`SubjectCommonName`** :span[string]{.type-label}  
+  The certificate subject's common name (CN). When creating a self-signed certificate this becomes the generated certificate's CN, and at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`SubjectDistinguishedName`** :span[string]{.type-label}
+- **`SubjectOrganization`** :span[string]{.type-label}  
+  The certificate subject's organization (O). When creating a self-signed certificate, at least one of SubjectCommonName or SubjectOrganization must be supplied.
+- **`Thumbprint`** :span[string]{.type-label}
+- **`Version`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1173,19 +1252,17 @@ title: Platform Hub
 ```
 </div>
 
-## Unarchives an existing archived Platform Hub certificate
+## Unarchive an existing archived Platform Hub certificate
 
-`POST` `/api/platformhub/certificates/{id}/unarchive`
+:span[POST]{.api-post} `/api/platformhub/certificates/{id}/unarchive`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Confirmation that the Platform Hub certificate has been unarchived.
-
-`UnarchivePlatformHubCertificateResponse`.
 
 <div data-example="Response">
 
@@ -1194,55 +1271,79 @@ title: Platform Hub
 ```
 </div>
 
-## Gets usages for a Platform Hub certificate
+## Get usages for a Platform Hub certificate
 
-`GET` `/api/platformhub/certificates/{id}/usages`
+:span[GET]{.api-get} `/api/platformhub/certificates/{id}/usages`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The published template versions that use a Platform Hub certificate.
 
-`PlatformHubCertificateUsageResource`.
-
-- **`DefaultBranchProcessTemplateUsageCount`** <span class="type-label">integer</span>
-- **`DefaultBranchProcessTemplateUsages`** <span class="type-label">array of object</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`UsageSource`** <span class="type-label">string</span> — Minimum length 1.
-- **`DefaultBranchProjectTemplateUsageCount`** <span class="type-label">integer</span>
-- **`DefaultBranchProjectTemplateUsages`** <span class="type-label">array of object</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`UsageSource`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`ProcessTemplateVersionUsageCount`** <span class="type-label">integer</span>
-- **`ProcessTemplateVersionUsages`** <span class="type-label">array of object</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`ProjectTemplateVersionUsageCount`** <span class="type-label">integer</span>
-- **`ProjectTemplateVersionUsages`** <span class="type-label">array of object</span>
-  - **`GitRef`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PublishedDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`TotalUsageCount`** <span class="type-label">integer</span>
+- **`DefaultBranchProcessTemplateUsageCount`** :span[integer]{.type-label}
+- **`DefaultBranchProcessTemplateUsages`** :span[array of object]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`UsageSource`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`DefaultBranchProjectTemplateUsageCount`** :span[integer]{.type-label}
+- **`DefaultBranchProjectTemplateUsages`** :span[array of object]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`UsageSource`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`ProcessTemplateVersionUsageCount`** :span[integer]{.type-label}
+- **`ProcessTemplateVersionUsages`** :span[array of object]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PublishedDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Version`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ProjectTemplateVersionUsageCount`** :span[integer]{.type-label}
+- **`ProjectTemplateVersionUsages`** :span[array of object]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PublishedDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Version`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`TotalUsageCount`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1305,36 +1406,45 @@ title: Platform Hub
 
 ## Get a list of Platform Hub Feeds
 
-`GET` `/api/platformhub/feeds`
+:span[GET]{.api-get} `/api/platformhub/feeds`
 
-**Parameters**
+**Query Parameters**
 
-- **`feedType`** <span class="type-label">array of string</span> — The feed types to be matched, provided as a comma separated list of strings.
-- **`ids`** <span class="type-label">array of string</span> — The feed ids to be matched, provided as a comma separated list of strings.
-- **`name`** <span class="type-label">string</span> — The exact name of a feed to be matched.
-- **`partialName`** <span class="type-label">string</span> — The partial name of feeds to be matched.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`feedType`** :span[array of string]{.type-label}  
+  The feed types to be matched, provided as a comma separated list of strings.
+- **`ids`** :span[array of string]{.type-label}  
+  The feed ids to be matched, provided as a comma separated list of strings.
+- **`name`** :span[string]{.type-label}  
+  The exact name of a feed to be matched.
+- **`partialName`** :span[string]{.type-label}  
+  The partial name of feeds to be matched.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested list of Platform Hub Feeds
 
-`PlatformHubFeedResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-  - **`Id`** <span class="type-label">string</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span>
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-  - **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`FeedType`** :span[enum]{.type-label}  
+    Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+  - **`Id`** :span[string]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+    Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+  - **`Slug`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1362,18 +1472,22 @@ title: Platform Hub
 ```
 </div>
 
-## Creates a new Platform Hub Feed
+## Create a new Platform Hub Feed
 
-`POST` `/api/platformhub/feeds`
+:span[POST]{.api-post} `/api/platformhub/feeds`
 
 **Request Body**
 
-`CreatePlatformHubFeedCommand`
-
-- **`FeedType`** <span class="type-label">enum</span> *(required)* — The type of the feed. Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the feed. Maximum length 44.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — The feed's package acquisition location options. Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — The slug of the feed.
+- **`FeedType`** :span[enum]{.type-label} *(required)*  
+  The type of the feed.  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the feed. Maximum length 44.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  The feed's package acquisition location options.  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the feed.
 
 <div data-example="Request">
 
@@ -1393,15 +1507,18 @@ title: Platform Hub
 
 `201` — Created
 
-`PlatformHubFeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span>
-- **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -1422,25 +1539,29 @@ title: Platform Hub
 
 ## Get a Platform Hub Feed by its id
 
-`GET` `/api/platformhub/feeds/{id}`
+:span[GET]{.api-get} `/api/platformhub/feeds/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the Platform Hub Feed to get.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the Platform Hub Feed to get.
 
 **Response**
 
 `200` — A Feed within the Platform Hub
 
-`PlatformHubFeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span>
-- **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -1461,21 +1582,27 @@ title: Platform Hub
 
 ## Modify a Platform Hub Feed
 
-`PUT` `/api/platformhub/feeds/{id}`
+:span[PUT]{.api-put} `/api/platformhub/feeds/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed.
 
 **Request Body**
 
-`ModifyPlatformHubFeedCommand`
-
-- **`FeedType`** <span class="type-label">enum</span> *(required)* — The type of the feed. Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span> *(required)* — The id of the feed.
-- **`Name`** <span class="type-label">string</span> *(required)* — The name of the feed. Maximum length 44.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — The feed's package acquisition location options. Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — The slug of the feed.
+- **`FeedType`** :span[enum]{.type-label} *(required)*  
+  The type of the feed.  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The id of the feed.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  The name of the feed. Maximum length 44.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  The feed's package acquisition location options.  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  The slug of the feed.
 
 <div data-example="Request">
 
@@ -1496,15 +1623,18 @@ title: Platform Hub
 
 `200` — The response returned from the request to modify a platform hub feed.
 
-`PlatformHubFeedResource`.
-
-- **`FeedType`** <span class="type-label">enum</span> — Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
-- **`Id`** <span class="type-label">string</span>
-- **`LastModifiedBy`** <span class="type-label">string</span>
-- **`LastModifiedOn`** <span class="type-label">string</span> — Format `date-time`.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`PackageAcquisitionLocationOptions`** <span class="type-label">array of enum</span> — Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
+- **`FeedType`** :span[enum]{.type-label}  
+  Allowed values: `None`, `NuGet`, `Docker`, `Maven`, `OctopusProject`, `GitHub`, `Helm`, `OciRegistry`, `AwsElasticContainerRegistry`, `BuiltIn`, `S3`, `AzureContainerRegistry`, `GoogleContainerRegistry`, `ArtifactoryGeneric`, `Npm`, `GcsStorage`, `PyPi`.
+- **`Id`** :span[string]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Format `date-time`.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`PackageAcquisitionLocationOptions`** :span[array of enum]{.type-label}  
+  Allowed values: `Server`, `ExecutionTarget`, `NotAcquired`.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -1525,17 +1655,16 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub Feed
 
-`DELETE` `/api/platformhub/feeds/{id}`
+:span[DELETE]{.api-delete} `/api/platformhub/feeds/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the Platform Hub Feed to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the Platform Hub Feed to delete.
 
 **Response**
 
 `200` — Confirmation that the Platform Hub feed has been deleted
-
-`DeletePlatformHubFeedResponse`.
 
 <div data-example="Response">
 
@@ -1544,35 +1673,41 @@ title: Platform Hub
 ```
 </div>
 
-## Searches the specified platform hub feed for packages based on the provided search term
+## Search the specified platform hub feed for packages based on the provided search term
 
-`GET` `/api/platformhub/feeds/{id}/packages/search`
+:span[GET]{.api-get} `/api/platformhub/feeds/{id}/packages/search`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed resource.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed resource.
 
-- **`packageType`** <span class="type-label">string</span> — The package type to filter results by. Used by feeds that can contain multiple package types. Valid values are ContainerImage and HelmChart.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 20. Minimum `0`.
-- **`term`** <span class="type-label">string</span> — The term to search for.
+**Query Parameters**
+
+- **`packageType`** :span[string]{.type-label}  
+  The package type to filter results by. Used by feeds that can contain multiple package types. Valid values are ContainerImage and HelmChart.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 20. Minimum `0`.
+- **`term`** :span[string]{.type-label}  
+  The term to search for.
 
 **Response**
 
 `200` — Returns a paginated collection of searched package descriptions in platform hub
 
-`PlatformHubPackageDescriptionResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`LatestVersion`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`LatestVersion`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1595,43 +1730,56 @@ title: Platform Hub
 ```
 </div>
 
-## Lists available package versions for the specified platform hub feed and package
+## List available package versions for the specified platform hub feed and package
 
-`GET` `/api/platformhub/feeds/{id}/packages/versions`
+:span[GET]{.api-get} `/api/platformhub/feeds/{id}/packages/versions`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the feed resource.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the feed resource.
 
-- **`filter`** <span class="type-label">string</span> — Version number text to filter by.
-- **`includePreRelease`** <span class="type-label">boolean</span> — Flag to include pre-release versions, defaults to true.
-- **`includeReleaseNotes`** <span class="type-label">boolean</span> — Flag to include release notes, defaults to false.
-- **`packageId`** <span class="type-label">string</span> *(required)* — The id of the package.
-- **`preReleaseTag`** <span class="type-label">string</span> — The semver tag regex pattern to filter by.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 20. Minimum `0`.
-- **`versionRange`** <span class="type-label">string</span> — The range of versions to filter by.
+**Query Parameters**
+
+- **`filter`** :span[string]{.type-label}  
+  Version number text to filter by.
+- **`includePreRelease`** :span[boolean]{.type-label}  
+  Flag to include pre-release versions, defaults to true.
+- **`includeReleaseNotes`** :span[boolean]{.type-label}  
+  Flag to include release notes, defaults to false.
+- **`packageId`** :span[string]{.type-label} *(required)*  
+  The id of the package.
+- **`preReleaseTag`** :span[string]{.type-label}  
+  The semver tag regex pattern to filter by.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 20. Minimum `0`.
+- **`versionRange`** :span[string]{.type-label}  
+  The range of versions to filter by.
 
 **Response**
 
 `200` — Contains a paginated collection of package versions returned from a search
 
-`PlatformHubPackageVersionResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`FeedId`** <span class="type-label">string</span>
-  - **`Id`** <span class="type-label">string</span> — Minimum length 1.
-  - **`PackageId`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Published`** <span class="type-label">string</span> — Format `date-time`.
-  - **`ReleaseNotes`** <span class="type-label">string</span>
-  - **`SizeBytes`** <span class="type-label">integer</span>
-  - **`Title`** <span class="type-label">string</span>
-  - **`Version`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`FeedId`** :span[string]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`PackageId`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Published`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`ReleaseNotes`** :span[string]{.type-label}
+  - **`SizeBytes`** :span[integer]{.type-label}
+  - **`Title`** :span[string]{.type-label}
+  - **`Version`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1658,33 +1806,35 @@ title: Platform Hub
 ```
 </div>
 
-## Gets Platform Hub Git credentials
+## Get Platform Hub Git credentials
 
-`GET` `/api/platformhub/git-credentials`
+:span[GET]{.api-get} `/api/platformhub/git-credentials`
 
-**Parameters**
+**Query Parameters**
 
-- **`name`** <span class="type-label">string</span> — Filter by partial name match.
-- **`skip`** <span class="type-label">integer</span> — Number of records to skip.
-- **`take`** <span class="type-label">integer</span> — Number of records to take.
+- **`name`** :span[string]{.type-label}  
+  Filter by partial name match.
+- **`skip`** :span[integer]{.type-label}  
+  Number of records to skip.
+- **`take`** :span[integer]{.type-label}  
+  Number of records to take.
 
 **Response**
 
 `200` — Success
 
-`PlatformHubGitCredentialResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1717,20 +1867,20 @@ title: Platform Hub
 
 ## Create a new Platform Hub Git credential
 
-`POST` `/api/platformhub/git-credentials`
+:span[POST]{.api-post} `/api/platformhub/git-credentials`
 
 **Request Body**
 
-`CreatePlatformHubGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -1760,9 +1910,7 @@ title: Platform Hub
 
 `201` — Created
 
-`CreatePlatformHubGitCredentialResponse`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1773,33 +1921,35 @@ title: Platform Hub
 ```
 </div>
 
-## Gets Platform Hub Git credentials (V2)
+## Get Platform Hub Git credentials (V2)
 
-`GET` `/api/platformhub/git-credentials/v2`
+:span[GET]{.api-get} `/api/platformhub/git-credentials/v2`
 
-**Parameters**
+**Query Parameters**
 
-- **`name`** <span class="type-label">string</span> — Filter by partial name match.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`name`** :span[string]{.type-label}  
+  Filter by partial name match.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`PlatformHubGitCredentialResourceV2PaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`Details`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-  - **`RepositoryRestrictions`** <span class="type-label">object</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`Details`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`RepositoryRestrictions`** :span[object]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -1832,19 +1982,19 @@ title: Platform Hub
 
 ## Create a new Platform Hub Git credential
 
-`POST` `/api/platformhub/git-credentials/v2`
+:span[POST]{.api-post} `/api/platformhub/git-credentials/v2`
 
 **Request Body**
 
-`CreatePlatformHubGitCredentialCommandV2`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -1869,9 +2019,7 @@ title: Platform Hub
 
 `201` — Created
 
-`CreatePlatformHubGitCredentialResponseV2`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -1882,28 +2030,29 @@ title: Platform Hub
 ```
 </div>
 
-## Gets a specific Platform Hub Git credential
+## Get a specific Platform Hub Git credential
 
-`GET` `/api/platformhub/git-credentials/{id}`
+:span[GET]{.api-get} `/api/platformhub/git-credentials/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get.
 
 **Response**
 
 `200` — The requested Platform Hub Git Credential
 
-`PlatformHubGitCredentialResource`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -1927,25 +2076,25 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub Git credential
 
-`PUT` `/api/platformhub/git-credentials/{id}`
+:span[PUT]{.api-put} `/api/platformhub/git-credentials/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyPlatformHubGitCredentialCommand`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Password`** <span class="type-label">sensitive value</span> *(required)*
-  - **`Username`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Password`** :span[sensitive value]{.type-label} *(required)*
+  - **`Username`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -1975,8 +2124,6 @@ title: Platform Hub
 **Response**
 
 `200` — Indicates that the Platform Hub Git Credential was successfully modified.
-
-`ModifyPlatformHubGitCredentialResponse`.
 
 <div data-example="Response">
 
@@ -1987,17 +2134,16 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub Git credential
 
-`DELETE` `/api/platformhub/git-credentials/{id}`
+:span[DELETE]{.api-delete} `/api/platformhub/git-credentials/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to delete.
 
 **Response**
 
 `200` — Confirmation that the Platform Hub Git Credential has been deleted
-
-`DeletePlatformHubGitCredentialResponse`.
 
 <div data-example="Response">
 
@@ -2006,28 +2152,29 @@ title: Platform Hub
 ```
 </div>
 
-## Gets a specific Platform Hub Git credential (V2)
+## Get a specific Platform Hub Git credential (V2)
 
-`GET` `/api/platformhub/git-credentials/{id}/v2`
+:span[GET]{.api-get} `/api/platformhub/git-credentials/{id}/v2`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the Git credential to get.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the Git credential to get.
 
 **Response**
 
 `200` — A Platform Hub Git credential (V2)
 
-`PlatformHubGitCredentialResourceV2`.
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `UsernamePassword`, `Anonymous`, `Library`, `GitHub`, `NotSpecified`, `SshKey`.
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -2051,24 +2198,24 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub Git credential
 
-`PUT` `/api/platformhub/git-credentials/{id}/v2`
+:span[PUT]{.api-put} `/api/platformhub/git-credentials/{id}/v2`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyPlatformHubGitCredentialCommandV2`
-
-- **`Description`** <span class="type-label">string</span>
-- **`Details`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryRestrictions`** <span class="type-label">object</span>
-  - **`AllowedRepositories`** <span class="type-label">array of string</span>
-  - **`Enabled`** <span class="type-label">boolean</span>
+- **`Description`** :span[string]{.type-label}
+- **`Details`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[string]{.type-label} *(required)*  
+    Minimum length 1.
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryRestrictions`** :span[object]{.type-label}
+  - **`AllowedRepositories`** :span[array of string]{.type-label}
+  - **`Enabled`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -2094,8 +2241,6 @@ title: Platform Hub
 
 `200` — Indicates that the Platform Hub Git Credential was successfully modified.
 
-`ModifyPlatformHubGitCredentialResponseV2`.
-
 <div data-example="Response">
 
 ```json
@@ -2103,35 +2248,42 @@ title: Platform Hub
 ```
 </div>
 
-## Requests the list of Branches for the Platform Hub
+## Request the list of Branches for the Platform Hub
 
-`GET` `/api/platformhub/git/branches`
+:span[GET]{.api-get} `/api/platformhub/git/branches`
 
-**Parameters**
+**Query Parameters**
 
-- **`searchByName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`searchByName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`GitBranchResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`IsProtected`** <span class="type-label">boolean</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`IsProtected`** :span[boolean]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -2163,14 +2315,13 @@ title: Platform Hub
 
 ## Create a branch given the base git ref, and the new branch's name
 
-`POST` `/api/platformhub/git/branches`
+:span[POST]{.api-post} `/api/platformhub/git/branches`
 
 **Request Body**
 
-`CreatePlatformHubBranchCommand`
-
-- **`BaseGitRef`** <span class="type-label">string</span> *(required)*
-- **`NewBranchName`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`BaseGitRef`** :span[string]{.type-label} *(required)*
+- **`NewBranchName`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -2186,15 +2337,19 @@ title: Platform Hub
 
 `201` — Created
 
-`GitBranchResource`.
-
-- **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`IsProtected`** <span class="type-label">boolean</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
+- **`CanonicalName`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`IsProtected`** :span[boolean]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 
@@ -2215,34 +2370,41 @@ title: Platform Hub
 ```
 </div>
 
-## Requests a list of Git Tags for the Platform Hub
+## Request a list of Git Tags for the Platform Hub
 
-`GET` `/api/platformhub/git/tags`
+:span[GET]{.api-get} `/api/platformhub/git/tags`
 
-**Parameters**
+**Query Parameters**
 
-- **`searchByName`** <span class="type-label">string</span> — A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`searchByName`** :span[string]{.type-label}  
+  A partial or complete name to search on. This will perform a "contains" style match against the supplied name or name-fragment.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — Success
 
-`GitTagResourcePaginatedCollection`.
-
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CanonicalName`** <span class="type-label">string</span> — Minimum length 1.
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CanonicalName`** :span[string]{.type-label}  
+    Minimum length 1.
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`Name`** :span[string]{.type-label}  
+    Minimum length 1.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -2273,28 +2435,29 @@ title: Platform Hub
 
 ## Get GitHub App connections for the Platform Hub
 
-`GET` `/api/platformhub/github/connections`
+:span[GET]{.api-get} `/api/platformhub/github/connections`
 
 Gets a set of GitHub App connections for the Platform Hub.
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> *(required)* — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> *(required)* — Number of items to take. Defaults to 30. Minimum `0`.
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — All GitHub App connections for Platform Hub
 
-`GetPlatformHubGitHubAppConnectionsResponse`.
-
-- **`Connections`** <span class="type-label">array of object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Installation`** <span class="type-label">object</span>
-  - **`Status`** <span class="type-label">enum</span> — Allowed values: `ConnectionNotFound`, `InstallationNotFound`, `InstallationSuspended`, `Connected`, `Error`.
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Connections`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Installation`** :span[object]{.type-label}
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `ConnectionNotFound`, `InstallationNotFound`, `InstallationSuspended`, `Connected`, `Error`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -2323,14 +2486,13 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Create a new GitHub App connection in Platform Hub
 
-`POST` `/api/platformhub/github/connections`
+:span[POST]{.api-post} `/api/platformhub/github/connections`
 
 **Request Body**
 
-`CreatePlatformHubGitHubAppConnectionCommand`
-
-- **`InstallationId`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
+- **`InstallationId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2357,40 +2519,41 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get a single PlatformHub GitHub app connection by id
 
-`GET` `/api/platformhub/github/connections/{id}`
+:span[GET]{.api-get} `/api/platformhub/github/connections/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — A PlatformHub GitHub app connection
 
-`GetPlatformHubGitHubAppConnectionByIdResponse`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Installation`** <span class="type-label">object</span>
-  - **`AccountAvatarUrl`** <span class="type-label">string</span>
-  - **`AccountId`** <span class="type-label">string</span>
-  - **`AccountLogin`** <span class="type-label">string</span>
-  - **`AccountType`** <span class="type-label">string</span>
-  - **`AllRepositories`** <span class="type-label">boolean</span> — true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
-  - **`InstallationId`** <span class="type-label">string</span>
-- **`Repositories`** <span class="type-label">array of object</span>
-  - **`DefaultBranch`** <span class="type-label">string</span>
-  - **`GitUrl`** <span class="type-label">string</span>
-  - **`IsAdmin`** <span class="type-label">boolean</span>
-  - **`IsPrivate`** <span class="type-label">boolean</span>
-  - **`Language`** <span class="type-label">string</span>
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
-  - **`Visibility`** <span class="type-label">string</span>
-- **`Status`** <span class="type-label">string</span> — Minimum length 1.
-- **`StatusUserMessage`** <span class="type-label">string</span>
-- **`UnknownRepositories`** <span class="type-label">array of object</span> — Repositories IDs that are configured on the connection but do not have a matching repository returned from GitHub.
-  - **`RepositoryId`** <span class="type-label">string</span>
-  - **`RepositoryName`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Installation`** :span[object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`StatusUserMessage`** :span[string]{.type-label}
+- **`UnknownRepositories`** :span[array of object]{.type-label}  
+  Repositories IDs that are configured on the connection but do not have a matching repository returned from GitHub.
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -2431,18 +2594,16 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Update a Platform Hub GitHub App connection with a new set of repositories
 
-`PUT` `/api/platformhub/github/connections/{id}`
+:span[PUT]{.api-put} `/api/platformhub/github/connections/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyPlatformHubGitHubAppConnectionCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2460,8 +2621,6 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 `200` — Platform Hub GitHub app connection modified result
 
-`ModifyPlatformHubGitHubAppConnectionResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -2469,19 +2628,18 @@ Gets a set of GitHub App connections for the Platform Hub.
 ```
 </div>
 
-## Deletes a PlatformHub GitHub App connection by id
+## Delete a PlatformHub GitHub App connection by id
 
-`DELETE` `/api/platformhub/github/connections/{id}`
+:span[DELETE]{.api-delete} `/api/platformhub/github/connections/{id}`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — Id of the GitHub connection to delete.
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the GitHub connection to delete.
 
 **Response**
 
 `200` — Confirmation that the PlatformHub GitHub App connection has been deleted
-
-`DeletePlatformHubGitHubAppConnectionByIdResponse`.
 
 <div data-example="Response">
 
@@ -2492,18 +2650,16 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Recover a platfrom hub GitHub App connection after the registration has changed
 
-`POST` `/api/platformhub/github/connections/{id}/recover`
+:span[POST]{.api-post} `/api/platformhub/github/connections/{id}/recover`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`RecoverPlatformHubGitHubAppConnectionCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)*
-- **`RepositoryIds`** <span class="type-label">array of string</span> *(required)*
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
 <div data-example="Request">
 
@@ -2521,8 +2677,6 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 `200` — Platform Hub GitHub app connection recovery result
 
-`RecoverPlatformHubGitHubAppConnectionResponse`.
-
 <div data-example="Response">
 
 ```json
@@ -2532,17 +2686,15 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Refresh the Platform Hub GitHub App connection token
 
-`POST` `/api/platformhub/github/connections/{id}/refresh`
+:span[POST]{.api-post} `/api/platformhub/github/connections/{id}/refresh`
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Platform Hub GitHub app connection has been refreshed
-
-`RefreshPlatformHubGitHubAppConnectionByIdResponse`.
 
 <div data-example="Response">
 
@@ -2553,25 +2705,24 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
-`GET` `/api/platformhub/github/installations`
+:span[GET]{.api-get} `/api/platformhub/github/installations`
 
-**Parameters**
+**Query Parameters**
 
-- **`excludeConnected`** <span class="type-label">boolean</span>
+- **`excludeConnected`** :span[boolean]{.type-label}
 
 **Response**
 
 `200` — List of GitHub organisations accessible to the current GitHub OAuth user
 
-`GetPlatformHubGitHubAppInstallationsForUserResponse`.
-
-- **`Installations`** <span class="type-label">array of object</span>
-  - **`AccountAvatarUrl`** <span class="type-label">string</span>
-  - **`AccountId`** <span class="type-label">string</span>
-  - **`AccountLogin`** <span class="type-label">string</span>
-  - **`AccountType`** <span class="type-label">string</span>
-  - **`AllRepositories`** <span class="type-label">boolean</span> — true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
-  - **`InstallationId`** <span class="type-label">string</span>
+- **`Installations`** :span[array of object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -2593,19 +2744,18 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get platform hub version control settings configuration
 
-`GET` `/api/platformhub/versioncontrol`
+:span[GET]{.api-get} `/api/platformhub/versioncontrol`
 
 **Response**
 
 `200` — The version control settings for the Platform Hub
 
-`PlatformHubVersionControlSettingsResource`.
-
-- **`BasePath`** <span class="type-label">string</span>
-- **`Credentials`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
-- **`DefaultBranch`** <span class="type-label">string</span>
-- **`Url`** <span class="type-label">string</span>
+- **`BasePath`** :span[string]{.type-label}
+- **`Credentials`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
+- **`DefaultBranch`** :span[string]{.type-label}
+- **`Url`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -2621,19 +2771,19 @@ Gets a set of GitHub App connections for the Platform Hub.
 ```
 </div>
 
-## Command to update the platform hub's existing version control settings configuration
+## Update the platform hub's existing version control settings configuration
 
-`PUT` `/api/platformhub/versioncontrol`
+:span[PUT]{.api-put} `/api/platformhub/versioncontrol`
 
 **Request Body**
 
-`ModifyPlatformHubVersionControlSettingsCommand`
-
-- **`BasePath`** <span class="type-label">string</span> *(required)*
-- **`Credentials`** <span class="type-label">object</span> *(required)*
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
-- **`DefaultBranch`** <span class="type-label">string</span> *(required)*
-- **`Url`** <span class="type-label">string</span> *(required)* — Minimum length 1.
+- **`BasePath`** :span[string]{.type-label} *(required)*
+- **`Credentials`** :span[object]{.type-label} *(required)*
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
+- **`DefaultBranch`** :span[string]{.type-label} *(required)*
+- **`Url`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
 
 <div data-example="Request">
 
@@ -2653,13 +2803,12 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 `200` — The version control settings for the Platform Hub
 
-`PlatformHubVersionControlSettingsResource`.
-
-- **`BasePath`** <span class="type-label">string</span>
-- **`Credentials`** <span class="type-label">object</span>
-  - **`Type`** <span class="type-label">enum</span> — Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
-- **`DefaultBranch`** <span class="type-label">string</span>
-- **`Url`** <span class="type-label">string</span>
+- **`BasePath`** :span[string]{.type-label}
+- **`Credentials`** :span[object]{.type-label}
+  - **`Type`** :span[enum]{.type-label}  
+    Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
+- **`DefaultBranch`** :span[string]{.type-label}
+- **`Url`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -2675,34 +2824,36 @@ Gets a set of GitHub App connections for the Platform Hub.
 ```
 </div>
 
-## Gets a paginated list of process templates from the specified Git reference (sorted by name)
+## Get a paginated list of process templates from the specified Git reference (sorted by name)
 
-`GET` `/api/platformhub/{gitRef}/processtemplates`
+:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates`
 
-**Parameters**
+**Path Parameters**
 
-- **`gitRef`** <span class="type-label">string</span> *(required)*
+- **`gitRef`** :span[string]{.type-label} *(required)*
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — A paginated list of process templates (sorted by name).
 
-`GetProcessTemplatesResponse`.
-
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`ProcessTemplates`** <span class="type-label">array of object</span>
-  - **`Description`** <span class="type-label">string</span>
-  - **`GitRef`** <span class="type-label">string</span>
-  - **`Icon`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span>
-  - **`Name`** <span class="type-label">string</span>
-  - **`Parameters`** <span class="type-label">array of object</span>
-  - **`Slug`** <span class="type-label">string</span>
-  - **`Steps`** <span class="type-label">array of object</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`ProcessTemplates`** :span[array of object]{.type-label}
+  - **`Description`** :span[string]{.type-label}
+  - **`GitRef`** :span[string]{.type-label}
+  - **`Icon`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`Parameters`** :span[array of object]{.type-label}
+  - **`Slug`** :span[string]{.type-label}
+  - **`Steps`** :span[array of object]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 

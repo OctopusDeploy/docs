@@ -7,19 +7,21 @@ title: Retention
 
 ## Get the default retention configuration
 
-`GET` `/api/configuration/retention-default`
+:span[GET]{.api-get} `/api/configuration/retention-default`
 
 **Response**
 
 `200` — The default retention configuration
 
-`RetentionDefaultConfigurationResource`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`RetentionDays`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`RetentionDays`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -38,15 +40,13 @@ title: Retention
 ```
 </div>
 
-## Updates the default retention configuration
+## Update the default retention configuration
 
-`PUT` `/api/configuration/retention-default`
+:span[PUT]{.api-put} `/api/configuration/retention-default`
 
 **Request Body**
 
-`ModifyRetentionDefaultConfigurationCommand`
-
-- **`RetentionDays`** <span class="type-label">integer</span>
+- **`RetentionDays`** :span[integer]{.type-label}
 
 <div data-example="Request">
 
@@ -63,26 +63,26 @@ title: Retention
 
 ## Get the configured default retention policies for the given retention type
 
-`GET` `/api/{spaceId}/retentionpolicies`
+:span[GET]{.api-get} `/api/{spaceId}/retentionpolicies`
 
 Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/retentionpolicies`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
-- **`retentionType`** <span class="type-label">string</span> *(required)*
+**Query Parameters**
+
+- **`retentionType`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — Returns the configured default retention policy values
 
-`SpaceDefaultRetentionPolicyResource`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`RetentionType`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`RetentionType`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -98,22 +98,25 @@ Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/reten
 
 ## Modify a default retention policy
 
-`PUT` `/api/{spaceId}/retentionpolicies/{id}`
+:span[PUT]{.api-put} `/api/{spaceId}/retentionpolicies/{id}`
 
 Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/retentionpolicies/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — The id of the default retention policy.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the default retention policy.
+- **`id`** :span[string]{.type-label} *(required)*  
+  The id of the default retention policy.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the default retention policy.
 
 **Request Body**
 
-`ModifyDefaultRetentionPolicyCommand`
-
-- **`Id`** <span class="type-label">string</span> *(required)* — The id of the default retention policy.
-- **`RetentionType`** <span class="type-label">string</span> *(required)* — The type of the default retention policy. ["MachinePackageCache", "LifecycleRetention", "TentacleRetention", "RunbookRetention"].
-- **`SpaceId`** <span class="type-label">string</span> *(required)* — The id of the space that contains the default retention policy.
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The id of the default retention policy.
+- **`RetentionType`** :span[string]{.type-label} *(required)*  
+  The type of the default retention policy. ["MachinePackageCache", "LifecycleRetention", "TentacleRetention", "RunbookRetention"].
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The id of the space that contains the default retention policy.
 
 <div data-example="Request">
 
@@ -130,12 +133,10 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
 
 `200` — The response returned from the request to modify a default retention policy.
 
-`SpaceDefaultRetentionPolicyResource`.
-
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span>
-- **`RetentionType`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}
+- **`RetentionType`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
 
 <div data-example="Response">
 

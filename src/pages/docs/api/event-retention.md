@@ -7,37 +7,47 @@ title: Event Retention
 
 ## Get the list of archived event files
 
-`GET` `/api/events/archives`
+:span[GET]{.api-get} `/api/events/archives`
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Archived Event files
 
-`ArchivedEventFileResourceCollection`.
-
-- **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-- **`ItemType`** <span class="type-label">string</span>
-- **`Items`** <span class="type-label">array of object</span>
-  - **`CreatedDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`FileBytes`** <span class="type-label">number</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`ModifiedDate`** <span class="type-label">string</span> — Format `date-time`.
-  - **`Name`** <span class="type-label">string</span>
-- **`ItemsPerPage`** <span class="type-label">integer</span>
-- **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-- **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-- **`LastPageNumber`** <span class="type-label">integer</span>
-- **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-- **`NumberOfPages`** <span class="type-label">integer</span>
-- **`TotalResults`** <span class="type-label">integer</span>
+- **`Id`** :span[string]{.type-label}  
+  Gets or sets a unique identifier for this resource.
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`CreatedDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`FileBytes`** :span[number]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`ModifiedDate`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`Name`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastModifiedBy`** :span[string]{.type-label}  
+  Gets or sets the username of the user who last modified this resource.
+- **`LastModifiedOn`** :span[string]{.type-label}  
+  Gets or sets the date/time that this resource was last modified. Format `date-time`.
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`Links`** :span[object]{.type-label}  
+  Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -78,30 +88,34 @@ title: Event Retention
 
 ## Get the list of archived event files
 
-`GET` `/api/events/archives/v1`
+:span[GET]{.api-get} `/api/events/archives/v1`
 
-**Parameters**
+**Query Parameters**
 
-- **`skip`** <span class="type-label">integer</span> — Number of items to skip. Defaults to zero. Minimum `0`.
-- **`take`** <span class="type-label">integer</span> — Number of items to take. Defaults to 30. Minimum `0`.
+- **`skip`** :span[integer]{.type-label}  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label}  
+  Number of items to take. Defaults to 30. Minimum `0`.
 
 **Response**
 
 `200` — The requested Archived Event files
 
-`GetArchivedEventFilesResponse`.
-
-- **`ArchivedFiles`** <span class="type-label">object</span>
-  - **`Id`** <span class="type-label">string</span> — Gets or sets a unique identifier for this resource.
-  - **`ItemType`** <span class="type-label">string</span>
-  - **`Items`** <span class="type-label">array of object</span>
-  - **`ItemsPerPage`** <span class="type-label">integer</span>
-  - **`LastModifiedBy`** <span class="type-label">string</span> — Gets or sets the username of the user who last modified this resource.
-  - **`LastModifiedOn`** <span class="type-label">string</span> — Gets or sets the date/time that this resource was last modified. Format `date-time`.
-  - **`LastPageNumber`** <span class="type-label">integer</span>
-  - **`Links`** <span class="type-label">object</span> — Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
-  - **`NumberOfPages`** <span class="type-label">integer</span>
-  - **`TotalResults`** <span class="type-label">integer</span>
+- **`ArchivedFiles`** :span[object]{.type-label}
+  - **`Id`** :span[string]{.type-label}  
+    Gets or sets a unique identifier for this resource.
+  - **`ItemType`** :span[string]{.type-label}
+  - **`Items`** :span[array of object]{.type-label}
+  - **`ItemsPerPage`** :span[integer]{.type-label}
+  - **`LastModifiedBy`** :span[string]{.type-label}  
+    Gets or sets the username of the user who last modified this resource.
+  - **`LastModifiedOn`** :span[string]{.type-label}  
+    Gets or sets the date/time that this resource was last modified. Format `date-time`.
+  - **`LastPageNumber`** :span[integer]{.type-label}
+  - **`Links`** :span[object]{.type-label}  
+    Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
+  - **`NumberOfPages`** :span[integer]{.type-label}
+  - **`TotalResults`** :span[integer]{.type-label}
 
 <div data-example="Response">
 
@@ -140,11 +154,12 @@ title: Event Retention
 
 ## Download an archived event file
 
-`GET` `/api/events/archives/{fileName}`
+:span[GET]{.api-get} `/api/events/archives/{fileName}`
 
-**Parameters**
+**Path Parameters**
 
-- **`fileName`** <span class="type-label">string</span> *(required)* — The file name of archived events file to download.
+- **`fileName`** :span[string]{.type-label} *(required)*  
+  The file name of archived events file to download.
 
 **Response**
 
@@ -159,11 +174,12 @@ title: Event Retention
 
 ## Delete an archived event file
 
-`DELETE` `/api/events/archives/{fileName}`
+:span[DELETE]{.api-delete} `/api/events/archives/{fileName}`
 
-**Parameters**
+**Path Parameters**
 
-- **`fileName`** <span class="type-label">string</span> *(required)* — The file name of archived events file to delete.
+- **`fileName`** :span[string]{.type-label} *(required)*  
+  The file name of archived events file to delete.
 
 **Response**
 
@@ -171,19 +187,19 @@ title: Event Retention
 
 ## Delete an archived event file
 
-`DELETE` `/api/events/archives/{fileName}/v1`
+:span[DELETE]{.api-delete} `/api/events/archives/{fileName}/v1`
 
-**Parameters**
+**Path Parameters**
 
-- **`fileName`** <span class="type-label">string</span> *(required)* — The file name of archived events file to delete.
+- **`fileName`** :span[string]{.type-label} *(required)*  
+  The file name of archived events file to delete.
 
 **Response**
 
 `200` — Confirmation that the Archived Event File has been deleted, containing the filename
 
-`DeleteArchivedEventFileResponse`.
-
-- **`FileName`** <span class="type-label">string</span> — Minimum length 1.
+- **`FileName`** :span[string]{.type-label}  
+  Minimum length 1.
 
 <div data-example="Response">
 

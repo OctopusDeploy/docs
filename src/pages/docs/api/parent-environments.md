@@ -5,28 +5,27 @@ modDate: 2026-08-11
 title: Parent Environments
 ---
 
-## Creates a new parent environment
+## Create a new parent environment
 
-`POST` `/api/{spaceId}/parentEnvironments`
+:span[POST]{.api-post} `/api/{spaceId}/parentEnvironments`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 
-**Parameters**
+**Path Parameters**
 
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`CreateParentEnvironmentCommand`
-
-- **`AutomaticDeprovisioningRule`** <span class="type-label">object</span>
-  - **`ExpiryDays`** <span class="type-label">integer</span>
-  - **`ExpiryHours`** <span class="type-label">integer</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1. Maximum length 50.
-- **`Slug`** <span class="type-label">string</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AutomaticDeprovisioningRule`** :span[object]{.type-label}
+  - **`ExpiryDays`** :span[integer]{.type-label}
+  - **`ExpiryHours`** :span[integer]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1. Maximum length 50.
+- **`Slug`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -49,9 +48,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 
 `201` — Created
 
-`CreateParentEnvironmentResponse`.
-
-- **`Id`** <span class="type-label">string</span>
+- **`Id`** :span[string]{.type-label}
 
 <div data-example="Response">
 
@@ -62,31 +59,30 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 ```
 </div>
 
-## Modifies an existing parent environment
+## Modify an existing parent environment
 
-`PUT` `/api/{spaceId}/parentEnvironments/{environmentId}`
+:span[PUT]{.api-put} `/api/{spaceId}/parentEnvironments/{environmentId}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environmentId}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`environmentId`** <span class="type-label">string</span> *(required)*
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Request Body**
 
-`ModifyParentEnvironmentCommand`
-
-- **`AutomaticDeprovisioningRule`** <span class="type-label">object</span>
-  - **`ExpiryDays`** <span class="type-label">integer</span>
-  - **`ExpiryHours`** <span class="type-label">integer</span>
-- **`Description`** <span class="type-label">string</span>
-- **`EnvironmentId`** <span class="type-label">string</span> *(required)*
-- **`Name`** <span class="type-label">string</span> *(required)* — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span>
-- **`SortOrder`** <span class="type-label">integer</span>
-- **`SpaceId`** <span class="type-label">string</span> *(required)*
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AutomaticDeprovisioningRule`** :span[object]{.type-label}
+  - **`ExpiryDays`** :span[integer]{.type-label}
+  - **`ExpiryHours`** :span[integer]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`EnvironmentId`** :span[string]{.type-label} *(required)*
+- **`Name`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}
+- **`SortOrder`** :span[integer]{.type-label}
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Request">
 
@@ -111,18 +107,18 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
 
 `200` — The parent environment after modifications have been applied.
 
-`ModifyParentEnvironmentResponse`.
-
-- **`AutomaticDeprovisioningRule`** <span class="type-label">object</span>
-  - **`ExpiryDays`** <span class="type-label">integer</span>
-  - **`ExpiryHours`** <span class="type-label">integer</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`SortOrder`** <span class="type-label">integer</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AutomaticDeprovisioningRule`** :span[object]{.type-label}
+  - **`ExpiryDays`** :span[integer]{.type-label}
+  - **`ExpiryHours`** :span[integer]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`SortOrder`** :span[integer]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -143,33 +139,34 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
 ```
 </div>
 
-## Gets a specific Parent Environment
+## Get a specific Parent Environment
 
-`GET` `/api/{spaceId}/parentEnvironments/{id}`
+:span[GET]{.api-get} `/api/{spaceId}/parentEnvironments/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Parent Environment to load.
-- **`spaceId`** <span class="type-label">string</span> *(required)*
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Parent Environment to load.
+- **`spaceId`** :span[string]{.type-label} *(required)*
 
 **Response**
 
 `200` — The requested Parent Environment
 
-`GetParentEnvironmentResponse`.
-
-- **`AutomaticDeprovisioningRule`** <span class="type-label">object</span>
-  - **`ExpiryDays`** <span class="type-label">integer</span>
-  - **`ExpiryHours`** <span class="type-label">integer</span>
-- **`Description`** <span class="type-label">string</span>
-- **`Id`** <span class="type-label">string</span>
-- **`Name`** <span class="type-label">string</span> — Minimum length 1.
-- **`Slug`** <span class="type-label">string</span> — Minimum length 1.
-- **`SortOrder`** <span class="type-label">integer</span>
-- **`SpaceId`** <span class="type-label">string</span>
-- **`UseGuidedFailure`** <span class="type-label">boolean</span>
+- **`AutomaticDeprovisioningRule`** :span[object]{.type-label}
+  - **`ExpiryDays`** :span[integer]{.type-label}
+  - **`ExpiryHours`** :span[integer]{.type-label}
+- **`Description`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Name`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`Slug`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`SortOrder`** :span[integer]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`UseGuidedFailure`** :span[boolean]{.type-label}
 
 <div data-example="Response">
 
@@ -190,16 +187,18 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 ```
 </div>
 
-## Deletes an existing Parent Environment
+## Delete an existing Parent Environment
 
-`DELETE` `/api/{spaceId}/parentEnvironments/{id}`
+:span[DELETE]{.api-delete} `/api/{spaceId}/parentEnvironments/{id}`
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 
-**Parameters**
+**Path Parameters**
 
-- **`id`** <span class="type-label">string</span> *(required)* — ID of the Parent Environment to delete.
-- **`spaceId`** <span class="type-label">string</span> *(required)* — The ID of the space containing the resource(s).
+- **`id`** :span[string]{.type-label} *(required)*  
+  ID of the Parent Environment to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
 
 **Response**
 
