@@ -9,7 +9,7 @@ navOrder: 191
 
 Use the show configuration command to output the server configuration.
 
-## Show configuration options
+**Show configuration options**
 
 ```text
 Usage: octopus.server show-configuration [<options>]

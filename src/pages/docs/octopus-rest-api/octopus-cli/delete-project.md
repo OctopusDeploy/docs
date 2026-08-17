@@ -9,7 +9,7 @@ navOrder: 100
 
 Deletes a project.
 
-## delete-project options
+**delete-project options**
 
 ```text
 Deletes a project.

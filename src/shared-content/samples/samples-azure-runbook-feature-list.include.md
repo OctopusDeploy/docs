@@ -1,6 +1,6 @@
 <!-- cspell:ignore Payara -->
 
-## Octopus Admin
+**Octopus Admin**
 
 - Artifactory Sample Management
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-1082/operations/runbooks/Runbooks-1081/process/RunbookProcess-Runbooks-1081" target="_blank">Renew and Deploy SSL Certificate</a>: <i>Runbook which renews and stores LetsEncrypt certificates in the Octopus Certificate library and deploys to the target machine</i>
@@ -25,7 +25,7 @@
       - Run hardening script (Windows Server 2016 Hardening runbook)</i>
    - <a href="https://samples.octopus.app/app#/Spaces-142/projects/Projects-202/operations/runbooks/Runbooks-206/process/RunbookProcess-Runbooks-206" target="_blank">Tear down hardened Windows Azure VM</a>: <i>Remove the Deployment Target from Octopus and then tear down the Resource Group containing the VM from Azure.</i>
 
-### Pattern - IaC
+**Pattern - IaC**
 
 - PowerShell DSC IIS Server
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1847/operations/runbooks/Runbooks-1889/process/RunbookProcess-Runbooks-1889" target="_blank">Create Infrastructure</a>: <i>Creates infrastructure for the PowerShell DSC IIS Server project.</i>
@@ -33,7 +33,7 @@
 - Random Quotes - Azure
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1851/operations/runbooks/Runbooks-1897/process/RunbookProcess-Runbooks-1897" target="_blank">Create and Configure Terraform Infrastructure</a>: <i>Creates necessary infrastructure in Azure [using Terraform](https://dev.azure.com/octopussamples/_git/Azure-Terraform-RandomQuotes) and configures it for application deployment.</i>
 
-#### Pattern - Rolling
+**Pattern - Rolling**
 
 - Azure VMSS
    - <a href="https://samples.octopus.app/app#/Spaces-45/projects/Projects-682/operations/runbooks/Runbooks-724/process/RunbookProcess-Runbooks-724" target="_blank">Spin Up Azure Resources</a>
@@ -42,7 +42,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-45/projects/Projects-441/operations/runbooks/Runbooks-448/process/RunbookProcess-Runbooks-448" target="_blank">3-Create GCP PetClinic Project Infrastructure</a>: <i>Runbook that will spin up the Rolling Deploy - Conversion projects infrastructure</i>
    - <a href="https://samples.octopus.app/app#/Spaces-45/projects/Projects-441/operations/runbooks/Runbooks-586/process/RunbookProcess-Runbooks-586" target="_blank">4-Destroy the GCP Kraken</a>: <i>Runbook that will tear down ALL the Rolling Deploy - Conversion projects GCP infrastructure, using execution containers for workers</i>
 
-##### Pattern - Tenants
+**Pattern - Tenants**
 
 - Car Rental
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1341/operations/runbooks/Runbooks-1361/process/RunbookProcess-Runbooks-1361" target="_blank">Create Azure Web Apps</a>
@@ -59,7 +59,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/operations/runbooks/Runbooks-1321/process/RunbookProcess-Runbooks-1321" target="_blank">Create Azure Web Apps</a>
    - <a href="https://samples.octopus.app/app#/Spaces-682/projects/Projects-1302/operations/runbooks/Runbooks-1343/process/RunbookProcess-Runbooks-1343" target="_blank">Destroy Azure Web Apps</a>
 
-###### Pattern-AutoScaling
+**Pattern-AutoScaling**
 
 - Azure VMSS Orchestration
    - <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1462/operations/runbooks/Runbooks-1544/process/RunbookProcess-Runbooks-1544" target="_blank">Reconcile VMSS Provisioning</a>: <i>Runbook that will ensure Octopus Deploy and the VMSS VMs are in sync.</i>
@@ -68,7 +68,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1462/operations/runbooks/Runbooks-1541/process/RunbookProcess-Runbooks-1541" target="_blank">Spin Up VMSS</a>: <i>Runbook to create a new VMSS</i>
    - <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1462/operations/runbooks/Runbooks-1542/process/RunbookProcess-Runbooks-1542" target="_blank">Tear Down VMSS</a>: <i>Runbook to delete the VMSS</i>
 
-###### Secrets Management
+**Secrets Management**
 
 - Azure Key Vault
    - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1701/operations/runbooks/Runbooks-1746/process/RunbookProcess-Runbooks-1746" target="_blank">Create Azure Key Vault</a>: <i>This runbook creates the infrastructure required for retrieving secrets from Azure Key Vault.</i>
@@ -76,7 +76,7 @@
 - HashiCorp Vault
    - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1704/operations/runbooks/Runbooks-1747/process/RunbookProcess-Runbooks-1747" target="_blank">Create HashiCorp Vault Server</a>: <i>This runbook creates the infrastructure required to retrieve secrets from a HashiCorp Vault server.</i>
 
-###### Target - Kubernetes
+**Target - Kubernetes**
 
 - Multi-Cloud PetClinic
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707/operations/runbooks/Runbooks-1762/process/RunbookProcess-Runbooks-1762" target="_blank">Create AKS Cluster</a>: <i>Create an Azure Kubernetes Service cluster.</i>
@@ -88,19 +88,19 @@
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-304/process/RunbookProcess-Runbooks-304" target="_blank">Create Infrastructure</a>: <i>Runbook to Spin Up a K8s Cluster</i>
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-322/operations/runbooks/Runbooks-305/process/RunbookProcess-Runbooks-305" target="_blank">Destroy Infrastructure</a>: <i>Runbook to Destroy the K8s Cluster</i>
 
-###### Target - Payara
+**Target - Payara**
 
 - PetClinic
    - <a href="https://samples.octopus.app/app#/Spaces-642/projects/Projects-1141/operations/runbooks/Runbooks-1164/process/RunbookProcess-Runbooks-1164" target="_blank">Create Infrastructure</a>: <i>Create project specific infrastructure.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-642/projects/Projects-1141/operations/runbooks/Runbooks-1165/process/RunbookProcess-Runbooks-1165" target="_blank">Destroy Infrastructure</a>: <i>Destroys project specific infrastructure.</i>
 
-###### Target - Serverless
+**Target - Serverless**
 
 - Azure OctoSubscriber
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1824/operations/runbooks/Runbooks-1863/process/RunbookProcess-Runbooks-1863" target="_blank">Create Infrastructure</a>: <i>Creates infrastructure specific to this project.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1824/operations/runbooks/Runbooks-1882/process/RunbookProcess-Runbooks-1882" target="_blank">Test</a>
 
-###### Target - SQL Server
+**Target - SQL Server**
 
 - DACPAC - Azure SQL
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-164/operations/runbooks/Runbooks-202/process/RunbookProcess-Runbooks-202" target="_blank">Spin up OctoFX-DACPAC Azure database</a>
@@ -128,7 +128,7 @@
 - RoundhousE - Azure SQL
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-863/operations/runbooks/Runbooks-1064/process/RunbookProcess-Runbooks-1064" target="_blank">Destroy Infrastructure</a>: <i>Destroys the RoundhousE database for the environment.</i>
 
-###### Target - Tomcat
+**Target - Tomcat**
 
 - Pet Clinic - Azure Web App
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-1681/operations/runbooks/Runbooks-1721/process/RunbookProcess-Runbooks-1721" target="_blank">Create Infrastructure</a>: <i>Creates project-specific infrastructure.</i>
@@ -137,20 +137,20 @@
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-2101/operations/runbooks/Runbooks-2421/process/RunbookProcess-Runbooks-2421" target="_blank">Create Infrastructure</a>: <i>Creates project-specific infrastructure.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-2101/operations/runbooks/Runbooks-2422/process/RunbookProcess-Runbooks-2422" target="_blank">Destroy Infrastructure</a>: <i>Destroys project-specific infrastructure</i>
 
-###### Target - WebSphere
+**Target - WebSphere**
 
 - PetClinic
    - <a href="https://samples.octopus.app/app#/Spaces-662/projects/Projects-1206/operations/runbooks/Runbooks-1223/process/RunbookProcess-Runbooks-1223" target="_blank">Create Infrastructure</a>: <i>Creates project specific infrastructure.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-662/projects/Projects-1206/operations/runbooks/Runbooks-1224/process/RunbookProcess-Runbooks-1224" target="_blank">Destroy Infrastructure</a>: <i>Destroys environment specific infrastructure.</i>
 
-###### Target - Windows
+**Target - Windows**
 
 - OctoFX
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-274/process/RunbookProcess-Runbooks-274" target="_blank">Manual Failover to Primary</a>: <i>This is a Runbook designed to failover back from Disaster Recovery in UK South to Western Europe. Please check all resources are healthy before running this Runbook:
-    - Must be run in the context of Production for URL testing to work successfully.</i>
+      - Must be run in the context of Production for URL testing to work successfully.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-273/process/RunbookProcess-Runbooks-273" target="_blank">Monitor Primary Website & Failover to DR if offline</a>: <i>This is to be run in the context of Disaster Recovery so it can spin up the correct machines and then failover:
-    - Checks Production URL
-    - Starts DR SQL & Web
-    - Switches DNS over. 60s TTL</i>
+      - Checks Production URL
+      - Starts DR SQL & Web
+      - Switches DNS over. 60s TTL</i>
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-255/process/RunbookProcess-Runbooks-255" target="_blank">Start Environment</a>: <i>Starts the Web and SQL Server for specified environments. This is the template for the scheduled triggers turning on Infrastructure</i>
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-282/operations/runbooks/Runbooks-262/process/RunbookProcess-Runbooks-262" target="_blank">Stop Environment</a>: <i>Stops the Web and SQL Server for specified environments. This is the template for the scheduled triggers turning off Infrastructure</i>

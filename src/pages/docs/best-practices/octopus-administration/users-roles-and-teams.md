@@ -86,20 +86,20 @@ Teams can either be a system team, meaning it can be used across all spaces, or 
 Here are some of the more common scenarios we get asked about, along with the associated user roles and scope.  For this example, our instance has four environments, **development**, **test**, **staging**, and **production**.  
 
 - Developers have permissions to deploy to modify the deployment process and variables.  Can deploy to the **development** and **test** environments.
-    - Add `Project Contributor` role to the Developers team, no scoping on environments or projects.
-    - Add `Release Creator` role to the Developers team, no scoping on environments or projects.
-    - Add `Environment Viewer` role to the Developers team, no scoping on environments or projects.
-    - Add `Deployment Creator` role to the Developers team, scope to **development** and **test** environments.
+  - Add `Project Contributor` role to the Developers team, no scoping on environments or projects.
+  - Add `Release Creator` role to the Developers team, no scoping on environments or projects.
+  - Add `Environment Viewer` role to the Developers team, no scoping on environments or projects.
+  - Add `Deployment Creator` role to the Developers team, scope to **development** and **test** environments.
 - QA has permissions to deploy to **test** and **staging**, cannot modify anything in the project.
-    - Add `Deployment Creator` role to the QA team, scope to **test**, and **staging**.
-    - Add `Project Viewer` role to the QA team, no scoping on environment or projects.
+  - Add `Deployment Creator` role to the QA team, scope to **test**, and **staging**.
+  - Add `Project Viewer` role to the QA team, no scoping on environment or projects.
 - Operations has permissions to deploy to **staging** and **production**, cannot modify the deployment process.  They can add accounts, workers, and deployment targets.
-    - Add `Deployment Creator` role to the Operations team, scope to **test**, and **staging**.
-    - Add `Project Viewer` role to the Operations team, no scoping on environment or projects.
-    - Add `Environment Manager` role to the Operations team, no scoping on environment or projects.
+  - Add `Deployment Creator` role to the Operations team, scope to **test**, and **staging**.
+  - Add `Project Viewer` role to the Operations team, no scoping on environment or projects.
+  - Add `Environment Manager` role to the Operations team, no scoping on environment or projects.
 - Project Owners can only approve deployments; they cannot modify or deploy them.
-    - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
-    - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
+  - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
+  - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
 
 ## Further reading
 

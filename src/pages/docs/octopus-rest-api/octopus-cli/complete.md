@@ -9,7 +9,7 @@ navOrder: 100
 
 Supports command line auto-completion.
 
-## complete options
+**complete options**
 
 ```text
 Supports command line auto completion.

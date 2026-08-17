@@ -41,9 +41,9 @@ The next step is to create a project that will extract the package.
 
 - Navigate to the Projects page via **Projects ➜ All** and then click the *Add Project* button.
 - Give the new project an appropriate name (for example *NGINXSampleWebApp*) and once saved, go to the project's *Process* page and click **Add Step ➜ Deploy to NGINX**.
-  - Give the step a name (for example *Deploy NginxSampleWebApp*)
-  - Ensure that the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches that which was assigned to the machine in the previous step and
-  - Select *NGINXSampleWebApp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
+    - Give the step a name (for example *Deploy NginxSampleWebApp*)
+    - Ensure that the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches that which was assigned to the machine in the previous step and
+    - Select *NGINXSampleWebApp* as the Package ID. This Package ID is derived from the first part of the name of the package that was previously uploaded (see the *Package ID* section of the [Packaging Applications](/docs/packaging-applications/#package-id) documentation for more details).
 
 :::figure
 ![The step name, target tag and NGINXSampleWebApp package ID](/docs/img/deployments/nginx/images/deployment_process_name_role_and_package.png)
@@ -72,7 +72,7 @@ To get the ASP.NET Core process started up you can manually call *dotnet <name_o
 - Click the *Configure features* link at the bottom of the step and enable the *Custom deployment scripts* feature.
 - Add the following code as a **bash** script for the **post-deployment** phase.
 
-#### Post-deployment Bash script to configure systemd services
+**Post-deployment Bash script to configure systemd services**
 
 ```bash
 SYSTEMD_CONF=/etc/systemd/system

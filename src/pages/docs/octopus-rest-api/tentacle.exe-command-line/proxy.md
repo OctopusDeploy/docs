@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to configure the HTT
 
 Configure the HTTP proxy used by Octopus.
 
-## Proxy options
+**Proxy options**
 
 ```text
 Usage: tentacle proxy [<options>]

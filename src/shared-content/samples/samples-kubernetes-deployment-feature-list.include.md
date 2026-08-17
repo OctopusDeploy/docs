@@ -1,12 +1,12 @@
 <!-- cspell:ignore eksctl -->
 
-## Pattern - Rollbacks
+**Pattern - Rollbacks**
 
 - <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1641/deployments/process" target="_blank">01 Kubernetes Original</a>: <i>A sample project showing deployments of PetClinic to Kubernetes *without* any rollback functionality.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1642/deployments/process" target="_blank">02 Kubernetes - Simple Rollback</a>: <i>A sample project showing deployments of PetClinic to Kubernetes with a simple set of rollback functionality added.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-762/projects/Projects-1643/deployments/process" target="_blank">03 Kubernetes - Complex Rollback</a>: <i>A sample project showing deployments of PetClinic to Kubernetes with a complex set of rollback functionality added.</i>
 
-### Target - Kubernetes
+**Target - Kubernetes**
 
 - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1032/deployments/process" target="_blank">Rancher</a>: <i>A sample project that deploys the PetClinic application to a Rancher-managed Kubernetes cluster.</i>
 - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1241/deployments/process" target="_blank">OctopusDeploy</a>: <i>Setup an AWS EKS Cluster and target within Octopus Resources: [AWS EKS Configuration](https://github.com/OctopusSamples/IaC/blob/master/aws/Kubernetes/cluster.yaml)  [eksctl](https://github.com/weaveworks/eksctl)</i>

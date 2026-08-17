@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to deregister a depl
 
 Deregisters this deployment target from an Octopus Server.
 
-## Deregister from options
+**Deregister from options**
 
 ```text
 Usage: tentacle deregister-from [<options>]

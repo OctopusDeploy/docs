@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to configure Tentacl
 
 Sets Tentacle settings such as the port number and thumbprints.
 
-## Configure options
+**Configure options**
 
 ```text
 Usage: tentacle configure [<options>]

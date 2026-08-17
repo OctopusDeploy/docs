@@ -34,25 +34,25 @@ Specify files that should have variable replacement applied to them. Multiple fi
 
 You can supply full paths to files, use wildcards to find multiple files in a directory, or use wildcards for a directory to find all files at that level or deeper:
 
-#### Specific file path
+**Specific file path**
 
 ```text
 ExampleProject\appSettings.json
 ```
 
-##### Match any .yaml files in the root directory
+**Match any .yaml files in the root directory**
 
 ```text
 *.yaml
 ```
 
-###### Match any .json files in the specified directory
+**Match any .json files in the specified directory**
 
 ```text
 Config\*.json
 ```
 
-###### Match any .xml files in the specified directory or deeper
+**Match any .xml files in the specified directory or deeper**
 
 ```text
 Application/**/*.xml
@@ -169,7 +169,7 @@ It is common (and encouraged) to use hierarchical variables in Structured config
 
 For example, to update the value of `weatherApi.url` and `weatherApi.key` in the target config file you would configure the Octopus variables `weatherApi:url` and `weatherApi:key`.
 
-#### Hierarchical JSON
+**Hierarchical JSON**
 
 ```json
 {
@@ -180,7 +180,7 @@ For example, to update the value of `weatherApi.url` and `weatherApi.key` in the
 }
 ```
 
-##### Hierarchical YAML
+**Hierarchical YAML**
 
 ```yaml
 weatherApi:
@@ -190,7 +190,7 @@ weatherApi:
 
 You can also replace an entire object. For the example above, you could set Octopus variable `weatherApi` to a value of `{"url":"test.weather.com","key":"TEST7654321"}`, which will result in this:
 
-###### Replaced Hierarchical JSON
+**Replaced Hierarchical JSON**
 
 ```json
 {
@@ -201,7 +201,7 @@ You can also replace an entire object. For the example above, you could set Octo
 }
 ```
 
-###### Replaced Hierarchical YAML
+**Replaced Hierarchical YAML**
 
 ```yaml
 weatherApi:
@@ -213,7 +213,7 @@ weatherApi:
 
 Octopus can replace a value in a JSON array or a YAML sequence by using the zero-based index of the array or sequence in the variable name. If we take the following examples:
 
-#### Example Hierarchical JSON
+**Example Hierarchical JSON**
 
 ```json
 {
@@ -226,7 +226,7 @@ Octopus can replace a value in a JSON array or a YAML sequence by using the zero
 }
 ```
 
-##### Example Hierarchical YAML
+**Example Hierarchical YAML**
 
 ```yaml
 foo:
@@ -237,7 +237,7 @@ foo:
 
 Variables can be set for `foo:bar:1` with a value `qux` which will update the value of the second element in the array or sequence to be `qux`, like so:
 
-###### Replaced Array Index Hierarchical JSON
+**Replaced Array Index Hierarchical JSON**
 
 ```json
 {
@@ -250,7 +250,7 @@ Variables can be set for `foo:bar:1` with a value `qux` which will update the va
 }
 ```
 
-###### Replaced Sequence Index Hierarchical YAML
+**Replaced Sequence Index Hierarchical YAML**
 
 ```yaml
 foo:
@@ -261,7 +261,7 @@ foo:
 
 It's possible to replace an entire array or sequence too. In the previous example, if the Octopus variable `foo:bar` was set to `["baz","qux"]`, it would create outputs like:
 
-###### Replaced Array Hierarchical JSON
+**Replaced Array Hierarchical JSON**
 
 ```json
 {
@@ -274,7 +274,7 @@ It's possible to replace an entire array or sequence too. In the previous exampl
 }
 ```
 
-###### Replaced Sequence Hierarchical YAML
+**Replaced Sequence Hierarchical YAML**
 
 ```yaml
 foo:
@@ -285,7 +285,7 @@ foo:
 
 The properties of objects in arrays can be replaced. In the example below, defining an Octopus variable `foo:bar:0:url` with the value of `test.weather.com` replaces the `url` property of the first object in the array:
 
-###### Replaced Object Property in Array Hierarchical JSON
+**Replaced Object Property in Array Hierarchical JSON**
 
 ```json
 {
@@ -300,7 +300,7 @@ The properties of objects in arrays can be replaced. In the example below, defin
 }
 ```
 
-###### Replaced Map Property in Sequence Hierarchical YAML
+**Replaced Map Property in Sequence Hierarchical YAML**
 
 ```yaml
 foo:
@@ -339,7 +339,7 @@ This behavior of escaping special characters is [a requirement of the XML specif
 
 It's worth noting that an empty element, such as `<rules />`, contains no element structures and will only be filled with text. For example, assume the target file contains the following:
 
-#### Empty XML Element
+**Empty XML Element**
 
 ```xml
 <configuration>
@@ -351,7 +351,7 @@ It's worth noting that an empty element, such as `<rules />`, contains no elemen
 
 If the Octopus variable `/configuration/logging/rules` is specified with the value `<rule level="trace" />`, the value will be encoded as text, becoming:
 
-##### Empty XML Element Filled
+**Empty XML Element Filled**
 
 ```xml
 <configuration>
@@ -363,7 +363,7 @@ If the Octopus variable `/configuration/logging/rules` is specified with the val
 
 However, if the variable is named `/configuration/logging` to match the parent element, with the value `<rules><rule level="trace" /></rules>`, the value will be treated as an XML fragment because it is replacing an element structure (the `<rules />` element). This becomes:
 
-###### Empty XML Element Parent Replaced
+**Empty XML Element Parent Replaced**
 
 ```xml
 <configuration>
@@ -439,7 +439,7 @@ Similar to the examples above, you can also replace other attribute values.  Wit
 
 CDATA sections can be replaced just like any other node by selecting them with the XPath. When the content of the CDATA section is replaced, the CDATA presentation is maintained in the output. In the following example, `development` in the CDATA tag can be replaced with `prod<1>` by having a variable `/document/environment/text()` with the value `prod<1>`:
 
-#### XML Structure with CDATA
+**XML Structure with CDATA**
 
 ```xml
 <document>
@@ -447,7 +447,7 @@ CDATA sections can be replaced just like any other node by selecting them with t
 </document>
 ```
 
-##### XML Structure with CDATA Replaced
+**XML Structure with CDATA Replaced**
 
 ```xml
 <document>
@@ -459,7 +459,7 @@ CDATA sections can be replaced just like any other node by selecting them with t
 
 Processing instructions can be replaced using the XPath processing instruction selector like so: `/document/processing-instruction('xml-stylesheet')`. When replacing a processing instruction, it's not possible to replace the individual attributes. The whole processing instruction gets replaced with the supplied value. Take the following example:
 
-#### XML Structure Processing Instruction
+**XML Structure Processing Instruction**
 
 ```xml
 <document>
@@ -469,7 +469,7 @@ Processing instructions can be replaced using the XPath processing instruction s
 
 When the Octopus variable `/document/processing-instruction('xml-stylesheet')` is set to `new value` the output will be the following:
 
-##### XML Structure Processing Instruction Replaced
+**XML Structure Processing Instruction Replaced**
 
 ```xml
 <document>

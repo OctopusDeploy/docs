@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to configure the Oct
 
 Configures an Octopus Server that this Tentacle will poll.
 
-## Poll server options
+**Poll server options**
 
 ```text
 Usage: tentacle poll-server [<options>]

@@ -90,7 +90,7 @@ As a general rule, you should not include the path to the files unless the trans
 
 ### Explicit
 
-#### Explicit .NET configuration transform
+**Explicit .NET configuration transform**
 
 ```powershell
 Transform.config => Target.config
@@ -100,7 +100,7 @@ The above transform definition will apply **Transform.config** to **Target.confi
 
 ### Relative path
 
-#### Relative path .NET configuration transform
+**Relative path .NET configuration transform**
 
 ```powershell
 Path\Transform.config => Target.config
@@ -114,7 +114,7 @@ Wildcards can be used to select any matching file. For example, **\*.config** wi
 
 They can be used anywhere in the transform filename (the left side), but only at the start of the destination filename (the right side).
 
-#### Wildcard .NET configuration transform
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => *.config
@@ -122,7 +122,7 @@ They can be used anywhere in the transform filename (the left side), but only at
 
 The above transform definition will apply **foo.Transform.config** to **foo.config** and **bar.Transform.config** to **bar.config**.
 
-##### Wildcard .NET configuration transform
+**Wildcard .NET configuration transform**
 
 ```powershell
 *.Transform.config => Target.config
@@ -130,7 +130,7 @@ The above transform definition will apply **foo.Transform.config** to **foo.conf
 
 The above transform definition will apply **foo.Transform.config** and **bar.Transform.config** to **Target.config**.
 
-###### Wildcard .NET configuration transform
+**Wildcard .NET configuration transform**
 
 ```powershell
 Transform.config => Path\*.config

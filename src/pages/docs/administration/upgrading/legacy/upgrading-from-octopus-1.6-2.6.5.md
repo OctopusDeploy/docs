@@ -160,4 +160,4 @@ Upgrade-Tentacle `
   -sxsPort "10934"
 ```
 
-Many thanks to James Crowley for his improvements to this script.
+*(Many thanks to James Crowley for his improvements to this script.)*

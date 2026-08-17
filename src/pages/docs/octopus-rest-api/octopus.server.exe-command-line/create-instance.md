@@ -9,7 +9,7 @@ navOrder: 32
 
 Use the create-instance command to register a new instance of the Octopus service.
 
-## Create instance options
+**Create instance options**
 
 ```text
 Usage: octopus.server create-instance [<options>]

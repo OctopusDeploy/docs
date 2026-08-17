@@ -11,7 +11,7 @@ navOrder: 120
 
 Use the license command to import a license key.
 
-## License options
+**License options**
 
 ```text
 Usage: octopus.server license [<options>]

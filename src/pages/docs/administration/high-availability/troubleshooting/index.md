@@ -13,7 +13,7 @@ If you're running into issues with Octopus High Availability it's possible you a
 
 If you see the following licensing error, it means you have exceeded the number of active nodes:
 
-> Unfortunately your license limits have been exceeded, and you will no longer be able to create or deploy releases. Your Octopus Deploy license only allows X active nodes. You currently have Y active nodes.
+*"Unfortunately your license limits have been exceeded, and you will no longer be able to create or deploy releases. Your Octopus Deploy license only allows X active nodes. You currently have Y active nodes."*
 
 You can still log in to your Octopus instance. You are only restricted from creating or deploying releases.
 

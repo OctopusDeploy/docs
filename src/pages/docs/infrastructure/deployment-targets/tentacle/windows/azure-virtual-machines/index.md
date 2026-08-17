@@ -21,7 +21,7 @@ Support was available for the VM extension until the end of 2020, during which t
 **All customers using the VM extension should migrate to [DSC](/docs/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/via-an-arm-template-with-dsc).**
 :::
 
-## Important Note
+**Important Note**
 
 When using the extension, you should not apply additional configuration to the Tentacle via the Octopus Portal. This will result in the configuration on the Octopus Server being overwritten in certain circumstances (such as an extension upgrade). There needs to be only one "source of truth" for the configuration - the extension.
 

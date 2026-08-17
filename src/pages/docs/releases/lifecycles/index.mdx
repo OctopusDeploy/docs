@@ -40,7 +40,7 @@ When you add a new environment to Octopus, it will automatically be included in 
 
 It's possible to add one or multiple environments to a phase. When a phase has environments added to it, this defines which ones can be deployed to during this phase of the lifecycle.
 
-#### Tenants and automatic-environments
+**Tenants and automatic-environments**
 
 When adding an environment to a phase, you can choose whether you want deployments to begin automatically once the release enters the phase, or if you want users to manually queue the deployment. For manual deployments, users can choose the desired tenants for deployment before the release begins (i.e. untenanted deployment, deployment to all tenants, or deployment to specific tenants). However, as deployments begin as soon as the release enters the next phase for environments set to automatic, users cannot choose which tenants to deploy to. Below outlines the behavior for a deployment to an automatic-environment:
 

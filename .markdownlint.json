@@ -5,7 +5,7 @@
         "siblings_only": true
     },
     "MD051": {
-        "ignored_pattern": "[A-Z]"
+        "ignored_pattern": "^[a-z0-9-]*[A-Z]"
     },
     "emphasis": {
         "style": "asterisk"
@@ -19,5 +19,6 @@
     },
     "MD007": false,
     "MD005": false,
-    "MD029": false
+    "MD029": false,
+    "MD036": false
 }

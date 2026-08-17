@@ -9,7 +9,7 @@ navOrder: 141
 
 Configure settings related to this Octopus Server node
 
-## node options
+**node options**
 
 ```text
 Usage: octopus.server node [<options>]

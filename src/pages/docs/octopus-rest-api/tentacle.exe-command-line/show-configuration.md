@@ -11,7 +11,7 @@ Use the show configuration command to output the Tentacle configuration. The con
 For Tentacles, the server-side configuration includes roles, environments, machine policy, and display name.
 For Workers, the server-side configuration includes the associated worker pools, machine policy, and display name.
 
-## Show configuration options
+**Show configuration options**
 
 ```text
 Usage: tentacle show-configuration [<options>]

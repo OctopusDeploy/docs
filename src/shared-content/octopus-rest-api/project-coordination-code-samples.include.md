@@ -10,20 +10,20 @@ These examples use the [Octopus.Client](/docs/octopus-rest-api/octopus.client/) 
 
 The best way to get the current state for one or more projects is to use the Dashboard API, which is also used by the dashboards in the WebUI:
 
-### Octopus.Client
+**Octopus.Client**
 
 ```csharp
 var globalDashboard = repository.Dashboards.GetDashboard().Items;
 var projectDashboard = repository.Dashboards.GetDynamicDashboard(projects, environments).Items
 ```
 
-#### PowerShell
+**PowerShell**
 
 ```powershell
 $repository.Dashboards.GetDashboard().Items
 ```
 
-##### Http
+**Http**
 
 ```js
  http://localhost/api/dashboard

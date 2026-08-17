@@ -191,7 +191,7 @@ Fill in the parameters from the template:
 | phpVersion | Version of PHP | OFF |
 | errorLink | Uri of the error link | <https://s-octopetshop.scm.azurewebsites.net/detectors?type=tools&name=eventviewer> |
 
- 10. Add a **Run a script** step to register the Azure Web App as a target:
+10. Add a **Run a script** step to register the Azure Web App as a target:
 
 ```powershell
 # Define parameters
@@ -242,7 +242,7 @@ $jsonPayload = @{
 Invoke-RestMethod -Method Post -Uri "$baseUrl/api/$spaceId/machines" -Headers @{"X-Octopus-ApiKey"="$apiKey"} -Body ($jsonPayload | ConvertTo-Json -Depth 10)
 ```
 
- 11. Add another **Run a script** step to force a health check:
+11. Add another **Run a script** step to force a health check:
 
 ```powershell
 # Define parameters

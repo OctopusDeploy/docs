@@ -31,6 +31,6 @@ For Octopus Server prior to **2024.2.6856** use the following:
 ssh-keygen -E md5 -lf /etc/ssh/ssh_host_ed25519_key.pub | awk '{ print $2 }' | cut -d':' -f2-
 ```
 
- 10. Select the **Platform** (OS and architecture) of the target server.
+10. Select the **Platform** (OS and architecture) of the target server.
 
- 11. Click **Save**.
+11. Click **Save**.

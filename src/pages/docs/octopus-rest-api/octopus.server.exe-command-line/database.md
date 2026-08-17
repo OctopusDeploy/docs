@@ -9,7 +9,7 @@ navOrder: 40
 
 Use the database command to create or drop the Octopus database.
 
-## Database options
+**Database options**
 
 ```text
 Usage: octopus.server database [<options>]

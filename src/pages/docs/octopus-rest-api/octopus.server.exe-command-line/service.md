@@ -9,7 +9,7 @@ navOrder: 190
 
 Use this to configure and manage your Octopus service.
 
-## Service options
+**Service options**
 
 ```text
 Usage: octopus.server service [<options>]

@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to create and instal
 
 Creates and installs a new certificate for this Tentacle.
 
-## New certificate options
+**New certificate options**
 
 ```text
 Usage: tentacle new-certificate [<options>]

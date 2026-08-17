@@ -1,9 +1,9 @@
-## Pattern - Blue-Green
+**Pattern - Blue-Green**
 
 - Random Quotes .NET
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/operations/runbooks/Runbooks-523/process/RunbookProcess-Runbooks-523" target="_blank">Create Infrastructure</a>: <i>Creates environment-specific infrastructure.</i>
 
-### Target - Windows
+**Target - Windows**
 
 - Computer Provisioning
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-761/operations/runbooks/Runbooks-801/process/RunbookProcess-Runbooks-801" target="_blank">Install Developer Machine Dependencies</a>

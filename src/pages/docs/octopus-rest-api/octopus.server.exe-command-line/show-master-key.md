@@ -9,7 +9,7 @@ navOrder: 192
 
 Use the show Master Key command to print the server's Master Encryption Key, so that it can be backed up.
 
-## Show Master Key options
+**Show Master Key options**
 
 ```text
 Usage: octopus.server show-master-key [<options>]

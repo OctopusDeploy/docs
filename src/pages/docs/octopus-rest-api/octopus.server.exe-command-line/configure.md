@@ -9,7 +9,7 @@ navOrder: 31
 
 Use the configure command to configure this Octopus instance.
 
-## Configure options
+**Configure options**
 
 ```text
 Usage: octopus.server configure [<options>]

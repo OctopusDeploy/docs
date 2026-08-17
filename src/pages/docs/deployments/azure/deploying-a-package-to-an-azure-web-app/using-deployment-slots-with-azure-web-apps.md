@@ -37,7 +37,7 @@ Create a [Run an Azure PowerShell Script](/docs/deployments/azure/running-azure-
 
 Your script should be:
 
-#### Azure Service Management
+**Azure Service Management**
 
 ```powershell
 #Remove the staging slot if it exists
@@ -47,7 +47,7 @@ Remove-AzureWebsite -Name #{WebSite} -Slot Staging -Force
 New-AzureWebsite -Name #{WebSite} -Slot Staging
 ```
 
-##### Azure Resource Manager
+**Azure Resource Manager**
 
 ```powershell
 #Remove the staging slot if it exists
@@ -100,14 +100,14 @@ The final step is to create another Azure PowerShell step to swap the Staging an
 
 Use the PowerShell:
 
-#### Azure Service Management
+**Azure Service Management**
 
 ```powershell
 # Swap the staging slot into production
 Switch-AzureWebsiteSlot -Name #{WebSite} -Slot1 Staging -Slot2 Production -Force
 ```
 
-## Azure Resource Management
+**Azure Resource Management**
 
 ```powershell
 # Swap the staging slot into production

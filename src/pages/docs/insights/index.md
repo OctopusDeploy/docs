@@ -28,17 +28,17 @@ Two levels are available for DevOps Insights:
 
 DORA recommends an approach to measuring software delivery that relies on five metrics:
 
-### Throughput
+*Throughput*
 
 - Lead time for changes (LT)
 - Deployment frequency (DF)
 
-### Stability
+*Stability*
 
 - Change failure rate (CFR)
 - Mean time to recovery (MTTR)
 
-### Operations
+*Operations*
 
 - Reliability
 
@@ -48,19 +48,19 @@ Throughput metrics measure the health of your deployment pipeline, while the sta
 
 Octopus adds out-of-the-box support for the following DevOps metrics:
 
-### Deployment Lead Time
+**Deployment Lead Time**
 
 The time between the creation date of the release immediately following the previously successful release and the completion date of the deployment.
 
-### Deployment Failure Rate
+**Deployment Failure Rate**
 
 The percentage of deployments that fail to deploy, require guided failure or have their release marked as "Do not promote"
 
-### Deployment Frequency
+**Deployment Frequency**
 
 How many deployments occur to the target environment.
 
-### Mean Time to Recovery
+**Mean Time to Recovery**
 
 How long it takes to recover a failed deployment with a subsequent successful deployment.
 

@@ -8,7 +8,7 @@ description: Shows the version information for this release of the Octopus Migra
 
 Shows the version information for this release of the Octopus Migrator
 
-## version options
+**version options**
 
 ```text
 Usage: octopus.migrator version [<options>]

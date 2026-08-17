@@ -19,13 +19,13 @@ dotnet tool install Octopus.DotNet.Cli --tool-path /path/for/tool --version <ver
 
 This will install the Octopus CLI into the specified location and generate a platform specific executable called `dotnet-octo` into the specified location. In order to enable `dotnet` to find your custom tool location, you will need to add the tool location to the current environment path.
 
-### PowerShell
+**PowerShell**
 
 ```powershell
 $env:PATH = "your\tool\folder;" + $env:PATH
 ```
 
-#### Bash
+**Bash**
 
 ```bash
 export PATH="$PATH:/your/tool/folder"
@@ -46,7 +46,7 @@ You may also omit the `--version` parameter to install the latest version of the
 
 Check the output to make sure the installation works correctly. After the installation has completed, you can run the following to verify the version the Octopus CLI that was installed:
 
-```text
+```bash
 dotnet octo --version
 ```
 

@@ -7,7 +7,7 @@ navTitle: Service
 description: Using the Tentacle.exe command line executable to start, stop, install and configure the Tentacle service.
 ---
 
-## Service options
+**Service options**
 
 ```text
 Usage: tentacle service [<options>]

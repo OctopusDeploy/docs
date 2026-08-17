@@ -9,7 +9,7 @@ navOrder: 41
 
 Use the Delete Instance command to delete an instance of the Octopus service.
 
-## Delete Instance options
+**Delete Instance options**
 
 ```text
 Usage: octopus.server delete-instance [<options>]

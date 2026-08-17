@@ -9,7 +9,7 @@ navOrder: 160
 
 Set the file paths that Octopus will use for storage
 
-## path options
+**path options**
 
 ```text
 Usage: octopus.server path [<options>]

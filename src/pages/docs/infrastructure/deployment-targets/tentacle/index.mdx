@@ -48,7 +48,7 @@ To install and configure Tentacles in listening mode, see either:
 
 To allow your Octopus Server to connect to the Tentacle, you'll need to allow access to TCP port **10933** on the Tentacle (or the port you selected during the installation wizard).
 
-#### Intermediary firewalls
+**Intermediary firewalls**
 
 Don't forget to allow access in any intermediary firewalls between the Octopus Server and your Tentacle (not just the Windows Firewall). For example, if your Tentacle server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly, if your Tentacle server is hosted in Microsoft Azure, you'll also need to add an Endpoint to tell Azure to allow the traffic.
 
@@ -79,6 +79,6 @@ this is on purpose, and it means you can use different firewall conditions to al
 
 Using polling mode, you won't typically need to make any firewall changes on the Tentacle machine.
 
-### Intermediary firewalls
+**Intermediary firewalls**
 
 Don't forget to allow access not just in the OS Firewall (e.g. Windows Firewall), but also any intermediary firewalls between the Tentacle and your Octopus Server. For example, if your Octopus Server is hosted in Amazon EC2, you'll also need to modify the AWS security group firewall to tell EC2 to allow the traffic. Similarly if your Octopus Server is hosted in Microsoft Azure you'll also need to add an Endpoint to tell Azure to allow the traffic.

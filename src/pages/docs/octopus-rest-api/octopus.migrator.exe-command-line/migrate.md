@@ -8,7 +8,7 @@ description: Imports data from an Octopus 2.6 backup
 
 Imports data from an Octopus 2.6 backup
 
-## migrate options
+**migrate options**
 
 ```text
 Usage: octopus.migrator migrate [<options>]

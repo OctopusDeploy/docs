@@ -9,7 +9,7 @@ navOrder: 160
 
 Use the builtin-worker command to configure the user context that the [built-in worker](/docs/infrastructure/workers/#built-in-worker) runs under.
 
-## builtin-worker options
+**builtin-worker options**
 
 ```text
 Usage: octopus.server builtin-worker [<options>]

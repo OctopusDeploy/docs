@@ -9,7 +9,7 @@ navOrder: 181
 
 Use this to see detailed output of Octopus running to help diagnose any issues you may be having.
 
-## Run options
+**Run options**
 
 ```text
 Usage: octopus.server run [<options>]

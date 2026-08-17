@@ -11,7 +11,7 @@ When something goes wrong in Octopus we may ask you to provide a Crash Dump to h
 
 To enable crash dumps for Octopus you'll need to add a registry key for the Octopus process. The following code can be saved to a .reg file to automatically update the necessary registry keys
 
-## RecordOctopusDump.reg
+**RecordOctopusDump.reg**
 
 ```text
 Windows Registry Editor Version 5.00

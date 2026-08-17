@@ -9,7 +9,7 @@ description: Using the Tentacle.exe command line executable to show the thumbpri
 
 Show the thumbprint of the Tentacle's certificate.
 
-## New certificate options
+**New certificate options**
 
 ```text
 Usage: tentacle show-thumbprint [<options>]

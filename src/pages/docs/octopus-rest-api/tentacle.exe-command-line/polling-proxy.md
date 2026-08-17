@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to configure the HTT
 
 Configure the HTTP proxy used by Polling Tentacles to reach the Octopus Server
 
-## Polling proxy options
+**Polling proxy options**
 
 ```text
 Usage: tentacle polling-proxy [<options>]

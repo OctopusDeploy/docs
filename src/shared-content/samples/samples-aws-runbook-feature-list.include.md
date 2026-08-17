@@ -1,6 +1,6 @@
 <!-- cspell:ignore eksctl -->
 
-## Pattern - Blue-Green
+**Pattern - Blue-Green**
 
 - Random Quotes .NET
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-542/operations/runbooks/Runbooks-525/process/RunbookProcess-Runbooks-525" target="_blank">Change Production Group</a>: <i>Changes the blue-green designation.</i>
@@ -14,40 +14,40 @@
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-2122/operations/runbooks/Runbooks-2482/process/RunbookProcess-Runbooks-2482" target="_blank">Destroy the Kraken</a>: <i>Destroys project infrastructure and calls Destroy Infrastructure for each environment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-2122/operations/runbooks/Runbooks-2481/process/RunbookProcess-Runbooks-2481" target="_blank">Unleash the Kraken</a>: <i>Creates project infrastructure and calls Create Infrastructure for each Environment.</i>
 - Random Quotes Java
-  - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-383/process/RunbookProcess-Runbooks-383" target="_blank">Change Production Group</a>: <i>Runbook that will switch traffic to one of the two load-balancer listener options for the Octopus Environment; *Blue*, or *Green*.</i>
-  - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-381/process/RunbookProcess-Runbooks-381" target="_blank">Create Infrastructure</a>: <i>Runbook that will spin up the *Random Quotes Java* project infrastructure in AWS for an Octopus Environment.</i>
-  - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-382/process/RunbookProcess-Runbooks-382" target="_blank">Destroy Infrastructure</a>: <i>Runbook that will tear down the *Random Quotes Java* project infrastructure in AWS for an Octopus Environment.</i>
-  - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-529/process/RunbookProcess-Runbooks-529" target="_blank">Destroy the Kraken</a>: <i>Runbook that will tear down **all** the *Random Quotes Java* project infrastructure in AWS.</i>
-  - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-528/process/RunbookProcess-Runbooks-528" target="_blank">Unleash the Kraken</a>: <i>Runbook that will spin up **all** the required *Random Quotes Java* project infrastructure in AWS.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-383/process/RunbookProcess-Runbooks-383" target="_blank">Change Production Group</a>: <i>Runbook that will switch traffic to one of the two load-balancer listener options for the Octopus Environment; *Blue*, or *Green*.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-381/process/RunbookProcess-Runbooks-381" target="_blank">Create Infrastructure</a>: <i>Runbook that will spin up the *Random Quotes Java* project infrastructure in AWS for an Octopus Environment.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-382/process/RunbookProcess-Runbooks-382" target="_blank">Destroy Infrastructure</a>: <i>Runbook that will tear down the *Random Quotes Java* project infrastructure in AWS for an Octopus Environment.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-529/process/RunbookProcess-Runbooks-529" target="_blank">Destroy the Kraken</a>: <i>Runbook that will tear down **all** the *Random Quotes Java* project infrastructure in AWS.</i>
+   - <a href="https://samples.octopus.app/app#/Spaces-302/projects/Projects-402/operations/runbooks/Runbooks-528/process/RunbookProcess-Runbooks-528" target="_blank">Unleash the Kraken</a>: <i>Runbook that will spin up **all** the required *Random Quotes Java* project infrastructure in AWS.</i>
 
-### Pattern - IaC
+**Pattern - IaC**
 
 - Dynamic worker army
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
 
-#### Pattern - Rolling
+**Pattern - Rolling**
 
 - AWS - Rolling Deploy
    - <a href="https://samples.octopus.app/app#/Spaces-45/projects/Projects-386/operations/runbooks/Runbooks-371/process/RunbookProcess-Runbooks-371" target="_blank">Spin up Environment Resources</a>
    - <a href="https://samples.octopus.app/app#/Spaces-45/projects/Projects-386/operations/runbooks/Runbooks-372/process/RunbookProcess-Runbooks-372" target="_blank">Tear Down AWS Infrastructure</a>
 
-##### Pattern-AutoScaling
+**Pattern-AutoScaling**
 
 - AWS ASG
    - <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1464/operations/runbooks/Runbooks-1782/process/RunbookProcess-Runbooks-1782" target="_blank">Scale Down ASG</a>
    - <a href="https://samples.octopus.app/app#/Spaces-742/projects/Projects-1464/operations/runbooks/Runbooks-1543/process/RunbookProcess-Runbooks-1543" target="_blank">Scale Up ASG</a>
 
-###### Secrets Management
+**Secrets Management**
 
 - AWS Secrets Manager
    - <a href="https://samples.octopus.app/app#/Spaces-822/projects/Projects-1702/operations/runbooks/Runbooks-1744/process/RunbookProcess-Runbooks-1744" target="_blank">Retrieve Secrets</a>: <i>This runbook retrieves secrets from AWS Secrets Manager and creates sensitive output variables to use in deployments and runbooks.</i>
 
-###### Target - Containers
+**Target - Containers**
 
 - AWS ECS
    - <a href="https://samples.octopus.app/app#/Spaces-103/projects/Projects-647/operations/runbooks/Runbooks-664/process/RunbookProcess-Runbooks-664" target="_blank">Deregister task definitions</a>: <i>Removes the task definitions from ECS</i>
 
-###### Target - Kubernetes
+**Target - Kubernetes**
 
 - Multi-Cloud PetClinic
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-1707/operations/runbooks/Runbooks-1763/process/RunbookProcess-Runbooks-1763" target="_blank">Create EKS Cluster</a>: <i>Create an Elastic Kubernetes Service cluster on AWS.</i>
@@ -62,14 +62,14 @@ This creates a single cluster in the Production environment, and then copies it 
 
    - <a href="https://samples.octopus.app/app#/Spaces-105/projects/Projects-861/operations/runbooks/Runbooks-902/process/RunbookProcess-Runbooks-902" target="_blank">Delete Cluster</a>: <i>Delete Kubernetes cluster and node groups from AWS</i>
 
-###### Target - Oracle
+**Target - Oracle**
 
 - DBUp RDS
    - <a href="https://samples.octopus.app/app#/Spaces-422/projects/Projects-883/operations/runbooks/Runbooks-2364/process/RunbookProcess-Runbooks-2364" target="_blank">Temp</a>
 - Flyway RDS
    - <a href="https://samples.octopus.app/app#/Spaces-422/projects/Projects-663/operations/runbooks/Runbooks-2344/process/RunbookProcess-Runbooks-2344" target="_blank">Test</a>
 
-###### Target - Serverless
+**Target - Serverless**
 
 - AWS OctoSubscriber
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-2363/process/RunbookProcess-Runbooks-2363" target="_blank">Delete S3 bucket</a>
@@ -81,7 +81,7 @@ This creates a single cluster in the Production environment, and then copies it 
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1822/process/RunbookProcess-Runbooks-1822" target="_blank">Get Canonical ID</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1821/process/RunbookProcess-Runbooks-1821" target="_blank">Spin Up Subscriber Infrastructure</a>
 
-###### Target - SQL Server
+**Target - SQL Server**
 
 - AWS Backup and Restore S3
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-649/operations/runbooks/Runbooks-666/process/RunbookProcess-Runbooks-666" target="_blank">Backup Database</a>
@@ -94,7 +94,7 @@ This creates a single cluster in the Production environment, and then copies it 
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-374/operations/runbooks/Runbooks-354/process/RunbookProcess-Runbooks-354" target="_blank">Spin Up AWS Redgate SQL Server RDS Server</a>: <i>Runbook to spin up a database in AWS for the Redgate Sample</i>
    - <a href="https://samples.octopus.app/app#/Spaces-106/projects/Projects-374/operations/runbooks/Runbooks-355/process/RunbookProcess-Runbooks-355" target="_blank">Tear Down AWS Redgate SQL Server RDS Server</a>: <i>Runbook to tear down the database in AWS for Redgate sample</i>
 
-###### Target - Tomcat
+**Target - Tomcat**
 
 - Pet Clinic AWS
    - <a href="https://samples.octopus.app/app#/Spaces-203/projects/Projects-371/operations/runbooks/Runbooks-348/process/RunbookProcess-Runbooks-348" target="_blank">Create Infrastructure</a>

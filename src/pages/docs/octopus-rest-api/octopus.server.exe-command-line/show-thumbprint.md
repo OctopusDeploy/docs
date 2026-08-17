@@ -9,7 +9,7 @@ navOrder: 193
 
 Use the show thumbprint command to show the thumbprint of the server instance.
 
-## Show thumbprint options
+**Show thumbprint options**
 
 ```text
 Usage: octopus.server show-thumbprint [<options>]

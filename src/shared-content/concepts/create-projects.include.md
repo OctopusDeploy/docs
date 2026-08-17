@@ -9,7 +9,7 @@ Projects are used to collect all the assets that make up your deployment process
 1. Navigate to the **Projects** tab, and click **ADD PROJECT**.
 1. Give the project a name, for instance, *Hello, world*, and click **Save**.
 
-## Optional
+**Optional**
 
 By default, Octopus Deploy will store the deployment process, runbook process, and variables in the back-end SQL Server.  From **Octopus 2022.1**, you have the option to store the *deployment process* in a git repository.  
 

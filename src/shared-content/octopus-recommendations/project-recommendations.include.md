@@ -90,10 +90,10 @@ When it is time to deploy a project to an environment for the first time, you sh
 
 Almost everyone is familiar with environment [run conditions](/docs/projects/steps/conditions).  For instance, run a step in production only.  Alternatively, don't run this step in development or testing.  However, there are other [run conditions](/docs/projects/steps/conditions/#run-condition):
 
-- Only running when the previous step was successful.
-- Only running on failure.
-- Always running.
-- Only run when the value of a variable equals true.  
+ - Only running when the previous step was successful.
+ - Only running on failure.
+ - Always running.
+ - Only run when the value of a variable equals true.  
 
 Those additional conditions are advantageous.  You can configure a step to send a slack notification when a failure occurs.  You could set a manual intervention only to happen if you are deploying during business hours.  You can also configure steps to run in parallel with one another.
 

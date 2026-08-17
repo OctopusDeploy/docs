@@ -8,7 +8,7 @@ description: Configure a scheduled task to monitor the Tentacle service(s)
 
 Configure a scheduled task to monitor the Tentacle service(s).
 
-## watchdog options
+**watchdog options**
 
 ```text
 Usage: tentacle watchdog [<options>]

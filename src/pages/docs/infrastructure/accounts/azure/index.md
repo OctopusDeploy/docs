@@ -403,7 +403,7 @@ To create an Azure Management Certificate account as part of adding an [Azure su
 
 When using **Management Certificate**, Octopus authenticates with Azure using an X.509 certificate.  You can either upload an existing certificate (`.pfx`), or leave the field blank and Octopus will generate a certificate. Keep in mind that since Octopus securely stores the certificate internally, there is no need to upload a password protected `.pfx` file. If you would like to use one that is password protected, you will need to first remove the password. This can be done with the following commands.
 
-#### Remove .pfx password
+**Remove .pfx password**
 
 ```powershell
 openssl pkcs12 -in AzureCert.pfx -password pass:MySecret -nodes -out temp.pem

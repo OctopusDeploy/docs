@@ -52,7 +52,7 @@ If instead you want to **dynamically** create you account during your deployment
 ![The Package section of the Deploy an Azure Web App step](/docs/img/deployments/azure/deploying-a-package-to-an-azure-web-app/deploying-an-azure-web-app.png)
 :::
 
-1. On the **Deployment** section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
+4. On the **Deployment** section you can configure any of the below settings which are related to *how* your files are going to be pushed to Azure.
 
 | Setting                     | Default     | Description                                                                                                                                                                                                                                                                                                                                                              |
 | --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -1,5 +1,5 @@
 <!-- cspell:ignore deregistering -->
-## Pattern - IaC
+**Pattern - IaC**
 
 - Dynamic worker army
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-68/operations/runbooks/Runbooks-1893/process/RunbookProcess-Runbooks-1893" target="_blank">Create Infrastructure</a>: <i>Spins up the worker army</i>
@@ -28,7 +28,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1923/process/RunbookProcess-Runbooks-1923" target="_blank">Create Infrastructure</a>: <i>Creates EC2 instances using Terraform, registers them as deployment targets with Octopus, and then provisions them with the necessary tooling for application deployment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1924/process/RunbookProcess-Runbooks-1924" target="_blank">Destroy Infrastructure</a>: <i>Destroys created EC2 instances and all supporting resources created through Terraform along with deregistering them as targets within Octopus.</i>
 
-### Target - Serverless
+**Target - Serverless**
 
 - AWS OctoSubscriber
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1742/operations/runbooks/Runbooks-1805/process/RunbookProcess-Runbooks-1805" target="_blank">Spin Up Subscriber Infrastructure</a>
@@ -37,7 +37,7 @@
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1821/process/RunbookProcess-Runbooks-1821" target="_blank">Spin Up Subscriber Infrastructure</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1823/process/RunbookProcess-Runbooks-1823" target="_blank">Tear Down AWS Subscriber Infrastructure</a>
 
-#### Target - Windows
+**Target - Windows**
 
 - eShopOnWeb
    - <a href="https://samples.octopus.app/app#/Spaces-202/projects/Projects-1481/operations/runbooks/Runbooks-1901/process/RunbookProcess-Runbooks-1901" target="_blank">Create Infrastructure</a>: <i>Stands up an Azure VM with IIS and SQL Server Express using Terraform for eShopOnWeb to be deployed on to.</i>

@@ -96,7 +96,7 @@ The next step is creating your deployment process. This is where you define the 
 
 ### Configure Deploy Kubernetes YAML step
 
-1. Select the **Kubernetes** filter and then add the **Deploy Kubernetes YAML** step.
+2. Select the **Kubernetes** filter and then add the **Deploy Kubernetes YAML** step.
 
 :::figure
 ![Kubernetes steps in the Octopus Deploy process editor.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/kubernetes-step.png)
@@ -179,7 +179,7 @@ Close the window and return to configuring the **Deploy Kubernetes YAML** step.
 
 #### Container image
 
-1. Click **REFRESH** and select **Docker Hub** as your Container Registry.
+7. Click **REFRESH** and select **Docker Hub** as your Container Registry.
 1. Copy the latest **Ubuntu-based image** from the help text and paste it into the container image field.
 
 :::figure
@@ -204,7 +204,7 @@ Sourcing from a Git repository can streamline your deployment process by reducin
 
 #### Git repository details
 
-1. Select **Library** and add a new Git credential by clicking the **+** icon.
+10. Select **Library** and add a new Git credential by clicking the **+** icon.
 1. Click the **ADD GIT CREDENTIAL** button.
 1. Enter a name for your Git credential.
 1. Provide your GitHub username.
@@ -237,7 +237,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Git repository details
 
-1. Paste the token into Octopus's personal access token field.
+14. Paste the token into Octopus's personal access token field.
 1. **Save** your Git credential and return to the **Deploy Kubernetes YAML** step.
 1. Click the refresh icon next to the **Select Git credential** dropdown.
 1. Select the Git credential you created earlier.
@@ -248,7 +248,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Repository URL
 
- 1. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example `https://github.com/your-user/OctoPetShop.git`.
+18. Enter the full URL to the Git repository where you store the YAML files you want to deploy, for example `https://github.com/your-user/OctoPetShop.git`.
 
 :::figure
 ![Repository URL expander where the user's YAML files are stored.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/repository-url.png)
@@ -256,11 +256,11 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 #### Branch settings
 
- 1. Provide the default branch you want to use, for example **master** if you’re using the sample repo.
+19. Provide the default branch you want to use, for example **master** if you’re using the sample repo.
 
 #### Paths
 
- 1. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, the path will be `k8s/*.yaml`.
+20. Enter the relative path(s) to the YAML files you want to deploy to your cluster. If you’re using the sample repo, the path will be `k8s/*.yaml`.
 
 :::figure
 ![The Paths expander that lets users specify the paths to their YAML files using glob patterns.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/paths.png)
@@ -270,7 +270,7 @@ Github.com now requires token-based authentication (this excludes GitHub Enterpr
 
 This feature gives you live status updates during deployment for all the Kubernetes objects you're deploying.
 
- 21. Keep the default **Check that Kubernetes objects are running successfully** option selected with the default timeout of **180** seconds.
+21. Keep the default **Check that Kubernetes objects are running successfully** option selected with the default timeout of **180** seconds.
 
 :::figure
 ![Kubernetes object status check expander with the default option and timeout selected.](/docs/img/getting-started/first-kubernetes-deployment/legacy-guide/images/k8s-object-status-check.png)
@@ -286,7 +286,7 @@ This is an advanced feature that you can skip for this tutorial. Learn more abou
 
 #### Namespace
 
- 1. Specify the namespace in the cluster where you want to deploy your YAML files, for example `demo-namespace`.
+22. Specify the namespace in the cluster where you want to deploy your YAML files, for example `demo-namespace`.
 
 If the namespace doesn’t exist yet, Octopus will create it during the deployment.
 
@@ -326,15 +326,15 @@ Wherever you’re deploying your software, these machines and services are known
 
 ### Display name
 
-1. Enter `k8s-demo` in the **Display Name** field.
+3. Enter `k8s-demo` in the **Display Name** field.
 
 ### Environments
 
-1. Select **Development**, **Staging**, and **Production** from the dropdown list.
+4. Select **Development**, **Staging**, and **Production** from the dropdown list.
 
 ### Target tags \{#target-roles}
 
-1. Type in the same [target tag](/docs/infrastructure/deployment-targets/target-tags) you provided while configuring the **Deploy Kubernetes YAML** step, for example `k8s`.
+5. Type in the same [target tag](/docs/infrastructure/deployment-targets/target-tags) you provided while configuring the **Deploy Kubernetes YAML** step, for example `k8s`.
 
 The target tag won’t be available to select from the dropdown list yet, because it gets created during this step.
 
@@ -377,15 +377,15 @@ Need more details on how to configure various authentication methods? Read the [
 
 #### Kubernetes namespace
 
-1. Specify the namespace for this deployment target, for example `default`.
+6. Specify the namespace for this deployment target, for example `default`.
 
 #### Worker Pool
 
-1. Select **Hosted Ubuntu** as the default Worker Pool.
+7. Select **Hosted Ubuntu** as the default Worker Pool.
 
 #### Health check container image
 
-1. Select **Runs inside a container, on a Worker**.
+8. Select **Runs inside a container, on a Worker**.
 1. Select **Docker Hub** as the container registry.
 1. Copy the **Ubuntu-based image** and paste it into the container image field.
 1. **SAVE** your deployment target.

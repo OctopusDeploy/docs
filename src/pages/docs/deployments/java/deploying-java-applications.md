@@ -25,7 +25,7 @@ Naked scripting allows you to transfer and extract your package on remote target
 
 Here is a sample application that will prompt the user to press a key before exiting:
 
-### PressAnyKey.java
+**PressAnyKey.java**
 
 ```java
 public class PressAnyKey {
@@ -58,13 +58,13 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 3. Configure the step to deploy the package `PressAnyKey.1.0.0.zip`.
 4. Configure the step to run a [post-deployment script](/docs/deployments/custom-scripts) to start the application.
 
-#### PowerShell
+**PowerShell**
 
 ```powershell
 Start-Process java PressAnyKey
 ```
 
-##### Bash
+**Bash**
 
 ```bash
 screen -d -m -S "PressAnyKey" java PressAnyKey

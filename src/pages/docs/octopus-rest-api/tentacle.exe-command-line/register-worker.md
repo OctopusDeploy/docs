@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to register this mac
 
 Registers this machine as a Worker with an Octopus Server.
 
-## Register with options
+**Register with options**
 
 ```text
 Usage: tentacle register-worker [<options>]

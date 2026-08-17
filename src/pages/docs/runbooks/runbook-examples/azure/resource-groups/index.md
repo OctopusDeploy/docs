@@ -104,7 +104,7 @@ The Parameter JSON file can be in one of two formats:
 - With Schema
 - Without Schema
 
-##### Example with Schema
+**Example with Schema**
 
 ```json
 {
@@ -135,7 +135,7 @@ The Parameter JSON file can be in one of two formats:
 }
 ```
 
-###### Example without Schema
+**Example without Schema**
 
 ```json
 {

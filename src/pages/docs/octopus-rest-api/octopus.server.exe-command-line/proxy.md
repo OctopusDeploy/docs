@@ -9,7 +9,7 @@ navOrder: 161
 
 Use the proxy command to configure the HTTP proxy used by Octopus.
 
-## Proxy options
+**Proxy options**
 
 ```text
 Usage: octopus.server proxy [<options>]

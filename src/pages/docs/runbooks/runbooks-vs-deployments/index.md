@@ -26,7 +26,7 @@ A [project's variables](/docs/projects/variables) are shared between the deploym
 
 ### Current limitations
 
-#### Scoping to Steps/Actions
+**Scoping to Steps/Actions**
 
 - You cannot currently scope project variables to a deployment process step and a runbook process step, but we do aim to support this in the near future.
 

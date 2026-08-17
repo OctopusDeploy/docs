@@ -9,7 +9,7 @@ navOrder: 230
 
 Use the watchdog command to configure a scheduled task to monitor the Octopus service(s).
 
-## Watchdog options
+**Watchdog options**
 
 ```text
 Usage: octopus.server watchdog [<options>]

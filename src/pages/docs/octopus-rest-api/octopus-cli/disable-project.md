@@ -9,7 +9,7 @@ navOrder: 100
 
 Disables a project.
 
-## disable-project options
+**disable-project options**
 
 ```text
 Disables a project.

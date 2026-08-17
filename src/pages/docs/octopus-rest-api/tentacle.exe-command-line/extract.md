@@ -8,7 +8,7 @@ description: Extracts a NuGet package
 
 Extracts a NuGet package.
 
-## extract options
+**extract options**
 
 ```text
 Usage: tentacle extract [<options>]

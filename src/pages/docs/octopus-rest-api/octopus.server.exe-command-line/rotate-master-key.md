@@ -14,7 +14,7 @@ Generate a new Master Key and re-encrypt all the sensitive data. This option was
 Before using this command, we recommend taking a look at our [guide on rotating the Master Key](/docs/administration/managing-infrastructure/rotate-master-key).
 :::
 
-## rotate-master-key options
+**rotate-master-key options**
 
 ```text
 Usage: octopus.server rotate-master-key [<options>]

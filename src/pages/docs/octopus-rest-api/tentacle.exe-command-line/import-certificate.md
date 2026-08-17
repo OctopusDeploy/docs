@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to replace the certi
 
 Replace the certificate that Tentacle uses to authenticate itself.
 
-## Import certificate options
+**Import certificate options**
 
 ```text
 Usage: tentacle import-certificate [<options>]

@@ -11,7 +11,7 @@ Pushes a [package](/docs/packaging-applications/create-packages) (.nupkg, .zip, 
 
 Learn more about the [built-in repository](/docs/packaging-applications/package-repositories/built-in-repository).
 
-## push options
+**push options**
 
 ```text
 Pushes a package (.nupkg, .zip, .tar.gz, .jar, .war, etc.) package to the built-in NuGet repository in an Octopus Server.

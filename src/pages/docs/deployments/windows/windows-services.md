@@ -96,7 +96,7 @@ Windows Services support some advanced settings not exposed by this feature. You
 
 This example configures the service **Failure Action** to **Restart.**
 
-### PostDeploy.ps1
+**PostDeploy.ps1**
 
 ```powershell
 $serviceName = $OctopusParameters["Octopus.Action.WindowsService.ServiceName"]

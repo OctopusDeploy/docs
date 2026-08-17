@@ -212,14 +212,14 @@ Prefer using standard characters when naming variables. While it's technically p
 | `WontWork`    | `#{Octopus.Action[StepA].Output.Foo!}` |
 | `Works`       | `#{Octopus.Action[StepA].Output.Ba-r}` |
 
-#### Step A
+**Step A**
 
 ```ps
 Set-OctopusVariable -name "Foo!" -value "FooValue"
 Set-OctopusVariable -name "Ba-r" -value "BarValue"
 ```
 
-#### Step B
+**Step B**
 
 ```ps
 $OctopusParameters["Works"]                             # Returns: BarValue

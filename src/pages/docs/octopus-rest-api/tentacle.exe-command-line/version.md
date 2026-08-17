@@ -8,7 +8,7 @@ description: Show the Tentacle version information
 
 Show the Tentacle version information.
 
-## version options
+**version options**
 
 ```text
 Usage: tentacle version [<options>]

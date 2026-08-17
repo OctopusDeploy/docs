@@ -22,7 +22,7 @@ This guide assumes some familiarity with common Octopus concepts like configurin
 
 Here is a very simple AngularJS application which uses [AngularJS Constants](https://docs.angularjs.org/api/auto/service/$provide#constant) to provide other services, controllers and directives with access to the configuration data stored in Octopus. The important part to note here is where we set the constant: we are going to use the [Substitute Variables in Templates](/docs/projects/steps/configuration-features/substitute-variables-in-templates) feature to replace the **`#{MyApp.ConfigValue1}`** expression at deployment time.
 
-### MyApp.html
+**MyApp.html**
 
 ```js
 <!DOCTYPE html>
@@ -118,11 +118,11 @@ This approach also works perfectly with minified sources. This is because the mi
 
 1. Unpack the MyApp.1.0.0.zip file.
 2. Minify the contents of the `<script>` tag. We used [https://jscompress.com/](https://jscompress.com/) to minify the JavaScript.
-1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
+ 1. You should notice the `"#{MyApp.ConfigValue1}"` string literal has been left intact by the minifier.
 3. Pack the HTML file into a new package and name the file MyApp.1.0.1.zip. This new version of our package has been enhanced with minified sources and will be much faster to download!
 4. Push the new package into the built-in repository, create a new release and deploy that release. You should see the same result as before, but now with minified sources!
 
-#### MyApp.html with minified JavaScript
+**MyApp.html with minified JavaScript**
 
 ```js
 <!DOCTYPE html>

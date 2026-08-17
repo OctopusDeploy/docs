@@ -4,7 +4,7 @@ If you need to move any of the folders used by the Octopus Server you can follow
 
 If you need to move the Octopus home folder, you can do that using the command-line as described below:
 
-### Usage
+**Usage**
 
 ```powershell
 Usage: Octopus.Server configure [<options>]
@@ -12,7 +12,7 @@ Usage: Octopus.Server configure [<options>]
 
 Where `[<options>]` is:
 
-#### Options
+**Options**
 
 ```powershell
       --instance=VALUE       Name of the instance to use
@@ -46,7 +46,7 @@ mv $oldHome $newHome
 
 If you need to move other folders than the Octopus Home folder, you can do that using the command-line as described below
 
-### Usage
+**Usage**
 
 ```powershell
 Octopus.Server path [<options>]
@@ -54,7 +54,7 @@ Octopus.Server path [<options>]
 
 Where `[<options>]` is any of:
 
-#### Options
+**Options**
 
 ```powershell
       --instance=VALUE       Name of the instance to use

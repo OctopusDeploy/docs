@@ -9,7 +9,7 @@ navOrder: 121
 
 Use the list instance command to show all currently installed Octopus instances.
 
-## List Instances options
+**List Instances options**
 
 ```text
 Usage: octopus.server list-instances [<options>]

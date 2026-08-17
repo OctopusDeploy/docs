@@ -10,7 +10,7 @@ version: "[3.12,)"
 
 Lists all installed Octopus Tentacle instances.
 
-## List instances options
+**List instances options**
 
 ```text
 Usage: tentacle list-instances [<options>]

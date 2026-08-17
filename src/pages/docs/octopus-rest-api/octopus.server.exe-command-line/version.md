@@ -9,7 +9,7 @@ navOrder: 220
 
 Show the Octopus Server version information
 
-## version options
+**version options**
 
 ```text
 Usage: octopus.server version [<options>]

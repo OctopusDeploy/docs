@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to register a new in
 
 Registers a new instance of the Tentacle service.
 
-## Create instance options
+**Create instance options**
 
 ```text
 Usage: tentacle create-instance [<options>]

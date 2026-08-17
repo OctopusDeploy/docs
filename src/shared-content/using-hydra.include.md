@@ -65,8 +65,8 @@ These steps should be executed from your **Octopus 2.6.5** server to your 2.6 Te
 4. Create a [new project](/docs/projects) with a single "Update Octopus Tentacle" step from the step template.
 
  1. Ensure you choose or create a [Lifecycle](/docs/releases/lifecycles) that allows you to deploy to all Tentacles.
-2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
-3. Set the `Server Mapping` field:
+ 2. Ensure you set the Update Octopus Tentacle step to run for all appropriate Tentacles.
+ 3. Set the `Server Mapping` field:
 
    - If you only use listening Tentacles you can leave the `Server Mapping` field blank.
    - If you are using any polling Tentacles, add the new **Octopus 2018.10 LTS** server address (including the polling TCP port) in the Server Mapping field. See below for examples.

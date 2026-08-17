@@ -112,7 +112,7 @@ For convenience, the `$OctopusProxy` variable is available for your scripts to u
 
 The following snippet demonstrates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
 
-```text
+```powershell
 $handler = [System.Net.Http.SocketsHttpHandler]::new()
 $handler.Proxy = $OctopusProxy
 $httpClient = [System.Net.Http.HttpClient]::new($handler)

@@ -8,7 +8,7 @@ description: Using the Tentacle.exe command line executable to configure how the
 
 Configure how the Tentacle communicates with an Octopus Server.
 
-## Server communication options
+**Server communication options**
 
 ```text
 Usage: tentacle server-comms [<options>]

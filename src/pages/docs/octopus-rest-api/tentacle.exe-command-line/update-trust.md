@@ -8,7 +8,7 @@ description: Replaces the trusted Octopus Server thumbprint of any matching poll
 
 Replaces the trusted Octopus Server thumbprint of any matching polling or listening registrations with a new thumbprint to trust.
 
-## update-trust options
+**update-trust options**
 
 ```text
 Usage: tentacle update-trust [<options>]
