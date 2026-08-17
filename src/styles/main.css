@@ -13,6 +13,10 @@ html[data-theme='dark'] {
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
+  /* Search and the mobile nav lock scrolling by hiding the body's overflow,
+     which takes the scrollbar with it. Holding the gutter open keeps the
+     viewport a constant width, so the fixed header stays put. */
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -2235,6 +2239,17 @@ a[data-youtube] {
 .site-search__wrapper.is-active .site-search__overlay {
   opacity: 1;
   visibility: visible;
+}
+
+/* The overlay is fixed, so it stops at the reserved scrollbar gutter and leaves
+   that strip showing the undimmed page color once the scrollbar goes. Painting
+   the same wash onto the canvas carries the dimming across it. */
+html:has(.site-search__wrapper.is-active) {
+  background-color: var(--color-base-primary);
+  background-image: linear-gradient(
+    var(--search-overlay),
+    var(--search-overlay)
+  );
 }
 
 .site-search__icon path {
