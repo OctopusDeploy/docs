@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-12
+modDate: 2026-08-17
 title: Runbooks permissions
 description: Permissions are available to help you manage access to Runbooks.
 navOrder: 20
@@ -9,7 +9,7 @@ navOrder: 20
 ---
 
 :::div{.hint}
-The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
+The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3.12297** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
 :::
 
 Permissions are available to help you manage access to Runbooks, these include:

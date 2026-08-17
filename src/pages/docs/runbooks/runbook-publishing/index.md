@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-12
+modDate: 2026-08-17
 title: Runbooks publishing
 description: Publishing makes a runbook available to scheduled triggers and consumers.
 navOrder: 30
@@ -35,7 +35,7 @@ Draft snapshots can't be used to create a [scheduled runbook trigger](/docs/runb
 The concept of a published snapshot is designed to help avoid confusion when selecting a version of the runbook you're supposed to run if you're not the author. You can think of it as the "Production" ready version of the runbook, which has been approved for general use.
 
 :::div{.hint}
-The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
+The `RunbookSnapshotCreate` permission is available from **Octopus 2026.3.12297** onwards. Prior to this version, `RunbookEdit` covered creating snapshots.
 :::
 
 Publishing makes a runbook available to scheduled triggers and consumers (anyone with an appropriately scoped `RunbookRunCreate` permission, but without the `RunbookSnapshotCreate` permission).  Triggers and consumers will always execute the published snapshot.

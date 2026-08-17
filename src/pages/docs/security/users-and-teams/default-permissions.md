@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-12
+modDate: 2026-08-17
 title: Default permissions for built-in user roles
 description: A listing of the default permissions for each of the built-in user roles.
 ---
