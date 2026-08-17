@@ -1,0 +1,12 @@
+<!-- The "Navigate" footer hint. ArrowDownIcon and ArrowUpIcon from
+     @octopusdeploy/design-system-icons, each scaled to 0.62 and set side by side
+     so the pair reads at the same 20px as the rest of the footer row rather than
+     as two full-size glyphs. Used as a CSS mask, so only alpha matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" width="24" height="24" aria-hidden="true">
+  <g transform="translate(-2.2 7.3) scale(0.62)">
+    <path d="m18.907 33.563-10.493-11c-.562-.625-.562-1.563.063-2.125.624-.563 1.561-.563 2.123.062l7.932 8.313V7.5c0-.812.625-1.5 1.5-1.5a1.52 1.52 0 0 1 1.498 1.5v21.313L29.4 20.5c.562-.625 1.561-.625 2.124-.062.624.562.624 1.5.062 2.125l-10.493 11a1.46 1.46 0 0 1-1.062.437c-.437 0-.812-.125-1.124-.437" />
+  </g>
+  <g transform="translate(16.8 7.3) scale(0.62)">
+    <path d="m21.093 6.5 10.493 11c.562.625.562 1.563-.062 2.125s-1.562.563-2.124-.062l-7.87-8.313V32.5c0 .875-.687 1.5-1.499 1.5-.874 0-1.499-.625-1.499-1.5V11.25L10.6 19.563c-.562.625-1.499.625-2.123.062s-.625-1.562-.063-2.125l10.493-11c.312-.312.687-.5 1.124-.5.375 0 .75.188 1.062.5" />
+  </g>
+</svg>

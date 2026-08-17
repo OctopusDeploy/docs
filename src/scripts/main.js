@@ -71,8 +71,3 @@ if (enabled(f.headers, 'link')) {
   const headers = await import('./modules/headers.js');
   headers.enhanceHeaders();
 }
-
-if (enabled(f.search, 'dialog')) {
-  const searchDialog = await import('./modules/search-dialog.js');
-  searchDialog.enhanceSearchIcon();
-}

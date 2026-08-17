@@ -1,0 +1,5 @@
+<!-- FileIcon from @octopusdeploy/design-system-icons. Marks a documentation page
+     in the search results. Used as a CSS mask, so only alpha matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" width="24" height="24" aria-hidden="true">
+  <path d="M28 33c.5 0 1-.437 1-1V14h-5c-1.125 0-2-.875-2-2V7H12c-.562 0-1 .5-1 1v24c0 .563.438 1 1 1zM8 8c0-2.187 1.75-4 4-4h10.313c1.062 0 2.062.438 2.812 1.188l5.688 5.687c.75.75 1.187 1.75 1.187 2.813V32c0 2.25-1.812 4-4 4H12c-2.25 0-4-1.75-4-4z" />
+</svg>
