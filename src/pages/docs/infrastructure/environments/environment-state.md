@@ -12,7 +12,7 @@ Environment state lets a deployment or [runbook](/docs/runbooks) run save key/va
 
 Environment state is useful in scenarios where a value produced during one run needs to be reused later. A common example is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook might create a Kubernetes namespace or an application URL that later deployments and the deprovisioning runbook depend on. Recording each value as environment state means Octopus stores it once, so every later run reads it directly instead of re-deriving the value.
 
-Each state entry is scoped to project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value.
+Each state entry is scoped to project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value. Keys are case insensitive.
 
 ## Setting environment state
 
@@ -123,6 +123,35 @@ The response is an array of name and URL pairs:
   { "Name": "Store front", "Url": "https://pr-123.example.com" }
 ]
 ```
+
+## Limits on environment state
+
+Up to 10 environment state entries can be created for each combination of project, environment and optional tenant.
+
+- Maximum key length is 100 characters
+- Maximum value length is 1000 characters
+
+If any of these limits are exceeded during a deployment or runbook run, the task will fail with an error message explaining how the limit was hit.
+
+Use [Octopus variable logging](/docs/support/how-to-turn-on-variable-logging-and-export-the-task-log) to check if you are nearing your maximum number of environment state entries.
+
+## Deleting environment state
+
+If a project, environment, and tenant combination has hit the limit above, delete entries you no longer need to make room for new ones. This function is only available via the HTTP API.
+
+For environment state scoped to a project and environment:
+
+```text
+DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}
+```
+
+For environment state scoped to a project, environment and tenant:
+
+```text
+DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/states/{key}
+```
+
+Use [Octopus variable logging](/docs/support/how-to-turn-on-variable-logging-and-export-the-task-log) to get a list of environment state keys for a project, environment, and optional tenant scope.
 
 ## Availability
 
