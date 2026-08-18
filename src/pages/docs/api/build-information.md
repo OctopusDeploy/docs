@@ -75,8 +75,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -125,7 +124,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create or update a specific build information record describing the vcs information for a given package
 
@@ -157,8 +156,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 - **`Version`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "OctopusBuildInformation": {
@@ -183,7 +181,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -221,8 +219,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
   - **`LinkUrl`** :span[string]{.type-label}
   - **`Source`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Branch": "string",
@@ -263,7 +260,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
   ]
 }
 ```
-</div>
+:::
 
 ## Bulk delete specific Build Information records
 
@@ -283,8 +280,7 @@ Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Ids": [
@@ -293,7 +289,7 @@ Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -348,8 +344,7 @@ Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/
   - **`LinkUrl`** :span[string]{.type-label}
   - **`Source`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Branch": "string",
@@ -390,7 +385,7 @@ Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/
   ]
 }
 ```
-</div>
+:::
 
 ## Delete a specific Build Information record
 

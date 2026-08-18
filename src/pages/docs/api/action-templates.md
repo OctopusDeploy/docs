@@ -39,12 +39,11 @@ Also reachable at `/api/actionTemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
 
 `200` — Confirmation that the requested Action Template has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of Action Templates
 
@@ -111,8 +110,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -162,7 +160,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create an Action Template
 
@@ -232,8 +230,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`Version`** :span[integer]{.type-label}  
   The version number of the Action Template. Minimum `0`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ActionType": "string",
@@ -325,7 +322,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -383,8 +380,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -480,7 +476,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get all Action Templates
 
@@ -551,8 +547,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -626,7 +621,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Action Template categories
 
@@ -648,8 +643,7 @@ Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifi
 - **`Links`** :span[object]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -664,7 +658,7 @@ Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifi
   }
 ]
 ```
-</div>
+:::
 
 ## List all available action templates including built-in, custom and community contributed step templates
 
@@ -706,8 +700,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
 - **`Version`** :span[string]{.type-label}
 - **`Website`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -740,7 +733,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
   }
 ]
 ```
-</div>
+:::
 
 ## Get an Action Template by ID
 
@@ -811,8 +804,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -908,7 +900,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify an existing action template
 
@@ -972,8 +964,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   The id of the Space that contains the Action Template.
 - **`StepPackageVersion`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1063,7 +1054,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "StepPackageVersion": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1121,8 +1112,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -1218,7 +1208,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Update deployment and runbook actions to a specific version of the action template
 
@@ -1260,8 +1250,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
 - **`Version`** :span[integer]{.type-label} *(required)*  
   The version of the Action Template.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ActionIdsByProcessId": {
@@ -1349,7 +1338,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1368,8 +1357,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
   - **`UsedById`** :span[string]{.type-label}
   - **`UsedByName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1405,7 +1393,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
   }
 ]
 ```
-</div>
+:::
 
 ## Create a server task to update deployment and runbook actions to a specific version of the action template
 
@@ -1446,8 +1434,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
 - **`Version`** :span[integer]{.type-label} *(required)*  
   The version of the Action Template.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ActionsToUpdate": [
@@ -1524,7 +1511,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1543,8 +1530,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
 - **`TaskId`** :span[string]{.type-label}
 - **`ValidationFailures`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Outcome": "string",
@@ -1582,7 +1568,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
   ]
 }
 ```
-</div>
+:::
 
 ## Get the logo associated with the latest version of action template
 
@@ -1601,12 +1587,11 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Update the logo associated with the latest version of the action template
 
@@ -1625,12 +1610,11 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 `200` — Confirmation that the logo was updated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Update the logo associated with the latest version of the action template
 
@@ -1647,12 +1631,11 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 `200` — Confirmation that the logo was updated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Update the logo associated with the latest version of the action template
 
@@ -1671,12 +1654,11 @@ Also reachable at `/api/actiontemplates/{id}/logo`.
 
 `200` — Confirmation that the logo was updated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get usages for an Action Template
 
@@ -1744,8 +1726,7 @@ Gets a list of all steps/deployment processes that use a given action template.
   Minimum length 1.
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1776,7 +1757,7 @@ Gets a list of all steps/deployment processes that use a given action template.
   }
 ]
 ```
-</div>
+:::
 
 ## Get an Action Template by ID
 
@@ -1817,8 +1798,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
   - **`SpaceId`** :span[string]{.type-label}
   - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionTemplate": {
@@ -1892,7 +1872,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
   }
 }
 ```
-</div>
+:::
 
 ## Get all versions of an Action Template
 
@@ -1963,8 +1943,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -2038,7 +2017,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
   }
 ]
 ```
-</div>
+:::
 
 ## Get a specific version of an Action Template
 
@@ -2111,8 +2090,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -2208,7 +2186,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get the logo associated with specific version of the action template
 
@@ -2229,9 +2207,8 @@ Also reachable at `/api/actiontemplates/{typeOrId}/versions/{version}/logo`, `/a
 
 `200` — OK
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

@@ -25,8 +25,7 @@ title: Audit Stream
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`StreamConfigurationResource`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Active": true,
@@ -42,7 +41,7 @@ title: Audit Stream
   "StreamConfigurationResource": {}
 }
 ```
-</div>
+:::
 
 ## Modify the audit stream configuration
 
@@ -54,8 +53,7 @@ title: Audit Stream
 - **`Description`** :span[string]{.type-label}
 - **`StreamConfigurationResource`** :span[object]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Active": true,
@@ -63,7 +61,7 @@ title: Audit Stream
   "StreamConfigurationResource": {}
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -81,8 +79,7 @@ title: Audit Stream
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`StreamConfigurationResource`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Active": true,
@@ -98,4 +95,4 @@ title: Audit Stream
   "StreamConfigurationResource": {}
 }
 ```
-</div>
+:::

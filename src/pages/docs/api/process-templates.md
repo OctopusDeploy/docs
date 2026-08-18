@@ -20,8 +20,7 @@ title: Process Templates
 - **`IndividuallySharedSpaceIds`** :span[array of string]{.type-label}
 - **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "IndividuallySharedSpaceIds": [
@@ -30,7 +29,7 @@ title: Process Templates
   "SharedToAllSpaces": true
 }
 ```
-</div>
+:::
 
 ## List the process template versions for a given process template
 
@@ -98,8 +97,7 @@ title: Process Templates
 - **`Version`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -146,7 +144,7 @@ title: Process Templates
   }
 ]
 ```
-</div>
+:::
 
 ## Retrieve a single published process template and its version by version mask (no space context)
 
@@ -173,8 +171,7 @@ title: Process Templates
 - **`ProcessTemplateVersion`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ProcessTemplate": {
@@ -218,7 +215,7 @@ title: Process Templates
   "ProcessTemplateVersion": "string"
 }
 ```
-</div>
+:::
 
 ## Create a new process template in the provided source
 
@@ -236,8 +233,7 @@ title: Process Templates
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -246,7 +242,7 @@ title: Process Templates
   "Name": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -285,8 +281,7 @@ title: Process Templates
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -335,7 +330,7 @@ title: Process Templates
   ]
 }
 ```
-</div>
+:::
 
 ## Get a single process template by slug
 
@@ -383,8 +378,7 @@ title: Process Templates
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -433,7 +427,7 @@ title: Process Templates
   ]
 }
 ```
-</div>
+:::
 
 ## Share new process template to spaces
 
@@ -452,8 +446,7 @@ title: Process Templates
 - **`Slug`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -464,7 +457,7 @@ title: Process Templates
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -474,8 +467,7 @@ title: Process Templates
 - **`IndividuallyUnsharedSpaceIds`** :span[array of string]{.type-label}
 - **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "IndividuallySharedSpaceIds": [
@@ -487,7 +479,7 @@ title: Process Templates
   "SharedToAllSpaces": true
 }
 ```
-</div>
+:::
 
 ## Get all the available variable names for a process template
 
@@ -502,14 +494,13 @@ title: Process Templates
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## Create a process template version
 
@@ -529,8 +520,7 @@ title: Process Templates
 - **`Version`** :span[string]{.type-label} *(required)*  
   The version of the process template. Must follow the semantic versioning format. Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -539,7 +529,7 @@ title: Process Templates
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -587,8 +577,7 @@ title: Process Templates
 - **`Version`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -641,7 +630,7 @@ title: Process Templates
   "Version": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing process template
 
@@ -689,8 +678,7 @@ title: Process Templates
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -739,7 +727,7 @@ title: Process Templates
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -778,8 +766,7 @@ title: Process Templates
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -828,7 +815,7 @@ title: Process Templates
   ]
 }
 ```
-</div>
+:::
 
 ## Delete an existing process template
 
@@ -846,8 +833,7 @@ title: Process Templates
 - **`Slug`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -855,7 +841,7 @@ title: Process Templates
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -889,8 +875,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
 - **`ProcessTemplateVersion`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ProcessTemplate": {
@@ -934,7 +919,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
   "ProcessTemplateVersion": "string"
 }
 ```
-</div>
+:::
 
 ## Get the icon for a given process template version
 
@@ -952,9 +937,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

@@ -27,8 +27,7 @@ title: Service Account Oidc Identities
 - **`Subject`** :span[string]{.type-label} *(required)*  
   Gets the subject of tokens for the identity. Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Audience": "string",
@@ -38,7 +37,7 @@ title: Service Account Oidc Identities
   "Subject": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -46,14 +45,13 @@ title: Service Account Oidc Identities
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Get ServiceAccountOidcIdentities
 
@@ -93,8 +91,7 @@ Gets a paginated set of ServiceAccountOidcIdentities.
 - **`ServerUrl`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Count": 0,
@@ -112,7 +109,7 @@ Gets a paginated set of ServiceAccountOidcIdentities.
   "ServerUrl": "string"
 }
 ```
-</div>
+:::
 
 ## Get ServiceAccountOidcIdentity by id
 
@@ -141,8 +138,7 @@ Gets a ServiceAccountOidcIdentity by its id.
 - **`Subject`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Audience": "string",
@@ -153,7 +149,7 @@ Gets a ServiceAccountOidcIdentity by its id.
   "Subject": "string"
 }
 ```
-</div>
+:::
 
 ## Modify ServiceAccountOidcIdentity
 
@@ -181,8 +177,7 @@ Gets a ServiceAccountOidcIdentity by its id.
 - **`Subject`** :span[string]{.type-label} *(required)*  
   The name of the ServiceAccountOidcIdentity. Minimum length 1. Maximum length 200.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Audience": "string",
@@ -193,18 +188,17 @@ Gets a ServiceAccountOidcIdentity by its id.
   "Subject": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Response to modifying a ServiceAccountOidcIdentity
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete ServiceAccountOidcIdentity
 
@@ -223,9 +217,8 @@ Deletes a ServiceAccountOidcIdentity.
 
 `200` — Response to deleting a ServiceAccountOidcIdentity
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

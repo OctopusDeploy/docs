@@ -25,8 +25,7 @@ title: Cloud Template
 - **`Template`** :span[string]{.type-label} *(required)*  
   The cloud template to evaluate and extract parameters and values from. Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "FeedId": "string",
@@ -35,7 +34,7 @@ title: Cloud Template
   "Template": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -46,8 +45,7 @@ title: Cloud Template
   - **`Types`** :span[array of object]{.type-label}
 - **`Values`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Metadata": {
@@ -64,4 +62,4 @@ title: Cloud Template
   "Values": "string"
 }
 ```
-</div>
+:::

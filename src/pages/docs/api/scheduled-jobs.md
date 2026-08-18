@@ -34,8 +34,7 @@ title: Scheduled Jobs
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
   - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -63,7 +62,7 @@ title: Scheduled Jobs
   ]
 }
 ```
-</div>
+:::
 
 ## Enable a scheduled job or the job scheduler
 
@@ -78,12 +77,11 @@ title: Scheduled Jobs
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Disable a scheduled job or the job scheduler
 
@@ -98,12 +96,11 @@ title: Scheduled Jobs
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Trigger a scheduled job immediately and waits for it to complete
 
@@ -117,12 +114,11 @@ title: Scheduled Jobs
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get the structured log for a scheduled job
 
@@ -164,8 +160,7 @@ title: Scheduled Jobs
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActivityLog": {
@@ -199,7 +194,7 @@ title: Scheduled Jobs
   }
 }
 ```
-</div>
+:::
 
 ## Get the raw log for a scheduled job
 
@@ -213,9 +208,8 @@ title: Scheduled Jobs
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

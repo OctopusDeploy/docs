@@ -68,8 +68,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -125,7 +124,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create an Insights Report
 
@@ -169,8 +168,7 @@ Creates a new Insights Report.
 - **`TimeZone`** :span[string]{.type-label} *(required)*  
   The timezone of the report.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllTenants": true,
@@ -204,7 +202,7 @@ Creates a new Insights Report.
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -238,8 +236,7 @@ Creates a new Insights Report.
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllTenants": true,
@@ -283,7 +280,7 @@ Creates a new Insights Report.
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 ## Create an Insights Report
 
@@ -327,8 +324,7 @@ Creates a new Insights Report.
 - **`TimeZone`** :span[string]{.type-label} *(required)*  
   The timezone of the report.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllTenants": true,
@@ -362,7 +358,7 @@ Creates a new Insights Report.
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -394,8 +390,7 @@ Creates a new Insights Report.
   - **`TenantTags`** :span[array of string]{.type-label}
   - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Report": {
@@ -441,7 +436,7 @@ Creates a new Insights Report.
   }
 }
 ```
-</div>
+:::
 
 ## GET /api/{spaceId}/insights/reports/{id}
 
@@ -487,8 +482,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllTenants": true,
@@ -532,7 +526,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 ## Update an existing Insights Report
 
@@ -582,8 +576,7 @@ Updates an existing Insights Report
 - **`TimeZone`** :span[string]{.type-label} *(required)*  
   The timezone of the report.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllTenants": true,
@@ -618,7 +611,7 @@ Updates an existing Insights Report
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -652,8 +645,7 @@ Updates an existing Insights Report
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllTenants": true,
@@ -697,7 +689,7 @@ Updates an existing Insights Report
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an Insights Report by ID
 
@@ -760,8 +752,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
   - **`TenantTags`** :span[array of string]{.type-label}
   - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Report": {
@@ -807,7 +798,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
   }
 }
 ```
-</div>
+:::
 
 ## Update an existing Insights Report
 
@@ -857,8 +848,7 @@ Updates an existing Insights Report
 - **`TimeZone`** :span[string]{.type-label} *(required)*  
   The timezone of the report.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllTenants": true,
@@ -893,7 +883,7 @@ Updates an existing Insights Report
   "TimeZone": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -925,8 +915,7 @@ Updates an existing Insights Report
   - **`TenantTags`** :span[array of string]{.type-label}
   - **`TimeZone`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Report": {
@@ -972,7 +961,7 @@ Updates an existing Insights Report
   }
 }
 ```
-</div>
+:::
 
 ## Delete an Insights Report by ID
 
@@ -993,12 +982,11 @@ Deletes an existing Insights Report.
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Request Insights Deployments for a Report
 
@@ -1030,8 +1018,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
   - **`TenantId`** :span[string]{.type-label}
   - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ReportName": "string",
@@ -1052,7 +1039,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
   ]
 }
 ```
-</div>
+:::
 
 ## GET /api/{spaceId}/insights/reports/{reportId}/logo
 
@@ -1070,12 +1057,11 @@ Also reachable at `/api/insights/reports/{reportId}/logo`, `/api/spaces/{spaceId
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Update the logo associated with the report
 
@@ -1117,8 +1103,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IconColor": "string",
@@ -1127,18 +1112,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Insights Report Icon has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Modify the logo of an insights report to be a specified icon
 
@@ -1164,8 +1148,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IconColor": "string",
@@ -1174,18 +1157,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Insights Report Icon has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get Insights metrics series for the Insights Report
 
@@ -1225,8 +1207,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Series": [
@@ -1239,7 +1220,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
   ]
 }
 ```
-</div>
+:::
 
 ## Get Insights metrics series for the Insights Report
 
@@ -1279,8 +1260,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Series": [
@@ -1293,7 +1273,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
   ]
 }
 ```
-</div>
+:::
 
 ## Get Insights Deployments for a Project
 
@@ -1337,8 +1317,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/d
   - **`TenantId`** :span[string]{.type-label}
   - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ProjectName": "string",
@@ -1359,7 +1338,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/d
   ]
 }
 ```
-</div>
+:::
 
 ## Get Insights metrics series for the project
 
@@ -1405,8 +1384,7 @@ Returns the aggregated insights metrics for this project for the chosen granular
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Series": [
@@ -1419,7 +1397,7 @@ Returns the aggregated insights metrics for this project for the chosen granular
   ]
 }
 ```
-</div>
+:::
 
 ## Get Insights metrics series for the project
 
@@ -1465,8 +1443,7 @@ Returns the aggregated insights metrics for this project for the chosen granular
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Series": [
@@ -1479,4 +1456,4 @@ Returns the aggregated insights metrics for this project for the chosen granular
   ]
 }
 ```
-</div>
+:::

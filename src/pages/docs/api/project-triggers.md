@@ -71,8 +71,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -121,7 +120,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new project trigger
 
@@ -171,8 +170,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   Id of the space where the project is located.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Action": {
@@ -204,7 +202,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -246,8 +244,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -287,7 +284,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get project trigger by project id and trigger id
 
@@ -344,8 +341,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -385,7 +381,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a ProjectTriggerResource by ID
 
@@ -441,8 +437,7 @@ Updates an existing project trigger
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   Id of the space where the project is located.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Action": {
@@ -475,7 +470,7 @@ Updates an existing project trigger
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -517,8 +512,7 @@ Updates an existing project trigger
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -558,7 +552,7 @@ Updates an existing project trigger
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Project Trigger
 
@@ -579,12 +573,11 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
 
 `200` — Confirmation that the Project Trigger was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of Project Triggers
 
@@ -642,8 +635,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -692,7 +684,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new project trigger
 
@@ -740,8 +732,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   Id of the space where the project is located.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Action": {
@@ -773,7 +764,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -815,8 +806,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -856,7 +846,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Project Trigger by ID
 
@@ -911,8 +901,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -952,7 +941,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a ProjectTriggerResource by ID
 
@@ -1006,8 +995,7 @@ Updates an existing project trigger
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   Id of the space where the project is located.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Action": {
@@ -1040,7 +1028,7 @@ Updates an existing project trigger
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1082,8 +1070,7 @@ Updates an existing project trigger
 - **`ProjectId`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Action": {
@@ -1123,7 +1110,7 @@ Updates an existing project trigger
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Project Trigger
 
@@ -1142,9 +1129,8 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
 
 `200` — Confirmation that the Project Trigger was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

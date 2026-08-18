@@ -68,8 +68,7 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -114,7 +113,7 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new account - of the type defined by body content
 
@@ -140,8 +139,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`TenantedDeploymentParticipation`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -163,7 +161,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
   "TenantedDeploymentParticipation": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -189,8 +187,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccountType": "AmazonWebServicesAccount",
@@ -218,7 +215,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
   "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
-</div>
+:::
 
 ## Get a list of Accounts
 
@@ -257,8 +254,7 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -288,7 +284,7 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
   }
 ]
 ```
-</div>
+:::
 
 ## List the Azure Environments provided by the SDK
 
@@ -326,8 +322,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`TenantedDeploymentParticipation`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AccountId": "string",
@@ -350,7 +345,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
   "TenantedDeploymentParticipation": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -376,8 +371,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccountType": "AmazonWebServicesAccount",
@@ -405,7 +399,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
   "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
-</div>
+:::
 
 ## Get an Account by ID
 
@@ -444,8 +438,7 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccountType": "AmazonWebServicesAccount",
@@ -473,7 +466,7 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
   "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Account
 
@@ -509,12 +502,11 @@ Also reachable at `/api/accounts/{id}/pk`, `/api/spaces/{spaceIdentifier}/accoun
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## List the Resource Groups associated with an Azure account
 
@@ -618,8 +610,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
   - **`TargetId`** :span[string]{.type-label}
   - **`TargetName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CommonTenantVariables": [
@@ -717,7 +708,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
   ]
 }
 ```
-</div>
+:::
 
 ## Delete an existing Account
 
@@ -736,12 +727,11 @@ Also reachable at `/api/accounts/{id}/v1`, `/api/spaces/{spaceIdentifier}/accoun
 
 `200` — Confirmation that the Account was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## List the websites associated with an Azure account
 
@@ -792,8 +782,7 @@ Lists the account types contributed by the extensions installed on this Server, 
 - **`AccountTypes`** :span[array of string]{.type-label}  
   The supported account types, sorted by name. Each value is what an Account's AccountType is set to, and what the AccountType filter when listing accounts accepts.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccountTypes": [
@@ -801,4 +790,4 @@ Lists the account types contributed by the extensions installed on this Server, 
   ]
 }
 ```
-</div>
+:::

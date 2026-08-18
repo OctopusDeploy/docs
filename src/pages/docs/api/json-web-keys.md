@@ -25,8 +25,7 @@ title: Json Web Keys
   - **`use`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "keys": [
@@ -40,4 +39,4 @@ title: Json Web Keys
   ]
 }
 ```
-</div>
+:::

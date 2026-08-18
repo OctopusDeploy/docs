@@ -16,8 +16,7 @@ title: Web
 - **`Token`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BaseUrl": "string",
@@ -26,7 +25,7 @@ title: Web
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -45,8 +44,7 @@ title: Web
 - **`UserPassword`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BaseUrl": "string",
@@ -57,7 +55,7 @@ title: Web
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 

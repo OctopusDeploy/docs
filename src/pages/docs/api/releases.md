@@ -76,8 +76,7 @@ Releases will be ordered from most recent to least recent,
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -138,7 +137,7 @@ Releases will be ordered from most recent to least recent,
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## List all of the releases that belong to the given Channel
 
@@ -211,8 +210,7 @@ Releases will be ordered from most recent to least recent,
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -273,7 +271,7 @@ Releases will be ordered from most recent to least recent,
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## List all of the releases that belong to the given Project
 
@@ -344,8 +342,7 @@ Releases will be ordered from most recent to least recent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -406,7 +403,7 @@ Releases will be ordered from most recent to least recent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Variable Sets included in the Release's current Variable Snapshot
 
@@ -464,8 +461,7 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -531,7 +527,7 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
   }
 ]
 ```
-</div>
+:::
 
 ## Get a single release by project ID and version number
 
@@ -603,8 +599,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -678,7 +673,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
   }
 }
 ```
-</div>
+:::
 
 ## Get a list of Releases for the given Space
 
@@ -745,8 +740,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -807,7 +801,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Release
 
@@ -847,8 +841,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -888,7 +881,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -945,8 +938,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1020,7 +1012,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
   }
 }
 ```
-</div>
+:::
 
 ## Create a Release
 
@@ -1063,8 +1055,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
 - **`SpaceIdOrName`** :span[string]{.type-label} *(required)*  
   Both this and SpaceId are required, and normally hold the same space ID; set both.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChannelName": "string",
@@ -1092,7 +1083,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
   "SpaceIdOrName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1102,15 +1093,14 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
 - **`ReleaseVersion`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ReleaseId": "string",
   "ReleaseVersion": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Release by ID
 
@@ -1180,8 +1170,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1255,7 +1244,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   }
 }
 ```
-</div>
+:::
 
 ## Update an existing Release
 
@@ -1293,8 +1282,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
 - **`Version`** :span[string]{.type-label} *(required)*  
   Maximum length 349.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChannelId": "string",
@@ -1329,7 +1317,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1386,8 +1374,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1461,7 +1448,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   }
 }
 ```
-</div>
+:::
 
 ## Delete an existing release, along with all of the deployments, tasks and other associated resources belonging to the release
 
@@ -1526,8 +1513,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentNotes": "string",
@@ -1572,7 +1558,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
   ]
 }
 ```
-</div>
+:::
 
 ## Get all defects for a release
 
@@ -1618,8 +1604,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1651,7 +1636,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Record defect in a release
 
@@ -1676,8 +1661,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
   The ID of the space containing the resource(s).
 - **`Status`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1686,7 +1670,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
   "Status": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1705,8 +1689,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 - **`Status`** :span[enum]{.type-label}  
   Allowed values: `Unresolved`, `Resolved`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1721,7 +1704,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
   "Status": "Unresolved"
 }
 ```
-</div>
+:::
 
 ## Resolve defect in a release
 
@@ -1753,8 +1736,7 @@ Also reachable at `/api/releases/{releaseId}/defects/resolve`, `/api/spaces/{spa
 - **`Status`** :span[enum]{.type-label}  
   Allowed values: `Unresolved`, `Resolved`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1769,7 +1751,7 @@ Also reachable at `/api/releases/{releaseId}/defects/resolve`, `/api/spaces/{spa
   "Status": "Unresolved"
 }
 ```
-</div>
+:::
 
 ## List all of the Deployments that belong to the given Release
 
@@ -1863,8 +1845,7 @@ Deployments will be ordered from most recent to least recent.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1958,7 +1939,7 @@ Deployments will be ordered from most recent to least recent.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a document that describes what steps will/won't be run during a deployment to a given environment (and tenant if supplied)
 
@@ -2023,8 +2004,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Changes": [
@@ -2096,7 +2076,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Return an array of documents that describes what steps will/won't be run during deployments to a given set of environments and tenants
 
@@ -2124,8 +2104,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   ID of the space containing the resources.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DeploymentPreviews": [
@@ -2139,7 +2118,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2182,8 +2161,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -2253,7 +2231,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
   }
 ]
 ```
-</div>
+:::
 
 ## Get the list of Packages that are missing from the built-in feed for a release
 
@@ -2276,8 +2254,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/releases/{releaseId}/missingPac
   - **`Version`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Packages": [
@@ -2288,7 +2265,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/releases/{releaseId}/missingPac
   ]
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a deployment for this release
 
@@ -2330,8 +2307,7 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
   - **`Progress`** :span[enum]{.type-label}  
     Allowed values: `Pending`, `Current`, `Complete`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2368,7 +2344,7 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
   ]
 }
 ```
-</div>
+:::
 
 ## Update the release notes on an existing Release
 
@@ -2394,8 +2370,7 @@ Only the release notes are changed and everything else about the Release is left
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ReleaseId": "string",
@@ -2403,7 +2378,7 @@ Only the release notes are changed and everything else about the Release is left
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2460,8 +2435,7 @@ Only the release notes are changed and everything else about the Release is left
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2535,7 +2509,7 @@ Only the release notes are changed and everything else about the Release is left
   }
 }
 ```
-</div>
+:::
 
 ## Update the Variable Snapshot for a Release
 
@@ -2603,8 +2577,7 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
   - **`GitRef`** :span[string]{.type-label}
   - **`VariablesGitCommit`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2678,4 +2651,4 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
   }
 }
 ```
-</div>
+:::

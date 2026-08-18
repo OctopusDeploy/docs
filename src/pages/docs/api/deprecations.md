@@ -15,26 +15,24 @@ title: Deprecations
   Minimum length 1.
 - **`Enabled`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Deprecation": "string",
   "Enabled": true
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Toggle has been deprecated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Toggle a deprecation on or off in Octopus Server. Used to test the impact of deprecations
 
@@ -46,23 +44,21 @@ title: Deprecations
   Minimum length 1.
 - **`Enabled`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Deprecation": "string",
   "Enabled": true
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Toggle has been deprecated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

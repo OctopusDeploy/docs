@@ -22,7 +22,7 @@ import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 
 type Props = {
-  // `apiMethods` is not written by hand: plugins/rehype-api-examples.js leaves
+  // `apiMethods` is not written by hand: plugins/satteri-api-examples.js leaves
   // it on the frontmatter for the left nav, an entry per endpoint.
   frontmatter: OriginalFrontmatter & {
     apiMethods?: { text: string; method: string | null }[];

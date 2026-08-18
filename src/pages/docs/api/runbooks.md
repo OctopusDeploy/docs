@@ -27,8 +27,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   - **`RunbookId`** :span[string]{.type-label}
   - **`RunbookName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DraftRunbooks": [
@@ -45,7 +44,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   ]
 }
 ```
-</div>
+:::
 
 ## Get a paginated list of the Runbooks that belong to the given Project
 
@@ -122,8 +121,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -187,7 +185,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Runbook or clone an existing Runbook
 
@@ -248,8 +246,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Clone": "string",
@@ -286,7 +283,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -333,8 +330,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -381,7 +377,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbooks for a Project
 
@@ -437,8 +433,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
   - **`Slug`** :span[string]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Runbooks": [
@@ -489,7 +484,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new Database Runbook
 
@@ -532,8 +527,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConnectivityPolicy": {
@@ -567,7 +561,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -580,8 +574,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -590,7 +583,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Runbook by ID
 
@@ -650,8 +643,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -698,7 +690,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Update an existing Runbook
 
@@ -764,8 +756,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -805,7 +796,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -852,8 +843,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -900,7 +890,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook
 
@@ -964,8 +954,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -996,7 +985,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
@@ -1030,8 +1019,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{
   - **`SpaceId`** :span[string]{.type-label}
   - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -1049,7 +1037,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{
   ]
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
@@ -1098,8 +1086,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1143,7 +1130,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
   ]
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -1203,8 +1190,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -1260,7 +1246,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -1320,8 +1306,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -1377,7 +1362,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Run the published version of this Runbook
 
@@ -1448,8 +1433,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the runbook will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -1503,7 +1487,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1541,8 +1525,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DeploymentPreviews": [
@@ -1557,7 +1540,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1591,8 +1574,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1646,7 +1628,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   }
 ]
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Snapshot for a Runbook
 
@@ -1706,8 +1688,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
 - **`RunbookId`** :span[string]{.type-label}
 - **`RunbookProcessId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -1758,7 +1739,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
   "RunbookProcessId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a paginated list of the Runbooks that belong to the given Project
 
@@ -1837,8 +1818,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1902,7 +1882,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Git runbook
 
@@ -1948,8 +1928,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -1985,7 +1964,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2000,8 +1979,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitRef": "string",
@@ -2011,7 +1989,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Runbook by ID
 
@@ -2072,8 +2050,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -2120,7 +2097,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Update an existing Runbook
 
@@ -2192,8 +2169,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -2235,7 +2211,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2282,8 +2258,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -2330,7 +2305,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook
 
@@ -2362,8 +2337,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -2373,7 +2347,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2426,8 +2400,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -2458,7 +2431,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
@@ -2493,8 +2466,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
   - **`SpaceId`** :span[string]{.type-label}
   - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -2512,7 +2484,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
   ]
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
@@ -2563,8 +2535,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2608,7 +2579,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
   ]
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -2669,8 +2640,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -2726,7 +2696,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -2788,8 +2758,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -2845,7 +2814,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbook Run Previews for a Runbook
 
@@ -2881,8 +2850,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DeploymentPreviews": [
@@ -2898,7 +2866,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2932,8 +2900,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -2987,7 +2954,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
   }
 ]
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Snapshot for a Runbook
 
@@ -3048,8 +3015,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
 - **`RunbookId`** :span[string]{.type-label}
 - **`RunbookProcessId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -3100,7 +3066,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
   "RunbookProcessId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbooks
 
@@ -3175,8 +3141,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -3240,7 +3205,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Runbook or clone an existing Runbook
 
@@ -3299,8 +3264,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Clone": "string",
@@ -3337,7 +3301,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -3384,8 +3348,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -3432,7 +3395,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbooks
 
@@ -3499,8 +3462,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -3549,7 +3511,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
   }
 ]
 ```
-</div>
+:::
 
 ## Get a Runbook by ID
 
@@ -3612,8 +3574,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -3660,7 +3621,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Update an existing Runbook
 
@@ -3724,8 +3685,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   A short URL-friendly identifier for the runbook, unique within the project. The current slug is kept when omitted.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -3765,7 +3725,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -3812,8 +3772,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -3860,7 +3819,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook
 
@@ -3926,8 +3885,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -3958,7 +3916,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
   }
 ]
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
@@ -4010,8 +3968,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -4055,7 +4012,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
   ]
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -4115,8 +4072,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -4172,7 +4128,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook
 
@@ -4232,8 +4188,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -4289,7 +4244,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Run the published version of this Runbook
 
@@ -4358,8 +4313,7 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the runbook will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -4413,7 +4367,7 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -4480,8 +4434,7 @@ Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spa
 - **`RunbookId`** :span[string]{.type-label}
 - **`RunbookProcessId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -4532,4 +4485,4 @@ Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spa
   "RunbookProcessId": "string"
 }
 ```
-</div>
+:::

@@ -87,8 +87,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -149,7 +148,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get the progress of a runbook in the environment lifecycle
 
@@ -181,8 +180,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`RunbookRuns`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -311,7 +309,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
   }
 }
 ```
-</div>
+:::
 
 ## Get the progress of a runbook in the environment lifecycle
 
@@ -342,8 +340,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}/v1`, `/api/spaces/{spac
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
   - **`RunbookRuns`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Progression": {
@@ -375,7 +372,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}/v1`, `/api/spaces/{spac
   }
 }
 ```
-</div>
+:::
 
 ## Get the progress of a release in the environment lifecycle
 
@@ -421,8 +418,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
   - **`ReleaseRetentionPeriod`** :span[object]{.type-label}
   - **`TentacleRetentionPeriod`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChannelEnvironments": {
@@ -573,7 +569,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
   ]
 }
 ```
-</div>
+:::
 
 ## Get the progress of a release in the environment lifecycle
 
@@ -611,8 +607,7 @@ Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spac
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
   - **`Releases`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Progression": {
@@ -668,4 +663,4 @@ Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spac
   }
 }
 ```
-</div>
+:::

@@ -62,8 +62,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -104,7 +103,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Proxy in the specified Space
 
@@ -135,8 +134,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   The ID of the space containing the resource.
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Host": "string",
@@ -152,7 +150,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -177,8 +175,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Host": "string",
@@ -202,7 +199,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Proxies
 
@@ -240,8 +237,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
 - **`SpaceId`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -267,7 +263,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
   }
 ]
 ```
-</div>
+:::
 
 ## Get a Proxy by ID
 
@@ -305,8 +301,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
 - **`SpaceId`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Host": "string",
@@ -330,7 +325,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Modify the specified Proxy in the specified Space
 
@@ -365,8 +360,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   The ID of the Space containing the Proxy to modify.
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Host": "string",
@@ -383,7 +377,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -408,8 +402,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
 - **`SpaceId`** :span[string]{.type-label}
 - **`Username`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Host": "string",
@@ -433,7 +426,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Proxy by Id
 

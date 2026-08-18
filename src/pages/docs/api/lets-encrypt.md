@@ -32,8 +32,7 @@ title: Lets Encrypt
 - **`Path`** :span[string]{.type-label}
 - **`RegistrationEmailAddress`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AcceptLetsEncryptTermsOfService": true,
@@ -55,7 +54,7 @@ title: Lets Encrypt
   "RegistrationEmailAddress": "string"
 }
 ```
-</div>
+:::
 
 ## Allow you to disable the Let's Encrypt configuration for this Octopus Server
 
@@ -65,14 +64,13 @@ title: Lets Encrypt
 
 - **`Enabled`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Enabled": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -97,8 +95,7 @@ title: Lets Encrypt
 - **`Path`** :span[string]{.type-label}
 - **`RegistrationEmailAddress`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AcceptLetsEncryptTermsOfService": true,
@@ -120,4 +117,4 @@ title: Lets Encrypt
   "RegistrationEmailAddress": "string"
 }
 ```
-</div>
+:::

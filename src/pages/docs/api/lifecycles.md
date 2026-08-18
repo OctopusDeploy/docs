@@ -60,8 +60,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -110,7 +109,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Lifecycle
 
@@ -157,8 +156,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -206,7 +204,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -247,8 +245,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -304,7 +301,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   }
 }
 ```
-</div>
+:::
 
 ## List all the lifecycles in the supplied Octopus Deploy Space
 
@@ -355,8 +352,7 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -404,7 +400,7 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Lifecycle previews
 
@@ -461,8 +457,7 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -510,7 +505,7 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
   }
 ]
 ```
-</div>
+:::
 
 ## Get a specific Lifecycle
 
@@ -564,8 +559,7 @@ This request does not support getting Lifecycles that belong to Templated Projec
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -621,7 +615,7 @@ This request does not support getting Lifecycles that belong to Templated Projec
   }
 }
 ```
-</div>
+:::
 
 ## Modify a Lifecycle
 
@@ -672,8 +666,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -722,7 +715,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -763,8 +756,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -820,7 +812,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   }
 }
 ```
-</div>
+:::
 
 ## Delete an existing Lifecycle
 
@@ -839,12 +831,11 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a Lifecycle preview by Lifecycle id
 
@@ -898,8 +889,7 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
   - **`Unit`** :span[enum]{.type-label}  
     Allowed values: `Days`, `Items`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -955,7 +945,7 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
   }
 }
 ```
-</div>
+:::
 
 ## Get all projects that use this lifecycle
 
@@ -1055,8 +1045,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1160,4 +1149,4 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
   }
 ]
 ```
-</div>
+:::

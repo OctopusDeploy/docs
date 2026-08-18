@@ -25,15 +25,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 - **`SensitiveVariableCount`** :span[integer]{.type-label}
 - **`TextVariableCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SensitiveVariableCount": 0,
   "TextVariableCount": 0
 }
 ```
-</div>
+:::
 
 ## Convert all non-sensitive project variables to be stored in Git rather than the database
 
@@ -57,8 +56,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Branch": "string",
@@ -68,18 +66,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Empty response indicating the Project Variables were converted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get variables for a project
 
@@ -135,8 +132,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -300,7 +296,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify variables for the project
 
@@ -344,8 +340,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
   - **`Value`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -502,18 +497,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirms that a Project Variable Set has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get variables for a project
 
@@ -570,8 +564,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -735,7 +728,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify variables for the project
 
@@ -781,8 +774,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
   - **`Value`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -940,18 +932,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirms that a Project Variable Set has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of Variable Sets
 
@@ -1012,8 +1003,7 @@ Lists all the Variable Sets in the supplied Space.
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1079,7 +1069,7 @@ Lists all the Variable Sets in the supplied Space.
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Variable names
 
@@ -1109,14 +1099,13 @@ List the names of variables that can be used in deployment actions. If a project
 
 `200` — The requested list of Variable names
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## Get a Variable Set preview
 
@@ -1193,8 +1182,7 @@ Lists the evaluated Variables for a deployment.
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1358,7 +1346,7 @@ Lists the evaluated Variables for a deployment.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get a Variable Set by Id
 
@@ -1414,8 +1402,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1579,7 +1566,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Update a Variable Set
 
@@ -1632,8 +1619,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -1797,7 +1783,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1840,8 +1826,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2005,4 +1990,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
   "Version": 0
 }
 ```
-</div>
+:::

@@ -70,8 +70,7 @@ Lists all API keys for a user, returning the most recent results first.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -114,13 +113,13 @@ Lists all API keys for a user, returning the most recent results first.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Generate a new API key for a User
 
 :span[POST]{.api-post} `/api/users/{userId}/apikeys`
 
-The API key returned in the result must be saved by the caller, as it cannot be retrieved subsequently from the Octopus server
+The API Key returned in the result must be saved by the caller, as it cannot be retrieved subsequently from the Octopus server
 
 **Path Parameters**
 
@@ -139,8 +138,7 @@ The API key returned in the result must be saved by the caller, as it cannot be 
 - **`UserId`** :span[string]{.type-label} *(required)*  
   ID of the user.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ActorType": "User",
@@ -149,11 +147,11 @@ The API key returned in the result must be saved by the caller, as it cannot be 
   "UserId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
-`200` — The created Api Key, containing the unencrypted value of the key which must be saved by the caller, as it cannot be retrieved subsequently from the Octopus server.
+`200` — The created API Key, containing the unencrypted value of the key which must be saved by the caller, as it cannot be retrieved subsequently from the Octopus server.
 
 - **`ActorType`** :span[enum]{.type-label}  
   Allowed values: `User`, `AiAgent`.
@@ -176,8 +174,7 @@ The API key returned in the result must be saved by the caller, as it cannot be 
 - **`Purpose`** :span[string]{.type-label}
 - **`UserId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActorType": "User",
@@ -198,7 +195,7 @@ The API key returned in the result must be saved by the caller, as it cannot be 
   "UserId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of API Keys for a User
 
@@ -242,8 +239,7 @@ Lists all API keys for a user, returning the most recent results first.
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ApiKeys": {
@@ -280,9 +276,9 @@ Lists all API keys for a user, returning the most recent results first.
   }
 }
 ```
-</div>
+:::
 
-## Get an Api Key by ID
+## Get an API Key by ID
 
 :span[GET]{.api-get} `/api/users/{userId}/apikeys/{id}`
 
@@ -295,7 +291,7 @@ Lists all API keys for a user, returning the most recent results first.
 
 **Response**
 
-`200` — The requested Api Key
+`200` — The requested API Key
 
 - **`AccessLevel`** :span[enum]{.type-label}  
   The access level this API key grants.  
@@ -325,8 +321,7 @@ Lists all API keys for a user, returning the most recent results first.
 - **`Purpose`** :span[string]{.type-label}
 - **`UserId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccessLevel": "FullAccess",
@@ -352,9 +347,9 @@ Lists all API keys for a user, returning the most recent results first.
   "UserId": "string"
 }
 ```
-</div>
+:::
 
-## Revoke an API key
+## Revoke an API Key
 
 :span[DELETE]{.api-delete} `/api/users/{userId}/apikeys/{id}`
 
@@ -369,9 +364,8 @@ Lists all API keys for a user, returning the most recent results first.
 
 `200` — Confirmation that a User API Key has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

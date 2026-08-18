@@ -84,8 +84,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -141,7 +140,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get an Interruption by ID
 
@@ -210,8 +209,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   Gets or sets the type of interruption.  
   Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanTakeResponsibility": true,
@@ -266,7 +264,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   "Type": "ManualIntervention"
 }
 ```
-</div>
+:::
 
 ## Get the User that is currently responsible for this Interruption (if any)
 
@@ -330,8 +328,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -364,7 +361,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
 
@@ -394,8 +391,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   ID of the Space.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Guidance": "string",
@@ -406,7 +402,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -462,8 +458,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   Gets or sets the type of interruption.  
   Allowed values: `ManualIntervention`, `GuidedFailure`, `PullRequestCompletion`, `ArgoCDApplicationSync`, `KubernetesResourceVerification`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanTakeResponsibility": true,
@@ -518,4 +513,4 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "Type": "ManualIntervention"
 }
 ```
-</div>
+:::

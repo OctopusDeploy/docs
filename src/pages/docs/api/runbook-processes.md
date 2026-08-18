@@ -57,8 +57,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses`, `/api/spaces/{sp
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -96,7 +95,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses`, `/api/spaces/{sp
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get the runbook process for the given ID
 
@@ -144,8 +143,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/space
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -182,7 +180,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/space
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a Runbook Process
 
@@ -230,8 +228,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -268,7 +265,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -303,8 +300,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -341,7 +337,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Runbook Snapshot using this Runbook Process
 
@@ -402,8 +398,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
 - **`RunbookId`** :span[string]{.type-label}
 - **`RunbookProcessId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -454,7 +449,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
   "RunbookProcessId": "string"
 }
 ```
-</div>
+:::
 
 ## Get the runbook process for the given ID
 
@@ -505,8 +500,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -543,7 +537,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a Runbook Process
 
@@ -597,8 +591,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -637,7 +630,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -672,8 +665,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -710,7 +702,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbook Processes
 
@@ -762,8 +754,7 @@ Also reachable at `/api/runbookProcesses`, `/api/spaces/{spaceIdentifier}/runboo
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -801,7 +792,7 @@ Also reachable at `/api/runbookProcesses`, `/api/spaces/{spaceIdentifier}/runboo
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get the runbook process for the given ID
 
@@ -848,8 +839,7 @@ Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/r
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -886,7 +876,7 @@ Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/r
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a Runbook Process
 
@@ -933,8 +923,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -971,7 +960,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1006,8 +995,7 @@ Only allowed for Runbook Processes owned by a project.
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1044,7 +1032,7 @@ Only allowed for Runbook Processes owned by a project.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a Runbook Snapshot using this Runbook Process
 
@@ -1108,8 +1096,7 @@ Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/sp
 - **`RunbookId`** :span[string]{.type-label}
 - **`RunbookProcessId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -1160,4 +1147,4 @@ Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/sp
   "RunbookProcessId": "string"
 }
 ```
-</div>
+:::

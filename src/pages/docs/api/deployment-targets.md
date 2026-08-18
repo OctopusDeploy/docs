@@ -103,8 +103,7 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -171,7 +170,7 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a MachineResource
 
@@ -215,8 +214,7 @@ Creates a new deployment target.
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Endpoint": {
@@ -253,7 +251,7 @@ Creates a new deployment target.
   "Uri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -304,8 +302,7 @@ Creates a new deployment target.
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -359,7 +356,7 @@ Creates a new deployment target.
   "Uri": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Deployment Targets
 
@@ -430,8 +427,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -487,7 +483,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Deployment Targets
 
@@ -548,8 +544,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
   - **`Thumbprint`** :span[string]{.type-label}
   - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentTargets": [
@@ -603,7 +598,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
   ]
 }
 ```
-</div>
+:::
 
 ## Interrogate a deployment target for communication details so that it may be added to the installation
 
@@ -665,8 +660,7 @@ Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machi
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -706,7 +700,7 @@ Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machi
   "Uri": "string"
 }
 ```
-</div>
+:::
 
 ## Get all operating system names for deployment targets
 
@@ -722,14 +716,13 @@ Also reachable at `/api/machines/operatingsystem/names/all`, `/api/spaces/{space
 
 `200` — The operating system names
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## Get all operating system shell names for deployment targets
 
@@ -745,14 +738,13 @@ Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spac
 
 `200` — The operating system shell names
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name
 
@@ -813,8 +805,7 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
   - **`TotalResults`** :span[integer]{.type-label}
 - **`TargetCountPerHealthStatus`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentTargets": {
@@ -870,7 +861,7 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
   }
 }
 ```
-</div>
+:::
 
 ## Get an existing Deployment Target
 
@@ -934,8 +925,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -989,7 +979,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
   "Uri": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Deployment Target
 
@@ -1046,8 +1036,7 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1099,7 +1088,7 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Tasks for the given Deployment Target
 
@@ -1203,8 +1192,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1267,7 +1255,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Tasks for the given Deployment Target
 
@@ -1314,8 +1302,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ResourceCollection": {
@@ -1372,7 +1359,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
   }
 }
 ```
-</div>
+:::
 
 ## List all the variable set names (projects and library variable sets) that have variables that are scoped to only the given machine
 
@@ -1394,8 +1381,7 @@ Also reachable at `/api/machines/{machineId}/singlyScopedVariableDetails`, `/api
   - **`HasUnauthorizedProjectVariables`** :span[boolean]{.type-label}
   - **`VariableMap`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -1421,7 +1407,7 @@ Also reachable at `/api/machines/{machineId}/singlyScopedVariableDetails`, `/api
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Deployment Target (identified by ID)
 
@@ -1465,8 +1451,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Endpoint": {
@@ -1503,7 +1488,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
   "Uri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1554,8 +1539,7 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Uri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -1609,4 +1593,4 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
   "Uri": "string"
 }
 ```
-</div>
+:::

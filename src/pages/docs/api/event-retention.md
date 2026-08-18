@@ -49,8 +49,7 @@ title: Event Retention
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -84,7 +83,7 @@ title: Event Retention
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get the list of archived event files
 
@@ -117,8 +116,7 @@ title: Event Retention
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ArchivedFiles": {
@@ -150,7 +148,7 @@ title: Event Retention
   }
 }
 ```
-</div>
+:::
 
 ## Download an archived event file
 
@@ -165,12 +163,11 @@ title: Event Retention
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Delete an archived event file
 
@@ -201,11 +198,10 @@ title: Event Retention
 - **`FileName`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FileName": "string"
 }
 ```
-</div>
+:::

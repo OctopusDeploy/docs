@@ -39,8 +39,7 @@ title: Configuration
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -72,7 +71,7 @@ title: Configuration
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Return a single configuration section for the given id
 
@@ -98,8 +97,7 @@ title: Configuration
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -114,7 +112,7 @@ title: Configuration
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Return a structure that describes how to dynamically render the configuration section
 
@@ -133,8 +131,7 @@ title: Configuration
   - **`Name`** :span[string]{.type-label}
   - **`Properties`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -148,7 +145,7 @@ title: Configuration
   ]
 }
 ```
-</div>
+:::
 
 ## Return the current configuration for a specific configuration section
 
@@ -162,12 +159,11 @@ title: Configuration
 
 `200` — The current configuration for the specified configuration section
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Update the configuration values for a specific configuration section
 
@@ -183,20 +179,18 @@ Refer to the configuration/{id}/metadata endpoint for details on the specific da
 
 A `string` payload.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 "string"
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

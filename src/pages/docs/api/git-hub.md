@@ -28,15 +28,14 @@ title: Git Hub
 - **`CanUseGitHubApp`** :span[boolean]{.type-label}
 - **`CanUseTrustedFlow`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanUseGitHubApp": true,
   "CanUseTrustedFlow": true
 }
 ```
-</div>
+:::
 
 ## Get the status of the registration between Octopus Server and the GitHub App
 
@@ -49,14 +48,13 @@ title: Git Hub
 - **`Status`** :span[string]{.type-label}  
   The status of the GitHub App registration. Valid values are: Connected, RegistrationInvalid, Error. Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Status": "string"
 }
 ```
-</div>
+:::
 
 ## Get GitHub App connections for the space
 
@@ -88,8 +86,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Connections": [
@@ -111,7 +108,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new GitHub App connection for an installation
 
@@ -130,8 +127,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "InstallationId": "string",
@@ -141,18 +137,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `201` — Created
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get the GitHub repositories for the current connection
 
@@ -179,8 +174,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionI
   - **`RepositoryName`** :span[string]{.type-label}
   - **`Visibility`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Repositories": [
@@ -197,7 +191,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionI
   ]
 }
 ```
-</div>
+:::
 
 ## Get a single GitHub app connection by id
 
@@ -241,8 +235,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
   - **`RepositoryId`** :span[string]{.type-label}
   - **`RepositoryName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -277,7 +270,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
   ]
 }
 ```
-</div>
+:::
 
 ## Update a GitHub App connection with a new set of repositories
 
@@ -296,8 +289,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -307,18 +299,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — GitHub app connection modified result
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete a GitHub App Connection
 
@@ -337,12 +328,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 `200` — Used to indicate that a GitHub App Connection has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Recover GitHub App connection after the registration has changed
 
@@ -361,8 +351,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -372,18 +361,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — GitHub app connection recovery result
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Recover GitHub App connection after the installation was not found
 
@@ -403,8 +391,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -415,18 +402,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — GitHub app connection not-found recovery result
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Refresh the GitHub App connection token
 
@@ -443,12 +429,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh
 
 `200` — GitHub app connection has been refreshed
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
@@ -477,8 +462,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
     true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
   - **`InstallationId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Installations": [
@@ -493,7 +477,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   ]
 }
 ```
-</div>
+:::
 
 ## Handle the response from GitHub after an application has been installed or updated
 
@@ -542,8 +526,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -565,7 +548,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
 
@@ -575,12 +558,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — GitHub app registration was successfully deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
 
@@ -617,8 +599,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -640,7 +621,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get status of the users current authorization
 
@@ -666,8 +647,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   - **`TokenValidTo`** :span[string]{.type-label}  
     Format `date-time`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanAuthorize": true,
@@ -682,7 +662,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   }
 }
 ```
-</div>
+:::
 
 ## Authorize the current user with the Octopus GitHub app
 
@@ -693,14 +673,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`RedirectUri`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "RedirectUri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -709,14 +688,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`AuthorizeUri`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AuthorizeUri": "string"
 }
 ```
-</div>
+:::
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
@@ -727,14 +705,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`Code`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Code": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -744,15 +721,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`Status`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ErrorMessage": "string",
   "Status": "string"
 }
 ```
-</div>
+:::
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
@@ -775,12 +751,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — Deauthorized GitHub app user
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Refresh the GitHub current app user. Refreshing the users token and cached GitHub account details
 
@@ -790,12 +765,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — GitHub App user has been successfully refreshed
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Test connectivity to GitHub using the provided credentials
 
@@ -810,8 +784,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 - **`UserName`** :span[string]{.type-label}  
   The GitHub username for authentication.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BaseUrl": "string",
@@ -819,7 +792,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   "UserName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -832,8 +805,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   - **`Message`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Messages": [
@@ -844,4 +816,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
   ]
 }
 ```
-</div>
+:::

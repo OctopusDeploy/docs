@@ -88,8 +88,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -146,7 +145,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new worker
 
@@ -186,8 +185,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 - **`WorkerPoolIds`** :span[array of string]{.type-label} *(required)*  
   The worker pools the worker belongs to.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Endpoint": {
@@ -212,7 +210,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -258,8 +256,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 - **`Uri`** :span[string]{.type-label}
 - **`WorkerPoolIds`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -303,7 +300,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of Workers
 
@@ -369,8 +366,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
 - **`Uri`** :span[string]{.type-label}
 - **`WorkerPoolIds`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -416,7 +412,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
   }
 ]
 ```
-</div>
+:::
 
 ## Interrogate a machine for communication details so that it may be added to the installation
 
@@ -485,8 +481,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
 - **`Uri`** :span[string]{.type-label}
 - **`WorkerPoolIds`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -530,7 +525,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
   ]
 }
 ```
-</div>
+:::
 
 ## Get all operating system names for workers. The result will be a string array
 
@@ -546,14 +541,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/names/a
 
 `200` — The operating system names for workers.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## Get all operating system shell names for workers. The result will be a string array
 
@@ -569,14 +563,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/
 
 `200` — The operating system shell names for workers.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
@@ -626,8 +619,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "WorkerCountPerHealthStatus": {
@@ -673,7 +665,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
   }
 }
 ```
-</div>
+:::
 
 ## Get a Worker by ID
 
@@ -732,8 +724,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 - **`Uri`** :span[string]{.type-label}
 - **`WorkerPoolIds`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -777,7 +768,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   ]
 }
 ```
-</div>
+:::
 
 ## Modify an existing worker machine
 
@@ -820,8 +811,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 - **`WorkerPoolIds`** :span[array of string]{.type-label} *(required)*  
   The worker pools the worker belongs to.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Endpoint": {
@@ -846,7 +836,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -892,8 +882,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 - **`Uri`** :span[string]{.type-label}
 - **`WorkerPoolIds`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Architecture": "string",
@@ -937,7 +926,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   ]
 }
 ```
-</div>
+:::
 
 ## Delete an existing Worker
 
@@ -995,8 +984,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api
 - **`MachineId`** :span[string]{.type-label}
 - **`Status`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CurrentTentacleVersion": "string",
@@ -1023,4 +1011,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api
   "Status": "string"
 }
 ```
-</div>
+:::

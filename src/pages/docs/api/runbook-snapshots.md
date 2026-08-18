@@ -53,8 +53,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRun
   - **`StepName`** :span[string]{.type-label}
   - **`VersionSelectedLastRelease`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitResources": [
@@ -94,7 +93,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRun
   ]
 }
 ```
-</div>
+:::
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Project
 
@@ -166,8 +165,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -220,7 +218,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Runbook Snapshot
 
@@ -261,8 +259,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Name": "string",
@@ -291,7 +288,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -336,8 +333,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -385,7 +381,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a single Runbook Snapshot by project ID and name
 
@@ -445,8 +441,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -494,7 +489,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a Runbook Snapshot
 
@@ -536,8 +531,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -565,7 +559,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -610,8 +604,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -659,7 +652,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get the runbook runs for the given snapshot
 
@@ -750,8 +743,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -841,7 +833,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook Snapshot
 
@@ -901,8 +893,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -958,7 +949,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Template for a Runbook Snapshot
 
@@ -1009,8 +1000,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1054,7 +1044,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   ]
 }
 ```
-</div>
+:::
 
 ## Update the variable snapshots for a Runbook Snapshot
 
@@ -1116,8 +1106,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1165,7 +1154,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Update the variable snapshots for a Runbook Snapshot
 
@@ -1217,8 +1206,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -1265,7 +1253,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   }
 }
 ```
-</div>
+:::
 
 ## Get a list of Variable Sets included in the Runbook Snapshot's current Variable Snapshot
 
@@ -1323,8 +1311,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1390,7 +1377,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Runbook Run Previews for a Runbook Snapshot
 
@@ -1422,8 +1409,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DeploymentPreviews": [
@@ -1438,7 +1424,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1472,8 +1458,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1527,7 +1512,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
   }
 ]
 ```
-</div>
+:::
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Runbook
 
@@ -1601,8 +1586,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1655,7 +1639,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook Snapshot
 
@@ -1743,8 +1727,7 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1797,7 +1780,7 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Runbook Snapshot
 
@@ -1836,8 +1819,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Name": "string",
@@ -1866,7 +1848,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1911,8 +1893,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -1960,7 +1941,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Snapshot by ID
 
@@ -2018,8 +1999,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2067,7 +2047,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a Runbook Snapshot
 
@@ -2107,8 +2087,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -2136,7 +2115,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2181,8 +2160,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2230,7 +2208,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get the runbook runs for the given snapshot
 
@@ -2320,8 +2298,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2411,7 +2388,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Preview for a Runbook Snapshot
 
@@ -2471,8 +2448,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   - **`UnavailableMachines`** :span[array of object]{.type-label}
 - **`UseGuidedFailureModeByDefault`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Form": {
@@ -2528,7 +2504,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
   "UseGuidedFailureModeByDefault": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run Template for a Runbook Snapshot
 
@@ -2582,8 +2558,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   - **`Name`** :span[string]{.type-label}
   - **`PromoteTo`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2627,7 +2602,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   ]
 }
 ```
-</div>
+:::
 
 ## Update the variable snapshots for a Runbook Snapshot
 
@@ -2687,8 +2662,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
@@ -2736,7 +2710,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Runbook
 
@@ -2810,8 +2784,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2864,7 +2837,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook Snapshot
 

@@ -76,8 +76,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -119,7 +118,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Tag Set
 
@@ -157,8 +156,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 - **`Type`** :span[string]{.type-label}  
   How tags from the set are applied to a resource: 'MultiSelect' (any number of tags), 'SingleSelect' (one tag at a time), or 'FreeText' (arbitrary values, no predefined tags). Defaults to 'MultiSelect' when omitted.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -181,7 +179,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
   "Type": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -221,8 +219,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 - **`Type`** :span[string]{.type-label}  
   The type of this tag set.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -254,7 +251,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Tag Sets
 
@@ -310,8 +307,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
 - **`Type`** :span[string]{.type-label}  
   The type of this tag set.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -345,7 +341,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
   }
 ]
 ```
-</div>
+:::
 
 ## PUT /api/{spaceId}/tagsets/sortorder
 
@@ -363,14 +359,13 @@ Takes an array of tag set IDs as the request body, uses the order of items in th
 
 A `array of string` payload.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 **Response**
 
@@ -426,8 +421,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 - **`Type`** :span[string]{.type-label}  
   The type of this tag set.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -459,7 +453,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing Tag Set
 
@@ -501,8 +495,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 - **`Type`** :span[string]{.type-label}  
   How tags from the set are applied to a resource: 'MultiSelect' (any number of tags), 'SingleSelect' (one tag at a time), or 'FreeText' (arbitrary values, no predefined tags). Defaults to 'MultiSelect' when omitted; a tag set in use can only change from SingleSelect to MultiSelect.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -526,7 +519,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   "Type": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -566,8 +559,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 - **`Type`** :span[string]{.type-label}  
   The type of this tag set.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -599,7 +591,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Tag Set
 

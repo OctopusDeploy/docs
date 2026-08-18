@@ -110,8 +110,7 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -205,7 +204,7 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Deployment
 
@@ -286,8 +285,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -381,7 +379,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -454,8 +452,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -549,7 +546,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Create a new tenanted deployment
 
@@ -608,8 +605,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
 - **`Variables`** :span[object]{.type-label}  
   Name/value pairs for prompted variables. A prompted variable that is required and has no value supplied here fails the command, naming the variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DebugMode": "string",
@@ -657,7 +653,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -667,8 +663,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
   - **`DeploymentId`** :span[string]{.type-label}
   - **`ServerTaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentServerTasks": [
@@ -679,7 +674,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new untenanted deployment
 
@@ -734,8 +729,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
 - **`Variables`** :span[object]{.type-label}  
   Name/value pairs for prompted variables. A prompted variable that is required and has no value supplied here fails the command, naming the variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DebugMode": "string",
@@ -779,7 +773,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -789,8 +783,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
   - **`DeploymentId`** :span[string]{.type-label}
   - **`ServerTaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentServerTasks": [
@@ -801,7 +794,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
   ]
 }
 ```
-</div>
+:::
 
 ## Create a Deployment
 
@@ -882,8 +875,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -977,7 +969,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1036,8 +1028,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
   - **`UseGuidedFailure`** :span[boolean]{.type-label}  
     If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Deployment": {
@@ -1130,7 +1121,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
   }
 }
 ```
-</div>
+:::
 
 ## Get a Deployment by ID
 
@@ -1215,8 +1206,7 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -1310,7 +1300,7 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Deployment
 

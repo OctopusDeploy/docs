@@ -69,8 +69,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -109,7 +108,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new library variable set
 
@@ -140,8 +139,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   - **`Label`** :span[string]{.type-label}
   - **`Name`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ContentType": "Variables",
@@ -168,7 +166,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -203,8 +201,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ContentType": "Variables",
@@ -241,7 +238,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Library Variable Sets
 
@@ -296,8 +293,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -328,7 +324,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Library Variable Sets
 
@@ -378,8 +374,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   - **`Version`** :span[integer]{.type-label}  
     Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "LibraryVariableSets": [
@@ -405,7 +400,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of Library Variable Sets
 
@@ -453,8 +448,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   - **`Version`** :span[integer]{.type-label}  
     Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "LibraryVariableSets": [
@@ -480,7 +474,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of Library Variable Sets
 
@@ -530,8 +524,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   - **`Version`** :span[integer]{.type-label}  
     Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "LibraryVariableSets": [
@@ -557,7 +550,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
   ]
 }
 ```
-</div>
+:::
 
 ## Get a Library Variable Set by ID
 
@@ -604,8 +597,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ContentType": "Variables",
@@ -642,7 +634,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify an existing library variable set
 
@@ -673,8 +665,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   - **`Name`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -702,7 +693,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -737,8 +728,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 - **`Version`** :span[integer]{.type-label}  
   Gets or sets the version number.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ContentType": "Variables",
@@ -775,7 +765,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Delete an existing Library Variable Set
 
@@ -821,8 +811,7 @@ Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIde
   - **`Releases`** :span[array of object]{.type-label}
   - **`RunbookSnapshots`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CountOfProjectsUserCannotSee": 0,
@@ -844,4 +833,4 @@ Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIde
   ]
 }
 ```
-</div>
+:::

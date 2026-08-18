@@ -35,9 +35,8 @@ Also reachable at `/api/reporting/deployments/xml`, `/api/spaces/{spaceIdentifie
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

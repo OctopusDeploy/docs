@@ -21,8 +21,7 @@ title: Icons
   - **`label`** :span[string]{.type-label}
   - **`searchTerms`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "icons": [
@@ -39,7 +38,7 @@ title: Icons
   ]
 }
 ```
-</div>
+:::
 
 ## Get all icon categories and icon IDs contained in each category
 
@@ -51,8 +50,7 @@ title: Icons
 
 - **`categories`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "categories": {
@@ -68,7 +66,7 @@ title: Icons
   }
 }
 ```
-</div>
+:::
 
 ## Modify the logo of a Space to be a specified icon
 
@@ -88,8 +86,7 @@ title: Icons
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the Space to change logo for. Example: 'Space-1'.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IconColor": "string",
@@ -97,18 +94,17 @@ title: Icons
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Space Icon has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Modify the logo of a project to be a specified icon
 
@@ -134,8 +130,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IconColor": "string",
@@ -144,18 +139,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Project Icon has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Modify the logo of a tenant to be a specified icon
 
@@ -181,8 +175,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
 - **`TenantId`** :span[string]{.type-label} *(required)*  
   The ID of the tenant to change logo for. Example: 'Tenants-1'.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IconColor": "string",
@@ -191,15 +184,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
   "TenantId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Tenant Icon has been modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

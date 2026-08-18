@@ -45,8 +45,7 @@ Gets a paginated set of WorkerTaskLeases.
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "WorkerTaskLeases": {
@@ -78,4 +77,4 @@ Gets a paginated set of WorkerTaskLeases.
   }
 }
 ```
-</div>
+:::

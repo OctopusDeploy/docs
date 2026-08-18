@@ -17,8 +17,7 @@ title: Open Telemetry
 - **`MaxStorageSizeMegabytes`** :span[integer]{.type-label}
 - **`RetentionDays`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Enabled": true,
@@ -26,7 +25,7 @@ title: Open Telemetry
   "RetentionDays": 0
 }
 ```
-</div>
+:::
 
 ## Modify OpenTelemetry trace file export configuration
 
@@ -38,8 +37,7 @@ title: Open Telemetry
 - **`MaxStorageSizeMegabytes`** :span[integer]{.type-label} *(required)*
 - **`RetentionDays`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Enabled": true,
@@ -47,7 +45,7 @@ title: Open Telemetry
   "RetentionDays": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -57,8 +55,7 @@ title: Open Telemetry
 - **`MaxStorageSizeMegabytes`** :span[integer]{.type-label}
 - **`RetentionDays`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Enabled": true,
@@ -66,4 +63,4 @@ title: Open Telemetry
   "RetentionDays": 0
 }
 ```
-</div>
+:::

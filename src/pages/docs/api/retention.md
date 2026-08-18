@@ -23,8 +23,7 @@ title: Retention
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`RetentionDays`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -38,7 +37,7 @@ title: Retention
   "RetentionDays": 0
 }
 ```
-</div>
+:::
 
 ## Update the default retention configuration
 
@@ -48,14 +47,13 @@ title: Retention
 
 - **`RetentionDays`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "RetentionDays": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -84,8 +82,7 @@ Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/reten
 - **`RetentionType`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -94,7 +91,7 @@ Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/reten
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a default retention policy
 
@@ -118,8 +115,7 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The id of the space that contains the default retention policy.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -127,7 +123,7 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -138,8 +134,7 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
 - **`RetentionType`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -148,4 +143,4 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
   "SpaceId": "string"
 }
 ```
-</div>
+:::

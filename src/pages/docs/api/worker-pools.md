@@ -71,8 +71,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -110,7 +109,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Worker Pool
 
@@ -138,8 +137,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 - **`WorkerType`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -152,7 +150,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   "WorkerType": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -180,8 +178,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 - **`WorkerPoolType`** :span[enum]{.type-label}  
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanAddWorkers": true,
@@ -202,7 +199,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
-</div>
+:::
 
 ## Get a list of Worker Pools
 
@@ -248,8 +245,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 - **`WorkerPoolType`** :span[enum]{.type-label}  
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -272,7 +268,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
   }
 ]
 ```
-</div>
+:::
 
 ## List the available Worker Types for the Dynamic Worker Pool
 
@@ -303,8 +299,7 @@ Returns a list of the available Worker Types for the Dynamic Worker Pool
     Format `date-time`.
   - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -325,7 +320,7 @@ Returns a list of the available Worker Types for the Dynamic Worker Pool
   ]
 }
 ```
-</div>
+:::
 
 **Error Responses**
 
@@ -347,14 +342,13 @@ Takes an array of work pool IDs as the request body, uses the order of items in 
 
 A `array of string` payload.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 **Response**
 
@@ -404,8 +398,7 @@ Lists all worker pools, including a summary of machine information.
   - **`TotalMachines`** :span[integer]{.type-label}
   - **`WorkerPool`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "MachineEndpointSummaries": {
@@ -466,7 +459,7 @@ Lists all worker pools, including a summary of machine information.
   ]
 }
 ```
-</div>
+:::
 
 ## Get the available Worker Pool types
 
@@ -489,8 +482,7 @@ Lists the available Worker Pool types.
 - **`SupportedPoolTypes`** :span[array of enum]{.type-label}  
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -504,7 +496,7 @@ Lists the available Worker Pool types.
   ]
 }
 ```
-</div>
+:::
 
 ## Get a Worker Pool by ID
 
@@ -543,8 +535,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 - **`WorkerPoolType`** :span[enum]{.type-label}  
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanAddWorkers": true,
@@ -565,7 +556,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
-</div>
+:::
 
 ## Modify an existing worker pool
 
@@ -599,8 +590,7 @@ Updates an existing worker pool.
 - **`WorkerType`** :span[string]{.type-label}  
   The worker image.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -612,7 +602,7 @@ Updates an existing worker pool.
   "WorkerType": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -640,8 +630,7 @@ Updates an existing worker pool.
 - **`WorkerPoolType`** :span[enum]{.type-label}  
   Allowed values: `StaticWorkerPool`, `DynamicWorkerPool`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanAddWorkers": true,
@@ -662,7 +651,7 @@ Updates an existing worker pool.
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Worker Pool
 
@@ -755,8 +744,7 @@ Lists all of the machines that belong to the given worker pool.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -813,4 +801,4 @@ Lists all of the machines that belong to the given worker pool.
   "TotalResults": 0
 }
 ```
-</div>
+:::

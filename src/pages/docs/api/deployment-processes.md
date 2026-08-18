@@ -59,8 +59,7 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -97,7 +96,7 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Release Snapshot Template
 
@@ -165,8 +164,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
 - **`VersioningPackageReferenceName`** :span[string]{.type-label}
 - **`VersioningPackageStepName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentProcessId": "string",
@@ -219,7 +217,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
   "VersioningPackageStepName": "string"
 }
 ```
-</div>
+:::
 
 ## Get a specific snapshotted version of a deployment process
 
@@ -265,8 +263,7 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -302,7 +299,7 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get the deployment process for a project
 
@@ -347,8 +344,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -384,7 +380,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a deployment process
 
@@ -422,8 +418,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -452,7 +447,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -486,8 +481,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -523,7 +517,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get the resolved deployment process for a project
 
@@ -570,8 +564,7 @@ This request returns the deployment process with all process template usages res
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -607,7 +600,7 @@ This request returns the deployment process with all process template usages res
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a release using this deployment process
 
@@ -675,8 +668,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
 - **`VersioningPackageReferenceName`** :span[string]{.type-label}
 - **`VersioningPackageStepName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentProcessId": "string",
@@ -729,7 +721,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
   "VersioningPackageStepName": "string"
 }
 ```
-</div>
+:::
 
 ## Validate the deployment process for common non-blocking issues, such as missing deployment targets for tags used within the process steps
 
@@ -750,8 +742,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/ap
 - **`HasWarnings`** :span[boolean]{.type-label}
 - **`TagsWithoutTargetsByStepId`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Details": {
@@ -773,7 +764,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/ap
   }
 }
 ```
-</div>
+:::
 
 ## Get the deployment process for a version-controlled project
 
@@ -819,8 +810,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -856,7 +846,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a deployment process
 
@@ -896,8 +886,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -927,7 +916,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -961,8 +950,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -998,7 +986,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get the resolved deployment process for a version-controlled project
 
@@ -1046,8 +1034,7 @@ This request returns the deployment process with all process template usages res
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1083,7 +1070,7 @@ This request returns the deployment process with all process template usages res
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get all of the information necessary for creating or editing a release using this deployment process
 
@@ -1153,8 +1140,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
 - **`VersioningPackageReferenceName`** :span[string]{.type-label}
 - **`VersioningPackageStepName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentProcessId": "string",
@@ -1207,7 +1193,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
   "VersioningPackageStepName": "string"
 }
 ```
-</div>
+:::
 
 ## Validate the deployment process for common non-blocking issues, such as missing deployment targets for tags used within the process steps
 
@@ -1229,8 +1215,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/valida
 - **`HasWarnings`** :span[boolean]{.type-label}
 - **`TagsWithoutTargetsByStepId`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Details": {
@@ -1252,7 +1237,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/valida
   }
 }
 ```
-</div>
+:::
 
 ## Modify a deployment process
 
@@ -1302,8 +1287,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -1339,7 +1323,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1373,8 +1357,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1410,4 +1393,4 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "Version": 0
 }
 ```
-</div>
+:::

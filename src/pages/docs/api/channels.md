@@ -61,8 +61,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
   Canonical tenant tag names in 'TagSet/Tag' format restricting which tenants can deploy releases from this channel.
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -120,7 +119,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
   "Type": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -170,8 +169,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -237,7 +235,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Channels
 
@@ -304,8 +302,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -369,7 +366,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
   }
 ]
 ```
-</div>
+:::
 
 ## Perform Channel version rule test against provided Package version
 
@@ -408,8 +405,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
 - **`SatisfiesPreReleaseTag`** :span[boolean]{.type-label}
 - **`SatisfiesVersionRange`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -419,7 +415,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
   "SatisfiesVersionRange": true
 }
 ```
-</div>
+:::
 
 ## Perform Channel version rule test against provided Package version
 
@@ -456,8 +452,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
 - **`SatisfiesPreReleaseTag`** :span[boolean]{.type-label}
 - **`SatisfiesVersionRange`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -467,7 +462,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
   "SatisfiesVersionRange": true
 }
 ```
-</div>
+:::
 
 ## Perform Channel version rule test against provided Package version
 
@@ -506,8 +501,7 @@ Also reachable at `/api/channels/rule-test`.
 - **`SatisfiesPreReleaseTag`** :span[boolean]{.type-label}
 - **`SatisfiesVersionRange`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -517,7 +511,7 @@ Also reachable at `/api/channels/rule-test`.
   "SatisfiesVersionRange": true
 }
 ```
-</div>
+:::
 
 ## Test Channel version rules
 
@@ -551,8 +545,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
 - **`SatisfiesVersionTagRegex`** :span[boolean]{.type-label}  
   Whether the version satisfies the rule's version-tag regex. Defaults to true (no regex, or a legacy caller, counts as satisfied).
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -563,7 +556,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
   "SatisfiesVersionTagRegex": true
 }
 ```
-</div>
+:::
 
 ## Test Channel version rules
 
@@ -595,8 +588,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
 - **`SatisfiesVersionTagRegex`** :span[boolean]{.type-label}  
   Whether the version satisfies the rule's version-tag regex. Defaults to true (no regex, or a legacy caller, counts as satisfied).
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -607,7 +599,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
   "SatisfiesVersionTagRegex": true
 }
 ```
-</div>
+:::
 
 ## Test Channel version rules
 
@@ -642,8 +634,7 @@ Also reachable at `/api/channels/rule-test/v1`.
 - **`SatisfiesVersionTagRegex`** :span[boolean]{.type-label}  
   Whether the version satisfies the rule's version-tag regex. Defaults to true (no regex, or a legacy caller, counts as satisfied).
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -654,7 +645,7 @@ Also reachable at `/api/channels/rule-test/v1`.
   "SatisfiesVersionTagRegex": true
 }
 ```
-</div>
+:::
 
 ## Update an existing Channel
 
@@ -715,8 +706,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 - **`TenantTags`** :span[array of string]{.type-label}  
   Canonical tenant tag names in 'TagSet/Tag' format restricting which tenants can deploy releases from this channel. Omit to keep the current tags; an empty collection clears them.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -774,7 +764,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -824,8 +814,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -891,7 +880,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Delete a ChannelResource by ID
 
@@ -979,8 +968,7 @@ Lists all the channels for the given project
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1036,7 +1024,7 @@ Lists all the channels for the given project
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a Channel
 
@@ -1095,8 +1083,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
   Canonical tenant tag names in 'TagSet/Tag' format restricting which tenants can deploy releases from this channel.
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -1154,7 +1141,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
   "Type": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1204,8 +1191,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -1271,7 +1257,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Determine if a git reference satisfies the rules of a channel
 
@@ -1296,8 +1282,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
 - **`Errors`** :span[array of string]{.type-label}
 - **`SatisfiesGitReferenceRules`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -1306,7 +1291,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
   "SatisfiesGitReferenceRules": true
 }
 ```
-</div>
+:::
 
 ## Determine if a git reference satisfies a channel's Git resource rules
 
@@ -1333,8 +1318,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
 - **`Errors`** :span[array of string]{.type-label}
 - **`SatisfiesGitResourceRules`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Errors": [
@@ -1343,7 +1327,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
   "SatisfiesGitResourceRules": true
 }
 ```
-</div>
+:::
 
 ## Get a Channel by ID
 
@@ -1407,8 +1391,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -1474,7 +1457,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Update an existing Channel
 
@@ -1536,8 +1519,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 - **`TenantTags`** :span[array of string]{.type-label}  
   Canonical tenant tag names in 'TagSet/Tag' format restricting which tenants can deploy releases from this channel. Omit to keep the current tags; an empty collection clears them.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -1595,7 +1577,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1645,8 +1627,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -1712,7 +1693,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## Delete a ChannelResource by ID
 
@@ -1756,12 +1737,11 @@ Deletes an existing channel.
 
 `200` — Confirmation that the Channel has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of Channels
 
@@ -1834,8 +1814,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1891,7 +1870,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Channel by ID
 
@@ -1957,8 +1936,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 - **`TenantTags`** :span[array of string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticEphemeralEnvironmentDeployments": true,
@@ -2024,4 +2002,4 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
   "Type": "string"
 }
 ```
-</div>
+:::

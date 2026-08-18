@@ -13,12 +13,11 @@ title: Version Control
 
 `200` — Confirmation that the Git Cache was cleared
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Clear the local Git cache
 
@@ -28,9 +27,8 @@ title: Version Control
 
 `200` — Confirmation that the Git Cache was cleared
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

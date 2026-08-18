@@ -111,8 +111,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -202,7 +201,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Runbook Run
 
@@ -243,8 +242,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
 - **`TenantId`** :span[string]{.type-label}
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -288,7 +286,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -354,8 +352,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -433,7 +430,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run by ID
 
@@ -514,8 +511,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -593,7 +589,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook Run
 
@@ -683,8 +679,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
   - **`UseGuidedFailure`** :span[boolean]{.type-label}  
     If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -761,7 +756,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
   }
 }
 ```
-</div>
+:::
 
 ## Create a new Runbook Run
 
@@ -814,8 +809,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -880,7 +874,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -939,8 +933,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
   - **`UseGuidedFailure`** :span[boolean]{.type-label}  
     If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resources": [
@@ -1017,7 +1010,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new runbook run
 
@@ -1072,8 +1065,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
 - **`Variables`** :span[object]{.type-label}  
   Name/value pairs for prompted variables. A prompted variable that is required and has no value supplied here fails the command, naming the variable.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DebugMode": "string",
@@ -1122,7 +1114,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1132,8 +1124,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
   - **`RunbookRunId`** :span[string]{.type-label}
   - **`ServerTaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "RunbookRunServerTasks": [
@@ -1144,7 +1135,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of Runbook Runs
 
@@ -1251,8 +1242,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1342,7 +1332,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Runbook Run
 
@@ -1382,8 +1372,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
 - **`TenantId`** :span[string]{.type-label}
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -1427,7 +1416,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1493,8 +1482,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -1572,7 +1560,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Get a Runbook Run by ID
 
@@ -1656,8 +1644,7 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ChangeRequestSettings": [
@@ -1735,7 +1722,7 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Runbook Run
 

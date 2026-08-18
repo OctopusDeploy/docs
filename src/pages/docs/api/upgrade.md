@@ -29,8 +29,7 @@ title: Upgrade
   Controls which notifications are shown in the portal when an upgrade is available.  
   Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowChecking": true,
@@ -46,7 +45,7 @@ title: Upgrade
   "NotificationMode": "AlwaysShow"
 }
 ```
-</div>
+:::
 
 ## Update the upgrade configuration used by the Octopus Server
 
@@ -62,8 +61,7 @@ title: Upgrade
   Controls which notifications are shown in the portal when an upgrade is available.  
   Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllowChecking": true,
@@ -71,7 +69,7 @@ title: Upgrade
   "NotificationMode": "AlwaysShow"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -93,8 +91,7 @@ title: Upgrade
   Controls which notifications are shown in the portal when an upgrade is available.  
   Allowed values: `AlwaysShow`, `ShowOnlyMajorMinor`, `NeverShow`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowChecking": true,
@@ -110,4 +107,4 @@ title: Upgrade
   "NotificationMode": "AlwaysShow"
 }
 ```
-</div>
+:::

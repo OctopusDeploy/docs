@@ -21,8 +21,7 @@ title: Dynamic Extensions
   - **`Name`** :span[string]{.type-label}
   - **`Options`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Features": [
@@ -40,7 +39,7 @@ title: Dynamic Extensions
   ]
 }
 ```
-</div>
+:::
 
 ## Request the current dynamic extensions feature values
 
@@ -52,8 +51,7 @@ title: Dynamic Extensions
 
 - **`Values`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Values": {
@@ -63,7 +61,7 @@ title: Dynamic Extensions
   }
 }
 ```
-</div>
+:::
 
 ## Modify the current dynamic extensions feature values
 
@@ -73,8 +71,7 @@ title: Dynamic Extensions
 
 - **`Values`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Values": {
@@ -84,7 +81,7 @@ title: Dynamic Extensions
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -92,8 +89,7 @@ title: Dynamic Extensions
 
 - **`Values`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Values": {
@@ -103,4 +99,4 @@ title: Dynamic Extensions
   }
 }
 ```
-</div>
+:::

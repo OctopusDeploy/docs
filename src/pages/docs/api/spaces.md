@@ -57,8 +57,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -100,7 +99,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Git credential
 
@@ -128,8 +127,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -151,7 +149,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -160,8 +158,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 - **`Id`** :span[string]{.type-label}
 - **`Links`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -172,7 +169,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
   }
 }
 ```
-</div>
+:::
 
 ## Get a collection of Git credentials
 
@@ -214,8 +211,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitCredentials": {
@@ -248,7 +244,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
   }
 }
 ```
-</div>
+:::
 
 ## Create a new Git credential
 
@@ -276,8 +272,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -299,7 +294,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -308,8 +303,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 - **`Id`** :span[string]{.type-label}
 - **`Links`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -320,7 +314,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
   }
 }
 ```
-</div>
+:::
 
 ## Get a collection of Git credentials
 
@@ -363,8 +357,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -393,7 +386,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Git credential
 
@@ -420,8 +413,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -438,7 +430,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -446,14 +438,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Get a specific Git credential
 
@@ -490,8 +481,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
   - **`Enabled`** :span[boolean]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -516,7 +506,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing Git credential
 
@@ -546,8 +536,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -570,18 +559,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Git Credential was modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete an existing Git credential
 
@@ -600,12 +588,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 `200` — Confirmation that the Git Credential has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get usage of a specific Git credential
 
@@ -633,8 +620,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
   - **`Slug`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "OtherProjects": 0,
@@ -648,7 +634,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
   ]
 }
 ```
-</div>
+:::
 
 ## Get usage of a specific Git credential
 
@@ -676,8 +662,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
   - **`Slug`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "OtherProjects": 0,
@@ -691,7 +676,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
   ]
 }
 ```
-</div>
+:::
 
 ## Get a specific Git credential
 
@@ -725,8 +710,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
   - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitCredential": {
@@ -753,7 +737,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Git credential
 
@@ -783,8 +767,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -807,18 +790,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Git Credential was modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete an existing Git credential
 
@@ -837,12 +819,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 `200` — Confirmation that the Git Credential has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a specific Git credential
 
@@ -873,8 +854,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
   - **`RepositoryRestrictions`** :span[object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "GitCredential": {
@@ -896,7 +876,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Git credential
 
@@ -925,8 +905,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -944,18 +923,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Git Credential was modified
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get the git references that match the given rule pattern for a project
 
@@ -995,8 +973,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
     Minimum length 1.
 - **`TotalCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "References": [
@@ -1016,7 +993,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
   "TotalCount": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Spaces
 
@@ -1074,8 +1051,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1124,7 +1100,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Space
 
@@ -1142,8 +1118,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 - **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1159,7 +1134,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1190,8 +1165,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 - **`SpaceManagersTeams`** :span[array of string]{.type-label}
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1226,7 +1200,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 ## Get a list of Spaces
 
@@ -1268,8 +1242,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 - **`SpaceManagersTeams`** :span[array of string]{.type-label}
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1306,7 +1279,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   }
 ]
 ```
-</div>
+:::
 
 ## Create a new Space
 
@@ -1324,8 +1297,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 - **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1341,7 +1313,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1367,8 +1339,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   - **`SpaceManagersTeams`** :span[array of string]{.type-label}
   - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Space": {
@@ -1405,7 +1376,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   }
 }
 ```
-</div>
+:::
 
 ## Get a Space by ID
 
@@ -1445,8 +1416,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 - **`SpaceManagersTeams`** :span[array of string]{.type-label}
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1481,7 +1451,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 ## Update a Space
 
@@ -1504,8 +1474,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 - **`SpaceManagersTeams`** :span[array of string]{.type-label} *(required)*
 - **`TaskQueueStopped`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1522,7 +1491,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1553,8 +1522,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 - **`SpaceManagersTeams`** :span[array of string]{.type-label}
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1589,7 +1557,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "TaskQueueStopped": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Space
 
@@ -1619,12 +1587,11 @@ Gets the logo associated with the space.
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Modify the logo of the space with the given space ID
 
@@ -1689,8 +1656,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 - **`Type`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1704,7 +1670,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
   }
 ]
 ```
-</div>
+:::
 
 ## Delete an existing Space
 
@@ -1719,12 +1685,11 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 
 `200` — Empty response indicating the Space was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of spaces available to the current authenticated user only
 
@@ -1764,8 +1729,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 - **`SpaceManagersTeams`** :span[array of string]{.type-label}
 - **`TaskQueueStopped`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1802,4 +1766,4 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
   }
 ]
 ```
-</div>
+:::

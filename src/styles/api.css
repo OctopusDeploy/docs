@@ -17,7 +17,7 @@
 
 /*
 On API pages the top level of the body is the body column of an endpoint
-rather than .page-content itself, because rehype-api-examples.js wraps each
+rather than .page-content itself, because satteri-api-examples.js wraps each
 section so its examples can sit beside it. */
 .api-section__body > *:not(:is(h2, h3, h4, h5, h6)),
 .api-section__body > blockquote > *:not(:last-child),
@@ -33,7 +33,7 @@ section so its examples can sit beside it. */
 /* API reference
    Pages on src/layouts/Api.astro: their own left nav, no table of contents,
    and each endpoint split into a body and an examples column by
-   plugins/rehype-api-examples.js. */
+   plugins/satteri-api-examples.js. */
 
 /* The article does not take the article/toc tracks the rest of the site is laid
    out on, but it is centred the same way they are: a flexible gutter either

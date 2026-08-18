@@ -26,8 +26,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   Minimum length 1.
 - **`SuccessCallbackUri`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DeletePackageOnCompletion": true,
@@ -42,7 +41,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "SuccessCallbackUri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -68,8 +67,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
 - **`SuccessCallbackUri`** :span[string]{.type-label}
 - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeletePackageOnCompletion": true,
@@ -93,7 +91,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "TaskId": "string"
 }
 ```
-</div>
+:::
 
 ## Create and queue a partial-export migration task
 
@@ -121,8 +119,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
 - **`SpaceId`** :span[string]{.type-label}
 - **`SuccessCallbackUri`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DestinationApiKey": "string",
@@ -145,7 +142,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "SuccessCallbackUri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -177,8 +174,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
 - **`SuccessCallbackUri`** :span[string]{.type-label}
 - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DestinationApiKey": "string",
@@ -210,4 +206,4 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "TaskId": "string"
 }
 ```
-</div>
+:::

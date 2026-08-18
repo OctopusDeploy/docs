@@ -13,12 +13,11 @@ title: Telemetry
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get the last telemetry task
 
@@ -87,8 +86,7 @@ title: Telemetry
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -134,7 +132,7 @@ title: Telemetry
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## Get the Telemetry configuration
 
@@ -157,8 +155,7 @@ title: Telemetry
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Enabled": true,
@@ -174,7 +171,7 @@ title: Telemetry
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
-</div>
+:::
 
 ## Update the Telemetry Configuration
 
@@ -195,8 +192,7 @@ title: Telemetry
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Enabled": true,
@@ -212,7 +208,7 @@ title: Telemetry
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -231,8 +227,7 @@ title: Telemetry
 - **`ShowAsNewUntil`** :span[string]{.type-label}  
   Format `date-time`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Enabled": true,
@@ -248,4 +243,4 @@ title: Telemetry
   "ShowAsNewUntil": "2020-01-01T00:00:00.000Z"
 }
 ```
-</div>
+:::

@@ -75,8 +75,7 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -120,7 +119,7 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new team
 
@@ -151,8 +150,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 - **`SpaceId`** :span[string]{.type-label}  
   The space in which to create the team.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -171,7 +169,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -206,8 +204,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -238,7 +235,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Teams
 
@@ -285,8 +282,7 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -319,7 +315,7 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
   }
 ]
 ```
-</div>
+:::
 
 ## Get a Team by ID
 
@@ -367,8 +363,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -399,7 +394,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing Team
 
@@ -432,8 +427,7 @@ The Everyone Team is treated as a special case and its members and external grou
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -453,7 +447,7 @@ The Everyone Team is treated as a special case and its members and external grou
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -488,8 +482,7 @@ The Everyone Team is treated as a special case and its members and external grou
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -520,7 +513,7 @@ The Everyone Team is treated as a special case and its members and external grou
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Team
 
@@ -592,8 +585,7 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -638,4 +630,4 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
   "TotalResults": 0
 }
 ```
-</div>
+:::

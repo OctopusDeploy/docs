@@ -77,8 +77,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -135,7 +134,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Tenant
 
@@ -165,8 +164,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 - **`TenantTags`** :span[array of string]{.type-label}  
   Tags to apply to the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Only tags from tenant-scoped tag sets are valid.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Clone": "string",
@@ -191,7 +189,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -221,8 +219,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 - **`TenantTags`** :span[array of string]{.type-label}  
   Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ClonedFromTenantId": "string",
@@ -262,7 +259,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
   ]
 }
 ```
-</div>
+:::
 
 ## List all tenants
 
@@ -320,8 +317,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 - **`TenantTags`** :span[array of string]{.type-label}  
   Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -363,7 +359,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
   }
 ]
 ```
-</div>
+:::
 
 ## Report back the status of multi-tenancy
 
@@ -391,8 +387,7 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Enabled": true,
@@ -406,7 +401,7 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
   }
 }
 ```
-</div>
+:::
 
 ## Check tenants for matching tags
 
@@ -430,8 +425,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenant
 
 `200` — Requested set of Tenants with matching Tags
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "additionalProp1": {
@@ -460,7 +454,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenant
   }
 }
 ```
-</div>
+:::
 
 ## Return a list of tenants who are missing required variables
 
@@ -497,8 +491,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/a
   - **`VariableTemplateName`** :span[string]{.type-label}
 - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -521,7 +514,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/a
   }
 ]
 ```
-</div>
+:::
 
 ## Get a tenant by it's Id
 
@@ -563,8 +556,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 - **`TenantTags`** :span[array of string]{.type-label}  
   Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ClonedFromTenantId": "string",
@@ -604,7 +596,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ]
 }
 ```
-</div>
+:::
 
 ## Modify an existing Tenant
 
@@ -634,8 +626,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 - **`TenantTags`** :span[array of string]{.type-label}  
   The complete set of tags for the tenant, as canonical tag names in the form 'TagSetName/TagName'. Example: ["Regions/EU-West", "Tier/Premium"]. Replaces the tenant's current tags; any existing tag omitted here is removed.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -660,7 +651,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -690,8 +681,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 - **`TenantTags`** :span[array of string]{.type-label}  
   Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ClonedFromTenantId": "string",
@@ -731,7 +721,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
   ]
 }
 ```
-</div>
+:::
 
 ## Delete an existing Tenant
 
@@ -765,12 +755,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenan
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Modify the logo associated with the tenant
 
@@ -850,8 +839,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 - **`TenantId`** :span[string]{.type-label}
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -974,7 +962,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 ## Create or Update the variables associated with the tenant
 
@@ -998,8 +986,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1114,7 +1101,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1135,8 +1122,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 - **`TenantId`** :span[string]{.type-label}
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1259,7 +1245,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 ## Create or Update the variables associated with the tenant
 
@@ -1281,8 +1267,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1397,7 +1382,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1418,8 +1403,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 - **`TenantId`** :span[string]{.type-label}
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1542,7 +1526,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 ## Create or Update the variables associated with the tenant
 
@@ -1567,8 +1551,7 @@ Also reachable at `/api/tenants/{id}/variables`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1683,7 +1666,7 @@ Also reachable at `/api/tenants/{id}/variables`.
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1704,8 +1687,7 @@ Also reachable at `/api/tenants/{id}/variables`.
 - **`TenantId`** :span[string]{.type-label}
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1828,7 +1810,7 @@ Also reachable at `/api/tenants/{id}/variables`.
   "TenantName": "string"
 }
 ```
-</div>
+:::
 
 ## Get the common variables associated with the tenant
 
@@ -1873,8 +1855,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1932,7 +1913,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the common variables associated with the tenant
 
@@ -1961,8 +1942,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -1987,7 +1967,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2007,8 +1987,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2041,7 +2020,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the common variables associated with the tenant
 
@@ -2068,8 +2047,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2094,7 +2072,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2114,8 +2092,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2148,7 +2125,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the common variables associated with the tenant
 
@@ -2178,8 +2155,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2204,7 +2180,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2224,8 +2200,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2258,7 +2233,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
   ]
 }
 ```
-</div>
+:::
 
 ## Get the project variables associated with the tenant
 
@@ -2303,8 +2278,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2362,7 +2336,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the project variables associated with the tenant
 
@@ -2391,8 +2365,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2417,7 +2390,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2437,8 +2410,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2471,7 +2443,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the project variables associated with the tenant
 
@@ -2498,8 +2470,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2524,7 +2495,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2544,8 +2515,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2578,7 +2548,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   ]
 }
 ```
-</div>
+:::
 
 ## Create or Update the project variables associated with the tenant
 
@@ -2608,8 +2578,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
     Minimum length 1.
   - **`Value`** :span[object]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2634,7 +2603,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2654,8 +2623,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
     Minimum length 1.
   - **`Value`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConcurrencyToken": "string",
@@ -2688,7 +2656,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
   ]
 }
 ```
-</div>
+:::
 
 ## List all of the tenant variables in the supplied Octopus Deploy Space. The results will be sorted alphabetically by id
 
@@ -2725,8 +2693,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/ten
 - **`TenantId`** :span[string]{.type-label}
 - **`TenantName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -2803,4 +2770,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/ten
   }
 ]
 ```
-</div>
+:::

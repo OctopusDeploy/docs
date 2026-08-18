@@ -25,8 +25,7 @@ title: Open ID Connect
 - **`token_endpoint`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "claims_supported": [
@@ -49,7 +48,7 @@ title: Open ID Connect
   "token_endpoint": "string"
 }
 ```
-</div>
+:::
 
 ## POST /api/users/authenticate/AzureAD
 

@@ -191,8 +191,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
   - **`Name`** :span[string]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2586,7 +2585,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
   ]
 }
 ```
-</div>
+:::
 
 ## Get the user's permission information
 
@@ -2778,8 +2777,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
   - **`Name`** :span[string]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -5173,7 +5171,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of permissions for the currently authenticated user
 
@@ -5192,9 +5190,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/export`,
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

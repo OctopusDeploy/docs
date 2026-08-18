@@ -16,8 +16,7 @@ title: Capabilities
 - **`Capabilities`** :span[array of string]{.type-label}  
   list of supported Commands and Requests that this server has.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Capabilities": [
@@ -25,7 +24,7 @@ title: Capabilities
   ]
 }
 ```
-</div>
+:::
 
 ## Ask the server if a single capability exists or not. If the Capability exists, an HTTP 200 (OK) will be returned. If not, a 404 (Not Found) will be returned
 
@@ -43,11 +42,10 @@ title: Capabilities
 - **`Exists`** :span[boolean]{.type-label}  
   If true, the server has this capability and you can use it. If not, the capability is not available on this server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Exists": true
 }
 ```
-</div>
+:::

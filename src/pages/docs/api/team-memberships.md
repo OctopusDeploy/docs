@@ -37,8 +37,7 @@ Lists all Teams a user is a member of, including any from external auth-provider
 - **`TeamName`** :span[string]{.type-label}
 - **`UserId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -57,7 +56,7 @@ Lists all Teams a user is a member of, including any from external auth-provider
   }
 ]
 ```
-</div>
+:::
 
 ## Preview Users that would belong to the specified Team
 
@@ -87,8 +86,7 @@ Lists all the Users that would belong to the specified Team, including informati
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -108,7 +106,7 @@ Lists all the Users that would belong to the specified Team, including informati
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -124,8 +122,7 @@ Lists all the Users that would belong to the specified Team, including informati
 - **`TeamName`** :span[string]{.type-label}
 - **`UserId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -144,4 +141,4 @@ Lists all the Users that would belong to the specified Team, including informati
   }
 ]
 ```
-</div>
+:::

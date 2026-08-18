@@ -25,15 +25,14 @@ Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifi
 - **`SpaceId`** :span[string]{.type-label}
 - **`Tag`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SpaceId": "string",
   "Tag": "string"
 }
 ```
-</div>
+:::
 
 ## Get DeploymentTargetTags by DeploymentTargetTag IDs and Machine ID (deployment target ID)
 
@@ -68,8 +67,7 @@ Gets a paginated list of DeploymentTargetTag.
   - **`SpaceId`** :span[string]{.type-label}
   - **`Tag`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Count": 0,
@@ -81,7 +79,7 @@ Gets a paginated list of DeploymentTargetTag.
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new DeploymentTargetTag
 
@@ -101,15 +99,14 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 - **`Tag`** :span[string]{.type-label} *(required)*  
   The name or tag of the DeploymentTargetTag. Minimum length 1. Maximum length 200.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "SpaceId": "string",
   "Tag": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -118,15 +115,14 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 - **`SpaceId`** :span[string]{.type-label}
 - **`Tag`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SpaceId": "string",
   "Tag": "string"
 }
 ```
-</div>
+:::
 
 ## Delete a DeploymentTargetTag
 

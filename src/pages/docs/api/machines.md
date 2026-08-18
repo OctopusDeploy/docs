@@ -44,8 +44,7 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
 - **`MachineId`** :span[string]{.type-label}
 - **`Status`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CurrentTentacleVersion": "string",
@@ -72,4 +71,4 @@ Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier
   "Status": "string"
 }
 ```
-</div>
+:::

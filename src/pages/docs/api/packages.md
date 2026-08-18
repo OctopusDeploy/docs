@@ -84,8 +84,7 @@ Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}
 - **`Title`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -140,7 +139,7 @@ Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}
   }
 ]
 ```
-</div>
+:::
 
 ## Get the release notes for the specified package
 
@@ -166,12 +165,11 @@ Also reachable at `/api/feeds/{feedId}/packages/notes`, `/api/spaces/{spaceIdent
 
 `200` — The requested Package Notes
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get the built in packages
 
@@ -242,8 +240,7 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -311,7 +308,7 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Bulk delete Packages
 
@@ -331,8 +328,7 @@ Also reachable at `/api/packages/bulk`, `/api/spaces/{spaceIdentifier}/packages/
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Ids": [
@@ -341,7 +337,7 @@ Also reachable at `/api/packages/bulk`, `/api/spaces/{spaceIdentifier}/packages/
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -365,8 +361,7 @@ Also reachable at `/api/packages/bulk/v1`, `/api/spaces/{spaceIdentifier}/packag
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Ids": [
@@ -375,18 +370,17 @@ Also reachable at `/api/packages/bulk/v1`, `/api/spaces/{spaceIdentifier}/packag
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Confirmation that the Packages were deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Request a list of Release Notes for the specified Packages
 
@@ -422,8 +416,7 @@ Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages
   - **`PackageId`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -450,7 +443,7 @@ Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages
   ]
 }
 ```
-</div>
+:::
 
 ## Upload a package to the built in package feed
 
@@ -515,8 +508,7 @@ Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/r
 - **`Title`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -580,7 +572,7 @@ Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/r
   "Version": "string"
 }
 ```
-</div>
+:::
 
 ## Validate a package intended for the built in package feed, but does not write the package
 
@@ -599,14 +591,13 @@ Also reachable at `/api/packages/raw/validate`, `/api/spaces/{spaceIdentifier}/p
 - **`Issue`** :span[enum]{.type-label}  
   Allowed values: `CorruptedNugetPackage`, `CouldNotValidate`, `EmptyFile`, `FileNameTooLong`, `InvalidCharactersInFileName`, `InvalidPackageId`, `PackageAlreadyExists`, `UnsupportedFileExtension`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Issue": "CorruptedNugetPackage"
 }
 ```
-</div>
+:::
 
 ## Return package information for the specified package id
 
@@ -677,8 +668,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
 - **`Title`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -740,7 +730,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
   "Version": "string"
 }
 ```
-</div>
+:::
 
 ## Delete the specified Package
 
@@ -776,12 +766,11 @@ Also reachable at `/api/packages/{id}/raw`, `/api/spaces/{spaceIdentifier}/packa
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Delete the specified Package
 
@@ -800,12 +789,11 @@ Also reachable at `/api/packages/{id}/v1`, `/api/spaces/{spaceIdentifier}/packag
 
 `200` — Confirmation that the Package was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Upload a delta patch for the given file. Used to optimize file upload
 
@@ -874,8 +862,7 @@ Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/
 - **`Title`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -939,7 +926,7 @@ Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/
   "Version": "string"
 }
 ```
-</div>
+:::
 
 ## Request the delta-signature for a given package. Used to optimize file upload
 
@@ -964,12 +951,11 @@ Also reachable at `/api/packages/{packageId}/{version}/delta-signature`, `/api/s
 - **`Signature`** :span[string]{.type-label}  
   Format `byte`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "BaseVersion": "string",
   "Signature": "c3RyaW5n"
 }
 ```
-</div>
+:::

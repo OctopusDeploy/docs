@@ -26,8 +26,7 @@ title: Signing
   Allowed values: `Internal`, `External`.
 - **`RevokeAfterDays`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ExpireAfterDays": 0,
@@ -43,7 +42,7 @@ title: Signing
   "RevokeAfterDays": 0
 }
 ```
-</div>
+:::
 
 ## Set the signing key configuration
 
@@ -58,8 +57,7 @@ title: Signing
 - **`RevokeAfterDays`** :span[integer]{.type-label} *(required)*  
   Minimum `1`. Maximum `365`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ExpireAfterDays": 0,
@@ -67,7 +65,7 @@ title: Signing
   "RevokeAfterDays": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -86,8 +84,7 @@ title: Signing
   Allowed values: `Internal`, `External`.
 - **`RevokeAfterDays`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ExpireAfterDays": 0,
@@ -103,7 +100,7 @@ title: Signing
   "RevokeAfterDays": 0
 }
 ```
-</div>
+:::
 
 ## Create a new key that is pending activation
 
@@ -115,14 +112,13 @@ title: Signing
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Activate an existing pending signing key, making it the active signing key for the system
 
@@ -136,12 +132,11 @@ title: Signing
 
 `200` — Indicates the key was activated
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Validate that the public signing keys are valid and can be used to verify signatures. This is intended to be used as a health check for external key hosting, and will return an error if the keys are invalid or expired
 
@@ -152,23 +147,21 @@ title: Signing
 - **`IncludeExpiredKeys`** :span[boolean]{.type-label}
 - **`Issuer`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IncludeExpiredKeys": true,
   "Issuer": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Response to VerifySigningKeysCommandV1. An empty response indicates that the signing keys are valid and can be used to verify signatures. If the signing keys are invalid or expired, an error will be returned instead of this response.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

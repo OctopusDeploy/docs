@@ -128,8 +128,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
   - **`ProjectEnvironments`** :span[object]{.type-label}
   - **`TenantTags`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -261,7 +260,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
   ]
 }
 ```
-</div>
+:::
 
 ## Return the information required to render the dynamic dashboard. Deprecated
 
@@ -383,8 +382,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
   - **`ProjectEnvironments`** :span[object]{.type-label}
   - **`TenantTags`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -516,4 +514,4 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
   ]
 }
 ```
-</div>
+:::

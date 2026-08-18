@@ -65,8 +65,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -104,7 +103,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new project group
 
@@ -127,8 +126,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -137,7 +135,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -161,8 +159,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -183,7 +180,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
@@ -217,8 +214,7 @@ Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/proje
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -241,7 +237,7 @@ Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/proje
   }
 ]
 ```
-</div>
+:::
 
 ## Get a Project Group by ID
 
@@ -278,8 +274,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -300,7 +295,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing project group
 
@@ -327,8 +322,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -338,7 +332,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -362,8 +356,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -384,7 +377,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Project Group
 
@@ -492,8 +485,7 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -592,4 +584,4 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
   "TotalResults": 0
 }
 ```
-</div>
+:::

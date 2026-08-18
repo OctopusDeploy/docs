@@ -69,8 +69,7 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -106,7 +105,7 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new artifact
 
@@ -134,8 +133,7 @@ Creates a new artifact.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   ID of the space.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Filename": "Performance Test Results.csv",
@@ -145,7 +143,7 @@ Creates a new artifact.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -171,8 +169,7 @@ Creates a new artifact.
   Gets or sets a short summary of the source of this attachment. This will typically be the name of a step/machine, or "Uploaded by [username]" if the attachment was uploaded by a person.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Created": "2020-01-01T00:00:00.000Z",
@@ -191,7 +188,7 @@ Creates a new artifact.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get an Artifact by ID
 
@@ -230,8 +227,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   Gets or sets a short summary of the source of this attachment. This will typically be the name of a step/machine, or "Uploaded by [username]" if the attachment was uploaded by a person.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Created": "2020-01-01T00:00:00.000Z",
@@ -250,7 +246,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing artifact
 
@@ -289,8 +285,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   Gets or sets a short summary of the source of this attachment. This will typically be the name of a step/machine, or "Uploaded by [username]" if the attachment was uploaded by a person.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Created": "2020-01-01T00:00:00.000Z",
@@ -309,7 +304,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Artifact
 
@@ -345,12 +340,11 @@ Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## PUT /api/{spaceId}/artifacts/{id}/content
 

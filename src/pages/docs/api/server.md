@@ -23,8 +23,7 @@ title: Server
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`ServerUri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -38,7 +37,7 @@ title: Server
   "ServerUri": "string"
 }
 ```
-</div>
+:::
 
 ## Set the server configuration
 
@@ -48,14 +47,13 @@ title: Server
 
 - **`ServerUri`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ServerUri": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -71,8 +69,7 @@ title: Server
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`ServerUri`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -86,7 +83,7 @@ title: Server
   "ServerUri": "string"
 }
 ```
-</div>
+:::
 
 ## Request the current server configuration settings
 
@@ -102,8 +99,7 @@ title: Server
   - **`Key`** :span[string]{.type-label}
   - **`Value`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -118,4 +114,4 @@ title: Server
   }
 ]
 ```
-</div>
+:::

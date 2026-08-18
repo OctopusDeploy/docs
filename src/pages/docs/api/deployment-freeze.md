@@ -51,8 +51,7 @@ Gets a paginated set of DeploymentFreezes.
     Format `date-time`.
   - **`TenantProjectEnvironmentScope`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Count": 0,
@@ -91,7 +90,7 @@ Gets a paginated set of DeploymentFreezes.
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new deployment freeze
 
@@ -108,8 +107,7 @@ Gets a paginated set of DeploymentFreezes.
 - **`Start`** :span[string]{.type-label} *(required)*  
   Format `date-time`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -129,7 +127,7 @@ Gets a paginated set of DeploymentFreezes.
   "Start": "2020-01-01T00:00:00.000Z"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -163,8 +161,7 @@ Gets a paginated set of DeploymentFreezes.
   - **`ProjectId`** :span[string]{.type-label}
   - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -202,7 +199,7 @@ Gets a paginated set of DeploymentFreezes.
   ]
 }
 ```
-</div>
+:::
 
 ## Get a deployment freeze by ID
 
@@ -245,8 +242,7 @@ Gets a paginated set of DeploymentFreezes.
   - **`ProjectId`** :span[string]{.type-label}
   - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -284,7 +280,7 @@ Gets a paginated set of DeploymentFreezes.
   ]
 }
 ```
-</div>
+:::
 
 ## Create a new deployment freeze
 
@@ -324,8 +320,7 @@ Gets a paginated set of DeploymentFreezes.
   - **`ProjectId`** :span[string]{.type-label} *(required)*
   - **`TenantId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -363,7 +358,7 @@ Gets a paginated set of DeploymentFreezes.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -397,8 +392,7 @@ Gets a paginated set of DeploymentFreezes.
   - **`ProjectId`** :span[string]{.type-label}
   - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -436,7 +430,7 @@ Gets a paginated set of DeploymentFreezes.
   ]
 }
 ```
-</div>
+:::
 
 ## Delete a deployment freeze
 
@@ -520,8 +514,7 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
   Minimum length 1.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CreateDeploymentCommand": {
@@ -619,7 +612,7 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -678,8 +671,7 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
   - **`UseGuidedFailure`** :span[boolean]{.type-label}  
     If set to true, the deployment will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Deployment": {
@@ -772,4 +764,4 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
   }
 }
 ```
-</div>
+:::

@@ -29,8 +29,7 @@ Returns a document describing the specified Space and links to other parts of th
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -43,7 +42,7 @@ Returns a document describing the specified Space and links to other parts of th
   }
 }
 ```
-</div>
+:::
 
 ## GET /api/
 
@@ -73,8 +72,7 @@ Returns a document describing the current Octopus Server and links to other part
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ApiVersion": "string",
@@ -93,4 +91,4 @@ Returns a document describing the current Octopus Server and links to other part
   "Version": "string"
 }
 ```
-</div>
+:::

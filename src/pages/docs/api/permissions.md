@@ -709,8 +709,7 @@ title: Permissions
   - **`Description`** :span[string]{.type-label}
   - **`SupportedRestrictions`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccountCreate": {
@@ -1827,4 +1826,4 @@ title: Permissions
   }
 }
 ```
-</div>
+:::

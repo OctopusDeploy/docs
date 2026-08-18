@@ -100,8 +100,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -178,7 +177,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new certificate
 
@@ -213,8 +212,7 @@ Adds a new certificate
 - **`TenantedDeploymentParticipation`** :span[enum]{.type-label}  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CertificateData": {
@@ -242,7 +240,7 @@ Adds a new certificate
   "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -309,8 +307,7 @@ Adds a new certificate
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -379,7 +376,7 @@ Adds a new certificate
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Certificates
 
@@ -464,8 +461,7 @@ Lists X.509 certificates managed by Octopus.
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -536,7 +532,7 @@ Lists X.509 certificates managed by Octopus.
   }
 ]
 ```
-</div>
+:::
 
 ## Get the global Certificate
 
@@ -560,8 +556,7 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
 - **`SignatureAlgorithm`** :span[string]{.type-label}
 - **`Thumbprint`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -577,7 +572,7 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
   "Thumbprint": "string"
 }
 ```
-</div>
+:::
 
 ## Create a self-signed Certificate
 
@@ -654,8 +649,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -725,7 +719,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -792,8 +786,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -862,7 +855,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
 
@@ -951,8 +944,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1021,7 +1013,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Certificate by ID or Thumbprint
 
@@ -1101,8 +1093,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -1171,7 +1162,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify a certificate by ID
 
@@ -1208,8 +1199,7 @@ Modifies an existing certificate
   The kind of deployments where this certificate should be included.  
   Allowed values: `Untenanted`, `TenantedOrUntenanted`, `Tenanted`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EnvironmentIds": [
@@ -1228,7 +1218,7 @@ Modifies an existing certificate
   "TenantedDeploymentParticipation": "Untenanted"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1295,8 +1285,7 @@ Modifies an existing certificate
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -1365,7 +1354,7 @@ Modifies an existing certificate
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Delete an existing Certificate
 
@@ -1418,12 +1407,11 @@ Also reachable at `/api/certificates/{id}/archive/v1`, `/api/spaces/{spaceIdenti
 
 `200` — Confirmation that the Certificate has been archived
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Export the certificate
 
@@ -1455,12 +1443,11 @@ Also reachable at `/api/certificates/{id}/export`, `/api/spaces/{spaceIdentifier
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Replace an existing Certificate with another
 
@@ -1485,8 +1472,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CertificateData": "string",
@@ -1495,7 +1481,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1562,8 +1548,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -1632,7 +1617,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Unarchive an existing archived Certificate
 
@@ -1668,12 +1653,11 @@ Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIden
 
 `200` — Confirmation that the Certificate has been un-archived
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## GET /api/{spaceId}/certificates/{id}/usages
 
@@ -1831,8 +1815,7 @@ Get the usages of a certificate
   - **`TenantTags`** :span[array of string]{.type-label}  
     Tags are referenced by CanonicalName like {TagSetName}/{TagName}.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentTargetUsages": [
@@ -2035,7 +2018,7 @@ Get the usages of a certificate
   ]
 }
 ```
-</div>
+:::
 
 ## Request the list of Certificate Configurations
 
@@ -2080,8 +2063,7 @@ Only returns configurations for the global Certificate
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2114,7 +2096,7 @@ Only returns configurations for the global Certificate
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Certificate Configuration by ID
 
@@ -2141,8 +2123,7 @@ Only returns configurations for the global Certificate
 - **`SignatureAlgorithm`** :span[string]{.type-label}
 - **`Thumbprint`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2158,7 +2139,7 @@ Only returns configurations for the global Certificate
   "Thumbprint": "string"
 }
 ```
-</div>
+:::
 
 ## Get public certificate
 
@@ -2175,9 +2156,8 @@ Downloads the public portion of the certificate in .cer format
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

@@ -59,8 +59,7 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -93,7 +92,7 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a branch given a project, the base git ref, and the new branch's name
 
@@ -116,8 +115,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BaseGitRef": "string",
@@ -126,7 +124,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -146,8 +144,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -163,7 +160,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Git branch by name
 
@@ -200,8 +197,7 @@ Gets a named version control branch for a project.
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -217,7 +213,7 @@ Gets a named version control branch for a project.
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Git commit by hash
 
@@ -253,8 +249,7 @@ Gets a git commit for a project.
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -269,7 +264,7 @@ Gets a git commit for a project.
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Git named reference by name
 
@@ -306,8 +301,7 @@ Gets a named version control reference for a project.
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -323,7 +317,7 @@ Gets a named version control reference for a project.
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Request a list of Git Tags for the project
 
@@ -378,8 +372,7 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -411,7 +404,7 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get an individual Git Tag; searching for it by Name
 
@@ -445,8 +438,7 @@ Also reachable at `/api/projects/{projectId}/git/tags/{tagName}`, `/api/spaces/{
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -461,4 +453,4 @@ Also reachable at `/api/projects/{projectId}/git/tags/{tagName}`, `/api/spaces/{
   "Name": "string"
 }
 ```
-</div>
+:::

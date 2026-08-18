@@ -30,8 +30,7 @@ title: Ssh Known Hosts
   - **`PublicKey`** :span[string]{.type-label}
 - **`TotalCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FilteredCount": 0,
@@ -46,7 +45,7 @@ title: Ssh Known Hosts
   "TotalCount": 0
 }
 ```
-</div>
+:::
 
 ## Add new SSH Known Hosts from a list of entries
 
@@ -56,8 +55,7 @@ title: Ssh Known Hosts
 
 - **`KnownHostEntries`** :span[array of string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "KnownHostEntries": [
@@ -65,7 +63,7 @@ title: Ssh Known Hosts
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -77,8 +75,7 @@ title: Ssh Known Hosts
   - **`KeyType`** :span[string]{.type-label}
   - **`PublicKey`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AddedResources": [
@@ -91,7 +88,7 @@ title: Ssh Known Hosts
   ]
 }
 ```
-</div>
+:::
 
 ## Delete the specific SSH Known Host
 
@@ -105,9 +102,8 @@ title: Ssh Known Hosts
 
 `200` — An empty response
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

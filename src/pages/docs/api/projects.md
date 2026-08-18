@@ -97,8 +97,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -197,7 +196,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new project
 
@@ -272,8 +271,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllowIgnoreChannelRules": true,
@@ -360,7 +358,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -447,8 +445,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowIgnoreChannelRules": true,
@@ -558,7 +555,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   }
 }
 ```
-</div>
+:::
 
 ## List all of the projects in the supplied Octopus Deploy Space
 
@@ -661,8 +658,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -766,7 +762,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
   }
 ]
 ```
-</div>
+:::
 
 ## Get the logo associated with the project
 
@@ -785,12 +781,11 @@ Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/proj
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get a Project by ID or slug
 
@@ -889,8 +884,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowIgnoreChannelRules": true,
@@ -1000,7 +994,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Project
 
@@ -1085,8 +1079,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllowIgnoreChannelRules": true,
@@ -1178,7 +1171,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1265,8 +1258,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowIgnoreChannelRules": true,
@@ -1376,7 +1368,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   }
 }
 ```
-</div>
+:::
 
 ## Delete an existing Project
 
@@ -1417,8 +1409,7 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
 - **`Url`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BasePath": "string",
@@ -1431,7 +1422,7 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
   "Url": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1443,8 +1434,7 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
   - **`Message`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Messages": [
@@ -1455,7 +1445,7 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
   ]
 }
 ```
-</div>
+:::
 
 ## Convert an existing project to store its configuration in version control
 
@@ -1493,8 +1483,7 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
   - **`Url`** :span[string]{.type-label} *(required)*  
     Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -1522,18 +1511,17 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Empty response indicating the Project was converted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Convert all Runbooks to be stored in Git rather than the database
 
@@ -1558,8 +1546,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Branch": "string",
@@ -1569,7 +1556,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1583,8 +1570,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   - **`RunbookName`** :span[string]{.type-label}
 - **`ServerTaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DraftRunbooks": [
@@ -1602,7 +1588,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   "ServerTaskId": "string"
 }
 ```
-</div>
+:::
 
 ## Update the logo associated with the project
 
@@ -1672,8 +1658,7 @@ Also reachable at `/api/projects/{projectId}/metadata`, `/api/spaces/{spaceIdent
   - **`Description`** :span[string]{.type-label}
   - **`Types`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1687,7 +1672,7 @@ Also reachable at `/api/projects/{projectId}/metadata`, `/api/spaces/{spaceIdent
   }
 ]
 ```
-</div>
+:::
 
 ## Get a summary of project-specific information
 
@@ -1710,8 +1695,7 @@ Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdenti
 - **`HasDeploymentProcess`** :span[boolean]{.type-label}
 - **`HasRunbooks`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HasBeenSuccessfullyDeployed": true,
@@ -1719,7 +1703,7 @@ Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdenti
   "HasRunbooks": true
 }
 ```
-</div>
+:::
 
 ## Get a summary of project-specific information
 
@@ -1742,8 +1726,7 @@ Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIde
 - **`HasDeploymentProcess`** :span[boolean]{.type-label}
 - **`HasRunbooks`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HasBeenSuccessfullyDeployed": true,
@@ -1751,7 +1734,7 @@ Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIde
   "HasRunbooks": true
 }
 ```
-</div>
+:::
 
 ## Get a summary of project-specific information
 
@@ -1775,8 +1758,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{sp
 - **`HasDeploymentProcess`** :span[boolean]{.type-label}
 - **`HasRunbooks`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HasBeenSuccessfullyDeployed": true,
@@ -1784,7 +1766,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{sp
   "HasRunbooks": true
 }
 ```
-</div>
+:::
 
 ## Get a summary of project-specific information
 
@@ -1808,8 +1790,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/
 - **`HasDeploymentProcess`** :span[boolean]{.type-label}
 - **`HasRunbooks`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HasBeenSuccessfullyDeployed": true,
@@ -1817,7 +1798,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/
   "HasRunbooks": true
 }
 ```
-</div>
+:::
 
 ## Validate the provided git ref
 
@@ -1842,8 +1823,7 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
   ID of the Project.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -1851,7 +1831,7 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1872,8 +1852,7 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
   - **`Name`** :span[string]{.type-label}  
     Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Error": "string",
@@ -1891,4 +1870,4 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
   }
 }
 ```
-</div>
+:::

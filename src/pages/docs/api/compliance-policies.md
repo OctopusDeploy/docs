@@ -47,8 +47,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -68,7 +67,7 @@ title: Compliance Policies
   }
 ]
 ```
-</div>
+:::
 
 ## Request the published versions for a policy
 
@@ -118,8 +117,7 @@ title: Compliance Policies
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -146,7 +144,7 @@ title: Compliance Policies
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Modify the activation status for a policy version
 
@@ -165,8 +163,7 @@ title: Compliance Policies
 - **`Version`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IsActive": true,
@@ -174,7 +171,7 @@ title: Compliance Policies
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -203,8 +200,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -222,7 +218,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 ## Request a paginated set of CompliancePolicyResource sorted by name
 
@@ -263,8 +259,7 @@ title: Compliance Policies
   - **`ViolationReason`** :span[string]{.type-label}
 - **`TotalItemsCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FilteredItemsCount": 0,
@@ -284,7 +279,7 @@ title: Compliance Policies
   "TotalItemsCount": 0
 }
 ```
-</div>
+:::
 
 ## Create a new policy
 
@@ -311,8 +306,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -326,7 +320,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -347,8 +341,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConditionsRego": "string",
@@ -361,7 +354,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 ## Request a single CompliancePolicyResource by slug and git reference
 
@@ -391,8 +384,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConditionsRego": "string",
@@ -405,7 +397,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing policy
 
@@ -433,8 +425,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ChangeDescription": "string",
@@ -448,7 +439,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -469,8 +460,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConditionsRego": "string",
@@ -483,7 +473,7 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::
 
 ## Create new version of policy
 
@@ -502,8 +492,7 @@ title: Compliance Policies
 - **`Version`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -511,7 +500,7 @@ title: Compliance Policies
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -540,8 +529,7 @@ title: Compliance Policies
   Minimum length 1.
 - **`ViolationReason`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -559,4 +547,4 @@ title: Compliance Policies
   "ViolationReason": "string"
 }
 ```
-</div>
+:::

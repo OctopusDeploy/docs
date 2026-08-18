@@ -16,11 +16,10 @@ title: Access Tokens
 - **`AccessToken`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AccessToken": "string"
 }
 ```
-</div>
+:::

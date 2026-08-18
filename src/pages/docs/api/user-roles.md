@@ -59,8 +59,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -108,7 +107,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a custom user role definition
 
@@ -124,8 +123,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -138,7 +136,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   "Name": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -163,8 +161,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`SupportedRestrictions`** :span[array of string]{.type-label}
 - **`SystemPermissionDescriptions`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -195,7 +192,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   ]
 }
 ```
-</div>
+:::
 
 ## Get a list of User Roles
 
@@ -226,8 +223,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`SupportedRestrictions`** :span[array of string]{.type-label}
 - **`SystemPermissionDescriptions`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -260,7 +256,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   }
 ]
 ```
-</div>
+:::
 
 ## Get a User Role by ID
 
@@ -294,8 +290,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`SupportedRestrictions`** :span[array of string]{.type-label}
 - **`SystemPermissionDescriptions`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -326,7 +321,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   ]
 }
 ```
-</div>
+:::
 
 ## Modify an existing User Role
 
@@ -348,8 +343,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   Id of the User Role to modify.
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -363,7 +357,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   "Name": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -388,8 +382,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 - **`SupportedRestrictions`** :span[array of string]{.type-label}
 - **`SystemPermissionDescriptions`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanBeDeleted": true,
@@ -420,7 +413,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   ]
 }
 ```
-</div>
+:::
 
 ## Delete an existing User Role
 

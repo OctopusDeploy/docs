@@ -23,8 +23,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
 - **`SpaceId`** :span[string]{.type-label}  
   The ID of the space to create the invitation in.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AddToTeamIds": [
@@ -33,7 +32,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -54,8 +53,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AddToTeamIds": [
@@ -74,7 +72,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get an Invitation by ID
 
@@ -108,8 +106,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AddToTeamIds": [
@@ -128,4 +125,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/
   "SpaceId": "string"
 }
 ```
-</div>
+:::

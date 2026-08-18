@@ -25,8 +25,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/dep
   - **`RunbookRunId`** :span[string]{.type-label}
   - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeprovisioningRuns": [
@@ -37,7 +36,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/dep
   ]
 }
 ```
-</div>
+:::
 
 ## Allow the creation of an ephemeral environment in a given space
 
@@ -57,8 +56,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 - **`ProjectId`** :span[string]{.type-label} *(required)*
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EnvironmentName": "string",
@@ -66,7 +64,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -74,14 +72,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Deprovision an ephemeral environment for a specific project
 
@@ -103,8 +100,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   - **`RunbookRunId`** :span[string]{.type-label}
   - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeprovisioningRun": {
@@ -113,7 +109,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   }
 }
 ```
-</div>
+:::
 
 ## Mark a failed deprovisioning as successful for an ephemeral environment
 
@@ -131,12 +127,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 `200` — Response to mark deprovisioning as successful for an ephemeral environment
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Retry deprovisioning an ephemeral environment
 
@@ -158,8 +153,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   - **`RunbookRunId`** :span[string]{.type-label}
   - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeprovisioningRun": {
@@ -168,7 +162,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   }
 }
 ```
-</div>
+:::
 
 ## Mark a failed provisioning as successful for an ephemeral environment
 
@@ -186,12 +180,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 `200` — Response to mark provisioning as successful for an ephemeral environment
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Retry provisioning an ephemeral environment
 
@@ -213,8 +206,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   - **`RunbookRunId`** :span[string]{.type-label}
   - **`TaskId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ProvisioningRun": {
@@ -223,7 +215,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   }
 }
 ```
-</div>
+:::
 
 ## Get the status of an ephemeral environment for a given project
 
@@ -244,11 +236,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 - **`Status`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Status": "string"
 }
 ```
-</div>
+:::

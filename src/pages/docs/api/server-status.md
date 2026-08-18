@@ -32,8 +32,7 @@ Shows information about the status of the Octopus Server.
 - **`MaximumAvailableVersion`** :span[string]{.type-label}
 - **`MaximumAvailableVersionCoveredByLicense`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -54,7 +53,7 @@ Shows information about the status of the Octopus Server.
   "MaximumAvailableVersionCoveredByLicense": "string"
 }
 ```
-</div>
+:::
 
 ## Get counts of documents in the server
 
@@ -87,8 +86,7 @@ List counts of various document types to assist in diagnosing issues with the se
   - **`RunbookRuns`** :span[integer]{.type-label}
   - **`Runbooks`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Global": {
@@ -117,7 +115,7 @@ List counts of various document types to assist in diagnosing issues with the se
   }
 }
 ```
-</div>
+:::
 
 ## Force a GC collect
 
@@ -139,12 +137,11 @@ Triggers a garbage collection pass for all heap generations, including the large
 
 `200` — Internal
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get the general health of Octopus Server
 
@@ -170,8 +167,7 @@ Provides a super simple interface perfect for checking the general health of you
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -189,7 +185,7 @@ Provides a super simple interface perfect for checking the general health of you
   }
 }
 ```
-</div>
+:::
 
 **Error Responses**
 
@@ -219,8 +215,7 @@ Provides a super simple interface perfect for checking the general health of you
 - **`OccurredAt`** :span[string]{.type-label}  
   Format `date-time`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -233,7 +228,7 @@ Provides a super simple interface perfect for checking the general health of you
   }
 ]
 ```
-</div>
+:::
 
 ## Provide information about the Octopus Server process and the machine on which it is running
 
@@ -260,8 +255,7 @@ Provides a super simple interface perfect for checking the general health of you
 - **`Version`** :span[string]{.type-label}
 - **`WorkingSetBytes`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ClrVersion": "string",
@@ -281,7 +275,7 @@ Provides a super simple interface perfect for checking the general health of you
   "WorkingSetBytes": 0
 }
 ```
-</div>
+:::
 
 ## Create a .zip archive containing an aggregate of the other system information APIs
 
@@ -296,12 +290,11 @@ Provides a super simple interface perfect for checking the general health of you
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## List timezones supported by the server
 
@@ -322,8 +315,7 @@ Provides a super simple interface perfect for checking the general health of you
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -340,4 +332,4 @@ Provides a super simple interface perfect for checking the general health of you
   }
 ]
 ```
-</div>
+:::

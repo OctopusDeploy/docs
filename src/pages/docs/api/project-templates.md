@@ -22,8 +22,7 @@ title: Project Templates
 - **`Slug`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "GitRef": "string",
@@ -34,7 +33,7 @@ title: Project Templates
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -44,8 +43,7 @@ title: Project Templates
 - **`IndividuallyUnsharedSpaceIds`** :span[array of string]{.type-label}
 - **`SharedToAllSpaces`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "IndividuallySharedSpaceIds": [
@@ -57,4 +55,4 @@ title: Project Templates
   "SharedToAllSpaces": true
 }
 ```
-</div>
+:::

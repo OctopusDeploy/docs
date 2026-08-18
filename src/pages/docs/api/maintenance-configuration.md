@@ -23,8 +23,7 @@ title: Maintenance Configuration
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -38,7 +37,7 @@ title: Maintenance Configuration
   }
 }
 ```
-</div>
+:::
 
 ## Update the maintenance configuration used by the Octopus Server
 
@@ -48,14 +47,13 @@ title: Maintenance Configuration
 
 - **`IsInMaintenanceMode`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IsInMaintenanceMode": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -71,8 +69,7 @@ title: Maintenance Configuration
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -86,7 +83,7 @@ title: Maintenance Configuration
   }
 }
 ```
-</div>
+:::
 
 ## Update the maintenance configuration used by the Octopus Server
 
@@ -96,14 +93,13 @@ title: Maintenance Configuration
 
 - **`IsInMaintenanceMode`** :span[boolean]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "IsInMaintenanceMode": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -120,8 +116,7 @@ title: Maintenance Configuration
   - **`Links`** :span[object]{.type-label}  
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -137,4 +132,4 @@ title: Maintenance Configuration
   }
 }
 ```
-</div>
+:::

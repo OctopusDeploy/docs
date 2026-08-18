@@ -47,8 +47,7 @@ title: Community Action Templates
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -94,7 +93,7 @@ title: Community Action Templates
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a Community Action Template by ID
 
@@ -142,8 +141,7 @@ title: Community Action Templates
 - **`Version`** :span[integer]{.type-label}
 - **`Website`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Author": "string",
@@ -224,7 +222,7 @@ title: Community Action Templates
   "Website": "string"
 }
 ```
-</div>
+:::
 
 ## Get installed version of the template
 
@@ -295,8 +293,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -392,7 +389,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Install community step template
 
@@ -463,8 +460,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -560,7 +556,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Update installed community step template to the latest version
 
@@ -631,8 +627,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActionType": "string",
@@ -728,7 +723,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get the logo associated with the community step template
 
@@ -743,9 +738,8 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::

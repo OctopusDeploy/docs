@@ -21,8 +21,7 @@ Lists the authentication providers that support external group lookups and are c
 - **`Name`** :span[string]{.type-label}
 - **`SupportsGroupLookup`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -34,4 +33,4 @@ Lists the authentication providers that support external group lookups and are c
   }
 ]
 ```
-</div>
+:::

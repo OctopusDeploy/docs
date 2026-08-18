@@ -30,8 +30,7 @@ title: Smtp
   Minimum `0`. Maximum `65535`.
 - **`Timeout`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Details": {
@@ -52,7 +51,7 @@ title: Smtp
   "Timeout": 0
 }
 ```
-</div>
+:::
 
 ## Update the SMTP settings used by the Octopus Server
 
@@ -69,8 +68,7 @@ title: Smtp
   Minimum `0`. Maximum `65535`.
 - **`Timeout`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Details": {
@@ -83,7 +81,7 @@ title: Smtp
   "Timeout": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -106,8 +104,7 @@ title: Smtp
   Minimum `0`. Maximum `65535`.
 - **`Timeout`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Details": {
@@ -128,7 +125,7 @@ title: Smtp
   "Timeout": 0
 }
 ```
-</div>
+:::
 
 ## Check whether SMTP is configured with low privileges
 
@@ -148,8 +145,7 @@ title: Smtp
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -163,7 +159,7 @@ title: Smtp
   }
 }
 ```
-</div>
+:::
 
 ## Check whether SMTP is configured with low privileges
 
@@ -184,8 +180,7 @@ title: Smtp
   - **`Links`** :span[object]{.type-label}  
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SmtpIsConfigured": {
@@ -201,7 +196,7 @@ title: Smtp
   }
 }
 ```
-</div>
+:::
 
 ## Get information about the SMTP (email) settings in use by the Octopus Server
 
@@ -228,8 +223,7 @@ title: Smtp
     Minimum `0`. Maximum `65535`.
   - **`Timeout`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SmtpConfiguration": {
@@ -252,4 +246,4 @@ title: Smtp
   }
 }
 ```
-</div>
+:::

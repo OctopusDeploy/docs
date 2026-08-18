@@ -73,8 +73,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -117,7 +116,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new environment
 
@@ -144,8 +143,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllowDynamicInfrastructure": true,
@@ -166,7 +164,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -198,8 +196,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowDynamicInfrastructure": true,
@@ -228,7 +225,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Get a list of Environments
 
@@ -282,8 +279,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -314,7 +310,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
   }
 ]
 ```
-</div>
+:::
 
 ## Get a list of Environments
 
@@ -367,8 +363,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
   - **`UseGuidedFailure`** :span[boolean]{.type-label}  
     If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": [
@@ -398,7 +393,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
   ]
 }
 ```
-</div>
+:::
 
 ## PUT /api/{spaceId}/environments/sortorder
 
@@ -416,14 +411,13 @@ Takes an array of environment IDs as the request body, uses the order of items i
 
 A `array of string` payload.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 **Response**
 
@@ -483,8 +477,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
 - **`TotalDisabledMachines`** :span[integer]{.type-label}
 - **`TotalMachines`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentTargetSummaries": {
@@ -580,7 +573,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
   "TotalMachines": 0
 }
 ```
-</div>
+:::
 
 ## List all environments, including a summary of machine information
 
@@ -637,8 +630,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 - **`TotalDisabledMachines`** :span[integer]{.type-label}
 - **`TotalMachines`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DeploymentTargetSummaries": {
@@ -723,7 +715,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
   "TotalMachines": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Environments
 
@@ -771,8 +763,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
   - **`NumberOfPages`** :span[integer]{.type-label}
   - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Environments": {
@@ -813,7 +804,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
   }
 }
 ```
-</div>
+:::
 
 ## List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments)
 
@@ -863,8 +854,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -887,7 +877,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Modify an existing environment
 
@@ -916,8 +906,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AllowDynamicInfrastructure": true,
@@ -939,7 +928,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -971,8 +960,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowDynamicInfrastructure": true,
@@ -1001,7 +989,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Get the environment custom settings metadata from the extensions
 
@@ -1025,8 +1013,7 @@ Also reachable at `/api/environments/{environmentId}/metadata`, `/api/spaces/{sp
   - **`Description`** :span[string]{.type-label}
   - **`Types`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -1040,7 +1027,7 @@ Also reachable at `/api/environments/{environmentId}/metadata`, `/api/spaces/{sp
   }
 ]
 ```
-</div>
+:::
 
 ## List all the variable set names (projects and library variable sets) that have variables that are scoped to only the given environment
 
@@ -1061,8 +1048,7 @@ Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails
 - **`HasUnauthorizedProjectVariables`** :span[boolean]{.type-label}
 - **`VariableMap`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HasUnauthorizedLibraryVariableSetVariables": true,
@@ -1086,7 +1072,7 @@ Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails
   }
 }
 ```
-</div>
+:::
 
 ## Get a specific Deployment Environment
 
@@ -1130,8 +1116,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
 - **`UseGuidedFailure`** :span[boolean]{.type-label}  
   If set to true, deployments will prompt for manual intervention (Fail/Retry/Ignore) when failures are encountered in activities that support it. May be overridden with the Octopus.UseGuidedFailure special variable.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AllowDynamicInfrastructure": true,
@@ -1160,7 +1145,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Environment
 
@@ -1261,8 +1246,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1329,7 +1313,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a specific Static, Parent or Ephemeral Environment by ID
 
@@ -1360,8 +1344,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Type`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -1375,7 +1358,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
   "Type": "string"
 }
 ```
-</div>
+:::
 
 ## List environments available for a project
 
@@ -1423,8 +1406,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1447,4 +1429,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "TotalResults": 0
 }
 ```
-</div>
+:::

@@ -61,8 +61,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -125,7 +124,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Subscription
 
@@ -174,8 +173,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EventNotificationSubscription": {
@@ -251,7 +249,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -299,8 +297,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
 - **`Type`** :span[enum]{.type-label}  
   Allowed values: `Event`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EventNotificationSubscription": {
@@ -385,7 +382,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
   "Type": "Event"
 }
 ```
-</div>
+:::
 
 ## Get all Subscriptions
 
@@ -446,8 +443,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
 - **`Type`** :span[enum]{.type-label}  
   Allowed values: `Event`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -530,7 +526,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
   }
 ]
 ```
-</div>
+:::
 
 ## Get a Subscription by ID
 
@@ -591,8 +587,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 - **`Type`** :span[enum]{.type-label}  
   Allowed values: `Event`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EventNotificationSubscription": {
@@ -677,7 +672,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "Type": "Event"
 }
 ```
-</div>
+:::
 
 ## Update an existing Subscription
 
@@ -732,8 +727,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 - **`Type`** :span[enum]{.type-label}  
   Allowed values: `Event`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EventNotificationSubscription": {
@@ -811,7 +805,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "Type": "Event"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -859,8 +853,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 - **`Type`** :span[enum]{.type-label}  
   Allowed values: `Event`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EventNotificationSubscription": {
@@ -945,7 +938,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "Type": "Event"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Subscription
 
@@ -964,9 +957,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 
 `200` — Confirmation that the Subscription was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

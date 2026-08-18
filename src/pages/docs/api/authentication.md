@@ -40,8 +40,7 @@ Provides the details of the enabled authentication providers.
 - **`RememberMeEnabled`** :span[boolean]{.type-label}
 - **`UserApiKeysEnabled`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AnyAuthenticationProvidersSupportPasswordManagement": true,
@@ -80,7 +79,7 @@ Provides the details of the enabled authentication providers.
   "UserApiKeysEnabled": true
 }
 ```
-</div>
+:::
 
 ## Determine whether an external server (.e.g Okta) has initiated login from a URL query string and, if so, get the provider's name
 
@@ -91,14 +90,13 @@ Provides the details of the enabled authentication providers.
 - **`EncodedQueryString`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EncodedQueryString": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -115,8 +113,7 @@ Provides the details of the enabled authentication providers.
 - **`ProviderName`** :span[string]{.type-label}
 - **`WasLoginInitiated`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -131,4 +128,4 @@ Provides the details of the enabled authentication providers.
   "WasLoginInitiated": true
 }
 ```
-</div>
+:::

@@ -50,8 +50,7 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -89,7 +88,7 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
   }
 }
 ```
-</div>
+:::
 
 ## Get deployment settings by ID
 
@@ -137,8 +136,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -176,7 +174,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
   }
 }
 ```
-</div>
+:::
 
 ## Modify deployment settings
 
@@ -232,8 +230,7 @@ Modifies deployment settings for a project.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -265,7 +262,7 @@ Modifies deployment settings for a project.
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -300,8 +297,7 @@ Modifies deployment settings for a project.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -339,7 +335,7 @@ Modifies deployment settings for a project.
   }
 }
 ```
-</div>
+:::
 
 ## Get deployment settings by ID
 
@@ -390,8 +386,7 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -429,7 +424,7 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
   }
 }
 ```
-</div>
+:::
 
 ## Modify deployment settings
 
@@ -485,8 +480,7 @@ Modifies deployment settings for a project.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -517,7 +511,7 @@ Modifies deployment settings for a project.
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -552,8 +546,7 @@ Modifies deployment settings for a project.
   - **`DonorPackage`** :span[object]{.type-label}
   - **`Template`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CancelQueuedTasks": true,
@@ -591,4 +584,4 @@ Modifies deployment settings for a project.
   }
 }
 ```
-</div>
+:::

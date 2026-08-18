@@ -49,8 +49,7 @@ There are three builtin policies, so while this returns a paginated response, th
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -72,7 +71,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get a rate limiting policy by ID
 
@@ -104,8 +103,7 @@ There are three builtin policies, so while this returns a paginated response, th
 - **`ScopeType`** :span[string]{.type-label}  
   The scope this policy applies to.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AuditMode": true,
@@ -118,7 +116,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "ScopeType": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing rate limiting policy
 
@@ -146,8 +144,7 @@ There are three builtin policies, so while this returns a paginated response, th
 - **`ScopeType`** :span[string]{.type-label} *(required)*  
   The scope this policy applies to.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AuditMode": true,
@@ -159,7 +156,7 @@ There are three builtin policies, so while this returns a paginated response, th
   "ScopeType": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -182,8 +179,7 @@ There are three builtin policies, so while this returns a paginated response, th
 - **`ScopeType`** :span[string]{.type-label}  
   The scope this policy applies to.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AuditMode": true,
@@ -196,4 +192,4 @@ There are three builtin policies, so while this returns a paginated response, th
   "ScopeType": "string"
 }
 ```
-</div>
+:::

@@ -58,8 +58,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -104,7 +103,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a scoped user role
 
@@ -128,8 +127,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 - **`UserRoleId`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EnvironmentIds": [
@@ -149,7 +147,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
   "UserRoleId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -171,8 +169,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 - **`TenantIds`** :span[array of string]{.type-label}
 - **`UserRoleId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EnvironmentIds": [
@@ -200,7 +197,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
   "UserRoleId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Scoped User Role by ID
 
@@ -234,8 +231,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 - **`TenantIds`** :span[array of string]{.type-label}
 - **`UserRoleId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EnvironmentIds": [
@@ -263,7 +259,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
   "UserRoleId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a scoped user role
 
@@ -291,8 +287,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 - **`UserRoleId`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "EnvironmentIds": [
@@ -313,7 +308,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
   "UserRoleId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -335,8 +330,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 - **`TenantIds`** :span[array of string]{.type-label}
 - **`UserRoleId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EnvironmentIds": [
@@ -364,7 +358,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
   "UserRoleId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Scoped User Role
 

@@ -52,8 +52,7 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -86,7 +85,7 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get all Octopus Server Nodes
 
@@ -110,8 +109,7 @@ Lists the name and ID of all Octopus Server nodes
 - **`MaxConcurrentTasks`** :span[integer]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -129,7 +127,7 @@ Lists the name and ID of all Octopus Server nodes
   }
 ]
 ```
-</div>
+:::
 
 ## Ping an octopus server node
 
@@ -157,8 +155,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 - **`Name`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -177,7 +174,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   "Version": "string"
 }
 ```
-</div>
+:::
 
 **Error Responses**
 
@@ -212,8 +209,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   - **`RunningTaskCount`** :span[integer]{.type-label}
   - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Links": {
@@ -244,7 +240,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   ]
 }
 ```
-</div>
+:::
 
 ## Get an Octopus Server Node by ID
 
@@ -271,8 +267,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 - **`MaxConcurrentTasks`** :span[integer]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -288,7 +283,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing OctopusServerNodeResource by ID
 
@@ -310,8 +305,7 @@ Modifies an existing Octopus Server node.
 - **`MaxConcurrentTasks`** :span[integer]{.type-label}  
   The updated max concurrent tasks value of the OctopusServerNodeResource to modify.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -319,7 +313,7 @@ Modifies an existing Octopus Server node.
   "MaxConcurrentTasks": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -337,8 +331,7 @@ Modifies an existing Octopus Server node.
 - **`MaxConcurrentTasks`** :span[integer]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -354,7 +347,7 @@ Modifies an existing Octopus Server node.
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Octopus Server Node
 
@@ -369,12 +362,11 @@ Modifies an existing Octopus Server node.
 
 `200` — Confirmation that the Octopus Server Node was deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Return a count of the running tasks on an octopus server node
 
@@ -399,8 +391,7 @@ Modifies an existing Octopus Server node.
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`RunningTasks`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -414,4 +405,4 @@ Modifies an existing Octopus Server node.
   "RunningTasks": 0
 }
 ```
-</div>
+:::

@@ -71,8 +71,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -115,7 +114,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new user
 
@@ -137,8 +136,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 - **`Username`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DisplayName": "string",
@@ -160,7 +158,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -194,8 +192,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -228,7 +225,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Users
 
@@ -268,8 +265,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -300,7 +296,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
   }
 ]
 ```
-</div>
+:::
 
 ## Provide the details of the enabled authentication providers and whether the current user can edit logins for the given user
 
@@ -328,8 +324,7 @@ Also reachable at `/api/users/authentication`.
 - **`CanCurrentUserEditIdentitiesForUser`** :span[boolean]{.type-label}
 - **`Links`** :span[object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AuthenticationProviders": [
@@ -359,7 +354,7 @@ Also reachable at `/api/users/authentication`.
   }
 }
 ```
-</div>
+:::
 
 ## Search for users, using the authentication providers
 
@@ -377,8 +372,7 @@ Also reachable at `/api/users/authentication`.
 - **`Results`** :span[array of object]{.type-label}
   - **`Identities`** :span[array of object]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Links": {
@@ -395,7 +389,7 @@ Also reachable at `/api/users/authentication`.
   ]
 }
 ```
-</div>
+:::
 
 ## Get the metadata to describe the claims/fields used by authentication providers that support identities
 
@@ -412,8 +406,7 @@ Also reachable at `/api/users/authentication`.
   - **`Links`** :span[object]{.type-label}
   - **`ScimEnabled`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Links": {
@@ -437,7 +430,7 @@ Also reachable at `/api/users/authentication`.
   ]
 }
 ```
-</div>
+:::
 
 ## Log in
 
@@ -459,8 +452,7 @@ Also reachable at `/api/users/authentication`.
 - **`Username`** :span[string]{.type-label} *(required)*  
   The username to log in with. Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Password": "string",
@@ -473,7 +465,7 @@ Also reachable at `/api/users/authentication`.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -507,8 +499,7 @@ Also reachable at `/api/users/authentication`.
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -541,7 +532,7 @@ Also reachable at `/api/users/authentication`.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## POST /api/users/logout
 
@@ -589,8 +580,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -623,7 +613,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Register a new user and responds with an authentication cookie. Unless the first administrator user is being registered, an invitation code must be provided
 
@@ -644,8 +634,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DisplayName": "string",
@@ -665,7 +654,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -699,8 +688,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -733,7 +721,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Get a User by ID
 
@@ -776,8 +764,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -810,7 +797,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing user
 
@@ -834,8 +821,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DisplayName": "string",
@@ -856,7 +842,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -890,8 +876,7 @@ Logs out the current user.
 - **`Username`** :span[string]{.type-label}  
   Maximum length 64.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanPasswordBeEdited": true,
@@ -924,7 +909,7 @@ Logs out the current user.
   "Username": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing User
 
@@ -952,9 +937,8 @@ Logs out the current user.
 
 `200` — Empty response, indicating the sessions have been revoked
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::

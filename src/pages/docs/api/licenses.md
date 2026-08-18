@@ -24,8 +24,7 @@ title: Licenses
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`SerialNumber`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -40,7 +39,7 @@ title: Licenses
   "SerialNumber": "string"
 }
 ```
-</div>
+:::
 
 ## Update the current Octopus cluster license
 
@@ -53,15 +52,14 @@ Updates the license for the Octopus cluster.
 - **`LicenseText`** :span[string]{.type-label}
 - **`SerialNumber`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "LicenseText": "string",
   "SerialNumber": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -78,8 +76,7 @@ Updates the license for the Octopus cluster.
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`SerialNumber`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -94,7 +91,7 @@ Updates the license for the Octopus cluster.
   "SerialNumber": "string"
 }
 ```
-</div>
+:::
 
 ## Return a list of enabled features from the license
 
@@ -106,8 +103,7 @@ Updates the license for the Octopus cluster.
 
 - **`EnabledFeatures`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "EnabledFeatures": [
@@ -115,7 +111,7 @@ Updates the license for the Octopus cluster.
   ]
 }
 ```
-</div>
+:::
 
 ## Get the status of the current Octopus license
 
@@ -173,8 +169,7 @@ Calculates the status of the current Octopus license including compliance and ma
   Allowed values: `Unspecified`, `Restricted`, `Full`.
 - **`SerialNumber`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ComplianceSummary": "string",
@@ -227,7 +222,7 @@ Calculates the status of the current Octopus license including compliance and ma
   "SerialNumber": "string"
 }
 ```
-</div>
+:::
 
 ## Get the usage of the current Octopus server
 
@@ -269,8 +264,7 @@ Calculates the usage of the current Octopus server.
   - **`SpaceName`** :span[string]{.type-label}
   - **`TenantsCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -310,4 +304,4 @@ Calculates the usage of the current Octopus server.
   ]
 }
 ```
-</div>
+:::

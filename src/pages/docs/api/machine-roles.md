@@ -20,14 +20,13 @@ Also reachable at `/api/machineroles/all`, `/api/spaces/{spaceIdentifier}/machin
 
 `200` — The requested list of Machine Roles
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   "string"
 ]
 ```
-</div>
+:::
 
 ## Get all machine roles that have been defined in this Octopus installation
 
@@ -46,8 +45,7 @@ Also reachable at `/api/machineroles/all/v1`, `/api/spaces/{spaceIdentifier}/mac
 
 - **`MachineRoles`** :span[array of string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "MachineRoles": [
@@ -55,4 +53,4 @@ Also reachable at `/api/machineroles/all/v1`, `/api/spaces/{spaceIdentifier}/mac
   ]
 }
 ```
-</div>
+:::

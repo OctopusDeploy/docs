@@ -41,8 +41,7 @@ Gets the dashboard configuration of the authenticated user for the current space
 - **`ProjectLimit`** :span[integer]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HideInactiveProjects": true,
@@ -79,7 +78,7 @@ Gets the dashboard configuration of the authenticated user for the current space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify dashboard configuration
 
@@ -117,8 +116,7 @@ Modifies the dashboard configuration for the current user per space
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The id of the space for the DashboardConfiguration.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "HideInactiveProjects": true,
@@ -147,7 +145,7 @@ Modifies the dashboard configuration for the current user per space
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -172,8 +170,7 @@ Modifies the dashboard configuration for the current user per space
 - **`ProjectLimit`** :span[integer]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "HideInactiveProjects": true,
@@ -210,4 +207,4 @@ Modifies the dashboard configuration for the current user per space
   "SpaceId": "string"
 }
 ```
-</div>
+:::

@@ -25,8 +25,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
   Controls whether the authentication token should be preserved during re-registration. If not supplied (null), the token will be regenerated (default behavior). If false, the token will be regenerated. If true, the existing token will be preserved.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "InstallationId": "00000000-0000-0000-0000-000000000000",
@@ -35,7 +34,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -52,8 +51,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
   - **`MachineId`** :span[string]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AuthenticationToken": "string",
@@ -66,7 +64,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
   }
 }
 ```
-</div>
+:::
 
 ## Request the Kubernetes monitor to start sending events for the specified resource
 
@@ -88,8 +86,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DesiredOrKubernetesMonitoredResourceId": "string",
@@ -100,7 +97,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
   "TenantId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -109,14 +106,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 - **`SessionId`** :span[string]{.type-label}  
   Format `uuid`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SessionId": "00000000-0000-0000-0000-000000000000"
 }
 ```
-</div>
+:::
 
 ## Request to fetch all the events for the specified session
 
@@ -151,8 +147,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{
   - **`Type`** :span[string]{.type-label}
 - **`IsSessionCompleted`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Error": {
@@ -176,7 +171,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{
   "IsSessionCompleted": true
 }
 ```
-</div>
+:::
 
 ## Get a Kubernetes Monitor by ID
 
@@ -202,8 +197,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
   - **`MachineId`** :span[string]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -214,7 +208,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
   }
 }
 ```
-</div>
+:::
 
 ## Delete a Kubernetes Monitor by ID
 
@@ -233,12 +227,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 
 `200` — Response for deleting a Kubernetes Monitor
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Request the Kubernetes monitor to start sending logs for the specified container
 
@@ -265,8 +258,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`TenantId`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ContainerName": "string",
@@ -280,7 +272,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
   "TenantId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -289,14 +281,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 - **`SessionId`** :span[string]{.type-label}  
   Format `uuid`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "SessionId": "00000000-0000-0000-0000-000000000000"
 }
 ```
-</div>
+:::
 
 ## Request to fetch all the logs for the specified session
 
@@ -323,8 +314,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{se
   - **`Message`** :span[string]{.type-label}
   - **`Timestamp`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Error": {
@@ -340,7 +330,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{se
   ]
 }
 ```
-</div>
+:::
 
 ## Request the live status for a Project/Environment/Tenant
 
@@ -357,7 +347,6 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 **Query Parameters**
 
-- **`orphansOnly`** :span[boolean]{.type-label}
 - **`summaryOnly`** :span[boolean]{.type-label}
 
 **Response**
@@ -380,8 +369,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   - **`SyncStatusMessage`** :span[string]{.type-label}
   - **`TotalOrphanCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "MachineStatuses": [
@@ -403,7 +391,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   }
 }
 ```
-</div>
+:::
 
 ## Get a detailed summary of a live Kubernetes resource - either a top-level resource or a child resource
 
@@ -446,8 +434,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   - **`SyncStatus`** :span[string]{.type-label}
   - **`SyncStatusMessage`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Resource": {
@@ -485,7 +472,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   }
 }
 ```
-</div>
+:::
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
@@ -517,8 +504,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 - **`LiveManifest`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DesiredManifest": "string",
@@ -530,7 +516,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "LiveManifest": "string"
 }
 ```
-</div>
+:::
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
@@ -561,8 +547,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
     Minimum length 1.
 - **`LiveManifest`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DesiredManifest": "string",
@@ -574,4 +559,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "LiveManifest": "string"
 }
 ```
-</div>
+:::

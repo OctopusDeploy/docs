@@ -65,8 +65,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -103,7 +102,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a feed
 
@@ -147,8 +146,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The id of the space that contains the feed.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ClientVersion": {
@@ -178,7 +176,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -200,8 +198,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -221,7 +218,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get all Feeds
 
@@ -254,8 +251,7 @@ Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -277,7 +273,7 @@ Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
   }
 ]
 ```
-</div>
+:::
 
 ## Get all feed statistics
 
@@ -304,8 +300,7 @@ Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`TotalPackages`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -319,7 +314,7 @@ Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats
   "TotalPackages": 0
 }
 ```
-</div>
+:::
 
 ## Get a feed resource by ID
 
@@ -354,8 +349,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -375,7 +369,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a feed by ID
 
@@ -423,8 +417,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The id of the space that contains the feed.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ClientVersion": {
@@ -455,7 +448,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -477,8 +470,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 - **`Slug`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -498,7 +490,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Feed
 
@@ -565,8 +557,7 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -597,7 +588,7 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## List available package versions for the specified feed and package
 
@@ -667,8 +658,7 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -703,4 +693,4 @@ Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdenti
   "TotalResults": 0
 }
 ```
-</div>
+:::

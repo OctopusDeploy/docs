@@ -68,8 +68,7 @@ Also reachable at `/api/nuget/packages`.
 - **`Title`** :span[string]{.type-label}
 - **`Version`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -133,4 +132,4 @@ Also reachable at `/api/nuget/packages`.
   "Version": "string"
 }
 ```
-</div>
+:::

@@ -87,8 +87,7 @@ Also reachable at `/api/events/agents`, `/api/spaces/{spaceIdentifier}/events/ag
 - **`Links`** :span[object]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -102,7 +101,7 @@ Also reachable at `/api/events/agents`, `/api/spaces/{spaceIdentifier}/events/ag
   }
 ]
 ```
-</div>
+:::
 
 ## List event categories
 
@@ -126,8 +125,7 @@ Also reachable at `/api/events/categories`, `/api/spaces/{spaceIdentifier}/event
 - **`Links`** :span[object]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -141,7 +139,7 @@ Also reachable at `/api/events/categories`, `/api/spaces/{spaceIdentifier}/event
   }
 ]
 ```
-</div>
+:::
 
 ## List subscription event document types
 
@@ -161,8 +159,7 @@ Also reachable at `/api/events/documenttypes`, `/api/spaces/{spaceIdentifier}/ev
 - **`Id`** :span[string]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -171,7 +168,7 @@ Also reachable at `/api/events/documenttypes`, `/api/spaces/{spaceIdentifier}/ev
   }
 ]
 ```
-</div>
+:::
 
 ## List subscription event groups
 
@@ -198,8 +195,7 @@ Also reachable at `/api/events/groups`, `/api/spaces/{spaceIdentifier}/events/gr
 - **`Links`** :span[object]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -216,7 +212,7 @@ Also reachable at `/api/events/groups`, `/api/spaces/{spaceIdentifier}/events/gr
   }
 ]
 ```
-</div>
+:::
 
 ## Get a single event by ID
 
@@ -284,8 +280,7 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
 - **`Username`** :span[string]{.type-label}  
   Gets or sets the name of the user who created the event.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ApiKeyHint": "string",
@@ -327,4 +322,4 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
   "Username": "string"
 }
 ```
-</div>
+:::

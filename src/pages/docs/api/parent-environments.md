@@ -27,8 +27,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticDeprovisioningRule": {
@@ -42,7 +41,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -50,14 +49,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing parent environment
 
@@ -84,8 +82,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "AutomaticDeprovisioningRule": {
@@ -101,7 +98,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -120,8 +117,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
 - **`SpaceId`** :span[string]{.type-label}
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticDeprovisioningRule": {
@@ -137,7 +133,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Get a specific Parent Environment
 
@@ -168,8 +164,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`UseGuidedFailure`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "AutomaticDeprovisioningRule": {
@@ -185,7 +180,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
   "UseGuidedFailure": true
 }
 ```
-</div>
+:::
 
 ## Delete an existing Parent Environment
 

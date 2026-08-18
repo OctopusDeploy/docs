@@ -38,8 +38,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -60,7 +59,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Platform Hub account
 
@@ -75,8 +74,7 @@ title: Platform Hub
   Minimum length 1.
 - **`Slug`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -87,7 +85,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -95,14 +93,13 @@ title: Platform Hub
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Get a specific Platform Hub account
 
@@ -126,8 +123,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -139,7 +135,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing Platform Hub account
 
@@ -159,8 +155,7 @@ title: Platform Hub
   Minimum length 1.
 - **`Slug`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -172,18 +167,17 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Indicates that the Platform Hub account was successfully modified.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete an existing Platform Hub account
 
@@ -198,12 +192,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub account has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get Platform Hub certificates
 
@@ -279,8 +272,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -339,7 +331,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Platform Hub certificate
 
@@ -361,8 +353,7 @@ title: Platform Hub
   - **`NewValue`** :span[string]{.type-label}
 - **`Slug`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CertificateData": {
@@ -380,7 +371,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -443,8 +434,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -503,7 +493,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Create a self-signed Platform Hub certificate
 
@@ -569,8 +559,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -630,7 +619,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -693,8 +682,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -753,7 +741,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Get a Platform Hub certificate by ID or Thumbprint
 
@@ -824,8 +812,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -884,7 +871,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Modify an existing Platform Hub certificate
 
@@ -902,8 +889,7 @@ title: Platform Hub
 - **`Notes`** :span[string]{.type-label}
 - **`Slug`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -912,7 +898,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -975,8 +961,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -1035,7 +1020,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Delete an existing archived Platform Hub certificate
 
@@ -1049,12 +1034,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub certificate has been deleted.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Archive an existing Platform Hub certificate
 
@@ -1068,12 +1052,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub certificate has been archived.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Export the Platform Hub certificate
 
@@ -1096,12 +1079,11 @@ title: Platform Hub
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Replace an existing Platform Hub certificate with another
 
@@ -1118,8 +1100,7 @@ title: Platform Hub
 - **`Id`** :span[string]{.type-label} *(required)*
 - **`Password`** :span[string]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "CertificateData": "string",
@@ -1127,7 +1108,7 @@ title: Platform Hub
   "Password": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1190,8 +1171,7 @@ title: Platform Hub
 - **`Thumbprint`** :span[string]{.type-label}
 - **`Version`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Archived": "2020-01-01T00:00:00.000Z",
@@ -1250,7 +1230,7 @@ title: Platform Hub
   "Version": 0
 }
 ```
-</div>
+:::
 
 ## Unarchive an existing archived Platform Hub certificate
 
@@ -1264,12 +1244,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub certificate has been unarchived.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get usages for a Platform Hub certificate
 
@@ -1345,8 +1324,7 @@ title: Platform Hub
     Minimum length 1.
 - **`TotalUsageCount`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DefaultBranchProcessTemplateUsageCount": 0,
@@ -1402,7 +1380,7 @@ title: Platform Hub
   "TotalUsageCount": 0
 }
 ```
-</div>
+:::
 
 ## Get a list of Platform Hub Feeds
 
@@ -1446,8 +1424,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1470,7 +1447,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Platform Hub Feed
 
@@ -1489,8 +1466,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   The slug of the feed.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "FeedType": "None",
@@ -1501,7 +1477,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1520,8 +1496,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -1535,7 +1510,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Platform Hub Feed by its id
 
@@ -1563,8 +1538,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -1578,7 +1552,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Modify a Platform Hub Feed
 
@@ -1604,8 +1578,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   The slug of the feed.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "FeedType": "None",
@@ -1617,7 +1590,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1636,8 +1609,7 @@ title: Platform Hub
 - **`Slug`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "FeedType": "None",
@@ -1651,7 +1623,7 @@ title: Platform Hub
   "Slug": "string"
 }
 ```
-</div>
+:::
 
 ## Delete an existing Platform Hub Feed
 
@@ -1666,12 +1638,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub feed has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Search the specified platform hub feed for packages based on the provided search term
 
@@ -1709,8 +1680,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1728,7 +1698,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## List available package versions for the specified platform hub feed and package
 
@@ -1781,8 +1751,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1804,7 +1773,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get Platform Hub Git credentials
 
@@ -1836,8 +1805,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1863,7 +1831,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Platform Hub Git credential
 
@@ -1882,8 +1850,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -1904,7 +1871,7 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1912,14 +1879,13 @@ title: Platform Hub
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Get Platform Hub Git credentials (V2)
 
@@ -1951,8 +1917,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -1978,7 +1943,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Platform Hub Git credential
 
@@ -1996,8 +1961,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -2013,7 +1977,7 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2021,14 +1985,13 @@ title: Platform Hub
 
 - **`Id`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string"
 }
 ```
-</div>
+:::
 
 ## Get a specific Platform Hub Git credential
 
@@ -2054,8 +2017,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -2072,7 +2034,7 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Platform Hub Git credential
 
@@ -2096,8 +2058,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -2119,18 +2080,17 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Indicates that the Platform Hub Git Credential was successfully modified.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete an existing Platform Hub Git credential
 
@@ -2145,12 +2105,11 @@ title: Platform Hub
 
 `200` — Confirmation that the Platform Hub Git Credential has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a specific Platform Hub Git credential (V2)
 
@@ -2176,8 +2135,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Description": "string",
@@ -2194,7 +2152,7 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 ## Modify an existing Platform Hub Git credential
 
@@ -2217,8 +2175,7 @@ title: Platform Hub
   - **`AllowedRepositories`** :span[array of string]{.type-label}
   - **`Enabled`** :span[boolean]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Description": "string",
@@ -2235,18 +2192,17 @@ title: Platform Hub
   }
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Indicates that the Platform Hub Git Credential was successfully modified.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Request the list of Branches for the Platform Hub
 
@@ -2285,8 +2241,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -2311,7 +2266,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a branch given the base git ref, and the new branch's name
 
@@ -2323,15 +2278,14 @@ title: Platform Hub
 - **`NewBranchName`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BaseGitRef": "string",
   "NewBranchName": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2351,8 +2305,7 @@ title: Platform Hub
 - **`Name`** :span[string]{.type-label}  
   Minimum length 1.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "CanonicalName": "string",
@@ -2368,7 +2321,7 @@ title: Platform Hub
   "Name": "string"
 }
 ```
-</div>
+:::
 
 ## Request a list of Git Tags for the Platform Hub
 
@@ -2406,8 +2359,7 @@ title: Platform Hub
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemType": "string",
@@ -2431,7 +2383,7 @@ title: Platform Hub
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get GitHub App connections for the Platform Hub
 
@@ -2459,8 +2411,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Connections": [
@@ -2482,7 +2433,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new GitHub App connection in Platform Hub
 
@@ -2494,8 +2445,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   Minimum length 1.
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "InstallationId": "string",
@@ -2504,18 +2454,17 @@ Gets a set of GitHub App connections for the Platform Hub.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
 `201` — Created
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Get a single PlatformHub GitHub app connection by id
 
@@ -2555,8 +2504,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   - **`RepositoryId`** :span[string]{.type-label}
   - **`RepositoryName`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -2590,7 +2538,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   ]
 }
 ```
-</div>
+:::
 
 ## Update a Platform Hub GitHub App connection with a new set of repositories
 
@@ -2605,8 +2553,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`Id`** :span[string]{.type-label} *(required)*
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -2615,18 +2562,17 @@ Gets a set of GitHub App connections for the Platform Hub.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Platform Hub GitHub app connection modified result
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Delete a PlatformHub GitHub App connection by id
 
@@ -2641,12 +2587,11 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 `200` — Confirmation that the PlatformHub GitHub App connection has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Recover a platfrom hub GitHub App connection after the registration has changed
 
@@ -2661,8 +2606,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`Id`** :span[string]{.type-label} *(required)*
 - **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -2671,18 +2615,17 @@ Gets a set of GitHub App connections for the Platform Hub.
   ]
 }
 ```
-</div>
+:::
 
 **Response**
 
 `200` — Platform Hub GitHub app connection recovery result
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Refresh the Platform Hub GitHub App connection token
 
@@ -2696,12 +2639,11 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 `200` — Platform Hub GitHub app connection has been refreshed
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
@@ -2724,8 +2666,7 @@ Gets a set of GitHub App connections for the Platform Hub.
     true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
   - **`InstallationId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Installations": [
@@ -2740,7 +2681,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   ]
 }
 ```
-</div>
+:::
 
 ## Get platform hub version control settings configuration
 
@@ -2757,8 +2698,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`DefaultBranch`** :span[string]{.type-label}
 - **`Url`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "BasePath": "string",
@@ -2769,7 +2709,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   "Url": "string"
 }
 ```
-</div>
+:::
 
 ## Update the platform hub's existing version control settings configuration
 
@@ -2785,8 +2725,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`Url`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "BasePath": "string",
@@ -2797,7 +2736,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   "Url": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -2810,8 +2749,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 - **`DefaultBranch`** :span[string]{.type-label}
 - **`Url`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "BasePath": "string",
@@ -2822,7 +2760,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   "Url": "string"
 }
 ```
-</div>
+:::
 
 ## Get a paginated list of process templates from the specified Git reference (sorted by name)
 
@@ -2855,8 +2793,7 @@ Gets a set of GitHub App connections for the Platform Hub.
   - **`Steps`** :span[array of object]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ItemsPerPage": 0,
@@ -2882,4 +2819,4 @@ Gets a set of GitHub App connections for the Platform Hub.
   "TotalResults": 0
 }
 ```
-</div>
+:::

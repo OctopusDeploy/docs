@@ -73,8 +73,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -146,7 +145,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Machine Policy
 
@@ -215,8 +214,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -269,7 +267,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -337,8 +335,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -399,7 +396,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a list of Machine Policies
 
@@ -477,8 +474,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -541,7 +537,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
   }
 ]
 ```
-</div>
+:::
 
 ## Get a template for a new Machine Policy, which includes any defaults
 
@@ -619,8 +615,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -681,7 +676,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Get a Machine Policy by ID
 
@@ -762,8 +757,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -824,7 +818,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Modify an existing Machine Policy
 
@@ -899,8 +893,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 - **`SpaceId`** :span[string]{.type-label} *(required)*  
   The Space ID.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -954,7 +947,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1022,8 +1015,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   Format `date-span`.
 - **`SpaceId`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ConnectionConnectTimeout": "string",
@@ -1084,7 +1076,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "SpaceId": "string"
 }
 ```
-</div>
+:::
 
 ## Delete the specified Machine Policy
 
@@ -1175,8 +1167,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1243,7 +1234,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Delete the specified Machine Policy
 
@@ -1262,12 +1253,11 @@ Also reachable at `/api/machinepolicies/{id}/v1`, `/api/spaces/{spaceIdentifier}
 
 `200` — Confirmation that the Machine Policy has been deleted
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {}
 ```
-</div>
+:::
 
 ## Get a paginated list of the workers that belong to the given Machine Policy
 
@@ -1336,8 +1326,7 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1394,4 +1383,4 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
   "TotalResults": 0
 }
 ```
-</div>
+:::

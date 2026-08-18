@@ -24,8 +24,7 @@ title: Performance
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DefaultDashboardRenderMode": "VirtualizeColumns",
@@ -39,7 +38,7 @@ title: Performance
   }
 }
 ```
-</div>
+:::
 
 ## Set the performance configuration
 
@@ -50,14 +49,13 @@ title: Performance
 - **`DefaultDashboardRenderMode`** :span[enum]{.type-label} *(required)*  
   Allowed values: `VirtualizeColumns`, `VirtualizeRowsAndColumns`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DefaultDashboardRenderMode": "VirtualizeColumns"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -74,8 +72,7 @@ title: Performance
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DefaultDashboardRenderMode": "VirtualizeColumns",
@@ -89,4 +86,4 @@ title: Performance
   }
 }
 ```
-</div>
+:::

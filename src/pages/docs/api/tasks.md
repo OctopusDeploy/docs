@@ -141,8 +141,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -205,7 +204,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Create a new Task
 
@@ -230,8 +229,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 - **`SpaceId`** :span[string]{.type-label}
 - **`Weight`** :span[number]{.type-label}
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Arguments": {
@@ -247,7 +245,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "Weight": 0
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -312,8 +310,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -359,7 +356,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## Create a new task and execute it, using a given task as the input. Note that deployment tasks cannot be re-run
 
@@ -437,8 +434,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -484,7 +480,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## List supported task types
 
@@ -504,8 +500,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/tasktypes`, `/api/tasks/t
 - **`Links`** :span[object]{.type-label}
 - **`Name`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 [
   {
@@ -519,7 +514,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/tasktypes`, `/api/tasks/t
   }
 ]
 ```
-</div>
+:::
 
 ## Get a single Task by ID
 
@@ -597,8 +592,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -644,7 +638,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## Mark the given task as canceled
 
@@ -722,8 +716,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -769,7 +762,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## Get a single task by ID, including the full task log as a tree of activity elements
 
@@ -882,8 +875,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
     Gets or sets the current state of the task.  
     Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "ActivityLogs": [
@@ -960,7 +952,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
   }
 }
 ```
-</div>
+:::
 
 ## Prioritize given task to the top of the Task Queue
 
@@ -1073,8 +1065,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 - **`NumberOfPages`** :span[integer]{.type-label}
 - **`TotalResults`** :span[integer]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Id": "string",
@@ -1137,7 +1128,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
   "TotalResults": 0
 }
 ```
-</div>
+:::
 
 ## Get the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
 
@@ -1156,12 +1147,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{i
 
 `200` — Success
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 "string"
 ```
-</div>
+:::
 
 ## Change the state of a task
 
@@ -1188,8 +1178,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   The state to set the task to.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "Id": "string",
@@ -1198,7 +1187,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -1263,8 +1252,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   Gets or sets the current state of the task.  
   Allowed values: `Queued`, `Executing`, `Failed`, `Canceled`, `TimedOut`, `Success`, `Cancelling`.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Arguments": {
@@ -1310,7 +1298,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   "State": "Queued"
 }
 ```
-</div>
+:::
 
 ## Get messages for a single Task by Id
 
@@ -1342,8 +1330,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/
   - **`Message`** :span[string]{.type-label}
   - **`Title`** :span[string]{.type-label}
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "Messages": [
@@ -1363,4 +1350,4 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/
   ]
 }
 ```
-</div>
+:::

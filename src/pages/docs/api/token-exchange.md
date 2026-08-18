@@ -20,8 +20,7 @@ title: Token Exchange
 - **`subject_token_type`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "audience": "string",
@@ -30,7 +29,7 @@ title: Token Exchange
   "subject_token_type": "string"
 }
 ```
-</div>
+:::
 
 **Response**
 

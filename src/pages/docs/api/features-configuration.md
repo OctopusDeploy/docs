@@ -39,8 +39,7 @@ Gets the features configuration of the current instance
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DefaultPowerShellEdition": "string",
@@ -68,7 +67,7 @@ Gets the features configuration of the current instance
   }
 }
 ```
-</div>
+:::
 
 ## Update features configuration
 
@@ -113,8 +112,7 @@ Updates the features configuration of the current instance
 - **`IsWebhookTriggerEnabled`** :span[boolean]{.type-label}  
   Enable the webhook triggers feature.
 
-<div data-example="Request">
-
+:::api-example{label="Request"}
 ```json
 {
   "DefaultPowerShellEdition": "string",
@@ -136,7 +134,7 @@ Updates the features configuration of the current instance
   "IsWebhookTriggerEnabled": true
 }
 ```
-</div>
+:::
 
 **Response**
 
@@ -166,8 +164,7 @@ Updates the features configuration of the current instance
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 
-<div data-example="Response">
-
+:::api-example{label="Response"}
 ```json
 {
   "DefaultPowerShellEdition": "string",
@@ -195,4 +192,4 @@ Updates the features configuration of the current instance
   }
 }
 ```
-</div>
+:::
