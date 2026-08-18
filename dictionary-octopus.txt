@@ -13,6 +13,7 @@ antipattern
 antipatterns
 apikey
 apikeys
+apos
 appcmd
 apphost
 APPNAME
@@ -494,6 +495,8 @@ sakila
 SAMEORIGIN
 sandboxed
 sandboxing
+satteri
+Sätteri
 Schannel
 SCIM
 scopeduserroles
