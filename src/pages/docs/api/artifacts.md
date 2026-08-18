@@ -7,7 +7,7 @@ title: Artifacts
 
 ## List all of the artifacts in the supplied Octopus Deploy Space, from all releases. The results will be sorted by date from most recently to least recently created
 
-:span[GET]{.api-get} `/api/{spaceId}/artifacts`
+:endpoint{method="GET" path="/api/\{spaceId\}/artifacts"}
 
 Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 
@@ -109,7 +109,7 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 
 ## Create a new artifact
 
-:span[POST]{.api-post} `/api/{spaceId}/artifacts`
+:endpoint{method="POST" path="/api/\{spaceId\}/artifacts"}
 
 Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
 
@@ -192,7 +192,7 @@ Creates a new artifact.
 
 ## Get an Artifact by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/artifacts/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/artifacts/\{id\}"}
 
 Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifacts/{id}`.
 
@@ -250,7 +250,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
 
 ## Modify an existing artifact
 
-:span[PUT]{.api-put} `/api/{spaceId}/artifacts/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/artifacts/\{id\}"}
 
 Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifacts/{id}`.
 
@@ -308,7 +308,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
 
 ## Delete an existing Artifact
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/artifacts/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/artifacts/\{id\}"}
 
 Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifacts/{id}`.
 
@@ -325,7 +325,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
 
 ## Get the content associated with an artifact
 
-:span[GET]{.api-get} `/api/{spaceId}/artifacts/{id}/content`
+:endpoint{method="GET" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 
 Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/artifacts/{id}/content`.
 
@@ -348,7 +348,7 @@ Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/
 
 ## PUT /api/{spaceId}/artifacts/{id}/content
 
-:span[PUT]{.api-put} `/api/{spaceId}/artifacts/{id}/content`
+:endpoint{method="PUT" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 
 Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/artifacts/{id}/content`.
 

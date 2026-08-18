@@ -7,7 +7,7 @@ title: Invitations
 
 ## Create an invitation to allow a new person to join this Octopus instance
 
-:span[POST]{.api-post} `/api/{spaceId}/users/invitations`
+:endpoint{method="POST" path="/api/\{spaceId\}/users/invitations"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users/invitations`.
 
@@ -76,7 +76,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
 
 ## Get an Invitation by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/users/invitations/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/users/invitations/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/users/invitations/{id}`.
 

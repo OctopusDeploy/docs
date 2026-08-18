@@ -7,7 +7,7 @@ title: Channels
 
 ## Create a Channel
 
-:span[POST]{.api-post} `/api/{spaceId}/channels`
+:endpoint{method="POST" path="/api/\{spaceId\}/channels"}
 
 Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 
@@ -239,7 +239,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 
 ## Get a list of Channels
 
-:span[GET]{.api-get} `/api/{spaceId}/channels/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels/all"}
 
 Also reachable at `/api/channels/all`, `/api/spaces/{spaceIdentifier}/channels/all`.
 
@@ -370,7 +370,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
 
 ## Perform Channel version rule test against provided Package version
 
-:span[GET]{.api-get} `/api/{spaceId}/channels/rule-test`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels/rule-test"}
 
 Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/channels/rule-test`.
 
@@ -419,7 +419,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
 
 ## Perform Channel version rule test against provided Package version
 
-:span[POST]{.api-post} `/api/{spaceId}/channels/rule-test`
+:endpoint{method="POST" path="/api/\{spaceId\}/channels/rule-test"}
 
 **Path Parameters**
 
@@ -466,7 +466,7 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
 
 ## Perform Channel version rule test against provided Package version
 
-:span[POST]{.api-post} `/api/spaces/{spaceIdentifier}/channels/rule-test`
+:endpoint{method="POST" path="/api/spaces/\{spaceIdentifier\}/channels/rule-test"}
 
 Also reachable at `/api/channels/rule-test`.
 
@@ -515,7 +515,7 @@ Also reachable at `/api/channels/rule-test`.
 
 ## Test Channel version rules
 
-:span[GET]{.api-get} `/api/{spaceId}/channels/rule-test/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels/rule-test/v1"}
 
 Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/channels/rule-test/v1`.
 
@@ -560,7 +560,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
 
 ## Test Channel version rules
 
-:span[POST]{.api-post} `/api/{spaceId}/channels/rule-test/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/channels/rule-test/v1"}
 
 **Path Parameters**
 
@@ -603,7 +603,7 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
 
 ## Test Channel version rules
 
-:span[POST]{.api-post} `/api/spaces/{spaceIdentifier}/channels/rule-test/v1`
+:endpoint{method="POST" path="/api/spaces/\{spaceIdentifier\}/channels/rule-test/v1"}
 
 Also reachable at `/api/channels/rule-test/v1`.
 
@@ -649,7 +649,7 @@ Also reachable at `/api/channels/rule-test/v1`.
 
 ## Update an existing Channel
 
-:span[PUT]{.api-put} `/api/{spaceId}/channels/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/channels/\{id\}"}
 
 Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/{id}`.
 
@@ -884,7 +884,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 
 ## Delete a ChannelResource by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/channels/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/channels/\{id\}"}
 
 Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/{id}`.
 
@@ -903,7 +903,7 @@ Deletes an existing channel.
 
 ## Get a list of ChannelResources for the given ProjectResource
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/channels`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/channels"}
 
 Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels`.
 
@@ -1028,7 +1028,7 @@ Lists all the channels for the given project
 
 ## Create a Channel
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/channels`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/channels"}
 
 Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels`.
 
@@ -1261,7 +1261,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
 
 ## Determine if a git reference satisfies the rules of a channel
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/channels/{channelId}/git-reference-rule-validation/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{channelId\}/git-reference-rule-validation/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{channelId}/git-reference-rule-validation/v1`.
 
@@ -1295,7 +1295,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
 
 ## Determine if a git reference satisfies a channel's Git resource rules
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/channels/{channelId}/git-resource-rule-validation/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{channelId\}/git-resource-rule-validation/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{channelId}/git-resource-rule-validation/v1`.
 
@@ -1331,7 +1331,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
 
 ## Get a Channel by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/channels/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{id}`.
 
@@ -1461,7 +1461,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 
 ## Update an existing Channel
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/channels/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{id}`.
 
@@ -1697,7 +1697,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 
 ## Delete a ChannelResource by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/channels/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{id}`.
 
@@ -1718,7 +1718,7 @@ Deletes an existing channel.
 
 ## Delete a ChannelResource by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/channels/{id}/v2`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{id\}/v2"}
 
 Also reachable at `/api/projects/{projectId}/channels/{id}/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{id}/v2`.
 
@@ -1745,7 +1745,7 @@ Deletes an existing channel.
 
 ## Get a list of Channels
 
-:span[GET]{.api-get} `/api/{spaceId}/channels`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels" deprecated=true}
 
 Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 
@@ -1874,7 +1874,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
 
 ## Get a Channel by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/channels/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels/\{id\}" deprecated=true}
 
 Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/{id}`.
 

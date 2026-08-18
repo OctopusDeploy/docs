@@ -7,7 +7,7 @@ title: Platform Hub
 
 ## Get Platform Hub accounts
 
-:span[GET]{.api-get} `/api/platformhub/accounts`
+:endpoint{method="GET" path="/api/platformhub/accounts"}
 
 **Query Parameters**
 
@@ -63,7 +63,7 @@ title: Platform Hub
 
 ## Create a new Platform Hub account
 
-:span[POST]{.api-post} `/api/platformhub/accounts`
+:endpoint{method="POST" path="/api/platformhub/accounts"}
 
 **Request Body**
 
@@ -103,7 +103,7 @@ title: Platform Hub
 
 ## Get a specific Platform Hub account
 
-:span[GET]{.api-get} `/api/platformhub/accounts/{id}`
+:endpoint{method="GET" path="/api/platformhub/accounts/\{id\}"}
 
 **Path Parameters**
 
@@ -139,7 +139,7 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub account
 
-:span[PUT]{.api-put} `/api/platformhub/accounts/{id}`
+:endpoint{method="PUT" path="/api/platformhub/accounts/\{id\}"}
 
 **Path Parameters**
 
@@ -181,7 +181,7 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub account
 
-:span[DELETE]{.api-delete} `/api/platformhub/accounts/{id}`
+:endpoint{method="DELETE" path="/api/platformhub/accounts/\{id\}"}
 
 **Path Parameters**
 
@@ -200,7 +200,7 @@ title: Platform Hub
 
 ## Get Platform Hub certificates
 
-:span[GET]{.api-get} `/api/platformhub/certificates`
+:endpoint{method="GET" path="/api/platformhub/certificates"}
 
 **Query Parameters**
 
@@ -335,7 +335,7 @@ title: Platform Hub
 
 ## Create a new Platform Hub certificate
 
-:span[POST]{.api-post} `/api/platformhub/certificates`
+:endpoint{method="POST" path="/api/platformhub/certificates"}
 
 **Request Body**
 
@@ -497,7 +497,7 @@ title: Platform Hub
 
 ## Create a self-signed Platform Hub certificate
 
-:span[POST]{.api-post} `/api/platformhub/certificates/generate`
+:endpoint{method="POST" path="/api/platformhub/certificates/generate"}
 
 **Request Body**
 
@@ -745,7 +745,7 @@ title: Platform Hub
 
 ## Get a Platform Hub certificate by ID or Thumbprint
 
-:span[GET]{.api-get} `/api/platformhub/certificates/{id}`
+:endpoint{method="GET" path="/api/platformhub/certificates/\{id\}"}
 
 **Path Parameters**
 
@@ -875,7 +875,7 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub certificate
 
-:span[PUT]{.api-put} `/api/platformhub/certificates/{id}`
+:endpoint{method="PUT" path="/api/platformhub/certificates/\{id\}"}
 
 **Path Parameters**
 
@@ -1024,7 +1024,7 @@ title: Platform Hub
 
 ## Delete an existing archived Platform Hub certificate
 
-:span[DELETE]{.api-delete} `/api/platformhub/certificates/{id}`
+:endpoint{method="DELETE" path="/api/platformhub/certificates/\{id\}"}
 
 **Path Parameters**
 
@@ -1042,7 +1042,7 @@ title: Platform Hub
 
 ## Archive an existing Platform Hub certificate
 
-:span[POST]{.api-post} `/api/platformhub/certificates/{id}/archive`
+:endpoint{method="POST" path="/api/platformhub/certificates/\{id\}/archive"}
 
 **Path Parameters**
 
@@ -1060,7 +1060,7 @@ title: Platform Hub
 
 ## Export the Platform Hub certificate
 
-:span[GET]{.api-get} `/api/platformhub/certificates/{id}/export`
+:endpoint{method="GET" path="/api/platformhub/certificates/\{id\}/export"}
 
 **Path Parameters**
 
@@ -1087,7 +1087,7 @@ title: Platform Hub
 
 ## Replace an existing Platform Hub certificate with another
 
-:span[POST]{.api-post} `/api/platformhub/certificates/{id}/replace`
+:endpoint{method="POST" path="/api/platformhub/certificates/\{id\}/replace"}
 
 **Path Parameters**
 
@@ -1234,7 +1234,7 @@ title: Platform Hub
 
 ## Unarchive an existing archived Platform Hub certificate
 
-:span[POST]{.api-post} `/api/platformhub/certificates/{id}/unarchive`
+:endpoint{method="POST" path="/api/platformhub/certificates/\{id\}/unarchive"}
 
 **Path Parameters**
 
@@ -1252,7 +1252,7 @@ title: Platform Hub
 
 ## Get usages for a Platform Hub certificate
 
-:span[GET]{.api-get} `/api/platformhub/certificates/{id}/usages`
+:endpoint{method="GET" path="/api/platformhub/certificates/\{id\}/usages"}
 
 **Path Parameters**
 
@@ -1384,7 +1384,7 @@ title: Platform Hub
 
 ## Get a list of Platform Hub Feeds
 
-:span[GET]{.api-get} `/api/platformhub/feeds`
+:endpoint{method="GET" path="/api/platformhub/feeds"}
 
 **Query Parameters**
 
@@ -1451,7 +1451,7 @@ title: Platform Hub
 
 ## Create a new Platform Hub Feed
 
-:span[POST]{.api-post} `/api/platformhub/feeds`
+:endpoint{method="POST" path="/api/platformhub/feeds"}
 
 **Request Body**
 
@@ -1514,7 +1514,7 @@ title: Platform Hub
 
 ## Get a Platform Hub Feed by its id
 
-:span[GET]{.api-get} `/api/platformhub/feeds/{id}`
+:endpoint{method="GET" path="/api/platformhub/feeds/\{id\}"}
 
 **Path Parameters**
 
@@ -1556,7 +1556,7 @@ title: Platform Hub
 
 ## Modify a Platform Hub Feed
 
-:span[PUT]{.api-put} `/api/platformhub/feeds/{id}`
+:endpoint{method="PUT" path="/api/platformhub/feeds/\{id\}"}
 
 **Path Parameters**
 
@@ -1627,7 +1627,7 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub Feed
 
-:span[DELETE]{.api-delete} `/api/platformhub/feeds/{id}`
+:endpoint{method="DELETE" path="/api/platformhub/feeds/\{id\}"}
 
 **Path Parameters**
 
@@ -1646,7 +1646,7 @@ title: Platform Hub
 
 ## Search the specified platform hub feed for packages based on the provided search term
 
-:span[GET]{.api-get} `/api/platformhub/feeds/{id}/packages/search`
+:endpoint{method="GET" path="/api/platformhub/feeds/\{id\}/packages/search"}
 
 **Path Parameters**
 
@@ -1702,7 +1702,7 @@ title: Platform Hub
 
 ## List available package versions for the specified platform hub feed and package
 
-:span[GET]{.api-get} `/api/platformhub/feeds/{id}/packages/versions`
+:endpoint{method="GET" path="/api/platformhub/feeds/\{id\}/packages/versions"}
 
 **Path Parameters**
 
@@ -1777,7 +1777,7 @@ title: Platform Hub
 
 ## Get Platform Hub Git credentials
 
-:span[GET]{.api-get} `/api/platformhub/git-credentials`
+:endpoint{method="GET" path="/api/platformhub/git-credentials"}
 
 **Query Parameters**
 
@@ -1835,7 +1835,7 @@ title: Platform Hub
 
 ## Create a new Platform Hub Git credential
 
-:span[POST]{.api-post} `/api/platformhub/git-credentials`
+:endpoint{method="POST" path="/api/platformhub/git-credentials"}
 
 **Request Body**
 
@@ -1889,7 +1889,7 @@ title: Platform Hub
 
 ## Get Platform Hub Git credentials (V2)
 
-:span[GET]{.api-get} `/api/platformhub/git-credentials/v2`
+:endpoint{method="GET" path="/api/platformhub/git-credentials/v2"}
 
 **Query Parameters**
 
@@ -1947,7 +1947,7 @@ title: Platform Hub
 
 ## Create a new Platform Hub Git credential
 
-:span[POST]{.api-post} `/api/platformhub/git-credentials/v2`
+:endpoint{method="POST" path="/api/platformhub/git-credentials/v2"}
 
 **Request Body**
 
@@ -1995,7 +1995,7 @@ title: Platform Hub
 
 ## Get a specific Platform Hub Git credential
 
-:span[GET]{.api-get} `/api/platformhub/git-credentials/{id}`
+:endpoint{method="GET" path="/api/platformhub/git-credentials/\{id\}"}
 
 **Path Parameters**
 
@@ -2038,7 +2038,7 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub Git credential
 
-:span[PUT]{.api-put} `/api/platformhub/git-credentials/{id}`
+:endpoint{method="PUT" path="/api/platformhub/git-credentials/\{id\}"}
 
 **Path Parameters**
 
@@ -2094,7 +2094,7 @@ title: Platform Hub
 
 ## Delete an existing Platform Hub Git credential
 
-:span[DELETE]{.api-delete} `/api/platformhub/git-credentials/{id}`
+:endpoint{method="DELETE" path="/api/platformhub/git-credentials/\{id\}"}
 
 **Path Parameters**
 
@@ -2113,7 +2113,7 @@ title: Platform Hub
 
 ## Get a specific Platform Hub Git credential (V2)
 
-:span[GET]{.api-get} `/api/platformhub/git-credentials/{id}/v2`
+:endpoint{method="GET" path="/api/platformhub/git-credentials/\{id\}/v2"}
 
 **Path Parameters**
 
@@ -2156,7 +2156,7 @@ title: Platform Hub
 
 ## Modify an existing Platform Hub Git credential
 
-:span[PUT]{.api-put} `/api/platformhub/git-credentials/{id}/v2`
+:endpoint{method="PUT" path="/api/platformhub/git-credentials/\{id\}/v2"}
 
 **Path Parameters**
 
@@ -2206,7 +2206,7 @@ title: Platform Hub
 
 ## Request the list of Branches for the Platform Hub
 
-:span[GET]{.api-get} `/api/platformhub/git/branches`
+:endpoint{method="GET" path="/api/platformhub/git/branches"}
 
 **Query Parameters**
 
@@ -2270,7 +2270,7 @@ title: Platform Hub
 
 ## Create a branch given the base git ref, and the new branch's name
 
-:span[POST]{.api-post} `/api/platformhub/git/branches`
+:endpoint{method="POST" path="/api/platformhub/git/branches"}
 
 **Request Body**
 
@@ -2325,7 +2325,7 @@ title: Platform Hub
 
 ## Request a list of Git Tags for the Platform Hub
 
-:span[GET]{.api-get} `/api/platformhub/git/tags`
+:endpoint{method="GET" path="/api/platformhub/git/tags"}
 
 **Query Parameters**
 
@@ -2387,7 +2387,7 @@ title: Platform Hub
 
 ## Get GitHub App connections for the Platform Hub
 
-:span[GET]{.api-get} `/api/platformhub/github/connections`
+:endpoint{method="GET" path="/api/platformhub/github/connections"}
 
 Gets a set of GitHub App connections for the Platform Hub.
 
@@ -2437,7 +2437,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Create a new GitHub App connection in Platform Hub
 
-:span[POST]{.api-post} `/api/platformhub/github/connections`
+:endpoint{method="POST" path="/api/platformhub/github/connections"}
 
 **Request Body**
 
@@ -2468,7 +2468,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get a single PlatformHub GitHub app connection by id
 
-:span[GET]{.api-get} `/api/platformhub/github/connections/{id}`
+:endpoint{method="GET" path="/api/platformhub/github/connections/\{id\}"}
 
 **Path Parameters**
 
@@ -2542,7 +2542,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Update a Platform Hub GitHub App connection with a new set of repositories
 
-:span[PUT]{.api-put} `/api/platformhub/github/connections/{id}`
+:endpoint{method="PUT" path="/api/platformhub/github/connections/\{id\}"}
 
 **Path Parameters**
 
@@ -2576,7 +2576,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Delete a PlatformHub GitHub App connection by id
 
-:span[DELETE]{.api-delete} `/api/platformhub/github/connections/{id}`
+:endpoint{method="DELETE" path="/api/platformhub/github/connections/\{id\}"}
 
 **Path Parameters**
 
@@ -2595,7 +2595,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Recover a platfrom hub GitHub App connection after the registration has changed
 
-:span[POST]{.api-post} `/api/platformhub/github/connections/{id}/recover`
+:endpoint{method="POST" path="/api/platformhub/github/connections/\{id\}/recover"}
 
 **Path Parameters**
 
@@ -2629,7 +2629,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Refresh the Platform Hub GitHub App connection token
 
-:span[POST]{.api-post} `/api/platformhub/github/connections/{id}/refresh`
+:endpoint{method="POST" path="/api/platformhub/github/connections/\{id\}/refresh"}
 
 **Path Parameters**
 
@@ -2647,7 +2647,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
-:span[GET]{.api-get} `/api/platformhub/github/installations`
+:endpoint{method="GET" path="/api/platformhub/github/installations"}
 
 **Query Parameters**
 
@@ -2685,7 +2685,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get platform hub version control settings configuration
 
-:span[GET]{.api-get} `/api/platformhub/versioncontrol`
+:endpoint{method="GET" path="/api/platformhub/versioncontrol"}
 
 **Response**
 
@@ -2713,7 +2713,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Update the platform hub's existing version control settings configuration
 
-:span[PUT]{.api-put} `/api/platformhub/versioncontrol`
+:endpoint{method="PUT" path="/api/platformhub/versioncontrol"}
 
 **Request Body**
 
@@ -2764,7 +2764,7 @@ Gets a set of GitHub App connections for the Platform Hub.
 
 ## Get a paginated list of process templates from the specified Git reference (sorted by name)
 
-:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates`
+:endpoint{method="GET" path="/api/platformhub/\{gitRef\}/processtemplates"}
 
 **Path Parameters**
 

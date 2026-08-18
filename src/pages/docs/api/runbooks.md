@@ -7,7 +7,7 @@ title: Runbooks
 
 ## Retrieve a list of Runbooks that will be converted to Git, along with how many RunbookRun History records will be updated
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/migrate-runbooks`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/migrate-runbooks"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-runbooks`.
 
@@ -48,7 +48,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 ## Get a paginated list of the Runbooks that belong to the given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks"}
 
 Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks`.
 
@@ -189,7 +189,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 
 ## Create a new Runbook or clone an existing Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbooks`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks"}
 
 Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks`.
 
@@ -381,7 +381,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 
 ## Get a list of Runbooks for a Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/all/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/all/v2"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/all/v2`.
 
@@ -488,7 +488,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
 
 ## Create a new Database Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbooks/v2`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v2`.
 
@@ -587,7 +587,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
 
 ## Get a Runbook by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}`.
 
@@ -694,7 +694,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 
 ## Update an existing Runbook
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/runbooks/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}`.
 
@@ -894,7 +894,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 
 ## Delete an existing Runbook
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/runbooks/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}`.
 
@@ -911,7 +911,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/environments`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/environments"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/environments`.
 
@@ -989,7 +989,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/environments/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/environments/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/environments/v2`.
 
@@ -1041,7 +1041,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/runbookRunTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/runbookRunTemplate"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/runbookRunTemplate`.
 
@@ -1134,7 +1134,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}`.
 
@@ -1250,7 +1250,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}/\{tenant\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`.
 
@@ -1366,7 +1366,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Run the published version of this Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbooks/{runbookId}/run`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{runbookId\}/run"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{runbookId}/run`.
 
@@ -1495,7 +1495,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
 
 ## Get a list of Runbook Run Previews for a Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbooks/{runbookId}/runbookRuns/previews`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{runbookId\}/runbookRuns/previews"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookRuns/previews`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{runbookId}/runbookRuns/previews`.
 
@@ -1632,7 +1632,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 
 ## Get all of the information necessary for creating or editing a Snapshot for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{runbookId}/runbookSnapshotTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{runbookId\}/runbookSnapshotTemplate"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{runbookId}/runbookSnapshotTemplate`.
 
@@ -1743,7 +1743,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
 
 ## Get a paginated list of the Runbooks that belong to the given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks`.
 
@@ -1886,7 +1886,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
 
 ## Create a new Git runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/v2`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/v2`.
 
@@ -1993,7 +1993,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 
 ## Get a Runbook by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}`.
 
@@ -2101,7 +2101,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 
 ## Update an existing Runbook
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}`.
 
@@ -2309,7 +2309,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 
 ## Delete an existing Runbook
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}`.
 
@@ -2355,7 +2355,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}/environments`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}/environments"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}/environments`.
 
@@ -2435,7 +2435,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}/environments/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}/environments/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}/environments/v2`.
 
@@ -2488,7 +2488,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}/runbookRunTemplate"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTemplate`.
 
@@ -2583,7 +2583,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}`.
 
@@ -2700,7 +2700,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}/\{tenant\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`.
 
@@ -2818,7 +2818,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Get a list of Runbook Run Previews for a Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{runbookId}/runbookRuns/previews`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{runbookId\}/runbookRuns/previews"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/runbookRuns/previews`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{runbookId}/runbookRuns/previews`.
 
@@ -2958,7 +2958,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 
 ## Get all of the information necessary for creating or editing a Snapshot for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbookSnapshotTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitref\}/runbooks/\{runbookId\}/runbookSnapshotTemplate"}
 
 Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbookSnapshotTemplate`.
 
@@ -3070,7 +3070,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
 
 ## Get a list of Runbooks
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks"}
 
 Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 
@@ -3209,7 +3209,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
 
 ## Create a new Runbook or clone an existing Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/runbooks`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbooks"}
 
 Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 
@@ -3399,7 +3399,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 
 ## Get a list of Runbooks
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/all"}
 
 Also reachable at `/api/runbooks/all`, `/api/spaces/{spaceIdentifier}/runbooks/all`.
 
@@ -3515,7 +3515,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
 
 ## Get a Runbook by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/{id}`.
 
@@ -3625,7 +3625,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 
 ## Update an existing Runbook
 
-:span[PUT]{.api-put} `/api/{spaceId}/runbooks/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/{id}`.
 
@@ -3823,7 +3823,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 
 ## Delete an existing Runbook
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/runbooks/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/runbooks/\{id\}"}
 
 Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/{id}`.
 
@@ -3839,7 +3839,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 
 ## Get a list of environments a Runbook can be run within, based on its EnvironmentScope
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}/environments`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}/environments"}
 
 Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifier}/runbooks/{id}/environments`.
 
@@ -3920,7 +3920,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
 
 ## Get all of the information necessary for creating or editing a Runbook Run for this Runbook (when you do not have a snapshot)
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}/runbookRunTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}/runbookRunTemplate"}
 
 Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceIdentifier}/runbooks/{id}/runbookRunTemplate`.
 
@@ -4016,7 +4016,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}/runbookRuns/preview/{environment}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}"}
 
 Also reachable at `/api/runbooks/{id}/runbookRuns/preview/{environment}`, `/api/spaces/{spaceIdentifier}/runbooks/{id}/runbookRuns/preview/{environment}`.
 
@@ -4132,7 +4132,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Get a Runbook Run Preview for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}/runbookRuns/preview/\{environment\}/\{tenant\}"}
 
 Also reachable at `/api/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`, `/api/spaces/{spaceIdentifier}/runbooks/{id}/runbookRuns/preview/{environment}/{tenant}`.
 
@@ -4248,7 +4248,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
 
 ## Run the published version of this Runbook
 
-:span[POST]{.api-post} `/api/{spaceId}/runbooks/{runbookId}/run`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbooks/\{runbookId\}/run"}
 
 Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier}/runbooks/{runbookId}/run`.
 
@@ -4375,7 +4375,7 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
 
 ## Get all of the information necessary for creating or editing a Snapshot for a Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{runbookId}/runbookSnapshotTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{runbookId\}/runbookSnapshotTemplate"}
 
 Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spaces/{spaceIdentifier}/runbooks/{runbookId}/runbookSnapshotTemplate`.
 

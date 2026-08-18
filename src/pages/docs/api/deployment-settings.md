@@ -7,7 +7,7 @@ title: Deployment Settings
 
 ## Get deployment settings by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/deploymentsettings`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentsettings"}
 
 Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentsettings`.
 
@@ -92,7 +92,7 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
 
 ## Get deployment settings by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentsettings`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentsettings"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentsettings`.
 
@@ -178,7 +178,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
 
 ## Modify deployment settings
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentsettings`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentsettings"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentsettings`.
 
@@ -339,7 +339,7 @@ Modifies deployment settings for a project.
 
 ## Get deployment settings by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymentsettings/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymentsettings/\{id\}" deprecated=true}
 
 Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}/deploymentsettings/{id}`.
 
@@ -428,7 +428,7 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
 
 ## Modify deployment settings
 
-:span[PUT]{.api-put} `/api/{spaceId}/deploymentsettings/{projectId}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/deploymentsettings/\{projectId\}" deprecated=true}
 
 Also reachable at `/api/deploymentsettings/{projectId}`, `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{spaceIdentifier}/deploymentsettings/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentsettings`, `/api/{spaceId}/projects/{projectId}/deploymentsettings`.
 

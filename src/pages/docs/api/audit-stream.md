@@ -7,7 +7,7 @@ title: Audit Stream
 
 ## Get the audit stream configuration
 
-:span[GET]{.api-get} `/api/audit-stream`
+:endpoint{method="GET" path="/api/audit-stream"}
 
 **Response**
 
@@ -45,7 +45,7 @@ title: Audit Stream
 
 ## Modify the audit stream configuration
 
-:span[PUT]{.api-put} `/api/audit-stream`
+:endpoint{method="PUT" path="/api/audit-stream"}
 
 **Request Body**
 

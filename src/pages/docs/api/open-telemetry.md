@@ -7,7 +7,7 @@ title: Open Telemetry
 
 ## Request the open telemetry trace file exporter config
 
-:span[GET]{.api-get} `/api/configuration/open-telemetry-trace-file-export`
+:endpoint{method="GET" path="/api/configuration/open-telemetry-trace-file-export"}
 
 **Response**
 
@@ -29,7 +29,7 @@ title: Open Telemetry
 
 ## Modify OpenTelemetry trace file export configuration
 
-:span[PUT]{.api-put} `/api/configuration/open-telemetry-trace-file-export`
+:endpoint{method="PUT" path="/api/configuration/open-telemetry-trace-file-export"}
 
 **Request Body**
 

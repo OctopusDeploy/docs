@@ -7,7 +7,7 @@ title: Runbook Runs
 
 ## Get a list of Runbook Runs
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookRuns`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookRuns"}
 
 Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRuns`.
 
@@ -205,7 +205,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 
 ## Create a new Runbook Run
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookRuns`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookRuns"}
 
 Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRuns`.
 
@@ -434,7 +434,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
 
 ## Get a Runbook Run by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookRuns/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookRuns/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRuns/{id}`.
 
@@ -593,7 +593,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
 
 ## Delete an existing Runbook Run
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/runbookruns/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/runbookruns/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookruns/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookruns/{id}`.
 
@@ -612,7 +612,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{id}`, `/api/spaces/{sp
 
 ## Create a new Runbook run based on an existing runbook run
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookruns/\{runbookRunId\}/retry/v1"}
 
 Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1`.
 
@@ -760,7 +760,7 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
 
 ## Create a new Runbook Run
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbooks/\{runbookId\}/run/v1"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v1`.
 
@@ -1014,7 +1014,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
 
 ## Create a new runbook run
 
-:span[POST]{.api-post} `/api/{spaceId}/runbook-runs/create/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbook-runs/create/v1"}
 
 Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/runbook-runs/create/v1`.
 
@@ -1139,7 +1139,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
 
 ## Get a list of Runbook Runs
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookRuns`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookRuns"}
 
 Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns`.
 
@@ -1336,7 +1336,7 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
 
 ## Create a new Runbook Run
 
-:span[POST]{.api-post} `/api/{spaceId}/runbookRuns`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbookRuns"}
 
 Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns`.
 
@@ -1564,7 +1564,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
 
 ## Get a Runbook Run by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookRuns/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookRuns/\{id\}"}
 
 Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runbookRuns/{id}`.
 
@@ -1726,7 +1726,7 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
 
 ## Delete an existing Runbook Run
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/runbookruns/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/runbookruns/\{id\}"}
 
 Also reachable at `/api/runbookruns/{id}`, `/api/spaces/{spaceIdentifier}/runbookruns/{id}`.
 

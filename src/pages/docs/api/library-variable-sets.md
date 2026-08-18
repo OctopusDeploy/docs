@@ -7,7 +7,7 @@ title: Library Variable Sets
 
 ## List all of the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets`
+:endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets"}
 
 Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/libraryvariablesets`.
 
@@ -112,7 +112,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 
 ## Create a new library variable set
 
-:span[POST]{.api-post} `/api/{spaceId}/libraryvariablesets`
+:endpoint{method="POST" path="/api/\{spaceId\}/libraryvariablesets"}
 
 Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/libraryvariablesets`.
 
@@ -242,7 +242,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 
 ## Get a list of Library Variable Sets
 
-:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/all"}
 
 Also reachable at `/api/libraryvariablesets/all`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/all`.
 
@@ -328,7 +328,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a list of Library Variable Sets
 
-:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/all/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/all/v1"}
 
 Also reachable at `/api/libraryvariablesets/all/v1`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/all/v1`.
 
@@ -404,7 +404,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a list of Library Variable Sets
 
-:span[POST]{.api-post} `/api/{spaceId}/libraryvariablesets/all/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/libraryvariablesets/all/v1"}
 
 Lists all the Library Variable Sets in the supplied Space. The results will be sorted alphabetically by name.
 
@@ -478,7 +478,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a list of Library Variable Sets
 
-:span[POST]{.api-post} `/api/spaces/{spaceIdentifier}/libraryvariablesets/all/v1`
+:endpoint{method="POST" path="/api/spaces/\{spaceIdentifier\}/libraryvariablesets/all/v1"}
 
 Also reachable at `/api/libraryvariablesets/all/v1`.
 
@@ -554,7 +554,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 
 ## Get a Library Variable Set by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/\{id\}"}
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
@@ -638,7 +638,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 
 ## Modify an existing library variable set
 
-:span[PUT]{.api-put} `/api/{spaceId}/libraryvariablesets/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/libraryvariablesets/\{id\}"}
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
@@ -769,7 +769,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 
 ## Delete an existing Library Variable Set
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/libraryvariablesets/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/libraryvariablesets/\{id\}"}
 
 Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}`.
 
@@ -785,7 +785,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 
 ## List projects and deployments which are using an library variable set
 
-:span[GET]{.api-get} `/api/{spaceId}/libraryvariablesets/{id}/usages`
+:endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/\{id\}/usages"}
 
 Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIdentifier}/libraryvariablesets/{id}/usages`.
 

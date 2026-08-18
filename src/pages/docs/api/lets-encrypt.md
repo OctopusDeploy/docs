@@ -7,7 +7,7 @@ title: Lets Encrypt
 
 ## Request the current Let's Encrypt configuration
 
-:span[GET]{.api-get} `/api/letsencryptconfiguration`
+:endpoint{method="GET" path="/api/letsencryptconfiguration"}
 
 **Response**
 
@@ -58,7 +58,7 @@ title: Lets Encrypt
 
 ## Allow you to disable the Let's Encrypt configuration for this Octopus Server
 
-:span[PUT]{.api-put} `/api/letsencryptconfiguration`
+:endpoint{method="PUT" path="/api/letsencryptconfiguration"}
 
 **Request Body**
 

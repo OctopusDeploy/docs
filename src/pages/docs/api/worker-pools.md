@@ -7,7 +7,7 @@ title: Worker Pools
 
 ## Get a list of Worker Pools
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools`.
 
@@ -113,7 +113,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 
 ## Create a new Worker Pool
 
-:span[POST]{.api-post} `/api/{spaceId}/workerpools`
+:endpoint{method="POST" path="/api/\{spaceId\}/workerpools"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools`.
 
@@ -203,7 +203,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 
 ## Get a list of Worker Pools
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/all`, `/api/workerpools/all`.
 
@@ -272,7 +272,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 
 ## List the available Worker Types for the Dynamic Worker Pool
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/dynamicworkertypes`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/dynamicworkertypes"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/dynamicworkertypes`, `/api/workerpools/dynamicworkertypes`.
 
@@ -328,7 +328,7 @@ Returns a list of the available Worker Types for the Dynamic Worker Pool
 
 ## PUT /api/{spaceId}/workerpools/sortorder
 
-:span[PUT]{.api-put} `/api/{spaceId}/workerpools/sortorder`
+:endpoint{method="PUT" path="/api/\{spaceId\}/workerpools/sortorder"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/sortorder`, `/api/workerpools/sortorder`.
 
@@ -356,7 +356,7 @@ A `array of string` payload.
 
 ## List all worker pools, including a summary of worker information
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/summary`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/summary"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/summary`, `/api/workerpools/summary`.
 
@@ -463,7 +463,7 @@ Lists all worker pools, including a summary of machine information.
 
 ## Get the available Worker Pool types
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/supportedtypes`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/supportedtypes"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/supportedtypes`, `/api/workerpools/supportedtypes`.
 
@@ -500,7 +500,7 @@ Lists the available Worker Pool types.
 
 ## Get a Worker Pool by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
@@ -560,7 +560,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 
 ## Modify an existing worker pool
 
-:span[PUT]{.api-put} `/api/{spaceId}/workerpools/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/workerpools/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
@@ -655,7 +655,7 @@ Updates an existing worker pool.
 
 ## Delete an existing Worker Pool
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/workerpools/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/workerpools/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/workerpools/{id}`.
 
@@ -671,7 +671,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 
 ## Get a list of WorkerResources for the given WorkerPoolResource
 
-:span[GET]{.api-get} `/api/{spaceId}/workerpools/{id}/workers`
+:endpoint{method="GET" path="/api/\{spaceId\}/workerpools/\{id\}/workers"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}/workers`, `/api/workerpools/{id}/workers`.
 

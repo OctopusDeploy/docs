@@ -7,7 +7,7 @@ title: Maintenance Configuration
 
 ## Get information about the maintenance configuration in use by the Octopus Server
 
-:span[GET]{.api-get} `/api/maintenanceconfiguration`
+:endpoint{method="GET" path="/api/maintenanceconfiguration"}
 
 **Response**
 
@@ -41,7 +41,7 @@ title: Maintenance Configuration
 
 ## Update the maintenance configuration used by the Octopus Server
 
-:span[PUT]{.api-put} `/api/maintenanceconfiguration`
+:endpoint{method="PUT" path="/api/maintenanceconfiguration"}
 
 **Request Body**
 
@@ -87,7 +87,7 @@ title: Maintenance Configuration
 
 ## Update the maintenance configuration used by the Octopus Server
 
-:span[PUT]{.api-put} `/api/maintenanceconfiguration/v1`
+:endpoint{method="PUT" path="/api/maintenanceconfiguration/v1"}
 
 **Request Body**
 

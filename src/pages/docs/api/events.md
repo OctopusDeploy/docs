@@ -7,7 +7,7 @@ title: Events
 
 ## Get a list of events
 
-:span[GET]{.api-get} `/api/{spaceId}/events`
+:endpoint{method="GET" path="/api/\{spaceId\}/events"}
 
 Also reachable at `/api/events`, `/api/spaces/{spaceIdentifier}/events`.
 
@@ -71,7 +71,7 @@ A list of all audit events collected to date, ordered by the date of the event i
 
 ## Return the list of event agents
 
-:span[GET]{.api-get} `/api/{spaceId}/events/agents`
+:endpoint{method="GET" path="/api/\{spaceId\}/events/agents"}
 
 Also reachable at `/api/events/agents`, `/api/spaces/{spaceIdentifier}/events/agents`.
 
@@ -105,7 +105,7 @@ Also reachable at `/api/events/agents`, `/api/spaces/{spaceIdentifier}/events/ag
 
 ## List event categories
 
-:span[GET]{.api-get} `/api/{spaceId}/events/categories`
+:endpoint{method="GET" path="/api/\{spaceId\}/events/categories"}
 
 Also reachable at `/api/events/categories`, `/api/spaces/{spaceIdentifier}/events/categories`.
 
@@ -143,7 +143,7 @@ Also reachable at `/api/events/categories`, `/api/spaces/{spaceIdentifier}/event
 
 ## List subscription event document types
 
-:span[GET]{.api-get} `/api/{spaceId}/events/documenttypes`
+:endpoint{method="GET" path="/api/\{spaceId\}/events/documenttypes"}
 
 Also reachable at `/api/events/documenttypes`, `/api/spaces/{spaceIdentifier}/events/documenttypes`.
 
@@ -172,7 +172,7 @@ Also reachable at `/api/events/documenttypes`, `/api/spaces/{spaceIdentifier}/ev
 
 ## List subscription event groups
 
-:span[GET]{.api-get} `/api/{spaceId}/events/groups`
+:endpoint{method="GET" path="/api/\{spaceId\}/events/groups"}
 
 Also reachable at `/api/events/groups`, `/api/spaces/{spaceIdentifier}/events/groups`.
 
@@ -216,7 +216,7 @@ Also reachable at `/api/events/groups`, `/api/spaces/{spaceIdentifier}/events/gr
 
 ## Get a single event by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/events/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/events/\{id\}"}
 
 Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}`.
 

@@ -7,7 +7,7 @@ title: Version Control
 
 ## Clear the local Git cache
 
-:span[POST]{.api-post} `/api/configuration/versioncontrol/clear-cache`
+:endpoint{method="POST" path="/api/configuration/versioncontrol/clear-cache"}
 
 **Response**
 
@@ -21,7 +21,7 @@ title: Version Control
 
 ## Clear the local Git cache
 
-:span[POST]{.api-post} `/api/configuration/versioncontrol/clear-cache/v1`
+:endpoint{method="POST" path="/api/configuration/versioncontrol/clear-cache/v1"}
 
 **Response**
 

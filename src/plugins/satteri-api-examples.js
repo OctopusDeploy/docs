@@ -1,4 +1,5 @@
 import { defineHastPlugin, defineMdastPlugin } from 'satteri';
+import { ENDPOINT_CLASS } from './satteri-endpoint.js';
 
 // The API pages are written as a flat run of H2 sections, each with a request
 // and response example somewhere inside it:
@@ -23,12 +24,12 @@ import { defineHastPlugin, defineMdastPlugin } from 'satteri';
 //
 // Anything before the first H2 is left where it is.
 //
-// Each section's HTTP method is also collected here and left on the frontmatter
-// as `apiMethods`, in heading order, for ApiNavigation.astro to badge the left
-// nav with. It cannot be read from the headings Astro hands the layout: those
-// carry text and slug only, and are collected after this plugin runs. The
-// heading text is recorded beside the method so the nav can check the two lists
-// still describe the same endpoints before it trusts the order.
+// Each section's endpoint is also collected here and left on the frontmatter as
+// `apiMethods`, in heading order, for ApiNavigation.astro to badge the left nav
+// with. It cannot be read from the headings Astro hands the layout: those carry
+// text and slug only, and are collected after this plugin runs. The heading text
+// is recorded beside the method so the nav can check the two lists still
+// describe the same endpoints before it trusts the order.
 
 /** The container directive an example is written as, and the class it renders to. */
 const DIRECTIVE = 'api-example';
@@ -98,48 +99,41 @@ function exampleLabel(node) {
   return node.properties?.['data-example'] ?? null;
 }
 
-// The methods that have a badge of their own in api.css. Anything else — a
-// PATCH, say — is left without one rather than badged as something it is not.
-const METHODS = ['get', 'post', 'put', 'delete'];
-
-/** The class the generator puts on a badge, e.g. api-get -> get. */
-function methodFromBadge(node) {
-  return METHODS.find((method) => hasClass(node, `api-${method}`)) ?? null;
-}
-
-/** The method an older page spells as inline code, e.g. `GET`. */
-function methodFromCode(node) {
-  if (!isElement(node, 'code')) return null;
-
-  const method = text(node).trim().toLowerCase();
-  return METHODS.includes(method) ? method : null;
-}
-
 /** An element's text, the way a heading or a code span reads. */
 function text(node) {
   if (node.type === 'text') return node.value;
   return (node.children ?? []).map(text).join('');
 }
 
+/** The first `.api-endpoint` anywhere under `nodes`, or null. */
+function findEndpoint(nodes) {
+  for (const node of nodes) {
+    if (!isElement(node)) continue;
+    if (hasClass(node, ENDPOINT_CLASS)) return node;
+
+    const nested = findEndpoint(node.children ?? []);
+    if (nested) return nested;
+  }
+  return null;
+}
+
 /**
- * The HTTP method of a section, from the request line under its heading.
+ * The endpoint a section documents, read off the `:endpoint` directive under
+ * its heading. Written out by plugins/satteri-endpoint.js, which is the whole
+ * point of the directive: the method is stated rather than inferred from
+ * whatever inline markup happens to open the line.
  *
- * The generator has emitted that line as a badge — <span class="api-get">GET
- * </span> — and as plain inline code — `GET` — so both are read. Either way the
- * method opens the first line under the heading, and only that opening is read:
- * a method named anywhere else is prose about the endpoint rather than the
- * endpoint's own method.
+ * A section with no endpoint — a page of prose between the generated ones —
+ * simply has none.
  */
-function method(nodes) {
-  const requestLine = nodes.find((node) => isElement(node));
-  if (!requestLine) return null;
+function endpoint(nodes) {
+  const node = findEndpoint(nodes);
+  if (!node) return { method: null, deprecated: false };
 
-  const opening = (requestLine.children ?? []).find(
-    (child) => child.type !== 'text' || child.value.trim() !== ''
-  );
-  if (!isElement(opening)) return null;
-
-  return methodFromBadge(opening) ?? methodFromCode(opening);
+  return {
+    method: node.properties?.['data-method'] ?? null,
+    deprecated: node.properties?.['data-deprecated'] === 'true',
+  };
 }
 
 function element(tagName, properties, children) {
@@ -272,7 +266,7 @@ export default defineHastPlugin({
 
         methods.push({
           text: text(current.heading).trim(),
-          method: method(current.nodes),
+          ...endpoint(current.nodes),
         });
 
         children.push(section(current.heading, current.nodes));

@@ -7,7 +7,7 @@ title: Insights
 
 ## Get a list of Insights Reports
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports`.
 
@@ -128,7 +128,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
 
 ## Create an Insights Report
 
-:span[POST]{.api-post} `/api/{spaceId}/insights/reports`
+:endpoint{method="POST" path="/api/\{spaceId\}/insights/reports"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports`.
 
@@ -284,7 +284,7 @@ Creates a new Insights Report.
 
 ## Create an Insights Report
 
-:span[POST]{.api-post} `/api/{spaceId}/insights/reports/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/insights/reports/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/v1`.
 
@@ -440,7 +440,7 @@ Creates a new Insights Report.
 
 ## GET /api/{spaceId}/insights/reports/{id}
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
@@ -530,7 +530,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
 ## Update an existing Insights Report
 
-:span[PUT]{.api-put} `/api/{spaceId}/insights/reports/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/insights/reports/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
@@ -693,7 +693,7 @@ Updates an existing Insights Report
 
 ## Delete an Insights Report by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/insights/reports/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/insights/reports/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 
@@ -712,7 +712,7 @@ Deletes an existing Insights Report.
 
 ## GET /api/{spaceId}/insights/reports/{id}/v1
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{id}/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
@@ -802,7 +802,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
 ## Update an existing Insights Report
 
-:span[PUT]{.api-put} `/api/{spaceId}/insights/reports/{id}/v1`
+:endpoint{method="PUT" path="/api/\{spaceId\}/insights/reports/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
@@ -965,7 +965,7 @@ Updates an existing Insights Report
 
 ## Delete an Insights Report by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/insights/reports/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/insights/reports/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 
@@ -990,7 +990,7 @@ Deletes an existing Insights Report.
 
 ## Request Insights Deployments for a Report
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/deployments`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{reportId\}/deployments"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/deployments`, `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/deployments/csv`, `/api/{spaceId}/insights/reports/{reportId}/deployments/csv`.
 
@@ -1043,7 +1043,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
 
 ## GET /api/{spaceId}/insights/reports/{reportId}/logo
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/logo`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{reportId\}/logo"}
 
 Also reachable at `/api/insights/reports/{reportId}/logo`, `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo`.
 
@@ -1065,7 +1065,7 @@ Also reachable at `/api/insights/reports/{reportId}/logo`, `/api/spaces/{spaceId
 
 ## Update the logo associated with the report
 
-:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo`
+:endpoint{method="POST" path="/api/\{spaceId\}/insights/reports/\{reportId\}/logo"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo`.
 
@@ -1081,7 +1081,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 
 ## Modify the logo of an insights report to be a specified icon
 
-:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo/icon`
+:endpoint{method="POST" path="/api/\{spaceId\}/insights/reports/\{reportId\}/logo/icon"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo/icon`.
 
@@ -1126,7 +1126,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 
 ## Modify the logo of an insights report to be a specified icon
 
-:span[POST]{.api-post} `/api/{spaceId}/insights/reports/{reportId}/logo/icon/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/insights/reports/\{reportId\}/logo/icon/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/logo/icon/v1`.
 
@@ -1171,7 +1171,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 
 ## Get Insights metrics series for the Insights Report
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/metrics`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{reportId\}/metrics"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/metrics`.
 
@@ -1224,7 +1224,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
 
 ## Get Insights metrics series for the Insights Report
 
-:span[GET]{.api-get} `/api/{spaceId}/insights/reports/{reportId}/metrics/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{reportId\}/metrics/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/metrics/v1`.
 
@@ -1277,7 +1277,7 @@ Returns the aggregated insights metrics for this insights report for the chosen 
 
 ## Get Insights Deployments for a Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/deployments`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/insights/deployments"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/deployments`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/deployments/csv`, `/api/{spaceId}/projects/{projectId}/insights/deployments/csv`.
 
@@ -1342,7 +1342,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/d
 
 ## Get Insights metrics series for the project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/metrics`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/insights/metrics"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/metrics`.
 
@@ -1401,7 +1401,7 @@ Returns the aggregated insights metrics for this project for the chosen granular
 
 ## Get Insights metrics series for the project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/insights/metrics/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/insights/metrics/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/metrics/v1`.
 

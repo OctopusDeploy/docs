@@ -7,7 +7,7 @@ title: Action Templates
 
 ## Delete an existing Action Template and all its versions
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/actionTemplates/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/actionTemplates/\{id\}"}
 
 Also reachable at `/api/actionTemplates/{id}`, `/api/spaces/{spaceIdentifier}/actionTemplates/{id}`.
 
@@ -24,7 +24,7 @@ Also reachable at `/api/actionTemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 
 ## Delete an existing Action Template and all its versions
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/actionTemplates/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/actionTemplates/\{id\}/v1"}
 
 Also reachable at `/api/actionTemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}/actionTemplates/{id}/v1`.
 
@@ -47,7 +47,7 @@ Also reachable at `/api/actionTemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
 
 ## Get a list of Action Templates
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates"}
 
 Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiontemplates`.
 
@@ -164,7 +164,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 
 ## Create an Action Template
 
-:span[POST]{.api-post} `/api/{spaceId}/actiontemplates`
+:endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates"}
 
 Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiontemplates`.
 
@@ -480,7 +480,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 
 ## Get all Action Templates
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/all"}
 
 Also reachable at `/api/actiontemplates/all`, `/api/spaces/{spaceIdentifier}/actiontemplates/all`.
 
@@ -625,7 +625,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
 
 ## Get a list of Action Template categories
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/categories`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/categories"}
 
 Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifier}/actiontemplates/categories`.
 
@@ -662,7 +662,7 @@ Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifi
 
 ## List all available action templates including built-in, custom and community contributed step templates
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/search`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/search"}
 
 Also reachable at `/api/actiontemplates/search`, `/api/spaces/{spaceIdentifier}/actiontemplates/search`.
 
@@ -737,7 +737,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
 
 ## Get an Action Template by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}"}
 
 Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}`.
 
@@ -904,7 +904,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 
 ## Modify an existing action template
 
-:span[PUT]{.api-put} `/api/{spaceId}/actiontemplates/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/actiontemplates/\{id\}"}
 
 Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}`.
 
@@ -1212,7 +1212,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
 
 ## Update deployment and runbook actions to a specific version of the action template
 
-:span[POST]{.api-post} `/api/{spaceId}/actiontemplates/{id}/actionsUpdate`
+:endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates/\{id\}/actionsUpdate"}
 
 Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/actionsUpdate`.
 
@@ -1397,7 +1397,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
 
 ## Create a server task to update deployment and runbook actions to a specific version of the action template
 
-:span[POST]{.api-post} `/api/{spaceId}/actiontemplates/{id}/actionsUpdate/bulk`
+:endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates/\{id\}/actionsUpdate/bulk"}
 
 Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/actionsUpdate/bulk`.
 
@@ -1572,7 +1572,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
 
 ## Get the logo associated with the latest version of action template
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}/logo`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/logo`.
 
@@ -1595,7 +1595,7 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 ## Update the logo associated with the latest version of the action template
 
-:span[POST]{.api-post} `/api/{spaceId}/actiontemplates/{id}/logo`
+:endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/logo`.
 
@@ -1618,7 +1618,7 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 ## Update the logo associated with the latest version of the action template
 
-:span[PUT]{.api-put} `/api/{spaceId}/actiontemplates/{id}/logo`
+:endpoint{method="PUT" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
 **Path Parameters**
 
@@ -1639,7 +1639,7 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 
 ## Update the logo associated with the latest version of the action template
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/logo`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`.
 
@@ -1662,7 +1662,7 @@ Also reachable at `/api/actiontemplates/{id}/logo`.
 
 ## Get usages for an Action Template
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}/usage`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}/usage"}
 
 Also reachable at `/api/actiontemplates/{id}/usage`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/usage`.
 
@@ -1761,7 +1761,7 @@ Gets a list of all steps/deployment processes that use a given action template.
 
 ## Get an Action Template by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}/v1"}
 
 Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/v1`.
 
@@ -1876,7 +1876,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
 
 ## Get all versions of an Action Template
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}/versions`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}/versions"}
 
 Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/versions`.
 
@@ -2021,7 +2021,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
 
 ## Get a specific version of an Action Template
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{id}/versions/{version}`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{id\}/versions/\{version\}"}
 
 Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/versions/{version}`.
 
@@ -2190,7 +2190,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
 
 ## Get the logo associated with specific version of the action template
 
-:span[GET]{.api-get} `/api/{spaceId}/actiontemplates/{typeOrId}/versions/{version}/logo`
+:endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/\{typeOrId\}/versions/\{version\}/logo"}
 
 Also reachable at `/api/actiontemplates/{typeOrId}/versions/{version}/logo`, `/api/spaces/{spaceIdentifier}/actiontemplates/{typeOrId}/versions/{version}/logo`.
 

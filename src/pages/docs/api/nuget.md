@@ -7,7 +7,7 @@ title: Nuget
 
 ## Push packages to this endpoint using NuGet.exe or compatible tools
 
-:span[PUT]{.api-put} `/api/{spaceId}/nuget/packages`
+:endpoint{method="PUT" path="/api/\{spaceId\}/nuget/packages"}
 
 Also reachable at `/api/nuget/packages`.
 

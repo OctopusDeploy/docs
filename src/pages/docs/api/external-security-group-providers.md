@@ -7,7 +7,7 @@ title: External Security Group Providers
 
 ## GET /api/externalsecuritygroupproviders
 
-:span[GET]{.api-get} `/api/externalsecuritygroupproviders`
+:endpoint{method="GET" path="/api/externalsecuritygroupproviders"}
 
 Lists the authentication providers that support external group lookups and are currently enabled
 

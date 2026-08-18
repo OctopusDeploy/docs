@@ -108,6 +108,39 @@ are expanded instead, so that `GET` endpoints still describe what they return.
 the shape of a payload and use fixed placeholder values (`"string"`, `0`, a constant timestamp) so that
 regenerating the docs doesn't produce a diff every time.
 
+## Directives the docs site understands
+
+The output is Markdown, with three directives the site's Markdown processor gives meaning to. They are the
+contract between this generator and `src/plugins` in the docs repo, so changing one means changing both.
+
+**`:endpoint`** — the request line of an endpoint, and the only thing that marks a section as documenting one.
+The docs site renders it as a method badge beside the route, and builds the left-hand endpoint nav from it.
+
+```markdown
+:endpoint{method="POST" path="/api/users/access-token"}
+```
+
+The directive parser ends an attribute block at the first unescaped `}`, and every route template has one, so
+the braces in a route are escaped:
+
+```markdown
+:endpoint{method="GET" path="/api/\{spaceId\}/channels" deprecated=true}
+```
+
+`deprecated=true` is optional and marks the endpoint's row in the nav. It does not print anything: the wording
+a reader sees is written out separately, as its own warning block, immediately under the request line.
+
+```markdown
+:::div{.warning}
+**Deprecated.** This endpoint may be removed in a future release.
+:::
+```
+
+**`:::api-example{label="Request|Response"}`** — an example payload. The site lifts these out of the flow and
+stacks them in a column beside the endpoint they belong to, which is layout Markdown itself cannot express.
+
+**`:span[…]{.type-label}`** — an attribute's type, e.g. `` **`Id`** :span[string]{.type-label} ``.
+
 ## Design
 
 The output is shaped to fit the API reference design in

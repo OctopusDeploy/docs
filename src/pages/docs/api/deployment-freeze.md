@@ -7,7 +7,7 @@ title: Deployment Freeze
 
 ## Get DeploymentFreezes
 
-:span[GET]{.api-get} `/api/deploymentfreezes`
+:endpoint{method="GET" path="/api/deploymentfreezes"}
 
 Gets a paginated set of DeploymentFreezes.
 
@@ -94,7 +94,7 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Create a new deployment freeze
 
-:span[POST]{.api-post} `/api/deploymentfreezes`
+:endpoint{method="POST" path="/api/deploymentfreezes"}
 
 **Request Body**
 
@@ -203,7 +203,7 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Get a deployment freeze by ID
 
-:span[GET]{.api-get} `/api/deploymentfreezes/{id}`
+:endpoint{method="GET" path="/api/deploymentfreezes/\{id\}"}
 
 **Path Parameters**
 
@@ -284,7 +284,7 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Create a new deployment freeze
 
-:span[PUT]{.api-put} `/api/deploymentfreezes/{id}`
+:endpoint{method="PUT" path="/api/deploymentfreezes/\{id\}"}
 
 **Path Parameters**
 
@@ -434,7 +434,7 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Delete a deployment freeze
 
-:span[DELETE]{.api-delete} `/api/deploymentfreezes/{id}`
+:endpoint{method="DELETE" path="/api/deploymentfreezes/\{id\}"}
 
 **Path Parameters**
 
@@ -447,7 +447,7 @@ Gets a paginated set of DeploymentFreezes.
 
 ## Override a deployment freeze to create a deployment
 
-:span[POST]{.api-post} `/api/{spaceId}/deployments/override`
+:endpoint{method="POST" path="/api/\{spaceId\}/deployments/override"}
 
 Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/deployments/override`.
 

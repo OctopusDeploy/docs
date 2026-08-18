@@ -7,7 +7,7 @@ title: Progression
 
 ## Return a list of runbook dashboard items, filtered by various criteria including projectIds, environmentIds, tenantIds, tenantTags, runbookIds, runbookTags, taskIds
 
-:span[GET]{.api-get} `/api/{spaceId}/progression/runbooks/taskRuns`
+:endpoint{method="GET" path="/api/\{spaceId\}/progression/runbooks/taskRuns"}
 
 Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdentifier}/progression/runbooks/taskRuns`.
 
@@ -152,7 +152,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
 
 ## Get the progress of a runbook in the environment lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/progression/runbooks/{runbookId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/progression/runbooks/\{runbookId\}"}
 
 Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceIdentifier}/progression/runbooks/{runbookId}`.
 
@@ -313,7 +313,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
 
 ## Get the progress of a runbook in the environment lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/progression/runbooks/{runbookId}/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/progression/runbooks/\{runbookId\}/v1"}
 
 Also reachable at `/api/progression/runbooks/{runbookId}/v1`, `/api/spaces/{spaceIdentifier}/progression/runbooks/{runbookId}/v1`.
 
@@ -376,7 +376,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}/v1`, `/api/spaces/{spac
 
 ## Get the progress of a release in the environment lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/progression/{projectId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/progression/\{projectId\}"}
 
 Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/progression`, `/api/spaces/{spaceIdentifier}/progression/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/progression`, `/api/{spaceId}/projects/{projectId}/progression`.
 
@@ -573,7 +573,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
 
 ## Get the progress of a release in the environment lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/progression/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/progression/v1"}
 
 Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/progression/v1`.
 

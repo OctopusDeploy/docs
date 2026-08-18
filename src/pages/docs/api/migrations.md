@@ -7,7 +7,7 @@ title: Migrations
 
 ## Create and queue a migration import task, from an export created via the migration partial-export api
 
-:span[POST]{.api-post} `/api/migrations/import`
+:endpoint{method="POST" path="/api/migrations/import"}
 
 The migration API provides the ability to back-up and restore parts of an Octopus Deploy instance remotely Further details can be found in the docs.
 
@@ -95,7 +95,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
 
 ## Create and queue a partial-export migration task
 
-:span[POST]{.api-post} `/api/migrations/partialexport`
+:endpoint{method="POST" path="/api/migrations/partialexport"}
 
 The migration API provides the ability to back-up and restore parts of an Octopus Deploy instance remotely Further details can be found in the docs.
 

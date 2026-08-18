@@ -7,7 +7,7 @@ title: Dashboard
 
 ## Return information required to render the Octopus dashboard
 
-:span[GET]{.api-get} `/api/{spaceId}/dashboard`
+:endpoint{method="GET" path="/api/\{spaceId\}/dashboard"}
 
 Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
 
@@ -264,7 +264,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
 
 ## Return the information required to render the dynamic dashboard. Deprecated
 
-:span[GET]{.api-get} `/api/{spaceId}/dashboard/dynamic`
+:endpoint{method="GET" path="/api/\{spaceId\}/dashboard/dynamic"}
 
 Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashboard/dynamic`.
 

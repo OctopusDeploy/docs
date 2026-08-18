@@ -7,7 +7,7 @@ title: Scoped User Roles
 
 ## List the name and ID of all of the scoped user roles in the supplied Octopus Deploy Space. The results will be sorted by name
 
-:span[GET]{.api-get} `/api/{spaceId}/scopeduserroles`
+:endpoint{method="GET" path="/api/\{spaceId\}/scopeduserroles"}
 
 Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopeduserroles`.
 
@@ -107,7 +107,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 
 ## Create a scoped user role
 
-:span[POST]{.api-post} `/api/{spaceId}/scopeduserroles`
+:endpoint{method="POST" path="/api/\{spaceId\}/scopeduserroles"}
 
 Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopeduserroles`.
 
@@ -201,7 +201,7 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 
 ## Get a Scoped User Role by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/scopeduserroles/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/scopeduserroles/\{id\}"}
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 
@@ -263,7 +263,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 
 ## Modify a scoped user role
 
-:span[PUT]{.api-put} `/api/{spaceId}/scopeduserroles/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/scopeduserroles/\{id\}"}
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 
@@ -362,7 +362,7 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 
 ## Delete an existing Scoped User Role
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/scopeduserroles/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/scopeduserroles/\{id\}"}
 
 Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/scopeduserroles/{id}`.
 

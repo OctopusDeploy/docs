@@ -7,7 +7,7 @@ title: Token Exchange
 
 ## Exchange an Oidc token for an access token that allows access to the API
 
-:span[POST]{.api-post} `/api/token/v1`
+:endpoint{method="POST" path="/api/token/v1"}
 
 **Request Body**
 

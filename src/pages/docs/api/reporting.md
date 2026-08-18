@@ -7,7 +7,7 @@ title: Reporting
 
 ## Get an XML report of deployments
 
-:span[GET]{.api-get} `/api/{spaceId}/reporting/deployments/xml`
+:endpoint{method="GET" path="/api/\{spaceId\}/reporting/deployments/xml"}
 
 Also reachable at `/api/reporting/deployments/xml`, `/api/spaces/{spaceIdentifier}/reporting/deployments/xml`.
 

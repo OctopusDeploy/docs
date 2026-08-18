@@ -7,7 +7,7 @@ title: Worker Task Leases
 
 ## Get WorkerTaskLeases
 
-:span[GET]{.api-get} `/api/{spaceId}/workertaskleases`
+:endpoint{method="GET" path="/api/\{spaceId\}/workertaskleases"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workertaskleases`.
 

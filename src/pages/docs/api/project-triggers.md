@@ -7,7 +7,7 @@ title: Project Triggers
 
 ## Get Project Triggers within a given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/triggers`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/triggers"}
 
 Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/triggers`.
 
@@ -124,7 +124,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 
 ## Create a new project trigger
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/triggers`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/triggers"}
 
 Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/triggers`.
 
@@ -288,7 +288,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 
 ## Get project trigger by project id and trigger id
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/triggers/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/triggers/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/triggers/{id}`.
 
@@ -385,7 +385,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
 
 ## Modify a ProjectTriggerResource by ID
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/triggers/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/triggers/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/triggers/{id}`.
 
@@ -556,7 +556,7 @@ Updates an existing project trigger
 
 ## Delete an existing Project Trigger
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/triggers/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/triggers/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/triggers/{id}`.
 
@@ -581,7 +581,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
 
 ## Get a list of Project Triggers
 
-:span[GET]{.api-get} `/api/{spaceId}/projecttriggers`
+:endpoint{method="GET" path="/api/\{spaceId\}/projecttriggers"}
 
 Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/projecttriggers`.
 
@@ -688,7 +688,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
 
 ## Create a new project trigger
 
-:span[POST]{.api-post} `/api/{spaceId}/projecttriggers`
+:endpoint{method="POST" path="/api/\{spaceId\}/projecttriggers"}
 
 Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/projecttriggers`.
 
@@ -850,7 +850,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
 
 ## Get a Project Trigger by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projecttriggers/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projecttriggers/\{id\}"}
 
 Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/projecttriggers/{id}`.
 
@@ -945,7 +945,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
 
 ## Modify a ProjectTriggerResource by ID
 
-:span[PUT]{.api-put} `/api/{spaceId}/projecttriggers/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projecttriggers/\{id\}"}
 
 Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/projecttriggers/{id}`.
 
@@ -1114,7 +1114,7 @@ Updates an existing project trigger
 
 ## Delete an existing Project Trigger
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projecttriggers/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projecttriggers/\{id\}"}
 
 Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/projecttriggers/{id}`.
 

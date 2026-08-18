@@ -7,7 +7,7 @@ title: Service Account Oidc Identities
 
 ## Create new OIDC Identity for a Service Account
 
-:span[POST]{.api-post} `/api/serviceaccounts/{serviceAccountId}/oidcidentities/create/v1`
+:endpoint{method="POST" path="/api/serviceaccounts/\{serviceAccountId\}/oidcidentities/create/v1"}
 
 **Path Parameters**
 
@@ -55,7 +55,7 @@ title: Service Account Oidc Identities
 
 ## Get ServiceAccountOidcIdentities
 
-:span[GET]{.api-get} `/api/serviceaccounts/{serviceAccountId}/oidcidentities/v1`
+:endpoint{method="GET" path="/api/serviceaccounts/\{serviceAccountId\}/oidcidentities/v1"}
 
 Gets a paginated set of ServiceAccountOidcIdentities.
 
@@ -113,7 +113,7 @@ Gets a paginated set of ServiceAccountOidcIdentities.
 
 ## Get ServiceAccountOidcIdentity by id
 
-:span[GET]{.api-get} `/api/serviceaccounts/{serviceAccountId}/oidcidentities/{id}/v1`
+:endpoint{method="GET" path="/api/serviceaccounts/\{serviceAccountId\}/oidcidentities/\{id\}/v1"}
 
 Gets a ServiceAccountOidcIdentity by its id.
 
@@ -153,7 +153,7 @@ Gets a ServiceAccountOidcIdentity by its id.
 
 ## Modify ServiceAccountOidcIdentity
 
-:span[PUT]{.api-put} `/api/serviceaccounts/{serviceAccountId}/oidcidentities/{id}/v1`
+:endpoint{method="PUT" path="/api/serviceaccounts/\{serviceAccountId\}/oidcidentities/\{id\}/v1"}
 
 **Path Parameters**
 
@@ -202,7 +202,7 @@ Gets a ServiceAccountOidcIdentity by its id.
 
 ## Delete ServiceAccountOidcIdentity
 
-:span[DELETE]{.api-delete} `/api/serviceaccounts/{serviceAccountId}/oidcidentities/{id}/v1`
+:endpoint{method="DELETE" path="/api/serviceaccounts/\{serviceAccountId\}/oidcidentities/\{id\}/v1"}
 
 Deletes a ServiceAccountOidcIdentity.
 

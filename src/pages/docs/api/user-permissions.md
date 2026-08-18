@@ -7,7 +7,7 @@ title: User Permissions
 
 ## Get the user's permission information
 
-:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions`
+:endpoint{method="GET" path="/api/\{spaceId\}/users/\{id\}/permissions"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/users/{id}/permissions`.
 
@@ -2589,7 +2589,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
 
 ## Get the user's permission information
 
-:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions/configuration`
+:endpoint{method="GET" path="/api/\{spaceId\}/users/\{id\}/permissions/configuration"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configuration`, `/api/users/{id}/permissions/configuration`.
 
@@ -5175,7 +5175,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
 
 ## Get a list of permissions for the currently authenticated user
 
-:span[GET]{.api-get} `/api/{spaceId}/users/{id}/permissions/export`
+:endpoint{method="GET" path="/api/\{spaceId\}/users/\{id\}/permissions/export"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/export`, `/api/users/{id}/permissions/export`.
 

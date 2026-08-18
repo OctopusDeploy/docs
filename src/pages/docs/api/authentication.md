@@ -7,7 +7,7 @@ title: Authentication
 
 ## Get authentication providers
 
-:span[GET]{.api-get} `/api/authentication`
+:endpoint{method="GET" path="/api/authentication"}
 
 Provides the details of the enabled authentication providers.
 
@@ -83,7 +83,7 @@ Provides the details of the enabled authentication providers.
 
 ## Determine whether an external server (.e.g Okta) has initiated login from a URL query string and, if so, get the provider's name
 
-:span[POST]{.api-post} `/api/authentication/checklogininitiated`
+:endpoint{method="POST" path="/api/authentication/checklogininitiated"}
 
 **Request Body**
 

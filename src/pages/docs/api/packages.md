@@ -7,7 +7,7 @@ title: Packages
 
 ## List packages according to specified search criteria
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/{feedId}/packages`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/\{feedId\}/packages"}
 
 Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}/feeds/{feedId}/packages`.
 
@@ -143,7 +143,7 @@ Also reachable at `/api/feeds/{feedId}/packages`, `/api/spaces/{spaceIdentifier}
 
 ## Get the release notes for the specified package
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/{feedId}/packages/notes`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/\{feedId\}/packages/notes"}
 
 Also reachable at `/api/feeds/{feedId}/packages/notes`, `/api/spaces/{spaceIdentifier}/feeds/{feedId}/packages/notes`.
 
@@ -173,7 +173,7 @@ Also reachable at `/api/feeds/{feedId}/packages/notes`, `/api/spaces/{spaceIdent
 
 ## Get the built in packages
 
-:span[GET]{.api-get} `/api/{spaceId}/packages`
+:endpoint{method="GET" path="/api/\{spaceId\}/packages"}
 
 Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
 
@@ -312,7 +312,7 @@ Also reachable at `/api/packages`, `/api/spaces/{spaceIdentifier}/packages`.
 
 ## Bulk delete Packages
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/packages/bulk`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/packages/bulk"}
 
 Also reachable at `/api/packages/bulk`, `/api/spaces/{spaceIdentifier}/packages/bulk`.
 
@@ -345,7 +345,7 @@ Also reachable at `/api/packages/bulk`, `/api/spaces/{spaceIdentifier}/packages/
 
 ## Bulk delete Packages
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/packages/bulk/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/packages/bulk/v1"}
 
 Also reachable at `/api/packages/bulk/v1`, `/api/spaces/{spaceIdentifier}/packages/bulk/v1`.
 
@@ -384,7 +384,7 @@ Also reachable at `/api/packages/bulk/v1`, `/api/spaces/{spaceIdentifier}/packag
 
 ## Request a list of Release Notes for the specified Packages
 
-:span[GET]{.api-get} `/api/{spaceId}/packages/notes`
+:endpoint{method="GET" path="/api/\{spaceId\}/packages/notes"}
 
 Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages/notes`.
 
@@ -447,7 +447,7 @@ Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages
 
 ## Upload a package to the built in package feed
 
-:span[POST]{.api-post} `/api/{spaceId}/packages/raw`
+:endpoint{method="POST" path="/api/\{spaceId\}/packages/raw"}
 
 Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/raw`.
 
@@ -576,7 +576,7 @@ Also reachable at `/api/packages/raw`, `/api/spaces/{spaceIdentifier}/packages/r
 
 ## Validate a package intended for the built in package feed, but does not write the package
 
-:span[POST]{.api-post} `/api/{spaceId}/packages/raw/validate`
+:endpoint{method="POST" path="/api/\{spaceId\}/packages/raw/validate"}
 
 Also reachable at `/api/packages/raw/validate`, `/api/spaces/{spaceIdentifier}/packages/raw/validate`.
 
@@ -601,7 +601,7 @@ Also reachable at `/api/packages/raw/validate`, `/api/spaces/{spaceIdentifier}/p
 
 ## Return package information for the specified package id
 
-:span[GET]{.api-get} `/api/{spaceId}/packages/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/packages/\{id\}"}
 
 Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/{id}`.
 
@@ -734,7 +734,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
 
 ## Delete the specified Package
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/packages/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/packages/\{id\}"}
 
 Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/{id}`.
 
@@ -751,7 +751,7 @@ Also reachable at `/api/packages/{id}`, `/api/spaces/{spaceIdentifier}/packages/
 
 ## Download the specified package from the built in feed
 
-:span[GET]{.api-get} `/api/{spaceId}/packages/{id}/raw`
+:endpoint{method="GET" path="/api/\{spaceId\}/packages/\{id\}/raw"}
 
 Also reachable at `/api/packages/{id}/raw`, `/api/spaces/{spaceIdentifier}/packages/{id}/raw`.
 
@@ -774,7 +774,7 @@ Also reachable at `/api/packages/{id}/raw`, `/api/spaces/{spaceIdentifier}/packa
 
 ## Delete the specified Package
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/packages/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/packages/\{id\}/v1"}
 
 Also reachable at `/api/packages/{id}/v1`, `/api/spaces/{spaceIdentifier}/packages/{id}/v1`.
 
@@ -797,7 +797,7 @@ Also reachable at `/api/packages/{id}/v1`, `/api/spaces/{spaceIdentifier}/packag
 
 ## Upload a delta patch for the given file. Used to optimize file upload
 
-:span[POST]{.api-post} `/api/{spaceId}/packages/{packageId}/{baseVersion}/delta`
+:endpoint{method="POST" path="/api/\{spaceId\}/packages/\{packageId\}/\{baseVersion\}/delta"}
 
 Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/{spaceIdentifier}/packages/{packageId}/{baseVersion}/delta`.
 
@@ -930,7 +930,7 @@ Also reachable at `/api/packages/{packageId}/{baseVersion}/delta`, `/api/spaces/
 
 ## Request the delta-signature for a given package. Used to optimize file upload
 
-:span[GET]{.api-get} `/api/{spaceId}/packages/{packageId}/{version}/delta-signature`
+:endpoint{method="GET" path="/api/\{spaceId\}/packages/\{packageId\}/\{version\}/delta-signature"}
 
 Also reachable at `/api/packages/{packageId}/{version}/delta-signature`, `/api/spaces/{spaceIdentifier}/packages/{packageId}/{version}/delta-signature`.
 

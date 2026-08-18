@@ -7,7 +7,7 @@ title: Compliance Policies
 
 ## Request the published versions for a policy
 
-:span[GET]{.api-get} `/api/platformhub/policies/{slug}/versions`
+:endpoint{method="GET" path="/api/platformhub/policies/\{slug\}/versions"}
 
 **Path Parameters**
 
@@ -71,7 +71,7 @@ title: Compliance Policies
 
 ## Request the published versions for a policy
 
-:span[GET]{.api-get} `/api/platformhub/policies/{slug}/versions/v2`
+:endpoint{method="GET" path="/api/platformhub/policies/\{slug\}/versions/v2"}
 
 **Path Parameters**
 
@@ -148,7 +148,7 @@ title: Compliance Policies
 
 ## Modify the activation status for a policy version
 
-:span[POST]{.api-post} `/api/platformhub/policies/{slug}/versions/{version}/modify-status`
+:endpoint{method="POST" path="/api/platformhub/policies/\{slug\}/versions/\{version\}/modify-status"}
 
 **Path Parameters**
 
@@ -222,7 +222,7 @@ title: Compliance Policies
 
 ## Request a paginated set of CompliancePolicyResource sorted by name
 
-:span[GET]{.api-get} `/api/platformhub/{gitRef}/policies`
+:endpoint{method="GET" path="/api/platformhub/\{gitRef\}/policies"}
 
 **Path Parameters**
 
@@ -283,7 +283,7 @@ title: Compliance Policies
 
 ## Create a new policy
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/policies`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/policies"}
 
 **Path Parameters**
 
@@ -358,7 +358,7 @@ title: Compliance Policies
 
 ## Request a single CompliancePolicyResource by slug and git reference
 
-:span[GET]{.api-get} `/api/platformhub/{gitRef}/policies/{slug}`
+:endpoint{method="GET" path="/api/platformhub/\{gitRef\}/policies/\{slug\}"}
 
 **Path Parameters**
 
@@ -401,7 +401,7 @@ title: Compliance Policies
 
 ## Modify an existing policy
 
-:span[PUT]{.api-put} `/api/platformhub/{gitRef}/policies/{slug}`
+:endpoint{method="PUT" path="/api/platformhub/\{gitRef\}/policies/\{slug\}"}
 
 **Path Parameters**
 
@@ -477,7 +477,7 @@ title: Compliance Policies
 
 ## Create new version of policy
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/policies/{slug}/publish`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/policies/\{slug\}/publish"}
 
 **Path Parameters**
 

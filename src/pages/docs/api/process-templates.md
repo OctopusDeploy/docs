@@ -7,7 +7,7 @@ title: Process Templates
 
 ## Get the sharing configuration for a given process template
 
-:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/share`
+:endpoint{method="GET" path="/api/platformhub/processtemplates/\{slug\}/share"}
 
 **Path Parameters**
 
@@ -33,7 +33,7 @@ title: Process Templates
 
 ## List the process template versions for a given process template
 
-:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/versions`
+:endpoint{method="GET" path="/api/platformhub/processtemplates/\{slug\}/versions"}
 
 **Path Parameters**
 
@@ -148,7 +148,7 @@ title: Process Templates
 
 ## Retrieve a single published process template and its version by version mask (no space context)
 
-:span[GET]{.api-get} `/api/platformhub/processtemplates/{slug}/{versionMask}`
+:endpoint{method="GET" path="/api/platformhub/processtemplates/\{slug\}/\{versionMask\}"}
 
 **Path Parameters**
 
@@ -219,7 +219,7 @@ title: Process Templates
 
 ## Create a new process template in the provided source
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/processtemplates"}
 
 **Path Parameters**
 
@@ -334,7 +334,7 @@ title: Process Templates
 
 ## Get a single process template by slug
 
-:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates/{slug}`
+:endpoint{method="GET" path="/api/platformhub/\{gitRef\}/processtemplates/\{slug\}"}
 
 **Path Parameters**
 
@@ -431,7 +431,7 @@ title: Process Templates
 
 ## Share new process template to spaces
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates/{slug}/share`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/processtemplates/\{slug\}/share"}
 
 **Path Parameters**
 
@@ -483,7 +483,7 @@ title: Process Templates
 
 ## Get all the available variable names for a process template
 
-:span[GET]{.api-get} `/api/platformhub/{gitRef}/processtemplates/{slug}/variables/names`
+:endpoint{method="GET" path="/api/platformhub/\{gitRef\}/processtemplates/\{slug\}/variables/names"}
 
 **Path Parameters**
 
@@ -504,7 +504,7 @@ title: Process Templates
 
 ## Create a process template version
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/processtemplates/{slug}/versions`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/processtemplates/\{slug\}/versions"}
 
 **Path Parameters**
 
@@ -634,7 +634,7 @@ title: Process Templates
 
 ## Modify an existing process template
 
-:span[PUT]{.api-put} `/api/platformhub/{gitref}/processtemplates/{slug}`
+:endpoint{method="PUT" path="/api/platformhub/\{gitref\}/processtemplates/\{slug\}"}
 
 **Path Parameters**
 
@@ -819,7 +819,7 @@ title: Process Templates
 
 ## Delete an existing process template
 
-:span[DELETE]{.api-delete} `/api/platformhub/{gitref}/processtemplates/{slug}`
+:endpoint{method="DELETE" path="/api/platformhub/\{gitref\}/processtemplates/\{slug\}"}
 
 **Path Parameters**
 
@@ -849,7 +849,7 @@ title: Process Templates
 
 ## Retrieve a single process template and its version by version mask
 
-:span[GET]{.api-get} `/api/{spaceId}/processtemplates/{slug}/{versionMask}`
+:endpoint{method="GET" path="/api/\{spaceId\}/processtemplates/\{slug\}/\{versionMask\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versionMask}`.
 
@@ -923,7 +923,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
 
 ## Get the icon for a given process template version
 
-:span[GET]{.api-get} `/api/{spaceId}/processtemplates/{slug}/{versionMask}/icon`
+:endpoint{method="GET" path="/api/\{spaceId\}/processtemplates/\{slug\}/\{versionMask\}/icon"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versionMask}/icon`.
 

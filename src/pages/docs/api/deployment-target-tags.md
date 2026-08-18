@@ -7,7 +7,7 @@ title: Deployment Target Tags
 
 ## Get a DeploymentTargetTag by ID or Slug
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymentTargetTags/{tag}`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymentTargetTags/\{tag\}"}
 
 Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifier}/deploymentTargetTags/{tag}`.
 
@@ -36,7 +36,7 @@ Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifi
 
 ## Get DeploymentTargetTags by DeploymentTargetTag IDs and Machine ID (deployment target ID)
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymenttargettags`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymenttargettags"}
 
 Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/deploymenttargettags`.
 
@@ -83,7 +83,7 @@ Gets a paginated list of DeploymentTargetTag.
 
 ## Create a new DeploymentTargetTag
 
-:span[POST]{.api-post} `/api/{spaceId}/deploymenttargettags`
+:endpoint{method="POST" path="/api/\{spaceId\}/deploymenttargettags"}
 
 Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/deploymenttargettags`.
 
@@ -126,7 +126,7 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 
 ## Delete a DeploymentTargetTag
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/deploymenttargettags/{tag}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/deploymenttargettags/\{tag\}"}
 
 Also reachable at `/api/deploymenttargettags/{tag}`, `/api/spaces/{spaceIdentifier}/deploymenttargettags/{tag}`.
 

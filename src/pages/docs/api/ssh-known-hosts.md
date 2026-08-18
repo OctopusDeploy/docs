@@ -7,7 +7,7 @@ title: Ssh Known Hosts
 
 ## Get a list of SSH Known Hosts
 
-:span[GET]{.api-get} `/api/sshknownhosts`
+:endpoint{method="GET" path="/api/sshknownhosts"}
 
 **Query Parameters**
 
@@ -49,7 +49,7 @@ title: Ssh Known Hosts
 
 ## Add new SSH Known Hosts from a list of entries
 
-:span[POST]{.api-post} `/api/sshknownhosts`
+:endpoint{method="POST" path="/api/sshknownhosts"}
 
 **Request Body**
 
@@ -92,7 +92,7 @@ title: Ssh Known Hosts
 
 ## Delete the specific SSH Known Host
 
-:span[DELETE]{.api-delete} `/api/sshknownhosts/{id}`
+:endpoint{method="DELETE" path="/api/sshknownhosts/\{id\}"}
 
 **Path Parameters**
 

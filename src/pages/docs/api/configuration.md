@@ -7,7 +7,7 @@ title: Configuration
 
 ## Return a list of configuration section settings
 
-:span[GET]{.api-get} `/api/configuration`
+:endpoint{method="GET" path="/api/configuration"}
 
 **Response**
 
@@ -75,7 +75,7 @@ title: Configuration
 
 ## Return a single configuration section for the given id
 
-:span[GET]{.api-get} `/api/configuration/{id}`
+:endpoint{method="GET" path="/api/configuration/\{id\}"}
 
 **Path Parameters**
 
@@ -116,7 +116,7 @@ title: Configuration
 
 ## Return a structure that describes how to dynamically render the configuration section
 
-:span[GET]{.api-get} `/api/configuration/{id}/metadata`
+:endpoint{method="GET" path="/api/configuration/\{id\}/metadata"}
 
 **Path Parameters**
 
@@ -149,7 +149,7 @@ title: Configuration
 
 ## Return the current configuration for a specific configuration section
 
-:span[GET]{.api-get} `/api/configuration/{id}/values`
+:endpoint{method="GET" path="/api/configuration/\{id\}/values"}
 
 **Path Parameters**
 
@@ -167,7 +167,7 @@ title: Configuration
 
 ## Update the configuration values for a specific configuration section
 
-:span[PUT]{.api-put} `/api/configuration/{id}/values`
+:endpoint{method="PUT" path="/api/configuration/\{id\}/values"}
 
 Refer to the configuration/{id}/metadata endpoint for details on the specific data structure required for a given configuration section id.
 

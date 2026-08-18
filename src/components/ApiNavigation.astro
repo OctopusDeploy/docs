@@ -10,9 +10,12 @@ type Props = {
   lang: string;
   headings: { depth: number; slug: string; text: string }[];
   // One entry per endpoint, in heading order, left on the frontmatter by
-  // plugins/satteri-api-examples.js. Endpoints the generator writes without a
-  // method, and pages that never reach that plugin, simply have none.
-  apiMethods?: { text: string; method: string | null }[] | null;
+  // plugins/satteri-api-examples.js from the `:endpoint` directive under each
+  // heading. Sections without one — and pages that never reach that plugin —
+  // simply have none.
+  apiMethods?:
+    | { text: string; method: string | null; deprecated?: boolean }[]
+    | null;
 };
 const { lang, headings, apiMethods } = Astro.props satisfies Props;
 
@@ -52,12 +55,14 @@ const endpoints = (headings ?? [])
   .filter((heading) => heading.depth === 2)
   .map((heading, index) => {
     const endpoint = apiMethods?.[index];
-    const method =
-      endpoint?.text === headingText(heading.text)
-        ? (endpoint.method ?? '')
-        : '';
+    const matches = endpoint?.text === headingText(heading.text);
+    const method = matches ? (endpoint.method ?? '') : '';
 
-    return { ...heading, method: method in METHOD_LABELS ? method : null };
+    return {
+      ...heading,
+      method: method in METHOD_LABELS ? method : null,
+      deprecated: matches && endpoint.deprecated === true,
+    };
   });
 
 const pages = apiMenu().map((page) => ({
@@ -89,7 +94,11 @@ stats.stop();
                 {endpoints.map((heading) => (
                   <li class="site-nav__list-item">
                     <a
-                      class="site-nav__link site-nav__link--heading"
+                      class:list={[
+                        'site-nav__link',
+                        'site-nav__link--heading',
+                        heading.deprecated && 'site-nav__link--deprecated',
+                      ]}
                       href={`#${heading.slug}`}
                     >
                       {/* The badge is the method: an icon in the nav, where

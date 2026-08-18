@@ -7,7 +7,7 @@ title: Home
 
 ## GET /api/{spaceId}
 
-:span[GET]{.api-get} `/api/{spaceId}`
+:endpoint{method="GET" path="/api/\{spaceId\}"}
 
 Returns a document describing the specified Space and links to other parts of the API that apply to the Space.
 
@@ -46,7 +46,7 @@ Returns a document describing the specified Space and links to other parts of th
 
 ## GET /api/
 
-:span[GET]{.api-get} `/api/`
+:endpoint{method="GET" path="/api/"}
 
 Returns a document describing the current Octopus Server and links to other parts of the API.
 

@@ -7,7 +7,7 @@ title: Machines
 
 ## Get the status of the network connection between the Octopus server and a machine
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{id}/connection`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{id\}/connection"}
 
 Also reachable at `/api/machines/{id}/connection`, `/api/spaces/{spaceIdentifier}/machines/{id}/connection`.
 

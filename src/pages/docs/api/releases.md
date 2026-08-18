@@ -7,7 +7,7 @@ title: Releases
 
 ## List all of the releases that belong to the given Channel
 
-:span[GET]{.api-get} `/api/{spaceId}/channels/{id}/releases`
+:endpoint{method="GET" path="/api/\{spaceId\}/channels/\{id\}/releases"}
 
 Also reachable at `/api/channels/{id}/releases`, `/api/spaces/{spaceIdentifier}/channels/{id}/releases`.
 
@@ -141,7 +141,7 @@ Releases will be ordered from most recent to least recent,
 
 ## List all of the releases that belong to the given Channel
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/channels/{id}/releases`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/channels/\{id\}/releases"}
 
 Also reachable at `/api/projects/{projectId}/channels/{id}/releases`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{id}/releases`.
 
@@ -275,7 +275,7 @@ Releases will be ordered from most recent to least recent,
 
 ## List all of the releases that belong to the given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/releases`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/releases"}
 
 Also reachable at `/api/projects/{projectId}/releases`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/releases`.
 
@@ -407,7 +407,7 @@ Releases will be ordered from most recent to least recent
 
 ## Get a list of Variable Sets included in the Release's current Variable Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/releases/{id}/variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/releases/\{id\}/variables"}
 
 Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/releases/{id}/variables`.
 
@@ -531,7 +531,7 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
 
 ## Get a single release by project ID and version number
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/releases/{version}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/releases/\{version\}"}
 
 Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/releases/{version}`.
 
@@ -677,7 +677,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
 
 ## Get a list of Releases for the given Space
 
-:span[GET]{.api-get} `/api/{spaceId}/releases`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases"}
 
 Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
 
@@ -805,7 +805,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
 
 ## Create a Release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases"}
 
 Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
 
@@ -1016,7 +1016,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
 
 ## Create a Release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/create/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/create/v1"}
 
 Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/releases/create/v1`.
 
@@ -1104,7 +1104,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
 
 ## Get a Release by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{id\}"}
 
 Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/{id}`.
 
@@ -1248,7 +1248,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
 
 ## Update an existing Release
 
-:span[PUT]{.api-put} `/api/{spaceId}/releases/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/releases/\{id\}"}
 
 Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/{id}`.
 
@@ -1452,7 +1452,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
 
 ## Delete an existing release, along with all of the deployments, tasks and other associated resources belonging to the release
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/releases/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/releases/\{id\}"}
 
 Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/{id}`.
 
@@ -1469,7 +1469,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
 
 ## Get all of the information necessary for creating or editing a deployment for this release
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{id}/deployments/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{id\}/deployments/template"}
 
 Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{spaceIdentifier}/releases/{id}/deployments/template`.
 
@@ -1562,7 +1562,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
 
 ## Get all defects for a release
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{releaseId}/defects`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{releaseId\}/defects"}
 
 Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/defects`.
 
@@ -1640,7 +1640,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 
 ## Record defect in a release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/{releaseId}/defects`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/\{releaseId\}/defects"}
 
 Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/defects`.
 
@@ -1708,7 +1708,7 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 
 ## Resolve defect in a release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/{releaseId}/defects/resolve`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/\{releaseId\}/defects/resolve"}
 
 Also reachable at `/api/releases/{releaseId}/defects/resolve`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/defects/resolve`.
 
@@ -1755,7 +1755,7 @@ Also reachable at `/api/releases/{releaseId}/defects/resolve`, `/api/spaces/{spa
 
 ## List all of the Deployments that belong to the given Release
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{releaseId}/deployments`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{releaseId\}/deployments"}
 
 Also reachable at `/api/releases/{releaseId}/deployments`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/deployments`.
 
@@ -1943,7 +1943,7 @@ Deployments will be ordered from most recent to least recent.
 
 ## Get a document that describes what steps will/won't be run during a deployment to a given environment (and tenant if supplied)
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{releaseId}/deployments/preview/{environmentId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{releaseId\}/deployments/preview/\{environmentId\}"}
 
 Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}`, `/api/releases/{releaseId}/deployments/preview/{environmentId}/{tenantId}`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/deployments/preview/{environmentId}`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/deployments/preview/{environmentId}/{tenantId}`, `/api/{spaceId}/releases/{releaseId}/deployments/preview/{environmentId}/{tenantId}`.
 
@@ -2080,7 +2080,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
 
 ## Return an array of documents that describes what steps will/won't be run during deployments to a given set of environments and tenants
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/{releaseId}/deployments/previews`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/\{releaseId\}/deployments/previews"}
 
 Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/deployments/previews`.
 
@@ -2235,7 +2235,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
 
 ## Get the list of Packages that are missing from the built-in feed for a release
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{releaseId}/missingPackages`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{releaseId\}/missingPackages"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/releases/{releaseId}/missingPackages`.
 
@@ -2269,7 +2269,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/releases/{releaseId}/missingPac
 
 ## Get all of the information necessary for creating or editing a deployment for this release
 
-:span[GET]{.api-get} `/api/{spaceId}/releases/{releaseId}/progression`
+:endpoint{method="GET" path="/api/\{spaceId\}/releases/\{releaseId\}/progression"}
 
 Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/progression`.
 
@@ -2348,7 +2348,7 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
 
 ## Update the release notes on an existing Release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/{releaseId}/release-notes`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/\{releaseId\}/release-notes"}
 
 Also reachable at `/api/releases/{releaseId}/release-notes`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/release-notes`.
 
@@ -2513,7 +2513,7 @@ Only the release notes are changed and everything else about the Release is left
 
 ## Update the Variable Snapshot for a Release
 
-:span[POST]{.api-post} `/api/{spaceId}/releases/{releaseId}/snapshot-variables`
+:endpoint{method="POST" path="/api/\{spaceId\}/releases/\{releaseId\}/snapshot-variables"}
 
 Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{spaceIdentifier}/releases/{releaseId}/snapshot-variables`.
 

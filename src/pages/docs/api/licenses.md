@@ -7,7 +7,7 @@ title: Licenses
 
 ## Return the details of the current license in use by the Octopus Cluster
 
-:span[GET]{.api-get} `/api/licenses/licenses-current`
+:endpoint{method="GET" path="/api/licenses/licenses-current"}
 
 **Response**
 
@@ -43,7 +43,7 @@ title: Licenses
 
 ## Update the current Octopus cluster license
 
-:span[PUT]{.api-put} `/api/licenses/licenses-current`
+:endpoint{method="PUT" path="/api/licenses/licenses-current"}
 
 Updates the license for the Octopus cluster.
 
@@ -95,7 +95,7 @@ Updates the license for the Octopus cluster.
 
 ## Return a list of enabled features from the license
 
-:span[GET]{.api-get} `/api/licenses/licenses-current-features`
+:endpoint{method="GET" path="/api/licenses/licenses-current-features"}
 
 **Response**
 
@@ -115,7 +115,7 @@ Updates the license for the Octopus cluster.
 
 ## Get the status of the current Octopus license
 
-:span[GET]{.api-get} `/api/licenses/licenses-current-status`
+:endpoint{method="GET" path="/api/licenses/licenses-current-status"}
 
 Calculates the status of the current Octopus license including compliance and maintenance expiry.
 
@@ -226,7 +226,7 @@ Calculates the status of the current Octopus license including compliance and ma
 
 ## Get the usage of the current Octopus server
 
-:span[GET]{.api-get} `/api/licenses/licenses-current-usage`
+:endpoint{method="GET" path="/api/licenses/licenses-current-usage"}
 
 Calculates the usage of the current Octopus server.
 

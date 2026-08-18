@@ -7,7 +7,7 @@ title: Runbook Processes
 
 ## Get a list of Runbook Processes
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookProcesses`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookProcesses"}
 
 Also reachable at `/api/projects/{projectId}/runbookProcesses`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookProcesses`.
 
@@ -99,7 +99,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses`, `/api/spaces/{sp
 
 ## Get the runbook process for the given ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookProcesses/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookProcesses/{id}`.
 
@@ -184,7 +184,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/space
 
 ## Modify a Runbook Process
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/runbookProcesses/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookProcesses/{id}`.
 
@@ -341,7 +341,7 @@ Only allowed for Runbook Processes owned by a project.
 
 ## Get all of the information necessary for creating or editing a Runbook Snapshot using this Runbook Process
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookProcesses/{id}/runbookSnapshotTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookProcesses/\{id\}/runbookSnapshotTemplate"}
 
 Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookProcesses/{id}/runbookSnapshotTemplate`.
 
@@ -453,7 +453,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
 
 ## Get the runbook process for the given ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbookProcesses/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbookProcesses/{id}`.
 
@@ -541,7 +541,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/
 
 ## Modify a Runbook Process
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/runbookProcesses/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/runbookProcesses/{id}`.
 
@@ -706,7 +706,7 @@ Only allowed for Runbook Processes owned by a project.
 
 ## Get a list of Runbook Processes
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookProcesses`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookProcesses"}
 
 Also reachable at `/api/runbookProcesses`, `/api/spaces/{spaceIdentifier}/runbookProcesses`.
 
@@ -796,7 +796,7 @@ Also reachable at `/api/runbookProcesses`, `/api/spaces/{spaceIdentifier}/runboo
 
 ## Get the runbook process for the given ID
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookProcesses/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/runbookProcesses/{id}`.
 
@@ -880,7 +880,7 @@ Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/r
 
 ## Modify a Runbook Process
 
-:span[PUT]{.api-put} `/api/{spaceId}/runbookProcesses/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/runbookProcesses/\{id\}"}
 
 Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/runbookProcesses/{id}`.
 
@@ -1036,7 +1036,7 @@ Only allowed for Runbook Processes owned by a project.
 
 ## Get all of the information necessary for creating or editing a Runbook Snapshot using this Runbook Process
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookProcesses/{id}/runbookSnapshotTemplate`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookProcesses/\{id\}/runbookSnapshotTemplate"}
 
 Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/spaces/{spaceIdentifier}/runbookProcesses/{id}/runbookSnapshotTemplate`.
 

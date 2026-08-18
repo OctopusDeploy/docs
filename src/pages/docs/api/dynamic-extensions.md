@@ -7,7 +7,7 @@ title: Dynamic Extensions
 
 ## Request the current dynamic extensions feature metadata
 
-:span[GET]{.api-get} `/api/dynamic-extensions/features/metadata`
+:endpoint{method="GET" path="/api/dynamic-extensions/features/metadata"}
 
 **Response**
 
@@ -43,7 +43,7 @@ title: Dynamic Extensions
 
 ## Request the current dynamic extensions feature values
 
-:span[GET]{.api-get} `/api/dynamic-extensions/features/values`
+:endpoint{method="GET" path="/api/dynamic-extensions/features/values"}
 
 **Response**
 
@@ -65,7 +65,7 @@ title: Dynamic Extensions
 
 ## Modify the current dynamic extensions feature values
 
-:span[PUT]{.api-put} `/api/dynamic-extensions/features/values`
+:endpoint{method="PUT" path="/api/dynamic-extensions/features/values"}
 
 **Request Body**
 

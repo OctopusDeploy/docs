@@ -7,7 +7,7 @@ title: Ephemeral Environments
 
 ## Deprovision an ephemeral environment
 
-:span[POST]{.api-post} `/api/{spaceId}/environments/ephemeral/{id}/deprovision`
+:endpoint{method="POST" path="/api/\{spaceId\}/environments/ephemeral/\{id\}/deprovision"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/deprovision`.
 
@@ -40,7 +40,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/dep
 
 ## Allow the creation of an ephemeral environment in a given space
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral`.
 
@@ -82,7 +82,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Deprovision an ephemeral environment for a specific project
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovision`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{environmentId\}/deprovision"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovision`.
 
@@ -113,7 +113,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Mark a failed deprovisioning as successful for an ephemeral environment
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/mark-successful`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{environmentId\}/deprovisioning/mark-successful"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/mark-successful`.
 
@@ -135,7 +135,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Retry deprovisioning an ephemeral environment
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/retry`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{environmentId\}/deprovisioning/retry"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/deprovisioning/retry`.
 
@@ -166,7 +166,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Mark a failed provisioning as successful for an ephemeral environment
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/mark-successful`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{environmentId\}/provisioning/mark-successful"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/mark-successful`.
 
@@ -188,7 +188,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Retry provisioning an ephemeral environment
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/retry`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{environmentId\}/provisioning/retry"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{environmentId}/provisioning/retry`.
 
@@ -219,7 +219,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Get the status of an ephemeral environment for a given project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/ephemeral/{id}/status`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/ephemeral/\{id\}/status"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/ephemeral/{id}/status`.
 

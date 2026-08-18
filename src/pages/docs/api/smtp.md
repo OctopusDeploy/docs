@@ -7,7 +7,7 @@ title: Smtp
 
 ## Get information about the SMTP (email) settings in use by the Octopus Server
 
-:span[GET]{.api-get} `/api/smtpconfiguration`
+:endpoint{method="GET" path="/api/smtpconfiguration"}
 
 **Response**
 
@@ -55,7 +55,7 @@ title: Smtp
 
 ## Update the SMTP settings used by the Octopus Server
 
-:span[PUT]{.api-put} `/api/smtpconfiguration`
+:endpoint{method="PUT" path="/api/smtpconfiguration"}
 
 **Request Body**
 
@@ -129,7 +129,7 @@ title: Smtp
 
 ## Check whether SMTP is configured with low privileges
 
-:span[GET]{.api-get} `/api/smtpconfiguration/isconfigured`
+:endpoint{method="GET" path="/api/smtpconfiguration/isconfigured"}
 
 **Response**
 
@@ -163,7 +163,7 @@ title: Smtp
 
 ## Check whether SMTP is configured with low privileges
 
-:span[GET]{.api-get} `/api/smtpconfiguration/isconfigured/v1`
+:endpoint{method="GET" path="/api/smtpconfiguration/isconfigured/v1"}
 
 **Response**
 
@@ -200,7 +200,7 @@ title: Smtp
 
 ## Get information about the SMTP (email) settings in use by the Octopus Server
 
-:span[GET]{.api-get} `/api/smtpconfiguration/v1`
+:endpoint{method="GET" path="/api/smtpconfiguration/v1"}
 
 **Response**
 

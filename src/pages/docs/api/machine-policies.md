@@ -7,7 +7,7 @@ title: Machine Policies
 
 ## Get a paginated list of the Machine Policies in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies"}
 
 Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machinepolicies`.
 
@@ -149,7 +149,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 
 ## Create a new Machine Policy
 
-:span[POST]{.api-post} `/api/{spaceId}/machinepolicies`
+:endpoint{method="POST" path="/api/\{spaceId\}/machinepolicies"}
 
 Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machinepolicies`.
 
@@ -400,7 +400,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
 
 ## Get a list of Machine Policies
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies/all"}
 
 Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/machinepolicies/all`.
 
@@ -541,7 +541,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
 
 ## Get a template for a new Machine Policy, which includes any defaults
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies/template"}
 
 Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier}/machinepolicies/template`.
 
@@ -680,7 +680,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
 
 ## Get a Machine Policy by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies/\{id\}"}
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
@@ -822,7 +822,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 
 ## Modify an existing Machine Policy
 
-:span[PUT]{.api-put} `/api/{spaceId}/machinepolicies/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/machinepolicies/\{id\}"}
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
@@ -1080,7 +1080,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 
 ## Delete the specified Machine Policy
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/machinepolicies/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/machinepolicies/\{id\}"}
 
 Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}`.
 
@@ -1097,7 +1097,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
 
 ## Get a paginated list of the machines that belong to the given Machine Policy
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}/machines`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies/\{id\}/machines"}
 
 Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/machines`.
 
@@ -1238,7 +1238,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
 
 ## Delete the specified Machine Policy
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/machinepolicies/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/machinepolicies/\{id\}/v1"}
 
 Also reachable at `/api/machinepolicies/{id}/v1`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/v1`.
 
@@ -1261,7 +1261,7 @@ Also reachable at `/api/machinepolicies/{id}/v1`, `/api/spaces/{spaceIdentifier}
 
 ## Get a paginated list of the workers that belong to the given Machine Policy
 
-:span[GET]{.api-get} `/api/{spaceId}/machinepolicies/{id}/workers`
+:endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies/\{id\}/workers"}
 
 Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdentifier}/machinepolicies/{id}/workers`.
 

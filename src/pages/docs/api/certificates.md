@@ -7,7 +7,7 @@ title: Certificates
 
 ## List X.509 certificates managed by Octopus
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates"}
 
 Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificates`.
 
@@ -181,7 +181,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
 
 ## Create a new certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates"}
 
 Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificates`.
 
@@ -380,7 +380,7 @@ Adds a new certificate
 
 ## Get a list of Certificates
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates/all"}
 
 Also reachable at `/api/certificates/all`, `/api/spaces/{spaceIdentifier}/certificates/all`.
 
@@ -536,7 +536,7 @@ Lists X.509 certificates managed by Octopus.
 
 ## Get the global Certificate
 
-:span[GET]{.api-get} `/api/certificates/certificate-global`
+:endpoint{method="GET" path="/api/certificates/certificate-global"}
 
 Returns the server thumbprint used to identify this Octopus Server to any Tentacles when executing a deployment. Deprecated.
 
@@ -576,7 +576,7 @@ Returns the server thumbprint used to identify this Octopus Server to any Tentac
 
 ## Create a self-signed Certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/generate`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/generate"}
 
 Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/certificates/generate`.
 
@@ -859,7 +859,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 
 ## List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates/v2"}
 
 Also reachable at `/api/certificates/v2`, `/api/spaces/{spaceIdentifier}/certificates/v2`.
 
@@ -1017,7 +1017,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
 
 ## Get a Certificate by ID or Thumbprint
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates/\{id\}"}
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
@@ -1166,7 +1166,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
 
 ## Modify a certificate by ID
 
-:span[PUT]{.api-put} `/api/{spaceId}/certificates/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/certificates/\{id\}"}
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
@@ -1358,7 +1358,7 @@ Modifies an existing certificate
 
 ## Delete an existing Certificate
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/certificates/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/certificates/\{id\}"}
 
 Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certificates/{id}`.
 
@@ -1375,7 +1375,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
 
 ## Archive an existing Certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/archive`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/\{id\}/archive"}
 
 Also reachable at `/api/certificates/{id}/archive`, `/api/spaces/{spaceIdentifier}/certificates/{id}/archive`.
 
@@ -1392,7 +1392,7 @@ Also reachable at `/api/certificates/{id}/archive`, `/api/spaces/{spaceIdentifie
 
 ## Archive an existing Certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/archive/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/\{id\}/archive/v1"}
 
 Also reachable at `/api/certificates/{id}/archive/v1`, `/api/spaces/{spaceIdentifier}/certificates/{id}/archive/v1`.
 
@@ -1415,7 +1415,7 @@ Also reachable at `/api/certificates/{id}/archive/v1`, `/api/spaces/{spaceIdenti
 
 ## Export the certificate
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}/export`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates/\{id\}/export"}
 
 Also reachable at `/api/certificates/{id}/export`, `/api/spaces/{spaceIdentifier}/certificates/{id}/export`.
 
@@ -1451,7 +1451,7 @@ Also reachable at `/api/certificates/{id}/export`, `/api/spaces/{spaceIdentifier
 
 ## Replace an existing Certificate with another
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/replace`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/\{id\}/replace"}
 
 Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifier}/certificates/{id}/replace`.
 
@@ -1621,7 +1621,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 
 ## Unarchive an existing archived Certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/unarchive`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/\{id\}/unarchive"}
 
 Also reachable at `/api/certificates/{id}/unarchive`, `/api/spaces/{spaceIdentifier}/certificates/{id}/unarchive`.
 
@@ -1638,7 +1638,7 @@ Also reachable at `/api/certificates/{id}/unarchive`, `/api/spaces/{spaceIdentif
 
 ## Unarchive an existing archived Certificate
 
-:span[POST]{.api-post} `/api/{spaceId}/certificates/{id}/unarchive/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/certificates/\{id\}/unarchive/v1"}
 
 Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIdentifier}/certificates/{id}/unarchive/v1`.
 
@@ -1661,7 +1661,7 @@ Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIden
 
 ## GET /api/{spaceId}/certificates/{id}/usages
 
-:span[GET]{.api-get} `/api/{spaceId}/certificates/{id}/usages`
+:endpoint{method="GET" path="/api/\{spaceId\}/certificates/\{id\}/usages"}
 
 Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier}/certificates/{id}/usages`.
 
@@ -2022,7 +2022,7 @@ Get the usages of a certificate
 
 ## Request the list of Certificate Configurations
 
-:span[GET]{.api-get} `/api/configuration/certificates`
+:endpoint{method="GET" path="/api/configuration/certificates"}
 
 Only returns configurations for the global Certificate
 
@@ -2100,7 +2100,7 @@ Only returns configurations for the global Certificate
 
 ## Get a Certificate Configuration by ID
 
-:span[GET]{.api-get} `/api/configuration/certificates/{id}`
+:endpoint{method="GET" path="/api/configuration/certificates/\{id\}"}
 
 **Path Parameters**
 
@@ -2143,7 +2143,7 @@ Only returns configurations for the global Certificate
 
 ## Get public certificate
 
-:span[GET]{.api-get} `/api/configuration/certificates/{id}/public-cer`
+:endpoint{method="GET" path="/api/configuration/certificates/\{id\}/public-cer"}
 
 Downloads the public portion of the certificate in .cer format
 

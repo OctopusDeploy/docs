@@ -7,7 +7,7 @@ title: Git Hub
 
 ## Get the installation URL for the GitHub App
 
-:span[GET]{.api-get} `/api/github/accounts/install-url`
+:endpoint{method="GET" path="/api/github/accounts/install-url"}
 
 **Query Parameters**
 
@@ -19,7 +19,7 @@ title: Git Hub
 
 ## Get the settings for the GitHub App
 
-:span[GET]{.api-get} `/api/github/app/settings`
+:endpoint{method="GET" path="/api/github/app/settings"}
 
 **Response**
 
@@ -39,7 +39,7 @@ title: Git Hub
 
 ## Get the status of the registration between Octopus Server and the GitHub App
 
-:span[GET]{.api-get} `/api/github/app/status`
+:endpoint{method="GET" path="/api/github/app/status"}
 
 **Response**
 
@@ -58,7 +58,7 @@ title: Git Hub
 
 ## Get GitHub App connections for the space
 
-:span[GET]{.api-get} `/api/{spaceId}/github/connections`
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
@@ -112,7 +112,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
 ## Create a new GitHub App connection for an installation
 
-:span[POST]{.api-post} `/api/{spaceId}/github/connections`
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
@@ -151,7 +151,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
 
 ## Get the GitHub repositories for the current connection
 
-:span[GET]{.api-get} `/api/{spaceId}/github/connections/{connectionId}/repositories`
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections/\{connectionId\}/repositories"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionId}/repositories`.
 
@@ -195,7 +195,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionI
 
 ## Get a single GitHub app connection by id
 
-:span[GET]{.api-get} `/api/{spaceId}/github/connections/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
@@ -274,7 +274,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 ## Update a GitHub App connection with a new set of repositories
 
-:span[PUT]{.api-put} `/api/{spaceId}/github/connections/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/github/connections/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
@@ -313,7 +313,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 ## Delete a GitHub App Connection
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/github/connections/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/github/connections/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
@@ -336,7 +336,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
 
 ## Recover GitHub App connection after the registration has changed
 
-:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/recover`
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/recover"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover`.
 
@@ -375,7 +375,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 ## Recover GitHub App connection after the installation was not found
 
-:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/recover-not-found`
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/recover-not-found"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover-not-found`.
 
@@ -416,7 +416,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
 
 ## Refresh the GitHub App connection token
 
-:span[POST]{.api-post} `/api/{spaceId}/github/connections/{id}/refresh`
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/refresh"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh`.
 
@@ -437,7 +437,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh
 
 ## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
 
-:span[GET]{.api-get} `/api/{spaceId}/github/installations`
+:endpoint{method="GET" path="/api/\{spaceId\}/github/installations"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
@@ -481,7 +481,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Handle the response from GitHub after an application has been installed or updated
 
-:span[GET]{.api-get} `/api/github/installations/updated`
+:endpoint{method="GET" path="/api/github/installations/updated"}
 
 **Query Parameters**
 
@@ -494,7 +494,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Get the GitHub repositories for an installation visible to the current user https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
 
-:span[GET]{.api-get} `/api/github/installations/{installationId}/repositories`
+:endpoint{method="GET" path="/api/github/installations/\{installationId\}/repositories"}
 
 **Path Parameters**
 
@@ -552,7 +552,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
 
-:span[POST]{.api-post} `/api/github/reset-registration`
+:endpoint{method="POST" path="/api/github/reset-registration"}
 
 **Response**
 
@@ -566,7 +566,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
 
-:span[GET]{.api-get} `/api/github/search/{accountName}/repositories`
+:endpoint{method="GET" path="/api/github/search/\{accountName\}/repositories"}
 
 **Path Parameters**
 
@@ -625,7 +625,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Get status of the users current authorization
 
-:span[GET]{.api-get} `/api/github/user/app/authorization_status`
+:endpoint{method="GET" path="/api/github/user/app/authorization_status"}
 
 **Query Parameters**
 
@@ -666,7 +666,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Authorize the current user with the Octopus GitHub app
 
-:span[POST]{.api-post} `/api/github/user/app/authorize`
+:endpoint{method="POST" path="/api/github/user/app/authorize"}
 
 **Request Body**
 
@@ -698,7 +698,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
-:span[POST]{.api-post} `/api/github/user/app/exchange-access-code`
+:endpoint{method="POST" path="/api/github/user/app/exchange-access-code"}
 
 **Request Body**
 
@@ -732,7 +732,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Exchange a GitHub App authorization code for an access token and store in the instance
 
-:span[GET]{.api-get} `/api/github/user/app/token`
+:endpoint{method="GET" path="/api/github/user/app/token"}
 
 **Query Parameters**
 
@@ -745,7 +745,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Deauthorize the GitHub app for the current user, removing this users GitHub tokens from Octopus
 
-:span[DELETE]{.api-delete} `/api/github/user/app/token`
+:endpoint{method="DELETE" path="/api/github/user/app/token"}
 
 **Response**
 
@@ -759,7 +759,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Refresh the GitHub current app user. Refreshing the users token and cached GitHub account details
 
-:span[POST]{.api-post} `/api/github/user/app/token/refresh`
+:endpoint{method="POST" path="/api/github/user/app/token/refresh"}
 
 **Response**
 
@@ -773,7 +773,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 ## Test connectivity to GitHub using the provided credentials
 
-:span[POST]{.api-post} `/api/githubissuetracker/connectivitycheck`
+:endpoint{method="POST" path="/api/githubissuetracker/connectivitycheck"}
 
 **Request Body**
 

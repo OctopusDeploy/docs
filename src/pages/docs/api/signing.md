@@ -7,7 +7,7 @@ title: Signing
 
 ## Request the current signing key configuration
 
-:span[GET]{.api-get} `/api/signingkeyconfiguration`
+:endpoint{method="GET" path="/api/signingkeyconfiguration"}
 
 **Response**
 
@@ -46,7 +46,7 @@ title: Signing
 
 ## Set the signing key configuration
 
-:span[PUT]{.api-put} `/api/signingkeyconfiguration`
+:endpoint{method="PUT" path="/api/signingkeyconfiguration"}
 
 **Request Body**
 
@@ -104,7 +104,7 @@ title: Signing
 
 ## Create a new key that is pending activation
 
-:span[POST]{.api-post} `/api/signingkeys/pending/generate/v1`
+:endpoint{method="POST" path="/api/signingkeys/pending/generate/v1"}
 
 **Response**
 
@@ -122,7 +122,7 @@ title: Signing
 
 ## Activate an existing pending signing key, making it the active signing key for the system
 
-:span[POST]{.api-post} `/api/signingkeys/pending/{id}/activate/v1`
+:endpoint{method="POST" path="/api/signingkeys/pending/\{id\}/activate/v1"}
 
 **Path Parameters**
 
@@ -140,7 +140,7 @@ title: Signing
 
 ## Validate that the public signing keys are valid and can be used to verify signatures. This is intended to be used as a health check for external key hosting, and will return an error if the keys are invalid or expired
 
-:span[POST]{.api-post} `/api/signingkeys/verify/v1`
+:endpoint{method="POST" path="/api/signingkeys/verify/v1"}
 
 **Request Body**
 

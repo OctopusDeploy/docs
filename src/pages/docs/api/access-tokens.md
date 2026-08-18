@@ -7,7 +7,7 @@ title: Access Tokens
 
 ## Create an access token for the current user
 
-:span[POST]{.api-post} `/api/users/access-token`
+:endpoint{method="POST" path="/api/users/access-token"}
 
 **Response**
 

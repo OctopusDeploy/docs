@@ -7,7 +7,7 @@ title: Observability
 
 ## Register and trusts new Kubernetes Monitor
 
-:span[POST]{.api-post} `/api/{spaceId}/observability/agents`
+:endpoint{method="POST" path="/api/\{spaceId\}/observability/agents"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors`, `/api/{spaceId}/observability/kubernetes-monitors`.
 
@@ -68,7 +68,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
 
 ## Request the Kubernetes monitor to start sending events for the specified resource
 
-:span[POST]{.api-post} `/api/{spaceId}/observability/events/sessions`
+:endpoint{method="POST" path="/api/\{spaceId\}/observability/events/sessions"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 
@@ -116,7 +116,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 
 ## Request to fetch all the events for the specified session
 
-:span[GET]{.api-get} `/api/{spaceId}/observability/events/sessions/{sessionId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/observability/events/sessions/\{sessionId\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{sessionId}`.
 
@@ -175,7 +175,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{
 
 ## Get a Kubernetes Monitor by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/observability/kubernetes-monitors/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/observability/kubernetes-monitors/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors/{id}`.
 
@@ -212,7 +212,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 
 ## Delete a Kubernetes Monitor by ID
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/observability/kubernetes-monitors/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/observability/kubernetes-monitors/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monitors/{id}`.
 
@@ -235,7 +235,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 
 ## Request the Kubernetes monitor to start sending logs for the specified container
 
-:span[POST]{.api-post} `/api/{spaceId}/observability/logs/sessions`
+:endpoint{method="POST" path="/api/\{spaceId\}/observability/logs/sessions"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 
@@ -291,7 +291,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 
 ## Request to fetch all the logs for the specified session
 
-:span[GET]{.api-get} `/api/{spaceId}/observability/logs/sessions/{sessionId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/observability/logs/sessions/\{sessionId\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{sessionId}`.
 
@@ -334,7 +334,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{se
 
 ## Request the live status for a Project/Environment/Tenant
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/livestatus`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/livestatus"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/livestatus`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/livestatus`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/livestatus`.
 
@@ -395,7 +395,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Get a detailed summary of a live Kubernetes resource - either a top-level resource or a child resource
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/machines/\{sourceId\}/resources/\{desiredOrKubernetesMonitoredResourceId\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}`.
 
@@ -476,7 +476,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/machines/\{sourceId\}/resources/\{desiredOrKubernetesMonitoredResourceId\}/manifest"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest`.
 
@@ -520,7 +520,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 
 ## Request for retrieving the manifest for a live kubernetes resource
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/machines/\{sourceId\}/resources/\{desiredOrKubernetesMonitoredResourceId\}/manifest/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/machines/{sourceId}/resources/{desiredOrKubernetesMonitoredResourceId}/manifest/v2`.
 

@@ -7,7 +7,7 @@ title: Server
 
 ## Request the current server configuration
 
-:span[GET]{.api-get} `/api/serverconfiguration`
+:endpoint{method="GET" path="/api/serverconfiguration"}
 
 **Response**
 
@@ -41,7 +41,7 @@ title: Server
 
 ## Set the server configuration
 
-:span[PUT]{.api-put} `/api/serverconfiguration`
+:endpoint{method="PUT" path="/api/serverconfiguration"}
 
 **Request Body**
 
@@ -87,7 +87,7 @@ title: Server
 
 ## Request the current server configuration settings
 
-:span[GET]{.api-get} `/api/serverconfiguration/settings`
+:endpoint{method="GET" path="/api/serverconfiguration/settings"}
 
 **Response**
 

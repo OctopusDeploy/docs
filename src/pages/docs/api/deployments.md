@@ -7,7 +7,7 @@ title: Deployments
 
 ## Get a list of Deployments
 
-:span[GET]{.api-get} `/api/{spaceId}/deployments`
+:endpoint{method="GET" path="/api/\{spaceId\}/deployments"}
 
 Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments`.
 
@@ -208,7 +208,7 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
 
 ## Create a Deployment
 
-:span[POST]{.api-post} `/api/{spaceId}/deployments`
+:endpoint{method="POST" path="/api/\{spaceId\}/deployments"}
 
 Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments`.
 
@@ -550,7 +550,7 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
 
 ## Create a new tenanted deployment
 
-:span[POST]{.api-post} `/api/{spaceId}/deployments/create/tenanted/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/deployments/create/tenanted/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`.
 
@@ -678,7 +678,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
 
 ## Create a new untenanted deployment
 
-:span[POST]{.api-post} `/api/{spaceId}/deployments/create/untenanted/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/deployments/create/untenanted/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v1`.
 
@@ -798,7 +798,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
 
 ## Create a Deployment
 
-:span[POST]{.api-post} `/api/{spaceId}/deployments/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/deployments/v1"}
 
 Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployments/v1`.
 
@@ -1125,7 +1125,7 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
 
 ## Get a Deployment by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/deployments/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/deployments/\{id\}"}
 
 Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deployments/{id}`.
 
@@ -1304,7 +1304,7 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
 
 ## Delete an existing Deployment
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/deployments/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/deployments/\{id\}"}
 
 Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deployments/{id}`.
 

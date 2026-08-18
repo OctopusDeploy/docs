@@ -7,7 +7,7 @@ title: Build Information
 
 ## Retrieve a list of build information records describing the vcs information for a given package
 
-:span[GET]{.api-get} `/api/{spaceId}/build-information`
+:endpoint{method="GET" path="/api/\{spaceId\}/build-information"}
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
 
@@ -128,7 +128,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 
 ## Create or update a specific build information record describing the vcs information for a given package
 
-:span[POST]{.api-post} `/api/{spaceId}/build-information`
+:endpoint{method="POST" path="/api/\{spaceId\}/build-information"}
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
 
@@ -264,7 +264,7 @@ Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build
 
 ## Bulk delete specific Build Information records
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/build-information/bulk`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/build-information/bulk"}
 
 Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/build-information/bulk`.
 
@@ -297,7 +297,7 @@ Also reachable at `/api/build-information/bulk`, `/api/spaces/{spaceIdentifier}/
 
 ## Retrieve a specific build information record describing the vcs information for a given package
 
-:span[GET]{.api-get} `/api/{spaceId}/build-information/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/build-information/\{id\}"}
 
 Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/build-information/{id}`.
 
@@ -389,7 +389,7 @@ Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/
 
 ## Delete a specific Build Information record
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/build-information/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/build-information/\{id\}"}
 
 Also reachable at `/api/build-information/{id}`, `/api/spaces/{spaceIdentifier}/build-information/{id}`.
 

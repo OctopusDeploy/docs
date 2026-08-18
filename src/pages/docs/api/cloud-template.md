@@ -7,7 +7,7 @@ title: Cloud Template
 
 ## Request the metadata (ie, parameters and values) for a cloud template (eg, cloudformation, terraform, azure ARM template)
 
-:span[POST]{.api-post} `/api/cloudtemplate/{id}/metadata`
+:endpoint{method="POST" path="/api/cloudtemplate/\{id\}/metadata"}
 
 **Path Parameters**
 

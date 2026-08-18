@@ -7,7 +7,7 @@ title: Accounts
 
 ## Get a list of accounts
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts"}
 
 Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
 
@@ -117,7 +117,7 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
 
 ## Create a new account - of the type defined by body content
 
-:span[POST]{.api-post} `/api/{spaceId}/accounts`
+:endpoint{method="POST" path="/api/\{spaceId\}/accounts"}
 
 Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
 
@@ -219,7 +219,7 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
 
 ## Get a list of Accounts
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/all"}
 
 Also reachable at `/api/accounts/all`, `/api/spaces/{spaceIdentifier}/accounts/all`.
 
@@ -288,7 +288,7 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
 
 ## List the Azure Environments provided by the SDK
 
-:span[GET]{.api-get} `/api/accounts/azureenvironments`
+:endpoint{method="GET" path="/api/accounts/azureenvironments"}
 
 List the Azure Environments provided by the SDK
 
@@ -298,7 +298,7 @@ List the Azure Environments provided by the SDK
 
 ## Modify the account identified by the accoutId
 
-:span[PUT]{.api-put} `/api/{spaceId}/accounts/{accountId}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/accounts/\{accountId\}"}
 
 Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/accounts/{accountId}`.
 
@@ -403,7 +403,7 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
 
 ## Get an Account by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}"}
 
 Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/{id}`.
 
@@ -470,7 +470,7 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
 
 ## Delete an existing Account
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/accounts/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/accounts/\{id\}"}
 
 Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/{id}`.
 
@@ -487,7 +487,7 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
 
 ## Retrieve the public key portion of the account's associated certificate, if present
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/pk`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/pk"}
 
 Also reachable at `/api/accounts/{id}/pk`, `/api/spaces/{spaceIdentifier}/accounts/{id}/pk`.
 
@@ -510,7 +510,7 @@ Also reachable at `/api/accounts/{id}/pk`, `/api/spaces/{spaceIdentifier}/accoun
 
 ## List the Resource Groups associated with an Azure account
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/resourceGroups`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/resourceGroups"}
 
 Also reachable at `/api/accounts/{id}/resourceGroups`, `/api/spaces/{spaceIdentifier}/accounts/{id}/resourceGroups`.
 
@@ -527,7 +527,7 @@ List the Resource Groups associated with an Azure account.
 
 ## List the storage accounts associated with an Azure account
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/storageAccounts`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/storageAccounts"}
 
 Also reachable at `/api/accounts/{id}/storageAccounts`, `/api/spaces/{spaceIdentifier}/accounts/{id}/storageAccounts`.
 
@@ -544,7 +544,7 @@ List the storage accounts associated with an Azure account.
 
 ## List projects and deployments which are using an account
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/usages`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/usages"}
 
 Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/accounts/{id}/usages`.
 
@@ -712,7 +712,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
 
 ## Delete an existing Account
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/accounts/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/accounts/\{id\}/v1"}
 
 Also reachable at `/api/accounts/{id}/v1`, `/api/spaces/{spaceIdentifier}/accounts/{id}/v1`.
 
@@ -735,7 +735,7 @@ Also reachable at `/api/accounts/{id}/v1`, `/api/spaces/{spaceIdentifier}/accoun
 
 ## List the websites associated with an Azure account
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/websites`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/websites"}
 
 Also reachable at `/api/accounts/{id}/websites`, `/api/spaces/{spaceIdentifier}/accounts/{id}/websites`.
 
@@ -752,7 +752,7 @@ List the websites associated with an Azure account.
 
 ## List the slots associated with an Azure Web Site
 
-:span[GET]{.api-get} `/api/{spaceId}/accounts/{id}/{resourceGroupName}/websites/{webSiteName}/slots`
+:endpoint{method="GET" path="/api/\{spaceId\}/accounts/\{id\}/\{resourceGroupName\}/websites/\{webSiteName\}/slots"}
 
 Also reachable at `/api/accounts/{id}/{resourceGroupName}/websites/{webSiteName}/slots`, `/api/spaces/{spaceIdentifier}/accounts/{id}/{resourceGroupName}/websites/{webSiteName}/slots`.
 
@@ -771,7 +771,7 @@ List the slots associated with an Azure Web Site.
 
 ## Get the account types this Octopus Server supports
 
-:span[GET]{.api-get} `/api/accounttypes`
+:endpoint{method="GET" path="/api/accounttypes"}
 
 Lists the account types contributed by the extensions installed on this Server, sorted by name.
 

@@ -7,7 +7,7 @@ title: Api Keys
 
 ## Get a list of API Keys for a User
 
-:span[GET]{.api-get} `/api/users/{userId}/apikeys`
+:endpoint{method="GET" path="/api/users/\{userId\}/apikeys"}
 
 Lists all API keys for a user, returning the most recent results first.
 
@@ -117,7 +117,7 @@ Lists all API keys for a user, returning the most recent results first.
 
 ## Generate a new API key for a User
 
-:span[POST]{.api-post} `/api/users/{userId}/apikeys`
+:endpoint{method="POST" path="/api/users/\{userId\}/apikeys"}
 
 The API Key returned in the result must be saved by the caller, as it cannot be retrieved subsequently from the Octopus server
 
@@ -199,7 +199,7 @@ The API Key returned in the result must be saved by the caller, as it cannot be 
 
 ## Get a list of API Keys for a User
 
-:span[GET]{.api-get} `/api/users/{userId}/apikeys/v1`
+:endpoint{method="GET" path="/api/users/\{userId\}/apikeys/v1"}
 
 Lists all API keys for a user, returning the most recent results first.
 
@@ -280,7 +280,7 @@ Lists all API keys for a user, returning the most recent results first.
 
 ## Get an API Key by ID
 
-:span[GET]{.api-get} `/api/users/{userId}/apikeys/{id}`
+:endpoint{method="GET" path="/api/users/\{userId\}/apikeys/\{id\}"}
 
 **Path Parameters**
 
@@ -351,7 +351,7 @@ Lists all API keys for a user, returning the most recent results first.
 
 ## Revoke an API Key
 
-:span[DELETE]{.api-delete} `/api/users/{userId}/apikeys/{id}`
+:endpoint{method="DELETE" path="/api/users/\{userId\}/apikeys/\{id\}"}
 
 **Path Parameters**
 

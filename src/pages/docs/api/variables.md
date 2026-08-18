@@ -7,7 +7,7 @@ title: Variables
 
 ## Return a summary of the variables that will be migrated to Git
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/migrate-variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-variables`.
 
@@ -36,7 +36,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 ## Convert all non-sensitive project variables to be stored in Git rather than the database
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/migrate-variables`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/migrate-variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-variables`.
 
@@ -80,7 +80,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 ## Get variables for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`.
 
@@ -300,7 +300,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 
 ## Modify variables for the project
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/variables`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`.
 
@@ -511,7 +511,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 
 ## Get variables for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/variables`.
 
@@ -732,7 +732,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 
 ## Modify variables for the project
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/variables`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/variables`.
 
@@ -946,7 +946,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 
 ## Get a list of Variable Sets
 
-:span[GET]{.api-get} `/api/{spaceId}/variables/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/variables/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/all`, `/api/variables/all`.
 
@@ -1073,7 +1073,7 @@ Lists all the Variable Sets in the supplied Space.
 
 ## Get a list of Variable names
 
-:span[GET]{.api-get} `/api/{spaceId}/variables/names`
+:endpoint{method="GET" path="/api/\{spaceId\}/variables/names"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/names`, `/api/variables/names`.
 
@@ -1109,7 +1109,7 @@ List the names of variables that can be used in deployment actions. If a project
 
 ## Get a Variable Set preview
 
-:span[GET]{.api-get} `/api/{spaceId}/variables/preview`
+:endpoint{method="GET" path="/api/\{spaceId\}/variables/preview"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/preview`, `/api/variables/preview`.
 
@@ -1350,7 +1350,7 @@ Lists the evaluated Variables for a deployment.
 
 ## Get a Variable Set by Id
 
-:span[GET]{.api-get} `/api/{spaceId}/variables/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/variables/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variables/{id}`.
 
@@ -1570,7 +1570,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
 
 ## Update a Variable Set
 
-:span[PUT]{.api-put} `/api/{spaceId}/variables/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/variables/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variables/{id}`.
 

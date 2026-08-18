@@ -7,7 +7,7 @@ title: User Roles
 
 ## Get a list of User Roles
 
-:span[GET]{.api-get} `/api/userroles`
+:endpoint{method="GET" path="/api/userroles"}
 
 Lists all of the User Roles in the current Octopus Deploy instance. The results will be sorted alphabetically by name.
 
@@ -111,7 +111,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 
 ## Create a custom user role definition
 
-:span[POST]{.api-post} `/api/userroles`
+:endpoint{method="POST" path="/api/userroles"}
 
 **Request Body**
 
@@ -196,7 +196,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 
 ## Get a list of User Roles
 
-:span[GET]{.api-get} `/api/userroles/all`
+:endpoint{method="GET" path="/api/userroles/all"}
 
 Lists all of the User Roles in the current Octopus Deploy instance. The results will be sorted alphabetically by name.
 
@@ -260,7 +260,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 
 ## Get a User Role by ID
 
-:span[GET]{.api-get} `/api/userroles/{id}`
+:endpoint{method="GET" path="/api/userroles/\{id\}"}
 
 **Path Parameters**
 
@@ -325,7 +325,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 
 ## Modify an existing User Role
 
-:span[PUT]{.api-put} `/api/userroles/{id}`
+:endpoint{method="PUT" path="/api/userroles/\{id\}"}
 
 **Path Parameters**
 
@@ -417,7 +417,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 
 ## Delete an existing User Role
 
-:span[DELETE]{.api-delete} `/api/userroles/{id}`
+:endpoint{method="DELETE" path="/api/userroles/\{id\}"}
 
 **Path Parameters**
 

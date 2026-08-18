@@ -7,7 +7,7 @@ title: Runbook Snapshots
 
 ## Get the packages and Git references that were used in a Runbook run
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookRuns/{id}/details/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookRuns/\{id\}/details/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRuns/{id}/details/v1`.
 
@@ -97,7 +97,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRun
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots`.
 
@@ -222,7 +222,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 ## Create a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookSnapshots`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots`.
 
@@ -385,7 +385,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
 
 ## Get a single Runbook Snapshot by project ID and name
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{idOrName}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{idOrName\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{idOrName}`.
 
@@ -493,7 +493,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
 
 ## Modify a Runbook Snapshot
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}`.
 
@@ -656,7 +656,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
 
 ## Get the runbook runs for the given snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/runbookRuns"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`.
 
@@ -837,7 +837,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
 
 ## Get a Runbook Run Preview for a Runbook Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/runbookRuns/preview/\{environmentId\}"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`, `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`, `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`.
 
@@ -953,7 +953,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
 
 ## Get a Runbook Run Template for a Runbook Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/runbookRuns/template"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/template`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/runbookRuns/template`.
 
@@ -1048,7 +1048,7 @@ Gets all of the information necessary for creating or editing a run for this sna
 
 ## Update the variable snapshots for a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/snapshot-variables"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables`.
 
@@ -1158,7 +1158,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
 
 ## Update the variable snapshots for a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/snapshot-variables/v1"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/snapshot-variables/v1`.
 
@@ -1257,7 +1257,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
 
 ## Get a list of Variable Sets included in the Runbook Snapshot's current Variable Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{id}/variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{id\}/variables"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{id}/variables`.
 
@@ -1381,7 +1381,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
 
 ## Get a list of Runbook Run Previews for a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/runbookSnapshots/{runbookSnapshotId}/runbookRuns/previews`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/runbookSnapshots/\{runbookSnapshotId\}/runbookRuns/previews"}
 
 Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId}/runbookRuns/previews`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookSnapshots/{runbookSnapshotId}/runbookRuns/previews`.
 
@@ -1516,7 +1516,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/runbooks/{id}/runbookSnapshots`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/runbooks/\{id\}/runbookSnapshots"}
 
 Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{id}/runbookSnapshots`.
 
@@ -1643,7 +1643,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 ## Delete an existing Runbook Snapshot
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}/runbooksnapshots/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/runbooksnapshots/\{id\}"}
 
 Also reachable at `/api/projects/{projectId}/runbooksnapshots/{id}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooksnapshots/{id}`.
 
@@ -1664,7 +1664,7 @@ Also deletes all of the Runbook Runs, Tasks and other associated resources belon
 
 ## Get a paginated list of Runbook Snapshots
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookSnapshots`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookSnapshots"}
 
 Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runbookSnapshots`.
 
@@ -1784,7 +1784,7 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
 
 ## Create a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/runbookSnapshots`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbookSnapshots"}
 
 Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runbookSnapshots`.
 
@@ -1945,7 +1945,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
 
 ## Get a Runbook Snapshot by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookSnapshots/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookSnapshots/\{id\}"}
 
 Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}`.
 
@@ -2051,7 +2051,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
 
 ## Modify a Runbook Snapshot
 
-:span[PUT]{.api-put} `/api/{spaceId}/runbookSnapshots/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/runbookSnapshots/\{id\}"}
 
 Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}`.
 
@@ -2212,7 +2212,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
 
 ## Get the runbook runs for the given snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookSnapshots/{id}/runbookRuns`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookSnapshots/\{id\}/runbookRuns"}
 
 Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}/runbookRuns`.
 
@@ -2392,7 +2392,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
 
 ## Get a Runbook Run Preview for a Runbook Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookSnapshots/\{id\}/runbookRuns/preview/\{environmentId\}"}
 
 Also reachable at `/api/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`, `/api/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`, `/api/{spaceId}/runbookSnapshots/{id}/runbookRuns/preview/{environmentId}/{tenant}`.
 
@@ -2508,7 +2508,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
 
 ## Get a Runbook Run Template for a Runbook Snapshot
 
-:span[GET]{.api-get} `/api/{spaceId}/runbookSnapshots/{id}/runbookRuns/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbookSnapshots/\{id\}/runbookRuns/template"}
 
 Also reachable at `/api/runbookSnapshots/{id}/runbookRuns/template`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}/runbookRuns/template`.
 
@@ -2606,7 +2606,7 @@ Gets all of the information necessary for creating or editing a run for this sna
 
 ## Update the variable snapshots for a Runbook Snapshot
 
-:span[POST]{.api-post} `/api/{spaceId}/runbookSnapshots/{id}/snapshot-variables`
+:endpoint{method="POST" path="/api/\{spaceId\}/runbookSnapshots/\{id\}/snapshot-variables"}
 
 Also reachable at `/api/runbookSnapshots/{id}/snapshot-variables`, `/api/spaces/{spaceIdentifier}/runbookSnapshots/{id}/snapshot-variables`.
 
@@ -2714,7 +2714,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
 
 ## Get a paginated list of all of the Runbook Snapshots that belong to the given Runbook
 
-:span[GET]{.api-get} `/api/{spaceId}/runbooks/{id}/runbookSnapshots`
+:endpoint{method="GET" path="/api/\{spaceId\}/runbooks/\{id\}/runbookSnapshots"}
 
 Also reachable at `/api/runbooks/{id}/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runbooks/{id}/runbookSnapshots`.
 
@@ -2841,7 +2841,7 @@ Runbook Snapshots will be ordered from most recent to least recent.
 
 ## Delete an existing Runbook Snapshot
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/runbooksnapshots/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/runbooksnapshots/\{id\}"}
 
 Also reachable at `/api/runbooksnapshots/{id}`, `/api/spaces/{spaceIdentifier}/runbooksnapshots/{id}`.
 

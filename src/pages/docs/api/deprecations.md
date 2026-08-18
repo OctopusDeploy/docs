@@ -7,7 +7,7 @@ title: Deprecations
 
 ## Toggle a deprecation on or off in Octopus Server. Used to test the impact of deprecations
 
-:span[POST]{.api-post} `/api/deprecations/toggle`
+:endpoint{method="POST" path="/api/deprecations/toggle"}
 
 **Request Body**
 
@@ -36,7 +36,7 @@ title: Deprecations
 
 ## Toggle a deprecation on or off in Octopus Server. Used to test the impact of deprecations
 
-:span[POST]{.api-post} `/api/deprecations/toggle/v1`
+:endpoint{method="POST" path="/api/deprecations/toggle/v1"}
 
 **Request Body**
 

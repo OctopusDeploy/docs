@@ -7,7 +7,7 @@ title: Performance
 
 ## Request the current performance configuration
 
-:span[GET]{.api-get} `/api/performanceconfiguration`
+:endpoint{method="GET" path="/api/performanceconfiguration"}
 
 **Response**
 
@@ -42,7 +42,7 @@ title: Performance
 
 ## Set the performance configuration
 
-:span[PUT]{.api-put} `/api/performanceconfiguration`
+:endpoint{method="PUT" path="/api/performanceconfiguration"}
 
 **Request Body**
 

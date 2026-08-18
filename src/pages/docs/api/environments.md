@@ -7,7 +7,7 @@ title: Environments
 
 ## Get a list of Environments
 
-:span[GET]{.api-get} `/api/{spaceId}/environments`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments"}
 
 Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environments`.
 
@@ -120,7 +120,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 
 ## Create a new environment
 
-:span[POST]{.api-post} `/api/{spaceId}/environments`
+:endpoint{method="POST" path="/api/\{spaceId\}/environments"}
 
 Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environments`.
 
@@ -229,7 +229,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 
 ## Get a list of Environments
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/all"}
 
 Also reachable at `/api/environments/all`, `/api/spaces/{spaceIdentifier}/environments/all`.
 
@@ -314,7 +314,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 
 ## Get a list of Environments
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/all/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/all/v1"}
 
 Also reachable at `/api/environments/all/v1`, `/api/spaces/{spaceIdentifier}/environments/all/v1`.
 
@@ -397,7 +397,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 
 ## PUT /api/{spaceId}/environments/sortorder
 
-:span[PUT]{.api-put} `/api/{spaceId}/environments/sortorder`
+:endpoint{method="PUT" path="/api/\{spaceId\}/environments/sortorder"}
 
 Also reachable at `/api/environments/sortorder`, `/api/spaces/{spaceIdentifier}/environments/sortorder`.
 
@@ -425,7 +425,7 @@ A `array of string` payload.
 
 ## List all environments, including a summary of machine information
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/summary`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/summary"}
 
 Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/environments/summary`.
 
@@ -577,7 +577,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
 
 ## List all environments, including a summary of machine information
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/summary/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/summary/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 
@@ -719,7 +719,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
 
 ## Get a list of Environments
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/v1"}
 
 Also reachable at `/api/environments/v1`, `/api/spaces/{spaceIdentifier}/environments/v1`.
 
@@ -808,7 +808,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 
 ## List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments)
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
 
@@ -881,7 +881,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
 
 ## Modify an existing environment
 
-:span[PUT]{.api-put} `/api/{spaceId}/environments/{environmentId}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/environments/\{environmentId\}"}
 
 Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}`.
 
@@ -993,7 +993,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 
 ## Get the environment custom settings metadata from the extensions
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/{environmentId}/metadata`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/\{environmentId\}/metadata"}
 
 Also reachable at `/api/environments/{environmentId}/metadata`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}/metadata`.
 
@@ -1031,7 +1031,7 @@ Also reachable at `/api/environments/{environmentId}/metadata`, `/api/spaces/{sp
 
 ## List all the variable set names (projects and library variable sets) that have variables that are scoped to only the given environment
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/{environmentId}/singlyScopedVariableDetails`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/\{environmentId\}/singlyScopedVariableDetails"}
 
 Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails`, `/api/spaces/{spaceIdentifier}/environments/{environmentId}/singlyScopedVariableDetails`.
 
@@ -1076,7 +1076,7 @@ Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails
 
 ## Get a specific Deployment Environment
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/\{id\}"}
 
 Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/environments/{id}`.
 
@@ -1149,7 +1149,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
 
 ## Delete an existing Environment
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/environments/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/environments/\{id\}"}
 
 Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/environments/{id}`.
 
@@ -1166,7 +1166,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
 
 ## Return the list of machines in an environment that matches the filters requested by the user
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/{id}/machines`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/\{id\}/machines"}
 
 Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifier}/environments/{id}/machines`.
 
@@ -1317,7 +1317,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
 
 ## Get a specific Static, Parent or Ephemeral Environment by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/environments/{id}/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/environments/\{id\}/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
 
@@ -1362,7 +1362,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
 
 ## List environments available for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/environments`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments`.
 

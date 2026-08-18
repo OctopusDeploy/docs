@@ -7,7 +7,7 @@ title: Deployment Targets
 
 ## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/machines`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines"}
 
 Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 
@@ -174,7 +174,7 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 
 ## Create a MachineResource
 
-:span[POST]{.api-post} `/api/{spaceId}/machines`
+:endpoint{method="POST" path="/api/\{spaceId\}/machines"}
 
 Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
 
@@ -360,7 +360,7 @@ Creates a new deployment target.
 
 ## Get a list of Deployment Targets
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/all"}
 
 Also reachable at `/api/machines/all`, `/api/spaces/{spaceIdentifier}/machines/all`.
 
@@ -487,7 +487,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
 
 ## Get a list of Deployment Targets
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/all/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/all/v1"}
 
 Also reachable at `/api/machines/all/v1`, `/api/spaces/{spaceIdentifier}/machines/all/v1`.
 
@@ -602,7 +602,7 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
 
 ## Interrogate a deployment target for communication details so that it may be added to the installation
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/discover`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/discover"}
 
 Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machines/discover`.
 
@@ -704,7 +704,7 @@ Also reachable at `/api/machines/discover`, `/api/spaces/{spaceIdentifier}/machi
 
 ## Get all operating system names for deployment targets
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/operatingsystem/names/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/operatingsystem/names/all"}
 
 Also reachable at `/api/machines/operatingsystem/names/all`, `/api/spaces/{spaceIdentifier}/machines/operatingsystem/names/all`.
 
@@ -726,7 +726,7 @@ Also reachable at `/api/machines/operatingsystem/names/all`, `/api/spaces/{space
 
 ## Get all operating system shell names for deployment targets
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/operatingsystem/shells/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/operatingsystem/shells/all"}
 
 Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spaceIdentifier}/machines/operatingsystem/shells/all`.
 
@@ -748,7 +748,7 @@ Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spac
 
 ## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/v2"}
 
 Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2`.
 
@@ -865,7 +865,7 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
 
 ## Get an existing Deployment Target
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{id\}"}
 
 Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/{id}`.
 
@@ -983,7 +983,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
 
 ## Delete an existing Deployment Target
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/machines/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/machines/\{id\}"}
 
 Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/{id}`.
 
@@ -1000,7 +1000,7 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
 
 ## Get a list of the latest deployments by project for the given Deployment Target
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{id}/latestdeployments`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{id\}/latestdeployments"}
 
 Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIdentifier}/machines/{id}/latestdeployments`.
 
@@ -1092,7 +1092,7 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
 
 ## Get a list of Tasks for the given Deployment Target
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{id}/tasks`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{id\}/tasks"}
 
 Also reachable at `/api/machines/{id}/tasks`, `/api/spaces/{spaceIdentifier}/machines/{id}/tasks`.
 
@@ -1259,7 +1259,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 
 ## Get a list of Tasks for the given Deployment Target
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{id}/tasks/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{id\}/tasks/v1"}
 
 Also reachable at `/api/machines/{id}/tasks/v1`, `/api/spaces/{spaceIdentifier}/machines/{id}/tasks/v1`.
 
@@ -1363,7 +1363,7 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
 
 ## List all the variable set names (projects and library variable sets) that have variables that are scoped to only the given machine
 
-:span[GET]{.api-get} `/api/{spaceId}/machines/{machineId}/singlyScopedVariableDetails`
+:endpoint{method="GET" path="/api/\{spaceId\}/machines/\{machineId\}/singlyScopedVariableDetails"}
 
 Also reachable at `/api/machines/{machineId}/singlyScopedVariableDetails`, `/api/spaces/{spaceIdentifier}/machines/{machineId}/singlyScopedVariableDetails`.
 
@@ -1411,7 +1411,7 @@ Also reachable at `/api/machines/{machineId}/singlyScopedVariableDetails`, `/api
 
 ## Modify an existing Deployment Target (identified by ID)
 
-:span[PUT]{.api-put} `/api/{spaceId}/machines/{machineid}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/machines/\{machineid\}"}
 
 Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/machines/{machineid}`.
 

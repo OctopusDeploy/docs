@@ -7,7 +7,7 @@ title: Project Templates
 
 ## Share a project template to spaces
 
-:span[POST]{.api-post} `/api/platformhub/{gitRef}/projecttemplates/{slug}/share`
+:endpoint{method="POST" path="/api/platformhub/\{gitRef\}/projecttemplates/\{slug\}/share"}
 
 **Path Parameters**
 

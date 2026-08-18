@@ -7,7 +7,7 @@ title: Upgrade
 
 ## Get information about the upgrade configuration in use by the Octopus Server
 
-:span[GET]{.api-get} `/api/upgradeconfiguration`
+:endpoint{method="GET" path="/api/upgradeconfiguration"}
 
 **Response**
 
@@ -49,7 +49,7 @@ title: Upgrade
 
 ## Update the upgrade configuration used by the Octopus Server
 
-:span[PUT]{.api-put} `/api/upgradeconfiguration`
+:endpoint{method="PUT" path="/api/upgradeconfiguration"}
 
 **Request Body**
 

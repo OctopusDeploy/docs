@@ -7,7 +7,7 @@ title: Proxies
 
 ## Get a list of Proxies
 
-:span[GET]{.api-get} `/api/{spaceId}/proxies`
+:endpoint{method="GET" path="/api/\{spaceId\}/proxies"}
 
 Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
 
@@ -107,7 +107,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
 
 ## Create a Proxy in the specified Space
 
-:span[POST]{.api-post} `/api/{spaceId}/proxies`
+:endpoint{method="POST" path="/api/\{spaceId\}/proxies"}
 
 Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
 
@@ -203,7 +203,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
 
 ## Get a list of Proxies
 
-:span[GET]{.api-get} `/api/{spaceId}/proxies/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/proxies/all"}
 
 Also reachable at `/api/proxies/all`, `/api/spaces/{spaceIdentifier}/proxies/all`.
 
@@ -267,7 +267,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
 
 ## Get a Proxy by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/proxies/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/proxies/\{id\}"}
 
 Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{id}`.
 
@@ -329,7 +329,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
 
 ## Modify the specified Proxy in the specified Space
 
-:span[PUT]{.api-put} `/api/{spaceId}/proxies/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/proxies/\{id\}"}
 
 Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{id}`.
 
@@ -430,7 +430,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
 
 ## Delete an existing Proxy by Id
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/proxies/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/proxies/\{id\}"}
 
 Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{id}`.
 

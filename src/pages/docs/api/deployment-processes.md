@@ -7,7 +7,7 @@ title: Deployment Processes
 
 ## List all the deployment processes
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymentprocesses`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymentprocesses"}
 
 Also reachable at `/api/deploymentprocesses`, `/api/spaces/{spaceIdentifier}/deploymentprocesses`.
 
@@ -100,7 +100,7 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
 
 ## Get a Release Snapshot Template
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymentprocesses/{deploymentProcessId}/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymentprocesses/\{deploymentProcessId\}/template"}
 
 Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/api/spaces/{spaceIdentifier}/deploymentprocesses/{deploymentProcessId}/template`.
 
@@ -221,7 +221,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
 
 ## Get a specific snapshotted version of a deployment process
 
-:span[GET]{.api-get} `/api/{spaceId}/deploymentprocesses/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/deploymentprocesses/\{id\}"}
 
 Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier}/deploymentprocesses/{id}`.
 
@@ -303,7 +303,7 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
 
 ## Get the deployment process for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/deploymentprocesses`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentprocesses"}
 
 Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentprocesses`.
 
@@ -384,7 +384,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
 
 ## Modify a deployment process
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/deploymentprocesses`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentprocesses"}
 
 Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentprocesses`.
 
@@ -521,7 +521,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
 
 ## Get the resolved deployment process for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/deploymentprocesses/resolved`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentprocesses/resolved"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentprocesses/resolved`.
 
@@ -604,7 +604,7 @@ This request returns the deployment process with all process template usages res
 
 ## Get all of the information necessary for creating or editing a release using this deployment process
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/deploymentprocesses/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentprocesses/template"}
 
 Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentprocesses/template`.
 
@@ -725,7 +725,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
 
 ## Validate the deployment process for common non-blocking issues, such as missing deployment targets for tags used within the process steps
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/deploymentprocesses/validate`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/deploymentprocesses/validate"}
 
 Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/deploymentprocesses/validate`.
 
@@ -768,7 +768,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/ap
 
 ## Get the deployment process for a version-controlled project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentprocesses`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentprocesses"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentprocesses`.
 
@@ -850,7 +850,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
 
 ## Modify a deployment process
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentprocesses`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentprocesses"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentprocesses`.
 
@@ -990,7 +990,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
 
 ## Get the resolved deployment process for a version-controlled project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentprocesses/resolved`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentprocesses/resolved"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentprocesses/resolved`.
 
@@ -1074,7 +1074,7 @@ This request returns the deployment process with all process template usages res
 
 ## Get all of the information necessary for creating or editing a release using this deployment process
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentprocesses/template`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentprocesses/template"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/template`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentprocesses/template`.
 
@@ -1197,7 +1197,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
 
 ## Validate the deployment process for common non-blocking issues, such as missing deployment targets for tags used within the process steps
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/{gitRef}/deploymentprocesses/validate`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/deploymentprocesses/validate"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/validate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/deploymentprocesses/validate`.
 
@@ -1241,7 +1241,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/valida
 
 ## Modify a deployment process
 
-:span[PUT]{.api-put} `/api/{spaceId}/deploymentprocesses/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/deploymentprocesses/\{id\}" deprecated=true}
 
 Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier}/deploymentprocesses/{id}`.
 

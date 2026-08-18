@@ -7,7 +7,7 @@ title: Permissions
 
 ## Get all the available permissions and their descriptions and restrictions
 
-:span[GET]{.api-get} `/api/permissions/all`
+:endpoint{method="GET" path="/api/permissions/all"}
 
 **Response**
 

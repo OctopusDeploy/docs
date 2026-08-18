@@ -7,7 +7,7 @@ title: Tasks
 
 ## List all of the tasks in the supplied Octopus Deploy Space. The results will be sorted from newest to oldest
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
@@ -208,7 +208,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
 ## Create a new Task
 
-:span[POST]{.api-post} `/api/{spaceId}/tasks`
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
@@ -360,7 +360,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 
 ## Create a new task and execute it, using a given task as the input. Note that deployment tasks cannot be re-run
 
-:span[POST]{.api-post} `/api/{spaceId}/tasks/rerun/{id}`
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks/rerun/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/rerun/{id}`.
 
@@ -484,7 +484,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
 
 ## List supported task types
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/tasktypes`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/tasktypes"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/tasktypes`, `/api/tasks/tasktypes`.
 
@@ -518,7 +518,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/tasktypes`, `/api/tasks/t
 
 ## Get a single Task by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
 
@@ -642,7 +642,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
 
 ## Mark the given task as canceled
 
-:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/cancel`
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks/\{id\}/cancel"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks/{id}/cancel`.
 
@@ -766,7 +766,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
 
 ## Get a single task by ID, including the full task log as a tree of activity elements
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/details`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/details"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/tasks/{id}/details`.
 
@@ -956,7 +956,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
 
 ## Prioritize given task to the top of the Task Queue
 
-:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/prioritize`
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks/\{id\}/prioritize"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/prioritize`, `/api/tasks/{id}/prioritize`.
 
@@ -971,7 +971,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/prioritize`, `/api/t
 
 ## Get a list of tasks that this task is currently queued behind
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/queued-behind`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/queued-behind"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/api/tasks/{id}/queued-behind`.
 
@@ -1132,7 +1132,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 
 ## Get the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/raw`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/raw"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{id}/raw`.
 
@@ -1155,7 +1155,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{i
 
 ## Change the state of a task
 
-:span[POST]{.api-post} `/api/{spaceId}/tasks/{id}/state`
+:endpoint{method="POST" path="/api/\{spaceId\}/tasks/\{id\}/state"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/{id}/state`.
 
@@ -1302,7 +1302,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
 
 ## Get messages for a single Task by Id
 
-:span[GET]{.api-get} `/api/{spaceId}/tasks/{id}/status/messages`
+:endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/status/messages"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/status/messages`, `/api/tasks/{id}/status/messages`.
 

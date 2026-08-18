@@ -7,7 +7,7 @@ title: Lifecycles
 
 ## List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles"}
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
@@ -113,7 +113,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
 ## Create a new Lifecycle
 
-:span[POST]{.api-post} `/api/{spaceId}/lifecycles`
+:endpoint{method="POST" path="/api/\{spaceId\}/lifecycles"}
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
@@ -305,7 +305,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
 
 ## List all the lifecycles in the supplied Octopus Deploy Space
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles/all"}
 
 Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycles/all`.
 
@@ -404,7 +404,7 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
 
 ## Get a list of Lifecycle previews
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles/previews`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles/previews"}
 
 Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lifecycles/previews`.
 
@@ -509,7 +509,7 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
 
 ## Get a specific Lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles/\{id\}"}
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
@@ -619,7 +619,7 @@ This request does not support getting Lifecycles that belong to Templated Projec
 
 ## Modify a Lifecycle
 
-:span[PUT]{.api-put} `/api/{spaceId}/lifecycles/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/lifecycles/\{id\}"}
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
@@ -816,7 +816,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 
 ## Delete an existing Lifecycle
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/lifecycles/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/lifecycles/\{id\}"}
 
 Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}`.
 
@@ -839,7 +839,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 
 ## Get a Lifecycle preview by Lifecycle id
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}/preview`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles/\{id\}/preview"}
 
 Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}/preview`.
 
@@ -949,7 +949,7 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
 
 ## Get all projects that use this lifecycle
 
-:span[GET]{.api-get} `/api/{spaceId}/lifecycles/{id}/projects`
+:endpoint{method="GET" path="/api/\{spaceId\}/lifecycles/\{id\}/projects"}
 
 Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier}/lifecycles/{id}/projects`.
 

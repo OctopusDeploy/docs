@@ -134,6 +134,13 @@ section so its examples can sit beside it. */
 
 /* ----- Styles for API badges ----- */
 
+/* A deprecated endpoint keeps its badge and its row, and reads as secondary
+   until the reader opens it. The page itself carries the warning in full. */
+.site-nav__link--deprecated .site-nav__label {
+  color: var(--color-text-tertiary);
+  text-decoration: line-through;
+}
+
 /* A badge in the left nav labels the endpoint the row links to. The row starts
    its items at the top, so the badge overrides that and centres on the title it
    belongs to however many lines that title runs to. */

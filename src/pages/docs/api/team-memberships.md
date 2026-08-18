@@ -7,7 +7,7 @@ title: Team Memberships
 
 ## Get a list of Team Memberships for a user
 
-:span[GET]{.api-get} `/api/{spaceId}/teammembership`
+:endpoint{method="GET" path="/api/\{spaceId\}/teammembership"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teammembership`, `/api/spaces/{spaceIdentifier}/users/{userId}/teams`, `/api/teammembership`, `/api/users/{userId}/teams`, `/api/{spaceId}/users/{userId}/teams`.
 
@@ -60,7 +60,7 @@ Lists all Teams a user is a member of, including any from external auth-provider
 
 ## Preview Users that would belong to the specified Team
 
-:span[POST]{.api-post} `/api/{spaceId}/teammembership/previewteam`
+:endpoint{method="POST" path="/api/\{spaceId\}/teammembership/previewteam"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teammembership/previewteam`, `/api/teammembership/previewteam`.
 

@@ -7,7 +7,7 @@ title: Capabilities
 
 ## Ask the server to return a list of all the Capabilities (Commands and Requests) it supports
 
-:span[GET]{.api-get} `/api/capabilities`
+:endpoint{method="GET" path="/api/capabilities"}
 
 **Response**
 
@@ -28,7 +28,7 @@ title: Capabilities
 
 ## Ask the server if a single capability exists or not. If the Capability exists, an HTTP 200 (OK) will be returned. If not, a 404 (Not Found) will be returned
 
-:span[GET]{.api-get} `/api/capabilities/{capability}`
+:endpoint{method="GET" path="/api/capabilities/\{capability\}"}
 
 **Path Parameters**
 

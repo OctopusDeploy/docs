@@ -7,7 +7,7 @@ title: Machine Roles
 
 ## Get all machine roles that have been defined in this Octopus installation
 
-:span[GET]{.api-get} `/api/{spaceId}/machineroles/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/machineroles/all"}
 
 Also reachable at `/api/machineroles/all`, `/api/spaces/{spaceIdentifier}/machineroles/all`.
 
@@ -30,7 +30,7 @@ Also reachable at `/api/machineroles/all`, `/api/spaces/{spaceIdentifier}/machin
 
 ## Get all machine roles that have been defined in this Octopus installation
 
-:span[GET]{.api-get} `/api/{spaceId}/machineroles/all/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/machineroles/all/v1"}
 
 Also reachable at `/api/machineroles/all/v1`, `/api/spaces/{spaceIdentifier}/machineroles/all/v1`.
 

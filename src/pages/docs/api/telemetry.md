@@ -7,7 +7,7 @@ title: Telemetry
 
 ## Get the latest telemetry data
 
-:span[GET]{.api-get} `/api/telemetry/download`
+:endpoint{method="GET" path="/api/telemetry/download"}
 
 **Response**
 
@@ -21,7 +21,7 @@ title: Telemetry
 
 ## Get the last telemetry task
 
-:span[GET]{.api-get} `/api/telemetry/lastTask`
+:endpoint{method="GET" path="/api/telemetry/lastTask"}
 
 **Response**
 
@@ -136,7 +136,7 @@ title: Telemetry
 
 ## Get the Telemetry configuration
 
-:span[GET]{.api-get} `/api/telemetryconfiguration`
+:endpoint{method="GET" path="/api/telemetryconfiguration"}
 
 **Response**
 
@@ -175,7 +175,7 @@ title: Telemetry
 
 ## Update the Telemetry Configuration
 
-:span[PUT]{.api-put} `/api/telemetryconfiguration`
+:endpoint{method="PUT" path="/api/telemetryconfiguration"}
 
 **Request Body**
 

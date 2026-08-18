@@ -7,7 +7,7 @@ title: Integrated Authentication
 
 ## GET /api/integrated-challenge
 
-:span[GET]{.api-get} `/api/integrated-challenge`
+:endpoint{method="GET" path="/api/integrated-challenge"}
 
 **Response**
 

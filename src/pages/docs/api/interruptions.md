@@ -7,7 +7,7 @@ title: Interruptions
 
 ## List interruptions for user attention. The results will be sorted by date from most recently to least recently created
 
-:span[GET]{.api-get} `/api/{spaceId}/interruptions`
+:endpoint{method="GET" path="/api/\{spaceId\}/interruptions"}
 
 Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interruptions`.
 
@@ -144,7 +144,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
 
 ## Get an Interruption by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/interruptions/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/interruptions/\{id\}"}
 
 Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/interruptions/{id}`.
 
@@ -268,7 +268,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 
 ## Get the User that is currently responsible for this Interruption (if any)
 
-:span[GET]{.api-get} `/api/{spaceId}/interruptions/{id}/responsible`
+:endpoint{method="GET" path="/api/\{spaceId\}/interruptions/\{id\}/responsible"}
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
 
@@ -285,7 +285,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 
 ## Allow the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
 
-:span[PUT]{.api-put} `/api/{spaceId}/interruptions/{id}/responsible`
+:endpoint{method="PUT" path="/api/\{spaceId\}/interruptions/\{id\}/responsible"}
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
 
@@ -365,7 +365,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 
 ## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
 
-:span[POST]{.api-post} `/api/{spaceId}/interruptions/{id}/submit`
+:endpoint{method="POST" path="/api/\{spaceId\}/interruptions/\{id\}/submit"}
 
 Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/submit`.
 

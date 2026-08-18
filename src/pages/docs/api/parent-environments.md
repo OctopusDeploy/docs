@@ -7,7 +7,7 @@ title: Parent Environments
 
 ## Create a new parent environment
 
-:span[POST]{.api-post} `/api/{spaceId}/parentEnvironments`
+:endpoint{method="POST" path="/api/\{spaceId\}/parentEnvironments"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 
@@ -59,7 +59,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 
 ## Modify an existing parent environment
 
-:span[PUT]{.api-put} `/api/{spaceId}/parentEnvironments/{environmentId}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/parentEnvironments/\{environmentId\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environmentId}`.
 
@@ -137,7 +137,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
 
 ## Get a specific Parent Environment
 
-:span[GET]{.api-get} `/api/{spaceId}/parentEnvironments/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/parentEnvironments/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 
@@ -184,7 +184,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 
 ## Delete an existing Parent Environment
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/parentEnvironments/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/parentEnvironments/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
 

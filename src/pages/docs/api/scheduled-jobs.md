@@ -7,7 +7,7 @@ title: Scheduled Jobs
 
 ## Get the status of all the scheduled jobs
 
-:span[GET]{.api-get} `/api/scheduler`
+:endpoint{method="GET" path="/api/scheduler"}
 
 **Response**
 
@@ -66,7 +66,7 @@ title: Scheduled Jobs
 
 ## Enable a scheduled job or the job scheduler
 
-:span[GET]{.api-get} `/api/scheduler/start`
+:endpoint{method="GET" path="/api/scheduler/start"}
 
 **Query Parameters**
 
@@ -85,7 +85,7 @@ title: Scheduled Jobs
 
 ## Disable a scheduled job or the job scheduler
 
-:span[GET]{.api-get} `/api/scheduler/stop`
+:endpoint{method="GET" path="/api/scheduler/stop"}
 
 **Query Parameters**
 
@@ -104,7 +104,7 @@ title: Scheduled Jobs
 
 ## Trigger a scheduled job immediately and waits for it to complete
 
-:span[GET]{.api-get} `/api/scheduler/trigger`
+:endpoint{method="GET" path="/api/scheduler/trigger"}
 
 **Query Parameters**
 
@@ -122,7 +122,7 @@ title: Scheduled Jobs
 
 ## Get the structured log for a scheduled job
 
-:span[GET]{.api-get} `/api/scheduler/{name}/logs`
+:endpoint{method="GET" path="/api/scheduler/\{name\}/logs"}
 
 **Path Parameters**
 
@@ -198,7 +198,7 @@ title: Scheduled Jobs
 
 ## Get the raw log for a scheduled job
 
-:span[GET]{.api-get} `/api/scheduler/{name}/logs/raw`
+:endpoint{method="GET" path="/api/scheduler/\{name\}/logs/raw"}
 
 **Path Parameters**
 

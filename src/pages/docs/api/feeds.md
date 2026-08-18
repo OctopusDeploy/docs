@@ -7,7 +7,7 @@ title: Feeds
 
 ## Get a list of feeds
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds"}
 
 Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
@@ -106,7 +106,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 ## Create a feed
 
-:span[POST]{.api-post} `/api/{spaceId}/feeds`
+:endpoint{method="POST" path="/api/\{spaceId\}/feeds"}
 
 Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
@@ -222,7 +222,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 
 ## Get all Feeds
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/all"}
 
 Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
 
@@ -277,7 +277,7 @@ Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
 
 ## Get all feed statistics
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/stats`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/stats"}
 
 Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats`.
 
@@ -318,7 +318,7 @@ Also reachable at `/api/feeds/stats`, `/api/spaces/{spaceIdentifier}/feeds/stats
 
 ## Get a feed resource by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/\{id\}"}
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
@@ -373,7 +373,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 ## Modify a feed by ID
 
-:span[PUT]{.api-put} `/api/{spaceId}/feeds/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/feeds/\{id\}"}
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
@@ -494,7 +494,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 ## Delete an existing Feed
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/feeds/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/feeds/\{id\}"}
 
 Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
@@ -511,7 +511,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 
 ## Search the specified feed for packages based on the provided search term
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}/packages/search`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/\{id\}/packages/search"}
 
 Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifier}/feeds/{id}/packages/search`.
 
@@ -592,7 +592,7 @@ Also reachable at `/api/feeds/{id}/packages/search`, `/api/spaces/{spaceIdentifi
 
 ## List available package versions for the specified feed and package
 
-:span[GET]{.api-get} `/api/{spaceId}/feeds/{id}/packages/versions`
+:endpoint{method="GET" path="/api/\{spaceId\}/feeds/\{id\}/packages/versions"}
 
 Also reachable at `/api/feeds/{id}/packages/versions`, `/api/spaces/{spaceIdentifier}/feeds/{id}/packages/versions`.
 

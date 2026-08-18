@@ -7,7 +7,7 @@ title: Subscriptions
 
 ## Get a list of Subscriptions
 
-:span[GET]{.api-get} `/api/{spaceId}/subscriptions`
+:endpoint{method="GET" path="/api/\{spaceId\}/subscriptions"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscriptions`.
 
@@ -128,7 +128,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 
 ## Create a new Subscription
 
-:span[POST]{.api-post} `/api/{spaceId}/subscriptions`
+:endpoint{method="POST" path="/api/\{spaceId\}/subscriptions"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscriptions`.
 
@@ -386,7 +386,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
 
 ## Get all Subscriptions
 
-:span[GET]{.api-get} `/api/{spaceId}/subscriptions/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/subscriptions/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/all`, `/api/subscriptions/all`.
 
@@ -530,7 +530,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
 
 ## Get a Subscription by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/subscriptions/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/subscriptions/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subscriptions/{id}`.
 
@@ -676,7 +676,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 
 ## Update an existing Subscription
 
-:span[PUT]{.api-put} `/api/{spaceId}/subscriptions/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/subscriptions/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subscriptions/{id}`.
 
@@ -942,7 +942,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
 
 ## Delete an existing Subscription
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/subscriptions/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/subscriptions/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subscriptions/{id}`.
 

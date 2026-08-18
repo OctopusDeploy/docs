@@ -7,7 +7,7 @@ title: Spaces
 
 ## Get a collection of Git credentials
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
@@ -103,7 +103,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 ## Create a new Git credential
 
-:span[POST]{.api-post} `/api/{spaceId}/git-credentials`
+:endpoint{method="POST" path="/api/\{spaceId\}/git-credentials"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
@@ -173,7 +173,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
 
 ## Get a collection of Git credentials
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
@@ -248,7 +248,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
 ## Create a new Git credential
 
-:span[POST]{.api-post} `/api/{spaceId}/git-credentials/v1`
+:endpoint{method="POST" path="/api/\{spaceId\}/git-credentials/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
@@ -318,7 +318,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
 
 ## Get a collection of Git credentials
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
@@ -390,7 +390,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 ## Create a new Git credential
 
-:span[POST]{.api-post} `/api/{spaceId}/git-credentials/v2`
+:endpoint{method="POST" path="/api/\{spaceId\}/git-credentials/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
@@ -448,7 +448,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
 
 ## Get a specific Git credential
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
@@ -510,7 +510,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 ## Modify an existing Git credential
 
-:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/git-credentials/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
@@ -573,7 +573,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 ## Delete an existing Git credential
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/git-credentials/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/git-credentials/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
@@ -596,7 +596,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
 
 ## Get usage of a specific Git credential
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/usage`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/\{id\}/usage"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
 
@@ -638,7 +638,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
 
 ## Get usage of a specific Git credential
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/usage/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/\{id\}/usage/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
 
@@ -680,7 +680,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
 
 ## Get a specific Git credential
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
@@ -741,7 +741,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 ## Modify an existing Git credential
 
-:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}/v1`
+:endpoint{method="PUT" path="/api/\{spaceId\}/git-credentials/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
@@ -804,7 +804,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 ## Delete an existing Git credential
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/git-credentials/{id}/v1`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/git-credentials/\{id\}/v1"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
@@ -827,7 +827,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
 
 ## Get a specific Git credential
 
-:span[GET]{.api-get} `/api/{spaceId}/git-credentials/{id}/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/git-credentials/\{id\}/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
@@ -880,7 +880,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
 ## Modify an existing Git credential
 
-:span[PUT]{.api-put} `/api/{spaceId}/git-credentials/{id}/v2`
+:endpoint{method="PUT" path="/api/\{spaceId\}/git-credentials/\{id\}/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
@@ -937,7 +937,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
 
 ## Get the git references that match the given rule pattern for a project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/refs`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/refs"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
 
@@ -997,7 +997,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs`.
 
 ## Get a list of Spaces
 
-:span[GET]{.api-get} `/api/spaces`
+:endpoint{method="GET" path="/api/spaces"}
 
 Lists all of the Spaces in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
@@ -1104,7 +1104,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 
 ## Create a new Space
 
-:span[POST]{.api-post} `/api/spaces`
+:endpoint{method="POST" path="/api/spaces"}
 
 **Request Body**
 
@@ -1204,7 +1204,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 
 ## Get a list of Spaces
 
-:span[GET]{.api-get} `/api/spaces/all`
+:endpoint{method="GET" path="/api/spaces/all"}
 
 Lists all Spaces. The results will be sorted alphabetically by name.
 
@@ -1283,7 +1283,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 ## Create a new Space
 
-:span[POST]{.api-post} `/api/spaces/v1`
+:endpoint{method="POST" path="/api/spaces/v1"}
 
 **Request Body**
 
@@ -1380,7 +1380,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 ## Get a Space by ID
 
-:span[GET]{.api-get} `/api/spaces/{id}`
+:endpoint{method="GET" path="/api/spaces/\{id\}"}
 
 **Path Parameters**
 
@@ -1455,7 +1455,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 ## Update a Space
 
-:span[PUT]{.api-put} `/api/spaces/{id}`
+:endpoint{method="PUT" path="/api/spaces/\{id\}"}
 
 **Path Parameters**
 
@@ -1561,7 +1561,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 ## Delete an existing Space
 
-:span[DELETE]{.api-delete} `/api/spaces/{id}`
+:endpoint{method="DELETE" path="/api/spaces/\{id\}"}
 
 **Path Parameters**
 
@@ -1574,7 +1574,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 
 ## Get the logo for the space with the given space ID
 
-:span[GET]{.api-get} `/api/spaces/{id}/logo`
+:endpoint{method="GET" path="/api/spaces/\{id\}/logo"}
 
 Gets the logo associated with the space.
 
@@ -1595,7 +1595,7 @@ Gets the logo associated with the space.
 
 ## Modify the logo of the space with the given space ID
 
-:span[POST]{.api-post} `/api/spaces/{id}/logo`
+:endpoint{method="POST" path="/api/spaces/\{id\}/logo"}
 
 Modifies the logo associated with the space.
 
@@ -1610,7 +1610,7 @@ Modifies the logo associated with the space.
 
 ## Modify the logo of the space with the given space ID
 
-:span[PUT]{.api-put} `/api/spaces/{id}/logo`
+:endpoint{method="PUT" path="/api/spaces/\{id\}/logo"}
 
 Modifies the logo associated with the space.
 
@@ -1625,7 +1625,7 @@ Modifies the logo associated with the space.
 
 ## Search in the supplied Octopus Deploy Space using the given keyword
 
-:span[GET]{.api-get} `/api/{spaceId}/spaces/{id}/search`
+:endpoint{method="GET" path="/api/\{spaceId\}/spaces/\{id\}/search"}
 
 Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spaces/{id}/search`.
 
@@ -1674,7 +1674,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 
 ## Delete an existing Space
 
-:span[DELETE]{.api-delete} `/api/spaces/{id}/v1`
+:endpoint{method="DELETE" path="/api/spaces/\{id\}/v1"}
 
 **Path Parameters**
 
@@ -1693,7 +1693,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
 
 ## Get a list of spaces available to the current authenticated user only
 
-:span[GET]{.api-get} `/api/users/{id}/spaces`
+:endpoint{method="GET" path="/api/users/\{id\}/spaces"}
 
 **Path Parameters**
 

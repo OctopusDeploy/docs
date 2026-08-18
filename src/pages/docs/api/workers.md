@@ -7,7 +7,7 @@ title: Workers
 
 ## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/workers`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
@@ -149,7 +149,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 ## Create a new worker
 
-:span[POST]{.api-post} `/api/{spaceId}/workers`
+:endpoint{method="POST" path="/api/\{spaceId\}/workers"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
@@ -304,7 +304,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
 
 ## Get a list of Workers
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/all`, `/api/workers/all`.
 
@@ -416,7 +416,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
 
 ## Interrogate a machine for communication details so that it may be added to the installation
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/discover`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/discover"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/workers/discover`.
 
@@ -529,7 +529,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
 
 ## Get all operating system names for workers. The result will be a string array
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/operatingsystem/names/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/operatingsystem/names/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/names/all`, `/api/workers/operatingsystem/names/all`.
 
@@ -551,7 +551,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/names/a
 
 ## Get all operating system shell names for workers. The result will be a string array
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/operatingsystem/shells/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/operatingsystem/shells/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/all`, `/api/workers/operatingsystem/shells/all`.
 
@@ -573,7 +573,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/
 
 ## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/v2`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
 
@@ -669,7 +669,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
 
 ## Get a Worker by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
@@ -772,7 +772,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 ## Modify an existing worker machine
 
-:span[PUT]{.api-put} `/api/{spaceId}/workers/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/workers/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
@@ -930,7 +930,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 ## Delete an existing Worker
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/workers/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/workers/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{id}`.
 
@@ -947,7 +947,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
 
 ## Get the status of the network connection between the Octopus server and a worker
 
-:span[GET]{.api-get} `/api/{spaceId}/workers/{id}/connection`
+:endpoint{method="GET" path="/api/\{spaceId\}/workers/\{id\}/connection"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}/connection`, `/api/workers/{id}/connection`.
 

@@ -7,7 +7,7 @@ title: Retention
 
 ## Get the default retention configuration
 
-:span[GET]{.api-get} `/api/configuration/retention-default`
+:endpoint{method="GET" path="/api/configuration/retention-default"}
 
 **Response**
 
@@ -41,7 +41,7 @@ title: Retention
 
 ## Update the default retention configuration
 
-:span[PUT]{.api-put} `/api/configuration/retention-default`
+:endpoint{method="PUT" path="/api/configuration/retention-default"}
 
 **Request Body**
 
@@ -61,7 +61,7 @@ title: Retention
 
 ## Get the configured default retention policies for the given retention type
 
-:span[GET]{.api-get} `/api/{spaceId}/retentionpolicies`
+:endpoint{method="GET" path="/api/\{spaceId\}/retentionpolicies"}
 
 Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/retentionpolicies`.
 
@@ -95,7 +95,7 @@ Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/reten
 
 ## Modify a default retention policy
 
-:span[PUT]{.api-put} `/api/{spaceId}/retentionpolicies/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/retentionpolicies/\{id\}"}
 
 Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/retentionpolicies/{id}`.
 

@@ -7,7 +7,7 @@ title: Dashboard Configuration
 
 ## Get dashboard configuration
 
-:span[GET]{.api-get} `/api/{spaceId}/dashboardconfiguration`
+:endpoint{method="GET" path="/api/\{spaceId\}/dashboardconfiguration"}
 
 Also reachable at `/api/dashboardconfiguration`, `/api/spaces/{spaceIdentifier}/dashboardconfiguration`.
 
@@ -82,7 +82,7 @@ Gets the dashboard configuration of the authenticated user for the current space
 
 ## Modify dashboard configuration
 
-:span[PUT]{.api-put} `/api/{spaceId}/dashboardconfiguration`
+:endpoint{method="PUT" path="/api/\{spaceId\}/dashboardconfiguration"}
 
 Also reachable at `/api/dashboardconfiguration`, `/api/spaces/{spaceIdentifier}/dashboardconfiguration`.
 

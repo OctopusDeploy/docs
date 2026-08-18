@@ -7,7 +7,7 @@ title: Event Retention
 
 ## Get the list of archived event files
 
-:span[GET]{.api-get} `/api/events/archives`
+:endpoint{method="GET" path="/api/events/archives"}
 
 **Query Parameters**
 
@@ -87,7 +87,7 @@ title: Event Retention
 
 ## Get the list of archived event files
 
-:span[GET]{.api-get} `/api/events/archives/v1`
+:endpoint{method="GET" path="/api/events/archives/v1"}
 
 **Query Parameters**
 
@@ -152,7 +152,7 @@ title: Event Retention
 
 ## Download an archived event file
 
-:span[GET]{.api-get} `/api/events/archives/{fileName}`
+:endpoint{method="GET" path="/api/events/archives/\{fileName\}"}
 
 **Path Parameters**
 
@@ -171,7 +171,7 @@ title: Event Retention
 
 ## Delete an archived event file
 
-:span[DELETE]{.api-delete} `/api/events/archives/{fileName}`
+:endpoint{method="DELETE" path="/api/events/archives/\{fileName\}"}
 
 **Path Parameters**
 
@@ -184,7 +184,7 @@ title: Event Retention
 
 ## Delete an archived event file
 
-:span[DELETE]{.api-delete} `/api/events/archives/{fileName}/v1`
+:endpoint{method="DELETE" path="/api/events/archives/\{fileName\}/v1"}
 
 **Path Parameters**
 

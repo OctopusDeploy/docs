@@ -7,7 +7,7 @@ title: Tenants
 
 ## Get a list of tenants
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants`, `/api/tenants`.
 
@@ -138,7 +138,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 
 ## Create a new Tenant
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants`, `/api/tenants`.
 
@@ -263,7 +263,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 
 ## List all tenants
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/all`, `/api/tenants/all`.
 
@@ -363,7 +363,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
 
 ## Report back the status of multi-tenancy
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/status`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/status"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/status`, `/api/tenants/status`.
 
@@ -405,7 +405,7 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
 
 ## Check tenants for matching tags
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/tag-test`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/tag-test"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenants/tag-test`.
 
@@ -458,7 +458,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenant
 
 ## Return a list of tenants who are missing required variables
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/variables-missing`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/variables-missing"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/api/tenants/variables-missing`.
 
@@ -518,7 +518,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/a
 
 ## Get a tenant by it's Id
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
@@ -600,7 +600,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 
 ## Modify an existing Tenant
 
-:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tenants/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
@@ -725,7 +725,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 
 ## Delete an existing Tenant
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/tenants/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/tenants/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{id}`.
 
@@ -741,7 +741,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 
 ## Get the logo associated with the Tenant
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}/logo`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/\{id\}/logo"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenants/{id}/logo`.
 
@@ -763,7 +763,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenan
 
 ## Modify the logo associated with the tenant
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants/{id}/logo`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants/\{id\}/logo"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenants/{id}/logo`.
 
@@ -779,7 +779,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenan
 
 ## Modify the logo associated with the tenant
 
-:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}/logo`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tenants/\{id\}/logo"}
 
 **Path Parameters**
 
@@ -793,7 +793,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`, `/api/tenan
 
 ## Modify the logo associated with the tenant
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{id}/logo`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/tenants/\{id\}/logo"}
 
 Also reachable at `/api/tenants/{id}/logo`.
 
@@ -810,7 +810,7 @@ Also reachable at `/api/tenants/{id}/logo`.
 
 ## Get variables associated with the provided tenant ID
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/{id}/variables`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/\{id\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/tenants/{id}/variables`.
 
@@ -966,7 +966,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 
 ## Create or Update the variables associated with the tenant
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants/{id}/variables`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants/\{id\}/variables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/tenants/{id}/variables`.
 
@@ -1249,7 +1249,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 
 ## Create or Update the variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/{spaceId}/tenants/{id}/variables`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tenants/\{id\}/variables"}
 
 **Path Parameters**
 
@@ -1530,7 +1530,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 
 ## Create or Update the variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/tenants/\{id\}/variables"}
 
 Also reachable at `/api/tenants/{id}/variables`.
 
@@ -1814,7 +1814,7 @@ Also reachable at `/api/tenants/{id}/variables`.
 
 ## Get the common variables associated with the tenant
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/\{tenantId\}/commonvariables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`, `/api/tenants/{tenantId}/commonvariables`.
 
@@ -1917,7 +1917,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 
 ## Create or Update the common variables associated with the tenant
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants/\{tenantId\}/commonvariables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`, `/api/tenants/{tenantId}/commonvariables`.
 
@@ -2024,7 +2024,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 
 ## Create or Update the common variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/{spaceId}/tenants/{tenantId}/commonvariables`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tenants/\{tenantId\}/commonvariables"}
 
 **Path Parameters**
 
@@ -2129,7 +2129,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 
 ## Create or Update the common variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariables`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/tenants/\{tenantId\}/commonvariables"}
 
 Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 
@@ -2237,7 +2237,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 
 ## Get the project variables associated with the tenant
 
-:span[GET]{.api-get} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenants/\{tenantId\}/projectvariables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`, `/api/tenants/{tenantId}/projectvariables`.
 
@@ -2340,7 +2340,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 
 ## Create or Update the project variables associated with the tenant
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants/\{tenantId\}/projectvariables"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`, `/api/tenants/{tenantId}/projectvariables`.
 
@@ -2447,7 +2447,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 
 ## Create or Update the project variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/{spaceId}/tenants/{tenantId}/projectvariables`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tenants/\{tenantId\}/projectvariables"}
 
 **Path Parameters**
 
@@ -2552,7 +2552,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 
 ## Create or Update the project variables associated with the tenant
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvariables`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/tenants/\{tenantId\}/projectvariables"}
 
 Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 
@@ -2660,7 +2660,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 
 ## List all of the tenant variables in the supplied Octopus Deploy Space. The results will be sorted alphabetically by id
 
-:span[GET]{.api-get} `/api/{spaceId}/tenantvariables/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/tenantvariables/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/tenantvariables/all`.
 

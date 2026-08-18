@@ -7,7 +7,7 @@ title: Branches
 
 ## Request the list of Branches for a given Project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/branches`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/branches"}
 
 Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches`.
 
@@ -96,7 +96,7 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
 
 ## Create a branch given a project, the base git ref, and the new branch's name
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/branches/v2`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/branches/v2"}
 
 Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches/v2`.
 
@@ -164,7 +164,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 
 ## Get a Git branch by name
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/branches/{branchName}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/branches/\{branchName\}"}
 
 Also reachable at `/api/projects/{projectId}/git/branches/{branchName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/branches/{branchName}`.
 
@@ -217,7 +217,7 @@ Gets a named version control branch for a project.
 
 ## Get a Git commit by hash
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/commits/{hash}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/commits/\{hash\}"}
 
 Also reachable at `/api/projects/{projectId}/git/commits/{hash}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/commits/{hash}`.
 
@@ -268,7 +268,7 @@ Gets a git commit for a project.
 
 ## Get a Git named reference by name
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/refs/{refName}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/refs/\{refName\}"}
 
 Also reachable at `/api/projects/{projectId}/git/refs/{refName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/refs/{refName}`.
 
@@ -321,7 +321,7 @@ Gets a named version control reference for a project.
 
 ## Request a list of Git Tags for the project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/tags`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/tags"}
 
 Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/tags`.
 
@@ -408,7 +408,7 @@ Also reachable at `/api/projects/{projectId}/git/tags`, `/api/spaces/{spaceIdent
 
 ## Get an individual Git Tag; searching for it by Name
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/git/tags/{tagName}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/tags/\{tagName\}"}
 
 Also reachable at `/api/projects/{projectId}/git/tags/{tagName}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/tags/{tagName}`.
 

@@ -7,7 +7,7 @@ title: Icons
 
 ## Get details of all icons
 
-:span[GET]{.api-get} `/api/icons/all`
+:endpoint{method="GET" path="/api/icons/all"}
 
 **Response**
 
@@ -42,7 +42,7 @@ title: Icons
 
 ## Get all icon categories and icon IDs contained in each category
 
-:span[GET]{.api-get} `/api/icons/categories`
+:endpoint{method="GET" path="/api/icons/categories"}
 
 **Response**
 
@@ -70,7 +70,7 @@ title: Icons
 
 ## Modify the logo of a Space to be a specified icon
 
-:span[POST]{.api-post} `/api/spaces/{spaceId}/logo/icon`
+:endpoint{method="POST" path="/api/spaces/\{spaceId\}/logo/icon"}
 
 **Path Parameters**
 
@@ -108,7 +108,7 @@ title: Icons
 
 ## Modify the logo of a project to be a specified icon
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/logo/icon`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/logo/icon"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`.
 
@@ -153,7 +153,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 
 ## Modify the logo of a tenant to be a specified icon
 
-:span[POST]{.api-post} `/api/{spaceId}/tenants/{tenantId}/logo/icon`
+:endpoint{method="POST" path="/api/\{spaceId\}/tenants/\{tenantId\}/logo/icon"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
 

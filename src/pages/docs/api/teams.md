@@ -7,7 +7,7 @@ title: Teams
 
 ## Get a list of Teams
 
-:span[GET]{.api-get} `/api/{spaceId}/teams`
+:endpoint{method="GET" path="/api/\{spaceId\}/teams"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
@@ -123,7 +123,7 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
 
 ## Create a new team
 
-:span[POST]{.api-post} `/api/{spaceId}/teams`
+:endpoint{method="POST" path="/api/\{spaceId\}/teams"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
@@ -239,7 +239,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 
 ## Get a list of Teams
 
-:span[GET]{.api-get} `/api/{spaceId}/teams/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/teams/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/all`, `/api/teams/all`.
 
@@ -319,7 +319,7 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
 
 ## Get a Team by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/teams/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/teams/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
@@ -398,7 +398,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
 ## Modify an existing Team
 
-:span[PUT]{.api-put} `/api/{spaceId}/teams/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/teams/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
@@ -517,7 +517,7 @@ The Everyone Team is treated as a special case and its members and external grou
 
 ## Delete an existing Team
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/teams/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/teams/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
@@ -533,7 +533,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 
 ## Get a list of a Team's Scoped User Roles
 
-:span[GET]{.api-get} `/api/{spaceId}/teams/{id}/scopeduserroles`
+:endpoint{method="GET" path="/api/\{spaceId\}/teams/\{id\}/scopeduserroles"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}/scopeduserroles`, `/api/teams/{id}/scopeduserroles`.
 

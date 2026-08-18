@@ -7,7 +7,7 @@ title: Users
 
 ## Get a list of Users
 
-:span[GET]{.api-get} `/api/users`
+:endpoint{method="GET" path="/api/users"}
 
 Lists all of the Users in the current Octopus Deploy instance, from all Teams. The results will be sorted alphabetically by username.
 
@@ -118,7 +118,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 
 ## Create a new user
 
-:span[POST]{.api-post} `/api/users`
+:endpoint{method="POST" path="/api/users"}
 
 **Request Body**
 
@@ -229,7 +229,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 
 ## Get a list of Users
 
-:span[GET]{.api-get} `/api/users/all`
+:endpoint{method="GET" path="/api/users/all"}
 
 Lists all the Users in the System. The results will be sorted alphabetically by `Username`.
 
@@ -300,7 +300,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
 
 ## Provide the details of the enabled authentication providers and whether the current user can edit logins for the given user
 
-:span[GET]{.api-get} `/api/users/authentication/{userId}`
+:endpoint{method="GET" path="/api/users/authentication/\{userId\}"}
 
 Also reachable at `/api/users/authentication`.
 
@@ -358,7 +358,7 @@ Also reachable at `/api/users/authentication`.
 
 ## Search for users, using the authentication providers
 
-:span[GET]{.api-get} `/api/users/external-search`
+:endpoint{method="GET" path="/api/users/external-search"}
 
 **Query Parameters**
 
@@ -393,7 +393,7 @@ Also reachable at `/api/users/authentication`.
 
 ## Get the metadata to describe the claims/fields used by authentication providers that support identities
 
-:span[GET]{.api-get} `/api/users/identity-metadata`
+:endpoint{method="GET" path="/api/users/identity-metadata"}
 
 **Response**
 
@@ -434,7 +434,7 @@ Also reachable at `/api/users/authentication`.
 
 ## Log in
 
-:span[POST]{.api-post} `/api/users/login`
+:endpoint{method="POST" path="/api/users/login"}
 
 **Request Body**
 
@@ -536,7 +536,7 @@ Also reachable at `/api/users/authentication`.
 
 ## POST /api/users/logout
 
-:span[POST]{.api-post} `/api/users/logout`
+:endpoint{method="POST" path="/api/users/logout"}
 
 Logs out the current user.
 
@@ -546,7 +546,7 @@ Logs out the current user.
 
 ## Get information about the current user
 
-:span[GET]{.api-get} `/api/users/me`
+:endpoint{method="GET" path="/api/users/me"}
 
 **Response**
 
@@ -617,7 +617,7 @@ Logs out the current user.
 
 ## Register a new user and responds with an authentication cookie. Unless the first administrator user is being registered, an invitation code must be provided
 
-:span[POST]{.api-post} `/api/users/register`
+:endpoint{method="POST" path="/api/users/register"}
 
 **Request Body**
 
@@ -725,7 +725,7 @@ Logs out the current user.
 
 ## Get a User by ID
 
-:span[GET]{.api-get} `/api/users/{id}`
+:endpoint{method="GET" path="/api/users/\{id\}"}
 
 **Path Parameters**
 
@@ -801,7 +801,7 @@ Logs out the current user.
 
 ## Modify an existing user
 
-:span[PUT]{.api-put} `/api/users/{id}`
+:endpoint{method="PUT" path="/api/users/\{id\}"}
 
 **Path Parameters**
 
@@ -913,7 +913,7 @@ Logs out the current user.
 
 ## Delete an existing User
 
-:span[DELETE]{.api-delete} `/api/users/{id}`
+:endpoint{method="DELETE" path="/api/users/\{id\}"}
 
 **Path Parameters**
 
@@ -926,7 +926,7 @@ Logs out the current user.
 
 ## Revoke all sessions for a user
 
-:span[PUT]{.api-put} `/api/users/{userId}/revoke-sessions`
+:endpoint{method="PUT" path="/api/users/\{userId\}/revoke-sessions"}
 
 **Path Parameters**
 

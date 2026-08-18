@@ -7,7 +7,7 @@ title: Projects
 
 ## List all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/projects`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects"}
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
@@ -200,7 +200,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
 ## Create a new project
 
-:span[POST]{.api-post} `/api/{spaceId}/projects`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects"}
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
@@ -559,7 +559,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 
 ## List all of the projects in the supplied Octopus Deploy Space
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/all"}
 
 Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/all`.
 
@@ -766,7 +766,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
 
 ## Get the logo associated with the project
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{id}/logo`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{id\}/logo"}
 
 Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/projects/{id}/logo`.
 
@@ -789,7 +789,7 @@ Also reachable at `/api/projects/{id}/logo`, `/api/spaces/{spaceIdentifier}/proj
 
 ## Get a Project by ID or slug
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}"}
 
 Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unusedGitRef}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{unusedGitRef}`, `/api/{spaceId}/projects/{projectId}/{unusedGitRef}`.
 
@@ -998,7 +998,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
 
 ## Modify an existing Project
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}"}
 
 Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`.
 
@@ -1372,7 +1372,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 
 ## Delete an existing Project
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projects/{projectId}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}"}
 
 Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}`.
 
@@ -1388,7 +1388,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 
 ## Test the Git settings to make sure we can connect
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/connectivity-test`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/connectivity-test"}
 
 Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/connectivity-test`.
 
@@ -1449,7 +1449,7 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
 
 ## Convert an existing project to store its configuration in version control
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/convert`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/convert"}
 
 Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/convert`.
 
@@ -1525,7 +1525,7 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
 
 ## Convert all Runbooks to be stored in Git rather than the database
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/migrate-runbooks`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/migrate-runbooks"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-runbooks`.
 
@@ -1592,7 +1592,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 
 ## Update the logo associated with the project
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/logo`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/logo"}
 
 Also reachable at `/api/projects/{projectId}/logo`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo`.
 
@@ -1608,7 +1608,7 @@ Also reachable at `/api/projects/{projectId}/logo`, `/api/spaces/{spaceIdentifie
 
 ## Update the logo associated with the project
 
-:span[PUT]{.api-put} `/api/{spaceId}/projects/{projectId}/logo`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projects/\{projectId\}/logo"}
 
 **Path Parameters**
 
@@ -1622,7 +1622,7 @@ Also reachable at `/api/projects/{projectId}/logo`, `/api/spaces/{spaceIdentifie
 
 ## Update the logo associated with the project
 
-:span[PUT]{.api-put} `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo`
+:endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/projects/\{projectId\}/logo"}
 
 Also reachable at `/api/projects/{projectId}/logo`.
 
@@ -1639,7 +1639,7 @@ Also reachable at `/api/projects/{projectId}/logo`.
 
 ## Get the custom settings metadata from the extensions
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/metadata`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/metadata"}
 
 Also reachable at `/api/projects/{projectId}/metadata`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/metadata`.
 
@@ -1676,7 +1676,7 @@ Also reachable at `/api/projects/{projectId}/metadata`, `/api/spaces/{spaceIdent
 
 ## Get a summary of project-specific information
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/summary`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/summary"}
 
 Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/summary`.
 
@@ -1707,7 +1707,7 @@ Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdenti
 
 ## Get a summary of project-specific information
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/summary/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/summary/v1"}
 
 Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/summary/v1`.
 
@@ -1738,7 +1738,7 @@ Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIde
 
 ## Get a summary of project-specific information
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/summary`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/summary"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/summary`.
 
@@ -1770,7 +1770,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{sp
 
 ## Get a summary of project-specific information
 
-:span[GET]{.api-get} `/api/{spaceId}/projects/{projectId}/{gitRef}/summary/v1`
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/\{gitRef\}/summary/v1"}
 
 Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/summary/v1`.
 
@@ -1802,7 +1802,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/
 
 ## Validate the provided git ref
 
-:span[POST]{.api-post} `/api/{spaceId}/projects/{projectId}/git/validate`
+:endpoint{method="POST" path="/api/\{spaceId\}/projects/\{projectId\}/git/validate" deprecated=true}
 
 Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/validate`.
 

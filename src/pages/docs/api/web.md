@@ -7,7 +7,7 @@ title: Web
 
 ## POST /api/jiraservicemanagement-integration/connectivity-test
 
-:span[POST]{.api-post} `/api/jiraservicemanagement-integration/connectivity-test`
+:endpoint{method="POST" path="/api/jiraservicemanagement-integration/connectivity-test"}
 
 **Request Body**
 
@@ -33,7 +33,7 @@ title: Web
 
 ## POST /api/servicenow-integration/connectivity-test
 
-:span[POST]{.api-post} `/api/servicenow-integration/connectivity-test`
+:endpoint{method="POST" path="/api/servicenow-integration/connectivity-test"}
 
 **Request Body**
 

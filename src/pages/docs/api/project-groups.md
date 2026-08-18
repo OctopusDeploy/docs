@@ -7,7 +7,7 @@ title: Project Groups
 
 ## Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/projectgroups`
+:endpoint{method="GET" path="/api/\{spaceId\}/projectgroups"}
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
 
@@ -107,7 +107,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 
 ## Create a new project group
 
-:span[POST]{.api-post} `/api/{spaceId}/projectgroups`
+:endpoint{method="POST" path="/api/\{spaceId\}/projectgroups"}
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
 
@@ -184,7 +184,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 
 ## List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
 
-:span[GET]{.api-get} `/api/{spaceId}/projectgroups/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/projectgroups/all"}
 
 Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/projectgroups/all`.
 
@@ -241,7 +241,7 @@ Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/proje
 
 ## Get a Project Group by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/projectgroups/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/projectgroups/\{id\}"}
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
@@ -299,7 +299,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 
 ## Modify an existing project group
 
-:span[PUT]{.api-put} `/api/{spaceId}/projectgroups/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/projectgroups/\{id\}"}
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
@@ -381,7 +381,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 
 ## Delete an existing Project Group
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/projectgroups/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projectgroups/\{id\}"}
 
 Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}`.
 
@@ -398,7 +398,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 
 ## Get a paginated list of the Projects that belong to the given Project Group
 
-:span[GET]{.api-get} `/api/{spaceId}/projectgroups/{id}/projects`
+:endpoint{method="GET" path="/api/\{spaceId\}/projectgroups/\{id\}/projects"}
 
 Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentifier}/projectgroups/{id}/projects`.
 

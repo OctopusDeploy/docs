@@ -7,7 +7,7 @@ title: Community Action Templates
 
 ## Get a list of Community Action Templates
 
-:span[GET]{.api-get} `/api/communityactiontemplates`
+:endpoint{method="GET" path="/api/communityactiontemplates"}
 
 **Query Parameters**
 
@@ -97,7 +97,7 @@ title: Community Action Templates
 
 ## Get a Community Action Template by ID
 
-:span[GET]{.api-get} `/api/communityactiontemplates/{id}`
+:endpoint{method="GET" path="/api/communityactiontemplates/\{id\}"}
 
 **Path Parameters**
 
@@ -226,7 +226,7 @@ title: Community Action Templates
 
 ## Get installed version of the template
 
-:span[GET]{.api-get} `/api/communityactiontemplates/{id}/actiontemplate/{actiontemplatespaceId}`
+:endpoint{method="GET" path="/api/communityactiontemplates/\{id\}/actiontemplate/\{actiontemplatespaceId\}"}
 
 Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 
@@ -393,7 +393,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
 
 ## Install community step template
 
-:span[POST]{.api-post} `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
+:endpoint{method="POST" path="/api/communityactiontemplates/\{id\}/installation/\{actiontemplatespaceId\}"}
 
 Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
@@ -560,7 +560,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
 ## Update installed community step template to the latest version
 
-:span[PUT]{.api-put} `/api/communityactiontemplates/{id}/installation/{actiontemplatespaceId}`
+:endpoint{method="PUT" path="/api/communityactiontemplates/\{id\}/installation/\{actiontemplatespaceId\}"}
 
 Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
@@ -727,7 +727,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
 
 ## Get the logo associated with the community step template
 
-:span[GET]{.api-get} `/api/communityactiontemplates/{id}/logo`
+:endpoint{method="GET" path="/api/communityactiontemplates/\{id\}/logo"}
 
 **Path Parameters**
 

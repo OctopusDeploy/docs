@@ -7,7 +7,7 @@ title: Server Status
 
 ## Get the status of Octopus Server
 
-:span[GET]{.api-get} `/api/serverstatus`
+:endpoint{method="GET" path="/api/serverstatus"}
 
 Shows information about the status of the Octopus Server.
 
@@ -57,7 +57,7 @@ Shows information about the status of the Octopus Server.
 
 ## Get counts of documents in the server
 
-:span[GET]{.api-get} `/api/serverstatus/counts`
+:endpoint{method="GET" path="/api/serverstatus/counts"}
 
 List counts of various document types to assist in diagnosing issues with the server.
 
@@ -119,7 +119,7 @@ List counts of various document types to assist in diagnosing issues with the se
 
 ## Force a GC collect
 
-:span[POST]{.api-post} `/api/serverstatus/gc-collect`
+:endpoint{method="POST" path="/api/serverstatus/gc-collect"}
 
 Triggers a garbage collection pass for all heap generations, including the large object heap.
 
@@ -129,7 +129,7 @@ Triggers a garbage collection pass for all heap generations, including the large
 
 ## Force a GC collect
 
-:span[POST]{.api-post} `/api/serverstatus/gc-collect/v1`
+:endpoint{method="POST" path="/api/serverstatus/gc-collect/v1"}
 
 Triggers a garbage collection pass for all heap generations, including the large object heap.
 
@@ -145,7 +145,7 @@ Triggers a garbage collection pass for all heap generations, including the large
 
 ## Get the general health of Octopus Server
 
-:span[GET]{.api-get} `/api/serverstatus/health`
+:endpoint{method="GET" path="/api/serverstatus/health"}
 
 Provides a super simple interface perfect for checking the general health of your entire Octopus Server cluster.
 
@@ -193,7 +193,7 @@ Provides a super simple interface perfect for checking the general health of you
 
 ## Retrieve the most recent high-priority log messages from this execution of the Octopus Server process
 
-:span[GET]{.api-get} `/api/serverstatus/logs`
+:endpoint{method="GET" path="/api/serverstatus/logs"}
 
 **Query Parameters**
 
@@ -232,7 +232,7 @@ Provides a super simple interface perfect for checking the general health of you
 
 ## Provide information about the Octopus Server process and the machine on which it is running
 
-:span[GET]{.api-get} `/api/serverstatus/system-info`
+:endpoint{method="GET" path="/api/serverstatus/system-info"}
 
 **Response**
 
@@ -279,7 +279,7 @@ Provides a super simple interface perfect for checking the general health of you
 
 ## Create a .zip archive containing an aggregate of the other system information APIs
 
-:span[GET]{.api-get} `/api/serverstatus/system-report`
+:endpoint{method="GET" path="/api/serverstatus/system-report"}
 
 **Query Parameters**
 
@@ -298,7 +298,7 @@ Provides a super simple interface perfect for checking the general health of you
 
 ## List timezones supported by the server
 
-:span[GET]{.api-get} `/api/serverstatus/timezones`
+:endpoint{method="GET" path="/api/serverstatus/timezones"}
 
 **Response**
 

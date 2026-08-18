@@ -7,7 +7,7 @@ title: Tag Sets
 
 ## Get a list of Tag Sets
 
-:span[GET]{.api-get} `/api/{spaceId}/tagsets`
+:endpoint{method="GET" path="/api/\{spaceId\}/tagsets"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 
@@ -122,7 +122,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
 
 ## Create a new Tag Set
 
-:span[POST]{.api-post} `/api/{spaceId}/tagsets`
+:endpoint{method="POST" path="/api/\{spaceId\}/tagsets"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 
@@ -255,7 +255,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 
 ## Get a list of Tag Sets
 
-:span[GET]{.api-get} `/api/{spaceId}/tagsets/all`
+:endpoint{method="GET" path="/api/\{spaceId\}/tagsets/all"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/all`, `/api/tagsets/all`.
 
@@ -345,7 +345,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
 
 ## PUT /api/{spaceId}/tagsets/sortorder
 
-:span[PUT]{.api-put} `/api/{spaceId}/tagsets/sortorder`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tagsets/sortorder"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/sortorder`, `/api/tagsets/sortorder`.
 
@@ -373,7 +373,7 @@ A `array of string` payload.
 
 ## Get a Tag Set by ID
 
-:span[GET]{.api-get} `/api/{spaceId}/tagsets/{id}`
+:endpoint{method="GET" path="/api/\{spaceId\}/tagsets/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{id}`.
 
@@ -457,7 +457,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 
 ## Modify an existing Tag Set
 
-:span[PUT]{.api-put} `/api/{spaceId}/tagsets/{id}`
+:endpoint{method="PUT" path="/api/\{spaceId\}/tagsets/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{id}`.
 
@@ -595,7 +595,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 
 ## Delete an existing Tag Set
 
-:span[DELETE]{.api-delete} `/api/{spaceId}/tagsets/{id}`
+:endpoint{method="DELETE" path="/api/\{spaceId\}/tagsets/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{id}`.
 

@@ -7,7 +7,7 @@ title: Json Web Keys
 
 ## Get signing keys used by Octopus Server in JWK format
 
-:span[GET]{.api-get} `/api/.well-known/jwks`
+:endpoint{method="GET" path="/api/.well-known/jwks"}
 
 **Response**
 

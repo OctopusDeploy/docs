@@ -11,7 +11,7 @@ See https://octopus.com/docs/administration/managing-infrastructure/rate-limitin
 
 ## List all rate limiting policies
 
-:span[GET]{.api-get} `/api/ratelimitingpolicies`
+:endpoint{method="GET" path="/api/ratelimitingpolicies"}
 
 There are three builtin policies, so while this returns a paginated response, there is only ever a single page. - Unauthenticated requests - Authenticated requests - AI Agent requests
 
@@ -75,7 +75,7 @@ There are three builtin policies, so while this returns a paginated response, th
 
 ## Get a rate limiting policy by ID
 
-:span[GET]{.api-get} `/api/ratelimitingpolicies/{id}`
+:endpoint{method="GET" path="/api/ratelimitingpolicies/\{id\}"}
 
 **Path Parameters**
 
@@ -120,7 +120,7 @@ There are three builtin policies, so while this returns a paginated response, th
 
 ## Modify an existing rate limiting policy
 
-:span[PUT]{.api-put} `/api/ratelimitingpolicies/{id}`
+:endpoint{method="PUT" path="/api/ratelimitingpolicies/\{id\}"}
 
 **Path Parameters**
 

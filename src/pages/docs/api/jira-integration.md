@@ -7,7 +7,7 @@ title: Jira Integration
 
 ## POST /api/jiraintegration/connectivitycheck/connectapp
 
-:span[POST]{.api-post} `/api/jiraintegration/connectivitycheck/connectapp`
+:endpoint{method="POST" path="/api/jiraintegration/connectivitycheck/connectapp"}
 
 **Response**
 
@@ -15,7 +15,7 @@ title: Jira Integration
 
 ## POST /api/jiraintegration/connectivitycheck/jira
 
-:span[POST]{.api-post} `/api/jiraintegration/connectivitycheck/jira`
+:endpoint{method="POST" path="/api/jiraintegration/connectivitycheck/jira"}
 
 **Response**
 

@@ -7,7 +7,7 @@ title: Features Configuration
 
 ## Get features configuration
 
-:span[GET]{.api-get} `/api/featuresconfiguration`
+:endpoint{method="GET" path="/api/featuresconfiguration"}
 
 Gets the features configuration of the current instance
 
@@ -71,7 +71,7 @@ Gets the features configuration of the current instance
 
 ## Update features configuration
 
-:span[PUT]{.api-put} `/api/featuresconfiguration`
+:endpoint{method="PUT" path="/api/featuresconfiguration"}
 
 Updates the features configuration of the current instance
 

@@ -7,7 +7,7 @@ title: Octopus Server Nodes
 
 ## Get a list of Octopus Server Nodes
 
-:span[GET]{.api-get} `/api/octopusservernodes`
+:endpoint{method="GET" path="/api/octopusservernodes"}
 
 Lists all of the Octopus Server Nodes participating in the current Octopus Server cluster.
 
@@ -89,7 +89,7 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
 
 ## Get all Octopus Server Nodes
 
-:span[GET]{.api-get} `/api/octopusservernodes/all`
+:endpoint{method="GET" path="/api/octopusservernodes/all"}
 
 Lists the name and ID of all Octopus Server nodes
 
@@ -131,7 +131,7 @@ Lists the name and ID of all Octopus Server nodes
 
 ## Ping an octopus server node
 
-:span[GET]{.api-get} `/api/octopusservernodes/ping`
+:endpoint{method="GET" path="/api/octopusservernodes/ping"}
 
 Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline, otherwise HTTP OK (200). Always returns the node information in the body.
 
@@ -182,7 +182,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 
 ## Return all octopus server nodes in the cluster including their status information
 
-:span[GET]{.api-get} `/api/octopusservernodes/summary`
+:endpoint{method="GET" path="/api/octopusservernodes/summary"}
 
 **Response**
 
@@ -244,7 +244,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 
 ## Get an Octopus Server Node by ID
 
-:span[GET]{.api-get} `/api/octopusservernodes/{id}`
+:endpoint{method="GET" path="/api/octopusservernodes/\{id\}"}
 
 **Path Parameters**
 
@@ -287,7 +287,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 
 ## Modify an existing OctopusServerNodeResource by ID
 
-:span[PUT]{.api-put} `/api/octopusservernodes/{id}`
+:endpoint{method="PUT" path="/api/octopusservernodes/\{id\}"}
 
 Modifies an existing Octopus Server node.
 
@@ -351,7 +351,7 @@ Modifies an existing Octopus Server node.
 
 ## Delete an existing Octopus Server Node
 
-:span[DELETE]{.api-delete} `/api/octopusservernodes/{id}`
+:endpoint{method="DELETE" path="/api/octopusservernodes/\{id\}"}
 
 **Path Parameters**
 
@@ -370,7 +370,7 @@ Modifies an existing Octopus Server node.
 
 ## Return a count of the running tasks on an octopus server node
 
-:span[GET]{.api-get} `/api/octopusservernodes/{id}/details`
+:endpoint{method="GET" path="/api/octopusservernodes/\{id\}/details"}
 
 **Path Parameters**
 
