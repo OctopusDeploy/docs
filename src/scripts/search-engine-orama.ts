@@ -49,10 +49,17 @@ function escapeForRegExp(term: string) {
  * has to cut its own.
  */
 function excerptFrom(hit: WorkerHit, terms: string[]) {
-  const source = hit.description || hit.body;
+  const pattern = new RegExp(terms.map(escapeForRegExp).join('|'), 'i');
+
+  // Whichever field the query actually hit. Preferring the description outright
+  // showed every page with a subtitle its subtitle, even when the match that
+  // earned it its rank was in the body.
+  const source =
+    [hit.body, hit.description].find((text) => text && pattern.test(text)) ??
+    hit.description ??
+    hit.body;
   if (!source) return '';
 
-  const pattern = new RegExp(terms.map(escapeForRegExp).join('|'), 'i');
   const at = source.search(pattern);
   const from = at > 60 ? source.lastIndexOf(' ', at - 60) + 1 : 0;
   const window = source.slice(from, from + 180);

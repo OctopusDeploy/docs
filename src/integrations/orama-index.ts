@@ -25,8 +25,12 @@ import { stopwords as englishStopwords } from '@orama/stopwords/english';
 // the corpus has moved, which is a silent failure otherwise.
 const EXPECTED_PAGES = 1000;
 
-// Long pages cost index size for very little relevance — the terms that matter
-// are near the top, and a result excerpt never reaches further than this.
+// How much of each page is indexed. Measured against the bake-off query set
+// rather than assumed: raising this to 20,000 costs 1.3MB and makes relevance
+// worse (Success@5 78% to 76%, intent 87% to 80%), because the extra text
+// dilutes the terms that identify a page. Lowering it to 2,000 saves 1.05MB and
+// scores the same, but narrows what is findable on long pages for no gain the
+// payload budget needs — brotli is already 0.66MB against a 0.81MB gate.
 const BODY_LIMIT = 4000;
 
 // How much of each page's text is kept in the stored copy. The inverted index
