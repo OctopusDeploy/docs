@@ -12,7 +12,7 @@ Environment state lets a deployment or [runbook](/docs/runbooks) run save key/va
 
 Environment state is useful in scenarios where a value produced during one run needs to be reused later. A common example is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). A provisioning runbook might create a Kubernetes namespace or an application URL that later deployments and the deprovisioning runbook depend on. Recording each value as environment state means Octopus stores it once, so every later run reads it directly instead of re-deriving the value.
 
-Each state entry is scoped to project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value.
+Each state entry is scoped to project, environment, and optionally a tenant, so state isn't shared with other projects, environments, or tenants. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value. Keys are case insensitive.
 
 ## Setting environment state
 
@@ -137,7 +137,7 @@ Use [Octopus variable logging](/docs/support/how-to-turn-on-variable-logging-and
 
 ## Deleting environment state
 
-If a project, environment, and tenant combination has hit the limit above, delete entries you no longer need to make room for new ones. Deleting is API-only.
+If a project, environment, and tenant combination has hit the limit above, delete entries you no longer need to make room for new ones. This function is only available via the HTTP API.
 
 For environment state scoped to a project and environment:
 
