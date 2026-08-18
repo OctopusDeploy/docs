@@ -229,6 +229,26 @@ One line in the worker, and Orama goes from last place to ahead of the legacy
 engine's round-one Success@5. This is why round one could not be used to decide
 anything.
 
+### Nearly half of Orama's index is not paying for itself
+
+Breaking the published `search-index.json` down by its top-level stores:
+
+| Store     | Size   | What it is                                            |
+| --------- | ------ | ----------------------------------------------------- |
+| `index`   | 6.04MB | The inverted index — the part that does the searching |
+| `sorting` | 2.69MB | A sort store built for every sortable field           |
+| `docs`    | 2.68MB | The stored documents, of which body text is 2.44MB    |
+
+`search-engine-orama.ts` never sorts by anything, so the 2.69MB sorting store is
+pure weight; Orama takes `sort: { enabled: false }` at create time to drop it.
+The stored body text is there only so the engine can cut its own excerpt, which
+is a choice rather than a requirement — Pagefind fetches an excerpt per result
+instead of shipping every page's text to every visitor.
+
+Together that is 47% of an 11.43MB index, and the payload is the defect the
+replacement exists to fix. Both need a rebuild to confirm, so neither is
+measured here.
+
 ### Pagefind's zero-result rate is not the win it looks like
 
 Pagefind returned results for every query in the set, including `zzzzqqq`, which
