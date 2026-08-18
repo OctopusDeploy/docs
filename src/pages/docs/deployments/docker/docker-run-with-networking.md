@@ -58,7 +58,7 @@ In a newly created project, click **Add Step ➜ Create a Docker network**. This
 1. Ensure the step is set to run on the **docker-server** target tag (targeting the Docker host we created earlier).
 2. Set the *Name* to **Custom Network**. This name will be referenced later on in subsequent steps that will link the containers to the created network.
 3. Leave the *Driver* as the default **Bridge** type. This network type allows containers on the same network to immediately communicate with each other, while keeping them isolated from external networks.
-4. Set the *Subnet* to `172.28.6.0/24`. You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)`172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`.
+4. Set the *Subnet* to `172.28.6.0/24`. You can optionally provide IP ranges that will define the Subnet, IP Range, and Gateway used by the network. In this case we have opted to just set up the subnet using the [CIDR format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `172.28.6.0/24` meaning that connected containers will be assigned IP addresses in the range `172.28.6.0-172.28.6.255`.
 ![The Create a Docker network step with the subnet configured](/docs/img/deployments/docker/images/add-docker-network-step.png)
 
 :::div{.hint}

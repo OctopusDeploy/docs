@@ -30,7 +30,7 @@ This file contains the definitions for creating the auto-scaling configuration i
 <summary>autoscaling.tf</summary>
 <p>
 
-```xml
+```hcl
 resource "aws_launch_configuration" "dynamic-linux-worker-launch-config" {
     name_prefix = "dynamic-linux-worker-launch-config"
     image_id = "${var.LINUX_AMIS}"
@@ -120,7 +120,7 @@ This file contains the policy definition that goes with the auto-scaling definit
 <summary>autoscaling-policy.tf</summary>
 <p>
 
-```csharp
+```hcl
 # scale up alarm
 
 resource "aws_autoscaling_policy" "linux-worker-cpu-policy" {

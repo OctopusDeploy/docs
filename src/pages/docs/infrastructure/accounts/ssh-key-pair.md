@@ -84,7 +84,7 @@ If you need more information about generating an SSH key pair, see the [useful l
 
 ### Generating a key pair on Windows {#generate-key-pair-windows}
 
-The easiest way to generate valid keys on Windows is to use a tool like[PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
+The easiest way to generate valid keys on Windows is to use a tool like [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Start by clicking "Generate" and wait for the tool to finish creating the random key pair.
 
 :::figure
 ![Generating an SSH key pair in PuTTYgen](/docs/img/infrastructure/accounts/ssh-key-create-putty.png)

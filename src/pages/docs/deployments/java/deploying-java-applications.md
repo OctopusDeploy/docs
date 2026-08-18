@@ -44,7 +44,7 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 
 1. Compile the application:
 
-    ```powershell
+    ```bash
     javac PressAnyKey.java
     ```
 

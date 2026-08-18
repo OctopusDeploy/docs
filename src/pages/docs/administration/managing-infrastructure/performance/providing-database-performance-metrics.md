@@ -29,7 +29,7 @@ Azure SQL Databases are a great way to set-up your Octopus database to be manage
 
 ## What you can do to help
 
-**Missing indexes**
+### Missing indexes
 
 When you notice some performance problems that appear to be due to a slow database, we would love to get your database's recommendations on what indexes may be missing. Run the following query and provide the results (ideally as an attached file) in your support ticket. The query below is taken from a great blog post by Glen Berry - [Five Very Useful Index Selection Queries for SQL Server 2005](https://sqlserverperformance.wordpress.com/2007/10/12/five-very-useful-index-selection-queries-for-sql-server-2005/).
 
