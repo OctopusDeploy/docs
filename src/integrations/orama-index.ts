@@ -107,6 +107,9 @@ export default function oramaIndex(): AstroIntegration {
             trail: 'string',
             section: 'enum',
           } as const,
+          // `orama-worker.ts` has to create its database with this same
+          // tokenizer before it restores the index, or query terms are matched
+          // unstemmed against stemmed index terms and recall collapses quietly.
           components: {
             tokenizer: { stemming: true, language: 'english' },
           },

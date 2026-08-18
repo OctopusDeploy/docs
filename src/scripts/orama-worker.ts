@@ -29,6 +29,14 @@ const SCHEMA = {
   section: 'enum',
 } as const;
 
+// Has to match `orama-index.ts`, and for a reason that is invisible when it is
+// wrong: `load` restores the index data but the tokenizer comes from `create`.
+// Build the index with the English stemmer and restore it without, and every
+// query term is compared unstemmed against stemmed index terms — `variables`
+// found 5 pages instead of 321, and no typo matched at all. Search kept working,
+// so nothing failed loudly.
+const TOKENIZER = { stemming: true, language: 'english' } as const;
+
 let indexUrl = '';
 let ready: Promise<unknown> | null = null;
 
@@ -36,7 +44,10 @@ function open() {
   ready ??= fetch(indexUrl)
     .then((response) => response.json())
     .then((raw) => {
-      const db = create({ schema: SCHEMA });
+      const db = create({
+        schema: SCHEMA,
+        components: { tokenizer: TOKENIZER },
+      });
       load(db, raw);
       return db;
     })
