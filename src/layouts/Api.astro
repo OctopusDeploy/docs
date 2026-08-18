@@ -17,7 +17,7 @@ import Taxonomy from '@components/Taxonomy.astro';
 import ApiNavigation from '../components/ApiNavigation.astro';
 import ArticleHeader from '../components/ArticleHeader.astro';
 import Feedback from '../components/Feedback.astro';
-import Header from '../components/Header.astro';
+import TopNav from '../components/TopNav.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
 import DocsSearch from '../components/DocsSearch.astro';
@@ -72,12 +72,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
   />
   <body>
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Header
-      frontmatter={frontmatter}
-      headings={headings}
-      lang={lang}
-      showSearch={showSearch}
-    />
+    <TopNav lang={lang} showSearch={showSearch} />
     <!-- The article spans the table of contents column as well as its own: the
          left nav lists this page's endpoints, so there is no table of contents
          to show, and the width is what the examples column is built out of. -->

@@ -170,6 +170,10 @@ const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
     );
 
     box-sizing: border-box;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 11;
     display: grid;
     grid-template-columns:
       minmax(max-content, var(--top-nav-content-start))

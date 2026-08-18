@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const docsPage = '/docs/?newnav';
-const sectionPage = '/docs/getting-started/?newnav';
+const docsPage = '/docs/';
+const sectionPage = '/docs/getting-started/';
 
 const nav = '.top-nav';
 const inlineLinks = `${nav} .top-nav__links`;
