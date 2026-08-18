@@ -86,20 +86,20 @@ const sections: [string, RegExp][] = [
 const section =
   sections.find(([, prefix]) => prefix.test(Astro.url.pathname))?.[0] ?? 'docs';
 
-// How much the page's own name counts for, by how deep it sits.
+// Boosts a section landing page's own name.
 //
 // BM25 has no notion of a site's shape, so a bare section name ranks the pages
-// inside the section above the section itself: `variables` returned an API
-// example rather than /docs/projects/variables, and on the search terms readers
-// actually type this was the largest single source of missed traffic. A page
-// deeper in the tree is more specific, so its title should count for less when
-// the query is short.
+// inside the section above the section itself. Pagefind weights an h1 at 7 by
+// default on a quadratic scale, so pushing the shallow pages to 10 roughly
+// doubles the pull of their titles.
 //
-// Pagefind weights headings h1 7 down to h6 2 by default, and the scale is
-// quadratic — 8 carries roughly 1.8x the pull of 6. Clamped at 3 so a genuinely
-// deep page can still win on its own name.
+// Deep pages are deliberately left at the default rather than pushed below it.
+// An earlier version scaled the weight down with depth and measured as a no-op,
+// so there is no evidence lowering them helps and it risks burying a specific
+// page that is the only match. The heavy lifting is done by the reorder in
+// `search-engine-pagefind.ts`, which this only assists.
 const depth = Astro.url.pathname.split('/').filter(Boolean).length;
-const searchWeight = indexable ? Math.max(3, 10 - depth) : undefined;
+const searchWeight = indexable && depth <= 3 ? 10 : undefined;
 
 // Indexed so results can be ordered by recency rather than relevance. Nothing in
 // the overlay offers that control yet; the key is here so the capability exists

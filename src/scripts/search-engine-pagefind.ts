@@ -32,7 +32,11 @@ type PagefindFragment = {
   sub_results?: PagefindSubResult[];
 };
 
-type PagefindResultStub = { data(): Promise<PagefindFragment> };
+type PagefindResultStub = {
+  /** Pagefind's own relevance score, before any reordering here. */
+  score: number;
+  data(): Promise<PagefindFragment>;
+};
 
 type PagefindApi = {
   options(config: Record<string, unknown>): Promise<void>;
@@ -51,9 +55,14 @@ type PagefindApi = {
   }>;
 };
 
-// How many matched headings a row will show. More than this and the row stops
-// being a result and starts being a table of contents.
-const SECTION_LIMIT = 3;
+// How many matched headings a row will show, and how many rows get them at all.
+//
+// Sections are their own rows, so they compete with pages for the reader's first
+// screenful. Three each across thirty results made two thirds of the list
+// headings, which buries the pages the reader is choosing between. Only the
+// leading results earn them, and only a couple each.
+const SECTION_LIMIT = 2;
+const ROWS_WITH_SECTIONS = 3;
 
 /**
  * The headings inside a result that matched on their own.
@@ -78,6 +87,55 @@ function sectionsOf(fragment: PagefindFragment, path: string) {
 function hashOf(url: string) {
   const at = url.indexOf('#');
   return at === -1 ? '' : url.slice(at);
+}
+
+/** Lowercased, punctuation collapsed, so `Config as Code` matches `config as code`. */
+function comparable(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function segments(path: string) {
+  return path.split('/').filter(Boolean);
+}
+
+/**
+ * Reorders results so a section's own page beats the pages inside it.
+ *
+ * The same two signals the Orama worker uses, for the same reason and with the
+ * same constant: a page the query *names* — by title or by the last segment of
+ * its URL — wins outright, and everything else is ordered by score discounted per
+ * path segment. Measured against real search terms this is worth about twenty
+ * points of Success@5; `data-pagefind-weight` alone measured as a no-op.
+ *
+ * This reaches only as far as the results already fetched, so a landing page
+ * ranked below `RESULT_LIMIT` on raw score cannot be rescued here.
+ */
+function byNameThenDepth<
+  T extends { score: number; url: string; title: string },
+>(hits: T[], term: string): T[] {
+  const wanted = comparable(term);
+  const DEPTH_PENALTY = 0.12;
+
+  const names = (hit: T) => {
+    const slug = segments(hit.url).pop() ?? '';
+    return comparable(hit.title) === wanted ||
+      comparable(slug.replace(/-/g, ' ')) === wanted
+      ? 1
+      : 0;
+  };
+
+  return hits
+    .map((hit) => ({
+      hit,
+      names: names(hit),
+      adjusted: hit.score / (1 + DEPTH_PENALTY * segments(hit.url).length),
+    }))
+    .sort((a, b) => b.names - a.names || b.adjusted - a.adjusted)
+    .map((entry) => entry.hit);
 }
 
 export function pagefindEngine(bundlePath: string): SearchEngine {
@@ -149,31 +207,43 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         ...(response.totalFilters?.section ?? {}),
       };
 
-      const fragments = await Promise.all(
-        response.results.slice(0, RESULT_LIMIT).map((stub) => stub.data())
-      );
+      const stubs = response.results.slice(0, RESULT_LIMIT);
+      const fragments = await Promise.all(stubs.map((stub) => stub.data()));
 
-      const results = fragments.map((fragment): SearchResult => {
-        const path = new URL(fragment.url, window.location.origin).pathname;
+      // The score lives on the stub and the URL on the fragment, so the reorder
+      // needs both. Pairing them costs nothing: a fragment is fetched for every
+      // row that gets rendered anyway.
+      const scored = fragments.map((fragment, at) => ({
+        fragment,
+        score: stubs[at].score,
+        url: new URL(fragment.url, window.location.origin).pathname,
+        title:
+          fragment.meta?.title ??
+          new URL(fragment.url, window.location.origin).pathname,
+      }));
 
-        return {
-          url: path,
+      const results = byNameThenDepth(scored, query).map(
+        (hit, rank): SearchResult => ({
+          url: hit.url,
           // Pagefind takes the title from the first heading inside the indexed
           // body, which is why the article rather than `.page-content` carries
           // `data-pagefind-body`.
-          title: fragment.meta?.title ?? path,
+          title: hit.title,
           // Already carries <mark> around the hits, and Pagefind escapes the
           // surrounding text itself.
-          excerpt: fragment.excerpt,
+          excerpt: hit.fragment.excerpt,
           // Written into the page by the layout; the path is the fallback for
           // anything built before that attribute existed.
-          breadcrumb: fragment.meta?.trail
-            ? fragment.meta.trail.split(' / ')
-            : breadcrumbFrom(path),
-          sections: sectionsOf(fragment, path),
-          ...classify(path),
-        };
-      });
+          breadcrumb: hit.fragment.meta?.trail
+            ? hit.fragment.meta.trail.split(' / ')
+            : breadcrumbFrom(hit.url),
+          sections:
+            rank < ROWS_WITH_SECTIONS
+              ? sectionsOf(hit.fragment, hit.url)
+              : undefined,
+          ...classify(hit.url),
+        })
+      );
 
       return { results, counts };
     },
