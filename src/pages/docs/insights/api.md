@@ -403,35 +403,35 @@ Returns the streams of deployments for the given report. A stream is a sequence 
 
 #### Streams properties
 
-| Property        | Description                                                                                              |                                                                                                       |
-| --------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| ProjectId       | The id of the project for this stream.                                                                   |                                                                                                       |
-| ProjectName     | The name of the project for this stream.  Will be null if you don't have access to this project.         |                                                                                                       |
-| ChannelId       | The id of the channel for this stream.                                                                   |                                                                                                       |
-| ChannelName     | The name of the channel for this stream.  Will be null if you don't have access to this channel.         |                                                                                                       |
-| EnvironmentId   | The id of the environment for this stream.                                                               |                                                                                                       |
-| EnvironmentName | The name of the environment for this stream.  Will be null if you don't have access to this environment. |                                                                                                       |
-| TenantId        | The id of the tenant for this stream.                                                                    |                                                                                                       |
-| TenantName      | The name of the tenant for this stream.  Will be null if you don't have access to this tenant.           |                                                                                                       |
-| Deployments     | An array of the deployments in this stream.                                                              | Deployments belong to the same stream if they have the same project, channel, environment and tenant. |
+| Property        | Description                                                                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ProjectId       | The id of the project for this stream.                                                                                                                |
+| ProjectName     | The name of the project for this stream.  Will be null if you don't have access to this project.                                                      |
+| ChannelId       | The id of the channel for this stream.                                                                                                                |
+| ChannelName     | The name of the channel for this stream.  Will be null if you don't have access to this channel.                                                      |
+| EnvironmentId   | The id of the environment for this stream.                                                                                                            |
+| EnvironmentName | The name of the environment for this stream.  Will be null if you don't have access to this environment.                                              |
+| TenantId        | The id of the tenant for this stream.                                                                                                                 |
+| TenantName      | The name of the tenant for this stream.  Will be null if you don't have access to this tenant.                                                        |
+| Deployments     | An array of the deployments in this stream.  \| Deployments belong to the same stream if they have the same project, channel, environment and tenant. |
 
 #### Deployments properties
 
-| Property                                | Description                                                                                                     |     |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --- |
-| Id                                      | The id of the deployment.                                                                                       |     |
-| ReleaseVersion                          | The version of the release that was deployed.                                                                   |     |
-| TaskState                               | Indicates the state of the deployment task.                                                                     |     |
-| CompletedTime                           | When the deployment completed.                                                                                  |     |
-| HadGuidedFailure                        | Whether or not the deployment had a guided failure.                                                             |     |
-| LeadTime                                | The lead time of the deployment.                                                                                |     |
-| LeadTimeCalculatedFromVersion           | The version of the release containing the earliest change included in the deployment.                           |     |
-| TimeSincePreviouslySuccessfulDeployment | The time period since the previous successful deployment.                                                       |     |
-| PreviousSuccessfulDeploymentId          | The id of the previous successful deployment.                                                                   |     |
-| TimeToRecovery                          | The period of time taken to recover from one or more failed deployments, until this deployment (if successful). |     |
-| DeploymentsUntilRecovery                | Number of attempted deployments until this deployment occurred (if successful).                                 |     |
-| RecoveredFromFailedDeploymentId         | The id of the first failed deployment in a series of one or more failed deployments.                            |     |
-| RecoveredFromFailedReleaseVersion       | The first version which had a failed deployment in a series of one or more failed deployments.                  |     |
+| Property                                | Description                                                                                                     |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Id                                      | The id of the deployment.                                                                                       |
+| ReleaseVersion                          | The version of the release that was deployed.                                                                   |
+| TaskState                               | Indicates the state of the deployment task.                                                                     |
+| CompletedTime                           | When the deployment completed.                                                                                  |
+| HadGuidedFailure                        | Whether or not the deployment had a guided failure.                                                             |
+| LeadTime                                | The lead time of the deployment.                                                                                |
+| LeadTimeCalculatedFromVersion           | The version of the release containing the earliest change included in the deployment.                           |
+| TimeSincePreviouslySuccessfulDeployment | The time period since the previous successful deployment.                                                       |
+| PreviousSuccessfulDeploymentId          | The id of the previous successful deployment.                                                                   |
+| TimeToRecovery                          | The period of time taken to recover from one or more failed deployments, until this deployment (if successful). |
+| DeploymentsUntilRecovery                | Number of attempted deployments until this deployment occurred (if successful).                                 |
+| RecoveredFromFailedDeploymentId         | The id of the first failed deployment in a series of one or more failed deployments.                            |
+| RecoveredFromFailedReleaseVersion       | The first version which had a failed deployment in a series of one or more failed deployments.                  |
 
 ### Get deployment level aggregated insights metrics
 

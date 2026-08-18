@@ -51,7 +51,7 @@ These variables will be ordered alphabetically by label (or name, if the variabl
 
 A value can also be passed to a prompted variable when using the Octopus CLI through the `--variable` parameter of the [octopus release deploy](/docs/octopus-rest-api/cli/octopus-release-deploy) command.
 
-```bash;
+```bash
 octopus release deploy ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
 ```
 
