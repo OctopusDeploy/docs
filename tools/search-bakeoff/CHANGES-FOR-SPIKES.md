@@ -28,6 +28,49 @@ thing.
 
 ## Orama — `willlaugesen/docs-search-orama`
 
+### O0. Eight pages are silently missing from the index — **verified, root cause found**
+
+`/docs/kubernetes` and `/docs/infrastructure` are absent from the Orama index
+entirely. Not ranked low — not present. They are the 19th and 26th most-visited
+pages, 179 and 134 visitors. Six more pages are missing with them:
+
+```
+/docs/credits
+/docs/deployments/patterns
+/docs/getting-started/first-deployment/deploy-a-package
+/docs/infrastructure
+/docs/kubernetes
+/docs/kubernetes/steps/kustomize
+/docs/projects/variables/getting-started
+/docs/projects/version-control/creating-release-from-a-build-server-plug-in
+```
+
+**Every one is `.mdx`, and no `.md` page is affected** — 0 of 792 eligible `.md`
+pages are missing against 8 of 458 `.mdx`. That is the tell: only `.mdx` can
+carry `import` statements, and each of these eight has an import the markdown
+emitter cannot resolve or serialise. Three shapes:
+
+| Shape                                                 | Pages | Example                                                    |
+| ----------------------------------------------------- | ----- | ---------------------------------------------------------- |
+| Imports an `.astro` component                         | 6     | `import Card from 'src/components/Card.astro'`             |
+| Import path is root-absolute                          | 1     | `import Credits from '/docs/credits.md'`                   |
+| Import sits after body content rather than at the top | 1     | `creating-release-from-a-build-server-plug-in.mdx` line 17 |
+
+Of the 6 eligible `.mdx` pages that import an `.astro` component, **all 6 are
+missing**. Of the 452 that do not, only 2 are — the other two shapes above. It is
+a clean predictor.
+
+The fix belongs in `llm-md-emitter.ts`, which is on `main` and also feeds the LLM
+markdown endpoints, so it wants care rather than a quick patch. At minimum it
+should fail loudly: a page that cannot be emitted currently disappears from
+search with nothing logged, and the existing `EXPECTED_PAGES` floor is too coarse
+to catch eight pages.
+
+**This is a cost of reusing the emitter as the search corpus, and it is
+Orama-specific.** Pagefind indexes the rendered HTML, so it has all eight pages —
+`kubernetes` is one of the queries only Pagefind served in the top-pages
+experiment. Worth weighing if the emitter turns out to be awkward to fix.
+
 ### O1. Disable the sort store — **verified, −2.69MB**
 
 Nothing in `search-engine-orama.ts` ever sorts, but Orama builds and serializes
