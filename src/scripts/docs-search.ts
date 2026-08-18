@@ -316,10 +316,10 @@ function setup(dialog: HTMLDialogElement) {
   if (name !== SITE_SEARCH) return;
 
   // Cmd+K on Apple platforms, Ctrl+K everywhere else.
-  const platform =
-    (navigator as Navigator & { userAgentData?: { platform: string } })
-      .userAgentData?.platform ?? navigator.platform;
-  const isApple = /Mac|iPhone|iPad/.test(platform || navigator.userAgent);
+  const navigator = (window.navigator as Navigator & { userAgentData?: { platform: string } });
+  const isApple = navigator.userAgentData
+    ? navigator.userAgentData.platform === 'macOS'
+    : (navigator.platform || navigator.userAgent).includes('Mac');
 
   document.addEventListener('keydown', (event) => {
     if (event.key.toLowerCase() !== 'k') return;
