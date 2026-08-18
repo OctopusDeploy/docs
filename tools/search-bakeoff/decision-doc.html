@@ -1,0 +1,928 @@
+<title>Docs Search Bake-off</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,500;0,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #fcfcfb;
+    --surface: #f3f5f1;
+    --surface-2: #eaece7;
+    --ink: #14191b;
+    --ink-2: #3a4446;
+    --muted: #5c6a6b;
+    --rule: #e0e3df;
+    --rule-strong: #c9cec6;
+    --accent: #0c8a72;
+    --accent-soft: #dcece7;
+    --critical: #b4432f;
+    --critical-soft: #f6e3de;
+
+    --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+    --measure: 68ch;
+    --step--1: 0.813rem;
+    --step-0: 0.975rem;
+    --step-1: 1.13rem;
+    --step-2: 1.45rem;
+    --step-3: 1.95rem;
+    --step-4: 2.6rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --ground: #1a1a19;
+      --surface: #222421;
+      --surface-2: #2b2e29;
+      --ink: #eef0ea;
+      --ink-2: #c6ccc4;
+      --muted: #97a29c;
+      --rule: #32352f;
+      --rule-strong: #454941;
+      --accent: #12a188;
+      --accent-soft: #14322c;
+      --critical: #d96b57;
+      --critical-soft: #38221d;
+    }
+  }
+
+  :root[data-theme='dark'] {
+    --ground: #1a1a19;
+    --surface: #222421;
+    --surface-2: #2b2e29;
+    --ink: #eef0ea;
+    --ink-2: #c6ccc4;
+    --muted: #97a29c;
+    --rule: #32352f;
+    --rule-strong: #454941;
+    --accent: #12a188;
+    --accent-soft: #14322c;
+    --critical: #d96b57;
+    --critical-soft: #38221d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--step-0);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.15rem, 4vw, 3rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.25rem;
+  }
+
+  .measure { max-width: var(--measure); }
+
+  p { margin: 0 0 0.9rem; }
+  p:last-child { margin-bottom: 0; }
+  .stack { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    text-wrap: balance;
+    margin: 0;
+    letter-spacing: -0.011em;
+  }
+  h1 { font-size: var(--step-4); line-height: 1.08; }
+  h2 { font-size: var(--step-3); line-height: 1.14; }
+  h3 { font-size: var(--step-1); font-weight: 600; line-height: 1.3; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* --- Masthead ---------------------------------------------------------- */
+
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .masthead p { color: var(--ink-2); font-size: var(--step-1); }
+
+  .runmeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .runmeta b { color: var(--ink-2); font-weight: 500; }
+
+  /* --- Verdict ----------------------------------------------------------- */
+
+  .verdict {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+  }
+  @media (min-width: 62rem) {
+    .verdict { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 2.75rem; }
+  }
+  .verdict h2 { font-size: var(--step-2); }
+  .pick {
+    font-family: var(--serif);
+    font-size: var(--step-3);
+    line-height: 1.1;
+    color: var(--accent);
+  }
+  .verdict-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: var(--step--1);
+  }
+  .verdict-side dl { margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .verdict-side dt {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .verdict-side dd { margin: 0.1rem 0 0; color: var(--ink-2); }
+
+  /* --- Sections ---------------------------------------------------------- */
+
+  section { display: flex; flex-direction: column; gap: 1.35rem; }
+  .section-head { display: flex; flex-direction: column; gap: 0.5rem; }
+  .section-head::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--rule-strong);
+    margin-bottom: 1rem;
+  }
+
+  /* --- Scorecard --------------------------------------------------------- */
+
+  .scorecard {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 48rem) {
+    .scorecard { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .card {
+    background: var(--ground);
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .card--pick { background: var(--accent-soft); }
+  .card-name {
+    font-family: var(--serif);
+    font-size: var(--step-2);
+    line-height: 1.1;
+  }
+  .card-role {
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+  .card dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.3rem 0.85rem;
+    font-size: var(--step--1);
+    align-items: baseline;
+  }
+  .card dt { color: var(--muted); }
+  .card dd {
+    margin: 0;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    text-align: right;
+    color: var(--ink);
+  }
+  .card-note {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.8rem;
+    margin-top: auto;
+  }
+
+  /* --- Tables ------------------------------------------------------------ */
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 34rem;
+    font-size: var(--step--1);
+  }
+  caption {
+    text-align: left;
+    padding: 0.85rem 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.688rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  th, td {
+    text-align: right;
+    padding: 0.62rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  thead th {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 0.688rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    vertical-align: bottom;
+  }
+  th[scope='row'] {
+    text-align: left;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: var(--step-0);
+    color: var(--ink);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  td { font-family: var(--mono); color: var(--ink-2); }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+  tr[data-pick] { background: var(--accent-soft); }
+  .best { color: var(--ink); font-weight: 600; }
+
+  /* Magnitude bar: one measure per column, value always printed beside it. */
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: flex-end;
+  }
+  .bar-track {
+    flex: 0 0 6.5rem;
+    height: 8px;
+    background: var(--surface-2);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+  .bar-fill--critical { background: var(--critical); }
+  .bar-value { min-width: 4.2rem; text-align: right; font-weight: 500; color: var(--ink); }
+
+  .flag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-family: var(--mono);
+    font-weight: 500;
+  }
+  .flag--fail { color: var(--critical); }
+  .flag--pass { color: var(--muted); font-weight: 400; }
+  .flag--fail::before { content: '\2715'; font-size: 0.75em; }
+  .flag--pass::before { content: '\2713'; font-size: 0.75em; }
+
+  /* --- Comparison columns ------------------------------------------------ */
+
+  .compare {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 56rem) {
+    .compare { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .compare > div {
+    background: var(--ground);
+    padding: 1.3rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .compare h3 { font-family: var(--serif); font-weight: 500; font-size: var(--step-1); }
+  .compare ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .compare li {
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .compare li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.5rem;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+  .compare li.up::before { background: var(--accent); height: 2px; }
+  .compare li.down::before { background: var(--critical); height: 2px; }
+
+  /* --- Levers ------------------------------------------------------------ */
+
+  .levers { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .lever { background: var(--ground); padding: 1.15rem 1.4rem; display: grid; gap: 0.3rem 1.5rem; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 52rem) {
+    .lever { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); align-items: start; }
+  }
+  .lever-if { font-weight: 600; color: var(--ink); }
+  .lever-then { font-size: var(--step--1); color: var(--ink-2); }
+
+  /* --- Notes ------------------------------------------------------------- */
+
+  .notes { background: var(--surface); border: 1px solid var(--rule); padding: clamp(1.15rem, 3vw, 1.75rem); }
+  .notes ul { margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 0.55rem; }
+  .notes li { font-size: var(--step--1); color: var(--ink-2); }
+  .notes strong { color: var(--ink); font-weight: 600; }
+
+  code, .m {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    background: var(--surface-2);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  a { color: var(--accent); text-underline-offset: 0.18em; }
+  a:focus-visible, :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <span class="eyebrow">Decision document</span>
+    <h1>Replacing the docs search</h1>
+    <p class="measure">Three engines measured against the same 1,250 pages, through the same
+      search overlay, on the same 102 queries. The legacy engine currently in production, and
+      the two spikes built to replace it.</p>
+    <div class="runmeta">
+      <span><b>102</b> queries, 88 scored</span>
+      <span><b>876</b> searches per run</span>
+      <span><b>3</b> performance runs, medians reported</span>
+      <span>Fast 4G, <b>4&times;</b> CPU throttle</span>
+      <span>Run <b>18 Aug 2026</b></span>
+    </div>
+  </header>
+
+  <div class="verdict">
+    <div class="stack">
+      <span class="eyebrow">Recommendation</span>
+      <p class="pick">Ship Orama.</p>
+      <p>It finds the right page in the top five more often than the engine it replaces
+        (78% against 76%), and it is decisively better at the two things the legacy engine
+        is worst at: natural-language questions (87% against 67%) and misspellings
+        (58% against 42%). While you are still typing, it is better than both others by
+        14 points.</p>
+      <p>It also deletes 645 lines of hand-rolled stemmer, synonym table and ranking code
+        that nobody wants to own.</p>
+    </div>
+    <div class="verdict-side">
+      <dl>
+        <div>
+          <dt>The cost</dt>
+          <dd>A first search on a cold cache takes 5.7s on a mid-range phone on
+            Fast 4G. That is the only gate it misses, and it misses it by a wide margin.</dd>
+        </div>
+        <div>
+          <dt>Why it is acceptable</dt>
+          <dd>The penalty lands once, on the first search of a first visit. Every
+            subsequent search in that visit is 256ms, and a return visit is 201ms &mdash;
+            both faster than legacy. Nothing loads at all for readers who never search.</dd>
+        </div>
+        <div>
+          <dt>Do this before shipping</dt>
+          <dd>Cut the cold path further. The index is still 5.33MB parsed and
+            <span class="m">BODY_LIMIT</span> is still 4,000 characters; there is real
+            headroom left.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">At a glance</span>
+      <h2>The three options</h2>
+    </div>
+    <div class="scorecard">
+      <div class="card">
+        <div>
+          <div class="card-name">Legacy</div>
+          <div class="card-role">In production today</div>
+        </div>
+        <dl>
+          <dt>Success@5</dt><dd>76%</dd>
+          <dt>Success@1</dt><dd class="best">58%</dd>
+          <dt>MRR</dt><dd class="best">0.671</dd>
+          <dt>Cold search</dt><dd class="best">673ms</dd>
+          <dt>Index on the wire</dt><dd>0.35MB</dd>
+          <dt>Gates passed</dt><dd class="best">4 of 4</dd>
+        </dl>
+        <p class="card-note">The only option that passes every performance gate, and the best
+          at putting the right page at rank one. Keeps 645 lines of custom search code.</p>
+      </div>
+      <div class="card">
+        <div>
+          <div class="card-name">Pagefind</div>
+          <div class="card-role">Spike, PR 3371</div>
+        </div>
+        <dl>
+          <dt>Success@5</dt><dd>60%</dd>
+          <dt>Success@1</dt><dd>38%</dd>
+          <dt>MRR</dt><dd>0.482</dd>
+          <dt>Cold search</dt><dd>2073ms</dd>
+          <dt>Index on the wire</dt><dd class="best">0.08MB</dd>
+          <dt>Gates passed</dt><dd>1 of 4</dd>
+        </dl>
+        <p class="card-note">By far the smallest payload, and the only engine that can deep-link
+          to a heading. Its relevance is clearly last and configuration cannot fix it.</p>
+      </div>
+      <div class="card card--pick">
+        <div>
+          <div class="card-name">Orama</div>
+          <div class="card-role">Spike, PR 3372 &middot; recommended</div>
+        </div>
+        <dl>
+          <dt>Success@5</dt><dd class="best">78%</dd>
+          <dt>Success@1</dt><dd>50%</dd>
+          <dt>MRR</dt><dd>0.626</dd>
+          <dt>Cold search</dt><dd>5714ms</dd>
+          <dt>Index on the wire</dt><dd>0.66MB</dd>
+          <dt>Gates passed</dt><dd>3 of 4</dd>
+        </dl>
+        <p class="card-note">Best top-five recall, and much the best on typos, natural language
+          and search-as-you-type. Pays for it with the slowest cold start.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Correction</span>
+      <h2>The premise this project started from was wrong</h2>
+    </div>
+    <div class="stack measure">
+      <p>The replacement was justified on payload: the legacy index is 1.86MB. That is its
+        uncompressed size. Your CDN serves it brotli-compressed, and on the wire it is
+        <strong>0.35MB</strong> &mdash; smaller than the Orama spike at 0.66MB, and beaten only
+        by Pagefind at 0.08MB.</p>
+      <p>So payload is not a reason to replace the legacy engine, and it is a mild argument
+        against Orama. The reasons that survive measurement are search quality and the 645
+        lines of hand-rolled search code. Both point the same way.</p>
+      <p>One payload number does still matter, and it is not the wire: the bytes that have to be
+        parsed on every fresh page load, which no amount of caching removes.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>Payload &mdash; brotli, as production would serve it</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">On the wire</th>
+            <th scope="col">Parsed per page load</th>
+            <th scope="col">Gate &le; 0.81MB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td>0.35MB</td>
+            <td>1.74MB</td>
+            <td><span class="flag flag--pass">Pass</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td class="best">0.08MB</td>
+            <td class="best">0.11MB</td>
+            <td><span class="flag flag--pass">Pass</span></td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td>0.66MB</td>
+            <td>5.33MB</td>
+            <td><span class="flag flag--pass">Pass</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Evidence &mdash; search quality</span>
+      <h2>Does it find the right page?</h2>
+    </div>
+    <div class="stack measure">
+      <p>Every query names the URLs that count as a hit, written against the live page list
+        <em>before</em> any engine was run. Success@5 is the headline: the reader sees five rows
+        without scrolling, so a hit inside five is a search that worked. MRR separates
+        &ldquo;missed it&rdquo; from &ldquo;found it, at rank seven&rdquo;.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>Full-length queries &mdash; 88 of 102 scored</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">Success@5</th>
+            <th scope="col">Success@1</th>
+            <th scope="col">MRR</th>
+            <th scope="col">Zero results</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td>
+              <span class="bar"><span class="bar-track"><span class="bar-fill" style="width:76%"></span></span><span class="bar-value">76%</span></span>
+            </td>
+            <td class="best">58%</td>
+            <td class="best">0.671</td>
+            <td>8%</td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td>
+              <span class="bar"><span class="bar-track"><span class="bar-fill" style="width:60%"></span></span><span class="bar-value">60%</span></span>
+            </td>
+            <td>38%</td>
+            <td>0.482</td>
+            <td>0%</td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td>
+              <span class="bar"><span class="bar-track"><span class="bar-fill" style="width:78%"></span></span><span class="bar-value best">78%</span></span>
+            </td>
+            <td>50%</td>
+            <td>0.626</td>
+            <td>4%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>Pagefind's 0% zero-result rate is a defect rather than coverage. The query set
+        includes <span class="m">zzzzqqq</span>, which has no right answer; Pagefind returned
+        <span class="m">/docs/support/log-files</span> for it. Legacy and Orama correctly
+        returned nothing.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Success@5 by query type &mdash; where the engines actually differ</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">Exact&nbsp;title</th>
+            <th scope="col">Head&nbsp;term</th>
+            <th scope="col">Natural&nbsp;language</th>
+            <th scope="col">Typo</th>
+            <th scope="col">Ambiguous&nbsp;title</th>
+            <th scope="col">Adversarial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td>100%</td>
+            <td class="best">81%</td>
+            <td>67%</td>
+            <td>42%</td>
+            <td class="best">90%</td>
+            <td>50%</td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td>100%</td>
+            <td>56%</td>
+            <td>73%</td>
+            <td>25%</td>
+            <td>40%</td>
+            <td>50%</td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td>100%</td>
+            <td>75%</td>
+            <td class="best">87%</td>
+            <td class="best">58%</td>
+            <td>80%</td>
+            <td>50%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>All three are perfect on exact page titles, so that column decides nothing. The
+        differences live in the middle four. Orama wins natural language and typos by wide
+        margins; legacy wins head terms and ambiguous titles, where 44 titles are shared by more
+        than one page and the canonical one has to come first.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <caption>While you are still typing &mdash; 190 truncated queries</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">Success@5 on a partial query</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:49%"></span></span><span class="bar-value">49%</span></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:39%"></span></span><span class="bar-value">39%</span></span></td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:63%"></span></span><span class="bar-value best">63%</span></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>The overlay searches on every keystroke, so most of the time the panel is open it is
+        showing results for a partial query. This is the metric closest to what the reader
+        actually experiences, and Orama leads it by 14 points.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Evidence &mdash; speed</span>
+      <h2>How fast does it feel?</h2>
+    </div>
+    <div class="stack measure">
+      <p>Fast 4G with a 4&times; CPU penalty, which is roughly a mid-range Android on a good
+        mobile connection. Medians of three consecutive runs; the spread across runs was under
+        80ms on every figure except Orama's cold start.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>First result, and the cost of a keystroke</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">Cold, empty cache</th>
+            <th scope="col">Warm, same visit</th>
+            <th scope="col">Return visit</th>
+            <th scope="col">Keystroke p95</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill" style="width:11.8%"></span></span><span class="bar-value best">673ms</span></span></td>
+            <td>276ms</td>
+            <td>232ms</td>
+            <td>221ms</td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill bar-fill--critical" style="width:36.3%"></span></span><span class="bar-value">2073ms</span></span></td>
+            <td>1092ms</td>
+            <td>260ms</td>
+            <td>1036ms</td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td><span class="bar"><span class="bar-track"><span class="bar-fill bar-fill--critical" style="width:100%"></span></span><span class="bar-value">5714ms</span></span></td>
+            <td class="best">256ms</td>
+            <td class="best">201ms</td>
+            <td>228ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>Read the four columns as one story. Orama is the slowest to answer the very first
+        search of a visit and the fastest at everything after it. Pagefind is the opposite of
+        what its tiny index suggests: because it fetches index chunks per query, every keystroke
+        costs a network round trip, and 1036ms per keystroke is the worst number in this table.</p>
+      <p>Legacy is unremarkable and consistent, which is why it passes everything.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Gates &mdash; pass or fail, set before the runs</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engine</th>
+            <th scope="col">Cold &le; 2000ms</th>
+            <th scope="col">Warm &le; 300ms</th>
+            <th scope="col">Keystroke &le; 250ms</th>
+            <th scope="col">Wire &le; 0.81MB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Legacy</th>
+            <td><span class="flag flag--pass">673ms</span></td>
+            <td><span class="flag flag--pass">276ms</span></td>
+            <td><span class="flag flag--pass">221ms</span></td>
+            <td><span class="flag flag--pass">0.35MB</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Pagefind</th>
+            <td><span class="flag flag--fail">2073ms</span></td>
+            <td><span class="flag flag--fail">1092ms</span></td>
+            <td><span class="flag flag--fail">1036ms</span></td>
+            <td><span class="flag flag--pass">0.08MB</span></td>
+          </tr>
+          <tr data-pick>
+            <th scope="row">Orama</th>
+            <td><span class="flag flag--fail">5714ms</span></td>
+            <td><span class="flag flag--pass">256ms</span></td>
+            <td><span class="flag flag--pass">228ms</span></td>
+            <td><span class="flag flag--pass">0.66MB</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>Legacy's keystroke figure of 221ms and Orama's of 228ms both sit just under a 250ms
+        gate, and the overlay's own 150ms debounce is inside both. Treat those two as equal.
+        Pagefind's 1036ms is not close.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">For whoever is choosing</span>
+      <h2>What you gain and give up with each</h2>
+    </div>
+    <div class="compare">
+      <div>
+        <h3>Legacy</h3>
+        <ul>
+          <li class="up">Passes all four performance gates</li>
+          <li class="up">Best at rank one (58%) and best MRR (0.671)</li>
+          <li class="up">Best on ambiguous titles (90%) &mdash; its hand-tuned field weights earn their keep</li>
+          <li class="down">Weakest on misspellings after Pagefind (42%)</li>
+          <li class="down">Keeps 645 lines of custom stemmer, synonyms and ranking</li>
+          <li class="down">8% of queries return nothing at all</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pagefind</h3>
+        <ul>
+          <li class="up">0.08MB on the wire, 0.11MB parsed &mdash; an eighth of Orama on the wire, a fiftieth once parsed</li>
+          <li class="up">The only engine that can deep-link to a heading, not just a page</li>
+          <li class="up">Cheapest by far for the readers who never search, and it already warms on page load</li>
+          <li class="down">Relevance last by 16 to 18 points, and not fixable by configuration</li>
+          <li class="down">1036ms per keystroke; each one is a network fetch</li>
+          <li class="down">Invents results for nonsense queries</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Orama</h3>
+        <ul>
+          <li class="up">Best Success@5 (78%) and best while typing (63%)</li>
+          <li class="up">Best natural language (87%) and typos (58%) by wide margins</li>
+          <li class="up">Fastest once loaded: 256ms warm, 201ms on a return visit</li>
+          <li class="down">5.7s first search on a cold cache &mdash; the one gate miss</li>
+          <li class="down">5.33MB parsed on every fresh page load, which caching cannot remove</li>
+          <li class="down">No per-heading deep links without new chunking work</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stack measure">
+      <p>Pagefind's heading-level deep links are the one capability on this page that only one
+        engine has. It is returning them on every single query today and the spike throws them
+        away; wiring them up is the largest piece of unbuilt work in either spike. It would not
+        move any number above, because these metrics score the page. It would change what
+        landing on a 4,000-word page feels like.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Decision levers</span>
+      <h2>What would change this recommendation</h2>
+    </div>
+    <div class="levers">
+      <div class="lever">
+        <div class="lever-if">A cold first search must be under 2s on mobile</div>
+        <div class="lever-then">Orama is out at 5.7s, and no configuration closes a 3.7s gap.
+          Then the choice is legacy against Pagefind, and legacy wins on every axis except
+          payload. Practically: keep legacy.</div>
+      </div>
+      <div class="lever">
+        <div class="lever-if">Getting the right page at rank one matters more than having it on screen</div>
+        <div class="lever-then">Legacy leads Success@1 by 8 points and MRR by 0.045. If the
+          reader habitually presses Enter on the first result rather than reading the list,
+          legacy is genuinely better and Orama's win narrows to typos and natural language.</div>
+      </div>
+      <div class="lever">
+        <div class="lever-if">Someone will build Pagefind's sub-results</div>
+        <div class="lever-then">Pagefind gains a real capability neither other engine has, but
+          its relevance stays at 60%. It changes what the best option is only if deep links
+          matter more than finding the page at all.</div>
+      </div>
+      <div class="lever">
+        <div class="lever-if">Orama's index can be made substantially smaller</div>
+        <div class="lever-then">The recommendation becomes unambiguous. It has already gone
+          11.43MB to 5.33MB; <span class="m">BODY_LIMIT</span> is still 4,000 characters and the
+          stored excerpt copy could shrink further. Cutting the cold path is the highest-value
+          work left on either spike.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">Method and limits</span>
+      <h2>How to read this, and what it does not tell you</h2>
+    </div>
+    <div class="notes">
+      <ul>
+        <li><strong>All three run the same overlay.</strong> The search UI merged to main before
+          either spike branched, so the only thing that differs between the three is the engine
+          behind one interface. Production is the baseline for free.</li>
+        <li><strong>Expected URLs were written before the runs</strong> and re-checked against the
+          live page list; all 102 still resolve. 14 queries are recorded but unscored, because
+          they exist to show how an engine degrades rather than to have a right answer.</li>
+        <li><strong>There is no real query data, and there cannot be.</strong> The search is
+          client-side and nothing reports what readers type, so the head-term queries are derived
+          from the corpus two ways &mdash; term frequency across pages, and the site's own 26
+          top-level sections. Google Search Console is the one untapped source of real reader
+          language, if anyone has access.</li>
+        <li><strong>Both spikes were audited and fixed first.</strong> Orama was misconfigured in
+          four ways, the worst of which silently cut its recall by a factor of sixty; searching
+          <span class="m">variables</span> matched 5 pages instead of 321. All four are fixed.
+          Pagefind was already close to idiomatic, and its ranking parameters were already at
+          their best values.</li>
+        <li><strong>Pagefind's deficit was tested, not assumed.</strong> Removing every competing
+          API and CLI page from its index's reach lifted it only to 61%. Content weighting will
+          not close the gap.</li>
+        <li><strong>Not measured:</strong> peak memory on a real low-end device, behaviour on
+          flaky connections, and how any of this feels to an actual reader. The numbers here are
+          a floor for the decision, not the whole of it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Harness, query set and raw results: <span class="m">tools/search-bakeoff/</span> on branch
+      <span class="m">worktree-search-bakeoff-harness</span>. Every figure on this page is
+      reproducible with <span class="m">pnpm bakeoff</span>.</p>
+  </footer>
+
+</div>

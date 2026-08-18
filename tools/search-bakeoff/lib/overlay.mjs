@@ -141,15 +141,7 @@ export async function readResults(page) {
       return {
         results: rows.map((row) => ({
           url: row.getAttribute('href'),
-          // Pagefind returns heading-level sub-results, and the overlay renders
-          // each one as an option in the same listbox so the arrow keys walk
-          // them. They are not results in their own right: three of them under
-          // one page would otherwise push the second page down to rank 5 and
-          // score as though the engine had ranked it there.
-          isSection: row.classList.contains('docs-search__row--section'),
-          title:
-            text(row, '.docs-search__row-title') ||
-            text(row, '.docs-search__section-title'),
+          title: text(row, '.docs-search__row-title'),
           excerpt: text(row, '.docs-search__row-excerpt'),
           // Kept as HTML too: whether an engine highlights the matched terms at
           // all is part of what is being compared, and textContent loses it.
