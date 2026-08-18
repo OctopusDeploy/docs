@@ -1,7 +1,7 @@
 ---
 import { Lang, Translations } from '@util/Languages';
 import { getPageMarkdownPath } from '@util/mdxContent';
-import Button from './Button.astro';
+import SplitButton from './SplitButton.astro';
 
 type Props = {
   lang: string;
@@ -15,11 +15,23 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
 
 {
   pageMdUrl && (
-    <Button
-      class="octo-copy-md"
+    <SplitButton
+      class="octo-copy-md-actions"
+      primaryClass="octo-copy-md"
+      primaryData={{ 'data-copy-md-url': pageMdUrl }}
       icon="octo-copy-md__icon"
       size="small"
-      data-copy-md-url={pageMdUrl}
+      menuLabel={_(Translations.octopus_copy_md.more_options)}
+      items={[
+        {
+          label: _(Translations.octopus_copy_md.view_raw),
+          href: pageMdUrl,
+          icon: 'octo-copy-md__glyph octo-copy-md__glyph--markdown',
+          iconEnd: 'octo-copy-md__glyph octo-copy-md__glyph--external',
+        },
+      ]}
+      target="_blank"
+      rel="noopener"
     >
       {/* All three states are rendered, stacked in one grid cell, so the button
           is sized by its longest label and keeps that width as the state
@@ -36,9 +48,30 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
           {_(Translations.octopus_copy_md.error)}
         </span>
       </span>
-    </Button>
+    </SplitButton>
   )
 }
+
+<style>
+  /* `:global()` crosses into SplitButton's and Menu's scopes, which render the
+     elements these land on; the `.octo-copy-md-actions` prefix keeps them
+     contained. */
+  .octo-copy-md-actions :global(.octo-copy-md__glyph) {
+    background-color: currentColor;
+  }
+
+  /* The mark is a wide badge rather than a square glyph, so it is fitted to the
+     square box `.menu__icon` gives it instead of being sized to it. */
+  .octo-copy-md-actions :global(.octo-copy-md__glyph--markdown) {
+    mask: url('../assets/icons/markdown.svg') center / contain no-repeat;
+  }
+
+  /* The exported glyph sits inside a box 25% wider than itself, so the mask is
+     sized rather than left to fill. */
+  .octo-copy-md-actions :global(.octo-copy-md__glyph--external) {
+    mask: url('../assets/icons/external-link.svg') center / 0.8rem no-repeat;
+  }
+</style>
 
 <script>
   import '../scripts/copy-as-markdown';

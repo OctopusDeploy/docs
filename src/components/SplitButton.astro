@@ -11,8 +11,10 @@ export type SplitButtonItem = {
 };
 
 type Props = HTMLAttributes<'div'> & {
-  label: string;
-  href: string | URL;
+  // Either a `label`, or markup in the default slot, as Button asks for
+  label?: string;
+  // Omitted when the primary acts on the page rather than navigating away
+  href?: string | URL;
   icon?: string;
   size?: 'xSmall' | 'small' | 'medium';
   importance?: 'default' | 'loud';
@@ -20,6 +22,10 @@ type Props = HTMLAttributes<'div'> & {
   menuLabel: string; // accessible name for the caret, which has no text
   target?: string;
   rel?: string;
+  // The primary carries these rather than the wrapper, for a caller whose
+  // script or styles are hung off the button itself.
+  primaryClass?: string;
+  primaryData?: Record<string, string | undefined>;
 };
 
 const {
@@ -32,6 +38,8 @@ const {
   menuLabel,
   target,
   rel,
+  primaryClass,
+  primaryData,
   class: className,
   ...rest
 } = Astro.props satisfies Props;
@@ -39,6 +47,23 @@ const {
 if (items.length === 0) {
   throw new Error('A SplitButton with no menu items should just be a Button');
 }
+
+// Button's own version of this check cannot see through to the caller: the
+// `<slot />` handed to it below counts as slotted markup whether or not anything
+// was passed in here.
+if (!label && !Astro.slots.has('default')) {
+  throw new Error('A SplitButton needs a label, or markup for one in its slot');
+}
+
+// Button types the two halves of its own union separately - an anchor needs an
+// `href`, a plain button forbids one - so the link attributes are handed over as
+// a set rather than as three possibly-undefined props. `target` and `rel` say
+// where a link opens, and mean nothing on a button.
+const primaryLink = href ? { href, target, rel } : {};
+
+const primaryClasses = primaryClass
+  ? `split-btn__primary ${primaryClass}`
+  : 'split-btn__primary';
 
 const menuItems = items.map((item) => ({
   ...item,
@@ -50,15 +75,16 @@ const menuItems = items.map((item) => ({
 
 <div class:list={['split-btn', className]} {...rest}>
   <Button
-    class="split-btn__primary"
-    href={href}
+    class={primaryClasses}
+    {...primaryLink}
     icon={icon}
     label={label}
     size={size}
     importance={importance}
-    target={target}
-    rel={rel}
-  />
+    {...primaryData}
+  >
+    <slot />
+  </Button>
   <Menu
     class="split-btn__menu"
     label={menuLabel}

@@ -20,7 +20,6 @@ import Feedback from '../components/Feedback.astro';
 import TopNav from '../components/TopNav.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
-import MarkdownLinks from '../components/MarkdownLinks.astro';
 import OpenInLlm from '../components/OpenInLlm.astro';
 import Plausible from 'src/components/Plausible.astro';
 import Footer from 'src/components/Footer.astro';
@@ -95,7 +94,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
-            <MarkdownLinks lang={lang} />
           </div>
         </article>
       </main>

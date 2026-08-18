@@ -1,0 +1,9 @@
+<!-- The CommonMark markdown mark (commonmark.org/help), the glyph design supplied
+     for the "Open this page as markdown" menu item. Used as a CSS mask, so only
+     alpha matters: the rounded border is drawn as a ring and the M and the arrow
+     sit inside the hole it leaves. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 128" fill="currentColor" fill-rule="evenodd" width="26" height="16" aria-hidden="true">
+  <path d="M15 10a5 5 0 0 0-5 5v98a5 5 0 0 0 5 5h178a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5zM0 15C0 6.716 6.716 0 15 0h178c8.284 0 15 6.716 15 15v98c0 8.284-6.716 15-15 15H15c-8.284 0-15-6.716-15-15z"/>
+  <path d="M30 98V30h20l20 25 20-25h20v68H90V59L70 84 50 59v39z"/>
+  <path d="M155 98 125 62h20V30h20v32h20z"/>
+</svg>

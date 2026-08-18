@@ -124,8 +124,44 @@ test('markdown page actions are hidden on the ineligible MDX page', async ({
     'expected no copy action on ineligible page'
   ).toBe(0);
   expect(
-    await page.locator('[data-md-links-menu]').count(),
-    'expected no markdown links dropdown on ineligible page'
+    await page.locator('.octo-copy-md-actions').count(),
+    'expected no copy split button on ineligible page'
+  ).toBe(0);
+});
+
+// The "Open this page as markdown" link used to sit in a menu at the bottom of
+// the article, alongside a link to llms-full.txt. It is in the copy action's
+// menu now, and the llms-full.txt link is gone.
+test('the copy action menu holds exactly one item, linking to the page markdown', async ({
+  page,
+}) => {
+  await page.goto(STABLE_PLAIN_MD_PATH);
+
+  const menu = page.locator('.octo-copy-md-actions [data-menu]');
+  await menu.locator('summary').click();
+
+  const items = menu.locator('.menu__action');
+  await expect(items).toHaveCount(1);
+  await expect(items).toHaveAttribute('href', STABLE_PLAIN_MD_PATH + '.md');
+  await expect(items).toHaveAttribute('target', '_blank');
+});
+
+test('no page links to llms-full.txt', async ({ page }) => {
+  await page.goto(STABLE_PLAIN_MD_PATH);
+  expect(
+    await page.locator('a[href$="llms-full.txt"]').count(),
+    'expected the llms-full.txt link to be gone from the docs UI'
+  ).toBe(0);
+});
+
+// What the deleted component rendered, in the position it rendered it.
+test('nothing renders below the taxonomy where the markdown links menu was', async ({
+  page,
+}) => {
+  await page.goto(STABLE_PLAIN_MD_PATH);
+  expect(
+    await page.locator('.octo-md-links, [data-md-links-menu]').count(),
+    'expected the "Use Octopus docs with AI" menu to be gone'
   ).toBe(0);
 });
 

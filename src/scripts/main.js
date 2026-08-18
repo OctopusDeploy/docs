@@ -4,7 +4,6 @@ import {
   addListImageIntersectionObserver,
 } from './modules/animation.js';
 import { addResizedEvent } from './modules/resizing.js';
-import { markdownLinkMenus } from './modules/markdown-links.js';
 import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
