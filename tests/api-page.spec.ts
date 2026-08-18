@@ -60,14 +60,34 @@ test.describe('api page chrome', () => {
   });
 
   test('the section is kept out of the search index and the sitemap', async ({
+    page,
     request,
   }) => {
     // Temporary, alongside src/lib/underConstruction.ts - delete with it when
     // the API reference goes live.
-    const index = await (await request.get('/docs/search.json')).json();
-    expect(index.filter((entry) => entry.url.includes('/docs/api/'))).toEqual(
-      []
+    //
+    // Asked through the overlay rather than of an index file. This used to read
+    // /docs/search.json, which no longer exists, and the two search engines ship
+    // indexes of different shapes — one JSON, one a directory of compressed
+    // chunks. What has to hold is the same either way: a reader searching a word
+    // the API reference is full of must not be sent into it.
+    await page.goto('/docs/');
+    await page
+      .locator('input[data-docs-search-trigger]:visible')
+      .first()
+      .click();
+    await page.locator('[data-docs-search-input]').fill('accounts');
+
+    // `accounts` is deliberate: it names pages in the API reference *and* pages
+    // outside it, so the list is never empty. A query that matched nothing would
+    // pass this test without proving anything.
+    const results = page.locator('[data-docs-search-results] [role="option"]');
+    await expect(results.first()).toBeVisible({ timeout: 30_000 });
+
+    const hrefs = await results.evaluateAll((rows) =>
+      rows.map((row) => row.getAttribute('href') ?? '')
     );
+    expect(hrefs.filter((href) => href.includes('/docs/api/'))).toEqual([]);
 
     const sitemap = await (await request.get('/docs/sitemap.xml')).text();
     expect(sitemap).not.toContain('/docs/api/');
