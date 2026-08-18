@@ -43,9 +43,31 @@ export function rankOfFirstExpected(results, expected) {
  * is, and inventing one after seeing the results is how a bake-off talks itself
  * into a tie.
  */
+/**
+ * Collapses a page and its matched sections into one entry.
+ *
+ * An engine that returns heading-level sub-results renders them as their own
+ * rows, so a single page can occupy four slots in the list. Success@5 asks how
+ * far down the reader looks to find the page, and a page plus its own headings is
+ * one thing to look at, not four. Without this, turning sub-results on halves an
+ * engine's apparent Success@5 while making the list strictly more useful.
+ *
+ * Anchors normalise to their page's path already, so a section row for the wanted
+ * page still counts as finding it.
+ */
+function distinctPages(results) {
+  const seen = new Set();
+  return results.filter((result) => {
+    const path = normalisePath(result.url);
+    if (seen.has(path)) return false;
+    seen.add(path);
+    return true;
+  });
+}
+
 export function scoreQuery(query, run) {
   const expected = query.expect ?? [];
-  const results = run.results ?? [];
+  const results = distinctPages(run.results ?? []);
   const rank =
     expected.length > 0 ? rankOfFirstExpected(results, expected) : null;
 

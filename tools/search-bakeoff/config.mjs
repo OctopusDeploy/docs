@@ -43,6 +43,19 @@ export const TARGETS = [
   },
 ];
 
+// A locally built site, for checking a change before it is deployed anywhere.
+// `LOCAL_BASE=http://localhost:3001/docs/ node ... --target=local`. Which engine
+// it runs is whatever the checked-out branch built, so the label stays vague.
+if (process.env.LOCAL_BASE) {
+  TARGETS.push({
+    key: 'local',
+    label: 'Local build',
+    base: process.env.LOCAL_BASE,
+    indexPatterns: [/pagefind/, /search-index/],
+    payloadUrls: [],
+  });
+}
+
 // The staging sites are Azure static website endpoints, which serve blobs
 // verbatim — no content negotiation, no compression. Production sits behind a
 // CDN that brotlis everything. Comparing measured wire bytes across the two
