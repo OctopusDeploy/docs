@@ -124,6 +124,32 @@ choices as much as engines. Known asymmetries, all of them one-line fixes:
 Run round one, read `results/report.html` to see where each engine loses, spend
 one tuning pass on each, then run round two and decide on that.
 
+### Round one already found one of these
+
+`orama-worker.ts` restores the index with `create({ schema: SCHEMA })`, which
+carries no tokenizer configuration, while `orama-index.ts` built that index with
+`components: { tokenizer: { stemming: true, language: 'english' } }`. Query-time
+tokenization therefore does not match index-time tokenization, and Orama's
+recall collapses. Loading the shipped `search-index.json` both ways:
+
+| Term           | As the worker creates it | With the tokenizer it was built with |
+| -------------- | ------------------------ | ------------------------------------ |
+| `variables`    | 5 hits                   | 321 hits                             |
+| `varibles`     | 0 hits                   | 321 hits                             |
+| `certificates` | 2 hits                   | 110 hits                             |
+| `enviroments`  | 0 hits                   | 411 hits                             |
+
+Typo tolerance works once the tokenizer matches. Orama's round-one scores are
+measuring this defect rather than the engine, so they cannot be used to decide
+anything until the worker passes the same components to `create()`.
+
+### Pagefind's zero-result rate is not the win it looks like
+
+Pagefind returned results for every query in the set, including `zzzzqqq`, which
+exists in the set precisely because it has no right answer. A 0% zero-result
+rate next to wrong answers for nonsense input is a defect rather than coverage.
+Read that column alongside `adv-15`.
+
 ## Corpus drift
 
 The three targets are built from three different commits, so a small part of any

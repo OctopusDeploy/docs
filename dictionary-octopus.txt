@@ -157,6 +157,7 @@ Elyton
 emptytitle
 enableservicemessages
 entra
+enviroments
 environmentids
 environmentstate
 environmenturl
@@ -617,6 +618,7 @@ utcnow
 VARCHAR
 variablename
 variableset
+varibles
 vhdx
 violationreason
 vite

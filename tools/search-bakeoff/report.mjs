@@ -100,7 +100,13 @@ if (perf) {
     lines.push(
       `| ${row.label} | ${ms(row.coldFirstResultMs)} | ${ms(row.warmFirstResultMs)} | ${ms(
         row.revisitFirstResultMs
-      )} | ${ms(row.keystrokeP95Ms)} | ${mb(row.coldIndexBytes)} |`
+      )} | ${ms(row.keystrokeP95Ms)} | ${
+        // Orama fetches its index from inside a Web Worker, and worker requests
+        // do not surface on the page's CDP session. Zero here means unmeasured,
+        // and printing it as 0MB would read as a win. `payload.mjs` has the real
+        // number for every target.
+        row.coldIndexBytes > 0 ? mb(row.coldIndexBytes) : 'not captured'
+      } |`
     );
   }
   lines.push('');
