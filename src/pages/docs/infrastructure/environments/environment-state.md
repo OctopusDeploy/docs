@@ -124,6 +124,35 @@ The response is an array of name and URL pairs:
 ]
 ```
 
+## Limits on environment state
+
+Up to 10 environment state entries can be created for each combination of project, environment and optional tenant.
+
+- Maximum key length is 100 characters
+- Maximum value length is 1000 characters
+
+If any of these limits are exceeded during a deployment or runbook run, the task will fail with an error message explaining how the limit was hit.
+
+Use [Octopus variable logging](/docs/support/how-to-turn-on-variable-logging-and-export-the-task-log) to check if you are nearing your maximum number of environment state entries.
+
+## Deleting environment state
+
+If a project, environment, and tenant combination has hit the limit above, delete entries you no longer need to make room for new ones. Deleting is API-only.
+
+For environment state scoped to a project and environment:
+
+```text
+DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}
+```
+
+For environment state scoped to a project, environment and tenant:
+
+```text
+DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/states/{key}
+```
+
+Use [Octopus variable logging](/docs/support/how-to-turn-on-variable-logging-and-export-the-task-log) to get a list of environment state keys for a project, environment, and optional tenant scope.
+
 ## Availability
 
 Environment state is rolling out to Octopus Cloud, and will be available to self-hosted customers from version `2026.3`.
