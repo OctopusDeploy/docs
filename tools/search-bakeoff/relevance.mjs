@@ -103,9 +103,12 @@ for (const target of targets) {
 }
 
 await browser.close();
+// A separate experiment writes beside the recorded run rather than over it.
+const outName = process.env.OUT_NAME ?? 'relevance';
+
 await mkdir(RESULTS_DIR, { recursive: true });
 await writeFile(
-  new URL('./relevance.json', RESULTS_DIR),
+  new URL(`./${outName}.json`, RESULTS_DIR),
   JSON.stringify(
     {
       // No Date.now() in the record itself beyond this stamp — the report reads
@@ -122,4 +125,4 @@ await writeFile(
 );
 
 console.log(`\n${runs.length} searches recorded, ${failures.length} failed`);
-console.log(`written to ${new URL('./relevance.json', RESULTS_DIR).pathname}`);
+console.log(`written to ${new URL(`./${outName}.json`, RESULTS_DIR).pathname}`);

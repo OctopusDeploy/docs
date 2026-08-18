@@ -1,0 +1,713 @@
+{
+  "note": "A separate experiment, not part of the recorded bake-off. One query per page in the top-99 by visitors, from the Plausible export dated 2026-07-28 (12,620 visitors total). The query is what a reader would plausibly type to reach that page — deliberately the short form rather than the full title, because typing a page's exact title is the one thing all three engines already do perfectly. `weight` is visitors, so the run can report what share of real page demand search satisfies rather than treating a 458-visitor page and a 56-visitor page alike.",
+  "source": "2026-07-28-Docs snapshot - Top pages.csv",
+  "excluded": "/docs/search (62 visitors, rank 84) — it is the legacy search page, which both spikes delete.",
+  "queries": [
+    {
+      "id": "t01",
+      "bucket": "traffic",
+      "weight": 458,
+      "query": "getting started",
+      "expect": ["/docs/getting-started"]
+    },
+    {
+      "id": "t02",
+      "bucket": "traffic",
+      "weight": 441,
+      "query": "rest api",
+      "expect": ["/docs/octopus-rest-api"]
+    },
+    {
+      "id": "t03",
+      "bucket": "traffic",
+      "weight": 407,
+      "query": "run a script",
+      "expect": ["/docs/deployments/custom-scripts/run-a-script-step"]
+    },
+    {
+      "id": "t04",
+      "bucket": "traffic",
+      "weight": 403,
+      "query": "install octopus server",
+      "expect": ["/docs/installation"]
+    },
+    {
+      "id": "t05",
+      "bucket": "traffic",
+      "weight": 381,
+      "query": "mcp",
+      "expect": ["/docs/octopus-ai/mcp"]
+    },
+    {
+      "id": "t06",
+      "bucket": "traffic",
+      "weight": 371,
+      "query": "channels",
+      "expect": ["/docs/releases/channels"]
+    },
+    {
+      "id": "t07",
+      "bucket": "traffic",
+      "weight": 312,
+      "query": "cli",
+      "expect": ["/docs/octopus-rest-api/cli"]
+    },
+    {
+      "id": "t08",
+      "bucket": "traffic",
+      "weight": 283,
+      "query": "octopus ai",
+      "expect": ["/docs/octopus-ai"]
+    },
+    {
+      "id": "t09",
+      "bucket": "traffic",
+      "weight": 273,
+      "query": "system variables",
+      "expect": ["/docs/projects/variables/system-variables"]
+    },
+    {
+      "id": "t10",
+      "bucket": "traffic",
+      "weight": 258,
+      "query": "create api key",
+      "expect": ["/docs/octopus-rest-api/how-to-create-an-api-key"]
+    },
+    {
+      "id": "t11",
+      "bucket": "traffic",
+      "weight": 244,
+      "query": "runbooks",
+      "expect": ["/docs/runbooks"]
+    },
+    {
+      "id": "t12",
+      "bucket": "traffic",
+      "weight": 235,
+      "query": "variables",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "t13",
+      "bucket": "traffic",
+      "weight": 233,
+      "query": "variable substitution",
+      "expect": ["/docs/projects/variables/variable-substitutions"]
+    },
+    {
+      "id": "t14",
+      "bucket": "traffic",
+      "weight": 232,
+      "query": "active directory troubleshooting",
+      "expect": [
+        "/docs/security/authentication/active-directory/troubleshooting-active-directory-integration"
+      ]
+    },
+    {
+      "id": "t15",
+      "bucket": "traffic",
+      "weight": 229,
+      "query": "argo cd",
+      "expect": ["/docs/argo-cd"]
+    },
+    {
+      "id": "t16",
+      "bucket": "traffic",
+      "weight": 229,
+      "query": "artifacts",
+      "expect": ["/docs/projects/deployment-process/artifacts"]
+    },
+    {
+      "id": "t17",
+      "bucket": "traffic",
+      "weight": 198,
+      "query": "octopus cloud",
+      "expect": ["/docs/octopus-cloud"]
+    },
+    {
+      "id": "t18",
+      "bucket": "traffic",
+      "weight": 187,
+      "query": "structured configuration variables",
+      "expect": [
+        "/docs/projects/steps/configuration-features/structured-configuration-variables-feature"
+      ]
+    },
+    {
+      "id": "t19",
+      "bucket": "traffic",
+      "weight": 179,
+      "query": "kubernetes",
+      "expect": ["/docs/kubernetes"]
+    },
+    {
+      "id": "t20",
+      "bucket": "traffic",
+      "weight": 179,
+      "query": "api getting started",
+      "expect": ["/docs/octopus-rest-api/getting-started"]
+    },
+    {
+      "id": "t21",
+      "bucket": "traffic",
+      "weight": 161,
+      "query": "installation requirements",
+      "expect": ["/docs/installation/requirements"]
+    },
+    {
+      "id": "t22",
+      "bucket": "traffic",
+      "weight": 157,
+      "query": "deployments",
+      "expect": ["/docs/deployments"]
+    },
+    {
+      "id": "t23",
+      "bucket": "traffic",
+      "weight": 154,
+      "query": "best practices",
+      "expect": ["/docs/best-practices"]
+    },
+    {
+      "id": "t24",
+      "bucket": "traffic",
+      "weight": 137,
+      "query": "linux tentacle",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle/linux"]
+    },
+    {
+      "id": "t25",
+      "bucket": "traffic",
+      "weight": 135,
+      "query": "terraform",
+      "expect": ["/docs/deployments/terraform"]
+    },
+    {
+      "id": "t26",
+      "bucket": "traffic",
+      "weight": 134,
+      "query": "infrastructure",
+      "expect": ["/docs/infrastructure"]
+    },
+    {
+      "id": "t27",
+      "bucket": "traffic",
+      "weight": 131,
+      "query": "kubernetes agent",
+      "expect": ["/docs/kubernetes/targets/kubernetes-agent"]
+    },
+    {
+      "id": "t28",
+      "bucket": "traffic",
+      "weight": 129,
+      "query": "github integration",
+      "expect": ["/docs/projects/version-control/github"]
+    },
+    {
+      "id": "t29",
+      "bucket": "traffic",
+      "weight": 128,
+      "query": "tentacle",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle"]
+    },
+    {
+      "id": "t30",
+      "bucket": "traffic",
+      "weight": 128,
+      "query": "projects",
+      "expect": ["/docs/projects"]
+    },
+    {
+      "id": "t31",
+      "bucket": "traffic",
+      "weight": 128,
+      "query": "releases",
+      "expect": ["/docs/releases"]
+    },
+    {
+      "id": "t32",
+      "bucket": "traffic",
+      "weight": 122,
+      "query": "tenants",
+      "expect": ["/docs/tenants"]
+    },
+    {
+      "id": "t33",
+      "bucket": "traffic",
+      "weight": 120,
+      "query": "windows tentacle",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle/windows"]
+    },
+    {
+      "id": "t34",
+      "bucket": "traffic",
+      "weight": 120,
+      "query": "octopus extension azure devops",
+      "expect": [
+        "/docs/packaging-applications/build-servers/tfs-azure-devops/using-octopus-extension"
+      ]
+    },
+    {
+      "id": "t35",
+      "bucket": "traffic",
+      "weight": 116,
+      "query": "packages",
+      "expect": ["/docs/deployments/packages"]
+    },
+    {
+      "id": "t36",
+      "bucket": "traffic",
+      "weight": 112,
+      "query": "packaging applications",
+      "expect": ["/docs/packaging-applications"]
+    },
+    {
+      "id": "t37",
+      "bucket": "traffic",
+      "weight": 112,
+      "query": "ephemeral environments",
+      "expect": ["/docs/projects/ephemeral-environments"]
+    },
+    {
+      "id": "t38",
+      "bucket": "traffic",
+      "weight": 107,
+      "query": "deployment process",
+      "expect": ["/docs/projects/deployment-process"]
+    },
+    {
+      "id": "t39",
+      "bucket": "traffic",
+      "weight": 106,
+      "query": "platform hub",
+      "expect": ["/docs/platform-hub"]
+    },
+    {
+      "id": "t40",
+      "bucket": "traffic",
+      "weight": 105,
+      "query": "azure devops",
+      "expect": ["/docs/packaging-applications/build-servers/tfs-azure-devops"]
+    },
+    {
+      "id": "t41",
+      "bucket": "traffic",
+      "weight": 104,
+      "query": "first deployment",
+      "expect": ["/docs/getting-started/first-deployment"]
+    },
+    {
+      "id": "t42",
+      "bucket": "traffic",
+      "weight": 104,
+      "query": "entra id authentication",
+      "expect": ["/docs/security/authentication/azure-ad-authentication"]
+    },
+    {
+      "id": "t43",
+      "bucket": "traffic",
+      "weight": 101,
+      "query": "deployment targets",
+      "expect": ["/docs/infrastructure/deployment-targets"]
+    },
+    {
+      "id": "t44",
+      "bucket": "traffic",
+      "weight": 99,
+      "query": "iis websites",
+      "expect": ["/docs/deployments/windows/iis-websites-and-application-pools"]
+    },
+    {
+      "id": "t45",
+      "bucket": "traffic",
+      "weight": 99,
+      "query": "config as code",
+      "expect": ["/docs/projects/version-control"]
+    },
+    {
+      "id": "t46",
+      "bucket": "traffic",
+      "weight": 98,
+      "query": "servicenow",
+      "expect": ["/docs/approvals/servicenow"]
+    },
+    {
+      "id": "t47",
+      "bucket": "traffic",
+      "weight": 95,
+      "query": "create release",
+      "expect": ["/docs/octopus-rest-api/octopus-cli/create-release"]
+    },
+    {
+      "id": "t48",
+      "bucket": "traffic",
+      "weight": 94,
+      "query": "getting started with variables",
+      "expect": ["/docs/projects/variables/getting-started"]
+    },
+    {
+      "id": "t49",
+      "bucket": "traffic",
+      "weight": 92,
+      "query": "github actions",
+      "expect": ["/docs/packaging-applications/build-servers/github-actions"]
+    },
+    {
+      "id": "t50",
+      "bucket": "traffic",
+      "weight": 90,
+      "query": "output variables",
+      "expect": ["/docs/projects/variables/output-variables"]
+    },
+    {
+      "id": "t51",
+      "bucket": "traffic",
+      "weight": 88,
+      "query": "build information",
+      "expect": ["/docs/packaging-applications/build-servers/build-information"]
+    },
+    {
+      "id": "t52",
+      "bucket": "traffic",
+      "weight": 86,
+      "query": "feature flags",
+      "expect": ["/docs/feature-flags"]
+    },
+    {
+      "id": "t53",
+      "bucket": "traffic",
+      "weight": 85,
+      "query": "argo cd instances",
+      "expect": ["/docs/argo-cd/instances"]
+    },
+    {
+      "id": "t54",
+      "bucket": "traffic",
+      "weight": 85,
+      "query": "variable sets",
+      "expect": ["/docs/projects/variables/library-variable-sets"]
+    },
+    {
+      "id": "t55",
+      "bucket": "traffic",
+      "weight": 84,
+      "query": "export import projects",
+      "expect": ["/docs/projects/export-import"]
+    },
+    {
+      "id": "t56",
+      "bucket": "traffic",
+      "weight": 84,
+      "query": "variable filters",
+      "expect": ["/docs/projects/variables/variable-filters"]
+    },
+    {
+      "id": "t57",
+      "bucket": "traffic",
+      "weight": 83,
+      "query": "upgrading octopus",
+      "expect": ["/docs/administration/upgrading"]
+    },
+    {
+      "id": "t58",
+      "bucket": "traffic",
+      "weight": 83,
+      "query": "lifecycles",
+      "expect": ["/docs/releases/lifecycles"]
+    },
+    {
+      "id": "t59",
+      "bucket": "traffic",
+      "weight": 81,
+      "query": "security",
+      "expect": ["/docs/security"]
+    },
+    {
+      "id": "t60",
+      "bucket": "traffic",
+      "weight": 79,
+      "query": "api examples",
+      "expect": ["/docs/octopus-rest-api/examples"]
+    },
+    {
+      "id": "t61",
+      "bucket": "traffic",
+      "weight": 78,
+      "query": "target tags",
+      "expect": ["/docs/infrastructure/deployment-targets/target-tags"]
+    },
+    {
+      "id": "t62",
+      "bucket": "traffic",
+      "weight": 78,
+      "query": "helm chart",
+      "expect": ["/docs/kubernetes/steps/helm"]
+    },
+    {
+      "id": "t63",
+      "bucket": "traffic",
+      "weight": 77,
+      "query": "config as code reference",
+      "expect": ["/docs/projects/version-control/config-as-code-reference"]
+    },
+    {
+      "id": "t64",
+      "bucket": "traffic",
+      "weight": 76,
+      "query": "tentacle communication",
+      "expect": [
+        "/docs/infrastructure/deployment-targets/tentacle/tentacle-communication"
+      ]
+    },
+    {
+      "id": "t65",
+      "bucket": "traffic",
+      "weight": 76,
+      "query": "tenant variables",
+      "expect": ["/docs/tenants/tenant-variables"]
+    },
+    {
+      "id": "t66",
+      "bucket": "traffic",
+      "weight": 74,
+      "query": "azure account",
+      "expect": ["/docs/infrastructure/accounts/azure"]
+    },
+    {
+      "id": "t67",
+      "bucket": "traffic",
+      "weight": 74,
+      "query": "workers",
+      "expect": ["/docs/infrastructure/workers"]
+    },
+    {
+      "id": "t68",
+      "bucket": "traffic",
+      "weight": 71,
+      "query": "environments",
+      "expect": ["/docs/infrastructure/environments"]
+    },
+    {
+      "id": "t69",
+      "bucket": "traffic",
+      "weight": 71,
+      "query": "steps",
+      "expect": ["/docs/projects/steps"]
+    },
+    {
+      "id": "t70",
+      "bucket": "traffic",
+      "weight": 70,
+      "query": "retention policies",
+      "expect": ["/docs/administration/retention-policies"]
+    },
+    {
+      "id": "t71",
+      "bucket": "traffic",
+      "weight": 69,
+      "query": "expose octopus over https",
+      "expect": [
+        "/docs/security/exposing-octopus/expose-the-octopus-web-portal-over-https"
+      ]
+    },
+    {
+      "id": "t72",
+      "bucket": "traffic",
+      "weight": 68,
+      "query": "certificates",
+      "expect": ["/docs/deployments/certificates"]
+    },
+    {
+      "id": "t73",
+      "bucket": "traffic",
+      "weight": 68,
+      "query": "package repositories",
+      "expect": ["/docs/packaging-applications/package-repositories"]
+    },
+    {
+      "id": "t74",
+      "bucket": "traffic",
+      "weight": 67,
+      "query": "subscriptions",
+      "expect": ["/docs/administration/managing-infrastructure/subscriptions"]
+    },
+    {
+      "id": "t75",
+      "bucket": "traffic",
+      "weight": 67,
+      "query": "missing packages",
+      "expect": ["/docs/deployments/packages/troubleshoot-missing-packages"]
+    },
+    {
+      "id": "t76",
+      "bucket": "traffic",
+      "weight": 67,
+      "query": "jira",
+      "expect": ["/docs/releases/issue-tracking/jira"]
+    },
+    {
+      "id": "t77",
+      "bucket": "traffic",
+      "weight": 66,
+      "query": "ocl syntax",
+      "expect": ["/docs/projects/version-control/ocl-file-format"]
+    },
+    {
+      "id": "t78",
+      "bucket": "traffic",
+      "weight": 65,
+      "query": "linux container",
+      "expect": ["/docs/installation/octopus-server-linux-container"]
+    },
+    {
+      "id": "t79",
+      "bucket": "traffic",
+      "weight": 63,
+      "query": "spaces",
+      "expect": ["/docs/administration/spaces"]
+    },
+    {
+      "id": "t80",
+      "bucket": "traffic",
+      "weight": 63,
+      "query": "git credentials",
+      "expect": ["/docs/infrastructure/git-credentials"]
+    },
+    {
+      "id": "t81",
+      "bucket": "traffic",
+      "weight": 63,
+      "query": "process templates",
+      "expect": ["/docs/platform-hub/templates/process-templates"]
+    },
+    {
+      "id": "t82",
+      "bucket": "traffic",
+      "weight": 63,
+      "query": "configuration features",
+      "expect": ["/docs/projects/steps/configuration-features"]
+    },
+    {
+      "id": "t83",
+      "bucket": "traffic",
+      "weight": 63,
+      "query": "user roles",
+      "expect": ["/docs/security/users-and-teams/user-roles"]
+    },
+    {
+      "id": "t84",
+      "bucket": "traffic",
+      "weight": 62,
+      "query": "auditing",
+      "expect": ["/docs/security/users-and-teams/auditing"]
+    },
+    {
+      "id": "t85",
+      "bucket": "traffic",
+      "weight": 61,
+      "query": "custom scripts",
+      "expect": ["/docs/deployments/custom-scripts"]
+    },
+    {
+      "id": "t86",
+      "bucket": "traffic",
+      "weight": 60,
+      "query": "run multiple processes on a target",
+      "expect": [
+        "/docs/administration/managing-infrastructure/run-multiple-processes-on-a-target-simultaneously"
+      ]
+    },
+    {
+      "id": "t87",
+      "bucket": "traffic",
+      "weight": 60,
+      "query": "sensitive variables",
+      "expect": ["/docs/projects/variables/sensitive-variables"]
+    },
+    {
+      "id": "t88",
+      "bucket": "traffic",
+      "weight": 60,
+      "query": "log files",
+      "expect": ["/docs/support/log-files"]
+    },
+    {
+      "id": "t89",
+      "bucket": "traffic",
+      "weight": 59,
+      "query": "calamari",
+      "expect": ["/docs/octopus-rest-api/calamari"]
+    },
+    {
+      "id": "t90",
+      "bucket": "traffic",
+      "weight": 59,
+      "query": "custom step templates",
+      "expect": ["/docs/projects/custom-step-templates"]
+    },
+    {
+      "id": "t91",
+      "bucket": "traffic",
+      "weight": 58,
+      "query": "administration",
+      "expect": ["/docs/administration"]
+    },
+    {
+      "id": "t92",
+      "bucket": "traffic",
+      "weight": 58,
+      "query": "substitute variables in templates",
+      "expect": [
+        "/docs/projects/steps/configuration-features/substitute-variables-in-templates"
+      ]
+    },
+    {
+      "id": "t93",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "upgrading major releases",
+      "expect": [
+        "/docs/administration/upgrading/guide/upgrading-major-releases"
+      ]
+    },
+    {
+      "id": "t94",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "using variables in scripts",
+      "expect": ["/docs/deployments/custom-scripts/using-variables-in-scripts"]
+    },
+    {
+      "id": "t95",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "polling tentacle port 443",
+      "expect": [
+        "/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443"
+      ]
+    },
+    {
+      "id": "t96",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "recovery agent",
+      "expect": ["/docs/octopus-ai/recovery-agent"]
+    },
+    {
+      "id": "t97",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "teamcity",
+      "expect": ["/docs/packaging-applications/build-servers/teamcity"]
+    },
+    {
+      "id": "t98",
+      "bucket": "traffic",
+      "weight": 56,
+      "query": "built in repository",
+      "expect": [
+        "/docs/packaging-applications/package-repositories/built-in-repository"
+      ]
+    }
+  ]
+}

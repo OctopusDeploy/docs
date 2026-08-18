@@ -25,6 +25,23 @@ async function readIfPresent(url) {
 }
 
 export async function loadQueries() {
+  // A named set replaces the standard buckets entirely, for running a separate
+  // experiment without disturbing the recorded bake-off. `queries/<name>.json`,
+  // same shape, and every entry keeps whatever `bucket` and `weight` it carries.
+  if (process.env.QUERY_SET) {
+    const alternate = JSON.parse(
+      await readFile(
+        new URL(`../queries/${process.env.QUERY_SET}.json`, import.meta.url),
+        'utf8'
+      )
+    );
+    return alternate.queries.map((query) => ({
+      bucket: query.bucket ?? process.env.QUERY_SET,
+      ...query,
+      expect: query.expect ?? [],
+    }));
+  }
+
   const curated = JSON.parse(await readFile(CURATED, 'utf8'));
   const head = await readIfPresent(HEAD);
 
