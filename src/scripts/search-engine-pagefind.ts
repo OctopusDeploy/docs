@@ -158,6 +158,17 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           // our own — but the parameter has to be set here for the links to
           // carry it at all.
           highlightParam: 'highlight',
+          ranking: {
+            // Metadata is searchable and boosted — title 5x by default, the rest
+            // 1x. Swept against real search terms and top-visited pages.
+            //
+            // `trail` is the breadcrumb, derived from the URL, so every page
+            // under /docs/projects/ carries "Projects" and matches a search for
+            // it just as well as the Projects page itself. Demoting it is worth
+            // seven points of Success@5; it earns its place in the result row,
+            // not in the ranking.
+            metaWeights: { title: 8, trail: 0.5 },
+          },
         });
         // The filter index is a separate chunk, and a search returns empty
         // filter counts until it has been pulled down. Loading it here rather

@@ -29,7 +29,20 @@ export default function pagefindIndex(): AstroIntegration {
       'astro:build:done': async ({ dir, logger }) => {
         const distDir = fileURLToPath(dir);
 
-        const { index, errors } = await createIndex({ keepIndexUrl: false });
+        const { index, errors } = await createIndex({
+          keepIndexUrl: false,
+          // Pagefind strips punctuation from both the index and the query, so
+          // `Octopus.Action.Package` and `#{Octopus.Environment.Name}` are stored
+          // as their bare words and cannot be told apart from prose using the same
+          // words. `<head>` matched nothing at all. Keeping these characters
+          // indexes both forms — `head` *and* `<head>` — so ordinary searches are
+          // unaffected and a reader pasting real syntax gets the page about it.
+          //
+          // Limited to punctuation that shows up in this corpus and in the search
+          // logs: dotted variable and executable names, substitution syntax,
+          // angle brackets, C++, and shell variables.
+          includeCharacters: '.#{}<>+$_',
+        });
 
         if (!index) {
           logger.error(`could not start Pagefind: ${errors.join(', ')}`);
