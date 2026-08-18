@@ -17,6 +17,10 @@ import { globSync } from 'glob';
 // to restore this fails outright. `save` returns a plain object, which is all
 // the JSON format ever was.
 import { create, insertMultiple, save } from '@orama/orama';
+// The generated API reference is published but deliberately unsearchable until
+// the section has a landing page. `search.json.ts` applied this and is deleted
+// here, so the check has to move with the index rather than be lost with it.
+import { isUnderConstruction } from '../lib/underConstruction';
 // Orama defaults `stopWords` to an empty list, so without this `how`, `do`,
 // `the` and 177 others are live search terms.
 import { stopwords as englishStopwords } from '@orama/stopwords/english';
@@ -84,11 +88,14 @@ export default function oramaIndex(): AstroIntegration {
         const distDir = fileURLToPath(dir);
         const docsDir = path.join(distDir, 'docs');
 
+        // The emitter writes every page that passes its own eligibility check,
+        // which does not know about the under-construction section — those pages
+        // have a layout and no `navSitemap: false`, so they come through.
         const files = globSync('**/*.md', {
           cwd: docsDir,
           nodir: true,
           posix: true,
-        });
+        }).filter((file) => !isUnderConstruction(file));
 
         const documents = files.map((file) => {
           const raw = fs
