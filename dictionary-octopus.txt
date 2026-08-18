@@ -47,6 +47,7 @@ azurefile
 azureresourcegroup
 azurescripting
 bacpac
+bakeoff
 Bento
 Blkio
 bootstrap
@@ -397,6 +398,7 @@ onlylogs
 onmicrosoft
 openon
 operationalize
+orama
 outfile
 outputformat
 OWASP
@@ -656,3 +658,4 @@ xxlarge
 youtu
 Zstandard
 Zuora
+zzzzqqq

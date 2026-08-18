@@ -1,0 +1,601 @@
+{
+  "note": "Expected URLs are written before any engine is run. Do not edit them after seeing results — see README. Every `expect` entry is checked against the live index by `verify-queries.mjs`.",
+  "queries": [
+    {
+      "id": "head-01",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "kubernetes",
+      "expect": ["/docs/kubernetes"]
+    },
+    {
+      "id": "head-02",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "variables",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "head-03",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "runbooks",
+      "expect": ["/docs/runbooks"]
+    },
+    {
+      "id": "head-04",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "tentacle",
+      "expect": [
+        "/docs/infrastructure/deployment-targets/tentacle",
+        "/docs/infrastructure/deployment-targets/tentacle/tentacle-communication"
+      ]
+    },
+    {
+      "id": "head-05",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "api key",
+      "expect": ["/docs/octopus-rest-api/how-to-create-an-api-key"]
+    },
+    {
+      "id": "head-06",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "lifecycles",
+      "expect": ["/docs/releases/lifecycles"]
+    },
+    {
+      "id": "head-07",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "workers",
+      "expect": ["/docs/infrastructure/workers"]
+    },
+    {
+      "id": "head-08",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "tenants",
+      "expect": ["/docs/projects/tenants"]
+    },
+    {
+      "id": "head-09",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "high availability",
+      "expect": ["/docs/administration/high-availability"]
+    },
+    {
+      "id": "head-10",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "retention policies",
+      "expect": ["/docs/administration/retention-policies"]
+    },
+    {
+      "id": "head-11",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "octopus cli",
+      "expect": [
+        "/docs/octopus-rest-api/octopus-cli",
+        "/docs/octopus-rest-api/octopus-cli/install-global-tool"
+      ]
+    },
+    {
+      "id": "head-12",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "terraform",
+      "expect": ["/docs/deployments/terraform"]
+    },
+    {
+      "id": "head-13",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "backup",
+      "expect": ["/docs/administration/data/backup-and-restore"]
+    },
+    {
+      "id": "head-14",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "upgrade",
+      "expect": ["/docs/administration/upgrading/guide"]
+    },
+    {
+      "id": "head-15",
+      "bucket": "head",
+      "source": "assumed",
+      "query": "spaces",
+      "expect": ["/docs/administration/spaces"]
+    },
+
+    {
+      "id": "title-01",
+      "bucket": "title",
+      "query": "Guided failures",
+      "expect": ["/docs/releases/guided-failures"]
+    },
+    {
+      "id": "title-02",
+      "bucket": "title",
+      "query": "Offline package drop",
+      "expect": ["/docs/infrastructure/deployment-targets/offline-package-drop"]
+    },
+    {
+      "id": "title-03",
+      "bucket": "title",
+      "query": "Machine policies",
+      "expect": ["/docs/infrastructure/deployment-targets/machine-policies"]
+    },
+    {
+      "id": "title-04",
+      "bucket": "title",
+      "query": "Dynamic Worker pools",
+      "expect": ["/docs/infrastructure/workers/dynamic-worker-pools"]
+    },
+    {
+      "id": "title-05",
+      "bucket": "title",
+      "query": "Script Console",
+      "expect": ["/docs/administration/managing-infrastructure/script-console"]
+    },
+    {
+      "id": "title-06",
+      "bucket": "title",
+      "query": "Sensitive variables",
+      "expect": ["/docs/projects/variables/sensitive-variables"]
+    },
+    {
+      "id": "title-07",
+      "bucket": "title",
+      "query": "Canary deployments",
+      "expect": ["/docs/deployments/patterns/canary-deployments-with-octopus"]
+    },
+    {
+      "id": "title-08",
+      "bucket": "title",
+      "query": "Health check step",
+      "expect": ["/docs/projects/built-in-step-templates/health-check"]
+    },
+    {
+      "id": "title-09",
+      "bucket": "title",
+      "query": "Proxy support",
+      "expect": ["/docs/infrastructure/deployment-targets/proxy-support"]
+    },
+    {
+      "id": "title-10",
+      "bucket": "title",
+      "query": "Service accounts",
+      "expect": ["/docs/security/users-and-teams/service-accounts"]
+    },
+    {
+      "id": "title-11",
+      "bucket": "title",
+      "query": "Audit Stream",
+      "expect": ["/docs/security/users-and-teams/auditing/audit-stream"]
+    },
+    {
+      "id": "title-12",
+      "bucket": "title",
+      "query": "Environment state",
+      "expect": ["/docs/infrastructure/environments/environment-state"]
+    },
+    {
+      "id": "title-13",
+      "bucket": "title",
+      "query": "Glossary",
+      "expect": ["/docs/getting-started/glossary"]
+    },
+    {
+      "id": "title-14",
+      "bucket": "title",
+      "query": "Tag sets",
+      "expect": ["/docs/tenants/tag-sets"]
+    },
+    {
+      "id": "title-15",
+      "bucket": "title",
+      "query": "Git credentials",
+      "expect": ["/docs/infrastructure/git-credentials"]
+    },
+
+    {
+      "id": "intent-01",
+      "bucket": "intent",
+      "query": "rolling deployment kubernetes",
+      "expect": [
+        "/docs/deployments/patterns/rolling-deployments-with-octopus",
+        "/docs/kubernetes"
+      ]
+    },
+    {
+      "id": "intent-02",
+      "bucket": "intent",
+      "query": "how do I create an api key",
+      "expect": [
+        "/docs/octopus-rest-api/how-to-create-an-api-key",
+        "/docs/octopus-rest-api/examples/users-and-teams/create-api-key"
+      ]
+    },
+    {
+      "id": "intent-03",
+      "bucket": "intent",
+      "query": "polling tentacle behind firewall",
+      "expect": [
+        "/docs/infrastructure/deployment-targets/tentacle/tentacle-communication",
+        "/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443"
+      ]
+    },
+    {
+      "id": "intent-04",
+      "bucket": "intent",
+      "query": "deploy package to azure web app",
+      "expect": [
+        "/docs/deployments/azure/deploying-a-package-to-an-azure-web-app"
+      ]
+    },
+    {
+      "id": "intent-05",
+      "bucket": "intent",
+      "query": "pass variable between steps",
+      "expect": [
+        "/docs/projects/variables/output-variables",
+        "/docs/deployments/custom-scripts/output-variables"
+      ]
+    },
+    {
+      "id": "intent-06",
+      "bucket": "intent",
+      "query": "backup octopus sql database",
+      "expect": ["/docs/administration/data/backup-and-restore"]
+    },
+    {
+      "id": "intent-07",
+      "bucket": "intent",
+      "query": "iis website application pool",
+      "expect": [
+        "/docs/deployments/windows/iis-websites-and-application-pools",
+        "/docs/projects/steps/configuration-features/iis-website-and-application-pool"
+      ]
+    },
+    {
+      "id": "intent-08",
+      "bucket": "intent",
+      "query": "octopus server upgrade major version",
+      "expect": [
+        "/docs/administration/upgrading/guide/upgrading-major-releases",
+        "/docs/administration/upgrading/guide"
+      ]
+    },
+    {
+      "id": "intent-09",
+      "bucket": "intent",
+      "query": "trigger runbook from webhook",
+      "expect": ["/docs/runbooks/webhook-runbook-trigger"]
+    },
+    {
+      "id": "intent-10",
+      "bucket": "intent",
+      "query": "single sign on with okta",
+      "expect": [
+        "/docs/security/authentication/okta-authentication",
+        "/docs/security/authentication/oidc-authentication/configuring-okta"
+      ]
+    },
+    {
+      "id": "intent-11",
+      "bucket": "intent",
+      "query": "terraform output variables",
+      "expect": ["/docs/deployments/terraform/terraform-output-variables"]
+    },
+    {
+      "id": "intent-12",
+      "bucket": "intent",
+      "query": "aws permissions required",
+      "expect": ["/docs/deployments/aws/permissions"]
+    },
+    {
+      "id": "intent-13",
+      "bucket": "intent",
+      "query": "send email notification on deploy",
+      "expect": ["/docs/projects/built-in-step-templates/email-notifications"]
+    },
+    {
+      "id": "intent-14",
+      "bucket": "intent",
+      "query": "jira issue tracking integration",
+      "expect": ["/docs/releases/issue-tracking/jira"]
+    },
+    {
+      "id": "intent-15",
+      "bucket": "intent",
+      "query": "variables scoped to tenant",
+      "expect": ["/docs/projects/variables/tenant-variables"]
+    },
+
+    {
+      "id": "typo-01",
+      "bucket": "typo",
+      "query": "kubernets",
+      "expect": ["/docs/kubernetes"]
+    },
+    {
+      "id": "typo-02",
+      "bucket": "typo",
+      "query": "varibles",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "typo-03",
+      "bucket": "typo",
+      "query": "tentical",
+      "expect": [
+        "/docs/infrastructure/deployment-targets/tentacle",
+        "/docs/infrastructure/deployment-targets/tentacle/tentacle-communication"
+      ]
+    },
+    {
+      "id": "typo-04",
+      "bucket": "typo",
+      "query": "runbok",
+      "expect": ["/docs/runbooks"]
+    },
+    {
+      "id": "typo-05",
+      "bucket": "typo",
+      "query": "lifecyle",
+      "expect": ["/docs/releases/lifecycles"]
+    },
+    {
+      "id": "typo-06",
+      "bucket": "typo",
+      "query": "terrafrom",
+      "expect": ["/docs/deployments/terraform"]
+    },
+    {
+      "id": "typo-07",
+      "bucket": "typo",
+      "query": "certificats",
+      "expect": ["/docs/deployments/certificates"]
+    },
+    {
+      "id": "typo-08",
+      "bucket": "typo",
+      "query": "enviroments",
+      "expect": ["/docs/infrastructure/environments"]
+    },
+    {
+      "id": "typo-09",
+      "bucket": "typo",
+      "query": "retension policy",
+      "expect": ["/docs/administration/retention-policies"]
+    },
+    {
+      "id": "typo-10",
+      "bucket": "typo",
+      "query": "licence",
+      "expect": [],
+      "note": "The legacy engine rewrote this to `license` via its synonym map. Neither replacement carries that map yet, so this measures what is lost by dropping it."
+    },
+    {
+      "id": "typo-11",
+      "bucket": "typo",
+      "query": "deploment proces",
+      "expect": [],
+      "note": "Two typos in one query. Past what any of these engines claims to handle; recorded to see how each degrades."
+    },
+    {
+      "id": "typo-12",
+      "bucket": "typo",
+      "query": "worker pool",
+      "expect": ["/docs/infrastructure/workers/worker-pools"],
+      "note": "Singular against a plural title — stemming, rather than typo tolerance."
+    },
+    {
+      "id": "typo-13",
+      "bucket": "typo",
+      "query": "deploying",
+      "expect": [],
+      "note": "Stemmed form of the single most common word in the corpus. Ranking under term saturation."
+    },
+    {
+      "id": "typo-14",
+      "bucket": "typo",
+      "query": "guided failure",
+      "expect": ["/docs/releases/guided-failures"]
+    },
+    {
+      "id": "typo-15",
+      "bucket": "typo",
+      "query": "machiene policy",
+      "expect": ["/docs/infrastructure/deployment-targets/machine-policies"]
+    },
+
+    {
+      "id": "adv-01",
+      "bucket": "adversarial",
+      "query": "Octopus.Action.Package.DownloadOnTentacle",
+      "expect": [],
+      "note": "Dotted system variable. Tests whether the tokenizer splits on dots and whether the whole identifier survives as a term."
+    },
+    {
+      "id": "adv-02",
+      "bucket": "adversarial",
+      "query": "IIS",
+      "expect": [
+        "/docs/deployments/windows/iis-websites-and-application-pools",
+        "/docs/projects/steps/configuration-features/iis-website-and-application-pool"
+      ],
+      "note": "Three-letter acronym. Short enough that prefix and fuzzy matching both misbehave."
+    },
+    {
+      "id": "adv-03",
+      "bucket": "adversarial",
+      "query": "OCL",
+      "expect": [],
+      "note": "Octopus Configuration Language. Rare acronym with a common prefix."
+    },
+    {
+      "id": "adv-04",
+      "bucket": "adversarial",
+      "query": "HA",
+      "expect": ["/docs/administration/high-availability"],
+      "note": "Two letters. Stop-word length in most tokenizers."
+    },
+    {
+      "id": "adv-05",
+      "bucket": "adversarial",
+      "query": "octopus.server.exe",
+      "expect": [],
+      "note": "Executable name with dots and an extension."
+    },
+    {
+      "id": "adv-06",
+      "bucket": "adversarial",
+      "query": "#{Octopus.Environment.Name}",
+      "expect": [],
+      "note": "Variable substitution syntax, pasted straight from a deployment. Punctuation-heavy input is what people actually paste in."
+    },
+    {
+      "id": "adv-07",
+      "bucket": "adversarial",
+      "query": "port 10933",
+      "expect": [],
+      "note": "A number people genuinely search for. Numeric tokens are dropped by some tokenizers."
+    },
+    {
+      "id": "adv-08",
+      "bucket": "adversarial",
+      "query": "TFVC",
+      "expect": [],
+      "note": "Legacy acronym that may only appear in body text."
+    },
+    {
+      "id": "adv-09",
+      "bucket": "adversarial",
+      "query": "step template",
+      "expect": ["/docs/projects/steps"],
+      "note": "Two very common words whose combination names one specific thing."
+    },
+    {
+      "id": "adv-10",
+      "bucket": "adversarial",
+      "query": "octopus",
+      "expect": [],
+      "note": "The word on every page. Pure term-saturation and page-weight test — whatever ranks first here is what the engine thinks the site is about."
+    },
+    {
+      "id": "adv-11",
+      "bucket": "adversarial",
+      "query": "how",
+      "expect": [],
+      "note": "Stop word alone. Should return nothing useful rather than everything."
+    },
+    {
+      "id": "adv-12",
+      "bucket": "adversarial",
+      "query": "\"rolling deployments\"",
+      "expect": [],
+      "note": "Quoted phrase. Pagefind supports phrase matching; Orama's default does not."
+    },
+    {
+      "id": "adv-13",
+      "bucket": "adversarial",
+      "query": "deploy -to-",
+      "expect": [],
+      "note": "A CLI fragment with a leading dash. Checks nothing throws on operator-like input."
+    },
+    {
+      "id": "adv-14",
+      "bucket": "adversarial",
+      "query": "github actions",
+      "expect": ["/docs/packaging-applications/build-servers/github-actions"]
+    },
+    {
+      "id": "adv-15",
+      "bucket": "adversarial",
+      "query": "zzzzqqq",
+      "expect": [],
+      "note": "Guaranteed miss. The empty state has to render, and fuzzy matching must not invent results for it."
+    },
+
+    {
+      "id": "amb-01",
+      "bucket": "ambiguity",
+      "query": "runbooks",
+      "expect": ["/docs/runbooks"],
+      "note": "Two pages carry this exact title: the product docs and the REST API example. The product page has to win."
+    },
+    {
+      "id": "amb-02",
+      "bucket": "ambiguity",
+      "query": "channels",
+      "expect": ["/docs/releases/channels"],
+      "note": "Competes with /docs/octopus-rest-api/examples/channels."
+    },
+    {
+      "id": "amb-03",
+      "bucket": "ambiguity",
+      "query": "certificates",
+      "expect": ["/docs/deployments/certificates"],
+      "note": "Competes with /docs/octopus-rest-api/examples/certificates."
+    },
+    {
+      "id": "amb-04",
+      "bucket": "ambiguity",
+      "query": "lifecycles",
+      "expect": ["/docs/releases/lifecycles"],
+      "note": "Competes with the REST API example and the best-practices page."
+    },
+    {
+      "id": "amb-05",
+      "bucket": "ambiguity",
+      "query": "tenants",
+      "expect": ["/docs/projects/tenants"],
+      "note": "Competes with /docs/octopus-rest-api/examples/tenants."
+    },
+    {
+      "id": "amb-06",
+      "bucket": "ambiguity",
+      "query": "step templates",
+      "expect": ["/docs/octopus-rest-api/examples/step-templates"],
+      "note": "The inverse case: here the REST API example is the only page with this exact title, so a blanket demotion of that tree would be wrong."
+    },
+    {
+      "id": "amb-07",
+      "bucket": "ambiguity",
+      "query": "output variables",
+      "expect": [
+        "/docs/projects/variables/output-variables",
+        "/docs/deployments/custom-scripts/output-variables"
+      ],
+      "note": "Two legitimately different pages with one title. Either at rank 1 is correct."
+    },
+    {
+      "id": "amb-08",
+      "bucket": "ambiguity",
+      "query": "environments",
+      "expect": ["/docs/infrastructure/environments"],
+      "note": "Competes with the best-practices page and Azure environments."
+    },
+    {
+      "id": "amb-09",
+      "bucket": "ambiguity",
+      "query": "git",
+      "expect": ["/docs/deployments/git"],
+      "note": "Short, extremely common in body text, and the name of one landing page."
+    },
+    {
+      "id": "amb-10",
+      "bucket": "ambiguity",
+      "query": "subscriptions",
+      "expect": ["/docs/administration/managing-infrastructure/subscriptions"],
+      "note": "Competes with the Azure subscription pages, which are about something else entirely."
+    }
+  ]
+}
