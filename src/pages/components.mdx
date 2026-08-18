@@ -19,7 +19,6 @@ import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import DocsSearch from 'src/components/DocsSearch.astro';
 import SplitButton from 'src/components/SplitButton.astro';
-import TopNav from 'src/components/TopNav.astro';
 import sparklesIcon from 'src/assets/icons/sparkles.svg';
 import helmIcon from 'src/assets/icons/helm.svg';
 
@@ -341,46 +340,6 @@ name it with `role="img"` and an `aria-label`.
 
 The badge is `inline-flex`, so it sits inside a heading or a paragraph as well
 as it does on its own.
-
-### TopNav
-
-Temporary showcase for the new, work-in-progress TopNav component.
-
-{
-// Temporary hack: the nav needs more width than the cap on this page's main column, so the column takes the grid's
-// leftover space and everything except the nav is held back at the width the column normally maxes out at
-}
-
-<style>{`
-  @media (min-width: 1131px) {
-    .content-group {
-      grid-template-columns:
-        var(--navigation-width)
-        var(--grid-gap-main)
-        minmax(300px, 1fr)
-        var(--toc-offset)
-        calc(var(--toc-width) + var(--space16))
-        0;
-    }
-
-    main > :not(article),
-    article > :not(.page-content),
-    .page-content > :not(.top-nav-showcase) {
-      max-width: var(--content-width-article);
-      margin-inline: auto;
-    }
-  }
-
-  .top-nav-showcase {
-    overflow-x: auto;
-  }
-`}</style>
-
-<div class="top-nav-showcase">
-  <TopNav />
-</div>
-
-The search field in that nav opens the DocsSearch overlay documented below.
 
 ### DocsSearch
 

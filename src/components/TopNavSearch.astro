@@ -148,4 +148,15 @@ const siteUrl = Astro.site ? Astro.site.href : '';
     cursor: pointer;
     caret-color: transparent;
   }
+
+  @media (max-width: 1130px) {
+    .top-nav-search.site-search__wrapper {
+      grid-column: auto;
+      padding: var(--space16);
+    }
+
+    .top-nav-search__shortcut {
+      display: none;
+    }
+  }
 </style>

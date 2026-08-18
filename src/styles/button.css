@@ -55,6 +55,12 @@ summary.btn::-webkit-details-marker {
   display: none;
 }
 
+/* Prevent the global rule that displays every anchor within a summary as a link from also affecting buttons */
+summary.btn > * {
+  color: inherit;
+  text-decoration: none;
+}
+
 .btn__label {
   padding-inline: var(--space4);
 }

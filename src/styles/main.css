@@ -3085,6 +3085,28 @@ html[data-nav='new'] .new-top-nav {
 html[data-nav='new'] .site-header {
   display: none;
 }
+
+.top-nav__bars-icon,
+.top-nav__close-icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/bars.svg') center / contain no-repeat;
+}
+
+.top-nav__close-icon {
+  mask-image: url('../assets/icons/close.svg');
+}
+
+@media (max-width: 1130px) {
+  html[data-nav='new'][data-nav-drawer='ready'] .content-group .site-nav {
+    display: none;
+  }
+
+  html[data-nav='new'][data-nav-drawer='ready']
+    .skip-links
+    a[href='#site-nav'] {
+    display: none;
+  }
+}
 /* TopNav component end */
 
 .inline-note {
