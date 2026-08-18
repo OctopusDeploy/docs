@@ -22,6 +22,19 @@ export type SearchEngine = {
   search(query: string, facet?: string): Promise<SearchResponse>;
   /** Optional: start loading the index before the first query needs it. */
   warm?(): void;
+  /**
+   * Whether `warm()` is cheap enough to run on page load rather than when the
+   * overlay opens. Pagefind pays about 118KB for its runtime and fetches the
+   * rest per query; Orama pays for its whole index parsed and restored, on
+   * every navigation, for every visitor including the majority who never
+   * search. The answer differs by engine, so the engine states it.
+   */
+  eager?: boolean;
+  /**
+   * Optional: fetch what this query will need without running it. Called while
+   * the reader is still typing, ahead of the debounced search.
+   */
+  preload?(query: string): void;
 };
 
 export type Facet = { key: string; label: string };

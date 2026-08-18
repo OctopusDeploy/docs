@@ -29,6 +29,10 @@ type PagefindResultStub = { data(): Promise<PagefindFragment> };
 type PagefindApi = {
   options(config: Record<string, unknown>): Promise<void>;
   filters(): Promise<Record<string, Record<string, number>>>;
+  preload(
+    query: string,
+    options?: { filters?: Record<string, string[]> }
+  ): void;
   search(
     query: string,
     options?: { filters?: Record<string, string[]> }
@@ -48,7 +52,12 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // Pagefind resolves its chunk URLs against this, and prepends it to
         // every result URL; the site is proxied under /docs/ rather than served
         // from the root, and the index is built relative to that same prefix.
-        await api.options({ basePath: bundlePath });
+        await api.options({
+          basePath: bundlePath,
+          // The default is 30 words, which overruns the single line the result
+          // row gives it. Sized to the row instead.
+          excerptLength: 20,
+        });
         // The filter index is a separate chunk, and a search returns empty
         // filter counts until it has been pulled down. Loading it here rather
         // than per-search means the tab strip is populated on the first result.
@@ -65,7 +74,18 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   }
 
   return {
+    // 118KB of runtime and WASM, and it shortens the cold path to the first
+    // result. The per-query chunks are still fetched on demand.
+    eager: true,
     warm: load,
+
+    // Pulls the chunks this query needs while the reader is still typing.
+    // Without it every keystroke pays for its own chunk fetches.
+    preload(query) {
+      const term = query.trim();
+      if (!term) return;
+      void load().then((api) => api?.preload(term));
+    },
 
     async search(rawQuery, facet) {
       const query = rawQuery.trim();

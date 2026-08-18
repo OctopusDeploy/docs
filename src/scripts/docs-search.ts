@@ -212,7 +212,12 @@ function setup(dialog: HTMLDialogElement) {
 
   // --- Inside the dialog ---------------------------------------------------
 
-  input.addEventListener('input', schedule);
+  input.addEventListener('input', () => {
+    // Ahead of the debounce, so the chunks this query needs are already on
+    // their way by the time the search runs.
+    engine.preload?.(input!.value);
+    schedule();
+  });
 
   dialog.addEventListener('keydown', (event) => {
     // Up and Down only. Home and End belong to the query, which is what an
@@ -327,6 +332,10 @@ function setup(dialog: HTMLDialogElement) {
     event.preventDefault();
     open();
   });
+
+  // Engines that are cheap to start say so; the rest wait for the overlay. See
+  // `eager` on `SearchEngine` for why this is not the same answer for both.
+  if (engine.eager) engine.warm?.();
 
   // A shared `?q=` link opens straight into results.
   const q = new URLSearchParams(window.location.search).get('q');
