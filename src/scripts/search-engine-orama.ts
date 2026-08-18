@@ -54,10 +54,19 @@ function excerptFrom(hit: WorkerHit, terms: string[]) {
   // Whichever field the query actually hit. Preferring the description outright
   // showed every page with a subtitle its subtitle, even when the match that
   // earned it its rank was in the body.
-  const source =
-    [hit.body, hit.description].find((text) => text && pattern.test(text)) ??
-    hit.description ??
-    hit.body;
+  //
+  // `||` rather than `??` on the fallback, and body before description: 1,200 of
+  // the 1,254 documents have an empty description, and `??` treats "" as a value
+  // to keep, so it won every time and blocked the fallback to body.
+  //
+  // The fallback runs more often than it looks. The index matches stemmed terms
+  // and this matches literally, so "guided failures" legitimately ranks a page
+  // whose text only ever says "guides" — the regex then finds nothing. Opening
+  // the page text is the right answer there; it just arrives unhighlighted.
+  const matched = [hit.body, hit.description].find(
+    (text) => text && pattern.test(text)
+  );
+  const source = matched || hit.body || hit.description;
   if (!source) return '';
 
   const at = source.search(pattern);
