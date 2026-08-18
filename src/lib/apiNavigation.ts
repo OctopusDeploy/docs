@@ -105,7 +105,7 @@ export function apiPageUrls(): Set<string> {
 // API page reads "Docs / Api / Feeds".
 //
 // The crumb carries no url on purpose: there is nothing to link to until the
-// landing page lands. Breadcrumbs.astro renders an urlless crumb as plain text.
+// landing page lands.
 export function buildApiCrumbs(
   currentUrl: URL,
   extraCrumbs?: ReadonlyArray<Crumb> | null
