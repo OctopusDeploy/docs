@@ -59,6 +59,12 @@ function addStickyNavigation(
   function hideNavigation() {
     const navigation = qs(navigationSelector);
 
+    // Stop hiding the nav tree once the new nav's drawer is ready
+    if (document.documentElement.dataset.navDrawer === 'ready') {
+      navigation.style.display = '';
+      return;
+    }
+
     if (window.innerWidth <= 1130) {
       navigation.style.display = 'none';
     } else {
