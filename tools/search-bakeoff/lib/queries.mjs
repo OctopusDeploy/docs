@@ -1,10 +1,13 @@
 // Loads the query set.
 //
-// Curated buckets live in `queries/curated.json`. Real user queries, once they
-// are pulled from analytics, go in `queries/head.json` in the same shape and
-// are merged here — they replace the `source: "assumed"` head bucket rather
-// than adding to it, because assumed queries are the weakest evidence in the
-// set and there is no reason to keep them once real ones exist.
+// Curated buckets live in `queries/curated.json`. The head bucket lives in
+// `queries/head.json` and replaces the `source: "assumed"` entries in the
+// curated file, which exist only so the set is runnable before it is derived.
+//
+// There is no analytics source to draw head queries from: the search runs
+// entirely in the browser and nothing reports what was typed, so no log exists
+// to go and read. `head.json` is derived from the corpus instead, and each entry
+// records which derivation produced it.
 
 import { readFile } from 'node:fs/promises';
 import { PREFIX_LENGTHS } from '../config.mjs';
@@ -35,7 +38,7 @@ export async function loadQueries() {
   const real = head.queries.map((query) => ({
     ...query,
     bucket: 'head',
-    source: 'analytics',
+    source: query.derivation ?? 'derived',
     expect: query.expect ?? [],
   }));
 

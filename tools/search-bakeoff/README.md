@@ -26,7 +26,7 @@ Or one stage at a time:
 ```sh
 pnpm bakeoff:verify      # checks every expected URL still exists (seconds)
 pnpm bakeoff:payload     # index sizes, compressed and not (seconds)
-pnpm bakeoff:relevance   # 85 queries x 3 lengths x 3 engines (~20 minutes)
+pnpm bakeoff:relevance   # 102 queries x 3 lengths x 3 engines (~25 minutes)
 pnpm bakeoff:perf        # throttled cold/warm/keystroke timings (~5 minutes)
 pnpm bakeoff:report      # results/report.md and results/report.html
 ```
@@ -63,22 +63,56 @@ is the gap between targets rather than the absolute value.
 
 ## The query set
 
-`queries/curated.json`, 85 queries in six buckets:
+102 queries in six buckets. Five are curated in `queries/curated.json`; the head
+bucket is derived into `queries/head.json`.
 
 | Bucket        | What it is for                                                             |
 | ------------- | -------------------------------------------------------------------------- |
-| `head`        | High-frequency terms. Currently **assumed**, see below.                    |
+| `head`        | Terms the docs are most about. Derived, see below.                         |
 | `title`       | Exact page titles. Anything short of rank 1 here is a real failure.        |
 | `intent`      | Multi-word natural language, the way people actually type.                 |
 | `typo`        | Misspellings and stemming, where Orama's `tolerance` should pay off.       |
 | `adversarial` | Acronyms, dotted identifiers, punctuation, numbers, stop words.            |
 | `ambiguity`   | The 44 titles shared by more than one page — the canonical one has to win. |
 
-**The head bucket is assumed and is the weakest evidence in the set.** Pull the
-real top queries from analytics, write them to `queries/head.json` in the same
-shape, and `lib/queries.mjs` drops the assumed ones in favour of them. Until
-that happens, treat the head bucket's numbers as the least trustworthy row in
-the report.
+### There is no record of real queries, so the head bucket is derived
+
+The search runs entirely in the browser. Nothing reports what was typed to any
+backend, and no analytics event carries it, so no log exists to go and read.
+Head queries are derived from the corpus instead, by two independent methods,
+and every entry in `queries/head.json` records which one produced it:
+
+**corpus-frequency** — `derive-head-queries.mjs` counts how many pages each term
+appears on, using the de-stopworded `keywords` field the legacy index already
+carries, and keeps the terms that also name a page of their own. Frequency alone
+returns filler; page titles alone return 1,250 rows in no order. The
+intersection is the set of concepts a reader is likely to search for and to
+expect a particular landing page from. The whole `/docs/octopus-rest-api/` tree
+is excluded from being the expected answer, because every CLI page is titled
+with the common words that make up its command and would otherwise outrank the
+product page on frequency alone.
+
+**information-architecture** — the site's own 26 top-level sections. Someone
+typing a section's name should land on that section. This method reaches pages
+the first one cannot: `/docs/kubernetes` is titled "Kubernetes deployments with
+Octopus", so no short title matches it.
+
+Re-derive the candidates at any time:
+
+```sh
+node tools/search-bakeoff/derive-head-queries.mjs
+```
+
+It writes `results/head-candidates.json` and prints the top 40. That output is a
+candidate list for a person to accept or reject; `queries/head.json` is written
+by hand from it.
+
+One real source of user language does still exist and is worth pulling in if
+anyone has access: **Google Search Console** records the queries people typed
+into Google that landed on `octopus.com/docs`. Those are external rather than
+on-site searches, so they skew toward discovery rather than lookup, but they are
+real words from real readers about these pages, which is more than the corpus
+can offer.
 
 ### Expected URLs are written before the run
 
@@ -124,6 +158,44 @@ choices as much as engines. Known asymmetries, all of them one-line fixes:
 Run round one, read `results/report.html` to see where each engine loses, spend
 one tuning pass on each, then run round two and decide on that.
 
+### Tuning each engine
+
+Both engines can be tuned against their already-deployed index, without waiting
+on a build:
+
+```sh
+node tools/search-bakeoff/tune-pagefind.mjs   # sweeps Pagefind ranking params
+node tools/search-bakeoff/simulate-orama.mjs  # runs the set through Orama in Node
+```
+
+`ranking` is a client-side option in Pagefind, so a candidate configuration can
+be tried against the live bundle and only the winner needs committing.
+`simulate-orama.mjs` reproduces what the worker and engine do — same schema,
+boosts, tolerance and limits — so a change to the worker can be measured before
+it ships. Neither says anything about download, restore or keystroke cost; those
+only come from `perf.mjs` in a real browser.
+
+### Pagefind's ranking parameters do not move it
+
+The sweep was run expecting `pageLength` to explain why the REST API example
+pages take rank 1 from the product pages. It does not:
+
+| Configuration                           | Success@1 | Success@5 | Ambiguity@5 |
+| --------------------------------------- | --------- | --------- | ----------- |
+| default (`pageLength` 0.75)             | 31%       | 61%       | 40%         |
+| `pageLength` 0.4                        | 30%       | 59%       | 40%         |
+| `pageLength` 0.2                        | 28%       | 59%       | 40%         |
+| `pageLength` 0.0                        | 27%       | 58%       | 40%         |
+| `pageLength` 0.2 + `termSimilarity` 1.5 | 30%       | 59%       | 40%         |
+| `pageLength` 0.0 + `termSimilarity` 2.0 | 30%       | 61%       | 40%         |
+
+The default is already Pagefind's best, and the ambiguity bucket does not move
+at all. Pagefind's relevance gap is structural rather than a matter of
+configuration: the example pages genuinely carry the query term in their `h1`,
+and Pagefind weights title metadata 5x by default. Closing it means changing
+what gets indexed — `data-pagefind-weight` in `Default.astro`, or demoting the
+examples tree — which needs a rebuild rather than a flag.
+
 ### Round one already found one of these
 
 `orama-worker.ts` restores the index with `create({ schema: SCHEMA })`, which
@@ -139,9 +211,23 @@ recall collapses. Loading the shipped `search-index.json` both ways:
 | `certificates` | 2 hits                   | 110 hits                             |
 | `enviroments`  | 0 hits                   | 411 hits                             |
 
-Typo tolerance works once the tokenizer matches. Orama's round-one scores are
-measuring this defect rather than the engine, so they cannot be used to decide
-anything until the worker passes the same components to `create()`.
+Typo tolerance works once the tokenizer matches.
+
+The fix is committed on the spike branch, and `simulate-orama.mjs` measures what
+it buys across the whole 102-query set against the deployed index:
+
+|              | Before | After     |
+| ------------ | ------ | --------- |
+| Success@1    | 36%    | **51%**   |
+| Success@5    | 58%    | **77%**   |
+| MRR          | 0.462  | **0.625** |
+| Zero results | 11%    | **3%**    |
+| Ambiguity@5  | 40%    | **80%**   |
+| Typo@5       | 25%    | **58%**   |
+
+One line in the worker, and Orama goes from last place to ahead of the legacy
+engine's round-one Success@5. This is why round one could not be used to decide
+anything.
 
 ### Pagefind's zero-result rate is not the win it looks like
 

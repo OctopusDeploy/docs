@@ -1,0 +1,221 @@
+{
+  "note": "No record of real user queries exists — the search is client side and nothing reports what was typed. These are derived from the corpus instead, by two independent methods, and each entry says which one produced it. Regenerate the corpus-frequency candidates with `node tools/search-bakeoff/derive-head-queries.mjs`.",
+  "derivations": {
+    "corpus-frequency": "Terms that appear across many pages (counted once per page, from the de-stopworded `keywords` field) and that also name a page of their own. The REST API tree is excluded from being the expected answer, because its CLI pages are titled with the common words that make up each command.",
+    "information-architecture": "The site's own top-level sections. Someone typing a section's name should land on that section, and the set is fixed by the IA rather than chosen."
+  },
+  "queries": [
+    {
+      "id": "head-c01",
+      "derivation": "corpus-frequency",
+      "query": "deployments",
+      "expect": ["/docs/deployments"],
+      "corpusPages": 438
+    },
+    {
+      "id": "head-c02",
+      "derivation": "corpus-frequency",
+      "query": "projects",
+      "expect": ["/docs/projects"],
+      "corpusPages": 332
+    },
+    {
+      "id": "head-c03",
+      "derivation": "corpus-frequency",
+      "query": "steps",
+      "expect": ["/docs/projects/steps"],
+      "corpusPages": 328
+    },
+    {
+      "id": "head-c04",
+      "derivation": "corpus-frequency",
+      "query": "deployment process",
+      "expect": ["/docs/projects/deployment-process"],
+      "corpusPages": 319
+    },
+    {
+      "id": "head-c05",
+      "derivation": "corpus-frequency",
+      "query": "deployment targets",
+      "expect": ["/docs/infrastructure/deployment-targets"],
+      "corpusPages": 253
+    },
+    {
+      "id": "head-c06",
+      "derivation": "corpus-frequency",
+      "query": "variables",
+      "expect": ["/docs/projects/variables"],
+      "corpusPages": 230
+    },
+    {
+      "id": "head-c07",
+      "derivation": "corpus-frequency",
+      "query": "variable sets",
+      "expect": ["/docs/projects/variables/library-variable-sets"],
+      "corpusPages": 230
+    },
+    {
+      "id": "head-c08",
+      "derivation": "corpus-frequency",
+      "query": "releases",
+      "expect": ["/docs/releases"],
+      "corpusPages": 211
+    },
+    {
+      "id": "head-c09",
+      "derivation": "corpus-frequency",
+      "query": "accounts",
+      "expect": ["/docs/infrastructure/accounts"],
+      "corpusPages": 205
+    },
+    {
+      "id": "head-c10",
+      "derivation": "corpus-frequency",
+      "query": "packages",
+      "expect": ["/docs/deployments/packages"],
+      "corpusPages": 197
+    },
+    {
+      "id": "head-c11",
+      "derivation": "corpus-frequency",
+      "query": "custom scripts",
+      "expect": ["/docs/deployments/custom-scripts"],
+      "corpusPages": 162
+    },
+    {
+      "id": "head-c12",
+      "derivation": "corpus-frequency",
+      "query": "windows services",
+      "expect": ["/docs/deployments/windows/windows-services"],
+      "corpusPages": 162
+    },
+    {
+      "id": "head-c13",
+      "derivation": "corpus-frequency",
+      "query": "tasks",
+      "expect": ["/docs/tasks"],
+      "corpusPages": 157
+    },
+    {
+      "id": "head-c14",
+      "derivation": "corpus-frequency",
+      "query": "release notes",
+      "expect": ["/docs/releases/release-notes"],
+      "corpusPages": 156
+    },
+    {
+      "id": "head-c15",
+      "derivation": "corpus-frequency",
+      "query": "configuration features",
+      "expect": ["/docs/projects/steps/configuration-features"],
+      "corpusPages": 153
+    },
+    {
+      "id": "head-c16",
+      "derivation": "corpus-frequency",
+      "query": "azure",
+      "expect": ["/docs/deployments/azure"],
+      "corpusPages": 144
+    },
+    {
+      "id": "head-c17",
+      "derivation": "corpus-frequency",
+      "query": "spaces",
+      "expect": ["/docs/administration/spaces"],
+      "corpusPages": 141
+    },
+
+    {
+      "id": "head-i01",
+      "derivation": "information-architecture",
+      "query": "kubernetes",
+      "expect": ["/docs/kubernetes"],
+      "note": "The section landing page's title is four words long, so the corpus-frequency method cannot reach it. The IA can."
+    },
+    {
+      "id": "head-i02",
+      "derivation": "information-architecture",
+      "query": "infrastructure",
+      "expect": ["/docs/infrastructure"]
+    },
+    {
+      "id": "head-i03",
+      "derivation": "information-architecture",
+      "query": "administration",
+      "expect": ["/docs/administration"]
+    },
+    {
+      "id": "head-i04",
+      "derivation": "information-architecture",
+      "query": "security",
+      "expect": ["/docs/security"]
+    },
+    {
+      "id": "head-i05",
+      "derivation": "information-architecture",
+      "query": "installation",
+      "expect": ["/docs/installation"],
+      "note": "Titled `Install Octopus Server`, so the query and the title share no whole word. Tests stemming rather than title matching."
+    },
+    {
+      "id": "head-i06",
+      "derivation": "information-architecture",
+      "query": "getting started",
+      "expect": ["/docs/getting-started"]
+    },
+    {
+      "id": "head-i07",
+      "derivation": "information-architecture",
+      "query": "packaging applications",
+      "expect": ["/docs/packaging-applications"]
+    },
+    {
+      "id": "head-i08",
+      "derivation": "information-architecture",
+      "query": "platform hub",
+      "expect": ["/docs/platform-hub"]
+    },
+    {
+      "id": "head-i09",
+      "derivation": "information-architecture",
+      "query": "insights",
+      "expect": ["/docs/insights"]
+    },
+    {
+      "id": "head-i10",
+      "derivation": "information-architecture",
+      "query": "best practices",
+      "expect": ["/docs/best-practices"]
+    },
+    {
+      "id": "head-i11",
+      "derivation": "information-architecture",
+      "query": "octopus cloud",
+      "expect": ["/docs/octopus-cloud"]
+    },
+    {
+      "id": "head-i12",
+      "derivation": "information-architecture",
+      "query": "argo cd",
+      "expect": ["/docs/argo-cd"]
+    },
+    {
+      "id": "head-i13",
+      "derivation": "information-architecture",
+      "query": "approvals",
+      "expect": ["/docs/approvals"]
+    },
+    {
+      "id": "head-i14",
+      "derivation": "information-architecture",
+      "query": "deprecations",
+      "expect": ["/docs/deprecations"]
+    },
+    {
+      "id": "head-i15",
+      "derivation": "information-architecture",
+      "query": "support",
+      "expect": ["/docs/support"]
+    }
+  ]
+}
