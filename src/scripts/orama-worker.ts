@@ -9,6 +9,7 @@
 // worker fails at import time.
 
 import { create, load, search } from '@orama/orama';
+import { stopwords as englishStopwords } from '@orama/stopwords/english';
 
 type LoadMessage = { type: 'load'; indexUrl: string };
 type SearchMessage = {
@@ -35,7 +36,13 @@ const SCHEMA = {
 // query term is compared unstemmed against stemmed index terms — `variables`
 // found 5 pages instead of 321, and no typo matched at all. Search kept working,
 // so nothing failed loudly.
-const TOKENIZER = { stemming: true, language: 'english' } as const;
+const TOKENIZER = {
+  stemming: true,
+  language: 'english',
+  // Orama defaults this to an empty list, so without it `how`, `do`, `the` and
+  // 177 others are live search terms on both sides.
+  stopWords: englishStopwords,
+} as const;
 
 let indexUrl = '';
 let ready: Promise<unknown> | null = null;
@@ -46,6 +53,9 @@ function open() {
     .then((raw) => {
       const db = create({
         schema: SCHEMA,
+        // Matches `orama-index.ts`: the index was built without a sort store,
+        // so restoring into a database that expects one is a mismatch.
+        sort: { enabled: false },
         components: { tokenizer: TOKENIZER },
       });
       load(db, raw);

@@ -17,6 +17,9 @@ import { globSync } from 'glob';
 // to restore this fails outright. `save` returns a plain object, which is all
 // the JSON format ever was.
 import { create, insertMultiple, save } from '@orama/orama';
+// Orama defaults `stopWords` to an empty list, so without this `how`, `do`,
+// `the` and 177 others are live search terms.
+import { stopwords as englishStopwords } from '@orama/stopwords/english';
 
 // Roughly the number of pages that pass the search predicate. Well under it and
 // the corpus has moved, which is a silent failure otherwise.
@@ -25,6 +28,11 @@ const EXPECTED_PAGES = 1000;
 // Long pages cost index size for very little relevance — the terms that matter
 // are near the top, and a result excerpt never reaches further than this.
 const BODY_LIMIT = 4000;
+
+// How much of each page's text is kept in the stored copy. The inverted index
+// is a separate structure and keeps every term, so this only bounds the text an
+// excerpt can be cut from, and `excerptFrom` never shows more than 180.
+const EXCERPT_LIMIT = 200;
 
 const SECTIONS: [string, RegExp][] = [
   [
@@ -107,17 +115,36 @@ export default function oramaIndex(): AstroIntegration {
             trail: 'string',
             section: 'enum',
           } as const,
+          // Nothing sorts, and a sort store is built and serialized for every
+          // sortable field unless it is turned off. It was 2.69MB of the index.
+          sort: { enabled: false },
           // `orama-worker.ts` has to create its database with this same
           // tokenizer before it restores the index, or query terms are matched
           // unstemmed against stemmed index terms and recall collapses quietly.
           components: {
-            tokenizer: { stemming: true, language: 'english' },
+            tokenizer: {
+              stemming: true,
+              language: 'english',
+              stopWords: englishStopwords,
+            },
           },
         });
 
         await insertMultiple(db, documents);
 
-        const serialized = JSON.stringify(save(db));
+        // Reaches into the shape `save()` returns, so an Orama release that
+        // changes it breaks here rather than silently shipping the whole corpus
+        // again. Each document is otherwise stored whole, which put 2.2MB of
+        // page text on the wire purely to cut a 180-character excerpt from.
+        const stored = save(db) as {
+          docs: { docs: Record<string, { body?: string } | undefined> };
+        };
+        for (const document of Object.values(stored.docs.docs)) {
+          if (document?.body)
+            document.body = document.body.slice(0, EXCERPT_LIMIT);
+        }
+
+        const serialized = JSON.stringify(stored);
         const target = path.join(docsDir, 'search-index.json');
         fs.writeFileSync(target, serialized, 'utf8');
 

@@ -39,6 +39,7 @@
     },
     "devDependencies": {
         "@orama/orama": "^3.1.18",
+        "@orama/stopwords": "^3.1.18",
         "@playwright/test": "^1.60.0",
         "@pnpm/exe": "^11.0.9",
         "cspell": "^10.0.0",
