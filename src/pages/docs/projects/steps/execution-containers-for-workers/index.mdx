@@ -23,7 +23,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 [Octopus Cloud dynamic workers](/docs/infrastructure/workers/dynamic-worker-pools) have Docker pre-installed and support execution containers.
 
 :::figure
-![](/docs/img/projects/steps/execution-containers-for-workers/images/hosted-worker-pools-execution-containers.png)
+![Execution containers enabled on a hosted worker pool](/docs/img/projects/steps/execution-containers-for-workers/images/hosted-worker-pools-execution-containers.png)
 :::
 
 ## How to use execution containers for workers
@@ -39,7 +39,7 @@ You need Docker installed and running on the [worker](/docs/infrastructure/worke
 - Click **Create release & deploy**.
 
 :::figure
-![](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-image.png)
+![Selecting a container image for a step](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-image.png)
 :::
 
 ## First deployment on a Docker container
@@ -59,20 +59,22 @@ The easiest way to get started is to use the [worker-tools](#worker-tools-images
 :::
 
 When a step is configured to use an execution container, you can choose from:
+
 - One of the [worker-tools](#worker-tools-images) images built by Octopus Deploy.
-- A [custom Docker image](#custom-docker-images) you build. 
+- A [custom Docker image](#custom-docker-images) you build.
 
 If you run into issues with the provided [worker-tools](#worker-tools-images) images or they don't meet your needs, you will have to create a custom image. Take a look at the [custom Docker image](#custom-docker-images) section or the [blog post on extending execution containers](https://octopus.com/blog/extending-octopus-execution-container) to learn how to create a custom image.
 
-### The octopusdeploy/worker-tools Docker images \{#worker-tools-images} 
+### The octopusdeploy/worker-tools Docker images \{#worker-tools-images}
 
-For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments. 
+For convenience, we provide some images on Docker Hub [octopusdeploy/worker-tools](https://hub.docker.com/r/octopusdeploy/worker-tools) which include common tools used in deployments.
 
 :::div{.hint}
 We recommend using our `worker-tools` image as a starting point for your own custom image to run on a worker.
 :::
 
-The canonical source for what is contained in the `octopusdeploy/worker-tools` images is the `Dockerfile`'s in the [GitHub repo](https://github.com/OctopusDeploy/WorkerTools). For example: 
+The canonical source for what is contained in the `octopusdeploy/worker-tools` images is the `Dockerfile`'s in the [GitHub repo](https://github.com/OctopusDeploy/WorkerTools). For example:
+
 - The [Ubuntu 22.04 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/ubuntu.22.04/Dockerfile)
 - The [Windows 2022 Dockerfile](https://github.com/OctopusDeploy/WorkerTools/blob/master/windows.ltsc2022/Dockerfile)
 
@@ -82,10 +84,10 @@ Some of the tools included are:
 - .NET Core
 - Java (JDK)  
 - NodeJS
-- Azure CLI 
-- AWS CLI 
+- Azure CLI
+- AWS CLI
 - Google Cloud CLI
-- kubectl 
+- kubectl
 - Helm
 - Terraform
 - Python
@@ -114,7 +116,7 @@ You can usually find the base operating system of a Linux Docker image by runnin
 
 ```bash
 docker run --entrypoint='' [image name] /bin/cat /etc/os-release.
-``` 
+```
 
 For example for the `octopusdeploy/worker-tools:5.0.0-ubuntu.22.04` image, you'd run:
 
@@ -126,13 +128,13 @@ docker run --entrypoint='' octopusdeploy/worker-tools:5.0.0-ubuntu.22.04 /bin/ca
 
 The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
 
-The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions. 
+The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions.
 
 :::div{.hint}
 If a third party container is missing a library, it is usually the **libicu** library. The error **Couldn't find a valid ICU package installed on the system** indicates the ICU library is missing.
 :::
 
-If your chosen Docker image does not have these prerequisites, the easiest solution is to create a custom Docker image based on the image you wish to use, install the required libraries, push the image to a repository like DockerHub, and select your custom image as the container image. 
+If your chosen Docker image does not have these prerequisites, the easiest solution is to create a custom Docker image based on the image you wish to use, install the required libraries, push the image to a repository like DockerHub, and select your custom image as the container image.
 
 Microsoft also provides [base images that include these dependencies](https://hub.docker.com/r/microsoft/dotnet-runtime-deps).
 
@@ -186,7 +188,7 @@ For your first deployment this may take a while since we're building the Docker 
 ##### Docker image from a Git URL \{#docker-image-from-git-url}
 
 :::figure
-![](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-git-url.png)
+![The Docker image from a Git URL option](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-git-url.png)
 :::
 
 The **Docker image from a Git URL** option allows you to use a Dockerfile stored in a Git repository to build the image that the step in Octopus will run on.
@@ -196,7 +198,7 @@ See the [Docker documentation](https://docs.docker.com/engine/reference/commandl
 ##### Docker image from an inline Dockerfile \{#docker-image-from-inline-dockerfile}
 
 :::figure
-![](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-docker-file.png)
+![The Docker image from an inline Dockerfile option](/docs/img/projects/steps/execution-containers-for-workers/images/container-selector-docker-file.png)
 :::
 
 The **Docker image from an inline Dockerfile** option allows you to write the container specification used to build the image that the step in Octopus will run on directly on the step in your deployment process.
@@ -207,7 +209,7 @@ This option allows you to iterate quickly on building a container specification 
 
 Because Calamari is executed directly inside the specified container, execution containers on workers are run in **non-interactive** mode. Since the execution container is not running interactively,  it does not process your `.bashrc` file. If the tool you have installed relies on `.bashrc` to modify the path (e.g. `nvm`) to include a non-standard folder, you will need to manually define the additional directories in the `$PATH` variable in your Dockerfile using the `ENV PATH` directive.
 
-For example, if you install node.js via nvm, you will need to remediate the `$PATH` variable in your image with the location node.js gets installed to with the following directive in your Dockerfile: 
+For example, if you install node.js via nvm, you will need to remediate the `$PATH` variable in your image with the location node.js gets installed to with the following directive in your Dockerfile:
 
 ```bash
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH"
@@ -215,28 +217,28 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH"
 
 #### CMD and ENTRYPOINT directives
 
-Docker images used with the execution containers feature require that no `CMD` or `ENTRYPOINT ` directives be defined in your Dockerfile. 
+Docker images used with the execution containers feature require that no `CMD` or `ENTRYPOINT` directives be defined in your Dockerfile.
 
 Including one of these directives will result in the step failing.
 
 ## Collecting artifacts with execution containers
 
-You can collect Octopus [artifacts](/docs/projects/deployment-process/artifacts) from steps used with the execution containers feature. 
+You can collect Octopus [artifacts](/docs/projects/deployment-process/artifacts) from steps used with the execution containers feature.
 
 <CollectArtifactInExecutionContainer/>
 
-## Supplying arguments to the container runtime 
+## Supplying arguments to the container runtime
 
 Specifying a variable named `Octopus.Action.Container.Options` allows configuring the options supplied to the container runtime (i.e. Docker).  
 
 For example:
 
-| Name | Value | 
-| --- | --- | 
+| Name | Value |
+| --- | --- |
 | Octopus.Action.Container.Options | `--security-opt label:level:TopSecret` |
 
-For the list of available options see the [Docker run options](https://docs.docker.com/engine/reference/commandline/run/#options). 
+For the list of available options see the [Docker run options](https://docs.docker.com/engine/reference/commandline/run/#options).
 
 The `Octopus.Action.Container.Options` variable can be [scoped](/docs/projects/variables/getting-started/#scoping-variables).
 
-Support for `Octopus.Action.Container.Options` was introduced in Octopus version **2023.2.13224** 
+Support for `Octopus.Action.Container.Options` was introduced in Octopus version **2023.2.13224**

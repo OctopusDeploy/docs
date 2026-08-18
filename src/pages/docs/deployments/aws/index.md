@@ -37,7 +37,7 @@ With the UI step, you can:
 - Deploy updates to your containerized apps without changing the deployment process. Create a release with the new version, and Octopus updates the task definition and service for you.
 - Set a timeout duration so you're not waiting hours to learn a deployment is stuck.
 
-When you outgrow the guided UI step or need more flexibility, you can expose the underlying CloudFormation YAML and paste it into the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation) step. 
+When you outgrow the guided UI step or need more flexibility, you can expose the underlying CloudFormation YAML and paste it into the [Deploy an AWS CloudFormation Template](/docs/deployments/aws/cloudformation) step.
 
 ## Centralize and secure your ECS deployments with Octopus
 

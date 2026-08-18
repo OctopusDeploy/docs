@@ -31,13 +31,13 @@ When first setting up a POC or Hello World project you will become familiar with
     - [**Deployment Targets**](/docs/infrastructure/deployment-targets): The servers, machines, or cloud services where you will deploy your software and services.
     - [**Environments**](/docs/infrastructure/environments): Environments let you organize your deployment targets (whether on-premises servers or cloud services) into groups representing the different stages of your deployment pipeline, for example, development, test, and production.
 - [**Projects**](/docs/projects): contain the deployment process, configuration variables, and runbooks to deploy and manage your software.
-    - [**Deployment Process**](/docs/projects/deployment-process): The recipe for deploying your software. You define the recipe by adding steps and variables to a project. 
+    - [**Deployment Process**](/docs/projects/deployment-process): The recipe for deploying your software. You define the recipe by adding steps and variables to a project.
     - [**Deployment Steps**](/docs/projects/steps): The specific action (or set of actions) executed as part of the deployment process each time your software is deployed.
-    - [**Release**](/docs/releases): A snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created. 
-    - [**Manual Interventions**](/docs/projects/built-in-step-templates/manual-intervention-and-approvals): The approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments so they can be skipped on deployments to dev or testing but required for deployments to production. 
+    - [**Release**](/docs/releases): A snapshot of the deployment process and the associated assets (packages, scripts, variables) as they existed when the release was created.
+    - [**Manual Interventions**](/docs/projects/built-in-step-templates/manual-intervention-and-approvals): The approval step in Octopus Deploy.  Manual interventions can be scoped to specific teams and environments so they can be skipped on deployments to dev or testing but required for deployments to production.
     - [**Variables**](/docs/projects/variables): A value stored in the Octopus Server for use in different phases of your deployments.  Variables can be scoped to environments, steps, and more.  Variables allow you to have a consistent deployment process across your infrastructure without having to hard-code or manually update configuration settings that differ across environments, deployment targets, channels, or tenants.
 - **Library**: where you store build artifacts and other assets that can be used across multiple projects.
-    - [**Packages**](/docs/packaging-applications): An archive ([zip, tar, Nuget](/docs/packaging-applications/#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).    
+    - [**Packages**](/docs/packaging-applications): An archive ([zip, tar, Nuget](/docs/packaging-applications/#supported-formats)) that contains your application assets (binaries, .js files, .css files, .html files, etc.).
     - [**Feed**](/docs/packaging-applications/package-repositories): The package repository.  Octopus Deploy has a built-in feed, as well as support for external feeds such as TeamCity, Azure DevOps, Docker, MyGet, Maven, Artifactory, Cloudsmith, GitHub, and more.
 - [**Deployments**](/docs/deployments) are the execution of the deployment process with all the associated details as they existed when the release was created.
     - **Raw Log**: The unfiltered and raw look at the deployment log.  During the deployment Octopus will capture the output of each step and save it for review.
@@ -55,9 +55,9 @@ As you move on from the POC phase to the Pilot phase you should familiarize your
 - **Infrastructure**
     - [**Workers**](/docs/infrastructure/workers): Workers are machines that can execute tasks that don't need to be run on the Octopus Server or individual deployment targets.
     - [**Worker Pools**](/docs/infrastructure/workers/worker-pools): A group of workers.  One pool might be in a particular network security zone. Another pool might have a specific set of tools installed.
-    - [**Accounts**](/docs/infrastructure/deployment-targets/#accounts): Credentials that are used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs. 
+    - [**Accounts**](/docs/infrastructure/deployment-targets/#accounts): Credentials that are used during your deployments, including things like username/password, tokens, Azure and AWS credentials, and SSH key pairs.
 - **Projects**
-    - [**Runbooks**](/docs/runbooks): Runbooks automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.   
+    - [**Runbooks**](/docs/runbooks): Runbooks automate routine maintenance and emergency operations tasks like infrastructure provisioning, database management, and website failover and restoration.
 - **Library**
     - [**Lifecycles**](/docs/releases/lifecycles): Give you control over the way releases of your software are promoted between your environments.
     - [**Variable Sets**](/docs/projects/variables/library-variable-sets): Collections of variables that can be shared between multiple projects.

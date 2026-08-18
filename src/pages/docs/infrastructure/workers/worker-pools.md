@@ -80,20 +80,20 @@ The **Octopus Web Portal** is worker pool aware.  If you haven't configured pool
 
 ## Configuring a cloud target to have a Default Worker Pool
 
-Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/kubernetes/targets/kubernetes-api) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies/#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers. 
+Cloud targets such as [Cloud regions](/docs/infrastructure/deployment-targets/cloud-regions/) and [Kubernetes targets](/docs/kubernetes/targets/kubernetes-api) can set their own default worker pool, both for deployment steps and [health checks](/docs/infrastructure/deployment-targets/machine-policies/#health-check).  If a step is targeted at a cloud target and the worker pool selected for the step is the default pool, the cloud target's default pool is used.  This allows setting up workers that are co-located with cloud targets.  Another option is locking down cloud targets so the only machines that can deploy are co-located polling workers.
 
 ## Variables
 
 When a step is run on a worker, the following variables are available:
 
 | Name and description | Example |
-| -------------------- | ------------------------|
+| -------------------- | ------------------------ |
 | **`Octopus.WorkerPool.Id`** <br/> The Id of the pool | WorkerPools-1 |
 | **`Octopus.WorkerPool.Name`** <br/> The name of the pool | Default Worker Pool |
 
 ## Removing worker pools
 
-For projects using Config as Code, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using Config as Code, it's up to you to take care to avoid deleting any worker pools required by your deployments or runbooks. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
 
 ## Workers Q&A
 
@@ -111,7 +111,7 @@ Yes, the existence of other pools doesn't affect the behavior of the default poo
 
 *How can I cordon off my worker pools so each team only has access to certain pools?*
 
-With the [Spaces](/docs/administration/spaces) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers. 
+With the [Spaces](/docs/administration/spaces) feature of Octopus Deploy you can partition your Octopus Server so that each of your teams can only access the projects, environments, and infrastructure, including workers.
 
 *I see "leases" being taken out on particular workers in the deployment logs, can I get an exclusive lease for my deployment and clean off the worker once I'm done?*
 

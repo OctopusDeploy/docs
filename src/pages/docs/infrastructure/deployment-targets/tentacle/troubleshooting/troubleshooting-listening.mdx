@@ -17,7 +17,7 @@ import TentacleUninstall from 'src/shared-content/infrastructure/tentacle-uninst
 To verify the communication settings, *On the Tentacle machine*, open the Tentacle Manager application from the Start screen or Start menu.
 
 1. Ensure that the Tentacle is in *listening* mode.
-Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933*.
+    Below the thumbprint, you should see the text *This Tentacles listens for connections on port 10933*.
 2. Check the port that the Tentacle listens on.
 3. Check that the **Octopus Server** thumbprint shown in light gray in the Tentacle manager matches the one shown in the **Configuration ➜ Thumbprints** screen in the Octopus Web Portal.
 
@@ -34,7 +34,7 @@ If any of the communications settings are incorrect, choose *Delete this Tentacl
 The page shown should look like the one below.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/tentacle/images/3278074.png)
+![The page served by a healthy listening Tentacle](/docs/img/infrastructure/deployment-targets/tentacle/images/3278074.png)
 :::
 
 :::div{.hint}
@@ -100,7 +100,7 @@ If the command help is not displayed immediately (< 1s) you may need to consider
 To do this open **Control Panel ➜ Internet Options ➜ Advanced**, and uncheck the *Check for publisher's certificate revocation* option as shown below.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/tentacle/images/3278077.png)
+![The Check for publisher's certificate revocation option in Internet Options](/docs/img/infrastructure/deployment-targets/tentacle/images/3278077.png)
 :::
 
 <TentacleUninstall />

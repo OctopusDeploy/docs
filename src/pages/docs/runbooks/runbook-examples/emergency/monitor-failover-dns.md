@@ -29,6 +29,7 @@ $resourceGroup = $OctopusParameters["OctoFX.Azure.Resource.Group"]
 Write-Highlight "Starting $name"
 Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $name
 ```
+
 - `Run an Azure Script` to start the database server; configured to run only on failure and in parallel with the web server step:
 
 ```powershell
@@ -51,7 +52,7 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
 ```
 
 :::figure
-![](/docs/img/runbooks/runbook-examples/emergency/octopus-runbook-app-monitoring.png)
+![The application monitoring runbook](/docs/img/runbooks/runbook-examples/emergency/octopus-runbook-app-monitoring.png)
 :::
 
 ## Create the trigger
@@ -67,9 +68,8 @@ az network dns record-set a remove-record --resource-group $resourceGroup --zone
    - Select timezone: Select the timezone to use when evaluating when to run.
 
 :::figure
-![](/docs/img/runbooks/runbook-examples/emergency/octopus-runbook-trigger.png)
+![A scheduled trigger for the monitoring runbook](/docs/img/runbooks/runbook-examples/emergency/octopus-runbook-trigger.png)
 :::
-
 
 ## Samples
 

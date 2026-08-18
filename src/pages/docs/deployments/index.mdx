@@ -18,13 +18,14 @@ You can use Octopus to deploy anything, anywhere. Whether it’s [Kubernetes](/d
 
 ## Why deploy with Octopus?
 
-Octopus models deployments in advanced ways, letting you tame complexity at scale. 
+Octopus models deployments in advanced ways, letting you tame complexity at scale.
 
 Octopus is about more than just automating your existing deployment process. It has features that streamline the complex aspects of deployments, where manual and scripted deployments often fail.
 
 Deploying software with Octopus involves [packaging your applications](/docs/packaging-applications/) and [configuring your infrastructure](/docs/infrastructure/). With those two completed, you’ll use the following features to complete your deployment setup in Octopus.
 
 ### Deployment process
+
 The Octopus [deployment process](/docs/projects/deployment-process/) lets you define all the tasks needed to deploy your software. The process acts like a deployment checklist, making sure each task gets completed before proceeding to the next one.
 
 Critically, unlike a manual checklist, Octopus never forgets to run a step and always completes them in the correct order.
@@ -34,8 +35,9 @@ Critically, unlike a manual checklist, Octopus never forgets to run a step and a
 :::
 
 ### Steps
-Octopus provides a library of [pre-built step templates](/docs/projects/steps) for deployment tasks, offering a simpler configuration experience by separating scripts and API calls. 
-These steps can be easily added to processes, with configurations allowing for conditions based on environments, channels, previous steps, or package acquisition. Options include running steps in parallel or sequence, setting time limits, and configuring retries for failed steps. 
+
+Octopus provides a library of [pre-built step templates](/docs/projects/steps) for deployment tasks, offering a simpler configuration experience by separating scripts and API calls.
+These steps can be easily added to processes, with configurations allowing for conditions based on environments, channels, previous steps, or package acquisition. Options include running steps in parallel or sequence, setting time limits, and configuring retries for failed steps.
 
 :::figure
 ![Octopus process step templates](/docs/img/deployments/octopus-step-templates.png)
@@ -44,6 +46,7 @@ These steps can be easily added to processes, with configurations allowing for c
 There's also a [community library](https://library.octopus.com/) with over 500 step templates, so you can complete tasks without coding. You can still create custom script steps or develop your own custom step templates for use across projects.
 
 #### Guided failure mode and step retries
+
 You can configure deployments to fail in Octopus when there’s an error. Guided failure mode and step retries are alternative options to outright failing the deployment.
 
 [Guided failure](/docs/releases/guided-failures) mode pauses the deployment when a step fails and lets you retry the failed step (after fixing any errors if needed), skip it, or fail the deployment.
@@ -51,6 +54,7 @@ You can configure deployments to fail in Octopus when there’s an error. Guided
 When switched on, step retries re-attempts to run the failed step 3 times before it gives up and fails the deployment. This is useful when there's a temporary network issue and the destination is temporarily unavailable.
 
 ### Variables
+
 Octopus [variables](/docs/projects/variables/) let you apply the correct variables easily during a deployment. Octopus can manage simple values, secrets, and accounts as variables.
 
 :::figure
@@ -66,7 +70,8 @@ You can scope variables by:
 - Channels
 
 ### Releases
-A [release](/docs/releases/) in Octopus is a snapshot of the deployment process and assets at creation, ensuring consistency in deployments. Changes to assets don't affect existing releases. 
+
+A [release](/docs/releases/) in Octopus is a snapshot of the deployment process and assets at creation, ensuring consistency in deployments. Changes to assets don't affect existing releases.
 
 Tenant variables get excluded, so it's easier to onboard new tenants without needing a new release.
 

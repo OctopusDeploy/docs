@@ -41,9 +41,9 @@ It is these values and variables that we will be discussing below.
 
 ## Step 1: Configure the Service Fabric cluster to use Azure Active Directory
 
-The Azure Portal supports adding an AAD user to an AAD app (ie. a Service Fabric cluster application). So Octopus can authenticate using AAD with user credentials _(NOTE: At the time of writing (March 22nd, 2017), user credentials are the only supported method of authentication with SF and AAD. Client application credentials are not yet supported)_. We therefore need to setup an AAD user and grant them permissions to access our Service Fabric cluster, via an AAD app. This section will discuss how to do this.
+The Azure Portal supports adding an AAD user to an AAD app (ie. a Service Fabric cluster application). So Octopus can authenticate using AAD with user credentials *(NOTE: At the time of writing (March 22nd, 2017), user credentials are the only supported method of authentication with SF and AAD. Client application credentials are not yet supported)*. We therefore need to setup an AAD user and grant them permissions to access our Service Fabric cluster, via an AAD app. This section will discuss how to do this.
 
-For a Service Fabric cluster to be able to see our AAD user, we need to setup some AAD applications (a _cluster_ application and a _client_ application) and assign an AAD user to our cluster application.
+For a Service Fabric cluster to be able to see our AAD user, we need to setup some AAD applications (a *cluster* application and a *client* application) and assign an AAD user to our cluster application.
 
 This process is made easier with scripts. Luckily for us, Microsoft have published an article on how to do exactly what we need, titled [Securing an Azure Service Fabric cluster with Azure Active Directory via the Azure Portal](https://blogs.msdn.microsoft.com/ncdevguy/2017/01/09/securing-an-azure-service-fabric-cluster-with-azure-active-directory-via-the-azure-portal-2/). This article includes some sample scripts that could be used to customize and help setup your own cluster and client applications. We leave this as an exercise for the reader.
 
@@ -69,7 +69,7 @@ Once we know this user is valid and can log in, we can proceed again to your Azu
 - Click **Users and groups**.
 - Proceed to add your deployment user to your application, with the role of Admin.
 
-Make note of this user's username (_not_ their display name) and password. The format of an AAD username is typically something like this: `my-user@my-azure-directory.onmicrosoft.com`
+Make note of this user's username (*not* their display name) and password. The format of an AAD username is typically something like this: `my-user@my-azure-directory.onmicrosoft.com`
 
 We can then configure our deployment step to connect to our Service Fabric cluster using these user credentials.
 
@@ -78,7 +78,7 @@ We can then configure our deployment step to connect to our Service Fabric clust
 In Octopus, Service Fabric deployment steps that use "Azure Active Directory" as the security mode will need you to enter the username and password of the AAD user who has access to your SF cluster application. Octopus will use these user credentials to obtain an `AccessToken` that it will then pass as the `SecurityToken` when connecting to your Service Fabric cluster.
 
 :::figure
-![](/docs/img/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/secure-aad-template.png)
+![A Service Fabric step using Azure Active Directory as the security mode](/docs/img/deployments/azure/service-fabric/connecting-securely-with-azure-active-directory/secure-aad-template.png)
 :::
 
 ## Connection troubleshooting
@@ -90,4 +90,3 @@ If you wish to learn more about how Octopus connects securely to Service Fabric 
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

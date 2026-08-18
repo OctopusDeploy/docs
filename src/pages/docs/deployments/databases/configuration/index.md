@@ -10,7 +10,7 @@ navOrder: 10
 Database deployments are often more complicated than deploying a web application or service as production databases are typically clusters or high-availability groups. They are often comprised of more than one node hidden behind a VIP (virtual IP address).
 
 :::figure
-![](/docs/img/deployments/databases/configuration/images/common-database-with-vip.png)
+![A database cluster behind a virtual IP address](/docs/img/deployments/databases/configuration/images/common-database-with-vip.png)
 :::
 
 Database deployment tooling doesn't need to run an executable directly on the database server. Instead, it needs to run somewhere that connects to the database over a specific port as specific user to run scripts:
@@ -21,4 +21,3 @@ Database deployment tooling doesn't need to run an executable directly on the da
  - PostgreSQL: `5432`
 
 The user account running the scripts needs permission to modify the database.  
-

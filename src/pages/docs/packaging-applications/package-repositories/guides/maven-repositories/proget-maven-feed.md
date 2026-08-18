@@ -11,7 +11,7 @@ ProGet from Inedo is an package repository technology which contains a number of
 
 ## Configuring a ProGet Registry
 
-From the ProGet web portal, click on **Feeds ➜ Create New Feed** 
+From the ProGet web portal, click on **Feeds ➜ Create New Feed**
 
 :::figure
 ![Create New Feed](/docs/img/packaging-applications/package-repositories/images/proget-create-feed.png)
@@ -39,7 +39,7 @@ The next screen allows you to set optional features for your registry, configure
 
 ## Adding a ProGet Maven as an Octopus External Feed
 
-Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type. 
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type.
 
 Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the ProGet server:
 
@@ -49,4 +49,4 @@ Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of the ProGe
 ![ProGet Maven Feed](/docs/img/packaging-applications/package-repositories/guides/maven-repositories/images/proget-external-feed.png)
 :::
 
-Optionally add Credentials if they are required. 
+Optionally add Credentials if they are required.

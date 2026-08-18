@@ -37,6 +37,10 @@ Parent environments can be selected alongside existing long-lived environments i
 - Project variables
 - User roles assigned to teams
 
+:::div{.info}
+Support for scoping deployment targets directly to ephemeral environments is rolling out to Octopus Cloud and will be available in Octopus Server `2026.3`.
+:::
+
 ## Availability
 
 Ephemeral environments are available to all cloud and self-hosted customers from version `2025.4`.

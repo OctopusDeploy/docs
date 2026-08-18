@@ -47,7 +47,9 @@ test.describe('top nav signed-in state', () => {
     await expect(
       page.locator(trailing).getByText('Start for free')
     ).toBeHidden();
-    await expect(page.locator(trailing).getByText('Changelog')).toBeVisible();
+    await expect(
+      page.locator(`${trailing} [data-theme-toggle-button]`)
+    ).toBeVisible();
 
     await expect(page.locator(avatar)).toBeVisible();
     await expect(page.locator(`${avatar} [data-user-initials]`)).toHaveText(

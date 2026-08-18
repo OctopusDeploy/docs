@@ -15,7 +15,7 @@ This command only updates the config file and does not mutate any data. Make sur
 
 **set-master-key options**
 
-```
+```text
 Usage: octopus.server set-master-key [<options>]
 
 Where [<options>] is any of:
@@ -33,6 +33,6 @@ Or one of the common options:
 
 This example will update the config file for the instance named `OctopusServer` with the provided master key.
 
-```
+```text
 octopus.server set-master-key --instance="OctopusServer" --masterKey="NEW_MASTER_KEY"
 ```

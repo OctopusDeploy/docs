@@ -1,8 +1,8 @@
 
 1. Select **Projects** from the main navigation and click the **Add PROJECT** button:
 
-   ![](/docs/img/shared-content/tenants/images/add-new-project.png)
+   ![The Add Project button on the Projects page](/docs/img/shared-content/tenants/images/add-new-project.png)
 
 2. Enter the name you want to use for the project and click the **SAVE** button:
 
-    ![](/docs/img/shared-content/tenants/images/creating-new-project.png)
+    ![Entering a name for the new project](/docs/img/shared-content/tenants/images/creating-new-project.png)

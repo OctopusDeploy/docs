@@ -20,7 +20,7 @@ The Docker Hub API endpoint `https://index.docker.io/v1` provides access to repo
 
 | Repository | Shows In Search | Lists Tags |
 | --- | --- | --- |
-| Public + Official  | Yes | Yes |
+| Public + Official | Yes | Yes |
 | Public + Unofficial | Yes | No |
 | Private | No | No |
 

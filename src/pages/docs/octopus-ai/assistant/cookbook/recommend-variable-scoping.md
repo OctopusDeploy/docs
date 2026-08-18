@@ -16,7 +16,7 @@ Analyze existing variables and suggest optimal scoping based on usage patterns.
 
 ## 📝 Prompt
 
-```
+```text
 Analyze and recommend improved scoping for project variables
 ```
 

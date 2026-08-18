@@ -16,7 +16,7 @@ Generate a runbook to restart critical Windows services across targets with opti
 
 ## 📝 Prompt
 
-```
+```text
 Create a runbook to restart Windows services on selected targets
 ```
 

@@ -36,7 +36,7 @@ If you change the Octopus Server installation path (e.g. *C:\Program Files\Octop
 When the installer finishes, Octopus Manager will appear. Make sure the Octopus service is running by clicking **Start**.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/images/3277991.png)
+![The Start button in the Octopus Manager](/docs/img/administration/upgrading/legacy/images/3277991.png)
 :::
 
 ## Upgrading Tentacles
@@ -44,7 +44,7 @@ When the installer finishes, Octopus Manager will appear. Make sure the Octopus 
 After upgrading the Octopus Server, browse to the **Environments** tab in the Octopus Web Portal. You may need to press the "Check health" button to refresh the status of your Tentacles. If any of the Tentacle agents need to be updated, a message will appear:
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/images/3277990.png)
+![The Environments tab with Tentacles awaiting upgrade](/docs/img/administration/upgrading/legacy/images/3277990.png)
 :::
 
 Click on the **Upgrade machines** button to have Octopus send the new Tentacle package to all machines.
@@ -60,7 +60,7 @@ Instead, we added a check in **Octopus 2.1.3** that checks if a per-user install
 > A previous version of **Octopus 2.0** is currently installed. This version cannot be automatically upgraded. You will need to uninstall this version before upgrading. Please view this page for details: [https://oc.to/UninstallFirst](https://oc.to/UninstallFirst)
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/images/3278002.png)
+![The installer message reporting that the existing version cannot be upgraded automatically](/docs/img/administration/upgrading/legacy/images/3278002.png)
 :::
 
 ### Uninstall Octopus 2.0
@@ -75,7 +75,7 @@ When upgrading from one version of Octopus to another we actually perform an uni
 You can uninstall the old version of the Octopus Deploy MSI installer and install the new version by locating the entry in **Programs and Features** in the Windows Control Panel:
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/images/3278003.png)
+![The Octopus Deploy entry in Programs and Features](/docs/img/administration/upgrading/legacy/images/3278003.png)
 :::
 
 After you have uninstalled the old version of Octopus, you can install the new version.
@@ -84,7 +84,7 @@ After you have uninstalled the old version of Octopus, you can install the new v
 
 After uninstalling the old version of Octopus and restarting, if you still receive this error, please navigate to the following registry keys:
 
-```
+```text
 HKEY_LOCAL_MACHINE\Software\Octopus\OctopusServer
 HKEY_LOCAL_MACHINE\Software\Octopus\Tentacle
 ```
@@ -93,13 +93,14 @@ And delete the `InstallLocation` value.
 
 Depending on whether you are running the 32-bit registry editor or had previously installed 32-bit versions of Octopus on a 64-bit machine, you should also check:
 
-```
+```text
 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\OctopusServer
 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Octopus\Tentacle
 ```
 
 Quick PowerShell way to do this:
-```
+
+```powershell
 $RegServer = 'HKLM:\Software\Octopus\OctopusServer'
 $RegTentacle = 'HKLM:\Software\Octopus\Tentacle'
 $RegServer64 = 'HKLM:\SOFTWARE\Wow6432Node\Octopus\OctopusServer'

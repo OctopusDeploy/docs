@@ -17,10 +17,10 @@ The `Update Amazon ECS Step` was added in Octopus **2021.3**.
 
 At a high level, the `Update Amazon ECS Service` step will:
 
-* Select the Docker image tags for the task definition (version selection is performed when creating a release).
-* Fetch an existing Task Definition to use as a template.
-* Create a new Task Definition revision based on the template definition and the step configuration provided.
-* Update the Service to use the newly created Task Definition.
+- Select the Docker image tags for the task definition (version selection is performed when creating a release).
+- Fetch an existing Task Definition to use as a template.
+- Create a new Task Definition revision based on the template definition and the step configuration provided.
+- Update the Service to use the newly created Task Definition.
 
 The following instructions can be followed to configure the `Update Amazon ECS Service` step.
 
@@ -32,8 +32,8 @@ Refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/de
 
 The following settings will need to be configured:
 
-* Name of the ECS cluster
-* Cluster's region
+- Name of the ECS cluster
+- Cluster's region
 
 ## Step 2: Create a deployment target for your ECS cluster
 
@@ -153,13 +153,13 @@ Any of the input fields can be bound to an Octostache expression. [Variable subs
 
 Presently, the step outputs the following variables.
 
-| Name        | Description |
-| ------------| ----------- |
-|`TaskDefinitionRevision` | The revision number of the newly created task (if a new revision was created) |
-|`TaskDefinitionFamily` | The name of a family that the new task definition is registered to (if a new revision was created) |
-|`ClusterName` | The name of the cluster to which the updated service belongs |
-|`ServiceName` | The name of the updated service |
-|`Region` | The AWS region in which the operations were executed |
+| Name | Description |
+| ------------ | ----------- |
+| `TaskDefinitionRevision` | The revision number of the newly created task (if a new revision was created) |
+| `TaskDefinitionFamily` | The name of a family that the new task definition is registered to (if a new revision was created) |
+| `ClusterName` | The name of the cluster to which the updated service belongs |
+| `ServiceName` | The name of the updated service |
+| `Region` | The AWS region in which the operations were executed |
 
 ## Error messages
 
@@ -168,5 +168,6 @@ If a deployment failure is detected, the step will attempt to extract error mess
 ### ECS Update Validation Error
 
 This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and could not be resolved until a new release is deployed. The ECS step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
-* Non-unique tag and/or environment variable keys.
-* Bound expressions resolving to empty values when the field is required.
+
+- Non-unique tag and/or environment variable keys.
+- Bound expressions resolving to empty values when the field is required.

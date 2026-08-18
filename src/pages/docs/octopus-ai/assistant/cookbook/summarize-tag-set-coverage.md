@@ -16,7 +16,7 @@ Review tenant tag set assignments to ensure all required dimensions are covered 
 
 ## 📝 Prompt
 
-```
+```text
 Summarize tag set assignments across tenants
 ```
 

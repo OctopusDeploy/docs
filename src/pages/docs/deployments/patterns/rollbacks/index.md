@@ -42,7 +42,7 @@ Having the ability to roll back, even if rarely used, is a valuable option.  Wha
 - If you have manual interventions, should they run?
 - If you have database deployments, should they run?
 - Are there any other steps that should be skipped?
-- Should _any_ specific steps _only_ run during a rollback?
+- Should *any* specific steps *only* run during a rollback?
 
 For example, consider a project that has the following steps:
 
@@ -94,7 +94,7 @@ It also includes a number of output variables to use in variable run conditions.
 - **RunOnRollback**: Only run the step when the DeploymentMode is **Rollback**.
 - **RunOnRedeploy**: Only run the step when the DeploymentMode is **Redeploy**.
 - **RunOnDeployOrRollback**: Only run the step when the DeploymentMode is **Deploy** or **Rollback**.
-- **RunOnDeployOrRedeploy**: Only run the step when the DeploymentMode is **Deploy** or ** Re-deploy**.
+- **RunOnDeployOrRedeploy**: Only run the step when the DeploymentMode is **Deploy** or **Re-deploy**.
 - **RunOnRedeployOrRollback**: Only run the step when the DeploymentMode is **Redeploy** or **Rollback**.
 - **RunOnMajorVersionChange**: Only run the step when the VersionChange is **Major**.
 - **RunOnMinorVersionChange**: Only run the step when the VersionChange is **Minor**.
@@ -104,7 +104,7 @@ It also includes a number of output variables to use in variable run conditions.
 
 The usage will be:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
@@ -138,17 +138,17 @@ Consider the scenario in which a new table is added during a deployment.  If you
 1. Delete the table (either via script or database restore).
 2. Leave the table as-is.
 
-The previous version of the code _should_ run fine if the table is left as-is.  After all, the previous code version wasn't aware of that table and won't reference it or insert data directly.  However, there is no way to know for sure the code will work if the database changes weren't tested with the previous version of the code.  A stored procedure, view, or function could now expect data in that new table.
+The previous version of the code *should* run fine if the table is left as-is.  After all, the previous code version wasn't aware of that table and won't reference it or insert data directly.  However, there is no way to know for sure the code will work if the database changes weren't tested with the previous version of the code.  A stored procedure, view, or function could now expect data in that new table.
 
-Restoring a backup will also result in data loss; any data changed by users since that backup will be lost.  Restoring a database backup should be for disaster recovery or an emergency rollback. 
+Restoring a backup will also result in data loss; any data changed by users since that backup will be lost.  Restoring a database backup should be for disaster recovery or an emergency rollback.
 
-In the event you have a schema change in your database, we recommend **rolling forward**. 
+In the event you have a schema change in your database, we recommend **rolling forward**.
 
 ### Dependent applications
 
 In a perfect world, every service and project would be loosely coupled.  While great in theory, the real world is often messy, and coupling exists.  Services and their clients have an implied or explicit data contract and can be tightly coupled together.  If either the service or the client violates that contract, a failure will occur.
 
-Imagine the scenario where a credit card service introduces a new endpoint in version `3.1.0`.  Your application makes a change to leverage that new endpoint.  If version `3.1.0` of the credit card service was rolled out along with your application and then rolled back to `3.0.0` a few days later, that endpoint would no longer exist.  Any functionality your application depends on from that service would start failing.   
+Imagine the scenario where a credit card service introduces a new endpoint in version `3.1.0`.  Your application makes a change to leverage that new endpoint.  If version `3.1.0` of the credit card service was rolled out along with your application and then rolled back to `3.0.0` a few days later, that endpoint would no longer exist.  Any functionality your application depends on from that service would start failing.
 
 In the event you make a contract change, we recommend **rolling forward** unless all the dependent applications can be rolled back as well or have fault tolerance built-in to handle missing endpoints or unexpected results.
 
@@ -156,9 +156,9 @@ In the event you make a contract change, we recommend **rolling forward** unless
 
 A timer starts once a release is deployed.  Once that timer reaches zero, the ability to roll back successfully becomes impossible with minimal user impact.  The timer duration depends on the number of users and the day-to-day importance of the application.  An application used by a dozen people once a day can be rolled back days or even a week after the last deployment.  Meanwhile, an internal application used by everyone in the company for three hours a day might have a few business hours before a rollback becomes impossible.
 
-That is due to user perception.  If a release with a new feature and several bug fixes is deployed, users _will_ notice when a rollback occurs.  Either they will see the feature disappears, or a bug they thought was fixed happens again.  
+That is due to user perception.  If a release with a new feature and several bug fixes is deployed, users *will* notice when a rollback occurs.  Either they will see the feature disappears, or a bug they thought was fixed happens again.  
 
-Generally, unless a showstopping bug is found, limit rollbacks to outage windows.  Once the userbase starts using the new release, we recommend **rolling forward**.  
+Generally, unless a showstopping bug is found, limit rollbacks to outage windows.  Once the user base starts using the new release, we recommend **rolling forward**.  
 
 ## Staging your deployments
 

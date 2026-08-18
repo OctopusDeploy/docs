@@ -16,7 +16,7 @@ Audit lifecycles to ensure consistent and appropriate retention policies are bei
 
 ## 📝 Prompt
 
-```
+```text
 Audit retention policies across all lifecycles
 ```
 

@@ -1,9 +1,9 @@
-import { visit } from 'unist-util-visit';
+import { defineHastPlugin } from 'satteri';
 
 // Browsers will break a line on a hyphen character, but not on a slash or period.
 // This can cause long strings of text to overflow their container, especially in code blocks.
 
-// This rehype plugin adds <wbr> elements to code blocks to allow for better line breaking in long strings of text.
+// This hast plugin adds <wbr> elements to code blocks to allow for better line breaking in long strings of text.
 const SEPARATORS = /(?=[.\[:\/\\])/;
 
 function withBreaks(value) {
@@ -21,15 +21,18 @@ function withBreaks(value) {
   });
 }
 
-export default function rehypeWbr() {
-  return (tree) => {
-    visit(tree, 'element', (node, index, parent) => {
-      if (node.tagName !== 'code') return;
-      if (parent?.tagName === 'pre') return; // fenced blocks, leave alone
+export default defineHastPlugin({
+  name: 'wbr',
+  element: {
+    filter: ['code'],
+    visit(node, ctx) {
+      if (ctx.parent(node)?.tagName === 'pre') return; // fenced blocks, leave alone
 
-      node.children = node.children.flatMap((child) =>
+      const children = node.children.flatMap((child) =>
         child.type === 'text' ? (withBreaks(child.value) ?? [child]) : [child]
       );
-    });
-  };
-}
+
+      ctx.setProperty(node, 'children', children);
+    },
+  },
+});

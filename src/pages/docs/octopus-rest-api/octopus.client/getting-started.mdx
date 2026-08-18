@@ -18,6 +18,7 @@ There are two ways to use the Octopus Client library:
 
 - Unless you have a specific need to use the ILMerged `Octopus.Client`, we recommend using the `Octopus.Server.Client` package. In both cases, the calling conventions are identical - the former is just an ILMerged version of the latter.
 - If you're intending to use the contract DTO classes from the library with your own serialization mechanism, you'll definitely want to use `Octopus.Server.Client`. The ILMerged client also merges in `Newtonsoft.Json` so your own serializer won't recognize any of the serialization attributes.
+
 :::
 
 <OctopusClientShippedWithServerAndTentacle />
@@ -31,7 +32,7 @@ To use from C#, first install the package via the NuGet Package Manager:
 <details data-group="octopus-rest-api-getting-started">
 <summary>Package Management Console</summary>
 
-```powershell 
+```powershell
 Install-Package Octopus.Server.Client
 ```
 
@@ -61,7 +62,6 @@ API key authentication is recommended, but you can use username/password for aut
 ```csharp
 repository.Users.SignIn(new LoginCommand { Username = "me", Password = "secret" });
 ```
-
 
 ### Creating and using the client (Asynchronous API) \{#Octopus.Client-AsynchronousAPI(Octopus.Client4.0+)}
 
@@ -102,7 +102,7 @@ Add-Type -Path $path
 <details data-group="octopus-client-getting-started">
 <summary>PowerShell Core</summary>
 
-```powershell 
+```powershell
 Install-Package Octopus.Client -source https://www.nuget.org/api/v2 -SkipDependencies
 $path = Join-Path (Get-Item ((Get-Package Octopus.Client).source)).Directory.FullName "lib/netstandard2.0/Octopus.Client.dll"
 Add-Type -Path $path

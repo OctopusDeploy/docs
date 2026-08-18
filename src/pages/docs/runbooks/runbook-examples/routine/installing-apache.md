@@ -88,4 +88,3 @@ New-NetFirewallRule -DisplayName "Apache-HTTP" -Direction Inbound -Action Allow 
 </details>
 
 This will add a basic installation of the Apache HTTP web server.
-

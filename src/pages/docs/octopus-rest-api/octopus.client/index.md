@@ -20,4 +20,3 @@ Details for where to find the API and how to authenticate can be found in our [R
 ## Octopus.Client Examples
 
 We have many examples showing how to use Octopus.Client in both our [API examples](/docs/octopus-rest-api/examples) and the [OctopusDeploy-API GitHub repository](https://github.com/OctopusDeploy/OctopusDeploy-Api/tree/master/Octopus.Client).
-

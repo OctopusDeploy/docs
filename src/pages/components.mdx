@@ -17,10 +17,48 @@ import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
+import DocsSearch from 'src/components/DocsSearch.astro';
 import SplitButton from 'src/components/SplitButton.astro';
 import TopNav from 'src/components/TopNav.astro';
 import sparklesIcon from 'src/assets/icons/sparkles.svg';
 import helmIcon from 'src/assets/icons/helm.svg';
+
+export const searchDemoResults = [
+  {
+    url: '/docs/deployments/packages/feeds',
+    title: 'External feeds and the built-in repository',
+    excerpt:
+      'Configure external package <mark>feeds</mark> for Octopus to consume for use in deployments and runbooks.',
+    breadcrumb: ['Deployments', 'Packages'],
+    kind: 'page',
+    facet: 'docs',
+  },
+  {
+    url: '/docs/deployments/packages/feeds/maven-feeds',
+    title: 'Maven feeds',
+    excerpt: 'Configure Maven repositories as external <mark>feeds</mark> in Octopus.',
+    breadcrumb: ['Deployments', 'Packages', 'Feeds'],
+    kind: 'page',
+    facet: 'docs',
+  },
+  {
+    url: '/docs/octopus-rest-api/feeds/modify-a-feed',
+    title: 'Modify a feed',
+    excerpt:
+      'Updates the specified <mark>feed</mark> by setting the values of the parameters passed.',
+    breadcrumb: ['Feeds'],
+    kind: 'command',
+    facet: 'api',
+  },
+  {
+    url: '/docs/octopus-rest-api/cli/feed-list',
+    title: 'octopus feed list',
+    excerpt: 'Lists the <mark>feeds</mark> configured on the Octopus instance.',
+    breadcrumb: ['CLI'],
+    kind: 'command',
+    facet: 'cli',
+  },
+];
 
 ## Component Usage Guide
 
@@ -342,7 +380,47 @@ Temporary showcase for the new, work-in-progress TopNav component.
   <TopNav />
 </div>
 
-### Cards
+The search field in that nav opens the DocsSearch overlay documented below.
+
+### DocsSearch
+
+The site search overlay. One instance serves the whole page: any element carrying
+`data-docs-search-trigger` opens it, which is how both the new top nav and the old
+header share a single result list. The layout already renders one, so a page never
+needs its own.
+
+1. **placeholder**: Optional. The input's placeholder and its accessible name.
+2. **facets**: Optional. The tab strip, as `{ key, label }` pairs. Defaults to the
+   four sections in `src/scripts/search-engine.ts`. A tab with no results under it
+   hides itself.
+3. **demoResults**: Optional. A fixed list of results. Given these, the overlay
+   never fetches an index — this is what the example below and the Playwright specs
+   run against.
+
+Results come from a `SearchEngine` (`src/scripts/search-engine.ts`), which is the
+seam the index sits behind. Production uses `legacyEngine`, over the build-time
+`search.json`.
+
+Focus stays in the input the whole time it is open and `aria-activedescendant`
+moves down the list, so you can keep refining a query without tabbing out of the
+results. <kbd>↑</kbd> and <kbd>↓</kbd> move, <kbd>Enter</kbd> opens the highlighted
+result, <kbd>Esc</kbd> closes, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>
+opens it from anywhere.
+
+<div class="docs-home simple-grid">
+  <div>
+    <Button label="Open the demo overlay" data-docs-search-trigger="demo" />
+    <DocsSearch name="demo" demoResults={searchDemoResults} />
+  </div>
+  <div>
+    ```
+    <Button label="Search" data-docs-search-trigger="demo" />
+    <DocsSearch name="demo" demoResults={results} />
+    ```
+  </div>
+</div>
+
+### Card
 
 A clickable container for a title, an optional description, and an optional image or icon, all linked to a single destination.
 

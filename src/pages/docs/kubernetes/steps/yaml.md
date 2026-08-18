@@ -37,7 +37,7 @@ To configure a Git Repository source, select the `Git Repository` option as your
 
 :::div{.hint}
 When you choose the tip of a branch for your Git Manifest when creating a Release, the commit hash is saved to the Release.
-This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+This means redeploying that release will only ever use that specific commit and not the *new* tip of the branch.
 :::
 
 ### Package
@@ -95,7 +95,7 @@ There are a few different ways to take advantage of this feature:
    services/apply-second.yml
    ```
 
-   **Note:** _Each path will be applied in order from top to bottom._
+   **Note:** *Each path will be applied in order from top to bottom.*
 
 2. You can use a glob pattern to select multiple files in a single path.
 
@@ -122,4 +122,5 @@ There are a few different ways to take advantage of this feature:
 **2023.3:**
 
 - Sourcing from Git Repositories was added. You can learn more in [this blog post](https://octopus.com/blog/manifests-from-git).
+
 :::

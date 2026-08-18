@@ -16,7 +16,7 @@ Quickly find all recent failed deployments to spot patterns and initiate root ca
 
 ## 📝 Prompt
 
-```
+```text
 List all failed deployments in the last 7 days for "[project-name]" project and "[environment-name]" environment
 ```
 

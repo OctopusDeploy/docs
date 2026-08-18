@@ -31,7 +31,7 @@ Here is a sample application that will prompt the user to press a key before exi
 public class PressAnyKey {
     public static void main(String[] args) throws java.io.IOException {
         System.out.println("Press any key to continue.");
-	System.in.read();
+ System.in.read();
     }
 }
 ```
@@ -44,9 +44,9 @@ In order to deploy the application with Octopus Deploy it must be compiled and p
 
 1. Compile the application:
 
-```powershell
-javac PressAnyKey.java
-```
+    ```bash
+    javac PressAnyKey.java
+    ```
 
 2. Zip PressAnyKey.class into the archive `PressAnyKey.1.0.0.zip` (you can download a sample: [PressAnyKey.1.0.0.zip](https://download.octopusdeploy.com/demo/PressAnyKey.1.0.0.zip))
 3. Upload `PressAnyKey.1.0.0.zip` to the Octopus Deploy built-in feed (**Deploy ➜ Manage ➜ Packages** or [follow the instructions here](/docs/packaging-applications/package-repositories/built-in-repository/#pushing-packages-to-the-built-in-repository)).
@@ -71,7 +71,7 @@ screen -d -m -S "PressAnyKey" java PressAnyKey
 ```
 
 :::figure
-![](/docs/img/deployments/java/5866219.png)
+![The deployment log for a Java application launched in a new process](/docs/img/deployments/java/5866219.png)
 :::
 
 :::div{.hint}

@@ -36,27 +36,27 @@ If you're uncertain whether Octopus Cloud is the right choice for your organizat
 
 Before you start planning your migration, it’s worth setting some expectations upfront about the level of effort involved. No two instances are identical, so this doesn't cover every possible scenario. Based on our experience, the figures here are estimates you can use to plan how long your own migration may take.
 
-| **Instance Size**         | **Characteristics** | **Effort** |
+| **Instance Size** | **Characteristics** | **Effort** |
 | ------------------------- | ---- | ----------- |
-| Small and/or simple       | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No config as code</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
-| Medium                    | <ul><li>10–50 projects</li><li>Integrations with a mix of self-hosted and cloud-based products</li><li>Fewer than 100 deployment targets</li></ul> | Migration requires thorough planning, testing, and may take multiple weeks to migrate. |
-| Large or complex          | <ul><li>50+ projects</li><li>Advanced configurations</li><li>Integrations primarily with other self-hosted tools</li><li>More than 100 deployment targets</li></ul> | Migrations may take several weeks or months of preparation, testing, and execution. |
+| Small and/or simple | <ul><li>10 or fewer projects</li><li>10 or fewer deployment targets</li><li>Integrations with cloud-based products only</li><li>No config as code</li></ul> | Migration typically takes 1-3 days with minimal manual configuration. |
+| Medium | <ul><li>10–50 projects</li><li>Integrations with a mix of self-hosted and cloud-based products</li><li>Fewer than 100 deployment targets</li></ul> | Migration requires thorough planning, testing, and may take multiple weeks to migrate. |
+| Large or complex | <ul><li>50+ projects</li><li>Advanced configurations</li><li>Integrations primarily with other self-hosted tools</li><li>More than 100 deployment targets</li></ul> | Migrations may take several weeks or months of preparation, testing, and execution. |
 
 #### Effort factors to refine your estimate
 
 Use this checklist to guide you as to the complexity of your migration. The more effort factors you need to resolve, the longer or more complex your migration will be.
 
-| **Question**         | **Considerations** |
+| **Question** | **Considerations** |
 | ------------------------- | ----------- |
-| What version of Octopus are you using?       | You should run the most recent release before migration to minimize feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. |
+| What version of Octopus are you using? | You should run the most recent release before migration to minimize feature differences with Octopus Cloud. At a minimum, [Export/Import Projects](https://octopus.com/docs/projects/export-import) is only available in Octopus 2021.1.x or higher. |
 | How many projects do you have? | The more projects you have the more time your migration is likely to take. |
 | How many runbooks do you have? | Runbooks may need to be updated manually where worker pools have changed, and sensitive values or variables are used. |
 | How many Tentacles do you manage? | You’ll need to achieve connectivity between Octopus Cloud and all the Tentacles you use.<br/><br/> We also recommend converting Listening Tentacles to Polling Tentacles for a Cloud Instance. |
-| Are all the resources you need access to reachable from Octopus Cloud?<br/><ul><li>Private, self-hosted package repositories (Artifactory, Nexus, etc)</li><li>On-prem listening tentacle or ssh targets and workers</li><li>An internal SMTP server</li><li>Other on-prem integrations that are not reachable from Octopus Cloud</li></ul>|You’ll need to achieve connectivity between Octopus Cloud and all the integrations and resources you use.<br/><br/>How are firewall and VPN configurations typically managed to ensure secure connections? Do you anticipate any network, firewall, or VPN configuration updates will be needed to support this migration? |
-| Do you have specific security requirements or policies around accessing deployment targets or managing API keys? | You will need to manage these through the migration.  |
+| Are all the resources you need access to reachable from Octopus Cloud?<br/><ul><li>Private, self-hosted package repositories (Artifactory, Nexus, etc)</li><li>On-prem listening tentacle or ssh targets and workers</li><li>An internal SMTP server</li><li>Other on-prem integrations that are not reachable from Octopus Cloud</li></ul> | You’ll need to achieve connectivity between Octopus Cloud and all the integrations and resources you use.<br/><br/>How are firewall and VPN configurations typically managed to ensure secure connections? Do you anticipate any network, firewall, or VPN configuration updates will be needed to support this migration? |
+| Do you have specific security requirements or policies around accessing deployment targets or managing API keys? | You will need to manage these through the migration. |
 | Do you need to retain historical data and task logs? | Historical data and task logs are **not supported by Export/Import Projects**. You will need to continue to host the older version to retain historical data. |
 | How long are your Audit log retention policies? | Octopus Cloud archived audit logs has **a max of 365 days** |
-| Do you store build information?  | You will need to continue to host the older version to retain historical data, as build information **is not migrated**. |
+| Do you store build information? | You will need to continue to host the older version to retain historical data, as build information **is not migrated**. |
 | Do you have any subscriptions? | Subscription migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. |
 | How many variable sets do you use? | Variable sets should be named uniquely. When importing, if a variable set with the same name already exists, the variables will be merged. If a variable in the export doesn’t exist on the destination, it will be created. If a variable with the same name and scopes already exists, the variable on the destination will be left untouched. |
 | Do you use project triggers? | Project trigger migration is **not supported by Export/Import Projects**. These will need to be migrated manually or with a script. |
@@ -65,7 +65,7 @@ Use this checklist to guide you as to the complexity of your migration. The more
 | Are you using any Targets with older, unsupported operating systems (RHEL 6, Windows 2008, etc)? | Octopus Cloud is the most up-to-date version of Octopus, and Targets running older operating systems are **not supported**. |
 | Are you using Active Directory or LDAP authentication? | Active Directory or LDAP authentication is **not a feature available in Octopus Cloud**. |
 | Do you have any ITSM integrations or other automated processes? | Automated processes and shared settings, such as workflows for routine tasks or usage of library variable sets across projects, need to be set up again after migration. This includes common scripts, standardized settings, or configurations supporting multiple projects. |
-| What are your cutover requirements? Can you stagger the migration or incur downtime?| A big-bang migration, where everything is transitioned simultaneously, is harder than an incremental approach, where you migrate project-by-project or in defined phases. |
+| What are your cutover requirements? Can you stagger the migration or incur downtime? | A big-bang migration, where everything is transitioned simultaneously, is harder than an incremental approach, where you migrate project-by-project or in defined phases. |
 
 If your instance includes **unsupported features** or matches several of the **effort factors**, migration complexity increases. For these cases, our [Sales team](mailto:sales@octopus.com) can help you identify workarounds, plan for manual adjustments, or determine if Octopus Cloud is the right fit for you.
 
@@ -133,11 +133,11 @@ We recommend making a backup of your self-hosted DB including historical data sh
 
 Octopus Cloud and Octopus Server are built on the same code base. The differences stem from the additional configuration steps we perform during the Octopus Cloud build. The differences are:
 
-|   | **Self-host** | **Cloud** |
+| | **Self-host** | **Cloud** |
 | - | ------------- | --------- |
-| Upgrades | Quarterly upgrades are made available for you to apply to your instance.  | We upgrade your instance continuously |
-| Infrastructure | Your responsibility.  | Our responsibility |
-| Compliance | Your responsibility.  | ISO 27001 and SOC II certifications with regular audits, ensuring your deployments and data are safe and secure |
+| Upgrades | Quarterly upgrades are made available for you to apply to your instance. | We upgrade your instance continuously |
+| Infrastructure | Your responsibility. | Our responsibility |
+| Compliance | Your responsibility. | ISO 27001 and SOC II certifications with regular audits, ensuring your deployments and data are safe and secure |
 | Roles | Highest level of user privileges is the role of Octopus Administrator | Highest level of user privileges is the role of Octopus Manager |
 | Auth | | Octopus Cloud does not support Active Directory or LDAP. Please see the [authentication provider compatibility page](https://octopus.com/docs/security/authentication/auth-provider-compatibility) for an up to date list of what is available |
 | Storage limits | Your responsibility. | Octopus Cloud is subject to [storage limits and default retention policies](https://octopus.com/docs/octopus-cloud/#octopus-cloud-storage-limits). <br/><br/><ul><li>Maximum file storage for artifacts, task logs, packages, package cache, and event exports is limited to 1 TB.</li><li>Maximum database size for configuration data (for example, projects, deployment processes, and inline scripts) is limited to 100 GB.</li><li>Maximum size for any single package is 5 GB.</li><li>[Retention policies](https://octopus.com/docs/administration/retention-policies) default to 30 days, but you can change this figure as needed.<br/>If any of these limits are a concern for your migration, please reach out to our [Sales team](mailto:sales@octopus.com).</li></ul> |

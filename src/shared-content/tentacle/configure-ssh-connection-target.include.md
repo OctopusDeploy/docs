@@ -3,11 +3,11 @@
 3. Enter the DNS or IP address of the deployment target, i.e., `example.com` or `10.0.1.23`.
 4. Enter the port (port 22 by default) and click **NEXT**.
 
-Make sure the target server is accessible by the port you specify.
+    Make sure the target server is accessible by the port you specify.
 
-The Octopus Server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
+    The Octopus Server will attempt to perform the required protocol handshakes and obtain the remote endpoint's public key fingerprint automatically rather than have you enter it manually. This fingerprint is stored and verified by the server on all subsequent connections.
 
-If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
+    If this discovery process is not successful, you will need to click **ENTER DETAILS MANUALLY**.
 
 5. Give the target a name.
 6. Select which environment the deployment target will be assigned to.

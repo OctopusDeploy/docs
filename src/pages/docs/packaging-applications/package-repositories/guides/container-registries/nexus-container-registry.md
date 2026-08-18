@@ -7,6 +7,7 @@ description: How to add a Nexus Docker Registry as an Octopus feed
 navOrder: 80
 ---
 Sonatype Nexus Repository Manager offers three types of Docker registry;
+
 - Group
 - Hosted
 - Proxy
@@ -57,7 +58,8 @@ When the repository has been created, click on the entry in the list to bring up
 Optionally push a container to the feed to make sure the feed works when added to Octopus Deploy.
 
 ## Adding an Nexus Docker repository as an Octopus External Feed
-Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Docker Container Registry` Feed type. 
+
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Docker Container Registry` Feed type.
 
 Give the feed a name, in the URL field, paste the URL to your Nexus server with the associated port. It should look similar to this format:
 
@@ -67,4 +69,4 @@ Give the feed a name, in the URL field, paste the URL to your Nexus server with 
 ![Nexus NuGet feed](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/nexus-docker-feed.png)
 :::
 
-Optionally add Credentials if they are required. 
+Optionally add Credentials if they are required.

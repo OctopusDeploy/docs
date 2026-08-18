@@ -14,6 +14,7 @@ The credentials used for ECR feeds [only last 12 hours](http://docs.aws.amazon.c
 :::
 
 ## Configuring an AWS Elastic Container Registry (ECR)
+
 From the AWS Services dashboard go to `Elastic Container Registry`.
 
  ![AWS Services](/docs/img/packaging-applications/package-repositories/guides/container-registries/images/aws-services.png)
@@ -29,6 +30,7 @@ With the repository configured, ensure that you also have an [AWS IAM](https://a
 Further links for getting your AWS registry set up are available in their [online docs](http://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)
 
 ## Adding AWS ECR as an Octopus External Feed
+
 Create a new Octopus Feed (**Deploy ➜ Manage ➜ External Feeds**) and select the `AWS Elastic Container Registry` Feed type. With this selected you will need to provide the credentials configured above, as well as the region at which the registry was created. In AWS you are able to maintain separate repositories in each region.
 
 :::figure
@@ -38,16 +40,16 @@ Create a new Octopus Feed (**Deploy ➜ Manage ➜ External Feeds**) and select 
 Save and test your registry to ensure that the connection is authorized successfully.
 
 ## Using worker configured credentials
+
 From Octopus Server `2025.2`, you can now use worker configured credentials by setting `Execute using the credentials configured on the worker` to `Yes` when creating your AWS ECR feed.
 
 :::div{.warning}
 If your AWS credentials are not set up on server, package search and package version resolution will not find any results. You can still enter your full package name and version for package acquisition on your worker.
 :::
 
-
 ## Adding an AWS OpenID Connect ECR External feed
-Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of 
 
+Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). The configuration of
 
 1. Navigate to **Deploy ➜ Manage ➜ External Feeds**, click the **Add Feed** and select **AWS Elastic Container Registry**.
 2. Add a memorable name for the account.
@@ -55,6 +57,7 @@ Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use Ope
 4. Set the **Role ARN** to the ARN from the identity provider associated role.
 5. Click **SAVE** to save the account.
 6. Before you can test the account you need to add a condition to the identity provider in AWS under **IAM ➜ Roles ➜ {Your AWS Role} ➜ Trust Relationship** :
+
 ```json
 {
   "Version": "2012-10-17",
@@ -75,6 +78,7 @@ Octopus Server `2025.2` adds support for OpenID Connect to ECR feeds. To use Ope
   ]
 }
 ```
+
 7. Go back to the AWS feed in Octopus and click **TEST**, search for a package in any ECR feeds the role has access to.
 
 Refer to the AWS docs for [more information on the role permissions required for ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html).
@@ -95,4 +99,4 @@ For example, to lock an identity role to a specific Octopus environment, you can
 
 `default` and `feed-slug` are the slugs of their respective Octopus resources.
 
-AWS policy conditions also support complex matching with wildcards and `StringLike` expressions. 
+AWS policy conditions also support complex matching with wildcards and `StringLike` expressions.

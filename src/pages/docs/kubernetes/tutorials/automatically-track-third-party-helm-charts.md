@@ -13,7 +13,7 @@ However, managing updates can be a more involved process. Not only do you need t
 
 Octopus Deploy provides a full workflow to manage updates, either hands on or fully hands off.
 
-### Setting up the project
+## Setting up the project
 
 A Helm chart deployment like this is simple with Octopus Deploy.
 
@@ -59,7 +59,7 @@ step "deploy-ingress-nginx-helm-chart" {
 }
 ```
 
-### Helpful settings
+## Helpful settings
 
 By default, Octopus will start versioning releases from `0.0.1` and count up patch versions from there. Helm charts already have a meaningful version number that you may wish to use instead.
 
@@ -79,7 +79,7 @@ versioning_strategy {
 }
 ```
 
-### Creating the trigger
+## Creating the trigger
 
 Triggers can be created directly from the deployment process by clicking the **Create a trigger** link, or by navigating to the **Triggers** page and clicking **Add Trigger**.
 
@@ -96,7 +96,7 @@ Once the trigger is created, you can watch the triggers execution history. Withi
 ![Helm chart trigger history](/docs/img/deployments/kubernetes/automatically-track-third-party-helm-charts/helm-chart-trigger-history.png)
 :::
 
-### Automatic deployment strategies
+## Automatic deployment strategies
 
 Back on the project dashboard, you can see the release isn't only created but successfully deployed to your cluster as well.
 
@@ -132,7 +132,7 @@ New releases will remain undeployed until someone has time to manually review th
 
 These are two simple cases, take a look at [environment recommendations](/docs/infrastructure/environments/environment-recommendations) for more information on what's possible.
 
-#### Getting notified about new releases
+### Getting notified about new releases
 
 Now you have a list of releases created and waiting to be deployed. This isn't very useful if no one knows about it.
 

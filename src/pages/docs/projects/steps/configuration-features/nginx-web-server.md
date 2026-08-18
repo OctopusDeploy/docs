@@ -20,6 +20,7 @@ The **NGINX web server** feature is available on **deploy a package** steps, how
 When configuring a `location` as a reverse proxy, you need to add the following `headers` and `directives` by default:
 
 ### Headers
+
 - `Upgrade $http_upgrade`,
 - `Connection keep-alive`,
 - `Host $host`,
@@ -27,6 +28,7 @@ When configuring a `location` as a reverse proxy, you need to add the following 
 - `X-Forwarded-Proto $scheme`
 
 ### Directives
+
 - `proxy_http_version 1.1`,
 - `proxy_cache_bypass $http_upgrade`
 

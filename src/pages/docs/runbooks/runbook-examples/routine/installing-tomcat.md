@@ -135,7 +135,6 @@ The script checks to see if Tomcat is already installed by looking to see if the
 
 The script expects the following variables to be created:
 
-
 | Variable Name | Variable Type | Description | Example |
 | ------------- | ------------- | ------------- | ------------- |
 | Runbook.InstallTomcat.Tomcat.User | Text | User to run Tomcat service | tomcat |

@@ -58,36 +58,36 @@ DELETE FROM ExtensionConfiguration WHERE Id in ('authentication-octopusid', 'jir
 
 4. On a new server, install Octopus Deploy.
 
-The installed version of Octopus Deploy should be the same version of Octopus Deploy you are running in production.  After installing Octopus Deploy, the Octopus Manager will appear.  You can close that and instead run these scripts to create the Octopus Deploy instance.
+    The installed version of Octopus Deploy should be the same version of Octopus Deploy you are running in production.  After installing Octopus Deploy, the Octopus Manager will appear.  You can close that and instead run these scripts to create the Octopus Deploy instance.
 
-:::div{.hint}
-Remember to run these scripts as **Administrator**.
-:::
+    :::div{.hint}
+    Remember to run these scripts as **Administrator**.
+    :::
 
-```powershell
-Set-Location "C:\Program Files\Octopus Deploy\Octopus"
+    ```powershell
+    Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 
-.\Octopus.Server.exe create-instance --instance "Octopus" --config "C:\Octopus\OctopusServer.config" --serverNodeName "Sanitized"
-.\Octopus.Server.exe database --instance "Octopus" --connectionString "Data Source=YOURSERVER;Initial Catalog=OctopusDeploy_Sanitized;Integrated Security=False;User ID=YOURUSER;Password=YOURPASSWORD"
-```
+    .\Octopus.Server.exe create-instance --instance "Octopus" --config "C:\Octopus\OctopusServer.config" --serverNodeName "Sanitized"
+    .\Octopus.Server.exe database --instance "Octopus" --connectionString "Data Source=YOURSERVER;Initial Catalog=OctopusDeploy_Sanitized;Integrated Security=False;User ID=YOURUSER;Password=YOURPASSWORD"
+    ```
 
-:::div{.hint}
-When you run the above commands, you will get a warning about being unable to decrypt the database.  You can ignore that.
-:::
+    :::div{.hint}
+    When you run the above commands, you will get a warning about being unable to decrypt the database.  You can ignore that.
+    :::
 
 5. Sanitize the database.
 
-This command will clean out all sensitive variables and PII data and generate a new master key on the database.  
+    This command will clean out all sensitive variables and PII data and generate a new master key on the database.  
 
-:::div{.warning}
-**DO NOT** run this on the database of your production instance.  Restoring any data lost after this command has finished executing is only possible using a full database backup along with the associated Master Key.
-:::
+    :::div{.warning}
+    **DO NOT** run this on the database of your production instance.  Restoring any data lost after this command has finished executing is only possible using a full database backup along with the associated Master Key.
+    :::
 
-```powershell
-Set-Location "C:\Program Files\Octopus Deploy\Octopus"
+    ```powershell
+    Set-Location "C:\Program Files\Octopus Deploy\Octopus"
 
-.\Octopus.Server.exe lost-master-key --instance "Octopus" --iReallyWantToResetAllMySensitiveData --upgradeDatabase --scrubPii --iHaveBackedUpMyDatabase
-```
+    .\Octopus.Server.exe lost-master-key --instance "Octopus" --iReallyWantToResetAllMySensitiveData --upgradeDatabase --scrubPii --iHaveBackedUpMyDatabase
+    ```
 
 6. Create a new database backup.
 

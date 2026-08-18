@@ -8,9 +8,10 @@ navOrder: 10
 ---
 
 ## Token account
-Command: **_New-OctopusTokenAccount_**
 
-_**New-OctopusTokenAccount** allows you to create a Token account in Octopus from within a running deployment_
+Command: ***New-OctopusTokenAccount***
+
+***New-OctopusTokenAccount** allows you to create a Token account in Octopus from within a running deployment*
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -19,6 +20,7 @@ _**New-OctopusTokenAccount** allows you to create a Token account in Octopus fro
 | `-updateIfExisting`           | Will update an existing account with the same name, create if it doesn't exist                             |
 
 Example:
+
 ```powershell
 New-OctopusTokenAccount -name "My Token Account" `
                         -token "dea39b531ac84adcb291a44b205921af" `

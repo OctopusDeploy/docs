@@ -1,12 +1,13 @@
 import { SITE } from '/src/config';
 import { size } from '/src/data/image-size.mjs';
-import { h } from 'hastscript';
-import { visit } from 'unist-util-visit';
-import { fromSelector } from 'hast-util-from-selector';
+import { defineMdastPlugin } from 'satteri';
 import path from 'path';
 import fs from 'fs';
 
-/* Based on https://github.com/remarkjs/remark-directive
+/* Directive syntax is parsed by Sätteri itself, under `features.directive`.
+* The parser produces bare directive nodes with no HTML meaning of their own —
+* rendering them is what attributeMarkdown below is for.
+*
 * Examples:
 
 ## Inline
@@ -89,61 +90,56 @@ export function getImageInfo(src, className, sizes) {
   return info;
 }
 
-/** @type {import('unified').Plugin<[], import('mdast').Root>} */
-export function attributeMarkdown() {
-  return (tree) => {
-    visit(tree, (node) => {
-      if (
-        ['textDirective', 'leafDirective', 'containerDirective'].includes(
-          node.type
-        )
-      ) {
-        const data = node.data || (node.data = {});
-        const hast = h(node.name, node.attributes);
+// A directive's `name` is the tag to render and its `attributes` are already
+// parsed into plain properties (`{.hint}` arrives as `class: 'hint'`), so
+// hanging hName/hProperties off the node is all the conversion needs. Sätteri
+// drops null and undefined properties on the way out, which is what keeps an
+// image with no srcset from emitting an empty attribute.
+function directiveToHtml(node, ctx) {
+  const properties = { ...node.attributes };
 
-        if (hast.properties.src) {
-          // Process the image
-          const info = getImageInfo(
-            hast.properties.src,
-            hast.properties.class,
-            SITE.images.contentSize
-          );
+  if (properties.src) {
+    // Process the image
+    const info = getImageInfo(
+      properties.src,
+      properties.class,
+      SITE.images.contentSize
+    );
 
-          hast.properties.src = info.src;
-          hast.properties.srcset = info.srcset;
-          hast.properties.sizes = info.sizes;
-          hast.properties.class = info.class;
+    properties.src = info.src;
+    properties.srcset = info.srcset;
+    properties.sizes = info.sizes;
+    properties.class = info.class;
 
-          if (info.metadata) {
-            hast.properties.width = info.metadata.width;
-            hast.properties.height = info.metadata.height;
-          }
-        }
+    if (info.metadata) {
+      properties.width = info.metadata.width;
+      properties.height = info.metadata.height;
+    }
+  }
 
-        data.hName = hast.tagName;
-        data.hProperties = hast.properties;
-      }
-    });
-  };
+  ctx.setProperty(node, 'data', {
+    hName: node.name,
+    hProperties: properties,
+  });
 }
 
-/** @type {import('unified').Plugin<[], import('mdast').Root>} */
-export function wrapTables() {
-  return (tree) => {
-    visit(tree, (node, i, parent) => {
-      if (node.type == 'table') {
-        // Create the wrapping element
-        const wrap = fromSelector('div');
-        const data = wrap.data || (wrap.data = {});
-        const props = data.hProperties || (data.hProperties = {});
-        props.className = 'table-wrap';
+export const attributeMarkdown = defineMdastPlugin({
+  name: 'attribute-markdown',
+  textDirective: directiveToHtml,
+  leafDirective: directiveToHtml,
+  containerDirective: directiveToHtml,
+});
 
-        // Add the table to the wrapper
-        wrap.children = [node];
-
-        // Replace the table with the wrapper
-        parent.children[i] = wrap;
-      }
+export const wrapTables = defineMdastPlugin({
+  name: 'wrap-tables',
+  table(node, ctx) {
+    // wrapNode makes the table the wrapper's first child. The wrapper only
+    // exists to carry hName/hProperties, so the node type it is built from
+    // never reaches the output.
+    ctx.wrapNode(node, {
+      type: 'paragraph',
+      data: { hName: 'div', hProperties: { class: 'table-wrap' } },
+      children: [],
     });
-  };
-}
+  },
+});

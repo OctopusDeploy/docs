@@ -60,10 +60,10 @@ The variables that you define for your projects in Octopus can be scoped in the 
 
 Scoping the values of your variables lets you determine which values will be used in which situations. For example, suppose this variable exists:
 
-| Name | Value | Environment scope |
-| --- | --- | --- |
-| LogLevel | Info | |
-| LogLevel | Warn | Production, Staging |
+| Name     | Value | Environment scope   |
+| -------- | ----- | ------------------- |
+| LogLevel | Info  |                     |
+| LogLevel | Warn  | Production, Staging |
 
 During deployment, Octopus will try to select the most specifically scoped variable that applies. For example, when deploying to Production and Staging, the *LogLevel* value will be *Warn*, but to any other environment, it will fall back to the less-specific variable and have a value of *Info* instead.
 
@@ -81,17 +81,17 @@ You can scope the values of your variables in multiple ways. For instance, you m
 
 When the process runs, Octopus will use the scoped value for the Dev OR Test environments, AND the steps the value was scoped to.
 
-| Variable | Value | Scope |
-| -------- | ----- | ----- |
-| MyVariable | Scoped | Environment: Dev, Test; Steps: Step 1 |
-| MyVariable | unscoped | |
+| Variable   | Value    | Scope                                 |
+| ---------- | -------- | ------------------------------------- |
+| MyVariable | Scoped   | Environment: Dev, Test; Steps: Step 1 |
+| MyVariable | unscoped |                                       |
 
 With the above *MyVariable* variable, the scoped and unscoped values will be implemented as follows:
 
-| | Step 1 | Step 2 |
-| ---- | ---- | ---- |
-| Dev Environment | Scoped | Unscoped |
-| Test Environment | Scoped | Unscoped |
+|                   | Step 1   | Step 2   |
+| ----------------- | -------- | -------- |
+| Dev Environment   | Scoped   | Unscoped |
+| Test Environment  | Scoped   | Unscoped |
 | Stage Environment | Unscoped | Unscoped |
 
 ### Scope specificity \{#scope-specificity}
@@ -127,7 +127,7 @@ A couple scenarios that demonstrate the scoping precedence:
 **1. Scoped value provided by the project and the process template.**
 
 | Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
+| ---------------- | ------------ | ----------- | ----------- |
 | Process Template | AzureAccount | Account-123 | Development |
 | Project          | AzureAccount | Account-124 | Development |
 
@@ -136,7 +136,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 **2. Scoped value provided by the process template and an unscoped value provided by the project.**
 
 | Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
+| ---------------- | ------------ | ----------- | ----------- |
 | Process Template | AzureAccount | Account-123 | Development |
 | Project          | AzureAccount | Account-124 |             |
 
@@ -145,7 +145,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 **3. Scoped process template value and scoped project value for different environments.**
 
 | Origin           | Name         | Value       | Scope       |
-|------------------|--------------|-------------|-------------|
+| ---------------- | ------------ | ----------- | ----------- |
 | Process Template | AzureAccount | Account-123 | Development |
 | Project          | AzureAccount | Account-124 | Staging     |
 
@@ -171,8 +171,8 @@ Variables can also be scoped to specific [target tags](/docs/infrastructure/depl
 
 Let's say you have the following targets with their respective tags:
 
-| Target | Tag |
-| --- | --- |
+| Target   | Tag        |
+| -------- | ---------- |
 | Target 1 | app-server |
 | Target 2 | web-server |
 
@@ -207,19 +207,19 @@ If you are using the [Structured configuration variables](/docs/projects/steps/c
 
 Prefer using standard characters when naming variables. While it's technically possible to include almost any character, **variable names** with non-standard characters can only be accessed in limited ways - such as via the `$OctopusParameters` dictionary. Variable values can include any character.
 
-| Variable name | Value |
-| --- | --- |
-| `WontWork` | `#{Octopus.Action[StepA].Output.Foo!}` |
-| `Works` | `#{Octopus.Action[StepA].Output.Ba-r}` |
+| Variable name | Value                                  |
+| ------------- | -------------------------------------- |
+| `WontWork`    | `#{Octopus.Action[StepA].Output.Foo!}` |
+| `Works`       | `#{Octopus.Action[StepA].Output.Ba-r}` |
 
-#### Step A
+**Step A**
 
 ```ps
 Set-OctopusVariable -name "Foo!" -value "FooValue"
 Set-OctopusVariable -name "Ba-r" -value "BarValue"
 ```
 
-#### Step B
+**Step B**
 
 ```ps
 $OctopusParameters["Works"]                             # Returns: BarValue
@@ -238,7 +238,7 @@ Variables sometimes naturally fit into groups, and often you'll find multiple ap
 We recommend namespacing your variables to make identifying their use clearer.  Examples of how this can work are:
 
 - A project-level variable that holds the value for a SQL Server user's password could be `Project.SQL.Password`.  Then you can have `Project.SQL.Username`.  This adds clarity to the variable's value and has the added advantage that the variables will show next to each other in the list of variables.
-- If you are using [Variable Sets](/docs/projects/variables/library-variable-sets), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.
+- If you are using [Variable Sets](/docs/projects/variables/library-variable-sets), use the set name as the first part of the variable name.  A variable that holds an RSS feed URL in the set **Global** can be named `Global.RSSFeed.Url`.  
 
 ### Keep variable numbers low
 

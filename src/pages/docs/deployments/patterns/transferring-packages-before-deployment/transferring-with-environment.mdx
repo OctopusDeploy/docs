@@ -16,7 +16,7 @@ In this example, I've configured an [environment](/docs/infrastructure/environme
 You will need to ensure that the same targets are in the `Transfer` and `Production` environments.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/lifecycle-with-transfer-environment.png)
+![A lifecycle with a Transfer environment before Production](/docs/img/deployments/patterns/transferring-packages-before-deployment/lifecycle-with-transfer-environment.png)
 :::
 
 ## Process changes
@@ -30,7 +30,7 @@ It is very important that you make sure no other steps run in the `Transfer` env
 :::
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/process-with-transfer-environment.png)
+![A deployment process with transfer steps scoped to the Transfer environment](/docs/img/deployments/patterns/transferring-packages-before-deployment/process-with-transfer-environment.png)
 :::
 
 ## Creating the release
@@ -38,7 +38,7 @@ It is very important that you make sure no other steps run in the `Transfer` env
 You'll now choose versions for the packages used by the transfer steps when the release is created. These packages should use the same versions as the packages in the corresponding deploy steps.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/creating-the-release.png)
+![Choosing package versions for the transfer steps when creating the release](/docs/img/deployments/patterns/transferring-packages-before-deployment/creating-the-release.png)
 :::
 
 ## Acquisition logs from Transfer phase
@@ -46,7 +46,7 @@ You'll now choose versions for the packages used by the transfer steps when the 
 We can see that the packages were uploaded to the targets when deploying the release to the `Transfer` phase.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-phase.png)
+![Acquisition logs showing packages uploaded during the Transfer phase](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-phase.png)
 :::
 
 ## Acquisition logs from Production phase
@@ -54,7 +54,7 @@ We can see that the packages were uploaded to the targets when deploying the rel
 We can see that the packages were found in the cache and not uploaded when deploying the release to the `Production` phase.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-production-phase.png)
+![Acquisition logs showing packages found in the cache during the Production phase](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-production-phase.png)
 :::
 
 ## Benefits of this approach

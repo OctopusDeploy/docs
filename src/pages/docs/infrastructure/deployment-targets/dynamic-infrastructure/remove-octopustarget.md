@@ -8,13 +8,15 @@ navOrder: 60
 ---
 
 ## Delete target
-Command: **_Remove-OctopusTarget_**
+
+Command: ***Remove-OctopusTarget***
 
 | Parameter         | Value                                  |
 | ----------------- | -------------------------------------- |
 | `-targetIdOrName` | The Name or Id of the target to delete |
 
 Example:
+
 ```powershell
 Remove-OctopusTarget -targetIdOrName "My Azure Web Application"
 ```

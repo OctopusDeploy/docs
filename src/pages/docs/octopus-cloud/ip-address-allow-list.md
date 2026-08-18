@@ -52,7 +52,6 @@ If you need to access your Octopus Cloud instance from a dynamic worker, conside
 
 If you're using Octopus Cloud and would like to combine an IP address allow list with a dynamic worker that initiates communication with your instance, please let us know by leaving a comment on our public [roadmap card](https://roadmap.octopus.com/c/189-higher-resourced-more-secure-dynamic-workers-for-octopus-cloud).
 
-
 ## Azure Private Links
 
 Customers with Azure Private Link access to their Octopus Cloud can have IP address allow list enabled with zero public IP addresses allowed by contacting [our support team](mailto:support@octopus.com). The combination of Azure Private Links and IP address allow list allows customers to achieve the highest standard of privacy available for Octopus Cloud.

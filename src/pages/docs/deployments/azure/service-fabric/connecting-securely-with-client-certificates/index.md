@@ -28,13 +28,13 @@ $ClusterConnectionParameters["FindValue"] = $OctopusFabricClientCertThumbprint
 
 These PowerShell variables correspond to the following Octopus variables:
 
-| PowerShell Variable                    | Octopus Variable                                       |
-| -------------------------------------- | ------------------------------------------------------ |
-| $OctopusFabricCertificateFindType      | Octopus.Action.ServiceFabric.CertificateFindType       |
-| $OctopusFabricCertificateStoreLocation | Octopus.Action.ServiceFabric.CertificateStoreLocation  |
-| $OctopusFabricCertificateStoreName     | Octopus.Action.ServiceFabric.CertificateStoreName      |
-| $OctopusFabricClientCertThumbprint     | Octopus.Action.ServiceFabric.ClientCertThumbprint      |
-| $OctopusFabricServerCertThumbprint     | Octopus.Action.ServiceFabric.ServerCertThumbprint      |
+| PowerShell Variable                    | Octopus Variable                                      |
+| -------------------------------------- | ----------------------------------------------------- |
+| $OctopusFabricCertificateFindType      | Octopus.Action.ServiceFabric.CertificateFindType      |
+| $OctopusFabricCertificateStoreLocation | Octopus.Action.ServiceFabric.CertificateStoreLocation |
+| $OctopusFabricCertificateStoreName     | Octopus.Action.ServiceFabric.CertificateStoreName     |
+| $OctopusFabricClientCertThumbprint     | Octopus.Action.ServiceFabric.ClientCertThumbprint     |
+| $OctopusFabricServerCertThumbprint     | Octopus.Action.ServiceFabric.ServerCertThumbprint     |
 
 It is these values and variables that we will be discussing below.
 
@@ -77,12 +77,12 @@ By default, the Service Fabric steps assume the certificate store location is `L
 
 To override certificate settings used when connecting to Service Fabric, the following variables are available:
 
-| Variable                                                  | Default          | Description                              |
-| --------------------------------------------------------- | ---------------- | ---------------------------------------- |
-| Octopus.Action.ServiceFabric.CertificateStoreLocation     | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment (see the `StoreLocation` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster))|
-| Octopus.Action.ServiceFabric.CertificateStoreName         | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment (see the `StoreName` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
-| Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
-| Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
+| Variable                                                  | Default          | Description                                                                                                                                                                                                                                                                                                                    |
+| --------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Octopus.Action.ServiceFabric.CertificateStoreLocation     | LocalMachine     | The store location that Octopus will pass as the 'StoreLocation' argument of the Service Fabric connection properties during a deployment (see the `StoreLocation` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster)) |
+| Octopus.Action.ServiceFabric.CertificateStoreName         | MY               | The store name that Octopus will pass as the 'StoreName' argument of the Service Fabric connection properties during a deployment (see the `StoreName` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster))             |
+| Octopus.Action.ServiceFabric.CertificateFindType          | FindByThumbprint | The type of FindValue for searching certificates in the Azure certificate store (see the `FindType` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster))                                                                |
+| Octopus.Action.ServiceFabric.CertificateFindValueOverride |                  | The FindValue for searching certificates in the Azure certificate store (see the `FindValue` section of the [Connect-ServiceFabricCluster documentation](https://docs.microsoft.com/en-us/powershell/module/servicefabric/connect-servicefabriccluster))                                                                       |
 
 You do not need to override these variables by default. However, they *are* available if you require more flexibility over the default client certificate connection parameters.
 
@@ -101,7 +101,7 @@ The client certificate should now be setup for your Octopus Server machine to co
 In Octopus, Service Fabric deployment steps that use "Client Certificate" as the security mode will need you to enter the Server Certificate thumbprint and select the Client Certificate variable.
 
 :::figure
-![](/docs/img/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png)
+![A Service Fabric step using Client Certificate as the security mode](/docs/img/deployments/azure/service-fabric/connecting-securely-with-client-certificates/secure-client-certs-template-b.png)
 :::
 
 ## Connection troubleshooting

@@ -39,9 +39,11 @@ And Management Certificate accounts as below:
 Once you have entered the environment name and endpoint values you should **Save and Test** the account.
 
 ## Step templates
+
 Whenever you are using an Azure step template, once you've selected an account its settings will be used to determine the endpoints for all API operations.  So lists like Resource Groups and Web Apps will be loaded using the endpoints defined by the Account.
 
 ## Calamari and deployments
+
 When a deployment executes, the values for the environment and endpoints will be passed to Calamari if they have been overridden (i.e. they aren't blank).  You will be able to see the values if you have [OctopusPrintVariables set to true](/docs/support/debug-problems-with-octopus-variables/#write-variables-to-deployment-log) and Calamari will also always log an information message to tell you if it's using overridden values and what they are.
 
 ## Learn more

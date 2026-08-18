@@ -1,31 +1,26 @@
 ---
-import { Translations, Lang } from '@util/Languages';
 import { SITE } from '@config';
 
 type Props = {
   lang?: string;
 };
 
-const { lang = SITE.default.lang } = Astro.props satisfies Props;
+// Kept so the nav can keep passing `lang` through; the field itself has no
+// translated copy left now that the results live in the overlay.
+const {} = Astro.props satisfies Props;
 
-const _ = Lang(lang);
 const siteUrl = Astro.site ? Astro.site.href : '';
 ---
 
-<div
-  class="site-search__wrapper top-nav-search"
-  data-site-search-wrapper
-  data-top-nav-search
->
-  <div class="site-search__overlay"></div>
+<div class="site-search__wrapper top-nav-search" data-top-nav-search>
+  <!-- Still a form that GETs a web search: with scripting off this is the whole
+       search experience, and it is what the overlay progressively enhances. -->
   <form
     method="GET"
     action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
     role="search"
     class="site-search top-nav-search__field"
     autocomplete="off"
-    data-sourcedata={SITE.subfolder + '/search.json'}
-    data-site-search
   >
     <fieldset class="top-nav-search__fieldset">
       <input
@@ -38,90 +33,28 @@ const siteUrl = Astro.site ? Astro.site.href : '';
         type="text"
         name={SITE.search.fallbackSite ?? 'q'}
         class="site-search-query top-nav-search__input"
-        placeholder="Ask a question or search the docs…"
-        aria-label="Ask a question or search the docs"
+        placeholder="Search the docs…"
+        aria-label="Search the docs"
         spellcheck="true"
         autocomplete="off"
-        data-site-search-query
+        data-docs-search-trigger
       />
-      <kbd class="top-nav-search__shortcut" aria-hidden="true">^K</kbd>
-      <button
-        class="site-search__remove-btn top-nav-search__clear"
-        type="button"
-        aria-label="Clear search"
-        data-site-search-remove
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-          viewBox="0 0 11 11"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            d="M7.585 5.5L10.7122 2.37281C11.0959 1.98906 11.0959 1.36687 10.7122 0.982812L10.0172 0.287813C9.63344 -0.0959375 9.01125 -0.0959375 8.62719 0.287813L5.5 3.415L2.37281 0.287813C1.98906 -0.0959375 1.36688 -0.0959375 0.982813 0.287813L0.287813 0.982812C-0.0959375 1.36656 -0.0959375 1.98875 0.287813 2.37281L3.415 5.5L0.287813 8.62719C-0.0959375 9.01094 -0.0959375 9.63312 0.287813 10.0172L0.982813 10.7122C1.36656 11.0959 1.98906 11.0959 2.37281 10.7122L5.5 7.585L8.62719 10.7122C9.01094 11.0959 9.63344 11.0959 10.0172 10.7122L10.7122 10.0172C11.0959 9.63344 11.0959 9.01125 10.7122 8.62719L7.585 5.5Z"
-          ></path>
-        </svg>
-      </button>
+      <kbd class="top-nav-search__shortcut" aria-hidden="true">Ctrl+K</kbd>
     </fieldset>
   </form>
-  <div
-    class="site-search-results"
-    data-title={_(Translations.search.results_title)}
-    data-emptytitle={_(Translations.search.no_results_title)}
-    data-site-search-results
-  >
-  </div>
 </div>
 
 <script is:inline>
   {
-    const search = document.querySelector('[data-top-nav-search]');
-    if (search) {
-      const wiring = [
-        'data-site-search-wrapper',
-        'data-site-search',
-        'data-site-search-query',
-        'data-site-search-results',
-        'data-site-search-remove',
-      ];
-
-      // If the old header is being used, deactivate the (hidden) new header's search functionality
-      // by removing the relevant data attributes, letting it fall back to the old header.
-      if (document.documentElement.dataset.nav !== 'new') {
-        for (const attribute of wiring) {
-          search.removeAttribute(attribute);
-          for (const element of search.querySelectorAll(`[${attribute}]`)) {
-            element.removeAttribute(attribute);
-          }
-        }
-      } else {
-        const input = search.querySelector('[data-site-search-query]');
-        const shortcut = search.querySelector('.top-nav-search__shortcut');
-
-        // Bind Ctrl+K to focus the search on most platforms, Cmd+K on macOS
-        const isApple = navigator.userAgentData
-          ? navigator.userAgentData.platform === 'macOS'
-          : (navigator.platform || navigator.userAgent).includes('Mac');
-        if (shortcut && isApple) shortcut.textContent = '⌘K';
-
-        document.addEventListener('keydown', function (e) {
-          if (
-            (isApple ? e.metaKey : e.ctrlKey) &&
-            e.key.toLowerCase() === 'k'
-          ) {
-            e.preventDefault();
-            input.focus();
-          }
-        });
-      }
-    }
+    // The chord itself is bound in docs-search.ts; this only labels the key cap
+    // for the platform, and has to run before paint to avoid showing `^K` to a
+    // Mac user first.
+    const shortcut = document.querySelector('.top-nav-search__shortcut');
+    const isApple = navigator.userAgentData
+      ? navigator.userAgentData.platform === 'macOS'
+      : (navigator.platform || navigator.userAgent).includes('Mac');
+    if (shortcut && isApple) shortcut.textContent = '⌘K';
   }
-</script>
-
-<script>
-  import '../scripts/search.js';
 </script>
 
 <style>
@@ -135,6 +68,7 @@ const siteUrl = Astro.site ? Astro.site.href : '';
   .top-nav-search__field.site-search {
     box-sizing: border-box;
     height: auto;
+    overflow: hidden;
     border: var(--borderWidth1) solid var(--colorBorderPrimary);
     border-radius: var(--borderRadiusSmall);
     background: var(--colorBackgroundPrimaryDefault);
@@ -166,7 +100,7 @@ const siteUrl = Astro.site ? Astro.site.href : '';
     width: 1.25rem;
     height: 1.25rem;
     background-color: var(--colorIconSecondary);
-    mask: url('../assets/icons/sparkles.svg') center / contain no-repeat;
+    mask: url('../assets/icons/magnifying-glass.svg') center / contain no-repeat;
     transition: background-color var(--theme-transition-duration) ease-in-out;
   }
 
@@ -208,33 +142,10 @@ const siteUrl = Astro.site ? Astro.site.href : '';
     white-space: nowrap;
   }
 
-  .top-nav-search__clear.site-search__remove-btn {
-    flex-shrink: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--colorIconSecondary);
+  /* The field opens the overlay rather than accepting text, so it reads as the
+     control it is. The caret is suppressed for the same reason. */
+  .top-nav-search__input.site-search-query {
     cursor: pointer;
-  }
-
-  .site-search.is-active .top-nav-search__shortcut {
-    display: none;
-  }
-
-  .site-search.is-active .top-nav-search__clear.site-search__remove-btn {
-    display: inline-flex;
-    visibility: visible;
-  }
-
-  .top-nav-search .site-search-results {
-    top: 100%;
-  }
-
-  .top-nav-search .site-search.is-active + .site-search-results {
-    transform: translateY(var(--space8)) scaleY(1);
+    caret-color: transparent;
   }
 </style>

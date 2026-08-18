@@ -120,12 +120,15 @@ Deployment strategies are not applicable to Kubernetes `Job` resources.
 :::
 
 ### Recreate deployment strategy
+
 The first native deployment strategy is the [Recreate](https://oc.to/KubernetesRecreateStrategy) deployment. This strategy will kill all existing Pod resources before new Pod resources are created. This means that only one Pod resource version is exposed at any time. This can result in downtime before the new Pod resources are fully deployed.
 
 ### Rolling update deployment strategy
+
 The second native deployment strategy is the [Rolling Update](https://oc.to/KubernetesRollingStrategy) deployment. This strategy will incrementally replace old Pod resources with new ones. This means that two Pod resource versions can be deployed and accessible at the same time but can be performed in a way that results in no downtime.
 
 ### Blue/Green deployment strategy {#blue-green-deployment-strategy}
+
 The third deployment strategy, Blue/Green, is not a native concept in Kubernetes. It is a deployment strategy that is achieved by the `Configure and apply Kubernetes resources` step because it creates and coordinates both the Deployment resource and the Service resources.
 
 The Blue/Green deployment strategy involves four phases.
@@ -199,12 +202,11 @@ The choice of which deployment strategy to use is influenced by a number of fact
 3. Can multiple versions of the Deployment resource accept traffic at the same time? This may not be possible if APIs have changed in ways that are not backward compatible.
 4. Do the containers resources reference other resources that can not be shared? Container resources may reference resources like volume claims that can not be mounted in multiple containers.
 
-
-| Strategy   | No Downtime  | Multiple Deployed Versions  | Multiple Accessible Versions | Require Shared Resources |
-|-|-|-|-| - |
-| Recreate   |   |   |  | |
-| Rolling Update   | *  | *  | * | * |
-| Blue/Green   | *  | *  |   | * |
+| Strategy       | No Downtime | Multiple Deployed Versions | Multiple Accessible Versions | Require Shared Resources |
+| -------------- | ----------- | -------------------------- | ---------------------------- | ------------------------ |
+| Recreate       |             |                            |                              |                          |
+| Rolling Update | *           | *                          | *                            | *                        |
+| Blue/Green     | *           | *                          |                              | *                        |
 
 #### Wait for deployment to succeed
 
@@ -292,9 +294,9 @@ If this Volume resource is mounted by a container under the directory `/data`, t
 
 The [Empty Dir Volume resource](https://oc.to/KubernetesEmptyDirVolume) is used to create volume that is initially empty. The volume can be shared between containers. Some uses for an Empty Dir Volume resource are:
 
-* Scratch space, such as for a disk-based merge sort.
-* Check-pointing a long computation for recovery from crashes.
-* Holding files that a content-manager Container fetches while a web server Container serves the data.
+- Scratch space, such as for a disk-based merge sort.
+- Check-pointing a long computation for recovery from crashes.
+- Holding files that a content-manager Container fetches while a web server Container serves the data.
 
 By default, Empty Dir Volumes resources are stored on whatever medium is backing the node. Setting the `Medium` field to `Memory` will create the volume in a tmpfs, or RAM-backed filesystem.
 
@@ -304,24 +306,24 @@ The [Host path volume resource](https://oc.to/KubernetesHostPathVolume) mounts a
 
 For example, some uses for a Host Path Volume resource are:
 
-* Running a Container that needs access to Docker internals; use a hostPath of `/var/lib/docker`.
-* Running cAdvisor in a Container; use a hostPath of `/sys`.
-* Allowing a Pod to specify whether a given hostPath should exist prior to the Pod running, whether it should be created, and what it should exist as.
+- Running a Container that needs access to Docker internals; use a hostPath of `/var/lib/docker`.
+- Running cAdvisor in a Container; use a hostPath of `/sys`.
+- Allowing a Pod to specify whether a given hostPath should exist prior to the Pod running, whether it should be created, and what it should exist as.
 
 The `Path` field is required and is set to the file or directory on the node's host filesystem that is to be exposed to the container.
 
 The `Type` field is optional and has the supported values:
 
-|Value | 	Behavior |
-|-|-|
-| | Empty string (default) is for backward compatibility, which means that no checks will be performed before mounting the hostPath volume.|
-|DirectoryOrCreate| 	If nothing exists at the given path, an empty directory will be created there as needed with permission set to 0755, having the same group and ownership with Kubelet.|
-|Directory |	A directory must exist at the given path|
-|FileOrCreate |	If nothing exists at the given path, an empty file will be created there as needed with permission set to 0644, having the same group and ownership with Kubelet.|
-|File |	A file must exist at the given path|
-|Socket| 	A UNIX socket must exist at the given path|
-|CharDevice| 	A character device must exist at the given path|
-|BlockDevice| 	A block device must exist at the given path|
+| Value             | Behavior                                                                                                                                                               |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                   | Empty string (default) is for backward compatibility, which means that no checks will be performed before mounting the hostPath volume.                                |
+| DirectoryOrCreate | If nothing exists at the given path, an empty directory will be created there as needed with permission set to 0755, having the same group and ownership with Kubelet. |
+| Directory         | A directory must exist at the given path                                                                                                                               |
+| FileOrCreate      | If nothing exists at the given path, an empty file will be created there as needed with permission set to 0644, having the same group and ownership with Kubelet.      |
+| File              | A file must exist at the given path                                                                                                                                    |
+| Socket            | A UNIX socket must exist at the given path                                                                                                                             |
+| CharDevice        | A character device must exist at the given path                                                                                                                        |
+| BlockDevice       | A block device must exist at the given path                                                                                                                            |
 
 #### Persistent volume claim
 
@@ -410,12 +412,12 @@ The `Protocol` is optional and will default to `TCP`.
 #### Image pull policy
 
 The image pull policy and the tag of the image affect when the kubelet attempts to pull the specified image.
-* `If Not Present`: the image is pulled only if it is not already present locally.
-* `Always`: the image is pulled every time the pod is started.
-* `Default` and either the image tag is `latest` or it is omitted: Always is applied.
-* `Default` and the image tag is present but not `latest`: If Not Present is applied.
-* `Never`: the image is assumed to exist locally. No attempt is made to pull the image.
 
+- `If Not Present`: the image is pulled only if it is not already present locally.
+- `Always`: the image is pulled every time the pod is started.
+- `Default` and either the image tag is `latest` or it is omitted: Always is applied.
+- `Default` and the image tag is present but not `latest`: If Not Present is applied.
+- `Never`: the image is assumed to exist locally. No attempt is made to pull the image.
 
 #### Container type
 
@@ -435,10 +437,10 @@ The resource limits allow a Container resource to burst up to the defined limits
 
 The `CPU Request` field defines the minimum CPU resources that the Container resource requires. The value is measured in [CPU units](https://oc.to/KubernetesCpuUnits). One CPU, in Kubernetes, is equivalent to:
 
-* 1 AWS vCPU
-* 1 GCP Core
-* 1 Azure vCore
-* 1 Hyperthread on a bare-metal Intel processor with Hyperthreading
+- 1 AWS vCPU
+- 1 GCP Core
+- 1 Azure vCore
+- 1 Hyperthread on a bare-metal Intel processor with Hyperthreading
 
 Fractional values are allowed. A Container that requests `0.5` cpu is guaranteed half as much CPU as a Container that requests `1` cpu. You can use the suffix `m` to mean milli. For example `100m` cpu, and `0.1` cpu are all the same. Precision finer than `1m` is not allowed.
 
@@ -446,10 +448,10 @@ The `CPU Limit` field defines the maximum amount of CPU resources that the Conta
 
 The `Memory Request` field defines the minimum amount of memory that the Container resource requires. The memory resource is [measured in bytes](https://oc.to/KubernetesMemoryResourceUnits). You can express memory as a plain integer or a fixed-point integer with one of these suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, the following represent approximately the same value:
 
-* 128974848
-* 129e6
-* 129M
-* 123Mi
+- 128974848
+- 129e6
+- 129M
+- 123Mi
 
 The `Memory Limit` field defines the maximum amount of memory that can be consumed by the Container resource.
 
@@ -471,7 +473,7 @@ The `Mount Path` is the path in the Container resource file system where the Vol
 
 The `Sub Path` field is optional, and can be used to mount a subdirectory exposed by the Volume resource. This is useful when a single Volume resource is shared between multiple Container resources, because it allows each Container resource to mount only the subdirectory it requires. For example, Volume resource may expose a directory structure like:
 
-```
+```text
  - webserver
    - content
  - database
@@ -484,7 +486,7 @@ The `Read Only` field defines if the Volume resource is mounted in read only mod
 :::div{.hint}
 Some Volume resources like ConfigMap and Secret are always mounted in read only mode, regardless of the setting in the `Read Only` field.
 
-See https://github.com/kubernetes/kubernetes/issues/62099 for more details.
+See <https://github.com/kubernetes/kubernetes/issues/62099> for more details.
 :::
 
 #### Liveness probe
@@ -501,20 +503,21 @@ The `Period` defines how frequently in seconds the probe is executed. The defaul
 
 The `Liveness probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
 
-* `Command`, newline-separated commands which are executed inside the container. If the return value is `0`, it is considered to be healthy.
-* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
-* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+- `Command`, newline-separated commands which are executed inside the container. If the return value is `0`, it is considered to be healthy.
+- `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+- `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
 
-#### Command
+##### Command
 
 The command probe type has one field, `Health check commands` that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
-```
+
+```text
 /opt/healthcheck
 my_service
 an argument with a space
 ```
 
-#### Http
+##### Http
 
 The Http probe type has five fields.
 
@@ -528,7 +531,7 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
-#### TCP socket
+##### TCP socket
 
 The TCP Socket probe type has two fields.
 
@@ -556,20 +559,21 @@ The `Period` defines how frequently in seconds the probe is executed. The defaul
 
 The `Liveness probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
 
-* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
-* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
-* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+- `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+- `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+- `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
 
-#### Command
+##### Command
 
 The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
-```
+
+```text
 /opt/healthcheck
 my_service
 an argument with a space
 ```
 
-#### Http
+##### Http
 
 The Http probe type has five fields.
 
@@ -583,38 +587,13 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
-#### TCP socket
+##### TCP socket
 
 The TCP socket probe type has two fields.
 
 The `Host` field defines the host to connect to. If not defined, this value will default to the IP address of the Pod resource.
 
 The `Port` field defines the port that is requested. This value can be a number, like `80`, or a [IANA](https://oc.to/IANA) port name.
-
-#### Command
-
-The [command and arguments](https://oc.to/KubernetesCommand) that are executed when a Container resource is launched can be defined or overridden in the `Command` section.
-
-This section has two fields: `Command` and `Command arguments`. Each plays a slightly different role relating to how Docker images define the command that is used to launch the container.
-
-Docker images can define an [ENTRYPOINT](https://oc.to/DockerEntrypoint), a [CMD](https://docs.docker.com/reference/dockerfile/#cmd), or both.
-
-When both are defined, the CMD value is passed to the ENTRYPOINT. So if CMD is set to `["hello", "world"]` and ENTRYPOINT is set to `["print"]`, the resulting command would be `print hello world`.
-
-If the `Command` field is specified, it will override the value of the Docker image `ENTRYPOINT`. So if the `Command` was set to `echo`, the resulting command would be `echo hello world`.
-
-If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
-
-Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/my_app my_service "an argument with a space"`, you would enter the following text into the `Command` field:
-```
-/opt/my_app
-```
-
-And the following into the `Command arguments` field:
-```
-my_service
-an argument with a space
-```
 
 #### Startup probe
 
@@ -636,20 +615,21 @@ The `Period` defines how frequently in seconds the probe is executed. The defaul
 
 The `Startup probe type` defines the type of probe that is used to conduct the health check. Kubernetes supports three types of probes:
 
-* `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
-* `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
-* `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
+- `Command`, which will execute a command inside the container. If the command returns `0`, it is considered to be healthy.
+- `Http`, which will execute a HTTP GET operation against a URL. If the request returns a status code between 200 and 399 inclusive it is considered healthy.
+- `TCP Socket`, which will attempt to establish a connection against a TCP socket. If the connection can be established, it is considered healthy.
 
-#### Command
+##### Command
 
 The command probe type has one field, `Health check commands`, that accepts a line break separated list of arguments. For example, if you want to run the command `/opt/healthcheck my_service "an argument with a space"`, you would enter the following text into the `Health check commands` field:
-```
+
+```text
 /opt/healthcheck
 my_service
 an argument with a space
 ```
 
-#### Http
+##### Http
 
 The Http probe type has five fields.
 
@@ -663,7 +643,7 @@ The `Port` field defines the port that is requested. This value can be a number,
 
 Additional HTTP headers can be defined by clicking the `Add HTTP Header` button. The `Name` is the HTTP header name, and the `Value` is the header value.
 
-#### TCP socket
+##### TCP socket
 
 The TCP socket probe type has two fields.
 
@@ -686,12 +666,14 @@ If the `Command` field is specified, it will override the value of the Docker im
 If the `Command arguments` field is specified, it will override the Docker image `CMD`. So if the `Command arguments` was set to `hello Octopus` then the resulting command would be `print hello Octopus`.
 
 Each of these fields accepts multiple arguments separated by line breaks. For example, if you want to run the command `/opt/my_app my_service "an argument with a space"`, you would enter the following text into the `Command` field:
-```
+
+```text
 /opt/my_app
 ```
 
 And the following into the `Command arguments` field:
-```
+
+```text
 my_service
 an argument with a space
 ```
@@ -719,7 +701,7 @@ The `Pod Annotations` section defines the annotations that are added to the Depl
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/img/deployments/kubernetes/deploy-container/pod-annotations.png)
+![Pod annotations defined on a Kubernetes step](/docs/img/deployments/kubernetes/deploy-container/pod-annotations.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -777,7 +759,7 @@ spec:
 When this Deployment resource is deployed to a Kubernetes cluster, it will create a Pod resource with that annotation defined. In the screenshot below you can see the YAML representation of the Pod resource created by the Deployment resource has the same annotations.
 
 :::figure
-![](/docs/img/deployments/kubernetes/deploy-container/pod-annotation-deployed.png)
+![The YAML of a Pod resource created with the annotation applied](/docs/img/deployments/kubernetes/deploy-container/pod-annotation-deployed.png)
 :::
 
 #### Deployment annotations
@@ -787,7 +769,7 @@ The `Deployment Annotations` section defines the annotations that are added to t
 For example, consider the `Pod Annotations` defined in the screenshot below.
 
 :::figure
-![](/docs/img/deployments/kubernetes/deploy-container/deployment-annotation.png)
+![Deployment annotations defined on a Kubernetes step](/docs/img/deployments/kubernetes/deploy-container/deployment-annotation.png)
 :::
 
 This will result in a Deployment resource YAML file something like this following.
@@ -913,6 +895,7 @@ To deploy resources that are not bound to the lifecycle of the Deployment resour
 The `Service` feature creates a Service resource that directs traffic to the Pod resources configured by the `Deployment` section. Although the Deployment and Service resources are separate objects in Kubernetes, they are treated as a single deployment by the `Deploy Kubernetes Container` step, resulting in the Service resource always directing traffic to the Pod resources created by the associated Deployment resource.
 
 #### Service name
+
 Each Service resource requires a unique name, defined in the `Name` field.
 
 The Service resource name is not affected by the deployment strategy.
@@ -920,11 +903,13 @@ The Service resource name is not affected by the deployment strategy.
 #### Service type
 
 A Service resource can be one of three different types:
-* Cluster IP
-* Node Port
-* Load Balancer
+
+- Cluster IP
+- Node Port
+- Load Balancer
 
 #### Cluster IP
+
 A Cluster IP Service resource provides a private IP address that applications deployed within the Kubernetes cluster can use to access other Pod resources.
 
 :::figure
@@ -932,6 +917,7 @@ A Cluster IP Service resource provides a private IP address that applications de
 :::
 
 #### Node port
+
 A Node Port Service resource provides the same internal IP address that a Cluster IP Service resource does. In addition, it creates a port on each Kubernetes node that directs traffic to the Service resource. This makes the service accessible from any node, and if the nodes have public IP addresses then the Node Port Service resource is also publicly accessible.
 
 :::figure
@@ -939,6 +925,7 @@ A Node Port Service resource provides the same internal IP address that a Cluste
 :::
 
 #### Load balancer
+
 A Load Balancer Service resource provides the same Cluster IP and Node Ports that the other two service resources provide. In addition, it will create a cloud load balancer that directs traffic to the node ports.
 
 The particular load balancer that is created depends on the environment in which the LoadBalancer Service resource is created. In AWS, an ELB or ALB can be created. Azure or Google Cloud will create their respective load balancers.
@@ -1015,9 +1002,9 @@ On the other hand, the [NGINX Ingress Controller resource installation procedure
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
-* [NGINX](https://oc.to/NginxIngressControllerAnnotations)
-* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
-* [AWS](https://oc.to/AwsAlbAnnotations)
+- [NGINX](https://oc.to/NginxIngressControllerAnnotations)
+- [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+- [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.
 
@@ -1042,12 +1029,14 @@ Like the Custom Resource feature, the ConfigMap and Secret features achieve this
 By default, the ConfigMap and Secret resources created by this step have unique names generated by appending the ID of the deployment. For example, a ConfigMap may be defined in the step with the name of `my-app-settings`, and it will be created in the Kubernetes cluster with the name of `my-app-setting-deployment-1234`, where `deployment-1234` is the ID of the Octopus deployment as a lower case string.
 
 The templates used to generate these names can be defined with the following variables:
-* `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate`
-* `Octopus.Action.KubernetesContainers.SecretNameTemplate`
+
+- `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate`
+- `Octopus.Action.KubernetesContainers.SecretNameTemplate`
 
 The values assigned to these variables will then be used to generate the names of the ConfigMap and Secret resources created by the step. By default, these are the templates that are used to generate the unique names:
-* `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{Octopus.Deployment.Id | ToLower}`
-* `#{Octopus.Action.KubernetesContainers.SecretName}-#{Octopus.Deployment.Id | ToLower}`
+
+- `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{Octopus.Deployment.Id | ToLower}`
+- `#{Octopus.Action.KubernetesContainers.SecretName}-#{Octopus.Deployment.Id | ToLower}`
 
 For example, to change the name assigned to the ConfigMap resource to include the time of deployment instead of the deployment ID, you can set the `Octopus.Action.KubernetesContainers.ConfigMapNameTemplate` variable to `#{Octopus.Action.KubernetesContainers.ConfigMapName}-#{ | NowDate "HH-mm-ss-dd-MMM-yyyy" | ToLower}`
 
@@ -1061,4 +1050,5 @@ For example, to change the name assigned to the ConfigMap resource to include th
 **2024.1:**
 
 - `Deploy Kubernetes containers` was renamed to `Configure and apply Kubernetes resources`.
+
 :::

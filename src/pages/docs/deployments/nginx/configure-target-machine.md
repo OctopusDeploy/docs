@@ -21,6 +21,7 @@ The best and most up-to-date guide to installing .NET will continue to be on the
 :::
 
 ### Register Microsoft key and feed
+
 Before installing .NET, you'll need to register the Microsoft key, register the product repository, and install required dependencies. This only needs to be done once per machine.
 
 Open a command prompt and run the following commands:
@@ -49,22 +50,22 @@ sudo apt-get install aspnetcore-runtime-2.1
 The best and most up-to-date guide to installing NGINX will continue to be on the [NGINX website](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/). More detailed instructions can be found on their website which may change in future versions so check their documentation out for more info.
 :::
 
-### Download the key used to sign NGINX packages and the repository, and add it to the `apt` program's key ring:
+### Download the key used to sign NGINX packages and the repository, and add it to the `apt` program's key ring
 
 ```bash
-$ sudo wget https://nginx.org/keys/nginx_signing.key
-$ sudo apt-key add nginx_signing.key
+sudo wget https://nginx.org/keys/nginx_signing.key
+sudo apt-key add nginx_signing.key
 ```
 
-### Edit the **/etc/apt/sources.list** file, for example with `vi`:
+### Edit the **/etc/apt/sources.list** file, for example with `vi`
 
 ```bash
-$ sudo vi /etc/apt/sources.list
+sudo vi /etc/apt/sources.list
 ```
 
-### Add these lines **sources.list** to name the repositories from which the NGINX Open Source source can be obtained:
+### Add these lines **sources.list** to name the repositories from which the NGINX Open Source source can be obtained
 
-```
+```text
 deb https://nginx.org/packages/mainline/ubuntu/ <CODENAME> nginx
 deb-src https://nginx.org/packages/mainline/ubuntu/ <CODENAME> nginx
 ```
@@ -82,21 +83,21 @@ deb-src https://nginx.org/packages/mainline/ubuntu/ xenial nginx
 
 Save the changes and quit `vi` (press **ESC** and type `wq` at the `:` prompt).
 
-### Install NGINX open source:
+### Install NGINX open source
 
 ```bash
-$ sudo apt-get remove nginx-common
-$ sudo apt-get update
-$ sudo apt-get install nginx
+sudo apt-get remove nginx-common
+sudo apt-get update
+sudo apt-get install nginx
 ```
 
-### Start NGINX open source:
+### Start NGINX open source
 
 ```bash
-$ sudo nginx
+sudo nginx
 ```
 
-### Verify that NGINX open source is up and running:
+### Verify that NGINX open source is up and running
 
 ```bash
 $ curl -I 127.0.0.1

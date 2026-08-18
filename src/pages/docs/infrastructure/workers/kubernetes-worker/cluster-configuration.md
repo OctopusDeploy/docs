@@ -11,6 +11,7 @@ The Kubernetes worker has been proven to be effective on a variety of installati
 But some configurations are more complex than others!
 
 Three factors affect the likelihood of success:
+
 1. Kubernetes distribution/Managed Service (eg, AKS, EKS, GKE ...)
 2. Storage provider type (i.e., the filesystem shared between worker and pods)
 3. The Operating System of the Kubernetes nodes
@@ -21,10 +22,10 @@ The following table defines known good configurations, though many other configu
 produce a valid system.
 
 | Distribution / Managed Servicer | Storage Solution: | Approach                                     |
-|:-------------------------------:|:-----------------:|----------------------------------------------|
-|            Minikube             | NFS | No additional configuration required&dagger; |
-|            MicroK8s             | NFS | No additional configuration required&dagger; |
-|              Kind               | NFS | No additional configuration required&dagger; |
+| :-----------------------------: | :---------------: | -------------------------------------------- |
+|            Minikube             |        NFS        | No additional configuration required&dagger; |
+|            MicroK8s             |        NFS        | No additional configuration required&dagger; |
+|              Kind               |        NFS        | No additional configuration required&dagger; |
 |               AKS               |        NFS        | No additional configuration required         |
 |                                 |    Azure Files    | No additional configuration required         |
 |               GKE               |        NFS        | No additional configuration required         |
@@ -33,9 +34,8 @@ produce a valid system.
 |              RKE2               |     Longhorn      | Requires pre-configured storage&Dagger;      |
 |            OpenShift            |        NFS        | Requires specific configuration&Dagger;      |
 
-_&dagger; Recommended for local development or edge usage_  
-_&Dagger; Please [contact support](https://octopus.com/support) for additional information_ 
-
+*&dagger; Recommended for local development or edge usage*  
+*&Dagger; Please [contact support](https://octopus.com/support) for additional information*
 
 Any Storage class that supports being mounted in [ReadWriteMany](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 mode is likely to satisfy the Kubernetes worker's storage requirements.

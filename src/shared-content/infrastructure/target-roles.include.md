@@ -14,4 +14,3 @@ Before you can deploy software to your deployment targets, you need to associate
 Using target tags means the infrastructure in each of your environments doesn't need to be identical and the deployment process will know which deployment targets to deploy your software to.
 
 Deployment targets can have more than one target tag, and more than one deployment target can have the same tag, but every deployment target must have at least one tag.
-

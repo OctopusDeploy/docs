@@ -19,7 +19,7 @@ While we generally won't stop you from adding your own indexes if you feel that 
 
 If you want to add your own indexes we would recommend running the System Integrity check (available via **Configuration ➜ Diagnostics ➜ Check System Integrity**) before performing the upgrade to see what the differences are from the assumed schema. If possible, remove these indexes and feel free to recreate them once the upgrade has completed.
 
-![](/docs/img/administration/managing-infrastructure/performance/images/5865851.png)
+![Index differences reported by the System Integrity check](/docs/img/administration/managing-infrastructure/performance/images/5865851.png)
 :::
 
 :::div{.warning}
@@ -52,15 +52,15 @@ ORDER BY index_advantage DESC;
 [SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091) is a tool that allows you to watch and record the requests that are being sent to your database, along with metrics on what it took to run that query. By reviewing all the requests being sent to the server over a given period of time, it is easier to determine if the database is acting slow, or if the Octopus Server is issuing too many, sub-optimal requests (or both!). The following steps outline one way of recording the relevant information, however there are various resources all over the web that will provide [deeper tutorials](https://www.simple-talk.com/sql/performance/how-to-identify-slow-running-queries-with-sql-profiler/) about SQL Server Profiler.
 
 1. Launch SQL Server Profiler and create a new trace. (**File ➜ New Trace**).
-2. Select the database that your Octopus Deploy database instance is located and provide login credentials. (See [here ](https://msdn.microsoft.com/en-us/library/ms187611.aspx)for details about the minimum required credentials).
+2. Select the database that your Octopus Deploy database instance is located and provide login credentials. (See [SQL Server Profiler permissions](https://msdn.microsoft.com/en-us/library/ms187611.aspx) for details about the minimum required credentials).
 3. Give the trace an appropriate name like `Octopus Deploy - Loading Project 2016-11-12`.
 4. Click the `Events Selection` tab to provide filters that will be applied to the stream of data.
 5. Disable `Audit Login` and `Audit Logout`.
 6. Click `Column Filters` and set the ApplicationName filter to Like="Octopus %" to filter requests just sent from the Octopus Server.
 
-   ![](/docs/img/administration/managing-infrastructure/performance/images/5865852.png)
+   ![The ApplicationName column filter set to match Octopus requests](/docs/img/administration/managing-infrastructure/performance/images/5865852.png)
 
-7. Click Run. You will then probably see lots of entries starting to show up. This is because the server is always busy making calls to the database, checking if any new tasks needs to be run or updating the status of existing machines and tasks. Ideally we want this trace to cover just the queries that were invoked while the you perform the operation that appears to cause the server to slow down. Click the `Clear Trace Window` icon to remove the existing entries.![](/docs/img/administration/managing-infrastructure/performance/images/5865853.png).
+7. Click Run. You will then probably see lots of entries starting to show up. This is because the server is always busy making calls to the database, checking if any new tasks needs to be run or updating the status of existing machines and tasks. Ideally we want this trace to cover just the queries that were invoked while the you perform the operation that appears to cause the server to slow down. Click the `Clear Trace Window` icon to remove the existing entries.![The Clear Trace Window icon in SQL Server Profiler](/docs/img/administration/managing-infrastructure/performance/images/5865853.png).
 8. Go back to the Octopus Deploy portal and perform the task that resulted in slow performance.
 9. Back in SQL Server Profiler, click the red `Stop` button to prevent any more logs from being added. We want this snapshot to represent as close as possible the operations that were being performed at that point in time.
 10. Save the results into a *.trc* trace file and send through with your ticket detailing what steps you ran in the portal.
@@ -78,10 +78,10 @@ If you are seeing error messages with a specific query in your server logs or th
 then it may be more useful to focus in on that specific query and get the execution plan that the database engine is executing. In that case follow the above steps but after step 6, when configuring the filters, include the following steps:
 
 6. Configure filters.
-    * With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.  
-    * At the Events Selection tab tick the `Show all events` check-box, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
+    - With the filters dialog open, add a filter to the *Text* property that matches the table name involved. In the example above we might add the condition Like="%Event%". Click `Ok` and if the message pops up, agree to adding the `TextData` event column.  
+    - At the Events Selection tab tick the `Show all events` check-box, expand the `Performance` section, and include the `Showplan XML` event. This event will provide detailed information about how the database constructed and executed the query.
 
-    ![](/docs/img/administration/managing-infrastructure/performance/images/5865854.png)
+    ![The Showplan XML event selected under the Performance section](/docs/img/administration/managing-infrastructure/performance/images/5865854.png)
 
     As with before, perform the operation causing the error with the trace running then export and send the trace file with your ticket.
 
@@ -89,13 +89,13 @@ then it may be more useful to focus in on that specific query and get the execut
 
 Slow running queries are automatically logged to the [Server Logs](/docs/support/log-files) with an Info trace level. These lines will look something like:
 
-```
+```text
 2016-11-17 00:31:39.8557    285  INFO  Reader took 309ms (1ms until the first record): SELECT * FROM dbo.[Project] ORDER BY Id
 ```
 
 By updating your server logging to verbose, further information will be recorded if a large number of concurrent transactions appear to be active at any one time.
 
-```
+```text
 2016-08-18 23:59:50.5834   2266  INFO  There are a high number of transactions active. The below information may help the Octopus team diagnose the problem:
 Now: 2016-08-18T23:59:50
 

@@ -124,7 +124,7 @@ You will need you to complete a successful deployment again before auto-deployme
 
 Go to **Configuration ➜ Diagnostics ➜ Auto deploy logs**. The **verbose** logs usually contain the reason why a project trigger didn't take any action. For example:
 
-```
+```text
 Auto-deploy: Machine 'Local' does not need to run release '2.6.6' for project 'My Project' and tenant '<none>' because it already exists on the machine or is pending deployment.
 ```
 
