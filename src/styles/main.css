@@ -236,7 +236,7 @@ img {
 .page-content
   img:not(.avatar__image, .card__image, .icon-tile__icon, .link__icon),
 .zoom-lightbox img {
-  background-color: var(--white);
+  background-color: var(--colorBackgroundPrimaryDefault);
 }
 
 figure img {
@@ -344,7 +344,7 @@ strong {
 
 .page-content ul,
 .page-content ol {
-  margin-inline-start: var(--space24);
+  padding-inline-start: var(--space24);
 }
 
 /* Figma puts space/6 above every list item after the first, so consecutive
@@ -980,11 +980,11 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .link__content {
-  /* TODO: remove together with simple-grid width 100% */
+  /* TODO: remove together with col-2 width 100% */
   width: auto !important;
 }
 
-.simple-grid .astro-code {
+.col-2 .astro-code {
   text-align: left;
 }
 
@@ -1127,79 +1127,36 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Card */
 .card {
-  border-radius: 0.625rem;
-  border: 0.0625rem solid var(--navy-200);
-  transition: box-shadow 300ms ease-in-out;
-  overflow: hidden;
+  border-radius: var(--borderRadiusMedium);
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  background: var(--colorBackgroundPrimaryDefault);
+  transition: background 150ms ease-in-out;
+  height: 100%;
 }
 
 .card:hover {
-  box-shadow: var(--card-shadow);
-}
-
-.card:not(.card--related-topics):hover .card__image {
-  transform: scale(1.3);
-}
-
-/* padded variant */
-.card--padded .card__image-wrapper {
-  background-color: #c3cdd5;
-  padding: 1rem 2rem 0;
-}
-
-/* related-topics variant */
-.card--related-topics {
-  box-shadow: var(--card-related-topics-shadow);
-}
-
-.card--related-topics:hover,
-.card--related-topics .card__link:focus-visible {
-  box-shadow: var(--card-related-topics-hover-shadow);
-}
-
-.card--related-topics:hover .card__label svg,
-.card--related-topics .card__link:focus-visible .card__label svg {
-  transform: translateX(0.5rem);
-}
-
-.card--related-topics .card__image-wrapper {
-  padding: 0.75rem 0.75em 0;
-}
-
-.card--related-topics .card__image {
-  border-radius: 0.625rem;
-}
-
-.card--related-topics .card__copy {
-  padding: 0 1.25rem 1.25rem;
-}
-
-.card--related-topics .card__title {
-  color: var(--color-text);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeLarge);
-  line-height: var(--lineHeightMedium);
-  font-weight: var(--fontWeight700);
-}
-
-.card__image {
-  border-radius: 0.625rem 0.625rem 0rem 0rem;
-  transition: transform 300ms ease-in-out;
+  background: var(--colorBackgroundPrimaryHover);
 }
 
 .card__link {
   display: flex;
   flex-direction: column;
-  gap: 1.875rem;
   text-decoration: none;
   height: 100%;
 }
 
 .card__image-wrapper {
   display: flex;
-  height: 9rem;
+  height: 13rem;
   overflow: hidden;
   box-sizing: border-box;
+  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-start-start-radius: calc(
+    var(--borderRadiusMedium) - var(--borderWidth1)
+  );
+  border-start-end-radius: calc(
+    var(--borderRadiusMedium) - var(--borderWidth1)
+  );
 }
 
 .card__image {
@@ -1207,103 +1164,75 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   object-fit: cover;
 }
 
-.card__copy {
-  padding: 0 1.25rem 1.875rem;
+.card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding-block-end: var(--space16);
+}
+
+.card__icon {
+  width: 100%;
+  height: 100%;
+}
+
+span.card__icon {
+  background-color: var(--colorIconPrimary);
+  mask-image: var(--card-icon);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+img.card__icon {
+  object-fit: contain;
+}
+
+/* Default-color icons keep whatever color is baked into the source file, so on a
+   dark background a dark icon (e.g. a brand logo drawn for a light background)
+   can disappear. Force the light theme's card background behind it so it stays visible. */
+html[data-theme='dark'] img.card__icon {
+  background-color: var(--white);
+  border-radius: var(--borderRadiusSmall);
+}
+
+.card__content {
+  padding: var(--space24);
   display: flex;
   flex-direction: column;
-  gap: 0.38rem;
   text-align: start;
   flex-grow: 1;
 }
 
 .card__title {
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight600);
-  color: var(--color-heading);
+  font: var(--textBodyBoldLarge);
+  color: var(--colorTextPrimary);
+  padding-block-end: var(--space12);
+}
+
+.card__title:last-child {
+  padding-block-end: 0;
 }
 
 .card__description {
   font: var(--textBodyRegularMedium);
-  color: var(--blue-grey);
+  color: var(--colorTextSecondary);
 }
 
-.card__bottom {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card__label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--badge-color);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight500);
-  padding-bottom: 0.25rem;
-  border-bottom: 0.0625rem solid var(--badge-color);
-}
-
-.card__label svg {
-  transition: transform 300ms ease-in-out;
-}
-
-/* IconTile */
-.icon-tile {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  border-radius: 0.625rem;
-  border: 0.0625rem solid var(--icon-tile-border);
-  background: var(--icon-tile-background);
-  padding: 1.25rem 1.75rem 1rem;
+.card a {
   text-decoration: none;
-  transition-property: background, box-shadow, border-color;
-  transition-duration: var(--duration-default);
-  transition-timing-function: ease-in-out;
-  height: fit-content;
-  box-sizing: border-box;
+  color: var(--colorTextPrimary);
 }
 
-.icon-tile:hover {
-  background: var(--icon-tile-background-hover);
-  box-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
-  border-color: var(--icon-tile-border-hover);
+/* Featured variant */
+.card--featured .card__title {
+  font: var(--textHeadingMedium);
 }
 
-.icon-tile__icon-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 4rem;
-}
-
-.icon-tile__icon {
-  max-width: 4rem;
-  width: 100%;
-}
-
-.icon-tile__content {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-}
-
-.icon-tile__title {
-  color: var(--color-heading);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight600);
-  /* Override global styles */
-  padding: 0;
-}
-
-.icon-tile__description {
-  color: var(--color-text-secondary);
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight400);
+.card--featured .card__description {
+  font: var(--textBodyRegularLarge);
 }
 
 /* Navigation */
@@ -2125,101 +2054,6 @@ a[data-youtube] {
   text-decoration: none;
 }
 
-/* Related articles */
-
-.octo-related {
-  background-color: var(--blue-midnight-darker);
-  color: var(--color-base-primary);
-  padding: 3rem 0 3rem 0;
-}
-
-.octo-related h2 {
-  color: var(--color-base-primary);
-  text-align: center;
-  padding: 0 0 2rem 0;
-  margin: 0;
-}
-
-.octo-related ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: 1rem;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.octo-related li {
-  box-shadow: 0px 14px 20px rgba(0, 0, 0, 0.25);
-  padding: 1px;
-  border-radius: var(--standard-radius);
-  background:
-    linear-gradient(var(--color-text), var(--color-text)) padding-box,
-    linear-gradient(to bottom, #173045 80%, #0cb0f2) border-box;
-  border: 0.1rem solid transparent;
-}
-
-.octo-related img {
-  border-radius: var(--standard-radius);
-}
-
-.octo-related h3 {
-  font-size: var(--fontSizeLarge);
-  font-weight: var(--fontWeight400);
-  color: var(--color-base-primary);
-}
-
-.octo-related a {
-  font-size: var(--fontSizeBase);
-  color: var(--octo-blue-lightest);
-}
-
-.octo-related .list-item-content {
-  display: grid;
-  grid-template-rows: 7rem 3rem;
-  margin: 0 1rem;
-}
-
-/* Post List */
-
-.page-content ul.post-list {
-  list-style: none;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: var(--grid-gap);
-  justify-content: center;
-}
-
-.post-list li {
-  box-shadow: 0px 14px 20px rgb(0 0 0 / 25%);
-  border-radius: var(--standard-radius);
-}
-
-.post-list article {
-  border-radius: var(--standard-radius);
-  padding: 0.5rem;
-}
-
-.post-list h3 {
-  font-size: var(--fontSizeLarge);
-  font-weight: var(--fontWeight400);
-  padding: 0;
-  align-self: center;
-}
-
-.post-list a {
-  text-decoration: none;
-}
-
-.post-list img {
-  border-radius: var(--standard-radius);
-}
-
-.post-list .post-meta {
-  display: none;
-}
-
 .recent-updates li {
   margin-block-end: 1em;
 }
@@ -3007,30 +2841,39 @@ html:has(.site-search__wrapper.is-active) {
 
 /* Custom Divisions */
 
-.simple-grid {
+.col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: var(--grid-gap);
-}
-
-.simple-grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: var(--grid-gap);
-}
-
-.simple-grid > * > * {
+  grid-gap: var(--space24);
   width: 100%;
 }
 
-@media (max-width: 860px) {
-  .simple-grid,
-  .simple-grid-3 {
+.col-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: var(--space24);
+}
+
+/* ul.col-2,
+ol.col-2,
+ul.col-3,
+ol.col-3 {
+  list-style: none;
+  padding-inline-start: var(--space0);
+} */
+
+.col-2 > * > * {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .col-2,
+  .col-3 {
     display: block;
   }
 
-  .simple-grid > *,
-  .simple-grid-3 > * {
+  .col-2 > *,
+  .col-3 > * {
     margin-block-end: var(--block-gap);
   }
 }
@@ -3158,7 +3001,8 @@ a.button.button--primary:active {
   --tooltip-shift: 0px;
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) .tooltip {
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])
+  .tooltip {
   opacity: 1;
   transition-duration: 350ms;
 }
@@ -3251,6 +3095,9 @@ html[data-nav='new'] .site-header {
 /* Detail tabs */
 
 .tab-list {
+  /* The global reset does not inherit html's border-box, and this can be
+     sized by the article's max-width with padding/border on top of it. */
+  box-sizing: border-box;
   border: var(--borderWidth1) solid var(--colorBorderPrimary);
   border-bottom: none;
   border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
@@ -3340,6 +3187,9 @@ html[data-nav='new'] .site-header {
 }
 
 [role='tabpanel'] {
+  /* The global reset does not inherit html's border-box, and this can be
+     sized by the article's max-width with padding/border on top of it. */
+  box-sizing: border-box;
   position: relative;
   overflow: visible;
   border: var(--borderWidth1) solid var(--colorBorderPrimary);

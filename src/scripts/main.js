@@ -25,8 +25,8 @@ addStickyNavigation(
   '#site-nav > ul',
   resizedEventName
 );
-addIntersectionObserver('.anim-show-parent img, .anim-show-parent .list-item');
-addListImageIntersectionObserver('.post-list img');
+addIntersectionObserver('.anim-show-parent img, .anim-show-parent .card');
+addListImageIntersectionObserver('.card img');
 monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');

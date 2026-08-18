@@ -18,7 +18,6 @@ import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleNav from '../components/ArticleNav.astro';
 import Feedback from '../components/Feedback.astro';
 import Header from '../components/Header.astro';
-import Related from '../components/Related.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import MarkdownLinks from '../components/MarkdownLinks.astro';
@@ -112,7 +111,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
-    <Related frontmatter={frontmatter} headings={headings} lang={lang} />
     {
       /* One overlay for the page: both headers point their fields at it, and so
          does the standalone /docs/search page, which is why this is not behind

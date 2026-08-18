@@ -9,14 +9,6 @@
             "en": "Parent Site Navigation"
         }
     },
-    "octopus_related": {
-        "related_title": {
-            "en": "More resources"
-        },
-        "read_more": {
-            "en": "Read more"
-        }
-    },
     "octopus_footer": {
         "last_updated": {
             "en": "Last updated"

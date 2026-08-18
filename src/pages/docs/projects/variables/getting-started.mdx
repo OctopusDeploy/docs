@@ -31,7 +31,7 @@ In this example, we'll add a variable to a Hello World project that runs a scrip
    :::
 
 7. Save the variable by clicking **Save**.
-8. In this example, we’ll reference this variable from a **Run a Script** step.
+8. In this example, we'll reference this variable from a **Run a Script** step.
 9. Define your step (Click **Process ➜ Add Step ➜ Run A Script**) and in the **Script** section, enter the following PowerShell script into the script editor:
 
    ```powershell
@@ -98,7 +98,7 @@ With the above *MyVariable* variable, the scoped and unscoped values will be imp
 
 Imagine you have one variable scoped to an environment (Production), and another scoped to a machine within the environment. Which value should Octopus choose?
 
-Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they’re resolved. The list below is the priority in which variable scopes take precedence. The top items are higher priority than the bottom ones:
+Since variables can be scoped in many different ways, there needs to be a predictable, deterministic order in which they're resolved. The list below is the priority in which variable scopes take precedence. The top items are higher priority than the bottom ones:
 
 1. The current step/action (most specific).
 2. The current machine.
@@ -112,11 +112,11 @@ Since variables can be scoped in many different ways, there needs to be a predic
 10. The project.
 11. No scope (least specific).
 
-For example, a **LogLevel** variable with a value scoped to to a target tag is considered by Octopus to be more specific than a value scoped to an environment. So when two possible values for a variable exist, Octopus will choose the “more specific” scope value over the less specific one.
+For example, a **LogLevel** variable with a value scoped to to a target tag is considered by Octopus to be more specific than a value scoped to an environment. So when two possible values for a variable exist, Octopus will choose the "more specific" scope value over the less specific one.
 
 Variable scoping also works like CSS rules; a value scoped twice is more specific than a value scoped once. For example, a variable scoped to an environment and a target tag is more specific than a variable scoped to just a target tag.
 
-If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still doesn’t resolve the conflict, the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so they’re unlikely to conflict.
+If two variables are scoped equally, Octopus will choose project-defined variables ahead of library-defined ones. If this still doesn't resolve the conflict, the result is non-deterministic and you should not depend on a specific value being used. Instead, you should take care when scoping variables so they're unlikely to conflict.
 
 ### Process template parameter scoping \{#process-template-scoping}
 
@@ -156,7 +156,7 @@ When deploying to the **Development** environment, **Account-124** would be used
 
 You can think of scopes of the same type as a grouping of logical `OR` expressions. Scopes of different types are evaluated as `AND` expressions between the groups of scopes.
 
-As an example, a variable scoped to the Development environment, Production environment, and the Default channel would evaluate as (Development OR Production) AND (Default). This example results in a specific scope that requires a channel for the variable to evaluate. This means the variable won’t be usable in the context of a runbook as channels don’t apply in this context.
+As an example, a variable scoped to the Development environment, Production environment, and the Default channel would evaluate as (Development OR Production) AND (Default). This example results in a specific scope that requires a channel for the variable to evaluate. This means the variable won't be usable in the context of a runbook as channels don't apply in this context.
 
 There are two distinct scoping scenarios we need to call out, one of which we mentioned above. These are:
 
@@ -167,9 +167,9 @@ Generally, you can avoid mutually exclusive scopes by duplicating variable value
 
 ### Scoping variables to target tags \{#scoping-variables-to-target-roles}
 
-Variables can also be scoped to specific [target tags](/docs/infrastructure/deployment-targets/target-tags). This means the variable will take the specified value only when it’s used on a deployment step that runs on a deployment target with the specified tag. This feature is useful when you want to use the same variable name multiple times and change their values depending on the target they’re running on.
+Variables can also be scoped to specific [target tags](/docs/infrastructure/deployment-targets/target-tags). This means the variable will take the specified value only when it's used on a deployment step that runs on a deployment target with the specified tag. This feature is useful when you want to use the same variable name multiple times and change their values depending on the target they're running on.
 
-Let’s say you have the following targets with their respective tags:
+Let's say you have the following targets with their respective tags:
 
 | Target   | Tag        |
 | -------- | ---------- |
@@ -251,21 +251,5 @@ If the answer to either question is yes, consider an external store for your var
 
 ## Learn more
 
-<div class="docs-home simple-grid">
- <Card
-  imgAlt="Octopus Deploy logo"
-  imgSrc="/docs/img/octopus-deploy-logo.png"
-  link="https://octopus.com/blog/tag/variables/1"
-  title="Variable blog posts"
-  variant="related-topics"
- />
- <div>
-  <Card
-   imgAlt="Octopus Deploy logo"
-   imgSrc="/docs/img/octopus-deploy-logo.png"
-   link="/docs/deployments/custom-scripts"
-   title="Using variables in your scripts"
-   variant="related-topics"
-  />
- </div>
-</div>
+- [Using variables in your scripts](/docs/deployments/custom-scripts)
+- [Variable blog posts](https://octopus.com/blog/tag/variables/1)
