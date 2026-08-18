@@ -22,6 +22,21 @@ export type SearchEngine = {
   search(query: string, facet?: string): Promise<SearchResponse>;
   /** Optional: start loading the index before the first query needs it. */
   warm?(): void;
+  /**
+   * When `warm()` is worth running, which depends on what the engine has to
+   * fetch and parse:
+   *
+   * - `load` — on page load. For an engine whose runtime is small enough that
+   *   every visitor can pay for it, searcher or not.
+   * - `intent` — the first time the pointer or focus reaches a search field.
+   *   Costs nothing for the majority who never go near it, and buys the
+   *   200-500ms between reaching for the field and clicking it.
+   * - `open` — not until the overlay opens. The default.
+   *
+   * Ctrl/Cmd+K skips straight to `open`, so warming still happens there; this
+   * only decides how much earlier it can start.
+   */
+  warmOn?: 'load' | 'intent' | 'open';
 };
 
 export type Facet = { key: string; label: string };

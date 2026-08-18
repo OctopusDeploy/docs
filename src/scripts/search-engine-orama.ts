@@ -109,6 +109,11 @@ export function oramaEngine(indexUrl: string): SearchEngine {
   }
 
   return {
+    // Not on page load: the index is 5.3MB, and warming it for every visitor
+    // spends that on the majority who never search. On hover the bytes are
+    // usually already cached, so the 40-67ms parse finishes before the click
+    // does.
+    warmOn: 'intent',
     warm: load,
 
     async search(rawQuery, facet) {

@@ -311,6 +311,22 @@ function setup(dialog: HTMLDialogElement) {
     }
   });
 
+  // Reaching for the field is the earliest honest signal that someone means to
+  // search. Once only — `warm` is idempotent, but there is no reason to keep
+  // asking.
+  if (engine.warmOn === 'intent') {
+    let warmed = false;
+    const onIntent = (event: Event) => {
+      if (warmed || !opensThis(event.target)) return;
+      warmed = true;
+      engine.warm?.();
+    };
+    // `pointerover` rather than `pointerenter`, which does not bubble to a
+    // delegated listener, and `focusin` for the keyboard path.
+    document.addEventListener('pointerover', onIntent);
+    document.addEventListener('focusin', onIntent);
+  }
+
   // Chords and shared links belong to the page's own search, not to a demo
   // instance sitting in an article.
   if (name !== SITE_SEARCH) return;
@@ -327,6 +343,8 @@ function setup(dialog: HTMLDialogElement) {
     event.preventDefault();
     open();
   });
+
+  if (engine.warmOn === 'load') engine.warm?.();
 
   // A shared `?q=` link opens straight into results.
   const q = new URLSearchParams(window.location.search).get('q');
