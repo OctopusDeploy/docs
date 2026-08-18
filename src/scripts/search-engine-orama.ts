@@ -10,7 +10,6 @@
 
 import {
   classify,
-  countByFacet,
   type SearchEngine,
   type SearchResult,
 } from './search-engine';
@@ -28,6 +27,8 @@ type WorkerHit = {
 type WorkerReply = {
   id: number;
   hits?: WorkerHit[];
+  /** Per-section totals across the whole match set, plus `all`. */
+  counts?: Record<string, number>;
   error?: string;
 };
 
@@ -96,18 +97,17 @@ export function oramaEngine(indexUrl: string): SearchEngine {
 
     async search(rawQuery, facet) {
       const query = rawQuery.trim();
-      if (!query) return { results: [], counts: countByFacet([]) };
+      const empty = { results: [], counts: { all: 0 } };
+      if (!query) return empty;
 
-      // Counts come from the whole match set rather than the filtered one, so
-      // the strip keeps showing what the other tabs hold while one is selected.
-      const reply = await ask(query);
-      if (reply.error || !reply.hits) {
-        return { results: [], counts: countByFacet([]) };
-      }
+      // The worker applies the facet and reports the counts, because both need
+      // the whole match set and it is the only side that has it.
+      const reply = await ask(query, facet);
+      if (reply.error || !reply.hits || !reply.counts) return empty;
 
       const terms = query.split(/\s+/).filter((term) => term.length > 1);
 
-      const all = reply.hits.map((hit): SearchResult => {
+      const results = reply.hits.map((hit): SearchResult => {
         const path = new URL(hit.url, window.location.origin).pathname;
         return {
           url: path,
@@ -118,14 +118,9 @@ export function oramaEngine(indexUrl: string): SearchEngine {
         };
       });
 
-      const shown =
-        facet && facet !== 'all'
-          ? all.filter((result) => result.facet === facet)
-          : all;
-
       return {
-        results: shown.slice(0, RESULT_LIMIT),
-        counts: countByFacet(all),
+        results: results.slice(0, RESULT_LIMIT),
+        counts: reply.counts,
       };
     },
   };

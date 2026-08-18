@@ -16,6 +16,7 @@ type SearchMessage = {
   type: 'search';
   id: number;
   query: string;
+  facet?: string;
   limit: number;
 };
 
@@ -85,18 +86,42 @@ self.addEventListener(
 
     try {
       const db = await open();
-      const results = await search(db as never, {
+      const query = {
         term: message.query,
         limit: message.limit,
         // Body carries the most text and the least signal per word, so it is
         // weighted below the fields that name what a page is about.
         boost: { title: 4, description: 2, trail: 2, body: 1 },
         tolerance: 1,
+      };
+
+      // Unfiltered, because a `where` clause narrows the facet counts to the
+      // section being filtered on, and the tab strip has to keep showing what
+      // the other tabs hold. `count` is the true total rather than the capped
+      // number of hits returned.
+      const overview = await search(db as never, {
+        ...query,
+        facets: { section: {} },
       });
+
+      // Filtering in the worker rather than over the returned hits: a section
+      // whose matches fall outside the first `limit` would otherwise come back
+      // short.
+      const selected =
+        message.facet && message.facet !== 'all'
+          ? await search(db as never, {
+              ...query,
+              where: { section: { eq: message.facet } },
+            })
+          : overview;
 
       self.postMessage({
         id: message.id,
-        hits: results.hits.map((hit) => hit.document),
+        counts: {
+          all: overview.count,
+          ...(overview.facets?.section?.values ?? {}),
+        },
+        hits: selected.hits.map((hit) => hit.document),
       });
     } catch (error) {
       self.postMessage({ id: message.id, error: String(error) });
