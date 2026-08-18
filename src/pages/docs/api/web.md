@@ -1,0 +1,62 @@
+---
+layout: src/layouts/Api.astro
+pubDate: 2026-08-11
+modDate: 2026-08-11
+title: Web
+---
+
+## POST /api/jiraservicemanagement-integration/connectivity-test
+
+:endpoint{method="POST" path="/api/jiraservicemanagement-integration/connectivity-test"}
+
+**Request Body**
+
+- **`BaseUrl`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`Token`** :span[string]{.type-label}
+- **`Username`** :span[string]{.type-label}
+
+:::api-example{label="Request"}
+```json
+{
+  "BaseUrl": "string",
+  "Id": "string",
+  "Token": "string",
+  "Username": "string"
+}
+```
+:::
+
+**Response**
+
+`200` — OK
+
+## POST /api/servicenow-integration/connectivity-test
+
+:endpoint{method="POST" path="/api/servicenow-integration/connectivity-test"}
+
+**Request Body**
+
+- **`BaseUrl`** :span[string]{.type-label}
+- **`Id`** :span[string]{.type-label}
+- **`OAuthClientId`** :span[string]{.type-label}
+- **`OAuthClientSecret`** :span[string]{.type-label}
+- **`UserPassword`** :span[string]{.type-label}
+- **`Username`** :span[string]{.type-label}
+
+:::api-example{label="Request"}
+```json
+{
+  "BaseUrl": "string",
+  "Id": "string",
+  "OAuthClientId": "string",
+  "OAuthClientSecret": "string",
+  "UserPassword": "string",
+  "Username": "string"
+}
+```
+:::
+
+**Response**
+
+`200` — OK

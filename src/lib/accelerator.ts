@@ -32,13 +32,38 @@ const posts = accelerator.posts;
 // 1.1 MB of JSON is ~18 ms.
 // Builds only. In dev the page set changes under you, so keep reading through.
 const readAll = posts.all.bind(posts);
+
+// Posts.all() globs every markdown file under src/pages, including the ones
+// Astro does not route: anything with an underscore-prefixed path segment. Those
+// are not pages, so they have no business in the nav, the breadcrumb trail, the
+// taxonomy, or the /report pages - each of which would link to a URL that 404s.
+// Astro's own routing rule is the filter.
+const PAGES_ROOT = '/src/pages/';
+const isRouted = (post: { file?: string }) => {
+  const file = post.file ?? '';
+  // Only the path below src/pages decides routing. In local development the
+  // generated API pages are symlinked in, so `file` resolves to wherever the
+  // generator wrote them - checking the whole absolute path could catch a
+  // directory of the developer's that happens to start with an underscore.
+  const index = file.lastIndexOf(PAGES_ROOT);
+  const routePath =
+    index === -1
+      ? file.slice(file.lastIndexOf('/') + 1)
+      : file.slice(index + PAGES_ROOT.length);
+  return !routePath.split('/').some((part) => part.startsWith('_'));
+};
+
+const readRouted = () => readAll().filter(isRouted);
+
 let allPosts: ReturnType<typeof readAll> | null = null;
 
 if (import.meta.env.PROD) {
   posts.all = () => {
-    if (allPosts === null) allPosts = readAll();
+    if (allPosts === null) allPosts = readRouted();
     return allPosts.slice();
   };
+} else {
+  posts.all = readRouted;
 }
 
 const shadow = (key: string, value: unknown) =>

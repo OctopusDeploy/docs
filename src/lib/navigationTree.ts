@@ -2,6 +2,7 @@ import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { SITE } from '@config';
 import { menu } from '@data/navigation';
 import { accelerator } from './accelerator';
+import { apiPageUrls } from './apiNavigation';
 
 // Navigation.autoMenu() rebuilds the whole site nav tree from all ~2,700 pages
 // on every page render, and its getChildren() runs a full scan of that page
@@ -18,14 +19,32 @@ const TEMPLATE_URL = new URL('https://octopus.com/__nav-template__');
 
 let template: NavPage[] | null = null;
 
+// The API reference is navigated by its own tree (lib/apiNavigation.ts), so
+// its pages are dropped here rather than listed in both. Dropping a node drops
+// its children with it, which is what takes the whole section out in one go.
+function withoutApiPages(pages: NavPage[]): NavPage[] {
+  const apiUrls = apiPageUrls();
+  const prune = (nodes: NavPage[]): NavPage[] =>
+    nodes
+      .filter((node) => !apiUrls.has((node.url ?? '').replace(/\/$/, '')))
+      .map((node) => ({ ...node, children: prune(node.children ?? []) }));
+  return prune(pages);
+}
+
+function buildMenu(): NavPage[] {
+  return withoutApiPages(
+    accelerator.navigation.menu(TEMPLATE_URL, SITE.subfolder, menu)
+  );
+}
+
 export function menuTemplate(): NavPage[] {
   // Builds only. In dev, rebuild every time so a new or renamed page shows up
   // in the nav without restarting the server.
   if (!import.meta.env.PROD) {
-    return accelerator.navigation.menu(TEMPLATE_URL, SITE.subfolder, menu);
+    return buildMenu();
   }
   if (template === null) {
-    template = accelerator.navigation.menu(TEMPLATE_URL, SITE.subfolder, menu);
+    template = buildMenu();
   }
   return template;
 }

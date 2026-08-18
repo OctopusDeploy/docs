@@ -5,6 +5,8 @@ import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/cus
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
 import pruneDist from './src/integrations/prune-dist.ts';
 import satteriHeadingId from './src/plugins/satteri-heading-id.js';
+import satteriApiExamples, { apiExampleDirective } from './src/plugins/satteri-api-examples.js';
+import { endpointDirective } from './src/plugins/satteri-endpoint.js';
 import satteriWbr from './src/plugins/satteri-wbr.js';
 import shikiCodeBlock from './src/plugins/shiki-code-block.js';
 
@@ -52,10 +54,16 @@ export default defineConfig({
             mdastPlugins: [
                 satteriHeadingId,
                 attributeMarkdown,
+                // After attributeMarkdown, whose generic handler would otherwise
+                // render `:::api-example` as an <api-example> tag, and
+                // `:endpoint` as an <endpoint> one
+                apiExampleDirective,
+                endpointDirective,
                 wrapTables
             ],
             hastPlugins: [
-                satteriWbr
+                satteriWbr,
+                satteriApiExamples
             ],
         }),
     },

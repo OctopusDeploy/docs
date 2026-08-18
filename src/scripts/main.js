@@ -31,6 +31,9 @@ monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');
 highlightCurrentHeading('.article-nav a');
+// The API section lists the current page's endpoints in the left nav instead
+// of a table of contents, so that list tracks the reader the same way.
+highlightCurrentHeading('.site-nav__link--heading');
 
 // @ts-ignore
 const f = site_features ?? {};

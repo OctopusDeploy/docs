@@ -303,7 +303,11 @@ export function buildBreadcrumbList(
 
   const itemListElement = crumbsWithTitle.map((crumb, index) => {
     const isLast = index === crumbsWithTitle.length - 1;
-    const item = isLast ? undefined : toAbsoluteUrl(crumb.url);
+    // `item` is optional in the spec, and is left off both for the last crumb
+    // (the page itself) and for a crumb with no url - a section that has no
+    // page of its own. Without the url guard the empty string resolves against
+    // SITE.url and the crumb would claim to be the site root.
+    const item = isLast || !crumb.url ? undefined : toAbsoluteUrl(crumb.url);
     return {
       '@type': 'ListItem' as const,
       position: index + 1,

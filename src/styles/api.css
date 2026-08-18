@@ -1,3 +1,154 @@
+/* ----- General styles for the API and CLI pages ----- */
+
+.type-label {
+  color: var(--colorTextInfo);
+}
+
+/* ----- The API docs have a different layout than the rest of the docs ----- */
+
+/*
+On API pages the top level of the body is the body column of an endpoint
+rather than .page-content itself, because satteri-api-examples.js wraps each
+section so its examples can sit beside it. */
+.api-section__body > *:not(:is(h2, h3, h4, h5, h6)),
+.api-section__body > blockquote > *:not(:last-child),
+.api-section__body > div.info > *:not(:last-child),
+.api-section__body > div.success > *:not(:last-child),
+.api-section__body > div.warning > *:not(:last-child),
+.api-section__body > div.problem > *:not(:last-child),
+.api-section__body > div.question > *:not(:last-child),
+.api-section__body > div.hint > *:not(:last-child) {
+  margin-block-end: var(--space16);
+}
+
+/* API reference
+   Pages on src/layouts/Api.astro: their own left nav, no table of contents,
+   and each endpoint split into a body and an examples column by
+   plugins/satteri-api-examples.js. */
+
+/* The article does not take the article/toc tracks the rest of the site is laid
+   out on, but it is centred the same way they are: a flexible gutter either
+   side of it, so the pair of columns sits in the middle of what the nav leaves,
+   never closer than space/16 to either end. */
+.content-group--api {
+  grid-template-columns:
+    var(--navigation-width)
+    minmax(var(--space16), 1fr)
+    minmax(var(--api-columns-min-width), var(--api-columns-width))
+    minmax(var(--space16), 1fr);
+  grid-template-areas:
+    'menu . content .'
+    'menu . footer  .';
+}
+
+/* Endpoints are the only thing on these pages, so the space between them is the
+   space an h2 would have carried, taken off the heading and put on the section.
+
+   The heading takes a row of its own, which is what starts an example level
+   with the bottom of the heading it belongs to rather than the top, and with
+   the first line of the endpoint beside it.
+
+   The pair is centred by the article's own gutters above, so the space between
+   the two columns is fixed and they compress together into whatever the article
+   is given. */
+.api-section {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--api-content-min-width), var(--api-content-width))
+    minmax(var(--api-examples-min-width), var(--api-examples-width));
+  grid-template-areas:
+    'heading .'
+    'body    examples';
+  column-gap: var(--api-columns-gap);
+  margin-block-start: var(--space56);
+}
+
+.api-section > h2 {
+  grid-area: heading;
+  margin-block-start: 0;
+}
+
+.api-section__body {
+  grid-area: body;
+}
+
+.api-section__examples {
+  grid-area: examples;
+}
+
+/* Anything outside an endpoint — the introduction on the index page — takes the
+   width of an endpoint rather than the width of the article, so the measure is
+   the same everywhere in the section. */
+.content-group--api .page-content > :not(.api-section) {
+  max-width: var(--api-content-width);
+}
+
+/* The heading above has already paid for the gap this would add. */
+.api-section__examples > .api-example:first-child .code-block {
+  margin-block-start: 0;
+}
+
+/* Side by side, the two columns need the nav plus a gutter, both minimums and
+   the space between them: 320 + 16 + 420 + 32 + 400 + 16 = 1204px. Below that
+   an example goes back to being part of the endpoint it documents, and the
+   article gives up its minimum width along with them. */
+@media (max-width: 1220px) {
+  .content-group--api {
+    grid-template-columns:
+      var(--navigation-width)
+      minmax(var(--space16), 1fr)
+      minmax(0, var(--api-columns-width))
+      minmax(var(--space16), 1fr);
+  }
+
+  .api-section {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'heading'
+      'body'
+      'examples';
+  }
+
+  .content-group--api .page-content > :not(.api-section) {
+    max-width: none;
+  }
+
+  .api-section__examples {
+    margin-block-start: var(--space24);
+  }
+}
+
+@media (max-width: 1130px) {
+  /* The same stack as every other page, one row shorter because there is no
+     toc. Restated here rather than beside the rest of the restack, because the
+     tracks it replaces are set at the same specificity further up. */
+  .content-group--api {
+    grid-template-columns: 1rem auto 1rem;
+    grid-template-areas:
+      'left top right'
+      'left content right'
+      'left menu right'
+      'left footer right';
+  }
+}
+
+/* ----- Styles for API badges ----- */
+
+/* A deprecated endpoint keeps its badge and its row, and reads as secondary
+   until the reader opens it. The page itself carries the warning in full. */
+.site-nav__link--deprecated .site-nav__label {
+  color: var(--color-text-tertiary);
+  text-decoration: line-through;
+}
+
+/* A badge in the left nav labels the endpoint the row links to. The row starts
+   its items at the top, so the badge overrides that and centres on the title it
+   belongs to however many lines that title runs to. */
+.site-nav__link > :is(.api-get, .api-post, .api-delete, .api-put) {
+  flex: none;
+  align-self: center;
+}
+
 :is(.api-get, .api-post, .api-delete, .api-put) {
   box-sizing: border-box;
   display: inline-flex;

@@ -8,6 +8,7 @@ import type { MarkdownInstance } from 'astro';
 import { SITE } from '@config';
 import { convert } from 'html-to-text';
 import keywordExtractor from 'keyword-extractor';
+import { isUnderConstruction } from '@lib/underConstruction';
 
 const getData = async () => {
   //@ts-ignore
@@ -15,7 +16,14 @@ const getData = async () => {
   const items = [];
 
   for (const path in allPages) {
-    const page = (await allPages[path]()) as MarkdownInstance<Record<string, any>>;
+    // Temporary - see src/lib/underConstruction.ts.
+    if (isUnderConstruction(path)) {
+      continue;
+    }
+
+    const page = (await allPages[path]()) as MarkdownInstance<
+      Record<string, any>
+    >;
 
     if (!PostFiltering.showInSearch(page)) {
       continue;
@@ -28,7 +36,9 @@ const getData = async () => {
     }
 
     const headings = await page.getHeadings();
-    const title = await accelerator.markdown.getTextFrom(page.frontmatter?.title);
+    const title = await accelerator.markdown.getTextFrom(
+      page.frontmatter?.title
+    );
     const content = page.compiledContent ? await page.compiledContent() : '';
     let counted: { word: string; count: number }[] = [];
 
@@ -50,22 +60,22 @@ const getData = async () => {
       });
 
       counted = words
-        .map(w => {
+        .map((w) => {
           return {
             word: w,
-            count: words.filter(wd => wd === w).length,
+            count: words.filter((wd) => wd === w).length,
           };
         })
-        .filter(e => e.word.replace(/[^a-z]+/g, '').length > 1);
+        .filter((e) => e.word.replace(/[^a-z]+/g, '').length > 1);
     }
 
     items.push({
       title: title,
-      headings: headings.map(h => {
+      headings: headings.map((h) => {
         return { text: h.text, slug: h.slug };
       }),
       description: page.frontmatter.description ?? '',
-      keywords: counted.map(c => c.word).join(' '),
+      keywords: counted.map((c) => c.word).join(' '),
       tags: page.frontmatter.tags ?? [],
       url: SITE.url + accelerator.urlFormatter.formatAddress(url),
       date: page.frontmatter.pubDate ?? '',
