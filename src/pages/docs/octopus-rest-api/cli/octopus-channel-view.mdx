@@ -2,20 +2,21 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2026-08-18
-title: octopus worker-pool dynamic view
-description: View a dynamic worker pool
-navOrder: 179
+title: octopus channel view
+description: View a channel
+navOrder: 40
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-View a dynamic worker pool in Octopus Deploy
+View a channel in Octopus Deploy
 
 ```text
 Usage:
-  octopus worker-pool dynamic view {<name> | <id>} [flags]
+  octopus channel view {<name> | <id>} [flags]
 
 Flags:
-  -w, --web   Open in web browser
+  -p, --project string   Name or ID of the project the channel belongs to
+  -w, --web              Open in web browser
 
 
 Global Flags:
@@ -31,8 +32,8 @@ Global Flags:
 <SamplesInstance />
 
 ```bash
-octopus worker-pool dynamic view WorkerPools-3
-octopus worker-pool dynamic view 'Hosted Workers'
+octopus channel view "Hotfix" --project myProject
+octopus channel view Channels-123 --project myProject
 
 
 ```

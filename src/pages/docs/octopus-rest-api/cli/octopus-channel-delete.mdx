@@ -2,20 +2,24 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2026-08-18
-title: octopus worker-pool dynamic view
-description: View a dynamic worker pool
-navOrder: 179
+title: octopus channel delete
+description: Delete a channel
+navOrder: 38
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-View a dynamic worker pool in Octopus Deploy
+Delete a channel in Octopus Deploy
 
 ```text
 Usage:
-  octopus worker-pool dynamic view {<name> | <id>} [flags]
+  octopus channel delete {<name> | <id>} [flags]
+
+Aliases:
+  delete, del, rm, remove
 
 Flags:
-  -w, --web   Open in web browser
+  -y, --confirm          Don't ask for confirmation before deleting the channel.
+  -p, --project string   Name or ID of the project the channel belongs to
 
 
 Global Flags:
@@ -31,8 +35,8 @@ Global Flags:
 <SamplesInstance />
 
 ```bash
-octopus worker-pool dynamic view WorkerPools-3
-octopus worker-pool dynamic view 'Hosted Workers'
+octopus channel delete "Hotfix" --project myProject
+octopus channel rm Channels-123 --project myProject -y
 
 
 ```
