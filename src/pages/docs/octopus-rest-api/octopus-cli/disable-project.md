@@ -11,7 +11,7 @@ Disables a project.
 
 **disable-project options**
 
-```
+```text
 Disables a project.
 
 Usage: octo disable-project [<options>]
@@ -75,4 +75,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

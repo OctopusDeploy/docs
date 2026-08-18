@@ -27,7 +27,7 @@ in Ubuntu, and in Red Hat:
 sudo: sorry you must have a tty to run sudo
 ```
 
-## Enabling sudo command 
+## Enabling sudo command
 
 The recommended way to enable these commands to be run is to disable the password prompt for the user account used for deployments.
 

@@ -9,9 +9,9 @@ navOrder: 3
 
 There are three levels of responsibility that platform engineering teams can implement when managing downstream projects and spaces:
 
-* Customer responsibility (eventual inconsistency)
-* Shared responsibility (eventual consistency)
-* Centralized responsibility (enforced consistency)
+- Customer responsibility (eventual inconsistency)
+- Shared responsibility (eventual consistency)
+- Centralized responsibility (enforced consistency)
 
 ## Customer responsibility model
 

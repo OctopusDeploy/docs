@@ -16,7 +16,7 @@ Perform a best-practice scan of projects, environments, and permissions to reduc
 
 ## 📝 Prompt
 
-```
+```text
 Audit the project for security best practices
 ```
 

@@ -9,7 +9,7 @@ navOrder: 100
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list the project in your Octopus instance.
 
-```
+```text
 Lists all projects.
 
 Usage: octo list-projects [<options>]
@@ -74,7 +74,7 @@ Common options:
 
 This example displays the projects within the default space:
 
-```
+```bash
 octo list-projects --server="http://MyOctopusServer" --apiKey="API-YOUR-KEY" 
 ```
 

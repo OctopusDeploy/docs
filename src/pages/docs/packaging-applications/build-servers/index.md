@@ -8,7 +8,7 @@ navOrder: 20
 hideInThisSection: true
 ---
 
-CI/CD refers to continuous integration and continuous deployment. A typical CI/CD pipeline involves a continuous integration server (or build server) and a continuous deployment server, such as Octopus. 
+CI/CD refers to continuous integration and continuous deployment. A typical CI/CD pipeline involves a continuous integration server (or build server) and a continuous deployment server, such as Octopus.
 
 The continuous integration/build server compiles your code into one or more artifacts and runs tests against them.  
 

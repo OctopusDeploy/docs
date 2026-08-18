@@ -7,11 +7,11 @@ description: Configure the built-in worker used to run deployment actions and sc
 navOrder: 160
 ---
 
-Use the builtin-worker command to configure the user context that the [built-in worker](/docs/infrastructure/workers/#built-in-worker) runs under. 
+Use the builtin-worker command to configure the user context that the [built-in worker](/docs/infrastructure/workers/#built-in-worker) runs under.
 
 **builtin-worker options**
 
-```
+```text
 Usage: octopus.server builtin-worker [<options>]
 
 Where [<options>] is any of:
@@ -48,8 +48,9 @@ Or one of the common options:
 ```
 
 ## Basic example
+
 This example configures the built-in worker to use the local machine account of OctoWorker:
 
-```
+```text
 octopus.server builtin-worker --username=".\OctoWorker" --password="My$uper$3cretP@ssword!"
 ```

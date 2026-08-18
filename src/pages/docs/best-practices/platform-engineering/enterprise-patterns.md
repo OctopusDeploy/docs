@@ -192,7 +192,6 @@ Some of these patterns require little effort to deploy or are deeply embedded in
 - [Independent instance per business unit/region](/docs/installation)
 - [Tenant per customer](/docs/tenants)
 
-
 The "custom UI over Octopus installation" is an advanced pattern that requires a dedicated development team to build a web application that consumes the Octopus REST API. You can refer to the [API documentation](https://octopus.com/docs/octopus-rest-api) for more information if you're interested in this pattern.
 
 The following patterns are implemented using the strategies documented in the [managing space resources](/docs/platform-engineering/managing-space-resources) and [managing project resources](/docs/platform-engineering/managing-project-resources) sections:

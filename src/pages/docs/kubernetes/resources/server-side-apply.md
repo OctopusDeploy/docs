@@ -11,6 +11,7 @@ navOrder: 80
 SSA allows multiple appliers to manage the fields of a single Kubernetes object without accidentally overwriting each other’s intentions.
 
 Octopus supports Server-Side Apply for the following steps:
+
 - Deploy Kubernetes YAML
 - Deploy with Kustomize
 - Configure and apply Kubernetes resources
@@ -33,4 +34,3 @@ Running `kubectl apply` with SSA is the [recommended](https://kubernetes.io/blog
 :::div{.info}
 To minimize disruptions to your current workflows, Octopus won't enable SSA for any steps you created before Octopus `2024.2`. You can still use SSA by manually enabling the option for these steps.
 :::
-

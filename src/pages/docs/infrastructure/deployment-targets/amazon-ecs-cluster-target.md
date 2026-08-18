@@ -19,7 +19,7 @@ From **Octopus 2022.2**, ECS Cluster targets can be discovered using tags on you
 
 ## Discovering ECS cluster targets
 
-Octopus can discover ECS cluster targets as part of your deployment using tags on your resource. 
+Octopus can discover ECS cluster targets as part of your deployment using tags on your resource.
 
 :::div{.hint}
 From **Octopus 2022.3**, you can configure the well-known variables used to discover ECS Cluster targets when editing your deployment process in the Web Portal. See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-target-discovery) for more information.
@@ -41,7 +41,7 @@ See [cloud target discovery](/docs/infrastructure/deployment-targets/cloud-targe
 4. Select at least one [environment](/docs/infrastructure/environments) for the target.
 5. Select at least one [target tag](/docs/infrastructure/deployment-targets/target-tags) for the target.
 6. In the **Authentication** section (see [Authentication](#authentication) below for more information):
-   
+
    - Select whether to use an AWS account configured in Octopus or to use credentials from the worker on which your deployment runs.
    - Select an AWS account if necessary. If you don't have an `AWS Account` defined yet, check our [documentation on how to set one up](/docs/infrastructure/accounts/aws).
    - Select whether to assume an IAM role during authentication.

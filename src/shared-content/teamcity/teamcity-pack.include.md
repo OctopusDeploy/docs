@@ -13,4 +13,4 @@ You configure TeamCity to package your applications by creating a [build configu
 
 With these options selected, your packages will automatically be created using the version number of the current build. OctoPack will ensure these packages appear in the artifacts tab of TeamCity:
 
-![](/docs/img/packaging-applications/build-servers/images/3278194.png)
+![Packages created by OctoPack in the TeamCity artifacts tab](/docs/img/packaging-applications/build-servers/images/3278194.png)

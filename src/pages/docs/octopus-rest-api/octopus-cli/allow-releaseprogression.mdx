@@ -10,7 +10,7 @@ import SamplesInstance from 'src/shared-content/samples/samples-instance.include
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to allow a release to progress to next phase.
 
-```
+```text
 Allows a release to progress to the next phase.
 
 Usage: octo allow-releaseprogression [<options>]
@@ -83,7 +83,7 @@ Common options:
 
 This example removes the [prevent progression](/docs/releases/prevent-release-progression) flag from a release, allowing it to proceed to the next environment.
 
-```
+```bash
 octo allow-releaseprogression --project="Octo Pet Shop" --releaseNumber="2020.08.03.82" --space="Target - Hybrid" --server="https://samples.octopus.app" --apiKey="MyApiKey"
 ```
 

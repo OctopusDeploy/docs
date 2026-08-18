@@ -11,7 +11,7 @@ The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to delete/remo
 
 This is most useful when your environments can have temporary/ephemeral machines. The best example of this is in virtualized or cloud environments where new machines are created and destroyed frequently.
 
-```
+```text
 Cleans all Offline Machines from an Environment.
 
 Usage: octo clean-environment [<options>]

@@ -125,10 +125,9 @@ Octopus.Action[CloudFormationTemplateStepName].Output.AwsOutputs[Foo]
 
 In addition to any outputs defined in your CloudFormation template, we also provide the following output variables which can be used in subsequent steps.
 
-* Octopus.Action[StepName].Output.AwsOutputs[StackId] - The stack ARN as used by the step.
-* Octopus.Action[StepName].Output.AwsOutputs[ChangesetId] - The change set ARN which was generated when change sets have been enabled.
-* Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution.
-
+- Octopus.Action[StepName].Output.AwsOutputs[StackId] - The stack ARN as used by the step.
+- Octopus.Action[StepName].Output.AwsOutputs[ChangesetId] - The change set ARN which was generated when change sets have been enabled.
+- Octopus.Action[StepName].Output.AwsOutputs[Changes]  - The changes that were applied or are to be applied when deferring execution.
 
 ### Change sets and CloudFormation transforms
 
@@ -161,11 +160,11 @@ In addition, there are several states that a stack can be in where the only way 
 
 The following states are those that require the stack to be deleted before they can be recreated:
 
-* CREATE_FAILED
-* ROLLBACK_COMPLETE
-* ROLLBACK_FAILED
-* DELETE_FAILED
-* UPDATE_ROLLBACK_FAILED
+- CREATE_FAILED
+- ROLLBACK_COMPLETE
+- ROLLBACK_FAILED
+- DELETE_FAILED
+- UPDATE_ROLLBACK_FAILED
 
 The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#w2ab2c15c15c17c11) contains more details on the CloudFormation state states.
 
@@ -174,6 +173,7 @@ The [AWS documentation](http://docs.aws.amazon.com/AWSCloudFormation/latest/User
 The AWS deployment steps include a number of unique error codes that may be displayed in the output if there was an error. Below is a list of the errors, along with any additional troubleshooting steps that can be taken to rectify them.
 
 ### AWS-CLOUDFORMATION-ERROR-0001
+
 CloudFormation stack finished in a rollback state. Commonly this occurs because the AWS account configured to run the CloudFormation deployment did not have the correct permissions, or because some required variables were missing or invalid.
 
 The last `Status Reason` from the stack events is displayed in the Octopus logs, but you can find more information about the error in the AWS CloudFormation console under the Events section for the stack.
@@ -185,11 +185,12 @@ For example, in the screenshot below you can see that the specified instance typ
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0002
+
 The AWS account used to perform the operation does not have the required permissions to query the current state of the CloudFormation stack. This step will complete without waiting for the stack to complete, and will not fail if the stack finishes in an error state.
 
 The error message will include the error from AWS, which looks like this:
 
-```
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStackEvents on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
@@ -205,45 +206,51 @@ The AWS account used to perform the operation does not have the required permiss
 
 This is logged as a warning as Octopus will make some assumptions about the state of the stack and attempt to continue on:
 
-* If the step was configured to create or update a stack, it is assumed that the stack does not exist and the stack will attempt to be created. In the event that the stack already exists, the step will fail as it will incorrectly attempt to create the stack instead of update it.
-* If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
+- If the step was configured to create or update a stack, it is assumed that the stack does not exist and the stack will attempt to be created. In the event that the stack already exists, the step will fail as it will incorrectly attempt to create the stack instead of update it.
+- If the step was configured to delete the stack, it is assumed that the stack does exist and it will attempt to be deleted.
 
 The error message will include the error from AWS, which looks like this:
 
-```
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0004
+
 The AWS account used to perform the operation does not have the required permissions to describe the CloudFormation stack. This means that the step is not able to generate any output variables.
 
 The error message will include the error from AWS, which looks like this:
-```
+
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DescribeStacks on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0005
+
 An unrecognized exception was thrown while querying the CloudFormation stacks. This is a catch-all exception.
 
 ### AWS-CLOUDFORMATION-ERROR-0006
+
 An unrecognized exception was thrown while checking to see if the CloudFormation stack exists. This is a catch-all exception.
 
 ### AWS-CLOUDFORMATION-ERROR-0007
+
 The AWS account used to perform the operation does not have the required permissions to create the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 
-```
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:CreateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0008
+
 An unrecognized exception was thrown while creating a CloudFormation stack.
 
 If the text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabilities : [CAPABILITY_IAM]` appears in the error message, you will need to define these capabilities in the CloudFormation deployment step.
@@ -253,31 +260,35 @@ If the text `Requires capabilities : [CAPABILITY_NAMED_IAM]` or `Requires capabi
 :::
 
 ### AWS-CLOUDFORMATION-ERROR-0009
+
 The AWS account used to perform the operation does not have the required permissions to delete the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 
-```
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:DeleteStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0010
+
 An unrecognized exception was thrown while deleting a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0011
+
 The AWS account used to perform the operation does not have the required permissions to update the CloudFormation stack.
 
 The error message will include the error from AWS, which looks like this:
 
-```
+```text
 User: arn:aws:iam::123456789012:user/TestUser is not authorized to perform: cloudformation:UpdateStack on resource: arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/*
 ```
 
 To resolve the error, ensure that the user has the appropriate permissions in AWS. [AWS Permissions Required by Octopus](/docs/deployments/aws/permissions) contains an overview of the permissions required by the AWS steps.
 
 ### AWS-CLOUDFORMATION-ERROR-0012
+
 An unrecognized exception was thrown while updating a CloudFormation stack.
 
 ### AWS-CLOUDFORMATION-ERROR-0013

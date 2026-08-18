@@ -7,10 +7,11 @@ description: With Octopus Deploy you can create a MySQL PaaS database server wit
 navOrder: 50
 ---
 
+<!-- cspell:ignore Doesnt -->
+
 Cloud based applications often need databases to store their data.  Cloud providers such as Azure, AWS, and Google Cloud Platform (GCP) all offer database Platform as a Service (PaaS) which allows you to create a database server without having to create the underlying infrastructure that goes along with it.  These servers are fully managed by the cloud platform provider, allowing you to focus on delivering software instead of worrying about maintenance.  This can easily be automated using a runbook.
 
 In this example, we'll create a MySQL database server on [Google Cloud](https://cloud.google.com/gcp).
-
 
 :::div{.hint}
 **gcloud CLI and authorization**
@@ -37,46 +38,48 @@ Test-LastExit "gcloud sql instances list"
 $dbDoesntExist = $true
 if( -not ([string]::IsNullOrEmpty($Names))) 
 {
-	Write-Highlight "Found MySQL instance: $Names"
+ Write-Highlight "Found MySQL instance: $Names"
     $dbDoesntExist = $false
 }
 else {
-	Write-Highlight "Found no mysql instance matching $instanceName"
+ Write-Highlight "Found no mysql instance matching $instanceName"
 }
 Set-OctopusVariable -name "DatabaseDoesntExist" -value $dbDoesntExist
 ```
+
 5. Add another **Run a script** with the run condition of `#{Octopus.Action[Check if MySQL instance exists].Output.DatabaseDoesntExist}` is true:
 
-```powershell
-$zone = $OctopusParameters["GCP.Zone"]
-$projectName = $OctopusParameters["Project.GCP.ProjectName"]
-$instanceName = $OctopusParameters["Project.GCP.MySQL.InstanceName"]
-$machineTier = $OctopusParameters["Project.GCP.MySQL.MachineTier"]
-$storageType = $OctopusParameters["Project.GCP.MySQL.StorageType"]
-$storageAutoIncreaseLimit = $OctopusParameters["Project.GCP.MySQL.StorageIncreaseLimitInGB"]
-$vpcNetworkName = $OctopusParameters["GCP.Network.VPC.Default"]
-$rootPassword = $OctopusParameters["MySQL.Database.Admin.UserPassword"]
+    ```powershell
+    $zone = $OctopusParameters["GCP.Zone"]
+    $projectName = $OctopusParameters["Project.GCP.ProjectName"]
+    $instanceName = $OctopusParameters["Project.GCP.MySQL.InstanceName"]
+    $machineTier = $OctopusParameters["Project.GCP.MySQL.MachineTier"]
+    $storageType = $OctopusParameters["Project.GCP.MySQL.StorageType"]
+    $storageAutoIncreaseLimit = $OctopusParameters["Project.GCP.MySQL.StorageIncreaseLimitInGB"]
+    $vpcNetworkName = $OctopusParameters["GCP.Network.VPC.Default"]
+    $rootPassword = $OctopusParameters["MySQL.Database.Admin.UserPassword"]
 
-Write-Host "Running gcloud beta sql instances create"
-Write-Host "##octopus[stderr-progress]"
+    Write-Host "Running gcloud beta sql instances create"
+    Write-Host "##octopus[stderr-progress]"
 
-& gcloud beta sql instances create $instanceName `
---tier=$machineTier `
---root-password=$rootPassword `
---zone=$zone --project=$projectName `
---no-backup `
---network=$vpcNetworkName `
---storage-type=$storageType `
---storage-auto-increase `
---storage-auto-increase-limit=$storageAutoIncreaseLimit `
---no-assign-ip `
---quiet
+    & gcloud beta sql instances create $instanceName `
+    --tier=$machineTier `
+    --root-password=$rootPassword `
+    --zone=$zone --project=$projectName `
+    --no-backup `
+    --network=$vpcNetworkName `
+    --storage-type=$storageType `
+    --storage-auto-increase `
+    --storage-auto-increase-limit=$storageAutoIncreaseLimit `
+    --no-assign-ip `
+    --quiet
 
   
-Test-LastExit "gcloud beta sql instances create"
+    Test-LastExit "gcloud beta sql instances create"
 
-Write-Host "Completed creating mysql instance"
-```
+    Write-Host "Completed creating mysql instance"
+    ```
+
 6. Add project [variables](/docs/projects/variables) for use with the scripts
 
 :::div{.hint}

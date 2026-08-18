@@ -15,7 +15,7 @@ Octopus supports the use of HTTP proxies with support for SSL. There is no suppo
 :::
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/proxy-support.png)
+![Tentacles communicating with the Octopus Server through a proxy](/docs/img/infrastructure/deployment-targets/images/proxy-support.png)
 :::
 
 ## Configuring a Tentacle communications proxy
@@ -29,13 +29,13 @@ The process for configuring a proxy for Tentacle communication differs for Liste
 For Listening Tentacles, the Octopus Server can be configured to communicate with the Tentacle via a proxy. Go to **Infrastructure ➜ Proxies** to configure proxy servers to use when connecting to Listening Tentacles. Multiple proxies can be setup here depending on the requirements of your network topology.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/proxy-create.png)
+![Creating a proxy under Infrastructure ➜ Proxies](/docs/img/infrastructure/deployment-targets/images/proxy-create.png)
 :::
 
 Once you have created a proxy, Listening Tentacles can be set to use that proxy in the communication part of Deployment Target Settings.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/machine-proxy.png)
+![A proxy selected in the communication settings of a deployment target](/docs/img/infrastructure/deployment-targets/images/machine-proxy.png)
 :::
 
 ### SSH targets
@@ -68,7 +68,7 @@ This launches the proxy settings wizard which will let you setup the proxy used 
 ![Web request proxy settings](/docs/img/infrastructure/deployment-targets/images/web-request-proxy-settings.png)
 :::
 
-Configuring the proxy used by the Octopus Server to make web requests is done in the same manner, using the Octopus Manager application. 
+Configuring the proxy used by the Octopus Server to make web requests is done in the same manner, using the Octopus Manager application.
 
 After configuring the proxy, restart the Octopus Server to apply your changes.
 
@@ -108,11 +108,11 @@ You should configure the web request proxy using either the Octopus Server Manag
 
 If you are executing a PowerShell script with a version of PowerShell Core earlier than version `7.0.0`, any usages of `System.Net.Http.HttpClient` may ignore the proxy that has been configured. Each instance of `HttpClient` should be manually configured with an appropriate proxy.
 
-For convenience, the `$OctopusProxy` variable is available for your scripts to use, and the variable is assigned a configured instance of `System.Net.WebProxy`. 
+For convenience, the `$OctopusProxy` variable is available for your scripts to use, and the variable is assigned a configured instance of `System.Net.WebProxy`.
 
 The following snippet demonstrates how to construct a configured instance of `HttpClient` using the `$OctopusProxy` variable.
 
-```
+```powershell
 $handler = [System.Net.Http.SocketsHttpHandler]::new()
 $handler.Proxy = $OctopusProxy
 $httpClient = [System.Net.Http.HttpClient]::new($handler)

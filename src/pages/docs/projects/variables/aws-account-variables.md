@@ -22,26 +22,24 @@ Select the AWS account you want to access from the project to assign it to the v
 ![AWS account variable selection](/docs/img/projects/variables/images/aws-account-variable-selection.png)
 :::
 
-
 ## AWS account variable properties
 
 The AWS account variable also exposes the following properties that you can reference in a PowerShell script:
 
 **Access Key account**
 
-| Name and description |
-| -------------------- |
-| **`AccessKey`** <br/> The Access Key for the AWS account|
-| **`SecretKey`** <br/> The Secret Key for the AWS account|
+| Name and description                                     |
+| -------------------------------------------------------- |
+| **`AccessKey`** <br/> The Access Key for the AWS account |
+| **`SecretKey`** <br/> The Secret Key for the AWS account |
 
 **OpenId Connect account**
 
-| Name and description |
-| -------------------- |
-| **`RoleArn`** <br/> The Role Arn that identifies the AWS role|
-| **`SessionDuration`** <br/> The session duration for the AWS role|
-| **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task|
-
+| Name and description                                                      |
+| ------------------------------------------------------------------------- |
+| **`RoleArn`** <br/> The Role Arn that identifies the AWS role             |
+| **`SessionDuration`** <br/> The session duration for the AWS role         |
+| **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task |
 
 ### Accessing the properties in a script
 

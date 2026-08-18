@@ -11,7 +11,7 @@ Use the proxy command to configure the HTTP proxy used by Octopus.
 
 **Proxy options**
 
-```
+```text
 Usage: octopus.server proxy [<options>]
 
 Where [<options>] is any of:
@@ -37,18 +37,18 @@ Or one of the common options:
 
 This example enables Octopus Server to use a proxy server using the default Internet Explorer proxy:
 
-```
+```text
 octopus.server proxy --proxyEnable="true"
 ```
 
 This example enables Octopus Server to use a defined proxy server for instance `MyNewInstance`:
 
-```
+```text
 octopus.server proxy --proxyEnable="true" --proxyHost="MyProxyServer" --instance="MyNewInstance"
 ```
 
 This example prevents a proxy server from being used on the default instance:
 
-```
+```text
 octopus.server proxy --proxyEnable="false"
 ```

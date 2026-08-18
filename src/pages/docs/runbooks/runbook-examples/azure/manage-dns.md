@@ -31,7 +31,7 @@ The next section shows how you can create runbooks to manage DNS records:
 :::
 
 :::div{.hint}
-[Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
+[Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**.
 
 The [Azure Run a Script](/docs/deployments/azure/running-azure-powershell) step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#use-variables-in-step-definitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#use-variables-in-step-definitions).
 :::
@@ -58,7 +58,7 @@ $existingRecordSetName = (az network dns record-set a list --resource-group=$res
 
 if( -not ([string]::IsNullOrEmpty($existingRecordSetName))) 
 {
-	Write-Highlight "Skipping DNS creation as $recordSetName already exists"
+ Write-Highlight "Skipping DNS creation as $recordSetName already exists"
 }
 else {
   Write-Highlight "Creating DNS A record for $recordSetName pointing at $IPAddress"
@@ -106,10 +106,10 @@ $matchingCount = $matchingRecords.Count
 Write-Highlight "Found $matchingCount (out of $recordCount) DNS A-records matching $dnsTag"
 if($matchingCount -gt 0) 
 {
-	if(([string]::IsNullOrEmpty($IPAddress))) 
-	{
-    	Write-Warning "Skipping DNS deletion as IP Address is not set/found"
-	}
+ if(([string]::IsNullOrEmpty($IPAddress))) 
+ {
+     Write-Warning "Skipping DNS deletion as IP Address is not set/found"
+ }
     else {
       foreach($dnsRecord in $matchingRecords) {
           Write-Host "Deleting DNS Record: $dnsRecord pointing at $IPAddress"
@@ -118,7 +118,7 @@ if($matchingCount -gt 0)
     }
 }
 else {
-	Write-Highlight "Skipping DNS deletion as no records found"
+ Write-Highlight "Skipping DNS deletion as no records found"
 }
 
 Write-Host "Completed deletion of existing DNS for $dnsTag"
@@ -131,5 +131,6 @@ Configure any other settings for the step and click **Save**, and in just a few 
 ## Samples
 
 We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. You can sign in as `Guest` to take a look at these examples in the `PetClinic Infrastructure` project:
+
 - The Create DNS record step is located in the `Spin up GCP PetClinic Project Infrastructure` runbook.
 - The Delete DNS record step is located in the `Destroy the GCP Kraken` runbook.

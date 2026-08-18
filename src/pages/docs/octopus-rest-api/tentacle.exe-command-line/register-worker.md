@@ -10,7 +10,7 @@ Registers this machine as a Worker with an Octopus Server.
 
 **Register with options**
 
-```
+```text
 Usage: tentacle register-worker [<options>]
 
 Where [<options>] is any of:
@@ -75,12 +75,12 @@ Or one of the common options:
 
 This example registers a listening Tentacle to the worker pool `MyWorkerPool`:
 
-```
+```text
 tentacle register-worker --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --workerpool="MyWorkerPool"
 ```
 
 This example registers a polling Tentacle to the worker pool `MyWorkerPool` in the space `MyNewSpace`:
 
-```
+```text
 tentacle register-worker --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --workerpool="MyWorkerPool --space="MyNewSpace" --comms-style="TentacleActive"
 ```

@@ -9,7 +9,7 @@ description: Using the Tentacle.exe command line executable to start, stop, inst
 
 **Service options**
 
-```
+```text
 Usage: tentacle service [<options>]
 
 Where [<options>] is any of:
@@ -44,18 +44,18 @@ Or one of the common options:
 
 This example stops the default Tentacle service:
 
-```
+```text
 tentacle service --stop
 ```
 
 This example restarts the Tentacle service for instance `MyNewInstance`:
 
-```
+```text
 tentacle service --restart --instance="MyNewInstance"
 ```
 
 This example uninstalls the Tentacle service for instance `MyNewInstance`:
 
-```
+```text
 tentacle service --uninstall --instance="MyNewInstance"
 ```

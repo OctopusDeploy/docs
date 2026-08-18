@@ -48,7 +48,7 @@ There is a couple of reasons why a manifest may show as removed when compared to
 3. The step that manifest was deployed in was not executed (either due to being skipped or not executed due to rules)
 4. The step was removed and re-added between deployments
 
-In cases 2,3 and 4; as Octopus Server matches manifests on the resource details and the step details, any changes to these will result in the 
+In cases 2,3 and 4; as Octopus Server matches manifests on the resource details and the step details, any changes to these will result in the
 
 ### Diff options
 
@@ -70,4 +70,4 @@ When performing a diff, Octopus continues to obfuscate the secrets, but will sti
 
 ## Can I compare to my live resources?
 
-The `Applied Manifest` view allows users to independently compare manifests generated at each step. In contrast, the live view aggregates the manifests, displaying the combined manifest from all steps completed during a deployment. You cannot compare or view the combined manifest on this page. Navigate to the Live page for the combined manifest. To learn more about the live status page and combined manifests, see the docs [here](/docs/kubernetes/live-object-status).
+The `Applied Manifest` view allows users to independently compare manifests generated at each step. In contrast, the live view aggregates the manifests, displaying the combined manifest from all steps completed during a deployment. You cannot compare or view the combined manifest on this page. Navigate to the Live page for the combined manifest. To learn more about the live status page and combined manifests, see the docs [live object status](/docs/kubernetes/live-object-status).

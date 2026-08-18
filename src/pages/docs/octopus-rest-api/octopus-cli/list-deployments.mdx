@@ -8,9 +8,9 @@ navOrder: 100
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list deployments by project, environment, or tenant: 
+The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to list deployments by project, environment, or tenant:
 
-```
+```text
 Lists a number of deployments by project, environment or by tenant.
 
 Usage: octo list-deployments [<options>]
@@ -88,25 +88,25 @@ Common options:
 
 This example lists deployments for the specified project:
 
-```
+```text
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS"
 ```
 
 This example lists the latest 5 deployments for the specified project:
 
-```
+```text
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5"
 ```
 
 This example lists the latest 5 deployments to production:
 
-```
+```text
 octo.exe list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5" --environment="Production"
 ```
 
 This example lists the latest 5 deployments to production for tenant Petlife:
 
-```
+```bash
 octo list-deployments --project="Octo Pet Shop - DB" --server="https://samples.octopus.app" --apiKey="API-YOUR-KEY" --space="Tenants - SaaS" --number="5" --environment="Production" --tenant="Petlife"
 ```
 

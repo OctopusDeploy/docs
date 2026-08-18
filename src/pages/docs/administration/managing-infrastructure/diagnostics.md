@@ -12,7 +12,7 @@ navOrder: 2400
 The System Diagnostics report generates a compressed folder which includes a set of reports that capture specific system data, such as previous Octopus Server logs, a subset of recently run system tasks (for example, a System Integrity check), a short list of previous errors reported on the Octopus Server and installation history. Octopus Support may ask for this report to help diagnose common faults or for recommendations on customer queries. The report can be found by going to **Configuration ➜ Diagnostics** and clicking the `Download System Diagnostics Report` button:
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/system-diag-report.png)
+![The System Diagnostics report page](/docs/img/administration/managing-infrastructure/images/system-diag-report.png)
 :::
 
 ## System integrity check
@@ -22,8 +22,9 @@ The system integrity check performs several checks on the database and the data.
 It runs at start up and then again every 24 hours. It can also be run on demand by going to **Configuration ➜ Diagnostics** and clicking the `Check System Integrity` button
 
 :::figure
-![](/docs/img/administration/managing-infrastructure/images/system-integrity-check.png)
+![The Check System Integrity button under Configuration ➜ Diagnostics](/docs/img/administration/managing-infrastructure/images/system-integrity-check.png)
 :::
 
 ### Schema
+
 The schema integrity check compares the current schema of the database against what the application expects it to be. If the schema differs, server version upgrades may fail. It will error if tables, indexes or columns have been added, removed or altered. Items in the `sys` and `sys diagram` schemas are ignored.

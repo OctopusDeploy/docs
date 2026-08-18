@@ -221,7 +221,7 @@ With the release created, click **DEPLOY TO...** and select the environment, the
 
 If you receive an error message like the following:
 
-```
+```text
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 17: $'\r': command not found
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 20: syntax error near unexpected token `$'in\r''
 /etc/octopus/default/Work/20200326224917-19880-127/FlyWayPackage/flyway: line 20: ` case "`uname`" in

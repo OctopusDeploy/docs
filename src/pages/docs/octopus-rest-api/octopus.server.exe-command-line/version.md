@@ -11,7 +11,7 @@ Show the Octopus Server version information
 
 **version options**
 
-```
+```text
 Usage: octopus.server version [<options>]
 
 Where [<options>] is any of:
@@ -28,12 +28,12 @@ Or one of the common options:
 
 This example displays the version of Octopus Server installed on the machine:
 
-```
+```text
 octopus.server version
 ```
 
 This example displays the version of Octopus Server installed on the machine, in JSON format:
 
-```
+```text
 octopus.server version --format="json"
 ```

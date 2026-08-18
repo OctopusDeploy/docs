@@ -15,7 +15,6 @@ Octopus.Migrator.exe is not designed to support migrating projects between space
 
 For more in depth information about applicable data migration scenarios and tips, please reference the [data migration documentation](/docs/administration/data/data-migration).
 
-
 The latest version of **Octopus.Migrator.exe** is available in the Octopus Deploy installation directory and is usually located in:
 
 ```powershell

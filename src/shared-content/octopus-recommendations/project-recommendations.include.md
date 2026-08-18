@@ -1,11 +1,11 @@
 
-We built Octopus Deploy with the core concept of consistency across all environments.  The process used to deploy to your development environment is the same process used to deploy to your production environment. You can enable or disable specific steps, but it's the same process, and therefore the same parts, deployed to development or testing environments, that will make it to production.  The production deployment will be a non-event because you've tested the process many times, once for each environment in the lifecycle before production. 
+We built Octopus Deploy with the core concept of consistency across all environments.  The process used to deploy to your development environment is the same process used to deploy to your production environment. You can enable or disable specific steps, but it's the same process, and therefore the same parts, deployed to development or testing environments, that will make it to production.  The production deployment will be a non-event because you've tested the process many times, once for each environment in the lifecycle before production.
 
 Knowing the underlying concept of Octopus Deploy is consistency; here are our project recommendations.
 
 ## Set up projects as single units of deployment
 
-A project usually represents a single unit of deployment, such as a component, a service, or a database. 
+A project usually represents a single unit of deployment, such as a component, a service, or a database.
 
 A unit of deployment is usually a single package that you will deploy independently. Heritage applications sometimes require multiple packages to be deployed at the same time, creating a larger and more interdependent unit of deployment. Octopus supports both these scenarios, though there are benefits to reducing the dependencies so you can perform smaller deployments.
 
@@ -54,6 +54,7 @@ For most branching strategies, we'd recommend two lifecycles in this example, ea
     - Production
 
 The workflow would be as follows:
+
 1. Create a branch, commit some changes.
 2. Build is triggered on branch check-in.  It creates a release in Octopus for the Development lifecycle and pushes to Dev.
 3. Changes are verified in Dev and are promoted to QA.
@@ -89,10 +90,10 @@ When it is time to deploy a project to an environment for the first time, you sh
 
 Almost everyone is familiar with environment [run conditions](/docs/projects/steps/conditions).  For instance, run a step in production only.  Alternatively, don't run this step in development or testing.  However, there are other [run conditions](/docs/projects/steps/conditions/#run-condition):
 
- * Only running when the previous step was successful.
- * Only running on failure.
- * Always running.
- * Only run when the value of a variable equals true.  
+ - Only running when the previous step was successful.
+ - Only running on failure.
+ - Always running.
+ - Only run when the value of a variable equals true.  
 
 Those additional conditions are advantageous.  You can configure a step to send a slack notification when a failure occurs.  You could set a manual intervention only to happen if you are deploying during business hours.  You can also configure steps to run in parallel with one another.
 

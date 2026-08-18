@@ -18,7 +18,7 @@ If we change the value for a tenanted deployment to `#{Octopus.Project.Id}/#{Oct
 In this scenario, we want to run one task per hosting group concurrently. We can do that by scoping different values to the Hosting Group tenant tags.
 
 :::figure
-![](/docs/img/tenants/guides/tenants-sharing-machine-targets/variable.png)
+![A variable scoped to a different value for each Hosting Group tenant tag](/docs/img/tenants/guides/tenants-sharing-machine-targets/variable.png)
 :::
 
 Now the deployments for each tenant in the same hosting group will run sequentially.

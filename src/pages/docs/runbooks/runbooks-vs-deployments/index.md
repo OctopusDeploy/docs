@@ -7,7 +7,7 @@ description: Describing the differences between a deployment and a runbook.
 navOrder: 10
 ---
 
-For users familiar with Octopus prior to the introduction of runbooks, an obvious question may be _how are runbooks different to a deployment process?_  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
+For users familiar with Octopus prior to the introduction of runbooks, an obvious question may be *how are runbooks different to a deployment process?*  They are similar in many ways: a runbook process is a series of steps, which can reference packages and variables. The key differences are:
 
 - No release needs to be created to execute a runbook.
 - Lifecycles do not apply to runbooks.
@@ -18,6 +18,7 @@ For users familiar with Octopus prior to the introduction of runbooks, an obviou
 ## Variables
 
 A [project's variables](/docs/projects/variables) are shared between the deployment process and any runbooks in the project (though specific values can be scoped exclusively to specific runbooks or to the deployment process). This means the following configurations can be shared between your deployment process and runbooks:
+
 - Database connection strings
 - Passwords
 - Certificates
@@ -26,6 +27,7 @@ A [project's variables](/docs/projects/variables) are shared between the deploym
 ### Current limitations
 
 **Scoping to Steps/Actions**
+
 - You cannot currently scope project variables to a deployment process step and a runbook process step, but we do aim to support this in the near future.
 
 ## Environments
@@ -39,6 +41,7 @@ From **Octopus 2020.3**, it's also possible to choose which environments a runbo
 :::
 
 You can select the runbook to run in:
+
 - All environments (the default).
 - Only specific environments.
 - Environments from the [Project Lifecycle](/docs/releases/lifecycles).
@@ -56,6 +59,7 @@ Project [Lifecycles](/docs/releases/lifecycles) and their retention policies do 
 :::
 
 You can choose to:
+
 - Keep **all** of the runbook runs.
 - Keep a limited number of runbook runs (the default).
 
@@ -70,10 +74,11 @@ In Octopus 2020.2 and earlier, the runbook retention policy could not be set. In
 ## Snapshots versus Releases
 
 :::div{.success}
-Config-as-code runbooks use commits instead of snapshots. If your project uses config-as-code runbooks, read about [snapshots vs commits](/docs/runbooks/config-as-code-runbooks#snapshots-vs-commits) instead. 
+Config-as-code runbooks use commits instead of snapshots. If your project uses config-as-code runbooks, read about [snapshots vs commits](/docs/runbooks/config-as-code-runbooks#snapshots-vs-commits) instead.
 :::
 
 Runbooks are similar to deployments in that they also take a copy of the process to be used with execution. For a runbook this is referred to as a [snapshot](/docs/runbooks/runbook-publishing/#snapshots) versus a [release](/docs/releases) for a deployment. Runbooks can have two different types of snapshots:
+
 - Draft
 - Published
 

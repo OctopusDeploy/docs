@@ -8,9 +8,10 @@ navOrder: 10
 ---
 
 ## Username/password account
-Command: **_New-OctopusUserPassAccount_**
 
-_**New-OctopusUserPassAccount** allows you to create a username/password account in Octopus from within a running deployment_
+Command: ***New-OctopusUserPassAccount***
+
+***New-OctopusUserPassAccount** allows you to create a username/password account in Octopus from within a running deployment*
 
 | Parameters                    | Value                                                                                                      |
 |-------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -20,9 +21,10 @@ _**New-OctopusUserPassAccount** allows you to create a username/password account
 | `-updateIfExisting`           | Will update an existing account with the same name, create if it doesn't exist                             |
 
 Example:
+
 ```powershell
 New-OctopusUserPassAccount -name "My Username Password Account" `
-                           -username "myuser" `
+                           -username "your-user" `
                            -password "correct horse battery staple" `
                            -updateIfExisting
 ```

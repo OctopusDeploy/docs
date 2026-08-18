@@ -12,7 +12,7 @@ navOrder: 20
 Your application is deployed to multiple geographic regions (or multiple Data Centers) to provide for your end-customer's performance (think latency) or legal requirements (like data sovereignty).
 
 :::figure
-![](/docs/img/deployments/patterns/images/5865791.png)
+![An application deployed to multiple geographic regions](/docs/img/deployments/patterns/images/5865791.png)
 :::
 
 ## Strict solution using environments
@@ -20,14 +20,14 @@ Your application is deployed to multiple geographic regions (or multiple Data Ce
 You can use [Environments](/docs/infrastructure/environments) to represent each region or data center. In the example below we have defined a Dev and Test Environment as per normal, and then configured two "production" Environments, one for each region we want to deploy into.
 
 :::figure
-![](/docs/img/deployments/patterns/images/multi-tenant-region.png)
+![Dev and Test environments alongside two production region environments](/docs/img/deployments/patterns/images/multi-tenant-region.png)
 :::
 
 By using this pattern you can:
 
 1. Use [lifecycles](/docs/releases/lifecycles) to define a strict process for promotion of releases between your regions. *Lifecycles can be used to design both simple and complex promotion processes.*
-    * For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
-    * In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
+    - For example, you may want to test releases in Australia before rolling them out to the USA, and then to Europe.
+    - In another example, you may want to test releases in Australia before rolling them out simultaneously to all other regions.
 2. Scope region-specific variables to the region-specific Environments.
 3. Quickly see which releases are deployed to which regions on the main dashboard.
 4. Quickly promote releases through your regions using the Project Overview.
@@ -42,7 +42,7 @@ Environments and Lifecycles are a really good solution if you want to enforce a 
 [Cloud Regions](/docs/infrastructure/deployment-targets/cloud-regions/) enable you to configure [rolling deployments](/docs/deployments/patterns/rolling-deployments-with-octopus) across your regions or data centers. In this case you can scope variables to the Cloud Regions and deploy to all regions at once, but you cannot control the order in which the rolling deployment executes.
 
 :::figure
-![](/docs/img/deployments/patterns/images/production.png)
+![Cloud regions used for a rolling deployment across regions](/docs/img/deployments/patterns/images/production.png)
 :::
 
 By using this pattern you can:
@@ -60,27 +60,27 @@ Alternatively you could create [Tenants](/docs/tenants) to represent each region
 
 1. Use [variable templates](/docs/projects/variables/variable-templates) to prompt you for the variables required for each region (like the storage account details for that region) and when you introduce a new region Octopus will prompt you for the missing variables:
 
-    ![](/docs/img/deployments/patterns/images/australiavariables.png)
+    ![Variable templates prompting for the values each region needs](/docs/img/deployments/patterns/images/australiavariables.png)
 
 2. Provide logos for your regions to make them easier to distinguish:
 
-    ![](/docs/img/deployments/patterns/images/tenantlogs.png)
+    ![Region logos making tenants easier to distinguish](/docs/img/deployments/patterns/images/tenantlogs.png)
 
 3. Quickly see the progress of deploying the latest release to your entire production environment on the main dashboard:
 
-    ![](/docs/img/deployments/patterns/images/dashboard.png)
+    ![The main dashboard showing deployment progress across production regions](/docs/img/deployments/patterns/images/dashboard.png)
 
 4. Quickly see which releases have been deployed to which regions using the Dashboard and Project Overview:
 
-    ![](/docs/img/deployments/patterns/images/projectdashboard.png)
+    ![The project overview showing which releases are in which regions](/docs/img/deployments/patterns/images/projectdashboard.png)
 
 5. Quickly promote releases to your production regions, in a particular sequence, or simultaneously:
 
-    ![](/docs/img/deployments/patterns/images/projectdashboardrelease.png)
+    ![Promoting a release to several production regions](/docs/img/deployments/patterns/images/projectdashboardrelease.png)
 
 6. Use [Scheduled Deployments](/docs/releases/#scheduling-a-deployment) to plan deployments for times of low usage:
 
-    ![](/docs/img/deployments/patterns/images/scheduleddeployment.png)
+    ![A scheduled deployment planned for a period of low usage](/docs/img/deployments/patterns/images/scheduleddeployment.png)
 
 You do give up the advantage of enforcing the order in which you deploy your application to your regions, but you gain the flexibility to promote to your regions in different order depending on the circumstances.
 

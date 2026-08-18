@@ -71,13 +71,13 @@ After the OIDC identity for GitHub Actions has been created, a snippet of the `O
 2. Paste the `OctopusDeploy/login` step into your workflow job.
 3. Add `id-token: write` to the `permissions` on the workflow job. This is required to allow the `OctopusDeploy/login` action to request an OIDC token from GitHub to use.
 
-:::div{.hint}
-When `permissions` are specified on a workflow job, any built-in permissions for the job are reset. This means that some existing steps in your workflow may now require setting explicit permissions in order to work correctly.
+    :::div{.hint}
+    When `permissions` are specified on a workflow job, any built-in permissions for the job are reset. This means that some existing steps in your workflow may now require setting explicit permissions in order to work correctly.
 
-For example to checkout source code using the `actions/checkout` action you will need to add `contents: read` to the permissions.
+    For example to checkout source code using the `actions/checkout` action you will need to add `contents: read` to the permissions.
 
-For more information see [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs/).
-:::
+    For more information see [Assigning permissions to jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs/).
+    :::
 
 4. Add any additional Octopus provided GitHub Actions that you require e.g. [`OctopusDeploy/create-release-action`](https://github.com/OctopusDeploy/create-release-action). These actions will automatically work with OIDC. Any script steps that use the `octopus` cli will also automatically work with OIDC.
 
@@ -127,7 +127,7 @@ The first step is to create an OIDC identity for your issuer to access the Octop
 5. Enter the URL of the identity. Octopus uses OpenID Configuration Discovery to validate the OIDC token provided by the issuer.
    1. The issuer URL must be HTTPS.
    2. The URL should be the base where the OIDC Discovery endpoint (`/.well-known/openid-configuration`) endpoint can be found. For example if the discovery endpoint is `https://my-oidc-issuer.com/.well-known/openid-configuration` then the issuer should be set to `https://my-oidc-issuer.com`.
-6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is _case-sensitive_. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
+6. Enter the subject of the identity. This must match exactly the subject that is provided in the OIDC token and is *case-sensitive*. The format of the subject will differ by issuer, please consult your OIDC issuers documentation.
 7. Click Save.
 
 :::div{.hint}
@@ -165,13 +165,13 @@ After authenticating using OIDC, the `login` command will configure the CLI envi
 
 Usage:
 
-```
+```bash
 octopus login --server {OctopusServerUrl} --service-account-id {ServiceAccountId} --id-token {IdTokenFromProvider}
 ```
 
 For example:
 
-```
+```bash
 octopus login --server https://my.octopus.app --service-account-id 834a7275-b5b8-42a1-8b36-14f11c8eb55e --id-token eyJhbGciOiJQUzI1NiIs...
 ```
 
@@ -190,7 +190,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
 - Check the audience (`aud`), issuer (`iss`) and subject (`sub`) of the token match the configured OIDC identity on the Octopus service account.
   - The audience must be the id of the service account and will be a GUID.
   - The issuer must be a URL using the HTTPS scheme.
-  - The subject must match the configured subject on the OIDC identity and is _case-sensitive_. Support is available to include wildcard characters in the subject using `*` and `?` for multiple and single character matches respectively.
+  - The subject must match the configured subject on the OIDC identity and is *case-sensitive*. Support is available to include wildcard characters in the subject using `*` and `?` for multiple and single character matches respectively.
 - If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
 - Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
 - Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
@@ -200,7 +200,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - Both of these endpoints must be publicly accessible without requiring authorization.
 
 :::div{.warning}
-Although the subject field does support wildcards, we recommend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match. 
+Although the subject field does support wildcards, we recommend providing as explicit a value as possible to reduce the risk of malicious requests resulting in a subject match.
 
 For example, if you are generating OIDC tokens from GitHub Actions and want to match against any branch in your project repository, ensure your wildcard covers just the branch component of the subject `repo:AcmeOrg/MyRepo:ref:*`. Providing a single blanket `*` wildcard character otherwise means that any token request (with a matching `service_account_id`) from a GitHub Action from any organization could result in a match and an Octopus Authentication Token issued.
 :::

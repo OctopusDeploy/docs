@@ -29,8 +29,8 @@ Provide the information required to create the bucket.
 
 The following settings will need to be configured:
 
-* AWS Region
-* AWS Account
+- AWS Region
+- AWS Account
 
 :::div{.hint}
 Note: The **S3 Bucket Name** will be automatically generated if not provided.
@@ -60,17 +60,16 @@ In April 2023 Amazon is updating their security settings for newly created S3 Bu
 ![Create an Amazon S3 Bucket Advanced Security section](/docs/img/deployments/aws/aws-s3-create-bucket/images/advanced-section-security.png)
 :::
 
-
 ## Output variables
 
 Presently, the step outputs the following variables.
 
-| Name        | Description |
-| ------------| ----------- |
-|`BucketName` | The name of the bucket that was created  |
-|`StackName`  | The name of the CloudFormation stack     |
-|`StackId`    | The ID (ARN) of the CloudFormation stack |
-|`Region`     | The AWS region in which the operations were executed |
+| Name         | Description                                          |
+| ------------ | ---------------------------------------------------- |
+| `BucketName` | The name of the bucket that was created              |
+| `StackName`  | The name of the CloudFormation stack                 |
+| `StackId`    | The ID (ARN) of the CloudFormation stack             |
+| `Region`     | The AWS region in which the operations were executed |
 
 ## Errors
 
@@ -79,5 +78,6 @@ If a deployment failure is detected, you may receive one of the following errors
 ### Create S3 Bucket Validation Error
 
 This error indicates that one or more of the step's inputs are invalid. Typically, this can happen when values are supplied as bound expressions and cannot be resolved until a new release is deployed. The step will run an additional validation check before attempting to perform the deployment. Some examples of input values that can cause this error are:
-* Non-unique tag and/or environment variable keys.
-* Bound expressions resolving to empty values when the field is required.
+
+- Non-unique tag and/or environment variable keys.
+- Bound expressions resolving to empty values when the field is required.

@@ -16,7 +16,7 @@ Build a complete pipeline for deploying containerized apps to Kubernetes using H
 
 ## 📝 Prompt
 
-```
+```text
 Create a deployment process for Kubernetes using a Helm chart
 ```
 

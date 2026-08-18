@@ -9,8 +9,9 @@ navOrder: 30
 
 The Terraform [plan command](https://www.terraform.io/cli/commands/plan) is used to identify changes that would be executed if a template was applied or destroyed. This information is useful to confirm the intended changes before they are executed.
 
-Octopus has two steps that generate plan information: 
-- `Plan to apply a Terraform template` and 
+Octopus has two steps that generate plan information:
+
+- `Plan to apply a Terraform template` and
 - `Plan a Terraform destroy`
 
 As their names suggest, the `Plan to apply a Terraform template` step will generate a plan for the result of running `apply` on the template, while the `Plan a Terraform destroy` step will generate a plan for the result of running `destroy` on the template.
@@ -35,7 +36,7 @@ Terraform planning steps can output the plan details in either plain text or JSO
 
 When a plan steps is run, the output will include a line that looks like this:
 
-```
+```text
 Saving variable "Octopus.Action[Plan Apply].Output.TerraformPlanOutput" with the details of the plan
 ```
 
@@ -55,15 +56,15 @@ Write-Host 'JSON Output line #{output}: #{output.JSON}'
 
 The resource change counts are captured in the following variables:
 
-* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonAdd`
-* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonRemove`
-* `Octopus.Action[Plan Apply].Output.TerraformPlanJsonChange`
+- `Octopus.Action[Plan Apply].Output.TerraformPlanJsonAdd`
+- `Octopus.Action[Plan Apply].Output.TerraformPlanJsonRemove`
+- `Octopus.Action[Plan Apply].Output.TerraformPlanJsonChange`
 
 ## Manual intervention
 
 The result of a plan will typically be displayed in a Manual Intervention step. Because the plan text can contain markdown characters, the variable should be wrapped up in back ticks to display it verbatim.
 
-````
+````text
 ```
 #{Octopus.Action[Plan Apply].Output.TerraformPlanOutput}
 ```
