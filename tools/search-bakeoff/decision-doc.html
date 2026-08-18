@@ -431,21 +431,22 @@
     <div class="verdict-side">
       <dl>
         <div>
-          <dt>The cost</dt>
-          <dd>A first search on a cold cache takes 5.7s on a mid-range phone on
-            Fast 4G. That is the only gate it misses, and it misses it by a wide margin.</dd>
+          <dt>The apparent cost</dt>
+          <dd>A first search on a cold cache measures 5.7s on the staging site. That is
+            the only gate it misses &mdash; and most of it is an artefact of where the
+            spike is hosted, not of the engine.</dd>
         </div>
         <div>
-          <dt>Why it is acceptable</dt>
-          <dd>The penalty lands once, on the first search of a first visit. Every
-            subsequent search in that visit is 256ms, and a return visit is 201ms &mdash;
-            both faster than legacy. Nothing loads at all for readers who never search.</dd>
+          <dt>What it is on production</dt>
+          <dd>Staging serves the index uncompressed, at 5.33MB. Your CDN would send
+            0.66MB. Adjusting the bandwidth for that ratio, the same cold search is
+            <strong>1807ms</strong> &mdash; inside the gate, with no other change.</dd>
         </div>
         <div>
           <dt>Do this before shipping</dt>
-          <dd>Cut the cold path further. The index is still 5.33MB parsed and
-            <span class="m">BODY_LIMIT</span> is still 4,000 characters; there is real
-            headroom left.</dd>
+          <dd>Warm the index on page load, as the Pagefind spike already does. With two
+            seconds of reading time before the reader searches, the first search drops to
+            <strong>275ms</strong>.</dd>
         </div>
       </dl>
     </div>
@@ -521,8 +522,14 @@
       <p>So payload is not a reason to replace the legacy engine, and it is a mild argument
         against Orama. The reasons that survive measurement are search quality and the 645
         lines of hand-rolled search code. Both point the same way.</p>
-      <p>One payload number does still matter, and it is not the wire: the bytes that have to be
-        parsed on every fresh page load, which no amount of caching removes.</p>
+      <p>The second column below is the one people misread, so it is worth being exact. The
+        browser caches the index <em>file</em>; it cannot cache the in-memory structure built
+        from it. This site is a static multi-page app &mdash; every link is a full page load
+        that discards the JavaScript heap &mdash; so the parse runs again from the cached bytes
+        on each navigation. All three engines pay this, in proportion to their index size.
+        Measured, it is small: 5.33MB parses in 116ms on a 4&times;-throttled CPU, 43ms
+        unthrottled, in a worker off the main thread. Legacy's 1.74MB costs about a third of
+        that.</p>
     </div>
     <div class="tablewrap">
       <table>
@@ -800,6 +807,98 @@
       <p>Legacy's keystroke figure of 221ms and Orama's of 228ms both sit just under a 250ms
         gate, and the overlay's own 150ms debounce is inside both. Treat those two as equal.
         Pagefind's 1036ms is not close.</p>
+      <p>Orama's cold figure needs the section below before you read anything into it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="eyebrow">The cold start, properly</span>
+      <h2>Orama's one gate failure is mostly not its fault</h2>
+    </div>
+    <div class="stack measure">
+      <p>Two things inflate that 5.7s, and neither is a property of the engine.</p>
+      <p><strong>The staging site serves the index uncompressed.</strong> Azure static website
+        endpoints hand back blobs verbatim, so the measurement above pays for 5.33MB. Production
+        is behind Azure Front Door, which was verified to return
+        <span class="m">Content-Encoding: br</span> for this route today, and brotli takes
+        precedence over gzip when a browser offers both. Compressed, the index is 0.66MB &mdash;
+        an eighth of the bytes.</p>
+      <p><strong>Nothing starts loading until the overlay opens.</strong> The Pagefind spike
+        already warms on page load; the Orama spike does not. Warming it gives the download and
+        restore a head start equal to however long the reader spends on the page first.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>Time to first result, by how much head start the index gets</caption>
+        <thead>
+          <tr>
+            <th scope="col">Head start</th>
+            <th scope="col">Orama, uncompressed (staging today)</th>
+            <th scope="col">Orama, compression-adjusted (production)</th>
+            <th scope="col">Pagefind</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">None &mdash; ships today</th>
+            <td>5584ms</td>
+            <td>1807ms</td>
+            <td>2176ms</td>
+          </tr>
+          <tr>
+            <th scope="row">1 second</th>
+            <td>&mdash;</td>
+            <td>900ms</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <th scope="row">2 seconds</th>
+            <td>3388ms</td>
+            <td class="best">275ms</td>
+            <td>1172ms</td>
+          </tr>
+          <tr>
+            <th scope="row">5 seconds</th>
+            <td>437ms</td>
+            <td class="best">287ms</td>
+            <td>1161ms</td>
+          </tr>
+          <tr>
+            <th scope="row">10 seconds</th>
+            <td class="best">283ms</td>
+            <td>&mdash;</td>
+            <td>1306ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>Compression alone brings Orama inside the 2000ms gate with no code change at all.
+        Adding a page-load warm takes it to <strong>275ms</strong> &mdash; better than legacy's
+        673ms cold start. Both together mean the gate failure in the table above does not
+        describe anything a reader would experience on production.</p>
+      <p><strong>Pagefind cannot be fixed this way.</strong> It flattens out around 1150ms
+        however long a head start it gets, and it is already warming on page load. Its index is
+        chunked and fetched per query, so the chunks a search needs cannot be prefetched before
+        anyone has typed the query. That floor is architectural.</p>
+      <p>The compression-adjusted column is an estimate, not a measurement: bandwidth was scaled
+        by the brotli ratio, which speeds the rest of the page up too. The direction and rough
+        magnitude are sound; the exact figures want confirming on a compressing host.</p>
+    </div>
+    <div class="notes">
+      <ul>
+        <li><strong>One risk to keep an eye on.</strong> Azure Front Door only compresses
+          responses between 1&nbsp;KB and 8&nbsp;MB. Orama's index is 5.33MB uncompressed &mdash;
+          two thirds of the way to that ceiling. If it ever crosses 8&nbsp;MB, compression stops
+          silently and the index ships at full size, which is precisely the 5.7s behaviour above.
+          Raising <span class="m">BODY_LIMIT</span> or growing the corpus both push toward it, so
+          the index size wants a build-time assertion, not just a comment.</li>
+        <li><strong>Compression depends on caching being on.</strong> Front Door only compresses
+          when caching is enabled for the route. It is enabled today &mdash; the 1.86MB legacy
+          index comes back brotli-compressed &mdash; but the two settings are coupled, so
+          turning caching off for <span class="m">/docs/</span> would also turn compression off.</li>
+      </ul>
     </div>
   </section>
 
@@ -837,8 +936,9 @@
           <li class="up">Best Success@5 (78%) and best while typing (63%)</li>
           <li class="up">Best natural language (87%) and typos (58%) by wide margins</li>
           <li class="up">Fastest once loaded: 256ms warm, 201ms on a return visit</li>
-          <li class="down">5.7s first search on a cold cache &mdash; the one gate miss</li>
-          <li class="down">5.33MB parsed on every fresh page load, which caching cannot remove</li>
+          <li class="up">Cold start recoverable: 275ms with compression and a page-load warm</li>
+          <li class="down">Largest index by far &mdash; 5.33MB raw, two thirds of the 8MB ceiling above which the CDN stops compressing</li>
+          <li class="down">116ms of worker CPU to rebuild the index per page load, paid by every visitor if warmed eagerly</li>
           <li class="down">No per-heading deep links without new chunking work</li>
         </ul>
       </div>
@@ -860,9 +960,17 @@
     <div class="levers">
       <div class="lever">
         <div class="lever-if">A cold first search must be under 2s on mobile</div>
-        <div class="lever-then">Orama is out at 5.7s, and no configuration closes a 3.7s gap.
-          Then the choice is legacy against Pagefind, and legacy wins on every axis except
-          payload. Practically: keep legacy.</div>
+        <div class="lever-then">Orama already meets this once the index is served compressed,
+          at 1807ms, and reaches 275ms with a page-load warm. Pagefind is the one that
+          struggles: 2176ms, with an architectural floor around 1150ms that more head start
+          does not move.</div>
+      </div>
+      <div class="lever">
+        <div class="lever-if">The index needs to grow &mdash; more pages, or a higher body limit</div>
+        <div class="lever-then">Orama is the option with the least headroom. At 5.33MB it is two
+          thirds of the way to the 8MB ceiling above which Azure Front Door stops compressing
+          altogether, and crossing it would take the cold start straight back to 5.7s. Legacy at
+          1.74MB and Pagefind at 0.11MB have room to spare.</div>
       </div>
       <div class="lever">
         <div class="lever-if">Getting the right page at rank one matters more than having it on screen</div>
@@ -877,11 +985,10 @@
           matter more than finding the page at all.</div>
       </div>
       <div class="lever">
-        <div class="lever-if">Orama's index can be made substantially smaller</div>
-        <div class="lever-then">The recommendation becomes unambiguous. It has already gone
-          11.43MB to 5.33MB; <span class="m">BODY_LIMIT</span> is still 4,000 characters and the
-          stored excerpt copy could shrink further. Cutting the cold path is the highest-value
-          work left on either spike.</div>
+        <div class="lever-if">Nobody warms the index on page load</div>
+        <div class="lever-then">Orama ships at 1807ms rather than 275ms &mdash; still inside the
+          gate, but it gives up the largest single improvement available for a few lines of code.
+          The Pagefind spike already does this; the Orama spike does not.</div>
       </div>
     </div>
   </section>
@@ -912,9 +1019,17 @@
         <li><strong>Pagefind's deficit was tested, not assumed.</strong> Removing every competing
           API and CLI page from its index's reach lifted it only to 61%. Content weighting will
           not close the gap.</li>
+        <li><strong>Staging does not compress; production does.</strong> Both spike sites are
+          Azure static website endpoints, which serve blobs verbatim. Production sits behind Azure
+          Front Door, and this route was checked directly: it returns
+          <span class="m">Content-Encoding: br</span>, and Microsoft's documentation confirms
+          brotli takes precedence over gzip and that <span class="m">application/json</span>
+          compresses by default between 1&nbsp;KB and 8&nbsp;MB. Every wire figure on this page is
+          therefore the local brotli size rather than what staging happened to send.</li>
         <li><strong>Not measured:</strong> peak memory on a real low-end device, behaviour on
-          flaky connections, and how any of this feels to an actual reader. The numbers here are
-          a floor for the decision, not the whole of it.</li>
+          flaky connections, Orama's cold start on a genuinely compressing host, and how any of
+          this feels to an actual reader. The numbers here are a floor for the decision, not the
+          whole of it.</li>
       </ul>
     </div>
   </section>
