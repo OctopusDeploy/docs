@@ -36,6 +36,17 @@ const CONFIGS = [
   },
 ];
 
+// Not a shippable configuration. Restricting to the `docs` section removes the
+// REST API examples from contention entirely, which bounds how much of
+// Pagefind's ambiguity failure is those pages competing rather than its ranking
+// being wrong. If this run scores well, `data-pagefind-weight` on the examples
+// tree can recover most of it; if it does not, weighting will not help either.
+const DIAGNOSTIC = {
+  name: 'diagnostic: docs section only',
+  ranking: null,
+  filters: { section: ['docs'] },
+};
+
 const queries = await loadQueries();
 const browser = await chromium.launch();
 const context = await browser.newContext({
@@ -58,7 +69,7 @@ await page.evaluate(async (base) => {
 
 const sweep = [];
 
-for (const config of CONFIGS) {
+for (const config of [...CONFIGS, DIAGNOSTIC]) {
   if (config.ranking) {
     await page.evaluate(
       (ranking) => window.__pagefind.options({ ranking }),
@@ -67,21 +78,43 @@ for (const config of CONFIGS) {
   }
 
   const runs = [];
-  for (const query of queries) {
-    const results = await page.evaluate(async (term) => {
-      const response = await window.__pagefind.search(term);
-      const top = await Promise.all(
-        response.results.slice(0, 5).map((stub) => stub.data())
-      );
-      return top.map((fragment) => ({
-        url: fragment.url,
-        title: fragment.meta?.title ?? '',
-        excerptHtml: fragment.excerpt ?? '',
-        excerpt: fragment.excerpt ?? '',
-      }));
-    }, query.query);
+  let withSubResults = 0;
 
-    runs.push({ query, run: { query: query.query, variant: 'full', results } });
+  for (const query of queries) {
+    const response = await page.evaluate(
+      async ({ term, filters }) => {
+        const found = await window.__pagefind.search(
+          term,
+          filters ? { filters } : undefined
+        );
+        const top = await Promise.all(
+          found.results.slice(0, 5).map((stub) => stub.data())
+        );
+        return {
+          // Whether Pagefind is returning heading-scoped sub-results with
+          // anchors. The engine ignores them today, so this is the only place
+          // that records they exist.
+          subResults: top.reduce(
+            (total, fragment) => total + (fragment.sub_results?.length ?? 0),
+            0
+          ),
+          results: top.map((fragment) => ({
+            url: fragment.url,
+            title: fragment.meta?.title ?? '',
+            excerptHtml: fragment.excerpt ?? '',
+            excerpt: fragment.excerpt ?? '',
+          })),
+        };
+      },
+      { term: query.query, filters: config.filters ?? null }
+    );
+
+    if (response.subResults > 0) withSubResults += 1;
+
+    runs.push({
+      query,
+      run: { query: query.query, variant: 'full', results: response.results },
+    });
   }
 
   const scored = runs.map(({ query, run }) => scoreQuery(query, run));
@@ -91,6 +124,8 @@ for (const config of CONFIGS) {
   sweep.push({
     config: config.name,
     ranking: config.ranking,
+    filters: config.filters ?? null,
+    queriesWithSubResults: withSubResults,
     summary,
     byBucket,
     scored,
@@ -102,7 +137,8 @@ for (const config of CONFIGS) {
     `${config.name.padEnd(38)} S@1 ${(summary.successAt1 * 100).toFixed(0)}%  ` +
       `S@5 ${(summary.successAt5 * 100).toFixed(0)}%  ` +
       `MRR ${summary.mrr.toFixed(3)}  ` +
-      `ambiguity@5 ${((byBucket.ambiguity?.successAt5 ?? 0) * 100).toFixed(0)}%`
+      `ambiguity@5 ${((byBucket.ambiguity?.successAt5 ?? 0) * 100).toFixed(0)}%  ` +
+      `sub-results on ${withSubResults}/${queries.length} queries`
   );
 }
 
