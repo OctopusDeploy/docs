@@ -45,7 +45,15 @@ export function rankOfFirstExpected(results, expected) {
  */
 export function scoreQuery(query, run) {
   const expected = query.expect ?? [];
-  const results = run.results ?? [];
+  const rendered = run.results ?? [];
+
+  // Only pages are ranked. A section row is extra navigation inside a result
+  // that has already ranked, so counting the rows as results would penalise the
+  // engine that offers them: three sections under the first hit would push the
+  // second page to rank 5 without the engine having ranked it any lower.
+  const results = rendered.filter((result) => !result.isSection);
+  const sectionRows = rendered.length - results.length;
+
   const rank =
     expected.length > 0 ? rankOfFirstExpected(results, expected) : null;
 
@@ -56,6 +64,7 @@ export function scoreQuery(query, run) {
     variant: run.variant,
     judged: expected.length > 0,
     resultCount: results.length,
+    sectionRows,
     zeroResults: results.length === 0,
     rank,
     successAt1: expected.length > 0 && rank === 1,
@@ -100,6 +109,10 @@ export function summarise(scored) {
         row.resultCount > 0 && row.emptyExcerpts > 0 ? 1 : 0
       )
     ),
+    // How often the engine could point at a heading inside a result rather than
+    // only at the page. Kept out of the relevance numbers on purpose: it changes
+    // where a reader lands, not which page ranks.
+    sectionRate: mean(scored.map((row) => (row.sectionRows > 0 ? 1 : 0))),
   };
 }
 
