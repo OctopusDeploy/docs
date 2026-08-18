@@ -86,6 +86,37 @@ const sections: [string, RegExp][] = [
 const section =
   sections.find(([, prefix]) => prefix.test(Astro.url.pathname))?.[0] ?? 'docs';
 
+// How much the page's own name counts for, by how deep it sits.
+//
+// BM25 has no notion of a site's shape, so a bare section name ranks the pages
+// inside the section above the section itself: `variables` returned an API
+// example rather than /docs/projects/variables, and on the search terms readers
+// actually type this was the largest single source of missed traffic. A page
+// deeper in the tree is more specific, so its title should count for less when
+// the query is short.
+//
+// Pagefind weights headings h1 7 down to h6 2 by default, and the scale is
+// quadratic — 8 carries roughly 1.8x the pull of 6. Clamped at 3 so a genuinely
+// deep page can still win on its own name.
+const depth = Astro.url.pathname.split('/').filter(Boolean).length;
+const searchWeight = indexable ? Math.max(3, 10 - depth) : undefined;
+
+// Indexed so results can be ordered by recency rather than relevance. Nothing in
+// the overlay offers that control yet; the key is here so the capability exists
+// in the index rather than needing a rebuild to add later.
+const sortKeys =
+  indexable && lastUpdated
+    ? `date:${new Date(lastUpdated).toISOString().slice(0, 10)}`
+    : undefined;
+
+// A safety net rather than a fix for anything currently broken. Pagefind takes a
+// result's title from the first heading inside the indexed body, so a page whose
+// h1 renders as an image, or comes back empty, would otherwise show its URL in the
+// result row. Automatic metadata and `data-pagefind-meta` both take priority, so
+// this never overrides a real heading.
+const defaultMeta =
+  indexable && frontmatter.title ? `title:${frontmatter.title}` : undefined;
+
 // The trail the result row prints, taken from the path so it matches whatever
 // the page is actually filed under.
 const trail = Astro.url.pathname
@@ -130,8 +161,15 @@ const trail = Astro.url.pathname
           data-pagefind-body={indexable ? true : undefined}
           data-pagefind-filter={indexable ? `section:${section}` : undefined}
           data-pagefind-meta={indexable ? `trail:${trail}` : undefined}
+          data-pagefind-sort={sortKeys}
+          data-pagefind-default-meta={defaultMeta}
         >
-          <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
+          <ArticleHeader
+            lang={lang}
+            searchWeight={searchWeight}
+            subtitle={subtitle}
+            title={title}
+          />
           <div class="page-actions" data-pagefind-ignore>
             <CopyAsMarkdown lang={lang} />
             <OpenInLlm lang={lang} />

@@ -18,10 +18,18 @@ import {
 
 const RESULT_LIMIT = 30;
 
+type PagefindSubResult = {
+  title: string;
+  /** Carries the heading's `#anchor` when the match is below the page title. */
+  url: string;
+  excerpt: string;
+};
+
 type PagefindFragment = {
   url: string;
   meta?: Record<string, string>;
   excerpt: string;
+  sub_results?: PagefindSubResult[];
 };
 
 type PagefindResultStub = { data(): Promise<PagefindFragment> };
@@ -43,6 +51,35 @@ type PagefindApi = {
   }>;
 };
 
+// How many matched headings a row will show. More than this and the row stops
+// being a result and starts being a table of contents.
+const SECTION_LIMIT = 3;
+
+/**
+ * The headings inside a result that matched on their own.
+ *
+ * Pagefind returns one sub-result for the page itself alongside the real
+ * headings, and its URL is the page URL with no anchor — that is the row's own
+ * link, so it is dropped rather than repeated underneath itself.
+ */
+function sectionsOf(fragment: PagefindFragment, path: string) {
+  return (fragment.sub_results ?? [])
+    .filter((sub) => sub.url.includes('#'))
+    .slice(0, SECTION_LIMIT)
+    .map((sub) => ({
+      title: sub.title,
+      // Keep the anchor, drop the origin, so the row links the same way every
+      // other row does.
+      url: new URL(sub.url, window.location.origin).pathname + hashOf(sub.url),
+    }))
+    .filter((sub) => sub.url !== path);
+}
+
+function hashOf(url: string) {
+  const at = url.indexOf('#');
+  return at === -1 ? '' : url.slice(at);
+}
+
 export function pagefindEngine(bundlePath: string): SearchEngine {
   let loading: Promise<PagefindApi | null> | null = null;
 
@@ -57,6 +94,12 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           // The default is 30 words, which overruns the single line the result
           // row gives it. Sized to the row instead.
           excerptLength: 20,
+          // Appends the query to every result URL, so the destination page can
+          // highlight what was searched for. Nothing reads it yet — that needs
+          // Pagefind's `pagefind-highlight.js` on the page, or an equivalent of
+          // our own — but the parameter has to be set here for the links to
+          // carry it at all.
+          highlightParam: 'highlight',
         });
         // The filter index is a separate chunk, and a search returns empty
         // filter counts until it has been pulled down. Loading it here rather
@@ -127,6 +170,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           breadcrumb: fragment.meta?.trail
             ? fragment.meta.trail.split(' / ')
             : breadcrumbFrom(path),
+          sections: sectionsOf(fragment, path),
           ...classify(path),
         };
       });

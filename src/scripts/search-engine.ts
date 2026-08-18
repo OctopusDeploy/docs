@@ -2,6 +2,14 @@
 // only ever talks to a `SearchEngine`, so swapping the index out is a matter of
 // supplying a different implementation.
 
+/** A heading inside a result that matched in its own right. */
+export type SearchSubResult = {
+  /** The heading text. */
+  title: string;
+  /** The page URL with the heading's `#anchor`, so the reader lands on it. */
+  url: string;
+};
+
 export type SearchResult = {
   url: string;
   title: string;
@@ -10,6 +18,14 @@ export type SearchResult = {
   breadcrumb: string[];
   kind: 'page' | 'command';
   facet: string;
+  /**
+   * Headings within the page that matched, deepest-matching first. Only engines
+   * that index per-heading can fill this: Pagefind returns them for free, while
+   * Orama would need the index chunked per heading to know anything about them.
+   * An empty array means the engine has nothing to say, never that the page has
+   * no headings.
+   */
+  sections?: SearchSubResult[];
 };
 
 export type SearchResponse = {

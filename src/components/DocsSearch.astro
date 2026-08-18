@@ -145,6 +145,21 @@ const listboxId = `${name}-search-listbox`;
       </li>
     </template>
 
+    {
+      /* A heading inside the result above that matched on its own. It is a
+         separate `role="option"` rather than a link inside the parent row,
+         because it goes somewhere different — the reader can arrow onto it and
+         land on that section instead of the top of the page. */
+    }
+    <template data-docs-search-section>
+      <li role="presentation">
+        <a class="docs-search__section" role="option" aria-selected="false">
+          <span class="docs-search__section-mark" aria-hidden="true"></span>
+          <span class="docs-search__section-title"></span>
+        </a>
+      </li>
+    </template>
+
     <div class="docs-search__footer">
       <span class="docs-search__hint">
         <span class="docs-search__hint-icon docs-search__hint-icon--navigate"
@@ -434,6 +449,39 @@ const listboxId = `${name}-search-listbox`;
 
   .docs-search__row[data-active] .docs-search__row-enter {
     visibility: visible;
+  }
+
+  /* Indented to sit under the result it belongs to, and quieter than it, so the
+     list still scans as pages with sections hanging off them rather than as a
+     flat mix of the two. */
+  .docs-search__section {
+    display: flex;
+    gap: var(--space4);
+    align-items: baseline;
+    /* Lines up with the parent row's title, past its icon. */
+    padding-block: var(--space2);
+    padding-inline: calc(var(--space12) + 1.5rem) var(--space12);
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularMedium);
+    text-decoration: none;
+  }
+
+  .docs-search__section[data-active] {
+    background: var(--colorNavBackgroundActive);
+  }
+
+  .docs-search__section-mark {
+    flex: none;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--colorIconTertiary);
+    mask: var(--arrowNested) center / contain no-repeat;
+  }
+
+  .docs-search__section-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .docs-search__empty {

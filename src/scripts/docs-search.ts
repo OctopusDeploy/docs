@@ -13,6 +13,7 @@ import {
   fixtureEngine,
   type SearchEngine,
   type SearchResult,
+  type SearchSubResult,
 } from './search-engine';
 import { pagefindEngine } from './search-engine-pagefind';
 
@@ -32,6 +33,9 @@ function setup(dialog: HTMLDialogElement) {
   const echo = dialog.querySelector<HTMLElement>('[data-docs-search-echo]');
   const template = dialog.querySelector<HTMLTemplateElement>(
     '[data-docs-search-row]'
+  );
+  const sectionTemplate = dialog.querySelector<HTMLTemplateElement>(
+    '[data-docs-search-section]'
   );
 
   // A partially rendered overlay is a bug elsewhere; wiring half of it up would
@@ -99,8 +103,48 @@ function setup(dialog: HTMLDialogElement) {
     return item;
   }
 
+  function drawSection(
+    template: HTMLTemplateElement,
+    section: SearchSubResult,
+    at: number
+  ) {
+    const item = template.content.cloneNode(true) as DocumentFragment;
+
+    const row = item.querySelector<HTMLAnchorElement>('.docs-search__section')!;
+    row.id = `${name}-search-option-${at}`;
+    row.href = section.url;
+    item.querySelector('.docs-search__section-title')!.textContent =
+      section.title;
+
+    return item;
+  }
+
+  /**
+   * Rows for the whole response, pages and their matched sections interleaved.
+   *
+   * The running index is what keeps `aria-activedescendant` working: every
+   * option needs a unique id, and a page's sections sit between it and the next
+   * page rather than being numbered separately.
+   */
+  function drawAll(results: SearchResult[]) {
+    const nodes: DocumentFragment[] = [];
+    let at = 0;
+
+    for (const result of results) {
+      nodes.push(drawRow(result, at++));
+      // No template means an overlay built before sections existed. Dropping them
+      // costs the reader nothing beyond the deep link.
+      if (!sectionTemplate) continue;
+      for (const section of result.sections ?? []) {
+        nodes.push(drawSection(sectionTemplate, section, at++));
+      }
+    }
+
+    return nodes;
+  }
+
   function render(response: Awaited<ReturnType<SearchEngine['search']>>) {
-    list!.replaceChildren(...response.results.map(drawRow));
+    list!.replaceChildren(...drawAll(response.results));
 
     for (const tab of facetTabs()) {
       const key = tab.dataset.facet!;
@@ -321,7 +365,9 @@ function setup(dialog: HTMLDialogElement) {
   if (name !== SITE_SEARCH) return;
 
   // Cmd+K on Apple platforms, Ctrl+K everywhere else.
-  const navigator = (window.navigator as Navigator & { userAgentData?: { platform: string } });
+  const navigator = window.navigator as Navigator & {
+    userAgentData?: { platform: string };
+  };
   const isApple = navigator.userAgentData
     ? navigator.userAgentData.platform === 'macOS'
     : (navigator.platform || navigator.userAgent).includes('Mac');
