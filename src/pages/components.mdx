@@ -19,7 +19,8 @@ import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
 import SplitButton from 'src/components/SplitButton.astro';
 import TopNav from 'src/components/TopNav.astro';
-import Helm from 'src/components/icons/Helm.astro';
+import sparklesIcon from 'src/assets/icons/sparkles.svg';
+import helmIcon from 'src/assets/icons/helm.svg';
 
 ## Component Usage Guide
 
@@ -349,7 +350,8 @@ A clickable container for a title, an optional description, and an optional imag
 2. **description**: Optional supporting text shown under the title.
 3. **link**: Required. Where the card goes — clicking anywhere on the card follows it, not just the title or image.
 4. **icon** / **imgSrc** + **imgAlt**: Optional, and mutually exclusive — pass one or the other, or neither. **icon** takes an icon asset; **imgSrc** takes a URL, with **imgAlt** for its alt text.
-5. **`featured` variant**: only used on the home page to feature content.
+5. **iconColor**: Optional, only relevant alongside **icon**: `themed` (default) masks the icon with the surrounding theme color; `branded` renders it as-is, keeping whatever color is baked into the source file (e.g. a brand logo that shouldn't be flattened to the theme's icon color).
+6. **`featured` variant**: only used on the home page to feature content.
 
 If **imgSrc** fails to load, the image falls back to a default placeholder logo automatically, so a broken URL does not leave the card with a blank gap where the image should be.
 
@@ -410,7 +412,7 @@ If **imgSrc** fails to load, the image falls back to a default placeholder logo 
 
 <Card
   description="Keep the description brief, up to two sentences and maximum four lines."
-  icon={Helm}
+  icon={sparklesIcon.src}
   link="/docs/deployments/kubernetes"
   title="Example Title"
 />
@@ -419,7 +421,37 @@ If **imgSrc** fails to load, the image falls back to a default placeholder logo 
   ```
   <Card
     description="Keep the description brief, up to two sentences and maximum four lines."
-    icon={Helm}
+    icon={sparklesIcon.src}
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+  />
+  ```
+</div>
+
+</div>
+
+#### Default: With colored icon
+
+<div class="hint">
+Use `iconColor="branded"` for a brand logo whose color shouldn't shift with the theme.
+</div>
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={helmIcon.src}
+  iconColor="branded"
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={helmIcon.src}
+    iconColor="branded"
     link="/docs/deployments/kubernetes"
     title="Example Title"
   />
@@ -494,7 +526,7 @@ The `featured` variant should **only** be used on the home page to feature conte
 
 <Card
   description="Keep the description brief, up to two sentences and maximum four lines."
-  icon={Helm}
+  icon={sparklesIcon.src}
   link="/docs/deployments/kubernetes"
   title="Example Title"
   variant="featured"
@@ -504,7 +536,7 @@ The `featured` variant should **only** be used on the home page to feature conte
   ```
   <Card
     description="Keep the description brief, up to two sentences and maximum four lines."
-    icon={Helm}
+    icon={sparklesIcon.src}
     link="/docs/deployments/kubernetes"
     title="Example Title"
     variant="featured"
@@ -512,6 +544,38 @@ The `featured` variant should **only** be used on the home page to feature conte
   ```
 </div>
 
+</div>
+
+#### Default: With colored icon
+
+<div class="hint">
+Use `iconColor="branded"` for a brand logo whose color shouldn't shift with the theme.
+</div>
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={helmIcon.src}
+  iconColor="branded"
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+  variant="featured"
+
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={helmIcon.src}
+    iconColor="branded"
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+    variant="featured"
+  />
+  ```
+</div>
 </div>
 
 </details>
@@ -740,19 +804,19 @@ steps:
   <div class="docs-home col-3">
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />
@@ -762,19 +826,19 @@ steps:
     <div class="docs-home col-3">
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />
       <Card
           description="Example description with an icon instead of an image."
-          icon={Helm}
+          icon={sparklesIcon.src}
           link="/docs/deployments/kubernetes"
           title="Icon Example Title"
       />

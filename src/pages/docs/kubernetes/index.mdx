@@ -10,10 +10,10 @@ navOrder: 27
 ---
 import RecentlyUpdated from '@components/RecentlyUpdated.astro'; // Test fixture for tests/llm-endpoints.spec.ts (STABLE_MDX_PATH); keep these imports.
 import Card from 'src/components/Card.astro';
-import Helm from 'src/components/icons/Helm.astro';
-import Kustomize from 'src/components/icons/Kustomize.astro';
-import Octopus from 'src/components/icons/Octopus.astro';
-import Yaml from 'src/components/icons/Yaml.astro';
+import helmIcon from 'src/assets/icons/helm.svg';
+import kustomizeIcon from 'src/assets/icons/kustomize.svg';
+import octopusIcon from 'src/assets/icons/octopus.svg';
+import yamlIcon from 'src/assets/icons/yaml.svg';
 
 Octopus Deploy makes it easy to manage your Kubernetes resources, whether you're starting simple or want complete control over a complex setup. This section has everything you need to know about using Octopus for Kubernetes CD.
 
@@ -39,28 +39,32 @@ With Octopus, you can choose between managing your application configuration wit
 
 <Card
   description="Learn more about how you can use Octopus variables for Helm values in our Helm documentation."
-  icon={Helm}
+  icon={helmIcon.src}
+  iconColor="branded"
   link="/docs/deployments/kubernetes/helm-update"
   title="Helm deployment guide"
 />
 
 <Card
   description="Start with our YAML deployment guide if you intend to use plain YAML."
-  icon={Yaml}
+  icon={yamlIcon.src}
+  iconColor="branded"
   link="/docs/getting-started/first-kubernetes-deployment"
   title="YAML deployment guide"
 />
 
 <Card
   description="Consider using Kustomize with Octopus for more templating capabilities."
-  icon={Kustomize}
+  icon={kustomizeIcon.src}
+  iconColor="branded"
   link="/docs/deployments/kubernetes/kustomize"
   title="Kustomize with Octopus"
 />
 
 <Card
   description="You can also create a configuration with our UI, and Octopus will generate YAML behind the scenes for you."
-  icon={Octopus}
+  icon={octopusIcon.src}
+  iconColor="branded"
   link="/docs/deployments/kubernetes/deploy-container"
   title="Use the Octopus UI"
 />

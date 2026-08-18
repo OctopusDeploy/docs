@@ -1,21 +1,29 @@
 ---
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-
 // Properties
 // `icon` and `imgSrc` are mutually exclusive: a card can have one, the other, or neither.
+// `icon` is the URL of an asset imported from src/assets/icons (e.g. `helmIcon.src`).
+// `iconColor` picks how it's rendered: 'themed' (default) masks it with currentColor so
+// it matches the surrounding theme, without duplicating SVG markup per card; 'branded'
+// renders it as a plain img, preserving whatever colors are baked into the source file.
 type Props = {
   description?: string;
   link: string;
   title: string;
   variant?: 'featured';
 } & (
-  | { icon: AstroComponentFactory; imgAlt?: never; imgSrc?: never }
-  | { icon?: never; imgAlt?: string; imgSrc?: string }
+  | {
+      icon: string;
+      iconColor?: 'themed' | 'branded';
+      imgAlt?: never;
+      imgSrc?: never;
+    }
+  | { icon?: never; iconColor?: never; imgAlt?: string; imgSrc?: string }
 );
 
 const {
   description,
-  icon: Icon,
+  icon,
+  iconColor = 'themed',
   imgAlt,
   imgSrc,
   link,
@@ -46,9 +54,13 @@ const classList = ['card', variant === 'featured' ? 'card--featured' : '']
     }
     <div class="card__content">
       {
-        Icon && (
+        icon && (
           <div class="card__icon-wrapper">
-            <Icon />
+            {iconColor === 'branded' ? (
+              <img src={icon} alt="" class="card__icon" />
+            ) : (
+              <span class="card__icon" style={`--card-icon: url(${icon})`} />
+            )}
           </div>
         )
       }
