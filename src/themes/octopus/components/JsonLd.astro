@@ -95,7 +95,9 @@ function buildPayload(): Payload | null {
   const breadcrumbList = crumbs?.length
     ? buildBreadcrumbList(
         crumbs.map((c) => ({
-          url: accelerator.urlFormatter.formatAddress(c.url),
+          // An urlless crumb stays urlless: formatAddress would turn '' into
+          // the site root, and buildBreadcrumbList drops the `item` instead.
+          url: c.url ? accelerator.urlFormatter.formatAddress(c.url) : '',
           title: c.title,
         })),
         canonicalURL

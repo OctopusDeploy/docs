@@ -1,5 +1,7 @@
 import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
 import { accelerator } from './accelerator';
+import { SITE } from '@config';
+import { buildCrumbs, type Crumb } from '@util/breadcrumbs';
 
 // The API reference carries its own left nav, built here from the pages that
 // opt into src/layouts/Api.astro. Those same pages are pruned out of the main
@@ -13,6 +15,8 @@ import { accelerator } from './accelerator';
 const API_LAYOUT = '/Api.astro';
 
 const PAGES_ROOT = '/src/pages';
+
+const API_SECTION_TITLE = 'Api';
 
 function urlFromSourcePath(path: string): string {
   return path
@@ -92,4 +96,32 @@ export function apiMenu(): ApiNavPage[] {
  */
 export function apiPageUrls(): Set<string> {
   return new Set(apiMenu().map((page) => page.url.replace(/\/$/, '')));
+}
+
+// The API reference has no page of its own at /docs/api yet - `_index.md` is
+// underscore-prefixed so Astro does not route it - so the generic breadcrumb
+// walk, which builds a crumb per path segment that resolves to a page, skips
+// straight from Docs to the endpoint page. Splice the section in by hand so an
+// API page reads "Docs / Api / Feeds".
+//
+// The crumb carries no url on purpose: there is nothing to link to until the
+// landing page lands. Breadcrumbs.astro renders an urlless crumb as plain text.
+export function buildApiCrumbs(
+  currentUrl: URL,
+  extraCrumbs?: ReadonlyArray<Crumb> | null
+): Crumb[] {
+  const crumbs = buildCrumbs(currentUrl, extraCrumbs);
+  const sectionPath = SITE.subfolder + '/api';
+
+  if (!currentUrl.pathname.startsWith(sectionPath)) return crumbs;
+  if (crumbs.some((crumb) => crumb.title === API_SECTION_TITLE)) return crumbs;
+
+  // After the /docs crumb, which is the only one the walk finds above us.
+  const insertAt = crumbs.findIndex(
+    (crumb) => crumb.url.replace(/\/$/, '') === SITE.subfolder
+  );
+
+  const section: Crumb = { url: '', title: API_SECTION_TITLE };
+  crumbs.splice(insertAt + 1, 0, section);
+  return crumbs;
 }

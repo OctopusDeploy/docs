@@ -16,7 +16,7 @@
         "dev:watch": "onchange 'src/**/*.{js,mjs,ts,astro,css}' -- prettier --write --plugin=prettier-plugin-astro {{changed}}",
         "astro": "astro",
         "build": "astro build",
-        "crawl": "linkinator ./dist --skip \"^(?!http://localhost)\" --skip \"/docs/api(\\$|/)\" --recurse  --verbosity error",
+        "crawl": "linkinator ./dist --skip \"^(?!http://localhost)\" --recurse  --verbosity error",
         "format": "prettier --write --plugin=prettier-plugin-astro 'src/**/*.{js,mjs,ts,astro,css}'",
         "preview": "astro preview",
         "renovate": "renovate",

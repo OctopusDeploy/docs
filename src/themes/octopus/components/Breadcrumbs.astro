@@ -24,15 +24,23 @@ stats.stop();
 <nav aria-label={_(Translations.aria.breadcrumbs)}>
   <ol>
     {
+      /* A crumb with no url is a section that has no page of its own to link
+         to - it still belongs in the trail, just not as a link. */
+    }
+    {
       (crumbs ?? []).map((crumb) => (
         <li>
-          <a
-            href={accelerator.urlFormatter.formatAddress(crumb.url)}
-            aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
-            rel={crumb.rel}
-          >
-            {crumb.title}
-          </a>
+          {crumb.url ? (
+            <a
+              href={accelerator.urlFormatter.formatAddress(crumb.url)}
+              aria-current={crumb.ariaCurrent ? crumb.ariaCurrent : null}
+              rel={crumb.rel}
+            >
+              {crumb.title}
+            </a>
+          ) : (
+            <span>{crumb.title}</span>
+          )}
         </li>
       ))
     }
@@ -55,7 +63,8 @@ stats.stop();
     font: var(--textBodyRegularSmall);
   }
 
-  a {
+  a,
+  span {
     color: var(--color-menu-link);
     font: var(--textBodyRegularMedium);
     text-decoration: none;

@@ -1,11 +1,15 @@
 # API reference documentation
 
 This folder holds the Markdown API reference that we publish to [octopus.com/docs](https://octopus.com/docs).
-There is one file per group of endpoints — `feeds.md`, `runbooks.md`, and so on — plus an `index.md` listing
+There is one file per group of endpoints — `feeds.md`, `runbooks.md`, and so on — plus an `_index.md` listing
 them all.
 
 **Do not edit these files by hand.** They are generated from the Octopus Server Swagger document, and any hand
 edit will be overwritten the next time the generator runs.
+
+`_README.md` and `_index.md` carry a leading underscore because everything under `src/pages` in the docs site
+becomes a published route, and Astro skips underscore-prefixed files. Neither of these is meant to be a page on
+octopus.com, so the generator must keep the underscores.
 
 ## How it works
 

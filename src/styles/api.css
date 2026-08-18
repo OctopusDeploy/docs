@@ -4,15 +4,6 @@
   color: var(--colorTextInfo);
 }
 
-/* Inline code is dense enough on these pages that the box around each span
-   reads as noise, so it keeps the monospaced type and drops the chrome. Same
-   specificity as the callout rule in main.css, and later in the cascade, so it
-   wins inside callouts too. */
-.content-group--api code:not(pre code) {
-  /* border: none;
-  background: none; */
-}
-
 /* ----- The API docs have a different layout than the rest of the docs ----- */
 
 /*

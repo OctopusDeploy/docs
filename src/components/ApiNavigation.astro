@@ -38,7 +38,7 @@ const _ = Lang(lang);
 // would put thousands of anchors in the markup of all ~100 of them, and it is
 // the rule the site nav follows too: the branch you are inside is the one that
 // opens.
-const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '');
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
 // An endpoint per H2, which is the first level of content on a generated API
 // page.
