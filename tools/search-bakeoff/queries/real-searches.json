@@ -1,0 +1,672 @@
+{
+  "note": "Real search terms from the Plausible `search` property, 2026-07-28. The query strings are real; the expected pages are inferred, because the analytics records what was typed and never whether the reader found it. Regenerate with derive-real-searches.mjs.",
+  "source": "2026-07-28-Docs snapshot - Top searches.csv",
+  "caveat": "`(none)` was 12.7k of 12.7k visitors, so search is used by a small single-digit share of sessions and every ratio here sits on a small base. Most terms are partial words, because the property is captured per keystroke.",
+  "totals": {
+    "terms": 90,
+    "scored": 57,
+    "totalWeight": 336,
+    "scoredWeight": 205
+  },
+  "queries": [
+    {
+      "id": "r01",
+      "bucket": "real-unscored",
+      "weight": 17,
+      "query": "sssieddqxsx",
+      "expect": []
+    },
+    {
+      "id": "r02",
+      "bucket": "real-unscored",
+      "weight": 12,
+      "query": "octopus",
+      "expect": []
+    },
+    {
+      "id": "r03",
+      "bucket": "real",
+      "weight": 10,
+      "query": "variables",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "r04",
+      "bucket": "real",
+      "weight": 10,
+      "query": "tentacle",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle"]
+    },
+    {
+      "id": "r05",
+      "bucket": "real",
+      "weight": 8,
+      "query": "feed",
+      "expect": [
+        "/docs/packaging-applications/package-repositories",
+        "/docs/projects/project-triggers/external-feed-triggers"
+      ]
+    },
+    {
+      "id": "r06",
+      "bucket": "first-keystroke",
+      "weight": 7,
+      "query": "a",
+      "expect": []
+    },
+    {
+      "id": "r07",
+      "bucket": "real",
+      "weight": 7,
+      "query": "api",
+      "expect": ["/docs/octopus-rest-api"]
+    },
+    {
+      "id": "r08",
+      "bucket": "first-keystroke",
+      "weight": 7,
+      "query": "c",
+      "expect": []
+    },
+    {
+      "id": "r09",
+      "bucket": "first-keystroke",
+      "weight": 7,
+      "query": "o",
+      "expect": []
+    },
+    {
+      "id": "r10",
+      "bucket": "real",
+      "weight": 6,
+      "query": "runbook",
+      "expect": ["/docs/runbooks"]
+    },
+    {
+      "id": "r11",
+      "bucket": "first-keystroke",
+      "weight": 6,
+      "query": "s",
+      "expect": []
+    },
+    {
+      "id": "r12",
+      "bucket": "real",
+      "weight": 6,
+      "query": "single sign on",
+      "expect": ["/docs/security/authentication"]
+    },
+    {
+      "id": "r13",
+      "bucket": "real",
+      "weight": 6,
+      "query": "var",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "r14",
+      "bucket": "real",
+      "weight": 6,
+      "query": "cli",
+      "expect": ["/docs/octopus-rest-api/cli"]
+    },
+    {
+      "id": "r15",
+      "bucket": "first-keystroke",
+      "weight": 6,
+      "query": "e",
+      "expect": []
+    },
+    {
+      "id": "r16",
+      "bucket": "real",
+      "weight": 5,
+      "query": "accounts",
+      "expect": ["/docs/infrastructure/accounts"]
+    },
+    {
+      "id": "r17",
+      "bucket": "real",
+      "weight": 5,
+      "query": "connection agent",
+      "expect": ["/docs/octopus-cloud/connection-agent"]
+    },
+    {
+      "id": "r18",
+      "bucket": "real",
+      "weight": 5,
+      "query": "external feed",
+      "expect": [
+        "/docs/projects/project-triggers/external-feed-triggers",
+        "/docs/packaging-applications/package-repositories"
+      ]
+    },
+    {
+      "id": "r19",
+      "bucket": "real-unscored",
+      "weight": 5,
+      "query": "oc",
+      "expect": []
+    },
+    {
+      "id": "r20",
+      "bucket": "real",
+      "weight": 5,
+      "query": "platform hub",
+      "expect": ["/docs/platform-hub"]
+    },
+    {
+      "id": "r21",
+      "bucket": "real",
+      "weight": 5,
+      "query": "external feeds",
+      "expect": [
+        "/docs/projects/project-triggers/external-feed-triggers",
+        "/docs/packaging-applications/package-repositories"
+      ]
+    },
+    {
+      "id": "r22",
+      "bucket": "real",
+      "weight": 4,
+      "query": "account",
+      "expect": ["/docs/infrastructure/accounts"]
+    },
+    {
+      "id": "r23",
+      "bucket": "real",
+      "weight": 4,
+      "query": "github",
+      "expect": [
+        "/docs/projects/version-control/github",
+        "/docs/packaging-applications/build-servers/github-actions"
+      ]
+    },
+    {
+      "id": "r24",
+      "bucket": "real",
+      "weight": 4,
+      "query": "octopus action",
+      "expect": ["/docs/projects/variables/system-variables"]
+    },
+    {
+      "id": "r25",
+      "bucket": "first-keystroke",
+      "weight": 4,
+      "query": "p",
+      "expect": []
+    },
+    {
+      "id": "r26",
+      "bucket": "real",
+      "weight": 4,
+      "query": "target",
+      "expect": ["/docs/infrastructure/deployment-targets"]
+    },
+    {
+      "id": "r27",
+      "bucket": "real",
+      "weight": 4,
+      "query": "tent",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle"]
+    },
+    {
+      "id": "r28",
+      "bucket": "real",
+      "weight": 4,
+      "query": "azure",
+      "expect": [
+        "/docs/deployments/azure",
+        "/docs/infrastructure/accounts/azure"
+      ]
+    },
+    {
+      "id": "r29",
+      "bucket": "first-keystroke",
+      "weight": 3,
+      "query": "f",
+      "expect": []
+    },
+    {
+      "id": "r30",
+      "bucket": "first-keystroke",
+      "weight": 3,
+      "query": "t",
+      "expect": []
+    },
+    {
+      "id": "r31",
+      "bucket": "real",
+      "weight": 3,
+      "query": "build information",
+      "expect": ["/docs/packaging-applications/build-servers/build-information"]
+    },
+    {
+      "id": "r32",
+      "bucket": "real",
+      "weight": 3,
+      "query": "clone",
+      "expect": ["/docs/octopus-rest-api/cli/octopus-project-clone"]
+    },
+    {
+      "id": "r33",
+      "bucket": "real",
+      "weight": 3,
+      "query": "cloud migra",
+      "expect": ["/docs/administration/private-cloud-migration"]
+    },
+    {
+      "id": "r34",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "co",
+      "expect": []
+    },
+    {
+      "id": "r35",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "con",
+      "expect": []
+    },
+    {
+      "id": "r36",
+      "bucket": "real",
+      "weight": 3,
+      "query": "docker",
+      "expect": ["/docs/deployments/docker"]
+    },
+    {
+      "id": "r37",
+      "bucket": "real",
+      "weight": 3,
+      "query": "dynamic worker",
+      "expect": ["/docs/infrastructure/workers/dynamic-worker-pools"]
+    },
+    {
+      "id": "r38",
+      "bucket": "real",
+      "weight": 3,
+      "query": "feature flags",
+      "expect": ["/docs/feature-flags"]
+    },
+    {
+      "id": "r39",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "how to",
+      "expect": []
+    },
+    {
+      "id": "r40",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "li",
+      "expect": []
+    },
+    {
+      "id": "r41",
+      "bucket": "real",
+      "weight": 3,
+      "query": "license",
+      "expect": [
+        "/docs/octopus-rest-api/octopus.server.exe-command-line/license"
+      ]
+    },
+    {
+      "id": "r42",
+      "bucket": "real",
+      "weight": 3,
+      "query": "ocl",
+      "expect": ["/docs/projects/version-control/ocl-file-format"]
+    },
+    {
+      "id": "r43",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "octo",
+      "expect": []
+    },
+    {
+      "id": "r44",
+      "bucket": "real",
+      "weight": 3,
+      "query": "package",
+      "expect": ["/docs/deployments/packages"]
+    },
+    {
+      "id": "r45",
+      "bucket": "real",
+      "weight": 3,
+      "query": "permiss",
+      "expect": [
+        "/docs/security/users-and-teams/default-permissions",
+        "/docs/security/users-and-teams"
+      ]
+    },
+    {
+      "id": "r46",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "po",
+      "expect": []
+    },
+    {
+      "id": "r47",
+      "bucket": "real",
+      "weight": 3,
+      "query": "powershell",
+      "expect": ["/docs/deployments/custom-scripts"]
+    },
+    {
+      "id": "r48",
+      "bucket": "real",
+      "weight": 3,
+      "query": "rest api",
+      "expect": ["/docs/octopus-rest-api"]
+    },
+    {
+      "id": "r49",
+      "bucket": "real",
+      "weight": 3,
+      "query": "secret",
+      "expect": ["/docs/projects/variables/sensitive-variables"]
+    },
+    {
+      "id": "r50",
+      "bucket": "real",
+      "weight": 3,
+      "query": "system variables",
+      "expect": ["/docs/projects/variables/system-variables"]
+    },
+    {
+      "id": "r51",
+      "bucket": "real",
+      "weight": 3,
+      "query": "target tag",
+      "expect": ["/docs/infrastructure/deployment-targets/target-tags"]
+    },
+    {
+      "id": "r52",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "te",
+      "expect": []
+    },
+    {
+      "id": "r53",
+      "bucket": "real",
+      "weight": 3,
+      "query": "tenant",
+      "expect": ["/docs/tenants"]
+    },
+    {
+      "id": "r54",
+      "bucket": "real",
+      "weight": 3,
+      "query": "tentac",
+      "expect": ["/docs/infrastructure/deployment-targets/tentacle"]
+    },
+    {
+      "id": "r55",
+      "bucket": "real",
+      "weight": 3,
+      "query": "terraform",
+      "expect": ["/docs/deployments/terraform"]
+    },
+    {
+      "id": "r56",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "test",
+      "expect": []
+    },
+    {
+      "id": "r57",
+      "bucket": "real",
+      "weight": 3,
+      "query": "upgrade",
+      "expect": ["/docs/administration/upgrading"]
+    },
+    {
+      "id": "r58",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "va",
+      "expect": []
+    },
+    {
+      "id": "r59",
+      "bucket": "real",
+      "weight": 3,
+      "query": "vari",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "r60",
+      "bucket": "real",
+      "weight": 3,
+      "query": "variable",
+      "expect": ["/docs/projects/variables"]
+    },
+    {
+      "id": "r61",
+      "bucket": "real-unscored",
+      "weight": 3,
+      "query": "version",
+      "expect": []
+    },
+    {
+      "id": "r62",
+      "bucket": "real",
+      "weight": 2,
+      "query": "octopusbypassdeploymentmutex",
+      "expect": ["/docs/projects/variables/system-variables"]
+    },
+    {
+      "id": "r63",
+      "bucket": "real",
+      "weight": 2,
+      "query": "tenants",
+      "expect": ["/docs/tenants"]
+    },
+    {
+      "id": "r64",
+      "bucket": "real",
+      "weight": 2,
+      "query": "agent",
+      "expect": [
+        "/docs/kubernetes/targets/kubernetes-agent",
+        "/docs/octopus-cloud/connection-agent"
+      ]
+    },
+    {
+      "id": "r65",
+      "bucket": "real",
+      "weight": 2,
+      "query": "artifacts",
+      "expect": ["/docs/projects/deployment-process/artifacts"]
+    },
+    {
+      "id": "r66",
+      "bucket": "real",
+      "weight": 2,
+      "query": "audit",
+      "expect": ["/docs/security/users-and-teams/auditing"]
+    },
+    {
+      "id": "r67",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "aut",
+      "expect": []
+    },
+    {
+      "id": "r68",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "automate",
+      "expect": []
+    },
+    {
+      "id": "r69",
+      "bucket": "real",
+      "weight": 2,
+      "query": "azure private",
+      "expect": [
+        "/docs/octopus-cloud/inbound-private-links",
+        "/docs/octopus-cloud/outbound-private-links"
+      ]
+    },
+    {
+      "id": "r70",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "can",
+      "expect": []
+    },
+    {
+      "id": "r71",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "cancel",
+      "expect": []
+    },
+    {
+      "id": "r72",
+      "bucket": "real",
+      "weight": 2,
+      "query": "channel",
+      "expect": ["/docs/releases/channels"]
+    },
+    {
+      "id": "r73",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "cl",
+      "expect": []
+    },
+    {
+      "id": "r74",
+      "bucket": "real",
+      "weight": 2,
+      "query": "cloud migration",
+      "expect": ["/docs/administration/private-cloud-migration"]
+    },
+    {
+      "id": "r75",
+      "bucket": "real",
+      "weight": 2,
+      "query": "commit",
+      "expect": ["/docs/deployments/git/commit-to-git"]
+    },
+    {
+      "id": "r76",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "como eliminar",
+      "expect": []
+    },
+    {
+      "id": "r77",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "como eliminar clientes",
+      "expect": []
+    },
+    {
+      "id": "r78",
+      "bucket": "real",
+      "weight": 2,
+      "query": "config",
+      "expect": ["/docs/projects/version-control"]
+    },
+    {
+      "id": "r79",
+      "bucket": "real",
+      "weight": 2,
+      "query": "config as code",
+      "expect": ["/docs/projects/version-control"]
+    },
+    {
+      "id": "r80",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "creating a",
+      "expect": []
+    },
+    {
+      "id": "r81",
+      "bucket": "first-keystroke",
+      "weight": 2,
+      "query": "d",
+      "expect": []
+    },
+    {
+      "id": "r82",
+      "bucket": "real",
+      "weight": 2,
+      "query": "dashboard",
+      "expect": ["/docs/projects/project-dashboard"]
+    },
+    {
+      "id": "r83",
+      "bucket": "real",
+      "weight": 2,
+      "query": "database",
+      "expect": ["/docs/deployments/databases"]
+    },
+    {
+      "id": "r84",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "de",
+      "expect": []
+    },
+    {
+      "id": "r85",
+      "bucket": "real",
+      "weight": 2,
+      "query": "disable project",
+      "expect": ["/docs/octopus-rest-api/cli/octopus-project-disable"]
+    },
+    {
+      "id": "r86",
+      "bucket": "real",
+      "weight": 2,
+      "query": "envi",
+      "expect": ["/docs/infrastructure/environments"]
+    },
+    {
+      "id": "r87",
+      "bucket": "real",
+      "weight": 2,
+      "query": "environments",
+      "expect": ["/docs/infrastructure/environments"]
+    },
+    {
+      "id": "r88",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "error",
+      "expect": []
+    },
+    {
+      "id": "r89",
+      "bucket": "real-unscored",
+      "weight": 2,
+      "query": "ext",
+      "expect": []
+    },
+    {
+      "id": "r90",
+      "bucket": "real",
+      "weight": 2,
+      "query": "exter",
+      "expect": [
+        "/docs/projects/project-triggers/external-feed-triggers",
+        "/docs/packaging-applications/package-repositories"
+      ]
+    }
+  ]
+}
