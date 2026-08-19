@@ -11,8 +11,7 @@ export type SplitButtonItem = {
 };
 
 type Props = HTMLAttributes<'div'> & {
-  // Either a `label`, or markup in the default slot, as Button asks for
-  label?: string;
+  label: string;
   // Omitted when the primary acts on the page rather than navigating away
   href?: string | URL;
   icon?: string;
@@ -22,10 +21,6 @@ type Props = HTMLAttributes<'div'> & {
   menuLabel: string; // accessible name for the caret, which has no text
   target?: string;
   rel?: string;
-  // The primary carries these rather than the wrapper, for a caller whose
-  // script or styles are hung off the button itself.
-  primaryClass?: string;
-  primaryData?: Record<string, string | undefined>;
 };
 
 const {
@@ -38,8 +33,6 @@ const {
   menuLabel,
   target,
   rel,
-  primaryClass,
-  primaryData,
   class: className,
   ...rest
 } = Astro.props satisfies Props;
@@ -54,10 +47,6 @@ if (items.length === 0) {
 // where a link opens, and mean nothing on a button.
 const primaryLink = href ? { href, target, rel } : {};
 
-const primaryClasses = primaryClass
-  ? `split-btn__primary ${primaryClass}`
-  : 'split-btn__primary';
-
 const menuItems = items.map((item) => ({
   ...item,
   kind: 'link' as const,
@@ -68,13 +57,12 @@ const menuItems = items.map((item) => ({
 
 <div class:list={['split-btn', className]} {...rest}>
   <Button
-    class={primaryClasses}
+    class="split-btn__primary"
     {...primaryLink}
     icon={icon}
     label={label}
     size={size}
     importance={importance}
-    {...primaryData}
   >
     <slot />
   </Button>

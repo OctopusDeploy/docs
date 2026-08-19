@@ -25,7 +25,10 @@ function showLabelResult(button: HTMLElement, ok: boolean): string {
 // Handed over unresolved: the clipboard write starts while the page is still
 // downloading, which is what keeps the copy working in Safari.
 function pageMarkdown(button: HTMLElement): Promise<string> | null {
-  const url = button.dataset.copyMdUrl;
+  // The URL sits on the split button wrapping the copy half, so that a click on
+  // the caret beside it resolves to the menu rather than to a copy.
+  const url =
+    button.closest<HTMLElement>('[data-copy-md-url]')?.dataset.copyMdUrl;
   if (!url) return null;
 
   return fetch(url).then((response) => {
@@ -34,4 +37,8 @@ function pageMarkdown(button: HTMLElement): Promise<string> | null {
   });
 }
 
-copyOnClick('[data-copy-md-url]', pageMarkdown, { show: showLabelResult });
+// Matched on the primary half rather than on the control, so that the caret does
+// not copy the page on its way to opening the menu.
+copyOnClick('[data-copy-md-url] .split-btn__primary', pageMarkdown, {
+  show: showLabelResult,
+});

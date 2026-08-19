@@ -16,9 +16,9 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
 {
   pageMdUrl && (
     <SplitButton
-      class="octo-copy-md-actions"
-      primaryClass="octo-copy-md"
-      primaryData={{ 'data-copy-md-url': pageMdUrl }}
+      class="octo-copy-md"
+      data-copy-md-url={pageMdUrl}
+      label={_(Translations.octopus_copy_md.label)}
       icon="octo-copy-md__icon"
       size="small"
       menuLabel={_(Translations.octopus_copy_md.more_options)}
@@ -33,42 +33,36 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
       target="_blank"
       rel="noopener"
     >
-      {/* All three states are rendered, stacked in one grid cell, so the button
-          is sized by its longest label and keeps that width as the state
-          changes. Only the current one is visible, and `visibility` keeps the
-          other two out of the accessible name. */}
-      <span class="btn__label octo-copy-md__labels">
-        <span class="octo-copy-md__label octo-copy-md__label--rest">
-          {_(Translations.octopus_copy_md.label)}
-        </span>
-        <span class="octo-copy-md__label octo-copy-md__label--copied">
-          {_(Translations.octopus_copy_md.copied)}
-        </span>
-        <span class="octo-copy-md__label octo-copy-md__label--failed">
-          {_(Translations.octopus_copy_md.error)}
-        </span>
+      {/* Both results are rendered, stacked with the rest label in one grid
+          cell, so the button is sized by the longest of the three and keeps
+          that width as the state changes. Only the current one is visible, and
+          `visibility` keeps the other two out of the accessible name. */}
+      <span class="octo-copy-md__label octo-copy-md__label--copied">
+        {_(Translations.octopus_copy_md.copied)}
+      </span>
+      <span class="octo-copy-md__label octo-copy-md__label--failed">
+        {_(Translations.octopus_copy_md.error)}
       </span>
     </SplitButton>
   )
 }
 
 <style>
-  /* `:global()` crosses into SplitButton's and Menu's scopes, which render the
-     elements these land on; the `.octo-copy-md-actions` prefix keeps them
-     contained. */
-  .octo-copy-md-actions :global(.octo-copy-md__glyph) {
+  /* `:global()` crosses into Menu's scope, which renders the elements these
+     land on; the `.octo-copy-md` prefix keeps them contained. */
+  .octo-copy-md :global(.octo-copy-md__glyph) {
     background-color: currentColor;
   }
 
   /* The mark is a wide badge rather than a square glyph, so it is fitted to the
      square box `.menu__icon` gives it instead of being sized to it. */
-  .octo-copy-md-actions :global(.octo-copy-md__glyph--markdown) {
+  .octo-copy-md :global(.octo-copy-md__glyph--markdown) {
     mask: url('../assets/icons/markdown.svg') center / contain no-repeat;
   }
 
   /* The exported glyph sits inside a box 25% wider than itself, so the mask is
      sized rather than left to fill. */
-  .octo-copy-md-actions :global(.octo-copy-md__glyph--external) {
+  .octo-copy-md :global(.octo-copy-md__glyph--external) {
     mask: url('../assets/icons/external-link.svg') center / 0.8rem no-repeat;
   }
 </style>

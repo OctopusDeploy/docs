@@ -64,7 +64,8 @@ test('the tooltip arrow overlaps the bubble it points from', async ({
 
   const overlap = await button.evaluate((el) => {
     const bubble = el.querySelector('.tooltip');
-    if (!bubble) throw new Error('expected the button to have a .tooltip bubble');
+    if (!bubble)
+      throw new Error('expected the button to have a .tooltip bubble');
 
     const caret = getComputedStyle(bubble, '::after');
     const bubbleHeight = bubble.getBoundingClientRect().height;
@@ -147,7 +148,7 @@ test('the copy action puts the page markdown on the clipboard', async ({
 
   await page.goto(MD_PAGE);
 
-  const button = page.locator('.octo-copy-md');
+  const button = page.locator('.octo-copy-md .split-btn__primary');
   await button.click();
   await expect(button).toHaveAttribute('data-copied', '');
 
@@ -172,7 +173,7 @@ test('the copy action reports a failure when the markdown cannot be fetched', as
   // Routed after the page has loaded, so only the copy's own fetch is refused.
   await page.route('**/*.md', (route) => route.abort());
 
-  const button = page.locator('.octo-copy-md');
+  const button = page.locator('.octo-copy-md .split-btn__primary');
   await button.click();
 
   await expect(button).toHaveAttribute('data-failed', '');
