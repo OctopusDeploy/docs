@@ -1,9 +1,9 @@
 // Pagefind behind the `SearchEngine` seam.
 //
 // The index is chunked and content-hashed, and Pagefind fetches only the chunks
-// a query actually touches. That is the whole reason for the spike: the old
-// index is a single 1.86MB download, and this one's per-query cost stays flat as
-// the corpus grows.
+// a query actually touches, so the per-query cost stays flat as the corpus
+// grows. The `search.json` index this replaced was a single 1.86MB download,
+// paid in full on the first search.
 //
 // Two calls per search: `search()` returns lightweight stubs, then each result's
 // `data()` fetches its own fragment. Only the page of results being shown is
@@ -128,11 +128,13 @@ function segments(path: string) {
 /**
  * Reorders results so a section's own page beats the pages inside it.
  *
- * The same two signals the Orama worker uses, for the same reason and with the
- * same constant: a page the query *names* — by title or by the last segment of
+ * Two signals: a page the query *names* — by title or by the last segment of
  * its URL — wins outright, and everything else is ordered by score discounted per
- * path segment. Measured against real search terms this is worth about twenty
- * points of Success@5; `data-pagefind-weight` alone measured as a no-op.
+ * path segment. BM25 has no notion of a site's shape, so a bare section name
+ * otherwise ranks the pages inside the section above the section itself.
+ *
+ * Measured against real search terms this is worth about twenty points of
+ * Success@5; `data-pagefind-weight` alone measured as a no-op.
  *
  * This reaches only as far as the results already fetched, so a landing page
  * ranked below `RESULT_LIMIT` on raw score cannot be rescued here.

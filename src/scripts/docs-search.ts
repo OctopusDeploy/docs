@@ -21,14 +21,14 @@ const DEBOUNCE_MS = 150;
 
 // Below this, typing is not yet a query.
 //
-// A one or two character prefix matches an enormous share of the index, and for
-// a chunked engine that means fetching an enormous share of it: measured against
-// the Pagefind spike, one character costs 975ms and two cost 837ms, against 342ms
-// at three and under 200ms beyond that. Almost the whole of that engine's
-// keystroke lag lives in the two keystrokes nobody could act on anyway.
+// A one or two character prefix matches an enormous share of the index, and
+// because Pagefind fetches every chunk a query touches, that means pulling down
+// an enormous share of it: one character costs 975ms and two cost 837ms, against
+// 342ms at three and under 200ms beyond that. Almost the whole of the keystroke
+// lag lives in the two keystrokes nobody could act on anyway.
 //
-// It also spares the reader a list assembled from a single letter, which no
-// engine here answers usefully.
+// It also spares the reader a list assembled from a single letter, which is
+// never a useful answer.
 const MIN_QUERY_LENGTH = 3;
 const SITE_SEARCH = 'site';
 
