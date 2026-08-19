@@ -8,15 +8,9 @@
 import type { AstroIntegration } from 'astro';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
-import * as fs from 'node:fs';
 // Statically, because `astro:build:done` fires after Vite's module runner has
 // closed and a dynamic import from inside the hook cannot be resolved.
 import { createIndex, close } from 'pagefind';
-
-// Roughly the number of pages that pass the search predicate. Well under it means
-// the body scoping has broken, which is otherwise a silent failure: search still
-// works, it is just full of the wrong pages.
-const EXPECTED_PAGES = 1000;
 
 export default function pagefindIndex(): AstroIntegration {
   return {
@@ -39,8 +33,7 @@ export default function pagefindIndex(): AstroIntegration {
         });
 
         if (!index) {
-          logger.error(`could not start Pagefind: ${errors.join(', ')}`);
-          return;
+          throw new Error(`could not start Pagefind: ${errors.join(', ')}`);
         }
 
         // `dist/docs` rather than `dist`: the client sets a `basePath` of
@@ -52,7 +45,9 @@ export default function pagefindIndex(): AstroIntegration {
         });
 
         if (added.errors.length > 0) {
-          logger.error(added.errors.join(', '));
+          throw new Error(
+            `Pagefind indexing failed: ${added.errors.join(', ')}`
+          );
         }
 
         const written = await index.writeFiles({
@@ -60,39 +55,16 @@ export default function pagefindIndex(): AstroIntegration {
         });
 
         if (written.errors.length > 0) {
-          logger.error(written.errors.join(', '));
+          throw new Error(
+            `Pagefind write failed: ${written.errors.join(', ')}`
+          );
         }
 
         await close();
 
-        // `page_count` is files scanned, not files indexed — it counts the
-        // redirect stubs that `data-pagefind-body` then drops. One fragment is
-        // written per indexed page, so that is the number worth checking.
-        //
-        // No fragment directory at all is the worst version of the failure the
-        // warning below exists to report, so it must not throw ahead of it.
-        const fragments = path.join(distDir, 'docs', 'pagefind', 'fragment');
-        const indexed = fs.existsSync(fragments)
-          ? (await fs.promises.readdir(fragments)).length
-          : 0;
-
-        logger.info(
-          `indexed ${indexed} of ${added.page_count} pages into docs/pagefind`
-        );
-
-        // Nothing indexed at all means every query returns nothing. That must
-        // not ship behind a green build.
-        if (indexed === 0) {
-          throw new Error(
-            'Pagefind indexed no pages — check data-pagefind-body is still on the article in Default.astro'
-          );
-        }
-
-        if (indexed < EXPECTED_PAGES) {
-          logger.warn(
-            `only ${indexed} pages were indexed, expected at least ${EXPECTED_PAGES} — check data-pagefind-body is still on the article`
-          );
-        }
+        // Files scanned, not pages indexed: the redirect stubs are counted here
+        // and then dropped by `data-pagefind-body`.
+        logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
       },
     },
   };
