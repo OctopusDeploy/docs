@@ -270,6 +270,62 @@ test('the query is left in the field that opened the overlay', async ({
   await expect(trigger).toHaveValue('tentacle');
 });
 
+// Search analytics broke once already, silently: `Plausible.astro` kept
+// listening for a `searched` event after the page that fired it was deleted, and
+// nothing failed. The goal name and the prop name are the contract with the
+// Plausible dashboard, so they are asserted rather than described.
+test('a settled query reports a Search goal to Plausible', async ({ page }) => {
+  // Plausible itself is not loaded on a preview build, so stand in for it.
+  await page.addInitScript(() => {
+    (window as Window & { searchGoals?: unknown[] }).searchGoals = [];
+    (window as Window & { plausible?: unknown }).plausible = (
+      goal: string,
+      options: unknown
+    ) => {
+      (window as Window & { searchGoals?: unknown[] }).searchGoals!.push([
+        goal,
+        options,
+      ]);
+    };
+  });
+
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('tentacle');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => (window as Window & { searchGoals?: unknown[] }).searchGoals
+      )
+    )
+    .toEqual([['Search', { props: { search: 'tentacle' } }]]);
+
+  // Narrowing to a tab re-runs the same query. The old search page reported once
+  // per distinct query and this has to match it, or every tab click inflates the
+  // count.
+  const docs = site.locator('[data-docs-search-tabs] [data-facet="docs"]');
+  if (await docs.isVisible()) {
+    await docs.click();
+    await expect(site.locator('[role="option"]').first()).toBeVisible({
+      timeout: 20_000,
+    });
+  }
+
+  expect(
+    await page.evaluate(
+      () => (window as Window & { searchGoals?: unknown[] }).searchGoals
+    )
+  ).toHaveLength(1);
+});
+
 // The index stores absolute production URLs. A result that keeps one sends you
 // from an ephemeral environment or localhost straight to octopus.com, which is
 // exactly what happened the first time this shipped.

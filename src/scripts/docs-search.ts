@@ -72,6 +72,10 @@ function setup(dialog: HTMLDialogElement) {
   let facet = 'all';
   let active = -1;
   let debounce = 0;
+  // The last query reported to analytics. The old search page kept the same
+  // guard, so re-running a query — by picking a tab, or reopening on the same
+  // text — reports nothing.
+  let reported = '';
   // Every search is a race the newest one has to win, or a slow early query can
   // land after a later one and redraw the list with stale results.
   let generation = 0;
@@ -234,6 +238,26 @@ function setup(dialog: HTMLDialogElement) {
     }
 
     render(response);
+    report();
+  }
+
+  /**
+   * Tells Plausible what was searched for, through the `searched` event that
+   * `Plausible.astro` turns into a `Search` goal with a `search` prop.
+   *
+   * Dispatched on `document` because that is where the listener sits, and only
+   * once the results are on screen, so the count of searches matches the count
+   * of answered queries rather than of keystrokes. The showcase overlay is
+   * excluded: its results are a fixture, and its page carries the same layout.
+   */
+  function report() {
+    const term = input!.value.trim();
+    if (demo || term === reported) return;
+
+    reported = term;
+    document.dispatchEvent(
+      new CustomEvent('searched', { detail: { search: term } })
+    );
   }
 
   function schedule() {
