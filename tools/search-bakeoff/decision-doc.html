@@ -435,9 +435,12 @@
         two query sets. Relevance does not decide this.</p>
       <p>What decides it is the cost of a keystroke. The overlay searches on every one, and
         the logs show most searches are partial words typed live. Orama answers a keystroke in
-        <strong>324ms</strong>; Pagefind takes <strong>1186ms</strong>, because it fetches
-        index chunks per query and cannot prefetch a query nobody has typed. On partial
-        queries Orama is also 15 points more likely to have the right page on screen.</p>
+        <strong>324ms</strong> at p95; Pagefind takes <strong>1186ms</strong>, because it
+        searches WASM and decompresses chunks per query. On partial queries Orama is also 15
+        points more likely to have the right page on screen.</p>
+      <p>That gap survives a good connection, which is the thing worth knowing: on 100Mbps with
+        no CPU throttle Pagefind is still 927ms at p95 against Orama's 184ms. It is not
+        bandwidth.</p>
     </div>
     <div class="verdict-side">
       <dl>
@@ -454,10 +457,10 @@
             seconds at 298ms. The 3950ms is the keyboard-shortcut user who types instantly.</dd>
         </div>
         <div>
-          <dt>What would change it</dt>
-          <dd>Readers on fast connections. Pagefind's keystroke cost is network-bound, so it
-            largely disappears off a throttled profile; Orama's advantage narrows to typos and
-            partial words.</dd>
+          <dt>Why it is close</dt>
+          <dd>Pagefind wins more categories than Orama does &mdash; both real-data relevance
+            sets, cold start, payload by 8&times;, and deep links. If finding a page you can
+            name matters more than keeping up while you type, it is the answer.</dd>
         </div>
       </dl>
     </div>
@@ -865,6 +868,51 @@
 
     <div class="tablewrap">
       <table>
+        <caption>Keystroke latency by connection &mdash; median and p95</caption>
+        <thead>
+          <tr>
+            <th scope="col">Connection</th>
+            <th scope="col">Orama</th>
+            <th scope="col">Pagefind</th>
+            <th scope="col">Legacy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Fast 4G, 4&times; CPU</th>
+            <td>269 / 315ms</td>
+            <td>427 / 1078ms</td>
+            <td>226 / 309ms</td>
+          </tr>
+          <tr>
+            <th scope="row">Cable, 2&times; CPU</th>
+            <td>192 / 209ms</td>
+            <td>358 / 942ms</td>
+            <td>184 / 202ms</td>
+          </tr>
+          <tr>
+            <th scope="row">Office, no throttle</th>
+            <td class="best">177 / 184ms</td>
+            <td>346 / 927ms</td>
+            <td>169 / 183ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack measure">
+      <p>This table exists because the recommendation rests on one number, and that number
+        looked like it might be an artefact of the throttle. It is not. Taking Pagefind from
+        Fast 4G to a 100Mbps desktop with no CPU penalty improves its p95 by 14%, from 1078ms
+        to 927ms, while Orama falls to 184ms &mdash; the overlay's own 150ms debounce plus
+        change. The cost is WASM search and chunk decompression, which bandwidth does not
+        help.</p>
+      <p>The fair reading is that Pagefind stalls intermittently rather than being uniformly
+        slow: its median is 346ms where its p95 is 927ms. About one keystroke in twenty waits
+        close to a second. Orama's median and p95 are seven milliseconds apart.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
         <caption>Gates &mdash; set before the runs, compression-adjusted where relevant</caption>
         <thead>
           <tr>
@@ -975,10 +1023,10 @@
           when caching is enabled for a route. It is enabled today, but the two settings are
           coupled &mdash; turning caching off for <span class="m">/docs/</span> would also turn
           compression off, and the adjusted column above would become the staging column.</li>
-        <li><strong>Pagefind's keystroke cost is network-bound, Orama's is not.</strong> On a
-          fast connection Pagefind's 1186ms shrinks substantially, while Orama's 324ms is
-          already CPU and debounce. If your readers are overwhelmingly on good corporate
-          connections, the gap that drives this recommendation narrows.</li>
+        <li><strong>Pagefind's keystroke cost is not network-bound.</strong> It was assumed
+          to be, and tested: a 100Mbps connection with no CPU throttle improves its p95 by 14%
+          and leaves it five times Orama's. The work is WASM search and chunk decompression,
+          which a better connection does not help. The gap holds on every profile measured.</li>
       </ul>
     </div>
   </section>
@@ -1037,10 +1085,12 @@
     </div>
     <div class="levers">
       <div class="lever">
-        <div class="lever-if">Your readers are mostly on fast connections</div>
-        <div class="lever-then">Switch to Pagefind. Its keystroke cost is network-bound and
-          largely disappears off a throttled profile, while its payload and top-page accuracy
-          stay. The whole case for Orama rests on a 4&times; keystroke gap measured on Fast 4G.</div>
+        <div class="lever-if">Finding a page you can name matters more than keeping up while you type</div>
+        <div class="lever-then">Switch to Pagefind. It wins more categories than Orama does
+          &mdash; both real-data relevance sets, cold start, payload by 8&times;, deep links,
+          CDN headroom. The case for Orama is that a laggy list is paid on every search while
+          the 8-point top-pages gap is paid on the 8% it misses. That is a judgement about
+          which cost you would rather carry, and it can reasonably go the other way.</div>
       </div>
       <div class="lever">
         <div class="lever-if">Landing on the right heading matters more than the right page</div>
