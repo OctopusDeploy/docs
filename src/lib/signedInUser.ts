@@ -1,5 +1,6 @@
 export const USER_COOKIE = 'OctopusSignedInUser';
 export const USER_CHANGED_EVENT = 'octopus:user-changed';
+export const SIGNED_IN_ATTRIBUTE = 'data-signed-in';
 
 export type SignedInUser = {
   email?: string;

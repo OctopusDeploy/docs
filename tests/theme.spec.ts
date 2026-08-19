@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 
 const home = '/docs/';
 const otherPage = '/docs/getting-started/';
@@ -19,9 +20,19 @@ function expectPreference(page: Page, value: string) {
   );
 }
 
-function expectToggleOffers(page: Page, theme: string) {
-  return expect(page.locator(toggleIcon)).toHaveClass(
-    new RegExp(`theme-switcher__${theme === 'dark' ? 'moon' : 'sun'}_icon`)
+function iconMask(name: 'moon' | 'sun') {
+  const svg = readFileSync(
+    new URL(`../src/assets/icons/${name}.svg`, import.meta.url),
+    'utf8'
+  );
+  const outline = svg.match(/ d="([^"]+)"/)![1].slice(0, 24);
+  return outline.replace(/ /g, '%20').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function expectToggleOffers(page: Page, theme: string, icon = toggleIcon) {
+  return expect(page.locator(icon)).toHaveCSS(
+    'mask-image',
+    new RegExp(iconMask(theme === 'dark' ? 'moon' : 'sun'))
   );
 }
 
@@ -86,9 +97,19 @@ test.describe('theme', () => {
       await expectTheme(page, 'dark');
       await expectToggleOffers(page, 'light');
       // The drawer's toggle is the one used when the page narrows.
-      await expect(page.locator(drawerToggleIcon)).toHaveClass(
-        /theme-switcher__sun_icon/
-      );
+      await expectToggleOffers(page, 'light', drawerToggleIcon);
+    });
+  });
+
+  test.describe('before the deferred scripts load', () => {
+    test.use({ colorScheme: 'dark' });
+
+    test('the toggle already shows the resolved theme', async ({ page }) => {
+      await page.route('**/_astro/*.js', (route) => route.abort());
+      await page.goto(home);
+
+      await expectTheme(page, 'dark');
+      await expectToggleOffers(page, 'light');
     });
   });
 

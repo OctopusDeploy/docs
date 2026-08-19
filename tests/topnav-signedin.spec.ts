@@ -33,6 +33,24 @@ test.describe('top nav signed-in state', () => {
     await expect(page.locator(avatar)).toBeHidden();
   });
 
+  test('shows the signed-in state before the deferred scripts load', async ({
+    page,
+    baseURL,
+  }) => {
+    await signIn(page, baseURL, {
+      fullName: 'John Doe',
+      email: 'jd@example.com',
+    });
+    await page.route('**/_astro/*.js', (route) => route.abort());
+    await page.goto(docsPage);
+
+    await expect(page.locator(avatar)).toBeVisible();
+    await expect(page.locator(trailing).getByText('Sign in')).toBeHidden();
+    await expect(
+      page.locator(trailing).getByText('Start for free')
+    ).toBeHidden();
+  });
+
   test('swaps those buttons for an initials avatar when signed in', async ({
     page,
     baseURL,
@@ -55,10 +73,7 @@ test.describe('top nav signed-in state', () => {
     await expect(page.locator(`${avatar} [data-user-initials]`)).toHaveText(
       'JD'
     );
-    await expect(page.locator(avatar)).toHaveAttribute(
-      'title',
-      'John Doe'
-    );
+    await expect(page.locator(avatar)).toHaveAttribute('title', 'John Doe');
   });
 
   test('takes the first two characters of a single-word name', async ({

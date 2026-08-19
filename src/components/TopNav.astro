@@ -102,12 +102,12 @@ const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
       <div class="top-nav__drawer-theme">
         <span class="top-nav__drawer-theme-label">Theme</span>
         <Button
-          icon="theme-switcher__moon_icon"
+          icon="top-nav__theme-icon"
           aria-label="Toggle theme"
           data-theme-toggle-button
         />
       </div>
-      <div class="top-nav__drawer-profile" data-signed-in-only hidden>
+      <div class="top-nav__drawer-profile" data-signed-in-only>
         <ProfileMenu inline />
       </div>
     </div>
@@ -115,7 +115,7 @@ const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
 
   <div class="top-nav__trailing">
     <Button
-      icon="theme-switcher__moon_icon"
+      icon="top-nav__theme-icon"
       aria-label="Toggle theme"
       data-tooltip="Toggle theme"
       data-tooltip-position="bottom"
@@ -128,7 +128,7 @@ const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
       importance="loud"
       data-signed-out-only
     />
-    <ProfileMenu data-signed-in-only hidden />
+    <ProfileMenu data-signed-in-only />
     <Button
       class="top-nav__drawer-toggle"
       icon="top-nav__bars-icon"
@@ -380,10 +380,6 @@ const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
     .top-nav__drawer-actions {
       display: flex;
       gap: var(--space12);
-    }
-
-    .top-nav__drawer-actions[hidden] {
-      display: none;
     }
 
     .top-nav__drawer-actions :global(.btn) {
