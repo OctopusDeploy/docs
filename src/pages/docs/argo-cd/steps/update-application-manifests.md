@@ -24,6 +24,10 @@ If required, the output path to which the templates are copied can be overridden
 
 The following provides instructions on how to configure an Update Manifests step, constraints on its usage, and how it executes.
 
+:::div{.hint}
+[Easy Mode - Update Argo CD Application Manifests](https://octopus.com/blog/octo-easy-mode-16-argocd-manifest-update) provides a practical example of updating Argo CD application manifests you can apply to your own Octopus instance.
+:::
+
 ## Manifest Templates
 
 1. Specify the set of input template files which can be sourced from either:

@@ -15,6 +15,10 @@ Policies let you enforce deployment standards automatically. You write rules in 
 
 All policies are stored as OCL files in your Platform Hub repository. If your Platform Hub repository isn't set up yet, see [Platform Hub](/docs/platform-hub/) before continuing.
 
+:::div{.hint}
+[Easy Mode - Policies](https://octopus.com/blog/octo-easy-mode-22-policy) provides a practical example of using policies you can apply to your own Octopus instance.
+:::
+
 ## What you can enforce
 
 When a deployment or runbook run starts, Octopus passes a structured input object to the policy engine. Your Rego conditions read from that object to decide whether the execution should proceed.

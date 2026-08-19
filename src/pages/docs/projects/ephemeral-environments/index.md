@@ -15,6 +15,10 @@ Ephemeral environments integrate smoothly into your existing development workflo
 
 Octopus can automatically create and deploy to an ephemeral environment from releases created within a specifically configured channel in a project, and supports provisioning and deprovisioning of associated infrastructure using Runbooks.
 
+:::div{.hint}
+[Easy Mode - Ephemeral Environments](https://octopus.com/blog/octo-easy-mode-15-ephemeral-environments) provides a practical example of ephemeral environments you can apply to your own Octopus instance.
+:::
+
 ## Getting started
 
 To configure Ephemeral Environments for your project:
