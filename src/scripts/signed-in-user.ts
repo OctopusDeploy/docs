@@ -2,6 +2,7 @@ import {
   getSignedInUser,
   addSignedInUserChangedListener,
   safeImageUrl,
+  SIGNED_IN_ATTRIBUTE,
   type SignedInUser,
 } from '../lib/signedInUser';
 import {
@@ -11,8 +12,6 @@ import {
 } from '../lib/avatar';
 import { setAvatarImage } from './avatar';
 
-const SIGNED_OUT_ONLY_SELECTOR = '[data-signed-out-only]';
-const SIGNED_IN_ONLY_SELECTOR = '[data-signed-in-only]';
 const USER_AVATAR_SELECTOR = '[data-user-avatar]';
 const USER_INITIALS_SELECTOR = '[data-user-initials]';
 const USER_DETAILS_SELECTOR = '[data-user-details]';
@@ -28,17 +27,13 @@ function avatarSize(avatar: HTMLElement) {
   return isAvatarSize(size) ? size : 'medium';
 }
 
-function toggle(selector: string, hidden: boolean) {
-  document.querySelectorAll<HTMLElement>(selector).forEach((el) => {
-    el.hidden = hidden;
-  });
-}
-
 function apply() {
   const user = getSignedInUser();
 
-  toggle(SIGNED_OUT_ONLY_SELECTOR, user !== null);
-  toggle(SIGNED_IN_ONLY_SELECTOR, user === null);
+  document.documentElement.setAttribute(
+    SIGNED_IN_ATTRIBUTE,
+    user === null ? 'false' : 'true'
+  );
 
   if (user) {
     const name = displayName(user);

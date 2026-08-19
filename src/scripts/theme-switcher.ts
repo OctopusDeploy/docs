@@ -14,12 +14,6 @@ import {
 const TRANSITION_MS = 300;
 
 const BUTTON_SELECTOR = '[data-theme-toggle-button]';
-const BUTTON_ICON_SELECTOR = '.btn__icon';
-
-const BUTTON_ICON_CLASSES: Record<Theme, string> = {
-  light: 'theme-switcher__moon_icon',
-  dark: 'theme-switcher__sun_icon',
-};
 
 const root = document.documentElement;
 const darkQuery = window.matchMedia(COLOR_SCHEME_QUERY);
@@ -60,16 +54,6 @@ function currentTheme(): Theme {
   return root.getAttribute(THEME_ATTRIBUTE) === 'dark' ? 'dark' : 'light';
 }
 
-function syncControls(theme: Theme) {
-  buttons().forEach((button) => {
-    const icon = button.querySelector(BUTTON_ICON_SELECTOR);
-    icon?.classList.remove(
-      BUTTON_ICON_CLASSES[theme === 'dark' ? 'light' : 'dark']
-    );
-    icon?.classList.add(BUTTON_ICON_CLASSES[theme]);
-  });
-}
-
 let transitionTimer: ReturnType<typeof setTimeout> | undefined;
 
 function markTransition() {
@@ -86,7 +70,6 @@ function apply(preference: ThemePreference) {
   if (theme !== currentTheme()) markTransition();
   root.setAttribute(THEME_ATTRIBUTE, theme);
   root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
-  syncControls(theme);
   root.dispatchEvent(
     new CustomEvent(THEME_CHANGE_EVENT, { detail: { theme, preference } })
   );
@@ -103,10 +86,6 @@ export function getTheme(): Theme {
 }
 
 function bind() {
-  // The inline head script already set the attribute; mirror it onto every
-  // control rather than re-deriving it, so all switchers agree from paint one.
-  syncControls(currentTheme());
-
   buttons().forEach((button) => {
     if (button.dataset.themeBound) return;
     button.dataset.themeBound = 'true';

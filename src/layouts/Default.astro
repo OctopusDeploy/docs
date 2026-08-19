@@ -61,7 +61,13 @@ const showSearch = !isSearchPage;
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
 ---
 
-<html dir={textDirection} lang={lang} class="initial" data-theme="light">
+<html
+  dir={textDirection}
+  lang={lang}
+  class="initial"
+  data-theme="light"
+  data-signed-in="false"
+>
   <Head
     frontmatter={frontmatter}
     headings={headings}

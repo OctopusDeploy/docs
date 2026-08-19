@@ -715,14 +715,21 @@ nav.skip-links a:focus {
   width: auto;
 }
 
-.theme-switcher__moon_icon {
+.top-nav__theme-icon {
   background-color: var(--colorIconPrimary);
+}
+
+html[data-theme='light'] .top-nav__theme-icon {
   mask: url('../assets/icons/moon.svg') center / contain no-repeat;
 }
 
-.theme-switcher__sun_icon {
-  background-color: var(--colorIconPrimary);
+html[data-theme='dark'] .top-nav__theme-icon {
   mask: url('../assets/icons/sun.svg') center / contain no-repeat;
+}
+
+html[data-signed-in='true'] [data-signed-out-only],
+html[data-signed-in='false'] [data-signed-in-only] {
+  display: none;
 }
 
 .docs-home {

@@ -6,6 +6,7 @@ import { getEligibleSlugs } from '@util/mdxContent';
 import JsonLd from '@components/JsonLd.astro';
 import type { Crumb } from '@util/breadcrumbs';
 import ThemeScript from '@components/ThemeScript.astro';
+import SignedInScript from '@components/SignedInScript.astro';
 
 // Design tokens as CSS custom properties. globals and textTheme apply at :root;
 // lightTheme and darkTheme are selected by the data-theme attribute on <html> -
@@ -75,6 +76,7 @@ stats.stop();
 <head>
   <meta charset="utf-8" />
   <ThemeScript />
+  <SignedInScript />
   <title>{title}</title>
   <meta name="robots" content={'max-image-preview:large, ' + robots} />
   <meta name="keywords" content={frontmatter.keywords} />
