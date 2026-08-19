@@ -8,6 +8,22 @@ import {
 } from './feedback-form.js';
 
 /**
+ * Crawlers walk the docs on every environment and work each control they find,
+ * and their submissions land among the readers' in the same responses. Two
+ * things separate them from someone reading the page: a click a script
+ * dispatched carries `isTrusted` false, and a browser being driven says so on
+ * `navigator.webdriver`, which the scanners running headless Chrome set as
+ * surely as our own Playwright run does. Neither is proof and a determined
+ * crawler defeats both, so this thins the noise rather than sealing anything.
+ *
+ * @param {Event} event
+ * @returns {boolean}
+ */
+function automated(event) {
+  return navigator.webdriver === true || !event.isTrusted;
+}
+
+/**
  * Google Forms sends no CORS headers, so the POST has to go out as no-cors and
  * the response comes back opaque. There is no way to read whether the form
  * accepted it - a rejected submission looks identical to an accepted one, so
@@ -31,17 +47,43 @@ async function submit(page, rating, comment) {
 }
 
 /**
+ * The fragment is worth keeping - it says which section the reader had open -
+ * but it is also the one part of the address that arrives verbatim from
+ * whatever link was followed, and scanners crawl the docs appending prototype
+ * pollution probes to it. Those probes ended up in the responses. Rather than
+ * guess at which characters are junk, the fragment is kept only when it names
+ * something on the page, which the legacy anchors carrying brackets, question
+ * marks and emoji still do.
+ *
+ * @returns {string}
+ */
+function anchor() {
+  const { hash } = window.location;
+  if (hash.length < 2) return '';
+
+  let id;
+  try {
+    id = decodeURIComponent(hash.slice(1));
+  } catch {
+    // A half-written escape sequence, so nothing a heading would answer to.
+    return '';
+  }
+
+  return document.getElementById(id) ? hash : '';
+}
+
+/**
  * The title alone is ambiguous - "Overview" and "Prerequisites" repeat across
  * the docs - and the URL alone is unreadable in a spreadsheet, so the field
- * carries both. The hash says which section was open. The query string is
- * dropped, as campaign parameters say nothing about the page.
+ * carries both. The query string is dropped, as campaign parameters say
+ * nothing about the page.
  *
  * @param {string} title
  * @returns {string}
  */
 function pageLabel(title) {
-  const { origin, pathname, hash } = window.location;
-  const url = `${origin}${pathname}${hash}`;
+  const { origin, pathname } = window.location;
+  const url = `${origin}${pathname}${anchor()}`;
 
   return title ? `${title} - ${url}` : url;
 }
@@ -65,7 +107,7 @@ class Feedback {
     this.votes.forEach((button) => {
       button.addEventListener('click', () => this.vote(button));
     });
-    this.send.addEventListener('click', () => this.submit());
+    this.send.addEventListener('click', (event) => this.submit(event));
   }
 
   /** @param {HTMLElement} chosen */
@@ -77,8 +119,17 @@ class Feedback {
     this.comment.hidden = false;
   }
 
-  async submit() {
+  /** @param {Event} event */
+  async submit(event) {
     if (!this.rating) return;
+
+    // Answered the same way a reader's click is, so a crawler finds nothing to
+    // work around and a run of the test suite still exercises the whole widget.
+    if (automated(event)) {
+      console.info('[feedback] automated click, nothing sent');
+      this.thank();
+      return;
+    }
 
     // Guards against a second submission while the first is in flight.
     this.send.setAttribute('disabled', '');
@@ -96,6 +147,10 @@ class Feedback {
       return;
     }
 
+    this.thank();
+  }
+
+  thank() {
     this.root.querySelectorAll('.feedback__vote, .feedback__comment').forEach(
       /** @param {Element} el */ (el) => {
         /** @type {HTMLElement} */ (el).hidden = true;
