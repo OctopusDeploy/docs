@@ -183,3 +183,51 @@ test('the copy action stays at rest when the markdown cannot be fetched', async 
   await expect(label).toBeVisible();
   await expect(page.locator('.copy-status')).toHaveText('');
 });
+
+// The label and the "Copied" it turns into are both in the DOM, stacked, so
+// reporting a result must not reflow the page actions row.
+test('the copy action keeps its width while it reports a result', async ({
+  page,
+}) => {
+  await page.goto(MD_PAGE);
+
+  const button = page.locator('.octo-copy-md .split-btn__primary');
+  const before = await button.boundingBox();
+
+  await button.click();
+  await expect(button).toHaveAttribute('data-copied', '');
+
+  const after = await button.boundingBox();
+  expect(after!.width).toBe(before!.width);
+});
+
+// "Open this page as markdown" used to sit in a menu at the bottom of the
+// article. It is the copy action's one menu item now.
+test('the copy action menu holds exactly one item, linking to the page markdown', async ({
+  page,
+}) => {
+  await page.goto(MD_PAGE);
+
+  const menu = page.locator('.octo-copy-md [data-menu]');
+  await menu.locator('summary').click();
+
+  const items = menu.locator('.menu__action');
+  await expect(items).toHaveCount(1);
+  await expect(items).toHaveAttribute('href', MD_PAGE + '.md');
+  await expect(items).toHaveAttribute('target', '_blank');
+});
+
+// The URL sits on the control while the copy listener matches the primary half.
+// Matching the control instead would copy the page every time the menu opened.
+test('opening the menu does not copy the page', async ({ page }) => {
+  await page.goto(MD_PAGE);
+
+  const control = page.locator('.octo-copy-md');
+  await control.locator('summary').click();
+  await expect(control.locator('.menu__list')).toBeVisible();
+
+  await expect(control.locator('.split-btn__primary')).not.toHaveAttribute(
+    'data-copied',
+    ''
+  );
+});

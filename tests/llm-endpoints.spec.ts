@@ -96,25 +96,6 @@ test('Copy as markdown action advertises a working .md URL on the eligible page'
   expect(target.status()).toBe(200);
 });
 
-// The rest label and both results are always in the DOM, stacked, so reporting
-// a result must not reflow the page actions row.
-test('the copy action keeps its width while it reports a result', async ({
-  page,
-  context,
-}) => {
-  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await page.goto(STABLE_PLAIN_MD_PATH);
-
-  const button = page.locator('.octo-copy-md .split-btn__primary');
-  const before = await button.boundingBox();
-
-  await button.click();
-  await expect(button).toHaveAttribute('data-copied', '');
-
-  const after = await button.boundingBox();
-  expect(after!.width).toBe(before!.width);
-});
-
 test('markdown page actions are hidden on the ineligible MDX page', async ({
   page,
 }) => {
@@ -123,39 +104,6 @@ test('markdown page actions are hidden on the ineligible MDX page', async ({
     await page.locator('.octo-copy-md').count(),
     'expected no copy action on ineligible page'
   ).toBe(0);
-});
-
-// The "Open this page as markdown" link used to sit in a menu at the bottom of
-// the article, alongside a link to llms-full.txt. It is in the copy action's
-// menu now, and the llms-full.txt link is gone.
-test('the copy action menu holds exactly one item, linking to the page markdown', async ({
-  page,
-}) => {
-  await page.goto(STABLE_PLAIN_MD_PATH);
-
-  const menu = page.locator('.octo-copy-md [data-menu]');
-  await menu.locator('summary').click();
-
-  const items = menu.locator('.menu__action');
-  await expect(items).toHaveCount(1);
-  await expect(items).toHaveAttribute('href', STABLE_PLAIN_MD_PATH + '.md');
-  await expect(items).toHaveAttribute('target', '_blank');
-});
-
-// The URL sits on the control while the copy listener matches the primary half.
-// Matching the control instead would copy the page every time the menu opened.
-test('opening the menu does not copy the page', async ({ page, context }) => {
-  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await page.goto(STABLE_PLAIN_MD_PATH);
-
-  const control = page.locator('.octo-copy-md');
-  await control.locator('summary').click();
-  await expect(control.locator('.menu__list')).toBeVisible();
-
-  await expect(control.locator('.split-btn__primary')).not.toHaveAttribute(
-    'data-copied',
-    ''
-  );
 });
 
 test('no page links to llms-full.txt', async ({ page }) => {
