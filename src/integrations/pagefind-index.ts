@@ -1,13 +1,9 @@
-// Builds the Pagefind index from the HTML the site just emitted.
+// Builds the Pagefind index from the HTML the site just emitted. What gets
+// indexed is decided by the `data-pagefind-*` attributes in `Default.astro`.
 //
-// Two things about this repo shape the setup. The index has to land inside
-// `dist/docs/`, because `prune-dist.ts` deletes every top-level entry outside
-// its allowlist and only `/docs/` is served on octopus.com. And this has to be
-// registered before `pruneDist()` in `astro.config.mjs`, since integration hooks
-// run in the order they are listed.
-//
-// What gets indexed is decided in `Default.astro` by `data-pagefind-body`,
-// `data-pagefind-ignore` and `data-pagefind-filter`, not here.
+// The index has to land inside `dist/docs/`, because `prune-dist.ts` deletes
+// every top-level entry outside its allowlist, and this has to be registered
+// before `pruneDist()` — hooks run in the order they are listed.
 
 import type { AstroIntegration } from 'astro';
 import { fileURLToPath } from 'node:url';
@@ -17,9 +13,9 @@ import * as fs from 'node:fs';
 // closed and a dynamic import from inside the hook cannot be resolved.
 import { createIndex, close } from 'pagefind';
 
-// Roughly the number of pages that pass the search predicate. Well under it
-// means the body scoping or the exclusions have broken, which is a silent
-// failure otherwise — search still works, it is just full of the wrong pages.
+// Roughly the number of pages that pass the search predicate. Well under it means
+// the body scoping has broken, which is otherwise a silent failure: search still
+// works, it is just full of the wrong pages.
 const EXPECTED_PAGES = 1000;
 
 export default function pagefindIndex(): AstroIntegration {
@@ -31,16 +27,10 @@ export default function pagefindIndex(): AstroIntegration {
 
         const { index, errors } = await createIndex({
           keepIndexUrl: false,
-          // Pagefind strips punctuation from both the index and the query, so
-          // `Octopus.Action.Package` and `#{Octopus.Environment.Name}` are stored
-          // as their bare words and cannot be told apart from prose using the same
-          // words. `<head>` matched nothing at all. Keeping these characters
+          // Pagefind strips punctuation from both the index and the query, which
+          // left `<head>` matching nothing at all. Keeping these characters
           // indexes both forms — `head` *and* `<head>` — so ordinary searches are
           // unaffected and a reader pasting real syntax gets the page about it.
-          //
-          // Limited to punctuation that shows up in this corpus and in the search
-          // logs: dotted variable and executable names, substitution syntax,
-          // angle brackets, C++, and shell variables.
           includeCharacters: '.#{}<>+$_',
         });
 
@@ -49,10 +39,9 @@ export default function pagefindIndex(): AstroIntegration {
           return;
         }
 
-        // `dist/docs` rather than `dist`, so stored URLs are relative to the
-        // /docs/ prefix the site is proxied under. The client sets a `basePath`
-        // of `/docs/`, which Pagefind prepends back on at query time — indexing
-        // from `dist` would put `/docs/` on twice.
+        // `dist/docs` rather than `dist`: the client sets a `basePath` of
+        // `/docs/` which Pagefind prepends at query time, so indexing from `dist`
+        // would put the prefix on twice.
         const added = await index.addDirectory({
           path: path.join(distDir, 'docs'),
           glob: '**/*.html',

@@ -141,10 +141,9 @@ function setup(dialog: HTMLDialogElement) {
 
   /**
    * Rows for the whole response, pages and their matched sections interleaved.
-   *
-   * The running index is what keeps `aria-activedescendant` working: every
-   * option needs a unique id, and a page's sections sit between it and the next
-   * page rather than being numbered separately.
+   * The running index is what keeps `aria-activedescendant` working: every option
+   * needs a unique id, and a page's sections are numbered between it and the next
+   * page.
    */
   function drawAll(results: SearchResult[]) {
     const nodes: DocumentFragment[] = [];
@@ -152,8 +151,6 @@ function setup(dialog: HTMLDialogElement) {
 
     for (const result of results) {
       nodes.push(drawRow(result, at++));
-      // No template means an overlay built before sections existed. Dropping them
-      // costs the reader nothing beyond the deep link.
       if (!sectionTemplate) continue;
       for (const section of result.sections ?? []) {
         nodes.push(drawSection(sectionTemplate, section, at++));

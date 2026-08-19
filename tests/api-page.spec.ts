@@ -66,11 +66,9 @@ test.describe('api page chrome', () => {
     // Temporary, alongside src/lib/underConstruction.ts - delete with it when
     // the API reference goes live.
     //
-    // Asked through the overlay rather than of an index file. This used to read
-    // /docs/search.json, which no longer exists, and the two search engines ship
-    // indexes of different shapes — one JSON, one a directory of compressed
-    // chunks. What has to hold is the same either way: a reader searching a word
-    // the API reference is full of must not be sent into it.
+    // Asked through the overlay rather than of an index file, because the index
+    // is now a directory of compressed chunks. What has to hold: a reader
+    // searching a word the API reference is full of must not be sent into it.
     await page.goto('/docs/');
     await page
       .locator('input[data-docs-search-trigger]:visible')
@@ -78,9 +76,8 @@ test.describe('api page chrome', () => {
       .click();
     await page.locator('[data-docs-search-input]').fill('accounts');
 
-    // `accounts` is deliberate: it names pages in the API reference *and* pages
-    // outside it, so the list is never empty. A query that matched nothing would
-    // pass this test without proving anything.
+    // `accounts` names pages in the API reference *and* pages outside it, so a
+    // query that matched nothing cannot pass this test without proving anything.
     const results = page.locator('[data-docs-search-results] [role="option"]');
     await expect(results.first()).toBeVisible({ timeout: 30_000 });
 

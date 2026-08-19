@@ -13,7 +13,7 @@ type Props = {
   subtitle?: string | null;
   title: string;
   /** Passed to `data-pagefind-weight`. Omitted leaves Pagefind's own heading
-   *  weighting alone, which is what every page outside the docs layout wants. */
+   *  weighting alone. */
   searchWeight?: number;
 };
 const { lang, subtitle, title, searchWeight } = Astro.props satisfies Props;

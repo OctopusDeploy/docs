@@ -24,8 +24,8 @@ export default defineConfig({
     integrations: [
         mdx(),
         llmMdEmitter(),
-        // Indexes the HTML the build just wrote, so it lands after the page
-        // emitters and before the prune that would delete its output
+        // After the page emitters, and before the prune that would delete its
+        // output
         pagefindIndex(),
         // Must run last: strips build output that can't be served under /docs/
         pruneDist()
@@ -68,7 +68,6 @@ export default defineConfig({
             ],
             hastPlugins: [
                 satteriWbr,
-                // Marks image alt text for Pagefind to index. Inert without it.
                 pagefindImageAttrs,
                 satteriApiExamples
             ],

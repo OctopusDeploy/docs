@@ -20,9 +20,8 @@ export type SearchResult = {
   facet: string;
   /**
    * Headings within the page that matched, deepest-matching first. Only an
-   * engine that indexes per-heading can fill this, which Pagefind does for free.
-   * An empty array means the engine has nothing to say, never that the page has
-   * no headings.
+   * engine that indexes per-heading can fill this, so an empty array means the
+   * engine has nothing to say, never that the page has no headings.
    */
   sections?: SearchSubResult[];
 };
@@ -39,11 +38,8 @@ export type SearchEngine = {
   warm?(): void;
   /**
    * Whether `warm()` is cheap enough to run on page load rather than when the
-   * overlay opens. Pagefind pays about 118KB for its runtime and fetches the
-   * rest per query, which is cheap enough. An engine that parses a whole index
-   * up front would charge that on every navigation, to every visitor, including
-   * the majority who never search. The answer differs by engine, so the engine
-   * states it.
+   * overlay opens. An engine that parses its whole index up front pays on every
+   * navigation, for every visitor including the majority who never search.
    */
   eager?: boolean;
   /**

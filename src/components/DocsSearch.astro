@@ -128,9 +128,8 @@ const listboxId = `${name}-search-listbox`;
       </p>
     </div>
 
-    <!-- Outside the body, which is hidden until there is a query. A live region
-         inside it would leave and re-enter the accessibility tree on every
-         open, and a region that has just appeared does not reliably announce
+    <!-- Outside the body, which is hidden until there is a query: a live region
+         that has just entered the accessibility tree does not reliably announce
          the first thing written to it. -->
     <p
       class="docs-search__announce"
@@ -158,10 +157,9 @@ const listboxId = `${name}-search-listbox`;
     </template>
 
     {
-      /* A heading inside the result above that matched on its own. It is a
-         separate `role="option"` rather than a link inside the parent row,
-         because it goes somewhere different — the reader can arrow onto it and
-         land on that section instead of the top of the page. */
+      /* A heading inside the result above that matched on its own. Its own
+         `role="option"`, because it links somewhere different: the reader can
+         arrow onto it and land on that section. */
     }
     <template data-docs-search-section>
       <li role="presentation">
@@ -463,9 +461,6 @@ const listboxId = `${name}-search-listbox`;
     visibility: visible;
   }
 
-  /* Indented to sit under the result it belongs to, and quieter than it, so the
-     list still scans as pages with sections hanging off them rather than as a
-     flat mix of the two. */
   .docs-search__section {
     display: flex;
     gap: var(--space4);
@@ -503,8 +498,8 @@ const listboxId = `${name}-search-listbox`;
     font: var(--textBodyRegularMedium);
   }
 
-  /* Taken out of the layout without `hidden` or `display: none`, either of
-     which would take it out of the accessibility tree and silence it. */
+  /* Visually hidden by clipping. `hidden` and `display: none` would take it out
+     of the accessibility tree and silence it. */
   .docs-search__announce {
     position: absolute;
     width: 1px;

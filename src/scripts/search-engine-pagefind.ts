@@ -1,13 +1,7 @@
 // Pagefind behind the `SearchEngine` seam.
 //
-// The index is chunked and content-hashed, and Pagefind fetches only the chunks
-// a query actually touches, so the per-query cost stays flat as the corpus
-// grows. The `search.json` index this replaced was a single 1.86MB download,
-// paid in full on the first search.
-//
 // Two calls per search: `search()` returns lightweight stubs, then each result's
-// `data()` fetches its own fragment. Only the page of results being shown is
-// loaded, so the fragments fetched scale with the result limit, not the corpus.
+// `data()` fetches its own fragment. Only the rows being rendered are fetched.
 
 import {
   breadcrumbFrom,
@@ -55,44 +49,25 @@ type PagefindApi = {
   }>;
 };
 
-// Below this score, the best match is not a match.
+// Below this score, the best match is not a match. Pagefind ranks whatever
+// shares a few letters with the query and returns it as confidently as a real
+// hit, so a keyboard mash comes back with three security articles.
 //
-// Pagefind has no notion of a query it cannot answer: it ranks whatever shares a
-// few letters and returns it as confidently as a real hit. Asked for
-// `sssieddqxsx` — a keyboard mash, and the single most-typed term in the search
-// log — it offered three security articles.
-//
-// Calibrated against every term in that log. The weakest genuine query, `cli`,
-// scores 9.5; the mash scores 6.0 and a Spanish query 6.7. Eight sits between
-// them with room on both sides, suppresses 17 of the 33 terms that have no right
-// answer, and costs none of the 57 that do. The 16 it leaves are unfinished words
-// like `te` and `version` that score 40 and up because they genuinely match
-// something.
-//
-// Applied to the top result only. The question is whether this query has an
-// answer at all, not whether to trim the tail of one that does.
-//
-// Re-check with `calibrate-score-floor.mjs` if the corpus or the ranking weights
-// change; it is calibrated against both. Note that Pagefind's `options()` merges
-// rather than replaces, so a calibration run has to start from a clean page or
-// every score comes back depressed.
+// Calibrated against the site's search log: the weakest genuine query, `cli`,
+// scores 9.5, and a keyboard mash 6.0. Applied to the top result only, because
+// the question is whether the query has an answer at all.
 const MINIMUM_SCORE = 8;
 
-// How many matched headings a row will show, and how many rows get them at all.
-//
 // Sections are their own rows, so they compete with pages for the reader's first
 // screenful. Three each across thirty results made two thirds of the list
-// headings, which buries the pages the reader is choosing between. Only the
-// leading results earn them, and only a couple each.
+// headings.
 const SECTION_LIMIT = 2;
 const ROWS_WITH_SECTIONS = 3;
 
 /**
- * The headings inside a result that matched on their own.
- *
- * Pagefind returns one sub-result for the page itself alongside the real
- * headings, and its URL is the page URL with no anchor — that is the row's own
- * link, so it is dropped rather than repeated underneath itself.
+ * The headings inside a result that matched on their own. Pagefind also returns a
+ * sub-result for the page itself, whose URL carries no anchor; that is the row's
+ * own link, so anchorless sub-results are dropped.
  */
 function sectionsOf(fragment: PagefindFragment) {
   return (fragment.sub_results ?? [])
@@ -100,8 +75,6 @@ function sectionsOf(fragment: PagefindFragment) {
     .slice(0, SECTION_LIMIT)
     .map((sub) => ({
       title: sub.title,
-      // Keep the anchor, drop the origin, so the row links the same way every
-      // other row does.
       url: new URL(sub.url, window.location.origin).pathname + hashOf(sub.url),
     }));
 }
@@ -125,18 +98,17 @@ function segments(path: string) {
 }
 
 /**
- * Reorders results so a section's own page beats the pages inside it.
+ * Reorders results so a section's own page beats the pages inside it. BM25 has
+ * no notion of a site's shape, so a bare section name otherwise ranks the pages
+ * inside the section above the section itself.
  *
- * Two signals: a page the query *names* — by title or by the last segment of
- * its URL — wins outright, and everything else is ordered by score discounted per
- * path segment. BM25 has no notion of a site's shape, so a bare section name
- * otherwise ranks the pages inside the section above the section itself.
+ * A page the query *names* — by title or by the last segment of its URL — wins
+ * outright; the rest are ordered by score discounted per path segment.
+ * `data-pagefind-weight` alone measured as a no-op, so the attribute is no
+ * substitute for this.
  *
- * Measured against real search terms this is worth about twenty points of
- * Success@5; `data-pagefind-weight` alone measured as a no-op.
- *
- * This reaches only as far as the results already fetched, so a landing page
- * ranked below `RESULT_LIMIT` on raw score cannot be rescued here.
+ * Reaches only the results already fetched, so a landing page ranked below
+ * `RESULT_LIMIT` on raw score cannot be rescued here.
  */
 function byNameThenDepth<
   T extends { score: number; url: string; title: string },
@@ -168,29 +140,23 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   function load() {
     loading ??= import(/* @vite-ignore */ `${bundlePath}pagefind.js`)
       .then(async (api: PagefindApi) => {
-        // Pagefind resolves its chunk URLs against this, and prepends it to
-        // every result URL; the site is proxied under /docs/ rather than served
-        // from the root, and the index is built relative to that same prefix.
+        // Pagefind resolves its chunk URLs against this and prepends it to every
+        // result URL, so it has to match the prefix the index was built against.
         await api.options({
           basePath: bundlePath,
           // The default is 30 words, which overruns the single line the result
           // row gives it. Sized to the row instead.
           excerptLength: 20,
           ranking: {
-            // Metadata is searchable and boosted — title 5x by default, the rest
-            // 1x. Swept against real search terms and top-visited pages.
-            //
             // `trail` is the breadcrumb, derived from the URL, so every page
-            // under /docs/projects/ carries "Projects" and matches a search for
-            // it just as well as the Projects page itself. Demoting it is worth
-            // seven points of Success@5; it earns its place in the result row,
-            // not in the ranking.
+            // under /docs/projects/ carries "Projects" and would otherwise match
+            // a search for it as well as the Projects page does. Demoting it is
+            // worth seven points of Success@5.
             metaWeights: { title: 8, trail: 0.5 },
           },
         });
-        // The filter index is a separate chunk, and a search returns empty
-        // filter counts until it has been pulled down. Loading it here rather
-        // than per-search means the tab strip is populated on the first result.
+        // The filter index is a separate chunk, and a search returns empty filter
+        // counts until it has been pulled down.
         await api.filters();
         return api;
       })
@@ -205,13 +171,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   }
 
   return {
-    // 118KB of runtime and WASM, and it shortens the cold path to the first
-    // result. The per-query chunks are still fetched on demand.
+    // 118KB of runtime and WASM up front; the per-query chunks stay on demand.
     eager: true,
     warm: load,
 
-    // Pulls the chunks this query needs while the reader is still typing.
-    // Without it every keystroke pays for its own chunk fetches.
     preload(query) {
       const term = query.trim();
       if (!term) return;
