@@ -47,6 +47,38 @@ test.describe('feedback widget', () => {
     ).toHaveAttribute('aria-pressed', 'true');
   });
 
+  test('keeps send out of reach until the box has something in it', async ({
+    page,
+  }) => {
+    await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
+    await expect(page.locator('[data-feedback-send]')).toBeDisabled();
+
+    // Whitespace is nothing to send, so it does not count as an answer.
+    await page.locator('.feedback__textarea').fill('   ');
+    await expect(page.locator('[data-feedback-send]')).toBeDisabled();
+
+    await page.locator('.feedback__textarea').fill('the diagram is wrong');
+    await expect(page.locator('[data-feedback-send]')).toBeEnabled();
+
+    await page.locator('.feedback__textarea').fill('');
+    await expect(page.locator('[data-feedback-send]')).toBeDisabled();
+  });
+
+  test('sends nothing on a vote with an empty box', async ({ page }) => {
+    let sent = false;
+    await page.route('**/docs.google.com/**', (route) => {
+      sent = true;
+      return route.fulfill({ status: 200, body: '' });
+    });
+
+    await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
+    // Past the disabled attribute, which a click alone cannot get through.
+    await page.locator('[data-feedback-send]').dispatchEvent('click');
+
+    await expect(page.locator('.feedback__thanks')).toBeHidden();
+    expect(sent).toBe(false);
+  });
+
   test('thanks the reader once the submission has gone out', async ({
     page,
   }) => {
@@ -55,6 +87,7 @@ test.describe('feedback widget', () => {
     );
 
     await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
+    await page.locator('.feedback__textarea').fill('clear enough');
     await page.locator('[data-feedback-send]').click();
 
     await expect(page.locator('.feedback__thanks')).toBeVisible();
@@ -89,6 +122,9 @@ test.describe('feedback widget', () => {
     page,
   }) => {
     await page.locator(`[data-feedback-vote="${RATING_NO}"]`).click();
+    await page
+      .locator('.feedback__textarea')
+      .fill('the steps are out of order');
     await page.locator('[data-feedback-send]').click();
 
     // Send is disabled for the attempt and only comes back on the failure, so
