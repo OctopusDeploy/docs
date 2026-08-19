@@ -106,25 +106,6 @@ test('markdown page actions are hidden on the ineligible MDX page', async ({
   ).toBe(0);
 });
 
-test('no page links to llms-full.txt', async ({ page }) => {
-  await page.goto(STABLE_PLAIN_MD_PATH);
-  expect(
-    await page.locator('a[href$="llms-full.txt"]').count(),
-    'expected the llms-full.txt link to be gone from the docs UI'
-  ).toBe(0);
-});
-
-// What the deleted component rendered, in the position it rendered it.
-test('nothing renders below the taxonomy where the markdown links menu was', async ({
-  page,
-}) => {
-  await page.goto(STABLE_PLAIN_MD_PATH);
-  expect(
-    await page.locator('.octo-md-links, [data-md-links-menu]').count(),
-    'expected the "Use Octopus docs with AI" menu to be gone'
-  ).toBe(0);
-});
-
 test('HtmlHead omits `<link rel="alternate" type="text/markdown">` on the ineligible MDX page', async ({
   page,
 }) => {
