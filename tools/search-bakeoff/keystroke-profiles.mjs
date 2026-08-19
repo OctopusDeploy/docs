@@ -16,6 +16,10 @@ import { TARGETS, CPU_THROTTLE, SETTLE, RESULTS_DIR } from './config.mjs';
 import { openOverlay, runQuery, typeAndTime } from './lib/overlay.mjs';
 import { percentile } from './lib/score.mjs';
 
+// Narrows the run to one engine, for checking a local build against the recorded
+// numbers without re-measuring the other two.
+const ONLY = process.env.ONLY_TARGET;
+
 const PROFILES = [
   {
     name: 'Fast 4G, 4x CPU',
@@ -49,7 +53,7 @@ const browser = await chromium.launch();
 const rows = [];
 
 for (const profile of PROFILES) {
-  for (const target of TARGETS) {
+  for (const target of TARGETS.filter((t) => !ONLY || t.key === ONLY)) {
     const context = await browser.newContext({
       viewport: { width: 1440, height: 900 },
     });
