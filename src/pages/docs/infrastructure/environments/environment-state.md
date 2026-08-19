@@ -10,7 +10,7 @@ navOrder: 30
 
 Environment state lets a deployment or [runbook](/docs/runbooks) run store important values generated during the process for later use. Future deployments and runbook runs for the same project, environment, and tenant get access to these state values as variables.
 
-A primary use case for environment state is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). For example, a provisioning runbook creates a Kubernetes namespace, Azure resource group, or similar to deploy the application to for testing. The identifiers for these resources are stored as environment state values. When it comes time to deprovision the ephemeral environment the deprovisioning runbook can tear down these resources using the identifiers provided as variables.
+A primary use case for environment state is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). For example, a provisioning runbook creates a Kubernetes namespace for the ephemeral environment deployment. The namespace is stored as an environment state value. When it comes time to deprovision the ephemeral environment, the deprovisioning runbook has the namespace available as a variable to delete it.
 
 Each state entry is scoped to project, environment, and optionally a tenant, keeping them isolated. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value. Keys are case insensitive.
 
@@ -105,7 +105,7 @@ set_environmenturl "Store front" "https://pr-123.example.com"
 URLs set this way show as clickable links on the [Ephemeral Environments](/docs/projects/ephemeral-environments#environment-urls) in the project, providing convenient access to the deployed application.
 
 :::div{.hint}
-The key used for a URL entry must be unique across all state entries (including non-URLs) for the same project, environment, and tenant. With all state entries reusing a key will overwrite its value.
+The key used for a URL entry must be unique across all state entries (including non-URLs) for the same project, environment, and tenant. With all state entries, reusing a key will overwrite its value.
 :::
 
 ### Getting URLs from the API
