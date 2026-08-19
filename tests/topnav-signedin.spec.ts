@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const docsPage = '/docs/?newnav';
+const docsPage = '/docs/';
 
 const nav = '.top-nav';
 const trailing = `${nav} .top-nav__trailing`;

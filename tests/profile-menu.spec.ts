@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const docsPage = '/docs/?newnav';
+const docsPage = '/docs/';
 
 // Match the full width avatar menu; the inline one used when the page narrows is tested in
 // topnav-responsive.spec.ts

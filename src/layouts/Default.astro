@@ -17,7 +17,7 @@ import Taxonomy from '@components/Taxonomy.astro';
 import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleNav from '../components/ArticleNav.astro';
 import Feedback from '../components/Feedback.astro';
-import Header from '../components/Header.astro';
+import TopNav from '../components/TopNav.astro';
 import EditOnGithub from '../components/EditOnGithub.astro';
 import CopyAsMarkdown from '../components/CopyAsMarkdown.astro';
 import MarkdownLinks from '../components/MarkdownLinks.astro';
@@ -70,12 +70,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
   />
   <body>
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Header
-      frontmatter={frontmatter}
-      headings={headings}
-      lang={lang}
-      showSearch={showSearch}
-    />
+    <TopNav lang={lang} showSearch={showSearch} />
     <div class="content-group">
       <main id="site-main">
         <Breadcrumbs lang={lang} crumbs={crumbs} />

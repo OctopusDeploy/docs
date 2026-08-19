@@ -74,8 +74,6 @@ function placeNav(isCompact: boolean) {
     if (siteNav.parentElement !== navSlot) {
       navSlot.append(siteNav);
     }
-    // Undo nav-sticky.js hiding the tree
-    siteNav.style.display = '';
   } else if (siteNav.parentElement !== navHome) {
     navHome.insertBefore(siteNav, navHomeNextSibling);
   }

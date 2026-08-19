@@ -3,10 +3,9 @@ import { test, expect, type Page } from '@playwright/test';
 const home = '/docs/';
 const otherPage = '/docs/getting-started/';
 
-const headerInput = '#theme-switcher';
-const headerLabel = 'label[for="theme-switcher"]';
-const mobileInput = '#theme-switcher-mobile';
-const slider = '#theme-switcher ~ .theme-switcher__label .switch-slider';
+const toggle = '.top-nav__trailing [data-theme-toggle-button]';
+const toggleIcon = `${toggle} .btn__icon`;
+const drawerToggleIcon = '.top-nav__drawer-theme .btn__icon';
 
 // Auto-retrying so a slow style/attribute write can never make these flaky.
 function expectTheme(page: Page, value: string) {
@@ -20,8 +19,10 @@ function expectPreference(page: Page, value: string) {
   );
 }
 
-function sliderTransform(page: Page) {
-  return page.locator(slider).evaluate((el) => getComputedStyle(el).transform);
+function expectToggleOffers(page: Page, theme: string) {
+  return expect(page.locator(toggleIcon)).toHaveClass(
+    new RegExp(`theme-switcher__${theme === 'dark' ? 'moon' : 'sun'}_icon`)
+  );
 }
 
 test.describe('theme', () => {
@@ -33,21 +34,21 @@ test.describe('theme', () => {
 
       await expectTheme(page, 'dark');
       await expectPreference(page, 'system');
-      await expect(page.locator(headerInput)).toBeChecked();
+      await expectToggleOffers(page, 'light');
     });
 
     test('an explicit choice wins and survives navigation', async ({
       page,
     }) => {
       await page.goto(home);
-      await page.locator(headerLabel).click();
+      await page.locator(toggle).click();
 
       await expectTheme(page, 'light');
       await expectPreference(page, 'light');
 
       await page.goto(otherPage);
       await expectTheme(page, 'light');
-      await expect(page.locator(headerInput)).not.toBeChecked();
+      await expectToggleOffers(page, 'dark');
     });
 
     test('falls back to the OS when storage throws', async ({ page }) => {
@@ -63,7 +64,7 @@ test.describe('theme', () => {
       await expectTheme(page, 'dark');
 
       // Still usable for the life of the page, just not persisted.
-      await page.locator(headerLabel).click();
+      await page.locator(toggle).click();
       await expectTheme(page, 'light');
     });
   });
@@ -75,38 +76,20 @@ test.describe('theme', () => {
       await page.goto(home);
 
       await expectTheme(page, 'light');
-      await expect(page.locator(headerInput)).not.toBeChecked();
+      await expectToggleOffers(page, 'dark');
     });
 
-    test('both switchers stay in sync', async ({ page }) => {
+    test('every switcher on the page stays in sync', async ({ page }) => {
       await page.goto(home);
 
-      await page.locator(headerLabel).click();
+      await page.locator(toggle).click();
       await expectTheme(page, 'dark');
-      await expect(page.locator(headerInput)).toBeChecked();
-      await expect(page.locator(mobileInput)).toBeChecked();
-
-      await page.locator(headerLabel).click();
-      await expectTheme(page, 'light');
-      await expect(page.locator(mobileInput)).not.toBeChecked();
+      await expectToggleOffers(page, 'light');
+      // The drawer's toggle is the one used when the page narrows.
+      await expect(page.locator(drawerToggleIcon)).toHaveClass(
+        /theme-switcher__sun_icon/
+      );
     });
-
-    // Space is the native checkbox key; Enter is optional for role="switch"
-    // but the control supported it before, so both have to keep working.
-    for (const key of ['Space', 'Enter']) {
-      test(`is operable with ${key}`, async ({ page }) => {
-        await page.goto(home);
-        await page.locator(headerInput).focus();
-
-        await page.keyboard.press(key);
-        await expectTheme(page, 'dark');
-        await expect(page.locator(headerInput)).toBeChecked();
-
-        await page.keyboard.press(key);
-        await expectTheme(page, 'light');
-        await expect(page.locator(headerInput)).not.toBeChecked();
-      });
-    }
   });
 
   // The design token stylesheets define their custom properties only under
@@ -123,25 +106,5 @@ test.describe('theme', () => {
 
       await expectTheme(page, 'light');
     });
-  });
-
-  // Regression guard: the knob used to be driven by a JS-applied class, so it
-  // painted on the light side and slid across after hydration. Driving it from
-  // data-theme means the attribute alone decides the position.
-  test('the knob position is driven by data-theme, not by script', async ({
-    page,
-  }) => {
-    await page.goto(home);
-
-    // Polled because the slider transitions between the two positions.
-    await page.evaluate(() =>
-      document.documentElement.setAttribute('data-theme', 'dark')
-    );
-    await expect.poll(() => sliderTransform(page)).not.toBe('none');
-
-    await page.evaluate(() =>
-      document.documentElement.setAttribute('data-theme', 'light')
-    );
-    await expect.poll(() => sliderTransform(page)).toBe('none');
   });
 });

@@ -4,8 +4,6 @@ import {
   addListImageIntersectionObserver,
 } from './modules/animation.js';
 import { addResizedEvent } from './modules/resizing.js';
-import { addStickyNavigation } from './modules/nav-sticky.js';
-import { mobileNav } from './modules/nav-mobile.js';
 import { markdownLinkMenus } from './modules/markdown-links.js';
 import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
@@ -14,17 +12,11 @@ import { enableSharing } from './modules/share.js';
 import { highlightCurrentHeading } from './modules/toc.js';
 import { enhanceTooltips } from './modules/tooltips';
 
-const resizedEventName = addResizedEvent();
+addResizedEvent();
 
 enhanceTooltips();
 setClickableBlocks();
 setExternalLinkAttributes();
-addStickyNavigation(
-  '.site-header',
-  '#site-nav',
-  '#site-nav > ul',
-  resizedEventName
-);
 addIntersectionObserver('.anim-show-parent img, .anim-show-parent .card');
 addListImageIntersectionObserver('.card img');
 monitorInputType();
