@@ -48,13 +48,6 @@ if (items.length === 0) {
   throw new Error('A SplitButton with no menu items should just be a Button');
 }
 
-// Button's own version of this check cannot see through to the caller: the
-// `<slot />` handed to it below counts as slotted markup whether or not anything
-// was passed in here.
-if (!label && !Astro.slots.has('default')) {
-  throw new Error('A SplitButton needs a label, or markup for one in its slot');
-}
-
 // Button types the two halves of its own union separately - an anchor needs an
 // `href`, a plain button forbids one - so the link attributes are handed over as
 // a set rather than as three possibly-undefined props. `target` and `rel` say
