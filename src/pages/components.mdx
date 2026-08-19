@@ -357,8 +357,8 @@ needs its own.
    run against.
 
 Results come from a `SearchEngine` (`src/scripts/search-engine.ts`), which is the
-seam the index sits behind. Production uses `legacyEngine`, over the build-time
-`search.json`.
+seam the index sits behind. Production uses `pagefindEngine`, over the Pagefind
+index built from the site's own HTML at the end of the build.
 
 Focus stays in the input the whole time it is open and `aria-activedescendant`
 moves down the list, so you can keep refining a query without tabbing out of the

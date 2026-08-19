@@ -195,7 +195,16 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
       try {
         const filters =
           facet && facet !== 'all' ? { section: [facet] } : undefined;
-        const response = await api.search(query, { filters });
+
+        // Two searches while a tab is selected: the filtered one supplies the
+        // rows, the unfiltered one says whether the query has any answer at all.
+        // Together, because a second await here would sit in front of every
+        // fragment fetch below it.
+        const [response, wholeCorpus] = await Promise.all([
+          api.search(query, { filters }),
+          filters ? api.search(query) : null,
+        ]);
+        const unfiltered = wholeCorpus ?? response;
 
         // Counts come from the whole match set rather than the filtered one, so
         // the strip keeps showing what the other tabs hold while one is selected.
@@ -204,27 +213,46 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           ...(response.totalFilters?.section ?? {}),
         };
 
-        // Whether the query has an answer at all is a question about the corpus,
-        // so it is asked of the unfiltered scores. Narrowing to a tab only
-        // removes documents, so a filtered top score under the floor would
-        // suppress a query the corpus does answer, and zero the counts the strip
-        // was just clicked from.
-        const unfiltered = filters ? await api.search(query) : response;
+        // Two questions, and the floor answers both. Nothing in the corpus is a
+        // real answer, so offer nothing and advertise nothing.
         if ((unfiltered.results[0]?.score ?? 0) < MINIMUM_SCORE) return empty;
 
-        const stubs = response.results.slice(0, RESULT_LIMIT);
-        const fragments = await Promise.all(stubs.map((stub) => stub.data()));
+        // The corpus answers it and this tab does not. Filtering only removes
+        // documents, so the survivors here can be accidents scoring far below
+        // anything the reader asked for. Keep the counts, so the strip still
+        // shows which tab holds the answer.
+        if ((response.results[0]?.score ?? 0) < MINIMUM_SCORE) {
+          return { results: [], counts };
+        }
 
-        // The score lives on the stub and the URL on the fragment, so the
-        // reorder needs both.
-        const scored = fragments.map((fragment, at) => ({
-          fragment,
-          score: stubs[at].score,
-          url: new URL(fragment.url, window.location.origin).pathname,
-          title:
-            fragment.meta?.title ??
-            new URL(fragment.url, window.location.origin).pathname,
-        }));
+        const stubs = response.results.slice(0, RESULT_LIMIT);
+        const settled = await Promise.allSettled(
+          stubs.map((stub) => stub.data())
+        );
+
+        // A fragment that fails takes its own row out, not the whole result set.
+        // The score lives on the stub and the URL on the fragment, so the reorder
+        // needs the pair kept together.
+        const scored = settled.flatMap((outcome, at) => {
+          if (outcome.status === 'rejected') {
+            console.error(
+              '[docs-search] dropped a result whose fragment failed',
+              outcome.reason
+            );
+            return [];
+          }
+
+          const fragment = outcome.value;
+          const { pathname } = new URL(fragment.url, window.location.origin);
+          return [
+            {
+              fragment,
+              score: stubs[at].score,
+              url: pathname,
+              title: fragment.meta?.title ?? pathname,
+            },
+          ];
+        });
 
         const results = byNameThenDepth(scored, query).map(
           (hit, rank): SearchResult => ({
@@ -246,8 +274,8 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
 
         return { results, counts };
       } catch (error) {
-        // Thirty fragment fetches per query, any of which can fail. Rejecting
-        // would leave the previous query's rows under the new text.
+        // The search itself failed, rather than one row of it. Rejecting would
+        // leave the previous query's rows under the new text.
         console.error('[docs-search] search failed', error);
         return empty;
       }

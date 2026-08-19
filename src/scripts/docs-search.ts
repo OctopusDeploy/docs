@@ -22,8 +22,10 @@ const DEBOUNCE_MS = 150;
 // Below this, typing is not yet a query.
 //
 // A single character matches an enormous share of the index, and Pagefind
-// fetches every chunk a query touches: one character costs 975ms, against 837ms
-// at two and under 200ms beyond that.
+// fetches every chunk a query touches: one character costs 975ms, two 837ms,
+// three 342ms, and under 200ms beyond that. Two rather than three deliberately —
+// `s3`, `ui` and `ad` are real searches, and returning nothing for them was worse
+// than the wait.
 const MIN_QUERY_LENGTH = 2;
 const SITE_SEARCH = 'site';
 
@@ -186,14 +188,18 @@ function setup(dialog: HTMLDialogElement) {
     input!.setAttribute('aria-expanded', String(hasQuery && hasResults));
 
     // The combobox roles say a listbox exists and which row is active; nothing
-    // says what came back. Counts rows rather than pages, because a matched
-    // section is its own option to arrow onto.
-    const found = rows.length;
+    // says what came back. Pages are counted the way the tab strip counts them,
+    // and the matched sections are named separately, because each is another
+    // option to arrow onto without being another result.
+    const term = input!.value.trim();
+    const pages = response.results.length;
+    const sections = rows.length - pages;
     announce!.textContent = !hasQuery
       ? ''
-      : found === 0
-        ? `No results for ${input!.value.trim()}`
-        : `${found} ${found === 1 ? 'result' : 'results'} for ${input!.value.trim()}`;
+      : pages === 0
+        ? `No results for ${term}`
+        : `${pages} ${pages === 1 ? 'result' : 'results'} for ${term}` +
+          (sections > 0 ? `, with ${sections} matching sections` : '');
 
     setActive(0);
   }

@@ -80,6 +80,14 @@ export default function pagefindIndex(): AstroIntegration {
           `indexed ${indexed} of ${added.page_count} pages into docs/pagefind`
         );
 
+        // Nothing indexed at all means every query returns nothing. That must
+        // not ship behind a green build.
+        if (indexed === 0) {
+          throw new Error(
+            'Pagefind indexed no pages — check data-pagefind-body is still on the article in Default.astro'
+          );
+        }
+
         if (indexed < EXPECTED_PAGES) {
           logger.warn(
             `only ${indexed} pages were indexed, expected at least ${EXPECTED_PAGES} — check data-pagefind-body is still on the article`
