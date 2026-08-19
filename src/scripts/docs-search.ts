@@ -18,6 +18,18 @@ import {
 import { pagefindEngine } from './search-engine-pagefind';
 
 const DEBOUNCE_MS = 150;
+
+// Below this, typing is not yet a query.
+//
+// A one or two character prefix matches an enormous share of the index, and for
+// a chunked engine that means fetching an enormous share of it: measured against
+// the Pagefind spike, one character costs 975ms and two cost 837ms, against 342ms
+// at three and under 200ms beyond that. Almost the whole of that engine's
+// keystroke lag lives in the two keystrokes nobody could act on anyway.
+//
+// It also spares the reader a list assembled from a single letter, which no
+// engine here answers usefully.
+const MIN_QUERY_LENGTH = 3;
 const SITE_SEARCH = 'site';
 
 function setup(dialog: HTMLDialogElement) {
@@ -155,7 +167,10 @@ function setup(dialog: HTMLDialogElement) {
       tab.querySelector('.docs-search__count')!.textContent = `(${count})`;
     }
 
-    const hasQuery = input!.value.trim().length > 0;
+    // Long enough to have been searched, rather than merely non-empty. A two
+    // character query never ran, so the panel should look like it is waiting
+    // rather than reporting nothing found.
+    const hasQuery = input!.value.trim().length >= MIN_QUERY_LENGTH;
     const hasResults = response.results.length > 0;
 
     tabs!.hidden = !hasQuery;
@@ -177,6 +192,13 @@ function setup(dialog: HTMLDialogElement) {
   }
 
   async function run() {
+    // Also guarded here, not only in `schedule`: a shared `?q=` link opens
+    // straight into a search without going through the debounce.
+    if (input!.value.trim().length < MIN_QUERY_LENGTH) {
+      render({ results: [], counts: {} });
+      return;
+    }
+
     const mine = ++generation;
     let response = await engine.search(input!.value, facet);
     if (mine !== generation) return;
@@ -194,6 +216,17 @@ function setup(dialog: HTMLDialogElement) {
 
   function schedule() {
     window.clearTimeout(debounce);
+
+    // Too short to search: close the panel back down rather than leaving the
+    // previous query's results under a field that no longer says that. Deleting
+    // back to two characters has to look like starting over, not like a search
+    // that returned those rows.
+    if (input!.value.trim().length < MIN_QUERY_LENGTH) {
+      generation += 1;
+      render({ results: [], counts: {} });
+      return;
+    }
+
     debounce = window.setTimeout(run, DEBOUNCE_MS);
   }
 

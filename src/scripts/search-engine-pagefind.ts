@@ -55,6 +55,29 @@ type PagefindApi = {
   }>;
 };
 
+// Below this score, the best match is not a match.
+//
+// Pagefind has no notion of a query it cannot answer: it ranks whatever shares a
+// few letters and returns it as confidently as a real hit. Asked for
+// `sssieddqxsx` — a keyboard mash, and the single most-typed term in the search
+// log — it offered three security articles.
+//
+// Calibrated against every term in that log. The weakest genuine query, `cli`,
+// scores 9.5; the mash scores 6.0 and a Spanish query 6.7. Eight sits between
+// them with room on both sides, suppresses 17 of the 33 terms that have no right
+// answer, and costs none of the 57 that do. The 16 it leaves are unfinished words
+// like `te` and `version` that score 40 and up because they genuinely match
+// something.
+//
+// Applied to the top result only. The question is whether this query has an
+// answer at all, not whether to trim the tail of one that does.
+//
+// Re-check with `calibrate-score-floor.mjs` if the corpus or the ranking weights
+// change; it is calibrated against both. Note that Pagefind's `options()` merges
+// rather than replaces, so a calibration run has to start from a clean page or
+// every score comes back depressed.
+const MINIMUM_SCORE = 8;
+
 // How many matched headings a row will show, and how many rows get them at all.
 //
 // Sections are their own rows, so they compete with pages for the reader's first
@@ -217,6 +240,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         all: response.unfilteredResultCount,
         ...(response.totalFilters?.section ?? {}),
       };
+
+      // Nothing here is a real answer, so say so rather than offering the
+      // closest accident.
+      if ((response.results[0]?.score ?? 0) < MINIMUM_SCORE) return empty;
 
       const stubs = response.results.slice(0, RESULT_LIMIT);
       const fragments = await Promise.all(stubs.map((stub) => stub.data()));
