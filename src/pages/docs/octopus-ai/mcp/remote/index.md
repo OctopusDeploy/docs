@@ -75,6 +75,18 @@ The Octopus MCP server operates within the same security boundary as our Rest AP
 
 Use dedicated [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
 
+## Configuration
+
+Optionally, both the Remote MCP and the Local MCP can be disabled from **Configuration -> Settings -> MCP Controls** page.
+
+:::figure
+![MCP Settings](/docs/img/octopus-ai/mcp/mcp-settings.png)
+:::
+
+:::div{.warning}
+Disabling the Local MCP will block incoming requests with the specific user agent string. A rogue AI agent could potentially replace this string with a different value and bypass the restriction.
+:::
+
 ## Related links
 
 - [Octopus Remote MCP use cases](/docs/octopus-ai/mcp/remote/use-cases)
