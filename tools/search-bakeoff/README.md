@@ -3,6 +3,15 @@
 Measures three search engines against the same corpus and the same UI, so the
 Pagefind and Orama spikes can be decided on numbers rather than on impressions.
 
+> **The bake-off is settled. Pagefind won.** Relevance was level on the real
+> search log, 81% against 80% in the top five; payload and cold start decided
+> it. Orama shipped 0.66 MB on the wire and 5.33 MB parsed against Pagefind's
+> 0.08 MB and 0.11 MB, and every visitor paid it whether they searched or not.
+>
+> This branch is kept so the comparison can be re-run. **Read
+> [Picking this up later](#picking-this-up-later) first — the staging URLs
+> below are gone.**
+
 | Target     | Engine                           | Where                                                     |
 | ---------- | -------------------------------- | --------------------------------------------------------- |
 | `legacy`   | The current `search.json` engine | <https://octopus.com/docs/>                               |
@@ -263,3 +272,71 @@ difference is content rather than engine. `bakeoff:verify` prints the live page
 count and `bakeoff:payload` records each index, which is enough to notice drift;
 at the time of writing the legacy index holds 1,250 pages and Pagefind's holds
 1,251. Re-deploy the spike branches from current main before the deciding run.
+
+## Picking this up later
+
+The bake-off ran against three deployed environments. Two of them were ephemeral
+PR environments and are gone, so `TARGETS` in `config.mjs` no longer resolves.
+Everything still works; it needs pointing somewhere real.
+
+### What to check out
+
+| What                  | Where                                                                  |
+| --------------------- | ---------------------------------------------------------------------- |
+| This harness          | tag `search-bakeoff-2026-08`, branch `worktree-search-bakeoff-harness` |
+| Pagefind, as measured | `1993ecf26` — PR #3371                                                 |
+| Orama, as measured    | `438570fc5` — PR #3372, closed unmerged                                |
+
+The Orama SHA matters most. Its PR is closed, so nothing stops that branch being
+deleted, and it is the only copy of a tuned Orama integration — tokenizer,
+stop words, the dropped sort store and the ranking sweep. Recover it with
+`git checkout -b orama-revisit 438570fc5` while the object still exists.
+
+### Running against local builds
+
+Build the branch, serve `dist/`, and point the harness at it:
+
+```sh
+git checkout 438570fc5          # or whichever engine
+pnpm install && npx astro build # about 4 minutes
+python -m http.server 8899 --bind 127.0.0.1 --directory dist
+```
+
+There are two ways in, depending on the tool. The staged runs take a target,
+added to `TARGETS` by `LOCAL_BASE`:
+
+```sh
+LOCAL_BASE=http://127.0.0.1:8899/docs/ QUERY_SET=real-searches \
+  node relevance.mjs --target=local
+```
+
+The Pagefind tuning tools — `calibrate-score-floor`, `pagefind-pool-size`,
+`pagefind-fragment-cost`, `tune-pagefind-meta`, `tune-pagefind-ranking2` — talk
+to one site directly and take `BASE` instead:
+
+```sh
+BASE=http://127.0.0.1:8899/docs/ node pagefind-pool-size.mjs
+```
+
+Two engines cannot be served at once from one checkout, so build each into its
+own worktree and give them different ports. Timings taken this way are not
+comparable to the recorded ones — localhost has no CDN, no TLS and no real
+latency — so re-measure both engines locally and compare those two numbers
+against each other. Relevance is unaffected and stays comparable.
+
+### Which query set to trust
+
+`real-searches` (57 terms from the site's own logs) and `top-pages` (98 terms
+derived from analytics) are the two that decided it, both weighted by traffic.
+`curated` and `head` came first and are kept for continuity. Run both of the
+weighted sets: three ranking parameters once looked like an improvement on
+`real-searches` and were worse on `top-pages`, which is what overfitting to 57
+terms looks like.
+
+### What would justify re-running this
+
+Pagefind was chosen knowing it is worse at two things. Typo tolerance dropped
+from 67% to 42% and top-five on a partial query from 72% to 57%. Nobody had
+search analytics at the time, so the weight those carry was an assumption. Once
+`Plausible.astro`'s `searched` event actually fires and there is a quarter of
+real data, that assumption is checkable, and this is the harness that checks it.
