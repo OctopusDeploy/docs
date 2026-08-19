@@ -21,15 +21,10 @@ const DEBOUNCE_MS = 150;
 
 // Below this, typing is not yet a query.
 //
-// A one or two character prefix matches an enormous share of the index, and
-// because Pagefind fetches every chunk a query touches, that means pulling down
-// an enormous share of it: one character costs 975ms and two cost 837ms, against
-// 342ms at three and under 200ms beyond that. Almost the whole of the keystroke
-// lag lives in the two keystrokes nobody could act on anyway.
-//
-// It also spares the reader a list assembled from a single letter, which is
-// never a useful answer.
-const MIN_QUERY_LENGTH = 3;
+// A single character matches an enormous share of the index, and Pagefind
+// fetches every chunk a query touches: one character costs 975ms, against 837ms
+// at two and under 200ms beyond that.
+const MIN_QUERY_LENGTH = 2;
 const SITE_SEARCH = 'site';
 
 function setup(dialog: HTMLDialogElement) {
@@ -169,7 +164,8 @@ function setup(dialog: HTMLDialogElement) {
   }
 
   function render(response: Awaited<ReturnType<SearchEngine['search']>>) {
-    list!.replaceChildren(...drawAll(response.results));
+    const rows = drawAll(response.results);
+    list!.replaceChildren(...rows);
 
     for (const tab of facetTabs()) {
       const key = tab.dataset.facet!;
@@ -180,9 +176,9 @@ function setup(dialog: HTMLDialogElement) {
       tab.querySelector('.docs-search__count')!.textContent = `(${count})`;
     }
 
-    // Long enough to have been searched, rather than merely non-empty. A two
-    // character query never ran, so the panel should look like it is waiting
-    // rather than reporting nothing found.
+    // Long enough to have been searched, rather than merely non-empty. A single
+    // character never ran, so the panel should look like it is waiting rather
+    // than reporting nothing found.
     const hasQuery = input!.value.trim().length >= MIN_QUERY_LENGTH;
     const hasResults = response.results.length > 0;
 
@@ -193,9 +189,9 @@ function setup(dialog: HTMLDialogElement) {
     input!.setAttribute('aria-expanded', String(hasQuery && hasResults));
 
     // The combobox roles say a listbox exists and which row is active; nothing
-    // says what came back. `render` runs once per settled query, so this speaks
-    // at the rate the results themselves change rather than per keystroke.
-    const found = response.results.length;
+    // says what came back. Counts rows rather than pages, because a matched
+    // section is its own option to arrow onto.
+    const found = rows.length;
     announce!.textContent = !hasQuery
       ? ''
       : found === 0
@@ -241,9 +237,7 @@ function setup(dialog: HTMLDialogElement) {
     window.clearTimeout(debounce);
 
     // Too short to search: close the panel back down rather than leaving the
-    // previous query's results under a field that no longer says that. Deleting
-    // back to two characters has to look like starting over, not like a search
-    // that returned those rows.
+    // previous query's results under a field that no longer says that.
     if (input!.value.trim().length < MIN_QUERY_LENGTH) {
       generation += 1;
       render({ results: [], counts: {} });
@@ -313,9 +307,12 @@ function setup(dialog: HTMLDialogElement) {
   // --- Inside the dialog ---------------------------------------------------
 
   input.addEventListener('input', () => {
-    // Ahead of the debounce, so the chunks this query needs are already on
-    // their way by the time the search runs.
-    engine.preload?.(input!.value);
+    // Ahead of the debounce, so the chunks this query needs are already on their
+    // way by the time the search runs. Guarded the same way `schedule` is: the
+    // fetch is most of what `MIN_QUERY_LENGTH` exists to avoid.
+    if (input!.value.trim().length >= MIN_QUERY_LENGTH) {
+      engine.preload?.(input!.value);
+    }
     schedule();
   });
 

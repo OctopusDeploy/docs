@@ -94,7 +94,7 @@ const ROWS_WITH_SECTIONS = 3;
  * headings, and its URL is the page URL with no anchor — that is the row's own
  * link, so it is dropped rather than repeated underneath itself.
  */
-function sectionsOf(fragment: PagefindFragment, path: string) {
+function sectionsOf(fragment: PagefindFragment) {
   return (fragment.sub_results ?? [])
     .filter((sub) => sub.url.includes('#'))
     .slice(0, SECTION_LIMIT)
@@ -103,8 +103,7 @@ function sectionsOf(fragment: PagefindFragment, path: string) {
       // Keep the anchor, drop the origin, so the row links the same way every
       // other row does.
       url: new URL(sub.url, window.location.origin).pathname + hashOf(sub.url),
-    }))
-    .filter((sub) => sub.url !== path);
+    }));
 }
 
 function hashOf(url: string) {
@@ -177,12 +176,6 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           // The default is 30 words, which overruns the single line the result
           // row gives it. Sized to the row instead.
           excerptLength: 20,
-          // Appends the query to every result URL, so the destination page can
-          // highlight what was searched for. Nothing reads it yet — that needs
-          // Pagefind's `pagefind-highlight.js` on the page, or an equivalent of
-          // our own — but the parameter has to be set here for the links to
-          // carry it at all.
-          highlightParam: 'highlight',
           ranking: {
             // Metadata is searchable and boosted — title 5x by default, the rest
             // 1x. Swept against real search terms and top-visited pages.
@@ -201,9 +194,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         await api.filters();
         return api;
       })
-      .catch(() => {
+      .catch((error) => {
         // A failed load must not poison every later search.
         loading = null;
+        console.error('[docs-search] could not load the Pagefind index', error);
         return null;
       });
 
@@ -232,60 +226,65 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
       const api = await load();
       if (!api) return empty;
 
-      const response = await api.search(query, {
-        filters: facet && facet !== 'all' ? { section: [facet] } : undefined,
-      });
+      try {
+        const filters =
+          facet && facet !== 'all' ? { section: [facet] } : undefined;
+        const response = await api.search(query, { filters });
 
-      // Counts come from the whole match set rather than the filtered one, so
-      // the strip keeps showing what the other tabs hold while one is selected.
-      const counts: Record<string, number> = {
-        all: response.unfilteredResultCount,
-        ...(response.totalFilters?.section ?? {}),
-      };
+        // Counts come from the whole match set rather than the filtered one, so
+        // the strip keeps showing what the other tabs hold while one is selected.
+        const counts: Record<string, number> = {
+          all: response.unfilteredResultCount,
+          ...(response.totalFilters?.section ?? {}),
+        };
 
-      // Nothing here is a real answer, so say so rather than offering the
-      // closest accident.
-      if ((response.results[0]?.score ?? 0) < MINIMUM_SCORE) return empty;
+        // Whether the query has an answer at all is a question about the corpus,
+        // so it is asked of the unfiltered scores. Narrowing to a tab only
+        // removes documents, so a filtered top score under the floor would
+        // suppress a query the corpus does answer, and zero the counts the strip
+        // was just clicked from.
+        const unfiltered = filters ? await api.search(query) : response;
+        if ((unfiltered.results[0]?.score ?? 0) < MINIMUM_SCORE) return empty;
 
-      const stubs = response.results.slice(0, RESULT_LIMIT);
-      const fragments = await Promise.all(stubs.map((stub) => stub.data()));
+        const stubs = response.results.slice(0, RESULT_LIMIT);
+        const fragments = await Promise.all(stubs.map((stub) => stub.data()));
 
-      // The score lives on the stub and the URL on the fragment, so the reorder
-      // needs both. Pairing them costs nothing: a fragment is fetched for every
-      // row that gets rendered anyway.
-      const scored = fragments.map((fragment, at) => ({
-        fragment,
-        score: stubs[at].score,
-        url: new URL(fragment.url, window.location.origin).pathname,
-        title:
-          fragment.meta?.title ??
-          new URL(fragment.url, window.location.origin).pathname,
-      }));
+        // The score lives on the stub and the URL on the fragment, so the
+        // reorder needs both.
+        const scored = fragments.map((fragment, at) => ({
+          fragment,
+          score: stubs[at].score,
+          url: new URL(fragment.url, window.location.origin).pathname,
+          title:
+            fragment.meta?.title ??
+            new URL(fragment.url, window.location.origin).pathname,
+        }));
 
-      const results = byNameThenDepth(scored, query).map(
-        (hit, rank): SearchResult => ({
-          url: hit.url,
-          // Pagefind takes the title from the first heading inside the indexed
-          // body, which is why the article rather than `.page-content` carries
-          // `data-pagefind-body`.
-          title: hit.title,
-          // Already carries <mark> around the hits, and Pagefind escapes the
-          // surrounding text itself.
-          excerpt: hit.fragment.excerpt,
-          // Written into the page by the layout; the path is the fallback for
-          // anything built before that attribute existed.
-          breadcrumb: hit.fragment.meta?.trail
-            ? hit.fragment.meta.trail.split(' / ')
-            : breadcrumbFrom(hit.url),
-          sections:
-            rank < ROWS_WITH_SECTIONS
-              ? sectionsOf(hit.fragment, hit.url)
-              : undefined,
-          ...classify(hit.url),
-        })
-      );
+        const results = byNameThenDepth(scored, query).map(
+          (hit, rank): SearchResult => ({
+            url: hit.url,
+            title: hit.title,
+            // Already carries <mark> around the hits, and Pagefind escapes the
+            // surrounding text itself.
+            excerpt: hit.fragment.excerpt,
+            breadcrumb: hit.fragment.meta?.trail
+              ? hit.fragment.meta.trail.split(' / ')
+              : breadcrumbFrom(hit.url),
+            sections:
+              rank < ROWS_WITH_SECTIONS
+                ? sectionsOf(hit.fragment)
+                : undefined,
+            ...classify(hit.url),
+          })
+        );
 
-      return { results, counts };
+        return { results, counts };
+      } catch (error) {
+        // Thirty fragment fetches per query, any of which can fail. Rejecting
+        // would leave the previous query's rows under the new text.
+        console.error('[docs-search] search failed', error);
+        return empty;
+      }
     },
   };
 }

@@ -64,9 +64,10 @@ const showSearch = !isSearchPage;
 // The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
 
-// Search indexing. The same predicate `PostFiltering.showInSearch` applies at
-// the point the page is rendered — redirect stubs never reach this layout at
-// all, so only the frontmatter opt-outs have to be reproduced here.
+// Search indexing. Redirect stubs never reach this layout at all, so only the
+// frontmatter opt-outs have to be checked here. Deliberately looser than
+// `PostFiltering.isListable`, which also hides a future `pubDate`: a page that
+// is built and served is a page worth finding.
 const indexable =
   frontmatter.navSearch !== false &&
   frontmatter.listable !== false &&

@@ -75,10 +75,13 @@ export default function pagefindIndex(): AstroIntegration {
         // `page_count` is files scanned, not files indexed — it counts the
         // redirect stubs that `data-pagefind-body` then drops. One fragment is
         // written per indexed page, so that is the number worth checking.
-        const outDir = path.join(distDir, 'docs', 'pagefind');
-        const indexed = (
-          await fs.promises.readdir(path.join(outDir, 'fragment'))
-        ).length;
+        //
+        // No fragment directory at all is the worst version of the failure the
+        // warning below exists to report, so it must not throw ahead of it.
+        const fragments = path.join(distDir, 'docs', 'pagefind', 'fragment');
+        const indexed = fs.existsSync(fragments)
+          ? (await fs.promises.readdir(fragments)).length
+          : 0;
 
         logger.info(
           `indexed ${indexed} of ${added.page_count} pages into docs/pagefind`

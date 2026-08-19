@@ -7,9 +7,10 @@
 // sitemap.xml, so neither readers nor Google arrive at it ahead of the pages
 // that explain it.
 //
-// Call sites are src/pages/docs/search.json.ts and src/pages/docs/sitemap.xml.ts.
-// Both take their page list from an `import.meta.glob` rooted at
-// src/pages/docs, so the paths they pass in look like './api/feeds.md'.
+// The call site is src/pages/docs/sitemap.xml.ts, which takes its page list from
+// an `import.meta.glob` rooted at src/pages/docs, so the paths it passes in look
+// like './api/feeds.md'. Search exclusion is no longer done here: Pagefind
+// indexes only what carries `data-pagefind-body`, and Api.astro carries none.
 
 const UNDER_CONSTRUCTION = [/^api(\/|$)/];
 
