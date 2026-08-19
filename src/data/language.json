@@ -31,7 +31,7 @@
             "en": "No"
         },
         "comment_label": {
-            "en": "Why did you give this rating? (optional)"
+            "en": "Why did you give this rating? (required)"
         },
         "send": {
             "en": "Send feedback"
