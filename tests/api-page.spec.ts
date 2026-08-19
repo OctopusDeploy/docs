@@ -76,8 +76,9 @@ test.describe('api page chrome', () => {
       .click();
     await page.locator('[data-docs-search-input]').fill('accounts');
 
-    // `accounts` names pages in the API reference *and* pages outside it, so a
-    // query that matched nothing cannot pass this test without proving anything.
+    // The href assertion below passes on an empty list, so the visibility check
+    // is what makes this test mean anything. `accounts` names pages in the API
+    // reference *and* pages outside it, which is what keeps the list non-empty.
     const results = page.locator('[data-docs-search-results] [role="option"]');
     await expect(results.first()).toBeVisible({ timeout: 30_000 });
 

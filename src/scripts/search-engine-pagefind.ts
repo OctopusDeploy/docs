@@ -54,14 +54,20 @@ type PagefindApi = {
 // hit, so a keyboard mash comes back with three security articles.
 //
 // Calibrated against the site's search log: the weakest genuine query, `cli`,
-// scores 9.5, and a keyboard mash 6.0. Applied to the top result only, because
-// the question is whether the query has an answer at all.
+// scores 9.5 and a keyboard mash 6.0. Eight suppressed 17 of the 33 terms with
+// no right answer and cost none of the 57 that had one. Applied to the top
+// result only, because the question is whether the query has an answer at all.
+//
+// Recalibrating: `options()` merges rather than replaces, so a run that did not
+// start from a clean page comes back with every score depressed.
 const MINIMUM_SCORE = 8;
 
 // Sections are their own rows, so they compete with pages for the reader's first
-// screenful. Three each across thirty results made two thirds of the list
-// headings.
+// screenful. Three headings per page across thirty results made two thirds of
+// the list headings.
+/** Headings shown under one page. */
 const SECTION_LIMIT = 2;
+/** How many of the leading pages get headings at all. */
 const ROWS_WITH_SECTIONS = 3;
 
 /**
@@ -73,15 +79,12 @@ function sectionsOf(fragment: PagefindFragment) {
   return (fragment.sub_results ?? [])
     .filter((sub) => sub.url.includes('#'))
     .slice(0, SECTION_LIMIT)
-    .map((sub) => ({
-      title: sub.title,
-      url: new URL(sub.url, window.location.origin).pathname + hashOf(sub.url),
-    }));
-}
-
-function hashOf(url: string) {
-  const at = url.indexOf('#');
-  return at === -1 ? '' : url.slice(at);
+    .map((sub) => {
+      const { pathname, hash } = new URL(sub.url, window.location.origin);
+      // Path and anchor, no origin, so the row links the way a page row does.
+      // The anchor is the whole point of a section row.
+      return { title: sub.title, url: pathname + hash };
+    });
 }
 
 /** Lowercased, punctuation collapsed, so `Config as Code` matches `config as code`. */

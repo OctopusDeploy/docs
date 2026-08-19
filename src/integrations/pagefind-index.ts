@@ -31,6 +31,10 @@ export default function pagefindIndex(): AstroIntegration {
           // left `<head>` matching nothing at all. Keeping these characters
           // indexes both forms — `head` *and* `<head>` — so ordinary searches are
           // unaffected and a reader pasting real syntax gets the page about it.
+          //
+          // Each character earns its place: `.` for dotted variable and
+          // executable names, `#{}` for substitution syntax, `<>` for tags, `+`
+          // for C++, and `$_` for shell variables.
           includeCharacters: '.#{}<>+$_',
         });
 
