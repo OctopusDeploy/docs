@@ -43,6 +43,9 @@ function setup(dialog: HTMLDialogElement) {
   const list = dialog.querySelector<HTMLElement>('[data-docs-search-results]');
   const empty = dialog.querySelector<HTMLElement>('[data-docs-search-empty]');
   const echo = dialog.querySelector<HTMLElement>('[data-docs-search-echo]');
+  const announce = dialog.querySelector<HTMLElement>(
+    '[data-docs-search-announce]'
+  );
   const template = dialog.querySelector<HTMLTemplateElement>(
     '[data-docs-search-row]'
   );
@@ -52,7 +55,17 @@ function setup(dialog: HTMLDialogElement) {
 
   // A partially rendered overlay is a bug elsewhere; wiring half of it up would
   // only turn that into a confusing runtime failure.
-  if (!input || !tabs || !body || !list || !empty || !echo || !template) return;
+  if (
+    !input ||
+    !tabs ||
+    !body ||
+    !list ||
+    !empty ||
+    !echo ||
+    !announce ||
+    !template
+  )
+    return;
 
   const demo = dialog.dataset.demoResults;
   const engine: SearchEngine = demo
@@ -178,6 +191,16 @@ function setup(dialog: HTMLDialogElement) {
     empty!.hidden = hasResults;
     echo!.textContent = input!.value.trim();
     input!.setAttribute('aria-expanded', String(hasQuery && hasResults));
+
+    // The combobox roles say a listbox exists and which row is active; nothing
+    // says what came back. `render` runs once per settled query, so this speaks
+    // at the rate the results themselves change rather than per keystroke.
+    const found = response.results.length;
+    announce!.textContent = !hasQuery
+      ? ''
+      : found === 0
+        ? `No results for ${input!.value.trim()}`
+        : `${found} ${found === 1 ? 'result' : 'results'} for ${input!.value.trim()}`;
 
     setActive(0);
   }
