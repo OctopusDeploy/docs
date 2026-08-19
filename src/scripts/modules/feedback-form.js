@@ -14,3 +14,10 @@ export const FIELD_RATING = 'entry.128617088';
 export const FIELD_COMMENT = 'entry.434783109';
 export const RATING_YES = '5';
 export const RATING_NO = '1';
+
+// The Send button arrives with the comment box on the vote, so a reader has to
+// find it and press it. Mouse travel and reaction put a few hundred
+// milliseconds under that at the very least, where a script does both clicks in
+// one turn of the event loop. Set low, as feedback lost to a fast reader costs
+// more than a row of noise. Lives here so the tests can wait it out.
+export const READING_TIME = 400;

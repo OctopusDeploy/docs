@@ -5,6 +5,7 @@ import {
   FIELD_PAGE,
   FIELD_RATING,
   FORM_URL,
+  READING_TIME,
 } from './feedback-form.js';
 
 /**
@@ -21,6 +22,39 @@ import {
  */
 function automated(event) {
   return navigator.webdriver === true || !event.isTrusted;
+}
+
+// A page is answered once a day per browser. Long enough to stop a flood or a
+// double send, short enough that a page revised next week can be answered
+// again.
+const ANSWERED_FOR = 24 * 60 * 60 * 1000;
+const ANSWERED_KEY = 'feedback:answered:';
+
+/**
+ * Private browsing and storage turned off both throw on any of this. A reader
+ * we cannot keep a note about is better served by being asked twice than by
+ * losing the widget, so a failure reads as unanswered.
+ *
+ * @param {string} path
+ * @returns {boolean}
+ */
+function answered(path) {
+  try {
+    const at = Number(localStorage.getItem(ANSWERED_KEY + path));
+
+    return at > 0 && Date.now() - at < ANSWERED_FOR;
+  } catch {
+    return false;
+  }
+}
+
+/** @param {string} path */
+function recordAnswer(path) {
+  try {
+    localStorage.setItem(ANSWERED_KEY + path, String(Date.now()));
+  } catch {
+    // Nothing depends on the note having been kept.
+  }
 }
 
 /**
@@ -97,8 +131,15 @@ class Feedback {
     this.textarea = qs('textarea', root);
     this.send = qs('[data-feedback-send]', root);
     this.thanks = qs('[data-feedback-thanks]', root);
+    this.trap = qs('[data-feedback-trap]', root);
     /** @type {string | null} */
     this.rating = null;
+    this.votedAt = 0;
+
+    if (answered(window.location.pathname)) {
+      this.thank();
+      return;
+    }
 
     this.addListeners();
   }
@@ -113,10 +154,27 @@ class Feedback {
   /** @param {HTMLElement} chosen */
   vote(chosen) {
     this.rating = chosen.dataset.feedbackVote ?? null;
+    this.votedAt = performance.now();
     this.votes.forEach((button) => {
       button.setAttribute('aria-pressed', String(button === chosen));
     });
     this.comment.hidden = false;
+  }
+
+  /**
+   * Each of these is something a reader does not do. None of them is proof and
+   * a crawler written against this widget defeats all three, so they thin the
+   * noise rather than sealing anything.
+   *
+   * @param {Event} event
+   * @returns {string} what gave the sender away, empty for a reader
+   */
+  crawlerTell(event) {
+    if (automated(event)) return 'automated click';
+    if (this.trap.value) return 'honeypot filled';
+    if (performance.now() - this.votedAt < READING_TIME) return 'sent too fast';
+
+    return '';
   }
 
   /** @param {Event} event */
@@ -125,8 +183,9 @@ class Feedback {
 
     // Answered the same way a reader's click is, so a crawler finds nothing to
     // work around and a run of the test suite still exercises the whole widget.
-    if (automated(event)) {
-      console.info('[feedback] automated click, nothing sent');
+    const tell = this.crawlerTell(event);
+    if (tell) {
+      console.info(`[feedback] ${tell}, nothing sent`);
       this.thank();
       return;
     }
@@ -147,6 +206,7 @@ class Feedback {
       return;
     }
 
+    recordAnswer(window.location.pathname);
     this.thank();
   }
 

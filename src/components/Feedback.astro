@@ -52,6 +52,22 @@ stats.stop();
     </div>
   </div>
 
+  {
+    /* Nothing a reader sees, reaches by keyboard or hears read out, so anything
+      in it was put there by something filling in every input it found. Held
+      outside the comment block, which starts hidden, as a crawler working the
+      page in one pass would never see it there. */
+  }
+  <input
+    class="feedback__trap"
+    type="text"
+    name="feedback-website"
+    tabindex="-1"
+    autocomplete="off"
+    aria-hidden="true"
+    data-feedback-trap
+  />
+
   <div class="feedback__comment" data-feedback-comment hidden>
     <label class="feedback__label" for="feedback-comment">
       {_(Translations.octopus_feedback.comment_label)}
@@ -77,6 +93,7 @@ stats.stop();
 
 <style>
   .feedback {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -99,6 +116,20 @@ stats.stop();
   /* Two classes, so this beats the `display: flex` above. */
   .feedback [hidden] {
     display: none;
+  }
+
+  /* Taken out of the layout the way the live regions elsewhere are, and left
+     rendered on purpose: a crawler that skips `display: none` still finds it. */
+  .feedback__trap {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .feedback__actions {
