@@ -25,6 +25,10 @@ However, if "Always Run" is selected for subsequent steps, they will proceed reg
 
 [Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
 
+:::div{.hint}
+[Easy Mode - Manual Interventions](https://octopus.com/blog/octo-easy-mode-03-manual-intervention) provides a practical example of manual intervention steps you can apply to your own Octopus instance.
+:::
+
 ## Add a manual intervention step
 
 Manual intervention steps are added to deployment processes in the same way as other steps.
