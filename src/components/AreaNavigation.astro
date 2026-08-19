@@ -1,0 +1,31 @@
+---
+import type { Area } from '@lib/areas';
+
+// The nav for the docs area
+import Navigation from '@components/Navigation.astro';
+// The nav for the API reference
+import ApiNavigation from './ApiNavigation.astro';
+
+// The area's nav, picked by area rather than by layout, so a page can be laid
+// out one way and navigated another. Every layout renders this and none of them
+// names a nav component; a new area adds a branch here and nothing else.
+type Props = {
+  area: Area;
+  lang: string;
+  // The API nav lists the current page's endpoints under it, and reads both of
+  // these to do it. A layout that shows this page's headings elsewhere — the
+  // table of contents in the side column — leaves them off, and the nav is
+  // then the flat page list on its own.
+  headings?: { depth: number; slug: string; text: string }[];
+  apiMethods?: { text: string; method: string | null }[] | null;
+};
+const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
+---
+
+{
+  area === 'api' ? (
+    <ApiNavigation lang={lang} headings={headings} apiMethods={apiMethods} />
+  ) : (
+    <Navigation lang={lang} />
+  )
+}

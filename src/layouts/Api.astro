@@ -3,7 +3,7 @@ import { accelerator } from '@lib/accelerator';
 import { PostFiltering } from 'astro-accelerator-utils';
 import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
-import { buildApiCrumbs } from '@lib/apiNavigation';
+import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
 import type { Crumb } from '@util/breadcrumbs';
 
 // Theme components
@@ -14,7 +14,7 @@ import Authors from '@components/Authors.astro';
 import Taxonomy from '@components/Taxonomy.astro';
 
 // Custom components
-import ApiNavigation from '../components/ApiNavigation.astro';
+import AreaNavigation from '../components/AreaNavigation.astro';
 import ArticleHeader from '../components/ArticleHeader.astro';
 import Feedback from '../components/Feedback.astro';
 import TopNav from '../components/TopNav.astro';
@@ -23,9 +23,12 @@ import Footer from 'src/components/Footer.astro';
 import DocsSearch from '../components/DocsSearch.astro';
 
 type Props = {
-  // `apiMethods` is not written by hand: plugins/satteri-api-examples.js leaves
-  // it on the frontmatter for the left nav, an entry per endpoint.
   frontmatter: OriginalFrontmatter & {
+    // The nav this page appears in. Optional, and normally left alone: these
+    // pages live under /docs/api, which is the API area already.
+    area?: Area;
+    // `apiMethods` is not written by hand: plugins/satteri-api-examples.js
+    // leaves it on the frontmatter for the left nav, an entry per endpoint.
     apiMethods?: { text: string; method: string | null }[];
   };
   headings: { depth: number; slug: string; text: string }[];
@@ -33,9 +36,10 @@ type Props = {
 };
 const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
 
-// buildApiCrumbs, not buildCrumbs: the section has no page of its own at
-// /docs/api for the generic walk to find, so it splices the crumb in.
-const crumbs = buildApiCrumbs(Astro.url, breadcrumbs);
+const area = resolveArea(frontmatter.area, Astro.url.pathname);
+// The API section has no page of its own at /docs/api for the generic crumb
+// walk to find, so buildAreaCrumbs splices the crumb in for it.
+const crumbs = buildAreaCrumbs(Astro.url, area, breadcrumbs);
 
 const lang = frontmatter.lang ?? SITE.default.lang;
 const textDirection = frontmatter.dir ?? SITE.default.dir;
@@ -100,7 +104,12 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
         </article>
         <Feedback frontmatter={frontmatter} lang={lang} />
       </main>
-      <ApiNavigation
+      {
+        /* The nav belongs to the area, not to this layout. This column is the
+          only nav on the page, so the headings go with it. */
+      }
+      <AreaNavigation
+        area={area}
         headings={headings}
         lang={lang}
         apiMethods={frontmatter.apiMethods}

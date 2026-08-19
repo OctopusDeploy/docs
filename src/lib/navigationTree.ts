@@ -2,7 +2,7 @@ import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { SITE } from '@config';
 import { menu } from '@data/navigation';
 import { accelerator } from './accelerator';
-import { apiPageUrls } from './apiNavigation';
+import { areaForUrl } from './areas';
 
 // Navigation.autoMenu() rebuilds the whole site nav tree from all ~2,700 pages
 // on every page render, and its getChildren() runs a full scan of that page
@@ -19,20 +19,20 @@ const TEMPLATE_URL = new URL('https://octopus.com/__nav-template__');
 
 let template: NavPage[] | null = null;
 
-// The API reference is navigated by its own tree (lib/apiNavigation.ts), so
-// its pages are dropped here rather than listed in both. Dropping a node drops
-// its children with it, which is what takes the whole section out in one go.
-function withoutApiPages(pages: NavPage[]): NavPage[] {
-  const apiUrls = apiPageUrls();
+// This is the docs area's tree. Every other area is navigated by its own — the
+// API reference by lib/apiNavigation.ts — so their pages are dropped here
+// rather than listed in both. Dropping a node drops its children with it, which
+// is what takes a whole section out in one go.
+function withoutOtherAreas(pages: NavPage[]): NavPage[] {
   const prune = (nodes: NavPage[]): NavPage[] =>
     nodes
-      .filter((node) => !apiUrls.has((node.url ?? '').replace(/\/$/, '')))
+      .filter((node) => areaForUrl(node.url ?? '') === 'docs')
       .map((node) => ({ ...node, children: prune(node.children ?? []) }));
   return prune(pages);
 }
 
 function buildMenu(): NavPage[] {
-  return withoutApiPages(
+  return withoutOtherAreas(
     accelerator.navigation.menu(TEMPLATE_URL, SITE.subfolder, menu)
   );
 }
