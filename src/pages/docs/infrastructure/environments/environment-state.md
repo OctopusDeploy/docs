@@ -112,7 +112,7 @@ The key used for a URL entry must be unique across all state entries (including 
 
 You can fetch the environment URLs from the API, which is useful for AI agents and scripts that need a link to the running app. Add an optional `tenantId` query parameter for [tenanted](/docs/tenants) runs.
 
-```text
+```http
 GET /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/urls
 ```
 
@@ -142,13 +142,13 @@ If a project, environment, and tenant combination has hit the limit above, delet
 
 For environment state scoped to a project and environment:
 
-```text
+```http
 DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}
 ```
 
 For environment state scoped to a project, environment and tenant:
 
-```text
+```http
 DELETE /api/spaces/{spaceId}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/states/{key}
 ```
 
