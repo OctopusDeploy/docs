@@ -2,7 +2,7 @@ import type { NavPage } from 'astro-accelerator-utils/types/NavPage';
 import { SITE } from '@config';
 import { menu } from '@data/navigation';
 import { accelerator } from './accelerator';
-import { areaForUrl } from './areas';
+import { areaResolver } from './areas';
 
 // Navigation.autoMenu() rebuilds the whole site nav tree from all ~2,700 pages
 // on every page render, and its getChildren() runs a full scan of that page
@@ -24,9 +24,12 @@ let template: NavPage[] | null = null;
 // rather than listed in both. Dropping a node drops its children with it, which
 // is what takes a whole section out in one go.
 function withoutOtherAreas(pages: NavPage[]): NavPage[] {
+  // One resolver for the whole walk: areas.ts reads the page set to find the
+  // frontmatter overrides, and that is not a per-node cost.
+  const areaOf = areaResolver();
   const prune = (nodes: NavPage[]): NavPage[] =>
     nodes
-      .filter((node) => areaForUrl(node.url ?? '') === 'docs')
+      .filter((node) => areaOf(node.url ?? '') === 'docs')
       .map((node) => ({ ...node, children: prune(node.children ?? []) }));
   return prune(pages);
 }

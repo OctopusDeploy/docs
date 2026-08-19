@@ -119,12 +119,27 @@ function areaOverrides(): Map<string, Area> {
 }
 
 /**
- * The area a url belongs to, frontmatter overrides included. For callers that
- * have a url and nothing else; anything holding the page itself should use
- * pageArea() and skip the lookup.
+ * A resolver for a caller that has urls and nothing else; anything holding the
+ * page itself should use pageArea() and skip the lookup.
+ *
+ * One resolver per pass over a set of urls. The overrides behind it are read
+ * once per resolver, which is the point: collecting them walks the whole page
+ * set, and in dev that set is re-read from disk every time, so a url-at-a-time
+ * lookup turns a tree walk into thousands of them.
+ *
+ * They are collected on first use rather than up front, because reading the
+ * page set is also what pulls the nav tree's lazy children into being, and
+ * doing that before the caller's first lookup reorders the siblings that tie
+ * on navOrder. A resolver that is only meant to be faster has no business
+ * moving nav rows around.
  */
-export function areaForUrl(url: string): Area {
-  return areaOverrides().get(trimSlash(url)) ?? areaFromPath(url);
+export function areaResolver(): (url: string) => Area {
+  let overridesForPass: Map<string, Area> | null = null;
+
+  return (url) => {
+    overridesForPass ??= areaOverrides();
+    return overridesForPass.get(trimSlash(url)) ?? areaFromPath(url);
+  };
 }
 
 /**
