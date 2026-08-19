@@ -1,9 +1,7 @@
-<!-- The CommonMark markdown mark (commonmark.org/help), the glyph design supplied
-     for the "Open this page as markdown" menu item. Used as a CSS mask, so only
-     alpha matters: the rounded border is drawn as a ring and the M and the arrow
-     sit inside the hole it leaves. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 128" fill="currentColor" fill-rule="evenodd" width="26" height="16" aria-hidden="true">
-  <path d="M15 10a5 5 0 0 0-5 5v98a5 5 0 0 0 5 5h178a5 5 0 0 0 5-5V15a5 5 0 0 0-5-5zM0 15C0 6.716 6.716 0 15 0h178c8.284 0 15 6.716 15 15v98c0 8.284-6.716 15-15 15H15c-8.284 0-15-6.716-15-15z"/>
-  <path d="M30 98V30h20l20 25 20-25h20v68H90V59L70 84 50 59v39z"/>
-  <path d="M155 98 125 62h20V30h20v32h20z"/>
+<!-- The markdown mark, supplied by design for the "Open this page as markdown"
+     menu item. Used as a CSS mask, so only alpha matters: the badge is filled and
+     the M and the arrow are knocked out of it. The glyph sits inside the 16 x 16
+     box with its own vertical padding, so the mask is fitted rather than sized. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
+  <path d="M14.845 3.07715H1.155C0.5175 3.07715 0 3.59465 0 4.22965V11.7671C0 12.4046 0.5175 12.9221 1.155 12.9221H14.8475C15.485 12.9221 16.0025 12.4046 16 11.7696V4.22965C16 3.59465 15.4825 3.07715 14.845 3.07715ZM8.4625 10.6146H6.925V7.61465L5.3875 9.53715L3.85 7.61465V10.6146H2.3075V5.38465H3.845L5.3825 7.30715L6.92 5.38465H8.4575V10.6146H8.4625ZM11.845 10.6921L9.5375 7.99965H11.075V5.38465H12.6125V7.99965H14.15L11.845 10.6921Z"/>
 </svg>

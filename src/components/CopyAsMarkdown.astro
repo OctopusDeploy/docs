@@ -99,8 +99,9 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
     background-color: currentColor;
   }
 
-  /* The mark is a wide badge rather than a square glyph, so it is fitted to the
-     square box `.menu__icon` gives it instead of being sized to it. */
+  /* Drawn at the 16px it was exported at, which is the box `.menu__icon` gives
+     it, so `contain` fits it rather than scaling it. The badge is short of the
+     full height because the asset carries its own vertical padding. */
   .octo-copy-md :global(.octo-copy-md__glyph--markdown) {
     mask: url('../assets/icons/markdown.svg') center / contain no-repeat;
   }
