@@ -58,10 +58,16 @@ stats.stop();
     </label>
     <textarea class="feedback__textarea" id="feedback-comment" rows="3"
     ></textarea>
+    {
+      /* Disabled here and released by the script on a vote it accepted, as the
+        browser dispatches no click at all on a disabled button. Released as
+        this container is revealed, so the state is never on screen. */
+    }
     <Button
       label={_(Translations.octopus_feedback.send)}
       size="small"
       importance="loud"
+      disabled
       data-feedback-send
     />
   </div>
