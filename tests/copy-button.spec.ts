@@ -165,7 +165,9 @@ test('the copy action puts the page markdown on the clipboard', async ({
   );
 });
 
-test('the copy action reports a failure when the markdown cannot be fetched', async ({
+// A copy that fails says nothing, so the button has to stay as it was rather
+// than claim it copied.
+test('the copy action stays at rest when the markdown cannot be fetched', async ({
   page,
 }) => {
   await page.goto(MD_PAGE);
@@ -174,8 +176,10 @@ test('the copy action reports a failure when the markdown cannot be fetched', as
   await page.route('**/*.md', (route) => route.abort());
 
   const button = page.locator('.octo-copy-md .split-btn__primary');
+  const label = button.locator('.btn__label');
   await button.click();
 
-  await expect(button).toHaveAttribute('data-failed', '');
   await expect(button).not.toHaveAttribute('data-copied', '');
+  await expect(label).toBeVisible();
+  await expect(page.locator('.copy-status')).toHaveText('');
 });

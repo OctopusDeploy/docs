@@ -1547,20 +1547,16 @@ html[data-theme='dark'] img.card__icon {
 }
 
 /* "Copy as markdown" page action. The copy half is the primary of a split
-   button, and the script marks that button with the state, so these hang off it
-   rather than off the wrapping control. */
+   button, and the script marks that button once the copy lands, so everything
+   here hangs off it rather than off the control wrapping it. */
 .octo-copy-md__icon {
   background-color: var(--colorIconPrimary);
   mask: url('../assets/icons/copy.svg') center / contain no-repeat;
 }
 
-.octo-copy-md .split-btn__primary[data-copied] .octo-copy-md__icon {
-  mask: url('../assets/icons/check.svg') center / contain no-repeat;
-}
-
-/* The rest label and both results share one grid cell, so the button is sized by
-   the longest of the three and holds that width as the state changes. The icon
-   keeps a column of its own, which `.btn`'s flex layout gave it before. */
+/* The label and the "Copied" it turns into share one grid cell, so the button is
+   sized by the longer of the two and holds that width while it reports. The icon
+   keeps a column of its own, as `.btn`'s flex layout gave it. */
 .octo-copy-md .split-btn__primary {
   display: inline-grid;
   grid-template-columns: auto auto;
@@ -1573,27 +1569,28 @@ html[data-theme='dark'] img.card__icon {
 }
 
 .octo-copy-md .split-btn__primary > .btn__label,
-.octo-copy-md .split-btn__primary > .octo-copy-md__label {
+.octo-copy-md__copied {
   grid-area: 1 / 2;
   text-align: start;
   white-space: nowrap;
 }
 
-/* Slotted, so button.css's scoped .btn__label padding does not reach these. */
-.octo-copy-md .split-btn__primary > .octo-copy-md__label {
+/* Slotted, so button.css's scoped .btn__label padding does not reach it. */
+.octo-copy-md__copied {
   padding-inline: var(--space4);
   visibility: hidden;
 }
 
-.octo-copy-md
-  .split-btn__primary:is([data-copied], [data-failed])
-  > .btn__label {
+.octo-copy-md [data-copied] > .btn__label {
   visibility: hidden;
 }
 
-.octo-copy-md .split-btn__primary[data-copied] > .octo-copy-md__label--copied,
-.octo-copy-md .split-btn__primary[data-failed] > .octo-copy-md__label--failed {
+.octo-copy-md [data-copied] > .octo-copy-md__copied {
   visibility: visible;
+}
+
+.octo-copy-md [data-copied] .octo-copy-md__icon {
+  mask: url('../assets/icons/check.svg') center / contain no-repeat;
 }
 
 /* Live regions for announcing the result of an action, such as copying a URL or

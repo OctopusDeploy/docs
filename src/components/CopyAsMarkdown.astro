@@ -33,15 +33,12 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
       target="_blank"
       rel="noopener"
     >
-      {/* Both results are rendered, stacked with the rest label in one grid
-          cell, so the button is sized by the longest of the three and keeps
-          that width as the state changes. Only the current one is visible, and
-          `visibility` keeps the other two out of the accessible name. */}
-      <span class="octo-copy-md__label octo-copy-md__label--copied">
+      {/* Stacked with the label in one grid cell, so the button is sized by the
+          longer of the two and keeps that width while it reports the copy.
+          `visibility` is what hides it, which also keeps it out of the
+          accessible name until it is the one showing. */}
+      <span class="octo-copy-md__copied">
         {_(Translations.octopus_copy_md.copied)}
-      </span>
-      <span class="octo-copy-md__label octo-copy-md__label--failed">
-        {_(Translations.octopus_copy_md.error)}
       </span>
     </SplitButton>
   )
