@@ -12,7 +12,7 @@ Environment state lets a deployment or [runbook](/docs/runbooks) run store impor
 
 A primary use case for environment state is provisioning and deprovisioning [ephemeral environments](/docs/infrastructure/ephemeral-environments). For example, a provisioning runbook creates a Kubernetes namespace, Azure resource group, or similar to deploy the application to for testing. The identifiers for these resources are stored as environment state values. When it comes time to deprovision the ephemeral environment the deprovisioning runbook can tear down these resources using the identifiers provided as variables.
 
-Each state entry is scoped to project, environment, and optionally a tenant, allowing them to be isolated. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value. Keys are case insensitive.
+Each state entry is scoped to project, environment, and optionally a tenant, keeping them isolated. Setting an entry with a key that already exists for the same project, environment, and tenant overwrites the previous value. Keys are case insensitive.
 
 ## Setting environment state
 
@@ -37,7 +37,7 @@ set_environmentstate "namespace" "webstore-pr-482"
 
 ### Sensitive values
 
-Mark a value as sensitive to store it encrypted at rest and mask it in task logs. Add the `-Sensitive` switch in PowerShell, or `-sensitive` as the third argument in Bash.
+Mark a value as sensitive to encrypt it at rest and mask it in task logs. Add the `-Sensitive` switch in PowerShell, or `-sensitive` as the third argument in Bash.
 
 <details data-group="set-sensitive-environment-state">
 <summary>PowerShell</summary>
@@ -60,7 +60,7 @@ set_environmentstate "connectionString" "Server=db;Password=s3cret" -sensitive
 
 Octopus makes each state entry available as a [variable](/docs/projects/variables) named `Octopus.Environment.State[key]`, where `key` is the key you set.
 
-Read it from a script:
+To read environment state in a script:
 
 <details data-group="consume-environment-state">
 <summary>PowerShell</summary>
@@ -81,7 +81,7 @@ namespace=$(get_octopusvariable "Octopus.Environment.State[namespace]")
 
 ## Setting an environment URL
 
-An environment URL is a special type of environment state that gets first-class support in Octopus. It is stored like any other environment state, and surfaced as a clickable link in the Octopus Web Portal and available from the API.
+An environment URL is a special type of environment state that gets first-class support in Octopus. It is stored like any other environment state and surfaced as a clickable link in the Octopus Web Portal and available from the API.
 
 Set a URL with the `Set-EnvironmentUrl` (PowerShell) or `set_environmenturl` (Bash) function. The first argument is the key that names the URL, and the second is the URL itself.
 
@@ -105,7 +105,7 @@ set_environmenturl "Store front" "https://pr-123.example.com"
 URLs set this way show as clickable links on the [Ephemeral Environments](/docs/projects/ephemeral-environments#environment-urls) in the project, providing convenient access to the deployed application.
 
 :::div{.hint}
-The key used for a URL entry must be unique across all state entries (including non-URLs) for the same project, environment, and tenant. As with all state entries, reusing a key will overwrite its value.
+The key used for a URL entry must be unique across all state entries (including non-URLs) for the same project, environment, and tenant. With all state entries reusing a key will overwrite its value.
 :::
 
 ### Getting URLs from the API
@@ -126,7 +126,7 @@ The response is an array of name and URL pairs:
 
 ## Limits on environment state
 
-Environment state entries have the following limits:
+Environment state has the following limits:
 
 - Maximum of 10 environment state entries per combination of project, environment, and optional tenant
 - Maximum key length is 100 characters
