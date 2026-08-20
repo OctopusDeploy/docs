@@ -46,6 +46,9 @@ function setup(dialog: HTMLDialogElement) {
   const template = dialog.querySelector<HTMLTemplateElement>(
     '[data-docs-search-row]'
   );
+  // Optional, unlike the rest: an engine that hands over everything at once has
+  // nothing to page through, and the overlay still works without it.
+  const sentinel = dialog.querySelector<HTMLElement>('[data-docs-search-more]');
   const sectionTemplate = dialog.querySelector<HTMLTemplateElement>(
     '[data-docs-search-section]'
   );
@@ -149,11 +152,11 @@ function setup(dialog: HTMLDialogElement) {
    * Rows for the whole response, pages and their matched sections interleaved.
    * The running index is what keeps `aria-activedescendant` working: every option
    * needs a unique id, and a page's sections are numbered between it and the next
-   * page.
+   * page. `from` continues that numbering for rows appended later.
    */
-  function drawAll(results: SearchResult[]) {
+  function drawAll(results: SearchResult[], from = 0) {
     const nodes: DocumentFragment[] = [];
-    let at = 0;
+    let at = from;
 
     for (const result of results) {
       nodes.push(drawRow(result, at++));
@@ -165,6 +168,46 @@ function setup(dialog: HTMLDialogElement) {
 
     return nodes;
   }
+
+  // Guards against a second page being asked for while the first is in flight,
+  // which a fast scroll through the root margin would otherwise do.
+  let extending = false;
+
+  /**
+   * Appends the next page as the end of the list comes into view.
+   *
+   * An observer rather than a button: there is nothing to focus, so the combobox
+   * keyboard model is left alone and arrowing to the last row pulls the next page
+   * in on its own. Pagefind hands over every match as a stub, so paging costs
+   * only the fragments for the rows being added.
+   */
+  const extender =
+    sentinel && engine.more
+      ? new IntersectionObserver(
+          async (entries) => {
+            if (extending) return;
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+
+            extending = true;
+            const mine = generation;
+            try {
+              const next = await engine.more!();
+              // A search that landed while this was in flight owns the list now.
+              if (mine !== generation) return;
+              if (next.length === 0) {
+                sentinel.hidden = true;
+                return;
+              }
+              list!.append(...drawAll(next, options().length));
+            } finally {
+              extending = false;
+            }
+          },
+          // Ahead of the end of the list, so the rows are there by the time the
+          // reader reaches them.
+          { root: body, rootMargin: '200px' }
+        )
+      : null;
 
   function render(response: Awaited<ReturnType<SearchEngine['search']>>) {
     const rows = drawAll(response.results);
@@ -195,15 +238,24 @@ function setup(dialog: HTMLDialogElement) {
     // says what came back. Pages are counted the way the tab strip counts them,
     // and the matched sections are named separately, because each is another
     // option to arrow onto without being another result.
+    // Every match, rather than the page of them on screen: the reader is told
+    // what the query found, and the rest of it arrives as they scroll.
     const term = input!.value.trim();
-    const pages = response.results.length;
-    const sections = rows.length - pages;
+    const pages = response.total ?? response.results.length;
+    const sections = rows.length - response.results.length;
     announce!.textContent = !hasQuery
       ? ''
       : pages === 0
         ? `No results for ${term}`
         : `${pages} ${pages === 1 ? 'result' : 'results'} for ${term}` +
           (sections > 0 ? `, with ${sections} matching sections` : '');
+
+    if (extender && sentinel) {
+      const paged = hasResults && pages > response.results.length;
+      sentinel.hidden = !paged;
+      extender.disconnect();
+      if (paged) extender.observe(sentinel);
+    }
 
     setActive(0);
   }

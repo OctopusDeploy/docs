@@ -27,13 +27,21 @@ export type SearchResult = {
 };
 
 export type SearchResponse = {
+  /** The first page of rows. `more()` hands over the rest. */
   results: SearchResult[];
   /** Result totals per facet key, plus `all`, for the tab strip. */
   counts: Record<string, number>;
+  /** How many rows the query has in all, when the engine can say. */
+  total?: number;
 };
 
 export type SearchEngine = {
   search(query: string, facet?: string): Promise<SearchResponse>;
+  /**
+   * Optional: the next page of the last search, empty once it is exhausted. An
+   * engine that returns everything from `search` has nothing to add here.
+   */
+  more?(): Promise<SearchResult[]>;
   /** Optional: start loading the index before the first query needs it. */
   warm?(): void;
   /**
@@ -132,12 +140,16 @@ export function fixtureEngine(results: SearchResult[]): SearchEngine {
           )
         : results;
 
+      // Named apart from the fixture's own `results`, which it is filtered from.
+      const shown =
+        facet && facet !== 'all'
+          ? matched.filter((result) => result.facet === facet)
+          : matched;
+
       return {
         counts: countByFacet(matched),
-        results:
-          facet && facet !== 'all'
-            ? matched.filter((result) => result.facet === facet)
-            : matched,
+        results: shown,
+        total: shown.length,
       };
     },
   };

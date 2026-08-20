@@ -1,5 +1,7 @@
-// Builds the Pagefind index from the HTML the site just emitted. What gets
-// indexed is decided by the `data-pagefind-*` attributes in `Default.astro`.
+// Builds the Pagefind index from the HTML the site just emitted. `rootSelector`
+// and `excludeSelectors` below decide what gets indexed, for every layout at
+// once; the `data-pagefind-*` attributes a layout adds only describe what is
+// different about its pages.
 //
 // The index has to land inside `dist/docs/`, because `prune-dist.ts` deletes
 // every top-level entry outside its allowlist, and this has to be registered
@@ -30,6 +32,17 @@ export default function pagefindIndex(): AstroIntegration {
           // executable names, `#{}` for substitution syntax, `<>` for tags, `+`
           // for C++, and `$_` for shell variables.
           includeCharacters: '.#{}<>+$_',
+          // The article, so a layout does not have to opt in to being indexed:
+          // a new one added without a thought for search still gets found. The
+          // article rather than `.page-content`, because Pagefind takes a
+          // result's title from the first heading inside the indexed element.
+          //
+          // A layout with no `<article>` therefore indexes nothing, which the
+          // page count at the end of this hook is here to catch.
+          rootSelector: 'article',
+          // Sits inside the article and on every page, so its words would
+          // otherwise match every query.
+          excludeSelectors: ['.page-actions'],
         });
 
         if (!index) {
@@ -63,7 +76,7 @@ export default function pagefindIndex(): AstroIntegration {
         await close();
 
         // Files scanned, not pages indexed: the redirect stubs are counted here
-        // and then dropped by `data-pagefind-body`.
+        // and then dropped for having no article.
         logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
       },
     },

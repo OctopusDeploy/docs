@@ -4,6 +4,7 @@ import { PostFiltering } from 'astro-accelerator-utils';
 import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE } from '@config';
 import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
+import { searchIndexAttributes } from '@lib/searchIndexing';
 import type { Crumb } from '@util/breadcrumbs';
 
 // Theme components
@@ -61,10 +62,14 @@ const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
 const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
 
+// Gates the header's search field only. The overlay below is always rendered:
+// /docs/search has its own field and opens that same overlay.
 const showSearch = !isSearchPage;
 
 // The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
+
+const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
 ---
 
 <html
@@ -89,14 +94,14 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
     <div class="content-group content-group--api">
       <main id="site-main">
         <Breadcrumbs lang={lang} crumbs={crumbs} />
-        <article>
+        <article {...searchIndex.article}>
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
           <div class="page-actions">
             {
               /* Copy as markdown temporarily disabled until we can get it working with the API docs. Deliberately no "Edit on GitHub" because these are generated and should not be hand edited */
             }
           </div>
-          <div class="page-content anim-show-parent">
+          <div class="page-content anim-show-parent" {...searchIndex.content}>
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
@@ -116,10 +121,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
       />
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
-    {
-      /* The overlay the header's search field opens. Same single instance as
-         Default.astro, and not behind `showSearch` for the same reason. */
-    }
     <DocsSearch />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;

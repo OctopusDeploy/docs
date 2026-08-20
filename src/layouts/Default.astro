@@ -5,6 +5,7 @@ import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils
 import { SITE } from '@config';
 import type { Crumb } from '@util/breadcrumbs';
 import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
+import { searchIndexAttributes } from '@lib/searchIndexing';
 
 // Theme components
 import Head from '@components/HtmlHead.astro';
@@ -59,63 +60,14 @@ const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
 const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
 
+// Gates the header's search field only. The overlay below is always rendered:
+// /docs/search has its own field and opens that same overlay.
 const showSearch = !isSearchPage;
 
 // The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
 
-// Search indexing. Redirect stubs never reach this layout at all, so only the
-// frontmatter opt-outs have to be checked here. Deliberately looser than
-// `PostFiltering.isListable`, which also hides a future `pubDate`: a page that
-// is built and served is a page worth finding.
-const indexable =
-  frontmatter.navSearch !== false &&
-  frontmatter.listable !== false &&
-  frontmatter.draft !== true;
-
-// Which tab a result lands under. Longest match first: every CLI page also sits
-// under the REST API tree. Kept in step with `classify()` in
-// `src/scripts/search-engine.ts`, which derives the same value at query time.
-const sections: [string, RegExp][] = [
-  [
-    'cli',
-    /^\/docs\/octopus-rest-api\/(cli|octopus-cli|[a-z.]+-command-line)(\/|$)/,
-  ],
-  ['api', /^\/docs\/octopus-rest-api(\/|$)/],
-  ['integrations', /^\/docs\/api-and-integration(\/|$)/],
-];
-const section =
-  sections.find(([, prefix]) => prefix.test(Astro.url.pathname))?.[0] ?? 'docs';
-
-// Boosts a section landing page's own name. Pagefind weights an h1 at 7 on a
-// quadratic scale, so 10 roughly doubles the pull of a shallow page's title. The
-// reorder in `search-engine-pagefind.ts` does the real work; this assists it.
-const depth = Astro.url.pathname.split('/').filter(Boolean).length;
-const searchWeight = indexable && depth <= 3 ? 10 : undefined;
-
-// Indexed so results can be ordered by recency. Nothing in the overlay offers
-// that control yet, and adding one later would otherwise need a rebuild.
-const sortKeys =
-  indexable && lastUpdated
-    ? `date:${new Date(lastUpdated).toISOString().slice(0, 10)}`
-    : undefined;
-
-// Pagefind takes a result's title from the first heading inside the indexed body,
-// so a page whose h1 renders as an image would show its URL in the result row. A
-// real heading still wins; this is only consulted when there is none.
-const defaultMeta =
-  indexable && frontmatter.title ? `title:${frontmatter.title}` : undefined;
-
-// The trail the result row prints, taken from the path so it matches whatever
-// the page is actually filed under.
-const trail = Astro.url.pathname
-  .split('/')
-  .filter(Boolean)
-  .slice(1, -1)
-  .map((segment) =>
-    segment.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase())
-  )
-  .join(' / ');
+const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
 ---
 
 <html
@@ -137,26 +89,9 @@ const trail = Astro.url.pathname
     <div class="content-group">
       <main id="site-main">
         <Breadcrumbs lang={lang} crumbs={crumbs} />
-        {
-          /* Scoping the index to the article keeps every sidebar link and footer
-             word out of every page's search terms. The article rather than
-             `.page-content`, so the h1 inside it is there for Pagefind to take
-             the result title from. */
-        }
-        <article
-          data-pagefind-body={indexable ? true : undefined}
-          data-pagefind-filter={indexable ? `section:${section}` : undefined}
-          data-pagefind-meta={indexable ? `trail:${trail}` : undefined}
-          data-pagefind-sort={sortKeys}
-          data-pagefind-default-meta={defaultMeta}
-        >
-          <ArticleHeader
-            lang={lang}
-            searchWeight={searchWeight}
-            subtitle={subtitle}
-            title={title}
-          />
-          <div class="page-actions" data-pagefind-ignore="all">
+        <article {...searchIndex.article}>
+          <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
+          <div class="page-actions">
             <CopyAsMarkdown lang={lang} />
             <OpenInLlm lang={lang} />
             <EditOnGithub
@@ -165,7 +100,7 @@ const trail = Astro.url.pathname
               lang={lang}
             />
           </div>
-          <div class="page-content anim-show-parent">
+          <div class="page-content anim-show-parent" {...searchIndex.content}>
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
@@ -189,11 +124,6 @@ const trail = Astro.url.pathname
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
-    {
-      /* One overlay for the page: both headers point their fields at it, and so
-         does the standalone /docs/search page, which is why this is not behind
-         `showSearch` the way the header field is. */
-    }
     <DocsSearch />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;

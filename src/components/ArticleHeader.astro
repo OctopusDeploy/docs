@@ -12,11 +12,8 @@ type Props = {
   lang: string;
   subtitle?: string | null;
   title: string;
-  /** Passed to `data-pagefind-weight`. Omitted leaves Pagefind's own heading
-   *  weighting alone. */
-  searchWeight?: number;
 };
-const { lang, subtitle, title, searchWeight } = Astro.props satisfies Props;
+const { lang, subtitle, title } = Astro.props satisfies Props;
 
 // Language
 const _ = Lang(lang);
@@ -25,7 +22,7 @@ const _ = Lang(lang);
 stats.stop();
 ---
 
-<header class="header" data-pagefind-weight={searchWeight}>
+<header class="header">
   <h1 class="header__title">{title}</h1>
   {subtitle && <p class="header__subtitle">{subtitle}</p>}
 </header>

@@ -353,6 +353,61 @@ test('results stay on the host that served them', async ({ page }) => {
   }
 });
 
+// A section's own page can rank far below the pages inside it on raw score -
+// /docs/infrastructure/deployment-targets/ is 36th for this query - so the
+// overlay runs a second search over the shallow pages alone and puts the page the
+// query names at the top. Without it the first result is a getting-started page.
+test('the page a query names comes first', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('deployment targets');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/infrastructure/deployment-targets/'
+  );
+});
+
+// Pagefind hands over every match as a stub and only the rows on screen cost a
+// fetch, so the list extends as it is scrolled rather than stopping at the first
+// page. The ids matter as much as the count: `aria-activedescendant` names one,
+// so a repeat would point the input at the wrong row.
+test('scrolling to the end of the results loads more', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  // A query with far more matches than fit in one page.
+  await site.locator('[data-docs-search-input]').fill('deployments');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  const rows = site.locator('[role="option"]');
+  const first = await rows.count();
+  expect(first).toBeGreaterThan(0);
+
+  await site
+    .locator('[data-docs-search-body]')
+    .evaluate((body) => body.scrollTo(0, body.scrollHeight));
+
+  await expect
+    .poll(() => rows.count(), { timeout: 20_000 })
+    .toBeGreaterThan(first);
+
+  const ids = await rows.evaluateAll((options) => options.map((row) => row.id));
+  expect(new Set(ids).size, 'every option needs its own id').toBe(ids.length);
+});
+
 // Ctrl/Cmd+K belongs to the page's own search. A demo instance in an article must
 // not answer it.
 test('the keyboard shortcut opens the site overlay', async ({ page }) => {
