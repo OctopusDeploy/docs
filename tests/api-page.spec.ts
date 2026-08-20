@@ -10,11 +10,14 @@ test.describe('api page chrome', () => {
     await page.goto(ENDPOINTS);
 
     const crumbs = page.locator('nav[aria-label="Breadcrumb"] li');
-    await expect(crumbs).toHaveText(['Docs', 'Api', 'Feeds']);
+    await expect(crumbs).toHaveText(['Docs', 'API', 'Feeds']);
 
-    // Nothing to link to until the section has a landing page, so the Api
-    // crumb is text rather than a link to a 404.
-    await expect(crumbs.nth(1).locator('a')).toHaveCount(0);
+    // The section has a landing page of its own, and the crumb links to it.
+    // "API" rather than that page's own title, which is a `crumbTitle` on it.
+    await expect(crumbs.nth(1).locator('a')).toHaveAttribute(
+      'href',
+      /\/docs\/api\/?$/
+    );
   });
 
   test('the breadcrumb trail is published as JSON-LD, not microdata', async ({
@@ -29,14 +32,13 @@ test.describe('api page chrome', () => {
 
     expect(list.itemListElement.map((item) => item.name)).toEqual([
       'Docs',
-      'Api',
+      'API',
       'Feeds',
     ]);
-    // The last crumb is the page itself and the Api crumb has no page, so only
-    // the first carries a URL.
+    // The last crumb is the page itself, so it is the only one without a URL.
     expect(list.itemListElement.map((item) => item.item ?? null)).toEqual([
       expect.stringContaining('/docs'),
-      null,
+      expect.stringContaining('/docs/api'),
       null,
     ]);
 
@@ -94,7 +96,12 @@ test.describe('api page chrome', () => {
   test('the pages Astro does not route are not published', async ({
     request,
   }) => {
-    for (const url of ['/docs/api/', '/docs/api/README', '/docs/api/index']) {
+    // The section's own landing page is routed, and so is every generated page
+    // - but from /docs/api, not from the folder it is written into.
+    expect((await request.get('/docs/api/')).status()).toBe(200);
+    expect((await request.get('/docs/api/channels')).status()).toBe(200);
+
+    for (const url of ['/docs/api/_generated/channels', '/docs/api/README']) {
       expect((await request.get(url)).status(), url).toBe(404);
     }
   });
