@@ -2,25 +2,24 @@
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2026-08-20
-title: octopus package delete
-description: Delete a package
-navOrder: 84
+title: octopus channel list
+description: List channels
+navOrder: 39
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
-Delete a package in Octopus Deploy
+List channels for a project in Octopus Deploy
 
 ```text
 Usage:
-  octopus package delete {<id>} [flags]
+  octopus channel list [flags]
 
 Aliases:
-  delete, del, rm, remove
+  list, ls
 
 Flags:
-  -y, --confirm             Don't ask for confirmation before deleting the package.
-  -p, --package-id string   The Package ID of the package to delete
-  -v, --version string      The version of the package to delete
+  -q, --filter string    Filter channels to match only ones with a name containing the given string
+  -p, --project string   Name or ID of the project to list channels for
 
 
 Global Flags:
@@ -36,9 +35,11 @@ Global Flags:
 <SamplesInstance />
 
 ```bash
-octopus package delete Packages-1
-octopus package rm Packages-1
-octopus package del --package-id ThePackage --version 1.0.0
+octopus channel list myProject
+octopus channel ls "Other Project"
+octopus channel list --project myProject
+octopus channel list --project myProject --filter "Hotfix"
+octopus channel ls -p myProject -q Hotfix
 
 
 ```

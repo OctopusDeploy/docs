@@ -58,6 +58,9 @@ The Octopus CLI is built and maintained by the Octopus Deploy team, but it is al
 - **[octopus build-information view](/docs/octopus-rest-api/cli/octopus-build-information-view)**:  View a build information.
 - **[octopus channel](/docs/octopus-rest-api/cli/octopus-channel)**:  Manage channels.
 - **[octopus channel create](/docs/octopus-rest-api/cli/octopus-channel-create)**:  Create a channel.
+- **[octopus channel delete](/docs/octopus-rest-api/cli/octopus-channel-delete)**:  Delete a channel.
+- **[octopus channel list](/docs/octopus-rest-api/cli/octopus-channel-list)**:  List channels.
+- **[octopus channel view](/docs/octopus-rest-api/cli/octopus-channel-view)**:  View a channel.
 - **[octopus config](/docs/octopus-rest-api/cli/octopus-config)**:  Manage CLI configuration.
 - **[octopus config get](/docs/octopus-rest-api/cli/octopus-config-get)**:  Gets the value of config key for Octopus CLI.
 - **[octopus config list](/docs/octopus-rest-api/cli/octopus-config-list)**:  List values from config file.
