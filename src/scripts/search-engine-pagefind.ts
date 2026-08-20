@@ -378,8 +378,12 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           ...(response.totalFilters?.section ?? {}),
         };
 
-        // Two questions, and the floor answers both. Nothing in the corpus is a
-        // real answer, so offer nothing and advertise nothing.
+        // Asked of the whole corpus, and only once. A tab is not asked again: the
+        // counts come from Pagefind in one pass and take no notice of the floor,
+        // so a second check here would leave the strip offering a result the
+        // panel then withheld — `kubernetes` advertised one API page and showed
+        // none. A tab with nothing in it is already handled by its count, which
+        // sends the reader back to All.
         if ((unfiltered.results[0]?.score ?? 0) < MINIMUM_SCORE) {
           settle(null);
           // Everything matched it equally, so there is nothing to rank rather
@@ -389,15 +393,6 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           return share > COMMON_TERM_SHARE
             ? { ...empty, tooBroad: true }
             : empty;
-        }
-
-        // The corpus answers it and this tab does not. Filtering only removes
-        // documents, so the survivors here can be accidents scoring far below
-        // anything the reader asked for. Keep the counts, so the strip still
-        // shows which tab holds the answer.
-        if ((response.results[0]?.score ?? 0) < MINIMUM_SCORE) {
-          settle(null);
-          return { results: [], counts };
         }
 
         const hits = await hydrate(response.results.slice(0, PAGE_SIZE));

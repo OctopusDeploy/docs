@@ -533,6 +533,48 @@ test('a command wins when the query asks for one', async ({ page }) => {
   );
 });
 
+// The strip counts every match Pagefind returns for a tab, so a tab offering a
+// number has to show rows when it is picked. `kubernetes` had one API page
+// scoring 6.59 against a floor of 8, so the strip read "API (1)" and the panel
+// read "No results for kubernetes".
+test('every tab with a count has results behind it', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('kubernetes');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  const tabs = site.locator(
+    '[data-docs-search-tabs] [data-facet]:not([hidden])'
+  );
+  const facets = await tabs.evaluateAll((all) =>
+    all.map((tab) => ({
+      facet: (tab as HTMLElement).dataset.facet,
+      // "Docs (123)" - the strip prints the count in brackets.
+      count: Number(/\((\d+)\)/.exec(tab.textContent ?? '')?.[1] ?? 0),
+    }))
+  );
+
+  // The API tab is the one that used to fail, so the test is worthless without
+  // it: a run where the query stops matching an API page proves nothing.
+  expect(facets.map((f) => f.facet)).toContain('api');
+
+  for (const { facet, count } of facets) {
+    if (!facet || count === 0) continue;
+
+    await site.locator(`[data-facet="${facet}"]`).click();
+    await expect(
+      site.locator('[role="option"]').first(),
+      `the ${facet} tab offers ${count} and has to show them`
+    ).toBeVisible({ timeout: 20_000 });
+  }
+});
+
 // Ctrl/Cmd+K belongs to the page's own search. A demo instance in an article must
 // not answer it.
 test('the keyboard shortcut opens the site overlay', async ({ page }) => {
