@@ -101,7 +101,7 @@ const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
               /* Copy as markdown temporarily disabled until we can get it working with the API docs. Deliberately no "Edit on GitHub" because these are generated and should not be hand edited */
             }
           </div>
-          <div class="page-content anim-show-parent" {...searchIndex.content}>
+          <div class="page-content anim-show-parent">
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />

@@ -408,14 +408,11 @@ test('scrolling to the end of the results loads more', async ({ page }) => {
   expect(new Set(ids).size, 'every option needs its own id').toBe(ids.length);
 });
 
-// The two features meeting: a page pulled onto the first screen for naming the
-// query still has its own stub further down the list, because ranking past
-// PAGE_SIZE is why it had to be pulled forward at all. Paging has to skip it.
-//
-// `deployment targets` rather than a query with more results: the promotion only
-// happens when nothing on the first page already names the query, and
-// /docs/infrastructure/deployment-targets/ ranks 36th on raw score.
-test('a page pulled forward is not listed again further down', async ({
+// Ranking and paging meeting. The whole result set is ranked before anything is
+// drawn, and paging walks that one list, so a page promoted from deep in it —
+// /docs/infrastructure/deployment-targets/ ranks 36th for this query on raw
+// score — must not come round again when its own position is reached.
+test('a page promoted from deep in the list is drawn only once', async ({
   page,
 }) => {
   await page.goto('/docs');
