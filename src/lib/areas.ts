@@ -134,14 +134,9 @@ function navUrl(post: MarkdownInstance): string {
 
 /**
  * The area for a page read back from the post list.
- *
- * Astro only gives a page module a `url` when its file resolves inside
- * src/pages, and the generated API pages are symlinked in during local
- * development — so those modules arrive with no url at all. `urlHint` is for
- * the caller that can rebuild it (see apiNavigation.urlsByFile).
  */
-export function pageArea(post: MarkdownInstance, urlHint?: string): Area {
-  return resolveArea(declaredArea(post), post?.url ?? urlHint ?? '');
+export function pageArea(post: MarkdownInstance): Area {
+  return resolveArea(declaredArea(post), post?.url ?? '');
 }
 
 // Pages whose frontmatter puts them in a different area than their path would.
