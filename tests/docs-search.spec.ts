@@ -8,6 +8,18 @@ const PAGE = '/components';
 const overlay = (page: Page) => page.locator('[data-docs-search="demo"]');
 const siteOverlay = (page: Page) => page.locator('[data-docs-search="site"]');
 
+// Mirrors the sniff in src/scripts/docs-search.ts, so the test presses the
+// modifier that page is actually listening for.
+const applePlatform = (page: Page) =>
+  page.evaluate(() => {
+    const nav = navigator as Navigator & {
+      userAgentData?: { platform: string };
+    };
+    return nav.userAgentData
+      ? nav.userAgentData.platform === 'macOS'
+      : (nav.platform || nav.userAgent).includes('Mac');
+  });
+
 async function opened(page: Page) {
   const demo = overlay(page);
   await page.locator('[data-docs-search-trigger="demo"]').click();
@@ -175,8 +187,18 @@ test('the left and right keys move through the tabs from the input', async ({
   );
   await expect(demo.locator('[role="option"]')).toHaveCount(4);
 
-  // Back the other way, from the start of the query where Left is free.
-  await page.keyboard.press('Home');
+  // Back the other way, from the start of the query where Left is free. Walking
+  // the caret rather than pressing Home, which is not "start of line" in an
+  // input on macOS - and walking it is the better test anyway, since every
+  // press has to keep editing the query until the caret runs out of room.
+  for (let i = 0; i < 'feed'.length; i++) {
+    await page.keyboard.press('ArrowLeft');
+  }
+  await expect(demo.locator('[data-facet="all"]')).toHaveAttribute(
+    'aria-selected',
+    'true'
+  );
+
   await page.keyboard.press('ArrowLeft');
   await expect(demo.locator('[data-facet="cli"]')).toHaveAttribute(
     'aria-selected',
@@ -302,7 +324,11 @@ test('results stay on the host that served them', async ({ page }) => {
 test('the keyboard shortcut opens the site overlay', async ({ page }) => {
   await page.goto(PAGE);
 
-  const shortcut = process.platform === 'darwin' ? 'Meta+k' : 'Control+k';
+  // Which modifier the page honours is decided by the platform the *browser*
+  // advertises, not the one the test runs on, and Playwright's Desktop Chrome
+  // advertises Windows even on a Mac host. Asking process.platform there picks
+  // Meta for a page that is listening for Control.
+  const shortcut = (await applePlatform(page)) ? 'Meta+k' : 'Control+k';
   await page.keyboard.press(shortcut);
 
   await expect(siteOverlay(page)).toBeVisible();
