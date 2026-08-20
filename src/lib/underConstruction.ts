@@ -7,9 +7,10 @@
 // sitemap.xml, so neither readers nor Google arrive at it ahead of the pages
 // that explain it.
 //
-// Call sites are src/pages/docs/search.json.ts and src/pages/docs/sitemap.xml.ts.
-// Both take their page list from an `import.meta.glob` rooted at
-// src/pages/docs, so the paths they pass in look like './api/feeds.md'.
+// Two call sites, which is why there are two entry points. sitemap.xml.ts takes
+// its page list from an `import.meta.glob` rooted at src/pages/docs, so the paths
+// it passes in look like './api/feeds.md'; `searchIndexAttributes` has the
+// rendered URL.
 
 const UNDER_CONSTRUCTION = [/^api(\/|$)/];
 
@@ -17,4 +18,9 @@ const UNDER_CONSTRUCTION = [/^api(\/|$)/];
 export function isUnderConstruction(globPath: string): boolean {
   const path = globPath.replace(/^\.?\//, '');
   return UNDER_CONSTRUCTION.some((pattern) => pattern.test(path));
+}
+
+/** The same test against a rendered page's URL. */
+export function isUnderConstructionUrl(pathname: string): boolean {
+  return isUnderConstruction(pathname.replace(/^\/docs\//, ''));
 }

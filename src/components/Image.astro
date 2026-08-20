@@ -9,6 +9,11 @@ const { src, alt, caption } = Astro.props satisfies Props;
 ---
 
 <figure class="image" data-image>
-  <img src={src} alt={alt} class="image__img" />
+  <img
+    src={src}
+    alt={alt}
+    class="image__img"
+    data-pagefind-index-attrs={alt ? 'alt' : undefined}
+  />
   {caption && <figcaption class="image__caption">{caption}</figcaption>}
 </figure>

@@ -13,10 +13,20 @@ import {
   fixtureEngine,
   type SearchEngine,
   type SearchResult,
+  type SearchSubResult,
 } from './search-engine';
-import { legacyEngine } from './search-engine-legacy';
+import { pagefindEngine } from './search-engine-pagefind';
 
 const DEBOUNCE_MS = 150;
+
+// Below this, typing is not yet a query.
+//
+// A single character matches an enormous share of the index, and Pagefind
+// fetches every chunk a query touches: one character costs 975ms, two 837ms,
+// three 342ms, and under 200ms beyond that. Two rather than three deliberately —
+// `s3`, `ui` and `ad` are real searches, and returning nothing for them was worse
+// than the wait.
+const MIN_QUERY_LENGTH = 2;
 const SITE_SEARCH = 'site';
 
 function setup(dialog: HTMLDialogElement) {
@@ -29,23 +39,52 @@ function setup(dialog: HTMLDialogElement) {
   const body = dialog.querySelector<HTMLElement>('[data-docs-search-body]');
   const list = dialog.querySelector<HTMLElement>('[data-docs-search-results]');
   const empty = dialog.querySelector<HTMLElement>('[data-docs-search-empty]');
+  // Optional: only the engines that can tell a broad query from an unanswerable
+  // one have anything to put here.
+  const broad = dialog.querySelector<HTMLElement>('[data-docs-search-broad]');
+  const broadEcho = dialog.querySelector<HTMLElement>(
+    '[data-docs-search-broad-echo]'
+  );
   const echo = dialog.querySelector<HTMLElement>('[data-docs-search-echo]');
+  const announce = dialog.querySelector<HTMLElement>(
+    '[data-docs-search-announce]'
+  );
   const template = dialog.querySelector<HTMLTemplateElement>(
     '[data-docs-search-row]'
+  );
+  // Optional, unlike the rest: an engine that hands over everything at once has
+  // nothing to page through, and the overlay still works without it.
+  const sentinel = dialog.querySelector<HTMLElement>('[data-docs-search-more]');
+  const sectionTemplate = dialog.querySelector<HTMLTemplateElement>(
+    '[data-docs-search-section]'
   );
 
   // A partially rendered overlay is a bug elsewhere; wiring half of it up would
   // only turn that into a confusing runtime failure.
-  if (!input || !tabs || !body || !list || !empty || !echo || !template) return;
+  if (
+    !input ||
+    !tabs ||
+    !body ||
+    !list ||
+    !empty ||
+    !echo ||
+    !announce ||
+    !template
+  )
+    return;
 
   const demo = dialog.dataset.demoResults;
   const engine: SearchEngine = demo
     ? fixtureEngine(JSON.parse(demo))
-    : legacyEngine(dialog.dataset.indexUrl ?? '/docs/search.json');
+    : pagefindEngine(dialog.dataset.indexUrl ?? '/docs/pagefind/');
 
   let facet = 'all';
   let active = -1;
   let debounce = 0;
+  // The last query reported to analytics. The old search page kept the same
+  // guard, so re-running a query — by picking a tab, or reopening on the same
+  // text — reports nothing.
+  let reported = '';
   // Every search is a race the newest one has to win, or a slow early query can
   // land after a later one and redraw the list with stale results.
   let generation = 0;
@@ -99,8 +138,86 @@ function setup(dialog: HTMLDialogElement) {
     return item;
   }
 
+  function drawSection(
+    template: HTMLTemplateElement,
+    section: SearchSubResult,
+    at: number
+  ) {
+    const item = template.content.cloneNode(true) as DocumentFragment;
+
+    const row = item.querySelector<HTMLAnchorElement>('.docs-search__section')!;
+    row.id = `${name}-search-option-${at}`;
+    row.href = section.url;
+    item.querySelector('.docs-search__section-title')!.textContent =
+      section.title;
+
+    return item;
+  }
+
+  /**
+   * Rows for the whole response, pages and their matched sections interleaved.
+   * The running index is what keeps `aria-activedescendant` working: every option
+   * needs a unique id, and a page's sections are numbered between it and the next
+   * page. `from` continues that numbering for rows appended later.
+   */
+  function drawAll(results: SearchResult[], from = 0) {
+    const nodes: DocumentFragment[] = [];
+    let at = from;
+
+    for (const result of results) {
+      nodes.push(drawRow(result, at++));
+      if (!sectionTemplate) continue;
+      for (const section of result.sections ?? []) {
+        nodes.push(drawSection(sectionTemplate, section, at++));
+      }
+    }
+
+    return nodes;
+  }
+
+  // Guards against a second page being asked for while the first is in flight,
+  // which a fast scroll through the root margin would otherwise do.
+  let extending = false;
+
+  /**
+   * Appends the next page as the end of the list comes into view.
+   *
+   * An observer rather than a button: there is nothing to focus, so the combobox
+   * keyboard model is left alone and arrowing to the last row pulls the next page
+   * in on its own. Pagefind hands over every match as a stub, so paging costs
+   * only the fragments for the rows being added.
+   */
+  const extender =
+    sentinel && engine.more
+      ? new IntersectionObserver(
+          async (entries) => {
+            if (extending) return;
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+
+            extending = true;
+            const mine = generation;
+            try {
+              const next = await engine.more!();
+              // A search that landed while this was in flight owns the list now.
+              if (mine !== generation) return;
+              if (next.length === 0) {
+                sentinel.hidden = true;
+                return;
+              }
+              list!.append(...drawAll(next, options().length));
+            } finally {
+              extending = false;
+            }
+          },
+          // Ahead of the end of the list, so the rows are there by the time the
+          // reader reaches them.
+          { root: body, rootMargin: '200px' }
+        )
+      : null;
+
   function render(response: Awaited<ReturnType<SearchEngine['search']>>) {
-    list!.replaceChildren(...response.results.map(drawRow));
+    const rows = drawAll(response.results);
+    list!.replaceChildren(...rows);
 
     for (const tab of facetTabs()) {
       const key = tab.dataset.facet!;
@@ -111,14 +228,49 @@ function setup(dialog: HTMLDialogElement) {
       tab.querySelector('.docs-search__count')!.textContent = `(${count})`;
     }
 
-    const hasQuery = input!.value.trim().length > 0;
+    // Long enough to have been searched, rather than merely non-empty. A single
+    // character never ran, so the panel should look like it is waiting rather
+    // than reporting nothing found.
+    const hasQuery = input!.value.trim().length >= MIN_QUERY_LENGTH;
     const hasResults = response.results.length > 0;
+
+    // Two ways to have no rows, and they get different words. A query on nearly
+    // every page has an answer the reader can reach by adding a word; one that
+    // matched nothing does not.
+    const tooBroad = !hasResults && response.tooBroad === true;
 
     tabs!.hidden = !hasQuery;
     body!.hidden = !hasQuery;
-    empty!.hidden = hasResults;
+    empty!.hidden = hasResults || tooBroad;
     echo!.textContent = input!.value.trim();
+    if (broad) broad.hidden = !tooBroad;
+    if (broadEcho) broadEcho.textContent = input!.value.trim();
     input!.setAttribute('aria-expanded', String(hasQuery && hasResults));
+
+    // The combobox roles say a listbox exists and which row is active; nothing
+    // says what came back. Pages are counted the way the tab strip counts them,
+    // and the matched sections are named separately, because each is another
+    // option to arrow onto without being another result.
+    // Every match, rather than the page of them on screen: the reader is told
+    // what the query found, and the rest of it arrives as they scroll.
+    const term = input!.value.trim();
+    const pages = response.total ?? response.results.length;
+    const sections = rows.length - response.results.length;
+    announce!.textContent = !hasQuery
+      ? ''
+      : tooBroad
+        ? `${term} is on nearly every page. Add another word to narrow it down.`
+        : pages === 0
+          ? `No results for ${term}`
+          : `${pages} ${pages === 1 ? 'result' : 'results'} for ${term}` +
+            (sections > 0 ? `, with ${sections} matching sections` : '');
+
+    if (extender && sentinel) {
+      const paged = hasResults && pages > response.results.length;
+      sentinel.hidden = !paged;
+      extender.disconnect();
+      if (paged) extender.observe(sentinel);
+    }
 
     setActive(0);
   }
@@ -133,6 +285,13 @@ function setup(dialog: HTMLDialogElement) {
   }
 
   async function run() {
+    // Also guarded here, not only in `schedule`: a shared `?q=` link opens
+    // straight into a search without going through the debounce.
+    if (input!.value.trim().length < MIN_QUERY_LENGTH) {
+      render({ results: [], counts: {} });
+      return;
+    }
+
     const mine = ++generation;
     let response = await engine.search(input!.value, facet);
     if (mine !== generation) return;
@@ -146,10 +305,39 @@ function setup(dialog: HTMLDialogElement) {
     }
 
     render(response);
+    report();
+  }
+
+  /**
+   * Tells Plausible what was searched for, through the `searched` event that
+   * `Plausible.astro` turns into a `Search` goal with a `search` prop.
+   *
+   * Dispatched on `document` because that is where the listener sits, and only
+   * once the results are on screen, so the count of searches matches the count
+   * of answered queries rather than of keystrokes. The showcase overlay is
+   * excluded: its results are a fixture, and its page carries the same layout.
+   */
+  function report() {
+    const term = input!.value.trim();
+    if (demo || term === reported) return;
+
+    reported = term;
+    document.dispatchEvent(
+      new CustomEvent('searched', { detail: { search: term } })
+    );
   }
 
   function schedule() {
     window.clearTimeout(debounce);
+
+    // Too short to search: close the panel back down rather than leaving the
+    // previous query's results under a field that no longer says that.
+    if (input!.value.trim().length < MIN_QUERY_LENGTH) {
+      generation += 1;
+      render({ results: [], counts: {} });
+      return;
+    }
+
     debounce = window.setTimeout(run, DEBOUNCE_MS);
   }
 
@@ -212,7 +400,15 @@ function setup(dialog: HTMLDialogElement) {
 
   // --- Inside the dialog ---------------------------------------------------
 
-  input.addEventListener('input', schedule);
+  input.addEventListener('input', () => {
+    // Ahead of the debounce, so the chunks this query needs are already on their
+    // way by the time the search runs. Guarded the same way `schedule` is: the
+    // fetch is most of what `MIN_QUERY_LENGTH` exists to avoid.
+    if (input!.value.trim().length >= MIN_QUERY_LENGTH) {
+      engine.preload?.(input!.value);
+    }
+    schedule();
+  });
 
   dialog.addEventListener('keydown', (event) => {
     // Up and Down only. Home and End belong to the query, which is what an
@@ -316,7 +512,9 @@ function setup(dialog: HTMLDialogElement) {
   if (name !== SITE_SEARCH) return;
 
   // Cmd+K on Apple platforms, Ctrl+K everywhere else.
-  const navigator = (window.navigator as Navigator & { userAgentData?: { platform: string } });
+  const navigator = window.navigator as Navigator & {
+    userAgentData?: { platform: string };
+  };
   const isApple = navigator.userAgentData
     ? navigator.userAgentData.platform === 'macOS'
     : (navigator.platform || navigator.userAgent).includes('Mac');
@@ -327,6 +525,10 @@ function setup(dialog: HTMLDialogElement) {
     event.preventDefault();
     open();
   });
+
+  // Engines that are cheap to start say so; the rest wait for the overlay. See
+  // `eager` on `SearchEngine` for why this is not the same answer for both.
+  if (engine.eager) engine.warm?.();
 
   // A shared `?q=` link opens straight into results.
   const q = new URLSearchParams(window.location.search).get('q');

@@ -44,7 +44,7 @@ if (facets.length === 0) {
   throw new Error('DocsSearch needs at least one facet for its tab strip');
 }
 
-const indexUrl = `${SITE.subfolder}/search.json`;
+const indexUrl = `${SITE.subfolder}/pagefind/`;
 const listboxId = `${name}-search-listbox`;
 ---
 
@@ -126,7 +126,34 @@ const listboxId = `${name}-search-listbox`;
       <p class="docs-search__empty" hidden data-docs-search-empty>
         No results for <strong data-docs-search-echo></strong>.
       </p>
+      <!-- Shown in place of the above when the query is on almost every page, so
+           the reader is told to narrow it rather than that nothing was found. -->
+      <p class="docs-search__empty" hidden data-docs-search-broad>
+        <strong data-docs-search-broad-echo></strong> is on nearly every page. Add
+        another word to narrow it down.
+      </p>
+      <!-- Watched, not clicked: scrolling it into view appends the next page.
+           Outside the list so redrawing the rows leaves it alone, and outside
+           the accessibility tree because it is not a control. -->
+      <div
+        class="docs-search__more"
+        hidden
+        aria-hidden="true"
+        data-docs-search-more
+      >
+      </div>
     </div>
+
+    <!-- Outside the body, which is hidden until there is a query: a live region
+         that has just entered the accessibility tree does not reliably announce
+         the first thing written to it. -->
+    <p
+      class="docs-search__announce"
+      role="status"
+      aria-live="polite"
+      data-docs-search-announce
+    >
+    </p>
 
     <!-- Astro scopes a component's styles to the markup it can see at build
          time, so a row assembled from `createElement` would come out unstyled.
@@ -141,6 +168,20 @@ const listboxId = `${name}-search-listbox`;
             <span class="docs-search__row-trail"></span>
           </span>
           <span class="docs-search__row-enter" aria-hidden="true"></span>
+        </a>
+      </li>
+    </template>
+
+    {
+      /* A heading inside the result above that matched on its own. Its own
+         `role="option"`, because it links somewhere different: the reader can
+         arrow onto it and land on that section. */
+    }
+    <template data-docs-search-section>
+      <li role="presentation">
+        <a class="docs-search__section" role="option" aria-selected="false">
+          <span class="docs-search__section-mark" aria-hidden="true"></span>
+          <span class="docs-search__section-title"></span>
         </a>
       </li>
     </template>
@@ -324,6 +365,11 @@ const listboxId = `${name}-search-listbox`;
     font: var(--textBodyBoldMedium);
   }
 
+  .docs-search__more {
+    /* Tall enough to intersect; the observer's root margin does the rest. */
+    height: 1px;
+  }
+
   .docs-search__body {
     flex: 1 1 auto;
     min-height: 0;
@@ -436,11 +482,53 @@ const listboxId = `${name}-search-listbox`;
     visibility: visible;
   }
 
+  .docs-search__section {
+    display: flex;
+    gap: var(--space4);
+    align-items: baseline;
+    /* Lines up with the parent row's title, past its icon. */
+    padding-block: var(--space2);
+    padding-inline: calc(var(--space12) + 1.5rem) var(--space12);
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularMedium);
+    text-decoration: none;
+  }
+
+  .docs-search__section[data-active] {
+    background: var(--colorNavBackgroundActive);
+  }
+
+  .docs-search__section-mark {
+    flex: none;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--colorIconTertiary);
+    mask: var(--arrowNested) center / contain no-repeat;
+  }
+
+  .docs-search__section-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .docs-search__empty {
     margin: 0;
     padding: var(--space12);
     color: var(--colorTextSecondary);
     font: var(--textBodyRegularMedium);
+  }
+
+  /* Visually hidden by clipping. `hidden` and `display: none` would take it out
+     of the accessibility tree and silence it. */
+  .docs-search__announce {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .docs-search__footer {

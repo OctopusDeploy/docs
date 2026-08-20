@@ -405,6 +405,7 @@ Ozar
 PAAS
 packageid
 packageversion
+pagefind
 passout
 PathtoPublish
 pemstore

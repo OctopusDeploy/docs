@@ -270,6 +270,62 @@ test('the query is left in the field that opened the overlay', async ({
   await expect(trigger).toHaveValue('tentacle');
 });
 
+// Search analytics broke once already, silently: `Plausible.astro` kept
+// listening for a `searched` event after the page that fired it was deleted, and
+// nothing failed. The goal name and the prop name are the contract with the
+// Plausible dashboard, so they are asserted rather than described.
+test('a settled query reports a Search goal to Plausible', async ({ page }) => {
+  // Plausible itself is not loaded on a preview build, so stand in for it.
+  await page.addInitScript(() => {
+    (window as Window & { searchGoals?: unknown[] }).searchGoals = [];
+    (window as Window & { plausible?: unknown }).plausible = (
+      goal: string,
+      options: unknown
+    ) => {
+      (window as Window & { searchGoals?: unknown[] }).searchGoals!.push([
+        goal,
+        options,
+      ]);
+    };
+  });
+
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('tentacle');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => (window as Window & { searchGoals?: unknown[] }).searchGoals
+      )
+    )
+    .toEqual([['Search', { props: { search: 'tentacle' } }]]);
+
+  // Narrowing to a tab re-runs the same query. The old search page reported once
+  // per distinct query and this has to match it, or every tab click inflates the
+  // count.
+  const docs = site.locator('[data-docs-search-tabs] [data-facet="docs"]');
+  if (await docs.isVisible()) {
+    await docs.click();
+    await expect(site.locator('[role="option"]').first()).toBeVisible({
+      timeout: 20_000,
+    });
+  }
+
+  expect(
+    await page.evaluate(
+      () => (window as Window & { searchGoals?: unknown[] }).searchGoals
+    )
+  ).toHaveLength(1);
+});
+
 // The index stores absolute production URLs. A result that keeps one sends you
 // from an ephemeral environment or localhost straight to octopus.com, which is
 // exactly what happened the first time this shipped.
@@ -294,6 +350,228 @@ test('results stay on the host that served them', async ({ page }) => {
     expect(href, 'a result href must be a path, not an absolute URL').toMatch(
       /^\/docs\//
     );
+  }
+});
+
+// A section's own page can rank far below the pages inside it on raw score -
+// /docs/infrastructure/deployment-targets/ is 36th for this query - so the
+// overlay runs a second search over the shallow pages alone and puts the page the
+// query names at the top. Without it the first result is a getting-started page.
+test('the page a query names comes first', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('deployment targets');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/infrastructure/deployment-targets/'
+  );
+});
+
+// Pagefind hands over every match as a stub and only the rows on screen cost a
+// fetch, so the list extends as it is scrolled rather than stopping at the first
+// page. The ids matter as much as the count: `aria-activedescendant` names one,
+// so a repeat would point the input at the wrong row.
+test('scrolling to the end of the results loads more', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  // A query with far more matches than fit in one page.
+  await site.locator('[data-docs-search-input]').fill('deployments');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  const rows = site.locator('[role="option"]');
+  const first = await rows.count();
+  expect(first).toBeGreaterThan(0);
+
+  await site
+    .locator('[data-docs-search-body]')
+    .evaluate((body) => body.scrollTo(0, body.scrollHeight));
+
+  await expect
+    .poll(() => rows.count(), { timeout: 20_000 })
+    .toBeGreaterThan(first);
+
+  const ids = await rows.evaluateAll((options) => options.map((row) => row.id));
+  expect(new Set(ids).size, 'every option needs its own id').toBe(ids.length);
+});
+
+// The two features meeting: a page pulled onto the first screen for naming the
+// query still has its own stub further down the list, because ranking past
+// PAGE_SIZE is why it had to be pulled forward at all. Paging has to skip it.
+//
+// `deployment targets` rather than a query with more results: the promotion only
+// happens when nothing on the first page already names the query, and
+// /docs/infrastructure/deployment-targets/ ranks 36th on raw score.
+test('a page pulled forward is not listed again further down', async ({
+  page,
+}) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('deployment targets');
+  const rows = site.locator('[role="option"]');
+  await expect(rows.first()).toBeVisible({ timeout: 20_000 });
+  await expect(rows.first()).toHaveAttribute(
+    'href',
+    '/docs/infrastructure/deployment-targets/'
+  );
+
+  // Twice, because the second stub sits on the page after the first.
+  for (let round = 0; round < 2; round += 1) {
+    const before = await rows.count();
+    await site
+      .locator('[data-docs-search-body]')
+      .evaluate((body) => body.scrollTo(0, body.scrollHeight));
+    await expect
+      .poll(() => rows.count(), { timeout: 20_000 })
+      .toBeGreaterThan(before);
+  }
+
+  const hrefs = await rows.evaluateAll((options) =>
+    options.map((row) => row.getAttribute('href'))
+  );
+  // Section rows carry an anchor and share their page's url, so only page rows
+  // are counted here.
+  const pages = hrefs.filter((href) => href && !href.includes('#'));
+  expect(new Set(pages).size, 'no page may be listed twice').toBe(pages.length);
+});
+
+// A word on nearly every page scores near zero, because BM25's IDF collapses when
+// a term is everywhere: `octopus` is on 1177 of 1251 pages and scores 0.87
+// against a floor of 8. Suppressing it is right, and calling it "no results" is
+// not - there are 1177.
+test('a query on nearly every page asks for a narrower one', async ({
+  page,
+}) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('octopus');
+
+  await expect(site.locator('[data-docs-search-broad]')).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[data-docs-search-empty]')).toBeHidden();
+  await expect(site.locator('[role="option"]')).toHaveCount(0);
+});
+
+// A keyboard mash also scores below the floor, and it really has no answer, so it
+// keeps the plain message. Pagefind scores partial matches, so a mash matches a
+// surprising share of the corpus - `asdfgh` reaches 74% - which is why the two
+// cases are told apart by more than the score.
+test('a query with no answer still says no results', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('asdfgh');
+
+  await expect(site.locator('[data-docs-search-empty]')).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[data-docs-search-broad]')).toBeHidden();
+});
+
+// Three CLI pages carry the slug `create-release`, so the rule that promotes a
+// page the query names would otherwise hand this to one of them. A reference page
+// has to be asked for.
+test('a guide beats a command of the same name', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('create release');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/releases/creating-a-release/'
+  );
+});
+
+// The other half of that rule: ask for the command and you get the command. Every
+// CLI page is titled `octopus <something>`, so a query opening that way counts as
+// asking.
+test('a command wins when the query asks for one', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('octopus release create');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/octopus-rest-api/cli/octopus-release-create/'
+  );
+});
+
+// The strip counts every match Pagefind returns for a tab, so a tab offering a
+// number has to show rows when it is picked. `kubernetes` had one API page
+// scoring 6.59 against a floor of 8, so the strip read "API (1)" and the panel
+// read "No results for kubernetes".
+test('every tab with a count has results behind it', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('kubernetes');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+
+  const tabs = site.locator(
+    '[data-docs-search-tabs] [data-facet]:not([hidden])'
+  );
+  const facets = await tabs.evaluateAll((all) =>
+    all.map((tab) => ({
+      facet: (tab as HTMLElement).dataset.facet,
+      // "Docs (123)" - the strip prints the count in brackets.
+      count: Number(/\((\d+)\)/.exec(tab.textContent ?? '')?.[1] ?? 0),
+    }))
+  );
+
+  // The API tab is the one that used to fail, so the test is worthless without
+  // it: a run where the query stops matching an API page proves nothing.
+  expect(facets.map((f) => f.facet)).toContain('api');
+
+  for (const { facet, count } of facets) {
+    if (!facet || count === 0) continue;
+
+    await site.locator(`[data-facet="${facet}"]`).click();
+    await expect(
+      site.locator('[role="option"]').first(),
+      `the ${facet} tab offers ${count} and has to show them`
+    ).toBeVisible({ timeout: 20_000 });
   }
 });
 

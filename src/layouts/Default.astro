@@ -5,6 +5,7 @@ import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils
 import { SITE } from '@config';
 import type { Crumb } from '@util/breadcrumbs';
 import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
+import { searchIndexAttributes } from '@lib/searchIndexing';
 
 // Theme components
 import Head from '@components/HtmlHead.astro';
@@ -59,10 +60,14 @@ const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
 const isSearchPage =
   accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
 
+// Gates the header's search field only. The overlay below is always rendered:
+// /docs/search has its own field and opens that same overlay.
 const showSearch = !isSearchPage;
 
 // The footer prints this; JSON-LD carries it as dateModified.
 const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
+
+const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
 ---
 
 <html
@@ -84,7 +89,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
     <div class="content-group">
       <main id="site-main">
         <Breadcrumbs lang={lang} crumbs={crumbs} />
-        <article>
+        <article {...searchIndex.article}>
           <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
           <div class="page-actions">
             <CopyAsMarkdown lang={lang} />
@@ -95,7 +100,7 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
               lang={lang}
             />
           </div>
-          <div class="page-content anim-show-parent">
+          <div class="page-content anim-show-parent" {...searchIndex.content}>
             <slot />
             <Authors frontmatter={frontmatter} lang={lang} />
             <Taxonomy frontmatter={frontmatter} lang={lang} />
@@ -119,11 +124,6 @@ const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
       </div>
       <Footer lang={lang} lastUpdated={lastUpdated} />
     </div>
-    {
-      /* One overlay for the page: both headers point their fields at it, and so
-         does the standalone /docs/search page, which is why this is not behind
-         `showSearch` the way the header field is. */
-    }
     <DocsSearch />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;

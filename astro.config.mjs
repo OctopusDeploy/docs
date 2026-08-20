@@ -3,11 +3,13 @@ import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/custom-markdown.mjs';
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
+import pagefindIndex from './src/integrations/pagefind-index.ts';
 import pruneDist from './src/integrations/prune-dist.ts';
 import satteriHeadingId from './src/plugins/satteri-heading-id.js';
 import satteriApiExamples, { apiExampleDirective } from './src/plugins/satteri-api-examples.js';
 import { endpointDirective } from './src/plugins/satteri-endpoint.js';
 import satteriWbr from './src/plugins/satteri-wbr.js';
+import pagefindImageAttrs from './src/plugins/pagefind-image-attrs.js';
 import shikiCodeBlock from './src/plugins/shiki-code-block.js';
 
 // https://astro.build/config
@@ -22,6 +24,9 @@ export default defineConfig({
     integrations: [
         mdx(),
         llmMdEmitter(),
+        // After the page emitters, and before the prune that would delete its
+        // output
+        pagefindIndex(),
         // Must run last: strips build output that can't be served under /docs/
         pruneDist()
     ],
@@ -63,6 +68,7 @@ export default defineConfig({
             ],
             hastPlugins: [
                 satteriWbr,
+                pagefindImageAttrs,
                 satteriApiExamples
             ],
         }),

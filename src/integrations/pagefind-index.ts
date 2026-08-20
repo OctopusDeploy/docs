@@ -1,0 +1,90 @@
+// Builds the Pagefind index from the HTML the site just emitted. `rootSelector`
+// and `excludeSelectors` below decide what gets indexed, for every layout at
+// once; the `data-pagefind-*` attributes a layout adds only describe what is
+// different about its pages.
+//
+// The index has to land inside `dist/docs/`, because `prune-dist.ts` deletes
+// every top-level entry outside its allowlist, and this has to be registered
+// before `pruneDist()` — hooks run in the order they are listed.
+
+import type { AstroIntegration } from 'astro';
+import { fileURLToPath } from 'node:url';
+import * as path from 'node:path';
+// Statically, because `astro:build:done` fires after Vite's module runner has
+// closed and a dynamic import from inside the hook cannot be resolved.
+import { createIndex, close } from 'pagefind';
+
+export default function pagefindIndex(): AstroIntegration {
+  return {
+    name: 'pagefind-index',
+    hooks: {
+      'astro:build:done': async ({ dir, logger }) => {
+        const distDir = fileURLToPath(dir);
+
+        const { index, errors } = await createIndex({
+          keepIndexUrl: false,
+          // Pagefind strips punctuation from both the index and the query, which
+          // left `<head>` matching nothing at all. Keeping these characters
+          // indexes both forms — `head` *and* `<head>` — so ordinary searches are
+          // unaffected and a reader pasting real syntax gets the page about it.
+          //
+          // Each character earns its place: `.` for dotted variable and
+          // executable names, `#{}` for substitution syntax, `<>` for tags, `+`
+          // for C++, and `$_` for shell variables.
+          includeCharacters: '.#{}<>+$_',
+          // The article, so a layout does not have to opt in to being indexed:
+          // a new one added without a thought for search still gets found. The
+          // article rather than `.page-content`, because Pagefind takes a
+          // result's title from the first heading inside the indexed element.
+          //
+          // A layout with no `<article>` therefore indexes nothing. The count
+          // logged at the end of this hook is of files scanned, so it says
+          // nothing about that: `tests/docs-search.spec.ts` is what would catch
+          // it.
+          rootSelector: 'article',
+          // Sits inside the article and on every page, so its words would
+          // otherwise match every query.
+          excludeSelectors: ['.page-actions'],
+        });
+
+        if (!index) {
+          throw new Error(`could not start Pagefind: ${errors.join(', ')}`);
+        }
+
+        // `close()` stops the Pagefind binary. Without the `finally` a thrown
+        // error leaves that child process running and the build never exits.
+        try {
+          // `dist/docs` rather than `dist`: the client points Pagefind at
+          // `/docs/pagefind/`, from which it derives a `/docs/` prefix for every
+          // result URL, so indexing from `dist` would put the prefix on twice.
+          const added = await index.addDirectory({
+            path: path.join(distDir, 'docs'),
+            glob: '**/*.html',
+          });
+
+          if (added.errors.length > 0) {
+            throw new Error(
+              `Pagefind indexing failed: ${added.errors.join(', ')}`
+            );
+          }
+
+          const written = await index.writeFiles({
+            outputPath: path.join(distDir, 'docs', 'pagefind'),
+          });
+
+          if (written.errors.length > 0) {
+            throw new Error(
+              `Pagefind write failed: ${written.errors.join(', ')}`
+            );
+          }
+
+          // Files scanned, not pages indexed: the redirect stubs are counted
+          // here and then dropped for having no article.
+          logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
+        } finally {
+          await close();
+        }
+      },
+    },
+  };
+}
