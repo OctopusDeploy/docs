@@ -9,6 +9,7 @@ import { SITE } from '@config';
 import { convert } from 'html-to-text';
 import keywordExtractor from 'keyword-extractor';
 import { isUnderConstruction } from '@lib/underConstruction';
+import { flattenGeneratedApiPath } from '@lib/generatedApiPaths';
 
 const getData = async () => {
   //@ts-ignore
@@ -29,7 +30,7 @@ const getData = async () => {
       continue;
     }
 
-    let url = page.url ?? '';
+    let url = flattenGeneratedApiPath(page.url ?? '');
 
     if (page.frontmatter.paged) {
       url += '/1/';

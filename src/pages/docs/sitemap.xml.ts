@@ -5,6 +5,7 @@ import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
 import { PostFiltering } from 'astro-accelerator-utils';
 import { isUnderConstruction } from '@lib/underConstruction';
+import { flattenGeneratedApiPath } from '@lib/generatedApiPaths';
 
 async function getData() {
   //@ts-ignore
@@ -21,7 +22,9 @@ async function getData() {
     const article: any = await allPages[path]();
     const addToSitemap = PostFiltering.showInSitemap(article);
 
-    let url = accelerator.urlFormatter.formatAddress(article.url);
+    let url = accelerator.urlFormatter.formatAddress(
+      flattenGeneratedApiPath(article.url ?? '')
+    );
 
     if (article.frontmatter.layout == 'src/layouts/Author.astro') {
       url += '1/';

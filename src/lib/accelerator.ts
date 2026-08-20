@@ -1,5 +1,9 @@
 import { Accelerator } from 'astro-accelerator-utils';
 import { SITE } from '@config';
+import {
+  flattenGeneratedApiPath,
+  isGeneratedApiPath,
+} from '@lib/generatedApiPaths';
 
 // Shared, memoized Accelerator for the whole build process.
 //
@@ -37,23 +41,40 @@ const readAll = posts.all.bind(posts);
 // Astro does not route: anything with an underscore-prefixed path segment. Those
 // are not pages, so they have no business in the nav, the breadcrumb trail, the
 // taxonomy, or the /report pages - each of which would link to a URL that 404s.
-// Astro's own routing rule is the filter.
+// Astro's own routing rule is the filter, with one exception: /docs/api/_generated
+// contains generated API docs which is published from /docs/api/ by [...generatedFileName].astro.
 const PAGES_ROOT = '/src/pages/';
-const isRouted = (post: { file?: string }) => {
+
+// `file` is an absolute path. We only care about the part below `src/pages`.
+const routePathOf = (post: { file?: string }) => {
   const file = post.file ?? '';
-  // Only the path below src/pages decides routing. In local development the
-  // generated API pages are symlinked in, so `file` resolves to wherever the
-  // generator wrote them - checking the whole absolute path could catch a
-  // directory of the developer's that happens to start with an underscore.
   const index = file.lastIndexOf(PAGES_ROOT);
-  const routePath =
-    index === -1
-      ? file.slice(file.lastIndexOf('/') + 1)
-      : file.slice(index + PAGES_ROOT.length);
-  return !routePath.split('/').some((part) => part.startsWith('_'));
+  return index === -1
+    ? file.slice(file.lastIndexOf('/') + 1)
+    : file.slice(index + PAGES_ROOT.length);
 };
 
-const readRouted = () => readAll().filter(isRouted);
+const isRouted = (post: { file?: string }) =>
+  !routePathOf(post)
+    .split('/')
+    .some((part) => part.startsWith('_'));
+
+const withGeneratedApiUrl = <T extends { file?: string; url?: string }>(
+  post: T
+): T => {
+  const routePath = routePathOf(post);
+  if (!isGeneratedApiPath(routePath)) return post;
+
+  return {
+    ...post,
+    url: '/' + flattenGeneratedApiPath(routePath).replace(/\.md$/, ''),
+  };
+};
+
+const readRouted = () =>
+  readAll()
+    .map(withGeneratedApiUrl)
+    .filter((post) => isRouted(post) || isGeneratedApiPath(routePathOf(post)));
 
 let allPosts: ReturnType<typeof readAll> | null = null;
 
