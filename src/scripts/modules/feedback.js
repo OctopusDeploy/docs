@@ -23,9 +23,9 @@ async function submit(page, rating, comment) {
   const body = new URLSearchParams();
   body.set(FIELD_PAGE, page);
   body.set(FIELD_RATING, rating);
-  // The comment is marked required on the form, so a blank box still has to
-  // send something for the submission to be accepted at all.
-  body.set(FIELD_COMMENT, comment.trim() || ' ');
+  // Required on the form, and required by the widget as well, so there is
+  // always something here.
+  body.set(FIELD_COMMENT, comment.trim());
 
   await fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body });
 }
@@ -65,7 +65,21 @@ class Feedback {
     this.votes.forEach((button) => {
       button.addEventListener('click', () => this.vote(button));
     });
+    this.textarea.addEventListener('input', () => this.allowSend());
     this.send.addEventListener('click', () => this.submit());
+  }
+
+  /**
+   * The security scanner that crawls the docs works every control it finds and
+   * types into none of them, so each of its submissions arrives with an empty
+   * box. Send is out of reach until there is something worth sending.
+   */
+  allowSend() {
+    if (this.textarea.value.trim()) {
+      this.send.removeAttribute('disabled');
+    } else {
+      this.send.setAttribute('disabled', '');
+    }
   }
 
   /** @param {HTMLElement} chosen */
@@ -78,7 +92,9 @@ class Feedback {
   }
 
   async submit() {
-    if (!this.rating) return;
+    // The disabled button covers both of these already. They are here for the
+    // caller that reaches the handler another way.
+    if (!this.rating || !this.textarea.value.trim()) return;
 
     // Guards against a second submission while the first is in flight.
     this.send.setAttribute('disabled', '');
