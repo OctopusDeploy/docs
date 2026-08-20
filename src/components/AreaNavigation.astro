@@ -8,7 +8,10 @@ import ApiNavigation from './ApiNavigation.astro';
 
 // The area's nav, picked by area rather than by layout, so a page can be laid
 // out one way and navigated another. Every layout renders this and none of them
-// names a nav component; a new area adds a branch here and nothing else.
+// names a nav component.
+//
+// Adding an area means adding a line at the bottom of this file, and the rest
+// of the checklist is in lib/areas.ts - this is step 3 of four.
 type Props = {
   area: Area;
   lang: string;
@@ -23,9 +26,13 @@ const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
 ---
 
 {
-  area === 'api' ? (
+  /* One line per area, each handed only the props its own nav takes. An area
+  with no line here renders no nav at all, which is louder than quietly showing
+  it the wrong one. */
+}
+{area === 'docs' && <Navigation lang={lang} />}
+{
+  area === 'api' && (
     <ApiNavigation lang={lang} headings={headings} apiMethods={apiMethods} />
-  ) : (
-    <Navigation lang={lang} />
   )
 }

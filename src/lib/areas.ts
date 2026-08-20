@@ -14,8 +14,13 @@ import { accelerator } from './accelerator';
 // including the ~100 generated ones. A page that needs to say otherwise puts
 // `area:` in its frontmatter and that wins.
 //
-// Adding an area takes three things: an entry below, a case in
-// components/AreaNavigation.astro, and the nav component it points at.
+// Adding an area takes four things, and this list is the only copy of it:
+//   1. an entry in AREAS below, and the area's name in the Area union
+//   2. the nav component it will render
+//   3. a line for it in components/AreaNavigation.astro
+//   4. its name in the `area` field's `choices` in frontmatter.json - miss this
+//      one and the build still passes while authors cannot pick the area in
+//      Front Matter CMS, with nothing on screen to say why
 
 export type Area = 'docs' | 'api';
 
@@ -45,7 +50,22 @@ const PATH_AREAS = (Object.entries(AREAS) as [Area, AreaDefinition][])
 const trimSlash = (path: string) => path.replace(/\/$/, '');
 
 function isArea(value: unknown): value is Area {
-  return typeof value === 'string' && value in AREAS;
+  // hasOwn, not `in`: `in` also finds Object.prototype's keys, so `area:
+  // constructor` would validate and then resolve to a function, taking the page
+  // out of every nav on the site - the outcome resolveArea() promises to avoid.
+  return typeof value === 'string' && Object.hasOwn(AREAS, value);
+}
+
+/**
+ * Whether a path sits inside an area's own path, on a path boundary.
+ *
+ * The boundary is the whole point: /docs/api-and-integration is not part of
+ * /docs/api. Everything that compares a path against an area goes through here
+ * so the rule cannot be applied in one place and skipped in another.
+ */
+function isUnderAreaPath(pathname: string, areaPath: string): boolean {
+  const prefix = SITE.subfolder + areaPath;
+  return pathname === prefix || pathname.startsWith(prefix + '/');
 }
 
 /**
@@ -58,8 +78,7 @@ export function areaFromPath(path: string): Area {
   const pathname = trimSlash(path);
 
   for (const [area, definition] of PATH_AREAS) {
-    const prefix = SITE.subfolder + definition.path;
-    if (pathname === prefix || pathname.startsWith(prefix + '/')) return area;
+    if (isUnderAreaPath(pathname, definition.path as string)) return area;
   }
 
   return DEFAULT_AREA;
@@ -81,6 +100,38 @@ export function resolveArea(declared: unknown, path: string): Area {
   return areaFromPath(path);
 }
 
+// astro-accelerator-utils rewrites a redirect page's nav url to point at
+// whatever it redirects to (mapNavPage in navigation.mjs), so the page has no
+// nav node of its own for an area to move. Honouring `area:` on one would put
+// it in the API nav via pageArea() while the site nav kept it, landing it in
+// both trees - so it is not honoured anywhere, and says so out loud.
+const REDIRECT_LAYOUT = 'src/layouts/Redirect.astro';
+
+function declaredArea(post: MarkdownInstance): unknown {
+  const declared = post?.frontmatter?.area;
+  if (declared == null) return null;
+
+  if (post?.frontmatter?.layout === REDIRECT_LAYOUT) {
+    console.warn(
+      `area: "${String(declared)}" on ${post.url ?? post.file} has no effect: the page redirects, so its nav entry belongs to ${String(post.frontmatter.redirect)}. Set the area on the page it redirects to.`
+    );
+    return null;
+  }
+
+  return declared;
+}
+
+/**
+ * The url the nav tree will carry for a page, which is not always the url the
+ * page is served from: mapNavPage() sends a paged page straight to its first
+ * page. Overrides are looked up by what the tree holds, so they are keyed the
+ * same way. Keep in step with astro-accelerator-utils navigation.mjs.
+ */
+function navUrl(post: MarkdownInstance): string {
+  const url = post.url ?? '';
+  return post.frontmatter?.paged ? trimSlash(url) + '/1' : url;
+}
+
 /**
  * The area for a page read back from the post list.
  *
@@ -90,7 +141,7 @@ export function resolveArea(declared: unknown, path: string): Area {
  * the caller that can rebuild it (see apiNavigation.urlsByFile).
  */
 export function pageArea(post: MarkdownInstance, urlHint?: string): Area {
-  return resolveArea(post?.frontmatter?.area, post?.url ?? urlHint ?? '');
+  return resolveArea(declaredArea(post), post?.url ?? urlHint ?? '');
 }
 
 // Pages whose frontmatter puts them in a different area than their path would.
@@ -106,11 +157,13 @@ function areaOverrides(): Map<string, Area> {
 
   const map = new Map<string, Area>();
   for (const post of accelerator.posts.all()) {
-    const declared = post.frontmatter?.area;
+    const declared = declaredArea(post);
     if (declared == null || post.url == null) continue;
 
+    // The area is decided by the url the page is served from; the key is the
+    // url the nav tree will look it up by. For most pages these are the same.
     const area = resolveArea(declared, post.url);
-    if (area !== areaFromPath(post.url)) map.set(trimSlash(post.url), area);
+    if (area !== areaFromPath(post.url)) map.set(trimSlash(navUrl(post)), area);
   }
 
   // Builds only. In dev the page set changes under you, so rebuild each call.
@@ -122,24 +175,16 @@ function areaOverrides(): Map<string, Area> {
  * A resolver for a caller that has urls and nothing else; anything holding the
  * page itself should use pageArea() and skip the lookup.
  *
- * One resolver per pass over a set of urls. The overrides behind it are read
- * once per resolver, which is the point: collecting them walks the whole page
- * set, and in dev that set is re-read from disk every time, so a url-at-a-time
- * lookup turns a tree walk into thousands of them.
- *
- * They are collected on first use rather than up front, because reading the
- * page set is also what pulls the nav tree's lazy children into being, and
- * doing that before the caller's first lookup reorders the siblings that tie
- * on navOrder. A resolver that is only meant to be faster has no business
- * moving nav rows around.
+ * One resolver per pass over a set of urls, and that is the whole point of it:
+ * collecting the overrides walks the entire page set, which in dev is re-read
+ * from disk every call, so looking them up a url at a time turns one tree walk
+ * into thousands of reads. It measured at 2.0s against 0.22s on a dev page
+ * render before this existed.
  */
 export function areaResolver(): (url: string) => Area {
-  let overridesForPass: Map<string, Area> | null = null;
+  const overridesForPass = areaOverrides();
 
-  return (url) => {
-    overridesForPass ??= areaOverrides();
-    return overridesForPass.get(trimSlash(url)) ?? areaFromPath(url);
-  };
+  return (url) => overridesForPass.get(trimSlash(url)) ?? areaFromPath(url);
 }
 
 /**
@@ -156,7 +201,11 @@ export function buildAreaCrumbs(
   const { path, sectionCrumb } = AREAS[area];
 
   if (path === null || sectionCrumb === null) return crumbs;
-  if (!currentUrl.pathname.startsWith(SITE.subfolder + path)) return crumbs;
+  // The crumbs follow the url, not the area: a page at /docs/guides/api-tour
+  // that declares `area: api` shows the API nav but still sits under Docs >
+  // Guides, so it gets no crumb from here. isUnderAreaPath, not a bare
+  // startsWith, or /docs/api-and-integration would collect an "Api" crumb.
+  if (!isUnderAreaPath(trimSlash(currentUrl.pathname), path)) return crumbs;
   if (crumbs.some((crumb) => crumb.title === sectionCrumb)) return crumbs;
 
   // After the /docs crumb, which is the only one the walk finds above us. The
