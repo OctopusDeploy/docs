@@ -316,7 +316,7 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
   "RelatedDocumentIds": [
     "string"
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UserAgent": "string",
   "UserId": "string",
   "Username": "string"

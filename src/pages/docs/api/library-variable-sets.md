@@ -87,7 +87,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -145,7 +145,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "ContentType": "Variables",
   "Description": "string",
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -215,7 +215,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -308,7 +308,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
       "additionalProp3": "string"
     },
     "Name": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Templates": [
       {
         "DefaultValue": {},
@@ -390,7 +390,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -464,7 +464,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -540,7 +540,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -611,7 +611,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -669,9 +669,9 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "LibraryVariableSets-1",
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -742,7 +742,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -820,7 +820,7 @@ Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIde
   "Projects": [
     {
       "IsCurrentlyBeingUsedInProject": true,
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "ProjectSlug": "string",
       "Releases": [

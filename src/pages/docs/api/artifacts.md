@@ -86,10 +86,10 @@ Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "LogCorrelationId": "string",
+      "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
       "ServerTaskId": "string",
       "Source": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -137,10 +137,10 @@ Creates a new artifact.
 ```json
 {
   "Filename": "Performance Test Results.csv",
-  "LogCorrelationId": "string",
-  "ServerTaskId": "string",
+  "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
+  "ServerTaskId": "ServerTasks-1",
   "Source": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -182,10 +182,10 @@ Creates a new artifact.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "LogCorrelationId": "string",
+  "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
   "Source": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -240,10 +240,10 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "LogCorrelationId": "string",
+  "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
   "Source": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -298,10 +298,10 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "LogCorrelationId": "string",
+  "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
   "Source": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -98,7 +98,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
         "string"
       ],
       "SortOrder": 0,
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Tags": [
         {}
       ],
@@ -165,7 +165,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
     "string"
   ],
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tags": [
     {
       "CanonicalTagName": "string",
@@ -237,7 +237,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
     "string"
   ],
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tags": [
     {
       "CanonicalTagName": "string",
@@ -326,7 +326,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
       "string"
     ],
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Tags": [
       {
         "CanonicalTagName": "string",
@@ -439,7 +439,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
     "string"
   ],
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tags": [
     {
       "CanonicalTagName": "string",
@@ -499,13 +499,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "TagSets-1",
   "Name": "string",
   "Scopes": [
     "string"
   ],
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tags": [
     {
       "CanonicalTagName": "string",
@@ -577,7 +577,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
     "string"
   ],
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tags": [
     {
       "CanonicalTagName": "string",

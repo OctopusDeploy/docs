@@ -62,6 +62,8 @@ Releases will be ordered from most recent to least recent,
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the release's current variable snapshots.
   - **`Version`** :span[string]{.type-label}  
     Maximum length 349.
   - **`VersionControlReference`** :span[object]{.type-label}
@@ -87,13 +89,13 @@ Releases will be ordered from most recent to least recent,
       "BuildInformation": [
         {}
       ],
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "CustomFields": {
         "additionalProp1": "string",
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "Id": "string",
+      "Id": "Releases-1",
       "IgnoreChannelRules": true,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -106,7 +108,7 @@ Releases will be ordered from most recent to least recent,
         "additionalProp3": "string"
       },
       "ProjectDeploymentProcessSnapshotId": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
       "ReleaseNotes": "string",
       "SelectedGitResources": [
@@ -115,7 +117,8 @@ Releases will be ordered from most recent to least recent,
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string",
       "Version": "string",
       "VersionControlReference": {
         "GitCommit": "string",
@@ -196,6 +199,8 @@ Releases will be ordered from most recent to least recent,
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the release's current variable snapshots.
   - **`Version`** :span[string]{.type-label}  
     Maximum length 349.
   - **`VersionControlReference`** :span[object]{.type-label}
@@ -221,13 +226,13 @@ Releases will be ordered from most recent to least recent,
       "BuildInformation": [
         {}
       ],
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "CustomFields": {
         "additionalProp1": "string",
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "Id": "string",
+      "Id": "Releases-1",
       "IgnoreChannelRules": true,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -240,7 +245,7 @@ Releases will be ordered from most recent to least recent,
         "additionalProp3": "string"
       },
       "ProjectDeploymentProcessSnapshotId": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
       "ReleaseNotes": "string",
       "SelectedGitResources": [
@@ -249,7 +254,8 @@ Releases will be ordered from most recent to least recent,
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string",
       "Version": "string",
       "VersionControlReference": {
         "GitCommit": "string",
@@ -328,6 +334,8 @@ Releases will be ordered from most recent to least recent
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the release's current variable snapshots.
   - **`Version`** :span[string]{.type-label}  
     Maximum length 349.
   - **`VersionControlReference`** :span[object]{.type-label}
@@ -353,13 +361,13 @@ Releases will be ordered from most recent to least recent
       "BuildInformation": [
         {}
       ],
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "CustomFields": {
         "additionalProp1": "string",
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "Id": "string",
+      "Id": "Releases-1",
       "IgnoreChannelRules": true,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -372,7 +380,7 @@ Releases will be ordered from most recent to least recent
         "additionalProp3": "string"
       },
       "ProjectDeploymentProcessSnapshotId": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
       "ReleaseNotes": "string",
       "SelectedGitResources": [
@@ -381,7 +389,8 @@ Releases will be ordered from most recent to least recent
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string",
       "Version": "string",
       "VersionControlReference": {
         "GitCommit": "string",
@@ -509,7 +518,7 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
         {}
       ]
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Variables": [
       {
         "Description": "string",
@@ -592,6 +601,8 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -624,13 +635,13 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -643,7 +654,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -664,7 +675,8 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -726,6 +738,8 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the release's current variable snapshots.
   - **`Version`** :span[string]{.type-label}  
     Maximum length 349.
   - **`VersionControlReference`** :span[object]{.type-label}
@@ -751,13 +765,13 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
       "BuildInformation": [
         {}
       ],
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "CustomFields": {
         "additionalProp1": "string",
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "Id": "string",
+      "Id": "Releases-1",
       "IgnoreChannelRules": true,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -770,7 +784,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
         "additionalProp3": "string"
       },
       "ProjectDeploymentProcessSnapshotId": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
       "ReleaseNotes": "string",
       "SelectedGitResources": [
@@ -779,7 +793,8 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string",
       "Version": "string",
       "VersionControlReference": {
         "GitCommit": "string",
@@ -845,14 +860,14 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
 ```json
 {
   "Assembled": "2020-01-01T00:00:00.000Z",
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
   "IgnoreChannelRules": true,
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
     {
@@ -872,7 +887,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -931,6 +946,8 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -963,13 +980,13 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -982,7 +999,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -1003,7 +1020,8 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -1079,7 +1097,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
   "ProjectName": "string",
   "ReleaseNotes": "string",
   "ReleaseVersion": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SpaceIdOrName": "string"
 }
 ```
@@ -1096,7 +1114,7 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
 :::api-example{label="Response"}
 ```json
 {
-  "ReleaseId": "string",
+  "ReleaseId": "Releases-1",
   "ReleaseVersion": "string"
 }
 ```
@@ -1163,6 +1181,8 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -1195,13 +1215,13 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -1214,7 +1234,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -1235,7 +1255,8 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -1285,15 +1306,15 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
 :::api-example{label="Request"}
 ```json
 {
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
     {
@@ -1313,7 +1334,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": "string"
 }
 ```
@@ -1367,6 +1388,8 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -1399,13 +1422,13 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -1418,7 +1441,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -1439,7 +1462,8 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -1531,7 +1555,7 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1665,8 +1689,8 @@ Also reachable at `/api/releases/{releaseId}/defects`, `/api/spaces/{spaceIdenti
 ```json
 {
   "Description": "string",
-  "ReleaseId": "string",
-  "SpaceId": "string",
+  "ReleaseId": "Releases-1",
+  "SpaceId": "Spaces-1",
   "Status": "string"
 }
 ```
@@ -1859,7 +1883,7 @@ Deployments will be ordered from most recent to least recent.
         {}
       ],
       "ChangesMarkdown": "string",
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "Comments": "string",
       "Created": "2020-01-01T00:00:00.000Z",
       "DebugMode": "string",
@@ -1869,7 +1893,7 @@ Deployments will be ordered from most recent to least recent.
         "string"
       ],
       "DeploymentProcessId": "string",
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "ExcludedMachineIds": [
         "string"
       ],
@@ -1890,7 +1914,7 @@ Deployments will be ordered from most recent to least recent.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "Id": "string",
+      "Id": "Deployments-1",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1901,22 +1925,22 @@ Deployments will be ordered from most recent to least recent.
       "ManifestVariableSetId": "string",
       "Name": "string",
       "Priority": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
-      "ReleaseId": "string",
+      "ReleaseId": "Releases-1",
       "SkipActions": [
         "string"
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "SpecificMachineIds": [
         "string"
       ],
       "SpecificTargetTagIds": [
         "string"
       ],
-      "TaskId": "string",
-      "TenantId": "string",
+      "TaskId": "ServerTasks-1",
+      "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
         "ShouldKeepForever": true,
@@ -2109,13 +2133,13 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
 {
   "DeploymentPreviews": [
     {
-      "EnvironmentId": "string",
-      "TenantId": "string"
+      "EnvironmentId": "Environments-1",
+      "TenantId": "Tenants-1"
     }
   ],
   "IncludeDisabledSteps": true,
-  "ReleaseId": "string",
-  "SpaceId": "string"
+  "ReleaseId": "Releases-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2319,13 +2343,15 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
     "additionalProp3": "string"
   },
   "NextDeployments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "NextDeploymentsMinimumRequired": 0,
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Blocked": true,
       "Deployments": [
@@ -2337,7 +2363,8 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Progress": "Pending"
     }
@@ -2373,9 +2400,9 @@ Only the release notes are changed and everything else about the Release is left
 :::api-example{label="Request"}
 ```json
 {
-  "ReleaseId": "string",
+  "ReleaseId": "Releases-1",
   "ReleaseNotes": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2428,6 +2455,8 @@ Only the release notes are changed and everything else about the Release is left
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -2460,13 +2489,13 @@ Only the release notes are changed and everything else about the Release is left
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -2479,7 +2508,7 @@ Only the release notes are changed and everything else about the Release is left
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -2500,7 +2529,8 @@ Only the release notes are changed and everything else about the Release is left
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",
@@ -2521,6 +2551,23 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
 
 - **`releaseId`** :span[string]{.type-label} *(required)*
 - **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`ReleaseId`** :span[string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  The VariableSnapshotConcurrencyToken read from the release. When supplied, the update fails with a conflict if the release's variable snapshots have changed since. Omit to skip the check.
+
+:::api-example{label="Request"}
+```json
+{
+  "ReleaseId": "Releases-1",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
+}
+```
+:::
 
 **Response**
 
@@ -2570,6 +2617,8 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the release's current variable snapshots.
 - **`Version`** :span[string]{.type-label}  
   Maximum length 349.
 - **`VersionControlReference`** :span[object]{.type-label}
@@ -2602,13 +2651,13 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
       ]
     }
   ],
-  "ChannelId": "string",
+  "ChannelId": "Channels-1",
   "CustomFields": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "Id": "string",
+  "Id": "Releases-1",
   "IgnoreChannelRules": true,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -2621,7 +2670,7 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
     "additionalProp3": "string"
   },
   "ProjectDeploymentProcessSnapshotId": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -2642,7 +2691,8 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
       "Version": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string",
   "Version": "string",
   "VersionControlReference": {
     "GitCommit": "string",

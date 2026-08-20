@@ -66,7 +66,8 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
   "Items": [
     {
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "LastModifiedBy": "string",
@@ -80,12 +81,14 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
         "string"
       ],
       "ProjectIds": [
-        "string"
+        "Projects-1",
+        "..."
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TeamId": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "UserRoleId": "string"
     }
@@ -131,18 +134,22 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TeamId": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "UserRoleId": "string"
 }
@@ -173,7 +180,8 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -187,12 +195,14 @@ Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopedu
     "string"
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TeamId": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "UserRoleId": "string"
 }
@@ -235,7 +245,8 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -249,12 +260,14 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
     "string"
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TeamId": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "UserRoleId": "string"
 }
@@ -291,19 +304,23 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TeamId": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "UserRoleId": "string"
 }
@@ -334,7 +351,8 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -348,12 +366,14 @@ Also reachable at `/api/scopeduserroles/{id}`, `/api/spaces/{spaceIdentifier}/sc
     "string"
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TeamId": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "UserRoleId": "string"
 }

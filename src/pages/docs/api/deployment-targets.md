@@ -119,7 +119,8 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
         "Links": {}
       },
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasLatestCalamari": true,
       "HealthStatus": "Healthy",
@@ -144,10 +145,11 @@ Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -229,7 +231,8 @@ Creates a new deployment target.
     }
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "IsDisabled": true,
   "MachinePolicyId": "string",
@@ -239,9 +242,10 @@ Creates a new deployment target.
   ],
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -318,7 +322,8 @@ Creates a new deployment target.
     }
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasLatestCalamari": true,
   "HealthStatus": "Healthy",
@@ -343,10 +348,11 @@ Creates a new deployment target.
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -444,7 +450,8 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
       }
     },
     "EnvironmentIds": [
-      "string"
+      "Environments-1",
+      "..."
     ],
     "HasLatestCalamari": true,
     "HealthStatus": "Healthy",
@@ -469,10 +476,11 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
     "ShellVersion": "string",
     "SkipInitialHealthCheck": true,
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "StatusSummary": "string",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantTags": [
       "string"
@@ -558,7 +566,8 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
         "Links": {}
       },
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasLatestCalamari": true,
       "HealthStatus": "Healthy",
@@ -583,10 +592,11 @@ Lists all of the Deployment Targets in the supplied Space. The results will be s
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -815,7 +825,8 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
         "Architecture": "string",
         "Endpoint": {},
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "HasLatestCalamari": true,
         "HealthStatus": "Healthy",
@@ -836,10 +847,11 @@ Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2
         "ShellVersion": "string",
         "SkipInitialHealthCheck": true,
         "Slug": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "StatusSummary": "string",
         "TenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
         "TenantTags": [
           "string"
@@ -941,7 +953,8 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
     }
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasLatestCalamari": true,
   "HealthStatus": "Healthy",
@@ -966,10 +979,11 @@ Also reachable at `/api/machines/{id}`, `/api/spaces/{spaceIdentifier}/machines/
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1042,7 +1056,7 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
   "ItemType": "string",
   "Items": [
     {
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectLogo": "string",
       "ProjectName": "string",
       "ServerTask": {
@@ -1072,11 +1086,11 @@ Also reachable at `/api/machines/{id}/latestdeployments`, `/api/spaces/{spaceIde
         "PendingPreconditionTypes": [
           "string"
         ],
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
         "ServerNode": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "StartTime": "2020-01-01T00:00:00.000Z",
         "State": "Queued"
       }
@@ -1233,11 +1247,11 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
       "PendingPreconditionTypes": [
         "string"
       ],
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
       "ServerNode": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StartTime": "2020-01-01T00:00:00.000Z",
       "State": "Queued"
     }
@@ -1336,11 +1350,11 @@ Get a history of related Tasks (ie. Deployments) for a Deployment Target.
         "PendingPreconditionTypes": [
           "string"
         ],
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
         "ServerNode": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "StartTime": "2020-01-01T00:00:00.000Z",
         "State": "Queued"
       }
@@ -1466,19 +1480,21 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
     }
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "IsDisabled": true,
-  "MachineId": "string",
-  "MachinePolicyId": "string",
+  "MachineId": "Machines-1",
+  "MachinePolicyId": "MachinePolicies-1",
   "Name": "string",
   "Roles": [
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1555,7 +1571,8 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
     }
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasLatestCalamari": true,
   "HealthStatus": "Healthy",
@@ -1580,10 +1597,11 @@ Also reachable at `/api/machines/{machineid}`, `/api/spaces/{spaceIdentifier}/ma
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"

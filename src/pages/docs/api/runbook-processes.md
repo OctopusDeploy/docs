@@ -73,9 +73,9 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses`, `/api/spaces/{sp
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "RunbookId": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Steps": [
         {}
       ],
@@ -155,9 +155,9 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/space
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -240,9 +240,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -312,9 +312,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -512,9 +512,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -605,9 +605,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -677,9 +677,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -770,9 +770,9 @@ Also reachable at `/api/runbookProcesses`, `/api/spaces/{spaceIdentifier}/runboo
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "RunbookId": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Steps": [
         {}
       ],
@@ -851,9 +851,9 @@ Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/r
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -935,9 +935,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -1007,9 +1007,9 @@ Only allowed for Runbook Processes owned by a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [

@@ -87,8 +87,8 @@ Also reachable at `/api/retentionpolicies`, `/api/spaces/{spaceIdentifier}/reten
 {
   "Id": "string",
   "Name": "string",
-  "RetentionType": "string",
-  "SpaceId": "string"
+  "RetentionType": "LifecycleRelease",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -118,9 +118,9 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
 :::api-example{label="Request"}
 ```json
 {
-  "Id": "string",
-  "RetentionType": "string",
-  "SpaceId": "string"
+  "Id": "RetentionPolicies-1",
+  "RetentionType": "LifecycleRelease",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -139,8 +139,8 @@ Also reachable at `/api/retentionpolicies/{id}`, `/api/spaces/{spaceIdentifier}/
 {
   "Id": "string",
   "Name": "string",
-  "RetentionType": "string",
-  "SpaceId": "string"
+  "RetentionType": "LifecycleRelease",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

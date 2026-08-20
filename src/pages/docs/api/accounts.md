@@ -78,7 +78,8 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
       "AccountType": "AmazonWebServicesAccount",
       "Description": "string",
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "LastModifiedBy": "string",
@@ -90,9 +91,10 @@ Lists accounts in the supplied Octopus Deploy Space in pages. The results will b
       },
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -147,13 +149,15 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
     "AccountType": "string"
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -193,7 +197,8 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
   "AccountType": "AmazonWebServicesAccount",
   "Description": "string",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -205,9 +210,10 @@ Also reachable at `/api/accounts`, `/api/spaces/{spaceIdentifier}/accounts`.
   },
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -261,7 +267,8 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
     "AccountType": "AmazonWebServicesAccount",
     "Description": "string",
     "EnvironmentIds": [
-      "string"
+      "Environments-1",
+      "..."
     ],
     "Id": "string",
     "LastModifiedBy": "string",
@@ -273,9 +280,10 @@ Lists all of the accounts in the supplied Octopus Deploy Space. The results will
     },
     "Name": "string",
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantTags": [
       "string"
@@ -325,19 +333,21 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
 :::api-example{label="Request"}
 ```json
 {
-  "AccountId": "string",
+  "AccountId": "Accounts-1",
   "Description": "string",
   "Details": {
     "AccountType": "string"
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -377,7 +387,8 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
   "AccountType": "AmazonWebServicesAccount",
   "Description": "string",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -389,9 +400,10 @@ Also reachable at `/api/accounts/{accountId}`, `/api/spaces/{spaceIdentifier}/ac
   },
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -444,7 +456,8 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
   "AccountType": "AmazonWebServicesAccount",
   "Description": "string",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Id": "string",
   "LastModifiedBy": "string",
@@ -456,9 +469,10 @@ Also reachable at `/api/accounts/{id}`, `/api/spaces/{spaceIdentifier}/accounts/
   },
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -618,7 +632,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
       "LibraryVariableSets": [
         {}
       ],
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
   "DeploymentProcesses": [
@@ -650,13 +664,13 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
       "Projects": [
         {}
       ],
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
   "ProjectVariableSets": [
     {
       "IsCurrentlyBeingUsedInProject": true,
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "ProjectSlug": "string",
       "Releases": [
@@ -691,7 +705,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
   ],
   "RunbookSnapshots": [
     {
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "RunbookId": "string",
       "RunbookName": "string",

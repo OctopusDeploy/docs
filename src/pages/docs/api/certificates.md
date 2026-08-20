@@ -118,7 +118,8 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       },
       "CertificateDataFormat": "Pkcs12",
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasPrivateKey": true,
       "Id": "string",
@@ -146,7 +147,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "SelfSigned": true,
       "SerialNumber": "string",
       "SignatureAlgorithmName": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "SubjectAlternativeNames": [
         "string"
       ],
@@ -154,7 +155,8 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "SubjectDistinguishedName": "string",
       "SubjectOrganization": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -221,7 +223,8 @@ Adds a new certificate
     "NewValue": "string"
   },
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "Name": "string",
   "Notes": "string",
@@ -230,9 +233,10 @@ Adds a new certificate
     "Hint": "string",
     "NewValue": "string"
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -330,7 +334,8 @@ Adds a new certificate
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -358,7 +363,7 @@ Adds a new certificate
   "SelfSigned": true,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -366,7 +371,8 @@ Adds a new certificate
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -485,7 +491,8 @@ Lists X.509 certificates managed by Octopus.
     },
     "CertificateDataFormat": "Pkcs12",
     "EnvironmentIds": [
-      "string"
+      "Environments-1",
+      "..."
     ],
     "HasPrivateKey": true,
     "Id": "string",
@@ -513,7 +520,7 @@ Lists X.509 certificates managed by Octopus.
     "SelfSigned": true,
     "SerialNumber": "string",
     "SignatureAlgorithmName": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "SubjectAlternativeNames": [
       "string"
     ],
@@ -521,7 +528,8 @@ Lists X.509 certificates managed by Octopus.
     "SubjectDistinguishedName": "string",
     "SubjectOrganization": "string",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantTags": [
       "string"
@@ -672,7 +680,8 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -701,7 +710,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "SelfSignedCertificateCurve": "string",
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -709,7 +718,8 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -809,7 +819,8 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -837,7 +848,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "SelfSigned": true,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -845,7 +856,8 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -961,7 +973,8 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       },
       "CertificateDataFormat": "Pkcs12",
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasPrivateKey": true,
       "Id": "string",
@@ -989,7 +1002,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       "SelfSigned": true,
       "SerialNumber": "string",
       "SignatureAlgorithmName": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "SubjectAlternativeNames": [
         "string"
       ],
@@ -997,7 +1010,8 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       "SubjectDistinguishedName": "string",
       "SubjectOrganization": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -1116,7 +1130,8 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -1144,7 +1159,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "SelfSigned": true,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -1152,7 +1167,8 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1203,14 +1219,16 @@ Modifies an existing certificate
 ```json
 {
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
-  "Id": "string",
+  "Id": "Certificates-1",
   "Name": "string",
   "Notes": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1308,7 +1326,8 @@ Modifies an existing certificate
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -1336,7 +1355,7 @@ Modifies an existing certificate
   "SelfSigned": true,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -1344,7 +1363,8 @@ Modifies an existing certificate
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1476,9 +1496,9 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
 ```json
 {
   "CertificateData": "string",
-  "Id": "string",
+  "Id": "Certificates-1",
   "Password": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1571,7 +1591,8 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   },
   "CertificateDataFormat": "Pkcs12",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "HasPrivateKey": true,
   "Id": "string",
@@ -1599,7 +1620,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "SelfSigned": true,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SubjectAlternativeNames": [
     "string"
   ],
@@ -1607,7 +1628,8 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "SubjectDistinguishedName": "string",
   "SubjectOrganization": "string",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTags": [
     "string"
@@ -1829,7 +1851,8 @@ Get the usages of a certificate
         "Links": {}
       },
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasLatestCalamari": true,
       "HealthStatus": "Healthy",
@@ -1854,10 +1877,11 @@ Get the usages of a certificate
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -1883,7 +1907,7 @@ Get the usages of a certificate
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -1903,14 +1927,14 @@ Get the usages of a certificate
       "AutoDeployReleaseOverrides": [
         {}
       ],
-      "ClonedFromProjectId": "string",
+      "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
       "DefaultToSkipIfAlreadyInstalled": true,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
-      "DeprovisioningRunbookId": "string",
+      "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": true,
       "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -1958,14 +1982,14 @@ Get the usages of a certificate
         "Slug": "string",
         "VersionMask": "string"
       },
-      "ProvisioningRunbookId": "string",
+      "ProvisioningRunbookId": "Runbooks-1",
       "ReleaseCreationStrategy": {
         "ChannelId": "string",
         "ReleaseCreationPackage": {}
       },
       "ReleaseNotesTemplate": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -2010,7 +2034,7 @@ Get the usages of a certificate
         ]
       },
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantTags": [
         "string"
       ]

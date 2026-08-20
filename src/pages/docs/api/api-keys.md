@@ -58,7 +58,8 @@ Lists all API keys for a user, returning the most recent results first.
   - **`Links`** :span[object]{.type-label}  
     Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
   - **`Purpose`** :span[string]{.type-label}
-  - **`UserId`** :span[string]{.type-label}
+  - **`UserId`** :span[string]{.type-label}  
+    Minimum length 1.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -144,7 +145,7 @@ The API Key returned in the result must be saved by the caller, as it cannot be 
   "ActorType": "User",
   "Expires": "2020-01-01T00:00:00.000Z",
   "Purpose": "string",
-  "UserId": "string"
+  "UserId": "Users-1"
 }
 ```
 :::
@@ -155,7 +156,8 @@ The API Key returned in the result must be saved by the caller, as it cannot be 
 
 - **`ActorType`** :span[enum]{.type-label}  
   Allowed values: `User`, `AiAgent`.
-- **`ApiKey`** :span[string]{.type-label}
+- **`ApiKey`** :span[string]{.type-label}  
+  Minimum length 1.
 - **`Created`** :span[string]{.type-label}  
   Format `date-time`.
 - **`Expires`** :span[string]{.type-label}  
@@ -172,7 +174,8 @@ The API Key returned in the result must be saved by the caller, as it cannot be 
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`Purpose`** :span[string]{.type-label}
-- **`UserId`** :span[string]{.type-label}
+- **`UserId`** :span[string]{.type-label}  
+  Minimum length 1.
 
 :::api-example{label="Response"}
 ```json
@@ -319,7 +322,8 @@ Lists all API keys for a user, returning the most recent results first.
 - **`Links`** :span[object]{.type-label}  
   Gets or sets a dictionary of links to other related resources. These links can be used to navigate the resources on the server.
 - **`Purpose`** :span[string]{.type-label}
-- **`UserId`** :span[string]{.type-label}
+- **`UserId`** :span[string]{.type-label}  
+  Minimum length 1.
 
 :::api-example{label="Response"}
 ```json

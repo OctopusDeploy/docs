@@ -123,11 +123,11 @@ title: Telemetry
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }

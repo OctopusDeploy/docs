@@ -104,7 +104,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
       },
       "Name": "string",
       "ProjectId": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -198,8 +198,8 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   },
   "IsDisabled": true,
   "Name": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -281,7 +281,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -378,7 +378,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -463,11 +463,11 @@ Updates an existing project trigger
       "additionalProp3": "string"
     }
   },
-  "Id": "string",
+  "Id": "ProjectTriggers-1",
   "IsDisabled": true,
   "Name": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -549,7 +549,7 @@ Updates an existing project trigger
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -668,7 +668,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
       },
       "Name": "string",
       "ProjectId": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -760,8 +760,8 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
   },
   "IsDisabled": true,
   "Name": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -843,7 +843,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -938,7 +938,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1021,11 +1021,11 @@ Updates an existing project trigger
       "additionalProp3": "string"
     }
   },
-  "Id": "string",
+  "Id": "ProjectTriggers-1",
   "IsDisabled": true,
   "Name": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1107,7 +1107,7 @@ Updates an existing project trigger
   },
   "Name": "string",
   "ProjectId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -29,9 +29,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
 ```json
 {
   "InstallationId": "00000000-0000-0000-0000-000000000000",
-  "MachineId": "string",
+  "MachineId": "Machines-1",
   "PreserveAuthenticationToken": true,
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -57,10 +57,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
   "AuthenticationToken": "string",
   "CertificateThumbprint": "string",
   "Resource": {
-    "Id": "string",
+    "Id": "KubernetesMonitors-1",
     "InstallationId": "00000000-0000-0000-0000-000000000000",
-    "MachineId": "string",
-    "SpaceId": "string"
+    "MachineId": "Machines-1",
+    "SpaceId": "Spaces-1"
   }
 }
 ```
@@ -90,11 +90,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions`.
 ```json
 {
   "DesiredOrKubernetesMonitoredResourceId": "string",
-  "EnvironmentId": "string",
-  "MachineId": "string",
-  "ProjectId": "string",
-  "SpaceId": "string",
-  "TenantId": "string"
+  "EnvironmentId": "Environments-1",
+  "MachineId": "Machines-1",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1"
 }
 ```
 :::
@@ -201,10 +201,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/kubernetes-monito
 ```json
 {
   "Resource": {
-    "Id": "string",
+    "Id": "KubernetesMonitors-1",
     "InstallationId": "00000000-0000-0000-0000-000000000000",
-    "MachineId": "string",
-    "SpaceId": "string"
+    "MachineId": "Machines-1",
+    "SpaceId": "Spaces-1"
   }
 }
 ```
@@ -263,13 +263,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
 {
   "ContainerName": "string",
   "DesiredOrKubernetesMonitoredResourceId": "string",
-  "EnvironmentId": "string",
-  "MachineId": "string",
+  "EnvironmentId": "Environments-1",
+  "MachineId": "Machines-1",
   "PodName": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ShowPreviousContainer": true,
-  "SpaceId": "string",
-  "TenantId": "string"
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1"
 }
 ```
 :::
@@ -374,7 +374,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 {
   "MachineStatuses": [
     {
-      "MachineId": "string",
+      "MachineId": "Machines-1",
       "Resources": [
         {}
       ],

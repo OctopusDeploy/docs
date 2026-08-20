@@ -28,7 +28,7 @@ Also reachable at `/api/deploymentTargetTags/{tag}`, `/api/spaces/{spaceIdentifi
 :::api-example{label="Response"}
 ```json
 {
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tag": "string"
 }
 ```
@@ -73,7 +73,7 @@ Gets a paginated list of DeploymentTargetTag.
   "Count": 0,
   "DeploymentTargetTags": [
     {
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Tag": "string"
     }
   ]
@@ -102,7 +102,7 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 :::api-example{label="Request"}
 ```json
 {
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tag": "string"
 }
 ```
@@ -118,7 +118,7 @@ Also reachable at `/api/deploymenttargettags`, `/api/spaces/{spaceIdentifier}/de
 :::api-example{label="Response"}
 ```json
 {
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Tag": "string"
 }
 ```

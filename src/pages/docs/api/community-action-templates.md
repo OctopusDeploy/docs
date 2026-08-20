@@ -385,7 +385,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -552,7 +552,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -719,7 +719,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```

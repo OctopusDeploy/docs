@@ -37,7 +37,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
   "Description": "string",
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -52,7 +52,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
 :::api-example{label="Response"}
 ```json
 {
-  "Id": "string"
+  "Id": "Environments-1"
 }
 ```
 :::
@@ -90,11 +90,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
     "ExpiryHours": 0
   },
   "Description": "string",
-  "EnvironmentId": "string",
+  "EnvironmentId": "Environments-1",
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -125,11 +125,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
     "ExpiryHours": 0
   },
   "Description": "string",
-  "Id": "string",
+  "Id": "Environments-1",
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -172,11 +172,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
     "ExpiryHours": 0
   },
   "Description": "string",
-  "Id": "string",
+  "Id": "Environments-1",
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```

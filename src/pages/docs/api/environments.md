@@ -99,7 +99,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
       "Name": "string",
       "Slug": "string",
       "SortOrder": 0,
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "UseGuidedFailure": true
     }
   ],
@@ -160,7 +160,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -221,7 +221,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -305,7 +305,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
     "Name": "string",
     "Slug": "string",
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "UseGuidedFailure": true
   }
 ]
@@ -387,7 +387,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
       "Name": "string",
       "Slug": "string",
       "SortOrder": 0,
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "UseGuidedFailure": true
     }
   ]
@@ -508,7 +508,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "UseGuidedFailure": true
       },
       "MachineEndpointSummaries": {
@@ -650,10 +650,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
         "EnvironmentTags": [
           "string"
         ],
-        "Id": "string",
+        "Id": "Environments-1",
         "Name": "string",
         "Slug": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "Type": "string"
       },
       "MachineEndpointSummaries": {
@@ -786,7 +786,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "UseGuidedFailure": true
       }
     ],
@@ -864,10 +864,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
       "EnvironmentTags": [
         "string"
       ],
-      "Id": "string",
+      "Id": "Environments-1",
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Type": "string"
     }
   ],
@@ -911,7 +911,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 {
   "AllowDynamicInfrastructure": true,
   "Description": "string",
-  "EnvironmentId": "string",
+  "EnvironmentId": "Environments-1",
   "EnvironmentTags": [
     "string"
   ],
@@ -924,7 +924,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -985,7 +985,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -1141,7 +1141,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "UseGuidedFailure": true
 }
 ```
@@ -1262,7 +1262,8 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
         "Links": {}
       },
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasLatestCalamari": true,
       "HealthStatus": "Healthy",
@@ -1287,10 +1288,11 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -1351,10 +1353,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/{id}/v2`.
   "EnvironmentTags": [
     "string"
   ],
-  "Id": "string",
+  "Id": "Environments-1",
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Type": "string"
 }
 ```
@@ -1416,10 +1418,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
       "EnvironmentTags": [
         "string"
       ],
-      "Id": "string",
+      "Id": "Environments-1",
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Type": "string"
     }
   ],

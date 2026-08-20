@@ -56,11 +56,11 @@ Gets a paginated set of WorkerTaskLeases.
         "Exclusive": true,
         "Id": "string",
         "Name": "string",
-        "ServerTaskId": "string",
-        "SpaceId": "string",
+        "ServerTaskId": "ServerTasks-1",
+        "SpaceId": "Spaces-1",
         "TakenAt": "2020-01-01T00:00:00.000Z",
-        "WorkerId": "string",
-        "WorkerPoolId": "string"
+        "WorkerId": "Workers-1",
+        "WorkerPoolId": "WorkerPools-1"
       }
     ],
     "ItemsPerPage": 0,

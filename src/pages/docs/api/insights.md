@@ -77,7 +77,8 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
     {
       "AllTenants": true,
       "ChannelIds": [
-        "string"
+        "Channels-1",
+        "..."
       ],
       "Description": "string",
       "EnvironmentGroups": [
@@ -85,7 +86,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
       ],
       "IconColor": "string",
       "IconId": "string",
-      "Id": "string",
+      "Id": "InsightsReports-1",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -95,14 +96,17 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
       },
       "Name": "string",
       "ProjectGroupIds": [
-        "string"
+        "ProjectGroups-1",
+        "..."
       ],
       "ProjectIds": [
-        "string"
+        "Projects-1",
+        "..."
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantMode": "Untenanted",
       "TenantTags": [
@@ -173,27 +177,32 @@ Creates a new Insights Report.
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -241,20 +250,22 @@ Creates a new Insights Report.
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
   "IconColor": "string",
   "IconId": "string",
-  "Id": "string",
+  "Id": "InsightsReports-1",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -264,14 +275,17 @@ Creates a new Insights Report.
   },
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -329,27 +343,32 @@ Creates a new Insights Report.
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -396,20 +415,22 @@ Creates a new Insights Report.
   "Report": {
     "AllTenants": true,
     "ChannelIds": [
-      "string"
+      "Channels-1",
+      "..."
     ],
     "Description": "string",
     "EnvironmentGroups": [
       {
         "Environments": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Name": "string"
       }
     ],
     "IconColor": "string",
     "IconId": "string",
-    "Id": "string",
+    "Id": "InsightsReports-1",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -419,14 +440,17 @@ Creates a new Insights Report.
     },
     "Name": "string",
     "ProjectGroupIds": [
-      "string"
+      "ProjectGroups-1",
+      "..."
     ],
     "ProjectIds": [
-      "string"
+      "Projects-1",
+      "..."
     ],
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantMode": "Untenanted",
     "TenantTags": [
@@ -487,20 +511,22 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
   "IconColor": "string",
   "IconId": "string",
-  "Id": "string",
+  "Id": "InsightsReports-1",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -510,14 +536,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
   },
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -581,28 +610,33 @@ Updates an existing Insights Report
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
-  "Id": "string",
+  "Id": "InsightsReports-1",
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -650,20 +684,22 @@ Updates an existing Insights Report
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
   "IconColor": "string",
   "IconId": "string",
-  "Id": "string",
+  "Id": "InsightsReports-1",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -673,14 +709,17 @@ Updates an existing Insights Report
   },
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -758,20 +797,22 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
   "Report": {
     "AllTenants": true,
     "ChannelIds": [
-      "string"
+      "Channels-1",
+      "..."
     ],
     "Description": "string",
     "EnvironmentGroups": [
       {
         "Environments": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Name": "string"
       }
     ],
     "IconColor": "string",
     "IconId": "string",
-    "Id": "string",
+    "Id": "InsightsReports-1",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -781,14 +822,17 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
     },
     "Name": "string",
     "ProjectGroupIds": [
-      "string"
+      "ProjectGroups-1",
+      "..."
     ],
     "ProjectIds": [
-      "string"
+      "Projects-1",
+      "..."
     ],
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantMode": "Untenanted",
     "TenantTags": [
@@ -853,28 +897,33 @@ Updates an existing Insights Report
 {
   "AllTenants": true,
   "ChannelIds": [
-    "string"
+    "Channels-1",
+    "..."
   ],
   "Description": "string",
   "EnvironmentGroups": [
     {
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Name": "string"
     }
   ],
-  "Id": "string",
+  "Id": "InsightsReports-1",
   "Name": "string",
   "ProjectGroupIds": [
-    "string"
+    "ProjectGroups-1",
+    "..."
   ],
   "ProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantMode": "Untenanted",
   "TenantTags": [
@@ -921,20 +970,22 @@ Updates an existing Insights Report
   "Report": {
     "AllTenants": true,
     "ChannelIds": [
-      "string"
+      "Channels-1",
+      "..."
     ],
     "Description": "string",
     "EnvironmentGroups": [
       {
         "Environments": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Name": "string"
       }
     ],
     "IconColor": "string",
     "IconId": "string",
-    "Id": "string",
+    "Id": "InsightsReports-1",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -944,14 +995,17 @@ Updates an existing Insights Report
     },
     "Name": "string",
     "ProjectGroupIds": [
-      "string"
+      "ProjectGroups-1",
+      "..."
     ],
     "ProjectIds": [
-      "string"
+      "Projects-1",
+      "..."
     ],
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantIds": [
-      "string"
+      "Tenants-1",
+      "..."
     ],
     "TenantMode": "Untenanted",
     "TenantTags": [
@@ -1024,16 +1078,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
   "ReportName": "string",
   "Streams": [
     {
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "ChannelName": "string",
       "Deployments": [
         {}
       ],
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "EnvironmentName": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
-      "TenantId": "string",
+      "TenantId": "Tenants-1",
       "TenantName": "string"
     }
   ]
@@ -1108,8 +1162,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 {
   "IconColor": "string",
   "IconId": "string",
-  "ReportId": "string",
-  "SpaceId": "string"
+  "ReportId": "InsightsReports-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1153,8 +1207,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/log
 {
   "IconColor": "string",
   "IconId": "string",
-  "ReportId": "string",
-  "SpaceId": "string"
+  "ReportId": "InsightsReports-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1323,16 +1377,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/insights/d
   "ProjectName": "string",
   "Streams": [
     {
-      "ChannelId": "string",
+      "ChannelId": "Channels-1",
       "ChannelName": "string",
       "Deployments": [
         {}
       ],
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "EnvironmentName": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
-      "TenantId": "string",
+      "TenantId": "Tenants-1",
       "TenantName": "string"
     }
   ]

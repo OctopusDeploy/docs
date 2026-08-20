@@ -37,7 +37,7 @@ title: Ssh Known Hosts
   "Resources": [
     {
       "Host": "string",
-      "Id": "string",
+      "Id": "SshKnownHosts-1",
       "KeyType": "string",
       "PublicKey": "string"
     }
@@ -81,7 +81,7 @@ title: Ssh Known Hosts
   "AddedResources": [
     {
       "Host": "string",
-      "Id": "string",
+      "Id": "SshKnownHosts-1",
       "KeyType": "string",
       "PublicKey": "string"
     }

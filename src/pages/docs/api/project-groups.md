@@ -87,7 +87,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
       "Name": "string",
       "RetentionPolicyId": "string",
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -132,7 +132,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "Description": "string",
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -177,7 +177,7 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
   "Name": "string",
   "RetentionPolicyId": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -233,7 +233,7 @@ Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/proje
     "Name": "string",
     "RetentionPolicyId": "string",
     "Slug": "string",
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 ]
 ```
@@ -292,7 +292,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "Name": "string",
   "RetentionPolicyId": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -326,10 +326,10 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "ProjectGroups-1",
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -374,7 +374,7 @@ Also reachable at `/api/projectgroups/{id}`, `/api/spaces/{spaceIdentifier}/proj
   "Name": "string",
   "RetentionPolicyId": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -497,14 +497,14 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
       "AutoDeployReleaseOverrides": [
         {}
       ],
-      "ClonedFromProjectId": "string",
+      "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
       "DefaultToSkipIfAlreadyInstalled": true,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
-      "DeprovisioningRunbookId": "string",
+      "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": true,
       "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -552,14 +552,14 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
         "Slug": "string",
         "VersionMask": "string"
       },
-      "ProvisioningRunbookId": "string",
+      "ProvisioningRunbookId": "Runbooks-1",
       "ReleaseCreationStrategy": {
         "ChannelId": "string",
         "ReleaseCreationPackage": {}
       },
       "ReleaseNotesTemplate": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],

@@ -27,7 +27,8 @@ title: Project Templates
 {
   "GitRef": "string",
   "IndividuallySharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "ShareToAllSpaces": true,
   "Slug": "string"
@@ -47,10 +48,12 @@ title: Project Templates
 ```json
 {
   "IndividuallySharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "IndividuallyUnsharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "SharedToAllSpaces": true
 }

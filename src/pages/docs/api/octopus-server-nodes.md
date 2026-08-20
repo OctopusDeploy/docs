@@ -308,7 +308,7 @@ Modifies an existing Octopus Server node.
 :::api-example{label="Request"}
 ```json
 {
-  "Id": "string",
+  "Id": "OctopusServerNodes-1",
   "IsInMaintenanceMode": true,
   "MaxConcurrentTasks": 0
 }

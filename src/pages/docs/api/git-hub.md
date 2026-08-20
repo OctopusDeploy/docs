@@ -134,7 +134,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
   "RepositoryIds": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -259,7 +259,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
       "Visibility": "string"
     }
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Status": "string",
   "StatusUserMessage": "string",
   "UnknownRepositories": [
@@ -296,7 +296,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
   "RepositoryIds": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -358,7 +358,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
   "RepositoryIds": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -399,7 +399,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover
   "RepositoryIds": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

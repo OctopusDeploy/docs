@@ -86,7 +86,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
       },
       "Port": 0,
       "ProxyType": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Username": "string"
     }
   ],
@@ -146,7 +146,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   },
   "Port": 0,
   "ProxyType": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Username": "string"
 }
 ```
@@ -195,7 +195,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   },
   "Port": 0,
   "ProxyType": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Username": "string"
 }
 ```
@@ -258,7 +258,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
     },
     "Port": 0,
     "ProxyType": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Username": "string"
   }
 ]
@@ -321,7 +321,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   },
   "Port": 0,
   "ProxyType": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Username": "string"
 }
 ```
@@ -364,7 +364,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
 ```json
 {
   "Host": "string",
-  "Id": "string",
+  "Id": "Proxys-1",
   "Name": "string",
   "Password": {
     "HasValue": true,
@@ -373,7 +373,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   },
   "Port": 0,
   "ProxyType": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Username": "string"
 }
 ```
@@ -422,7 +422,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   },
   "Port": 0,
   "ProxyType": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Username": "string"
 }
 ```

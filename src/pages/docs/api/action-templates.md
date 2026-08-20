@@ -143,7 +143,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
         "additionalProp2": {},
         "additionalProp3": {}
       },
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Version": 0
     }
   ],
@@ -234,7 +234,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
 ```json
 {
   "ActionType": "string",
-  "CommunityActionTemplateId": "string",
+  "CommunityActionTemplateId": "CommunityActionTemplates-1",
   "Description": "string",
   "GitDependencies": [
     {
@@ -317,7 +317,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StepPackageVersion": "string",
   "Version": 0
 }
@@ -472,7 +472,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -616,7 +616,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
         "Value": "string"
       }
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Version": 0
   }
 ]
@@ -726,7 +726,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
     },
     "Name": "string",
     "Prerelease": true,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Type": "string",
     "Version": "string",
     "Website": "string"
@@ -896,7 +896,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -982,7 +982,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
       "StepPackageInputsReferenceId": "string"
     }
   ],
-  "Id": "string",
+  "Id": "ActionTemplates-1",
   "Inputs": {
     "Value": "string"
   },
@@ -1050,7 +1050,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StepPackageVersion": "string"
 }
 ```
@@ -1204,7 +1204,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -1304,7 +1304,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
       "Value": "string"
     }
   },
-  "Id": "string",
+  "Id": "ActionTemplates-1",
   "Overrides": {
     "additionalProp1": {
       "IsSensitive": true,
@@ -1334,7 +1334,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -1477,7 +1477,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
       "Value": "string"
     }
   },
-  "Id": "string",
+  "Id": "ActionTemplates-1",
   "Overrides": {
     "additionalProp1": {
       "IsSensitive": true,
@@ -1507,7 +1507,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```
@@ -1562,7 +1562,7 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
       ]
     }
   ],
-  "TaskId": "string",
+  "TaskId": "ServerTasks-1",
   "ValidationFailures": [
     "string"
   ]
@@ -1867,7 +1867,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
         "Value": "string"
       }
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Version": 0
   }
 }
@@ -2012,7 +2012,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
         "Value": "string"
       }
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Version": 0
   }
 ]
@@ -2182,7 +2182,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
       "Value": "string"
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Version": 0
 }
 ```

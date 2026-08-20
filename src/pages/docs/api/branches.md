@@ -120,8 +120,8 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 {
   "BaseGitRef": "string",
   "NewBranchName": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -49,10 +49,10 @@ Lists all Teams a user is a member of, including any from external auth-provider
       }
     ],
     "IsDirectlyAssigned": true,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TeamId": "string",
     "TeamName": "string",
-    "UserId": "string"
+    "UserId": "Users-1"
   }
 ]
 ```
@@ -97,13 +97,14 @@ Lists all the Users that would belong to the specified Team, including informati
       "Id": "string"
     }
   ],
-  "Id": "string",
+  "Id": "Teams-1",
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -134,10 +135,10 @@ Lists all the Users that would belong to the specified Team, including informati
       }
     ],
     "IsDirectlyAssigned": true,
-    "SpaceId": "string",
-    "TeamId": "string",
+    "SpaceId": "Spaces-1",
+    "TeamId": "Teams-1",
     "TeamName": "string",
-    "UserId": "string"
+    "UserId": "Users-1"
   }
 ]
 ```

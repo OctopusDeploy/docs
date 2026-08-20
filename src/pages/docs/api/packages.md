@@ -334,7 +334,7 @@ Also reachable at `/api/packages/bulk`, `/api/spaces/{spaceIdentifier}/packages/
   "Ids": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -367,7 +367,7 @@ Also reachable at `/api/packages/bulk/v1`, `/api/spaces/{spaceIdentifier}/packag
   "Ids": [
     "string"
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

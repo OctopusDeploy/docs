@@ -99,11 +99,12 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
         "additionalProp3": "string"
       },
       "MemberUserIds": [
-        "string"
+        "Users-1",
+        "..."
       ],
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -162,11 +163,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
     }
   ],
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -228,11 +230,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
     "additionalProp3": "string"
   },
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -307,11 +310,12 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
       "additionalProp3": "string"
     },
     "MemberUserIds": [
-      "string"
+      "Users-1",
+      "..."
     ],
     "Name": "string",
     "Slug": "string",
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 ]
 ```
@@ -387,11 +391,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
     "additionalProp3": "string"
   },
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -438,13 +443,14 @@ The Everyone Team is treated as a special case and its members and external grou
       "Id": "string"
     }
   ],
-  "Id": "string",
+  "Id": "Teams-1",
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -506,11 +512,12 @@ The Everyone Team is treated as a special case and its members and external grou
     "additionalProp3": "string"
   },
   "MemberUserIds": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -593,7 +600,8 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
   "Items": [
     {
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "LastModifiedBy": "string",
@@ -607,12 +615,14 @@ List all the Scoped User Roles for the Team. Results will be sorted by Space Id 
         "string"
       ],
       "ProjectIds": [
-        "string"
+        "Projects-1",
+        "..."
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TeamId": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "UserRoleId": "string"
     }

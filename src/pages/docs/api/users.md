@@ -826,7 +826,7 @@ Logs out the current user.
 {
   "DisplayName": "string",
   "EmailAddress": "string",
-  "Id": "string",
+  "Id": "Users-1",
   "Identities": [
     {
       "Claims": {

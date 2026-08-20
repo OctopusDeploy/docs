@@ -107,7 +107,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
         "additionalProp3": "string"
       },
       "Name": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Type": "Event"
     }
   ],
@@ -211,7 +211,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
         "string"
       ],
       "Tenants": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "Users": [
         "string"
@@ -246,7 +247,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
   },
   "IsDisabled": true,
   "Name": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -335,7 +336,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
         "string"
       ],
       "Tenants": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "Users": [
         "string"
@@ -378,7 +380,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Type": "Event"
 }
 ```
@@ -482,7 +484,8 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
           "string"
         ],
         "Tenants": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
         "Users": [
           "string"
@@ -521,7 +524,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
       "additionalProp3": "string"
     },
     "Name": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Type": "Event"
   }
 ]
@@ -625,7 +628,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
         "string"
       ],
       "Tenants": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "Users": [
         "string"
@@ -668,7 +672,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Type": "Event"
 }
 ```
@@ -765,7 +769,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
         "string"
       ],
       "Tenants": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "Users": [
         "string"
@@ -798,10 +803,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "WebhookTimeout": "string",
     "WebhookURI": "https://example.com"
   },
-  "Id": "string",
+  "Id": "Subscriptions-1",
   "IsDisabled": true,
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Type": "Event"
 }
 ```
@@ -891,7 +896,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
         "string"
       ],
       "Tenants": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "Users": [
         "string"
@@ -934,7 +940,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "additionalProp3": "string"
   },
   "Name": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Type": "Event"
 }
 ```

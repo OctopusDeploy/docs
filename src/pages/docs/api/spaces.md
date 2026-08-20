@@ -83,7 +83,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
         ],
         "Enabled": true
       },
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -146,7 +146,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -227,7 +227,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
         "Links": {},
         "Name": "string",
         "RepositoryRestrictions": {},
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ItemsPerPage": 0,
@@ -291,7 +291,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -377,7 +377,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
         ],
         "Enabled": true
       },
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -427,7 +427,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -503,7 +503,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -556,7 +556,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -627,7 +627,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage`.
   "Projects": [
     {
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "RepositoryUrl": "string",
       "Slug": "string"
     }
@@ -669,7 +669,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/usage/v1`.
   "Projects": [
     {
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "RepositoryUrl": "string",
       "Slug": "string"
     }
@@ -733,7 +733,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
       ],
       "Enabled": true
     },
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 }
 ```
@@ -787,7 +787,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -872,7 +872,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
       ],
       "Enabled": true
     },
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 }
 ```
@@ -920,7 +920,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
     ],
     "Enabled": true
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1079,7 +1079,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
       "Name": "string",
       "Slug": "string",
       "SpaceManagersTeamMembers": [
-        "string"
+        "Users-1",
+        "..."
       ],
       "SpaceManagersTeams": [
         "string"
@@ -1126,7 +1127,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1192,7 +1194,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1270,7 +1273,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "Name": "string",
     "Slug": "string",
     "SpaceManagersTeamMembers": [
-      "string"
+      "Users-1",
+      "..."
     ],
     "SpaceManagersTeams": [
       "string"
@@ -1305,7 +1309,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1367,7 +1372,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "Name": "string",
     "Slug": "string",
     "SpaceManagersTeamMembers": [
-      "string"
+      "Users-1",
+      "..."
     ],
     "SpaceManagersTeams": [
       "string"
@@ -1443,7 +1449,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1478,12 +1485,13 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "Spaces-1",
   "IsDefault": true,
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1549,7 +1557,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
-    "string"
+    "Users-1",
+    "..."
   ],
   "SpaceManagersTeams": [
     "string"
@@ -1757,7 +1766,8 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
     "Name": "string",
     "Slug": "string",
     "SpaceManagersTeamMembers": [
-      "string"
+      "Users-1",
+      "..."
     ],
     "SpaceManagersTeams": [
       "string"

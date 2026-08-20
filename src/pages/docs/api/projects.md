@@ -109,14 +109,14 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       "AutoDeployReleaseOverrides": [
         {}
       ],
-      "ClonedFromProjectId": "string",
+      "ClonedFromProjectId": "Projects-1",
       "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
       "DefaultToSkipIfAlreadyInstalled": true,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
-      "DeprovisioningRunbookId": "string",
+      "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
       "DiscreteChannelRelease": true,
       "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -164,14 +164,14 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
         "Slug": "string",
         "VersionMask": "string"
       },
-      "ProvisioningRunbookId": "string",
+      "ProvisioningRunbookId": "Runbooks-1",
       "ReleaseCreationStrategy": {
         "ChannelId": "string",
         "ReleaseCreationPackage": {}
       },
       "ReleaseNotesTemplate": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Templates": [
         {}
       ],
@@ -280,10 +280,10 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     {
       "EnvironmentId": "string",
       "ReleaseId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
-  "Clone": "string",
+  "Clone": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultToSkipIfAlreadyInstalled": true,
@@ -302,7 +302,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     "string"
   ],
   "IsDisabled": true,
-  "LifecycleId": "string",
+  "LifecycleId": "Lifecycles-1",
   "Name": "string",
   "PersistenceSettings": {
     "Type": "Database"
@@ -315,7 +315,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       "string"
     ]
   },
-  "ProjectGroupId": "string",
+  "ProjectGroupId": "ProjectGroups-1",
   "ProjectTags": [
     "string"
   ],
@@ -329,7 +329,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "ReleaseNotesTemplate": "string",
   "RetainTenantConnections": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -454,17 +454,17 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     {
       "EnvironmentId": "string",
       "ReleaseId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
-  "ClonedFromProjectId": "string",
+  "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
   "DefaultToSkipIfAlreadyInstalled": true,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
-  "DeprovisioningRunbookId": "string",
+  "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": true,
   "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -515,7 +515,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     "Slug": "string",
     "VersionMask": "string"
   },
-  "ProvisioningRunbookId": "string",
+  "ProvisioningRunbookId": "Runbooks-1",
   "ReleaseCreationStrategy": {
     "ChannelId": "string",
     "ReleaseCreationPackage": {
@@ -525,7 +525,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   },
   "ReleaseNotesTemplate": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -668,17 +668,17 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
       {
         "EnvironmentId": "string",
         "ReleaseId": "string",
-        "TenantId": "string"
+        "TenantId": "Tenants-1"
       }
     ],
-    "ClonedFromProjectId": "string",
+    "ClonedFromProjectId": "Projects-1",
     "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
     "DefaultPowerShellEdition": "string",
     "DefaultToSkipIfAlreadyInstalled": true,
     "DeploymentChangesTemplate": "string",
     "DeploymentProcessId": "string",
-    "DeprovisioningRunbookId": "string",
+    "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
     "DiscreteChannelRelease": true,
     "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -729,7 +729,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
       "Slug": "string",
       "VersionMask": "string"
     },
-    "ProvisioningRunbookId": "string",
+    "ProvisioningRunbookId": "Runbooks-1",
     "ReleaseCreationStrategy": {
       "ChannelId": "string",
       "ReleaseCreationPackage": {
@@ -739,7 +739,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
     },
     "ReleaseNotesTemplate": "string",
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Templates": [
       {
         "DefaultValue": {},
@@ -893,17 +893,17 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     {
       "EnvironmentId": "string",
       "ReleaseId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
-  "ClonedFromProjectId": "string",
+  "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
   "DefaultToSkipIfAlreadyInstalled": true,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
-  "DeprovisioningRunbookId": "string",
+  "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": true,
   "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -954,7 +954,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     "Slug": "string",
     "VersionMask": "string"
   },
-  "ProvisioningRunbookId": "string",
+  "ProvisioningRunbookId": "Runbooks-1",
   "ReleaseCreationStrategy": {
     "ChannelId": "string",
     "ReleaseCreationPackage": {
@@ -964,7 +964,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   },
   "ReleaseNotesTemplate": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -1088,17 +1088,17 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     {
       "EnvironmentId": "string",
       "ReleaseId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
   "ChangeDescription": "string",
-  "ClonedFromProjectId": "string",
+  "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
   "DefaultToSkipIfAlreadyInstalled": true,
   "DeploymentChangesTemplate": "string",
-  "DeprovisioningRunbookId": "string",
+  "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": true,
   "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -1114,7 +1114,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   ],
   "IsBadgesEnabled": true,
   "IsDisabled": true,
-  "LifecycleId": "string",
+  "LifecycleId": "Lifecycles-1",
   "Name": "string",
   "PersistenceSettings": {
     "Type": "Database"
@@ -1127,12 +1127,12 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
       "string"
     ]
   },
-  "ProjectGroupId": "string",
-  "ProjectId": "string",
+  "ProjectGroupId": "ProjectGroups-1",
+  "ProjectId": "Projects-1",
   "ProjectTags": [
     "string"
   ],
-  "ProvisioningRunbookId": "string",
+  "ProvisioningRunbookId": "Runbooks-1",
   "ReleaseCreationStrategy": {
     "ChannelId": "string",
     "ReleaseCreationPackage": {
@@ -1142,7 +1142,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   },
   "ReleaseNotesTemplate": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -1267,17 +1267,17 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     {
       "EnvironmentId": "string",
       "ReleaseId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
-  "ClonedFromProjectId": "string",
+  "ClonedFromProjectId": "Projects-1",
   "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
   "DefaultToSkipIfAlreadyInstalled": true,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
-  "DeprovisioningRunbookId": "string",
+  "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
   "DiscreteChannelRelease": true,
   "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -1328,7 +1328,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     "Slug": "string",
     "VersionMask": "string"
   },
-  "ProvisioningRunbookId": "string",
+  "ProvisioningRunbookId": "Runbooks-1",
   "ReleaseCreationStrategy": {
     "ChannelId": "string",
     "ReleaseCreationPackage": {
@@ -1338,7 +1338,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   },
   "ReleaseNotesTemplate": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
@@ -1417,8 +1417,8 @@ Also reachable at `/api/projects/{projectId}/git/connectivity-test`, `/api/space
     "Type": "Anonymous"
   },
   "DefaultBranch": "string",
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Url": "string"
 }
 ```
@@ -1489,8 +1489,8 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
   "ChangeDescription": "string",
   "CommitMessage": "string",
   "InitialCommitBranchName": "string",
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "VersionControlSettings": {
     "BasePath": "string",
     "ConversionState": {
@@ -1552,8 +1552,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   "Branch": "string",
   "CommitMessage": "string",
   "CreateBranch": true,
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1585,7 +1585,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
       "RunbookName": "string"
     }
   ],
-  "ServerTaskId": "string"
+  "ServerTaskId": "ServerTasks-1"
 }
 ```
 :::
@@ -1827,8 +1827,8 @@ Also reachable at `/api/projects/{projectId}/git/validate`, `/api/spaces/{spaceI
 ```json
 {
   "GitRef": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -34,7 +34,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "IsDryRun": true,
   "IsEncryptedPackage": true,
   "OverwriteExisting": true,
-  "PackageFeedSpaceId": "string",
+  "PackageFeedSpaceId": "Spaces-1",
   "PackageId": "string",
   "PackageVersion": "string",
   "Password": "string",
@@ -124,7 +124,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
 {
   "DestinationApiKey": "string",
   "DestinationPackageFeed": "string",
-  "DestinationPackageFeedSpaceId": "string",
+  "DestinationPackageFeedSpaceId": "Spaces-1",
   "EncryptPackage": true,
   "FailureCallbackUri": "string",
   "IgnoreCertificates": true,
@@ -136,9 +136,10 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "PackageVersion": "string",
   "Password": "string",
   "Projects": [
-    "string"
+    "Projects-1",
+    "..."
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SuccessCallbackUri": "string"
 }
 ```
@@ -201,7 +202,7 @@ The migration API provides the ability to back-up and restore parts of an Octopu
   "Projects": [
     "string"
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SuccessCallbackUri": "string",
   "TaskId": "string"
 }

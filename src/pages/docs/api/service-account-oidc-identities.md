@@ -33,7 +33,7 @@ title: Service Account Oidc Identities
   "Audience": "string",
   "Issuer": "string",
   "Name": "string",
-  "ServiceAccountId": "string",
+  "ServiceAccountId": "Users-1",
   "Subject": "string"
 }
 ```
@@ -102,7 +102,7 @@ Gets a paginated set of ServiceAccountOidcIdentities.
       "Id": "string",
       "Issuer": "string",
       "Name": "string",
-      "ServiceAccountId": "string",
+      "ServiceAccountId": "Users-1",
       "Subject": "string"
     }
   ],
@@ -145,7 +145,7 @@ Gets a ServiceAccountOidcIdentity by its id.
   "Id": "string",
   "Issuer": "string",
   "Name": "string",
-  "ServiceAccountId": "string",
+  "ServiceAccountId": "Users-1",
   "Subject": "string"
 }
 ```
@@ -184,7 +184,7 @@ Gets a ServiceAccountOidcIdentity by its id.
   "Id": "string",
   "Issuer": "string",
   "Name": "string",
-  "ServiceAccountId": "string",
+  "ServiceAccountId": "Users-1",
   "Subject": "string"
 }
 ```
