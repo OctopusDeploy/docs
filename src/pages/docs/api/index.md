@@ -3,9 +3,11 @@ layout: src/layouts/Default.astro
 pubDate: 2026-08-21
 modDate: 2026-08-21
 title: Get started with the Octopus REST API
-navTitle: Get started 
+navTitle: Get started
+crumbTitle: API
 description: Getting started with the Octopus REST API
 navOrder: 1
+hideInThisSectionHeader: true
 ---
 
 ## API clients

@@ -132,6 +132,15 @@ section so its examples can sit beside it. */
   }
 }
 
+/* The rule between the hand-written pages and the generated reference. It sits
+   in a row of its own, so it takes the space of one and carries the line
+   through the middle of it. */
+.site-nav__separator {
+  margin-block: var(--space8);
+  border: 0;
+  border-top: var(--borderWidth1) solid var(--colorBorderPrimary);
+}
+
 /* ----- Styles for API badges ----- */
 
 /* A deprecated endpoint keeps its badge and its row, and reads as secondary

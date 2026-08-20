@@ -3,7 +3,6 @@ layout: src/layouts/Default.astro
 pubDate: 2023-01-01
 modDate: 2023-01-01
 title: Octopus CLI
-navTitle: Octopus CLI Overview
 description: The Octopus CLI
 navOrder: 129
 ---

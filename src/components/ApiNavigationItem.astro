@@ -1,0 +1,110 @@
+---
+import { accelerator } from '@lib/accelerator';
+import type { ApiNavPage } from '@lib/apiNavigation';
+
+// One row of the API left nav, and the branch under it. Split out of
+// ApiNavigation.astro because the tree is now nested and a row has to be able
+// to render itself.
+
+export type ApiNavEndpoint = {
+  slug: string;
+  text: string;
+  method: string | null;
+  deprecated: boolean;
+};
+
+type Props = {
+  page: ApiNavPage;
+  // The reader's path, without its trailing slash. Decides which branch is
+  // open and which row is current.
+  currentPath: string;
+  // The current page's endpoints, listed under whichever row turns out to be
+  // that page. Empty for a layout that lists them somewhere else.
+  endpoints: ApiNavEndpoint[];
+  // The badge labels, by method. Passed down so the two components cannot
+  // disagree about which methods have a badge.
+  methodLabels: Record<string, string>;
+};
+const { page, currentPath, endpoints, methodLabels } =
+  Astro.props satisfies Props;
+
+const isCurrent = page.url !== null && page.path === currentPath;
+// Open the branch the reader is inside, and only that one.
+const isOpen =
+  currentPath === page.path || currentPath.startsWith(page.path + '/');
+
+const showEndpoints = isCurrent && endpoints.length > 0;
+---
+
+{
+  page.children.length > 0 && (
+    <li class="site-nav__list-item">
+      <details class="site-nav__group" open={isOpen}>
+        <summary class="site-nav__link">
+          <span class="site-nav__label">{page.title}</span>
+        </summary>
+        <ul class="site-nav__list">
+          {page.children.map((child) => (
+            <Astro.self
+              page={child}
+              currentPath={currentPath}
+              endpoints={endpoints}
+              methodLabels={methodLabels}
+            />
+          ))}
+        </ul>
+      </details>
+    </li>
+  )
+}
+{
+  page.children.length === 0 && showEndpoints && (
+    <li class="site-nav__list-item">
+      <details class="site-nav__group" open>
+        {/* The summary is the page the reader is already on, so it labels the
+            group rather than linking back to itself. */}
+        <summary class="site-nav__link" aria-current="page">
+          <span class="site-nav__label">{page.title}</span>
+        </summary>
+        <ul class="site-nav__list">
+          {endpoints.map((endpoint) => (
+            <li class="site-nav__list-item">
+              <a
+                class:list={[
+                  'site-nav__link',
+                  'site-nav__link--heading',
+                  endpoint.deprecated && 'site-nav__link--deprecated',
+                ]}
+                href={`#${endpoint.slug}`}
+              >
+                {/* The badge is the method: an icon in the nav, where there is
+                    no room for the word beside the title. */}
+                {endpoint.method && (
+                  <span
+                    class={`api-${endpoint.method} api-icon-only`}
+                    role="img"
+                    aria-label={methodLabels[endpoint.method]}
+                  />
+                )}
+                <span class="site-nav__label">{endpoint.text}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </li>
+  )
+}
+{
+  page.children.length === 0 && !showEndpoints && (
+    <li class="site-nav__list-item">
+      <a
+        class="site-nav__link"
+        href={accelerator.urlFormatter.formatAddress(page.url ?? '/')}
+        aria-current={isCurrent ? 'page' : null}
+      >
+        <span class="site-nav__label">{page.title}</span>
+      </a>
+    </li>
+  )
+}
