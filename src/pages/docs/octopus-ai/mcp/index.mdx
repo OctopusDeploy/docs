@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-04-04
-modDate: 2026-06-19
+modDate: 2026-08-20
 title: Octopus MCP
 navTitle: Overview
 navSection: Octopus MCP
@@ -22,11 +22,18 @@ The MCP server provides tools designed to solve key use-cases within change mana
 
 The MCP server architecture ensures that your deployment data remains secure while enabling powerful AI-assisted workflows. All interactions are logged and auditable, maintaining the compliance and governance standards your organization requires.
 
-The Octopus MCP Server is open source, and anyone can contribute to it. It's available for free on Github at [https://github.com/OctopusDeploy/mcp-server](https://github.com/OctopusDeploy/mcp-server)
+## Remote and local MCP servers
+
+There are two ways to connect an MCP client to Octopus Deploy. Both expose the same tools.
+
+- **Remote MCP** is hosted by your Octopus Server. Your client connects directly to the `/mcp` endpoint on your instance. There is nothing to install.
+- **Local MCP** runs the [open source Octopus MCP server](https://github.com/OctopusDeploy/mcp-server) as a process on your own machine. The local server calls the Octopus REST API on your behalf.
+
+An administrator can turn each option on or off from the [MCP Controls settings](#mcp-controls). Both are enabled by default.
 
 ## Security
 
-The Octopus MCP Server works by communicating with your Octopus instance's REST API via a secure HTTPS connection. It leverages Octopus Server's existing API Key security mechanism, ensuring all interactions are authenticated, authorized for the permissions associated with the API Key, and audited.
+The Octopus MCP server leverages Octopus Server's existing API key security mechanism. Every interaction is authenticated, authorized for the permissions of the connecting API key, and audited. The MCP server can only do what the connecting key is permitted to do.
 
 To learn more, read our [Octopus REST API](/docs/octopus-rest-api) documentation.
 
@@ -34,7 +41,33 @@ To learn more, read our [Octopus REST API](/docs/octopus-rest-api) documentation
 
 Use dedicated [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These keep agent actions fully auditable in clear, filterable audit logs, so you can meet your compliance requirements.
 
-## 🚀 Installation
+## Connect to the remote MCP server
+
+The remote MCP server is served from your Octopus instance at `https://your-octopus.com/mcp`. It uses the Streamable HTTP transport.
+
+Authenticate with an agent API key. Send the key in the `X-Octopus-ApiKey` header. The key must be an agent API key created under an [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts). A standard user API key is not accepted on this endpoint.
+
+Add the server to your client with a configuration like this:
+
+```json
+{
+  "mcpServers": {
+    "octopusdeploy": {
+      "type": "http",
+      "url": "https://your-octopus.com/mcp",
+      "headers": {
+        "X-Octopus-ApiKey": "API-KEY"
+      }
+    }
+  }
+}
+```
+
+The connection runs with the permissions of the API key. To create an agent API key, see [creating an agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key).
+
+## Run the local MCP server
+
+The local server is open source and available for free on GitHub at [https://github.com/OctopusDeploy/mcp-server](https://github.com/OctopusDeploy/mcp-server). Anyone can contribute to it.
 
 ### Requirements
 
@@ -62,9 +95,9 @@ Full example configuration (for Claude Desktop, Claude Code, and Cursor):
 }
 ```
 
-The Octopus MCP Server is typically configured within your AI Client of choice.
+The local MCP server is typically configured within your AI client of choice.
 
-It is packaged as an npm package and executed via Node's `npx` command. Your configuration will include the command invocation `npx`, and a set of arguments that supply the Octopus MCP Server package and provide the Octopus Server URL and API key required, if they are not available as environment variables.
+It is packaged as an npm package and executed via Node's `npx` command. Your configuration will include the command invocation `npx`, and a set of arguments that supply the Octopus MCP server package and provide the Octopus Server URL and API key required, if they are not available as environment variables.
 
 The command line invocation you will be configuring will be one of the two following variants:
 
@@ -87,3 +120,12 @@ npx -y @octopusdeploy/mcp-server --server-url https://your-octopus.com
 ```
 
 For detailed documentation visit [the official Github repo](https://github.com/OctopusDeploy/mcp-server).
+
+## MCP Controls
+
+An administrator controls MCP access from **Configuration ➜ Settings ➜ MCP Controls**. The page has two independent settings:
+
+- **Enable Remote MCP** controls whether clients can connect to the hosted `/mcp` endpoint.
+- **Enable Local MCP** controls whether a locally-run MCP server can connect to this instance.
+
+Both settings are enabled by default. Turning one on or off does not affect the other. Changing either setting requires the **Configure Server** permission. Turning off Local MCP does not prevent agents from connecting to Octopus through the REST API.
