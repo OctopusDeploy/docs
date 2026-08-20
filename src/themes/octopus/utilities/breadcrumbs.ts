@@ -38,7 +38,12 @@ export function buildCrumbs(
   const titles = crumbTitleMap();
 
   for (const page of navPages) {
-    page.title = titles.get(page.url) || page.section || page.title;
+    // The map is keyed with a trailing slash, and so is every crumb the walk
+    // builds - except the last, which Navigation.breadcrumbs() rewrites to the
+    // raw request path. Without normalizing, a `crumbTitle` was honoured
+    // everywhere above the current page and silently dropped on it.
+    const url = accelerator.urlFormatter.addSlashToAddress(page.url);
+    page.title = titles.get(url) || page.section || page.title;
   }
 
   return [...navPages, ...(extraCrumbs ?? [])];

@@ -35,9 +35,10 @@ type AreaDefinition = {
 
 export const AREAS = {
   docs: { path: null, sectionCrumb: null },
-  // /docs/api has no page of its own yet: `_index.md` is underscore-prefixed so
-  // Astro does not route it, which is why the crumb has to be spliced in.
-  api: { path: '/api', sectionCrumb: 'Api' },
+  // /docs/api has a landing page of its own, so the generic crumb walk finds
+  // the section without help. It reads as "API" rather than as that page's
+  // title because index.md carries a `crumbTitle`.
+  api: { path: '/api', sectionCrumb: null },
 } as const satisfies Record<Area, AreaDefinition>;
 
 const DEFAULT_AREA: Area = 'docs';
