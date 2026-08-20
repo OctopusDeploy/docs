@@ -90,8 +90,8 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
   "IsDefault": true,
   "LifecycleId": "string",
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -112,7 +112,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -206,8 +206,8 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -228,7 +228,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -340,8 +340,8 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
       "additionalProp3": "string"
     },
     "Name": "string",
-    "ParentEnvironmentId": "string",
-    "ProjectId": "string",
+    "ParentEnvironmentId": "Environments-1",
+    "ProjectId": "Projects-1",
     "Rules": [
       {
         "ActionPackages": [
@@ -358,7 +358,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
       }
     ],
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantTags": [
       "string"
     ],
@@ -732,12 +732,12 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
       ]
     }
   ],
-  "Id": "string",
+  "Id": "Channels-1",
   "IsDefault": true,
   "LifecycleId": "string",
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -758,7 +758,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -851,8 +851,8 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -873,7 +873,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -998,13 +998,13 @@ Lists all the channels for the given project
         "additionalProp3": "string"
       },
       "Name": "string",
-      "ParentEnvironmentId": "string",
-      "ProjectId": "string",
+      "ParentEnvironmentId": "Environments-1",
+      "ProjectId": "Projects-1",
       "Rules": [
         {}
       ],
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantTags": [
         "string"
       ],
@@ -1112,8 +1112,8 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
   "IsDefault": true,
   "LifecycleId": "string",
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1134,7 +1134,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -1228,8 +1228,8 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1250,7 +1250,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -1428,8 +1428,8 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1450,7 +1450,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -1545,12 +1545,12 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
       ]
     }
   ],
-  "Id": "string",
+  "Id": "Channels-1",
   "IsDefault": true,
   "LifecycleId": "string",
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1571,7 +1571,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -1664,8 +1664,8 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1686,7 +1686,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],
@@ -1844,13 +1844,13 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
         "additionalProp3": "string"
       },
       "Name": "string",
-      "ParentEnvironmentId": "string",
-      "ProjectId": "string",
+      "ParentEnvironmentId": "Environments-1",
+      "ProjectId": "Projects-1",
       "Rules": [
         {}
       ],
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantTags": [
         "string"
       ],
@@ -1973,8 +1973,8 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     "additionalProp3": "string"
   },
   "Name": "string",
-  "ParentEnvironmentId": "string",
-  "ProjectId": "string",
+  "ParentEnvironmentId": "Environments-1",
+  "ProjectId": "Projects-1",
   "Rules": [
     {
       "ActionPackages": [
@@ -1995,7 +1995,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ],

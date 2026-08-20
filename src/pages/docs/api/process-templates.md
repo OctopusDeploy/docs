@@ -24,7 +24,8 @@ title: Process Templates
 ```json
 {
   "IndividuallySharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "SharedToAllSpaces": true
 }
@@ -108,7 +109,7 @@ title: Process Templates
       "Color": "string",
       "Id": "string"
     },
-    "Id": "string",
+    "Id": "ProcessTemplateVersion-1",
     "IsPreRelease": true,
     "Name": "string",
     "Parameters": [
@@ -451,7 +452,8 @@ title: Process Templates
 {
   "GitRef": "string",
   "IndividuallySharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "ShareToAllSpaces": true,
   "Slug": "string"
@@ -471,10 +473,12 @@ title: Process Templates
 ```json
 {
   "IndividuallySharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "IndividuallyUnsharedSpaceIds": [
-    "string"
+    "Spaces-1",
+    "..."
   ],
   "SharedToAllSpaces": true
 }
@@ -587,7 +591,7 @@ title: Process Templates
     "Color": "string",
     "Id": "string"
   },
-  "Id": "string",
+  "Id": "ProcessTemplateVersion-1",
   "IsPreRelease": true,
   "Name": "string",
   "Parameters": [

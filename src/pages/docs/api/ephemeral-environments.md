@@ -30,8 +30,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/ephemeral/{id}/dep
 {
   "DeprovisioningRuns": [
     {
-      "RunbookRunId": "string",
-      "TaskId": "string"
+      "RunbookRunId": "RunbookRuns-1",
+      "TaskId": "ServerTasks-1"
     }
   ]
 }
@@ -60,8 +60,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```json
 {
   "EnvironmentName": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -75,7 +75,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 :::api-example{label="Response"}
 ```json
 {
-  "Id": "string"
+  "Id": "Environments-1"
 }
 ```
 :::
@@ -104,8 +104,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```json
 {
   "DeprovisioningRun": {
-    "RunbookRunId": "string",
-    "TaskId": "string"
+    "RunbookRunId": "RunbookRuns-1",
+    "TaskId": "ServerTasks-1"
   }
 }
 ```
@@ -157,8 +157,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```json
 {
   "DeprovisioningRun": {
-    "RunbookRunId": "string",
-    "TaskId": "string"
+    "RunbookRunId": "RunbookRuns-1",
+    "TaskId": "ServerTasks-1"
   }
 }
 ```
@@ -210,8 +210,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
 ```json
 {
   "ProvisioningRun": {
-    "RunbookRunId": "string",
-    "TaskId": "string"
+    "RunbookRunId": "RunbookRuns-1",
+    "TaskId": "ServerTasks-1"
   }
 }
 ```

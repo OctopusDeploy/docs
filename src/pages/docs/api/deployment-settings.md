@@ -76,9 +76,9 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -162,9 +162,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -250,9 +250,9 @@ Modifies deployment settings for a project.
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
   "GitRef": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -323,9 +323,9 @@ Modifies deployment settings for a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -412,9 +412,9 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -499,9 +499,9 @@ Modifies deployment settings for a project.
   "DeploymentChangesTemplate": "string",
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",
@@ -572,9 +572,9 @@ Modifies deployment settings for a project.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "VersioningStrategy": {
     "DonorPackage": {
       "DeploymentAction": "string",

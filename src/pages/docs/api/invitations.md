@@ -27,9 +27,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
 ```json
 {
   "AddToTeamIds": [
-    "string"
+    "Teams-1",
+    "..."
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -60,7 +61,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
     "string"
   ],
   "Expires": "2020-01-01T00:00:00.000Z",
-  "Id": "string",
+  "Id": "Invitations-1",
   "InvitationCode": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -69,7 +70,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations`, `/api/users
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -113,7 +114,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/
     "string"
   ],
   "Expires": "2020-01-01T00:00:00.000Z",
-  "Id": "string",
+  "Id": "Invitations-1",
   "InvitationCode": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -122,7 +123,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/invitations/{id}`, `/api/
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -87,7 +87,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
         "Unit": "Days"
       },
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TentacleRetentionPolicy": {
         "QuantityToKeep": 0,
         "ShouldKeepForever": true,
@@ -164,7 +164,8 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -172,7 +173,8 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -195,7 +197,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -261,7 +263,8 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -269,7 +272,8 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -292,7 +296,7 @@ Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -369,7 +373,8 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
     "Phases": [
       {
         "AutomaticDeploymentTargets": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Id": "string",
         "IsOptionalPhase": true,
@@ -377,7 +382,8 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
         "MinimumEnvironmentsBeforePromotion": 0,
         "Name": "string",
         "OptionalDeploymentTargets": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "ReleaseRetentionPolicy": {},
         "TentacleRetentionPolicy": {}
@@ -390,7 +396,7 @@ Also reachable at `/api/lifecycles/all`, `/api/spaces/{spaceIdentifier}/lifecycl
       "Unit": "Days"
     },
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TentacleRetentionPolicy": {
       "QuantityToKeep": 0,
       "ShouldKeepForever": true,
@@ -474,7 +480,8 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
     "Phases": [
       {
         "AutomaticDeploymentTargets": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Id": "string",
         "IsOptionalPhase": true,
@@ -482,7 +489,8 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
         "MinimumEnvironmentsBeforePromotion": 0,
         "Name": "string",
         "OptionalDeploymentTargets": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "ReleaseRetentionPolicy": {},
         "TentacleRetentionPolicy": {}
@@ -495,7 +503,7 @@ Also reachable at `/api/lifecycles/previews`, `/api/spaces/{spaceIdentifier}/lif
       "Unit": "Days"
     },
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TentacleRetentionPolicy": {
       "QuantityToKeep": 0,
       "ShouldKeepForever": true,
@@ -575,7 +583,8 @@ This request does not support getting Lifecycles that belong to Templated Projec
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -583,7 +592,8 @@ This request does not support getting Lifecycles that belong to Templated Projec
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -606,7 +616,7 @@ This request does not support getting Lifecycles that belong to Templated Projec
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -670,12 +680,13 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "Lifecycles-1",
   "Name": "string",
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -683,7 +694,8 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -706,7 +718,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -772,7 +784,8 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -780,7 +793,8 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -803,7 +817,7 @@ Also reachable at `/api/lifecycles/{id}`, `/api/spaces/{spaceIdentifier}/lifecyc
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -905,7 +919,8 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
   "Phases": [
     {
       "AutomaticDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Id": "string",
       "IsOptionalPhase": true,
@@ -913,7 +928,8 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "ReleaseRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -936,7 +952,7 @@ Also reachable at `/api/lifecycles/{id}/preview`, `/api/spaces/{spaceIdentifier}
     "Unit": "Days"
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TentacleRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -1055,17 +1071,17 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
       {
         "EnvironmentId": "string",
         "ReleaseId": "string",
-        "TenantId": "string"
+        "TenantId": "Tenants-1"
       }
     ],
-    "ClonedFromProjectId": "string",
+    "ClonedFromProjectId": "Projects-1",
     "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
     "DefaultPowerShellEdition": "string",
     "DefaultToSkipIfAlreadyInstalled": true,
     "DeploymentChangesTemplate": "string",
     "DeploymentProcessId": "string",
-    "DeprovisioningRunbookId": "string",
+    "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
     "DiscreteChannelRelease": true,
     "ExecuteDeploymentsOnEventBasedPipeline": true,
@@ -1116,7 +1132,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
       "Slug": "string",
       "VersionMask": "string"
     },
-    "ProvisioningRunbookId": "string",
+    "ProvisioningRunbookId": "Runbooks-1",
     "ReleaseCreationStrategy": {
       "ChannelId": "string",
       "ReleaseCreationPackage": {
@@ -1126,7 +1142,7 @@ Also reachable at `/api/lifecycles/{id}/projects`, `/api/spaces/{spaceIdentifier
     },
     "ReleaseNotesTemplate": "string",
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Templates": [
       {
         "DefaultValue": {},

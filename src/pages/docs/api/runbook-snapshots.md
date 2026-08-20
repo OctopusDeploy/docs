@@ -193,16 +193,16 @@ Runbook Snapshots will be ordered from most recent to least recent.
       },
       "Name": "string",
       "Notes": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
-      "RunbookId": "string",
+      "RunbookId": "Runbooks-1",
       "SelectedGitResources": [
         {}
       ],
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -264,9 +264,9 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
 {
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "Publish": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -285,7 +285,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -357,9 +357,9 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -378,7 +378,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -465,9 +465,9 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -486,7 +486,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -537,7 +537,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   "Id": "string",
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -556,7 +556,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -628,9 +628,9 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -649,7 +649,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -761,7 +761,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "DeployedToMachineIds": [
         "string"
       ],
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "ExcludedMachineIds": [
         "string"
       ],
@@ -793,7 +793,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "ManifestVariableSetId": "string",
       "Name": "string",
       "Priority": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
       "RunbookId": "string",
@@ -802,15 +802,15 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "SkipActions": [
         "string"
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "SpecificMachineIds": [
         "string"
       ],
       "SpecificTargetTagIds": [
         "string"
       ],
-      "TaskId": "string",
-      "TenantId": "string",
+      "TaskId": "ServerTasks-1",
+      "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
         "ShouldKeepForever": true,
@@ -1017,7 +1017,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1130,9 +1130,9 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -1151,7 +1151,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1231,9 +1231,9 @@ Update the variable snapshots associated with the runbook snapshot to the latest
     },
     "Name": "string",
     "Notes": "string",
-    "ProjectId": "string",
+    "ProjectId": "Projects-1",
     "ProjectVariableSetSnapshotId": "string",
-    "RunbookId": "string",
+    "RunbookId": "Runbooks-1",
     "SelectedGitResources": [
       {
         "ActionName": "string",
@@ -1249,7 +1249,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
         "Version": "string"
       }
     ],
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 }
 ```
@@ -1359,7 +1359,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
         {}
       ]
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Variables": [
       {
         "Description": "string",
@@ -1414,14 +1414,14 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
 {
   "DeploymentPreviews": [
     {
-      "EnvironmentId": "string",
-      "TenantId": "string"
+      "EnvironmentId": "Environments-1",
+      "TenantId": "Tenants-1"
     }
   ],
   "IncludeDisabledSteps": true,
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunbookSnapshotId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1614,16 +1614,16 @@ Runbook Snapshots will be ordered from most recent to least recent.
       },
       "Name": "string",
       "Notes": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
-      "RunbookId": "string",
+      "RunbookId": "Runbooks-1",
       "SelectedGitResources": [
         {}
       ],
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -1755,16 +1755,16 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
       },
       "Name": "string",
       "Notes": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
-      "RunbookId": "string",
+      "RunbookId": "Runbooks-1",
       "SelectedGitResources": [
         {}
       ],
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -1824,9 +1824,9 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
 {
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "Publish": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -1845,7 +1845,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1917,9 +1917,9 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -1938,7 +1938,7 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2023,9 +2023,9 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -2044,7 +2044,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2093,7 +2093,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   "Id": "string",
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -2112,7 +2112,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2184,9 +2184,9 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -2205,7 +2205,7 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2316,7 +2316,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "DeployedToMachineIds": [
         "string"
       ],
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "ExcludedMachineIds": [
         "string"
       ],
@@ -2348,7 +2348,7 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "ManifestVariableSetId": "string",
       "Name": "string",
       "Priority": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
       "RunbookId": "string",
@@ -2357,15 +2357,15 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "SkipActions": [
         "string"
       ],
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "SpecificMachineIds": [
         "string"
       ],
       "SpecificTargetTagIds": [
         "string"
       ],
-      "TaskId": "string",
-      "TenantId": "string",
+      "TaskId": "ServerTasks-1",
+      "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
         "ShouldKeepForever": true,
@@ -2575,7 +2575,7 @@ Gets all of the information necessary for creating or editing a run for this sna
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -2686,9 +2686,9 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   },
   "Name": "string",
   "Notes": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ProjectVariableSetSnapshotId": "string",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "SelectedGitResources": [
     {
       "ActionName": "string",
@@ -2707,7 +2707,7 @@ Update the variable snapshots associated with the runbook snapshot to the latest
       "Version": "string"
     }
   ],
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2812,16 +2812,16 @@ Runbook Snapshots will be ordered from most recent to least recent.
       },
       "Name": "string",
       "Notes": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectVariableSetSnapshotId": "string",
-      "RunbookId": "string",
+      "RunbookId": "Runbooks-1",
       "SelectedGitResources": [
         {}
       ],
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,

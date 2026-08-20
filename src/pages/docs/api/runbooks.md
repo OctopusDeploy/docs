@@ -142,7 +142,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
       "Description": "string",
       "EnvironmentScope": "All",
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "FailTargetDiscovery": true,
       "ForcePackageDownload": true,
@@ -156,7 +157,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -169,7 +170,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
         "string"
       ],
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -249,7 +250,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 :::api-example{label="Request"}
 ```json
 {
-  "Clone": "string",
+  "Clone": "Runbooks-1",
   "ConnectivityPolicy": {
     "AllowDeploymentsToNoTargets": true,
     "ExcludeUnhealthyTargets": true,
@@ -262,12 +263,13 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ForcePackageDownload": true,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -275,12 +277,12 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
     "Strategy": "string",
     "Unit": "Days"
   },
-  "RunbookProcessId": "string",
+  "RunbookProcessId": "RunbookProcess-Runbooks-1",
   "RunbookTags": [
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -347,7 +349,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -361,7 +364,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -374,7 +377,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -452,7 +455,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
       "Description": "string",
       "EnvironmentScope": "All",
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "FailTargetDiscovery": true,
       "ForcePackageDownload": true,
@@ -466,7 +470,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -479,7 +483,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
         "string"
       ],
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ]
 }
@@ -542,12 +546,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ForcePackageDownload": true,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -558,7 +563,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -577,9 +582,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
 :::api-example{label="Response"}
 ```json
 {
-  "Id": "string",
+  "Id": "Runbooks-1",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "Slug": "string"
 }
 ```
@@ -660,7 +665,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -674,7 +680,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -687,7 +693,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -773,14 +779,15 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
-  "Id": "string",
+  "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -793,7 +800,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -860,7 +867,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -874,7 +882,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -887,7 +895,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -980,7 +988,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
     "Name": "string",
     "Slug": "string",
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "UseGuidedFailure": true
   }
 ]
@@ -1028,10 +1036,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/{
       "EnvironmentTags": [
         "string"
       ],
-      "Id": "string",
+      "Id": "Environments-1",
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Type": "string"
     }
   ]
@@ -1103,7 +1111,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1443,9 +1451,10 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
   ],
   "Comments": "string",
   "DebugMode": "string",
-  "EnvironmentId": "string",
+  "EnvironmentId": "Environments-1",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ExcludedMachineIds": [
     "string"
@@ -1461,24 +1470,25 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
     "additionalProp3": "string"
   },
   "Priority": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "RunbookSnapshotNameOrId": "string",
   "SkipActions": [
     "string"
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SpecificMachineIds": [
     "string"
   ],
   "SpecificTargetTagIds": [
     "string"
   ],
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTagNames": [
     "string"
@@ -1530,14 +1540,14 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 {
   "DeploymentPreviews": [
     {
-      "EnvironmentId": "string",
-      "TenantId": "string"
+      "EnvironmentId": "Environments-1",
+      "TenantId": "Tenants-1"
     }
   ],
   "IncludeDisabledSteps": true,
-  "ProjectId": "string",
-  "RunbookId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "RunbookId": "Runbooks-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1839,7 +1849,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
       "Description": "string",
       "EnvironmentScope": "All",
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "FailTargetDiscovery": true,
       "ForcePackageDownload": true,
@@ -1853,7 +1864,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -1866,7 +1877,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
         "string"
       ],
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -1944,13 +1955,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ForcePackageDownload": true,
   "GitRef": "string",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
     "ShouldKeepForever": true,
@@ -1961,7 +1973,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1983,9 +1995,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 ```json
 {
   "GitRef": "string",
-  "Id": "string",
+  "Id": "Runbooks-1",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "Slug": "string"
 }
 ```
@@ -2067,7 +2079,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -2081,7 +2094,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -2094,7 +2107,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2187,15 +2200,16 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
   "GitRef": "string",
-  "Id": "string",
+  "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -2208,7 +2222,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2275,7 +2289,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -2289,7 +2304,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -2302,7 +2317,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2342,9 +2357,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 {
   "ChangeDescription": "string",
   "GitRef": "string",
-  "Id": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "Id": "Runbooks-1",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -2426,7 +2441,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
     "Name": "string",
     "Slug": "string",
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "UseGuidedFailure": true
   }
 ]
@@ -2475,10 +2490,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
       "EnvironmentTags": [
         "string"
       ],
-      "Id": "string",
+      "Id": "Environments-1",
       "Name": "string",
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "Type": "string"
     }
   ]
@@ -2552,7 +2567,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -2855,15 +2870,15 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
 {
   "DeploymentPreviews": [
     {
-      "EnvironmentId": "string",
-      "TenantId": "string"
+      "EnvironmentId": "Environments-1",
+      "TenantId": "Tenants-1"
     }
   ],
   "GitRef": "string",
   "IncludeDisabledSteps": true,
-  "ProjectId": "string",
-  "RunbookId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "RunbookId": "Runbooks-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3162,7 +3177,8 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
       "Description": "string",
       "EnvironmentScope": "All",
       "Environments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "FailTargetDiscovery": true,
       "ForcePackageDownload": true,
@@ -3176,7 +3192,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
       },
       "MultiTenancyMode": "Untenanted",
       "Name": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
@@ -3189,7 +3205,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
         "string"
       ],
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -3267,7 +3283,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 :::api-example{label="Request"}
 ```json
 {
-  "Clone": "string",
+  "Clone": "Runbooks-1",
   "ConnectivityPolicy": {
     "AllowDeploymentsToNoTargets": true,
     "ExcludeUnhealthyTargets": true,
@@ -3280,12 +3296,13 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ForcePackageDownload": true,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -3293,12 +3310,12 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
     "Strategy": "string",
     "Unit": "Days"
   },
-  "RunbookProcessId": "string",
+  "RunbookProcessId": "RunbookProcess-Runbooks-1",
   "RunbookTags": [
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3365,7 +3382,8 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -3379,7 +3397,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -3392,7 +3410,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3480,7 +3498,8 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
     "Description": "string",
     "EnvironmentScope": "All",
     "Environments": [
-      "string"
+      "Environments-1",
+      "..."
     ],
     "FailTargetDiscovery": true,
     "ForcePackageDownload": true,
@@ -3494,7 +3513,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
     },
     "MultiTenancyMode": "Untenanted",
     "Name": "string",
-    "ProjectId": "string",
+    "ProjectId": "Projects-1",
     "PublishedRunbookSnapshotId": "string",
     "RunRetentionPolicy": {
       "QuantityToKeep": 0,
@@ -3507,7 +3526,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
       "string"
     ],
     "Slug": "string",
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 ]
 ```
@@ -3591,7 +3610,8 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -3605,7 +3625,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -3618,7 +3638,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3702,14 +3722,15 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
-  "Id": "string",
+  "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -3722,7 +3743,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3789,7 +3810,8 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "Description": "string",
   "EnvironmentScope": "All",
   "Environments": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "FailTargetDiscovery": true,
   "ForcePackageDownload": true,
@@ -3803,7 +3825,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   },
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
@@ -3816,7 +3838,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "string"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -3911,7 +3933,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
     "Name": "string",
     "Slug": "string",
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "UseGuidedFailure": true
   }
 ]
@@ -3985,7 +4007,7 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
   },
   "PromoteTo": [
     {
-      "Id": "string",
+      "Id": "Environments-1",
       "Links": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -4323,9 +4345,10 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
   ],
   "Comments": "string",
   "DebugMode": "string",
-  "EnvironmentId": "string",
+  "EnvironmentId": "Environments-1",
   "EnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "ExcludedMachineIds": [
     "string"
@@ -4341,24 +4364,25 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
     "additionalProp3": "string"
   },
   "Priority": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
-  "RunbookId": "string",
+  "RunbookId": "Runbooks-1",
   "RunbookSnapshotNameOrId": "string",
   "SkipActions": [
     "string"
   ],
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "SpecificMachineIds": [
     "string"
   ],
   "SpecificTargetTagIds": [
     "string"
   ],
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "TenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "TenantTagNames": [
     "string"

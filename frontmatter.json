@@ -71,6 +71,16 @@
           "title": "navOrder",
           "name": "navOrder",
           "type": "number"
+        },
+        {
+          "title": "area",
+          "name": "area",
+          "type": "choice",
+          "choices": [
+            "docs",
+            "api"
+          ],
+          "required": false
         }
       ]
     }

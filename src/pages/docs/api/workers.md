@@ -123,12 +123,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "Thumbprint": "string",
       "Uri": "string",
       "WorkerPoolIds": [
-        "string"
+        "WorkerPools-1",
+        "..."
       ]
     }
   ],
@@ -200,13 +201,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
     }
   },
   "IsDisabled": true,
-  "MachinePolicyId": "string",
+  "MachinePolicyId": "MachinePolicies-1",
   "Name": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```
@@ -291,12 +293,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "Thumbprint": "string",
   "Uri": "string",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```
@@ -402,12 +405,13 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
     "ShellVersion": "string",
     "SkipInitialHealthCheck": true,
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "StatusSummary": "string",
     "Thumbprint": "string",
     "Uri": "string",
     "WorkerPoolIds": [
-      "string"
+      "WorkerPools-1",
+      "..."
     ]
   }
 ]
@@ -516,12 +520,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "Thumbprint": "string",
   "Uri": "string",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```
@@ -649,12 +654,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
         "ShellVersion": "string",
         "SkipInitialHealthCheck": true,
         "Slug": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "StatusSummary": "string",
         "Thumbprint": "string",
         "Uri": "string",
         "WorkerPoolIds": [
-          "string"
+          "WorkerPools-1",
+          "..."
         ]
       }
     ],
@@ -759,12 +765,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "Thumbprint": "string",
   "Uri": "string",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```
@@ -825,14 +832,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
       "additionalProp3": "string"
     }
   },
-  "Id": "string",
+  "Id": "Machines-1",
   "IsDisabled": true,
-  "MachinePolicyId": "string",
+  "MachinePolicyId": "MachinePolicies-1",
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```
@@ -917,12 +925,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "ShellVersion": "string",
   "SkipInitialHealthCheck": true,
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StatusSummary": "string",
   "Thumbprint": "string",
   "Uri": "string",
   "WorkerPoolIds": [
-    "string"
+    "WorkerPools-1",
+    "..."
   ]
 }
 ```

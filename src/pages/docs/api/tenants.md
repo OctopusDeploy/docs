@@ -115,7 +115,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
         ]
       },
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TenantTags": [
         "string"
       ]
@@ -167,7 +167,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 :::api-example{label="Request"}
 ```json
 {
-  "Clone": "string",
+  "Clone": "Tenants-1",
   "Description": "string",
   "IsDisabled": true,
   "Name": "string",
@@ -183,7 +183,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
     ]
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -253,7 +253,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
     ]
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -352,7 +352,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
       ]
     },
     "Slug": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "TenantTags": [
       "string"
     ]
@@ -502,7 +502,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/a
     },
     "MissingVariables": [
       {
-        "EnvironmentId": "string",
+        "EnvironmentId": "Environments-1",
         "LibraryVariableSetId": "string",
         "Links": {},
         "ProjectId": "string",
@@ -510,7 +510,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/variables-missing`, `/a
         "VariableTemplateName": "string"
       }
     ],
-    "TenantId": "string"
+    "TenantId": "Tenants-1"
   }
 ]
 ```
@@ -590,7 +590,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
     ]
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -630,7 +630,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "Tenants-1",
   "IsDisabled": true,
   "Name": "string",
   "ProjectEnvironments": {
@@ -645,7 +645,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
     ]
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -715,7 +715,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
     ]
   },
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantTags": [
     "string"
   ]
@@ -957,8 +957,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     }
   },
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "TenantName": "string"
 }
 ```
@@ -990,10 +990,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 ```json
 {
   "ConcurrencyToken": "string",
-  "Id": "string",
+  "Id": "Tenants-1",
   "LibraryVariables": {
     "additionalProp1": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1010,7 +1010,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     },
     "additionalProp2": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1027,7 +1027,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     },
     "additionalProp3": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1051,7 +1051,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1068,7 +1068,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1085,7 +1085,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1097,7 +1097,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantName": "string"
 }
 ```
@@ -1240,8 +1240,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     }
   },
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "TenantName": "string"
 }
 ```
@@ -1271,10 +1271,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
 ```json
 {
   "ConcurrencyToken": "string",
-  "Id": "string",
+  "Id": "Tenants-1",
   "LibraryVariables": {
     "additionalProp1": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1291,7 +1291,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     },
     "additionalProp2": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1308,7 +1308,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     },
     "additionalProp3": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1332,7 +1332,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1349,7 +1349,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1366,7 +1366,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1378,7 +1378,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantName": "string"
 }
 ```
@@ -1521,8 +1521,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}/variables`, `/api/
       }
     }
   },
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "TenantName": "string"
 }
 ```
@@ -1555,10 +1555,10 @@ Also reachable at `/api/tenants/{id}/variables`.
 ```json
 {
   "ConcurrencyToken": "string",
-  "Id": "string",
+  "Id": "Tenants-1",
   "LibraryVariables": {
     "additionalProp1": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1575,7 +1575,7 @@ Also reachable at `/api/tenants/{id}/variables`.
       }
     },
     "additionalProp2": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1592,7 +1592,7 @@ Also reachable at `/api/tenants/{id}/variables`.
       }
     },
     "additionalProp3": {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Links": {
         "additionalProp1": "string",
@@ -1616,7 +1616,7 @@ Also reachable at `/api/tenants/{id}/variables`.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1633,7 +1633,7 @@ Also reachable at `/api/tenants/{id}/variables`.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1650,7 +1650,7 @@ Also reachable at `/api/tenants/{id}/variables`.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Templates": [
         {}
@@ -1662,7 +1662,7 @@ Also reachable at `/api/tenants/{id}/variables`.
       }
     }
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TenantName": "string"
 }
 ```
@@ -1805,8 +1805,8 @@ Also reachable at `/api/tenants/{id}/variables`.
       }
     }
   },
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "TenantName": "string"
 }
 ```
@@ -1861,11 +1861,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
   "ConcurrencyToken": "string",
   "MissingVariables": [
     {
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -1884,15 +1885,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       }
     }
   ],
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -1946,15 +1948,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -1991,15 +1994,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2051,15 +2055,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -2096,15 +2101,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2159,15 +2165,16 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -2204,15 +2211,16 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "LibraryVariableSetId": "string",
+      "LibraryVariableSetId": "LibraryVariableSets-1",
       "LibraryVariableSetName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2284,11 +2292,12 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
   "ConcurrencyToken": "string",
   "MissingVariables": [
     {
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2307,15 +2316,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       }
     }
   ],
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2369,15 +2379,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -2414,15 +2425,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2474,15 +2486,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -2519,15 +2532,16 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2582,15 +2596,16 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 ```json
 {
   "ConcurrencyToken": "string",
-  "SpaceId": "string",
-  "TenantId": "string",
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
       "OwnerId": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "TemplateId": "string",
@@ -2627,15 +2642,16 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
 ```json
 {
   "ConcurrencyToken": "string",
-  "TenantId": "string",
+  "TenantId": "Tenants-1",
   "Variables": [
     {
       "Id": "string",
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "ProjectName": "string",
       "Scope": {
         "EnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ]
       },
       "Template": {
@@ -2764,8 +2780,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenantvariables/all`, `/api/ten
         "Variables": {}
       }
     },
-    "SpaceId": "string",
-    "TenantId": "string",
+    "SpaceId": "Spaces-1",
+    "TenantId": "Tenants-1",
     "TenantName": "string"
   }
 ]

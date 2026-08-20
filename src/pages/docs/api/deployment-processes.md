@@ -75,8 +75,8 @@ Lists all the deployment processes in the supplied Octopus Deploy Space, sorted 
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ProjectId": "string",
-      "SpaceId": "string",
+      "ProjectId": "Projects-1",
+      "SpaceId": "Spaces-1",
       "Steps": [
         {}
       ],
@@ -275,8 +275,8 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -356,8 +356,8 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -423,8 +423,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
 {
   "ChangeDescription": "string",
   "LastSnapshotId": "string",
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -493,8 +493,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -576,8 +576,8 @@ This request returns the deployment process with all process template usages res
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -822,8 +822,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -892,8 +892,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   "ChangeDescription": "string",
   "GitRef": "string",
   "LastSnapshotId": "string",
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -962,8 +962,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -1046,8 +1046,8 @@ This request returns the deployment process with all process template usages res
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -1299,8 +1299,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [
@@ -1369,8 +1369,8 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "ProjectId": "string",
-  "SpaceId": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
   "Steps": [
     {
       "Actions": [

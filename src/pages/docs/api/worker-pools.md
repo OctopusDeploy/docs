@@ -92,7 +92,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
       "Name": "string",
       "Slug": "string",
       "SortOrder": 0,
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "WorkerPoolType": "StaticWorkerPool"
     }
   ],
@@ -145,7 +145,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolType": "StaticWorkerPool",
   "WorkerType": "string"
 }
@@ -195,7 +195,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
@@ -263,7 +263,7 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
     "Name": "string",
     "Slug": "string",
     "SortOrder": 0,
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "WorkerPoolType": "StaticWorkerPool"
   }
 ]
@@ -452,7 +452,7 @@ Lists all worker pools, including a summary of machine information.
         "Name": "string",
         "Slug": "string",
         "SortOrder": 0,
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "WorkerPoolType": "StaticWorkerPool"
       }
     }
@@ -552,7 +552,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
@@ -594,11 +594,11 @@ Updates an existing worker pool.
 ```json
 {
   "Description": "string",
-  "Id": "string",
+  "Id": "WorkerPools-1",
   "IsDefault": true,
   "Name": "string",
   "Slug": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerType": "string"
 }
 ```
@@ -647,7 +647,7 @@ Updates an existing worker pool.
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "WorkerPoolType": "StaticWorkerPool"
 }
 ```
@@ -779,12 +779,13 @@ Lists all of the machines that belong to the given worker pool.
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "Thumbprint": "string",
       "Uri": "string",
       "WorkerPoolIds": [
-        "string"
+        "WorkerPools-1",
+        "..."
       ]
     }
   ],

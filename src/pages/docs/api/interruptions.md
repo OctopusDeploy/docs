@@ -121,7 +121,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
         "string"
       ],
       "ResponsibleUserId": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "TaskId": "string",
       "Title": "string",
       "Type": "ManualIntervention"
@@ -242,7 +242,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
   },
   "PullRequests": [
     {
-      "Id": "string",
+      "Id": "InterruptionPullRequests-1",
       "InterruptionId": "string",
       "Number": 0,
       "RepositoryUrl": "string",
@@ -258,7 +258,7 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
     "string"
   ],
   "ResponsibleUserId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TaskId": "string",
   "Title": "string",
   "Type": "ManualIntervention"
@@ -399,7 +399,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   "Instructions": "string",
   "Notes": "string",
   "Result": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -491,7 +491,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
   },
   "PullRequests": [
     {
-      "Id": "string",
+      "Id": "InterruptionPullRequests-1",
       "InterruptionId": "string",
       "Number": 0,
       "RepositoryUrl": "string",
@@ -507,7 +507,7 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
     "string"
   ],
   "ResponsibleUserId": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "TaskId": "string",
   "Title": "string",
   "Type": "ManualIntervention"

@@ -62,8 +62,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
   "Branch": "string",
   "CommitMessage": "string",
   "CreateBranch": true,
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -213,7 +213,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -344,7 +344,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
 ```json
 {
   "ChangeDescription": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ScopeValues": {
     "Actions": [
       {
@@ -414,7 +414,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -645,7 +645,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -779,7 +779,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
 {
   "ChangeDescription": "string",
   "GitRef": "string",
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "ScopeValues": {
     "Actions": [
       {
@@ -849,7 +849,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -1051,7 +1051,7 @@ Lists all the Variable Sets in the supplied Space.
         {}
       ]
     },
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "Variables": [
       {
         "Description": "string",
@@ -1263,7 +1263,7 @@ Lists the evaluated Variables for a deployment.
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -1483,7 +1483,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -1700,7 +1700,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",
@@ -1907,7 +1907,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
       }
     ]
   },
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Variables": [
     {
       "Description": "string",

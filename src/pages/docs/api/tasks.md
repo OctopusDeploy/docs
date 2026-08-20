@@ -182,11 +182,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
       "PendingPreconditionTypes": [
         "string"
       ],
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
       "ServerNode": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StartTime": "2020-01-01T00:00:00.000Z",
       "State": "Queued"
     }
@@ -241,7 +241,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "Name": "string",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "Weight": 0
 }
 ```
@@ -347,11 +347,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }
@@ -471,11 +471,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }
@@ -629,11 +629,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}`, `/api/tasks/{id}`.
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }
@@ -753,11 +753,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/cancel`, `/api/tasks
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }
@@ -882,7 +882,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
     {
       "Children": [],
       "Ended": "2020-01-01T00:00:00.000Z",
-      "Id": "string",
+      "Id": "0c5a872485ac4b10857939a92d082e67",
       "LogElements": [
         {}
       ],
@@ -942,11 +942,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/details`, `/api/task
     "PendingPreconditionTypes": [
       "string"
     ],
-    "ProjectId": "string",
+    "ProjectId": "Projects-1",
     "QueueTime": "2020-01-01T00:00:00.000Z",
     "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
     "ServerNode": "string",
-    "SpaceId": "string",
+    "SpaceId": "Spaces-1",
     "StartTime": "2020-01-01T00:00:00.000Z",
     "State": "Queued"
   }
@@ -1106,11 +1106,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
       "PendingPreconditionTypes": [
         "string"
       ],
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
       "ServerNode": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StartTime": "2020-01-01T00:00:00.000Z",
       "State": "Queued"
     }
@@ -1181,9 +1181,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
 :::api-example{label="Request"}
 ```json
 {
-  "Id": "string",
+  "Id": "ServerTasks-1",
   "Reason": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "State": "Queued"
 }
 ```
@@ -1289,11 +1289,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/state`, `/api/tasks/
   "PendingPreconditionTypes": [
     "string"
   ],
-  "ProjectId": "string",
+  "ProjectId": "Projects-1",
   "QueueTime": "2020-01-01T00:00:00.000Z",
   "QueueTimeExpiry": "2020-01-01T00:00:00.000Z",
   "ServerNode": "string",
-  "SpaceId": "string",
+  "SpaceId": "Spaces-1",
   "StartTime": "2020-01-01T00:00:00.000Z",
   "State": "Queued"
 }

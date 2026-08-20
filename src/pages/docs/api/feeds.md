@@ -86,7 +86,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
         "Server"
       ],
       "Slug": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -173,7 +173,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
     "Server"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -215,7 +215,7 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
     "Server"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -269,7 +269,7 @@ Also reachable at `/api/feeds/all`, `/api/spaces/{spaceIdentifier}/feeds/all`.
       "Server"
     ],
     "Slug": "string",
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 ]
 ```
@@ -366,7 +366,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
     "Server"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -439,13 +439,13 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
     "Version": "string"
   },
   "FeedType": "None",
-  "Id": "string",
+  "Id": "Feeds-1",
   "Name": "string",
   "PackageAcquisitionLocationOptions": [
     "Server"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -487,7 +487,7 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
     "Server"
   ],
   "Slug": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

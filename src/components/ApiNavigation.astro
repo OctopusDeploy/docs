@@ -8,14 +8,15 @@ stats.start();
 
 type Props = {
   lang: string;
-  headings: { depth: number; slug: string; text: string }[];
+  // Left off by a layout that lists this page's headings somewhere else, which
+  // leaves the nav as the flat list of pages with nothing under the current one.
+  headings?: { depth: number; slug: string; text: string }[];
   // One entry per endpoint, in heading order, left on the frontmatter by
   // plugins/satteri-api-examples.js from the `:endpoint` directive under each
   // heading. Sections without one — and pages that never reach that plugin —
   // simply have none.
   apiMethods?:
-    | { text: string; method: string | null; deprecated?: boolean }[]
-    | null;
+    { text: string; method: string | null; deprecated?: boolean }[] | null;
 };
 const { lang, headings, apiMethods } = Astro.props satisfies Props;
 

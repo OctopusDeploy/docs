@@ -91,7 +91,7 @@ title: Icons
 {
   "IconColor": "string",
   "IconId": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -135,8 +135,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/logo/icon`
 {
   "IconColor": "string",
   "IconId": "string",
-  "ProjectId": "string",
-  "SpaceId": "string"
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -180,8 +180,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/logo/icon`.
 {
   "IconColor": "string",
   "IconId": "string",
-  "SpaceId": "string",
-  "TenantId": "string"
+  "SpaceId": "Spaces-1",
+  "TenantId": "Tenants-1"
 }
 ```
 :::

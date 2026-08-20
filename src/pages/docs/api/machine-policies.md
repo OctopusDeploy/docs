@@ -129,7 +129,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
       },
       "Name": "string",
       "PollingRequestQueueTimeout": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -264,7 +264,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -393,7 +393,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -533,7 +533,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
     },
     "Name": "string",
     "PollingRequestQueueTimeout": "string",
-    "SpaceId": "string"
+    "SpaceId": "Spaces-1"
   }
 ]
 ```
@@ -673,7 +673,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -815,7 +815,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -901,7 +901,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "ConnectionRetrySleepInterval": "string",
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
-  "Id": "string",
+  "Id": "MachinePolicies-1",
   "IsDefault": true,
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
@@ -944,7 +944,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1073,7 +1073,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   },
   "Name": "string",
   "PollingRequestQueueTimeout": "string",
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -1183,7 +1183,8 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
         "Links": {}
       },
       "EnvironmentIds": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "HasLatestCalamari": true,
       "HealthStatus": "Healthy",
@@ -1208,10 +1209,11 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "TenantIds": [
-        "string"
+        "Tenants-1",
+        "..."
       ],
       "TenantTags": [
         "string"
@@ -1361,12 +1363,13 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
       "ShellVersion": "string",
       "SkipInitialHealthCheck": true,
       "Slug": "string",
-      "SpaceId": "string",
+      "SpaceId": "Spaces-1",
       "StatusSummary": "string",
       "Thumbprint": "string",
       "Uri": "string",
       "WorkerPoolIds": [
-        "string"
+        "WorkerPools-1",
+        "..."
       ]
     }
   ],

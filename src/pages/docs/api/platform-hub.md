@@ -48,7 +48,7 @@ title: Platform Hub
       "Details": {
         "AccountType": "string"
       },
-      "Id": "string",
+      "Id": "Accounts-1",
       "Name": "string",
       "Slug": "string"
     }
@@ -96,7 +96,7 @@ title: Platform Hub
 :::api-example{label="Response"}
 ```json
 {
-  "Id": "string"
+  "Id": "Accounts-1"
 }
 ```
 :::
@@ -130,7 +130,7 @@ title: Platform Hub
   "Details": {
     "AccountType": "string"
   },
-  "Id": "string",
+  "Id": "Accounts-1",
   "Name": "string",
   "Slug": "string"
 }
@@ -162,7 +162,7 @@ title: Platform Hub
   "Details": {
     "AccountType": "string"
   },
-  "Id": "string",
+  "Id": "Accounts-1",
   "Name": "string",
   "Slug": "string"
 }

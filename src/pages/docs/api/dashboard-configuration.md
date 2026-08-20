@@ -47,7 +47,8 @@ Gets the dashboard configuration of the authenticated user for the current space
   "HideInactiveProjects": true,
   "Id": "string",
   "IncludedEnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "IncludedEnvironmentTags": [
     "string"
@@ -56,13 +57,15 @@ Gets the dashboard configuration of the authenticated user for the current space
     "string"
   ],
   "IncludedProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
   "IncludedProjectTags": [
     "string"
   ],
   "IncludedTenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "IncludedTenantTags": [
     "string"
@@ -75,7 +78,7 @@ Gets the dashboard configuration of the authenticated user for the current space
     "additionalProp3": "string"
   },
   "ProjectLimit": 0,
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -121,7 +124,8 @@ Modifies the dashboard configuration for the current user per space
 {
   "HideInactiveProjects": true,
   "IncludedEnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "IncludedEnvironmentTags": [
     "string"
@@ -130,19 +134,21 @@ Modifies the dashboard configuration for the current user per space
     "string"
   ],
   "IncludedProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
   "IncludedProjectTags": [
     "string"
   ],
   "IncludedTenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "IncludedTenantTags": [
     "string"
   ],
   "ProjectLimit": 0,
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::
@@ -176,7 +182,8 @@ Modifies the dashboard configuration for the current user per space
   "HideInactiveProjects": true,
   "Id": "string",
   "IncludedEnvironmentIds": [
-    "string"
+    "Environments-1",
+    "..."
   ],
   "IncludedEnvironmentTags": [
     "string"
@@ -185,13 +192,15 @@ Modifies the dashboard configuration for the current user per space
     "string"
   ],
   "IncludedProjectIds": [
-    "string"
+    "Projects-1",
+    "..."
   ],
   "IncludedProjectTags": [
     "string"
   ],
   "IncludedTenantIds": [
-    "string"
+    "Tenants-1",
+    "..."
   ],
   "IncludedTenantTags": [
     "string"
@@ -204,7 +213,7 @@ Modifies the dashboard configuration for the current user per space
     "additionalProp3": "string"
   },
   "ProjectLimit": 0,
-  "SpaceId": "string"
+  "SpaceId": "Spaces-1"
 }
 ```
 :::

@@ -97,7 +97,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
       "CompletedTime": "2020-01-01T00:00:00.000Z",
       "Created": "2020-01-01T00:00:00.000Z",
       "Duration": "string",
-      "EnvironmentId": "string",
+      "EnvironmentId": "Environments-1",
       "ErrorMessage": "string",
       "GitReference": {
         "GitCommit": "string",
@@ -121,7 +121,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
       "PendingPreconditionTypes": [
         "string"
       ],
-      "ProjectId": "string",
+      "ProjectId": "Projects-1",
       "QueueTime": "2020-01-01T00:00:00.000Z",
       "RunBy": "string",
       "RunName": "string",
@@ -132,7 +132,7 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
       "StartTime": "2020-01-01T00:00:00.000Z",
       "State": "Queued",
       "TaskId": "string",
-      "TenantId": "string"
+      "TenantId": "Tenants-1"
     }
   ],
   "ItemsPerPage": 0,
@@ -203,7 +203,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "CompletedTime": "2020-01-01T00:00:00.000Z",
         "Created": "2020-01-01T00:00:00.000Z",
         "Duration": "string",
-        "EnvironmentId": "string",
+        "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
         "HasPendingInterruptions": true,
@@ -220,7 +220,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "PendingPreconditionTypes": [
           "string"
         ],
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
         "RunName": "string",
@@ -231,7 +231,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "StartTime": "2020-01-01T00:00:00.000Z",
         "State": "Queued",
         "TaskId": "string",
-        "TenantId": "string"
+        "TenantId": "Tenants-1"
       }
     ],
     "additionalProp2": [
@@ -239,7 +239,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "CompletedTime": "2020-01-01T00:00:00.000Z",
         "Created": "2020-01-01T00:00:00.000Z",
         "Duration": "string",
-        "EnvironmentId": "string",
+        "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
         "HasPendingInterruptions": true,
@@ -256,7 +256,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "PendingPreconditionTypes": [
           "string"
         ],
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
         "RunName": "string",
@@ -267,7 +267,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "StartTime": "2020-01-01T00:00:00.000Z",
         "State": "Queued",
         "TaskId": "string",
-        "TenantId": "string"
+        "TenantId": "Tenants-1"
       }
     ],
     "additionalProp3": [
@@ -275,7 +275,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "CompletedTime": "2020-01-01T00:00:00.000Z",
         "Created": "2020-01-01T00:00:00.000Z",
         "Duration": "string",
-        "EnvironmentId": "string",
+        "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
         "HasPendingInterruptions": true,
@@ -292,7 +292,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "PendingPreconditionTypes": [
           "string"
         ],
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "QueueTime": "2020-01-01T00:00:00.000Z",
         "RunBy": "string",
         "RunName": "string",
@@ -303,7 +303,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "StartTime": "2020-01-01T00:00:00.000Z",
         "State": "Queued",
         "TaskId": "string",
-        "TenantId": "string"
+        "TenantId": "Tenants-1"
       }
     ]
   }
@@ -497,13 +497,13 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         "LifecycleId": "string",
         "Links": {},
         "Name": "string",
-        "ParentEnvironmentId": "string",
-        "ProjectId": "string",
+        "ParentEnvironmentId": "Environments-1",
+        "ProjectId": "Projects-1",
         "Rules": [
           {}
         ],
         "Slug": "string",
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
         "TenantTags": [
           "string"
         ],
@@ -522,16 +522,17 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
       },
       "HasUnresolvedDefect": true,
       "NextDeployments": [
-        "string"
+        "Environments-1",
+        "..."
       ],
       "Release": {
         "Assembled": "2020-01-01T00:00:00.000Z",
         "BuildInformation": [
           {}
         ],
-        "ChannelId": "string",
+        "ChannelId": "Channels-1",
         "CustomFields": {},
-        "Id": "string",
+        "Id": "Releases-1",
         "IgnoreChannelRules": true,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -540,7 +541,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         ],
         "Links": {},
         "ProjectDeploymentProcessSnapshotId": "string",
-        "ProjectId": "string",
+        "ProjectId": "Projects-1",
         "ProjectVariableSetSnapshotId": "string",
         "ReleaseNotes": "string",
         "SelectedGitResources": [
@@ -549,7 +550,8 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         "SelectedPackages": [
           {}
         ],
-        "SpaceId": "string",
+        "SpaceId": "Spaces-1",
+        "VariableSnapshotConcurrencyToken": "string",
         "Version": "string",
         "VersionControlReference": {}
       },
@@ -653,7 +655,8 @@ Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spac
         "Deployments": {},
         "HasUnresolvedDefect": true,
         "NextDeployments": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "Release": {},
         "ReleaseRetentionPeriod": {},

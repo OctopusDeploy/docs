@@ -208,2364 +208,2781 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
     "AccountCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AdministerSystem": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AiAgentTranscriptView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ApprovalPolicyAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuildInformationAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuildInformationPush": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedDownload": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedPush": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateExportPrivateKey": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ConfigureServer": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DefectReport": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DefectResolve": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeployedResourceAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentFreezeAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventRetentionDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventRetentionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeatureToggleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeedEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeedView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "GitCredentialEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "GitCredentialView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionSubmit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionViewSubmitResponsible": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "PlatformHubEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "PlatformHubView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProcessEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProcessView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RetentionAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookSnapshotCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SshKnownHostsAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SshKnownHostsView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TargetTagAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TargetTagView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskCancel": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskPrioritize": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TelemetryView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserInvite": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserRoleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserRoleView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableEditUnscoped": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableViewUnscoped": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "WorkerEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "WorkerView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ]
   },
@@ -2580,7 +2997,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
       "Id": "string",
       "IsDirectlyAssigned": true,
       "Name": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ]
 }
@@ -2794,2364 +3211,2781 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
     "AccountCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AccountView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ActionTemplateView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AdministerSystem": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "AiAgentTranscriptView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ApprovalPolicyAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ArtifactView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuildInformationAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuildInformationPush": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedDownload": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "BuiltInFeedPush": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateExportPrivateKey": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "CertificateView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ConfigureServer": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DefectReport": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DefectResolve": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeployedResourceAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentFreezeAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "DeploymentView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EnvironmentView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventRetentionDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventRetentionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "EventView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeatureToggleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeedEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "FeedView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "GitCredentialEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "GitCredentialView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InsightsReportView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionSubmit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "InterruptionViewSubmitResponsible": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LibraryVariableSetView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "LifecycleView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachinePolicyView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "MachineView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "PlatformHubEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "PlatformHubView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProcessEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProcessView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectGroupView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProjectView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ProxyView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "ReleaseView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RetentionAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookRunView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookSnapshotCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "RunbookView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SpaceView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SshKnownHostsAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SshKnownHostsView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "SubscriptionView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TagSetEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TargetTagAdminister": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TargetTagView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskCancel": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskPrioritize": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TaskView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TeamView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TelemetryView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TenantView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerCreate": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerDelete": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "TriggerView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserInvite": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserRoleEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserRoleView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "UserView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableEditUnscoped": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "VariableViewUnscoped": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "WorkerEdit": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ],
     "WorkerView": [
       {
         "RestrictedToEnvironmentIds": [
-          "string"
+          "Environments-1",
+          "..."
         ],
         "RestrictedToProjectGroupIds": [
           "string"
         ],
         "RestrictedToProjectIds": [
-          "string"
+          "Projects-1",
+          "..."
         ],
         "RestrictedToTenantIds": [
-          "string"
+          "Tenants-1",
+          "..."
         ],
-        "SpaceId": "string"
+        "SpaceId": "Spaces-1"
       }
     ]
   },
@@ -5166,7 +6000,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
       "Id": "string",
       "IsDirectlyAssigned": true,
       "Name": "string",
-      "SpaceId": "string"
+      "SpaceId": "Spaces-1"
     }
   ]
 }
