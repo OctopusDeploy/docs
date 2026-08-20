@@ -38,8 +38,6 @@ type Props = {
 const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
 
 const area = resolveArea(frontmatter.area, Astro.url.pathname);
-// The API section has no page of its own at /docs/api for the generic crumb
-// walk to find, so buildAreaCrumbs splices the crumb in for it.
 const crumbs = buildAreaCrumbs(Astro.url, area, breadcrumbs);
 
 const lang = frontmatter.lang ?? SITE.default.lang;
