@@ -45,17 +45,6 @@
             "en": "Edit on GitHub"
         }
     },
-    "octopus_markdown_links": {
-        "label": {
-            "en": "Use Octopus docs with AI"
-        },
-        "view_raw": {
-            "en": "Open this page as markdown"
-        },
-        "download_all": {
-            "en": "Open all docs as markdown"
-        }
-    },
     "octopus_copy_md": {
         "label": {
             "en": "Copy as markdown"
@@ -63,8 +52,11 @@
         "copied": {
             "en": "Copied"
         },
-        "error": {
-            "en": "Copy failed"
+        "view_raw": {
+            "en": "Open this page as markdown"
+        },
+        "more_options": {
+            "en": "More markdown options"
         }
     },
     "octopus_open_in_llm": {
