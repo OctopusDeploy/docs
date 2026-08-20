@@ -12,10 +12,13 @@ import {
   type SearchResult,
 } from './search-engine';
 
-// Rows fetched at a time. Pagefind's own UI shows five and offers the rest on
-// demand; thirty, because `byNameThenDepth` reorders within a page and needs
-// enough of the list to have something to reorder.
-const PAGE_SIZE = 30;
+// Rows fetched at a time. The panel shows about five, and the rest arrive as it
+// is scrolled. Ranking no longer needs them, so this is only a drawing budget:
+// ten covers the first screen with room to scroll into.
+const PAGE_SIZE = 10;
+
+/** The map of result id to url and title, written beside the index at build. */
+const TITLE_MAP = 'docs-titles.json';
 
 // Above this share of the corpus, a query is too general to rank rather than
 // unanswerable, and the overlay says so instead of reporting nothing found.
@@ -27,11 +30,6 @@ const PAGE_SIZE = 30;
 // separates them is that the mashes stop at 74.5% and the real words start at
 // 79%. A mash landing on the gentler message costs nothing; both offer no rows.
 const COMMON_TERM_SHARE = 0.8;
-
-// How many shallow pages the named-page lookup looks through. Measured over 18
-// section queries: three finds the page for 16, five for 17, and twenty finds no
-// more than five does.
-const LANDING_CANDIDATES = 5;
 
 type PagefindSubResult = {
   title: string;
@@ -171,8 +169,10 @@ function claimsName(hit: { url: string; title: string }, term: string) {
  * order for none of them; `data-pagefind-weight` on the h1 measured as no change
  * at all.
  *
- * Reaches only the results already fetched, which is what `namedPage` below is
- * for: a page ranked past `PAGE_SIZE` on raw score cannot be rescued here.
+ * Runs over every result, because `rank` supplies url and title from the title
+ * map and nothing here has to be fetched. So a page the query names wins from
+ * anywhere in the list — `/docs/infrastructure/deployment-targets/` is 36th on
+ * raw score for "deployment targets" and still comes first.
  */
 function byNameThenDepth<
   T extends { score: number; url: string; title: string },
@@ -196,19 +196,58 @@ function byNameThenDepth<
 }
 
 /** A stub's score paired with its fetched fragment, which is where the URL is. */
-type Hit = {
-  fragment: PagefindFragment;
+/** Everything ranking needs, and nothing that has to be fetched to get it. */
+type Ranked = {
+  stub: PagefindResultStub;
   score: number;
   url: string;
   title: string;
 };
 
+type TitleMap = Record<string, [url: string, title: string] | undefined>;
+
 /**
- * Fetches the fragment for each stub. A fragment that fails takes its own row
- * out rather than the whole result set.
+ * Pairs each result with its url and title from the map, so the whole set can be
+ * ranked before anything is fetched.
+ *
+ * A result the map does not know is dropped from ranking. That only happens when
+ * the map and the index disagree, which means a stale deploy of one of them; the
+ * caller falls back to ranking what it fetches.
  */
-async function hydrate(stubs: PagefindResultStub[]): Promise<Hit[]> {
-  const settled = await Promise.allSettled(stubs.map((stub) => stub.data()));
+function rank(
+  stubs: PagefindResultStub[],
+  titles: TitleMap,
+  term: string,
+  prefix: string
+): Ranked[] {
+  const known = stubs.flatMap((stub) => {
+    const entry = titles[stub.id];
+    if (!entry) return [];
+    // The map holds urls as the index does, relative to the indexed directory.
+    // Pagefind applies the same prefix to the urls it returns from `data()`.
+    const [path, title] = entry;
+    const url = prefix + path;
+    return [{ stub, score: stub.score, url, title: title || url }];
+  });
+
+  return byNameThenDepth(known, term);
+}
+
+/**
+ * Draws a slice of the ranked list, fetching a fragment for each row in it. The
+ * fragment supplies the excerpt and the matched headings; the order was settled
+ * before any of it was asked for.
+ *
+ * `from` is how many rows already precede these, which keeps the headings on the
+ * leading rows of the list rather than the leading rows of every batch.
+ */
+async function draw(
+  ranked: Ranked[],
+  from: number,
+  count: number
+): Promise<SearchResult[]> {
+  const slice = ranked.slice(from, from + count);
+  const settled = await Promise.allSettled(slice.map((hit) => hit.stub.data()));
 
   return settled.flatMap((outcome, at) => {
     if (outcome.status === 'rejected') {
@@ -219,77 +258,38 @@ async function hydrate(stubs: PagefindResultStub[]): Promise<Hit[]> {
       return [];
     }
 
+    const hit = slice[at];
     const fragment = outcome.value;
+    // The fragment is the fallback for both: without the title map, `rank` has
+    // no url or title to give and the fragment is the only source.
     const { pathname } = new URL(fragment.url, window.location.origin);
     return [
       {
-        fragment,
-        score: stubs[at].score,
-        url: pathname,
-        title: fragment.meta?.title ?? pathname,
+        url: hit.url || pathname,
+        title: hit.title || fragment.meta?.title || pathname,
+        // Already carries <mark> around the hits, and Pagefind escapes the
+        // surrounding text itself.
+        excerpt: fragment.excerpt,
+        breadcrumb: breadcrumbFrom(hit.url || pathname),
+        sections:
+          from + at < ROWS_WITH_SECTIONS ? sectionsOf(fragment) : undefined,
+        ...classify(hit.url || pathname),
       },
     ];
   });
 }
 
-/**
- * One page of rows, ordered within itself. `from` is how many rows already
- * precede them, which is what keeps the headings on the leading pages of the
- * list rather than on the leading rows of every page.
- */
-function rows(hits: Hit[], term: string, from: number): SearchResult[] {
-  return byNameThenDepth(hits, term).map((hit, rank) => ({
-    url: hit.url,
-    title: hit.title,
-    // Already carries <mark> around the hits, and Pagefind escapes the
-    // surrounding text itself.
-    excerpt: hit.fragment.excerpt,
-    breadcrumb: breadcrumbFrom(hit.url),
-    sections:
-      from + rank < ROWS_WITH_SECTIONS ? sectionsOf(hit.fragment) : undefined,
-    ...classify(hit.url),
-  }));
-}
-
-/**
- * The page the query names, when the first page of results missed it.
- *
- * `byNameThenDepth` can only promote what has been fetched, and a section's own
- * page can rank far below the pages inside it: `/docs/infrastructure/
- * deployment-targets/` is 36th for "deployment targets", six places past the
- * page size. These stubs come from a search narrowed to the shallow pages alone,
- * where the page a query names sits near the top of a few hundred candidates.
- *
- * Only called when nothing already fetched names the query, so the extra
- * fragments are paid for by the queries that need them and no others.
- */
-async function namedPage(
-  stubs: PagefindResultStub[],
-  term: string,
-  already: Hit[]
-): Promise<Hit | null> {
-  const seen = new Set(already.map((hit) => hit.url));
-  const candidates = await hydrate(stubs.slice(0, LANDING_CANDIDATES));
-
-  return (
-    candidates.find((hit) => claimsName(hit, term) && !seen.has(hit.url)) ??
-    null
-  );
-}
-
 export function pagefindEngine(bundlePath: string): SearchEngine {
   let loading: Promise<PagefindApi | null> | null = null;
-  // Everything the last search matched, and how much of it has been handed over.
-  // A stub is a score and a promise of its fragment, so holding a thousand of
-  // them costs nothing and saves searching again to show row thirty-one.
-  // `promoted` is the page `namedPage` pulled forward, whose own stub is still
-  // waiting further down `stubs`.
-  let page: {
-    term: string;
-    stubs: PagefindResultStub[];
-    at: number;
-    promoted: string | null;
-  } | null = null;
+  // The last search's whole result set, already ranked, and how much of it has
+  // been drawn. Ranking the tail costs nothing because it needs no fetches, so
+  // `more()` only has to draw the next slice.
+  let page: { term: string; ranked: Ranked[]; at: number } | null = null;
+  // The map from result id to url and title, fetched once with the index.
+  let titles: TitleMap | null = null;
+  // What Pagefind prepends to the urls it returns, and therefore what the map's
+  // own relative urls need. `/docs/pagefind/` leaves `/docs`.
+  const urlPrefix = bundlePath.replace(/\/?pagefind\/?$/, '');
   // Which search owns `page`. Searches run concurrently and can settle out of
   // order, and an overtaken one must not leave its stubs behind for `more()`.
   let searches = 0;
@@ -311,7 +311,20 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // The filter index is a separate chunk, and a search returns empty filter
         // counts until it has been pulled down. Its section totals also add up to
         // the size of the corpus, which is what `COMMON_TERM_SHARE` is a share of.
-        const filters = await api.filters();
+        const [filters] = await Promise.all([
+          api.filters(),
+          // Ranking reads url and title out of this, so it has to be here before
+          // the first search returns. A failure leaves it null and ranking falls
+          // back to ordering the rows it draws.
+          fetch(`${bundlePath}${TITLE_MAP}`)
+            .then((response) => (response.ok ? response.json() : null))
+            .then((map: TitleMap | null) => {
+              titles = map;
+            })
+            .catch((error) => {
+              console.error(`[docs-search] could not load ${TITLE_MAP}`, error);
+            }),
+        ]);
         corpus = Object.values(filters.section ?? {}).reduce(
           (total, count) => total + count,
           0
@@ -358,16 +371,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const filters =
           facet && facet !== 'all' ? { section: [facet] } : undefined;
 
-        // Three searches at once, because a second await here would sit in front
-        // of every fragment fetch below it. The first supplies the rows; the
-        // second says whether the query has any answer at all, and only runs
-        // while a tab is narrowing the first; the third is the shallow-page
-        // shortlist `namedPage` draws on, which costs nothing until its
-        // fragments are fetched.
-        const [response, wholeCorpus, landing] = await Promise.all([
+        // Together, because a second await here would sit in front of every
+        // fragment fetch below it. The first supplies the rows; the second says
+        // whether the query has any answer at all, and only runs while a tab is
+        // narrowing the first.
+        const [response, wholeCorpus] = await Promise.all([
           api.search(query, { filters }),
           filters ? api.search(query) : null,
-          api.search(query, { filters: { ...filters, landing: ['true'] } }),
         ]);
         const unfiltered = wholeCorpus ?? response;
 
@@ -395,29 +405,37 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
             : empty;
         }
 
-        const hits = await hydrate(response.results.slice(0, PAGE_SIZE));
+        // Every match is ranked here, whether it will be drawn or not. A page
+        // the query names wins from anywhere in the list, which is what the
+        // shallow-page search used to be for.
+        const ranked = titles
+          ? rank(response.results, titles, query, urlPrefix)
+          : [];
 
-        const named = hits.some((hit) => claimsName(hit, query))
-          ? null
-          : await namedPage(landing.results, query, hits);
-        if (named) hits.push(named);
+        // The map was missing or disagreed with the index. Ranking what gets
+        // drawn is worse than ranking everything, and it still answers.
+        const fallback =
+          ranked.length === 0 && response.results.length > 0
+            ? response.results.map((stub) => ({
+                stub,
+                score: stub.score,
+                url: '',
+                title: '',
+              }))
+            : null;
+        if (fallback) {
+          console.error(
+            `[docs-search] ranking without ${TITLE_MAP}: ${response.results.length} results, none of them in the map`
+          );
+        }
 
-        // A promoted page was fetched precisely because its own stub ranks past
-        // `PAGE_SIZE`, so that stub is still ahead of `more()` and has to be
-        // skipped there rather than drawn a second time.
-        settle({
-          term: query,
-          stubs: response.results,
-          at: PAGE_SIZE,
-          promoted: named?.url ?? null,
-        });
+        const ordered = fallback ?? ranked;
+        settle({ term: query, ranked: ordered, at: PAGE_SIZE });
 
         return {
-          // The promoted page is already one of these stubs, so counting them
-          // is counting the rows the query has in all.
-          results: rows(hits, query, 0),
+          results: await draw(ordered, 0, PAGE_SIZE),
           counts,
-          total: response.results.length,
+          total: ordered.length,
         };
       } catch (error) {
         // The search itself failed, rather than one row of it. Rejecting would
@@ -433,18 +451,14 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
 
       // Read off before the await: a search landing in the meantime replaces
       // `page`, and these rows still belong to the query that asked for them.
-      const { term, promoted } = page;
-      const slice = page.stubs.slice(page.at, page.at + PAGE_SIZE);
-      if (slice.length === 0) return [];
-
+      const { ranked } = page;
       const from = page.at;
-      page.at += slice.length;
+      if (from >= ranked.length) return [];
+
+      page.at = Math.min(from + PAGE_SIZE, ranked.length);
 
       try {
-        const hits = (await hydrate(slice)).filter(
-          (hit) => hit.url !== promoted
-        );
-        return rows(hits, term, from);
+        return await draw(ranked, from, PAGE_SIZE);
       } catch (error) {
         // The rows already on screen are still good, so this fails quietly and
         // leaves them alone.

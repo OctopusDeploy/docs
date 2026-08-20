@@ -10,6 +10,8 @@
 import type { AstroIntegration } from 'astro';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
+import { gunzipSync } from 'node:zlib';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
 // Statically, because `astro:build:done` fires after Vite's module runner has
 // closed and a dynamic import from inside the hook cannot be resolved.
 import { createIndex, close } from 'pagefind';
@@ -81,10 +83,76 @@ export default function pagefindIndex(): AstroIntegration {
           // Files scanned, not pages indexed: the redirect stubs are counted
           // here and then dropped for having no article.
           logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
+
+          const titles = await writeTitleMap(
+            path.join(distDir, 'docs', 'pagefind')
+          );
+          logger.info(`wrote ${titles} titles to ${TITLE_MAP}`);
         } finally {
           await close();
         }
       },
     },
   };
+}
+
+/** Where the map lands, and the name the client fetches it by. */
+const TITLE_MAP = 'docs-titles.json';
+
+// Pagefind prefixes every decompressed chunk with this before the JSON.
+const FRAGMENT_MAGIC = 'pagefind_dcd';
+
+/**
+ * Writes what the overlay needs to rank a result without fetching it.
+ *
+ * Ranking needs a URL and a title, and Pagefind keeps both in the per-page
+ * fragment — so ranking thirty results meant fetching thirty files, and a
+ * landing page ranked past that could not be reached at all. A search result
+ * stub carries the id of its own fragment, so one map from id to url and title
+ * lets the whole result set be ranked from a single file.
+ *
+ * Read back out of the fragments rather than collected during indexing, because
+ * the ids are assigned by Pagefind as it writes them.
+ */
+async function writeTitleMap(pagefindDir: string): Promise<number> {
+  const dir = path.join(pagefindDir, 'fragment');
+  const files = (await readdir(dir)).filter((name) =>
+    name.endsWith('.pf_fragment')
+  );
+
+  const map: Record<string, [url: string, title: string]> = {};
+
+  for (const file of files) {
+    const raw = gunzipSync(await readFile(path.join(dir, file))).toString(
+      'utf8'
+    );
+
+    // Checked before parsing: a Pagefind release that changes the chunk format
+    // has to fail the build here, rather than write a map the overlay silently
+    // cannot join against.
+    if (!raw.startsWith(FRAGMENT_MAGIC)) {
+      throw new Error(
+        `unexpected fragment format in ${file}: Pagefind's own prefix is missing, so ${TITLE_MAP} cannot be trusted`
+      );
+    }
+
+    const fragment = JSON.parse(raw.slice(raw.indexOf('{'))) as {
+      url: string;
+      meta?: Record<string, string>;
+    };
+
+    // The stub's `id` is the filename without its extension, which is the join.
+    map[path.basename(file, '.pf_fragment')] = [
+      fragment.url,
+      fragment.meta?.title ?? '',
+    ];
+  }
+
+  await writeFile(
+    path.join(pagefindDir, TITLE_MAP),
+    JSON.stringify(map),
+    'utf8'
+  );
+
+  return files.length;
 }
