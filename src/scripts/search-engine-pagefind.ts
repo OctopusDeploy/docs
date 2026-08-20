@@ -17,6 +17,17 @@ import {
 // enough of the list to have something to reorder.
 const PAGE_SIZE = 30;
 
+// Above this share of the corpus, a query is too general to rank rather than
+// unanswerable, and the overlay says so instead of reporting nothing found.
+//
+// `octopus` is on 1177 of 1251 pages and scores 0.87, where the weakest genuine
+// query scores 9.5: BM25's IDF term collapses when a word is everywhere. Score
+// alone cannot tell that from a keyboard mash, and neither can the share on its
+// own — `asdfgh` matches 932 pages, because Pagefind scores partial matches. What
+// separates them is that the mashes stop at 74.5% and the real words start at
+// 79%. A mash landing on the gentler message costs nothing; both offer no rows.
+const COMMON_TERM_SHARE = 0.8;
+
 // How many shallow pages the named-page lookup looks through. Measured over 18
 // section queries: three finds the page for 16, five for 17, and twenty finds no
 // more than five does.
@@ -110,6 +121,19 @@ function segments(path: string) {
   return path.split('/').filter(Boolean);
 }
 
+// Words that mean the reader wants the reference rather than the guides. Every
+// CLI page is titled `octopus <something>`, so a query opening that way counts as
+// asking for one.
+const ASKS_FOR_REFERENCE =
+  /(^octopus\s)|\b(api|cli|rest|endpoints?|curl|commands?|octo|sdk|swagger)\b/;
+
+/** How far a reference page's score is discounted when the query did not ask for
+ *  one. Swept over both traffic-weighted query sets: 1.3 is the knee, and 4.0
+ *  buys one more task query at the cost of four points on real-searches. */
+const REFERENCE_PENALTY = 1.3;
+
+const REFERENCE_FACETS = new Set(['api', 'cli']);
+
 /** Whether the query is this page's own name, by its title or its URL slug. */
 function names(hit: { url: string; title: string }, term: string) {
   const wanted = comparable(term);
@@ -117,6 +141,21 @@ function names(hit: { url: string; title: string }, term: string) {
   return (
     comparable(hit.title) === wanted ||
     comparable(slug.replace(/-/g, ' ')) === wanted
+  );
+}
+
+/**
+ * Whether a page gets to win outright for being the one the query names.
+ *
+ * Reference pages have to be asked for. Three CLI pages carry the slug
+ * `create-release`, so `create release` would otherwise promote one of them over
+ * Creating a release, which is the page the reader wanted.
+ */
+function claimsName(hit: { url: string; title: string }, term: string) {
+  if (!names(hit, term)) return false;
+  return (
+    !REFERENCE_FACETS.has(classify(hit.url).facet) ||
+    ASKS_FOR_REFERENCE.test(term.toLowerCase())
   );
 }
 
@@ -139,12 +178,18 @@ function byNameThenDepth<
   T extends { score: number; url: string; title: string },
 >(hits: T[], term: string): T[] {
   const DEPTH_PENALTY = 0.12;
+  const asked = ASKS_FOR_REFERENCE.test(term.toLowerCase());
+  const demoted = (hit: T) =>
+    !asked && REFERENCE_FACETS.has(classify(hit.url).facet);
 
   return hits
     .map((hit) => ({
       hit,
-      named: names(hit, term) ? 1 : 0,
-      adjusted: hit.score / (1 + DEPTH_PENALTY * segments(hit.url).length),
+      named: claimsName(hit, term) ? 1 : 0,
+      adjusted:
+        hit.score /
+        (1 + DEPTH_PENALTY * segments(hit.url).length) /
+        (demoted(hit) ? REFERENCE_PENALTY : 1),
     }))
     .sort((a, b) => b.named - a.named || b.adjusted - a.adjusted)
     .map((entry) => entry.hit);
@@ -227,7 +272,8 @@ async function namedPage(
   const candidates = await hydrate(stubs.slice(0, LANDING_CANDIDATES));
 
   return (
-    candidates.find((hit) => names(hit, term) && !seen.has(hit.url)) ?? null
+    candidates.find((hit) => claimsName(hit, term) && !seen.has(hit.url)) ??
+    null
   );
 }
 
@@ -238,6 +284,8 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   // them costs nothing and saves searching again to show row thirty-one.
   let page: { term: string; stubs: PagefindResultStub[]; at: number } | null =
     null;
+  // Pages in the index, read off the filter counts when the index loads.
+  let corpus = 0;
 
   function load() {
     loading ??= import(/* @vite-ignore */ `${bundlePath}pagefind.js`)
@@ -252,8 +300,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           ranking: { metaWeights: { title: 8 } },
         });
         // The filter index is a separate chunk, and a search returns empty filter
-        // counts until it has been pulled down.
-        await api.filters();
+        // counts until it has been pulled down. Its section totals also add up to
+        // the size of the corpus, which is what `COMMON_TERM_SHARE` is a share of.
+        const filters = await api.filters();
+        corpus = Object.values(filters.section ?? {}).reduce(
+          (total, count) => total + count,
+          0
+        );
         return api;
       })
       .catch((error) => {
@@ -313,7 +366,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // real answer, so offer nothing and advertise nothing.
         if ((unfiltered.results[0]?.score ?? 0) < MINIMUM_SCORE) {
           page = null;
-          return empty;
+          // Everything matched it equally, so there is nothing to rank rather
+          // than nothing to find. Ordering thirty pages by a score of 0.87 would
+          // be arbitrary, so the overlay says the query is too broad instead.
+          const share = corpus > 0 ? unfiltered.results.length / corpus : 0;
+          return share > COMMON_TERM_SHARE
+            ? { ...empty, tooBroad: true }
+            : empty;
         }
 
         // The corpus answers it and this tab does not. Filtering only removes
@@ -328,7 +387,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         page = { term: query, stubs: response.results, at: PAGE_SIZE };
         const hits = await hydrate(response.results.slice(0, PAGE_SIZE));
 
-        const named = hits.some((hit) => names(hit, query))
+        const named = hits.some((hit) => claimsName(hit, query))
           ? null
           : await namedPage(landing.results, query, hits);
         if (named) hits.push(named);

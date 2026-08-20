@@ -126,6 +126,12 @@ const listboxId = `${name}-search-listbox`;
       <p class="docs-search__empty" hidden data-docs-search-empty>
         No results for <strong data-docs-search-echo></strong>.
       </p>
+      <!-- Shown in place of the above when the query is on almost every page, so
+           the reader is told to narrow it rather than that nothing was found. -->
+      <p class="docs-search__empty" hidden data-docs-search-broad>
+        <strong data-docs-search-broad-echo></strong> is on nearly every page. Add
+        another word to narrow it down.
+      </p>
       <!-- Watched, not clicked: scrolling it into view appends the next page.
            Outside the list so redrawing the rows leaves it alone, and outside
            the accessibility tree because it is not a control. -->

@@ -39,6 +39,12 @@ function setup(dialog: HTMLDialogElement) {
   const body = dialog.querySelector<HTMLElement>('[data-docs-search-body]');
   const list = dialog.querySelector<HTMLElement>('[data-docs-search-results]');
   const empty = dialog.querySelector<HTMLElement>('[data-docs-search-empty]');
+  // Optional: only the engines that can tell a broad query from an unanswerable
+  // one have anything to put here.
+  const broad = dialog.querySelector<HTMLElement>('[data-docs-search-broad]');
+  const broadEcho = dialog.querySelector<HTMLElement>(
+    '[data-docs-search-broad-echo]'
+  );
   const echo = dialog.querySelector<HTMLElement>('[data-docs-search-echo]');
   const announce = dialog.querySelector<HTMLElement>(
     '[data-docs-search-announce]'
@@ -228,10 +234,17 @@ function setup(dialog: HTMLDialogElement) {
     const hasQuery = input!.value.trim().length >= MIN_QUERY_LENGTH;
     const hasResults = response.results.length > 0;
 
+    // Two ways to have no rows, and they get different words. A query on nearly
+    // every page has an answer the reader can reach by adding a word; one that
+    // matched nothing does not.
+    const tooBroad = !hasResults && response.tooBroad === true;
+
     tabs!.hidden = !hasQuery;
     body!.hidden = !hasQuery;
-    empty!.hidden = hasResults;
+    empty!.hidden = hasResults || tooBroad;
     echo!.textContent = input!.value.trim();
+    if (broad) broad.hidden = !tooBroad;
+    if (broadEcho) broadEcho.textContent = input!.value.trim();
     input!.setAttribute('aria-expanded', String(hasQuery && hasResults));
 
     // The combobox roles say a listbox exists and which row is active; nothing
@@ -245,10 +258,12 @@ function setup(dialog: HTMLDialogElement) {
     const sections = rows.length - response.results.length;
     announce!.textContent = !hasQuery
       ? ''
-      : pages === 0
-        ? `No results for ${term}`
-        : `${pages} ${pages === 1 ? 'result' : 'results'} for ${term}` +
-          (sections > 0 ? `, with ${sections} matching sections` : '');
+      : tooBroad
+        ? `${term} is on nearly every page. Add another word to narrow it down.`
+        : pages === 0
+          ? `No results for ${term}`
+          : `${pages} ${pages === 1 ? 'result' : 'results'} for ${term}` +
+            (sections > 0 ? `, with ${sections} matching sections` : '');
 
     if (extender && sentinel) {
       const paged = hasResults && pages > response.results.length;

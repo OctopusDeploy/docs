@@ -33,6 +33,12 @@ export type SearchResponse = {
   counts: Record<string, number>;
   /** How many rows the query has in all, when the engine can say. */
   total?: number;
+  /**
+   * The query matched so much of the corpus that nothing stands out, rather than
+   * matching nothing. There are no rows either way; this is what lets the overlay
+   * say which happened.
+   */
+  tooBroad?: boolean;
 };
 
 export type SearchEngine = {

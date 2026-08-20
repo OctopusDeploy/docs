@@ -408,6 +408,87 @@ test('scrolling to the end of the results loads more', async ({ page }) => {
   expect(new Set(ids).size, 'every option needs its own id').toBe(ids.length);
 });
 
+// A word on nearly every page scores near zero, because BM25's IDF collapses when
+// a term is everywhere: `octopus` is on 1177 of 1251 pages and scores 0.87
+// against a floor of 8. Suppressing it is right, and calling it "no results" is
+// not - there are 1177.
+test('a query on nearly every page asks for a narrower one', async ({
+  page,
+}) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('octopus');
+
+  await expect(site.locator('[data-docs-search-broad]')).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[data-docs-search-empty]')).toBeHidden();
+  await expect(site.locator('[role="option"]')).toHaveCount(0);
+});
+
+// A keyboard mash also scores below the floor, and it really has no answer, so it
+// keeps the plain message. Pagefind scores partial matches, so a mash matches a
+// surprising share of the corpus - `asdfgh` reaches 74% - which is why the two
+// cases are told apart by more than the score.
+test('a query with no answer still says no results', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('asdfgh');
+
+  await expect(site.locator('[data-docs-search-empty]')).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[data-docs-search-broad]')).toBeHidden();
+});
+
+// Three CLI pages carry the slug `create-release`, so the rule that promotes a
+// page the query names would otherwise hand this to one of them. A reference page
+// has to be asked for.
+test('a guide beats a command of the same name', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('create release');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/releases/creating-a-release/'
+  );
+});
+
+// The other half of that rule: ask for the command and you get the command. Every
+// CLI page is titled `octopus <something>`, so a query opening that way counts as
+// asking.
+test('a command wins when the query asks for one', async ({ page }) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('octopus release create');
+  await expect(site.locator('[role="option"]').first()).toBeVisible({
+    timeout: 20_000,
+  });
+  await expect(site.locator('[role="option"]').first()).toHaveAttribute(
+    'href',
+    '/docs/octopus-rest-api/cli/octopus-release-create/'
+  );
+});
+
 // Ctrl/Cmd+K belongs to the page's own search. A demo instance in an article must
 // not answer it.
 test('the keyboard shortcut opens the site overlay', async ({ page }) => {
