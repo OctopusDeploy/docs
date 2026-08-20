@@ -1,18 +1,28 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import {
+  COMMENT_LIMIT,
   FIELD_COMMENT,
   FIELD_PAGE,
   FIELD_RATING,
   RATING_NO,
   RATING_YES,
+  VIEW_URL,
 } from '../src/scripts/modules/feedback-form.js';
 
 const PAGE = '/docs/kubernetes/steps/kustomize';
+const TITLE = 'Deploy with Kustomize';
+
+/** The prefilled form the Send link points at, in parts. */
+async function sendLink(page: Page) {
+  const href = await page.locator('[data-feedback-send]').getAttribute('href');
+
+  return new URL(href ?? '');
+}
 
 test.describe('feedback widget', () => {
   test.beforeEach(async ({ page }) => {
-    // Blocked for every test, so no run can post to the live form. The success
-    // case below overrides this: Playwright matches the newest route first.
+    // Nothing is posted from the page any more, so an attempt to reach Google
+    // fails the run rather than arriving.
     await page.route('**/docs.google.com/**', (route) => route.abort());
     await page.goto(PAGE);
   });
@@ -20,7 +30,6 @@ test.describe('feedback widget', () => {
   test('asks the question alone until a rating is given', async ({ page }) => {
     await expect(page.locator('.feedback__question')).toBeVisible();
     await expect(page.locator('.feedback__comment')).toBeHidden();
-    await expect(page.locator('.feedback__thanks')).toBeHidden();
   });
 
   test('discloses the comment box on a rating', async ({ page }) => {
@@ -47,55 +56,75 @@ test.describe('feedback widget', () => {
     ).toHaveAttribute('aria-pressed', 'true');
   });
 
-  test('thanks the reader once the submission has gone out', async ({
+  test('points at the form with the page filled in before anything is answered', async ({
     page,
+    baseURL,
   }) => {
-    await page.route('**/docs.google.com/**', (route) =>
-      route.fulfill({ status: 200, body: '' })
+    const link = await sendLink(page);
+
+    expect(link.origin + link.pathname).toBe(VIEW_URL);
+    expect(link.searchParams.get('usp')).toBe('pp_url');
+    expect(link.searchParams.get(FIELD_PAGE)).toBe(
+      `${TITLE} - ${baseURL}${PAGE}`
     );
-
-    await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
-    await page.locator('[data-feedback-send]').click();
-
-    await expect(page.locator('.feedback__thanks')).toBeVisible();
-    await expect(page.locator('.feedback__vote')).toBeHidden();
-    await expect(page.locator('.feedback__comment')).toBeHidden();
+    expect(link.searchParams.has(FIELD_RATING)).toBe(false);
+    expect(link.searchParams.has(FIELD_COMMENT)).toBe(false);
   });
 
-  test('sends the page title and url, the rating and the comment', async ({
+  test('carries the rating and the comment as they are answered', async ({
+    page,
+    baseURL,
+  }) => {
+    await page.locator(`[data-feedback-vote="${RATING_NO}"]`).click();
+    await page.locator('.feedback__textarea').fill('the diagram is wrong');
+
+    const link = await sendLink(page);
+
+    expect(link.searchParams.get(FIELD_PAGE)).toBe(
+      `${TITLE} - ${baseURL}${PAGE}`
+    );
+    expect(link.searchParams.get(FIELD_RATING)).toBe(RATING_NO);
+    expect(link.searchParams.get(FIELD_COMMENT)).toBe('the diagram is wrong');
+  });
+
+  test('leaves a long comment for the reader to finish on the form', async ({
     page,
   }) => {
-    /** @type {string | null} */
-    let body = null;
-    await page.route('**/docs.google.com/**', (route) => {
-      body = route.request().postData();
-      return route.fulfill({ status: 200, body: '' });
+    await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
+    await page
+      .locator('.feedback__textarea')
+      .fill('x'.repeat(COMMENT_LIMIT * 2));
+
+    const link = await sendLink(page);
+
+    expect(link.searchParams.get(FIELD_COMMENT)).toHaveLength(COMMENT_LIMIT);
+  });
+
+  test('opens the form in its own tab', async ({ page }) => {
+    // The site's external link handling owns this, so the widget inherits it.
+    await expect(page.locator('[data-feedback-send]')).toHaveAttribute(
+      'target',
+      '_blank'
+    );
+    await expect(page.locator('[data-feedback-send]')).toHaveAttribute(
+      'rel',
+      'noopener'
+    );
+  });
+
+  test('posts nothing itself, however the widget is worked', async ({
+    page,
+  }) => {
+    const reached: string[] = [];
+    page.on('request', (request) => {
+      if (request.url().includes('docs.google.com'))
+        reached.push(request.url());
     });
 
     await page.locator(`[data-feedback-vote="${RATING_YES}"]`).click();
-    await page.locator('.feedback__textarea').fill('the kustomize page');
-    await page.locator('[data-feedback-send]').click();
-    await expect(page.locator('.feedback__thanks')).toBeVisible();
-
-    const sent = new URLSearchParams(body ?? '');
-    expect(sent.get(FIELD_PAGE)).toBe(
-      `Deploy with Kustomize - http://localhost:3000${PAGE}`
-    );
-    expect(sent.get(FIELD_RATING)).toBe(RATING_YES);
-    expect(sent.get(FIELD_COMMENT)).toBe('the kustomize page');
-  });
-
-  test('keeps the form up when the submission never leaves the browser', async ({
-    page,
-  }) => {
+    await page.locator('.feedback__textarea').fill('anything at all');
     await page.locator(`[data-feedback-vote="${RATING_NO}"]`).click();
-    await page.locator('[data-feedback-send]').click();
 
-    // Send is disabled for the attempt and only comes back on the failure, so
-    // this settles after the handler has run. The two checks below would each
-    // pass against a handler that had not reached its catch yet.
-    await expect(page.locator('[data-feedback-send]')).toBeEnabled();
-    await expect(page.locator('.feedback__thanks')).toBeHidden();
-    await expect(page.locator('.feedback__vote')).toBeVisible();
+    expect(reached).toEqual([]);
   });
 });
