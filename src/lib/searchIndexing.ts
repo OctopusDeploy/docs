@@ -38,9 +38,11 @@ const LANDING_DEPTH = 3;
  * The `data-pagefind-*` attributes for a page: `article` spreads onto the
  * `<article>`, `content` onto the page content inside it.
  *
- * `navSearch` rather than `PostFiltering.isListable`, which also hides a page
- * with a future `pubDate`: a page that is built and served is a page worth
- * finding.
+ * `navSearch` rather than `PostFiltering.showInSearch`, which also hides a page
+ * with a future `pubDate`, a `draft: true` and a `listable: false`: a page that
+ * is built and served is a page worth finding. No docs page carries any of the
+ * three today, so this is the same set either way — decide again if one starts
+ * being used to hold a page back.
  */
 export function searchIndexAttributes(
   pathname: string,

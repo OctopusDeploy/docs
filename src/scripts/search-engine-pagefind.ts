@@ -282,8 +282,17 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   // Everything the last search matched, and how much of it has been handed over.
   // A stub is a score and a promise of its fragment, so holding a thousand of
   // them costs nothing and saves searching again to show row thirty-one.
-  let page: { term: string; stubs: PagefindResultStub[]; at: number } | null =
-    null;
+  // `promoted` is the page `namedPage` pulled forward, whose own stub is still
+  // waiting further down `stubs`.
+  let page: {
+    term: string;
+    stubs: PagefindResultStub[];
+    at: number;
+    promoted: string | null;
+  } | null = null;
+  // Which search owns `page`. Searches run concurrently and can settle out of
+  // order, and an overtaken one must not leave its stubs behind for `more()`.
+  let searches = 0;
   // Pages in the index, read off the filter counts when the index loads.
   let corpus = 0;
 
@@ -335,6 +344,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
       const empty = { results: [], counts: { all: 0 } };
       if (!query) return empty;
 
+      // The caller drops the rows of an overtaken search; this is the same guard
+      // for the paging state behind them.
+      const mine = ++searches;
+      const settle = (next: typeof page) => {
+        if (mine === searches) page = next;
+      };
+
       const api = await load();
       if (!api) return empty;
 
@@ -365,7 +381,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // Two questions, and the floor answers both. Nothing in the corpus is a
         // real answer, so offer nothing and advertise nothing.
         if ((unfiltered.results[0]?.score ?? 0) < MINIMUM_SCORE) {
-          page = null;
+          settle(null);
           // Everything matched it equally, so there is nothing to rank rather
           // than nothing to find. Ordering thirty pages by a score of 0.87 would
           // be arbitrary, so the overlay says the query is too broad instead.
@@ -380,11 +396,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // anything the reader asked for. Keep the counts, so the strip still
         // shows which tab holds the answer.
         if ((response.results[0]?.score ?? 0) < MINIMUM_SCORE) {
-          page = null;
+          settle(null);
           return { results: [], counts };
         }
 
-        page = { term: query, stubs: response.results, at: PAGE_SIZE };
         const hits = await hydrate(response.results.slice(0, PAGE_SIZE));
 
         const named = hits.some((hit) => claimsName(hit, query))
@@ -392,16 +407,28 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           : await namedPage(landing.results, query, hits);
         if (named) hits.push(named);
 
+        // A promoted page was fetched precisely because its own stub ranks past
+        // `PAGE_SIZE`, so that stub is still ahead of `more()` and has to be
+        // skipped there rather than drawn a second time.
+        settle({
+          term: query,
+          stubs: response.results,
+          at: PAGE_SIZE,
+          promoted: named?.url ?? null,
+        });
+
         return {
+          // The promoted page is already one of these stubs, so counting them
+          // is counting the rows the query has in all.
           results: rows(hits, query, 0),
           counts,
-          total: response.results.length + (named ? 1 : 0),
+          total: response.results.length,
         };
       } catch (error) {
         // The search itself failed, rather than one row of it. Rejecting would
         // leave the previous query's rows under the new text.
         console.error('[docs-search] search failed', error);
-        page = null;
+        settle(null);
         return empty;
       }
     },
@@ -409,6 +436,9 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
     async more() {
       if (!page) return [];
 
+      // Read off before the await: a search landing in the meantime replaces
+      // `page`, and these rows still belong to the query that asked for them.
+      const { term, promoted } = page;
       const slice = page.stubs.slice(page.at, page.at + PAGE_SIZE);
       if (slice.length === 0) return [];
 
@@ -416,7 +446,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
       page.at += slice.length;
 
       try {
-        return rows(await hydrate(slice), page.term, from);
+        const hits = (await hydrate(slice)).filter(
+          (hit) => hit.url !== promoted
+        );
+        return rows(hits, term, from);
       } catch (error) {
         // The rows already on screen are still good, so this fails quietly and
         // leaves them alone.

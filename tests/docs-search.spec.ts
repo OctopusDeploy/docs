@@ -408,6 +408,50 @@ test('scrolling to the end of the results loads more', async ({ page }) => {
   expect(new Set(ids).size, 'every option needs its own id').toBe(ids.length);
 });
 
+// The two features meeting: a page pulled onto the first screen for naming the
+// query still has its own stub further down the list, because ranking past
+// PAGE_SIZE is why it had to be pulled forward at all. Paging has to skip it.
+//
+// `deployment targets` rather than a query with more results: the promotion only
+// happens when nothing on the first page already names the query, and
+// /docs/infrastructure/deployment-targets/ ranks 36th on raw score.
+test('a page pulled forward is not listed again further down', async ({
+  page,
+}) => {
+  await page.goto('/docs');
+
+  const site = siteOverlay(page);
+  await navField(page).click();
+  await expect(site).toBeVisible();
+
+  await site.locator('[data-docs-search-input]').fill('deployment targets');
+  const rows = site.locator('[role="option"]');
+  await expect(rows.first()).toBeVisible({ timeout: 20_000 });
+  await expect(rows.first()).toHaveAttribute(
+    'href',
+    '/docs/infrastructure/deployment-targets/'
+  );
+
+  // Twice, because the second stub sits on the page after the first.
+  for (let round = 0; round < 2; round += 1) {
+    const before = await rows.count();
+    await site
+      .locator('[data-docs-search-body]')
+      .evaluate((body) => body.scrollTo(0, body.scrollHeight));
+    await expect
+      .poll(() => rows.count(), { timeout: 20_000 })
+      .toBeGreaterThan(before);
+  }
+
+  const hrefs = await rows.evaluateAll((options) =>
+    options.map((row) => row.getAttribute('href'))
+  );
+  // Section rows carry an anchor and share their page's url, so only page rows
+  // are counted here.
+  const pages = hrefs.filter((href) => href && !href.includes('#'));
+  expect(new Set(pages).size, 'no page may be listed twice').toBe(pages.length);
+});
+
 // A word on nearly every page scores near zero, because BM25's IDF collapses when
 // a term is everywhere: `octopus` is on 1177 of 1251 pages and scores 0.87
 // against a floor of 8. Suppressing it is right, and calling it "no results" is

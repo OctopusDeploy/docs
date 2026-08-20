@@ -37,8 +37,10 @@ export default function pagefindIndex(): AstroIntegration {
           // article rather than `.page-content`, because Pagefind takes a
           // result's title from the first heading inside the indexed element.
           //
-          // A layout with no `<article>` therefore indexes nothing, which the
-          // page count at the end of this hook is here to catch.
+          // A layout with no `<article>` therefore indexes nothing. The count
+          // logged at the end of this hook is of files scanned, so it says
+          // nothing about that: `tests/docs-search.spec.ts` is what would catch
+          // it.
           rootSelector: 'article',
           // Sits inside the article and on every page, so its words would
           // otherwise match every query.
@@ -49,35 +51,39 @@ export default function pagefindIndex(): AstroIntegration {
           throw new Error(`could not start Pagefind: ${errors.join(', ')}`);
         }
 
-        // `dist/docs` rather than `dist`: the client sets a `basePath` of
-        // `/docs/` which Pagefind prepends at query time, so indexing from `dist`
-        // would put the prefix on twice.
-        const added = await index.addDirectory({
-          path: path.join(distDir, 'docs'),
-          glob: '**/*.html',
-        });
+        // `close()` stops the Pagefind binary. Without the `finally` a thrown
+        // error leaves that child process running and the build never exits.
+        try {
+          // `dist/docs` rather than `dist`: the client points Pagefind at
+          // `/docs/pagefind/`, from which it derives a `/docs/` prefix for every
+          // result URL, so indexing from `dist` would put the prefix on twice.
+          const added = await index.addDirectory({
+            path: path.join(distDir, 'docs'),
+            glob: '**/*.html',
+          });
 
-        if (added.errors.length > 0) {
-          throw new Error(
-            `Pagefind indexing failed: ${added.errors.join(', ')}`
-          );
+          if (added.errors.length > 0) {
+            throw new Error(
+              `Pagefind indexing failed: ${added.errors.join(', ')}`
+            );
+          }
+
+          const written = await index.writeFiles({
+            outputPath: path.join(distDir, 'docs', 'pagefind'),
+          });
+
+          if (written.errors.length > 0) {
+            throw new Error(
+              `Pagefind write failed: ${written.errors.join(', ')}`
+            );
+          }
+
+          // Files scanned, not pages indexed: the redirect stubs are counted
+          // here and then dropped for having no article.
+          logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
+        } finally {
+          await close();
         }
-
-        const written = await index.writeFiles({
-          outputPath: path.join(distDir, 'docs', 'pagefind'),
-        });
-
-        if (written.errors.length > 0) {
-          throw new Error(
-            `Pagefind write failed: ${written.errors.join(', ')}`
-          );
-        }
-
-        await close();
-
-        // Files scanned, not pages indexed: the redirect stubs are counted here
-        // and then dropped for having no article.
-        logger.info(`scanned ${added.page_count} pages into docs/pagefind`);
       },
     },
   };
