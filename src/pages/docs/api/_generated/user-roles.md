@@ -66,7 +66,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
   "ItemType": "string",
   "Items": [
     {
-      "CanBeDeleted": true,
+      "CanBeDeleted": false,
       "Description": "string",
       "GrantedSpacePermissions": [
         "AdministerSystem"
@@ -164,7 +164,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
+  "CanBeDeleted": false,
   "Description": "string",
   "GrantedSpacePermissions": [
     "AdministerSystem"
@@ -227,7 +227,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 ```json
 [
   {
-    "CanBeDeleted": true,
+    "CanBeDeleted": false,
     "Description": "string",
     "GrantedSpacePermissions": [
       "AdministerSystem"
@@ -293,7 +293,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
+  "CanBeDeleted": false,
   "Description": "string",
   "GrantedSpacePermissions": [
     "AdministerSystem"
@@ -385,7 +385,7 @@ Lists all of the User Roles in the current Octopus Deploy instance. The results 
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
+  "CanBeDeleted": false,
   "Description": "string",
   "GrantedSpacePermissions": [
     "AdministerSystem"

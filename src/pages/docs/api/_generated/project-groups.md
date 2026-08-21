@@ -492,26 +492,26 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
   "ItemType": "string",
   "Items": [
     {
-      "AllowIgnoreChannelRules": true,
-      "AutoCreateRelease": true,
+      "AllowIgnoreChannelRules": false,
+      "AutoCreateRelease": false,
       "AutoDeployReleaseOverrides": [
         {}
       ],
       "ClonedFromProjectId": "Projects-1",
-      "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+      "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
-      "DefaultToSkipIfAlreadyInstalled": true,
+      "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
-      "DiscreteChannelRelease": true,
-      "ExecuteDeploymentsOnEventBasedPipeline": true,
+      "DiscreteChannelRelease": false,
+      "ExecuteDeploymentsOnEventBasedPipeline": false,
       "ExtensionSettings": [
         {}
       ],
-      "ForcePackageDownload": true,
+      "ForcePackageDownload": false,
       "Icon": {
         "Color": "string",
         "Id": "string"
@@ -520,9 +520,9 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
       "IncludedLibraryVariableSetIds": [
         "string"
       ],
-      "IsBadgesEnabled": true,
-      "IsDisabled": true,
-      "IsVersionControlled": true,
+      "IsBadgesEnabled": false,
+      "IsDisabled": false,
+      "IsVersionControlled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
@@ -536,8 +536,8 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
         "Type": "Database"
       },
       "ProjectConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -548,7 +548,7 @@ Also reachable at `/api/projectgroups/{id}/projects`, `/api/spaces/{spaceIdentif
         "string"
       ],
       "ProjectTemplateDetails": {
-        "IsShared": true,
+        "IsShared": false,
         "Slug": "string",
         "VersionMask": "string"
       },

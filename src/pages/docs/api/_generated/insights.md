@@ -75,7 +75,7 @@ Returns a paginated list of the Insights Reports in the supplied Octopus Deploy 
   "ItemType": "string",
   "Items": [
     {
-      "AllTenants": true,
+      "AllTenants": false,
       "ChannelIds": [
         "Channels-1",
         "..."
@@ -175,7 +175,7 @@ Creates a new Insights Report.
 :::api-example{label="Request"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -248,7 +248,7 @@ Creates a new Insights Report.
 :::api-example{label="Response"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -341,7 +341,7 @@ Creates a new Insights Report.
 :::api-example{label="Request"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -413,7 +413,7 @@ Creates a new Insights Report.
 ```json
 {
   "Report": {
-    "AllTenants": true,
+    "AllTenants": false,
     "ChannelIds": [
       "Channels-1",
       "..."
@@ -509,7 +509,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}`.
 :::api-example{label="Response"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -608,7 +608,7 @@ Updates an existing Insights Report
 :::api-example{label="Request"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -682,7 +682,7 @@ Updates an existing Insights Report
 :::api-example{label="Response"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -795,7 +795,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{id}/v1`.
 ```json
 {
   "Report": {
-    "AllTenants": true,
+    "AllTenants": false,
     "ChannelIds": [
       "Channels-1",
       "..."
@@ -895,7 +895,7 @@ Updates an existing Insights Report
 :::api-example{label="Request"}
 ```json
 {
-  "AllTenants": true,
+  "AllTenants": false,
   "ChannelIds": [
     "Channels-1",
     "..."
@@ -968,7 +968,7 @@ Updates an existing Insights Report
 ```json
 {
   "Report": {
-    "AllTenants": true,
+    "AllTenants": false,
     "ChannelIds": [
       "Channels-1",
       "..."

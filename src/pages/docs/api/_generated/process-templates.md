@@ -27,7 +27,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "SharedToAllSpaces": true
+  "SharedToAllSpaces": false
 }
 ```
 :::
@@ -110,13 +110,13 @@ title: Process Templates
       "Id": "string"
     },
     "Id": "ProcessTemplateVersion-1",
-    "IsPreRelease": true,
+    "IsPreRelease": false,
     "Name": "string",
     "Parameters": [
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [
@@ -188,7 +188,7 @@ title: Process Templates
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [
@@ -301,7 +301,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -398,7 +398,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -455,7 +455,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "ShareToAllSpaces": true,
+  "ShareToAllSpaces": false,
   "Slug": "string"
 }
 ```
@@ -480,7 +480,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "SharedToAllSpaces": true
+  "SharedToAllSpaces": false
 }
 ```
 :::
@@ -528,7 +528,7 @@ title: Process Templates
 ```json
 {
   "GitRef": "string",
-  "IsPreRelease": true,
+  "IsPreRelease": false,
   "Slug": "string",
   "Version": "string"
 }
@@ -592,7 +592,7 @@ title: Process Templates
     "Id": "string"
   },
   "Id": "ProcessTemplateVersion-1",
-  "IsPreRelease": true,
+  "IsPreRelease": false,
   "Name": "string",
   "Parameters": [
     {
@@ -602,7 +602,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -701,7 +701,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -789,7 +789,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -895,7 +895,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [

@@ -150,7 +150,7 @@ title: Signing
 :::api-example{label="Request"}
 ```json
 {
-  "IncludeExpiredKeys": true,
+  "IncludeExpiredKeys": false,
   "Issuer": "string"
 }
 ```

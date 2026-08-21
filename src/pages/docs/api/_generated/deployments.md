@@ -146,10 +146,10 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
-      "ForcePackageRedeployment": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
+      "ForcePackageRedeployment": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -184,11 +184,11 @@ Lists all of the Deployments in the supplied Space. The results will be sorted f
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -334,10 +334,10 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -372,11 +372,11 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -501,10 +501,10 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -539,11 +539,11 @@ Also reachable at `/api/deployments`, `/api/spaces/{spaceIdentifier}/deployments
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -620,8 +620,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
   "ExcludedTargetTagNames": [
     "string"
   ],
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "NoRunAfter": "2020-01-01T00:00:00.000Z",
   "Priority": "string",
   "ProjectName": "string",
@@ -644,8 +644,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/tenanted/v1`
   "Tenants": [
     "string"
   ],
-  "UpdateVariableSnapshot": true,
-  "UseGuidedFailure": true,
+  "UpdateVariableSnapshot": false,
+  "UseGuidedFailure": false,
   "Variables": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -746,8 +746,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
   "ExcludedTargetTagNames": [
     "string"
   ],
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "NoRunAfter": "2020-01-01T00:00:00.000Z",
   "Priority": "string",
   "ProjectName": "string",
@@ -764,8 +764,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/deployments/create/untenanted/v
   "SpecificTargetTagNames": [
     "string"
   ],
-  "UpdateVariableSnapshot": true,
-  "UseGuidedFailure": true,
+  "UpdateVariableSnapshot": false,
+  "UseGuidedFailure": false,
   "Variables": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -924,10 +924,10 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -962,11 +962,11 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1075,10 +1075,10 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
         {}
       ]
     },
-    "FailTargetDiscovery": true,
-    "FailureEncountered": true,
-    "ForcePackageDownload": true,
-    "ForcePackageRedeployment": true,
+    "FailTargetDiscovery": false,
+    "FailureEncountered": false,
+    "ForcePackageDownload": false,
+    "ForcePackageRedeployment": false,
     "FormValues": {
       "additionalProp1": "string",
       "additionalProp2": "string",
@@ -1113,11 +1113,11 @@ Also reachable at `/api/deployments/v1`, `/api/spaces/{spaceIdentifier}/deployme
     "TenantId": "Tenants-1",
     "TentacleRetentionPeriod": {
       "QuantityToKeep": 0,
-      "ShouldKeepForever": true,
+      "ShouldKeepForever": false,
       "Strategy": "string",
       "Unit": "Days"
     },
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 }
 ```
@@ -1255,10 +1255,10 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
-  "ForcePackageRedeployment": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
+  "ForcePackageRedeployment": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1293,11 +1293,11 @@ Also reachable at `/api/deployments/{id}`, `/api/spaces/{spaceIdentifier}/deploy
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::

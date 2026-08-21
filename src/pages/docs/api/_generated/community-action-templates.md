@@ -173,7 +173,7 @@ title: Community Action Templates
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -190,27 +190,27 @@ title: Community Action Templates
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -341,7 +341,7 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -358,27 +358,27 @@ Also reachable at `/api/communityactiontemplates/{id}/actiontemplate`.
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -508,7 +508,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -525,27 +525,27 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -675,7 +675,7 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -692,27 +692,27 @@ Also reachable at `/api/communityactiontemplates/{id}/installation`.
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },

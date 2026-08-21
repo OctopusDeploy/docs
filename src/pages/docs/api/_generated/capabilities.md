@@ -45,7 +45,7 @@ title: Capabilities
 :::api-example{label="Response"}
 ```json
 {
-  "Exists": true
+  "Exists": false
 }
 ```
 :::

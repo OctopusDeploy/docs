@@ -91,7 +91,7 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
   "ItemType": "string",
   "Items": [
     {
-      "CanTakeResponsibility": true,
+      "CanTakeResponsibility": false,
       "CorrelationId": "string",
       "Created": "2020-01-01T00:00:00.000Z",
       "Form": {
@@ -100,10 +100,10 @@ Also reachable at `/api/interruptions`, `/api/spaces/{spaceIdentifier}/interrupt
         ],
         "Values": {}
       },
-      "HasResponsibility": true,
+      "HasResponsibility": false,
       "Id": "string",
-      "IsLinkedToOtherInterruption": true,
-      "IsPending": true,
+      "IsLinkedToOtherInterruption": false,
+      "IsPending": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -212,14 +212,14 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
 :::api-example{label="Response"}
 ```json
 {
-  "CanTakeResponsibility": true,
+  "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
   "Form": {
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -229,10 +229,10 @@ Also reachable at `/api/interruptions/{id}`, `/api/spaces/{spaceIdentifier}/inte
       "additionalProp3": "string"
     }
   },
-  "HasResponsibility": true,
+  "HasResponsibility": false,
   "Id": "string",
-  "IsLinkedToOtherInterruption": true,
-  "IsPending": true,
+  "IsLinkedToOtherInterruption": false,
+  "IsPending": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -331,7 +331,7 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -346,9 +346,9 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -461,14 +461,14 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
 :::api-example{label="Response"}
 ```json
 {
-  "CanTakeResponsibility": true,
+  "CanTakeResponsibility": false,
   "CorrelationId": "string",
   "Created": "2020-01-01T00:00:00.000Z",
   "Form": {
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -478,10 +478,10 @@ Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifie
       "additionalProp3": "string"
     }
   },
-  "HasResponsibility": true,
+  "HasResponsibility": false,
   "Id": "string",
-  "IsLinkedToOtherInterruption": true,
-  "IsPending": true,
+  "IsLinkedToOtherInterruption": false,
+  "IsPending": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

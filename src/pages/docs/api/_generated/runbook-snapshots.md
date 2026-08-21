@@ -69,7 +69,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRun
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -80,7 +80,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbookRun
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -773,9 +773,9 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -813,11 +813,11 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/runbookRuns`,
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -900,7 +900,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -926,12 +926,12 @@ Gets a document that describes what steps will/won't be run during a run to a gi
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -946,7 +946,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -1004,10 +1004,10 @@ Gets all of the information necessary for creating or editing a run for this sna
 ```json
 {
   "Id": "string",
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsRunbookProcessModified": true,
-  "IsVariableSetModified": true,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsRunbookProcessModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1364,8 +1364,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}/variables`, `
       {
         "Description": "string",
         "Id": "string",
-        "IsEditable": true,
-        "IsSensitive": true,
+        "IsEditable": false,
+        "IsSensitive": false,
         "Name": "string",
         "Prompt": {},
         "Scope": {},
@@ -1418,7 +1418,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
       "TenantId": "Tenants-1"
     }
   ],
-  "IncludeDisabledSteps": true,
+  "IncludeDisabledSteps": false,
   "ProjectId": "Projects-1",
   "RunbookSnapshotId": "string",
   "SpaceId": "Spaces-1"
@@ -1488,12 +1488,12 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
         "AvailableTagSets": [
           {}
         ],
-        "CanBeSkipped": true,
+        "CanBeSkipped": false,
         "ExcludedMachines": [
           {}
         ],
-        "HasNoApplicableMachines": true,
-        "IsDisabled": true,
+        "HasNoApplicableMachines": false,
+        "IsDisabled": false,
         "MachineNames": [
           "string"
         ],
@@ -1508,7 +1508,7 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{runbookSnapshotId
         ]
       }
     ],
-    "UseGuidedFailureModeByDefault": true
+    "UseGuidedFailureModeByDefault": false
   }
 ]
 ```
@@ -2328,9 +2328,9 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -2368,11 +2368,11 @@ Also reachable at `/api/runbookSnapshots/{id}/runbookRuns`, `/api/spaces/{spaceI
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -2455,7 +2455,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -2481,12 +2481,12 @@ Gets a document that describes what steps will/won't be run during a run to a gi
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -2501,7 +2501,7 @@ Gets a document that describes what steps will/won't be run during a run to a gi
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -2562,10 +2562,10 @@ Gets all of the information necessary for creating or editing a run for this sna
 ```json
 {
   "Id": "string",
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsRunbookProcessModified": true,
-  "IsVariableSetModified": true,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsRunbookProcessModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

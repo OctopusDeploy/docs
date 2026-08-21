@@ -145,7 +145,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
     }
   ],
   "Id": "string",
-  "IsFiltered": true,
+  "IsFiltered": false,
   "Items": [
     {
       "ChannelId": "Channels-1",
@@ -155,13 +155,13 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
       "Duration": "string",
       "EnvironmentId": "Environments-1",
       "ErrorMessage": "string",
-      "HasPendingInterruptions": true,
-      "HasPendingPreconditions": true,
-      "HasWarningsOrErrors": true,
+      "HasPendingInterruptions": false,
+      "HasPendingPreconditions": false,
+      "HasWarningsOrErrors": false,
       "Id": "Deployments-1",
-      "IsCompleted": true,
-      "IsCurrent": true,
-      "IsPrevious": true,
+      "IsCompleted": false,
+      "IsCurrent": false,
+      "IsPrevious": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -212,13 +212,13 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
   "ProjectLimit": 0,
   "Projects": [
     {
-      "CanPerformUntenantedDeployment": true,
+      "CanPerformUntenantedDeployment": false,
       "EnvironmentIds": [
         "Environments-1",
         "..."
       ],
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -235,7 +235,7 @@ Also reachable at `/api/dashboard`, `/api/spaces/{spaceIdentifier}/dashboard`.
   "Tenants": [
     {
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -401,7 +401,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
     }
   ],
   "Id": "string",
-  "IsFiltered": true,
+  "IsFiltered": false,
   "Items": [
     {
       "ChannelId": "Channels-1",
@@ -411,13 +411,13 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
       "Duration": "string",
       "EnvironmentId": "Environments-1",
       "ErrorMessage": "string",
-      "HasPendingInterruptions": true,
-      "HasPendingPreconditions": true,
-      "HasWarningsOrErrors": true,
+      "HasPendingInterruptions": false,
+      "HasPendingPreconditions": false,
+      "HasWarningsOrErrors": false,
       "Id": "Deployments-1",
-      "IsCompleted": true,
-      "IsCurrent": true,
-      "IsPrevious": true,
+      "IsCompleted": false,
+      "IsCurrent": false,
+      "IsPrevious": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -468,13 +468,13 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
   "ProjectLimit": 0,
   "Projects": [
     {
-      "CanPerformUntenantedDeployment": true,
+      "CanPerformUntenantedDeployment": false,
       "EnvironmentIds": [
         "Environments-1",
         "..."
       ],
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -491,7 +491,7 @@ Also reachable at `/api/dashboard/dynamic`, `/api/spaces/{spaceIdentifier}/dashb
   "Tenants": [
     {
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
