@@ -34,7 +34,7 @@ Octopus Approvals is a built-in change approval system that lets you gate deploy
 What's included in Octopus Approvals?
 
 - Octopus manages the full approval workflow with no external dependencies.
-- Approval policies define which users or teams can approve and how many approvals Octopus requires before proceeding.
+- Approval rules define which users or teams can approve and how many approvals Octopus requires before proceeding.
 - Octopus creates change requests automatically at deployment time.
 - Octopus supports change windows — the task waits until an approved time period before Octopus allows execution.
 - Octopus records an audit trail of approvals and rejections in the task log.

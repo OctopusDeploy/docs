@@ -21,17 +21,17 @@ When a controlled deployment or runbook run triggers, Octopus automatically crea
 
 Enable Octopus Approvals on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and tick **Is Enabled** and save.
 
-Once Octopus Approvals is enabled, navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** to create your first approval policy, then configure scope to apply it to the relevant projects and environments.
+Once Octopus Approvals is enabled, navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** to create your first approval rule, then configure scope to apply it to the relevant projects and environments.
 
-## Configuring an approval policy
+## Configuring an approval rule
 
-Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Approval Policy**. Each policy includes the following settings:
+Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Approval Rule**. Each rule includes the following settings:
 
-- **Name**: A short, memorable, unique name for this approval policy.
-- **Description**: An optional description for this approval policy.
-- **Scope**: The projects and environments that this approval policy should apply to. Octopus will require approvals for deployments and runbook runs that match the selected project and environment combination.
+- **Name**: A short, memorable, unique name for this approval rule.
+- **Description**: An optional description for this approval rule.
+- **Scope**: The projects and environments that this approval rule should apply to. Octopus will require approvals for deployments and runbook runs that match the selected project and environment combination.
 
-  You can scope the approval policy by project and environment tags or individual project and environments.
+  You can scope the approval rule by project and environment tags or individual project and environments.
 
 - **Approvers**: Select the Octopus teams or individual users who are authorized to approve change requests under this policy. Any member of an approving team counts toward the minimum approvers total.
 
@@ -41,16 +41,16 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
 
 ## How it works
 
-Octopus will generate a change request depending on the configured approval policies. If the required number of approvals is reached, the deployment will continue according to change windows. If the change request is rejected, the task is terminated.
+Octopus will generate a change request depending on the configured approval rules. If the required number of approvals is reached, the deployment will continue according to change windows. If the change request is rejected, the task is terminated.
 
 ### Change request creation
 
-When a deployment or runbook run triggers and it is in scope for an approval policy, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`). Octopus immediately pauses execution and displays the change request status in the task log.
+When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`). Octopus immediately pauses execution and displays the change request status in the task log.
 
-If multiple approval policies match, the policies are merged to a resultant policy.
+If multiple approval rules match, the rules are merged to a resultant rule.
 
-- Approvers are merged as a union of the approvers from each policy that has a matching scope.
-- The minimum approvers required will be equal to the highest value from all approval policies with matching scope.
+- Approvers are merged as a union of the approvers from each rule that has a matching scope.
+- The minimum approvers required will be equal to the highest value from all approval rules with matching scope.
 
 ### Change windows
 
@@ -58,7 +58,7 @@ Octopus supports change windows. Change windows are scheduled time periods durin
 
 #### Change window creation
 
-To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment.  The `Later` option allows users to define when the deployment start date/time and a duration.  Octopus evaluates the approval policy when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
+To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment.  The `Later` option allows users to define when the deployment start date/time and a duration.  Octopus evaluates the approval rule when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
 
 ### Rejection
 
