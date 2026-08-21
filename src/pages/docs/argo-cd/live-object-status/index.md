@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-03-19
+modDate: 2026-08-21
 navSection: Live Object Status
 title: Overview
 navTitle: Overview
@@ -89,6 +89,10 @@ Sync Status tracks whether the changes Octopus pushed to git still match what Ar
 | Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Argo CD has detected that the desired state in the cluster differs from the application’s git repository.                    |
 | Git Drift   |  <i class="fa-solid fa-not-equal orange"></i> | Octopus has detected that the changes it applied to git have been modified since the last deployment (e.g. by a manual edit) |
 | Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                                               |
+
+:::div{.info}
+Objects observed through Argo CD are never marked as **Orphaned**. Argo CD has its own [pruning](https://argo-cd.readthedocs.io/en/stable/user-guide/sync-options/#no-prune-resources) behavior for objects removed from git.
+:::
 
 ### Detailed object information
 

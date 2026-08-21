@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-01-21
+modDate: 2026-08-21
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -86,3 +86,29 @@ If possible, we recommend ensuring that
 
 - Octopus is the only entity to modify your deployments
 - You craft your Kubernetes manifests to ensure that there are no invalid fields
+
+### An object stays orphaned after I re-added the step \{#orphan-persists-after-re-adding-a-step}
+
+Octopus clears the orphan state when a deployment deploys the object again. Re-adding a step that is disabled does not deploy anything, so the object stays orphaned. Enable the step and deploy, or [delete the orphaned object](/docs/kubernetes/live-object-status/deleting-orphaned-objects) if you no longer want it.
+
+An object is marked [Orphaned](/docs/kubernetes/live-object-status#orphaned-objects) when a deployment succeeds and no longer produces an object that a previous release deployed. The usual causes are removing the object from a manifest, or removing the step that deployed it from the deployment process. Skipping or disabling a step does not orphan its objects, and a failed deployment never orphans anything.
+
+If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor in the application is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). Orphan tracking is all-or-nothing across the application, so one older agent disables it everywhere and dropped objects are silently removed from the table instead.
+
+## Deleting orphaned objects \{#deleting-orphaned-objects}
+
+### Octopus says an object was deleted but it's still in my cluster \{#deleted-object-still-present}
+
+Deleting an object deletes its dependents in the background, so a successful deletion returns as soon as the object itself is gone. Kubernetes garbage collects what it owned afterwards, which means deleting a Deployment reports success while its ReplicaSets and Pods are still being removed.
+
+### A deletion failed \{#deletion-failed}
+
+Open the deletion task from the warning icon beside the object. The task log contains detailed error messages to help troubleshooting.
+
+The most common cause is cluster permissions. Deletions run on the Kubernetes agent using the agent's service account, so the agent needs `delete` on that kind and namespace. See [permissions](/docs/kubernetes/live-object-status/deleting-orphaned-objects#permissions).
+
+### I can't delete an object because its status is stale \{#cannot-delete-stale-object}
+
+Octopus refuses to delete an object whose status information is stale, because it can't confirm what is actually in the cluster. Status goes stale after 10 minutes without an update from the Kubernetes monitor.
+
+Follow [failed to establish connection with Kubernetes monitor](/docs/kubernetes/live-object-status/troubleshooting#failed-to-establish-connection-with-kubernetes-monitor) to get the monitor reporting again, then retry the deletion.

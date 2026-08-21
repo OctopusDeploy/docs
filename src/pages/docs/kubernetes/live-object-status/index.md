@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-05-24
+modDate: 2026-08-21
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -85,24 +85,27 @@ Sync Status tracks whether the changes Octopus deployed still matches the resour
 | Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                              |
 | Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                   |
 | Orphaned    | <i class="fa-solid fa-link-slash orange"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
+| Deleting    |  <i class="fa-solid fa-hourglass blue"></i>   | Octopus is deleting this orphaned object. Select the status to open the task doing the work      |
 
 Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/troubleshooting) for details on why you may see some object statuses
 
 ### Orphaned objects
 
-When you deploy a project that no longer includes a resource that was deployed in a previous release (for example, you remove a resource from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped resource as **Orphaned** in the Live Status table.
+When a deployment succeeds and no longer includes an object that was deployed in a previous release (for example, you remove an object from a YAML manifest or remove a step from the deployment process), Octopus marks the dropped object as **Orphaned** in the Live Status table.
 
 Orphaned objects:
 
 - keep their existing Health Status, so Octopus continues tracking them while they remain in your cluster
-- have **Orphaned** as their Sync Status (shown with the link-slash icon in the table above)
-- are summarized by a total-orphans count shown on the project's Live Status page
-- can be narrowed to by using the Live Status table's filter and selecting **Orphaned**
+- have **Orphaned** as their Sync Status
+- are excluded from the rolled-up Application Health Status and Application Sync Status
+- can be deleted directly from Octopus, see [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects)
 
-The orphan state clears automatically on the next deployment that re-adds the resource. If you remove an orphaned object from your cluster directly (for example with `kubectl delete`), the Kubernetes monitor detects the removal and Octopus stops tracking the resource, so the orphan entry disappears from the Live Status table without any manual intervention.
+Orphans are detected only after a **successful** deployment, a failed deployment never marks anything as orphaned. 
+
+Skipping a step, or disabling it, does not orphan the objects that step deploys. Octopus only orphans an object when the step that deployed it ran and no longer produces it, or when that step has been removed from the deployment process altogether.
 
 :::div{.info}
-Orphaned-resource tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the resource is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
+Orphaned-object tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the object is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
 :::
 
 ### Detailed object information
@@ -215,6 +218,8 @@ Viewing the data returned from the Kubernetes monitor from within Octopus requir
 
 This data includes the resource and application status, as well as pod logs and events for objects being monitored. This may be a change in security posture that your team should carefully consider.
 
+Deleting an orphaned object additionally requires the `DeployedResourceAdminister` permission, and the Kubernetes agent's own service account must be allowed to delete the object. See [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects#permissions).
+
 ## Secrets
 
 ### Octopus sensitive variables
@@ -256,11 +261,11 @@ This setting defaults to on for all projects, but may change in the future.
 
 ## Known issues and limitations
 
-### Excluded steps
+### Excluded steps on older agents
 
-The desired object list is compiled from objects that were applied during the last deployment. If steps are excluded during a deployment, then live status will not be shown for objects that were applied in those steps.
+Where every Kubernetes monitor in the application is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3), Octopus keeps showing live status for objects deployed by a step that was skipped or disabled in the latest deployment.
 
-Please avoid skipping steps that deploy Kubernetes objects.
+On clusters with any older agent, objects applied by excluded steps are still removed from the Live Status table, so avoid skipping steps that deploy Kubernetes objects until every agent is upgraded.
 
 ### Runbooks are not supported
 
