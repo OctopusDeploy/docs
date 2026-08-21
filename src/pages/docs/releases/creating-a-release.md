@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2024-04-29
-modDate: 2026-04-16
+modDate: 2026-08-21
 title: Creating a release
 description: Learn how to create a release in Octopus Deploy  
 navOrder: 2
@@ -99,13 +99,44 @@ This lets you see the variables as they existed when the release was created.
 ![The Octopus release screen with variable snapshots highlighted](/docs/img/releases/images/release-variable-snapshot-section.png)
 :::
 
-You can update the variables by clicking **UPDATE VARIABLES**. This can be useful when:
+You can update the variables by clicking **Update All Variables**. This can be useful when:
 
 - The release has not been deployed yet, but the variables have changed since the release was created.
 - The release needs to be **redeployed** and the variables have changed since the release was created.
 - The release failed to deploy due to a problem with the variables and you need to update the variables and redeploy the release.
 
 After you've updated the variables, the release will use the updated variables when it is deployed.
+
+**Update All Variables** replaces the whole snapshot, so every variable picks up its current value. If you only want some of the changes, use **Review Variables** instead to choose which variables to update.
+
+#### Review and update selected variables {#review-and-update-selected-variables}
+
+**Review Variables** lets you compare the release's variable snapshot against your project's current variables, then update only the variables you choose. The rest of the snapshot keeps the values it was created with, so you can take a single corrected variable into a release without pulling in unrelated changes made since.
+
+This is useful when a deployment failed because of one bad variable value, or when a colleague has changed variables you're not ready to adopt.
+
+**Before you begin**
+
+You'll need:
+
+- The **VariableView** or **LibraryVariableSetView** permission on the project, to see the button and the comparison.
+- The **ReleaseEdit** permission on the project, to apply the update.
+- A project that doesn't store its variables in Git. Selective updates aren't supported once a project's variables have been [migrated to Git](/docs/projects/version-control/converting/migrating-variables).
+
+To review and update selected variables:
+
+1. Using the project side menu, navigate to **Deployments ➜ Releases**.
+1. Select the release you want to update.
+1. Scroll to the **Variable Snapshot** section and click **Review Variables**.
+1. Review the variables listed under **Changed**. Octopus selects all of them for you, so clear the check box next to any variable you want to leave as it is.
+1. Click **Update**.
+1. Check the summary of what you're about to change, then click **Confirm**.
+
+:::figure
+![The Select variables to update drawer listing changed variables with check boxes, showing each variable's name, value, scope, and source](/docs/img/shared-content/projects/variables/images/review-variables-drawer.png)
+:::
+
+The **Variable Snapshot** section shows the updated snapshot, and the release uses the updated variables the next time it's deployed. Variables you didn't select keep the values they had when the release was created.
 
 #### Variable snapshot for Git projects
 
