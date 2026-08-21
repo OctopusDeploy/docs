@@ -82,7 +82,8 @@ Every deletion task writes one audit event to the **Audit** screen in **Configur
 
 ## Known limitations
 
-- You cannot stop tracking an orphaned object without deleting it. If the object is still needed by something else, delete the object and then recreate it from a different project.
+- Only top-level orphaned objects can be deleted. Child objects, such as Pods belonging to a Deployment can't be deleted from Octopus to restart a service.
+- You cannot stop tracking an orphaned object without deleting it. If the object is still needed by something else, delete it and recreate it from a different project.
 
 ## Learn more
 
