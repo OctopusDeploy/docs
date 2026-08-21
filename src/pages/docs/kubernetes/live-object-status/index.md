@@ -100,7 +100,7 @@ Orphaned objects:
 - are excluded from the rolled-up Application Health Status and Application Sync Status
 - can be deleted directly from Octopus, see [deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects)
 
-Orphans are detected only after a **successful** deployment, a failed deployment never marks anything as orphaned. 
+Orphans are detected only after a **successful** deployment, so a failed deployment never marks anything as orphaned.
 
 Skipping a step, or disabling it, does not orphan the objects that step deploys. Octopus only orphans an object when the step that deployed it ran and no longer produces it, or when that step has been removed from the deployment process altogether.
 
