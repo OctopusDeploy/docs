@@ -25,7 +25,9 @@ To delete orphaned objects you need:
 
 Open your project and select **Live Status** for the environment (and tenant) you want. The table offers a delete action on every orphaned row, and when an application has orphaned objects the page also shows a card counting them. To list only orphaned objects, use the **Sync status** filter and select **Orphaned**.
 
-TODO: put screenshot here (live status table.png)
+:::figure
+![Live Status table showing orphaned objects](/docs/img/kubernetes/live-object-status/live-status-orphaned-objects.png)
+:::
 
 ### A single object
 
@@ -44,7 +46,7 @@ You can also select the object to open its detail drawer and use the **Delete** 
 
 ## The deletion task
 
-Each request queues one **Delete Kubernetes resources** task, which is linked from the Kuberentes resource being deleted. Deletion tasks can run at the same time as deployments.
+Each request queues one **Delete Kubernetes resources** task, which is linked from the Kubernetes resource being deleted. Deletion tasks can run at the same time as deployments.
 
 The deletion task runs a script on the Kubernetes Agent that calls `kubectl delete` with a 5 minute timeout for each resource. If some objects delete and others don't, the task deletes everything it can, records every outcome, and then fails.
 
