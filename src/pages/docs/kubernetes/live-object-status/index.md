@@ -84,7 +84,7 @@ Sync Status tracks whether the changes Octopus deployed still matches the resour
 | In Sync     |    <i class="fa-solid fa-check green"></i>    | Object manifest matches what was applied                                                         |
 | Out of Sync |  <i class="fa-solid fa-arrow-up orange"></i>  | Object manifest is not the same as what was applied                                              |
 | Unknown     |   <i class="fa-solid fa-question grey"></i>   | We don't have information about the live status of this object                                   |
-| Orphaned    | <i class="fa-solid fa-link-slash orange"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
+| Orphaned    | <i class="fa-solid fa-link-slash" style="color: var(--colorIconWarning);"></i> | Object was deployed in a previous release but is no longer part of the latest deployment process |
 | Deleting    |  <i class="fa-solid fa-hourglass blue"></i>   | Octopus is deleting this orphaned object. Select the status to open the task doing the work      |
 
 Take a look at our [troubleshooting guide](/docs/kubernetes/live-object-status/troubleshooting) for details on why you may see some object statuses
