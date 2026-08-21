@@ -78,10 +78,10 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
   "ItemType": "string",
   "Items": [
     {
-      "CanAddWorkers": true,
+      "CanAddWorkers": false,
       "Description": "string",
       "Id": "string",
-      "IsDefault": true,
+      "IsDefault": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -141,7 +141,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 ```json
 {
   "Description": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "Name": "string",
   "Slug": "string",
   "SortOrder": 0,
@@ -181,10 +181,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools`, `/api/workerpools
 :::api-example{label="Response"}
 ```json
 {
-  "CanAddWorkers": true,
+  "CanAddWorkers": false,
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -249,10 +249,10 @@ Lists the name and ID of of the Worker Pools in the supplied Octopus Deploy Spac
 ```json
 [
   {
-    "CanAddWorkers": true,
+    "CanAddWorkers": false,
     "Description": "string",
     "Id": "string",
-    "IsDefault": true,
+    "IsDefault": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -417,7 +417,7 @@ Lists all worker pools, including a summary of machine information.
   "MachineIdsForTentacleUpgrade": [
     "string"
   ],
-  "TentacleUpgradesRequired": true,
+  "TentacleUpgradesRequired": false,
   "TotalDisabledMachines": 0,
   "TotalMachines": 0,
   "WorkerPoolSummaries": [
@@ -438,14 +438,14 @@ Lists all worker pools, including a summary of machine information.
       "MachineIdsForTentacleUpgrade": [
         "string"
       ],
-      "TentacleUpgradesRequired": true,
+      "TentacleUpgradesRequired": false,
       "TotalDisabledMachines": 0,
       "TotalMachines": 0,
       "WorkerPool": {
-        "CanAddWorkers": true,
+        "CanAddWorkers": false,
         "Description": "string",
         "Id": "string",
-        "IsDefault": true,
+        "IsDefault": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {},
@@ -538,10 +538,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workerpools/{id}`, `/api/worker
 :::api-example{label="Response"}
 ```json
 {
-  "CanAddWorkers": true,
+  "CanAddWorkers": false,
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -595,7 +595,7 @@ Updates an existing worker pool.
 {
   "Description": "string",
   "Id": "WorkerPools-1",
-  "IsDefault": true,
+  "IsDefault": false,
   "Name": "string",
   "Slug": "string",
   "SpaceId": "Spaces-1",
@@ -633,10 +633,10 @@ Updates an existing worker pool.
 :::api-example{label="Response"}
 ```json
 {
-  "CanAddWorkers": true,
+  "CanAddWorkers": false,
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -759,11 +759,11 @@ Lists all of the machines that belong to the given worker pool.
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {}
       },
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -777,7 +777,7 @@ Lists all of the machines that belong to the given worker pool.
       "OperatingSystemVersion": "string",
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",

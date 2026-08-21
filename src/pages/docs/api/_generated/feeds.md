@@ -151,10 +151,10 @@ Also reachable at `/api/feeds`, `/api/spaces/{spaceIdentifier}/feeds`.
 {
   "ClientVersion": {
     "Format": "Semver",
-    "HasMetadata": true,
-    "IsLegacyVersion": true,
-    "IsPrerelease": true,
-    "IsSemVer2": true,
+    "HasMetadata": false,
+    "IsLegacyVersion": false,
+    "IsPrerelease": false,
+    "IsSemVer2": false,
     "Major": 0,
     "Metadata": "string",
     "Minor": 0,
@@ -422,10 +422,10 @@ Also reachable at `/api/feeds/{id}`, `/api/spaces/{spaceIdentifier}/feeds/{id}`.
 {
   "ClientVersion": {
     "Format": "Semver",
-    "HasMetadata": true,
-    "IsLegacyVersion": true,
-    "IsPrerelease": true,
-    "IsSemVer2": true,
+    "HasMetadata": false,
+    "IsLegacyVersion": false,
+    "IsPrerelease": false,
+    "IsSemVer2": false,
     "Major": 0,
     "Metadata": "string",
     "Minor": 0,

@@ -414,7 +414,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -434,7 +434,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}/runbookSnapsh
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -1112,7 +1112,7 @@ Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/sp
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -1132,7 +1132,7 @@ Also reachable at `/api/runbookProcesses/{id}/runbookSnapshotTemplate`, `/api/sp
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",

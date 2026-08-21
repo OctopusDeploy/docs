@@ -64,7 +64,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 :::api-example{label="Request"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -87,7 +87,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
       ]
     }
   ],
-  "IsDefault": true,
+  "IsDefault": false,
   "LifecycleId": "string",
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -172,7 +172,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -196,7 +196,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -306,7 +306,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
 ```json
 [
   {
-    "AutomaticEphemeralEnvironmentDeployments": true,
+    "AutomaticEphemeralEnvironmentDeployments": false,
     "CustomFieldDefinitions": [
       {
         "Description": "string",
@@ -330,7 +330,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
       }
     ],
     "Id": "string",
-    "IsDefault": true,
+    "IsDefault": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LifecycleId": "string",
@@ -411,8 +411,8 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false
 }
 ```
 :::
@@ -458,8 +458,8 @@ Also reachable at `/api/channels/rule-test`, `/api/spaces/{spaceIdentifier}/chan
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false
 }
 ```
 :::
@@ -507,8 +507,8 @@ Also reachable at `/api/channels/rule-test`.
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false
 }
 ```
 :::
@@ -551,9 +551,9 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true,
-  "SatisfiesVersionTagRegex": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false,
+  "SatisfiesVersionTagRegex": false
 }
 ```
 :::
@@ -594,9 +594,9 @@ Also reachable at `/api/channels/rule-test/v1`, `/api/spaces/{spaceIdentifier}/c
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true,
-  "SatisfiesVersionTagRegex": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false,
+  "SatisfiesVersionTagRegex": false
 }
 ```
 :::
@@ -640,9 +640,9 @@ Also reachable at `/api/channels/rule-test/v1`.
   "Errors": [
     "string"
   ],
-  "SatisfiesPreReleaseTag": true,
-  "SatisfiesVersionRange": true,
-  "SatisfiesVersionTagRegex": true
+  "SatisfiesPreReleaseTag": false,
+  "SatisfiesVersionRange": false,
+  "SatisfiesVersionTagRegex": false
 }
 ```
 :::
@@ -709,7 +709,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 :::api-example{label="Request"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -733,7 +733,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Id": "Channels-1",
-  "IsDefault": true,
+  "IsDefault": false,
   "LifecycleId": "string",
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -817,7 +817,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -841,7 +841,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -975,7 +975,7 @@ Lists all the channels for the given project
   "ItemType": "string",
   "Items": [
     {
-      "AutomaticEphemeralEnvironmentDeployments": true,
+      "AutomaticEphemeralEnvironmentDeployments": false,
       "CustomFieldDefinitions": [
         {}
       ],
@@ -988,7 +988,7 @@ Lists all the channels for the given project
         {}
       ],
       "Id": "string",
-      "IsDefault": true,
+      "IsDefault": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
@@ -1086,7 +1086,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
 :::api-example{label="Request"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1109,7 +1109,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
       ]
     }
   ],
-  "IsDefault": true,
+  "IsDefault": false,
   "LifecycleId": "string",
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1194,7 +1194,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1218,7 +1218,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -1288,7 +1288,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
   "Errors": [
     "string"
   ],
-  "SatisfiesGitReferenceRules": true
+  "SatisfiesGitReferenceRules": false
 }
 ```
 :::
@@ -1324,7 +1324,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/channels/{
   "Errors": [
     "string"
   ],
-  "SatisfiesGitResourceRules": true
+  "SatisfiesGitResourceRules": false
 }
 ```
 :::
@@ -1394,7 +1394,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1418,7 +1418,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -1522,7 +1522,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 :::api-example{label="Request"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1546,7 +1546,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Id": "Channels-1",
-  "IsDefault": true,
+  "IsDefault": false,
   "LifecycleId": "string",
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1630,7 +1630,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1654,7 +1654,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -1821,7 +1821,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
   "ItemType": "string",
   "Items": [
     {
-      "AutomaticEphemeralEnvironmentDeployments": true,
+      "AutomaticEphemeralEnvironmentDeployments": false,
       "CustomFieldDefinitions": [
         {}
       ],
@@ -1834,7 +1834,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
         {}
       ],
       "Id": "string",
-      "IsDefault": true,
+      "IsDefault": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
@@ -1939,7 +1939,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
 :::api-example{label="Response"}
 ```json
 {
-  "AutomaticEphemeralEnvironmentDeployments": true,
+  "AutomaticEphemeralEnvironmentDeployments": false,
   "CustomFieldDefinitions": [
     {
       "Description": "string",
@@ -1963,7 +1963,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
     }
   ],
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",

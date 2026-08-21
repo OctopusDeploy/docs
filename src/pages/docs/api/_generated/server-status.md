@@ -36,11 +36,11 @@ Shows information about the status of the Octopus Server.
 ```json
 {
   "Id": "string",
-  "IsDatabaseEncrypted": true,
-  "IsInMaintenanceMode": true,
-  "IsMajorMinorUpgrade": true,
-  "IsPotentialClone": true,
-  "IsUpgradeAvailable": true,
+  "IsDatabaseEncrypted": false,
+  "IsInMaintenanceMode": false,
+  "IsMajorMinorUpgrade": false,
+  "IsPotentialClone": false,
+  "IsUpgradeAvailable": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -172,10 +172,10 @@ Provides a super simple interface perfect for checking the general health of you
 {
   "Description": "string",
   "Id": "string",
-  "IsCompliantWithLicense": true,
-  "IsEntireClusterDrainingTasks": true,
-  "IsEntireClusterReadOnly": true,
-  "IsOperatingNormally": true,
+  "IsCompliantWithLicense": false,
+  "IsEntireClusterDrainingTasks": false,
+  "IsEntireClusterReadOnly": false,
+  "IsOperatingNormally": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -320,7 +320,7 @@ Provides a super simple interface perfect for checking the general health of you
 [
   {
     "Id": "string",
-    "IsLocal": true,
+    "IsLocal": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {

@@ -44,7 +44,7 @@ Gets the dashboard configuration of the authenticated user for the current space
 :::api-example{label="Response"}
 ```json
 {
-  "HideInactiveProjects": true,
+  "HideInactiveProjects": false,
   "Id": "string",
   "IncludedEnvironmentIds": [
     "Environments-1",
@@ -122,7 +122,7 @@ Modifies the dashboard configuration for the current user per space
 :::api-example{label="Request"}
 ```json
 {
-  "HideInactiveProjects": true,
+  "HideInactiveProjects": false,
   "IncludedEnvironmentIds": [
     "Environments-1",
     "..."
@@ -179,7 +179,7 @@ Modifies the dashboard configuration for the current user per space
 :::api-example{label="Response"}
 ```json
 {
-  "HideInactiveProjects": true,
+  "HideInactiveProjects": false,
   "Id": "string",
   "IncludedEnvironmentIds": [
     "Environments-1",

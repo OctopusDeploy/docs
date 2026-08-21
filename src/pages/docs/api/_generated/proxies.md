@@ -80,7 +80,7 @@ Lists all of the Proxies in the supplied Octopus Deploy Space. The results will 
       },
       "Name": "string",
       "Password": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -140,7 +140,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   "Host": "string",
   "Name": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -189,7 +189,7 @@ Also reachable at `/api/proxies`, `/api/spaces/{spaceIdentifier}/proxies`.
   },
   "Name": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -252,7 +252,7 @@ Lists the name and ID of all of the Proxies in the supplied Octopus Deploy Space
     },
     "Name": "string",
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -315,7 +315,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   },
   "Name": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -367,7 +367,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   "Id": "Proxys-1",
   "Name": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -416,7 +416,7 @@ Also reachable at `/api/proxies/{id}`, `/api/spaces/{spaceIdentifier}/proxies/{i
   },
   "Name": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },

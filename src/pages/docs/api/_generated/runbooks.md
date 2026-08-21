@@ -128,11 +128,11 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "ItemType": "string",
   "Items": [
     {
-      "CancelQueuedTasks": true,
-      "CancelRunningTasks": true,
+      "CancelQueuedTasks": false,
+      "CancelRunningTasks": false,
       "ConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -145,8 +145,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
         "Environments-1",
         "..."
       ],
-      "FailTargetDiscovery": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "ForcePackageDownload": false,
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -161,7 +161,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
@@ -252,8 +252,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 {
   "Clone": "Runbooks-1",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -266,14 +266,14 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
     "Environments-1",
     "..."
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
   "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -335,11 +335,11 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -352,8 +352,8 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -368,7 +368,7 @@ Also reachable at `/api/projects/{projectId}/runbooks`, `/api/spaces/{spaceIdent
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -441,11 +441,11 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
 {
   "Runbooks": [
     {
-      "CancelQueuedTasks": true,
-      "CancelRunningTasks": true,
+      "CancelQueuedTasks": false,
+      "CancelRunningTasks": false,
       "ConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -458,8 +458,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
         "Environments-1",
         "..."
       ],
-      "FailTargetDiscovery": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "ForcePackageDownload": false,
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -474,7 +474,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/all/v2`, `/api/spaces/{spa
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
@@ -535,8 +535,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
 ```json
 {
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -549,13 +549,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/runbooks/v
     "Environments-1",
     "..."
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
   "ProjectId": "Projects-1",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -651,11 +651,11 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -668,8 +668,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -684,7 +684,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -765,11 +765,11 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 :::api-example{label="Request"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -782,8 +782,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -791,7 +791,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -853,11 +853,11 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -870,8 +870,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -886,7 +886,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}`, `/api/spaces/{space
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -966,7 +966,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
 ```json
 [
   {
-    "AllowDynamicInfrastructure": true,
+    "AllowDynamicInfrastructure": false,
     "Description": "string",
     "EnvironmentTags": [
       "string"
@@ -989,7 +989,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/environments`, `/api/
     "Slug": "string",
     "SortOrder": 0,
     "SpaceId": "Spaces-1",
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 ]
 ```
@@ -1098,10 +1098,10 @@ Also reachable at `/api/projects/{projectId}/runbooks/{id}/runbookRunTemplate`, 
 ```json
 {
   "Id": "string",
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsRunbookProcessModified": true,
-  "IsVariableSetModified": true,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsRunbookProcessModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1205,7 +1205,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -1231,12 +1231,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -1251,7 +1251,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -1321,7 +1321,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -1347,12 +1347,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -1367,7 +1367,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -1462,8 +1462,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
   "ExcludedTargetTagIds": [
     "string"
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1493,8 +1493,8 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/run`, `/api/sp
   "TenantTagNames": [
     "string"
   ],
-  "UseDefaultSnapshot": true,
-  "UseGuidedFailure": true
+  "UseDefaultSnapshot": false,
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1544,7 +1544,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
       "TenantId": "Tenants-1"
     }
   ],
-  "IncludeDisabledSteps": true,
+  "IncludeDisabledSteps": false,
   "ProjectId": "Projects-1",
   "RunbookId": "Runbooks-1",
   "SpaceId": "Spaces-1"
@@ -1614,12 +1614,12 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
         "AvailableTagSets": [
           {}
         ],
-        "CanBeSkipped": true,
+        "CanBeSkipped": false,
         "ExcludedMachines": [
           {}
         ],
-        "HasNoApplicableMachines": true,
-        "IsDisabled": true,
+        "HasNoApplicableMachines": false,
+        "IsDisabled": false,
         "MachineNames": [
           "string"
         ],
@@ -1634,7 +1634,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
         ]
       }
     ],
-    "UseGuidedFailureModeByDefault": true
+    "UseGuidedFailureModeByDefault": false
   }
 ]
 ```
@@ -1714,7 +1714,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -1734,7 +1734,7 @@ Also reachable at `/api/projects/{projectId}/runbooks/{runbookId}/runbookSnapsho
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -1835,11 +1835,11 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
   "ItemType": "string",
   "Items": [
     {
-      "CancelQueuedTasks": true,
-      "CancelRunningTasks": true,
+      "CancelQueuedTasks": false,
+      "CancelRunningTasks": false,
       "ConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -1852,8 +1852,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
         "Environments-1",
         "..."
       ],
-      "FailTargetDiscovery": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "ForcePackageDownload": false,
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -1868,7 +1868,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks`, `/api/spaces/{s
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
@@ -1944,8 +1944,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
 {
   "ChangeDescription": "string",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -1958,14 +1958,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/r
     "Environments-1",
     "..."
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "GitRef": "string",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
   "ProjectId": "Projects-1",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -2065,11 +2065,11 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -2082,8 +2082,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -2098,7 +2098,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -2185,12 +2185,12 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 :::api-example{label="Request"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ChangeDescription": "string",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -2203,8 +2203,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "GitRef": "string",
   "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
@@ -2213,7 +2213,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -2275,11 +2275,11 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -2292,8 +2292,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -2308,7 +2308,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}`, `/api/spac
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -2419,7 +2419,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
 ```json
 [
   {
-    "AllowDynamicInfrastructure": true,
+    "AllowDynamicInfrastructure": false,
     "Description": "string",
     "EnvironmentTags": [
       "string"
@@ -2442,7 +2442,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/environments
     "Slug": "string",
     "SortOrder": 0,
     "SpaceId": "Spaces-1",
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 ]
 ```
@@ -2554,10 +2554,10 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{id}/runbookRunTe
 ```json
 {
   "Id": "string",
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsRunbookProcessModified": true,
-  "IsVariableSetModified": true,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsRunbookProcessModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -2662,7 +2662,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -2688,12 +2688,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -2708,7 +2708,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -2780,7 +2780,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -2806,12 +2806,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -2826,7 +2826,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -2875,7 +2875,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
     }
   ],
   "GitRef": "string",
-  "IncludeDisabledSteps": true,
+  "IncludeDisabledSteps": false,
   "ProjectId": "Projects-1",
   "RunbookId": "Runbooks-1",
   "SpaceId": "Spaces-1"
@@ -2945,12 +2945,12 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
         "AvailableTagSets": [
           {}
         ],
-        "CanBeSkipped": true,
+        "CanBeSkipped": false,
         "ExcludedMachines": [
           {}
         ],
-        "HasNoApplicableMachines": true,
-        "IsDisabled": true,
+        "HasNoApplicableMachines": false,
+        "IsDisabled": false,
         "MachineNames": [
           "string"
         ],
@@ -2965,7 +2965,7 @@ Gets a list of Runbook Run Previews that describes what steps will/won't be run 
         ]
       }
     ],
-    "UseGuidedFailureModeByDefault": true
+    "UseGuidedFailureModeByDefault": false
   }
 ]
 ```
@@ -3046,7 +3046,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -3066,7 +3066,7 @@ Also reachable at `/api/projects/{projectId}/{gitref}/runbooks/{runbookId}/runbo
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -3163,11 +3163,11 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
   "ItemType": "string",
   "Items": [
     {
-      "CancelQueuedTasks": true,
-      "CancelRunningTasks": true,
+      "CancelQueuedTasks": false,
+      "CancelRunningTasks": false,
       "ConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -3180,8 +3180,8 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
         "Environments-1",
         "..."
       ],
-      "FailTargetDiscovery": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "ForcePackageDownload": false,
       "Id": "string",
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3196,7 +3196,7 @@ Gets a paginated list of the Runbooks in the supplied Octopus Deploy Space (sort
       "PublishedRunbookSnapshotId": "string",
       "RunRetentionPolicy": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
@@ -3285,8 +3285,8 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 {
   "Clone": "Runbooks-1",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -3299,14 +3299,14 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
     "Environments-1",
     "..."
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
   "ProjectId": "Projects-1",
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -3368,11 +3368,11 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -3385,8 +3385,8 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3401,7 +3401,7 @@ Also reachable at `/api/runbooks`, `/api/spaces/{spaceIdentifier}/runbooks`.
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -3484,11 +3484,11 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
 ```json
 [
   {
-    "CancelQueuedTasks": true,
-    "CancelRunningTasks": true,
+    "CancelQueuedTasks": false,
+    "CancelRunningTasks": false,
     "ConnectivityPolicy": {
-      "AllowDeploymentsToNoTargets": true,
-      "ExcludeUnhealthyTargets": true,
+      "AllowDeploymentsToNoTargets": false,
+      "ExcludeUnhealthyTargets": false,
       "SkipMachineBehavior": "None",
       "TargetRoles": [
         "string"
@@ -3501,8 +3501,8 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
       "Environments-1",
       "..."
     ],
-    "FailTargetDiscovery": true,
-    "ForcePackageDownload": true,
+    "FailTargetDiscovery": false,
+    "ForcePackageDownload": false,
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3517,7 +3517,7 @@ Lists all of the Runbooks in the supplied Space. The results will be sorted alph
     "PublishedRunbookSnapshotId": "string",
     "RunRetentionPolicy": {
       "QuantityToKeep": 0,
-      "ShouldKeepForever": true,
+      "ShouldKeepForever": false,
       "Strategy": "string",
       "Unit": "Days"
     },
@@ -3596,11 +3596,11 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -3613,8 +3613,8 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3629,7 +3629,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -3708,11 +3708,11 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 :::api-example{label="Request"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -3725,8 +3725,8 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "Runbooks-1",
   "MultiTenancyMode": "Untenanted",
   "Name": "string",
@@ -3734,7 +3734,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -3796,11 +3796,11 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -3813,8 +3813,8 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
     "Environments-1",
     "..."
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -3829,7 +3829,7 @@ Also reachable at `/api/runbooks/{id}`, `/api/spaces/{spaceIdentifier}/runbooks/
   "PublishedRunbookSnapshotId": "string",
   "RunRetentionPolicy": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
@@ -3911,7 +3911,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
 ```json
 [
   {
-    "AllowDynamicInfrastructure": true,
+    "AllowDynamicInfrastructure": false,
     "Description": "string",
     "EnvironmentTags": [
       "string"
@@ -3934,7 +3934,7 @@ Also reachable at `/api/runbooks/{id}/environments`, `/api/spaces/{spaceIdentifi
     "Slug": "string",
     "SortOrder": 0,
     "SpaceId": "Spaces-1",
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 ]
 ```
@@ -3994,10 +3994,10 @@ Also reachable at `/api/runbooks/{id}/runbookRunTemplate`, `/api/spaces/{spaceId
 ```json
 {
   "Id": "string",
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsRunbookProcessModified": true,
-  "IsVariableSetModified": true,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsRunbookProcessModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -4101,7 +4101,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -4127,12 +4127,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -4147,7 +4147,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -4217,7 +4217,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -4243,12 +4243,12 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -4263,7 +4263,7 @@ Gets a Runbook Run Preview that describes what steps will/won't be run during a 
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -4356,8 +4356,8 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
   "ExcludedTargetTagIds": [
     "string"
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -4387,8 +4387,8 @@ Also reachable at `/api/runbooks/{runbookId}/run`, `/api/spaces/{spaceIdentifier
   "TenantTagNames": [
     "string"
   ],
-  "UseDefaultSnapshot": true,
-  "UseGuidedFailure": true
+  "UseDefaultSnapshot": false,
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -4474,7 +4474,7 @@ Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spa
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -4494,7 +4494,7 @@ Also reachable at `/api/runbooks/{runbookId}/runbookSnapshotTemplate`, `/api/spa
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",

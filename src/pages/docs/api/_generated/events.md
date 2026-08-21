@@ -295,7 +295,7 @@ Also reachable at `/api/events/{id}`, `/api/spaces/{spaceIdentifier}/events/{id}
   "Id": "string",
   "IdentityEstablishedWith": "string",
   "IpAddress": "string",
-  "IsService": true,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

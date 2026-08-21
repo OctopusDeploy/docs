@@ -31,8 +31,8 @@ title: Git Hub
 :::api-example{label="Response"}
 ```json
 {
-  "CanUseGitHubApp": true,
-  "CanUseTrustedFlow": true
+  "CanUseGitHubApp": false,
+  "CanUseTrustedFlow": false
 }
 ```
 :::
@@ -97,7 +97,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
         "AccountId": "string",
         "AccountLogin": "string",
         "AccountType": "string",
-        "AllRepositories": true,
+        "AllRepositories": false,
         "InstallationId": "string"
       },
       "Status": "ConnectionNotFound"
@@ -181,8 +181,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionI
     {
       "DefaultBranch": "string",
       "GitUrl": "string",
-      "IsAdmin": true,
-      "IsPrivate": true,
+      "IsAdmin": false,
+      "IsPrivate": false,
       "Language": "string",
       "RepositoryId": "string",
       "RepositoryName": "string",
@@ -244,15 +244,15 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
     "AccountId": "string",
     "AccountLogin": "string",
     "AccountType": "string",
-    "AllRepositories": true,
+    "AllRepositories": false,
     "InstallationId": "string"
   },
   "Repositories": [
     {
       "DefaultBranch": "string",
       "GitUrl": "string",
-      "IsAdmin": true,
-      "IsPrivate": true,
+      "IsAdmin": false,
+      "IsPrivate": false,
       "Language": "string",
       "RepositoryId": "string",
       "RepositoryName": "string",
@@ -471,7 +471,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
       "AccountId": "string",
       "AccountLogin": "string",
       "AccountType": "string",
-      "AllRepositories": true,
+      "AllRepositories": false,
       "InstallationId": "string"
     }
   ]
@@ -534,8 +534,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
     {
       "DefaultBranch": "string",
       "GitUrl": "string",
-      "IsAdmin": true,
-      "IsPrivate": true,
+      "IsAdmin": false,
+      "IsPrivate": false,
       "Language": "string",
       "RepositoryId": "string",
       "RepositoryName": "string",
@@ -607,8 +607,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
     {
       "DefaultBranch": "string",
       "GitUrl": "string",
-      "IsAdmin": true,
-      "IsPrivate": true,
+      "IsAdmin": false,
+      "IsPrivate": false,
       "Language": "string",
       "RepositoryId": "string",
       "RepositoryName": "string",
@@ -650,8 +650,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 :::api-example{label="Response"}
 ```json
 {
-  "CanAuthorize": true,
-  "IsAuthorized": true,
+  "CanAuthorize": false,
+  "IsAuthorized": false,
   "UserDetails": {
     "AvatarUrl": "string",
     "Login": "string",

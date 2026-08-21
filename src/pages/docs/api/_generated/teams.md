@@ -82,10 +82,10 @@ Lists all of the Teams in the system or Octopus Deploy Space (if provided). The 
   "ItemType": "string",
   "Items": [
     {
-      "CanBeDeleted": true,
-      "CanBeRenamed": true,
-      "CanChangeMembers": true,
-      "CanChangeRoles": true,
+      "CanBeDeleted": false,
+      "CanBeRenamed": false,
+      "CanChangeMembers": false,
+      "CanChangeRoles": false,
       "Description": "string",
       "ExternalSecurityGroups": [
         {}
@@ -157,7 +157,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }
@@ -209,14 +209,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams`, `/api/teams`.
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
-  "CanBeRenamed": true,
-  "CanChangeMembers": true,
-  "CanChangeRoles": true,
+  "CanBeDeleted": false,
+  "CanBeRenamed": false,
+  "CanChangeMembers": false,
+  "CanChangeRoles": false,
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }
@@ -289,14 +289,14 @@ Lists all of the Teams in the supplied Octopus Deploy Space. The results will be
 ```json
 [
   {
-    "CanBeDeleted": true,
-    "CanBeRenamed": true,
-    "CanChangeMembers": true,
-    "CanChangeRoles": true,
+    "CanBeDeleted": false,
+    "CanBeRenamed": false,
+    "CanChangeMembers": false,
+    "CanChangeRoles": false,
     "Description": "string",
     "ExternalSecurityGroups": [
       {
-        "DisplayIdAndName": true,
+        "DisplayIdAndName": false,
         "DisplayName": "string",
         "Id": "string"
       }
@@ -370,14 +370,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/teams/{id}`, `/api/teams/{id}`.
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
-  "CanBeRenamed": true,
-  "CanChangeMembers": true,
-  "CanChangeRoles": true,
+  "CanBeDeleted": false,
+  "CanBeRenamed": false,
+  "CanChangeMembers": false,
+  "CanChangeRoles": false,
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }
@@ -438,7 +438,7 @@ The Everyone Team is treated as a special case and its members and external grou
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }
@@ -491,14 +491,14 @@ The Everyone Team is treated as a special case and its members and external grou
 :::api-example{label="Response"}
 ```json
 {
-  "CanBeDeleted": true,
-  "CanBeRenamed": true,
-  "CanChangeMembers": true,
-  "CanChangeRoles": true,
+  "CanBeDeleted": false,
+  "CanBeRenamed": false,
+  "CanChangeMembers": false,
+  "CanChangeRoles": false,
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }

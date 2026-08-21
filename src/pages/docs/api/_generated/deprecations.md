@@ -19,7 +19,7 @@ title: Deprecations
 ```json
 {
   "Deprecation": "string",
-  "Enabled": true
+  "Enabled": false
 }
 ```
 :::
@@ -48,7 +48,7 @@ title: Deprecations
 ```json
 {
   "Deprecation": "string",
-  "Enabled": true
+  "Enabled": false
 }
 ```
 :::

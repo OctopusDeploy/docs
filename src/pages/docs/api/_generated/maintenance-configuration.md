@@ -27,7 +27,7 @@ title: Maintenance Configuration
 ```json
 {
   "Id": "string",
-  "IsInMaintenanceMode": true,
+  "IsInMaintenanceMode": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -50,7 +50,7 @@ title: Maintenance Configuration
 :::api-example{label="Request"}
 ```json
 {
-  "IsInMaintenanceMode": true
+  "IsInMaintenanceMode": false
 }
 ```
 :::
@@ -73,7 +73,7 @@ title: Maintenance Configuration
 ```json
 {
   "Id": "string",
-  "IsInMaintenanceMode": true,
+  "IsInMaintenanceMode": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -96,7 +96,7 @@ title: Maintenance Configuration
 :::api-example{label="Request"}
 ```json
 {
-  "IsInMaintenanceMode": true
+  "IsInMaintenanceMode": false
 }
 ```
 :::
@@ -121,7 +121,7 @@ title: Maintenance Configuration
 {
   "Resource": {
     "Id": "string",
-    "IsInMaintenanceMode": true,
+    "IsInMaintenanceMode": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {

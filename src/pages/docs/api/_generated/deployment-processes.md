@@ -181,7 +181,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -202,7 +202,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -685,7 +685,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -706,7 +706,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -750,7 +750,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/ap
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "HasWarnings": true,
+  "HasWarnings": false,
   "TagsWithoutTargetsByStepId": {
     "additionalProp1": [
       "string"
@@ -1157,7 +1157,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -1178,7 +1178,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -1223,7 +1223,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/valida
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "HasWarnings": true,
+  "HasWarnings": false,
   "TagsWithoutTargetsByStepId": {
     "additionalProp1": [
       "string"

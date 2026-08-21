@@ -149,7 +149,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -219,7 +219,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -615,7 +615,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -675,7 +675,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -746,7 +746,7 @@ Also reachable at `/api/libraryvariablesets/{id}`, `/api/spaces/{spaceIdentifier
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -819,7 +819,7 @@ Also reachable at `/api/libraryvariablesets/{id}/usages`, `/api/spaces/{spaceIde
   "CountOfRunbookSnapshotsUserCannotSee": 0,
   "Projects": [
     {
-      "IsCurrentlyBeingUsedInProject": true,
+      "IsCurrentlyBeingUsedInProject": false,
       "ProjectId": "Projects-1",
       "ProjectName": "string",
       "ProjectSlug": "string",

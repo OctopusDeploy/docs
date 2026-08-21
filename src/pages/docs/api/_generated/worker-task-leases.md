@@ -53,7 +53,7 @@ Gets a paginated set of WorkerTaskLeases.
     "ItemType": "string",
     "Items": [
       {
-        "Exclusive": true,
+        "Exclusive": false,
         "Id": "string",
         "Name": "string",
         "ServerTaskId": "ServerTasks-1",

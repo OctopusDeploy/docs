@@ -28,7 +28,7 @@ title: Audit Stream
 :::api-example{label="Response"}
 ```json
 {
-  "Active": true,
+  "Active": false,
   "Description": "string",
   "Id": "string",
   "LastModifiedBy": "string",
@@ -56,7 +56,7 @@ title: Audit Stream
 :::api-example{label="Request"}
 ```json
 {
-  "Active": true,
+  "Active": false,
   "Description": "string",
   "StreamConfigurationResource": {}
 }
@@ -82,7 +82,7 @@ title: Audit Stream
 :::api-example{label="Response"}
 ```json
 {
-  "Active": true,
+  "Active": false,
   "Description": "string",
   "Id": "string",
   "LastModifiedBy": "string",

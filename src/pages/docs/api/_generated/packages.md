@@ -435,7 +435,7 @@ Also reachable at `/api/packages/notes`, `/api/spaces/{spaceIdentifier}/packages
         "FailureReason": "string",
         "Notes": "string",
         "Published": "2020-01-01T00:00:00.000Z",
-        "Succeeded": true
+        "Succeeded": false
       },
       "PackageId": "string",
       "Version": "string"

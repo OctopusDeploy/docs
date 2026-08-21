@@ -20,7 +20,7 @@ title: Open Telemetry
 :::api-example{label="Response"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "MaxStorageSizeMegabytes": 0,
   "RetentionDays": 0
 }
@@ -40,7 +40,7 @@ title: Open Telemetry
 :::api-example{label="Request"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "MaxStorageSizeMegabytes": 0,
   "RetentionDays": 0
 }
@@ -58,7 +58,7 @@ title: Open Telemetry
 :::api-example{label="Response"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "MaxStorageSizeMegabytes": 0,
   "RetentionDays": 0
 }

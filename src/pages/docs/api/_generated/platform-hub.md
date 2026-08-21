@@ -283,14 +283,14 @@ title: Platform Hub
         {}
       ],
       "CertificateData": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "CertificateDataFormat": "Pkcs12",
-      "HasPrivateKey": true,
+      "HasPrivateKey": false,
       "Id": "string",
-      "IsExpired": true,
+      "IsExpired": false,
       "IssuerCommonName": "string",
       "IssuerDistinguishedName": "string",
       "IssuerOrganization": "string",
@@ -306,12 +306,12 @@ title: Platform Hub
       "NotBefore": "2020-01-01T00:00:00.000Z",
       "Notes": "string",
       "Password": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "ReplacedBy": "string",
-      "SelfSigned": true,
+      "SelfSigned": false,
       "SerialNumber": "string",
       "SignatureAlgorithmName": "string",
       "Slug": "string",
@@ -357,14 +357,14 @@ title: Platform Hub
 ```json
 {
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "Name": "string",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -451,14 +451,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -474,12 +474,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "Slug": "string",
@@ -576,14 +576,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -599,12 +599,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SelfSignedCertificateCurve": "string",
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
@@ -699,14 +699,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -722,12 +722,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "Slug": "string",
@@ -829,14 +829,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -852,12 +852,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "Slug": "string",
@@ -978,14 +978,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -1001,12 +1001,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "Slug": "string",
@@ -1188,14 +1188,14 @@ title: Platform Hub
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "CertificateDataFormat": "Pkcs12",
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -1211,12 +1211,12 @@ title: Platform Hub
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "Slug": "string",
@@ -1821,7 +1821,7 @@ title: Platform Hub
         "AllowedRepositories": [
           "string"
         ],
-        "Enabled": true
+        "Enabled": false
       }
     }
   ],
@@ -1856,7 +1856,7 @@ title: Platform Hub
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -1867,7 +1867,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -1933,7 +1933,7 @@ title: Platform Hub
         "AllowedRepositories": [
           "string"
         ],
-        "Enabled": true
+        "Enabled": false
       }
     }
   ],
@@ -1973,7 +1973,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -2030,7 +2030,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -2064,7 +2064,7 @@ title: Platform Hub
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -2076,7 +2076,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -2148,7 +2148,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -2188,7 +2188,7 @@ title: Platform Hub
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   }
 }
 ```
@@ -2249,7 +2249,7 @@ title: Platform Hub
     {
       "CanonicalName": "string",
       "Id": "string",
-      "IsProtected": true,
+      "IsProtected": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -2310,7 +2310,7 @@ title: Platform Hub
 {
   "CanonicalName": "string",
   "Id": "string",
-  "IsProtected": true,
+  "IsProtected": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -2422,7 +2422,7 @@ Gets a set of GitHub App connections for the Platform Hub.
         "AccountId": "string",
         "AccountLogin": "string",
         "AccountType": "string",
-        "AllRepositories": true,
+        "AllRepositories": false,
         "InstallationId": "string"
       },
       "Status": "ConnectionNotFound"
@@ -2513,15 +2513,15 @@ Gets a set of GitHub App connections for the Platform Hub.
     "AccountId": "string",
     "AccountLogin": "string",
     "AccountType": "string",
-    "AllRepositories": true,
+    "AllRepositories": false,
     "InstallationId": "string"
   },
   "Repositories": [
     {
       "DefaultBranch": "string",
       "GitUrl": "string",
-      "IsAdmin": true,
-      "IsPrivate": true,
+      "IsAdmin": false,
+      "IsPrivate": false,
       "Language": "string",
       "RepositoryId": "string",
       "RepositoryName": "string",
@@ -2675,7 +2675,7 @@ Gets a set of GitHub App connections for the Platform Hub.
       "AccountId": "string",
       "AccountLogin": "string",
       "AccountType": "string",
-      "AllRepositories": true,
+      "AllRepositories": false,
       "InstallationId": "string"
     }
   ]

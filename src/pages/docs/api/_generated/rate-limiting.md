@@ -55,11 +55,11 @@ There are three builtin policies, so while this returns a paginated response, th
   "ItemType": "string",
   "Items": [
     {
-      "AuditMode": true,
+      "AuditMode": false,
       "BurstLimit": 200,
       "Id": "RateLimitingPolicies-1",
-      "IsBuiltIn": true,
-      "IsEnabled": true,
+      "IsBuiltIn": false,
+      "IsEnabled": false,
       "Name": "Authenticated requests",
       "RequestsPerMinute": 600,
       "ScopeType": "string"
@@ -106,11 +106,11 @@ There are three builtin policies, so while this returns a paginated response, th
 :::api-example{label="Response"}
 ```json
 {
-  "AuditMode": true,
+  "AuditMode": false,
   "BurstLimit": 200,
   "Id": "RateLimitingPolicies-1",
-  "IsBuiltIn": true,
-  "IsEnabled": true,
+  "IsBuiltIn": false,
+  "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
   "ScopeType": "string"
@@ -147,10 +147,10 @@ There are three builtin policies, so while this returns a paginated response, th
 :::api-example{label="Request"}
 ```json
 {
-  "AuditMode": true,
+  "AuditMode": false,
   "BurstLimit": 200,
   "Id": "RateLimitingPolicies-1",
-  "IsEnabled": true,
+  "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
   "ScopeType": "string"
@@ -182,11 +182,11 @@ There are three builtin policies, so while this returns a paginated response, th
 :::api-example{label="Response"}
 ```json
 {
-  "AuditMode": true,
+  "AuditMode": false,
   "BurstLimit": 200,
   "Id": "RateLimitingPolicies-1",
-  "IsBuiltIn": true,
-  "IsEnabled": true,
+  "IsBuiltIn": false,
+  "IsEnabled": false,
   "Name": "Authenticated requests",
   "RequestsPerMinute": 600,
   "ScopeType": "string"

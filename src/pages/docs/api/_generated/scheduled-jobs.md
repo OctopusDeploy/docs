@@ -38,7 +38,7 @@ title: Scheduled Jobs
 ```json
 {
   "Id": "string",
-  "IsRunning": true,
+  "IsRunning": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -49,7 +49,7 @@ title: Scheduled Jobs
   "TaskStatus": [
     {
       "Id": "string",
-      "IsEnabled": true,
+      "IsEnabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -180,7 +180,7 @@ title: Scheduled Jobs
     "Name": "string",
     "ProgressMessage": "string",
     "ProgressPercentage": 0,
-    "ShowAtSummaryLevel": true,
+    "ShowAtSummaryLevel": false,
     "Started": "2020-01-01T00:00:00.000Z",
     "Status": "Pending"
   },
