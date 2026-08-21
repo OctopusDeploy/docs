@@ -87,13 +87,17 @@ If possible, we recommend ensuring that
 - Octopus is the only entity to modify your deployments
 - You craft your Kubernetes manifests to ensure that there are no invalid fields
 
+### Why is an object not orphaned after a deployment? \{#object-not-orphaned}
+
+An object is marked [Orphaned](/docs/kubernetes/live-object-status#orphaned-objects) when a deployment succeeds and no longer deploys an object that a previous release deployed. Common causes are renaming an object, removing the object from a manifest, or removing the step that deployed it from the deployment process.
+
+Skipping or disabling a step does not orphan its objects.
+
+If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor referenced by the project is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). Orphan tracking is all-or-nothing for a given project/environment/tenant combination.
+
 ### An object stays orphaned after I re-added the step \{#orphan-persists-after-re-adding-a-step}
 
-Octopus clears the orphan state when a deployment deploys the object again. Re-adding a step that is disabled does not deploy anything, so the object stays orphaned. Enable the step and deploy, or [delete the orphaned object](/docs/kubernetes/live-object-status/deleting-orphaned-objects) if you no longer want it.
-
-An object is marked [Orphaned](/docs/kubernetes/live-object-status#orphaned-objects) when a deployment succeeds and no longer produces an object that a previous release deployed. The usual causes are removing the object from a manifest, or removing the step that deployed it from the deployment process. Skipping or disabling a step does not orphan its objects, and a failed deployment never orphans anything.
-
-If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor in the application is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). Orphan tracking is all-or-nothing across the application, so one older agent disables it everywhere and dropped objects are silently removed from the table instead.
+Octopus clears the orphan state when a deployment deploys the object again. You must deploy the release after re-adding a step that was removed.
 
 ## Deleting orphaned objects \{#deleting-orphaned-objects}
 
