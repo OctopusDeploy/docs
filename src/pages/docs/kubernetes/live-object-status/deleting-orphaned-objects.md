@@ -21,39 +21,32 @@ To delete orphaned objects you need:
 - A Kubernetes agent whose service account is allowed to delete the objects in question
 - Objects reported by the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor). Objects observed through Argo CD are never orphaned and cannot be deleted this way
 
-## Delete a single orphaned object
+## Delete orphaned objects
 
-The Live Status table offers a delete action on every orphaned row. To delete one orphaned object:
+Open your project and select **Live Status** for the environment (and tenant) you want. The table offers a delete action on every orphaned row, and when an application has orphaned objects the page also shows a card counting them. To list only orphaned objects, use the **Sync status** filter and select **Orphaned**.
 
-1. Open your project.
-2. Select **Live Status** for the environment (and tenant) you want.
-3. Find the orphaned object. To list only orphaned objects, use the **Sync status** filter and select **Orphaned**.
-4. Open the row's **Resource actions** menu and choose **Review & delete**.
-5. Confirm in the **Delete orphaned resource** dialog by choosing **Delete**.
+TODO: put screenshot here (live status table.png)
+
+### A single object
+
+1. Open the row's **Resource actions** menu and choose **Review & delete**.
+2. Confirm in the **Delete orphaned resource** dialog by choosing **Delete**.
 
 You can also select the object to open its detail drawer and use the **Delete** button there.
 
-The object's Sync Status changes to **Deleting** while the task runs, then the object drops out of the Live Status table once the monitor reports it as gone. If it stays orphaned, or the deletion fails, see [deleting orphaned objects](/docs/kubernetes/live-object-status/troubleshooting#deleting-orphaned-objects).
+### Several objects at once
 
-## Delete orphaned objects in bulk
-
-When an application has orphaned objects, the Live Status page shows a card counting them. To delete several orphaned objects at once:
-
-1. Choose **Review & delete** on that card to open the **Delete orphaned resources** drawer.
+1. Choose **Review & delete** on the orphaned-objects card to open the **Delete orphaned resources** drawer.
 2. Select the objects to delete. Objects are grouped by deployment target, so you can select a whole target or everything at once.
 3. Choose **Next**.
 4. Review the **Confirm deletion** step, which lists every selected object grouped by deployment target.
 5. Choose **Delete**.
 
-Every selected object moves to a Sync Status of **Deleting**, and the card's count falls as the objects leave the table. If any stay orphaned, or the deletion fails, see [deleting orphaned objects](/docs/kubernetes/live-object-status/troubleshooting#deleting-orphaned-objects).
-
 ## The deletion task
 
-Deletion is asynchronous. Each request queues one **Delete Kubernetes resources** task, and the **Deleting** Sync Status links to it. Octopus runs one deletion task at a time per project, environment, and tenant, and deletion tasks do not queue behind deployments.
+Each request queues one **Delete Kubernetes resources** task, which is linked from the Kuberentes resource being deleted. Deletion tasks can run at the same time as deployments.
 
-Deletion uses kubectl's default propagation behavior, so Kubernetes garbage collects any dependent objects the deleted object owns. Deleting a Deployment therefore also removes its ReplicaSets and Pods.
-
-If some objects delete and others don't, the task deletes everything it can, records every outcome, and then fails. Objects that succeeded stay deleted, and a failed object returns to **Orphaned** with a link to the task log. Cancelling the task leaves in-flight deletions unresolved, because Octopus cannot tell what the agent had already deleted.
+The deletion task runs a script on the Kubernetes Agent that calls `kubectl delete` with a 5 minute timeout for each resource. If some objects delete and others don't, the task deletes everything it can, records every outcome, and then fails.
 
 Octopus validates your selection when you confirm, and silently skips an object when:
 
@@ -61,8 +54,6 @@ Octopus validates your selection when you confirm, and silently skips an object 
 - A deletion task for the object is already queued or running.
 - The monitor no longer reports the object in the cluster, so there is nothing to delete.
 - Status information for the object is stale, so Octopus cannot safely delete it.
-
-Stale objects are the common one. When a Kubernetes monitor stops reporting, everything it owns goes stale and cannot be deleted until the monitor reconnects. See [I can't delete an object because its status is stale](/docs/kubernetes/live-object-status/troubleshooting#cannot-delete-stale-object).
 
 ## Permissions
 

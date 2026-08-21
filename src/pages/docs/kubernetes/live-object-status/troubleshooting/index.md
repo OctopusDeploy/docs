@@ -105,7 +105,7 @@ Deleting an object deletes its dependents in the background, so a successful del
 
 Open the deletion task from the warning icon beside the object. The task log contains detailed error messages to help troubleshooting.
 
-The most common cause is cluster permissions. Deletions run on the Kubernetes agent using the agent's service account, so the agent needs `delete` on that kind and namespace. See [permissions](/docs/kubernetes/live-object-status/deleting-orphaned-objects#permissions).
+The most common cause is cluster permissions. Deletions run on the Kubernetes agent using the agent's service account, so the agent needs `delete` on that kind and namespace. See [cluster permissions](/docs/kubernetes/live-object-status/deleting-orphaned-objects#cluster-permissions).
 
 ### I can't delete an object because its status is stale \{#cannot-delete-stale-object}
 
