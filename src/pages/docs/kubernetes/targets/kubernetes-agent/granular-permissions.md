@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-9-24
-modDate: 2025-9-24
+modDate: 2026-08-21
 title: Granular Permissions
 description: Define Kubernetes RBAC for your Kubernetes agent deployment based on Octopus context
 navOrder: 22
@@ -118,6 +118,10 @@ Each field adheres to the following rules to match:
 - Each value must be a complete slug, partial matches are not supported
 
 Each `WorkloadServiceAccount` must have at least one non-empty field. You cannot have a `WorkloadServiceAccount` that matches every scope.
+
+:::div{.info}
+[Deleting an orphaned Kubernetes object](/docs/kubernetes/live-object-status/deleting-orphaned-objects) is not run by a deployment step, so it uses the reserved step slug `octopus-kubernetes-resource-deletion`. Use that slug in the `steps` scope to grant the `delete` permissions those cleanups need without widening what your deployments can do.
+:::
 
 ##### Permissions
 
