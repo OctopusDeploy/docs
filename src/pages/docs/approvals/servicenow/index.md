@@ -241,7 +241,7 @@ Octopus supports matching a CR by setting the **Short Description** of the CR to
 
 `Octopus: Deploy "{project name}" version {release version number} to "{environment name}"`
 
-e.g `Octopus: Deploy "Web Site" version 1.0.1-newfeature-001 to "Dev"`
+e.g `Octopus: Deploy "Web Site" version 1.0.1-bugfix-001 to "Dev"`
 
 :::div{.hint}
 The title must match the format **exactly**, including the double-quotes.
