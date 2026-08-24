@@ -17,13 +17,13 @@ From version `2025.2.7584`, the following features require an **Enterprise** tie
 
 ## Understanding task prioritization in Octopus
 
-When Octopus runs many deployments or runbooks at the same time, tasks are placed into a queue and processed in the order they were created. This can delay critical work, such as a production hotfix.  
+When Octopus runs many deployments or runbooks at the same time, tasks are placed into a queue and processed in the order they were created. This can delay critical work, such as a production bug fix.  
 
 To help with urgent or important jobs, Octopus provides three ways to control task priority:  
 
 1. **Task queue prioritization (Move to Top)**  
    - Best for unexpected, one-off situations.  
-   - Use this when you need to run a queued task immediately, such as a hotfix.
+   - Use this when you need to run a queued task immediately, such as a bug fix.
 
 2. **Priority deployments and runbooks**  
    - Best for proactive prioritization of important work.  
@@ -51,7 +51,7 @@ Within each category, tasks run on a **first in, first out** basis.
 
 From version `2023.4.6612`, you can manually move a queued task to the top of the queue.  
 
-This option is useful when you need to quickly prioritize a one-off task, such as a hotfix.
+This option is useful when you need to quickly prioritize a one-off task, such as a bug fix.
 
 You can prioritize tasks in two ways:  
 

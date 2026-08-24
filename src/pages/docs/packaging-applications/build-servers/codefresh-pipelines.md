@@ -401,11 +401,11 @@ create-release:
     OCTOPUS_URL: '${{OCTOPUS_URL}}'
     OCTOPUS_SPACE: "Default"
     PROJECT: "Project Name"
-    RELEASE_NUMBER: "1.0.0-hotfix1"
-    CHANNEL: "Hotfix"
+    RELEASE_NUMBER: "1.0.0"
+    CHANNEL: "Default"
     GIT_REF: "refs/heads/main"
     PACKAGES:
-      - "Sample:1.0.0-hotfix1"
+      - "Sample:1.0.0"
     RELEASE_NOTES: This is a release note
 ```
 
