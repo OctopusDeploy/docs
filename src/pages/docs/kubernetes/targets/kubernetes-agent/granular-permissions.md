@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-9-24
-modDate: 2026-08-22
+modDate: 2026-08-24
 title: Granular Permissions
 description: Define Kubernetes RBAC for your Kubernetes agent deployment based on Octopus context
 navOrder: 22
