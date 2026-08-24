@@ -1,11 +1,25 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-25
 title: Capabilities
 ---
 
-## Ask the server to return a list of all the Capabilities (Commands and Requests) it supports
+A Capability is a Request or Command that the server supports.
+
+You can list all capabilities, or query for an individual one.
+
+The intent of these endpoints is to allow HTTP clients to detect features in a more robust way than
+guessing based on the Server Version.
+
+Capabilities are expressed in terms of the internal Command or Request data type names.
+For example, the URL `/api/{SpaceId}/certificates/v2` maps to the `GetCertificatesRequestV2` request type,
+which will appear as a capability for servers which support it.
+
+The capabilities endpoints can be accessed anonymously; If a client needs to detect a feature before
+authenticating, it may do so.
+
+## List capabilities (Commands and Requests) this server supports
 
 :endpoint{method="GET" path="/api/capabilities"}
 
@@ -26,14 +40,16 @@ title: Capabilities
 ```
 :::
 
-## Ask the server if a single capability exists or not. If the Capability exists, an HTTP 200 (OK) will be returned. If not, a 404 (Not Found) will be returned
+## Query for a single capability (Command or Request)
 
 :endpoint{method="GET" path="/api/capabilities/\{capability\}"}
+
+If the Capability exists, an HTTP 200 (OK) will be returned. If not, a 404 (Not Found) will be returned.
 
 **Path Parameters**
 
 - **`capability`** :span[string]{.type-label} *(required)*  
-  The capability you want to query for. Name matching is case insensitive but otherwise must be a full string match.
+  The capability you want to query for. Name matching is case insensitive. Partial matching is not supported.
 
 **Response**
 

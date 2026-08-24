@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-20
 title: Runbook Processes
 ---
 
@@ -138,7 +138,7 @@ Also reachable at `/api/projects/{projectId}/runbookProcesses/{id}`, `/api/space
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -223,7 +223,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -295,7 +295,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -495,7 +495,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbookProcesses/{id}`, `/
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -586,7 +586,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -660,7 +660,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -834,7 +834,7 @@ Also reachable at `/api/runbookProcesses/{id}`, `/api/spaces/{spaceIdentifier}/r
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -918,7 +918,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -990,7 +990,7 @@ Only allowed for Runbook Processes owned by a project.
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
