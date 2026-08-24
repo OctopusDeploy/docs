@@ -154,6 +154,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the runbook snapshot's current variable snapshots.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -202,7 +204,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "Spaces-1"
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string"
     }
   ],
   "ItemsPerPage": 0,
@@ -332,6 +335,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -378,7 +383,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots`, `/api/spaces/{sp
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -440,6 +446,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -486,7 +494,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{idOrName}`, `/api
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -603,6 +612,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -649,7 +660,8 @@ Also reachable at `/api/projects/{projectId}/runbookSnapshots/{id}`, `/api/space
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -1063,6 +1075,27 @@ Update the variable snapshots associated with the runbook snapshot to the latest
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the runbook snapshot whose variables to refresh, e.g. 'RunbookSnapshots-123'. Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label}  
+  The ID of the project containing this resource. Will be inferred if not provided.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
+}
+```
+:::
+
 **Response**
 
 `200` — Confirmation that the Runbook Snapshot Variables were refreshed, containing the updated Snapshot
@@ -1105,6 +1138,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -1151,7 +1186,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -1172,6 +1208,27 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   The ID of the project containing this resource. Will be inferred if not provided.
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
+
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the runbook snapshot whose variables to refresh, e.g. 'RunbookSnapshots-123'. Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label}  
+  The ID of the project containing this resource. Will be inferred if not provided.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
+}
+```
+:::
 
 **Response**
 
@@ -1205,6 +1262,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -1249,7 +1308,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
         "Version": "string"
       }
     ],
-    "SpaceId": "Spaces-1"
+    "SpaceId": "Spaces-1",
+    "VariableSnapshotConcurrencyToken": "string"
   }
 }
 ```
@@ -1575,6 +1635,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the runbook snapshot's current variable snapshots.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -1623,7 +1685,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "Spaces-1"
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string"
     }
   ],
   "ItemsPerPage": 0,
@@ -1716,6 +1779,8 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the runbook snapshot's current variable snapshots.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -1764,7 +1829,8 @@ Gets a paginated list of the runbook snapshots in the supplied Octopus Deploy Sp
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "Spaces-1"
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string"
     }
   ],
   "ItemsPerPage": 0,
@@ -1892,6 +1958,8 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -1938,7 +2006,8 @@ Also reachable at `/api/runbookSnapshots`, `/api/spaces/{spaceIdentifier}/runboo
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -1998,6 +2067,8 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -2044,7 +2115,8 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -2159,6 +2231,8 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -2205,7 +2279,8 @@ Also reachable at `/api/runbookSnapshots/{id}`, `/api/spaces/{spaceIdentifier}/r
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -2619,6 +2694,27 @@ Update the variable snapshots associated with the runbook snapshot to the latest
 - **`spaceId`** :span[string]{.type-label} *(required)*  
   The ID of the space containing the resource(s).
 
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*  
+  The ID of the runbook snapshot whose variables to refresh, e.g. 'RunbookSnapshots-123'. Minimum length 1.
+- **`ProjectId`** :span[string]{.type-label}  
+  The ID of the project containing this resource. Will be inferred if not provided.
+- **`SpaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "ProjectId": "Projects-1",
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
+}
+```
+:::
+
 **Response**
 
 `200` — Confirmation that the Runbook Snapshot Variables were refreshed, containing the updated Snapshot
@@ -2661,6 +2757,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
   - **`StepName`** :span[string]{.type-label}
   - **`Version`** :span[string]{.type-label}
 - **`SpaceId`** :span[string]{.type-label}
+- **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+  Identifies the runbook snapshot's current variable snapshots.
 
 :::api-example{label="Response"}
 ```json
@@ -2707,7 +2805,8 @@ Update the variable snapshots associated with the runbook snapshot to the latest
       "Version": "string"
     }
   ],
-  "SpaceId": "Spaces-1"
+  "SpaceId": "Spaces-1",
+  "VariableSnapshotConcurrencyToken": "string"
 }
 ```
 :::
@@ -2773,6 +2872,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
   - **`SelectedGitResources`** :span[array of object]{.type-label}
   - **`SelectedPackages`** :span[array of object]{.type-label}
   - **`SpaceId`** :span[string]{.type-label}
+  - **`VariableSnapshotConcurrencyToken`** :span[string]{.type-label}  
+    Identifies the runbook snapshot's current variable snapshots.
 - **`ItemsPerPage`** :span[integer]{.type-label}
 - **`LastModifiedBy`** :span[string]{.type-label}  
   Gets or sets the username of the user who last modified this resource.
@@ -2821,7 +2922,8 @@ Runbook Snapshots will be ordered from most recent to least recent.
       "SelectedPackages": [
         {}
       ],
-      "SpaceId": "Spaces-1"
+      "SpaceId": "Spaces-1",
+      "VariableSnapshotConcurrencyToken": "string"
     }
   ],
   "ItemsPerPage": 0,
