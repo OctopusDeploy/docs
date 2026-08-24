@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-19
-modDate: 2026-08-21
+modDate: 2026-08-22
 navSection: Deleting orphaned objects
 title: Deleting orphaned objects
 navTitle: Deleting orphaned objects
@@ -15,8 +15,6 @@ When a deployment stops including an object that a previous release deployed, Oc
 
 To delete orphaned objects you need:
 
-- Octopus Server 2026.3 or later
-- Every Kubernetes monitor in the application on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3), the same requirement as orphan tracking itself
 - The `DeployedResourceAdminister` permission for the project, environment, and tenant you are deleting in
 - A Kubernetes agent whose service account is allowed to delete the objects in question
 - Objects reported by the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor). Objects observed through Argo CD are never orphaned and cannot be deleted this way
@@ -63,7 +61,7 @@ Deleting an orphaned object needs permission in two places: in Octopus, to reque
 
 ### Octopus permissions
 
-Requesting a deletion requires the `DeployedResourceAdminister` permission ("Administer deployed resources managed by Octopus"), scoped to the project, environment, and tenant. It is included by default in the **Project Contributor**, **Project Deployer**, **Project Lead**, and **Space Manager** built-in roles, and is added to those roles on existing instances when you upgrade.
+Requesting a deletion requires the `DeployedResourceAdminister` permission ("Administer deployed resources managed by Octopus"), scoped to the project, environment, and tenant. It is included by default in the **Project Contributor**, **Project Deployer**, **Project Lead**, and **Space Manager** built-in roles.
 
 ### Cluster permissions
 
@@ -77,6 +75,10 @@ Every deletion task writes one audit event to the **Audit** screen in **Configur
 
 - Only top-level orphaned objects can be deleted. Child objects, such as Pods belonging to a Deployment can't be deleted from Octopus to restart a service.
 - You cannot stop tracking an orphaned object without deleting it. If the object is still needed by something else, delete it and recreate it from a different project.
+
+## Version notes
+
+- Deleting orphaned Kubernetes objects requires Octopus Server 2026.3.13597 and Kubernetes agent version 2.38.3 or later (v2) / 3.0.1 or later (v3).
 
 ## Learn more
 

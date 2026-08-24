@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-08-21
+modDate: 2026-08-22
 navTitle: Troubleshooting
 title: Troubleshooting
 navSection: Troubleshooting
@@ -93,7 +93,7 @@ An object is marked [Orphaned](/docs/kubernetes/live-object-status#orphaned-obje
 
 Skipping or disabling a step does not orphan its objects.
 
-If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor referenced by the project is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). Orphan tracking is all-or-nothing for a given project/environment/tenant combination.
+If you expected an object to be orphaned and it isn't, check that every Kubernetes monitor referenced by the project is on an agent version that supports orphan tracking, listed in the [version notes](/docs/kubernetes/live-object-status#version-notes). Orphan tracking is all-or-nothing for a given project/environment/tenant combination.
 
 ### An object stays orphaned after I re-added the step \{#orphan-persists-after-re-adding-a-step}
 

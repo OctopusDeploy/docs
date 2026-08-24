@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-03-28
-modDate: 2026-08-21
+modDate: 2026-08-22
 navSection: Live Object Status
 title: Kubernetes Live Object Status
 navTitle: Overview
@@ -104,10 +104,6 @@ Orphans are detected only after a **successful** deployment, so a failed deploym
 
 Skipping a step, or disabling it, does not orphan the objects that step deploys. Octopus only orphans an object when the step that deployed it ran and no longer produces it, or when that step has been removed from the deployment process altogether.
 
-:::div{.info}
-Orphaned-object tracking requires every Kubernetes monitor in the application instance to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). On clusters with any older agent, the object is silently removed from the Live Status table when it is dropped from a deployment, matching the previous behavior.
-:::
-
 ### Detailed object information
 
 Each object reported back by the Kubernetes monitor can be selected to provide detailed information including events, logs and the manifest currently on the cluster
@@ -156,6 +152,8 @@ Read about [applied manifest diffs](/docs/kubernetes/deployment-verification/app
 The Kubernetes Agent has a new component called the Kubernetes monitor which also runs inside the Kubernetes cluster. Read more about the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) here.
 
 During a deployment, Octopus will capture any applied Kubernetes manifests and send them to the monitor. The monitor uses these manifests to track the deployed objects in the cluster, keeping track of their synchronization and health.
+
+Objects applied by a step that is skipped or disabled in a later deployment keep their live status. Octopus continues to track them from the deployment that applied them.
 
 ### Script steps
 
@@ -261,12 +259,11 @@ This setting defaults to on for all projects, but may change in the future.
 
 ## Known issues and limitations
 
-### Excluded steps on older agents
-
-Where every Kubernetes monitor in the application is on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3), Octopus keeps showing live status for objects deployed by a step that was skipped or disabled in the latest deployment.
-
-On clusters with any older agent, objects applied by excluded steps are still removed from the Live Status table, so avoid skipping steps that deploy Kubernetes objects until every agent is upgraded.
-
 ### Runbooks are not supported
 
 Objects modified by Runbooks are not monitored. Please deploy the objects via a Deployment if you want them to be monitored.
+
+## Version notes
+
+- [Deleting orphaned objects](/docs/kubernetes/live-object-status/deleting-orphaned-objects) is available from Octopus Server 2026.3.13597.
+- Orphan detection requires Octopus Server 2026.3, as well as every Kubernetes monitor in the project/environment/tenant combination to be on agent version 2.38.3 or later (v2) / 3.0.1 or later (v3). If you are on an older version, an object dropped from a deployment is removed from Live Status instead of being marked **Orphaned**.
