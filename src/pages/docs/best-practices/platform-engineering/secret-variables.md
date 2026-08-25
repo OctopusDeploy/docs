@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-11-23
-modDate: 2023-11-23
+modDate: 2026-08-25
 title: Secret variables
 description: Learn how to export projects with secret variables
 navOrder: 11
@@ -112,7 +112,7 @@ Following these rules ensures the Octostache templates defining the default valu
 Dedicating an environment to the process of serializing and deploying downstream projects allows the upstream environment to scope sensitive variables such that:
 
 - They are made available when deploying downstream projects
-- They dot no leak into any regular deployment environments
+- They do not leak into any regular deployment environments
 
 This documentation and the step templates assumes this environment is called `Sync`. The `Sync` environment must not appear in the lifecycle of regular deployments, which ensures any variables scoped to the `Sync` environment do not leak into regular deployments.
 
