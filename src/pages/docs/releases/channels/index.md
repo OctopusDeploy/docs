@@ -205,8 +205,8 @@ Branch and tag patterns used in Git protection rules support glob patterns and c
 
 | **Character** | **Description** | **Example** |
 | --- | --- | --- |
-| `*` | Matches multiple characters except `/` | Branch pattern of `release/*` will match branch `release/1.0.0` but not `release/1.0.0/hotfix1` |
-| `**` | Matches multiple characters including `/` | Branch pattern of `release/**` will match branch `release/1.0.0` and `release/1.0.0/hotfix1` |
+| `*` | Matches multiple characters except `/` | Branch pattern of `release/*` will match branch `release/1.0.0` but not `release/1.0.0/featureName` |
+| `**` | Matches multiple characters including `/` | Branch pattern of `release/**` will match branch `release/1.0.0` and `release/1.0.0/featureName` |
 | `?` | Matches a single character | Tag pattern of `v?` will match a tag of `v1` but not `v1.0.0` |
 | `[0-9]` | Matches a single character in the range | Tag pattern of `v[0-9].[0-9].[0-9]` will match a tag `v1.0.0` |
 | `[abc]` | Matches a single character from the set | Branch pattern of `release/[abc]*` will match branch `release/a-new-branch` but not `release/my-new-branch` |
@@ -317,7 +317,7 @@ In the following example, if version 3.1.0 of OctoFX is pushed to the built-in r
 
 ## Discrete channel releases {#discrete-channel-releases}
 
-The scenarios channels are used to model can be split into two categories. In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a *Hotfix* channel, used to select a lifecycle designed to releases to production quickly.
+The scenarios channels are used to model can be split into two categories. In the first, the channel controls the way releases are deployed (different lifecycles, deployment steps, etc), but the deployed releases should not be treated differently. An example of this would be a *Ephemeral Environments* channel, used to select a lifecycle designed to deploy to Ephemeral Environments only.
 
 In the second mode of use, releases deployed via different channels are different, and should be treated as such. As an example of this, imagine a company that makes a deployment tool available as both a downloadable self-hosted product and a cloud-hosted software-as-a-service product.  In this example, the `self-hosted` and `cloud` channels not only select different lifecycles and deployment steps, but it is also desirable to view them as individual versions on the dashboard.
 
