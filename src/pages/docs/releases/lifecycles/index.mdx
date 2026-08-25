@@ -162,15 +162,18 @@ This allows you to explicitly configure the default lifecycle for deploying your
 
 In this section, we cover some lifecycle examples and their included phases.
 
-### Hotfix lifecycle
+### Default and release lifecycle
 
-A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped.
+By default, Octopus Deploy will include all environments in the default lifecycle, for example, Development &rarr; Test &rarr; Staging &rarr; Production.  That only works if all changes are made directly on the main or primary branch and there are no other branches.
 
-It's recommended to follow good deployment practices and validate any changes before pushing them to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
+However, most developers do their work in a branch and then merge those changes in via a pull request.  For that workflow, create two [lifecycles](/docs/releases/lifecycles/):
 
-:::figure
-![Hotfix lifecycle](/docs/img/releases/lifecycles/images/hotfix-lifecycle.png)
-:::
+- **Default:** Development Only
+- **Release:** Test &rarr; Staging &rarr; Production
+
+**Disclaimer:**- Include all static testing environments in the Release lifecycle required to reach Production.  If only Test &rarr; Production are required, then only include two environments.  Never include the Development environment.  Development is for testing changes from branches.
+
+The **Default** lifecycle represents unfinished work in a branch.  The **Release** lifecycle represents the main or primary branch.  Unfinished work should never have a path to Production.  For more information please see the [branching in Octopus Deploy](/docs/deployments/patterns/branching).
 
 ### Maintenance lifecycle
 

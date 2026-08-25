@@ -1,211 +1,189 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-25
 title: Branching
-description: Implementing different branching strategies with Octopus Deploy.
+description: Implementing branching strategies with Octopus Deploy.
 navOrder: 60
 ---
 
-This section describes how different branching strategies can be modeled in Octopus Deploy.
+This section describes how to best model branching strategies for Octopus Deploy.
 
 ## Branching strategies
 
-When thinking about branching and Octopus, keep this rule in mind:
+When thinking about branching and Octopus Deploy, keep these rules in mind:
 
-> Octopus doesn't care about branches. It cares about NuGet packages.
+1. The main or primary branch must always be in a Production deployable state.
+2. Make any changes in a short-lived branch.  Merge those changes into the main or primary branch using a pull request (PR).
+3. Only the main or primary branch can deploy to Production.
+4. Verify changes in short-lived branches and PRs by deploying them to development or ephemeral environments.
+5. Build artifacts from the main or primary branch once; promote them through testing environments (QA, Test, Staging) until Production.
 
-Your build server cares about source code and branches, and uses them to compile and [package your application](/docs/packaging-applications).
+### Recommended branching strategies
 
-Octopus, on the other hand, only sees packages. It doesn't particularly care which branch they came from, or how they were built, or which source control system you used.
+The recommended branching strategies for Octopus Deploy are:
 
-The section below describes some common branching strategies, and what they mean in terms of NuGet packages and releases in Octopus.
+- [Trunk Based Development](https://trunkbaseddevelopment.com) 
+- [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow)
 
-### No branches
+Both encourage short-lived branches, a single primary or main branch, and pull requests into that single primary or main branch.
 
-The simplest branching workflow is, of course, no branches - all developers work directly on `trunk` or the `main` (default) branch. For small projects with few developers, and when the project isn't really in "production" yet, this strategy can work well.
-
-:::figure
-![A single trunk branch with no branching](/docs/img/deployments/patterns/images/3278438.png)
+:::div{.hint}
+Don't confuse GitHub Flow with [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/).  GitFlow is significantly more complex.  It requires multiple primary branches (develop and main), long-running feature branches, and complex merging strategies.  While possible to use GitFlow with Octopus Deploy, it is not recommended nor encouraged.
 :::
 
-Builds from this single branch will produce a NuGet package, and that package goes into a release which is deployed by Octopus.
+### Feature flags for unfinished changes
+
+Short-lived branches should live for no more than one or two days before being merged.  Long-lived branches increase merge conflicts and bugs.  However, very few features can be completed in one or two days.  Hide unfinished changes from users behind feature flags.  That separates deploying a new version of code from releasing new functionality to users.  
+
+Feature flags also enable the incremental building of new features.  Each incremental addition can be deployed to Production.  Once the feature reaches an appropriate stage, a subset of users can try it out.  That subset can be internal users, alpha customers, or beta customers.  
+
+## Lifecycles and environments
+
+This example uses four environments, Development, Test, Staging, and Production.  The Development environment is for applications who cannot use the ephemeral environments feature.
+
+The overall workflow of the build server and Octopus Deploy is:
 
 :::figure
-![Builds from a single branch feeding releases in Octopus](/docs/img/deployments/patterns/images/3278468.png)
+
+:img{ src="/docs/img/deployments/patterns/images/branching-diagram-with-ephemeral-environments.png" alt="Diagram demonstrating when ephemeral environments will be used in a trunk-based or GitHub Flow based branching strategy" loading="lazy" }
+
 :::
+
+To accomplish that, first create two [lifecycles](/docs/releases/lifecycles/):
+
+- **Default:** Development Only
+- **Release:** Test &rarr; Staging &rarr; Production
+
+**Disclaimer:**- Include all static testing environments in the Release lifecycle required to reach Production.  If only Test &rarr; Production are required, then only include two environments.  Never include the Development environment.  Development is for testing changes from branches.
+
+:::figure
+
+:img{ src="/docs/img/deployments/patterns/images/recommended-octopus-lifecycles.png" alt="Screenshot of Octopus Deploy interface showing the recommended lifecycles of default and release." loading="lazy" }
+
+:::
+
+The subsequent [channels](/docs/releases/channels) are:
+
+- **Default:** (uses the default lifecycle or an ephemeral environment): build artifacts require a [pre-release tag](https://docs.nuget.org/create/versioning#really-brief-introduction-to-semver).  
+- **Release:** (uses release lifecycle): build artifacts cannot have a pre-release tag and can only come from the main branch.
+
+The screenshot below uses ephemeral environments instead of the default lifecycle.  If the project cannot support ephemeral environments, then use the default lifecycle.
+
+:::figure
+
+:img{ src="/docs/img/deployments/patterns/images/recommended-octopus-channels.png" alt="Screenshot of Octopus Deploy interface showing the recommended default and release channels for a specific project." loading="lazy" }
+
+:::
+
+## Running multiple versions in Production
+
+Some applications host multiple versions (v1.x, v2.x, v3.x, etc.) in Production for backward compatibility.  Deviation from the standard trunk-based development or GitHub flow is expected.
+
+- The main branch represents the latest version (v3.x)  
+- Separate long-lived branches for earlier versions (v1.x and v2.x)  
+- Each version branch is treated like a "trunk"  
+  - Changes are made in short-lived branches that were branched off the version branch.  
+  - Merging into those version branches requires a pull request.
+
+Create a single [lifecycle](/docs/releases/lifecycles/):
+
+- **Release:** Test &rarr; Staging &rarr; Production
+
+The project will have four [channels](/docs/releases/channels):
+
+- Default
+  - Uses an ephemeral environment  
+  - Build artifacts require a pre-release tag and can only come from non-version or main branches.  
+- vCurrent  
+  - Uses release lifecycle  
+  - Build artifacts cannot have a pre-release tag  
+  - Build artifacts must come from the main branch  
+  - Build artifacts version must be \<= 3.x  
+- V2  
+  - Uses release lifecycle  
+  - Build artifacts cannot have a pre-release tag  
+  - Build artifacts must come from the v2 branch  
+  - Build artifacts version must be between 2 and 2.999999  
+- V1  
+  - Uses release lifecycle  
+  - Build artifacts cannot have a pre-release tag  
+  - Build artifacts must come from the v1 branch  
+  - Build artifacts version must be between 1 and 1.999999
+
+When ephemeral environments cannot be used then setup multiple static development environments.  
+
+To prevent [retention policies](/docs/administration/retention-policies) for one channel from impacting deployments for another channel use the [Discrete Channel Releases setting](/docs/releases/channels/#discrete-channel-releases).  Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment *in each channel*. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
+
+## Other considerations
+
+The above section describes common branching strategies and how to configure [lifecycles](/docs/releases/lifecycles/) and [Channels](/docs/releases/channels) in Octopus. However, depending on your release process, there may be other things to consider. Below are some questions that often come up in relation to branching and Octopus.
+
+### Different deployment process per branch
+
+Sometimes a new feature introduces a new component requiring a change to the deployment process.  All projects should use [version control](/docs/projects/version-control), or the config-as-code feature.  That stores the deployment process, runbooks, variables, and deployment settings in a git repo.  
+
+1. Make all the necessary changes to the deployment process, variables, and runbooks in a branch.
+2. Create test releases and deploy them to an ephemeral environment or static development environment.
+3. Merge those changes into the main or primary branch via a pull request.
+
+Store the Octopus Deploy configuration in the same repository as the source code.  Often a change to the deployment process has a corresponding code change.  By leveraging project version control, both code and deployment changes are made in a branch and merged in the same pull request.
+
+### Hotfix lifecycles
+
+Hotfix lifecycles are often created to skip lower environments (Development and Test) and deploy straight to upper environments (Staging and Production).  Often they are created because there is one lifecycle Development &rarr; Test &rarr; Staging &rarr; Production.  
+
+Do not create hotfix lifecycles.  That only causes more problems.
+
+- Branching and Deploying
+  - Will the hotfix branch use an ephemeral environment for testing before going to Staging?
+  - What will the version number be for the hotfix release?  If Production is 2026.8.1, does that mean the hotfix is 2026.8.1-Hotfix, 2026.8.1.1, or 2026.8.1.1-hotfix?  
+  - The main branch is supposed to represent production. How will the appropriate hotfix be communicated to the rest of the engineering team?  
+  - When will the hotfix changes merge into the main branch?  How much of a delta is there between what is in the main branch and production?  Can the fix even be merged into the main branch without serious modifications?  
+- Testing and Risk
+  - What is preventing the main branch from being deployed to Production?  
+  - Were there changes already in Staging that were overwritten by the hotfix?  Will that impact other teams or applications?  
+  - What steps and tests are being skipped in the Test environment?
+  - How much time is really being saved by skipping the Test environment?  
+  - What if the hotfix requires a hotfix?  How long is it acceptable to block the normal pipeline from deploying to Staging &rarr; Production?
+  - How often is the hotfix pipeline tested and verified?
+
+Instead, follow the recommendation from above and create two lifecycles:
+
+- **Default:** Development Only
+- **Release:** Test &rarr; Staging &rarr; Production
+
+The **Default** lifecycle represents pending work in short-lived branches.  The **Release** lifecycle represents the main or primary branch.
 
 ### Release branches
 
-Sometimes developers work on new features that aren't quite ready to ship, while also maintaining a current production release. Bugs can be fixed on the release branch, and deployed, without needing to also ship the half-baked features.
+Some branching strategies recommend a long-lived release branch.  
 
-:::figure
-![A release branch alongside the main branch](/docs/img/deployments/patterns/images/3278439.png)
-:::
-
-So long as one release branch never overlaps another, from an Octopus point of view, the process is similar to the "no branches" scenario above - new NuGet packages are built, and those packages go into a release, which is deployed. Octopus doesn't care that they came from a branch; to Octopus, there's just a stream of new, incrementing package versions.
-
-### Multiple active release branches
-
-Multiple release branches may be supported over a period of time. For example, you may have customers who are using your 2.x versions of your software in production, and early adopters testing your 3.x versions while you work to make it stable. You'll need to fix bugs in the 2.x version as well as the 3.x version, and deploy them both.
-
-:::figure
-![Multiple release branches supported at the same time](/docs/img/deployments/patterns/images/3278440.png)
-:::
-
-To prevent [retention policies](/docs/administration/retention-policies) for one channel from impacting deployments for another channel, version `3.12.2` introduces the [Discrete Channel Releases setting](/docs/releases/channels/#discrete-channel-releases). Enabling this feature will also ensure that your project overview dashboard correctly shows which releases are current for each environment *in each channel*. Without this set, the default behavior is for releases across channels to supersede each other (for example, in a hotfix scenario where the `3.2.2-bugfix` is expected to override the `3.2.2` release, allowing `3.2.2` to be considered for retention policy cleanup).
-
- ![Discrete channel release](/docs/img/deployments/patterns/images/discrete-channel-release.png)
-
-Modeling this in Octopus is a little more complicated than the scenarios above, but still easy to achieve. If the only thing that changes between branches is the NuGet package version numbers, and you create releases infrequently, then you can simply choose the correct package versions when creating a release via the release creation page:
-
-:::figure
-![Releases created from two branches without channels](/docs/img/deployments/patterns/images/3278469.png)
-:::
-
-If you plan to create many releases from both branches, or your deployment process is different between branches, then you will need to use channels. [Channels](/docs/releases/channels) are a feature in Octopus that lets you model differences in releases:
-
-:::figure
-![Channels separating 2.x and 3.x packages](/docs/img/deployments/patterns/images/3278470.png)
-:::
-
-In this example, packages that start with 2.x go to the "Stable" channel, while packages that start with 3.x go to the "Early Adopter" channel.
-
-:::div{.hint}
-**Tip: Channels aren't branches**
-When designing channels in Octopus, don't think about channels as another name for branches:
-
-- **Branches** can be short-lived and tend to get merged, and model the way code changes in the system.
-- **Channels** are often long-lived, and model your release process.
-
-For example, [Google Chrome have four different channels](https://www.chromium.org/getting-involved/dev-channel) (Stable, Beta, Dev, and Canary). Their channels are designed around user's tolerance for bleeding edge features vs. stability. Underneath, they may have many release branches contributing to those channels.
-
-It's important to realize that **branches will map to different channels over time**. For example, right now, packages from the `release/v2` branch might map to your "Stable" channel in Octopus, while packages from `release/v3` go to your "Early Adopter" channel.
-
-Eventually, `release/v3` will become more and more stable, and packages from it will eventually go to your Stable channel, while `release/v4` packages will begin to go to your Early Adopter channel.
-:::
-
-### Feature branches
-
-Feature branches are usually short-lived, and allow developers to work on a new feature in isolation. When the feature is complete, it is merged back to the `trunk` or the `main` (default) branch. Often, feature branches are not deployed, and so don't need to be mapped in Octopus.
-
-:::figure
-![Short-lived feature branches merged back to the main branch](/docs/img/deployments/patterns/images/3278442.png)
-:::
-
-If feature branches do need to be deployed, then you can create NuGet packages from them, and then release them with Octopus as per normal. To keep feature branch packages separate from release-ready packages, [we recommend using SemVer tags](https://docs.nuget.org/create/versioning#really-brief-introduction-to-semver) in the NuGet package version. You should be able to [configure your build server to generate version numbers based on the feature branch](https://octopus.com/blog/teamcity-version-numbers-based-on-branches).
-
-:::figure
-![Feature branch packages kept separate from release-ready packages](/docs/img/deployments/patterns/images/3278443.png)
-:::
-
-Again, channels can be used to make it easier to create releases for feature branches:
-
-:::figure
-![A channel used for feature branch releases](/docs/img/deployments/patterns/images/3278471.png)
-:::
+Do not use release branches unless multiple versions of the application must run in Production.  When that occurs, follow the recommendation below for running multiple versions in Production. Otherwise, when main is always in a Production deployable state, there is no need for release branches.
 
 ### Environment branches
 
-A final branching strategy that we see is to use a branch per environment that gets deployed to. Code is promoted from one environment to another by merging code between branches.
+Some branching strategies opt for a branch per environment strategy.  
 
-:::figure
-![A branch per environment, with code promoted by merging](/docs/img/deployments/patterns/images/3278444.png)
-:::
-
-We do not like or recommend this strategy, as it violates the principle of [Build your Binaries Once](https://octopus.com/blog/build-your-binaries-once).
+Do not use the branch per environment strategy.  
 
 - The code that will eventually run in production may not match 100% the code run during testing.
 - It's easy for a merge to go wrong and result in different code than you expected running in production.
 - Packages have to be rebuilt, and different dependencies might be used.
 
-You can make this work in Octopus, by creating a package for each environment and pushing them to environment-specific [feeds](/docs/packaging-applications/package-repositories), and then binding the NuGet feed selector in your package steps to an environment-scoped variable:
+### Full vs. partial releases
 
-However, on the whole, this isn't a scenario we've set out to support in Octopus, and we don't believe it's a good idea in general.
+Often, applications have multiple components.  For example, an application may have a web front-end, a API back-end, a database, and a backend service.  It is unlikely every pull request into main will includes changes for all components.  
 
-## Other considerations
+There are three options when this happens.
 
-The above section describes common branching strategies and how they map to NuGet packages, releases and channels in Octopus. However, depending on your release process, there may be other things to consider. Below are some issues that often come up in relation to branching and Octopus.
+1. Create a channel for each possible combination of components.  One channel for web front-end and API back-end, another channel for API back-end and database, another for the backend service and database.  Scope appropriate steps to each channel.
+2. Create a project for each component and a orchestration project.  The orchestration project skips component unchanged component projects.
+3. Have a single deployment process, but leverage [script steps](/docs/deployments/custom-scripts), [output variables](/docs/projects/variables/output-variables), and [variable run conditions](/docs/projects/steps/conditions/#variable-expressions) to skip unnecessary steps.  The script steps run on the deployment targets and pre-check for version differences.
 
-### multiple branches can be "currently deployed" at the same time
+There are pros and cons with each approach.  For example, a channel component allows for a single deployment process.  With four components, that means 16 channels for all the possible component combinations.  The build server will need extremely complex scripts to pick the right channel.  A project eliminates the need for 16 channels, but introduces complexity when orchestrating each of the component's projects.  Permissions and approvals become more complex.  Both of those approaches assume Octopus Deploy is the truth center for what is running in Production.  But the actual truth center are the application hosts themselves.
 
-Normally in Octopus, a single release for a project is deployed to a single environment at a time - for example, only one release is "currently" in Production. When you have multiple active release branches, or sometimes even feature branches, it might be that you actually have more than one "current" release.
-
-For example:
-
-- The stable channel is deployed to the same web servers as the Early Adopter channel, but each goes to a different IIS website.
-- The stable channel and Early Adopter channels go to different web servers.
-- Each feature branch goes to its own virtual directory.
-
-Your dashboard in Octopus should reflect this reality by displaying each channel individually:
-
-:::figure
-![A dashboard displaying each channel individually](/docs/img/deployments/patterns/images/3278472.png)
-:::
-
-### My branches are very different, and i need my deployment process to work differently between them
-
-Sometimes a new branch might introduce a new component that needs to be deployed, which doesn't exist in the old branch. If you use channels, you can scope deployment steps and variables to channels to support this.
-
-For example, the Rate Service package was added as part of v3, so currently only applies to the Early Adopter channel:
-
-:::figure
-![The Rate Service package scoped to the Early Adopter channel](/docs/img/deployments/patterns/images/3278473.png)
-:::
-
-Likewise, it has variables that only apply on Early Adopter:
-
-:::figure
-![Variables scoped to the Early Adopter channel](/docs/img/deployments/patterns/images/3278474.png)
-:::
-
-For more advanced uses, you may need to clone your project.
-
-### We sometimes need to make hotfixes that are deployed straight to staging/production
-
-Hotfixes are a special kind of release branch, but typically have a shorter lifecycle - they may need to go directly to production to fix a critical issue, and might skip certain deployment steps.
-
-Again, channels can handle this by creating a Hotfix channel, and assigning the Hotfix channel a different lifecycle:
-
-:::figure
-![A Hotfix channel with its own lifecycle](/docs/img/deployments/patterns/images/3278475.png)
-:::
-
-Likewise, steps can be defined that apply to the Stable channel, but not to the Hotfix channel:
-
-When releases are created for the Hotfix channel, they can then be deployed straight to production:
-
-:::figure
-![A hotfix release deployed straight to production](/docs/img/deployments/patterns/images/3278476.png)
-:::
-
-While stable releases still follow the usual testing lifecycle:
-
-:::figure
-![A stable release following the usual testing lifecycle](/docs/img/deployments/patterns/images/3278477.png)
-:::
-
-### We need to deploy different components depending on whether it's a "full" release or a "partial" release
-
-You might have a large project with many components. Sometimes you only need to deploy a single component, while other times you may need to deploy all components together.
-
-This can be modeled by creating a channel per component, plus a channel for a release of all components.
-
-:::figure
-![A channel per component plus a channel for a combined release](/docs/img/deployments/patterns/images/3278478.png)
-:::
-
-Steps can then be scoped to their individual channel as well as the major release channel:
-
-:::figure
-![Steps scoped to their component channel and the major release channel](/docs/img/deployments/patterns/images/3278479.png)
-:::
-
-When creating the release, you can then choose whether the release is for an individual component or all components:
-
-:::figure
-![Choosing a component channel when creating a release](/docs/img/deployments/patterns/images/3278480.png)
-:::
+The recommended approach is a single deployment process using [script steps](/docs/deployments/custom-scripts), [output variables](/docs/projects/variables/output-variables) and [variable run conditions](/docs/projects/steps/conditions/#variable-expressions) to skip unneeded steps.  For example, have a step create a delta script for all the database changes.  If no database changes are discovered then skip the database deployment step.  
 
 ## Learn more
 
