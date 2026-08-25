@@ -23,7 +23,7 @@ When thinking about branching and Octopus Deploy, keep these rules in mind:
 
 The recommended branching strategies for Octopus Deploy are:
 
-- [Trunk Based Development](https://trunkbaseddevelopment.com) 
+- [Trunk Based Development](https://trunkbaseddevelopment.com)
 - [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow)
 
 Both encourage short-lived branches, a single primary or main branch, and pull requests into that single primary or main branch.
