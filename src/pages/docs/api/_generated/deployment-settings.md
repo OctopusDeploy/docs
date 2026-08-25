@@ -53,21 +53,21 @@ Also reachable at `/api/projects/{projectId}/deploymentsettings`, `/api/spaces/{
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -139,21 +139,21 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentsettings`, `/api
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -233,22 +233,22 @@ Modifies deployment settings for a project.
 :::api-example{label="Request"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ChangeDescription": "string",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "GitRef": "string",
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
@@ -300,21 +300,21 @@ Modifies deployment settings for a project.
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -389,21 +389,21 @@ Also reachable at `/api/deploymentsettings/{id}`, `/api/spaces/{spaceIdentifier}
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -483,22 +483,22 @@ Modifies deployment settings for a project.
 :::api-example{label="Request"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ChangeDescription": "string",
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "ProjectId": "Projects-1",
   "ReleaseNotesTemplate": "string",
   "SpaceId": "Spaces-1",
@@ -549,21 +549,21 @@ Modifies deployment settings for a project.
 :::api-example{label="Response"}
 ```json
 {
-  "CancelQueuedTasks": true,
-  "CancelRunningTasks": true,
+  "CancelQueuedTasks": false,
+  "CancelRunningTasks": false,
   "ConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
     ]
   },
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",

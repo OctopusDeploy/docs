@@ -38,7 +38,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments`.
   "Name": "string",
   "Slug": "string",
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -95,7 +95,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -130,7 +130,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{environment
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -177,7 +177,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/parentEnvironments/{id}`.
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::

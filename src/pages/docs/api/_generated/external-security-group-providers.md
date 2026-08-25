@@ -26,10 +26,10 @@ Lists the authentication providers that support external group lookups and are c
 [
   {
     "Id": "string",
-    "IsRoleBased": true,
+    "IsRoleBased": false,
     "LookupUri": "string",
     "Name": "string",
-    "SupportsGroupLookup": true
+    "SupportsGroupLookup": false
   }
 ]
 ```

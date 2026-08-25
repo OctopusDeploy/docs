@@ -43,12 +43,12 @@ Lists all Teams a user is a member of, including any from external auth-provider
   {
     "ExternalSecurityGroups": [
       {
-        "DisplayIdAndName": true,
+        "DisplayIdAndName": false,
         "DisplayName": "string",
         "Id": "string"
       }
     ],
-    "IsDirectlyAssigned": true,
+    "IsDirectlyAssigned": false,
     "SpaceId": "Spaces-1",
     "TeamId": "string",
     "TeamName": "string",
@@ -92,7 +92,7 @@ Lists all the Users that would belong to the specified Team, including informati
   "Description": "string",
   "ExternalSecurityGroups": [
     {
-      "DisplayIdAndName": true,
+      "DisplayIdAndName": false,
       "DisplayName": "string",
       "Id": "string"
     }
@@ -129,12 +129,12 @@ Lists all the Users that would belong to the specified Team, including informati
   {
     "ExternalSecurityGroups": [
       {
-        "DisplayIdAndName": true,
+        "DisplayIdAndName": false,
         "DisplayName": "string",
         "Id": "string"
       }
     ],
-    "IsDirectlyAssigned": true,
+    "IsDirectlyAssigned": false,
     "SpaceId": "Spaces-1",
     "TeamId": "Teams-1",
     "TeamName": "string",

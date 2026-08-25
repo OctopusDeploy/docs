@@ -1,12 +1,16 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-25
+modDate: 2026-08-20
 title: Poll server
 description: Using the Tentacle.exe command line executable to configure the Octopus Server this Tentacle will poll.
 ---
 
 Configures an Octopus Server that this Tentacle will poll.
+
+:::div{.warning}
+A running Tentacle doesn't pick up this change. Restart the Tentacle service with the [service](/docs/octopus-rest-api/tentacle.exe-command-line/service) command after you run `poll-server`, or the Tentacle won't connect to the server you just added.
+:::
 
 **Poll server options**
 
@@ -45,8 +49,11 @@ Or one of the common options:
 
 ## Basic example
 
-This example configures the Octopus Server that the polling Tentacle polls:
+This example configures the Octopus Server that the polling Tentacle polls, then restarts the Tentacle service so the change takes effect:
 
 ```text
 tentacle poll-server --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
+tentacle service --restart
 ```
+
+Both commands act on the default instance. To configure a named instance, pass `--instance` to each command.

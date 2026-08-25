@@ -669,7 +669,7 @@ Also reachable at `/api/accounts/{id}/usages`, `/api/spaces/{spaceIdentifier}/ac
   ],
   "ProjectVariableSets": [
     {
-      "IsCurrentlyBeingUsedInProject": true,
+      "IsCurrentlyBeingUsedInProject": false,
       "ProjectId": "Projects-1",
       "ProjectName": "string",
       "ProjectSlug": "string",

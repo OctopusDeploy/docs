@@ -141,9 +141,9 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -181,11 +181,11 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -259,8 +259,8 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "ExcludedTargetTagIds": [
     "string"
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -283,7 +283,7 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
     "string"
   ],
   "TenantId": "Tenants-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -383,9 +383,9 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -423,11 +423,11 @@ Also reachable at `/api/projects/{projectId}/runbookRuns`, `/api/spaces/{spaceId
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -542,9 +542,9 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -582,11 +582,11 @@ Also reachable at `/api/projects/{projectId}/runbookRuns/{id}`, `/api/spaces/{sp
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -708,9 +708,9 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
         {}
       ]
     },
-    "FailTargetDiscovery": true,
-    "FailureEncountered": true,
-    "ForcePackageDownload": true,
+    "FailTargetDiscovery": false,
+    "FailureEncountered": false,
+    "ForcePackageDownload": false,
     "FormValues": {
       "additionalProp1": "string",
       "additionalProp2": "string",
@@ -748,11 +748,11 @@ Also reachable at `/api/projects/{projectId}/runbookruns/{runbookRunId}/retry/v1
     "TenantId": "Tenants-1",
     "TentacleRetentionPeriod": {
       "QuantityToKeep": 0,
-      "ShouldKeepForever": true,
+      "ShouldKeepForever": false,
       "Strategy": "string",
       "Unit": "Days"
     },
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 }
 ```
@@ -830,8 +830,8 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
       "ExcludedTargetTagIds": [
         "string"
       ],
-      "FailTargetDiscovery": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -850,7 +850,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
         "string"
       ],
       "TenantId": "Tenants-1",
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "SelectedGitResources": [
@@ -961,9 +961,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1001,11 +1001,11 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/runbooks/{runbookId}/run/v
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ]
 }
@@ -1082,7 +1082,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
   "ExcludedTargetTagNames": [
     "string"
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "NoRunAfter": "2020-01-01T00:00:00.000Z",
   "Priority": "string",
   "ProjectName": "string",
@@ -1106,7 +1106,7 @@ Also reachable at `/api/runbook-runs/create/v1`, `/api/spaces/{spaceIdentifier}/
   "Tenants": [
     "string"
   ],
-  "UseGuidedFailure": true,
+  "UseGuidedFailure": false,
   "Variables": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1272,9 +1272,9 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1312,11 +1312,11 @@ Lists all of the runbookRuns in the supplied Octopus Deploy Space, from projects
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -1389,8 +1389,8 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "ExcludedTargetTagIds": [
     "string"
   ],
-  "FailTargetDiscovery": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1413,7 +1413,7 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
     "string"
   ],
   "TenantId": "Tenants-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1513,9 +1513,9 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1553,11 +1553,11 @@ Also reachable at `/api/runbookRuns`, `/api/spaces/{spaceIdentifier}/runbookRuns
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1675,9 +1675,9 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
       }
     ]
   },
-  "FailTargetDiscovery": true,
-  "FailureEncountered": true,
-  "ForcePackageDownload": true,
+  "FailTargetDiscovery": false,
+  "FailureEncountered": false,
+  "ForcePackageDownload": false,
   "FormValues": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -1715,11 +1715,11 @@ Also reachable at `/api/runbookRuns/{id}`, `/api/spaces/{spaceIdentifier}/runboo
   "TenantId": "Tenants-1",
   "TentacleRetentionPeriod": {
     "QuantityToKeep": 0,
-    "ShouldKeepForever": true,
+    "ShouldKeepForever": false,
     "Strategy": "string",
     "Unit": "Days"
   },
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::

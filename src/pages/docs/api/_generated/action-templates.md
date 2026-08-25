@@ -273,7 +273,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -290,27 +290,27 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -428,7 +428,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -445,27 +445,27 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -601,17 +601,17 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
     ],
     "Properties": {
       "additionalProp1": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp2": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp3": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -714,10 +714,10 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
     "Features": [
       "string"
     ],
-    "HasUpdate": true,
+    "HasUpdate": false,
     "Id": "string",
-    "IsBuiltIn": true,
-    "IsInstalled": true,
+    "IsBuiltIn": false,
+    "IsInstalled": false,
     "Keywords": "string",
     "Links": {
       "additionalProp1": "string",
@@ -725,7 +725,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space that fit 
       "additionalProp3": "string"
     },
     "Name": "string",
-    "Prerelease": true,
+    "Prerelease": false,
     "SpaceId": "Spaces-1",
     "Type": "string",
     "Version": "string",
@@ -852,7 +852,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -869,27 +869,27 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1006,7 +1006,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -1023,27 +1023,27 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1160,7 +1160,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -1177,27 +1177,27 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1277,27 +1277,27 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
   ],
   "DefaultPropertyValues": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1307,27 +1307,27 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate`, `/api/spaces/{space
   "Id": "ActionTemplates-1",
   "Overrides": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1450,27 +1450,27 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
   ],
   "DefaultPropertyValues": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1480,27 +1480,27 @@ Also reachable at `/api/actiontemplates/{id}/actionsUpdate/bulk`, `/api/spaces/{
   "Id": "ActionTemplates-1",
   "Overrides": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -1852,17 +1852,17 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
     ],
     "Properties": {
       "additionalProp1": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp2": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp3": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -1997,17 +1997,17 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
     ],
     "Properties": {
       "additionalProp1": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp2": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
       "additionalProp3": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2138,7 +2138,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "Parameters": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -2155,27 +2155,27 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   ],
   "Properties": {
     "additionalProp1": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp2": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "Value": "string"
     },
     "additionalProp3": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },

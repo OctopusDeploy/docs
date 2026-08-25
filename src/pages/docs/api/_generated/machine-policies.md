@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-20
 title: Machine Policies
 ---
 
@@ -86,7 +86,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
       "ConnectionRetryTimeLimit": "string",
       "Description": "string",
       "Id": "string",
-      "IsDefault": true,
+      "IsDefault": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -117,7 +117,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
         "VersionUnit": "Items"
       },
       "MachineRpcCallRetryPolicy": {
-        "Enabled": true,
+        "Enabled": false,
         "HealthCheckRetryDuration": "string",
         "RetryDuration": "string"
       },
@@ -222,7 +222,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "ConnectionRetrySleepInterval": "string",
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
     "DeleteMachinesElapsedTimeSpan": "string"
@@ -252,7 +252,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -344,7 +344,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -381,7 +381,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -484,7 +484,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
     "ConnectionRetryTimeLimit": "string",
     "Description": "string",
     "Id": "string",
-    "IsDefault": true,
+    "IsDefault": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -521,7 +521,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
       "VersionUnit": "Items"
     },
     "MachineRpcCallRetryPolicy": {
-      "Enabled": true,
+      "Enabled": false,
       "HealthCheckRetryDuration": "string",
       "RetryDuration": "string"
     },
@@ -624,7 +624,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -661,7 +661,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -766,7 +766,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -803,7 +803,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -902,7 +902,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
   "Id": "MachinePolicies-1",
-  "IsDefault": true,
+  "IsDefault": false,
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
     "DeleteMachinesElapsedTimeSpan": "string"
@@ -932,7 +932,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -1024,7 +1024,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "ConnectionRetryTimeLimit": "string",
   "Description": "string",
   "Id": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1061,7 +1061,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
     "VersionUnit": "Items"
   },
   "MachineRpcCallRetryPolicy": {
-    "Enabled": true,
+    "Enabled": false,
     "HealthCheckRetryDuration": "string",
     "RetryDuration": "string"
   },
@@ -1186,11 +1186,11 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
         "Environments-1",
         "..."
       ],
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1207,7 +1207,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
       ],
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",
@@ -1343,11 +1343,11 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {}
       },
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1361,7 +1361,7 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
       "OperatingSystemVersion": "string",
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",

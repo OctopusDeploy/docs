@@ -240,3 +240,27 @@ section so its examples can sit beside it. */
   mask-image: url('../assets/icons/pen-line.svg');
   mask-size: 90% 80%;
 }
+
+/* ----- The API hub page (/docs/api) ----- */
+
+/* The hub is a landing page, not an endpoint reference: its content nests
+   inside .api-hub rather than sitting at the top level of .page-content,
+   which keeps plugins/satteri-api-examples.js from regrouping its headings
+   into the two-column endpoint layout above (that plugin only touches
+   headings that are direct children of the document root). It gets the
+   design's own width instead of the endpoint body measure. */
+.content-group--api .page-content > .api-hub {
+  max-width: 1140px;
+}
+
+/* h2's own margin-block-start (56px, set in main.css) plus this padding gives
+   each hub section an 80px gap from the one before it. */
+.api-hub h2 {
+  padding-block-start: var(--space24);
+}
+
+/* The header (title + subtitle) sits outside .page-content, so it needs its
+   own rule to match the same width. */
+.article--api-hub .header {
+  max-width: 1140px;
+}

@@ -35,11 +35,11 @@ title: Lets Encrypt
 :::api-example{label="Response"}
 ```json
 {
-  "AcceptLetsEncryptTermsOfService": true,
+  "AcceptLetsEncryptTermsOfService": false,
   "CertificateExpiryDate": "2020-01-01T00:00:00.000Z",
   "CertificateThumbprint": "string",
   "DnsName": "string",
-  "Enabled": true,
+  "Enabled": false,
   "HttpsPort": 0,
   "IPAddress": "string",
   "Id": "string",
@@ -67,7 +67,7 @@ title: Lets Encrypt
 :::api-example{label="Request"}
 ```json
 {
-  "Enabled": true
+  "Enabled": false
 }
 ```
 :::
@@ -98,11 +98,11 @@ title: Lets Encrypt
 :::api-example{label="Response"}
 ```json
 {
-  "AcceptLetsEncryptTermsOfService": true,
+  "AcceptLetsEncryptTermsOfService": false,
   "CertificateExpiryDate": "2020-01-01T00:00:00.000Z",
   "CertificateThumbprint": "string",
   "DnsName": "string",
-  "Enabled": true,
+  "Enabled": false,
   "HttpsPort": 0,
   "IPAddress": "string",
   "Id": "string",

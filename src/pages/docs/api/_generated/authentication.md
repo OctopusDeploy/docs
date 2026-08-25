@@ -43,7 +43,7 @@ Provides the details of the enabled authentication providers.
 :::api-example{label="Response"}
 ```json
 {
-  "AnyAuthenticationProvidersSupportPasswordManagement": true,
+  "AnyAuthenticationProvidersSupportPasswordManagement": false,
   "ApiKeyDefaultExpiryDays": 0,
   "ApiKeyMaxExpiryDays": 0,
   "AuthenticationProviders": [
@@ -52,7 +52,7 @@ Provides the details of the enabled authentication providers.
         "string"
       ],
       "DisplayName": "string",
-      "FormsLoginEnabled": true,
+      "FormsLoginEnabled": false,
       "IdentityType": "Guest",
       "JavascriptLinks": [
         "string"
@@ -65,7 +65,7 @@ Provides the details of the enabled authentication providers.
       "Name": "string"
     }
   ],
-  "AutoLoginEnabled": true,
+  "AutoLoginEnabled": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -74,9 +74,9 @@ Provides the details of the enabled authentication providers.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "OctopusIdDynamicRegistrationPending": true,
-  "RememberMeEnabled": true,
-  "UserApiKeysEnabled": true
+  "OctopusIdDynamicRegistrationPending": false,
+  "RememberMeEnabled": false,
+  "UserApiKeysEnabled": false
 }
 ```
 :::
@@ -125,7 +125,7 @@ Provides the details of the enabled authentication providers.
     "additionalProp3": "string"
   },
   "ProviderName": "string",
-  "WasLoginInitiated": true
+  "WasLoginInitiated": false
 }
 ```
 :::

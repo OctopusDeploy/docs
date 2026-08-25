@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-20
 title: Process Templates
 ---
 
@@ -27,7 +27,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "SharedToAllSpaces": true
+  "SharedToAllSpaces": false
 }
 ```
 :::
@@ -92,7 +92,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[string]{.type-label}  
@@ -110,13 +110,13 @@ title: Process Templates
       "Id": "string"
     },
     "Id": "ProcessTemplateVersion-1",
-    "IsPreRelease": true,
+    "IsPreRelease": false,
     "Name": "string",
     "Parameters": [
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [
@@ -188,7 +188,7 @@ title: Process Templates
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [
@@ -278,7 +278,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
@@ -301,7 +301,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -375,7 +375,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
@@ -398,7 +398,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -455,7 +455,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "ShareToAllSpaces": true,
+  "ShareToAllSpaces": false,
   "Slug": "string"
 }
 ```
@@ -480,7 +480,7 @@ title: Process Templates
     "Spaces-1",
     "..."
   ],
-  "SharedToAllSpaces": true
+  "SharedToAllSpaces": false
 }
 ```
 :::
@@ -528,7 +528,7 @@ title: Process Templates
 ```json
 {
   "GitRef": "string",
-  "IsPreRelease": true,
+  "IsPreRelease": false,
   "Slug": "string",
   "Version": "string"
 }
@@ -575,7 +575,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[string]{.type-label}  
@@ -592,7 +592,7 @@ title: Process Templates
     "Id": "string"
   },
   "Id": "ProcessTemplateVersion-1",
-  "IsPreRelease": true,
+  "IsPreRelease": false,
   "Name": "string",
   "Parameters": [
     {
@@ -602,7 +602,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -678,7 +678,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
@@ -701,7 +701,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -766,7 +766,7 @@ title: Process Templates
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 
@@ -789,7 +789,7 @@ title: Process Templates
         "additionalProp3": "string"
       },
       "HelpText": "string",
-      "IsOptional": true,
+      "IsOptional": false,
       "Label": "string",
       "Name": "string",
       "Values": [
@@ -895,7 +895,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/processtemplates/{slug}/{versio
       {
         "DisplaySettings": {},
         "HelpText": "string",
-        "IsOptional": true,
+        "IsOptional": false,
         "Label": "string",
         "Name": "string",
         "Values": [

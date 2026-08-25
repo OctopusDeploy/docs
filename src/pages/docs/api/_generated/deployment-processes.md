@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-20
 title: Deployment Processes
 ---
 
@@ -181,7 +181,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -202,7 +202,7 @@ Also reachable at `/api/deploymentprocesses/{deploymentProcessId}/template`, `/a
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -258,7 +258,7 @@ Also reachable at `/api/deploymentprocesses/{id}`, `/api/spaces/{spaceIdentifier
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -339,7 +339,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses`, `/api/spaces/
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -413,7 +413,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -476,7 +476,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -559,7 +559,7 @@ This request returns the deployment process with all process template usages res
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -685,7 +685,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -706,7 +706,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/template`, `/ap
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -750,7 +750,7 @@ Also reachable at `/api/projects/{projectId}/deploymentprocesses/validate`, `/ap
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "HasWarnings": true,
+  "HasWarnings": false,
   "TagsWithoutTargetsByStepId": {
     "additionalProp1": [
       "string"
@@ -805,7 +805,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses`, `/ap
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -881,7 +881,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -945,7 +945,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -1029,7 +1029,7 @@ This request returns the deployment process with all process template usages res
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}
@@ -1157,7 +1157,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "IsResolvable": true,
+      "IsResolvable": false,
       "Name": "string",
       "RepositoryUri": "string"
     }
@@ -1178,7 +1178,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/templa
       "FeedId": "string",
       "FeedName": "string",
       "FixedVersion": "string",
-      "IsResolvable": true,
+      "IsResolvable": false,
       "NuGetFeedId": "string",
       "NuGetFeedName": "string",
       "NuGetPackageId": "string",
@@ -1223,7 +1223,7 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/deploymentprocesses/valida
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "HasWarnings": true,
+  "HasWarnings": false,
   "TagsWithoutTargetsByStepId": {
     "additionalProp1": [
       "string"
@@ -1282,7 +1282,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label} *(required)*
@@ -1352,7 +1352,7 @@ Modifies a deployment process. Only allowed for deployment processes owned by a 
   - **`Properties`** :span[object]{.type-label}
   - **`Slug`** :span[string]{.type-label}
   - **`StartTrigger`** :span[enum]{.type-label}  
-    Allowed values: `StartAfterPrevious`, `StartWithPrevious`.
+    Allowed values: `StartAfterPrevious`, `StartWithPrevious`, `Variable`.
   - **`Type`** :span[string]{.type-label}  
     Either "Step" or "ProcessTemplateUsage". Defaults to "Step" if no type is provided.
 - **`Version`** :span[integer]{.type-label}

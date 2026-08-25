@@ -60,7 +60,7 @@ Lists all of the Octopus Server Nodes participating in the current Octopus Serve
   "Items": [
     {
       "Id": "string",
-      "IsInMaintenanceMode": true,
+      "IsInMaintenanceMode": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -114,7 +114,7 @@ Lists the name and ID of all Octopus Server nodes
 [
   {
     "Id": "string",
-    "IsInMaintenanceMode": true,
+    "IsInMaintenanceMode": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -159,8 +159,8 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 ```json
 {
   "Id": "string",
-  "IsInMaintenanceMode": true,
-  "IsOffline": true,
+  "IsInMaintenanceMode": false,
+  "IsOffline": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastSeen": "2020-01-01T00:00:00.000Z",
@@ -220,8 +220,8 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
   "Nodes": [
     {
       "Id": "string",
-      "IsInMaintenanceMode": true,
-      "IsOffline": true,
+      "IsInMaintenanceMode": false,
+      "IsOffline": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastSeen": "2020-01-01T00:00:00.000Z",
@@ -271,7 +271,7 @@ Returns HTTP ImATeapot (418) when the Octopus Server node is draining or offline
 ```json
 {
   "Id": "string",
-  "IsInMaintenanceMode": true,
+  "IsInMaintenanceMode": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -309,7 +309,7 @@ Modifies an existing Octopus Server node.
 ```json
 {
   "Id": "OctopusServerNodes-1",
-  "IsInMaintenanceMode": true,
+  "IsInMaintenanceMode": false,
   "MaxConcurrentTasks": 0
 }
 ```
@@ -335,7 +335,7 @@ Modifies an existing Octopus Server node.
 ```json
 {
   "Id": "string",
-  "IsInMaintenanceMode": true,
+  "IsInMaintenanceMode": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

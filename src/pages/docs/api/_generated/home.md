@@ -77,10 +77,10 @@ Returns a document describing the current Octopus Server and links to other part
 {
   "ApiVersion": "string",
   "Application": "string",
-  "HasLongTermSupport": true,
+  "HasLongTermSupport": false,
   "Id": "string",
   "InstallationId": "00000000-0000-0000-0000-000000000000",
-  "IsEarlyAccessProgram": true,
+  "IsEarlyAccessProgram": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

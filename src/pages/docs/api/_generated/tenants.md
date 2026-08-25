@@ -94,7 +94,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
         "Id": "string"
       },
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -169,7 +169,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
 {
   "Clone": "Tenants-1",
   "Description": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectEnvironments": {
     "additionalProp1": [
@@ -232,7 +232,7 @@ Creates a new Tenant, optionally cloning an existing tenant if the clone query s
     "Id": "string"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -331,7 +331,7 @@ Lists all of the tenants in the supplied Octopus Deploy Space. The results will 
       "Id": "string"
     },
     "Id": "string",
-    "IsDisabled": true,
+    "IsDisabled": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -390,7 +390,7 @@ If multi-tenancy is enabled, \"Enabled\" will be true, otherwise it will be fals
 :::api-example{label="Response"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -429,24 +429,24 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/tag-test`, `/api/tenant
 ```json
 {
   "additionalProp1": {
-    "IsDisabled": true,
-    "IsMatched": true,
+    "IsDisabled": false,
+    "IsMatched": false,
     "MissingTags": [
       "string"
     ],
     "Reason": "string"
   },
   "additionalProp2": {
-    "IsDisabled": true,
-    "IsMatched": true,
+    "IsDisabled": false,
+    "IsMatched": false,
     "MissingTags": [
       "string"
     ],
     "Reason": "string"
   },
   "additionalProp3": {
-    "IsDisabled": true,
-    "IsMatched": true,
+    "IsDisabled": false,
+    "IsMatched": false,
     "MissingTags": [
       "string"
     ],
@@ -569,7 +569,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
     "Id": "string"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -631,7 +631,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
 {
   "Description": "string",
   "Id": "Tenants-1",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectEnvironments": {
     "additionalProp1": [
@@ -694,7 +694,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{id}`, `/api/tenants/{i
     "Id": "string"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1879,7 +1879,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -1907,7 +1907,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -1962,7 +1962,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2016,7 +2016,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2069,7 +2069,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2123,7 +2123,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/commonvariab
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2179,7 +2179,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2233,7 +2233,7 @@ Also reachable at `/api/tenants/{tenantId}/commonvariables`.
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2310,7 +2310,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2338,7 +2338,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2393,7 +2393,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2447,7 +2447,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2500,7 +2500,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2554,7 +2554,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tenants/{tenantId}/projectvaria
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2610,7 +2610,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
@@ -2664,7 +2664,7 @@ Also reachable at `/api/tenants/{tenantId}/projectvariables`.
       },
       "TemplateId": "string",
       "Value": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       }
