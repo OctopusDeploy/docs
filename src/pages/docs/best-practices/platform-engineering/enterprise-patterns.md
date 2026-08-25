@@ -170,7 +170,7 @@ You need to synchronize the Octopus installations to ensure their configuration 
 
 Unlike the previous patterns, this pattern is less concerned with providing the ability for teams and customers to log into Octopus installations. Rather, DevOps teams use non-production Octopus installations to test upgrades and validate project changes.
 
-This pattern may also use used to isolate Octopus installations for compliance reasons, such as PCI. Having a separate Octopus installation for the production environment makes it easy demonstrate access controls and other security measures when undertaking
+This pattern may also be used to isolate Octopus installations for compliance reasons, such as PCI. Having a separate Octopus installation for the production environment makes it easy to demonstrate access controls and other security measures when undertaking
 security audits.
 
 | Feature                                          | Solves |
