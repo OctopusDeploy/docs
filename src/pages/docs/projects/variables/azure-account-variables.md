@@ -31,25 +31,25 @@ The Azure account Variable also exposes the following properties that you can re
 ### Service Principal
 
 | Name and description | Example |
-| -------------------- | ------------------------|
+| -------------------- | ------------------------ |
 | **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
 | **`Client`** <br/> The Azure Application Id | 57dfa713-f4c1-4b15-b21d-d14ff7941f7c |
 | **`Password`** <br/> The Client Secret for the Azure Application. <br/> Only set if **Use a Service Principal** is selected | correct horse battery staple |
 | **`OpenIdConnect.Jwt`** <br/> The JWT identity token for the current task <br/> Only set if **Use OpenID Connect** is selected | *(dynamically generated token)* |
 | **`TenantId`** <br/> The Azure Active Directory Tenant Id | 2a681dca-3230-4e01-abcb-b1fd225c0982 |
 | **`AzureEnvironment`** <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
-| **`ResourceManagementEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://management.microsoftazure.de/  |
-| **`ActiveDirectoryEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | https://login.microsoftonline.de/ |
+| **`ResourceManagementEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | <https://management.microsoftazure.de/> |
+| **`ActiveDirectoryEndpointBaseUri`** <br/> Only set if explicitly set in the Account settings | <https://login.microsoftonline.de/> |
 | **`Audience`** <br/> Federated credentials audience <br/> Only set if **Use OpenID Connect** is selected | api://AzureADTokenExchange |
 
 ### Management certificate
 
-| Name and description | Example|
-| -------------------- | ------------------------|
+| Name and description | Example |
+| -------------------- | ------------------------ |
 | **`SubscriptionNumber`** <br/> The Azure Subscription Id | cd21dc34-73dc-4c7d-bd86-041284e0bc45 |
 | **`CertificateThumbprint`** <br/> The thumbprint of the certificate | |
-| **`ServiceManagementEndpointBaseUri`** <br/> | https://management.core.cloudapi.de |
-| **`ServiceManagementEndpointSuffix`** <br/> | core.cloudapi.de  |
+| **`ServiceManagementEndpointBaseUri`** <br/> | <https://management.core.cloudapi.de> |
+| **`ServiceManagementEndpointSuffix`** <br/> | core.cloudapi.de |
 | **`AzureEnvironment`** <br/> The Azure environment | AzureCloud, AzureGermanCloud, AzureChinaCloud, AzureUSGovernment |
 
 ### Accessing the properties in a script

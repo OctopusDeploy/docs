@@ -11,7 +11,7 @@ Set the file paths that Octopus will use for storage
 
 **path options**
 
-```
+```text
 Usage: octopus.server path [<options>]
 
 Where [<options>] is any of:
@@ -45,8 +45,10 @@ Or one of the common options:
 ```
 
 ## Basic examples
+
 This example configures all paths (artifacts, task logs, packages, imports, and telemetry) to a network share:
-```
+
+```text
 octopus.server path --clusterShared \\OctoShared\OctopusData
 
 octopus.server path --artifacts Artifacts
@@ -58,7 +60,8 @@ octopus.server path --telemetry Telemetry
 ```
 
 This example configures the paths for the different components individually:
-```
+
+```text
 octopus.server path --artifacts \\Octoshared\OctopusData\Artifacts
 octopus.server path --taskLogs \\Octoshared\OctopusData\TaskLogs
 octopus.server path --nugetRepository \\Octoshared\OctopusData\Packages

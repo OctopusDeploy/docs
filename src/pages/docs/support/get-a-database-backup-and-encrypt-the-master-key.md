@@ -11,11 +11,11 @@ When you contact Octopus Deploy support, sometimes we aren't able to reproduce t
 
 1. Create the database backup.
 
-The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced from [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click on the Octopus database, and select **Tasks ➜ Back Up...**, and select the directory where the .bak file will save to.
+    The easiest way to import a database is to restore from a .bak file, and this is the format we will ask for. This can be produced from [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server). Right-click on the Octopus database, and select **Tasks ➜ Back Up...**, and select the directory where the .bak file will save to.
 
-:::figure
-![Backup SQL database in SQL Server Management Studio](/docs/img/support/images/sql_server_management_studio_backup_db.png)
-:::
+    :::figure
+    ![Backup SQL database in SQL Server Management Studio](/docs/img/support/images/sql_server_management_studio_backup_db.png)
+    :::
 
 2. Encrypt your Master Key.
 
@@ -25,7 +25,7 @@ You can get your Master Key using [Octopus Manager](/docs/security/data-encrypti
 
 We have a PowerShell snippet which will encrypt your Master Key, using Public Key Cryptography so only Octopus can decrypt it. You can use this snippet to encrypt your Master Key, and when we receive it, we will decrypt it and use it to restore the database you have provided to us.
 
-```
+```powershell
 $octopusPublicKey = "MIIDnzCCAwigAwIBAgIJAK5yFHmnxrYxMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJBVTEMMAoGA1UECBMDUUxEMREwDwYDVQQHEwhCcmlzYmFuZTEhMB8GA1UEChMYT2N0b3B1cyBEZXBsb3kgUHR5LiBMdGQuMRcwFQYDVQQDEw5PY3RvcHVzIERlcGxveTEmMCQGCSqGSIb3DQEJARYXaGVsbG9Ab
 2N0b3B1c2RlcGxveS5jb20wHhcNMTQwNzI1MTE0NzI2WhcNMzIxMDA4MTE0NzI2WjCBkjELMAkGA1UEBhMCQVUxDDAKBgNVBAgTA1FMRDERMA8GA1UEBxMIQnJpc2JhbmUxITAfBgNVBAoTGE9jdG9wdXMgRGVwbG95IFB0eS4gTHRkLjEXMBUGA1UEAxMOT2N0b3B1cyBEZXBsb3kxJjAkBgkqhkiG9w0BCQ
 EWF2hlbGxvQG9jdG9wdXNkZXBsb3kuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD532q7wcbDAE65sZn5kdWQEv+yFHTUn9wPXEfPztv1cc/xjLts6zuKcfcRVITyB+n02Rg/VAGpNdZeAIWTtptKLkcdttwf+xoySPF13jc7DSnYabGamRR/hqzn9QcLq87WHIQF8olecpokoTsdBfE6e3idR8

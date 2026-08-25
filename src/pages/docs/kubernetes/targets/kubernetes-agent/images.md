@@ -43,7 +43,7 @@ The main application container. Provides registration and communication with Oct
 
 **Helm values path**
 
-`.persistence.nfs.image` 
+`.persistence.nfs.image`
 
 **Purpose**
 
@@ -103,10 +103,9 @@ The default image used for deployments when running as a deployment target. If n
 
 The default image used for workloads when running as a worker.
 
-
 :::div{.hint}
 
-For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom Docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images). 
+For ARM workloads use **octopuslabs/k8s-workertools** or your own [custom Docker image](/docs/projects/steps/execution-containers-for-workers#custom-docker-images).
 
 ### octopuslabs/k8s-workertools
 

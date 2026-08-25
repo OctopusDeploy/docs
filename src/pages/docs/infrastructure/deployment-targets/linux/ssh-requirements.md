@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-03-22
+modDate: 2026-08-11
 title: SSH target requirements
 description: Requirements for using SSH deployment targets with Octopus.
 navOrder: 15
@@ -30,6 +30,17 @@ See the Bash Reference Manual, section [6.2 Bash Startup Files](http://www.gnu.o
 [Calamari](/docs/octopus-rest-api/calamari) is the command-line tool that is invoked to perform the deployment steps on the deployment target. It runs on .NET and is built as a [.NET Core self-contained distributable](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd).
 
 Since it is self-contained, .NET Core does not need to be installed on the target server. However, there are still some [pre-requisite dependencies](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#dependencies) required for .NET Core itself that must be installed.
+
+This covers Calamari itself; [C# scripts](#csharp) have their own requirement.
+
+## C# scripts {#csharp}
+
+C# scripts (`.csx`) are executed by [dotnet-script](https://github.com/dotnet-script/dotnet-script), which needs more than the self-contained Calamari runtime. Octopus can run them on an SSH target provided:
+
+- The **.NET SDK** is installed, not just the .NET runtime — this applies to every C# script, including scripts that reference no NuGet packages
+- `dotnet` is on the path for the SSH user executing the deployment
+
+See [C# script requirements](/docs/deployments/custom-scripts/#csharp-requirements) for the SDK version to install and the failure you'll see if only the runtime is present.
 
 ## Git-based steps
 

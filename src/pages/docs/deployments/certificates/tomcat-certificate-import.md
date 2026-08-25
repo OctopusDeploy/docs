@@ -40,10 +40,10 @@ The `Tomcat service name` field references that name of the service in the `conf
 
 The `SSL implementation` field lists the standard Tomcat SSL implementations. Different versions of Tomcat support different SSL implementations. You can find more information on the implementations supported by each version of Tomcat in the following Tomcat documentation links:
 
-* [Tomcat 9](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
-* [Tomcat 8.5](https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
-* [Tomcat 8](https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
-* [Tomcat 7](https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
+- [Tomcat 9](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
+- [Tomcat 8.5](https://tomcat.apache.org/tomcat-8.5-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
+- [Tomcat 8](https://tomcat.apache.org/tomcat-8.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
+- [Tomcat 7](https://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html#Edit_the_Tomcat_Configuration_File)
 
 :::div{.hint}
 If you select an SSL implementation that is not supported by the version of Tomcat that the certificate is being deployed to, an error will be reported at deploy time.
@@ -100,6 +100,7 @@ The `Private key filename` field is used to define the location of the private k
 The `Public key filename` field is used to define the location of the public certificate. If left blank, the public certificate file will be created with a unique filename in the `CATALINA_BASE/conf` directory, and the filename will be based on the certificate subject. If specified, a certificate file will be created at the specified location, overwriting any existing file. Any value entered for the filename must be an absolute path.
 
 ## Multiple certificate types
+
 In Tomcat 8.5 and above, [multiple certificates](https://octopus.com/blog/mixing-keys-in-tomcat) can be assigned to a single port. This is most useful for assigning a RSA and a ECDSA certificate, and allowing the client to select the most secure option.
 
 When exporting a certificate from Octopus to Tomcat 8.5+, the type of certificate is automatically determined, and multiple certificates of different types can be assigned to the same port.

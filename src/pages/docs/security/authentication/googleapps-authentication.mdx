@@ -22,8 +22,8 @@ Once you have an account, log in to [https://console.developers.google.com](http
 2. Under the **APIs and services**, select **Credentials**.
 3. Click the **Configure consent screen** button.
 4. Select the User Type **Internal** and click **Create**.
-5. Fill out the **App information**, including a descriptive **App name** such as Octopus Server or Octopus Cloud, and select an appropriate **User support email**. 
-6. Fill out the **App logo** details and upload a logo to make it easy to identify the application. You can download the Octopus logo [here](https://octopus.com/images/company/Logo-Blue_140px_rgb.png).
+5. Fill out the **App information**, including a descriptive **App name** such as Octopus Server or Octopus Cloud, and select an appropriate **User support email**.
+6. Fill out the **App logo** details and upload a logo to make it easy to identify the application. You can download the Octopus logo [the Octopus logo](https://octopus.com/images/company/Logo-Blue_140px_rgb.png).
 7. Fill out the **App domain** information, providing `https://octopus.com` as the **Application home page**, `https://octopus.com/privacy` as the **Application privacy policy link** and `https://octopus.com/legal/customer-agreement` as the **Application Terms of Service link**. Add the Top Level Domain of your Octopus instance to the **Authorized domains** list. If you are setting Google Workspaces up for **Octopus Cloud** this will be `octopus.app` and `octopus.com`.
 8. Fill out the **Developer contact information**.
 9. Click **Save and continue**.
@@ -36,9 +36,11 @@ Once you have an account, log in to [https://console.developers.google.com](http
 
 :::div{.hint}
 **Tips:**
+
 - **Reply URLs are case-sensitive** - Be aware that the path in this URL after the domain name was **case-sensitive** during our testing.
 - **Not using SSL?** We highly recommend using SSL, but we know it's not always possible. If you do not have SSL enabled on your Octopus Server, you can use `http`. Please beware of the security implications of accepting a security token over an insecure channel.
 Octopus integrates with [Let's Encrypt](/docs/security/exposing-octopus/lets-encrypt-integration), making it easier to set up SSL on your Octopus Server.
+
 :::
 
 ## Configure Octopus Server
@@ -100,21 +102,21 @@ Perhaps the contents of the security token sent back by Google Workspace aren't 
 1. Open your browser's Developer Tools and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools this is called "Preserve Log":
 
-:::figure
-![Preserve Log Checkbox](/docs/img/security/authentication/images/5866122.png)
-:::
+    :::figure
+    ![Preserve Log Checkbox](/docs/img/security/authentication/images/5866122.png)
+    :::
 
-3. Attempt to sign into Octopus using Google Workspace and find the HTTP POST coming back to your Octopus instance from Google Workspace on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body. 
+3. Attempt to sign into Octopus using Google Workspace and find the HTTP POST coming back to your Octopus instance from Google Workspace on a route like `/api/users/authenticatedToken/GoogleApps`. You should see an `id_token` field in the HTTP POST body.
 
-:::figure
-![ID Token](/docs/img/security/authentication/images/5866125.png)
-:::
+    :::figure
+    ![ID Token](/docs/img/security/authentication/images/5866125.png)
+    :::
 
 4. Grab the contents of the `id_token` field and paste that into [https://jwt.io/](https://jwt.io/) which will decode the token for you.  
 
-:::figure
-![jwt.io](/docs/img/security/authentication/images/5866123.png)
-:::
+    :::figure
+    ![jwt.io](/docs/img/security/authentication/images/5866123.png)
+    :::
 
 5. Don't worry if jwt.io complains about the token signature, it doesn't support RS256 which is used by Google Workspace.
 6. Octopus uses most of the data to validate the token, but it primarily uses the `sub`, `email`, and `name` claims. If these claims are not present, you will likely see unexpected behavior.

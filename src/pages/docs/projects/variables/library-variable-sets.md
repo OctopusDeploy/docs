@@ -12,6 +12,10 @@ Octopus [variables](/docs/projects/variables/) can be added to variables sets, w
 
 This can be useful if you have the same variables that are used across multiple projects. Instead of defining the variables for each project, you can define a set of variables in the Variable Set and then access them from every project that needs them.
 
+:::div{.hint}
+[Easy Mode - Variable Sets](https://octopus.com/blog/octo-easy-mode-08-lvs) provides a practical example of variable sets you can apply to your own Octopus instance.
+:::
+
 ## Creating a variable set
 
 1. Navigate to **Deploy ➜ Variable Sets** and click **Add Variable Set**.

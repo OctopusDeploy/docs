@@ -4,7 +4,8 @@ import { devices } from '@playwright/test';
 // See https://playwright.dev/docs/test-configuration
 const config: PlaywrightTestConfig = {
   testDir: './tests',
-  timeout: 30 * 60 * 1000,
+  // A hung test otherwise burns 30 minutes, times the 2 retries, on a single worker.
+  timeout: 60 * 1000,
   expect: {
     timeout: 5 * 1000
   },

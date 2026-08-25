@@ -16,7 +16,7 @@ Draft a rollback plan for a given project or environment based on the last succe
 
 ## 📝 Prompt
 
-```
+```text
 Create a rollback plan for the last successful deployment
 ```
 

@@ -12,7 +12,8 @@ export type SplitButtonItem = {
 
 type Props = HTMLAttributes<'div'> & {
   label: string;
-  href: string | URL;
+  // Omitted when the primary acts on the page rather than navigating away
+  href?: string | URL;
   icon?: string;
   size?: 'xSmall' | 'small' | 'medium';
   importance?: 'default' | 'loud';
@@ -40,6 +41,12 @@ if (items.length === 0) {
   throw new Error('A SplitButton with no menu items should just be a Button');
 }
 
+// Button types the two halves of its own union separately - an anchor needs an
+// `href`, a plain button forbids one - so the link attributes are handed over as
+// a set rather than as three possibly-undefined props. `target` and `rel` say
+// where a link opens, and mean nothing on a button.
+const primaryLink = href ? { href, target, rel } : {};
+
 const menuItems = items.map((item) => ({
   ...item,
   kind: 'link' as const,
@@ -51,14 +58,14 @@ const menuItems = items.map((item) => ({
 <div class:list={['split-btn', className]} {...rest}>
   <Button
     class="split-btn__primary"
-    href={href}
+    {...primaryLink}
     icon={icon}
     label={label}
     size={size}
     importance={importance}
-    target={target}
-    rel={rel}
-  />
+  >
+    <slot />
+  </Button>
   <Menu
     class="split-btn__menu"
     label={menuLabel}

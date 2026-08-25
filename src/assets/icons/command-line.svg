@@ -1,0 +1,6 @@
+<!-- CommandLineIcon from @octopusdeploy/design-system-icons. Marks a CLI or API
+     reference entry in the search results. Used as a CSS mask, so only alpha
+     matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" width="24" height="24" aria-hidden="true">
+  <path d="M2.392 8.54a1.55 1.55 0 0 1 .062-2.126c.625-.562 1.562-.562 2.124.063L16.073 18.98c.562.562.562 1.438 0 2.063L4.578 33.545c-.562.563-1.5.626-2.124.063a1.55 1.55 0 0 1-.062-2.125L12.949 19.98zM17.51 30.982H36.5c.813 0 1.5.688 1.5 1.5 0 .876-.687 1.501-1.5 1.501H17.51c-.875 0-1.5-.625-1.5-1.5 0-.813.625-1.5 1.5-1.5" />
+</svg>

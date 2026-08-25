@@ -14,23 +14,22 @@ Teams looking to migrate their on-premises Octopus instance to private cloud hos
 
 There are a number of factors to consider when migrating an on-premises instance to cloud hosting:
 
-* What version of Octopus are you running?
-* Who is using the on-premises Octopus instance?
-* How long can Octopus be offline for before it interrupts critical operations?
-* Who can test each project to ensure it deploys correctly after the migration?
-* Do you require a continuous audit history after the migration?
-* How do users authenticate with Octopus?
-* Where have tentacles been installed?
-* What kind of tentacles have been configured (polling or listening)?
-* Are there any firewall rules restricting traffic to tentacles?
-* Do you want to host Octopus in a Linux container on a platform like Kubernetes or ECS?
-* Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
-* Where are your packages stored?
-* Do you have any CI servers integrated with Octopus?
-* Do you have any subscriptions configured in Octopus?
-* Do you have any external tools or scripts that call the Octopus API?
-* Do you have external scripts or CI servers using API keys?
-
+- What version of Octopus are you running?
+- Who is using the on-premises Octopus instance?
+- How long can Octopus be offline for before it interrupts critical operations?
+- Who can test each project to ensure it deploys correctly after the migration?
+- Do you require a continuous audit history after the migration?
+- How do users authenticate with Octopus?
+- Where have tentacles been installed?
+- What kind of tentacles have been configured (polling or listening)?
+- Are there any firewall rules restricting traffic to tentacles?
+- Do you want to host Octopus in a Linux container on a platform like Kubernetes or ECS?
+- Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
+- Where are your packages stored?
+- Do you have any CI servers integrated with Octopus?
+- Do you have any subscriptions configured in Octopus?
+- Do you have any external tools or scripts that call the Octopus API?
+- Do you have external scripts or CI servers using API keys?
 
 ### What version of Octopus are you running?
 
@@ -84,7 +83,7 @@ Octopus was initially provided only as a Windows application. Today Octopus is a
 
 Teams may wish to migrate to the Linux version of Octopus when moving to the cloud. There are many benefits to doing so, including cheaper hosting costs and the option to host Octopus on platforms like Kubernetes or ECS.
 
-The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [here](/docs/installation/octopus-server-linux-container).
+The Windows and Linux versions are mostly identical. However, there are some caveats to be aware of as documented [the Octopus Server Linux container](/docs/installation/octopus-server-linux-container).
 
 ### Do you have a direct network connection from your cloud provider to your on-premises infrastructure?
 
@@ -146,15 +145,15 @@ This process is documented in more detail under [Moving your Octopus components 
 
 Choose a complete migration when:
 
-* There are few projects to test, or teams can collectively sign off the migration relatively quickly.
-* You require a complete audit history to be present on the cloud Octopus instance.
-* You have a large number of listening tentacles, as the cloud Octopus instance retains the certificates required to establish the inbound connections, allowing the existing listening tentacles to be reused without reregistering them.
-* You have a large number of API keys in use and do not wish to regenerate them.
-* You have a large number of subscriptions configured and you do not wish to reconfigure them.
+- There are few projects to test, or teams can collectively sign off the migration relatively quickly.
+- You require a complete audit history to be present on the cloud Octopus instance.
+- You have a large number of listening tentacles, as the cloud Octopus instance retains the certificates required to establish the inbound connections, allowing the existing listening tentacles to be reused without reregistering them.
+- You have a large number of API keys in use and do not wish to regenerate them.
+- You have a large number of subscriptions configured and you do not wish to reconfigure them.
 
 A complete migration may not suitable when:
 
-* There are many projects to migrate, and any project may take longer to validate than the downtime tolerated by any other team, as a complete migration assumes everyone can start using the new instance relatively quickly.
+- There are many projects to migrate, and any project may take longer to validate than the downtime tolerated by any other team, as a complete migration assumes everyone can start using the new instance relatively quickly.
 
 ### Incremental migration
 
@@ -170,18 +169,18 @@ An incremental migration involves:
 
 Choose an incremental migration when:
 
-* Teams can only tolerate small downtime windows, as an incremental migration allows the on-premises instance to continue performing deployments as each team or project is migrated individually.
-* You have so many CI projects or external scripts interacting with Octopus that it is not feasible to migrate them all at once, as an incremental migration means you migrate only the external services relating to the single Octopus project or team being migrated.
-* You wish to limit the migration risk by limiting each migration step to a single project or team.
+- Teams can only tolerate small downtime windows, as an incremental migration allows the on-premises instance to continue performing deployments as each team or project is migrated individually.
+- You have so many CI projects or external scripts interacting with Octopus that it is not feasible to migrate them all at once, as an incremental migration means you migrate only the external services relating to the single Octopus project or team being migrated.
+- You wish to limit the migration risk by limiting each migration step to a single project or team.
 
 An incremental migration may not suitable when:
 
-* You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
-* You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
-* You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
-* You have a large number of project triggers, as the export/import feature does not export triggers.
-* You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.
-* You have a large number of active API keys and do not wish to regenerate them.
+- You require the complete audit history to be present on the cloud instance, as the export/import feature does not migrate audit events.
+- You have a large number of Config-as-Code enabled projects, as the export/import feature does not export these projects.
+- You do not wish to reregister listening tentacles, as the new cloud instance has new certificates and will not be able to establish a connection to existing listening tentacles.
+- You have a large number of project triggers, as the export/import feature does not export triggers.
+- You have a large number of users and teams in the internal Octopus database, as these will have to be manually recreated.
+- You have a large number of active API keys and do not wish to regenerate them.
 
 ### Double complete migration
 
@@ -189,12 +188,12 @@ A third option is to perform a complete migration but then treat the cloud insta
 
 Choose a double complete migration when:
 
-* You need all the features of a complete migration.
-* You are unable to validate a complete migration within the outage window tolerated by your teams.
+- You need all the features of a complete migration.
+- You are unable to validate a complete migration within the outage window tolerated by your teams.
 
 A double complete migration may not suitable when:
 
-* You are unable to migrate all external services fast enough to satisfy the outage window tolerated by your teams.
+- You are unable to migrate all external services fast enough to satisfy the outage window tolerated by your teams.
 
 ## Conclusion
 

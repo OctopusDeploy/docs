@@ -9,7 +9,7 @@ navOrder: 15
 
 When you decided on the permissions required to automate your database deployments, you need to find the balance between functionality and security. Below are some considerations for permissions and a couple of recommendations.
 
-## Application account permissions 
+## Application account permissions
 
 Applications should run under their own service accounts with the least amount of rights.  Each environment for each application should have its own service account.  
 
@@ -24,13 +24,13 @@ The level of elevated permissions is up to you, more restrictions placed on the 
 First, decide what the deployment account should have permission to do at the server level.  From there, research which server roles are applicable.  Microsoft has provided a chart of the server roles and their specific permissions.
 
 :::figure
-![](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-server-roles.png?view=sql-server-ver15)
+![Microsoft chart of SQL Server fixed server roles and their permissions](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-server-roles.png?view=sql-server-ver15)
 :::
 
-Next, decide what permissions the deployment account can have at the database level.  Again, Microsoft has provided a chart of the database roles and their specific permissions.   
+Next, decide what permissions the deployment account can have at the database level.  Again, Microsoft has provided a chart of the database roles and their specific permissions.
 
 :::figure
-![](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-database-roles.png?view=sql-server-ver15)
+![Microsoft chart of SQL Server fixed database roles and their permissions](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/media/permissions-of-database-roles.png?view=sql-server-ver15)
 :::
 
 With those two charts in mind, below are some recommended permissions sets.  

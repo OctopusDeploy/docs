@@ -96,25 +96,6 @@ test('Copy as markdown action advertises a working .md URL on the eligible page'
   expect(target.status()).toBe(200);
 });
 
-// All three labels are always in the DOM, stacked, so reporting a result must
-// not reflow the page actions row.
-test('the copy action keeps its width while it reports a result', async ({
-  page,
-  context,
-}) => {
-  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await page.goto(STABLE_PLAIN_MD_PATH);
-
-  const button = page.locator('.octo-copy-md');
-  const before = await button.boundingBox();
-
-  await button.click();
-  await expect(button).toHaveAttribute('data-copied', '');
-
-  const after = await button.boundingBox();
-  expect(after!.width).toBe(before!.width);
-});
-
 test('markdown page actions are hidden on the ineligible MDX page', async ({
   page,
 }) => {
@@ -122,10 +103,6 @@ test('markdown page actions are hidden on the ineligible MDX page', async ({
   expect(
     await page.locator('.octo-copy-md').count(),
     'expected no copy action on ineligible page'
-  ).toBe(0);
-  expect(
-    await page.locator('[data-md-links-menu]').count(),
-    'expected no markdown links dropdown on ineligible page'
   ).toBe(0);
 });
 

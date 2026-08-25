@@ -14,11 +14,11 @@ Scheduled deployment triggers allow you to define an unattended behavior for you
 
 Scheduled deployment triggers provide a way to configure your projects to create, deploy, and promote releases on a defined schedule. This can useful in different scenarios, for instance:
 
-* Run a deployment to clean up your test environments once a day at 9:00pm.
-* Run a deployment to health check your services every hour.
-* Run a deployment to provision a new test environment at 6:00am, Monday - Friday.
-* Run a deployment to promote the latest build from staging to production on the 1st day of the month.
-* Run a deployment to perform maintenance on the last Saturday of the month.
+- Run a deployment to clean up your test environments once a day at 9:00pm.
+- Run a deployment to health check your services every hour.
+- Run a deployment to provision a new test environment at 6:00am, Monday - Friday.
+- Run a deployment to promote the latest build from staging to production on the 1st day of the month.
+- Run a deployment to perform maintenance on the last Saturday of the month.
 
 ## Add a scheduled trigger
 

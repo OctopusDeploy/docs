@@ -95,7 +95,7 @@ Notifications come in many forms.  With Octopus Deploy you have many options:
 Regardless of your notification preference, we recommend creating a variable set to store notification values.  The variable set gives you the ability to create a standard set of messages any project can use
 
 :::figure
-![](/docs/img/deployments/databases/common-patterns/images/manual_approval_notifications.png)
+![A variable set storing notification values](/docs/img/deployments/databases/common-patterns/images/manual_approval_notifications.png)
 :::
 
 For easier approvals, the notification messages should include a deep link back to the release.  That little change provides a nice quality of life improvement.  The deep-link to the deployment summary is:
@@ -112,7 +112,7 @@ A separate variable, such as `Notification.Base.Url` provides a lot more options
 
 Imagine a message is sent to the team for every deployment to `Development` and `Test`.  At first, that is a good idea.  But as time goes on, the number of deployments per day will increase.  They are now deploying 20 times a day to each environment.  Those notifications went from being useful to being noise.  
 
-As experience is gained and trust is built, the number of notifications should go down.  Our recommendation is to start sending notifications for every deployment, both successes, and failures.  As time goes on, adjust that down to failures only. 
+As experience is gained and trust is built, the number of notifications should go down.  Our recommendation is to start sending notifications for every deployment, both successes, and failures.  As time goes on, adjust that down to failures only.
 
 ## Example
 

@@ -1,8 +1,8 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const showcase = '/components';
+const docsPage = '/docs/';
 
-const nav = '.top-nav-showcase .top-nav';
+const nav = '.top-nav';
 const trailing = `${nav} .top-nav__trailing`;
 const avatar = `${nav} [data-user-avatar]`;
 
@@ -15,7 +15,7 @@ async function signIn(
     {
       name: 'OctopusSignedInUser',
       value: encodeURIComponent(JSON.stringify(user)),
-      url: new URL(showcase, baseURL).toString(),
+      url: new URL(docsPage, baseURL).toString(),
     },
   ]);
 }
@@ -24,13 +24,31 @@ test.describe('top nav signed-in state', () => {
   test('shows the sign in and sign up buttons when signed out', async ({
     page,
   }) => {
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(page.locator(trailing).getByText('Sign in')).toBeVisible();
     await expect(
       page.locator(trailing).getByText('Start for free')
     ).toBeVisible();
     await expect(page.locator(avatar)).toBeHidden();
+  });
+
+  test('shows the signed-in state before the deferred scripts load', async ({
+    page,
+    baseURL,
+  }) => {
+    await signIn(page, baseURL, {
+      fullName: 'John Doe',
+      email: 'jd@example.com',
+    });
+    await page.route('**/_astro/*.js', (route) => route.abort());
+    await page.goto(docsPage);
+
+    await expect(page.locator(avatar)).toBeVisible();
+    await expect(page.locator(trailing).getByText('Sign in')).toBeHidden();
+    await expect(
+      page.locator(trailing).getByText('Start for free')
+    ).toBeHidden();
   });
 
   test('swaps those buttons for an initials avatar when signed in', async ({
@@ -41,22 +59,21 @@ test.describe('top nav signed-in state', () => {
       fullName: 'John Doe',
       email: 'jd@example.com',
     });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(page.locator(trailing).getByText('Sign in')).toBeHidden();
     await expect(
       page.locator(trailing).getByText('Start for free')
     ).toBeHidden();
-    await expect(page.locator(trailing).getByText('Changelog')).toBeVisible();
+    await expect(
+      page.locator(`${trailing} [data-theme-toggle-button]`)
+    ).toBeVisible();
 
     await expect(page.locator(avatar)).toBeVisible();
     await expect(page.locator(`${avatar} [data-user-initials]`)).toHaveText(
       'JD'
     );
-    await expect(page.locator(avatar)).toHaveAttribute(
-      'title',
-      'John Doe'
-    );
+    await expect(page.locator(avatar)).toHaveAttribute('title', 'John Doe');
   });
 
   test('takes the first two characters of a single-word name', async ({
@@ -64,7 +81,7 @@ test.describe('top nav signed-in state', () => {
     baseURL,
   }) => {
     await signIn(page, baseURL, { fullName: 'John' });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(page.locator(`${avatar} [data-user-initials]`)).toHaveText(
       'JO'
@@ -76,7 +93,7 @@ test.describe('top nav signed-in state', () => {
     baseURL,
   }) => {
     await signIn(page, baseURL, { email: 'jd@example.com' });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(page.locator(`${avatar} [data-user-initials]`)).toHaveText(
       'JD'
@@ -94,7 +111,7 @@ test.describe('top nav signed-in state', () => {
         baseURL
       ).toString(),
     });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     const image = page.locator(`${avatar} [data-avatar-image]`);
     const src = new URL((await image.getAttribute('src')) ?? '', baseURL);
@@ -115,7 +132,7 @@ test.describe('top nav signed-in state', () => {
         baseURL
       ).toString(),
     });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(page.locator(`${avatar} [data-avatar-image]`)).toBeVisible();
     await expect(page.locator(`${avatar} [data-avatar-fallback]`)).toBeHidden();
@@ -132,7 +149,7 @@ test.describe('top nav signed-in state', () => {
         baseURL
       ).toString(),
     });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(
       page.locator(`${avatar} [data-avatar-fallback]`)
@@ -145,7 +162,7 @@ test.describe('top nav signed-in state', () => {
       fullName: 'John Doe',
       profileImageUrl: 'javascript:alert(1)',
     });
-    await page.goto(showcase);
+    await page.goto(docsPage);
 
     await expect(
       page.locator(`${avatar} [data-avatar-fallback]`)

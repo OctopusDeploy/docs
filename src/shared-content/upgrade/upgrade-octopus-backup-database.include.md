@@ -1,12 +1,12 @@
 ### Maintenance mode
 
-Maintenance mode prevents non-Octopus Administrators from doing deployments or making changes.  To enable maintenance mode go to **Configuration ➜ Maintenance** and click the button `Enable Maintenance Mode`.  To disable maintenance mode, go back to the same page and click on `Disable Maintenance Mode`. 
+Maintenance mode prevents non-Octopus Administrators from doing deployments or making changes.  To enable maintenance mode go to **Configuration ➜ Maintenance** and click the button `Enable Maintenance Mode`.  To disable maintenance mode, go back to the same page and click on `Disable Maintenance Mode`.
 
 ### Backup the SQL Server database
 
 Always back up the database before upgrading Octopus Deploy.  The most straightforward backup possible is a full database backup.  Execute the below T-SQL command to save a backup to a NAS or file share.
 
-```
+```text
 BACKUP DATABASE [OctopusDeploy]
           TO DISK = '\\SomeServer\SomeDrive\OctopusDeploy.bak'
              WITH FORMAT;

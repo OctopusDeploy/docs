@@ -163,23 +163,8 @@
   --search-placeholder-color: #173b56;
   --search-remove-icon-color: #355670;
   --search-overlay: rgba(12, 26, 36, 0.3);
-  --navbar-icon-size: 3rem;
 
-  /* Hamburger menu */
-  --hamburger-line-width: 1.5rem;
-  --hamburger-line-height: 0.2rem;
-  --hamburger-line-margin: 0.2rem;
-  --hamburger-translate-y: calc(
-    var(--hamburger-line-height) + var(--hamburger-line-margin)
-  );
   --hamburger-lines-color: var(--colorIconPrimary);
-
-  /* Theme Switcher */
-  --theme-switcher-border: var(--colorBorderPrimary);
-
-  /* Badge */
-  --badge-background: rgba(162, 209, 244, 0.2);
-  --badge-color: #0d80d8;
 
   /* Card */
   --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
@@ -193,9 +178,7 @@
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
 
-  --header-bg: var(--colorBackgroundPrimaryDefault);
   --header-link-color: var(--octo-blue);
-  --header-link-alt: var(--blue-gray-darker);
 
   --content-bg: var(--white);
 
@@ -211,7 +194,7 @@
   --block-gap: 2rem;
 
   --header-pin: 0;
-  --header-height: 82px;
+  --header-height: 68px;
   --scroll-pad: 140px;
 
   --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
@@ -224,6 +207,24 @@
   --toc-width: 250px;
   /* Space between the article and the toc beside it. */
   --toc-offset: 80px;
+  /* The two columns of an API reference page: the endpoint and the request and
+     response examples beside it. Each takes its full width wherever there is
+     room, and the pair compress together down to their minimums before the
+     examples drop below the endpoint instead. */
+  --api-content-width: 680px;
+  --api-content-min-width: 420px;
+  --api-examples-width: 640px;
+  --api-examples-min-width: 400px;
+  --api-columns-gap: var(--space32);
+  /* The pair together, which is what the article is centred on. */
+  --api-columns-width: calc(
+    var(--api-content-width) + var(--api-columns-gap) +
+      var(--api-examples-width)
+  );
+  --api-columns-min-width: calc(
+    var(--api-content-min-width) + var(--api-columns-gap) +
+      var(--api-examples-min-width)
+  );
   --grid-max-width: 1250px;
   --grid-gap: 1rem;
   --grid-gap-main: 1rem;
@@ -286,12 +287,9 @@ html[data-theme='dark'] {
   /* TODO: --blue-grey is hand-themed for .card__description, which is
      secondary text, so --color-text-secondary already covers it. */
   --blue-grey: #dae2e9ff;
-  --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
   --search-overlay: rgba(12, 26, 36, 0.8);
-  --badge-background: rgba(31, 192, 255, 0.1);
-  --badge-color: var(--octo-blue-lightest);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */
   --icon-tile-background-hover: var(--colorBackgroundTertiary);
 

@@ -16,7 +16,7 @@ Use this prompt to analyze your environments’ names and counts to ensure maint
 
 ## 📝 Prompt
 
-```
+```text
 Review environment names and total count for scalability issues
 ```
 

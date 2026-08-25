@@ -36,7 +36,7 @@ To create a runbook to deploy resources to Azure using the *Deploy an Azure Reso
     ![Azure Account variable](/docs/img/runbooks/runbook-examples/azure/resource-groups/azure-account.png)
 
     :::div{.hint}
-    [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**. 
+    [Azure accounts](/docs/infrastructure/accounts/azure/) can be referenced in a project through a project [variable](/docs/projects/variables) of the type **Azure account**.
 
     The step will allow you to bind the account to an **Azure account** variable, using the [binding syntax](/docs/projects/variables/#use-variables-in-step-definitions). By using a variable for the account, you can have different accounts used across different environments or regions using [scoping](/docs/projects/variables/#use-variables-in-step-definitions).
     :::
@@ -68,7 +68,7 @@ Although you can use variables directly in the template, it is more idiomatic to
 :::
 
 :::figure
-![](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-json-template.png)
+![An ARM template using parameters rather than variables directly](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-json-template.png)
 :::
 
 ### Sensitive data
@@ -80,7 +80,7 @@ Parameters marked as [secure strings](https://learn.microsoft.com/en-us/azure/az
 The field displayed when "From Octopus" option is selected stores data as plain text so sensitive data shouldn't be typed directly into it.  Instead, the value of the parameter should be provided either via a [Sensitive Variable](/docs/projects/variables/sensitive-variables/) if the value is stored in Octopus or via [Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter) if the value is stored outside of Octopus. Azure Resource Group Templates provide [out of the box integration with Azure Key Vault](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/key-vault-parameter?tabs=azure-cli).
 
 :::figure
-![](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png)
+![A secure string parameter on the ARM template step](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-sensitive-data.png)
 :::
 
 ### Template contained in a package {#packaged-template}
@@ -88,7 +88,7 @@ The field displayed when "From Octopus" option is selected stores data as plain 
 By selecting *Package* as the *Template Source*, you can select a package which will contain your template and parameter JSON files.
 
 :::figure
-![](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-package-source-template.png)
+![Package selected as the Template Source](/docs/img/runbooks/runbook-examples/azure/resource-groups/arm-package-source-template.png)
 :::
 
 The Template Path and Parameters Path fields should contain the relative path to these files within the package.
@@ -170,7 +170,8 @@ Any outputs from the ARM template step are made available as [Octopus output-var
 ```powershell
 Octopus.Action[Arm Template Step Name].Output.AzureRmOutputs[Foo]
 ```
-Note, you need to replace **Arm Template Step Name** with the name of your ARM step template. 
+
+Note, you need to replace **Arm Template Step Name** with the name of your ARM step template.
 
 ### Using linked templates
 
@@ -186,4 +187,3 @@ Learn more about [linked templates](https://docs.microsoft.com/en-us/azure/azure
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

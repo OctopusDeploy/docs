@@ -21,23 +21,23 @@ Using the runbook means developers don't need any extra permissions to the datab
 4. Add a new step template from the community library called **SQL - Restore Database**.
 5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables) rather than entering the values directly in the step parameters.
 
-| Parameter  | Description | Example |
-| ------------- | ------------- | ------------- |
-| Server | Name database server | SQLserver1 |
-| Database | Name of the database to restore | MyDatabase |
-| Backup Directory | Location of where the backup file resides | `\\\mybackupserver\backupfolder` |
-| SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
-| SQL password | Password for the SQL Account | MyPassword |
-| Compression Option | Use compression for this backup | Enabled |
-| Devices | The number of backup devices to use for the backup | 1 |
-| Backup file suffix | Specify a suffix to add to the backup file names. If left blank, the current date, in the format given by the DateFormat parameter, is used | ProdRestore |
-| Separator | Separator used between database name and suffix | _ |
-| Date Format | Date format to use if backup is suffixed with a date stamp (e.g. yyyy-MM-dd) | yyyy-MM-dd |
+    | Parameter | Description | Example |
+    | ------------- | ------------- | ------------- |
+    | Server | Name database server | SQLserver1 |
+    | Database | Name of the database to restore | MyDatabase |
+    | Backup Directory | Location of where the backup file resides | `\\\mybackupserver\backupfolder` |
+    | SQL login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
+    | SQL password | Password for the SQL Account | MyPassword |
+    | Compression Option | Use compression for this backup | Enabled |
+    | Devices | The number of backup devices to use for the backup | 1 |
+    | Backup file suffix | Specify a suffix to add to the backup file names. If left blank, the current date, in the format given by the DateFormat parameter, is used | ProdRestore |
+    | Separator | Separator used between database name and suffix | _ |
+    | Date Format | Date format to use if backup is suffixed with a date stamp (e.g. yyyy-MM-dd) | yyyy-MM-dd |
 
 6. Add a new step template from the community library called **SQL - Fix Orphaned User**.  This is needed because the SID associated with the login for the database will be different and needs to be re-associated.
 7. Fill out all the parameters in the step.
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | SQL Server | Name of the server | SQLserver1 |
 | SQL Login | Name of the SQL Account to use (leave blank for Integrated Authentication) | MySqlLogin |
@@ -47,7 +47,7 @@ Using the runbook means developers don't need any extra permissions to the datab
 
 After adding all required parameters, click **Save**, and you have a runbook to restore your SQL database to another environment and fix the orphaned user accounts.
 
-You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
+You can also add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals.
 
 ## Samples
 

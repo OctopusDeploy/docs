@@ -67,7 +67,7 @@ Rate limiting policies can also be enabled and configured using the Octopus.Serv
 
 For Octopus Cloud instances created after August 2026, and self-hosted installations of Octopus Server created with version 2026.3 or newer, all rate limiting policies are enabled by default.
 
-For Cloud instances created before August 2026, or self-hosted installations created with 2026.2 or earlier versions, the rate limiting feature is a new addition when they upgrade to 2026.3 or the latest Octopus Cloud version.
+For Cloud instances created before August 2026, or self-hosted installations created with 2026.2 or earlier versions, the rate limiting feature is a new addition when upgrading to 2026.3 or the latest Octopus Cloud version.
 When these instances upgrade, the Unauthenticated and Authenticated (non-AI) policies will stay disabled to avoid breaking pre-existing workflows. The Authenticated AI policy will be enabled.
 
 ### Maintaining Service in Octopus Cloud

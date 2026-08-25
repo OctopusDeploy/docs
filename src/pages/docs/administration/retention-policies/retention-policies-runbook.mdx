@@ -11,12 +11,12 @@ description: How to configure run retention policy for runbooks
 
 Under **Project ➜ Runbooks** you select the Runbook you want to define or edit your retention policy for. Retention settings for the runbook is located under **Runbook ➜ Settings ➜ Retention Policy**:
 :::figure
-![](/docs/img/administration/retention-policies/images/runbook-retention-policy.png)
+![The retention policy settings for a runbook](/docs/img/administration/retention-policies/images/runbook-retention-policy.png)
 :::
 
 In Octopus Server, you can keep all runbook runs, or keep a limited number of runbook runs per environment.
 
-If you select _"Keep a limited number"_ you can either specify the number of runs per environment to keep, or specify the number of days to keep runbook runs. The runbook runs that are kept are the most recently created runbook runs.
+If you select *"Keep a limited number"* you can either specify the number of runs per environment to keep, or specify the number of days to keep runbook runs. The runbook runs that are kept are the most recently created runbook runs.
 
 By default, the runbook retention policies are set to keep 100 runs.
 
@@ -27,7 +27,7 @@ From Octopus version 2025.4, the default runbook retention policy for a space ca
 :::
 
 :::figure
-![](/docs/img/administration/retention-policies/images/centralized-retention-runbook.png)
+![The default runbook retention settings for a space](/docs/img/administration/retention-policies/images/centralized-retention-runbook.png)
 :::
 
 You can update the default retention settings used by runbooks under **Manage ➜ Retention ➜ Runbook Retention**.
@@ -35,5 +35,5 @@ You can update the default retention settings used by runbooks under **Manage �
 The default retention policy for a space can be set to keep all runbook runs or keep a limited number of runbook runs per environment, like you can for the individual runbook retention policies.
 
 :::div{.info}
-Updating this retention policy will update all Runbooks in the space that is set to _"Use default retention policy"_.
+Updating this retention policy will update all Runbooks in the space that is set to *"Use default retention policy"*.
 :::

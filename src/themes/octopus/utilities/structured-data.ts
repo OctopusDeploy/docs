@@ -55,23 +55,34 @@ type ArticleNode = {
   contributor?: PersonNode | PersonNode[];
 };
 
-export type GraphNode = OrganizationNode | WebSiteNode | ArticleNode;
+type ListItemNode = {
+  '@type': 'ListItem';
+  position: number;
+  name: string;
+  item?: string;
+};
+type BreadcrumbListNode = {
+  '@type': 'BreadcrumbList';
+  '@id': string;
+  itemListElement: ListItemNode[];
+};
+
+export type GraphNode =
+  | OrganizationNode
+  | WebSiteNode
+  | ArticleNode
+  | BreadcrumbListNode;
 
 // Frontmatter values can drift from declared types at runtime (YAML parses
 // invalid dates as strings). Helpers take unknown and validate.
 
 const SITE_ROOT = SITE.url + SITE.subfolder;
-const SUBFOLDER = SITE.subfolder.replace(/\/$/, '');
 
 const ORG_ID = `${SITE_ROOT}#organization`;
 const WEBSITE_ID = `${SITE_ROOT}#website`;
 const ORG_LOGO_URL = SITE.url + STRUCTURED_DATA.organizationLogo.src;
 const ORG_LOGO_WIDTH = STRUCTURED_DATA.organizationLogo.width;
 const ORG_LOGO_HEIGHT = STRUCTURED_DATA.organizationLogo.height;
-
-const TECH_ARTICLE_PREFIXES = ['/installation', '/getting-started'].map(
-  (p) => SUBFOLDER + p
-);
 
 // frontmatter.layout is absent at this stage, so no layout check.
 // Add one if a Search-layout page appears without navSitemap: false.
@@ -138,12 +149,6 @@ function pickLang(val: unknown): string {
   }
 }
 
-function normalizePathname(pathname: string): string {
-  return pathname.length > 1 && pathname.endsWith('/')
-    ? pathname.slice(0, -1)
-    : pathname;
-}
-
 // Same exclusion axes as the sitemap filter, minus layout (absent here).
 export function isStructuredDataEligible(
   frontmatter: StructuredDataFrontmatter | null | undefined
@@ -157,18 +162,13 @@ export function isStructuredDataEligible(
   return true;
 }
 
-// URL-prefix default; frontmatter.articleType overrides.
+// TechArticle default; frontmatter.articleType overrides.
 export function pickArticleType(
-  pathname: string,
   frontmatter: StructuredDataFrontmatter
 ): ArticleType {
   const override = frontmatter.articleType;
-  if (override === 'Article' || override === 'TechArticle') return override;
-  const path = normalizePathname(pathname);
-  for (const prefix of TECH_ARTICLE_PREFIXES) {
-    if (path === prefix || path.startsWith(prefix + '/')) return 'TechArticle';
-  }
-  return 'Article';
+  if (override === 'Article') return override;
+  return 'TechArticle';
 }
 
 // Cached per-page nodes. Convention: do not mutate. No runtime enforcement.
@@ -290,6 +290,43 @@ export function buildArticle({
   }
 
   return node;
+}
+
+export function buildBreadcrumbList(
+  crumbs: ReadonlyArray<{ url: string; title: string }>,
+  canonicalURL: string
+): BreadcrumbListNode | null {
+  const crumbsWithTitle = crumbs.filter(
+    (c) => typeof c.title === 'string' && c.title
+  );
+  if (crumbsWithTitle.length < 2) return null;
+
+  const itemListElement = crumbsWithTitle.map((crumb, index) => {
+    const isLast = index === crumbsWithTitle.length - 1;
+    // `item` is optional in the spec, and is left off both for the last crumb
+    // (the page itself) and for a crumb with no url - a section that has no
+    // page of its own. Without the url guard the empty string resolves against
+    // SITE.url and the crumb would claim to be the site root.
+    const item = isLast || !crumb.url ? undefined : toAbsoluteUrl(crumb.url);
+    return {
+      '@type': 'ListItem' as const,
+      position: index + 1,
+      name: crumb.title,
+      ...(item && { item }),
+    };
+  });
+
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalURL}#breadcrumb`,
+    itemListElement,
+  };
+}
+
+function toAbsoluteUrl(url: string): string | undefined {
+  try {
+    return new URL(url, SITE.url).toString();
+  } catch {}
 }
 
 // Single @graph payload; all @ids resolve in-document. Article first.

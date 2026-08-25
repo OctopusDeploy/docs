@@ -4,9 +4,6 @@ import {
   addListImageIntersectionObserver,
 } from './modules/animation.js';
 import { addResizedEvent } from './modules/resizing.js';
-import { addStickyNavigation } from './modules/nav-sticky.js';
-import { mobileNav } from './modules/nav-mobile.js';
-import { markdownLinkMenus } from './modules/markdown-links.js';
 import { setClickableBlocks } from './modules/click-blocks.js';
 import { setExternalLinkAttributes } from './modules/external-links.js';
 import { monitorInputType } from './modules/input-type.js';
@@ -14,23 +11,20 @@ import { enableSharing } from './modules/share.js';
 import { highlightCurrentHeading } from './modules/toc.js';
 import { enhanceTooltips } from './modules/tooltips';
 
-const resizedEventName = addResizedEvent();
+addResizedEvent();
 
 enhanceTooltips();
 setClickableBlocks();
 setExternalLinkAttributes();
-addStickyNavigation(
-  '.site-header',
-  '#site-nav',
-  '#site-nav > ul',
-  resizedEventName
-);
-addIntersectionObserver('.anim-show-parent img, .anim-show-parent .list-item');
-addListImageIntersectionObserver('.post-list img');
+addIntersectionObserver('.anim-show-parent img, .anim-show-parent .card');
+addListImageIntersectionObserver('.card img');
 monitorInputType();
 enableSharing();
 highlightCurrentHeading('.page-toc a');
 highlightCurrentHeading('.article-nav a');
+// The API section lists the current page's endpoints in the left nav instead
+// of a table of contents, so that list tracks the reader the same way.
+highlightCurrentHeading('.site-nav__link--heading');
 
 // @ts-ignore
 const f = site_features ?? {};
@@ -70,9 +64,4 @@ if (enabled(f.figures, 'enlarge')) {
 if (enabled(f.headers, 'link')) {
   const headers = await import('./modules/headers.js');
   headers.enhanceHeaders();
-}
-
-if (enabled(f.search, 'dialog')) {
-  const searchDialog = await import('./modules/search-dialog.js');
-  searchDialog.enhanceSearchIcon();
 }

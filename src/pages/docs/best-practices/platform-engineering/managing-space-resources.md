@@ -54,7 +54,7 @@ The steps documented below are best run on the `Hosted Ubuntu` worker pools for 
 
 The following process serializes a space to a Terraform module:
 
-1. Create a project with a runbook called `__ 1. Serialize Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
+1. Create a project with a runbook called `__ 1. Serialize Space`. Runbooks with the prefix `__` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add the `Octopus - Serialize Space to Terraform` step from the [community step template library](/docs/projects/community-step-templates).
    1. Set the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
    2. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
@@ -86,7 +86,7 @@ Many of the exported resources expose values, like resource names, as Terraform 
 
 The following process creates and populates a space with the Terraform module exported using the process documented in the previous section:
 
-1. Create a project with a runbook called `__ 2. Deploy Space`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
+1. Create a project with a runbook called `__ 2. Deploy Space`. Runbooks with the prefix `__` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add one of the steps called `Octopus - Create Octoterra Space` from the [community step template library](/docs/projects/community-step-templates). Each step indicates the Terraform backend it supports. For example, the `Octopus - Create Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
    1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` [container image](/docs/projects/steps/execution-containers-for-workers).
    2. Set the `Octopus Space Name` field to the name of the new space. The default value of `#{Octopus.Deployment.Tenant.Name}` assumes the step is run against a tenant, and the name of the tenant is the name of the new space.
@@ -99,7 +99,7 @@ The following process creates and populates a space with the Terraform module ex
    9. Set the `Terraform Additional Init Params` field to a list of additional arguments to pass to the `terraform init` command. Leave this field blank unless you have a specific reason to pass an argument to Terraform.
    10. Each `Octopus - Create Octoterra Space` step exposes values relating to their specific Terraform backend that must be configured. For example, the `Octopus - Create Octoterra Space (S3 Backend)` step exposes fields to configure the S3 bucket, key, and region where the Terraform state is saved. Other steps have similar fields.
 3. Add one of the steps called `Octopus - Populate Octoterra Space` from the [community step template library](/docs/projects/community-step-templates). Each step indicates the Terraform backend it supports. For example, the `Octopus - Populate Octoterra Space (S3 Backend)` step configures a S3 Terraform backend.
-    1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image. 
+    1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image.
     2. Set the `Terraform Workspace` field to a [workspace](https://developer.hashicorp.com/terraform/language/state/workspaces) that tracks the new space. The default value of `#{OctoterraApply.Octopus.SpaceID}` creates a workspace name based on the ID of the space that is being populated. Leave the default value unless you have a specific reason to change it.
     3. Select the package created by the export process in the previous section in the `Terraform Module Package` field. The package name is the same as the exported space name, with all non-alphanumeric characters replaced with an underscore.
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new space in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.

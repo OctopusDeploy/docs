@@ -1,7 +1,7 @@
 ---
 import { Lang, Translations } from '@util/Languages';
 import { getPageMarkdownPath } from '@util/mdxContent';
-import Button from './Button.astro';
+import SplitButton from './SplitButton.astro';
 
 type Props = {
   lang: string;
@@ -15,30 +15,103 @@ const pageMdUrl = getPageMarkdownPath(Astro.url.pathname);
 
 {
   pageMdUrl && (
-    <Button
+    <SplitButton
       class="octo-copy-md"
+      data-copy-md-url={pageMdUrl}
+      label={_(Translations.octopus_copy_md.label)}
       icon="octo-copy-md__icon"
       size="small"
-      data-copy-md-url={pageMdUrl}
+      menuLabel={_(Translations.octopus_copy_md.more_options)}
+      items={[
+        {
+          label: _(Translations.octopus_copy_md.view_raw),
+          href: pageMdUrl,
+          icon: 'octo-copy-md__glyph octo-copy-md__glyph--markdown',
+          iconEnd: 'octo-copy-md__glyph octo-copy-md__glyph--external',
+        },
+      ]}
+      target="_blank"
+      rel="noopener"
     >
-      {/* All three states are rendered, stacked in one grid cell, so the button
-          is sized by its longest label and keeps that width as the state
-          changes. Only the current one is visible, and `visibility` keeps the
-          other two out of the accessible name. */}
-      <span class="btn__label octo-copy-md__labels">
-        <span class="octo-copy-md__label octo-copy-md__label--rest">
-          {_(Translations.octopus_copy_md.label)}
-        </span>
-        <span class="octo-copy-md__label octo-copy-md__label--copied">
-          {_(Translations.octopus_copy_md.copied)}
-        </span>
-        <span class="octo-copy-md__label octo-copy-md__label--failed">
-          {_(Translations.octopus_copy_md.error)}
-        </span>
+      {/* Stacked with the label in one grid cell, so the button is sized by the
+          longer of the two and keeps that width while it reports the copy.
+          `visibility` is what hides it, which also keeps it out of the
+          accessible name until it is the one showing. */}
+      <span class="octo-copy-md__copied">
+        {_(Translations.octopus_copy_md.copied)}
       </span>
-    </Button>
+    </SplitButton>
   )
 }
+
+<style>
+  /* SplitButton, Button and Menu render everything inside this control, so those
+     elements carry their own scope rather than this one and are reached with
+     `:global()`. The `.octo-copy-md` the wrapper is given does carry it, which is
+     what keeps these rules off every other button on the page. */
+
+  .octo-copy-md :global(.octo-copy-md__icon) {
+    background-color: var(--colorIconPrimary);
+    mask: url('../assets/icons/copy.svg') center / contain no-repeat;
+  }
+
+  .octo-copy-md :global([data-copied] .octo-copy-md__icon) {
+    mask: url('../assets/icons/check.svg') center / contain no-repeat;
+  }
+
+  /* The label and the "Copied" it turns into share one grid cell, so the button
+     is sized by the longer of the two and holds that width while it reports. The
+     icon keeps a column of its own, as `.btn`'s flex layout gave it. */
+  .octo-copy-md :global(.split-btn__primary) {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .octo-copy-md :global(.split-btn__primary > .btn__icon) {
+    grid-area: 1 / 1;
+  }
+
+  .octo-copy-md :global(.split-btn__primary > .btn__label),
+  .octo-copy-md__copied {
+    grid-area: 1 / 2;
+    text-align: start;
+    white-space: nowrap;
+  }
+
+  /* Slotted, so button.css's scoped .btn__label padding does not reach it. */
+  .octo-copy-md__copied {
+    padding-inline: var(--space4);
+    visibility: hidden;
+  }
+
+  .octo-copy-md :global([data-copied] > .btn__label) {
+    visibility: hidden;
+  }
+
+  .octo-copy-md :global([data-copied]) > .octo-copy-md__copied {
+    visibility: visible;
+  }
+
+  /* The menu item's own glyphs. */
+  .octo-copy-md :global(.octo-copy-md__glyph) {
+    background-color: currentColor;
+  }
+
+  /* Drawn at the 16px it was exported at, which is the box `.menu__icon` gives
+     it, so `contain` fits it rather than scaling it. The badge is short of the
+     full height because the asset carries its own vertical padding. */
+  .octo-copy-md :global(.octo-copy-md__glyph--markdown) {
+    mask: url('../assets/icons/markdown.svg') center / contain no-repeat;
+  }
+
+  /* The exported glyph sits inside a box 25% wider than itself, so the mask is
+     sized rather than left to fill. */
+  .octo-copy-md :global(.octo-copy-md__glyph--external) {
+    mask: url('../assets/icons/external-link.svg') center / 0.8rem no-repeat;
+  }
+</style>
 
 <script>
   import '../scripts/copy-as-markdown';

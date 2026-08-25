@@ -15,6 +15,10 @@ Ephemeral environments integrate smoothly into your existing development workflo
 
 Octopus can automatically create and deploy to an ephemeral environment from releases created within a specifically configured channel in a project, and supports provisioning and deprovisioning of associated infrastructure using Runbooks.
 
+:::div{.hint}
+[Easy Mode - Ephemeral Environments](https://octopus.com/blog/octo-easy-mode-15-ephemeral-environments) provides a practical example of ephemeral environments you can apply to your own Octopus instance.
+:::
+
 ## Getting started
 
 To configure Ephemeral Environments for your project:
@@ -186,6 +190,10 @@ When an ephemeral environment is no longer needed it can be deprovisioned and an
 
 - For projects using runbooks stored in Octopus the published snapshot will be used to run the runbook.
 - For projects using runbooks stored in version control, the Git reference used to provision the environment will be used to run the runbook.
+
+:::div{.info}
+When an ephemeral environment is deprovisioned, it will automatically be removed from any associated deployment targets. If there are no environments remaining on a target, the target will also be deleted.
+:::
 
 Ephemeral environments can be deprovisioned via the:
 

@@ -48,7 +48,7 @@ C:\> octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Da
 <summary>Bash</summary>
 
 ```bash
-$ octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
+octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
 ```
 
 </details>
@@ -125,4 +125,3 @@ Note that packages uploaded via the [recommended methods](/docs/packaging-applic
 ## Learn more
 
 - Generate an Octopus guide for [the Octopus built-in repository and the rest of your CI/CD pipeline](https://octopus.com/docs/guides).
-

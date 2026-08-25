@@ -10,15 +10,18 @@ import FindVariableSetUsageScripts from 'src/shared-content/scripts/find-variabl
 This script demonstrates how to programmatically find usages of variables from a variable set. It searches in all projects for a reference to each variable, and optionally deployment processes and runbook processes.
 
 :::div{.hint}
-**Limitations:** 
+**Limitations:**
 Please note the limitations with this example:
+
 - It's not possible to use the REST API to search through sensitive variable values, as these values will be returned as `null`.
 - Variables that are referenced inside of any packages included as part of a deployment or runbook are not searched.
+
 :::
 
 ## Usage
 
 Provide values for the following:
+
 - Octopus URL
 - Octopus API Key
 - Name of the space to search

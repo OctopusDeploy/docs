@@ -88,6 +88,7 @@ Learn more about configuring and using [dynamic worker pools](/docs/infrastructu
 ## External Workers \{#external-workers}
 
 An **External Worker** is either:
+
 - A [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux) Tentacle.
 - An [SSH machine](/docs/infrastructure/deployment-targets/linux/ssh-target) that has been registered with the Octopus Server as a worker.  
 - A [Kubernetes Worker](/docs/infrastructure/workers/kubernetes-worker) that has been installed in a Kubernetes cluster, and has self-registered with the Octopus Server
@@ -104,7 +105,7 @@ Workers have machine policies, are health checked, and run Calamari, just like d
 
 ## Registering an External Worker \{#registering-an-external-worker}
 
-Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
+Once the Tentacle or SSH machine has been configured, workers can be added using the [Web Portal](#registering-workers-in-the-octopus-web-portal), the [Octopus Deploy REST API](/docs/octopus-rest-api/), the [Octopus.Clients library](/docs/octopus-rest-api/octopus.client) or with the Tentacle executable.  Only a user with the `ConfigureServer` permission can add or edit workers.
 
 ### Registering Workers in the Octopus Web Portal \{#registering-workers-in-the-octopus-web-portal}
 
@@ -159,14 +160,15 @@ The new Polling Tentacle will automatically show up in the Workers list.
 
 Tentacle workers can also register with the server using the Tentacle executable (version 3.22.0 or later), for example:
 
-```
+```text
 .\Tentacle.exe register-worker --instance MyInstance --server "https://example.com/" --comms-style TentaclePassive --apikey "API-YOUR-KEY" --workerpool "Default Worker Pool"
 ```
 
 Use `TentacleActive` instead of `TentaclePassive` to register a polling Tentacle worker.
 
 The Tentacle executable can also be used to deregister workers, for example:
-```
+
+```text
 .\Tentacle.exe deregister-worker --instance MyInstance --server "https://example.com/" --apikey "API-YOUR-KEY"
 ```
 
@@ -194,7 +196,7 @@ Default pools attached to cloud targets allow co-location of workers and targets
 
 <PowerShellNamedMutex />
 
-### Workers in HA setups 
+### Workers in HA setups
 
 With Octopus High Availability, each node has a task cap and can invoke the built-in worker locally, so for a 4-node HA cluster, there are 4 built-in workers.  Therefore if you move to external workers, it's likely you'll need to provision workers to at least match your server nodes, otherwise, you'll be asking each worker to do the sum of what the HA nodes were previously doing.
 

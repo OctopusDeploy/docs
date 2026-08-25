@@ -12,9 +12,9 @@ Some certificate generation libraries can generate certificates that are invalid
 
 Octopus Deploy uses a common certificate library called [Bouncy Castle](https://github.com/bcgit/bc-csharp) to parse and work with certificates. Recent versions of this have improved validation of certificates, which has, unfortunately, limited the usability of some certificates that don't strictly comply with the specification.
 
-## Common errors:
+## Common errors
 
-### `failed to construct sequence from byte[]: extra data found after object` 
+### `failed to construct sequence from byte[]: extra data found after object`
 
 This error implies that the file being uploaded might be an SSH Key and not a valid certificate. Octopus only supports [SSH key pair accounts](/docs/infrastructure/accounts/ssh-key-pair) for securely authenticating with SSH targets.
 
@@ -46,14 +46,14 @@ Please review the certificates in  **Deploy ➜ Certificates** to find the inval
 
 ### `Invalid certificate detected - Unable to parse certificate`
 
-This sometimes happens when attempting to import _crt_ files. If you are having trouble importing a crt file, you can convert the crt file to a cer file using the following method, and try re-importing:
+This sometimes happens when attempting to import *crt* files. If you are having trouble importing a crt file, you can convert the crt file to a cer file using the following method, and try re-importing:
 
-* Double-click on the file labeled .crt to open it into the certificate display.
-* Select the Details tab, and then click Copy to File.
-* Click the Next option in the certificate wizard.
-* Choose Base-64 encoded X.509 (.cer), and then click on Next.
-* Now, browse to store your file and type in the filename that you want to keep
-* Finally, save the file.
+- Double-click on the file labeled .crt to open it into the certificate display.
+- Select the Details tab, and then click Copy to File.
+- Click the Next option in the certificate wizard.
+- Choose Base-64 encoded X.509 (.cer), and then click on Next.
+- Now, browse to store your file and type in the filename that you want to keep
+- Finally, save the file.
 
 **Note:** This will need to be completed on Windows.
 
@@ -61,16 +61,16 @@ This sometimes happens when attempting to import _crt_ files. If you are having 
 
 When attempting to import a certificate in `PKCS#12` format you might receive an error similar to:
 
-```
+```text
 Could not parse certificate data. Possible causes: 1) The certificate format is not supported. 2) The password is incorrect. 3) The file is corrupt. Error: Unable to parse certificate 'example.cert.domain'
 (id: ): Unknown encryption algorithm: 1.2.840.113549.1.5.13
 ```
 
-This error may be caused by the use of [openssl](https://www.openssl.org/) version **3.0** (or higher) to create the certificate. 
+This error may be caused by the use of [openssl](https://www.openssl.org/) version **3.0** (or higher) to create the certificate.
 To workaround this error, you can try the following:
 
-* Generate the certificate using openssl version **1.1.1** and re-attempting the certificate upload/import.
-* Import the certificate into the Windows Certificate store, export it using the `PKCS#12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
-* Generate the certificate using openssl version **3.0** (or higher) using [legacy algorithms](https://wiki.openssl.org/index.php/OpenSSL_3.0#Legacy_Algorithms). This requires the [legacy provider](https://wiki.openssl.org/index.php/OpenSSL_3.0#Providers) to be loaded in the openssl configuration first, and then generating the certificate using the `-provider legacy` switch. Finally, re-attempting the certificate upload/import.
+- Generate the certificate using openssl version **1.1.1** and re-attempting the certificate upload/import.
+- Import the certificate into the Windows Certificate store, export it using the `PKCS#12` format, *optionally* with your private key and then re-attempt the certificate upload/import.
+- Generate the certificate using openssl version **3.0** (or higher) using [legacy algorithms](https://wiki.openssl.org/index.php/OpenSSL_3.0#Legacy_Algorithms). This requires the [legacy provider](https://wiki.openssl.org/index.php/OpenSSL_3.0#Providers) to be loaded in the openssl configuration first, and then generating the certificate using the `-provider legacy` switch. Finally, re-attempting the certificate upload/import.
 
 For more information, see this [GitHub issue](https://github.com/OctopusDeploy/Issues/issues/7156).

@@ -11,6 +11,7 @@ navOrder: 20
 Starting with SQL Server 2008, Microsoft introduced a new project type called Database Projects.  These projects use the [state-based approach](https://octopus.com/blog/sql-server-deployment-options-for-octopus-deploy) to applying changes to your database.  Initially, Database Projects were not available as part of the initial Visual Studio install and had to be downloaded separately. This download was referred to as SQL Server Data Tools (SSDT) and included project types for Database projects, SQL Server Reporting Services (SSRS) projects, and SQL Server Integration Services (SSIS) projects.  Modern versions of Visual Studio have SSDT available to choose when installing or modifying an existing installation.
 
 ## Installing SSDT for Visual Studio
+
 For earlier versions of Visual Studio such as 2015 and below, installing the SSDT was a matter of locating the download for your version of Visual Studio.  Microsoft has provided a convenient way of finding the appropriate download on [this page](https://docs.microsoft.com/en-us/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi?view=sql-server-ver15).
 
 For more modern versions of Visual Studio (2017+), checkout [Microsoft's installation instructions](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver15)
@@ -34,9 +35,9 @@ The project has been created, now we connect it to a database. This example uses
 2. Click **Select Connection**.
 3. Add the **Server Name** and select the type of authentication. In this screenshot, a SQL Account is used to connect to the database server.  
 
-:::figure
-![Connection details for the database](/docs/img/deployments/databases/sql-server/images/visual-studio-2019-connect-database.png)
-:::
+    :::figure
+    ![Connection details for the database](/docs/img/deployments/databases/sql-server/images/visual-studio-2019-connect-database.png)
+    :::
 
 4. Click **Connect** and then click **Start** to import the database.
 
@@ -85,21 +86,21 @@ Note, this example uses the classic editor without YAML.
 3. Choose a build pool, then click on the **+** to add a step to the build definition.
 4. Click on the Build category and scroll down to **Visual Studio build**.
 
-:::div{.hint}
-An MSBuild task will accomplish the same thing
-:::
+    :::div{.hint}
+    An MSBuild task will accomplish the same thing
+    :::
 
 5. Add `/p:OutDir=$(build.StagingDirectory)` to the MSBuild Arguments so that the built artifacts are separated from the source code.
 
-:::figure
-![MSBuild arguments](/docs/img/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png)
-:::
+    :::figure
+    ![MSBuild arguments](/docs/img/deployments/databases/sql-server/images/azure-devops-build-visual-studio-arguments.png)
+    :::
 
 6. Click on the **+**, select **Package**, and select **Package Application for Octopus**.
 
-:::div{.hint}
-The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
-:::
+    :::div{.hint}
+    The Octopus Deploy extension is available in the Marketplace, install the extension if you haven't already done so.
+    :::
 
 7. Add the properties for the task:
     - **Package ID**: Give the package a meaningful name.
@@ -113,18 +114,18 @@ For Azure DevOps, the build number can be formatted on the Options tab under Bui
 :::
 
 8. Expand the Advanced Options section and add:
-	- **Include**: The only file we need for deployment is the .dacpac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
+    - **Include**: The only file we need for deployment is the .dacpac itself.  Add the filename here, this example uses `OctoFXDemo.dacpac`.
 9. The final step in the definition pushes the package to a repository.  This guide uses Octopus Deploy's built-in package repository. Click on the **+**, select **Package**, and select **Push Package(s) to Octopus**.
 10. Next, create a connection to the Octopus Server, by clicking **+ New** and add the connection details, then click **OK**.
 11. Select the space in your Octopus instance to push to from the drop-down menu.
 12. Enter the package(s) that you would like pushed to the Octopus repository and the individual packages or use wildcard syntax:
-	1. Individual packages, for instance, `$(build.StagingDirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
-	2. A wildcard `$(build.StagingDirectory)\*.nupkg`.
+    - Individual packages, for instance, `$(build.StagingDirectory)\OctoFXDemo.dacpac.$(Build.BuildNumber).nupkg`
+    - A wildcard `$(build.StagingDirectory)\*.nupkg`.
 
 Queue the build to push the artifact to the Octopus Server:
 
 :::figure
-![](/docs/img/deployments/databases/sql-server/images/azure-devops-build-successful.png)
+![A successful Azure DevOps build pushing the artifact to Octopus](/docs/img/deployments/databases/sql-server/images/azure-devops-build-successful.png)
 :::
 
 ## Create the Octopus Deploy project
@@ -139,11 +140,12 @@ Now that the build server has been configured to push the artifact to the Octopu
 
 1. Click **Variables** from the project's overview screen.
 2. Define the following variables:
-	- `Project.SQLServer.Name`
-	- `Project.SQLServer.Admin.User.Name` (optional)
-	- `Project.SQLServer.Admin.User.Password` (optional)
-	- `Project.Database.Name`
-	- `Project.DACPAC.Name`
+
+    - `Project.SQLServer.Name`
+    - `Project.SQLServer.Admin.User.Name` (optional)
+    - `Project.SQLServer.Admin.User.Password` (optional)
+    - `Project.Database.Name`
+    - `Project.DACPAC.Name`
 
 It is considered best practice to namespace your variables.  Doing this helps prevent any variable name conflicts from variable sets or step template variables.  Prefixing `Project.` to the front indicates that this is a project variable.
 
@@ -164,21 +166,21 @@ With variables defined, we can add steps to our deployment process.
 1. Click the **Process** tab.
 2. Click  **ADD STEP**.
 3. Search for `dacpac` steps, select the **SQL - Deploy DACPAC using SqlPackage** step, and enter the following details:
-	- **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
-	- **Publish profile name**: Complete this field if you use Publish profiles.
-	- **Report**: True.
-	- **Script**: True.
-	- **Deploy**: False.
-	- **Target Servername**: `Project.SQLServer.Name` variable.
-	- **Target Database**: `Project.Database.Name` variable.
-	- **Authentication type**: Choose the authentication for your use case.
-	- **Username**: `Project.SQLServer.Admin.User.Name` variable (used only with SQL Authentication type).
-	- **Password**: `Project.SQLServer.Admin.User.Password` variable (used only with SQL Authentication type).
-	- **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.	
-	- **Command Timeout**: Override the default script execution timeout.
-	- **SqlPackage executable location**: If you have the sqlpackage.exe installed, specify the location, otherwise, leave blank to dynamically download it.
-	- **Additional arguments**: Any additional sqlpackage.exe arguments not provided by the template.
 
+    - **DACPACPackageName**: The name of the dacpac file.  The `Project.DACPAC.Name` variable was created for this field.
+    - **Publish profile name**: Complete this field if you use Publish profiles.
+    - **Report**: True.
+    - **Script**: True.
+    - **Deploy**: False.
+    - **Target Servername**: `Project.SQLServer.Name` variable.
+    - **Target Database**: `Project.Database.Name` variable.
+    - **Authentication type**: Choose the authentication for your use case.
+    - **Username**: `Project.SQLServer.Admin.User.Name` variable (used only with SQL Authentication type).
+    - **Password**: `Project.SQLServer.Admin.User.Password` variable (used only with SQL Authentication type).
+    - **DACPAC Package**: The package from the repository, OctoFXDemo.dacpac for this guide.
+    - **Command Timeout**: Override the default script execution timeout.
+    - **SqlPackage executable location**: If you have the sqlpackage.exe installed, specify the location, otherwise, leave blank to dynamically download it.
+    - **Additional arguments**: Any additional sqlpackage.exe arguments not provided by the template.
 
 4. Add a manual intervention step, scoped to production, so the report from the previous step can be examined before deploying to production.
 5. Add another **SQL - Deploy DACPAC using SqlPackage** step, and change the Report and Script values to `False`, and the Deploy value to `True`.
@@ -186,7 +188,7 @@ With variables defined, we can add steps to our deployment process.
 The deployment process should look like this:
 
 :::figure
-![](/docs/img/deployments/databases/sql-server/images/octopus-project-steps.png)
+![The DACPAC deployment process in Octopus](/docs/img/deployments/databases/sql-server/images/octopus-project-steps.png)
 :::
 
 ### Create and deploy a release
@@ -199,7 +201,7 @@ The deployment process should look like this:
 The results will look like:
 
 :::figure
-![](/docs/img/deployments/databases/sql-server/images/octopus-project-deploy-complete.png)
+![A completed DACPAC deployment](/docs/img/deployments/databases/sql-server/images/octopus-project-deploy-complete.png)
 :::
 
 The first part of this process gathers the changes and creates two [artifacts](/docs/projects/deployment-process/artifacts), an XML file that reports which objects will be changed and the script it will use to apply those changes.  The deployment (deploy DACPAC) uses that generated script and applies it to the target so the database matches the desired state.

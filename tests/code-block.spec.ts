@@ -130,13 +130,22 @@ test.describe('code block', () => {
   }) => {
     await page.goto(GROUPED);
 
-    const select = page.locator('.code-block__language-select').first();
+    const block = page.locator('.code-block').first();
+    const select = block.locator('.code-block__language-select');
     await select.focus();
     await expect(select).toBeFocused();
 
-    // Free with <select>; the old menu hand-rolled all of this
-    await select.press('ArrowDown');
+    // Free with <select>; the old menu hand-rolled all of this. Type-ahead
+    // rather than ArrowDown, because Arrow keys open the picker instead of
+    // moving the selection on macOS - and type-ahead behaves the same
+    // everywhere, so this asserts one thing on all three platforms. One key
+    // only: consecutive letters accumulate into a search buffer, so pressing
+    // "c" then "p" looks for "cp" rather than moving twice.
+    await select.press('c');
     await expect(select).toHaveValue('1');
+
+    // The keyboard has to drive the panels, not just the select's own value.
+    await expect(block).toContainText('repository.Machines.Modify(machine)');
   });
 
   test('a one-member group gets no switcher', async ({ page }) => {

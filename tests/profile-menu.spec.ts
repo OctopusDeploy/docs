@@ -1,8 +1,10 @@
 import { test, expect, type Page } from '@playwright/test';
 
-const showcase = '/components';
+const docsPage = '/docs/';
 
-const profile = '.top-nav-showcase .top-nav .profile-menu';
+// Match the full width avatar menu; the inline one used when the page narrows is tested in
+// topnav-responsive.spec.ts
+const profile = '.top-nav .profile-menu:not(.profile-menu--inline)';
 const trigger = `${profile} summary`;
 const list = `${profile} .menu__list`;
 
@@ -15,7 +17,7 @@ async function signIn(
     {
       name: 'OctopusSignedInUser',
       value: encodeURIComponent(JSON.stringify(user)),
-      url: new URL(showcase, baseURL).toString(),
+      url: new URL(docsPage, baseURL).toString(),
     },
   ]);
 }
@@ -25,21 +27,18 @@ async function signedIn(page: Page, baseURL: string | undefined) {
     fullName: 'John Doe',
     email: 'jd@example.com',
   });
-  await page.goto(showcase);
+  await page.goto(docsPage);
 }
 
 test('there is no profile menu until someone is signed in', async ({
   page,
 }) => {
-  await page.goto(showcase);
+  await page.goto(docsPage);
 
   await expect(page.locator(profile)).toBeHidden();
 });
 
-test('the avatar opens the menu', async ({
-  page,
-  baseURL,
-}) => {
+test('the avatar opens the menu', async ({ page, baseURL }) => {
   await signedIn(page, baseURL);
 
   await expect(page.locator(list)).toBeHidden();
@@ -107,9 +106,10 @@ test('sign out is drawn as plain text rather than as a link', async ({
       }));
 
   const controlCenter = await paint(0);
-  expect(controlCenter.underline, 'an ordinary link row keeps its underline').toBe(
-    'underline'
-  );
+  expect(
+    controlCenter.underline,
+    'an ordinary link row keeps its underline'
+  ).toBe('underline');
 
   const signOut = await paint(2);
   expect(signOut.underline, 'sign out should not be underlined').toBe('none');
@@ -129,7 +129,7 @@ test('the email line is dropped when there is no name', async ({
   baseURL,
 }) => {
   await signIn(page, baseURL, { email: 'jd@example.com' });
-  await page.goto(showcase);
+  await page.goto(docsPage);
   await page.locator(trigger).click();
 
   const details = page.locator(`${list} [data-user-details]`);

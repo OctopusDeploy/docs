@@ -1,0 +1,115 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { Translations, Lang } from '@util/Languages';
+import { apiMenu } from '@lib/apiNavigation';
+import ApiNavigationItem from './ApiNavigationItem.astro';
+
+const stats = new accelerator.statistics('components/ApiNavigation.astro');
+stats.start();
+
+type Props = {
+  lang: string;
+  // Left off by a layout that lists this page's headings somewhere else, which
+  // leaves the nav as the page tree with nothing under the current page.
+  headings?: { depth: number; slug: string; text: string }[];
+  // One entry per endpoint, in heading order, left on the frontmatter by
+  // plugins/satteri-api-examples.js from the `:endpoint` directive under each
+  // heading. Sections without one — and pages that never reach that plugin —
+  // simply have none.
+  apiMethods?:
+    | { text: string; method: string | null; deprecated?: boolean }[]
+    | null;
+};
+const { lang, headings, apiMethods } = Astro.props satisfies Props;
+
+// The four the API badges in api.css cover. Title case because the badge is an
+// image to a screen reader, and reads as a word rather than as shouting.
+const METHOD_LABELS: Record<string, string> = {
+  get: 'Get',
+  post: 'Post',
+  put: 'Put',
+  delete: 'Delete',
+};
+
+// Astro escapes a brace in heading text as `${`, so a title that is a route —
+// "GET /api/{spaceId}/environments" — survives being read as an expression. The
+// methods are collected before that happens, so the two are compared unescaped.
+function headingText(text: string): string {
+  return text.replace(/\$\{/g, '{').trim();
+}
+
+const _ = Lang(lang);
+
+// Only the page the reader is on lists its endpoints. Expanding every page
+// would put thousands of anchors in the markup of all ~100 of them, and it is
+// the rule the site nav follows too: the branch you are inside is the one that
+// opens.
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+
+// An endpoint per H2, which is the first level of content on a generated API
+// page.
+//
+// The methods are in the same order, an endpoint each, so they pair off by
+// position — two endpoints on a page can share a title, which is what rules out
+// pairing them by it. The title is checked all the same: if the two lists have
+// drifted apart, the nav goes without badges rather than hanging the wrong one
+// on a row.
+const endpoints = (headings ?? [])
+  .filter((heading) => heading.depth === 2)
+  .map((heading, index) => {
+    const endpoint = apiMethods?.[index];
+    const matches = endpoint?.text === headingText(heading.text);
+    const method = matches ? (endpoint.method ?? '') : '';
+
+    return {
+      ...heading,
+      method: method in METHOD_LABELS ? method : null,
+      deprecated: matches && endpoint.deprecated === true,
+    };
+  });
+
+// The hand-written pages first, then the generated reference, with a rule
+// between them.
+const { authored, generated } = apiMenu();
+
+stats.stop();
+---
+
+<nav
+  class="site-nav"
+  id="site-nav"
+  aria-label={_(Translations.aria.site_navigation)}
+>
+  <h2 class="site-nav-title">{_(Translations.navigation.title)}</h2>
+  <ul class="site-nav__list">
+    {
+      authored.map((page) => (
+        <ApiNavigationItem
+          page={page}
+          currentPath={currentPath}
+          endpoints={endpoints}
+          methodLabels={METHOD_LABELS}
+        />
+      ))
+    }
+    {
+      authored.length > 0 && generated.length > 0 && (
+        <li class="site-nav__list-item">
+          {/* The two halves of the nav are written by different hands, and the
+              rule is where one set of pages stops and the other starts. */}
+          <hr class="site-nav__separator" />
+        </li>
+      )
+    }
+    {
+      generated.map((page) => (
+        <ApiNavigationItem
+          page={page}
+          currentPath={currentPath}
+          endpoints={endpoints}
+          methodLabels={METHOD_LABELS}
+        />
+      ))
+    }
+  </ul>
+</nav>

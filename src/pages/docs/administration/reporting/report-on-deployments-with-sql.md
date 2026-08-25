@@ -15,7 +15,7 @@ This approach is only supported for self-hosted Octopus. For Octopus Cloud you'l
 ::::
 
 :::figure
-![](/docs/img/administration/reporting/images/sql.png)
+![Querying the Octopus deployment history directly with SQL](/docs/img/administration/reporting/images/sql.png)
 :::
 
 A few notes about accessing the table directly:

@@ -13,6 +13,7 @@ antipattern
 antipatterns
 apikey
 apikeys
+apos
 appcmd
 apphost
 APPNAME
@@ -161,6 +162,7 @@ environmentstate
 environmenturl
 eprintfn
 esac
+evenodd
 exfiltrate
 exfiltration
 expressjs
@@ -335,7 +337,6 @@ netstandard
 newcert
 newguid
 NEWID
-newnav
 Newtonsoft
 nfsadmin
 nlog
@@ -404,6 +405,7 @@ Ozar
 PAAS
 packageid
 packageversion
+pagefind
 passout
 PathtoPublish
 pemstore
@@ -494,6 +496,8 @@ sakila
 SAMEORIGIN
 sandboxed
 sandboxing
+satteri
+Sätteri
 Schannel
 SCIM
 scopeduserroles

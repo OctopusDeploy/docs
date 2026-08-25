@@ -14,7 +14,7 @@ You can add NuGet feeds by clicking the **Add feed** button.
 In the URL field, enter the HTTP/HTTPS URL to the feed, or the file share or local directory path. Then click **Save and test**.
 
 :::figure
-![](/docs/img/packaging-applications/package-repositories/images/add-external-feed.png)
+![Adding an external NuGet feed](/docs/img/packaging-applications/package-repositories/images/add-external-feed.png)
 :::
 
 :::div{.info}
@@ -30,14 +30,14 @@ If you're using a file share or local directory path, your system administrator 
 On the test page, you can check whether the feed is working by searching for packages:
 
 :::figure
-![](/docs/img/packaging-applications/package-repositories/images/external-feed-search.png)
+![Searching for packages on the feed test page](/docs/img/packaging-applications/package-repositories/images/external-feed-search.png)
 :::
 
 Learn more about [hosting your own NuGet Feeds](https://docs.nuget.org/create/hosting-your-own-nuget-feeds)
 
 :::div{.info}
 
-Note: Local packages must be stored in a single folder. Octopus does not currently support hierarchical local NuGet feeds. 
+Note: Local packages must be stored in a single folder. Octopus does not currently support hierarchical local NuGet feeds.
 
 :::
 

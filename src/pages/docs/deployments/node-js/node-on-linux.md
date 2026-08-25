@@ -6,19 +6,19 @@ title: Deploying Node applications to Linux
 description: Learn how to package and deploy a Node.js application to a Linux deployment target over an SSH connection.
 ---
 
-This guide walks through the process of packaging a Node.js project into a tarball and deploying the application to a Linux based deployment target over an SSH connection. 
+This guide walks through the process of packaging a Node.js project into a tarball and deploying the application to a Linux based deployment target over an SSH connection.
 
 The examples in this guide can be used with an AWS AMI instance of Ubuntu 14.04 LTS or an Azure VM running Ubuntu 14.04 LTS. Different base instances may require different configuration steps.
 
 ## Configure your Linux deployment target {#configuring-target-machine}
 
 Your Linux deployment target needs to be configured to accept projects being deployed over [SSH](/docs/infrastructure/deployment-targets/linux/ssh-target).
- 
+
 ### Install Mono {#ConfiguringTargetMachine-InstallMono}
 
 Starting with a fresh instance of Ubuntu 14.04, update the package repository and install **mono-complete** to get the latest stable version.
 
-For the most up-to-date guide to installing mono see the [mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/). 
+For the most up-to-date guide to installing mono see the [mono documentation](http://www.mono-project.com/docs/getting-started/install/linux/).
 
 ```bash
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -29,13 +29,13 @@ sudo apt-get install mono-complete
 
 ### Add user {#add-user}
 
-Create a custom user account for the purpose of deployments. 
+Create a custom user account for the purpose of deployments.
 
 :::div{.hint}
 Using a custom user account makes it easy to revoke the user's credentials without affecting other users who access the machine. The following steps are intended to provide a basic level of security. You should familiarize yourself with the security features of the specific distribution you are using.
 :::
 
-In this example we are going to create a simple user account with a password which will be used for both the deployment process and running the application process itself. You may want to use different accounts for each task. 
+In this example we are going to create a simple user account with a password which will be used for both the deployment process and running the application process itself. You may want to use different accounts for each task.
 
 ```bash
 sudo useradd -m octopus
@@ -79,7 +79,7 @@ The sample project for this guide is a Node.js app that hosts the [expressjs](ht
 - [@octopusdeploy/gulp-octo](https://github.com/OctopusDeploy/gulp-octo): A gulp wrapper for octojs to integrate into Gulp based tasks.
 - [@octopusdeploy/grunt-octo](https://github.com/OctopusDeploy/grunt-octo): A grunt wrapper for octojs to integrate into Grunt based tasks.
 
-To avoid confusion with the other *octo* themed npm packages and to provide guidance on those supported directly by Octopus Deploy, we've published these packages as [scoped packages](https://docs.npmjs.com/misc/scope). 
+To avoid confusion with the other *octo* themed npm packages and to provide guidance on those supported directly by Octopus Deploy, we've published these packages as [scoped packages](https://docs.npmjs.com/misc/scope).
 
 Scoped packages require npm version 2.7.0 or greater. The npm [getting started guide](https://docs.npmjs.com/getting-started/scoped-packages) provides further information.
 
@@ -123,7 +123,7 @@ Using the task runner of your choice, pick one of the following steps that you a
 
 ### Option 1 - Gulp publish task {#gulp-publish-task}
 
-Ensure you have checked out the **gulp** branch with the initial build tasks already configured, and install the **gulp-octojs** package that will package and push the application. 
+Ensure you have checked out the **gulp** branch with the initial build tasks already configured, and install the **gulp-octojs** package that will package and push the application.
 
 Install the external [gulp-bump](https://github.com/stevelacy/gulp-bump) library to increase the patch version number before each publish. That way the server will retain previous builds, and we can easily manage and deploy each version in Octopus Deploy independently:
 
@@ -169,9 +169,9 @@ You can now execute the publish command directly through npm even if the task ru
 
 ### Option 2 - Grunt publish task {#grunt-publish-task}
 
-Ensure that you have checked out the **grunt** branch with the initial build tasks already configured, and install the **grunt-octojs** package that will package and push the application. 
+Ensure that you have checked out the **grunt** branch with the initial build tasks already configured, and install the **grunt-octojs** package that will package and push the application.
 
-Install the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently. 
+Install the external [grunt-bump](https://github.com/vojtajina/grunt-bump) library to increase the patch version number before each publish. That way the server will retain previous builds and we can easily manage and deploy each version in Octopus Deploy independently.
 
 We will also install the [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) library to clean the build output directory to avoid pushing the same packages on each publish:
 
@@ -183,24 +183,23 @@ npm install --save-dev grunt-bump grunt-contrib-clean @octopusdeploy/grunt-octo
 
 Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
 
-
 ```js
 grunt.initConfig({
-	...
-	"octo-push": {
-		options: { host: 'http://10.0.0.134', apiKey: 'API-YOUR-KEY'	},
-		src: ['./bin/**/*']
-	},
-	"octo-pack": {
-		prod: {
-			options: { dst: './bin' },
-			src: ['**/*', '!bin{,/**}', '!src{,/**}', '!gruntfile.js']
-		}
-	},
-	bump: {
-		options: { files: ['package.json'], commit: false, createTag: false, push: false }
-	},
-	clean: { pkg: ['./bin/**/*'] }
+ ...
+ "octo-push": {
+  options: { host: 'http://10.0.0.134', apiKey: 'API-YOUR-KEY' },
+  src: ['./bin/**/*']
+ },
+ "octo-pack": {
+  prod: {
+   options: { dst: './bin' },
+   src: ['**/*', '!bin{,/**}', '!src{,/**}', '!gruntfile.js']
+  }
+ },
+ bump: {
+  options: { files: ['package.json'], commit: false, createTag: false, push: false }
+ },
+ clean: { pkg: ['./bin/**/*'] }
 });
 
 grunt.loadNpmTasks('@octopusdeploy/grunt-octo');
@@ -264,11 +263,11 @@ The next step is to create a project that will extract the package.
 
 1. Navigate to the Projects page via **Projects ➜ All** and then click **Add Project**.
 2. Give the new project an appropriate name, save the project, and navigate to the project's *Process* page and click **Add Step ➜ Deploy a Package**.
- 
+
 Ensure the [target tag](/docs/infrastructure/deployment-targets/target-tags) matches the target tag that was associated with the machine in the previous step and select *octofxjs* as the Package ID. This Package ID is derived from the first section of the package that was previously uploaded.
 
 :::figure
-![](/docs/img/deployments/node-js/images/step-details.png)
+![The step details with the target tag and octofxjs package ID](/docs/img/deployments/node-js/images/step-details.png)
 :::
 
 ### Variable substitution {#variable-substitution}
@@ -278,9 +277,9 @@ Ensure the [target tag](/docs/infrastructure/deployment-targets/target-tags) mat
 3. Enable the *Substitute variables in templates* feature.
 4. Enter `config/config.#{Octopus.Environment.Name}.js` as the substitution target file.
 
-:::figure
-![](/docs/img/deployments/node-js/images/substitute-variables.png)
-:::
+    :::figure
+    ![The Substitute Variables in Templates feature targeting the config file](/docs/img/deployments/node-js/images/substitute-variables.png)
+    :::
 
 5. Navigate to the **Variables** section and add a new variable named **projectVariable** with some text to appear underneath the title bar on the web page, but leave the variable un-scoped, and click **Save**.
 
@@ -315,7 +314,7 @@ The package will be uploaded to the server and unpacked, and the environment spe
 Navigating to the host machine after deploying to the *prod* environment will result in a page similar to:
 
 :::figure
-![](/docs/img/deployments/node-js/images/successful-deployment.png)
+![The deployed Node.js application running in the prod environment](/docs/img/deployments/node-js/images/successful-deployment.png)
 :::
 
 :::div{.hint}

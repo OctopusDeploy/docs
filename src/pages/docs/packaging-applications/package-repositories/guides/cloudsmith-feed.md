@@ -15,7 +15,7 @@ All Cloudsmith repositories are [multi-format](https://www.youtube.com/watch?v=W
 
 ## Create a Cloudsmith Organization {#create-organization}
 
-Before setting up a Cloudsmith repository, you should create an [Organization](https://help.cloudsmith.io/docs/organisations) and invite others to join the Organization. Creating an Organization in Cloudsmith gives you the ability to configure and manage access for teams, individuals, and machines that map to your company's organizational structure. 
+Before setting up a Cloudsmith repository, you should create an [Organization](https://help.cloudsmith.io/docs/organisations) and invite others to join the Organization. Creating an Organization in Cloudsmith gives you the ability to configure and manage access for teams, individuals, and machines that map to your company's organizational structure.
 
 You can create an Organization by clicking on the **+** dropdown on the top menu bar and selecting **New Organization**.
 
@@ -33,7 +33,8 @@ Once you have created the Organization, the next step is to create a repository.
 
 ## Create a Cloudsmith Repository {#create-repo}
 
-You can create a new repository in three ways: 
+You can create a new repository in three ways:
+
 - Via the Cloudsmith CLI
 - Via the Website UI
 - Via the Cloudsmith API
@@ -56,7 +57,7 @@ That will take you to the **Create Package Repository** form:
 
 Here you can create a new repo by selecting a Repository Owner (the Organization you want the repo to live under) and a name. You can also specify an optional *slug* (identifier) for the repository. The slug is what will appear in the URL for the repository. The identifier can only contain lowercase alphanumeric characters, hyphens, and underscores. If you don't specify an identifier, one will be automatically generated from the repository name for you.
 
-The Storage Region allows you to choose a geographic region for the repository (see [Custom Storage Regions](https://help.cloudsmith.io/docs/custom-storage-regions) for further details). 
+The Storage Region allows you to choose a geographic region for the repository (see [Custom Storage Regions](https://help.cloudsmith.io/docs/custom-storage-regions) for further details).
 Then you need to select the type; Public, Private or Open-Source.
 
 ## Upload your package to Cloudsmith {#upload-package-to-cloudsmith}
@@ -67,23 +68,23 @@ Cloudsmith provides three ways to push your packages/files/assets into your repo
 - Upload via the API using tools/integrations, such as the official Cloudsmith CLI.
 - Upload directly via the website.
 
-Documentation for package-specific native CLI and tooling is available on the website within each repository.  For example, after selecting `NuGet` as the package format to upload, a new form will pop up, click the link **upload setup documentation** and the following documentation is available: 
+Documentation for package-specific native CLI and tooling is available on the website within each repository.  For example, after selecting `NuGet` as the package format to upload, a new form will pop up, click the link **upload setup documentation** and the following documentation is available:
 ![contextual documentation for uploading NuGet packages](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-new-package-native.png)
 
 The next section will give an of overview uploading your package using the package-specific native CLI for NuGet, Docker and Maven. For Helm we will use the Cloudsmith CLI. See the [Cloudsmith supported formats documentation](https://help.cloudsmith.io/docs/supported-formats) for more information.
 
 The commands that are included in this section should be entered into a command line shell, and it's assumed the commands are run in the same directory as your package. We will use this terminology in the following examples:
 
-| Identifier | Description |
-|------------|-----------------------------------------------------------------------|
-| OWNER      | Your Cloudsmith account name or organization name (namespace) |
-| REGISTRY   | Your Cloudsmith Repository name (also called *slug*) |
+| Identifier | Description                                                           |
+| ---------- | --------------------------------------------------------------------- |
+| OWNER      | Your Cloudsmith account name or organization name (namespace)         |
+| REGISTRY   | Your Cloudsmith Repository name (also called *slug*)                  |
 | USERNAME   | Your Cloudsmith Entitlement Token (see Entitlements for more details) |
-| USERNAME   | Your Cloudsmith username |
-| PASSWORD   | Your Cloudsmith password |
-| API-KEY    | Your Cloudsmith API Key |
-| IMAGE_NAME | The name of your Docker image |
-| TAG        | A tag for your Docker image |
+| USERNAME   | Your Cloudsmith username                                              |
+| PASSWORD   | Your Cloudsmith password                                              |
+| API-KEY    | Your Cloudsmith API Key                                               |
+| IMAGE_NAME | The name of your Docker image                                         |
+| TAG        | A tag for your Docker image                                           |
 
 ### Install the Cloudsmith CLI tool {#install-cloudsmith-cli}
 
@@ -234,7 +235,7 @@ Now that we have created our repository we can add our Cloudsmith repository as 
 
 From the Octopus Web Portal, create a new external feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting **ADD FEED**:
 
-- Select the Feed type (NuGet, Helm, Docker, Maven), 
+- Select the Feed type (NuGet, Helm, Docker, Maven),
 - Give the feed a name and in the URL field, enter the HTTP/HTTPS URL of your Cloudsmith repository. Refer to the [URLs for Feeds](#urls-for-feeds) section for more information.
 - Populate the credentials of your Cloudsmith repository if necessary. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information.
 
@@ -245,7 +246,7 @@ From the Octopus Web Portal, create a new external feed by navigating to **Deplo
 ## URLs for Feeds {#urls-for-feeds}
 
 This section contains information about what Cloudsmith feed URL to use for your specific package.
- 
+
 ### NuGet {#cloudsmith-nuget}
 
 Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and selecting the *NuGet* Feed type.
@@ -259,13 +260,13 @@ Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feed
 
 NuGet V2:
 
-```
+```text
 https://nuget.cloudsmith.io/OWNER/REPOSITORY/v2
 ```
 
 NuGet V3:
 
-```
+```text
 https://nuget.cloudsmith.io/OWNER/REPOSITORY/v3/index.json
 ```
 
@@ -279,7 +280,7 @@ Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feed
 ![Docker Feed Type](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus3.png)
 
 - Give the Docker feed a name
-- Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Docker repository in the following format: 
+- Enter the HTTP/HTTPS URL of the feed for your Cloudsmith Docker repository in the following format:
 
   `https://docker.cloudsmith.io/v2/OWNER/REGISTRY/`
 
@@ -305,7 +306,7 @@ Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feed
 
   - HTTP Basic Authentication:
   
-    `https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/maven/`    
+    `https://dl.cloudsmith.io/basic/OWNER/REPOSITORY/maven/`
 
 :::div{.hint}
 Private repositories require authentication. Refer to the [Adding Credentials for Private Repositories](#credentials-for-private-repos) section for more information on how to add your credentials
@@ -343,9 +344,10 @@ Private repositories require authentication. Refer to the [Adding Credentials fo
 Private Cloudsmith repositories require authentication. If you used a token in the URL then you do not need to add additional credentials.
 
 You can choose between two types of authentication:
+
  - Entitlement Token Authentication
- - HTTP Basic Authentication. 
- 
+ - HTTP Basic Authentication.
+
 The setup method will differ depending on what authentication type you choose to use.
 
 :::div{.warning}
@@ -353,7 +355,7 @@ The setup method will differ depending on what authentication type you choose to
 Entitlement Tokens, User Credentials and API-Keys should be treated as secrets and should be stored in a secure location, such as a Password Manager. You should avoid committing them into source control or exposing them in configuration and log files.
 :::
 
-When you are adding or editing your external feed, you can add credentials for your feed by populating the *Credentials* section. 
+When you are adding or editing your external feed, you can add credentials for your feed by populating the *Credentials* section.
 
 :::figure
 ![Credentials for your external feed](/docs/img/packaging-applications/package-repositories/guides/images/cloudsmith-octopus6.png)
@@ -365,7 +367,7 @@ Provide one of the following three types of credentials:
 - Cloudsmith API Key
 - An Entitlement Token
 
-These will be populated in the Credentials section of the Octopus External Feed. 
+These will be populated in the Credentials section of the Octopus External Feed.
 
 :::div{.hint}
 For more information about credentials refer to the [Cloudsmith documentation](https://help.cloudsmith.io/docs/docker-registry#private-registries).
@@ -391,4 +393,3 @@ For Entitlement Token authentication, populate the credentials with the word `to
 
 - Feed username: the word `token`
 - Feed password: `TOKEN`
-

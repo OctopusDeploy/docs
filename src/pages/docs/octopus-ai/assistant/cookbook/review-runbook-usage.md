@@ -16,7 +16,7 @@ Summarize how often each runbook has been executed recently to identify stale or
 
 ## 📝 Prompt
 
-```
+```text
 List runbooks sorted by recent execution count
 ```
 

@@ -1,0 +1,3 @@
+# These files are generated with LF line endings, and the build agent verifies them against what the generator
+# would write, so they must not be translated to CRLF on checkout.
+*.md text eol=lf

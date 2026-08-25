@@ -48,6 +48,7 @@ To configure your instance of Octopus Deploy as an App, you need administrator p
 :::
 
 4. Choose a **Name** such as *Octopus Deploy*, select the correct **Supported account type** for Single or Multi-Tenant, choose **Web** from the drop down and enter a value for **Redirect URI** like `https://octopus.example.com/api/users/authenticatedToken/AzureAD`. Then click **Register**.
+
  - The URL must use HTTPS.
  - When users input their credentials, the value you specify for **Name** will appear at the top of the Azure authentication page.
  - The value you specify for **Redirect URI** should be the URL to your Octopus Server. This address is only linked within your browser, so it only has to be resolvable on your network, not from the public Internet.
@@ -238,12 +239,12 @@ If you followed the optional steps to modify the App registration's manifest to 
 2. Either create a new **Team** or choose an existing one.
 
 3. Under the **Members** section, select the option **Add External Group/Role**.
- 
-![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
+
+    ![Adding Octopus Teams from external providers](/docs/img/security/authentication/images/add-octopus-teams-external.png)
 
 4. Enter the details from your App registration's manifest. In this example, we need to supply `octopusTesters` as the **Group/Role ID** and `OctopusTesters` as the **Display Name**.
- 
-![Add Octopus Teams Dialog](/docs/img/security/authentication/images/add-octopus-teams-external-dialog.png)
+
+    ![Add Octopus Teams Dialog](/docs/img/security/authentication/images/add-octopus-teams-external-dialog.png)
 
 5. Save your changes by clicking the **Save** button.
 
@@ -259,6 +260,7 @@ When the security token is returned from the external identity provider, Octopus
 **Existing Octopus user accounts**
 
 If you already have Octopus user accounts and you want to enable Microsoft Entra ID authentication:
+
 - Make sure the **Email Address** and **Username** values for Octopus user accounts are both identical.
 - Confirm the Octopus user **Email Address** and **Username** match the email address configured in Microsoft Entra ID.
 
@@ -302,16 +304,16 @@ Sometimes the contents of the security token sent back by Microsoft Entra ID are
 1. Open your browser's Developer Tools and enable Network logging, making sure the network logging is preserved across requests.
 2. In Chrome Dev Tools, this is called "Preserve Log".
 
-:::figure
-![Preserve Logs](/docs/img/security/authentication/images/5866122.png)
-:::
+    :::figure
+    ![Preserve Logs](/docs/img/security/authentication/images/5866122.png)
+    :::
 
 3. Attempt to sign into Octopus using Microsoft Entra ID and find the HTTP POST coming back to your Octopus instance from Microsoft Entra ID on a route like `/api/users/authenticatedToken/azureAD`. You should see an **id_token** field in the HTTP POST body.
 4. Grab the contents of the **id_token** field and paste that into [https://jwt.io/](https://jwt.io/), which will decode the token for you.
 
-:::figure
-![ID Token](/docs/img/security/authentication/images/5866123.png)
-:::
+    :::figure
+    ![ID Token](/docs/img/security/authentication/images/5866123.png)
+    :::
 
 5. Octopus uses most of the data to validate the token, but primarily uses the **sub**, **email**, and **name** claims. If these claims are not present, you will likely see unexpected behavior.
 

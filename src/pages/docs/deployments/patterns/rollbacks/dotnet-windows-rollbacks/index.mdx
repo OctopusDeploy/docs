@@ -75,7 +75,7 @@ The two steps related to database deployments, Run Database Creation Runbook and
 
 To skip these steps during a rollback, set the variable run condition to be:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
@@ -136,9 +136,9 @@ The primary difference between the simple and complex rollback process is the co
 
 ### Add system variable to skip package deployment
 
-Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To _only_ skip package installation for rollbacks, set the variable value to be:
+Adding the system variable `Octopus.Action.Package.SkipIfAlreadyInstalled` will skip already installed packages.  That makes a lot of sense for rollbacks but less sense for regular deployments.  To *only* skip package installation for rollbacks, set the variable value to be:
 
-```
+```text
 #{if Octopus.Action[Calculate Deployment Mode].Output.DeploymentMode == "Deploy"}False#{else}True#{/if}
 ```
 
@@ -155,28 +155,29 @@ Updating the existing Windows Service to point to an earlier version of the appl
 
 The binary path must include the application's .exe file.  For example, `#{Octopus.Action[STEP NAME].Output.Package.InstallationDirectoryPath}\YOUR-EXE-FILE.exe`. For this guide, that value will be:
 
-```
+```text
 #{Octopus.Action[Deploy OctoFX Windows Service].Output.Package.InstallationDirectoryPath}\OctoFX.RateService.exe
 ```
 
 Set the run condition for this step to:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
 ### Website rollback
 
-In modern versions of IIS, updating the physical path is an instantaneous action.  All traffic is routed to that new path.  To do that, use the [IIS Website - Update Property](https://library.octopus.com/step-templates/34118a0e-f872-435a-8522-d3c7f8515cb8/actiontemplate-iis-website-update-property) step template. 
+In modern versions of IIS, updating the physical path is an instantaneous action.  All traffic is routed to that new path.  To do that, use the [IIS Website - Update Property](https://library.octopus.com/step-templates/34118a0e-f872-435a-8522-d3c7f8515cb8/actiontemplate-iis-website-update-property) step template.
 
 The parameters to set for this step template are:
+
 - Web site name: The name of your website
 - Name of property to set: `physicalPath`
 - Value of property to set: `#{Octopus.Action[Deploy OctoFX Website].Output.Package.InstallationDirectoryPath}`
 
 Set the run condition for this step to:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 

@@ -19,6 +19,7 @@ The next section shows how you can create runbooks to manage services operations
 When developing a Windows service, starting, stopping, and restarting are all common activities.  However, once deployed to a server, the ability to start, stop, or restart a service requires the user to have either elevated permissions or at least be [granted the ability](http://woshub.com/set-permissions-on-windows-service/#:~:text=In%20the%20list%20of%20services,and%20pause%20permission%20is%20enough.) to remotely perform the operation.  If it's not possible (or feasible) to grant that permission, you may need to fill out a ticket and wait for a server administrator to do it for you, which can kill productivity.  Using a runbook, you can give developers a self-service option to start, stop, or restart a Windows service without having to grant them permission to the server.
 
 For Windows services, there are three Community Step Templates available, one for each action:
+
 - [Start Service](https://library.octopus.com/step-templates/60733bf3-1617-4d85-a40f-4b6a0b9289ef/actiontemplate-windows-service-start)
 - [Stop Service](https://library.octopus.com/step-templates/ab3eb4cf-5fc1-4168-be8d-02246d919ca8/actiontemplate-windows-service-stop)
 - [Restart Service](https://library.octopus.com/step-templates/d1df734a-c0da-4022-9e70-8e1931b083da/actiontemplate-windows-service-restart)
@@ -35,7 +36,7 @@ For Windows services, there are three Community Step Templates available, one fo
 All three services use a single parameter of the same name.
 :::
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | Service Name | Name of the Windows service. | MyService |
 
@@ -57,7 +58,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 4. Add a new step template from the community library called **Linux Service - Start, Stop, Restart**.
 5. Fill out all the parameters in the step. We recommend using [variables](/docs/projects/variables) rather than entering the values directly in the step parameters, for instance:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | Service Name | Name of the service to start (case-sensitive). | wildfly |
 | Action | Start, Stop, Restart. | Restart |
@@ -67,7 +68,7 @@ Using a runbook in Octopus can provide a self-service mechanism for developers t
 Use variables where possible so you can assign scopes to values. This will ensure that things like service name are correct for the environment you're executing the runbook on.
 :::
 
-After adding all required parameters, click **Save**, and you have a basic runbook to restart a service on Ubuntu. You can add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals. 
+After adding all required parameters, click **Save**, and you have a basic runbook to restart a service on Ubuntu. You can add additional steps to add security to your runbooks, such as a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step for business approvals.
 
 ### Linux service samples {#linux-services-samples}
 

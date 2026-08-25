@@ -1,0 +1,132 @@
+---
+import { accelerator } from '@lib/accelerator';
+import { PostFiltering } from 'astro-accelerator-utils';
+import type { Frontmatter as OriginalFrontmatter } from 'astro-accelerator-utils/types/Frontmatter';
+import { SITE } from '@config';
+import { buildAreaCrumbs, resolveArea, type Area } from '@lib/areas';
+import { searchIndexAttributes } from '@lib/searchIndexing';
+import type { Crumb } from '@util/breadcrumbs';
+
+// Theme components
+import Head from '@components/HtmlHead.astro';
+import SkipLinks from '@components/SkipLinks.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import Authors from '@components/Authors.astro';
+import Taxonomy from '@components/Taxonomy.astro';
+
+// Custom components
+import AreaNavigation from '../components/AreaNavigation.astro';
+import ArticleHeader from '../components/ArticleHeader.astro';
+import Feedback from '../components/Feedback.astro';
+import TopNav from '../components/TopNav.astro';
+import Plausible from 'src/components/Plausible.astro';
+import Footer from 'src/components/Footer.astro';
+import DocsSearch from '../components/DocsSearch.astro';
+
+type Props = {
+  frontmatter: OriginalFrontmatter & {
+    // The nav this page appears in. Optional, and normally left alone: these
+    // pages live under /docs/api, which is the API area already.
+    area?: Area;
+    // `apiMethods` is not written by hand: plugins/satteri-api-examples.js
+    // leaves it on the frontmatter for the left nav, an entry per endpoint.
+    apiMethods?: { text: string; method: string | null }[];
+  };
+  headings: { depth: number; slug: string; text: string }[];
+  breadcrumbs?: Crumb[] | null;
+};
+const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const area = resolveArea(frontmatter.area, Astro.url.pathname);
+const crumbs = buildAreaCrumbs(Astro.url, area, breadcrumbs);
+
+const lang = frontmatter.lang ?? SITE.default.lang;
+const textDirection = frontmatter.dir ?? SITE.default.dir;
+
+// Logic
+const title = await accelerator.markdown.getInlineHtmlFrom(
+  frontmatter.title ?? SITE.title
+);
+
+const subtitle = frontmatter.subtitle
+  ? await accelerator.markdown.getInlineHtmlFrom(frontmatter.subtitle)
+  : null;
+
+const site_url = SITE.url;
+const site_features = SITE.featureFlags;
+const search =
+  accelerator.posts.all().filter(PostFiltering.isSearch).shift() ?? null;
+const searchUrl = search && accelerator.urlFormatter.formatAddress(search.url);
+const isSearchPage =
+  accelerator.urlFormatter.formatAddress(Astro.url.pathname) === searchUrl;
+
+// Gates the header's search field only. The overlay below is always rendered:
+// /docs/search has its own field and opens that same overlay.
+const showSearch = !isSearchPage;
+
+// The footer prints this; JSON-LD carries it as dateModified.
+const lastUpdated = frontmatter.modDate ?? frontmatter.pubDate ?? null;
+
+const searchIndex = searchIndexAttributes(Astro.url.pathname, frontmatter);
+---
+
+<html
+  dir={textDirection}
+  lang={lang}
+  class="initial"
+  data-theme="light"
+  data-signed-in="false"
+>
+  <Head
+    frontmatter={frontmatter}
+    headings={headings}
+    lang={lang}
+    crumbs={crumbs}
+  />
+  <body>
+    <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
+    <TopNav lang={lang} showSearch={showSearch} />
+    <!-- The article spans the table of contents column as well as its own: the
+         left nav lists this page's endpoints, so there is no table of contents
+         to show, and the width is what the examples column is built out of. -->
+    <div class="content-group content-group--api">
+      <main id="site-main">
+        <Breadcrumbs lang={lang} crumbs={crumbs} />
+        <article {...searchIndex.article}>
+          <ArticleHeader lang={lang} subtitle={subtitle} title={title} />
+          <div class="page-actions">
+            {
+              /* Copy as markdown temporarily disabled until we can get it working with the API docs. Deliberately no "Edit on GitHub" because these are generated and should not be hand edited */
+            }
+          </div>
+          <div class="page-content anim-show-parent" {...searchIndex.content}>
+            <slot />
+            <Authors frontmatter={frontmatter} lang={lang} />
+            <Taxonomy frontmatter={frontmatter} lang={lang} />
+          </div>
+        </article>
+        <Feedback frontmatter={frontmatter} lang={lang} />
+      </main>
+      {
+        /* The nav belongs to the area, not to this layout. This column is the
+          only nav on the page, so the headings go with it. */
+      }
+      <AreaNavigation
+        area={area}
+        headings={headings}
+        lang={lang}
+        apiMethods={frontmatter.apiMethods}
+      />
+      <Footer lang={lang} lastUpdated={lastUpdated} />
+    </div>
+    <DocsSearch />
+    <script define:vars={{ site_url, site_features }}>
+      window.site_url = site_url;
+      window.site_features = site_features;
+    </script>
+    <script>
+      import '../scripts/main.js';
+    </script>
+    <Plausible />
+  </body>
+</html>

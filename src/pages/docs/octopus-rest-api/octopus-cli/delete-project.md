@@ -11,7 +11,7 @@ Deletes a project.
 
 **delete-project options**
 
-```
+```text
 Deletes a project.
 
 Usage: octo delete-project [<options>]
@@ -75,4 +75,3 @@ Common options:
                              verbose, debug, information, warning, error and
                              fatal. Defaults to 'debug'.
 ```
-

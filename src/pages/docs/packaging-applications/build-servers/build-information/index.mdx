@@ -19,23 +19,28 @@ Build information is associated with a package and includes:
 - Commits: Details of the source commits related to the build.
 - Work items: Issue references parsed from the commit messages.
 
+:::div{.hint}
+[Easy Mode - Build Information](https://octopus.com/blog/octo-easy-mode-05-build-information) provides a practical example of build information steps you can apply to your own Octopus instance.
+:::
+
 ## Passing build information to Octopus \{#passing-build-information-to-octopus}
 
-Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the _build information_ step from the Octopus Deploy plugin to your build server.
+Build information is passed to Octopus as a file using a custom format. The recommended way to supply the build information is to add the *build information* step from the Octopus Deploy plugin to your build server.
 
 ## Build server support \{#build-server-support}
 
 The build information step is currently available in the official Octopus Deploy plugins:
 
-- [GitHub Actions](/docs/packaging-applications/build-servers/github-actions) 
-- [TeamCity](/docs/packaging-applications/build-servers/teamcity) 
+- [GitHub Actions](/docs/packaging-applications/build-servers/github-actions)
+- [TeamCity](/docs/packaging-applications/build-servers/teamcity)
 - [Bamboo](/docs/packaging-applications/build-servers/bamboo)
-- [Jenkins](/docs/packaging-applications/build-servers/jenkins) 
+- [Jenkins](/docs/packaging-applications/build-servers/jenkins)
 - [TFS/AzureDevOps](/docs/packaging-applications/build-servers/tfs-azure-devops)
 
 Check our [downloads page](https://octopus.com/downloads) for our latest build server plugins.
 
 In addition to the official plugins, there are some community supported integrations available for:
+
 - [BitBucket Pipelines](https://bitbucket.org/octopusdeploy/octopus-cli-run/src/master)
 - [CircleCI](https://circleci.com/developer/orbs/orb/octopus-samples/octo-exp)
 - [Continua CI](/docs/packaging-applications/build-servers/continua-ci)
@@ -50,13 +55,14 @@ Work items will not show unless you have one of the [issue tracker](/docs/releas
 
 ## Build information step \{#build-information-step}
 
-All available plugins contain a build information step/task, the TeamCity version of the _build information_ step is shown below. 
+All available plugins contain a build information step/task, the TeamCity version of the *build information* step is shown below.
 
 :::figure
 ![TeamCity build information Step](/docs/img/packaging-applications/build-servers/build-information/images/build-information-step.png)
 :::
 
 The build information step requires
+
 - Octopus URL: URL of your Octopus server
 - API Key: API key to use for uploading
 - (Optional) Space name: Name of the space to upload the build information to
@@ -119,6 +125,6 @@ Ensure you're using [pre-release versions](/docs/releases/deployment-changes#ver
 
 ## Build information with dynamic packages \{#build-info-with-dynamic-packages}
 
-Build information may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages). 
+Build information may not appear in a release or deployment if you [dynamically select a package ID at deployment time](/docs/deployments/packages/dynamically-selecting-packages).
 
 See the [dynamic package tradeoffs](/docs/deployments/packages/dynamically-selecting-packages#dynamic-packages-and-issue-trackers) section for more information.

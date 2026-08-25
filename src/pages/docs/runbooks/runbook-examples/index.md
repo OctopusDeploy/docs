@@ -24,4 +24,4 @@ It could be:
   - Deploying an AWS CloudFormation template.
   - Deploying an Azure ARM template.
 
-These procedures can all be automated with [runbooks](/docs/runbooks). 
+These procedures can all be automated with [runbooks](/docs/runbooks).

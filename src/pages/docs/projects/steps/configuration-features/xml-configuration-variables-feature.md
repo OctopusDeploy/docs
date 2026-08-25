@@ -49,29 +49,31 @@ Suppose you have this `web.config` or `MyApp.exe.config` file in your package wh
 ```
 
 1. Create the variables in Octopus. From the [project](/docs/projects) overview page, click **Variables**:
+
   - Enter a the name for the variable, for instance, `AWSAccessKey`. **This name must match the key in your configuration file.**
   - Enter the value for the variable, for instance, `ABCDEFG`.
   - Scope the variable to the environment, for instance, `Test`.
   - Repeat the process for the **Production** environment, to give you a different value for the `AWSAccessKey` variable for each environment.
+
 2. Repeat this for each element you want to replace in your configuration file.
 3. Click **SAVE**.
 
-In this example, you would have variables similar to the following:
+    In this example, you would have variables similar to the following:
 
-| Variable Name    | Value     | Sensitive    | Scope |
-| ----------------------- | --------------- | -------- | -------- |
-| `AWSAccessKey` | `ABCDEFG` | `No` | `Test` |
-| `AWSAccessKey` | `XXXXXXX` | `No` | `Production` |
-| `AWSSecretKey` | `1111111` | `Yes` | `Test` |
-| `AWSSecretKey` | `2222222` | `Yes` | `Production` |
-| `DBConnectionString` | `Server=test-server.your-company.com;Database=Test-Database;Integrated Security=SSPI` | `No` | `Test` |
-| `DBConnectionString` | `Server=prod-server.your-company.com;Database=Prod-Database;Integrated Security=SSPI` | `No` | `Production` |
-| `WelcomeMessage` | `Hello tester!` | `No` | `Test` |
-| `WelcomeMessage` | `Hello customer!` | `No` | `Production` |
+    | Variable Name | Value | Sensitive | Scope |
+    | ----------------------- | --------------- | -------- | -------- |
+    | `AWSAccessKey` | `ABCDEFG` | `No` | `Test` |
+    | `AWSAccessKey` | `XXXXXXX` | `No` | `Production` |
+    | `AWSSecretKey` | `1111111` | `Yes` | `Test` |
+    | `AWSSecretKey` | `2222222` | `Yes` | `Production` |
+    | `DBConnectionString` | `Server=test-server.your-company.com;Database=Test-Database;Integrated Security=SSPI` | `No` | `Test` |
+    | `DBConnectionString` | `Server=prod-server.your-company.com;Database=Prod-Database;Integrated Security=SSPI` | `No` | `Production` |
+    | `WelcomeMessage` | `Hello tester!` | `No` | `Test` |
+    | `WelcomeMessage` | `Hello customer!` | `No` | `Production` |
 
-:::div{.warning}
-Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
-:::
+    :::div{.warning}
+    Variables marked sensitive (`AWSSecretKey` in this example) are encrypted in the Octopus database. During deployment they are encrypted during transport, but eventually decrypted and written in clear-text to the configuration files so your application can use the value.
+    :::
 
 4. Deploy your project to the `Test` environment, and Octopus will update the configuration file to:
 

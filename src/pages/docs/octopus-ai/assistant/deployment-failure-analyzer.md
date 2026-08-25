@@ -55,9 +55,9 @@ Here's an example of how to configure custom business logic for deployment failu
 Custom logic is defined by configuring variables in a variable set named `OctoAI Prompts` in Octopus Deploy.
 
 | Variable name | Variable value |
-|-----------|-------------|
+| ----------- | ------------- |
 | Project.Deployment[0].Prompt | Why did the deployment fail? If the deployment didn't fail, say so. Provide suggestions for resolving the issue. |
-| Project.Deployment[0].SystemPrompt | If the logs indicate that an Azure resource group could not be located, find the team responsible for the project in the project descriptions and return the instruction to create a support ticket using the Slack workflow in the team slack channel. Don't provide general troubleshooting steps in the response.|
+| Project.Deployment[0].SystemPrompt | If the logs indicate that an Azure resource group could not be located, find the team responsible for the project in the project descriptions and return the instruction to create a support ticket using the Slack workflow in the team slack channel. Don't provide general troubleshooting steps in the response. |
 
 In this example, when the analyzer detects an issue related to a missing Azure Resource Group in the deployment logs, it will:
 

@@ -13,6 +13,10 @@ If you can't find a built-in step template that includes the actions you need, y
 
 Octopus Community step templates integration is enabled by default, but it can be disabled.
 
+:::div{.hint}
+[Easy Mode - Community Step Templates](https://octopus.com/blog/octo-easy-mode-11-community) provides a practical example of community step templates you can apply to your own Octopus instance.
+:::
+
 ## Enable or disable community step templates integration
 
 1. Navigate to **Configuration ➜ Features**.

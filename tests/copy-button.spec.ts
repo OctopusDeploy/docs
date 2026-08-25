@@ -64,7 +64,8 @@ test('the tooltip arrow overlaps the bubble it points from', async ({
 
   const overlap = await button.evaluate((el) => {
     const bubble = el.querySelector('.tooltip');
-    if (!bubble) throw new Error('expected the button to have a .tooltip bubble');
+    if (!bubble)
+      throw new Error('expected the button to have a .tooltip bubble');
 
     const caret = getComputedStyle(bubble, '::after');
     const bubbleHeight = bubble.getBoundingClientRect().height;
@@ -147,7 +148,7 @@ test('the copy action puts the page markdown on the clipboard', async ({
 
   await page.goto(MD_PAGE);
 
-  const button = page.locator('.octo-copy-md');
+  const button = page.locator('.octo-copy-md .split-btn__primary');
   await button.click();
   await expect(button).toHaveAttribute('data-copied', '');
 
@@ -164,7 +165,9 @@ test('the copy action puts the page markdown on the clipboard', async ({
   );
 });
 
-test('the copy action reports a failure when the markdown cannot be fetched', async ({
+// A copy that fails says nothing, so the button has to stay as it was rather
+// than claim it copied.
+test('the copy action stays at rest when the markdown cannot be fetched', async ({
   page,
 }) => {
   await page.goto(MD_PAGE);
@@ -172,9 +175,59 @@ test('the copy action reports a failure when the markdown cannot be fetched', as
   // Routed after the page has loaded, so only the copy's own fetch is refused.
   await page.route('**/*.md', (route) => route.abort());
 
-  const button = page.locator('.octo-copy-md');
+  const button = page.locator('.octo-copy-md .split-btn__primary');
+  const label = button.locator('.btn__label');
   await button.click();
 
-  await expect(button).toHaveAttribute('data-failed', '');
   await expect(button).not.toHaveAttribute('data-copied', '');
+  await expect(label).toBeVisible();
+  await expect(page.locator('.copy-status')).toHaveText('');
+});
+
+// The label and the "Copied" it turns into are both in the DOM, stacked, so
+// reporting a result must not reflow the page actions row.
+test('the copy action keeps its width while it reports a result', async ({
+  page,
+}) => {
+  await page.goto(MD_PAGE);
+
+  const button = page.locator('.octo-copy-md .split-btn__primary');
+  const before = await button.boundingBox();
+
+  await button.click();
+  await expect(button).toHaveAttribute('data-copied', '');
+
+  const after = await button.boundingBox();
+  expect(after!.width).toBe(before!.width);
+});
+
+// "Open this page as markdown" used to sit in a menu at the bottom of the
+// article. It is the copy action's one menu item now.
+test('the copy action menu holds exactly one item, linking to the page markdown', async ({
+  page,
+}) => {
+  await page.goto(MD_PAGE);
+
+  const menu = page.locator('.octo-copy-md [data-menu]');
+  await menu.locator('summary').click();
+
+  const items = menu.locator('.menu__action');
+  await expect(items).toHaveCount(1);
+  await expect(items).toHaveAttribute('href', MD_PAGE + '.md');
+  await expect(items).toHaveAttribute('target', '_blank');
+});
+
+// The URL sits on the control while the copy listener matches the primary half.
+// Matching the control instead would copy the page every time the menu opened.
+test('opening the menu does not copy the page', async ({ page }) => {
+  await page.goto(MD_PAGE);
+
+  const control = page.locator('.octo-copy-md');
+  await control.locator('summary').click();
+  await expect(control.locator('.menu__list')).toBeVisible();
+
+  await expect(control.locator('.split-btn__primary')).not.toHaveAttribute(
+    'data-copied',
+    ''
+  );
 });
