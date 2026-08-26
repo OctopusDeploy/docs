@@ -17,8 +17,12 @@ import {
 // ten covers the first screen with room to scroll into.
 const PAGE_SIZE = 10;
 
-/** The map of result id to url and title, written beside the index at build. */
-const TITLE_MAP = 'docs-titles.json';
+/**
+ * The map of result id to url and title, written beside the index at build and
+ * named after the index's own hash. Reading it means reading that hash first, out
+ * of the entry file Pagefind publishes for the same purpose.
+ */
+const titleMapName = (hash: string) => `docs-titles.${hash}.json`;
 
 // Above this share of the corpus, a query is too general to rank rather than
 // unanswerable, and the overlay says so instead of reporting nothing found.
@@ -234,7 +238,7 @@ function rank(
   // the list.
   if (known.length < stubs.length) {
     console.warn(
-      `[docs-search] ${stubs.length - known.length} of ${stubs.length} results are missing from ${TITLE_MAP} and were dropped`
+      `[docs-search] ${stubs.length - known.length} of ${stubs.length} results are missing from the title map and were dropped`
     );
   }
 
@@ -318,6 +322,36 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   // What Pagefind prepends to the urls it returns, and therefore what the map's
   // own relative urls need. `/docs/pagefind/` leaves `/docs`.
   const urlPrefix = bundlePath.replace(/\/?pagefind\/?$/, '');
+
+  /**
+   * The map, found by the hash the index publishes for itself. Two requests,
+   * because the name cannot be known without the first — the alternative is an
+   * unhashed name a cache can serve from the wrong build. Both happen while the
+   * index is warming, off the path of any search.
+   */
+  async function loadTitles(): Promise<TitleMap | null> {
+    try {
+      const entry = await fetch(`${bundlePath}pagefind-entry.json`);
+      if (!entry.ok) throw new Error(`entry file: ${entry.status}`);
+
+      const languages: Record<string, { hash: string }> = (await entry.json())
+        .languages;
+      // One language, the same assumption the build makes when it names the file.
+      const hash = Object.values(languages ?? {})[0]?.hash;
+      if (!hash) throw new Error('no index hash in the entry file');
+
+      const map = await fetch(`${bundlePath}${titleMapName(hash)}`);
+      if (!map.ok) throw new Error(`${titleMapName(hash)}: ${map.status}`);
+
+      return (await map.json()) as TitleMap;
+    } catch (error) {
+      console.error(
+        '[docs-search] could not load the title map; ranking falls back to the rows it draws',
+        error
+      );
+      return null;
+    }
+  }
   // Which search owns `page`. Searches run concurrently and can settle out of
   // order, and an overtaken one must not leave its stubs behind for `more()`.
   let searches = 0;
@@ -344,14 +378,9 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           // Ranking reads url and title out of this, so it has to be here before
           // the first search returns. A failure leaves it null and ranking falls
           // back to ordering the rows it draws.
-          fetch(`${bundlePath}${TITLE_MAP}`)
-            .then((response) => (response.ok ? response.json() : null))
-            .then((map: TitleMap | null) => {
-              titles = map;
-            })
-            .catch((error) => {
-              console.error(`[docs-search] could not load ${TITLE_MAP}`, error);
-            }),
+          loadTitles().then((map) => {
+            titles = map;
+          }),
         ]);
         corpus = Object.values(filters.section ?? {}).reduce(
           (total, count) => total + count,
@@ -455,7 +484,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
             : null;
         if (fallback) {
           console.error(
-            `[docs-search] ranking without ${TITLE_MAP}: ${response.results.length} results, none of them in the map`
+            `[docs-search] ranking without the title map: ${response.results.length} results, none of them in it`
           );
         }
 

@@ -87,7 +87,7 @@ export default function pagefindIndex(): AstroIntegration {
           const titles = await writeTitleMap(
             path.join(distDir, 'docs', 'pagefind')
           );
-          logger.info(`wrote ${titles} titles to ${TITLE_MAP}`);
+          logger.info(`wrote ${titles.pages} titles to ${titles.file}`);
         } finally {
           await close();
         }
@@ -96,8 +96,13 @@ export default function pagefindIndex(): AstroIntegration {
   };
 }
 
-/** Where the map lands, and the name the client fetches it by. */
-const TITLE_MAP = 'docs-titles.json';
+/**
+ * The map's name, carrying the index's own hash. Pagefind hashes its chunks so a
+ * cache cannot serve one build's index against another's, and a map read against
+ * the wrong index joins against nothing. The client reads the hash out of
+ * `pagefind-entry.json` to build the same name.
+ */
+const titleMapName = (hash: string) => `docs-titles.${hash}.json`;
 
 // Pagefind prefixes every decompressed chunk with this before the JSON.
 const FRAGMENT_MAGIC = 'pagefind_dcd';
@@ -114,16 +119,34 @@ const FRAGMENT_MAGIC = 'pagefind_dcd';
  * Read back out of the fragments rather than collected during indexing, because
  * the ids are assigned by Pagefind as it writes them.
  */
-async function writeTitleMap(pagefindDir: string): Promise<number> {
+async function writeTitleMap(
+  pagefindDir: string
+): Promise<{ pages: number; file: string }> {
+  const entry = JSON.parse(
+    await readFile(path.join(pagefindDir, 'pagefind-entry.json'), 'utf8')
+  ) as { languages: Record<string, { hash: string }> };
+
+  const languages = Object.keys(entry.languages ?? {});
+  // One map covers every fragment, so it can only carry one language's hash. A
+  // second language would need one map each, keyed the way Pagefind keys its own
+  // chunks — worth failing loudly over rather than shipping a map the client
+  // looks for under the wrong name.
+  if (languages.length !== 1) {
+    throw new Error(
+      `expected one indexed language, found ${languages.length || 'none'}: the title map is named after the index hash and cannot cover several`
+    );
+  }
+
+  const file = titleMapName(entry.languages[languages[0]].hash);
   const dir = path.join(pagefindDir, 'fragment');
-  const files = (await readdir(dir)).filter((name) =>
+  const names = (await readdir(dir)).filter((name) =>
     name.endsWith('.pf_fragment')
   );
 
   const map: Record<string, [url: string, title: string]> = {};
 
-  for (const file of files) {
-    const raw = gunzipSync(await readFile(path.join(dir, file))).toString(
+  for (const name of names) {
+    const raw = gunzipSync(await readFile(path.join(dir, name))).toString(
       'utf8'
     );
 
@@ -132,7 +155,7 @@ async function writeTitleMap(pagefindDir: string): Promise<number> {
     // cannot join against.
     if (!raw.startsWith(FRAGMENT_MAGIC)) {
       throw new Error(
-        `unexpected fragment format in ${file}: Pagefind's own prefix is missing, so ${TITLE_MAP} cannot be trusted`
+        `unexpected fragment format in ${name}: Pagefind's own prefix is missing, so the title map cannot be trusted`
       );
     }
 
@@ -142,17 +165,13 @@ async function writeTitleMap(pagefindDir: string): Promise<number> {
     };
 
     // The stub's `id` is the filename without its extension, which is the join.
-    map[path.basename(file, '.pf_fragment')] = [
+    map[path.basename(name, '.pf_fragment')] = [
       fragment.url,
       fragment.meta?.title ?? '',
     ];
   }
 
-  await writeFile(
-    path.join(pagefindDir, TITLE_MAP),
-    JSON.stringify(map),
-    'utf8'
-  );
+  await writeFile(path.join(pagefindDir, file), JSON.stringify(map), 'utf8');
 
-  return files.length;
+  return { pages: names.length, file };
 }
