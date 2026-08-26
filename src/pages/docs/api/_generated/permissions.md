@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-25
 title: Permissions
 ---
 
@@ -63,7 +63,7 @@ title: Permissions
   - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`SupportedRestrictions`** :span[array of string]{.type-label}
-- **`ApprovalPolicyAdminister`** :span[object]{.type-label}
+- **`ApprovalRuleAdminister`** :span[object]{.type-label}
   - **`CanApplyAtSpaceLevel`** :span[boolean]{.type-label}
   - **`CanApplyAtSystemLevel`** :span[boolean]{.type-label}
   - **`Description`** :span[string]{.type-label}
@@ -792,7 +792,7 @@ title: Permissions
       "string"
     ]
   },
-  "ApprovalPolicyAdminister": {
+  "ApprovalRuleAdminister": {
     "CanApplyAtSpaceLevel": false,
     "CanApplyAtSystemLevel": false,
     "Description": "string",
