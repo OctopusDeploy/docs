@@ -101,8 +101,12 @@ export default function pagefindIndex(): AstroIntegration {
  * cache cannot serve one build's index against another's, and a map read against
  * the wrong index joins against nothing. The client reads the hash out of
  * `pagefind-entry.json` to build the same name.
+ *
+ * A module rather than JSON, because Front Door caches `.js` for a week as
+ * immutable and compressed, and gives anything unrecognised `no-cache`. An
+ * ETag-less revalidation is a full re-download, and this loads on every page.
  */
-const titleMapName = (hash: string) => `docs-titles.${hash}.json`;
+const titleMapName = (hash: string) => `docs-titles.${hash}.js`;
 
 // Pagefind prefixes every decompressed chunk with this before the JSON.
 const FRAGMENT_MAGIC = 'pagefind_dcd';
@@ -171,7 +175,12 @@ async function writeTitleMap(
     ];
   }
 
-  await writeFile(path.join(pagefindDir, file), JSON.stringify(map), 'utf8');
+  await writeFile(
+    path.join(pagefindDir, file),
+    `export default ${JSON.stringify(map)};
+`,
+    'utf8'
+  );
 
   return { pages: names.length, file };
 }

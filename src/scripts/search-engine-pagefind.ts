@@ -22,7 +22,7 @@ const PAGE_SIZE = 10;
  * named after the index's own hash. Reading it means reading that hash first, out
  * of the entry file Pagefind publishes for the same purpose.
  */
-const titleMapName = (hash: string) => `docs-titles.${hash}.json`;
+const titleMapName = (hash: string) => `docs-titles.${hash}.js`;
 
 // Above this share of the corpus, a query is too general to rank rather than
 // unanswerable, and the overlay says so instead of reporting nothing found.
@@ -340,10 +340,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
       const hash = Object.values(languages ?? {})[0]?.hash;
       if (!hash) throw new Error('no index hash in the entry file');
 
-      const map = await fetch(`${bundlePath}${titleMapName(hash)}`);
-      if (!map.ok) throw new Error(`${titleMapName(hash)}: ${map.status}`);
+      // Imported rather than fetched: the map is a module so that Front Door's
+      // static-content rule caches it, and the browser keeps parsed modules.
+      const map: { default: TitleMap } = await import(
+        /* @vite-ignore */ `${bundlePath}${titleMapName(hash)}`
+      );
 
-      return (await map.json()) as TitleMap;
+      return map.default;
     } catch (error) {
       console.error(
         '[docs-search] could not load the title map; ranking falls back to the rows it draws',
