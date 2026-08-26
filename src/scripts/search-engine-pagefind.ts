@@ -195,7 +195,6 @@ function byNameThenDepth<
     .map((entry) => entry.hit);
 }
 
-/** A stub's score paired with its fetched fragment, which is where the URL is. */
 /** Everything ranking needs, and nothing that has to be fetched to get it. */
 type Ranked = {
   stub: PagefindResultStub;
@@ -230,6 +229,15 @@ function rank(
     return [{ stub, score: stub.score, url, title: title || url }];
   });
 
+  // Partly stale is worse than wholly stale, because it drops results quietly
+  // and the fallback never fires. Say so rather than answering with a hole in
+  // the list.
+  if (known.length < stubs.length) {
+    console.warn(
+      `[docs-search] ${stubs.length - known.length} of ${stubs.length} results are missing from ${TITLE_MAP} and were dropped`
+    );
+  }
+
   return byNameThenDepth(known, term);
 }
 
@@ -244,12 +252,13 @@ function rank(
 async function draw(
   ranked: Ranked[],
   from: number,
-  count: number
+  count: number,
+  reorder?: string
 ): Promise<SearchResult[]> {
   const slice = ranked.slice(from, from + count);
   const settled = await Promise.allSettled(slice.map((hit) => hit.stub.data()));
 
-  return settled.flatMap((outcome, at) => {
+  const drawn = settled.flatMap((outcome, at) => {
     if (outcome.status === 'rejected') {
       console.error(
         '[docs-search] dropped a result whose fragment failed',
@@ -260,23 +269,36 @@ async function draw(
 
     const hit = slice[at];
     const fragment = outcome.value;
-    // The fragment is the fallback for both: without the title map, `rank` has
-    // no url or title to give and the fragment is the only source.
+    // Without the title map `rank` had no url or title to give, so the fragment
+    // is the only source for both.
     const { pathname } = new URL(fragment.url, window.location.origin);
     return [
       {
+        fragment,
+        score: hit.score,
         url: hit.url || pathname,
         title: hit.title || fragment.meta?.title || pathname,
-        // Already carries <mark> around the hits, and Pagefind escapes the
-        // surrounding text itself.
-        excerpt: fragment.excerpt,
-        breadcrumb: breadcrumbFrom(hit.url || pathname),
-        sections:
-          from + at < ROWS_WITH_SECTIONS ? sectionsOf(fragment) : undefined,
-        ...classify(hit.url || pathname),
       },
     ];
   });
+
+  // Ranked already, unless the map was unusable and this slice arrived in
+  // Pagefind's own order. Ordering these few is worse than ordering the whole
+  // set, and far better than leaving a bare BM25 list: the reorder is what puts
+  // a section's own page above the pages inside it.
+  const ordered = reorder ? byNameThenDepth(drawn, reorder) : drawn;
+
+  return ordered.map((hit, at) => ({
+    url: hit.url,
+    title: hit.title,
+    // Already carries <mark> around the hits, and Pagefind escapes the
+    // surrounding text itself.
+    excerpt: hit.fragment.excerpt,
+    breadcrumb: breadcrumbFrom(hit.url),
+    sections:
+      from + at < ROWS_WITH_SECTIONS ? sectionsOf(hit.fragment) : undefined,
+    ...classify(hit.url),
+  }));
 }
 
 export function pagefindEngine(bundlePath: string): SearchEngine {
@@ -284,7 +306,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   // The last search's whole result set, already ranked, and how much of it has
   // been drawn. Ranking the tail costs nothing because it needs no fetches, so
   // `more()` only has to draw the next slice.
-  let page: { term: string; ranked: Ranked[]; at: number } | null = null;
+  let page: {
+    term: string;
+    ranked: Ranked[];
+    at: number;
+    // Set when the list was never ranked, so each batch is ordered as it is drawn.
+    reorder?: string;
+  } | null = null;
   // The map from result id to url and title, fetched once with the index.
   let titles: TitleMap | null = null;
   // What Pagefind prepends to the urls it returns, and therefore what the map's
@@ -412,8 +440,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
           ? rank(response.results, titles, query, urlPrefix)
           : [];
 
-        // The map was missing or disagreed with the index. Ranking what gets
-        // drawn is worse than ranking everything, and it still answers.
+        // The map was missing, or disagreed with the index so completely that
+        // nothing joined. These carry no url or title, so `draw` reads both off
+        // the fragments and orders each batch as it draws it — which is what the
+        // engine did before the map existed.
         const fallback =
           ranked.length === 0 && response.results.length > 0
             ? response.results.map((stub) => ({
@@ -430,10 +460,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         }
 
         const ordered = fallback ?? ranked;
-        settle({ term: query, ranked: ordered, at: PAGE_SIZE });
+        // Every batch of an unranked list has to be ordered as it is drawn,
+        // including the ones `more()` fetches later.
+        const reorder = fallback ? query : undefined;
+        settle({ term: query, ranked: ordered, at: PAGE_SIZE, reorder });
 
         return {
-          results: await draw(ordered, 0, PAGE_SIZE),
+          results: await draw(ordered, 0, PAGE_SIZE, reorder),
           counts,
           total: ordered.length,
         };
@@ -451,14 +484,14 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
 
       // Read off before the await: a search landing in the meantime replaces
       // `page`, and these rows still belong to the query that asked for them.
-      const { ranked } = page;
+      const { ranked, reorder } = page;
       const from = page.at;
       if (from >= ranked.length) return [];
 
       page.at = Math.min(from + PAGE_SIZE, ranked.length);
 
       try {
-        return await draw(ranked, from, PAGE_SIZE);
+        return await draw(ranked, from, PAGE_SIZE, reorder);
       } catch (error) {
         // The rows already on screen are still good, so this fails quietly and
         // leaves them alone.
