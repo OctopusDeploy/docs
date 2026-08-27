@@ -176,4 +176,3 @@ The following patterns are implemented using the strategies documented in the [m
 
 - Managed space per business unit/application
 - Managed instance per business unit/region
-- Managed instance per environment

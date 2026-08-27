@@ -30,7 +30,7 @@ Typically the concerns are:
 - Separate VLANs or networks for each environment.
 - Specific steps are included for every **Production** deployment.
 
-Octopus Deploy includes functionality to mitigate those concerns.  That enables large banks, hospitals, retail companies, software vendors, insurance agencies, and government clients to have all environments on the same instance.
+Octopus Deploy includes functionality to mitigate those concerns.  That enables large banks, hospitals, retail companies, software vendors, insurance agencies, and government clients to have all environments on the same instance.  This page includes details on how to mitigate those concerns.
 
 Other unsuitable use cases for splitting instance include:
 
@@ -47,7 +47,7 @@ With the capabilities available in Octopus Deploy today, the only suitable scena
 
 For example:
 
-- A primary **Dev/Test/Staging/Production** instance running on a public cloud (e.g. Azure) with an isolated **Production** only instance for a set of targets hosted in a government cloud (e.g. Azure Gov).
+- A primary **Dev/Test/Staging/Production** instance running in a datacenter with an isolated **Production** only instance for targets with no physical network connections between the two instances.
 - Same scenario as above, but using multi-tenancy.  The primary instance and isolated instance have different tenants and targets.
 
 In both scenarios:
@@ -56,7 +56,7 @@ In both scenarios:
 - The same application is hosted in multiple **Production** environments.
 - A new release is created in the isolated instance to deploy those **Production** targets.
 
-The expectation is the source instance is the source of truth and the destination instance(s) contain copies of that data.  The syncing process will run periodically to ensure changes made on the source instance are added to the destination instance.
+The primary source instance is the source of truth and the isolated destination instance contain copies of that data.  The syncing process will run on a machine that has connectivity to both networks periodically.
 
 :::div{.hint}
 If you wish to do a one-time split of an instance and have no desire to keep anything in sync afterwards, then we recommend the [Export/Import Projects](/docs/projects/export-import) feature.  
@@ -64,7 +64,7 @@ If you wish to do a one-time split of an instance and have no desire to keep any
 
 ## Avoiding syncing multiple instances
 
-The syncing process is complex an requires constant care and maintenance.  Even if we provided a built-in tool, you'd still need to monitor and maintain the process.
+The syncing process is complex an requires constant care and maintenance.  Even if we provided a built-in tool, you'd still need to monitor and maintain the process.  It is not something we recommend, encourage, or can easily support.  In addition, Octopus Deploy includes functionality that mitigates most needs to split and sync instances.
 
 :::div{.hint}
 We've been asked if splitting environments, tenants or deployment targets by space is a safer alternative.  [Spaces](/docs/administration/spaces) are hard walls and do not allow the sharing of environments, projects, variable sets, step templates, script modules, deployment targets and more.  For all intents and purposes, a space is a unique instance.  Any problems you encounter when syncing instances will happen when trying to sync spaces.
