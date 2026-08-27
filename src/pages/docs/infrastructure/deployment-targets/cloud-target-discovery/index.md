@@ -39,7 +39,9 @@ To discover Azure cloud resources, Octopus uses the following variables:
 
 | Name                    | Required | Description                                                                                                |
 | ----------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables) to use when discovering cloud targets. This account is also saved on each target it discovers, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account). |
+| `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables) to use when discovering cloud targets |
+
+The account you set here is also saved on each target discovery creates, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
 
 From **Octopus 2022.3**, Azure steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet.
 
@@ -76,12 +78,14 @@ To discover AWS cloud resources, Octopus uses the following variables:
 | Name                                      | Required | Description                                                                                                                                                                                                                                               |
 | ----------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                                                                     |
-| `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used. When set, this account is also saved on each target it discovers, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account). |
+| `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used.                                                |
 | `Octopus.Aws.WorkerPool`                  | N        | A [worker pool](/docs/projects/variables/worker-pool-variables) to use when discovering cloud targets. If this is not set then the worker pool from the step will be used. If this is set any discovered targets will have this set as their worker pool. |
 | `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles.                                             |
 | `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                         |
 | `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                          |
 | `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external ID to use if assuming a role during discovery. See the AWS documentation for more information on the use of external IDs.                                                                                                                     |
+
+If you set `Octopus.Aws.Account`, that account is also saved on each target discovery creates, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
 
 From **Octopus 2022.3**, AWS steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet:
 
