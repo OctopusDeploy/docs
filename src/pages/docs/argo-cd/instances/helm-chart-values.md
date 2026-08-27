@@ -60,7 +60,7 @@ hideInThisSectionHeader: true
 | registration.serviceAccount.name | `""` | Name of an existing service account to use for the registration pod |
 | registration.serviceAccount.annotations | `{}` | Additional annotations for the service account |
 | registration.octopus.name | `""` | Name of the gateway |
-| registration.octopus.serverApiUrl | `""` | The API URL of Octopus Deploy for registration e.g. https://my-instance.octopus.app |
+| registration.octopus.serverApiUrl | `""` | The API URL of Octopus Deploy for registration e.g. `https://my-instance.octopus.app` |
 | registration.octopus.serverAccessToken | `""` | The access token to authenticate to Octopus Deploy. If supplied, a Kubernetes secret is created to hold this token. Mutually exclusive with authenticationTokenSecretName/authenticationTokenSecretKey. |
 | registration.octopus.serverAccessTokenSecretName | `""` | Required when serverAccessToken is not set: name of an existing secret that contains the Octopus Deploy access token. When serverAccessToken is set, this overrides the default secret name. |
 | registration.octopus.serverAccessTokenSecretKey | `""` | Required when serverAccessToken is not set: the key within the secret that holds the token. When serverAccessToken is set, this overrides the default key ("token"). |
@@ -74,8 +74,8 @@ hideInThisSectionHeader: true
 
 | Key | Default | Description |
 | ----- | --------- | ------------- |
-| autoUpdate.enabled | `true` | Indicates if the automatic update process CronJob is enabled. If set to false, the CronJob is not created  |
-| autoUpdate.schedule | `"0 0 * * *"` | A Cron expression for how often the CronJob executes.  |
+| autoUpdate.enabled | `true` | Indicates if the automatic update process CronJob is enabled. If set to false, the CronJob is not created |
+| autoUpdate.schedule | `"0 0 * * *"` | A Cron expression for how often the CronJob executes. |
 | autoUpdate.successfulJobsHistoryLimit | `1` | The number of successful finished jobs to keep. Set to 0 to not keep any successful jobs. |
 | autoUpdate.failedJobsHistoryLimit | `1` | The number of failed finished jobs to keep. Set to 0 to not keep any failed jobs. |
 | autoUpdate.serviceAccount.create | `true` | Specifies whether a service account should be created, if autoUpdate.enabled is set to false this will not be used |
