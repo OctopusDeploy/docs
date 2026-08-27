@@ -4,6 +4,7 @@ actiontemplates
 Adfs
 advfirewall
 agentic
+alives
 allatclaims
 ALLUSERSPROFILE
 anglin
@@ -505,6 +506,7 @@ SCIM
 scopeduserroles
 Scregedit
 scriptcs
+seccomp
 secp
 secpol
 secureclientcertificate
