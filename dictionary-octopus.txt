@@ -4,6 +4,7 @@ actiontemplates
 Adfs
 advfirewall
 agentic
+alives
 allatclaims
 ALLUSERSPROFILE
 anglin
@@ -39,6 +40,7 @@ auths
 autoconfigured
 autodeployoverride
 autologin
+automount
 autopopulate
 awsaccount
 azureaccount
@@ -459,6 +461,7 @@ Regedit
 rego
 rehype
 reindexing
+relabelings
 releasenotes
 releaseprogression
 remoting
@@ -503,6 +506,7 @@ SCIM
 scopeduserroles
 Scregedit
 scriptcs
+seccomp
 secp
 secpol
 secureclientcertificate
@@ -586,6 +590,7 @@ timeframes
 timespan
 tlsv1
 tmpfs
+tolerations
 tomcatadmin
 Toolbelt
 Toolsets
