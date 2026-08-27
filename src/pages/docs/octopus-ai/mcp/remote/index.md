@@ -39,6 +39,7 @@ Octopus Remote MCP initially supports a selected set of core Octopus features. W
 ## Getting Started
 
 ### Requirements
+
 - An Octopus Deploy instance that can be accessed over HTTPS
 - An Octopus Deploy API key. We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
 
@@ -51,6 +52,7 @@ claude mcp add --transport http \
 ```
 
 Or in JSON format:
+
 ```json
 "mcpServers": {
   "octopus-deploy": {
@@ -69,7 +71,7 @@ OAuth authentication flow is planned for a future release.
 
 ## Security
 
-The Octopus MCP server operates within the same security boundary as our Rest API - user permissions still apply the same way. 
+The Octopus MCP server operates within the same security boundary as our Rest API - user permissions still apply the same way.
 
 ## Governance
 
