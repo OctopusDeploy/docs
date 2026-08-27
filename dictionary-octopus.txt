@@ -39,6 +39,7 @@ auths
 autoconfigured
 autodeployoverride
 autologin
+automount
 autopopulate
 awsaccount
 azureaccount
@@ -459,6 +460,7 @@ Regedit
 rego
 rehype
 reindexing
+relabelings
 releasenotes
 releaseprogression
 remoting
@@ -586,6 +588,7 @@ timeframes
 timespan
 tlsv1
 tmpfs
+tolerations
 tomcatadmin
 Toolbelt
 Toolsets
