@@ -33,7 +33,7 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
 
   You can scope the approval rule by project and environment tags or individual project and environments.
 
-- **Approvers**: Select the Octopus teams or individual users who are authorized to approve change requests under this policy. Any member of an approving team counts toward the minimum approvers total.
+- **Approvers**: Select the Octopus teams or individual users who are authorized to approve change requests under this rule. Any member of an approving team counts toward the minimum approvers total.
 
   Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
 
