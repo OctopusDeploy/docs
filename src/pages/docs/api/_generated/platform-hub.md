@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-25
 title: Platform Hub
 ---
 
@@ -2463,6 +2463,47 @@ Gets a set of GitHub App connections for the Platform Hub.
 :::api-example{label="Response"}
 ```json
 "string"
+```
+:::
+
+## Get the GitHub repositories for a PlatformHub GitHub app connection
+
+:endpoint{method="GET" path="/api/platformhub/github/connections/\{connectionId\}/repositories"}
+
+**Path Parameters**
+
+- **`connectionId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — GitHub repositories available for the PlatformHub connection
+
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Repositories": [
+    {
+      "DefaultBranch": "string",
+      "GitUrl": "string",
+      "IsAdmin": false,
+      "IsPrivate": false,
+      "Language": "string",
+      "RepositoryId": "string",
+      "RepositoryName": "string",
+      "Visibility": "string"
+    }
+  ]
+}
 ```
 :::
 
