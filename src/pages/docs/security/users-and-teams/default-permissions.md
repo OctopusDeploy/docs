@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-17
+modDate: 2026-08-24
 title: Default permissions for built-in user roles
 description: A listing of the default permissions for each of the built-in user roles.
 ---
@@ -161,6 +161,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
 | EventView                         | View Events, including access to the Audit screen                                                                               |
@@ -214,6 +215,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentCreate                  | Deploy releases to target environments                                                                                          |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
@@ -309,6 +311,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
 | EventView                         | View Events, including access to the Audit screen                                                                               |
@@ -498,6 +501,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentCreate                  | Deploy releases to target environments                                                                                          |
 | DeploymentDelete                  | Delete deployments                                                                                                              |
 | DeploymentView                    | View deployments                                                                                                                |
@@ -652,3 +656,7 @@ description: A listing of the default permissions for each of the built-in user 
 | TenantDelete     | Delete tenants |
 | TenantEdit       | Edit tenants   |
 | TenantView       | View tenants   |
+
+## Version notes
+
+- The `DeployedResourceAdminister` permission is available from Octopus Server 2026.3.13597.
