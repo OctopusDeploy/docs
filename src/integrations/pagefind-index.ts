@@ -102,9 +102,10 @@ export default function pagefindIndex(): AstroIntegration {
  * the wrong index joins against nothing. The client reads the hash out of
  * `pagefind-entry.json` to build the same name.
  *
- * A module rather than JSON, because Front Door caches `.js` for a week as
- * immutable and compressed, and gives anything unrecognised `no-cache`. An
- * ETag-less revalidation is a full re-download, and this loads on every page.
+ * A module, so that Front Door's static-content rule caches it for a week as
+ * immutable and compressed. That rule lists extensions, and a `.json` name falls
+ * through to `no-cache`, where an ETag-less revalidation costs a full
+ * re-download — paid on every page that loads the overlay.
  */
 const titleMapName = (hash: string) => `docs-titles.${hash}.js`;
 
