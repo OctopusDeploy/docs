@@ -377,8 +377,9 @@ test('results stay on the host that served them', async ({ page }) => {
 
 // A section's own page can rank far below the pages inside it on raw score -
 // /docs/infrastructure/deployment-targets/ is 36th for this query - so the
-// overlay runs a second search over the shallow pages alone and puts the page the
-// query names at the top. Without it the first result is a getting-started page.
+// overlay looks the query up in the title list at /docs/search-titles.json and
+// puts the page it names at the top. Without it the first result is a
+// getting-started page.
 test('the page a query names comes first', async ({ page }) => {
   await page.goto('/docs');
 

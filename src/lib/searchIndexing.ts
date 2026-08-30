@@ -13,53 +13,41 @@ type ArticleAttributes = {
   'data-pagefind-default-meta'?: string;
 };
 
-/**
- * A second filter, on an element inside the article rather than on the article
- * itself: Pagefind reads one `key:value` per `data-pagefind-filter`, and a
- * comma-separated pair is taken as a single value.
- */
-type ContentAttributes = {
-  'data-pagefind-filter'?: string;
-};
-
 type IndexAttributes = {
   article: ArticleAttributes;
-  content: ContentAttributes;
 };
 
 /**
- * How shallow a page has to be to count as one a reader might name. Two segments
- * past `/docs/`, which covers `/docs/deployments/` and
- * `/docs/infrastructure/deployment-targets/` but not the pages inside them.
- */
-const LANDING_DEPTH = 3;
-
-/**
- * The `data-pagefind-*` attributes for a page: `article` spreads onto the
- * `<article>`, `content` onto the page content inside it.
+ * Whether a page is in the search index at all.
  *
  * `navSearch` rather than `PostFiltering.showInSearch`, which also hides a page
  * with a future `pubDate`, a `draft: true` and a `listable: false`: a page that
  * is built and served is a page worth finding. No docs page carries any of the
  * three today, so this is the same set either way — decide again if one starts
  * being used to hold a page back.
+ *
+ * Exported because `/docs/search-titles.json` has to describe the same set. A
+ * title in that list with no page behind it in the index would promote a row the
+ * search itself has no answer for.
+ */
+export function isSearchIndexable(
+  pathname: string,
+  frontmatter: Frontmatter
+): boolean {
+  return frontmatter.navSearch !== false && !isUnderConstructionUrl(pathname);
+}
+
+/**
+ * The `data-pagefind-*` attributes for a page, to spread onto the `<article>`.
  */
 export function searchIndexAttributes(
   pathname: string,
   frontmatter: Frontmatter
 ): IndexAttributes {
-  const indexable =
-    frontmatter.navSearch !== false && !isUnderConstructionUrl(pathname);
-
   // `all` rather than the default `index`: a bare ignore still lets Pagefind
   // read a title or metadata out of the block.
-  if (!indexable)
-    return { article: { 'data-pagefind-ignore': 'all' }, content: {} };
-
-  // Marks the pages the overlay's second, narrowed search looks through. Only
-  // the shallow pages carry it, so the filter chunk stays small and that search
-  // has a few hundred candidates rather than the whole site.
-  const isLanding = pathname.split('/').filter(Boolean).length <= LANDING_DEPTH;
+  if (!isSearchIndexable(pathname, frontmatter))
+    return { article: { 'data-pagefind-ignore': 'all' } };
 
   return {
     article: {
@@ -75,6 +63,5 @@ export function searchIndexAttributes(
         ? { 'data-pagefind-default-meta': `title:${frontmatter.title}` }
         : {}),
     },
-    content: isLanding ? { 'data-pagefind-filter': 'landing:true' } : {},
   };
 }

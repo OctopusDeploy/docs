@@ -28,10 +28,12 @@ const PAGE_SIZE = 30;
 // 79%. A mash landing on the gentler message costs nothing; both offer no rows.
 const COMMON_TERM_SHARE = 0.8;
 
-// How many shallow pages the named-page lookup looks through. Measured over 18
-// section queries: three finds the page for 16, five for 17, and twenty finds no
-// more than five does.
-const LANDING_CANDIDATES = 5;
+/**
+ * Every indexed page's url and title, built from the site's own markdown. See
+ * `src/pages/docs/search-titles.json.ts` for why this exists rather than being
+ * read out of Pagefind.
+ */
+type TitleList = [url: string, title: string][];
 
 type PagefindSubResult = {
   title: string;
@@ -197,7 +199,11 @@ function byNameThenDepth<
 
 /** A stub's score paired with its fetched fragment, which is where the URL is. */
 type Hit = {
-  fragment: PagefindFragment;
+  /**
+   * Absent on a page promoted from the title list, which is not one of the
+   * results and so has no stub to fetch a fragment from.
+   */
+  fragment?: PagefindFragment;
   score: number;
   url: string;
   title: string;
@@ -242,11 +248,14 @@ function rows(hits: Hit[], term: string, from: number): SearchResult[] {
     url: hit.url,
     title: hit.title,
     // Already carries <mark> around the hits, and Pagefind escapes the
-    // surrounding text itself.
-    excerpt: hit.fragment.excerpt,
+    // surrounding text itself. Empty for a promoted page, which the overlay
+    // renders as a row without an excerpt line.
+    excerpt: hit.fragment?.excerpt ?? '',
     breadcrumb: breadcrumbFrom(hit.url),
     sections:
-      from + rank < ROWS_WITH_SECTIONS ? sectionsOf(hit.fragment) : undefined,
+      hit.fragment && from + rank < ROWS_WITH_SECTIONS
+        ? sectionsOf(hit.fragment)
+        : undefined,
     ...classify(hit.url),
   }));
 }
@@ -256,25 +265,58 @@ function rows(hits: Hit[], term: string, from: number): SearchResult[] {
  *
  * `byNameThenDepth` can only promote what has been fetched, and a section's own
  * page can rank far below the pages inside it: `/docs/infrastructure/
- * deployment-targets/` is 36th for "deployment targets", six places past the
- * page size. These stubs come from a search narrowed to the shallow pages alone,
- * where the page a query names sits near the top of a few hundred candidates.
+ * deployment-targets/` is 36th for "deployment targets", past the page size.
+ * `claimsName` reads only a url and a title, and the title list carries both for
+ * every indexed page, so the page a query names is found without fetching
+ * anything and from any depth.
  *
- * Only called when nothing already fetched names the query, so the extra
- * fragments are paid for by the queries that need them and no others.
+ * Only called when nothing already fetched names the query, and it returns at
+ * most one page: `claimsName` is an exact match on a title or a slug, so a
+ * second page answering to the same name is a page the reader could not have
+ * meant either way.
  */
-async function namedPage(
-  stubs: PagefindResultStub[],
+function namedPage(
+  titles: TitleList,
   term: string,
-  already: Hit[]
-): Promise<Hit | null> {
+  already: Hit[],
+  facet: string
+): Hit | null {
   const seen = new Set(already.map((hit) => hit.url));
-  const candidates = await hydrate(stubs.slice(0, LANDING_CANDIDATES));
 
-  return (
-    candidates.find((hit) => claimsName(hit, term) && !seen.has(hit.url)) ??
-    null
-  );
+  for (const [url, title] of titles) {
+    if (seen.has(url)) continue;
+    if (!claimsName({ url, title }, term)) continue;
+    // The list is the whole site, so a tab showing one section has to reject a
+    // page from another. The search this promotion joins was narrowed by the
+    // tab; this lookup was not.
+    if (facet !== 'all' && classify(url).facet !== facet) continue;
+
+    // `byNameThenDepth` sorts on `claimsName` before it looks at a score, and
+    // this page claims the name, so the score below it is never reached.
+    return { score: 0, url, title };
+  }
+
+  return null;
+}
+
+/**
+ * The title list, fetched once alongside the index.
+ *
+ * A failure leaves it null and the overlay keeps working: every result still
+ * ranks, and only the promotion of a page from past the drawn rows is lost.
+ */
+async function loadTitles(url: string): Promise<TitleList | null> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`${response.status}`);
+    return (await response.json()) as TitleList;
+  } catch (error) {
+    console.error(
+      '[docs-search] could not load the title list; a page ranked past the drawn rows will not be promoted',
+      error
+    );
+    return null;
+  }
 }
 
 export function pagefindEngine(bundlePath: string): SearchEngine {
@@ -295,6 +337,10 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
   let searches = 0;
   // Pages in the index, read off the filter counts when the index loads.
   let corpus = 0;
+  // Every indexed page's url and title, fetched once with the index.
+  let titles: TitleList | null = null;
+  // A sibling of the index directory: `/docs/pagefind/` leaves `/docs/`.
+  const titlesUrl = bundlePath.replace(/pagefind\/?$/, 'search-titles.json');
 
   function load() {
     loading ??= import(/* @vite-ignore */ `${bundlePath}pagefind.js`)
@@ -311,7 +357,14 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         // The filter index is a separate chunk, and a search returns empty filter
         // counts until it has been pulled down. Its section totals also add up to
         // the size of the corpus, which is what `COMMON_TERM_SHARE` is a share of.
-        const filters = await api.filters();
+        const [filters] = await Promise.all([
+          api.filters(),
+          // Alongside the filters rather than after them: both are wanted before
+          // the first search and neither depends on the other.
+          loadTitles(titlesUrl).then((list) => {
+            titles = list;
+          }),
+        ]);
         corpus = Object.values(filters.section ?? {}).reduce(
           (total, count) => total + count,
           0
@@ -358,16 +411,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const filters =
           facet && facet !== 'all' ? { section: [facet] } : undefined;
 
-        // Three searches at once, because a second await here would sit in front
-        // of every fragment fetch below it. The first supplies the rows; the
-        // second says whether the query has any answer at all, and only runs
-        // while a tab is narrowing the first; the third is the shallow-page
-        // shortlist `namedPage` draws on, which costs nothing until its
-        // fragments are fetched.
-        const [response, wholeCorpus, landing] = await Promise.all([
+        // Together, because a second await here would sit in front of every
+        // fragment fetch below it. The first supplies the rows; the second says
+        // whether the query has any answer at all, and only runs while a tab is
+        // narrowing the first.
+        const [response, wholeCorpus] = await Promise.all([
           api.search(query, { filters }),
           filters ? api.search(query) : null,
-          api.search(query, { filters: { ...filters, landing: ['true'] } }),
         ]);
         const unfiltered = wholeCorpus ?? response;
 
@@ -397,12 +447,13 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
 
         const hits = await hydrate(response.results.slice(0, PAGE_SIZE));
 
-        const named = hits.some((hit) => claimsName(hit, query))
-          ? null
-          : await namedPage(landing.results, query, hits);
+        const named =
+          !titles || hits.some((hit) => claimsName(hit, query))
+            ? null
+            : namedPage(titles, query, hits, facet ?? 'all');
         if (named) hits.push(named);
 
-        // A promoted page was fetched precisely because its own stub ranks past
+        // A promoted page was promoted precisely because its own stub ranks past
         // `PAGE_SIZE`, so that stub is still ahead of `more()` and has to be
         // skipped there rather than drawn a second time.
         settle({
