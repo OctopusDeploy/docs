@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-27
 title: Environments
 ---
 
@@ -1430,5 +1430,63 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "NumberOfPages": 0,
   "TotalResults": 0
 }
+```
+:::
+
+## Delete the environment state entry with the given key for a project/environment (and optionally tenant)
+
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/states/\{key\}"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/states/{key}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}`.
+
+**Path Parameters**
+
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  The ID of the environment the environment state entry belongs to.
+- **`key`** :span[string]{.type-label} *(required)*  
+  The key of the environment state entry to delete.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project the environment state entry belongs to.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the environment state entry.
+- **`tenantId`** :span[string]{.type-label} *(required)*  
+  An ID for a Tenant. If supplied, the entry deleted is the one published for the Tenant identified by the ID. If not supplied, the untenanted entry is deleted.
+
+**Response**
+
+`200` — Success
+
+## Gets the set of URLs published for a project/environment (and optionally tenant)
+
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/urls"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/urls`.
+
+**Path Parameters**
+
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`tenantId`** :span[string]{.type-label}  
+  An ID for a Tenant. If supplied, will limit the result to URLs published for the Tenant identified by the ID. If not supplied, only untenanted URLs are returned.
+
+**Response**
+
+`200` — The requested set of environment URLs
+
+- **`Name`** :span[string]{.type-label}
+- **`Url`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+[
+  {
+    "Name": "string",
+    "Url": "string"
+  }
+]
 ```
 :::
