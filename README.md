@@ -223,7 +223,7 @@ the article column above it.
 
 ## Docs page layout guidelines
 
-Page structure, frontmatter, and where version-specific notes belong are governed by the `octopus-docs-standards` skill in Claude Code — see [CONTRIBUTING.md](CONTRIBUTING.md). The guidance below covers page elements the content standards don't.
+Page structure, frontmatter, and where version-specific notes belong are governed by the `octopus-docs-standards` skill in Octopus Deploy's built-in Claude Code plugins — see [CONTRIBUTING.md](CONTRIBUTING.md). If you don't use Claude Code (which we recommend), you can find guidance in Octopus's internal Confluence instance. Search for "Documentation standards, guidelines, and templates". The guidance below covers page elements the content standards don't.
 
 ### Product screenshots
 
