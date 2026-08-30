@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-25
+modDate: 2026-08-27
 title: Platform Hub
 ---
 
@@ -2737,6 +2737,8 @@ Gets a set of GitHub App connections for the Platform Hub.
   - **`Type`** :span[enum]{.type-label}  
     Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
 - **`DefaultBranch`** :span[string]{.type-label}
+- **`ProtectedBranchNamePatterns`** :span[array of string]{.type-label}
+- **`ProtectedDefaultBranch`** :span[boolean]{.type-label}
 - **`Url`** :span[string]{.type-label}
 
 :::api-example{label="Response"}
@@ -2747,6 +2749,10 @@ Gets a set of GitHub App connections for the Platform Hub.
     "Type": "Anonymous"
   },
   "DefaultBranch": "string",
+  "ProtectedBranchNamePatterns": [
+    "string"
+  ],
+  "ProtectedDefaultBranch": false,
   "Url": "string"
 }
 ```
@@ -2763,6 +2769,8 @@ Gets a set of GitHub App connections for the Platform Hub.
   - **`Type`** :span[enum]{.type-label}  
     Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
 - **`DefaultBranch`** :span[string]{.type-label} *(required)*
+- **`ProtectedBranchNamePatterns`** :span[array of string]{.type-label}
+- **`ProtectedDefaultBranch`** :span[boolean]{.type-label}
 - **`Url`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 
@@ -2774,6 +2782,10 @@ Gets a set of GitHub App connections for the Platform Hub.
     "Type": "Anonymous"
   },
   "DefaultBranch": "string",
+  "ProtectedBranchNamePatterns": [
+    "string"
+  ],
+  "ProtectedDefaultBranch": false,
   "Url": "string"
 }
 ```
@@ -2788,6 +2800,8 @@ Gets a set of GitHub App connections for the Platform Hub.
   - **`Type`** :span[enum]{.type-label}  
     Allowed values: `Anonymous`, `UsernamePassword`, `Reference`, `GitHub`, `SshKey`.
 - **`DefaultBranch`** :span[string]{.type-label}
+- **`ProtectedBranchNamePatterns`** :span[array of string]{.type-label}
+- **`ProtectedDefaultBranch`** :span[boolean]{.type-label}
 - **`Url`** :span[string]{.type-label}
 
 :::api-example{label="Response"}
@@ -2798,6 +2812,10 @@ Gets a set of GitHub App connections for the Platform Hub.
     "Type": "Anonymous"
   },
   "DefaultBranch": "string",
+  "ProtectedBranchNamePatterns": [
+    "string"
+  ],
+  "ProtectedDefaultBranch": false,
   "Url": "string"
 }
 ```
