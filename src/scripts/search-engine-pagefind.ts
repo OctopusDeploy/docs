@@ -464,8 +464,11 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         });
 
         return {
-          // The promoted page is already one of these stubs, so counting them
-          // is counting the rows the query has in all.
+          // The promoted page is one of these stubs in every case seen: the
+          // query is its own title or slug, and the title is in the indexed
+          // body. The list is the whole site rather than this query's matches,
+          // though, so that is an assumption and not a guarantee — a page whose
+          // slug answers to a query its body does not would leave this one short.
           results: rows(hits, query, 0),
           counts,
           total: response.results.length,
