@@ -10,7 +10,7 @@ This command exports configuration data to a directory.
 
 Usage:
 
-```
+```text
 Usage: octopus.migrator export [<options>]
 
 Where [<options>] is any of:
@@ -41,4 +41,3 @@ Or one of the common options:
 
       --help                 Show detailed help for this command
 ```
-

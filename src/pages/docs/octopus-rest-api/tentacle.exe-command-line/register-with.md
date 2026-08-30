@@ -10,7 +10,7 @@ Registers this machine as a deployment target with an Octopus Server.
 
 **Register with options**
 
-```
+```text
 Usage: tentacle register-with [<options>]
 
 Where [<options>] is any of:
@@ -90,12 +90,12 @@ Or one of the common options:
 
 This example registers a listening Tentacle to the Octopus Server with the `Development` environment and `OctoFX-Web` role:
 
-```
+```text
 tentacle register-with --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --role="OctoFX-Web"
 ```
 
 This example registers a polling Tentacle with the `Development` environment and `OctoFX-Web` role in the `OctoFX` space:
 
-```
+```text
 tentacle register-with --server="https://your-octopus-url" --apiKey="API-YOUR-KEY" --environment="Development" --role="OctoFX-Web" --space="OctoFX" --comms-style="TentacleActive"
 ```

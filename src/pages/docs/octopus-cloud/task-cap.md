@@ -58,7 +58,7 @@ We assign resources to each Octopus Cloud instance based on the task cap.  Chang
 
 We recommend task caps based upon the number and duration of deployments required for a production deployment.  Deployments and runbook runs are the most common tasks.  Deployments typically take longer than runbook runs.  Production deployments are time constrained.  They are done off-hours during an outage window.
 
-**Important:** These tables represent the _MAX_ number of deployments.  Additional tasks such as runbook runs, retention policies, or health checks can reduce the number.  Use these tables as guidelines.
+**Important:** These tables represent the *MAX* number of deployments.  Additional tasks such as runbook runs, retention policies, or health checks can reduce the number.  Use these tables as guidelines.
 
 ### Task Cap 5
 

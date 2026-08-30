@@ -13,6 +13,10 @@ html[data-theme='dark'] {
 html {
   box-sizing: border-box;
   scroll-padding-block-start: var(--scroll-pad);
+  /* Search and the mobile nav lock scrolling by hiding the body's overflow,
+     which takes the scrollbar with it. Holding the gutter open keeps the
+     viewport a constant width, so the fixed header stays put. */
+  scrollbar-gutter: stable;
 }
 
 *,
@@ -30,7 +34,9 @@ html {
 }
 
 .input-keyboard :focus {
-  outline: 2px dashed silver;
+  z-index: 4;
+  outline: var(--borderWidth2) solid var(--colorBorderSelected);
+  outline-offset: var(--borderWidth1);
 }
 
 body {
@@ -85,25 +91,14 @@ hr {
   color: var(--body-link-color);
 }
 
+/* The tinted card is the callout's shape. Almost every `>` in the docs holds
+   error text, UI copy, or an example value, so a quote takes the quieter rule
+   and stays at body size. */
 blockquote {
-  background: var(--bg-color-hint);
-  border-radius: var(--standard-radius);
-  font-size: var(--fontSizeLarge);
-  line-height: var(--lineHeightMedium);
+  border-inline-start: var(--borderWidth3) solid var(--colorBorderPrimary);
+  color: var(--colorTextSecondary);
   margin: var(--space24) 0;
-  padding: 1.5rem 2.5rem 1.5rem 4.5rem;
-  position: relative;
-}
-
-blockquote::before {
-  content: ' ';
-  position: absolute;
-  left: 1.5rem;
-  top: 1.8rem;
-  width: 28px;
-  height: 21px;
-  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0nMjgnIGhlaWdodD0nMjEnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTI3Ljg1NSAyLjhjLTIuMDI3LjY0LTMuNjU0IDEuNi00Ljg4IDIuODgtMS4xNzQgMS4yOC0xLjYyNyAyLjkzMy0xLjM2IDQuOTYuNTg2LjQ4IDEuNDEzLjk4NyAyLjQ4IDEuNTIgMS4wNjYuNDggMiAuODUzIDIuOCAxLjEyLjIxMy44NTMuMjEzIDEuNjggMCAyLjQ4LS4yMTQuOC0uNTYgMS41Mi0xLjA0IDIuMTZhNy42MTYgNy42MTYgMCAwMS0xLjY4IDEuNTJjLS42NC4zNzMtMS4yMjcuNTg3LTEuNzYuNjQtMS44NjctLjE2LTMuNDk0LS44NTMtNC44OC0yLjA4LTEuMzg3LTEuMjI3LTIuMDgtMi45ODctMi4wOC01LjI4IDAtMS4zMzMuMjEzLTIuNjY3LjY0LTRhMTIuNTkgMTIuNTkgMCAwMTIuMDgtMy42OGMuOTA2LTEuMTczIDIuMDUzLTIuMTg3IDMuNDQtMy4wNEMyMyAxLjA5MyAyNC42NTUuNDUzIDI2LjU3NS4wOGwxLjI4IDIuNzJ6bS0xNC41NiAwYy0yLjAyNy42NC0zLjY1NCAxLjYtNC44OCAyLjg4LTEuMTc0IDEuMjgtMS42MjcgMi45MzMtMS4zNiA0Ljk2LjU4Ni40OCAxLjQxMy45ODcgMi40OCAxLjUyIDEuMDY2LjQ4IDIgLjg1MyAyLjggMS4xMi4yMTMuODUzLjIxMyAxLjY4IDAgMi40OC0uMjE0LjgtLjU2IDEuNTItMS4wNCAyLjE2YTcuNjE1IDcuNjE1IDAgMDEtMS42OCAxLjUyYy0uNjQuMzczLTEuMjI3LjU4Ny0xLjc2LjY0LTEuODY3LS4xNi0zLjQ5NC0uODUzLTQuODgtMi4wOC0xLjM4Ny0xLjIyNy0yLjA4LTIuOTg3LTIuMDgtNS4yOCAwLTEuMzMzLjIxMy0yLjY2Ny42NC00YTEyLjU5MSAxMi41OTEgMCAwMTIuMDgtMy42OEM0LjUyIDMuODY3IDUuNjY4IDIuODUzIDcuMDU1IDJjMS4zODYtLjkwNyAzLjA0LTEuNTQ3IDQuOTYtMS45MmwxLjI4IDIuNzJ6JyBmaWxsPScjMTExODFEJy8+PC9zdmc+);
-  background-repeat: no-repeat;
+  padding: var(--space4) 0 var(--space4) var(--space16);
 }
 
 blockquote cite {
@@ -111,7 +106,6 @@ blockquote cite {
   text-align: end;
   margin-block-start: var(--block-gap);
   font-style: italic;
-  font-size: var(--fontSizeBase);
 }
 
 code {
@@ -140,7 +134,10 @@ pre code {
   padding: unset;
 }
 
-table code {
+/* <pre> is included so a block in a cell lands on the same size as the inline
+   code beside it — without it the <code> inside shrinks and its wrapper does
+   not. */
+table :is(code, pre) {
   font: var(--textCodeRegularSmall);
 }
 
@@ -229,6 +226,17 @@ img {
   max-width: 100%;
   height: auto;
   background-color: var(--color-base-primary);
+}
+
+/* Content screenshots and diagrams are captured against a light UI and exported
+   with transparency, so the theme plate shows through in dark mode and swallows
+   their dark labels. --white is a scale token, invariant across both themes.
+   Component icons keep the theme plate: they are drawn to sit on either
+   surface. */
+.page-content
+  img:not(.avatar__image, .card__image, .icon-tile__icon, .link__icon),
+.zoom-lightbox img {
+  background-color: var(--colorBackgroundPrimaryDefault);
 }
 
 figure img {
@@ -330,18 +338,13 @@ strong {
    which this rule would otherwise outrank on specificity. */
 .page-content > *:not(:is(h2, h3, h4, h5, h6)),
 .page-content > blockquote > *:not(:last-child),
-.page-content > div.info > *:not(:last-child),
-.page-content > div.success > *:not(:last-child),
-.page-content > div.warning > *:not(:last-child),
-.page-content > div.problem > *:not(:last-child),
-.page-content > div.question > *:not(:last-child),
-.page-content > div.hint > *:not(:last-child) {
+.page-content > div.question > *:not(:last-child) {
   margin-block-end: var(--space16);
 }
 
 .page-content ul,
 .page-content ol {
-  margin-inline-start: var(--space24);
+  padding-inline-start: var(--space24);
 }
 
 /* Figma puts space/6 above every list item after the first, so consecutive
@@ -376,7 +379,17 @@ strong {
    they need nothing extra: sitting in the li already aligns them to the item
    text, which is where Figma puts them. The code block is spaced by its
    wrapper: the <pre> inside it would push the code off its own header. */
-.page-content :is(.code-block, figure, .table-wrap) {
+.page-content
+  :is(
+    .code-block,
+    figure,
+    .table-wrap,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem
+  ) {
   margin-block: var(--space24);
 }
 
@@ -417,40 +430,99 @@ strong {
 .success,
 .warning,
 .problem {
-  border-radius: 0 var(--standard-radius) var(--standard-radius) 0;
-  margin: var(--space24) 0;
-  padding: 1.5rem;
-  border-inline-start: 3px solid #000;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: var(--space8);
+  margin-block: var(--space24);
+  padding: var(--space16);
+  border-radius: var(--borderRadiusMedium);
+  color: var(--color-callout-body);
+  font: var(--textBodyRegularMedium);
+}
+
+/* Pulled up 2px so the 24px glyph centers on the 20px first line beside it. */
+.hint::before,
+.info::before,
+.success::before,
+.warning::before,
+.problem::before {
+  content: '';
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-block-start: -0.125rem;
+  mask: center / contain no-repeat;
+}
+
+.hint > *,
+.info > *,
+.success > *,
+.warning > *,
+.problem > * {
+  grid-column: 2;
+}
+
+:is(.hint, .info, .success, .warning, .problem) > *:not(:last-child) {
+  margin-block-end: var(--space12);
+}
+
+/* A bold lead-in stands in for the design's title, which markdown can't carry. */
+:is(.hint, .info, .success, .warning, .problem) :is(strong, b) {
+  color: var(--callout-title-color);
+}
+
+:is(.hint, .info, .success, .warning, .problem) :where(a) {
+  color: var(--colorTextPrimary);
+  text-decoration: underline;
 }
 
 .hint {
-  color: var(--color-hint);
-  border-color: var(--border-color-hint);
+  --callout-title-color: var(--color-hint);
   background-color: var(--bg-color-hint);
 }
 
+.hint::before {
+  background-color: var(--icon-color-hint);
+  mask-image: url('../assets/icons/info-circle.svg');
+}
+
 .info {
-  color: var(--color-info);
-  border-color: var(--border-color-info);
+  --callout-title-color: var(--color-info);
   background-color: var(--bg-color-info);
 }
 
+.info::before {
+  background-color: var(--icon-color-info);
+  mask-image: url('../assets/icons/info-circle.svg');
+}
+
 .success {
-  color: var(--color-success);
-  border-color: var(--border-color-success);
+  --callout-title-color: var(--color-success);
   background-color: var(--bg-color-success);
 }
 
+.success::before {
+  background-color: var(--icon-color-success);
+  mask-image: url('../assets/icons/check-circle.svg');
+}
+
 .warning {
-  color: var(--color-warning);
-  border-color: var(--border-color-warning);
+  --callout-title-color: var(--color-warning);
   background-color: var(--bg-color-warning);
 }
 
+.warning::before {
+  background-color: var(--icon-color-warning);
+  mask-image: url('../assets/icons/exclamation-triangle.svg');
+}
+
 .problem {
-  color: var(--color-problem);
-  border-color: var(--border-color-problem);
+  --callout-title-color: var(--color-problem);
   background-color: var(--bg-color-problem);
+}
+
+.problem::before {
+  background-color: var(--icon-color-problem);
+  mask-image: url('../assets/icons/exclamation-circle.svg');
 }
 
 .question {
@@ -535,7 +607,7 @@ strong {
 
 :is(h2, h3, h4, h5, h6):hover .copy-heading-url,
 .copy-heading-url:focus-visible,
-.copy-heading-url[data-copied] {
+.copy-heading-url:is([data-copied], [data-failed]) {
   opacity: 1;
 }
 
@@ -643,209 +715,22 @@ nav.skip-links a:focus {
   width: auto;
 }
 
-/* Site Header */
-
-.octo-header-bkg {
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-  background-color: var(--header-bg);
-  min-height: 82px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  /* z-index due to conflict with octo-title-bkg */
-  z-index: 11;
-  background-color: var(--color-base-primary);
-  transition: background-color var(--duration-default) ease-in-out;
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
+.top-nav__theme-icon {
+  background-color: var(--colorIconPrimary);
 }
 
-.octo-header {
-  margin-inline: var(--page-inline-margin);
-  font-size: var(--fontSizeBase);
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
+html[data-theme='light'] .top-nav__theme-icon {
+  mask: url('../assets/icons/moon.svg') center / contain no-repeat;
 }
 
-@media (max-width: 1130px) {
-  .octo-header {
-    gap: 0.5rem;
-  }
+html[data-theme='dark'] .top-nav__theme-icon {
+  mask: url('../assets/icons/sun.svg') center / contain no-repeat;
 }
 
-.octo-header .logo {
-  max-height: 45px;
-}
-
-.octo-header__logo {
-  height: 50px;
-  width: auto;
-}
-
-.octo-header > a.navigation-icon {
+html[data-signed-in='true'] [data-signed-out-only],
+html[data-signed-in='false'] [data-signed-in-only] {
   display: none;
-  text-align: end;
-  stroke: var(--header-link-alt);
-  width: 40px;
-  height: 40px;
 }
-
-@media (max-width: 1130px) {
-  .octo-header {
-    grid-template-columns: auto 40px;
-  }
-
-  .octo-header > nav,
-  .octo-header > a.button--primary {
-    display: none;
-  }
-
-  .octo-header > a.navigation-icon {
-    display: inline-block;
-  }
-}
-
-.octo-header__wrapper--left {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  column-gap: 0.5rem;
-}
-
-/* Hide badge due to not enough space */
-@media (max-width: 360px) {
-  .octo-header__wrapper--left .badge {
-    display: none;
-  }
-}
-
-/* Badge */
-.badge {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 0.75rem;
-  gap: 0.75rem;
-  border-radius: 0.5rem;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight600);
-  line-height: 138%;
-  transition-property: background-color, color;
-  transition-timing-function: ease-in-out;
-  transition-duration: var(--duration-default);
-
-  @media (prefers-reduced-motion: reduce) {
-    transition-property: none;
-  }
-}
-
-.badge--brand {
-  color: var(--badge-color);
-  background-color: var(--badge-background);
-}
-
-/* Theme switcher */
-
-.theme-switcher {
-  position: relative;
-  display: inline-block;
-  width: 11.1875rem;
-  height: 2.5rem;
-  margin-inline-start: 1rem;
-}
-
-/* Hide theme switcher in header on mobile */
-@media screen and (max-width: 1130px) {
-  .octo-header .octo-header__wrapper--left > .theme-switcher {
-    display: none;
-  }
-}
-
-.site-nav__mobile > .theme-switcher {
-  display: block;
-  margin: 1rem auto;
-}
-
-.theme-switcher input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  position: absolute;
-}
-
-.theme-switcher__label {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: var(--white);
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  background-color: var(--header-bg);
-  border: 0.0625rem solid var(--theme-switcher-border);
-  border-radius: 1.75rem;
-  position: relative;
-  transition: background-color var(--duration-default) ease-in-out;
-}
-
-.switch-slider {
-  --toggle-sides-offset: 0.375rem;
-  position: absolute;
-  width: calc((100% - var(--toggle-sides-offset)) / 2);
-  height: calc(100% - var(--toggle-sides-offset));
-  left: calc(var(--toggle-sides-offset) / 2);
-  background-color: var(--blue-500);
-  border-radius: 3.375rem;
-  transition: transform var(--duration-default) ease-in-out;
-}
-
-.theme-switcher__icon {
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight700);
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  z-index: 2;
-}
-
-html[data-theme='dark'] .theme-switcher .switch-slider {
-  transform: translateX(100%);
-}
-
-html[data-theme='dark'] .theme-switcher__icon--light {
-  color: #7c98b4;
-}
-
-html[data-theme='dark'] .theme-switcher__icon--light svg path {
-  fill: #7c98b4;
-}
-
-html[data-theme='light'] .theme-switcher__icon--dark {
-  color: #557999;
-}
-
-html[data-theme='light'] .theme-switcher__icon--dark svg path {
-  fill: #557999;
-}
-
-/* The input is visually hidden but still the focusable control, so the ring
-   has to be drawn on the label. */
-.theme-switcher input:focus-visible + .theme-switcher__label {
-  outline: 0.125rem solid var(--octo-blue);
-  outline-offset: 0.125rem;
-}
-
-.theme-switcher input:disabled + .theme-switcher__label {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* */
 
 .docs-home {
   text-align: center;
@@ -898,11 +783,11 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 }
 
 .link__content {
-  /* TODO: remove together with simple-grid width 100% */
+  /* TODO: remove together with col-2 width 100% */
   width: auto !important;
 }
 
-.simple-grid .astro-code {
+.col-2 .astro-code {
   text-align: left;
 }
 
@@ -1045,79 +930,36 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 
 /* Card */
 .card {
-  border-radius: 0.625rem;
-  border: 0.0625rem solid var(--navy-200);
-  transition: box-shadow 300ms ease-in-out;
-  overflow: hidden;
+  border-radius: var(--borderRadiusMedium);
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  background: var(--colorBackgroundPrimaryDefault);
+  transition: background 150ms ease-in-out;
+  height: 100%;
 }
 
 .card:hover {
-  box-shadow: var(--card-shadow);
-}
-
-.card:not(.card--related-topics):hover .card__image {
-  transform: scale(1.3);
-}
-
-/* padded variant */
-.card--padded .card__image-wrapper {
-  background-color: #c3cdd5;
-  padding: 1rem 2rem 0;
-}
-
-/* related-topics variant */
-.card--related-topics {
-  box-shadow: var(--card-related-topics-shadow);
-}
-
-.card--related-topics:hover,
-.card--related-topics .card__link:focus-visible {
-  box-shadow: var(--card-related-topics-hover-shadow);
-}
-
-.card--related-topics:hover .card__label svg,
-.card--related-topics .card__link:focus-visible .card__label svg {
-  transform: translateX(0.5rem);
-}
-
-.card--related-topics .card__image-wrapper {
-  padding: 0.75rem 0.75em 0;
-}
-
-.card--related-topics .card__image {
-  border-radius: 0.625rem;
-}
-
-.card--related-topics .card__copy {
-  padding: 0 1.25rem 1.25rem;
-}
-
-.card--related-topics .card__title {
-  color: var(--color-text);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeLarge);
-  line-height: var(--lineHeightMedium);
-  font-weight: var(--fontWeight700);
-}
-
-.card__image {
-  border-radius: 0.625rem 0.625rem 0rem 0rem;
-  transition: transform 300ms ease-in-out;
+  background: var(--colorBackgroundPrimaryHover);
 }
 
 .card__link {
   display: flex;
   flex-direction: column;
-  gap: 1.875rem;
   text-decoration: none;
   height: 100%;
 }
 
 .card__image-wrapper {
   display: flex;
-  height: 9rem;
+  height: 13rem;
   overflow: hidden;
   box-sizing: border-box;
+  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-start-start-radius: calc(
+    var(--borderRadiusMedium) - var(--borderWidth1)
+  );
+  border-start-end-radius: calc(
+    var(--borderRadiusMedium) - var(--borderWidth1)
+  );
 }
 
 .card__image {
@@ -1125,103 +967,75 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   object-fit: cover;
 }
 
-.card__copy {
-  padding: 0 1.25rem 1.875rem;
+.card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding-block-end: var(--space16);
+}
+
+.card__icon {
+  width: 100%;
+  height: 100%;
+}
+
+span.card__icon {
+  background-color: var(--colorIconPrimary);
+  mask-image: var(--card-icon);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+img.card__icon {
+  object-fit: contain;
+}
+
+/* Default-color icons keep whatever color is baked into the source file, so on a
+   dark background a dark icon (e.g. a brand logo drawn for a light background)
+   can disappear. Force the light theme's card background behind it so it stays visible. */
+html[data-theme='dark'] img.card__icon {
+  background-color: var(--white);
+  border-radius: var(--borderRadiusSmall);
+}
+
+.card__content {
+  padding: var(--space24);
   display: flex;
   flex-direction: column;
-  gap: 0.38rem;
   text-align: start;
   flex-grow: 1;
 }
 
 .card__title {
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight600);
-  color: var(--color-heading);
+  font: var(--textBodyBoldLarge);
+  color: var(--colorTextPrimary);
+  padding-block-end: var(--space12);
+}
+
+.card__title:last-child {
+  padding-block-end: 0;
 }
 
 .card__description {
   font: var(--textBodyRegularMedium);
-  color: var(--blue-grey);
+  color: var(--colorTextSecondary);
 }
 
-.card__bottom {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card__label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--badge-color);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight500);
-  padding-bottom: 0.25rem;
-  border-bottom: 0.0625rem solid var(--badge-color);
-}
-
-.card__label svg {
-  transition: transform 300ms ease-in-out;
-}
-
-/* IconTile */
-.icon-tile {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  border-radius: 0.625rem;
-  border: 0.0625rem solid var(--icon-tile-border);
-  background: var(--icon-tile-background);
-  padding: 1.25rem 1.75rem 1rem;
+.card a {
   text-decoration: none;
-  transition-property: background, box-shadow, border-color;
-  transition-duration: var(--duration-default);
-  transition-timing-function: ease-in-out;
-  height: fit-content;
-  box-sizing: border-box;
+  color: var(--colorTextPrimary);
 }
 
-.icon-tile:hover {
-  background: var(--icon-tile-background-hover);
-  box-shadow: 0px 4px 10px 0px rgba(13, 128, 216, 0.2);
-  border-color: var(--icon-tile-border-hover);
+/* Featured variant */
+.card--featured .card__title {
+  font: var(--textHeadingMedium);
 }
 
-.icon-tile__icon-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 4rem;
-}
-
-.icon-tile__icon {
-  max-width: 4rem;
-  width: 100%;
-}
-
-.icon-tile__content {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-}
-
-.icon-tile__title {
-  color: var(--color-heading);
-  font-family: var(--fontFamilySystem-ui);
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight600);
-  /* Override global styles */
-  padding: 0;
-}
-
-.icon-tile__description {
-  color: var(--color-text-secondary);
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight400);
+.card--featured .card__description {
+  font: var(--textBodyRegularLarge);
 }
 
 /* Navigation */
@@ -1229,8 +1043,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
 .site-nav {
   align-self: start;
   position: sticky;
-  top: 82px;
-  height: calc(100vh - 82px);
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
   box-sizing: border-box;
   /* No inline-end padding here — the scrolling list owns that gap, so the
      scrollbar rides against the border. No block-end padding either: the
@@ -1347,6 +1161,14 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   color: var(--colorTextSelected);
 }
 
+/* The API nav lists the current page's endpoints in place of a table of
+   contents, so the row for the endpoint in view is marked the way one is
+   there: `highlight` comes from scripts/modules/toc.js. */
+.site-nav__link--heading.highlight {
+  background-color: var(--navBackgroundActive);
+  color: var(--colorTextSelected);
+}
+
 /* An expanded section is the only row that goes bold. */
 .site-nav__group[open] > .site-nav__link {
   font: var(--textBodyBoldMedium);
@@ -1363,10 +1185,10 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   /* The last of the three column start heights below the header — 16px for the
      nav, 56px for the content, 100px here. */
   margin-block-start: 6.25rem;
-  top: calc(82px + 6.25rem);
+  top: calc(var(--header-height) + 6.25rem);
   /* Everything from the sticky top to the bottom of the window, so a long list
      scrolls inside the column instead of running off the end of it. */
-  height: calc(100vh - 82px - 6.25rem);
+  height: calc(100vh - var(--header-height) - 6.25rem);
   /* Keeps the toc off the right edge of the window. The grid column is widened
      to match, so the nav itself keeps its designed width. */
   padding-inline-end: var(--space16);
@@ -1406,81 +1228,6 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   }
 }
 
-.mobile-menu {
-  display: none;
-}
-
-@media (max-width: 1130px) {
-  .mobile-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--navbar-icon-size);
-    height: var(--navbar-icon-size);
-  }
-}
-.site-nav__mobile {
-  position: absolute;
-  width: 100%;
-  right: -100%;
-  transition: right 500ms ease-in-out;
-  margin: 0;
-  top: 5.125rem;
-}
-
-.mobile-menu.is-active .site-nav__mobile {
-  right: 0;
-}
-
-/* Burger menu */
-.hamburger {
-  position: relative;
-}
-
-.hamburger:hover {
-  cursor: pointer;
-}
-
-.hamburger .line {
-  width: var(--hamburger-line-width);
-  height: var(--hamburger-line-height);
-  background-color: var(--hamburger-lines-color);
-  display: block;
-  margin: var(--hamburger-line-margin) auto;
-  transition-property: opacity, transform;
-  transition-duration: 500ms;
-  border-radius: 0.1rem;
-}
-.hamburger .circle {
-  display: block;
-  width: var(--navbar-icon-size);
-  height: var(--navbar-icon-size);
-  border: solid #76a1c2;
-  border-radius: 50%;
-  border-width: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition-property: opacity, border-width;
-  transition-duration: 500ms;
-}
-.mobile-menu.is-active .hamburger .line:nth-child(1) {
-  transform: translateY(var(--hamburger-translate-y)) rotate(45deg);
-}
-.mobile-menu.is-active .hamburger .line:nth-child(2) {
-  opacity: 0;
-}
-.mobile-menu.is-active .hamburger .line:nth-child(3) {
-  transform: translateY(calc(-1 * var(--hamburger-translate-y))) rotate(-45deg);
-}
-.mobile-menu.is-active .hamburger .circle {
-  opacity: 1;
-  border-width: 0.0625rem;
-}
-
 /* Main content group */
 
 /* The footer gets its own row so the nav can span both. The design runs the
@@ -1504,7 +1251,7 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   grid-template-areas:
     'menu . content . toc .'
     'menu . footer  . .   .';
-  margin-top: 82px;
+  margin-top: var(--header-height);
 }
 
 /* Article header */
@@ -1799,166 +1546,8 @@ html[data-theme='light'] .theme-switcher__icon--dark svg path {
   mask: url('../assets/icons/github.svg') center / contain no-repeat;
 }
 
-/* "Use Octopus docs with AI" dropdown */
-.octo-copy-md {
-  margin-block-start: var(--block-gap);
-}
-
-.octo-copy-md__menu {
-  display: inline-block;
-  position: relative;
-}
-
-.octo-copy-md__trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.875rem;
-  border: 1px solid var(--border-color-menu-open);
-  border-radius: 999px;
-  background-color: transparent;
-  color: var(--color-menu-link);
-  font: inherit;
-  cursor: pointer;
-  list-style: none;
-  text-decoration: none;
-  user-select: none;
-  transition:
-    border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.octo-copy-md__trigger > * {
-  text-decoration: none;
-  color: inherit;
-}
-
-.octo-copy-md__trigger::-webkit-details-marker,
-.octo-copy-md__trigger::marker {
-  content: '';
-  display: none;
-}
-
-.octo-copy-md__trigger-icon,
-.octo-copy-md__trigger-caret {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-}
-
-.octo-copy-md__trigger-icon::before {
-  content: '\f0eb'; /* fa-lightbulb */
-  font-family: fa-solid;
-  font-size: 0.95em;
-  line-height: 1;
-  color: var(--color-menu-link-alt);
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.octo-copy-md__trigger-caret::before {
-  content: '\f078'; /* fa-chevron-down */
-  font-family: fa-solid;
-  font-size: 0.7em;
-  line-height: 1;
-  color: currentColor;
-  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.octo-copy-md__menu[open]
-  > .octo-copy-md__trigger
-  .octo-copy-md__trigger-caret::before {
-  transform: rotate(180deg);
-}
-
-.octo-copy-md__trigger:hover {
-  color: var(--color-menu-link-active);
-  border-color: var(--color-menu-link-alt);
-}
-
-.octo-copy-md__menu[open] > .octo-copy-md__trigger {
-  color: var(--color-menu-link-active);
-  border-color: var(--color-menu-link-alt);
-  background-color: var(--bg-color-menu-open);
-  box-shadow: 0 0.0625rem 0.25rem rgba(13, 128, 216, 0.08);
-}
-
-.octo-copy-md__trigger:focus-visible {
-  outline: 2px solid var(--color-menu-link-alt);
-  outline-offset: 2px;
-}
-
-.octo-copy-md .octo-copy-md__options {
-  position: absolute;
-  z-index: 10;
-  inset-block-start: calc(100% + 0.5rem);
-  inset-inline-start: 0;
-  margin: 0;
-  padding: 0.5rem;
-  list-style: none;
-  background-color: var(--bg-color-menu);
-  border: 1px solid var(--border-color-menu-open);
-  border-radius: 0.625rem;
-  min-width: 20rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  box-shadow:
-    0 0.625rem 1.875rem rgba(15, 37, 53, 0.12),
-    0 0.125rem 0.375rem rgba(15, 37, 53, 0.06);
-}
-
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.625rem 0.75rem;
-  border: none;
-  border-radius: 0.375rem;
-  background: transparent;
-  color: var(--color-menu-link);
-  font: inherit;
-  text-align: start;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:hover,
-.octo-copy-md .octo-copy-md__options .octo-copy-md__option:focus-visible {
-  background-color: var(--bg-color-menu-open);
-  color: var(--color-menu-link-active);
-  outline: none;
-}
-
-.octo-copy-md__option::before {
-  font-family: fa-solid;
-  font-size: 0.95em;
-  width: 1.1em;
-  text-align: center;
-  color: var(--color-menu-link-alt);
-  flex-shrink: 0;
-  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.octo-copy-md__option--copy::before {
-  content: '\f0c5'; /* fa-copy */
-}
-
-.octo-copy-md__option--view::before {
-  content: '\f15c'; /* fa-file-lines */
-}
-
-.octo-copy-md__option--all::before {
-  content: '\f02d'; /* fa-book */
-}
-
 /* Live regions for announcing the result of an action, such as copying a URL or
    a code block. Read by screen readers, never shown. */
-.octo-copy-md__sr-status,
 .copy-status {
   position: absolute;
   width: 1px;
@@ -2012,201 +1601,6 @@ a[data-youtube] {
   text-decoration: none;
 }
 
-/* Article Journey */
-
-.article-journey {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: var(--grid-gap);
-  justify-content: space-between;
-  margin: 1rem auto;
-}
-
-@media (max-width: 680px) {
-  .article-journey {
-    flex-direction: column;
-  }
-}
-
-.article-journey__button {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-}
-
-.article-journey__button:hover .article-journey__icon,
-.article-journey__button:focus-visible .article-journey__icon,
-.article-journey__button:active .article-journey__icon {
-  transform: translateX(var(--icon-translate-value))
-    rotate(var(--icon-rotate-value));
-}
-
-.article-journey__button:hover .article-journey__icon path,
-.article-journey__button:focus-visible .article-journey__icon path,
-.article-journey__button:active .article-journey__icon path {
-  stroke: var(--blue-500);
-}
-
-.article-journey__button:hover .article-journey__content,
-.article-journey__button:focus-visible .article-journey__content,
-.article-journey__button:active .article-journey__content {
-  transform: translateX(calc(var(--icon-translate-value) * -1));
-  color: var(--header-link-alt);
-}
-
-.article-journey__button--previous .article-journey__icon {
-  transform: rotate(var(--icon-rotate-value));
-}
-
-.article-journey__button--previous {
-  --icon-translate-value: -0.4rem;
-  --icon-rotate-value: 180deg;
-}
-
-.article-journey__button--next {
-  --icon-translate-value: 0.4rem;
-  --icon-rotate-value: 0;
-  margin-inline-start: auto;
-}
-
-.article-journey__button--next .article-journey__content {
-  text-align: end;
-}
-
-.article-journey__icon-wrapper {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
-  background: var(--grey-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.article-journey__icon {
-  transition: transform var(--duration-default) ease-in-out;
-}
-
-.article-journey__icon path {
-  transition: stroke var(--duration-default) ease-in-out;
-}
-
-.article-journey__content {
-  display: flex;
-  flex-direction: column;
-  color: var(--color-heading);
-  transition: var(--duration-default) ease-in-out;
-  transition-property: color, transform;
-}
-
-.article-journey__label {
-  font-size: var(--fontSizeBase);
-  font-weight: var(--fontWeight400);
-}
-
-.article-journey__title {
-  font-size: var(--fontSizeLarge);
-  line-height: var(--lineHeightMedium);
-  font-weight: var(--fontWeight700);
-}
-
-/* Related articles */
-
-.octo-related {
-  background-color: var(--blue-midnight-darker);
-  color: var(--color-base-primary);
-  padding: 3rem 0 3rem 0;
-}
-
-.octo-related h2 {
-  color: var(--color-base-primary);
-  text-align: center;
-  padding: 0 0 2rem 0;
-  margin: 0;
-}
-
-.octo-related ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: 1rem;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.octo-related li {
-  box-shadow: 0px 14px 20px rgba(0, 0, 0, 0.25);
-  padding: 1px;
-  border-radius: var(--standard-radius);
-  background:
-    linear-gradient(var(--color-text), var(--color-text)) padding-box,
-    linear-gradient(to bottom, #173045 80%, #0cb0f2) border-box;
-  border: 0.1rem solid transparent;
-}
-
-.octo-related img {
-  border-radius: var(--standard-radius);
-}
-
-.octo-related h3 {
-  font-size: var(--fontSizeLarge);
-  font-weight: var(--fontWeight400);
-  color: var(--color-base-primary);
-}
-
-.octo-related a {
-  font-size: var(--fontSizeBase);
-  color: var(--octo-blue-lightest);
-}
-
-.octo-related .list-item-content {
-  display: grid;
-  grid-template-rows: 7rem 3rem;
-  margin: 0 1rem;
-}
-
-/* Post List */
-
-.page-content ul.post-list {
-  list-style: none;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: var(--grid-gap);
-  justify-content: center;
-}
-
-.post-list li {
-  box-shadow: 0px 14px 20px rgb(0 0 0 / 25%);
-  border-radius: var(--standard-radius);
-}
-
-.post-list article {
-  border-radius: var(--standard-radius);
-  padding: 0.5rem;
-}
-
-.post-list h3 {
-  font-size: var(--fontSizeLarge);
-  font-weight: var(--fontWeight400);
-  padding: 0;
-  align-self: center;
-}
-
-.post-list a {
-  text-decoration: none;
-}
-
-.post-list img {
-  border-radius: var(--standard-radius);
-}
-
-.post-list .post-meta {
-  display: none;
-}
-
 .recent-updates li {
   margin-block-end: 1em;
 }
@@ -2221,6 +1615,16 @@ a[data-youtube] {
      56px above an h2 becomes 72px after a paragraph, 88px after a blockquote. */
   display: flow-root;
   padding-block-start: var(--space32);
+}
+
+.page-content:has(> :is(a, button, h1, h2, h3, h4, h5, h6):first-child),
+.page-content:has(
+  > .api-hub > :is(a, button, h1, h2, h3, h4, h5, h6):first-child
+) {
+  /* The API hub page's content nests inside .api-hub (see api.css) rather
+     than sitting directly in .page-content, so its own first child needs
+     checking too. */
+  padding-block-start: var(--space0);
 }
 
 /* Paging */
@@ -2330,14 +1734,6 @@ a[data-youtube] {
   }
 }
 
-@media screen and (max-width: 1130px) {
-  .octo-header .site-search-results,
-  .octo-header .site-search__overlay,
-  .octo-header .site-search.is-active {
-    display: none;
-  }
-}
-
 .site-search {
   height: var(--search-height);
   border-radius: var(--search-border-radius);
@@ -2411,6 +1807,17 @@ a[data-youtube] {
 .site-search__wrapper.is-active .site-search__overlay {
   opacity: 1;
   visibility: visible;
+}
+
+/* The overlay is fixed, so it stops at the reserved scrollbar gutter and leaves
+   that strip showing the undimmed page color once the scrollbar goes. Painting
+   the same wash onto the canvas carries the dimming across it. */
+html:has(.site-search__wrapper.is-active) {
+  background-color: var(--color-base-primary);
+  background-image: linear-gradient(
+    var(--search-overlay),
+    var(--search-overlay)
+  );
 }
 
 .site-search__icon path {
@@ -2564,27 +1971,6 @@ a[data-youtube] {
 
 .site-search__mobile {
   display: none;
-}
-
-@media (max-width: 1130px) {
-  .site-header .site-search__wrapper {
-    max-width: fit-content;
-    order: -1;
-  }
-
-  .site-header .site-search {
-    display: none;
-  }
-
-  .site-header .site-search__mobile {
-    display: flex;
-    width: var(--navbar-icon-size);
-    height: var(--navbar-icon-size);
-    border-radius: calc(var(--navbar-icon-size) / 2);
-    justify-content: center;
-    align-items: center;
-    border: var(--search-border);
-  }
 }
 
 .site-search .show-more {
@@ -2846,10 +2232,16 @@ a[data-youtube] {
 
 /* Edge-aligned: the button sits at the block's right edge, where a centred
    bubble would hang off the side of the page. */
-.code-block .code-block__copy::after {
+.code-block .code-block__copy .tooltip {
   left: auto;
   right: 0;
-  translate: 0 0;
+  translate: 0 var(--tooltip-shift);
+}
+
+.code-block .code-block__copy .tooltip::after {
+  left: auto;
+  right: calc(1rem - var(--tooltip-arrow-size));
+  translate: 0 calc(-1 * var(--tooltip-arrow-overlap));
 }
 
 /* The single fixed language */
@@ -2977,30 +2369,39 @@ a[data-youtube] {
 
 /* Custom Divisions */
 
-.simple-grid {
+.col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: var(--grid-gap);
-}
-
-.simple-grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: var(--grid-gap);
-}
-
-.simple-grid > * > * {
+  grid-gap: var(--space24);
   width: 100%;
 }
 
-@media (max-width: 860px) {
-  .simple-grid,
-  .simple-grid-3 {
+.col-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: var(--space24);
+}
+
+/* ul.col-2,
+ol.col-2,
+ul.col-3,
+ol.col-3 {
+  list-style: none;
+  padding-inline-start: var(--space0);
+} */
+
+.col-2 > * > * {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .col-2,
+  .col-3 {
     display: block;
   }
 
-  .simple-grid > *,
-  .simple-grid-3 > * {
+  .col-2 > *,
+  .col-3 > * {
     margin-block-end: var(--block-gap);
   }
 }
@@ -3055,23 +2456,22 @@ a.button.button--primary:active {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.35) inset;
 }
 
-.octo-header a.button {
-  width: 120px;
-}
-
 /* Tooltip. Put the label in data-tooltip; the host positions the bubble above
    itself, so it needs room there and a stacking context of its own. */
 [data-tooltip] {
   position: relative;
+  --tooltip-shift: 10px;
+  --tooltip-arrow-size: 7px;
+  --tooltip-offset: calc(var(--space8) + var(--borderWidth1));
+  --tooltip-arrow-overlap: 1px;
 }
 
 /* The bubble */
-[data-tooltip]::after {
-  content: attr(data-tooltip);
+.tooltip {
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space8) + var(--borderWidth1));
-  translate: -50% 0;
+  inset-block-end: calc(100% + var(--tooltip-offset));
+  translate: -50% var(--tooltip-shift);
   padding: var(--space4) var(--space8);
   border-radius: var(--borderRadiusSmall);
   background: var(--colorBackgroundInversePrimary);
@@ -3081,26 +2481,54 @@ a.button.button--primary:active {
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
+  transition:
+    opacity 375ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    translate 375ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 /* The arrow. A border triangle */
-[data-tooltip]::before {
+.tooltip::after {
   content: '';
   position: absolute;
   left: 50%;
-  inset-block-end: calc(100% + var(--space2) + var(--borderWidth1));
-  translate: -50% 0;
+  top: 100%;
+  translate: -50% calc(-1 * var(--tooltip-arrow-overlap));
   width: 0;
   height: 0;
-  border-block-start: 7px solid var(--colorBackgroundInversePrimary);
-  border-inline: 7px solid transparent;
-  pointer-events: none;
-  opacity: 0;
+  border-inline: var(--tooltip-arrow-size) solid transparent;
+  border-block-start: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
 }
 
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::before,
-[data-tooltip]:is(:hover, :focus-visible, [data-copied])::after {
+[data-tooltip][data-tooltip-position='bottom'] {
+  --tooltip-shift: -10px;
+}
+
+[data-tooltip][data-tooltip-position='bottom'] .tooltip {
+  inset-block: calc(100% + var(--tooltip-offset)) auto;
+}
+
+[data-tooltip][data-tooltip-position='bottom'] .tooltip::after {
+  top: auto;
+  bottom: 100%;
+  translate: -50% var(--tooltip-arrow-overlap);
+  border-block-start: 0;
+  border-block-end: var(--tooltip-arrow-size) solid
+    var(--colorBackgroundInversePrimary);
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed]) {
+  --tooltip-shift: 0px;
+}
+
+[data-tooltip]:is(:hover, :focus-visible, [data-copied], [data-failed])
+  .tooltip {
   opacity: 1;
+  transition-duration: 350ms;
 }
 
 /* Buttons side by side e.g. a toolbar or the component showcase */
@@ -3118,81 +2546,68 @@ a.button.button--primary:active {
 }
 /* Button component end */
 
+/* Icons handed to the SplitButton demos on the component gallery. Button and
+   SplitButton color the icon box they render; masking the asset lets it take
+   that color through both themes, which an `<img>` of a `currentColor` glyph
+   cannot do. The gallery is a page rather than a component, so these live here
+   next to the rest of the page's icons. */
+.showcase-icon {
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  /* A design system icon is drawn with its own margin inside a 40 unit box, so
+     filling the slot lands it at the size the design draws it. */
+  mask-size: contain;
+}
+
+/* The marks exported from Figma are cropped to the glyph instead, so they fill a
+   slot that the design insets them within: 16px of the button's 20px, 12.8px of
+   a menu item's 16px. Both are the same 80% of whichever slot they land in. */
+.showcase-icon--claude,
+.showcase-icon--chatgpt,
+.showcase-icon--external {
+  mask-size: 80%;
+}
+
+.showcase-icon--claude {
+  mask-image: url('../assets/icons/claude.svg');
+}
+
+.showcase-icon--chatgpt {
+  mask-image: url('../assets/icons/chatgpt.svg');
+}
+
+.showcase-icon--external {
+  mask-image: url('../assets/icons/external-link.svg');
+}
+
+.showcase-icon--copy {
+  mask-image: url('../assets/icons/copy.svg');
+}
+
+.showcase-icon--link {
+  mask-image: url('../assets/icons/link-on.svg');
+}
+
 /* TopNav component */
-.top-nav {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space24);
-  padding: var(--space16) var(--space24)
-    calc(var(--space16) - var(--borderWidth1));
-  border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
-  background: var(--colorBackgroundPrimaryDefault);
+.top-nav__bars-icon,
+.top-nav__close-icon {
+  background-color: var(--colorIconPrimary);
+  mask: url('../assets/icons/bars.svg') center / contain no-repeat;
 }
 
-.top-nav__leading,
-.top-nav__trailing {
-  flex-shrink: 0; /* Disallow shrinking so button labels don't wrap across 2 lines */
+.top-nav__close-icon {
+  mask-image: url('../assets/icons/close.svg');
 }
 
-.top-nav__leading {
-  display: flex;
-  align-items: center;
-  gap: var(--space64);
-}
+@media (max-width: 1130px) {
+  html[data-nav-drawer='ready'] .content-group .site-nav {
+    display: none;
+  }
 
-.top-nav__logo {
-  display: flex;
-}
-
-.top-nav__logo-mark {
-  display: block;
-  height: 2rem;
-  width: auto;
-  color: var(--colorTextPrimary);
-}
-
-.top-nav__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space2);
-}
-
-.top-nav__trailing {
-  display: flex;
-  align-items: center;
-  gap: var(--space12);
-}
-
-a.top-nav__link {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space8) var(--space12);
-  border-radius: var(--borderRadiusSmall);
-  background: var(--colorNavBackgroundRest);
-  color: var(--colorTextPrimary);
-  font: var(--textBodyRegularMedium);
-  text-align: center;
-  text-decoration: none;
-}
-
-a.top-nav__link:hover:not(.top-nav__link--active),
-a.top-nav__link:focus:not(.top-nav__link--active) {
-  background: var(--colorNavBackgroundHover);
-}
-
-a.top-nav__link:focus-visible {
-  outline: var(--borderWidth2) solid var(--colorBorderSelected);
-  outline-offset: var(--borderWidth1);
-}
-
-a.top-nav__link--active {
-  background: var(--colorNavBackgroundActive);
-  color: var(--colorTextSelected);
-  font: var(--textBodyBoldMedium);
+  html[data-nav-drawer='ready'] .skip-links a[href='#site-nav'] {
+    display: none;
+  }
 }
 /* TopNav component end */
 
@@ -3204,58 +2619,107 @@ a.top-nav__link--active {
 /* Detail tabs */
 
 .tab-list {
-  padding-inline: 10px;
+  /* The global reset does not inherit html's border-box, and this can be
+     sized by the article's max-width with padding/border on top of it. */
+  box-sizing: border-box;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-bottom: none;
+  border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color) transparent;
+  gap: var(--space0);
+  background-color: var(--colorBackgroundSecondaryDefault);
+}
+
+.page-content > .tab-list {
   margin-block-end: 0;
 }
 
-.tab-list button,
-.tab-list button:focus,
-.tab-list button:hover {
+.tab-list button {
   display: inline-block;
   position: relative;
   z-index: 2;
-  top: 2px;
-  margin: 0;
-  margin-block-start: 4px;
-  border: 2px solid var(--border-color-tab);
-  border-radius: var(--standard-radius) var(--standard-radius) 0 0;
-  background: var(--bg-color-tab);
+  flex-shrink: 0;
+  background: none;
+  border: none;
   outline: none;
-  font-size: var(--fontSizeMedium);
-  font-weight: var(--fontWeight700);
-  text-align: start;
+  font: var(--textBodyRegularMedium);
+  text-align: center;
+  white-space: nowrap;
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--colorTextSecondary);
+  padding: var(--space12) var(--space16);
+  top: 0;
+}
+
+.tab-list button:hover {
+  color: var(--colorTextPrimary);
+}
+
+/* .tab-list scrolls horizontally, so the default focus ring gets clipped. This pulls it inside the button's own box instead, where it can't be clipped. */
+.input-keyboard .tab-list button:focus {
+  outline-offset: calc(-1 * var(--borderWidth2));
 }
 
 .tab-list button[aria-selected='true'] {
   margin-block-start: 0;
-  border-width: 2px;
-  border-top-width: 6px;
-  border-top-color: var(--border-color-tab-active);
-  border-inline-color: var(--border-color-tab-active);
-  border-bottom-color: var(--color-base-primary);
-  background-color: var(--color-base-primary);
+  color: var(--colorTextPrimary);
+  font: var(--textBodyBoldMedium);
+  background-color: var(--colorBackgroundPrimaryDefault);
+  border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0 0;
 }
 
-.tab-list button[aria-selected='false'] {
-  top: 0px;
+.tab-list button:has(+ button[aria-selected='true'])::before,
+.tab-list button[aria-selected='true'] + button::before {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: var(--borderRadiusLarge);
+  height: var(--borderRadiusLarge);
+  background: var(--colorBackgroundPrimaryDefault);
 }
 
-.tab-list button span.focus {
-  display: inline-block;
-  margin: 2px;
-  padding: 4px 6px;
-  outline: none;
+.tab-list button:has(+ button[aria-selected='true'])::before {
+  right: 0;
+}
+.tab-list button[aria-selected='true'] + button::before {
+  left: 0;
+}
+
+.tab-list button:has(+ button[aria-selected='true'])::after,
+.tab-list button[aria-selected='true'] + button::after {
+  z-index: 3;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: calc(var(--borderRadiusLarge) * 2);
+  height: calc(var(--borderRadiusLarge) * 2);
+  border-radius: 50%;
+  background: var(--colorBackgroundSecondaryDefault);
+}
+
+.tab-list button:has(+ button[aria-selected='true'])::after {
+  right: 0;
+}
+.tab-list button[aria-selected='true'] + button::after {
+  left: 0;
 }
 
 [role='tabpanel'] {
+  /* The global reset does not inherit html's border-box, and this can be
+     sized by the article's max-width with padding/border on top of it. */
+  box-sizing: border-box;
   position: relative;
-  padding: 1rem;
-  border: 2px solid var(--border-color-tab-active);
-  border-radius: var(--standard-radius);
-  background: var(--color-base-primary);
-  overflow: auto;
+  overflow: visible;
+  border: var(--borderWidth1) solid var(--colorBorderPrimary);
+  border-top: none;
+  border-radius: 0 0 var(--borderRadiusLarge) var(--borderRadiusLarge);
+  padding: var(--space16);
 }
 
 [role='tabpanel'].is-hidden {
@@ -3264,6 +2728,34 @@ a.top-nav__link--active {
 
 [role='tabpanel'] p {
   margin: 0;
+}
+
+[role='tabpanel'] :is(.code-block, .table-wrap):first-child,
+[role='tabpanel']
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):first-child {
+  margin-block-start: 0;
+}
+
+[role='tabpanel'] :is(.code-block, .table-wrap):last-child,
+[role='tabpanel']
+  :is(
+    blockquote,
+    div.hint,
+    div.info,
+    div.success,
+    div.warning,
+    div.problem,
+    div.question
+  ):last-child {
+  margin-block-end: 0;
 }
 
 /* Animation */

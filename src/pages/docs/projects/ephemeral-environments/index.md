@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2025-10-17
-modDate: 2026-07-22
+modDate: 2026-08-10
 title: Ephemeral Environments
 navTitle: Ephemeral Environments
 navSection: Ephemeral Environments
@@ -14,6 +14,10 @@ Ephemeral environments in Octopus Deploy allow you to automatically create test 
 Ephemeral environments integrate smoothly into your existing development workflows by building on existing Octopus features such as [Releases](/docs/releases), [Channels](/docs/releases/channels) and [Runbooks](/docs/runbooks).
 
 Octopus can automatically create and deploy to an ephemeral environment from releases created within a specifically configured channel in a project, and supports provisioning and deprovisioning of associated infrastructure using Runbooks.
+
+:::div{.hint}
+[Easy Mode - Ephemeral Environments](https://octopus.com/blog/octo-easy-mode-15-ephemeral-environments) provides a practical example of ephemeral environments you can apply to your own Octopus instance.
+:::
 
 ## Getting started
 
@@ -155,6 +159,21 @@ Environments can be filtered by name and by the current state of the environment
 
 ![Filtering the ephemeral environments used within a project by the name of the environment](/docs/projects/ephemeral-environments/viewing-ephemeral-environments.png)
 
+## Environment URLs
+
+An environment URL is a type of [environment state](/docs/infrastructure/environments/environment-state) that Octopus has built-in support for. When an environment URL is set during a provisioning runbook or deployment, Octopus shows it as a clickable link in the table on the Ephemeral Environments page, making it easy to open the running application without needing to look through task logs. To set an environment URL from a deployment or runbook step, see [Setting an environment URL](/docs/infrastructure/environments/environment-state#setting-an-environment-url).
+
+For example, the following deployment script builds the running app's URL from the namespace it deployed to, and sets an environment URL named `App`:
+
+```powershell PowerShell
+$applicationUrl = "https://$namespace.australiaeast.cloudapp.azure.com"
+Set-EnvironmentUrl "App" "$applicationUrl"
+```
+
+Octopus then shows the `App` URL as a clickable link on the Ephemeral Environments page:
+
+![An ephemeral environment's URL shown as a clickable link on the Ephemeral Environments page](/docs/projects/ephemeral-environments/ephemeral-environment-url.png)
+
 ## Updating an existing environment
 
 ### Automatic Deployments
@@ -171,6 +190,10 @@ When an ephemeral environment is no longer needed it can be deprovisioned and an
 
 - For projects using runbooks stored in Octopus the published snapshot will be used to run the runbook.
 - For projects using runbooks stored in version control, the Git reference used to provision the environment will be used to run the runbook.
+
+:::div{.info}
+When an ephemeral environment is deprovisioned, it will automatically be removed from any associated deployment targets. If there are no environments remaining on a target, the target will also be deleted.
+:::
 
 Ephemeral environments can be deprovisioned via the:
 

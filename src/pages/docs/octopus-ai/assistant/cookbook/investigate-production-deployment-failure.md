@@ -16,7 +16,7 @@ Use this prompt to help identify root causes of failed deployments in production
 
 ## 📝 Prompt
 
-```
+```text
 Analyze the last failed deployment to production
 ```
 

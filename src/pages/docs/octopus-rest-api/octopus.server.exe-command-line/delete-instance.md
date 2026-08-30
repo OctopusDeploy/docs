@@ -11,7 +11,7 @@ Use the Delete Instance command to delete an instance of the Octopus service.
 
 **Delete Instance options**
 
-```
+```text
 Usage: octopus.server delete-instance [<options>]
 
 Where [<options>] is any of:
@@ -28,6 +28,6 @@ Or one of the common options:
 
 This example deletes the Octopus Server instance on the machine named `MyNewInstance`:
 
-```
+```text
 octopus.server delete-instance --instance="MyNewInstance"
 ```

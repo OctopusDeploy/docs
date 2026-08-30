@@ -50,10 +50,9 @@ test('llms.txt is spec-shaped', async ({ request }) => {
 
   const linkRe = /\[[^\]]+\]\((https?:\/\/[^)]+)\)/g;
   const urls = Array.from(body.matchAll(linkRe), (m) => m[1]);
-  expect(
-    urls.length,
-    'expected at least one link in llms.txt'
-  ).toBeGreaterThan(0);
+  expect(urls.length, 'expected at least one link in llms.txt').toBeGreaterThan(
+    0
+  );
   for (const u of urls) {
     expect(u, `URL ${u} should end in .md`).toMatch(/\.md(?:[#?].*)?$/);
   }
@@ -83,29 +82,28 @@ test('llms-full.txt is well-formed: intro, summary, page boundaries, no orphaned
   ).not.toMatch(/<Image[\s>]/);
 });
 
-test('CopyMarkdown dropdown advertises a working .md URL on the eligible page', async ({
+test('Copy as markdown action advertises a working .md URL on the eligible page', async ({
   page,
   request,
 }) => {
   await page.goto(STABLE_PLAIN_MD_PATH);
-  const url = await page.getAttribute(
-    '[data-copy-md-action="copy"]',
-    'data-copy-md-url'
-  );
+  const url = await page.getAttribute('.octo-copy-md', 'data-copy-md-url');
   expect(
     url,
-    'expected CopyMarkdown dropdown to expose a data-copy-md-url'
+    'expected the copy action to expose a data-copy-md-url'
   ).toBeTruthy();
   const target = await request.get(url!);
   expect(target.status()).toBe(200);
 });
 
-test('CopyMarkdown dropdown is hidden on the ineligible MDX page', async ({
+test('markdown page actions are hidden on the ineligible MDX page', async ({
   page,
 }) => {
   await page.goto(STABLE_MDX_PATH);
-  const count = await page.locator('[data-copy-md-menu]').count();
-  expect(count, 'expected no CopyMarkdown dropdown on ineligible page').toBe(0);
+  expect(
+    await page.locator('.octo-copy-md').count(),
+    'expected no copy action on ineligible page'
+  ).toBe(0);
 });
 
 test('HtmlHead omits `<link rel="alternate" type="text/markdown">` on the ineligible MDX page', async ({

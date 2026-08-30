@@ -27,16 +27,13 @@ const searchUrl =
 stats.stop();
 ---
 
-<div class="site-search__wrapper" data-site-search-wrapper>
-  <div class="site-search__overlay"></div>
+<div class="site-search__wrapper">
   <form
     method="GET"
     action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
     role="search"
     class="site-search"
     autocomplete="off"
-    data-sourcedata={SITE.subfolder + '/search.json'}
-    data-site-search
   >
     <fieldset>
       <input
@@ -63,35 +60,11 @@ stats.stop();
         placeholder={_(Translations.search.search_for)}
         spellcheck="true"
         autocomplete="off"
-        data-site-search-query
+        data-docs-search-trigger
       />
-      <button
-        class="site-search__remove-btn"
-        type="button"
-        data-site-search-remove
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11"
-          height="11"
-          viewBox="0 0 11 11"
-          fill="none"
-        >
-          <path
-            d="M7.585 5.5L10.7122 2.37281C11.0959 1.98906 11.0959 1.36687 10.7122 0.982812L10.0172 0.287813C9.63344 -0.0959375 9.01125 -0.0959375 8.62719 0.287813L5.5 3.415L2.37281 0.287813C1.98906 -0.0959375 1.36688 -0.0959375 0.982813 0.287813L0.287813 0.982812C-0.0959375 1.36656 -0.0959375 1.98875 0.287813 2.37281L3.415 5.5L0.287813 8.62719C-0.0959375 9.01094 -0.0959375 9.63312 0.287813 10.0172L0.982813 10.7122C1.36656 11.0959 1.98906 11.0959 2.37281 10.7122L5.5 7.585L8.62719 10.7122C9.01094 11.0959 9.63344 11.0959 10.0172 10.7122L10.7122 10.0172C11.0959 9.63344 11.0959 9.01125 10.7122 8.62719L7.585 5.5Z"
-            fill="#355670"></path>
-        </svg>
-      </button>
     </fieldset>
   </form>
-  <div
-    class="site-search-results"
-    data-title={_(Translations.search.results_title)}
-    data-emptytitle={_(Translations.search.no_results_title)}
-    data-site-search-results
-  >
-  </div>
-  <a href={searchUrl} class="site-search__mobile">
+  <a href={searchUrl} class="site-search__mobile" data-docs-search-trigger>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
@@ -105,7 +78,3 @@ stats.stop();
     </svg>
   </a>
 </div>
-
-<script>
-  import '../../../scripts/search.js';
-</script>

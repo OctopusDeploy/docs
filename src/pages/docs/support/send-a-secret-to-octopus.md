@@ -9,7 +9,6 @@ navOrder: 16
 
 Sometimes you may need to send sensitive information to Octopus support, such as a Master Key.  In order to do so, place your secret in the following PowerShell script and it will encrypt it for Octopus eyes only.
 
-
 ```powershell
 $yourSecret = "Hello Octopus!" # Place your secret here
 

@@ -100,27 +100,30 @@
   --border-color-tab: var(--colorBorderPrimary);
   --border-color-tab-active: var(--colorBorderSelected);
 
+  --color-callout-body: var(--colorCalloutTextBody);
+
   --color-hint: var(--colorCalloutTextInfo);
   --bg-color-hint: var(--colorCalloutBackgroundInfoDefault);
-  --border-color-hint: var(--colorCalloutBorderInfo);
+  --icon-color-hint: var(--colorCalloutIconInfo);
 
   --color-info: var(--colorCalloutTextInfo);
   --bg-color-info: var(--colorCalloutBackgroundInfoDefault);
-  --border-color-info: var(--colorCalloutBorderInfo);
+  --icon-color-info: var(--colorCalloutIconInfo);
 
   --color-success: var(--colorCalloutTextSuccess);
   --bg-color-success: var(--colorCalloutBackgroundSuccessDefault);
-  --border-color-success: var(--colorCalloutBorderSuccess);
+  --icon-color-success: var(--colorCalloutIconSuccess);
 
   --color-warning: var(--colorCalloutTextWarning);
   --bg-color-warning: var(--colorCalloutBackgroundWarningDefault);
-  --border-color-warning: var(--colorCalloutBorderWarning);
+  --icon-color-warning: var(--colorCalloutIconWarning);
 
   --color-problem: var(--colorCalloutTextDanger);
   --bg-color-problem: var(--colorCalloutBackgroundDangerDefault);
-  --border-color-problem: var(--colorCalloutBorderDanger);
+  --icon-color-problem: var(--colorCalloutIconDanger);
 
   --duration-default: 300ms;
+  --theme-transition-duration: 0s;
 
   /* Backgrounds */
   --background-light: var(--colorBackgroundSecondaryDefault);
@@ -160,23 +163,8 @@
   --search-placeholder-color: #173b56;
   --search-remove-icon-color: #355670;
   --search-overlay: rgba(12, 26, 36, 0.3);
-  --navbar-icon-size: 3rem;
 
-  /* Hamburger menu */
-  --hamburger-line-width: 1.5rem;
-  --hamburger-line-height: 0.2rem;
-  --hamburger-line-margin: 0.2rem;
-  --hamburger-translate-y: calc(
-    var(--hamburger-line-height) + var(--hamburger-line-margin)
-  );
   --hamburger-lines-color: var(--colorIconPrimary);
-
-  /* Theme Switcher */
-  --theme-switcher-border: var(--colorBorderPrimary);
-
-  /* Badge */
-  --badge-background: rgba(162, 209, 244, 0.2);
-  --badge-color: #0d80d8;
 
   /* Card */
   --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
@@ -190,9 +178,7 @@
   --octo-blue-lighter: #2f95e3ff;
   --octo-blue-lightest: #1fc0ffff;
 
-  --header-bg: var(--colorBackgroundPrimaryDefault);
   --header-link-color: var(--octo-blue);
-  --header-link-alt: var(--blue-gray-darker);
 
   --content-bg: var(--white);
 
@@ -208,6 +194,7 @@
   --block-gap: 2rem;
 
   --header-pin: 0;
+  --header-height: 68px;
   --scroll-pad: 140px;
 
   --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
@@ -220,16 +207,63 @@
   --toc-width: 250px;
   /* Space between the article and the toc beside it. */
   --toc-offset: 80px;
+  /* The two columns of an API reference page: the endpoint and the request and
+     response examples beside it. Each takes its full width wherever there is
+     room, and the pair compress together down to their minimums before the
+     examples drop below the endpoint instead. */
+  --api-content-width: 680px;
+  --api-content-min-width: 420px;
+  --api-examples-width: 640px;
+  --api-examples-min-width: 400px;
+  --api-columns-gap: var(--space32);
+  /* The pair together, which is what the article is centred on. */
+  --api-columns-width: calc(
+    var(--api-content-width) + var(--api-columns-gap) +
+      var(--api-examples-width)
+  );
+  --api-columns-min-width: calc(
+    var(--api-content-min-width) + var(--api-columns-gap) +
+      var(--api-examples-min-width)
+  );
   --grid-max-width: 1250px;
   --grid-gap: 1rem;
   --grid-gap-main: 1rem;
 
   --standard-radius: 0.5rem;
 
-  /* TODO: drop these once color.nav.background.* are available in design-system-tokens */
   --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
   --colorNavBackgroundHover: var(--colorScalesSlate100);
   --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
+
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen200);
+  --colorApiBadgeIconGet: var(--colorScalesGreen600);
+  --colorApiBadgeTextGet: var(--colorScalesGreen600);
+
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue100);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue200);
+  --colorApiBadgeIconPost: var(--colorScalesBlue600);
+  --colorApiBadgeTextPost: var(--colorScalesBlue600);
+
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed100);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed200);
+  --colorApiBadgeIconDelete: var(--colorScalesRed600);
+  --colorApiBadgeTextDelete: var(--colorScalesRed600);
+
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow100);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow200);
+  --colorApiBadgeIconPut: var(--colorScalesYellow600);
+  --colorApiBadgeTextPut: var(--colorScalesYellow600);
+}
+
+:root[data-theme-transition] {
+  --theme-transition-duration: var(--duration-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme-transition] {
+    --theme-transition-duration: 0s;
+  }
 }
 
 @media (max-width: 860px) {
@@ -253,15 +287,31 @@ html[data-theme='dark'] {
   /* TODO: --blue-grey is hand-themed for .card__description, which is
      secondary text, so --color-text-secondary already covers it. */
   --blue-grey: #dae2e9ff;
-  --header-link-alt: var(--color-text);
   --grey-light: var(--navy-700);
   --octopus-logo-text-color: var(--white);
   --search-overlay: rgba(12, 26, 36, 0.8);
-  --badge-background: rgba(31, 192, 255, 0.1);
-  --badge-color: var(--octo-blue-lightest);
   /* Tiles sit one step above the page so hover has somewhere lighter to go */
   --icon-tile-background-hover: var(--colorBackgroundTertiary);
 
-  /* TODO: drop once color.nav.background.* are available in design-system-tokens */
   --colorNavBackgroundHover: var(--colorScalesNavy800);
+
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen900);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen700);
+  --colorApiBadgeIconGet: var(--colorScalesGreen300);
+  --colorApiBadgeTextGet: var(--colorScalesGreen300);
+
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue900);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue700);
+  --colorApiBadgeIconPost: var(--colorScalesBlue300);
+  --colorApiBadgeTextPost: var(--colorScalesBlue300);
+
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed900);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed700);
+  --colorApiBadgeIconDelete: var(--colorScalesRed300);
+  --colorApiBadgeTextDelete: var(--colorScalesRed300);
+
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow900);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow700);
+  --colorApiBadgeIconPut: var(--colorScalesYellow300);
+  --colorApiBadgeTextPut: var(--colorScalesYellow300);
 }

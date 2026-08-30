@@ -25,6 +25,10 @@ However, if "Always Run" is selected for subsequent steps, they will proceed reg
 
 [Getting Started - Manual Intervention](https://www.youtube.com/watch?v=ePQjCClGfZQ)
 
+:::div{.hint}
+[Easy Mode - Manual Interventions](https://octopus.com/blog/octo-easy-mode-03-manual-intervention) provides a practical example of manual intervention steps you can apply to your own Octopus instance.
+:::
+
 ## Add a manual intervention step
 
 Manual intervention steps are added to deployment processes in the same way as other steps.
@@ -100,17 +104,19 @@ When a manual step is completed, details of the interruption are saved as variab
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Id` | The user ID of the user who submitted the interruption form | *users-237* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.Username` | The username of the user who submitted the interruption form | *j_jones* |
 | `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.DisplayName` | The display name of the user who submitted the interruption form | *Jamie Jones* |
-| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *jamie.jones@example.com* |
+| `Octopus.Action[Step Name].Output.Manual.ResponsibleUser.EmailAddress` | The email address of the user who submitted the interruption form | *<jamie.jones@example.com>* |
 
 ## Evaluating manual intervention output in following steps
 
 If you want to control subsequent steps based on the outcome of the manual intervention step, you can use "Variable: only run when the variable expression is true", and use the `Octopus.Deployment.Error` variable as the conditional. For example:
 
-```
+```text
 #{unless Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION PROCEEDED{/unless}
 ```
+
 or
-```
+
+```text
 #{if Octopus.Deployment.Error}RESULT IF MANUAL INTERVENTION WAS ABORTED{/if}
 ```
 

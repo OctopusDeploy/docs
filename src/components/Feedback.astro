@@ -1,7 +1,9 @@
 ---
 import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import { SITE } from '@config';
+import { Lang, Translations } from '@util/Languages';
+import Button from './Button.astro';
+import { RATING_NO, RATING_YES } from '../scripts/modules/feedback-form.js';
 
 const stats = new accelerator.statistics('components/Feedback.astro');
 stats.start();
@@ -10,17 +12,149 @@ stats.start();
 type Props = {
   lang: string;
   frontmatter: Frontmatter;
-  headings: { depth: number; slug: string; text: string }[];
 };
-const { lang, frontmatter, headings } = Astro.props satisfies Props;
+const { lang, frontmatter } = Astro.props satisfies Props;
 
-// Logic
-const heading = await accelerator.markdown.getTextFrom(frontmatter.title);
-const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSehVdN2w6tgSvp5QX7lHGnHDmgKi2Yfvko7bM2izgWQaqg-Wg/viewform?usp=pp_url&entry.336432709=${encodeURIComponent(heading)}`;
+// Titles can carry markdown, so they are flattened to text as everywhere else.
+const pageTitle = await accelerator.markdown.getTextFrom(frontmatter.title);
+
+// Language
+const _ = Lang(lang);
 
 stats.stop();
 ---
 
-<h2>Help us continuously improve</h2>
-<p>Please let us know if you have any feedback about this page.</p>
-<p><a href={formUrl} class="button button--primary">Send feedback</a></p>
+<section
+  class="feedback"
+  data-feedback
+  data-feedback-page={pageTitle}
+  aria-labelledby="feedback-question"
+>
+  <div class="feedback__vote">
+    <p class="feedback__question" id="feedback-question">
+      {_(Translations.octopus_feedback.question)}
+    </p>
+    <div class="feedback__actions">
+      <Button
+        label={_(Translations.octopus_feedback.yes)}
+        icon="feedback__icon feedback__icon--yes"
+        size="small"
+        aria-pressed="false"
+        data-feedback-vote={RATING_YES}
+      />
+      <Button
+        label={_(Translations.octopus_feedback.no)}
+        icon="feedback__icon feedback__icon--no"
+        size="small"
+        aria-pressed="false"
+        data-feedback-vote={RATING_NO}
+      />
+    </div>
+  </div>
+
+  <div class="feedback__comment" data-feedback-comment hidden>
+    <label class="feedback__label" for="feedback-comment">
+      {_(Translations.octopus_feedback.comment_label)}
+    </label>
+    <textarea class="feedback__textarea" id="feedback-comment" rows="3"
+    ></textarea>
+    <Button
+      label={_(Translations.octopus_feedback.send)}
+      size="small"
+      importance="loud"
+      disabled
+      data-feedback-send
+    />
+  </div>
+
+  <p class="feedback__thanks" data-feedback-thanks role="status" hidden>
+    {_(Translations.octopus_feedback.thanks)}
+  </p>
+</section>
+
+<script>
+  import '../scripts/modules/feedback.js';
+</script>
+
+<style>
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space16);
+    margin-block-start: var(--space16);
+    padding: var(--space16);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+  }
+
+  .feedback__vote,
+  .feedback__comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space8);
+    width: 100%;
+  }
+
+  /* Two classes, so this beats the `display: flex` above. */
+  .feedback [hidden] {
+    display: none;
+  }
+
+  .feedback__actions {
+    display: flex;
+    gap: var(--space8);
+  }
+
+  /* Button.astro renders the icon span, so these sit outside this component's
+     scope. 20px slot, 16x14 glyph, as the design insets them, and masked
+     because the exported icons carry a fixed fill. */
+  .feedback :global(.feedback__icon) {
+    background-color: var(--colorIconPrimary);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 1rem 0.875rem;
+  }
+
+  .feedback :global(.feedback__icon--yes) {
+    mask-image: url('../assets/icons/thumbs-up.svg');
+  }
+
+  /* Mirrored, as the design pairs the thumbs facing each other. */
+  .feedback :global(.feedback__icon--no) {
+    mask-image: url('../assets/icons/thumbs-down.svg');
+    transform: scaleX(-1);
+  }
+
+  /* The design calls this out: the label stays regular weight. */
+  .feedback__label {
+    font: var(--textBodyRegularMedium);
+  }
+
+  .feedback__textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 4.375rem;
+    padding: var(--space8);
+    border: var(--borderWidth1) solid var(--colorBorderBold);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundPrimaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    resize: vertical;
+  }
+
+  .feedback__textarea:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth1);
+  }
+
+  /* The table of contents column restacks above the article below this width, so
+     the widget would ask the question before anything had been read. */
+  @media (max-width: 1130px) {
+    .feedback {
+      display: none;
+    }
+  }
+</style>

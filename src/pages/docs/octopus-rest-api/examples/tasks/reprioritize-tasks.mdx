@@ -42,17 +42,18 @@ The script looks for tasks one of two ways:
 2. Matching based on criteria, see below
 
 Matching based on criteria
+
 - Space List - comma separated list of spaces to look for (optional)
 - Environment List - comma separated list of environments to look for (optional)
-    - Options: 
+    - Options:
         - `EnvironmentName` - eg `Production` - looks for the `Production` environment in any space from the space list.
         - `EnvironmentName::SpaceName` - eg `Production::Default` - looks for the `Production` environment in the `Default` space only.
 - Project List - comma separated list of projects to look for (optional)
-    - Options: 
+    - Options:
         - `ProjectName` - eg `Hello World` - looks for the `Hello World` project in any space from the space list.
         - `ProjectName::SpaceName` - eg `Hello World::Default` - looks for the `Hello World` project in the `Default` space only.
 - Tenant List - comma separated list of tenants to look for (optional)
-    - Options: 
+    - Options:
         - `TenantName` - eg `My Tenant` - looks for the `My Tenant` tenant in any space from the space list.
         - `TenantName::SpaceName` - eg `My Tenant::Default` - looks for the `My Tenant` tenant in the `Default` space only.
 - Match Type - how the match will happen

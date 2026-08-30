@@ -61,42 +61,40 @@ function getLoadingAttribute() {
 stats.stop();
 ---
 
-<ul class="post-list anim-show-parent">
+<div class="col-2 anim-show-parent">
   {
     articles.map((post) => (
-      <li
-        class="list-item"
+      <div
+        class="card"
         data-destination={accelerator.urlFormatter.formatAddress(post.url)}
         data-image={(post.frontmatter.bannerImage?.src.length > 0).toString()}
       >
-        <article>
-          <div class="list-item-image">
+        <article class="card__link">
+          <a href={accelerator.urlFormatter.formatAddress(post.url)}>
             {post.img && (
-              <img
-                srcset={post.img.srcset}
-                sizes={post.img.sizes}
-                src={post.img.src}
-                alt={post.frontmatter.bannerImage.alt}
-                class={post.img.class}
-                width={post.img.metadata?.width}
-                height={post.img.metadata?.height}
-                loading={getLoadingAttribute()}
-              />
+              <div class="card__image-wrapper">
+                <img
+                  srcset={post.img.srcset}
+                  sizes={post.img.sizes}
+                  src={post.img.src}
+                  alt={post.frontmatter.bannerImage.alt}
+                  class={`card__image ${post.img.class}`}
+                  width={post.img.metadata?.width}
+                  height={post.img.metadata?.height}
+                  loading={getLoadingAttribute()}
+                />
+              </div>
             )}
-          </div>
-          <div class="list-item-content">
-            <h3>
-              <a href={accelerator.urlFormatter.formatAddress(post.url)}>
-                {post.title}
-              </a>
-            </h3>
-            <AuthorsMini
-              lang={lang}
-              frontmatter={post.frontmatter satisfies Frontmatter}
-            />
-          </div>
+            <div class="card__content">
+              <p class="card__title">{post.title}</p>
+              <AuthorsMini
+                lang={lang}
+                frontmatter={post.frontmatter satisfies Frontmatter}
+              />
+            </div>
+          </a>
         </article>
-      </li>
+      </div>
     ))
   }
-</ul>
+</div>

@@ -46,7 +46,7 @@ When selecting a repository to monitor you will be provided with the option to a
 ![File path filters](/docs/img/projects/project-triggers/images/git-triggers/git-triggers-file-path-filters.png)
 :::
 
-- If no file path filters are specified, all commits to the monitored repository will trigger the creation of a new release. 
+- If no file path filters are specified, all commits to the monitored repository will trigger the creation of a new release.
 - If file paths are set to be included, only changes to those file paths will be monitored, all other file paths will be excluded.
 - If file paths are set to be excluded, changes to those file paths will not be monitored, all other file paths will be included.
 

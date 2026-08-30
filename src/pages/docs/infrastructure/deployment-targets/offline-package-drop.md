@@ -20,10 +20,10 @@ Offline package drop currently only supports Windows operating systems as the ta
 Offline package drop is available as a deployment target.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png)
+![Offline package drop in the list of deployment target types](/docs/img/infrastructure/deployment-targets/images/adding-new-offline-package-drop-target.png)
 :::
 
-![](/docs/img/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png)
+![The settings for a new offline package drop target](/docs/img/infrastructure/deployment-targets/images/create-new-offline-package-drop-target-part2.png)
 
 ### Destination
 
@@ -34,7 +34,7 @@ The executable bundle created when deploying to an offline package drop target c
 The bundle can be zipped and attached as an [Octopus Artifact](/docs/projects/deployment-process/artifacts) to the deployment. It can then be downloaded when required.
 
 :::div{.hint}
-Octopus Cloud instances will almost certainly want to use _Artifact_ as the destination.
+Octopus Cloud instances will almost certainly want to use *Artifact* as the destination.
 :::
 
 #### Drop folder {#drop-folder}
@@ -65,27 +65,27 @@ When Octopus deploys to an offline package drop target it doesn't actually execu
 
 #### Artifact destination
 
-When using _Artifact_ for the destination, the zip file will be named
+When using *Artifact* for the destination, the zip file will be named
 
-```
+```text
 {{Project Name}}.{{Environment Name}}.{{Offline Drop Target Name}}.{{Release Number}}.zip
 ```
 
 or if it is a tenanted deployment then
 
-```
+```text
 {{Project Name}}.{{Environment Name}}.{{Tenant Name}}.{{Offline Drop Target Name}}.{{Release Number}}.zip
 ```
 
 For example
 
-```
+```text
 OctoFX.Production.PWebOffline01.3.3.10827.zip
 ```
 
 The directory structure inside the zip file will resemble:
 
-```
+```text
  |   My Offline Drop Target.OctoFX.Deployments-2.cmd
  |   My Offline Drop Target.OctoFX.Deployments-2.ps1
  |   
@@ -110,7 +110,7 @@ The directory structure inside the zip file will resemble:
 
 An example of the directory structure which will be created when deploying to an offline package drop target configured with a Drop Folder destination is shown below. In this example, the Drop Folder was configured as `\\my-share\octopus-drops`.
 
-```
+```text
 \\my-share
     \---octopus-drops
         \---Development
@@ -139,19 +139,19 @@ An example of the directory structure which will be created when deploying to an
 
 The offline package drop will be built and copied into a folder named by this convention:
 
-```
+```text
     {{YourConfiguredDropFolderPath}}\{{Environment}}\{{ProjectName}}\{{Release}}
 ```
 
 For example:
 
-```
+```text
     \\my-share\octopus-drops\Production\Acme.Web\0.1
 ```
 
 The batch file to execute the deployment will be named with this convention:
 
-```
+```text
     {{MachineName}}.{{ProjectName}}.{{DeploymentId}}.cmd
 ```
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Error handling
 description: Error handling for scripts in Octopus.
 icon: fa-solid fa-circle-exclamation
@@ -78,14 +78,6 @@ FailStep("A friendly message");
 
 ```bash
 fail_step "A friendly message"
-```
-
-</details>
-<details data-group="error-handling">
-<summary>F#</summary>
-
-```fsharp
-Octopus.failStep "A friendly message"
 ```
 
 </details>

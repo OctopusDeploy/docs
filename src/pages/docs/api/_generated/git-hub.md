@@ -1,0 +1,819 @@
+---
+layout: src/layouts/Api.astro
+pubDate: 2026-08-11
+modDate: 2026-08-11
+title: Git Hub
+---
+
+## Get the installation URL for the GitHub App
+
+:endpoint{method="GET" path="/api/github/accounts/install-url"}
+
+**Query Parameters**
+
+- **`redirectUri`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — OK
+
+## Get the settings for the GitHub App
+
+:endpoint{method="GET" path="/api/github/app/settings"}
+
+**Response**
+
+`200` — Success
+
+- **`CanUseGitHubApp`** :span[boolean]{.type-label}
+- **`CanUseTrustedFlow`** :span[boolean]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "CanUseGitHubApp": false,
+  "CanUseTrustedFlow": false
+}
+```
+:::
+
+## Get the status of the registration between Octopus Server and the GitHub App
+
+:endpoint{method="GET" path="/api/github/app/status"}
+
+**Response**
+
+`200` — Response containing the status of the registration between Octopus Server and the GitHub App
+
+- **`Status`** :span[string]{.type-label}  
+  The status of the GitHub App registration. Valid values are: Connected, RegistrationInvalid, Error. Minimum length 1.
+
+:::api-example{label="Response"}
+```json
+{
+  "Status": "string"
+}
+```
+:::
+
+## Get GitHub App connections for the space
+
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
+
+**Path Parameters**
+
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+
+**Response**
+
+`200` — All GitHub App connections for the space
+
+- **`Connections`** :span[array of object]{.type-label}
+  - **`Id`** :span[string]{.type-label}
+  - **`Installation`** :span[object]{.type-label}
+  - **`Status`** :span[enum]{.type-label}  
+    Allowed values: `ConnectionNotFound`, `InstallationNotFound`, `InstallationSuspended`, `Connected`, `Error`.
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Connections": [
+    {
+      "Id": "string",
+      "Installation": {
+        "AccountAvatarUrl": "string",
+        "AccountId": "string",
+        "AccountLogin": "string",
+        "AccountType": "string",
+        "AllRepositories": false,
+        "InstallationId": "string"
+      },
+      "Status": "ConnectionNotFound"
+    }
+  ],
+  "ItemsPerPage": 0,
+  "NumberOfPages": 0,
+  "TotalResults": 0
+}
+```
+:::
+
+## Create a new GitHub App connection for an installation
+
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections`.
+
+**Path Parameters**
+
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`InstallationId`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+
+:::api-example{label="Request"}
+```json
+{
+  "InstallationId": "string",
+  "RepositoryIds": [
+    "string"
+  ],
+  "SpaceId": "Spaces-1"
+}
+```
+:::
+
+**Response**
+
+`201` — Created
+
+:::api-example{label="Response"}
+```json
+"string"
+```
+:::
+
+## Get the GitHub repositories for the current connection
+
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections/\{connectionId\}/repositories"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{connectionId}/repositories`.
+
+**Path Parameters**
+
+- **`connectionId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — GitHub repositories available for the current connection
+
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Repositories": [
+    {
+      "DefaultBranch": "string",
+      "GitUrl": "string",
+      "IsAdmin": false,
+      "IsPrivate": false,
+      "Language": "string",
+      "RepositoryId": "string",
+      "RepositoryName": "string",
+      "Visibility": "string"
+    }
+  ]
+}
+```
+:::
+
+## Get a single GitHub app connection by id
+
+:endpoint{method="GET" path="/api/\{spaceId\}/github/connections/\{id\}"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — A GitHub app connection
+
+- **`Id`** :span[string]{.type-label}
+- **`Installation`** :span[object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
+- **`Repositories`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`SpaceId`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}  
+  Minimum length 1.
+- **`StatusUserMessage`** :span[string]{.type-label}
+- **`UnknownRepositories`** :span[array of object]{.type-label}  
+  Repositories IDs that are configured on the connection but do not have a matching repository returned from GitHub.
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Id": "string",
+  "Installation": {
+    "AccountAvatarUrl": "string",
+    "AccountId": "string",
+    "AccountLogin": "string",
+    "AccountType": "string",
+    "AllRepositories": false,
+    "InstallationId": "string"
+  },
+  "Repositories": [
+    {
+      "DefaultBranch": "string",
+      "GitUrl": "string",
+      "IsAdmin": false,
+      "IsPrivate": false,
+      "Language": "string",
+      "RepositoryId": "string",
+      "RepositoryName": "string",
+      "Visibility": "string"
+    }
+  ],
+  "SpaceId": "Spaces-1",
+  "Status": "string",
+  "StatusUserMessage": "string",
+  "UnknownRepositories": [
+    {
+      "RepositoryId": "string",
+      "RepositoryName": "string"
+    }
+  ]
+}
+```
+:::
+
+## Update a GitHub App connection with a new set of repositories
+
+:endpoint{method="PUT" path="/api/\{spaceId\}/github/connections/\{id\}"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "RepositoryIds": [
+    "string"
+  ],
+  "SpaceId": "Spaces-1"
+}
+```
+:::
+
+**Response**
+
+`200` — GitHub app connection modified result
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Delete a GitHub App Connection
+
+:endpoint{method="DELETE" path="/api/\{spaceId\}/github/connections/\{id\}"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*  
+  Id of the GitHub connection to delete.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the resource(s).
+
+**Response**
+
+`200` — Used to indicate that a GitHub App Connection has been deleted
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Recover GitHub App connection after the registration has changed
+
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/recover"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "RepositoryIds": [
+    "string"
+  ],
+  "SpaceId": "Spaces-1"
+}
+```
+:::
+
+**Response**
+
+`200` — GitHub app connection recovery result
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Recover GitHub App connection after the installation was not found
+
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/recover-not-found"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/recover-not-found`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Request Body**
+
+- **`Id`** :span[string]{.type-label} *(required)*
+- **`InstallationId`** :span[string]{.type-label} *(required)*
+- **`RepositoryIds`** :span[array of string]{.type-label} *(required)*
+- **`SpaceId`** :span[string]{.type-label} *(required)*
+
+:::api-example{label="Request"}
+```json
+{
+  "Id": "string",
+  "InstallationId": "string",
+  "RepositoryIds": [
+    "string"
+  ],
+  "SpaceId": "Spaces-1"
+}
+```
+:::
+
+**Response**
+
+`200` — GitHub app connection not-found recovery result
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Refresh the GitHub App connection token
+
+:endpoint{method="POST" path="/api/\{spaceId\}/github/connections/\{id\}/refresh"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/connections/{id}/refresh`.
+
+**Path Parameters**
+
+- **`id`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — GitHub app connection has been refreshed
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
+
+:endpoint{method="GET" path="/api/\{spaceId\}/github/installations"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
+
+**Path Parameters**
+
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`excludeConnected`** :span[boolean]{.type-label}
+
+**Response**
+
+`200` — List of GitHub organisations accessible to the current GitHub OAuth user
+
+- **`Installations`** :span[array of object]{.type-label}
+  - **`AccountAvatarUrl`** :span[string]{.type-label}
+  - **`AccountId`** :span[string]{.type-label}
+  - **`AccountLogin`** :span[string]{.type-label}
+  - **`AccountType`** :span[string]{.type-label}
+  - **`AllRepositories`** :span[boolean]{.type-label}  
+    true if the installation has access to all repositories in the account, false if it has access to only selected repositories.
+  - **`InstallationId`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "Installations": [
+    {
+      "AccountAvatarUrl": "string",
+      "AccountId": "string",
+      "AccountLogin": "string",
+      "AccountType": "string",
+      "AllRepositories": false,
+      "InstallationId": "string"
+    }
+  ]
+}
+```
+:::
+
+## Handle the response from GitHub after an application has been installed or updated
+
+:endpoint{method="GET" path="/api/github/installations/updated"}
+
+**Query Parameters**
+
+- **`installation_id`** :span[string]{.type-label}
+- **`redirectUri`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — OK
+
+## Get the GitHub repositories for an installation visible to the current user https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
+
+:endpoint{method="GET" path="/api/github/installations/\{installationId\}/repositories"}
+
+**Path Parameters**
+
+- **`installationId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+
+**Response**
+
+`200` — Success
+
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "ItemType": "string",
+  "Items": [
+    {
+      "DefaultBranch": "string",
+      "GitUrl": "string",
+      "IsAdmin": false,
+      "IsPrivate": false,
+      "Language": "string",
+      "RepositoryId": "string",
+      "RepositoryName": "string",
+      "Visibility": "string"
+    }
+  ],
+  "ItemsPerPage": 0,
+  "LastPageNumber": 0,
+  "NumberOfPages": 0,
+  "TotalResults": 0
+}
+```
+:::
+
+## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
+
+:endpoint{method="POST" path="/api/github/reset-registration"}
+
+**Response**
+
+`200` — GitHub app registration was successfully deleted
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
+
+:endpoint{method="GET" path="/api/github/search/\{accountName\}/repositories"}
+
+**Path Parameters**
+
+- **`accountName`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`keyword`** :span[string]{.type-label}
+- **`skip`** :span[integer]{.type-label} *(required)*  
+  Number of items to skip. Defaults to zero. Minimum `0`.
+- **`take`** :span[integer]{.type-label} *(required)*  
+  Number of items to take. Defaults to 30. Minimum `0`.
+
+**Response**
+
+`200` — Success
+
+- **`ItemType`** :span[string]{.type-label}
+- **`Items`** :span[array of object]{.type-label}
+  - **`DefaultBranch`** :span[string]{.type-label}
+  - **`GitUrl`** :span[string]{.type-label}
+  - **`IsAdmin`** :span[boolean]{.type-label}
+  - **`IsPrivate`** :span[boolean]{.type-label}
+  - **`Language`** :span[string]{.type-label}
+  - **`RepositoryId`** :span[string]{.type-label}
+  - **`RepositoryName`** :span[string]{.type-label}
+  - **`Visibility`** :span[string]{.type-label}
+- **`ItemsPerPage`** :span[integer]{.type-label}
+- **`LastPageNumber`** :span[integer]{.type-label}
+- **`NumberOfPages`** :span[integer]{.type-label}
+- **`TotalResults`** :span[integer]{.type-label}
+
+:::api-example{label="Response"}
+```json
+{
+  "ItemType": "string",
+  "Items": [
+    {
+      "DefaultBranch": "string",
+      "GitUrl": "string",
+      "IsAdmin": false,
+      "IsPrivate": false,
+      "Language": "string",
+      "RepositoryId": "string",
+      "RepositoryName": "string",
+      "Visibility": "string"
+    }
+  ],
+  "ItemsPerPage": 0,
+  "LastPageNumber": 0,
+  "NumberOfPages": 0,
+  "TotalResults": 0
+}
+```
+:::
+
+## Get status of the users current authorization
+
+:endpoint{method="GET" path="/api/github/user/app/authorization_status"}
+
+**Query Parameters**
+
+- **`includeUserDetails`** :span[boolean]{.type-label}
+
+**Response**
+
+`200` — Get the status of the user's current authorization.
+
+- **`CanAuthorize`** :span[boolean]{.type-label}
+- **`IsAuthorized`** :span[boolean]{.type-label}
+- **`UserDetails`** :span[object]{.type-label}
+  - **`AvatarUrl`** :span[string]{.type-label}
+  - **`Login`** :span[string]{.type-label}
+  - **`Name`** :span[string]{.type-label}
+  - **`PrimaryEmail`** :span[string]{.type-label}
+  - **`RefreshTokenValidTo`** :span[string]{.type-label}  
+    Format `date-time`.
+  - **`TokenValidTo`** :span[string]{.type-label}  
+    Format `date-time`.
+
+:::api-example{label="Response"}
+```json
+{
+  "CanAuthorize": false,
+  "IsAuthorized": false,
+  "UserDetails": {
+    "AvatarUrl": "string",
+    "Login": "string",
+    "Name": "string",
+    "PrimaryEmail": "string",
+    "RefreshTokenValidTo": "2020-01-01T00:00:00.000Z",
+    "TokenValidTo": "2020-01-01T00:00:00.000Z"
+  }
+}
+```
+:::
+
+## Authorize the current user with the Octopus GitHub app
+
+:endpoint{method="POST" path="/api/github/user/app/authorize"}
+
+**Request Body**
+
+- **`RedirectUri`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+
+:::api-example{label="Request"}
+```json
+{
+  "RedirectUri": "string"
+}
+```
+:::
+
+**Response**
+
+`200` — GitHub URL to authorize the GitHub app
+
+- **`AuthorizeUri`** :span[string]{.type-label}  
+  Minimum length 1.
+
+:::api-example{label="Response"}
+```json
+{
+  "AuthorizeUri": "string"
+}
+```
+:::
+
+## Exchange a GitHub App authorization code for an access token and store in the instance
+
+:endpoint{method="POST" path="/api/github/user/app/exchange-access-code"}
+
+**Request Body**
+
+- **`Code`** :span[string]{.type-label} *(required)*  
+  Minimum length 1.
+
+:::api-example{label="Request"}
+```json
+{
+  "Code": "string"
+}
+```
+:::
+
+**Response**
+
+`200` — Reports the success of exchanging a GitHub App authorization code for an access token
+
+- **`ErrorMessage`** :span[string]{.type-label}
+- **`Status`** :span[string]{.type-label}  
+  Minimum length 1.
+
+:::api-example{label="Response"}
+```json
+{
+  "ErrorMessage": "string",
+  "Status": "string"
+}
+```
+:::
+
+## Exchange a GitHub App authorization code for an access token and store in the instance
+
+:endpoint{method="GET" path="/api/github/user/app/token"}
+
+**Query Parameters**
+
+- **`code`** :span[string]{.type-label} *(required)*
+- **`redirectUri`** :span[string]{.type-label} *(required)*
+
+**Response**
+
+`200` — OK
+
+## Deauthorize the GitHub app for the current user, removing this users GitHub tokens from Octopus
+
+:endpoint{method="DELETE" path="/api/github/user/app/token"}
+
+**Response**
+
+`200` — Deauthorized GitHub app user
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Refresh the GitHub current app user. Refreshing the users token and cached GitHub account details
+
+:endpoint{method="POST" path="/api/github/user/app/token/refresh"}
+
+**Response**
+
+`200` — GitHub App user has been successfully refreshed
+
+:::api-example{label="Response"}
+```json
+{}
+```
+:::
+
+## Test connectivity to GitHub using the provided credentials
+
+:endpoint{method="POST" path="/api/githubissuetracker/connectivitycheck"}
+
+**Request Body**
+
+- **`BaseUrl`** :span[string]{.type-label} *(required)*  
+  The GitHub base URL to test connectivity to. Minimum length 1.
+- **`Password`** :span[string]{.type-label}  
+  The GitHub personal access token or password for authentication. If not provided, will be retrieved from configuration.
+- **`UserName`** :span[string]{.type-label}  
+  The GitHub username for authentication.
+
+:::api-example{label="Request"}
+```json
+{
+  "BaseUrl": "string",
+  "Password": "string",
+  "UserName": "string"
+}
+```
+:::
+
+**Response**
+
+`200` — Result of testing connectivity to GitHub
+
+- **`Messages`** :span[array of object]{.type-label}  
+  Messages from the connectivity check.
+  - **`Category`** :span[enum]{.type-label}  
+    Allowed values: `Info`, `Warning`, `Error`.
+  - **`Message`** :span[string]{.type-label}  
+    Minimum length 1.
+
+:::api-example{label="Response"}
+```json
+{
+  "Messages": [
+    {
+      "Category": "Info",
+      "Message": "string"
+    }
+  ]
+}
+```
+:::

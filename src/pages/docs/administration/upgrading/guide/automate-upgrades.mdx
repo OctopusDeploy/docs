@@ -8,11 +8,11 @@ navOrder: 4
 ---
 import OctopusBackupMasterKey from 'src/shared-content/upgrade/upgrade-octopus-backup-master-key.include.md';
 
-Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade and can reduce the outage window to be around 5-10 minutes.   This guide provides the steps necessary to automate the upgrade process. 
+Automating the Octopus Deploy upgrade ensures all essential steps are executed during an upgrade and can reduce the outage window to be around 5-10 minutes.   This guide provides the steps necessary to automate the upgrade process.
 
 ## Overview
 
-This guide was written for upgrading Octopus Deploy on Windows. 
+This guide was written for upgrading Octopus Deploy on Windows.
 
 ## System Integrity Check
 
@@ -169,12 +169,12 @@ Remove-Item "$downloadDirectory\$msiFilename"
 
 ## Upgrading High Availability Octopus Deploy instances
 
-Automating the upgrade of a Highly Available Octopus Deploy instance requires more than a single script.  A degree of coordination is required to update all the nodes.  In addition, specific actions, backing up the database, upgrading the database, enabling / disabling maintenance mode should only happen once.   
+Automating the upgrade of a Highly Available Octopus Deploy instance requires more than a single script.  A degree of coordination is required to update all the nodes.  In addition, specific actions, backing up the database, upgrading the database, enabling / disabling maintenance mode should only happen once.
 
 The recommendation is to use an Octopus Deploy runbook on another instance to upgrade the High Availability instance.  You can get started with a [free Octopus Cloud account](https://octopus.com/free-signup) to do this.
 
 :::figure
-![](/docs/img/administration/upgrading/guide/images/upgrade-diagram.png)
+![Diagram of a runbook on a separate instance upgrading a High Availability instance](/docs/img/administration/upgrading/guide/images/upgrade-diagram.png)
 :::
 
 Each node will need a Tentacle installed on it.  You will need two roles for this to work.
@@ -185,7 +185,7 @@ Each node will need a Tentacle installed on it.  You will need two roles for thi
 The same sample script from above will be used, but it will be broken up into steps.  For example:
 
 :::figure
-![](/docs/img/administration/upgrading/guide/images/automated-upgrade-runbook-process.png)
+![The automated upgrade runbook process broken into steps](/docs/img/administration/upgrading/guide/images/automated-upgrade-runbook-process.png)
 :::
 
 ### Variables
@@ -208,7 +208,7 @@ The upgrade process itself is very similar to upgrading a single node instance. 
 :::div{.hint}
 Aside from step 1, all steps should set a run condition to look at the variable `Upgrade.Octopus.HasNewVersion`
 
-![](/docs/img/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png)
+![A step run condition set on the Upgrade.Octopus.HasNewVersion variable](/docs/img/administration/upgrading/guide/images/automate-upgrade-variable-run-condition.png)
 :::
 
 **1. Check for a new version (HAServer-Primary).**
@@ -284,6 +284,7 @@ if (-not (Invoke-RestMethod -Uri "$url/api/maintenanceconfiguration" -Headers @{
 ```
 
 **3. Backup files if major version change (HAServer-Primary).**
+
 ```powershell
 $url = $OctopusParameters["Upgrade.Octopus.Url"]
 $apiKey = $OctopusParameters["Upgrade.Octopus.ApiKey"]
@@ -347,6 +348,7 @@ foreach ($instance in $instanceList)
 ```
 
 **5. Backup Database (HAServer-Primary)**
+
 ```powershell
 $BackupFolderLocation = $OctopusParameters["Upgrade.Database.Backup.Folder"]
 $OctopusDatabaseName = $OctopusParameters["Upgrade.Database.Name"]
@@ -399,6 +401,7 @@ Write-Output "Server MSI installer returned exit code $msiExitCode"
 ```
 
 **7. Upgrade the database (HAServer-Primary).**
+
 ```powershell
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"
 $serverExe = "$installPath\Octopus.Server.exe"
@@ -436,6 +439,7 @@ While ($true) {
 ```
 
 **8. Restart all nodes (HAServer).**
+
 ```powershell
 # A server could have multiple instances, as we shut them all down earlier, start them all back up
 $installPath = "${env:ProgramFiles}\Octopus Deploy\Octopus"

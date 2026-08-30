@@ -10,7 +10,7 @@ Show the Tentacle version information.
 
 **version options**
 
-```
+```text
 Usage: tentacle version [<options>]
 
 Where [<options>] is any of:
@@ -27,12 +27,12 @@ Or one of the common options:
 
 This example displays the Tentacle version in the default text format:
 
-```
+```text
 tentacle version
 ```
 
 This example displays the Tentacle version in JSON format:
 
-```
+```text
 tentacle version --format="json"
 ```

@@ -16,7 +16,7 @@ Audit and suggest improvements to how tenants are configured, tagged, and scoped
 
 ## 📝 Prompt
 
-```
+```text
 Recommend improvements to current multi-tenant deployment strategy
 ```
 

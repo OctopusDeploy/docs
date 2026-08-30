@@ -19,8 +19,8 @@ There have been four major versions of the Octopus Extension:
 
 The following table shows compatibility between versions of Azure DevOps, TFS, and the Octopus extension
 
-| Azure DevOps/TFS Version / Extension Version |   1.2.x   |   2.0.199     |     3     |     4 and 5     | 6 |
-| -------------------------------------------- |:---------:|:-------------:|:-------------:|:-------------:|:-------------:| 
+| Azure DevOps/TFS Version / Extension Version |   1.2.x   |    2.0.199    |       3       |    4 and 5    |       6       |
+| -------------------------------------------- | :-------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | Azure DevOps                                 | Supported | Not supported |   Supported   |   Supported   |   Supported   |
 | TFS 2017 Update 3                            | Supported |   Supported   |   Supported   |   Supported   | Not supported |
 | TFS 2017 Update 2                            | Supported |   Supported   |   Supported   |   Supported   | Not supported |
@@ -38,7 +38,7 @@ When passing [build information](/docs/packaging-applications/build-servers/buil
 
 Specifically, the build link may return a `404 (Not Found)` error when viewed. The cause for the issue is believed to be the result of a change to the format of the build URL supported by Azure DevOps.
 
-The Build information step in the Octopus Azure DevOps extension expects the build to be viewed using a URL like this: 
+The Build information step in the Octopus Azure DevOps extension expects the build to be viewed using a URL like this:
 `https://my-tfs-server-address/tfs/Projects/MyProject/_build/results?buildId=<BUILDID>`.
 
 However, affected TFS versions expect the build to be viewed using a different URL like this: `https://my-tfs-server-address/tfs/Projects/MyProject/_build/index?buildId=<BUILDID>`.

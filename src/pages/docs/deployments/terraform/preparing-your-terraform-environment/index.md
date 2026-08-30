@@ -34,9 +34,10 @@ terraform {
   }
 }
 ```
+
 ### Common Example
 
-A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherited from an ENV variable in Octopus, the HCP Terraform project is derived from the Octopus project name, and the workspace name is derived from the project, environment, and a unique string. 
+A common setup will be use a combination of Octopus environment variables, Octopus Project Variables, and hardcoded values. The below example shows the `organization` is inherited from an ENV variable in Octopus, the HCP Terraform project is derived from the Octopus project name, and the workspace name is derived from the project, environment, and a unique string.
 
 ```hcl
 # organization is inherited from ENV variable TF_CLOUD_ORGANIZATION
@@ -52,11 +53,12 @@ terraform {
 ```
 
 Cloud block settings can be set via [environment variable](https://developer.hashicorp.com/terraform/language/block/terraform#tf_cloud_organization) and omitted from HCL:
+
 - `TF_CLOUD_ORGANIZATION`
 - `TF_CLOUD_PROJECT`
 - `TF_WORKSPACE`
 
-_note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration (ex: `terraform { cloud {} }`)._
+*note: if you set all 3 environment variables, a empty cloud block **must** exist in the hcl root configuration (ex: `terraform { cloud {} }`).*
 
 ### Adding environment variables to Octopus Project
 

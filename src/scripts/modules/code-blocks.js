@@ -1,6 +1,6 @@
 // @ts-check
 import { qs, qsa } from './query.js';
-import { copyOnClick } from './copy-button.js';
+import { copyOnClick } from './clipboard.js';
 
 // The shell around each block, its copy button included, is rendered at build
 // time by src/plugins/shiki-code-block.js. This wires up what happens next.

@@ -1,12 +1,15 @@
-import remarkDirective from 'remark-directive';
-import remarkHeading from 'remark-heading-id';
 import { defineConfig } from 'astro/config';
-import { unified } from '@astrojs/markdown-remark';
+import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
 import { attributeMarkdown, wrapTables } from '/src/themes/octopus/utilities/custom-markdown.mjs';
 import llmMdEmitter from './src/integrations/llm-md-emitter.ts';
+import pagefindIndex from './src/integrations/pagefind-index.ts';
 import pruneDist from './src/integrations/prune-dist.ts';
-import rehypeWbr from './src/plugins/rehype-wbr.js';
+import satteriHeadingId from './src/plugins/satteri-heading-id.js';
+import satteriApiExamples, { apiExampleDirective } from './src/plugins/satteri-api-examples.js';
+import { endpointDirective } from './src/plugins/satteri-endpoint.js';
+import satteriWbr from './src/plugins/satteri-wbr.js';
+import pagefindImageAttrs from './src/plugins/pagefind-image-attrs.js';
 import shikiCodeBlock from './src/plugins/shiki-code-block.js';
 
 // https://astro.build/config
@@ -21,6 +24,9 @@ export default defineConfig({
     integrations: [
         mdx(),
         llmMdEmitter(),
+        // After the page emitters, and before the prune that would delete its
+        // output
+        pagefindIndex(),
         // Must run last: strips build output that can't be served under /docs/
         pruneDist()
     ],
@@ -37,19 +43,33 @@ export default defineConfig({
             langAlias: {
                 ocl: 'hcl'
             },
-            // A transformer, because rehype plugins registered through
-            // `processor` below never reach .mdx pages
+            // A transformer, so the shell is built as each block is
+            // highlighted rather than by re-parsing the markup afterwards
             transformers: [shikiCodeBlock()]
         },
-        processor: unified({
-            remarkPlugins: [
-                remarkDirective,
-                remarkHeading,
+        // Sätteri, the Rust processor, replaces the unified pipeline. Unlike
+        // unified's remark/rehype plugins, these also run over .mdx pages.
+        processor: satteri({
+            features: {
+                // `:::div{.hint}` containers and `:img{src=...}` directives
+                directive: true,
+                // `## Title {#custom-id}` explicit heading ids
+                headingAttributes: true
+            },
+            mdastPlugins: [
+                satteriHeadingId,
                 attributeMarkdown,
+                // After attributeMarkdown, whose generic handler would otherwise
+                // render `:::api-example` as an <api-example> tag, and
+                // `:endpoint` as an <endpoint> one
+                apiExampleDirective,
+                endpointDirective,
                 wrapTables
             ],
-            rehypePlugins: [
-                rehypeWbr
+            hastPlugins: [
+                satteriWbr,
+                pagefindImageAttrs,
+                satteriApiExamples
             ],
         }),
     },

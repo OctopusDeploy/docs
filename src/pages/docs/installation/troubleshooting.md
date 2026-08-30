@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-11
 title: Troubleshoot Octopus installation issues
 description: Fix common Octopus Server installation errors. Find solutions for database connection failures, port conflicts, Windows service issues, and permission problems.
 navOrder: 7
@@ -35,7 +35,7 @@ Once this option is on, PowerShell scripts automatically support long file names
 
 ## Limitations
 
-- C# and F# scripts do not support long filenames.
+- C# scripts do not support long filenames.
 - Windows limits the each component of the path to 255 characters.
 - Due to how we store and transfer packages, PackageIDs are limited to 100 characters and Package ID and Version combined to 216 characters.
 - The package extraction path (`<TentacleApplicationDirectory>\<PackageId>\<Version>`) must be less than 256 characters long.

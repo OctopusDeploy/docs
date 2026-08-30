@@ -61,9 +61,11 @@
     ".octopus/**",
     ".vscode/**",
     ".github/**",
+    "src/pages/docs/api/**",
     "src/pages/report/**",
     "src/fallback/**",
     "src/scripts/**",
+    "tests/**",
     "node_modules/**",
     "public/docs/css/fa/**",
     "assets/diagrams/**"

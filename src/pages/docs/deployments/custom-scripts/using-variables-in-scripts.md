@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Using variables in scripts
 description: With Octopus you can define variables for use with your custom scripts.
 icon: fa-solid fa-file-code
@@ -48,30 +48,6 @@ echo "Connection string is: $connectionString"
 
 </details>
 <details data-group="using-variables-in-scripts">
-<summary>F#</summary>
-
-```fsharp
-// It's a good idea to copy the value into a variable to avoid quoting issues
-
-// tryFindVariable : name:string -> string option
-let connectionString = Octopus.tryFindVariable "MyApp.ConnectionString"
-match connectionString with
-    | Some x -> printf "Connection string is: %s" x
-    | None -> printf "Connection string not found"
- 
-// Or one of the simplified versions
-
-// Throws KeyNotFoundException when variable does not exist
-// findVariable : name:string -> string
-let connectionString = Octopus.findVariable "MyApp.ConnectionString"
-
-// Returns default value when variable does not exist
-// findVariableOrDefault : defaultValue:string -> name:string -> string
-let connectionString = Octopus.findVariableOrDefault "Default Value" "MyApp.ConnectionString"
-```
-
-</details>
-<details data-group="using-variables-in-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -80,10 +56,6 @@ print(connectionString)
 ```
 
 </details>
-
-:::div{.success}
-To see the F# API available to your F# scripts, take a look at our [F# signature file](https://github.com/OctopusDeploy/Calamari/tree/master/source/Calamari.Common/Features/Scripting/FSharp/Bootstrap.fsi).
-:::
 
 ## Variables in PowerShell scripts {#variables-in-powershell}
 

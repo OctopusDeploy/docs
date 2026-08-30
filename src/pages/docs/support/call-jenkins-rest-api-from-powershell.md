@@ -14,14 +14,14 @@ Although the typical deployment workflow sees a CI system like Jenkins triggerin
 Jenkins has a security feature to prevent [Cross Site Request Forgery](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/csrf-protection-explained) attacks, which is found under **Jenkins ➜ Manage Jenkins ➜ Configure Global Security ➜ Prevent Cross Site Request Forgery exploits**.
 
 :::figure
-![](/docs/img/support/images/csrf.png)
+![The CSRF protection setting in Jenkins](/docs/img/support/images/csrf.png)
 :::
 
-In practical terms this means that each request to the Jenkins API needs to have what is known as a crumb defined in the headers. To generate this crumb, we need to make a request to http://jenkinsserver/jenkins/crumbIssuer/api/json.
+In practical terms this means that each request to the Jenkins API needs to have what is known as a crumb defined in the headers. To generate this crumb, we need to make a request to <http://jenkinsserver/jenkins/crumbIssuer/api/json>.
 
 The PowerShell below shows you how to generate a crumb.
 
-```
+```powershell
 $user = 'user'
 $pass = 'password'
 
@@ -48,20 +48,20 @@ Write-Host "The Jenkins crumb is $($parsedJson.crumb)"
 Now that we have a crumb, we can use it to call the Jenkins REST API. You can find the URL to call to interact with the Jenkins system with the `REST API` link in the bottom right hand corner of each screen.
 
 :::figure
-![](/docs/img/support/images/restapi.png)
+![The REST API link in the corner of a Jenkins screen](/docs/img/support/images/restapi.png)
 :::
 
-In this example we want to trigger the build of a Jenkins project, so we open the project and find that the `REST API` link points us to a URL like http://jenkinsserver/jenkins/job/Run%20a%20script/api/. If we open this link we'll see a page of documentation describing the common operations that are available. In particular we are interested in the link that is embedded in the sentence `to programmatically schedule a new build, post to this URL.` The link takes us to a URL like http://jenkinsserver/jenkins/job/Run%20a%20script/build.
+In this example we want to trigger the build of a Jenkins project, so we open the project and find that the `REST API` link points us to a URL like <http://jenkinsserver/jenkins/job/Run%20a%20script/api/>. If we open this link we'll see a page of documentation describing the common operations that are available. In particular we are interested in the link that is embedded in the sentence `to programmatically schedule a new build, post to this URL.` The link takes us to a URL like <http://jenkinsserver/jenkins/job/Run%20a%20script/build>.
 
 :::figure
-![](/docs/img/support/images/restapidocs.png)
+![The Jenkins REST API documentation for a project](/docs/img/support/images/restapidocs.png)
 :::
 
 ## Triggering the build
 
 We now have the links that we need to trigger a build, and the crumb that is required by Jenkins with each API request. Let's finish off the PowerShell script that will make this final request to start a build in Jenkins.
 
-```
+```powershell
 $user = 'user'
 $pass = 'password'
 
@@ -91,7 +91,7 @@ Invoke-WebRequest -Uri "http://jenkinsserver/jenkins/job/Run%20a%20script/build"
 
 Running this script will display the crumb value, as well as the result of the API call to start a job. Notice that the result was a HTTP 201 code. This code indicates that a job was created on the Jenkins server.
 
-```
+```text
 PS C:\Users\Matthew\Desktop> .\jenkins.ps1
 The Jenkins crumb is 574608b1e95315787b2fa0b74fce2441
 
@@ -111,7 +111,7 @@ RawContentLength  : 0
 RelationLink      : {}
 ```
 
- ## Learn more
+## Learn more
 
  - [Jira blog posts](https://octopus.com/blog/tag/jira/1)
  - [PowerShell blog posts](https://octopus.com/blog/tag/powershell/1)

@@ -23,7 +23,6 @@ This document covers the process of migrating variables to Git. You will need to
 
 All non-sensitive values will be written to your Git repository in plain text during the migration. Before migrating, ensure that you do not have any secret values that are not stored as sensitive variables.
 
-
 :::div{.warning}
 If you can view a value on the variables page (and it's not shown as a password field) or retrieve the value from the API, it's not marked as sensitive and will be written to the `variables.ocl` file.
 :::
@@ -54,13 +53,13 @@ The first page is just informational. After opening the dialog, Octopus will val
 
 ### Step 2: Select a branch
 
-Always use the default branch if possible. The default branch is the first branch shown when new users view the project, and Octopus only snapshots variables from the default branch for Runbooks. You always want to have a valid variables file on the default branch, so migrate directly there _if you can_.
+Always use the default branch if possible. The default branch is the first branch shown when new users view the project, and Octopus only snapshots variables from the default branch for Runbooks. You always want to have a valid variables file on the default branch, so migrate directly there *if you can*.
 
 :::figure
 ![Screenshot of page 2 (branch selection) on Git variables migration wizard, with existing branch 'main' selected](/docs/img/projects/version-control/converting/git-variables-migrator-page-2-existing.png)
 :::
 
-If you are unable to migrate to the default branch (for example, it's protected), you can select any other branch or get Octopus to create a new branch from the default when migrating. _Once the migration is finished, merge the variables to the default branch as soon as possible._
+If you are unable to migrate to the default branch (for example, it's protected), you can select any other branch or get Octopus to create a new branch from the default when migrating. *Once the migration is finished, merge the variables to the default branch as soon as possible.*
 
 ### Step 3: Review & migrate
 

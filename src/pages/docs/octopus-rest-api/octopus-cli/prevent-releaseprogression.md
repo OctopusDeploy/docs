@@ -9,7 +9,7 @@ navOrder: 100
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to prevent a release from progressing to next phase.
 
-```
+```text
 Prevents a release from progressing to the next phase.
 
 Usage: octo prevent-releaseprogression [<options>]
@@ -81,7 +81,8 @@ Common options:
 ## Basic example
 
 This example prevents release 1.0.0.0 of WingtipToys from being deployed to the next environment:
-```
+
+```bash
 octo prevent-releaseprogression --project="WingtipToys" --releaseNumber="1.0.0.0" --reason="Invalid cast conversion exception" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 

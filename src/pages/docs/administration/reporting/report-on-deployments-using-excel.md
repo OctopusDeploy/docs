@@ -17,7 +17,7 @@ At a high-level, the steps are:
 3. Report on the data using a pivot table.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278122.png)
+![An Excel pivot chart summarizing Octopus deployments](/docs/img/administration/reporting/images/3278122.png)
 :::
 
 ## Export all deployments using the XML feed
@@ -72,13 +72,13 @@ Now that we have an XML file containing our deployments, we can import it into M
 1. Open Microsoft Excel, and create a new, blank workbook.
 2. On the **Data** ribbon tab, click **From Other Sources**, then choose **From XML Data Import**.
 
-   ![](/docs/img/administration/reporting/images/3278132.png)
+   ![The From XML Data Import option under From Other Sources on the Excel Data ribbon](/docs/img/administration/reporting/images/3278132.png)
 
 3. Excel will prompt you that the XML file does not refer to a schema, and that one will be created. Click **OK**.
 4. Excel will ask you where to create a table. Choose the location in your workbook to put the new table, or just click **OK**.
 5. You should now have a table that lists each of the deployments you have performed with Octopus, along with the name of the environment, project and the date of the deployment.
 
-   ![](/docs/img/administration/reporting/images/3278131.png)
+   ![An Excel table listing each deployment with its environment, project, and date](/docs/img/administration/reporting/images/3278131.png)
 
 ## Report on the data using a pivot table
 
@@ -86,7 +86,7 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 
 1. Select any cell in the table, then from the **Insert** ribbon tab, click **PivotTable**.
 
-   ![](/docs/img/administration/reporting/images/3278130.png)
+   ![The PivotTable button on the Excel Insert ribbon](/docs/img/administration/reporting/images/3278130.png)
 
 2. Excel will prompt you to ask where to place the new pivot table. Click **OK** to add it to a new worksheet in your workbook.
 3. You can now build the pivot table by dragging fields into the **Rows** or **Columns** of the pivot table.
@@ -94,49 +94,49 @@ It's easy to turn the table of deployments into a pivot table for reporting.
 For example, here's a breakdown of deployments by environment. Note that the **Id** field was dragged to the **Values** area, and **Environment** was dragged to **Rows**.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278129.png)
+![A pivot table breaking deployments down by environment](/docs/img/administration/reporting/images/3278129.png)
 :::
 
 Here's another example, this time using **Environment** as a column, and **Project** as the rows:
 
 :::figure
-![](/docs/img/administration/reporting/images/3278128.png)
+![A pivot table with environment as columns and project as rows](/docs/img/administration/reporting/images/3278128.png)
 :::
 
 You can also group the results by month or other measures of time. First, drag the **Created** field as as row.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278127.png)
+![The Created field dragged into the pivot table Rows area](/docs/img/administration/reporting/images/3278127.png)
 :::
 
 Now, right-click any of the date values, and click **Group**.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278126.png)
+![The Group option in the right-click menu for a date value](/docs/img/administration/reporting/images/3278126.png)
 :::
 
 Choose the level of granularity that you want to group by, then click **OK**. In this example we chose Months.
 
 :::figure
-![](/docs/img/administration/reporting/images/3278125.png)
+![The Grouping dialog with Months selected](/docs/img/administration/reporting/images/3278125.png)
 :::
 
 And the results will now be grouped by month:
 
 :::figure
-![](/docs/img/administration/reporting/images/3278124.png)
+![A pivot table of deployments grouped by month](/docs/img/administration/reporting/images/3278124.png)
 :::
 
 If you aren't happy with the order that environments or other items are shown in, you can right-click and move them:
 
 :::figure
-![](/docs/img/administration/reporting/images/3278123.png)
+![The right-click menu used to reorder environments in a pivot table](/docs/img/administration/reporting/images/3278123.png)
 :::
 
 Finally, don't forget to add pretty graphs!
 
 :::figure
-![](/docs/img/administration/reporting/images/3278122.png)
+![A pivot chart of Octopus deployments by environment and month](/docs/img/administration/reporting/images/3278122.png)
 :::
 
 :::div{.hint}
@@ -145,6 +145,7 @@ There are two major limits to this approach to be aware of:
 
 1. As you have seen, only a small amount of data is available for use for reporting.
 2. If you use [retention policies](/docs/administration/retention-policies), releases and deployments that have been deleted by the retention policy will also not be available for reporting.
+
    :::
 
 ## Learn more

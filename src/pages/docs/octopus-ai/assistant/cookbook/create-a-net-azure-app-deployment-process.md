@@ -16,7 +16,7 @@ This prompt generates a deployment process tailored for .NET applications target
 
 ## 📝 Prompt
 
-```
+```text
 Create a deployment process for a .NET application targeting Azure App Service
 ```
 

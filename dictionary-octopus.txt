@@ -4,6 +4,7 @@ actiontemplates
 Adfs
 advfirewall
 agentic
+alives
 allatclaims
 ALLUSERSPROFILE
 anglin
@@ -13,6 +14,7 @@ antipattern
 antipatterns
 apikey
 apikeys
+apos
 appcmd
 apphost
 APPNAME
@@ -38,6 +40,7 @@ auths
 autoconfigured
 autodeployoverride
 autologin
+automount
 autopopulate
 awsaccount
 azureaccount
@@ -157,8 +160,11 @@ emptytitle
 enableservicemessages
 entra
 environmentids
+environmentstate
+environmenturl
 eprintfn
 esac
+evenodd
 exfiltrate
 exfiltration
 expressjs
@@ -401,6 +407,7 @@ Ozar
 PAAS
 packageid
 packageversion
+pagefind
 passout
 PathtoPublish
 pemstore
@@ -454,6 +461,7 @@ Regedit
 rego
 rehype
 reindexing
+relabelings
 releasenotes
 releaseprogression
 remoting
@@ -491,11 +499,14 @@ sakila
 SAMEORIGIN
 sandboxed
 sandboxing
+satteri
+Sätteri
 Schannel
 SCIM
 scopeduserroles
 Scregedit
 scriptcs
+seccomp
 secp
 secpol
 secureclientcertificate
@@ -547,6 +558,8 @@ struct
 stylesheet
 subcomponent
 subcontext
+subpath
+subpaths
 sunsetting
 swaggerui
 systemprofile
@@ -577,6 +590,7 @@ timeframes
 timespan
 tlsv1
 tmpfs
+tolerations
 tomcatadmin
 Toolbelt
 Toolsets

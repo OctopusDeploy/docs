@@ -11,10 +11,10 @@ The `show-configuration` command is used to 'export' Octopus Deploy's current co
 
 The command supports the following options:
 
-| Option           | Description                              |
-| ---------------- | ---------------------------------------- |
-| file             | Exports the server configuration to a file. If not specified, output goes to the console. |
-| format           | The format of the export (XML, JSON, JSON-hierarchical). Defaults to XML. |
+| Option           | Description                                                                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| file             | Exports the server configuration to a file. If not specified, output goes to the console.                                                                      |
+| format           | The format of the export (XML, JSON, JSON-hierarchical). Defaults to XML.                                                                                      |
 | noconsolelogging | If specified, all output to the console other than the configuration is suppressed. This is important when using the JSON formats and converting to an object. |
 
 ## Format {#ShowConfiguration-Format}

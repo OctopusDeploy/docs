@@ -7,11 +7,13 @@ description: A guide for troubleshooting start up error "Access Denied starting 
 navOrder: 9
 ---
 
+<!-- cspell:ignore authbind -->
+
 Octopus requires certain permissions to launch the HTTP Listener - the web server that serves up the Octopus Portal.
 
 When the user that launches Octopus does not have these permissions, you will receive an error:
 
-```
+```text
 An Access Denied error was received trying to start the HttpListener.
 ```
 
@@ -31,12 +33,13 @@ On Windows, users who are not part of the local Administrators group cannot list
 
 This can be done via the following command:
 
-```
+```text
 netsh http add urlacl url=<URL> user=<USER>
 ```
 
 For example:
-```
+
+```text
 netsh http add urlacl url=http://localhost:80/ user=DOMAIN\user
 ```
 

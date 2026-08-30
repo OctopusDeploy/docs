@@ -11,7 +11,7 @@ Configure settings related to this Octopus Server node
 
 **node options**
 
-```
+```text
 Usage: octopus.server node [<options>]
 
 Where [<options>] is any of:
@@ -43,11 +43,13 @@ Or one of the common options:
 ## Basic examples
 
 This example drains the default node:
-```
+
+```text
 octopus.server node --drain="true"
 ```
 
 This example sets the task cap for the node to 15 on instance `MyNewInstance`:
-```
+
+```text
 octopus.server node --taskCap="15" --instance="MyNewInstance"
 ```

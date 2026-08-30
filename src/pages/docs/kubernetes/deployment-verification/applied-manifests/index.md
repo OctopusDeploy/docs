@@ -21,14 +21,14 @@ Octopus will show a list of all the applied manifests on a deployment screen —
 
 Applied manifests are available for these steps.
 
-* Deploy Kubernetes YAML
-* Deploy a Helm Chart
-* Deploy with Kustomize
-* Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
-* Configure and apply a Kubernetes ConfigMap
-* Configure and apply a Kubernetes Secret
-* Configure and apply a Kubernetes Ingress
-* Configure and apply a Kubernetes Service
+- Deploy Kubernetes YAML
+- Deploy a Helm Chart
+- Deploy with Kustomize
+- Configure and apply Kubernetes resources (except for the Blue/Green deployment strategy)
+- Configure and apply a Kubernetes ConfigMap
+- Configure and apply a Kubernetes Secret
+- Configure and apply a Kubernetes Ingress
+- Configure and apply a Kubernetes Service
 
 ## How it works
 
@@ -44,7 +44,7 @@ For each step that performs a Kubernetes deployment, there is a navigation tree 
 ![A screenshot of the Kubernetes Applied Manifests navigation tree](/docs/img/deployments/kubernetes/deployment-verification/navigation-tree.png)
 :::
 
-If Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [here](/docs/kubernetes/deployment-verification) for more information.
+If Step Verification is enabled, an icon indicating the health of the resource is shown on the resource. See [deployment verification](/docs/kubernetes/deployment-verification) for more information.
 
 On the right-hand side, the individual manifests are displayed in collapsible sections.
 
@@ -54,7 +54,7 @@ On the right-hand side, the individual manifests are displayed in collapsible se
 
 ## Kubernetes Secret resources and Octopus sensitive variables
 
-To protect your Octopus sensitive values, Octopus will obfuscate these values if they are substituted into when displaying the manifest. For Kubernetes Secrets, we obfuscate _all_ values regardless of whether they came from Octopus sensitive variables or other sources.
+To protect your Octopus sensitive values, Octopus will obfuscate these values if they are substituted into when displaying the manifest. For Kubernetes Secrets, we obfuscate *all* values regardless of whether they came from Octopus sensitive variables or other sources.
 
 :::figure
 ![A screenshot of an obfuscated Kubernetes Secret manifests ](/docs/img/deployments/kubernetes/deployment-verification/secret.png)

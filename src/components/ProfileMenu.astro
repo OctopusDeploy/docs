@@ -1,0 +1,191 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Avatar from './Avatar.astro';
+import Menu, { type MenuItem } from './Menu.astro';
+
+type Props = HTMLAttributes<'div'> & {
+  label?: string;
+  controlCenterHref?: string;
+  profileHref?: string;
+  signOutHref?: string;
+  inline?: boolean;
+};
+
+const {
+  label = 'Account',
+  controlCenterHref = 'https://billing.octopus.com',
+  profileHref = 'https://id.octopus.com/profile',
+
+  // Arbitrary subpaths of /docs are blocked on the server side, returning to /docs is the best we can do
+  signOutHref = 'https://octopus.com/signout?ReturnUrl=/docs',
+
+  inline = false,
+
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+const leaving = {
+  kind: 'link' as const,
+  iconEnd: 'profile-menu__icon--external',
+  target: '_blank',
+  rel: 'noopener noreferrer',
+};
+
+const items: MenuItem[] = [
+  // Omit name/email when inline, as they're used as the row you press to expand the menu
+  ...(inline
+    ? []
+    : [
+        {
+          // Details start out empty, signed-in-user.ts fills things in through Menu's hooks
+          kind: 'detail' as const,
+          label: '',
+          description: '',
+          data: { 'data-user-details': '' },
+        },
+      ]),
+  { label: 'Control Center', href: controlCenterHref, ...leaving },
+  { label: 'Profile', href: profileHref, ...leaving },
+  ...(inline ? [] : [{ kind: 'divider' as const }]),
+  { label: 'Sign out', href: signOutHref },
+];
+---
+
+<div
+  class:list={['profile-menu', inline && 'profile-menu--inline', className]}
+  {...rest}
+>
+  <Menu
+    label={label}
+    items={items}
+    align="end"
+    width="16rem"
+    inline={inline}
+    density={inline ? 'compact' : 'default'}
+  >
+    {
+      inline ? (
+        <summary slot="trigger" class="profile-menu__row" data-user-details>
+          <span class="profile-menu__labels">
+            <span class="profile-menu__name" data-menu-label />
+            <span class="profile-menu__email" data-menu-description />
+          </span>
+        </summary>
+      ) : (
+        <summary
+          slot="trigger"
+          class="profile-menu__trigger"
+          aria-label={label}
+          aria-haspopup="menu"
+        >
+          <Avatar size="medium" shape="circle" alt="" data-user-avatar>
+            <span data-user-initials />
+          </Avatar>
+        </summary>
+      )
+    }
+  </Menu>
+</div>
+
+<style>
+  .profile-menu {
+    display: flex;
+  }
+
+  .profile-menu__trigger {
+    display: flex;
+    border-radius: var(--borderRadiusCircle);
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .profile-menu__trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .profile-menu__trigger:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth2);
+  }
+
+  .profile-menu__trigger:hover :global(.avatar) {
+    background: var(--colorAvatarBackgroundUserHover);
+  }
+
+  .profile-menu :global(.profile-menu__icon--external) {
+    background-color: currentColor;
+    mask: url('../assets/icons/external-link.svg') center / 80% no-repeat;
+  }
+
+  .profile-menu--inline {
+    display: block;
+  }
+
+  .profile-menu__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space8);
+    padding-block: var(--space6);
+    list-style: none;
+    color: var(--colorTextPrimary);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .profile-menu__row::-webkit-details-marker {
+    display: none;
+  }
+
+  .profile-menu__row:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth2);
+  }
+
+  .profile-menu__labels {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+    color: var(--colorTextPrimary);
+    text-decoration: none;
+  }
+
+  .profile-menu__name {
+    font: var(--textBodyRegularLarge);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-menu__email {
+    color: var(--colorTextSecondary);
+    font: var(--textBodyRegularSmall);
+    overflow-wrap: anywhere;
+  }
+
+  .profile-menu__row::after {
+    content: '';
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconTertiary);
+    mask: url('../assets/icons/chevron-right.svg') center / contain no-repeat;
+  }
+
+  :global([open]) > .profile-menu__row::after {
+    mask-image: url('../assets/icons/chevron-down.svg');
+  }
+
+  .profile-menu--inline :global(.menu__item) {
+    padding-inline: 0;
+    padding-block: var(--space6);
+    font: var(--textBodyRegularLarge);
+  }
+
+  .profile-menu--inline :global(.menu--inline .menu__list) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space12);
+    margin-block-start: var(--space12);
+  }
+</style>

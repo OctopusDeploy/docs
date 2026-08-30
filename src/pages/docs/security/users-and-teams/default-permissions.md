@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-11-20
+modDate: 2026-08-24
 title: Default permissions for built-in user roles
 description: A listing of the default permissions for each of the built-in user roles.
 ---
@@ -25,9 +25,9 @@ description: A listing of the default permissions for each of the built-in user 
 | ProjectView                | View the details of projects                                         |
 | ReleaseCreate              | Create a release for a project                                       |
 | ReleaseView                | View a release of a project                                          |
-| RunbookEdit                | Edit runbooks                                                        |
 | RunbookRunCreate           | Create runbook runs                                                  |
 | RunbookRunView             | View runbook runs                                                    |
+| RunbookSnapshotCreate      | Create runbook snapshots                                             |
 | RunbookView                | View runbooks                                                        |
 | TaskView                   | View summary-level information associated with a task                |
 | TenantView                 | View tenants                                                         |
@@ -161,6 +161,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
 | EventView                         | View Events, including access to the Audit screen                                                                               |
@@ -182,6 +183,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ReleaseView                       | View a release of a project                                                                                                     |
 | RunbookEdit                       | Edit runbooks                                                                                                                   |
 | RunbookRunView                    | View runbook runs                                                                                                               |
+| RunbookSnapshotCreate             | Create runbook snapshots                                                                                                        |
 | RunbookView                       | View runbooks                                                                                                                   |
 | TaskCreate                        | Explicitly create (run) server tasks                                                                                            |
 | TaskView                          | View summary-level information associated with a task                                                                           |
@@ -213,6 +215,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentCreate                  | Deploy releases to target environments                                                                                          |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
@@ -237,6 +240,7 @@ description: A listing of the default permissions for each of the built-in user 
 | RunbookEdit                       | Edit runbooks                                                                                                                   |
 | RunbookRunCreate                  | Create runbook runs                                                                                                             |
 | RunbookRunView                    | View runbook runs                                                                                                               |
+| RunbookSnapshotCreate             | Create runbook snapshots                                                                                                        |
 | RunbookView                       | View runbooks                                                                                                                   |
 | TaskCancel                        | Cancel server tasks                                                                                                             |
 | TaskCreate                        | Explicitly create (run) server tasks                                                                                            |
@@ -307,6 +311,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentView                    | View deployments                                                                                                                |
 | EnvironmentView                   | View environments                                                                                                               |
 | EventView                         | View Events, including access to the Audit screen                                                                               |
@@ -331,6 +336,7 @@ description: A listing of the default permissions for each of the built-in user 
 | ReleaseView                       | View a release of a project                                                                                                     |
 | RunbookEdit                       | Edit runbooks                                                                                                                   |
 | RunbookRunView                    | View runbook runs                                                                                                               |
+| RunbookSnapshotCreate             | Create runbook snapshots                                                                                                        |
 | RunbookView                       | View runbooks                                                                                                                   |
 | TaskCreate                        | Explicitly create (run) server tasks                                                                                            |
 | TaskView                          | View summary-level information associated with a task                                                                           |
@@ -375,16 +381,17 @@ description: A listing of the default permissions for each of the built-in user 
 
 ## Release Creator {#DefaultPermissions-ReleaseCreator}
 
-| Space Permission | Description                                                        |
-| ---------------- | ------------------------------------------------------------------ |
-| EnvironmentView  | View environments                                                  |
-| FeedView         | View package feeds and the packages in them                        |
-| ProcessView      | View the deployment process and channels associated with a project |
-| ProjectView      | View the details of projects                                       |
-| ReleaseCreate    | Create a release for a project                                     |
-| ReleaseView      | View a release of a project                                        |
-| RunbookEdit      | Edit runbooks                                                      |
-| RunbookView      | View runbooks                                                      |
+| Space Permission      | Description                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| EnvironmentView       | View environments                                                  |
+| FeedView              | View package feeds and the packages in them                        |
+| ProcessView           | View the deployment process and channels associated with a project |
+| ProjectView           | View the details of projects                                       |
+| ReleaseCreate         | Create a release for a project                                     |
+| ReleaseView           | View a release of a project                                        |
+| RunbookEdit           | Edit runbooks                                                      |
+| RunbookSnapshotCreate | Create runbook snapshots                                           |
+| RunbookView           | View runbooks                                                      |
 
 ## Runbook Consumer {#DefaultPermissions-RunbookConsumer}
 
@@ -444,6 +451,7 @@ description: A listing of the default permissions for each of the built-in user 
 | RunbookRunCreate                  | Create runbook runs                                                                                                             |
 | RunbookRunDelete                  | Delete runbook runs                                                                                                             |
 | RunbookRunView                    | View runbook runs                                                                                                               |
+| RunbookSnapshotCreate             | Create runbook snapshots                                                                                                        |
 | RunbookView                       | View runbooks                                                                                                                   |
 | TaskCancel                        | Cancel server tasks                                                                                                             |
 | TaskCreate                        | Explicitly create (run) server tasks                                                                                            |
@@ -493,6 +501,7 @@ description: A listing of the default permissions for each of the built-in user 
 | CertificateView                   | View certificates                                                                                                               |
 | DefectReport                      | Block a release from progressing to the next lifecycle phase                                                                    |
 | DefectResolve                     | Unblock a release so it can progress to the next phase                                                                          |
+| DeployedResourceAdminister        | Administer deployed resources managed by Octopus                                                                                |
 | DeploymentCreate                  | Deploy releases to target environments                                                                                          |
 | DeploymentDelete                  | Delete deployments                                                                                                              |
 | DeploymentView                    | View deployments                                                                                                                |
@@ -546,6 +555,7 @@ description: A listing of the default permissions for each of the built-in user 
 | RunbookRunCreate                  | Create runbook runs                                                                                                             |
 | RunbookRunDelete                  | Delete runbook runs                                                                                                             |
 | RunbookRunView                    | View runbook runs                                                                                                               |
+| RunbookSnapshotCreate             | Create runbook snapshots                                                                                                        |
 | RunbookView                       | View runbooks                                                                                                                   |
 | SubscriptionCreate                | Create subscriptions                                                                                                            |
 | SubscriptionDelete                | Delete subscriptions                                                                                                            |
@@ -646,3 +656,7 @@ description: A listing of the default permissions for each of the built-in user 
 | TenantDelete     | Delete tenants |
 | TenantEdit       | Edit tenants   |
 | TenantView       | View tenants   |
+
+## Version notes
+
+- The `DeployedResourceAdminister` permission is available from Octopus Server 2026.3.13597.

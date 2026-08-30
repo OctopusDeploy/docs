@@ -22,15 +22,14 @@ Select the Username and Password account you want to access from the project to 
 ![Username Password account variable selection](/docs/img/projects/variables/images/username-password-account-variable-selection.png)
 :::
 
-
 ## Username and password account variable properties
 
 The Username and Password account variable also exposes the following properties that you can reference in a PowerShell script:
 
 | Name and description                                                   | Example     |
-|------------------------------------------------------------------------|-------------|
-| **`Username`** <br/> The username of the Username and password account | BobSmith_85 | 
-| **`Password`** <br/> The password of the Username and password account | Password | 
+| ---------------------------------------------------------------------- | ----------- |
+| **`Username`** <br/> The username of the Username and password account | BobSmith_85 |
+| **`Password`** <br/> The password of the Username and password account | Password    |
 
 ### Accessing the properties in a script
 

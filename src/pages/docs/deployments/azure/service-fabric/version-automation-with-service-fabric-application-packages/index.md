@@ -10,9 +10,11 @@ navOrder: 30
 In this section, we will discuss some ways Octopus Deploy can help with versioning your Service Fabric applications. Versioning in Service Fabric is a complex topic and the ideas discussed here are suggestions and possible options, not hard and fast rules.
 
 ## Application and Service Versions
+
 A Service Fabric application is not a single physical "thing". It is the combination of one or more services. Each service has its own individual version, based on its code and configuration versions. The combination of service versions then make up the overall application version.
 
 ### Code and config versioning
+
 As mentioned above, each service that makes up an application can be versioned independently. One strategy for managing these versions is to have the developers manually update them in the solution's manifest files. This is how the [Visual Studio based deployment model](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-tutorial) works, and is the default behavior you will get from Octopus Deploy if no other action is taken.
 
 When using an automated build system as part of a Continuous Delivery pipeline, it is common to stamp all binaries in the build as a set, with the same version number. Mature build tools will have a mechanism for easily managing the version number and assigning it to the assemblies during the build.
@@ -59,7 +61,7 @@ Using this approach, the service's overall version is always a combination of it
             ServiceManifestVersion="Code_#{Service_CodeVersion}_Config_#{MyStatelessService_ConfigVersion}" />
         <ConfigOverrides />
     </ServiceManifestImport>
-	...
+ ...
 ```
 
 If you have multiple services, you'll probably want a more efficient abbreviation scheme to keep the version strings to a reasonable length. From the code side, that's all there is to do. Next, let's look at the Octopus Deploy variables we now need to define:
@@ -92,6 +94,7 @@ If the connection setting for the first service was changed, then the resulting 
 | MyStatelessService2_Port | 8000 | |
 
 ### Environments and tenants
+
 Any feature of Octopus that causes one of the service variables to be scoped creates further complexity, as the version needs to also be scoped to the most granular level that the variables are being scoped to. To illustrate, let's expand on the previous example and say the connection for the first service is environment specific. Now the variables would look like this:
 
 | Name | Value | Scope |

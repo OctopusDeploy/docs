@@ -16,7 +16,7 @@ Review configurations against PCI-DSS controls to improve audit readiness.
 
 ## 📝 Prompt
 
-```
+```text
 Evaluate project compliance with PCI-DSS best practices
 ```
 

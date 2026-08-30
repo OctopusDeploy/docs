@@ -13,7 +13,7 @@ Learn more about the [built-in repository](/docs/packaging-applications/package-
 
 **push options**
 
-```
+```text
 Pushes a package (.nupkg, .zip, .tar.gz, .jar, .war, etc.) package to the built-in NuGet repository in an Octopus Server.
 
 Usage: octo push [<options>]
@@ -101,12 +101,13 @@ This example pushes a package to the built-in Octopus Deploy repository:
 
 Windows:
 
-```
+```bash
 octo push --package="c:\temp\MyPackage.1.0.0.0.zip" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
+
 Linux:
 
-```
+```bash
 octo push --package="/tmp/MyPackage.1.0.0.0.zip" --server="https://your-octopus-url" --apiKey="API-YOUR-KEY"
 ```
 

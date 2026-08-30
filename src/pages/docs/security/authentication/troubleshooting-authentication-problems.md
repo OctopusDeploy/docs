@@ -9,7 +9,6 @@ navOrder: 50
 
 We take every reasonable effort to make Octopus Deploy secure by enabling you to use the best [authentication provider](/docs/security/authentication) for your organization. This guide will help you troubleshoot any problems you may encounter when signing in to the Octopus Deploy portal.
 
-
 ## No authentication providers enabled
 
 If you disable all of your authentication providers you will see a message like this when you attempt to load the Octopus portal: `There are no authentication providers enabled.`

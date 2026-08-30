@@ -4,7 +4,9 @@ import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { SITE, OPEN_GRAPH, HEADER_SCRIPTS } from '@config';
 import { getEligibleSlugs } from '@util/mdxContent';
 import JsonLd from '@components/JsonLd.astro';
+import type { Crumb } from '@util/breadcrumbs';
 import ThemeScript from '@components/ThemeScript.astro';
+import SignedInScript from '@components/SignedInScript.astro';
 
 // Design tokens as CSS custom properties. globals and textTheme apply at :root;
 // lightTheme and darkTheme are selected by the data-theme attribute on <html> -
@@ -21,6 +23,7 @@ import '@octopusdeploy/design-system-tokens/css/darkTheme.css';
 // cached across deploys.
 import '../../../styles/vars.css';
 import '../../../styles/main.css';
+import '../../../styles/api.css';
 
 const stats = new accelerator.statistics('octopus/components/HtmlHead.astro');
 stats.start();
@@ -30,8 +33,9 @@ type Props = {
   lang: string;
   frontmatter: Frontmatter;
   headings: { depth: number; slug: string; text: string }[];
+  crumbs?: ReadonlyArray<Crumb> | null;
 };
-const { frontmatter } = Astro.props;
+const { frontmatter, crumbs } = Astro.props;
 
 // Logic
 const imageSrc = frontmatter.bannerImage?.src ?? OPEN_GRAPH.image.src;
@@ -72,6 +76,7 @@ stats.stop();
 <head>
   <meta charset="utf-8" />
   <ThemeScript />
+  <SignedInScript />
   <title>{title}</title>
   <meta name="robots" content={'max-image-preview:large, ' + robots} />
   <meta name="keywords" content={frontmatter.keywords} />
@@ -115,10 +120,17 @@ stats.stop();
     href={SITE.subfolder + '/sitemap.xml'}
     type="application/rss+xml"
   />
+  <!-- Raster fallback first: Safari only gained SVG favicon support in v26. -->
   <link
-    rel="shortcut icon"
-    href={SITE.subfolder + '/icons/favicon.ico'}
-    type="image/x-icon"
+    rel="icon"
+    href={SITE.subfolder + '/icons/favicon-32x32.png'}
+    type="image/png"
+    sizes="32x32"
+  />
+  <link
+    rel="icon"
+    href={SITE.subfolder + '/icons/icon.svg'}
+    type="image/svg+xml"
   />
   <link
     rel="apple-touch-icon"
@@ -144,6 +156,7 @@ stats.stop();
     socialTitle={socialTitle}
     imageURL={canonicalImageSrc.toString()}
     authors={authorList}
+    crumbs={crumbs}
   />
   <Fragment set:html={HEADER_SCRIPTS} />
 </head>

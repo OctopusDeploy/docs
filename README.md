@@ -41,16 +41,16 @@ Markdown files are linted in CI using [markdownlint](https://github.com/DavidAns
 
 To catch issues locally, install the [markdownlint VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) (already included in the recommended extensions). It will highlight errors on save.
 
-You can also run the linter from the command line using [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2):
+You can also run the linter from the command line using [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2). Lint both trees, not just `src/pages` — the include files in `src/shared-content` render into pages and are linted by CI too:
 
 ```bash
-npx markdownlint-cli2 "src/pages/**/*.{md,mdx}"
+npx markdownlint-cli2 "src/{pages,shared-content}/**/*.{md,mdx}"
 ```
 
 To lint only files changed in the current branch (matching the CI behavior):
 
 ```bash
-git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | xargs npx markdownlint-cli2
+git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | xargs -n 30 npx markdownlint-cli2
 ```
 
 Or in PowerShell:
@@ -59,7 +59,47 @@ Or in PowerShell:
 git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | ForEach-Object { npx markdownlint-cli2 $_ }
 ```
 
+The `-n 30` matters on Windows: passing several hundred paths at once exceeds the command line length limit.
+
 Common issues include missing blank lines around headings, fenced code blocks without a language, duplicate headings, and trailing whitespace.
+
+#### Images need alt text
+
+Every image needs alt text describing what it shows. `MD045` fails the build without it, which is the safety net that keeps the docs accessible and readable by search crawlers and AI assistants.
+
+```markdown
+![](/docs/img/infrastructure/images/infrastructure-overview-dashboard.png)
+![The Infrastructure overview dashboard in the Octopus Web Portal](/docs/img/infrastructure/images/infrastructure-overview-dashboard.png)
+```
+
+A genuinely decorative image should have empty alt per the WCAG specs, but `MD045` does not allow that in markdown syntax. Use an HTML `<img alt="">` tag in that case, or reword so the image is the thing being named.
+
+#### Content inside a numbered list
+
+Indent figures, code blocks and hints so they sit inside the step they belong to. A block at column 0 ends the list, and the following steps start a new one:
+
+```markdown
+1. Open the project.
+
+    :::figure
+    ![The project settings page](/docs/img/example.png)
+    :::
+
+2. Click **Save**.
+```
+
+Numbering may also run on across headings, which renders as `<ol start="7">` and is intentional. `MD007`, `MD005` and `MD029` are turned off in `.markdownlint.json` so the linter leaves list indentation and numbering alone.
+
+#### Four auto-fixes to avoid
+
+`markdownlint-cli2 --fix` is safe for most rules, but check the diff for these:
+
+- `MD009` deletes hard line breaks. Two trailing spaces are a `<br>`, and that is what the rule allows, but a line with three or more gets trimmed to zero rather than back to two, so the break disappears. Trim those lines to exactly two spaces by hand.
+- `MD034` rewrites bare URLs and email addresses as `<url>` autolinks, which is unsafe in both file types. In `.mdx` the angle brackets parse as JSX and the build fails. In `.md` a URL with no scheme, such as `www.example.com`, is not a valid autolink, so the brackets survive into the page and the reader sees them. Write an explicit `[text](url)` link in either case.
+- `MD039` strips spaces from inside link text. Where that space sat against the neighbouring word, code span or link, removing it joins the two together in the rendered page. Move the space outside the brackets rather than deleting it.
+- `MD010` rewrites a leading tab as a single space, which is too shallow to nest a list item, so the item silently escapes its parent. Use four spaces instead.
+
+None of these show up as a lint failure afterwards, because the fix leaves the file passing. They only show up in the rendered page, so the diff is the only place to catch them.
 
 ### Spell check
 
@@ -231,7 +271,7 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 
 ```markdown
 :::figure
-![](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+![The Octopus Cloud architecture](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 ```
 

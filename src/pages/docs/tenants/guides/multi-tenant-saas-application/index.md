@@ -14,21 +14,21 @@ hideInThisSectionHeader: true
 You can find the example project in this guide on our [samples instance](https://samples.octopus.app/app#/Spaces-682/projects/vet-clinic).
 :::
 
-This guide will introduce you to Software as a Service (SaaS) multi-tenant deployments in Octopus. In this guide, we will be deploying an application called **Vet Clinic**. When a customer signs up to Vet Clinic, they get their own [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets) and database for staging and production, choosing which region the application and data are hosted in. Testing is completed internally in development and test, then customers have their instance of the application deployed *optionally* to staging and finally onto production. 
+This guide will introduce you to Software as a Service (SaaS) multi-tenant deployments in Octopus. In this guide, we will be deploying an application called **Vet Clinic**. When a customer signs up to Vet Clinic, they get their own [Azure Web App](/docs/infrastructure/deployment-targets/azure/web-app-targets) and database for staging and production, choosing which region the application and data are hosted in. Testing is completed internally in development and test, then customers have their instance of the application deployed *optionally* to staging and finally onto production.
 
 In addition, customers can choose to take advantage of custom features, such as custom branding, on their instance of the Vet Clinic application.
 
 The following resources have been pre-configured in Octopus:
 
-* Four environments: Development, Test, Staging and Production.
-* The guide deploys to Azure Web Apps. These have already been pre-configured in Azure. To create some Azure resources you can follow [this](/docs/runbooks/runbook-examples/azure/provision-app-service/
-) runbook guide to set up Azure Web App Services for each of the environments. 
+- Four environments: Development, Test, Staging and Production.
+- The guide deploys to Azure Web Apps. These have already been pre-configured in Azure. To create some Azure resources you can follow [this](/docs/runbooks/runbook-examples/azure/provision-app-service/
+) runbook guide to set up Azure Web App Services for each of the environments.
 
 ## Creating a lifecycle
 
 The first step in this guide is to [create a new lifecycle](/docs/releases/lifecycles#create-a-new-lifecycle) for our project.
 
-Give the lifecycle a name, an optional description, and four phases. The lifecycle should ensure all releases are deployed to Development, Test, *optionally* to Staging, then lastly into Production. 
+Give the lifecycle a name, an optional description, and four phases. The lifecycle should ensure all releases are deployed to Development, Test, *optionally* to Staging, then lastly into Production.
 
 ## Creating the project
 
@@ -83,7 +83,7 @@ You can reference the [deployment process of the Vet Clinic project on our sampl
 Deploying a multi-tenanted application follows the same process as any other application. The one difference is that when choosing where to deploy the release, you'll also need to choose the tenants or tags to deploy the release to.
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-saas-application/images/multi-tenanted-dashboard.png)
+![A multi-tenanted project dashboard showing each tenant and environment](/docs/img/tenants/guides/multi-tenant-saas-application/images/multi-tenanted-dashboard.png)
 :::
 
 Tenants will only be eligible for deployment to the environments they've been connected to. Above is an example of what a multi-tenanted application's dashboard may look like.
@@ -91,5 +91,5 @@ Tenants will only be eligible for deployment to the environments they've been co
 One of our tenants **Capital City Pet Hospital** has the **Branding** tenant tag associated with them. As a result, the **Apply Custom Branding** step was applicable to them and we can see from the logs that it ran that step when we deployed to production for **Capital City Pet Hospital**.
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-saas-application/images/deploying-release-production.png)
+![Deployment logs showing the Apply Custom Branding step running for a tenant with the Branding tag](/docs/img/tenants/guides/multi-tenant-saas-application/images/deploying-release-production.png)
 :::

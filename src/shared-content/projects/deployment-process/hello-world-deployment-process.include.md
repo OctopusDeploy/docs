@@ -11,12 +11,14 @@ To define a simple deployment process in Octopus that executes a hello world scr
 7. In the process editor, give the step a name, for instance, `Run Hello world script`.
 8. In the **Execution Location** section, select **Run on the Octopus Server**.
 9. Paste the following PowerShell script into the **Inline Source Code** editor:
-```
+
+```powershell
 Write-Host "Hello, World!"
 ```
-1.  Click **Save**.
 
-You now have a simple hello world deployment process. 
+1. Click **Save**.
+
+You now have a simple hello world deployment process.
 
 :::div{.info}
 If you're using Octopus Cloud you can't run scripts directly on the Octopus Server. Instead, you can select **Run once on a worker** which will run the script on a [dynamically provisioned worker](/docs/infrastructure/workers/dynamic-worker-pools).

@@ -1,3 +1,4 @@
+<!-- cspell:ignore deregistering -->
 **Pattern - IaC**
 
 - Dynamic worker army
@@ -13,11 +14,11 @@
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-2041/operations/runbooks/Runbooks-2261/process/RunbookProcess-Runbooks-2261" target="_blank">Configure New (Blank) Octopus Deploy Instance Using The Octopus Terraform Provider</a>: <i>This Runbook will configure basic settings within a new (blank) Octopus Deploy instance. The Octopus Terraform Provider will set up the following:
 
       - Octopus Project Group
-      - Project examples with variables and deployment processes for Tenanted and Untenanted deployments. 
+      - Project examples with variables and deployment processes for Tenanted and Untenanted deployments.
       - Deployment Environments.
       - Worker Pools
       - Tenants
-      - Deployment Lifecycle 
+      - Deployment Lifecycle
       - Tenant Tag Set
       - Octopus Teams</i>
 - Random Quotes - Azure
@@ -26,7 +27,7 @@
 - Random Quotes AWS
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1923/process/RunbookProcess-Runbooks-1923" target="_blank">Create Infrastructure</a>: <i>Creates EC2 instances using Terraform, registers them as deployment targets with Octopus, and then provisions them with the necessary tooling for application deployment.</i>
    - <a href="https://samples.octopus.app/app#/Spaces-48/projects/Projects-1861/operations/runbooks/Runbooks-1924/process/RunbookProcess-Runbooks-1924" target="_blank">Destroy Infrastructure</a>: <i>Destroys created EC2 instances and all supporting resources created through Terraform along with deregistering them as targets within Octopus.</i>
-    
+
 **Target - Serverless**
 
 - AWS OctoSubscriber
@@ -35,7 +36,7 @@
 - AWS Subscriber S3
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1821/process/RunbookProcess-Runbooks-1821" target="_blank">Spin Up Subscriber Infrastructure</a>
    - <a href="https://samples.octopus.app/app#/Spaces-1/projects/Projects-1781/operations/runbooks/Runbooks-1823/process/RunbookProcess-Runbooks-1823" target="_blank">Tear Down AWS Subscriber Infrastructure</a>
-    
+
 **Target - Windows**
 
 - eShopOnWeb

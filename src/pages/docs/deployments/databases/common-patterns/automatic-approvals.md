@@ -18,7 +18,7 @@ The general auto-approval process looks something like this:
     1. Open up the *what-if* report.
     2. Loop through a list of schema change commands, such as `Drop Table`, `Create Table`, `Drop Column`, `Alter Table`, `Drop User`.
     3. If a schema change command is found set a DBA Approval Required [output variable](/docs/projects/variables/output-variables) to `True`.
-    4. If no schema change command is found set the same DBA Approval Required [output variable](/docs/projects/variables/output-variables) to `False`. 
+    4. If no schema change command is found set the same DBA Approval Required [output variable](/docs/projects/variables/output-variables) to `False`.
 3. Notify the approvers when that DBA Approval Required [output variable](/docs/projects/variables/output-variables) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 4. Pause for a [manual intervention](/docs/projects/built-in-step-templates/manual-intervention-and-approvals/) when that DBA Approval Required [output variable](/docs/projects/variables/output-variables) is `True` using [run conditions](/docs/projects/steps/conditions/#run-condition).
 5. Deploy database changes.
@@ -41,7 +41,7 @@ For instance, `#{Octopus.Action[Auto-Approve Delta Report].Output.DBAApprovalReq
 Creating a variable also makes it much easier to use in a [run condition](/docs/projects/steps/conditions/#run-condition):
 
 :::figure
-![](/docs/img/deployments/databases/common-patterns/images/auto_approve_run_conditions.png)
+![An output variable used in a step run condition](/docs/img/deployments/databases/common-patterns/images/auto_approve_run_conditions.png)
 :::
 
 :::div{.hint}
@@ -55,7 +55,7 @@ We recommend the auto-approval step write logs using `Write-Host` for PowerShell
 For important logs, such as when a command is found, leverage the [write highlight](/docs/deployments/custom-scripts/logging-messages-in-scripts) command.  That is a custom command Octopus Deploy injects into the deployment process.  Using that command will show the message on the task summary screen.
 
 :::figure
-![](/docs/img/deployments/databases/common-patterns/images/auto_approve_write_highlight.png)
+![Write highlight output in the deployment log](/docs/img/deployments/databases/common-patterns/images/auto_approve_write_highlight.png)
 :::
 
 ## Example

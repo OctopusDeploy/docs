@@ -16,7 +16,7 @@ hideInThisSection: true
 - Listening Tentacles can be registered to multiple spaces and only count against your license once.
 
 :::div{.hint}
-Think of an Octopus Deploy instance as an apartment building.  Each space is an apartment in that building, with their own kitchen, living room, and bedrooms.  There is some shared infrastructure between apartments, such as the building itself, along with other necessities such as plumbing and electricity.   
+Think of an Octopus Deploy instance as an apartment building.  Each space is an apartment in that building, with their own kitchen, living room, and bedrooms.  There is some shared infrastructure between apartments, such as the building itself, along with other necessities such as plumbing and electricity.
 :::
 
 ## Configuring Spaces
@@ -55,6 +55,7 @@ For other deployment targets, such as Azure Web Apps, or K8s clusters, you would
 Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.  Polling Tentacles configured as Workers can be used in multiple spaces by running the [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker) command.
 
 There are some considerations when sharing workers.
+
 - The Tentacle agent on the worker can be running as a specific Active Directory account.
 - The Tentacle agent could be running on an EC2 instance with a specific IAM role attached.
 - When workers download packages, they require a mutex; no other task can be running on that worker.  99% of the time, this isn't noticed.  However, if a worker runs a 10-hour integration test, you run the risk of getting stuck behind that test waiting for the mutex to be created.  Have a separate set of workers to run these long-running tasks.

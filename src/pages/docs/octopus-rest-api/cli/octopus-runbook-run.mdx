@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-04-19
+modDate: 2026-08-25
 title: octopus runbook run
 description: Run runbooks in Octopus Deploy
-navOrder: 128
+navOrder: 131
 ---
 import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
 
@@ -27,6 +27,7 @@ Flags:
       --snapshot string                  Name or ID of the snapshot to run. If not supplied, the command will attempt to use the published snapshot.
       --skip stringArray                 Exclude specific steps from the runbook
       --guided-failure string            Enable Guided failure mode (true/false/default)
+      --priority string                  Jump the task queue ahead of other queued tasks (true/false/default). Requires the Priority Tasks feature. For runbook runs, 'default' is the same as 'false'.
       --force-package-download           Force re-download of packages
       --run-target stringArray           Run on this target (can be specified multiple times)
       --exclude-run-target stringArray   Run on targets except for this (can be specified multiple times)

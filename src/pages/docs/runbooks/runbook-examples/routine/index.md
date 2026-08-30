@@ -7,7 +7,7 @@ description: Octopus Deploy allows you to create and run runbooks for routine op
 navOrder: 10
 ---
 
-Octopus Deploy allows you to create and run runbooks for routine operations tasks. These tend to be procedures or routines that don't happen very frequently. 
+Octopus Deploy allows you to create and run runbooks for routine operations tasks. These tend to be procedures or routines that don't happen very frequently.
 
 Typical routine operations could be:
 

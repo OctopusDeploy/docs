@@ -12,7 +12,7 @@ navOrder: 0
 Normally, when executing a deployment process with multiple steps, Octopus runs all steps **sequentially**; it waits for the first step to finish before starting the second, and so on.
 
 :::figure
-![](/docs/img/deployments/patterns/images/normal-deployment.png)
+![Steps running sequentially across all deployment targets](/docs/img/deployments/patterns/images/normal-deployment.png)
 :::
 
 NuGet package steps and [PowerShell steps](/docs/deployments/custom-scripts), however, identify machines via [target tags](/docs/infrastructure/deployment-targets/target-tags), which may be associated with multiple deployment targets. When a single step targets multiple machines, the step is run on those machines **in parallel**. So to recap:
@@ -27,13 +27,13 @@ However, sometimes this isn't desired. If you are deploying to a farm of 10 web 
 Rolling deployments can be configured on a PowerShell or NuGet package step by clicking **Configure a rolling deployment**.
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-select.png)
+![The Configure a rolling deployment option on a step](/docs/img/deployments/patterns/images/rolling-deployments-select.png)
 :::
 
 When configuring a rolling deployment, you specify a **window size**.
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-window-size.png)
+![The window size setting for a rolling deployment](/docs/img/deployments/patterns/images/rolling-deployments-window-size.png)
 :::
 
 The window size controls how many deployment targets can be deployed to at once.
@@ -53,7 +53,7 @@ Rolling deployments allow you to wait for a step to finish on one deployment tar
 First, open the menu for an existing step, and click **Add Child Step**.
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-child-step.png)
+![The Add Child Step option on an existing step](/docs/img/deployments/patterns/images/rolling-deployments-child-step.png)
 :::
 
 Octopus has numerous steps that support rolling deployments depending on your install version including:
@@ -69,25 +69,24 @@ Octopus has numerous steps that support rolling deployments depending on your in
 - Run a Service Fabric SDK PowerShell Script step
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-package-type.png)
+![Choosing a package step as a child step](/docs/img/deployments/patterns/images/rolling-deployments-package-type.png)
 :::
 
 After adding a child step, the deployment process will now show the step as containing multiple actions:
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-multiple-actions.png)
+![A parent step containing multiple actions](/docs/img/deployments/patterns/images/rolling-deployments-multiple-actions.png)
 :::
 
 All child steps run on the same machine at the same time, and you can add more than one child step. You can also change the order that the steps are executed in using the **Reorder steps** link.
 
 :::figure
-![](/docs/img/deployments/patterns/images/rolling-deployments-reorder.png)
+![The Reorder steps link for child steps](/docs/img/deployments/patterns/images/rolling-deployments-reorder.png)
 :::
 
 You can edit the parent step to change the target tags that the steps run on or the window size.
 
 With this configuration, we run the entire website deployment step - taking the machine out of the load balancer, deploying the site, and returning it to the load balancer - on each machine in sequence as part of a rolling deployment step.
-
 
 ### Child step variable run conditions {#child-step-variable-run-conditions}
 
@@ -124,6 +123,7 @@ Octopus will evaluate the value of the [Output variable](/docs/projects/variable
     d. **Exclude the machine from the deployment** continuing the deployment to the next machine in the rolling deployment.
 
 ## Learn more
+
 - [View rolling deployment examples on our samples instance](https://oc.to/PatternRollingSamplesSpace).
 - [Rolling deployment knowledge base articles](https://oc.to/RollingDeployTaggedKBArticles).
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/deployment-patterns/1).

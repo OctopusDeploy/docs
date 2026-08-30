@@ -22,6 +22,7 @@
 export const THEME_STORAGE_KEY = 'theme';
 export const THEME_ATTRIBUTE = 'data-theme';
 export const THEME_PREFERENCE_ATTRIBUTE = 'data-theme-preference';
+export const THEME_TRANSITION_ATTRIBUTE = 'data-theme-transition';
 export const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
 /**

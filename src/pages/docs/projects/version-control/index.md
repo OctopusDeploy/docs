@@ -9,9 +9,9 @@ navOrder: 110
 hideInThisSection: true
 ---
 
-## Introduction 
+## Introduction
 
-The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your _deployment process_, _runbook processes_, _deployment settings_, and _non-sensitive variables_ can be version-controlled.
+The Configuration as Code (config-as-code) feature adds support for configuring Octopus projects to store project resources in a Git repository. For now, your *deployment process*, *runbook processes*, *deployment settings*, and *non-sensitive variables* can be version-controlled.
 
 The Octopus UI needed to remain fully functional for version-controlled projects, and it has. You can continue to use the UI exactly as you always have, but with an additional superpower: Git branches are now exposed in the UI, allowing editing of currently supported project configuration on any branch via the UI. If you type the name of a branch that doesn't exist in your repository, you'll see an option to create that branch. This option is available when committing changes too.
 
@@ -29,19 +29,19 @@ Config-as-code only supports [git](https://git-scm.com/) repositories.  Before u
 
 ### We want your feedback
 
-Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped? 
+Our major goal for the early stages of this feature is to discover the ways people want config-as-code to evolve. What scenarios would you like to see unlocked? What doesn't work the way you hoped?
 
-You can provide feedback through whichever of the following channels you feel most comfortable with: 
+You can provide feedback through whichever of the following channels you feel most comfortable with:
 
-- Feedback form. There is a link in a version-controlled project's **Version Control Settings** section that takes you to a feedback form when clicked. This is a great way to provide structured feedback. 
+- Feedback form. There is a link in a version-controlled project's **Version Control Settings** section that takes you to a feedback form when clicked. This is a great way to provide structured feedback.
 - Community slack. The `config-as-code` channel in the [Octopus community slack](https://octopus.com/slack) is the best place to have a conversation with the team.
-- Support. For errors or issues, see our [official support](https://octopus.com/support) channels. 
+- Support. For errors or issues, see our [official support](https://octopus.com/support) channels.
 
-## Configuring a project to be version-controlled 
+## Configuring a project to be version-controlled
 
-Version-control is configured per project and is accessed via the **Settings ➜ Version Control** navigation menu item. 
+Version-control is configured per project and is accessed via the **Settings ➜ Version Control** navigation menu item.
 
-New version controlled projects will automatically have config-as-code for both deployment and runbook processes. 
+New version controlled projects will automatically have config-as-code for both deployment and runbook processes.
 
 You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config as code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 

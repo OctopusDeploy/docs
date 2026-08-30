@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-03
+modDate: 2026-08-11
 title: System variables
 sidebarLabel: System variables
 navOrder: 20
@@ -130,6 +130,7 @@ Deployment-level variables are drawn from the project and release being deployed
 | `Octopus.Environment.MachinesInRole[role]` | The machines with the specified target tag being deployed to. | `machines-123,machines-124` |
 | `Octopus.Environment.Name` | The name of the environment. | Production |
 | `Octopus.Environment.SortOrder` | The order applied to the environment on the dashboard and elsewhere. | `3` |
+| `Octopus.Environment.State[key]` | The value of an [environment state](/docs/infrastructure/environments/environment-state) entry with the given key. | `#{Octopus.Environment.State[appUrl]}` |
 | `Octopus.Machine.Id` | The ID of the machine. | `machines-123` |
 | `Octopus.Machine.Name` | The name used to register the machine in Octopus. Not the same as the hostname. | `WEBSVR01` |
 | `Octopus.Machine.Roles` | The target tags associated with the machine. | `web-server,frontend` |
@@ -239,7 +240,7 @@ You can also read these variables for a different action using indexed notation,
 | `Octopus.Action.Package.SkipIfAlreadyInstalled` | Whether re-deployment is skipped when the package version is already on the machine. | `False` |
 | `Octopus.Action.Script.ScriptBody` | The script being run in a script step. | `Write-Host 'Hello'` |
 | `Octopus.Action.Script.Syntax` | The syntax of the script being run in a script step. | PowerShell |
-| `Octopus.Action.Script.CSharp.NuGetSource` | The NuGet source used by the dotnet executor for C# script steps. | `https://my-nuget-server/nuget` |
+| `Octopus.Action.Script.CSharp.NuGetSource` | The NuGet source used by the dotnet executor for C# script steps. Only one source can be supplied, and it replaces the default source rather than adding to it. See [NuGet sources for C# scripts](/docs/deployments/custom-scripts/#csharp-nuget-source). | `https://my-nuget-server/nuget` |
 | `Octopus.Action.SkipRemainingConventions` | Set as an output variable to finish the action without running further conventions or scripts. | `True` |
 | `Octopus.Action.TargetRoles` | The machine target tags targeted by the action. | `web-server,frontend` |
 | `Octopus.Action.Template.Id` | The ID of the step template the action is based on, if any. | `action-templates-123` |

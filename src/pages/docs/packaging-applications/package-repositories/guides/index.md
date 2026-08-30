@@ -16,7 +16,7 @@ Octopus can consume package feeds from the [built-in repository](/docs/packaging
  - [NuGet feeds](/docs/packaging-applications/package-repositories/nuget-feeds).
  - Helm feeds.
  - AWS ECR feeds.
- 
+
 This section provides instructions on how to set-up a number of these external feeds from third-parties for use within Octopus.
 
 - [Configuring Container registries as external feeds in Octopus](/docs/packaging-applications/package-repositories/guides/container-registries)

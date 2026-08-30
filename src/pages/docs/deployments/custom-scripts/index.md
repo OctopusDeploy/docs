@@ -1,9 +1,9 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Custom scripts
-description: Custom scripts allows you to script anything you want using PowerShell, Dotnet Script, F#, Python, or Bash.
+description: Custom scripts allows you to script anything you want using PowerShell, Dotnet Script, Python, or Bash.
 icon: fa-solid fa-file-code
 navOrder: 150
 ---
@@ -18,7 +18,6 @@ Octopus supports the following scripting environments:
 - Bash scripts (.sh)
 - Python scripts (.py)
 - C# scripts (.csx) using [dotnet-script](https://github.com/dotnet-script/dotnet-script)
-- F# scripts (.fsx)
 
  Octopus can run these scripts on almost any operating system as long as the script runtime is installed and configured correctly.
 
@@ -31,6 +30,29 @@ Support for ScriptCS in Octopus will be removed from `2025.3`.
 
 To view previous and upcoming deprecations, please visit our [deprecations page](https://octopus.com/docs/deprecations).
 :::
+
+## C# script requirements {#csharp-requirements}
+
+C# scripts (`.csx`) run through [dotnet-script](https://github.com/dotnet-script/dotnet-script), which needs the **.NET SDK** — not just the runtime — on the machine that runs the script: a [deployment target](/docs/infrastructure/deployment-targets), a [worker](/docs/infrastructure/workers), or the Octopus Server. This applies to every C# script, because dotnet-script runs `dotnet restore` against a generated project even when the script references no NuGet packages.
+
+With only the runtime installed, the step fails with a message that points at your NuGet references rather than the missing SDK:
+
+```text
+Unable to restore packages from '/root/.cache/dotnet-script/work/net8.0/script.csproj'
+Make sure that all script files contains valid NuGet references
+```
+
+### Which SDK version {#csharp-sdk-version}
+
+dotnet-script targets whichever .NET runtime the `dotnet` on the path resolves, so install an SDK at least as new as that runtime. Installing the SDK also installs a matching runtime. Calamari is [self-contained](/docs/octopus-rest-api/calamari) and carries its own runtime, but your C# script runs under the machine's `dotnet`.
+
+The [octopusdeploy/worker-tools images](/docs/projects/steps/execution-containers-for-workers/#worker-tools-images) include a .NET SDK, so C# scripts run in an [execution container](/docs/projects/steps/execution-containers-for-workers) without any extra setup.
+
+### NuGet sources {#csharp-nuget-source}
+
+By default, dotnet-script restores packages from `https://api.nuget.org/v3/index.json`. To restore from a different feed, set the `Octopus.Action.Script.CSharp.NuGetSource` [system variable](/docs/projects/variables/system-variables) on the project or step.
+
+Only one source can be supplied. It replaces the default and overrides any sources configured in a `NuGet.config` on the machine, so a script needing packages from both nuget.org and a private feed must point at a feed that can serve all of them, such as a private feed configured to proxy nuget.org upstream.
 
 ## What you can do with custom scripts
 

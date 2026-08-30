@@ -11,8 +11,8 @@ navSearch: false
 When upgrading from **Octopus 2.6** to **Octopus 2018.10 LTS** you can migrate your data. There are some points worth noting about the data migration process:
 
 - The data migration tool has been designed to perform a **one-time** migration from **Octopus 2.6** to **Octopus 2018.10 LTS** for each backup file.
-    * Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration) in the Data Migration page for more details on how data is imported.
-    * Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one **Octopus 2018.10 LTS** instance.
+    - Re-running the data migration will overwrite matching data. See [Importing](/docs/administration/data/data-migration) in the Data Migration page for more details on how data is imported.
+    - Data is matched on name. Names are unique in Octopus. This is to allow multiple backups to be run from multiple Octopus Server instances to combine into one **Octopus 2018.10 LTS** instance.
     So you can run multiple backup files into an **Octopus 2018.10 LTS** instance but if it matches names it will use the currently running backup as the source of truth.
 - The built-in Octopus NuGet package repository is not migrated automatically - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) for more details.
 - You can optionally limit the days of historical data to migrate - see [below](/docs/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/migrating-data-from-octopus-2.6.5-2018.10lts) for more details.
@@ -27,31 +27,31 @@ Please see our [tips for minimizing the migration duration](/docs/administration
 To import your 2.6 Raven data into a 2018.10 LTS installation (generally this is run after a side-by-side upgrade) you need to select import from the Octopus Manager.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964992.png)
+![The import option in the Octopus Manager](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964992.png)
 :::
 
 This will open up the importer. From here you select that you want to import from a 2.6 backup file.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964993.png)
+![Selecting a 2.6 backup file as the import source](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964993.png)
 :::
 
 You need to select your most recent 2.6 Backup file, and provide the Master Key associated with the backup you are importing. The next step lets you perform a preview of your import.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964994.png)
+![Providing the backup file and its Master Key](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964994.png)
 :::
 
 When you deselect ***Preview only***, your import will run against the database. This cannot be reversed. The backup is treated as the truth, so any changes that have been made to the database (if this is not your first import) will be overwritten with the backup.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964995.png)
+![The Preview only option in the import wizard](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964995.png)
 :::
 
 If you need to use any of the options below to manage the data being imported you need to use the Show Script feature to run the migration via console.
 
 :::figure
-![](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964996.png)
+![The Show Script feature for running the migration from a console](/docs/img/administration/upgrading/legacy/upgrading-from-octopus-2.6.5-2018.10lts/images/3964996.png)
 :::
 
 ### Migrating the built-in Octopus NuGet package repository

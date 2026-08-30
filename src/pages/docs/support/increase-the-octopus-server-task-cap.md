@@ -19,9 +19,7 @@ Under **Configuration ➜ Nodes** select your Octopus Node.
 
    ![Nodes](/docs/img/support/images/taskcap.png)
 
-
 3. In the new window you can select a new maximum synchronous Task Cap and save:
-
 
    ![Task caps](/docs/img/support/images/taskcap2.png)
 

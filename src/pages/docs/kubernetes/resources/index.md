@@ -25,17 +25,20 @@ The directory traversal path `../` is not supported.
 :::
 
 `?` matches any single character in a file or directory name:
-```
+
+```text
 deployments/resource-?.yaml => deployments/resource-1.yaml, deployments/resource-g.yaml
 ```
 
 `*` matches zero or more characters in a file or directory name:
-```
+
+```text
 deployments/*.yaml => deployments/anything-here.yaml, deployments/123-another-file.yaml
 */resource.yaml => deployments/resource.yaml, services/resource.yaml
 ```
 
 `**` matches zero or more recursive directories:
-```
+
+```text
 **/resource.yaml => deployments/resource.yaml, services/resource.yaml, deployments/child-folder/resource.yaml
 ```

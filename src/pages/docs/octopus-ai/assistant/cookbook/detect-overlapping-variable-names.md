@@ -16,7 +16,7 @@ Identify variables with the same name across different scopes or library sets to
 
 ## 📝 Prompt
 
-```
+```text
 List variable name collisions across scopes and sets
 ```
 

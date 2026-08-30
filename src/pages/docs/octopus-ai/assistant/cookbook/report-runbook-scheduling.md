@@ -16,7 +16,7 @@ List scheduled runbooks and their next execution to ensure critical tasks are ti
 
 ## 📝 Prompt
 
-```
+```text
 List scheduled runbooks and their next run time
 ```
 

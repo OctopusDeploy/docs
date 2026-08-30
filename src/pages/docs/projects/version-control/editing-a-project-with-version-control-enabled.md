@@ -14,9 +14,9 @@ Once an Octopus Project is configured to be version-controlled, your experience 
 
 Editing via the Octopus Deploy UI works the same whether you are saving to a git repository or to SQL Server. You can add steps, update processes, and remove steps, just like before. When you enable version control on a project, you get additional functionality.
 
-### Branch switcher 
+### Branch switcher
 
-The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher at the top of page. 
+The first difference is the addition of a branch-switcher. When editing the deployment process via the Octopus UI, the branch is selected in the branch-switcher at the top of page.
 
 :::figure
 ![Branch-switcher user-interface](/docs/img/projects/version-control/branch-switcher-ui.png)
@@ -48,7 +48,7 @@ If you are making changes on a protected branch, the quick save option will be d
 
 ### Viewing and editing OCL
 
-Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit, and push them just as you would any other code change. 
+Enabling version control also enables you to edit the OCL (Octopus Configuration Language) file directly. We suggest using your favorite text editor or IDE to make changes, commit, and push them just as you would any other code change.
 
 :::div{.hint}
 We have a [Visual Studio Code Plug-in](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.vscode-octopusdeploy) that will add syntax highlighting, OCL snippets, and an integrated tree view for navigating nodes in an HCL file.

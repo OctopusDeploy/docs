@@ -25,6 +25,10 @@ When you are implementing a deployment process that uses channels you can scope 
 
 You can also define rules per channel to ensure that only package versions and Git resources which meet specific criteria are deployed to specific channels.
 
+:::div{.hint}
+[Easy Mode - Channels](https://octopus.com/blog/octo-easy-mode-12-channels) provides a practical example of channels you can apply to your own Octopus instance.
+:::
+
 ## Managing channels
 
 Every [project](/docs/projects) has a default channel.

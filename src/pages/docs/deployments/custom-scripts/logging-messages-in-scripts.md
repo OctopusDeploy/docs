@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-08-06
+modDate: 2026-08-11
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 icon: fa-solid fa-clock-rotate-left
@@ -50,19 +50,6 @@ write_warning "Warning"
 >&2 echo "This will be logged as an Error"
 echoerror() { echo "$@" 1>&2; }
 echoerror "You can even define your own function to echo an error!"
-```
-
-</details>
-<details data-group="logging-messages-in-scripts">
-<summary>F#</summary>
-
-```fsharp
-printfn "This will be logged as Information"
-writeVerbose "Verbose!!"
-writeHighlight "This is a highlight"
-writeWait "Deployment is waiting on something"
-writeWarning "Warning"
-eprintfn "This will be logged as Error"
 ```
 
 </details>
@@ -136,15 +123,6 @@ update_progress 50 "We're halfway there!"
 
 </details>
 <details data-group="deployments-custom-scripts-logging-messages">
-<summary>F#</summary>
-
-```fsharp
-Octopus.updateProgress 10
-Octopus.updateProgress 50 "We're halfway there!"
-```
-
-</details>
-<details data-group="deployments-custom-scripts-logging-messages">
 <summary>Python3</summary>
 
 ```python
@@ -167,20 +145,6 @@ private static string EncodeServiceMessageValue(string value)
 }
 
 Console.WriteLine("##octopus[progress percentage='{0}' message='{1}']", EncodeServiceMessageValue(percentage.ToString()), EncodeServiceMessageValue(message));
-```
-
-</details>
-<details data-group="deployments-custom-scripts-progress-service-message">
-<summary>F#</summary>
-
-```fsharp
-let private encode (value:string) = System.Text.Encoding.UTF8.GetBytes(value) |> Convert.ToBase64String
-let private writeServiceMessage name content =  printfn "##octopus[%s %s]" name content
-let updateProgress (percentage: int) message =
-    let encodedMessage = message |> encode
-    let encodedPercentage = percentage.ToString() |> encode
-    let content = sprintf "percentage='%s' message='%s'" encodedPercentage encodedMessage
-    writeServiceMessage "progress" content
 ```
 
 </details>

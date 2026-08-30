@@ -26,7 +26,7 @@ Click the **New Project** button and select **Use version control for this proje
 ![adding a project using vcs](/docs/img/projects/version-control/converting/add-project-vcs.png)
 :::
 
-Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token. 
+Once you click the **Save** button, you'll be sent to the version control screen to configure your version control settings. Enter the URL for your Git repository, your username and password / personal access token.
 
 <VersionControlRepositoryUrlFormat />
 
@@ -46,16 +46,15 @@ Finally, add your default branch name in Branch Settings and click **Configure**
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files and folders:
 
-- _deployment_process.ocl_
-- _deployment_settings.ocl_
-- _variables.ocl_
-- _schema_version.ocl_
-- _runbooks/_
+- *deployment_process.ocl*
+- *deployment_settings.ocl*
+- *variables.ocl*
+- *schema_version.ocl*
+- *runbooks/*
 
-The runbooks/ directory will contain runbook-name.ocl files for any published runbooks. 
+The runbooks/ directory will contain runbook-name.ocl files for any published runbooks.
 
 If your repository has branch protection setup, see [Setting up in a repository with protected branches](/docs/projects/version-control/converting/#setting-up-in-a-repository-with-protected-branches).
-
 
 ## Configuring an existing project to use Git
 
@@ -66,7 +65,8 @@ Converting a project to use Git is a one-way change. Once you convert a project 
 Using config-as-code, you can perform a one-way conversion of existing projects to leverage Git.
 
 Select the project you would like to convert and click on the **Settings ➜ Version Control** link on the project navigation menu.
-Enter the connection information for your Git repository. You need to provide: 
+Enter the connection information for your Git repository. You need to provide:
+
 - The URL for your Git repository
 - A username and password / personal access token (or anonymous for a public repository)
 - The directory you would like Octopus to store the deployment process in
@@ -86,19 +86,19 @@ Once you press the **Configure** button, a modal window will appear to confirm t
 
 Your project is now configured with Version Control. You can see this change reflected on the left navigation of the page, where you can change branches. You can also confirm this in your Git repository. The `.octopus` directory will now be created, and it should contain the following files and folders:
 
-- _deployment_process.ocl_
-- _deployment_settings.ocl_
-- _variables.ocl_
-- _schema_version.ocl_
-- _runbooks/_
+- *deployment_process.ocl*
+- *deployment_settings.ocl*
+- *variables.ocl*
+- *schema_version.ocl*
+- *runbooks/*
   
-The runbooks/ directory will contain runbook-name.ocl files for any published runbooks. 
+The runbooks/ directory will contain runbook-name.ocl files for any published runbooks.
 
 If your repository has branch protection setup, see [Setting up in a repository with protected branches](/docs/projects/version-control/converting/#setting-up-in-a-repository-with-protected-branches).
 
 ## Setting up a repository with protected branches
 
-If your default branch is protected, you can select that option under Branch Settings. You will need to provide a different branch name for the initial commit. If the branch doesn't exist, it will be created. Once you click the **Configure** button, Octopus will commit the OCL file to the initial commit branch. 
+If your default branch is protected, you can select that option under Branch Settings. You will need to provide a different branch name for the initial commit. If the branch doesn't exist, it will be created. Once you click the **Configure** button, Octopus will commit the OCL file to the initial commit branch.
 
 :::figure
 ![initial commit branch and protected default branch](/docs/img/projects/version-control/converting/configure-initial-commit-branch.png)
@@ -116,7 +116,7 @@ Optionally, you can also nominate protected branches for your Project. This will
 
 ## Migrating to config-as-code runbooks on an existing Git project
 
-Projects which converted to Git before the introduction of config-as-code runbooks can be easily updated. 
+Projects which converted to Git before the introduction of config-as-code runbooks can be easily updated.
 
 You can [migrate an existing version controlled project](/docs/runbooks/config-as-code-runbooks#cac-runbooks-on-an-existing-version-controlled-project) to use config-as-code runbooks by clicking on the 'Store Runbooks in Git' banner at the top of the **Runbooks** page of your project.
 

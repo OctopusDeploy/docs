@@ -1,0 +1,6 @@
+<!-- ArrowNestedIcon from @octopusdeploy/design-system-icons. The return-key glyph
+     beside the highlighted result and in the "Select" footer hint. Used as a CSS
+     mask, so only alpha matters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" width="24" height="24" aria-hidden="true">
+  <path d="M7.001 8.528V19.22c0 1.4 1.063 2.546 2.502 2.546h21.385l-5.44-5.537c-.625-.573-.625-1.528 0-2.164.563-.573 1.5-.573 2.126 0l8.004 8.21a1.52 1.52 0 0 1 0 2.1l-8.004 8.148c-.625.636-1.563.636-2.126 0-.625-.573-.625-1.528 0-2.164l5.44-5.538H9.503C6.439 24.821 4 22.34 4 19.221V8.527C4 7.7 4.625 7 5.5 7c.814 0 1.501.7 1.501 1.528" />
+</svg>

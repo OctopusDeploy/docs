@@ -65,21 +65,21 @@ Now we will create a team for all the account managers and add the role we creat
 
 1. In **Configuration ➜ Teams** click **Add team** and call it **Toby's clients**. Be sure to select "Accessible in the X space only" unless you have tenants spread over multiple [Spaces](/docs/administration/spaces) and then click **Save**.
 
-:::figure
-![](/docs/img/tenants/images/add-account-manager-team.png)
-:::
+    :::figure
+    ![Creating a team called Toby's clients](/docs/img/tenants/images/add-account-manager-team.png)
+    :::
 
 2. Navigate to **User Roles** click **Include user role**.
 
-:::figure
-![](/docs/img/tenants/images/multi-tenant-include-user-role.png)
-:::
+    :::figure
+    ![The Include user role button on the team's User Roles tab](/docs/img/tenants/images/multi-tenant-include-user-role.png)
+    :::
 
 3. From the dropdown, select the **Tenant project deployer** role.
 
-:::figure
-![](/docs/img/tenants/images/multi-tenant-select-user-role.png)
-:::
+    :::figure
+    ![Selecting the Tenant project deployer role](/docs/img/tenants/images/multi-tenant-select-user-role.png)
+    :::
 
 4. Navigate to **Members ➜ Add member** and add any user accounts that will form part of this team.
 
@@ -88,13 +88,13 @@ Now we will create a team for all the account managers and add the role we creat
 After adding the **Tenant project deployer** role, we'll see that Toby has access to all tenants. Toby only needs access to the accounts that he's responsible for: Midland Veterinary and Valley Veterinary Clinic. To limit Toby to his accounts, click on the overflow menu (`...`) and select **Edit**
 
 :::figure
-![](/docs/img/tenants/images/edit-tenant-team.png)
+![Limiting the team's access to specific tenants](/docs/img/tenants/images/edit-tenant-team.png)
 :::
 
 Select the tenants and click **Apply**
 
 :::figure
-![](/docs/img/tenants/images/scope-tenant-user-role.png)
+![A user role scoped to the selected tenants](/docs/img/tenants/images/scope-tenant-user-role.png)
 :::
 
 :::div{.hint}
@@ -110,6 +110,7 @@ Bob is a member of the IT infrastructure team for [Car Rental](https://samples.o
 Similarly to the previous example, we will create a custom role with minimum permissions to view tenant details. Later on, we will create a team that combines multiple roles to achieve the desired effect.
 
 1. Create a role called **Tenant viewer** with the following permissions:
+
   - TenantView
 
 ### Step 2: Configure the tenant environment managers team {#step-2-configure-environment-managers-team}
@@ -119,13 +120,13 @@ In this example, we will create a new team and combine multiple roles to achieve
 1. Create a new team called **Tenant Environment Managers**.
 2. Add the **Tenant viewer** and **Environment manager** roles to the team:
    :::figure
-   ![](/docs/img/tenants/images/multi-tenant-environment-managers-team.png)
+   ![A team with the Tenant viewer and Environment manager roles](/docs/img/tenants/images/multi-tenant-environment-managers-team.png)
    :::
 3. Add any specific tenant/environment scoping that makes sense.
 4. Add any specific members
 
 ## Self-service {#self-service}
- 
+
 [OctoPetShop](https://samples.octopus.app/app#/Spaces-682/projects/octopetshop/deployments) has development teams that work concurrently.  These teams deploy to Development in upwards of ten times a day and need the autonomy to deploy themselves.
 
 ### Step 1: Configure a team for the tenant {#step-1-configure-self-service-team}
@@ -137,5 +138,5 @@ Firstly we need to create a team with a scope limited to the single tenant.
 3. Scope the team to a single tenant:
 
 :::figure
-![](/docs/img/tenants/images/multi-tenant-self-service-team.png)
+![A team scoped to a single tenant](/docs/img/tenants/images/multi-tenant-self-service-team.png)
 :::

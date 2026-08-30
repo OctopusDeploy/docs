@@ -9,7 +9,7 @@ navOrder: 100
 
 The [Octopus CLI](/docs/octopus-rest-api/octopus-cli) can be used to create packages (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj file.
 
-```
+```text
 Creates a package (.nupkg or .zip) from files on disk, without needing a .nuspec or .csproj.
 
 Usage: octo pack [<options>]
@@ -78,12 +78,13 @@ This example packs the contents of a temp directory:
 
 Windows:
 
-```
+```bash
 octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="c:\temp\MyPackage" --outFolder="c:\temp"
 ```
+
 Linux:
 
-```
+```bash
 octo pack --id="MyPackage" --format="zip" --version="1.0.0.0" --basePath="/tmp/MyPackage" --outFolder="/tmp"
 ```
 

@@ -17,7 +17,8 @@ The deployment journal on the Tentacle is the source of truth for what Octopus w
 
 If the deployment journal is deleted, on the next deployment, it will be created and contain one record. But you might have many more deployments than that on the server. If the release is not in the DeploymentJournal.xml it will not be deleted with the execution of the retention policy. Any deployments not in the deployment journal will need to be manually deleted.
 
-By default, your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`. 
+By default, your deployment journal is located at: `<Tentacle Home>\DeploymentJournal.xml`.
+
 - For Windows Tentacles, the default directory is: `C:\Octopus`
 - For Linux Tentacles, the default directory is: `/etc/octopus`
 
@@ -28,7 +29,7 @@ Learn more about where Tentacle [files are stored](/docs/administration/managing
 An example DeploymentJournal.xml is shown below on a Windows Tentacle with the instance name set to `DWebApp01`:
 
 :::figure
-![](/docs/img/administration/retention-policies/images/3278384.png)
+![The location of DeploymentJournal.xml on a Windows Tentacle](/docs/img/administration/retention-policies/images/3278384.png)
 :::
 
 Below is a sample `DeploymentJournal.xml`:
@@ -71,7 +72,7 @@ It keeps a record for every package and package extraction for each project and 
 Defining retention policies is done within lifecycles. Each phase can have a different setting. So if you want to keep more files on production machines you can.
 
 :::figure
-![](/docs/img/administration/retention-policies/images/default-lifecycle-retention-policy.png)
+![A lifecycle phase set to keep three releases on both the Octopus Server and the Tentacle](/docs/img/administration/retention-policies/images/default-lifecycle-retention-policy.png)
 :::
 
 In this example the default for the lifecycle is to keep 3 releases on both Octopus Server and Tentacle.
@@ -94,7 +95,7 @@ So for Project-1 we have 8 packages and directories still remaining on the serve
 
 See below the messages you will have in your raw deployment logs at the end of a deployment to that environment for the specific project:
 
-```
+```text
                     |   == Success: Apply retention policy on Tentacles ==
 05:06:20   Info     |     Apply retention policies...
 05:06:22   Verbose  |     Apply Tentacle Retention Policy completed
@@ -114,11 +115,11 @@ See below the messages you will have in your raw deployment logs at the end of a
 ## Package and extraction directories {#retention-policy-package-directories}
 
 You can find your packages in the `<Tentacle Home>\Files` directory.
-or `<Tentacle Home>\[Instance Name])\Files` if you have multiple 
+or `<Tentacle Home>\[Instance Name])\Files` if you have multiple
 Tentacle instances on one machine.
 
 :::figure
-![](/docs/img/administration/retention-policies/images/3278387.png)
+![The Applications directory on a Tentacle showing extracted package folders](/docs/img/administration/retention-policies/images/3278387.png)
 :::
 
 By default, your extracted package files can be found under `<Tentacle Home>\Applications\[environment name]\[package name]\`
@@ -126,17 +127,17 @@ By default, your extracted package files can be found under `<Tentacle Home>\App
 If you have multiple packages, you will have multiple directories.
 
 :::figure
-![](/docs/img/administration/retention-policies/images/3278389.png)
+![Multiple package directories on a Tentacle](/docs/img/administration/retention-policies/images/3278389.png)
 :::
 
-![](/docs/img/administration/retention-policies/images/3278388.png)
+![Version directories inside a package directory on a Tentacle](/docs/img/administration/retention-policies/images/3278388.png)
 
 If you have more directories than you think you should, check if they have a value in the deployment journal. If they don't, you'll need to manually delete them.
 
 You can have multiple directories for the same version of each package like the following example:
 
 :::figure
-![](/docs/img/administration/retention-policies/images/3278390.png)
+![Multiple extraction directories for the same package version](/docs/img/administration/retention-policies/images/3278390.png)
 :::
 
 This occurs when you have the same package in two different steps inside a single project. It has two extraction directories, and it is assumed to be a different set of files due to variables and transforms. So for a 3 package policy you will have a copy of each version leaving 6 plus the current 2 for a total of 8 directories. This can mean a lot of folders if you use the same package in multiple steps.

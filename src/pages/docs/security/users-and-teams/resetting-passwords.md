@@ -14,13 +14,13 @@ In the Octopus Web UI, click your username in the top right corner of the screen
 To change your password, select **Change password**:
 
 :::figure
-![](/docs/img/security/users-and-teams/images/resetpassword.png)
+![The Change password option](/docs/img/security/users-and-teams/images/resetpassword.png)
 :::
 
 Enter and confirm your new password, then click **Save**:
 
 :::figure
-![](/docs/img/security/users-and-teams/images/newpassword.png)
+![Entering and confirming a new password](/docs/img/security/users-and-teams/images/newpassword.png)
 :::
 
 ## Resetting user passwords
@@ -30,19 +30,19 @@ Octopus Server administrators can reset the passwords of other users from the Oc
 Select the user whose password you want to change:
 
 :::figure
-![](/docs/img/security/users-and-teams/images/usersearch.png)
+![Searching for a user under Configuration ➜ Users](/docs/img/security/users-and-teams/images/usersearch.png)
 :::
 
 Click **Change password**:
 
 :::figure
-![](/docs/img/security/users-and-teams/images/changeuserpwd.png)
+![The Change password button on a user](/docs/img/security/users-and-teams/images/changeuserpwd.png)
 :::
 
 Enter and confirm the new password, then click **Save**:
 
 :::figure
-![](/docs/img/security/users-and-teams/images/userpasswordchange.png)
+![Entering and confirming the new password for another user](/docs/img/security/users-and-teams/images/userpasswordchange.png)
 :::
 
 ## Resetting administrator passwords
@@ -76,6 +76,7 @@ Octopus.Server.exe service --start
 Passwords in Octopus must meet password complexity rules. Octopus applies a scoring system to a new password to decide if it meets the complexity rules.
 
 A password must be:
+
 - Minimum 8 characters long
 
 It also needs to meet 3 (or more) of the following scoring criteria:

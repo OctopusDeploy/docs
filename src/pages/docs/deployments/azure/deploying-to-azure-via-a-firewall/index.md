@@ -13,13 +13,11 @@ To check you can reach Microsoft cloud through your network, run this script on 
 
 :::div{.info}
 
-
 You might need to install Azure PowerShell before running this script. For information, see [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.5.0).
 
 :::
 
-
-```
+```powershell
 $ErrorActionPreference = "Stop"
 
 $OctopusAzureADTenantId = #Enter TenantId here

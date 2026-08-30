@@ -2,6 +2,7 @@
 
 import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
+import { flattenGeneratedApiPath } from '@lib/generatedApiPaths';
 import {
   compareForLlmSurfaces,
   eligibleForMarkdown,
@@ -39,7 +40,9 @@ async function getData() {
     const verdict = eligibleForMarkdown({ path, frontmatter: fm, raw });
     if (!verdict.eligible) continue;
 
-    const url = accelerator.urlFormatter.formatAddress(article.url);
+    const url = accelerator.urlFormatter.formatAddress(
+      flattenGeneratedApiPath(article.url ?? '')
+    );
     if (!url.startsWith(subfolderPrefix)) continue;
     if (url.endsWith('/')) continue;
     const slug = url.slice(subfolderPrefix.length);
