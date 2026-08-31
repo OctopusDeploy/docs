@@ -25,7 +25,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time?
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/cli/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I control the order in which tenanted deployments execute?
 

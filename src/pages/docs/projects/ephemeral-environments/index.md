@@ -118,7 +118,7 @@ A release can be created using the:
 - Octopus Web Portal
 - Octopus API
 - [`OctopusDeploy/create-release-action` GitHub Action](https://github.com/OctopusDeploy/create-release-action)
-- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Octopus CLI](/docs/cli)
 
 :::div{.hint}
 **Tip:**
@@ -132,7 +132,7 @@ If automatic deployment is not selected, ephemeral environments can be created u
 - Octopus Web Portal
 - Octopus API
 - [`OctopusDeploy/create-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/create-ephemeral-environment)
-- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Octopus CLI](/docs/cli)
 
 To manually create an ephemeral environment in the Octopus portal, visit the Ephemeral Environments page within the project then:
 
@@ -200,7 +200,7 @@ Ephemeral environments can be deprovisioned via the:
 - Octopus Web Portal
 - Octopus API
 - [`OctopusDeploy/deprovision-ephemeral-environment` GitHub Action](https://github.com/OctopusDeploy/deprovision-ephemeral-environment)
-- [Octopus CLI](/docs/octopus-rest-api/cli)
+- [Octopus CLI](/docs/cli)
 
 To deprovision an ephemeral environment in the Octopus portal:
 

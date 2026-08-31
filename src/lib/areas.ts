@@ -4,15 +4,16 @@ import { buildCrumbs, type Crumb } from '@util/breadcrumbs';
 import { accelerator } from './accelerator';
 
 // An "area" is a slice of the site with its own navigation tree: the docs, the
-// API reference, and — as they arrive — Learn and the CLI reference. It is
+// API reference, the CLI reference, and — as it arrives — Learn. It is
 // deliberately not the layout. The layout decides what the middle column looks
 // like; the area decides which nav sits beside it and how the breadcrumbs read,
 // so a page can be in the API area and still be laid out like a docs page.
 //
 // A page's area comes from where it lives, which is what the section already
 // encodes: every page under /docs/api is in the API area without being told so,
-// including the ~100 generated ones. A page that needs to say otherwise puts
-// `area:` in its frontmatter and that wins.
+// including the ~100 generated ones, and the same goes for /docs/cli and its
+// ~185. A page that needs to say otherwise puts `area:` in its frontmatter and
+// that wins.
 //
 // Adding an area takes four things, and this list is the only copy of it:
 //   1. an entry in AREAS below, and the area's name in the Area union
@@ -22,7 +23,7 @@ import { accelerator } from './accelerator';
 //      one and the build still passes while authors cannot pick the area in
 //      Front Matter CMS, with nothing on screen to say why
 
-export type Area = 'docs' | 'api';
+export type Area = 'docs' | 'api' | 'cli';
 
 type AreaDefinition = {
   // The path the area occupies, under SITE.subfolder. The docs area is
@@ -39,6 +40,9 @@ export const AREAS = {
   // the section without help. It reads as "API" rather than as that page's
   // title because index.md carries a `crumbTitle`.
   api: { path: '/api', sectionCrumb: null },
+  // Same deal: /docs/cli is the reference's overview page, and its `crumbTitle`
+  // keeps the crumb reading as "CLI" rather than "Octopus CLI".
+  cli: { path: '/cli', sectionCrumb: null },
 } as const satisfies Record<Area, AreaDefinition>;
 
 const DEFAULT_AREA: Area = 'docs';

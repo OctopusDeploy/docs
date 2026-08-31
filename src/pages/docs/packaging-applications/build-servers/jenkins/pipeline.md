@@ -35,7 +35,7 @@ Step name: ***octopusPack***
 | `outputPath` | No | Path to write final package. Defaults to `.`. |
 | `packageVersion` | No | Package version, defaults to a timestamp-based version. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [pack](/docs/octopus-rest-api/octopus-cli/pack) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [pack](/docs/cli/octopus-cli/pack) command. |
 
 Example:
 
@@ -66,7 +66,7 @@ Step name: ***octopusPushPackage***
 | `packagePaths` | Yes | The path to the package. |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [push](/docs/octopus-rest-api/octopus-cli/push) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [push](/docs/cli/octopus-cli/push) command. |
 
 Example:
 
@@ -125,7 +125,7 @@ Step: ***octopusPushBuildInformation***
 | `gitBranch` | No | The branch that was checked out in the repository. Available via `git checkout`. |
 | `gitCommit` | No | The commit ID of the most recent commit on the branch. Available via `git checkout`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/cli/octopus-cli/build-information) command. |
 
 Example:
 
@@ -191,7 +191,7 @@ Step: ***octopusCreateRelease***
 | `releaseNotesSource` | No | Valid values are `file` or `scm`. |
 | `releaseNotesFile` | Conditional | The file path for release notes, required if `releaseNotesSource` is `file`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [create-release](/docs/octopus-rest-api/octopus-cli/create-release) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [create-release](/docs/cli/octopus-cli/create-release) command. |
 
 Example:
 
@@ -235,7 +235,7 @@ Step: ***octopusDeployRelease***
 | `deploymentTimeout` | No | How long to wait for deployment. Format is `HH:mm:ss`. Default is `00:10:00`. |
 | `variables` | No | Set prompted variable values. Format is `key1=value1\nkey2=value2`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [deploy-release](/docs/cli/octopus-cli/deploy-release) command. |
 
 Example:
 

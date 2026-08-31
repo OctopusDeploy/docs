@@ -19,9 +19,9 @@ After installation, you can run the following to verify the version of the Octop
 octopus --version
 ```
 
-For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/cli).
+For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/cli).
 
-For a full list of the `package` command options see [Octopus CLI - Package](/docs/octopus-rest-api/cli/octopus-package) or run the following command:
+For a full list of the `package` command options see [Octopus CLI - Package](/docs/cli/octopus-package) or run the following command:
 
 ```powershell
 octopus package --help

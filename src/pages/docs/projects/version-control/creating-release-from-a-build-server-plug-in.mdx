@@ -95,7 +95,7 @@ The *Git Reference* and *Git Commit* fields above select the branch/commit of th
 This is supported by:
 
 - The [create-release GitHub Action](https://github.com/OctopusDeploy/create-release-action) (`v4.2.0` and later) via the `git_resources` input.
-- The [Octopus CLI](/docs/octopus-rest-api/cli/octopus-release-create) via the `--git-resource` flag.
+- The [Octopus CLI](/docs/cli/octopus-release-create) via the `--git-resource` flag.
 
 The value format is `StepName:GitRef` or `StepName:GitResourceName:GitRef`. As with *Git Reference* above, resolve the ref per event so the release tracks the feature branch — use `github.head_ref` on pull requests and `github.ref_name` on pushes (not `github.ref`, which is `refs/pull/<n>/merge` on pull requests):
 
