@@ -359,6 +359,27 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const filters =
           facet && facet !== 'all' ? { section: [facet] } : undefined;
 
+        // The shortlist `namedPage` picks a page to promote from.
+        //
+        // With a tab selected, its filter already narrows the shortlist to the
+        // right section, so use it as it is. Without one, exclude the API and
+        // CLI results: `namedPage` reads only the first few and skips reference
+        // pages anyway, so left in they fill every slot and it finds nothing to
+        // promote. Unless the query asks for the reference, which can promote
+        // one.
+        //
+        // Excluding, rather than naming the two sections to keep, because
+        // Pagefind reads a plain array as "all of these at once". Measured for
+        // "deployment targets": section: ['docs', 'integrations'] returns 0,
+        // section: { not: { any: ['api', 'cli'] } } returns 97.
+        const landingFilters =
+          filters === undefined && !ASKS_FOR_REFERENCE.test(query.toLowerCase())
+            ? {
+                landing: ['true'],
+                section: { not: { any: [...REFERENCE_FACETS] } },
+              }
+            : { ...filters, landing: ['true'] };
+
         // Three searches at once, because a second await here would sit in front
         // of every fragment fetch below it. The first supplies the rows; the
         // second says whether the query has any answer at all, and only runs
@@ -368,7 +389,7 @@ export function pagefindEngine(bundlePath: string): SearchEngine {
         const [response, wholeCorpus, landing] = await Promise.all([
           api.search(query, { filters }),
           filters ? api.search(query) : null,
-          api.search(query, { filters: { ...filters, landing: ['true'] } }),
+          api.search(query, { filters: landingFilters }),
         ]);
         const unfiltered = wholeCorpus ?? response;
 

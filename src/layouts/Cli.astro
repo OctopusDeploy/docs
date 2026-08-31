@@ -31,15 +31,16 @@ import DocsSearch from '../components/DocsSearch.astro';
 // restyled without touching the hand-written pages beside it.
 //
 // It is laid out as a docs page: the middle column, the area nav and the table
-// of contents beside it. A shape of its own goes here, and the ~185 pages take
-// it without a sweep of their frontmatter.
+// of contents beside it. When the reference needs a look of its own, it changes
+// here and all 185 pages pick it up.
 //
 // There is no "Edit on GitHub". These pages are written by gen-docs in
 // OctopusDeploy/cli and land in _generated, so the file the button would open is
 // overwritten by the next sync; correcting one of them means changing the
 // template in that repo. Api.astro leaves it out for the same reason.
 //
-// Copy as markdown stays: these pages have a .md of their own to hand over.
+// Copy as markdown stays, because these pages do have a .md version to copy.
+// Api.astro has it turned off only because it does not work there yet.
 
 type Props = {
   // The nav this page appears in. Optional, and normally left alone: these
