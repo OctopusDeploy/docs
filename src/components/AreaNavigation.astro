@@ -39,3 +39,15 @@ const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
   )
 }
 {area === 'cli' && <CliNavigation lang={lang} />}
+{
+  /* Ensure the active element is always visible when the page loads in the area navigation */
+}
+<script is:inline>
+  (() => {
+    const active = document
+      .querySelector('[data-site-nav-scroll]')
+      ?.querySelector('[aria-current="page"]');
+
+    active?.scrollIntoView({ block: 'center' });
+  })();
+</script>
