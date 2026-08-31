@@ -1,3 +1,3 @@
 {
-    "ignores": ["src/pages/docs/api/**"]
+    "ignores": ["src/pages/docs/api/**", "contributing/standards/**"]
 }
