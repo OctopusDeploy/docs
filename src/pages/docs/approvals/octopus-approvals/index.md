@@ -8,7 +8,7 @@ navOrder: 5
 ---
 
 :::div{.hint}
-Octopus Approvals is currently in Alpha, available to a small set of customers. If you are interested in this feature please register your interest on the [roadmap card](https://roadmap.octopus.com/c/243-approvals-for-deployments) and we'll keep you updated.
+Octopus Approvals is currently in Public Preview. It is currently being rolled out to Cloud Customers and will become available to self-hosted installations in Octopus Server 2026.3 behind a feature toggle. If you would like to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 ## Overview
@@ -19,7 +19,7 @@ When a controlled deployment or runbook run triggers, Octopus automatically crea
 
 ## Getting started
 
-Enable Octopus Approvals on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and tick **Is Enabled** and save.
+Octopus Approvals is enabled by default. Ensure Octopus Approvals is enabled on your Octopus instance by navigating to **Configuration ➜ Settings ➜ Octopus Approvals** and verifying that **Is Enabled** is ticked.
 
 Once Octopus Approvals is enabled, navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** to create your first approval rule, then configure scope to apply it to the relevant projects and environments.
 
@@ -37,7 +37,8 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
 
   Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
 
-- **Minimum approvers required** The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
+- **Minimum approvers required**: The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
+- **Multi-tenant Approvals**: Choose whether one change request covers all tenants or each tenant has separate change requests.
 
 ## How it works
 
@@ -45,7 +46,9 @@ Octopus will generate a change request depending on the configured approval rule
 
 ### Change request creation
 
-When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`). Octopus immediately pauses execution and displays the change request status in the task log.
+When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`) if an applicable change request does not already exist. Octopus immediately pauses execution and displays the change request status in the task log.
+
+Octopus will link the execution to an existing change request if there is a pending or approved change request with the same project, environment, release number and tenant (depending on the multi-tenant approval setting for an approval rule). If the change request is already approved, the execution is allowed to proceed according to the change window.
 
 If multiple approval rules match, the rules are merged to a resultant rule.
 
@@ -58,7 +61,7 @@ Octopus supports change windows. Change windows are scheduled time periods durin
 
 #### Change window creation
 
-To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment.  The `Later` option allows users to define when the deployment start date/time and a duration.  Octopus evaluates the approval rule when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
+To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment. The `Later` option allows users to define when the deployment start date/time and a duration. Octopus evaluates the approval rule when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
 
 ### Rejection
 
