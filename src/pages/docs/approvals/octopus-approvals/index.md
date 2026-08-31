@@ -37,7 +37,8 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
 
   Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
 
-- **Minimum approvers required** The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
+- **Minimum approvers required**: The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
+- **Multi-tenant Approvals**: Choose whether one change request handles covers all tenants or each tenant has separate change requests.
 
 ## How it works
 
