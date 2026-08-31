@@ -46,7 +46,9 @@ Octopus will generate a change request depending on the configured approval rule
 
 ### Change request creation
 
-When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`). Octopus immediately pauses execution and displays the change request status in the task log.
+When a deployment or runbook run triggers and it is in scope for an approval rule, Octopus automatically creates a change request with a unique reference number in the format `OCT-{number}` (for example, `OCT-42`) if an applicable change request does not already exist. Octopus immediately pauses execution and displays the change request status in the task log.
+
+Octopus will link the execution to an existing change request if there is a pending or approved change request with the same project, environment, release number and tenant (depending on the multi-tenant approval setting for an approval rule). If the change request is already approved, the execution is allowed to proceed according to the change window.
 
 If multiple approval rules match, the rules are merged to a resultant rule.
 
