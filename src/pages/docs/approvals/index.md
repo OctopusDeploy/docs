@@ -40,9 +40,7 @@ What's included in Octopus Approvals?
 - Octopus records an audit trail of approvals and rejections in the task log.
 
 :::div{.hint}
-Octopus Approvals is currently in Alpha, available to a small set of customers.
-
-If you are interested in this feature please register your interest on the [roadmap card](https://roadmap.octopus.com/c/243-approvals-for-deployments) and we'll keep you updated.
+Octopus Approvals is currently in Public Preview. It is currently being rolled out to Cloud Customers and will become available to self-hosted installations in Octopus Server 2026.3 behind a feature toggle. If you would like to request this functionality early, please contact [support](https://octopus.com/support).
 :::
 
 Learn more about [Octopus Approvals](/docs/approvals/octopus-approvals).
