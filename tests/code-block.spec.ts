@@ -13,7 +13,7 @@ const SINGLE_GROUP =
   '/docs/administration/reporting/report-on-deployments-using-excel';
 
 // A page holding a code block far taller than the collapse threshold
-const LONG = '/docs/octopus-rest-api/octopus.server.exe-command-line/configure';
+const LONG = '/docs/administration/octopus.server.exe-command-line/configure';
 
 // The shell is rendered at build time, so it has to survive without scripting.
 test.describe('code block, no JavaScript', () => {

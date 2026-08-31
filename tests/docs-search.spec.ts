@@ -559,6 +559,9 @@ test('a command wins when the query asks for one', async ({ page }) => {
 // number has to show rows when it is picked. `kubernetes` had one API page
 // scoring 6.59 against a floor of 8, so the strip read "API (1)" and the panel
 // read "No results for kubernetes".
+//
+// The query needs several matches in every tab, so that the assertion below
+// does not turn on where a single page lives.
 test('every tab with a count has results behind it', async ({ page }) => {
   await page.goto('/docs');
 
@@ -566,7 +569,7 @@ test('every tab with a count has results behind it', async ({ page }) => {
   await navField(page).click();
   await expect(site).toBeVisible();
 
-  await site.locator('[data-docs-search-input]').fill('kubernetes');
+  await site.locator('[data-docs-search-input]').fill('runbook');
   await expect(site.locator('[role="option"]').first()).toBeVisible({
     timeout: 20_000,
   });

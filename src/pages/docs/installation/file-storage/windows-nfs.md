@@ -117,7 +117,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
    ```
 
    :::div{.hint}
-   This is in effect the same when using the [watchdog](/docs/octopus-rest-api/octopus.server.exe-command-line/watchdog) command to configure a scheduled task to monitor the Octopus Server service.
+   This is in effect the same when using the [watchdog](/docs/administration/octopus.server.exe-command-line/watchdog) command to configure a scheduled task to monitor the Octopus Server service.
    :::
 
 6. Create folders in your **NFS share** for the Artifacts, Packages, TaskLogs, Imports, and EventExports.
@@ -167,7 +167,7 @@ Follow the steps below to configure NFS on a Windows Server for Octopus Deploy t
    Remember to create the folders in the NFS share before trying to create the symbolic links.
    :::
 
-Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/octopus-rest-api/octopus.server.exe-command-line/path) to change the paths to the shared storage:
+Once you've completed those steps, [install Octopus](/docs/installation/) and then when you've done that on all nodes, run the [path command](/docs/administration/octopus.server.exe-command-line/path) to change the paths to the shared storage:
 
 ```powershell
 & 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Server.exe' path `

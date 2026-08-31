@@ -126,7 +126,7 @@ docker run --entrypoint='' octopusdeploy/worker-tools:5.0.0-ubuntu.22.04 /bin/ca
 
 #### Required OS dependencies
 
-The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/octopus-rest-api/calamari) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
+The operating system must also include a number of dependencies required to support .NET Core applications. When a step is configured to use an execution container, [Calamari](/docs/administration/calamari) (the Octopus deployment utility) is executed inside the specified container. Since Calamari is a .NET Core self-contained executable, any custom Docker image needs to include the dependencies required to execute a .NET self-contained executable.
 
 The Microsoft [.NET Core documentation](https://docs.microsoft.com/en-us/dotnet/core/install/linux) lists the dependencies required for a .NET Core application with popular Linux distributions.
 

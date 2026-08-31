@@ -52,7 +52,7 @@ For other deployment targets, such as Azure Web Apps, or K8s clusters, you would
 
 ## Sharing Workers
 
-Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.  Polling Tentacles configured as Workers can be used in multiple spaces by running the [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker) command.
+Sharing workers configured as listening Tentacles is very easy to do.  In a lot of cases, the servers hosting the workers are underutilized.  Sharing workers between spaces can be beneficial from a cost and maintenance standpoint.  Polling Tentacles configured as Workers can be used in multiple spaces by running the [register-worker](/docs/administration/tentacle.exe-command-line/register-worker) command.
 
 There are some considerations when sharing workers.
 

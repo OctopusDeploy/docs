@@ -19,7 +19,7 @@ Some firewalls may prevent the applications from making outbound connections ove
 
 For customers running a self-hosted instance, ensure that Octopus Server's `grpcListenPort` parameter is configured to be 8443. If using a port other than 8443, ensure the Kubernetes monitor's `server-grpc-url` parameter has been updated to match.
 
-If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
+If you haven't enabled Octopus Server's gRPC port before, the port Octopus Server uses can be [changed from the command line](/docs/administration/octopus.server.exe-command-line/configure/) using the `--grpcListenPort` option.
 
 :::div{.info}
 Support for running the [Kubernetes monitor](/docs/kubernetes/targets/kubernetes-agent/kubernetes-monitor) with high availability Octopus clusters was added in v2025.4
