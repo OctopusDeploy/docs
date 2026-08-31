@@ -61,13 +61,13 @@ Give the service account the permissions it needs. For creating releases, the bu
 
 Buildkite builds the subject claim from the job:
 
-```
+```text
 organization:ORG:pipeline:PIPELINE:ref:REF:commit:COMMIT:step:STEP_KEY
 ```
 
 For example:
 
-```
+```text
 organization:acme:pipeline:my-app:ref:refs/heads/main:commit:9f3182061f1e2cca4702c368cbc039b7dc9d4485:step:build
 ```
 
@@ -76,9 +76,10 @@ Octopus matches the subject exactly, with `*` and `?` available as wildcards.
 :::div{.warning}
 Because the subject includes the commit, a subject copied verbatim from one build will only ever authorise **that** build. Wildcard at least the commit:
 
-```
+```text
 organization:acme:pipeline:my-app:ref:refs/heads/main:commit:*:step:*
 ```
+
 :::
 
 Be as specific as the rest of the subject allows. A subject such as `organization:acme:*` matches every pipeline in your organization, which is rarely what you want.
