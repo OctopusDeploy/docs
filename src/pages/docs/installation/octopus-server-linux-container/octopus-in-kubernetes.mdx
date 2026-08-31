@@ -666,7 +666,7 @@ When running Octopus in Kubernetes, it'd be nice to increase the `replicaCount` 
 In order to create UI-only nodes in Kubernetes, you need to perform some additional configuration:
 
 - Create an additional Stateful Set just for the UI-only nodes, for example called `octopus-ui`.
-- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/octopus-rest-api/octopus.server.exe-command-line/node) to `0`.
+- Change the [container lifecycle hooks](#container-lifecycle-hooks) for the `octopus-ui` Stateful Set to ensure the nodes don't start drained, and includes the `node` command to [set the task cap](/docs/administration/octopus.server.exe-command-line/node) to `0`.
 - Update the `octopus-web` Load balancer Service to direct traffic to pods with the label `app:octopus-ui`.
 
 :::div{.hint}

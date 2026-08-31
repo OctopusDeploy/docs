@@ -138,7 +138,7 @@ Linux:
 
 ## Folder paths
 
-The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/octopus-rest-api/octopus.server.exe-command-line/path) command to update the paths to leverage the different folder structure.
+The Dockerfile runs the Octopus Server installer each time the Octopus Server Windows Container or Octopus Server Linux Container starts up.  The installer runs a series of commands to configure Octopus Deploy.  The installer will run the [path](/docs/administration/octopus.server.exe-command-line/path) command to update the paths to leverage the different folder structure.
 
 For example:
 

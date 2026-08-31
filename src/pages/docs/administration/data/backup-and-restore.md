@@ -56,7 +56,7 @@ Learn about [Octopus file storage](/docs/administration/managing-infrastructure/
 
 Certain sensitive information in the [Octopus database is encrypted](/docs/security/data-encryption/). This information is encrypted using your Octopus Server "Master Key", a randomly generated string. You'll need this Master Key to restore the database to a new server.
 
-When connecting to an existing database, you will be prompted for this key during the setup process. If you have already set up the server, you can [change the Master Key](/docs/octopus-rest-api/octopus.server.exe-command-line/database) to work with the restored database.
+When connecting to an existing database, you will be prompted for this key during the setup process. If you have already set up the server, you can [change the Master Key](/docs/administration/octopus.server.exe-command-line/database) to work with the restored database.
 
 :::div{.problem}
 

@@ -69,7 +69,7 @@ If the task appears to hang after a log message output by the Octopus Server or 
 
 #### "Bootstrapper did not return the bootstrapper service message" error
 
-If you see the error `Bootstrapper did not return the bootstrapper service message` in your task log, this typically indicates that antivirus or security software is interfering with the deployment. [Calamari](/docs/octopus-rest-api/calamari) is the lightweight bootstrapper that Tentacle invokes for each deployment step. It's installed and updated in the `Tools` folder and runs steps from the `Work` folder within your Tentacle home directory. When security software blocks or delays Calamari's execution, Tentacle can't receive the expected response, causing this error.
+If you see the error `Bootstrapper did not return the bootstrapper service message` in your task log, this typically indicates that antivirus or security software is interfering with the deployment. [Calamari](/docs/administration/calamari) is the lightweight bootstrapper that Tentacle invokes for each deployment step. It's installed and updated in the `Tools` folder and runs steps from the `Work` folder within your Tentacle home directory. When security software blocks or delays Calamari's execution, Tentacle can't receive the expected response, causing this error.
 
 To resolve this, configure your antivirus or endpoint protection software to exclude the Tentacle `Tools` and `Work` directories listed below. For detailed guidance, see [configuring malware protection exclusions](/docs/security/hardening-octopus#configure-malware-protection).
 

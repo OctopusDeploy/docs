@@ -20,7 +20,7 @@ navOrder: 50
 The procedure for configuring Polling Tentacles to use port 443 varies based upon your chosen method of hosting Octopus Server.
 
 :::hint
-It may be helpful to know that the Tentacle agent supports command-line operations. If you're using a Polling Tentacle and need to configure a Polling Proxy, you can refer to our documentation on [Polling Proxy](/docs/octopus-rest-api/tentacle.exe-command-line//polling-proxy) for more details.
+It may be helpful to know that the Tentacle agent supports command-line operations. If you're using a Polling Tentacle and need to configure a Polling Proxy, you can refer to our documentation on [Polling Proxy](/docs/administration/tentacle.exe-command-line//polling-proxy) for more details.
 :::
 
 ## Octopus Cloud
@@ -124,6 +124,6 @@ For further reading on the installation and configuration of Tentacle:
 - [Polling Tentacles](/docs/infrastructure/deployment-targets/tentacle/tentacle-communication/#polling-tentacles)
 - [Windows Tentacles](/docs/infrastructure/deployment-targets/tentacle/windows)
 - [Linux Tentacles](/docs/infrastructure/deployment-targets/tentacle/linux)
-- [Tentacle command line](/docs/octopus-rest-api/tentacle.exe-command-line)
-  - [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with)
-  - [register-worker](/docs/octopus-rest-api/tentacle.exe-command-line/register-worker)
+- [Tentacle command line](/docs/administration/tentacle.exe-command-line)
+  - [register-with](/docs/administration/tentacle.exe-command-line/register-with)
+  - [register-worker](/docs/administration/tentacle.exe-command-line/register-worker)

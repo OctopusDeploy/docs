@@ -27,7 +27,7 @@ In this scenario, no load balancer is required. Instead, each Octopus node would
 For each node in your HA cluster:
 
 - Ensure the communication port Octopus listens on (`10943` by default) is open, including any firewall.
-- Register the node with the [Poll Server command line](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server) option. Specify the unique address for the node, including the listening port. For example, in a three-node cluster:
+- Register the node with the [Poll Server command line](/docs/administration/tentacle.exe-command-line/poll-server) option. Specify the unique address for the node, including the listening port. For example, in a three-node cluster:
     - Node1 would use address: **Octo1.domain.com:10943**
     - Node2 would use address: **Octo2.domain.com:10943**
     - Node3 would use address: **Octo3.domain.com:10943**
@@ -49,7 +49,7 @@ In this scenario, a type of [Network Address Translation (NAT)](https://en.wikip
 The advantage of using unique ports is that the Polling Tentacle doesn't need to know each node's address, only the port. The address translation is handled by the load balancer. This allows each node to have a private IP address, with no public access from outside your network required.
 :::
 
-Imagine a three-node HA cluster. For each one, we expose a different port to listen on using the [Octopus.Server configure command](/docs/octopus-rest-api/octopus.server.exe-command-line/configure):
+Imagine a three-node HA cluster. For each one, we expose a different port to listen on using the [Octopus.Server configure command](/docs/administration/octopus.server.exe-command-line/configure):
 
 - Node1 - Port `10943`
 - Node2 - Port `10944`
@@ -86,7 +86,7 @@ Once you've added every node in your cluster, restart the Tentacle service:
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle service --restart
 ```
 
-For more information on these commands, see the [Tentacle poll-server](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server) and [Tentacle service](/docs/octopus-rest-api/tentacle.exe-command-line/service) command line options.
+For more information on these commands, see the [Tentacle poll-server](/docs/administration/tentacle.exe-command-line/poll-server) and [Tentacle service](/docs/administration/tentacle.exe-command-line/service) command line options.
 
 **Tentacle.config:**
 
