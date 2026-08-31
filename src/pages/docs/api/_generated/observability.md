@@ -30,7 +30,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/agents`, `/api/sp
 {
   "InstallationId": "00000000-0000-0000-0000-000000000000",
   "MachineId": "Machines-1",
-  "PreserveAuthenticationToken": true,
+  "PreserveAuthenticationToken": false,
   "SpaceId": "Spaces-1"
 }
 ```
@@ -168,7 +168,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/events/sessions/{
       "Type": "string"
     }
   ],
-  "IsSessionCompleted": true
+  "IsSessionCompleted": false
 }
 ```
 :::
@@ -267,7 +267,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions`.
   "MachineId": "Machines-1",
   "PodName": "string",
   "ProjectId": "Projects-1",
-  "ShowPreviousContainer": true,
+  "ShowPreviousContainer": false,
   "SpaceId": "Spaces-1",
   "TenantId": "Tenants-1"
 }
@@ -321,7 +321,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/observability/logs/sessions/{se
     "ErrorCode": "string",
     "ErrorMessage": "string"
   },
-  "IsSessionCompleted": true,
+  "IsSessionCompleted": false,
   "Logs": [
     {
       "Message": "string",

@@ -78,7 +78,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   "ItemType": "string",
   "Items": [
     {
-      "CanPasswordBeEdited": true,
+      "CanPasswordBeEdited": false,
       "Created": "2020-01-01T00:00:00.000Z",
       "DisplayName": "string",
       "EmailAddress": "user@example.com",
@@ -86,9 +86,9 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
       "Identities": [
         {}
       ],
-      "IsActive": true,
-      "IsRequestor": true,
-      "IsService": true,
+      "IsActive": false,
+      "IsRequestor": false,
+      "IsService": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -151,8 +151,8 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsService": false,
   "Password": "string",
   "ServiceAccountType": "Standard",
   "Username": "string"
@@ -195,7 +195,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -210,9 +210,9 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -269,7 +269,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
 ```json
 [
   {
-    "CanPasswordBeEdited": true,
+    "CanPasswordBeEdited": false,
     "Created": "2020-01-01T00:00:00.000Z",
     "DisplayName": "string",
     "EmailAddress": "user@example.com",
@@ -280,9 +280,9 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
         "IdentityProviderName": "string"
       }
     ],
-    "IsActive": true,
-    "IsRequestor": true,
-    "IsService": true,
+    "IsActive": false,
+    "IsRequestor": false,
+    "IsService": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -333,7 +333,7 @@ Also reachable at `/api/users/authentication`.
         "string"
       ],
       "DisplayName": "string",
-      "FormsLoginEnabled": true,
+      "FormsLoginEnabled": false,
       "IdentityType": "Guest",
       "JavascriptLinks": [
         "string"
@@ -346,7 +346,7 @@ Also reachable at `/api/users/authentication`.
       "Name": "string"
     }
   ],
-  "CanCurrentUserEditIdentitiesForUser": true,
+  "CanCurrentUserEditIdentitiesForUser": false,
   "Links": {
     "additionalProp1": "string",
     "additionalProp2": "string",
@@ -425,7 +425,7 @@ Also reachable at `/api/users/authentication`.
         "additionalProp2": "string",
         "additionalProp3": "string"
       },
-      "ScimEnabled": true
+      "ScimEnabled": false
     }
   ]
 }
@@ -456,11 +456,11 @@ Also reachable at `/api/users/authentication`.
 ```json
 {
   "Password": "string",
-  "RememberMe": true,
+  "RememberMe": false,
   "RemoteIpAddress": "string",
   "State": {
     "RedirectAfterLoginTo": "string",
-    "UsingSecureConnection": true
+    "UsingSecureConnection": false
   },
   "Username": "string"
 }
@@ -502,7 +502,7 @@ Also reachable at `/api/users/authentication`.
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -517,9 +517,9 @@ Also reachable at `/api/users/authentication`.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -583,7 +583,7 @@ Logs out the current user.
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -598,9 +598,9 @@ Logs out the current user.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -691,7 +691,7 @@ Logs out the current user.
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -706,9 +706,9 @@ Logs out the current user.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -767,7 +767,7 @@ Logs out the current user.
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -782,9 +782,9 @@ Logs out the current user.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -837,7 +837,7 @@ Logs out the current user.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
+  "IsActive": false,
   "Password": "string",
   "Username": "string"
 }
@@ -879,7 +879,7 @@ Logs out the current user.
 :::api-example{label="Response"}
 ```json
 {
-  "CanPasswordBeEdited": true,
+  "CanPasswordBeEdited": false,
   "Created": "2020-01-01T00:00:00.000Z",
   "DisplayName": "string",
   "EmailAddress": "user@example.com",
@@ -894,9 +894,9 @@ Logs out the current user.
       "IdentityProviderName": "string"
     }
   ],
-  "IsActive": true,
-  "IsRequestor": true,
-  "IsService": true,
+  "IsActive": false,
+  "IsRequestor": false,
+  "IsService": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

@@ -112,7 +112,7 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
         {}
       ],
       "CertificateData": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -121,9 +121,9 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
         "Environments-1",
         "..."
       ],
-      "HasPrivateKey": true,
+      "HasPrivateKey": false,
       "Id": "string",
-      "IsExpired": true,
+      "IsExpired": false,
       "IssuerCommonName": "string",
       "IssuerDistinguishedName": "string",
       "IssuerOrganization": "string",
@@ -139,12 +139,12 @@ Also reachable at `/api/certificates`, `/api/spaces/{spaceIdentifier}/certificat
       "NotBefore": "2020-01-01T00:00:00.000Z",
       "Notes": "string",
       "Password": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "ReplacedBy": "string",
-      "SelfSigned": true,
+      "SelfSigned": false,
       "SerialNumber": "string",
       "SignatureAlgorithmName": "string",
       "SpaceId": "Spaces-1",
@@ -218,7 +218,7 @@ Adds a new certificate
 ```json
 {
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -229,7 +229,7 @@ Adds a new certificate
   "Name": "string",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -328,7 +328,7 @@ Adds a new certificate
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -337,9 +337,9 @@ Adds a new certificate
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -355,12 +355,12 @@ Adds a new certificate
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
@@ -485,7 +485,7 @@ Lists X.509 certificates managed by Octopus.
       }
     ],
     "CertificateData": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -494,9 +494,9 @@ Lists X.509 certificates managed by Octopus.
       "Environments-1",
       "..."
     ],
-    "HasPrivateKey": true,
+    "HasPrivateKey": false,
     "Id": "string",
-    "IsExpired": true,
+    "IsExpired": false,
     "IssuerCommonName": "string",
     "IssuerDistinguishedName": "string",
     "IssuerOrganization": "string",
@@ -512,12 +512,12 @@ Lists X.509 certificates managed by Octopus.
     "NotBefore": "2020-01-01T00:00:00.000Z",
     "Notes": "string",
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
     "ReplacedBy": "string",
-    "SelfSigned": true,
+    "SelfSigned": false,
     "SerialNumber": "string",
     "SignatureAlgorithmName": "string",
     "SpaceId": "Spaces-1",
@@ -674,7 +674,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -683,9 +683,9 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -701,12 +701,12 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SelfSignedCertificateCurve": "string",
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
@@ -813,7 +813,7 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -822,9 +822,9 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -840,12 +840,12 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
@@ -967,7 +967,7 @@ Skip and Take are required. TotalResults is always the real count of matching ce
         {}
       ],
       "CertificateData": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -976,9 +976,9 @@ Skip and Take are required. TotalResults is always the real count of matching ce
         "Environments-1",
         "..."
       ],
-      "HasPrivateKey": true,
+      "HasPrivateKey": false,
       "Id": "string",
-      "IsExpired": true,
+      "IsExpired": false,
       "IssuerCommonName": "string",
       "IssuerDistinguishedName": "string",
       "IssuerOrganization": "string",
@@ -994,12 +994,12 @@ Skip and Take are required. TotalResults is always the real count of matching ce
       "NotBefore": "2020-01-01T00:00:00.000Z",
       "Notes": "string",
       "Password": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
       "ReplacedBy": "string",
-      "SelfSigned": true,
+      "SelfSigned": false,
       "SerialNumber": "string",
       "SignatureAlgorithmName": "string",
       "SpaceId": "Spaces-1",
@@ -1124,7 +1124,7 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -1133,9 +1133,9 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -1151,12 +1151,12 @@ Also reachable at `/api/certificates/{id}`, `/api/spaces/{spaceIdentifier}/certi
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
@@ -1320,7 +1320,7 @@ Modifies an existing certificate
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -1329,9 +1329,9 @@ Modifies an existing certificate
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -1347,12 +1347,12 @@ Modifies an existing certificate
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
@@ -1585,7 +1585,7 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
     }
   ],
   "CertificateData": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
@@ -1594,9 +1594,9 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
     "Environments-1",
     "..."
   ],
-  "HasPrivateKey": true,
+  "HasPrivateKey": false,
   "Id": "string",
-  "IsExpired": true,
+  "IsExpired": false,
   "IssuerCommonName": "string",
   "IssuerDistinguishedName": "string",
   "IssuerOrganization": "string",
@@ -1612,12 +1612,12 @@ Also reachable at `/api/certificates/{id}/replace`, `/api/spaces/{spaceIdentifie
   "NotBefore": "2020-01-01T00:00:00.000Z",
   "Notes": "string",
   "Password": {
-    "HasValue": true,
+    "HasValue": false,
     "Hint": "string",
     "NewValue": "string"
   },
   "ReplacedBy": "string",
-  "SelfSigned": true,
+  "SelfSigned": false,
   "SerialNumber": "string",
   "SignatureAlgorithmName": "string",
   "SpaceId": "Spaces-1",
@@ -1854,11 +1854,11 @@ Get the usages of a certificate
         "Environments-1",
         "..."
       ],
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1875,7 +1875,7 @@ Get the usages of a certificate
       ],
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",
@@ -1922,26 +1922,26 @@ Get the usages of a certificate
   },
   "ProjectUsages": [
     {
-      "AllowIgnoreChannelRules": true,
-      "AutoCreateRelease": true,
+      "AllowIgnoreChannelRules": false,
+      "AutoCreateRelease": false,
       "AutoDeployReleaseOverrides": [
         {}
       ],
       "ClonedFromProjectId": "Projects-1",
-      "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+      "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
-      "DefaultToSkipIfAlreadyInstalled": true,
+      "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
-      "DiscreteChannelRelease": true,
-      "ExecuteDeploymentsOnEventBasedPipeline": true,
+      "DiscreteChannelRelease": false,
+      "ExecuteDeploymentsOnEventBasedPipeline": false,
       "ExtensionSettings": [
         {}
       ],
-      "ForcePackageDownload": true,
+      "ForcePackageDownload": false,
       "Icon": {
         "Color": "string",
         "Id": "string"
@@ -1950,9 +1950,9 @@ Get the usages of a certificate
       "IncludedLibraryVariableSetIds": [
         "string"
       ],
-      "IsBadgesEnabled": true,
-      "IsDisabled": true,
-      "IsVersionControlled": true,
+      "IsBadgesEnabled": false,
+      "IsDisabled": false,
+      "IsVersionControlled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
@@ -1966,8 +1966,8 @@ Get the usages of a certificate
         "Type": "Database"
       },
       "ProjectConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -1978,7 +1978,7 @@ Get the usages of a certificate
         "string"
       ],
       "ProjectTemplateDetails": {
-        "IsShared": true,
+        "IsShared": false,
         "Slug": "string",
         "VersionMask": "string"
       },
@@ -2013,7 +2013,7 @@ Get the usages of a certificate
         "Id": "string"
       },
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {

@@ -1,0 +1,99 @@
+---
+layout: src/layouts/Default.astro
+pubDate: 2026-08-20
+modDate: 2026-08-20
+title: Octopus API
+navTitle: Get started
+crumbTitle: API
+navOrder: 1
+apiHub: true
+description: Create releases, trigger deployments, run runbooks, and manage variables and infrastructure programmatically with the Octopus REST API.
+subtitle: The Octopus web portal is built on this API, so anything you can click, you can script. Create releases, trigger deployments, run runbooks, and manage variables and infrastructure programmatically.
+---
+import Button from 'src/components/Button.astro';
+import Card from 'src/components/Card.astro';
+import arrowUpRightIcon from 'src/assets/icons/arrow-up-right.svg';
+import goIcon from 'src/assets/icons/go.svg';
+import dotnetIcon from 'src/assets/icons/dotnet.svg';
+import typescriptIcon from 'src/assets/icons/typescript.svg';
+import slackIcon from 'src/assets/icons/slack.svg';
+import youtubeIcon from 'src/assets/icons/youtube.svg';
+
+<div class="api-hub">
+
+
+## Test endpoints
+
+Explore endpoints interactively via Swagger - served by your own instance.
+
+```text
+https://<your-octopus-url>/swaggerui/
+```
+
+:::div{.hint}
+Our docs cover the latest version of the Octopus REST API. If you're on a Long Term Support (LTS) version, some endpoints and values may differ. Use the Swagger UI served by your own instance (see above) as the source of truth for your version.
+:::
+
+## Common tasks
+
+<div class="col-3">
+
+<Card title="Create a project" description="POST /api/{spaceId}/projects" link="/docs/api/projects#create-a-new-project" />
+<Card title="Create a release" description="POST /api/{spaceId}/releases" link="/docs/api/releases#create-a-release" />
+<Card title="Create a deployment" description="POST /api/{spaceId}/deployments" link="/docs/api/deployments#create-a-deployment" />
+<Card title="Upload a package" description="POST /api/{spaceId}/packages/raw" link="/docs/api/packages#upload-a-package-to-the-built-in-package-feed" />
+<Card title="Create a new runbook" description="POST /api/{spaceId}/projects/{projectId}/runbooks" link="/docs/api/runbooks#create-a-new-runbook-or-clone-an-existing-runbook" />
+<Card title="Run a runbook" description="POST /api/{spaceId}/runbookRuns" link="/docs/api/runbook-runs#create-a-new-runbook-run-3" />
+
+</div>
+
+## API clients
+
+<div class="col-3">
+
+<Card
+  icon={goIcon.src}
+  iconColor="branded"
+  title="Go"
+  description="Go API Client for Octopus Deploy."
+  link="https://github.com/OctopusDeploy/go-octopusdeploy"
+/>
+<Card
+  icon={dotnetIcon.src}
+  iconColor="branded"
+  title=".NET"
+  description=".NET C# API Client for Octopus Deploy."
+  link="https://github.com/OctopusDeploy/OctopusClients"
+/>
+<Card
+  icon={typescriptIcon.src}
+  iconColor="branded"
+  title="Typescript"
+  description="TypeScript API Client for Octopus Deploy."
+  link="https://github.com/OctopusDeploy/api-client.ts"
+/>
+
+</div>
+
+## More resources
+
+<div class="col-2">
+
+<Card
+  icon={slackIcon.src}
+  iconColor="branded"
+  title="Join the Slack community"
+  description="Join the official Slack community to connect with other developers."
+  link="https://octopus.com/slack"
+/>
+<Card
+  icon={youtubeIcon.src}
+  iconColor="branded"
+  title="Follow us on YouTube"
+  description="Watch tutorials, discover new features, and learn best practices."
+  link="https://www.youtube.com/@OctopusDeploy"
+/>
+
+</div>
+
+</div>

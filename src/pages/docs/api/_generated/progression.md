@@ -103,11 +103,11 @@ Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdent
         "GitCommit": "string",
         "GitRef": "string"
       },
-      "HasPendingInterruptions": true,
-      "HasPendingPreconditions": true,
-      "HasWarningsOrErrors": true,
+      "HasPendingInterruptions": false,
+      "HasPendingPreconditions": false,
+      "HasWarningsOrErrors": false,
       "Id": "string",
-      "IsCompleted": true,
+      "IsCompleted": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -206,11 +206,11 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
-        "HasPendingInterruptions": true,
-        "HasPendingPreconditions": true,
-        "HasWarningsOrErrors": true,
+        "HasPendingInterruptions": false,
+        "HasPendingPreconditions": false,
+        "HasWarningsOrErrors": false,
         "Id": "string",
-        "IsCompleted": true,
+        "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {},
@@ -242,11 +242,11 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
-        "HasPendingInterruptions": true,
-        "HasPendingPreconditions": true,
-        "HasWarningsOrErrors": true,
+        "HasPendingInterruptions": false,
+        "HasPendingPreconditions": false,
+        "HasWarningsOrErrors": false,
         "Id": "string",
-        "IsCompleted": true,
+        "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {},
@@ -278,11 +278,11 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "EnvironmentId": "Environments-1",
         "ErrorMessage": "string",
         "GitReference": {},
-        "HasPendingInterruptions": true,
-        "HasPendingPreconditions": true,
-        "HasWarningsOrErrors": true,
+        "HasPendingInterruptions": false,
+        "HasPendingPreconditions": false,
+        "HasWarningsOrErrors": false,
         "Id": "string",
-        "IsCompleted": true,
+        "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {},
@@ -478,7 +478,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
   "Releases": [
     {
       "Channel": {
-        "AutomaticEphemeralEnvironmentDeployments": true,
+        "AutomaticEphemeralEnvironmentDeployments": false,
         "CustomFieldDefinitions": [
           {}
         ],
@@ -491,7 +491,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
           {}
         ],
         "Id": "string",
-        "IsDefault": true,
+        "IsDefault": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LifecycleId": "string",
@@ -520,7 +520,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
           {}
         ]
       },
-      "HasUnresolvedDefect": true,
+      "HasUnresolvedDefect": false,
       "NextDeployments": [
         "Environments-1",
         "..."
@@ -533,7 +533,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         "ChannelId": "Channels-1",
         "CustomFields": {},
         "Id": "Releases-1",
-        "IgnoreChannelRules": true,
+        "IgnoreChannelRules": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LibraryVariableSetSnapshotIds": [
@@ -557,13 +557,13 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
       },
       "ReleaseRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       }
@@ -653,7 +653,7 @@ Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spac
       {
         "Channel": {},
         "Deployments": {},
-        "HasUnresolvedDefect": true,
+        "HasUnresolvedDefect": false,
         "NextDeployments": [
           "Environments-1",
           "..."

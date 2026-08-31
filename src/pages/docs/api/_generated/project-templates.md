@@ -30,7 +30,7 @@ title: Project Templates
     "Spaces-1",
     "..."
   ],
-  "ShareToAllSpaces": true,
+  "ShareToAllSpaces": false,
   "Slug": "string"
 }
 ```
@@ -55,7 +55,7 @@ title: Project Templates
     "Spaces-1",
     "..."
   ],
-  "SharedToAllSpaces": true
+  "SharedToAllSpaces": false
 }
 ```
 :::

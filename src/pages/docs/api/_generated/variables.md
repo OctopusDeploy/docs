@@ -61,7 +61,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 {
   "Branch": "string",
   "CommitMessage": "string",
-  "CreateBranch": true,
+  "CreateBranch": false,
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
 }
@@ -218,14 +218,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -419,14 +419,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/variables`
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -650,14 +650,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -854,14 +854,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/{gitRef}/v
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -1056,8 +1056,8 @@ Lists all the Variable Sets in the supplied Space.
       {
         "Description": "string",
         "Id": "string",
-        "IsEditable": true,
-        "IsSensitive": true,
+        "IsEditable": false,
+        "IsSensitive": false,
         "Name": "string",
         "Prompt": {},
         "Scope": {},
@@ -1268,14 +1268,14 @@ Lists the evaluated Variables for a deployment.
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -1488,14 +1488,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -1705,14 +1705,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [
@@ -1912,14 +1912,14 @@ Also reachable at `/api/spaces/{spaceIdentifier}/variables/{id}`, `/api/variable
     {
       "Description": "string",
       "Id": "string",
-      "IsEditable": true,
-      "IsSensitive": true,
+      "IsEditable": false,
+      "IsSensitive": false,
       "Name": "string",
       "Prompt": {
         "Description": "string",
         "DisplaySettings": {},
         "Label": "string",
-        "Required": true
+        "Required": false
       },
       "Scope": {
         "Action": [

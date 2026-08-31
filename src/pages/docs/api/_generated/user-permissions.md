@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-25
 title: User Permissions
 ---
 
@@ -195,8 +195,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
 ```json
 {
   "Id": "string",
-  "IsPermissionsComplete": true,
-  "IsTeamsComplete": true,
+  "IsPermissionsComplete": false,
+  "IsTeamsComplete": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -2995,7 +2995,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions`, `/api/
         {}
       ],
       "Id": "string",
-      "IsDirectlyAssigned": true,
+      "IsDirectlyAssigned": false,
       "Name": "string",
       "SpaceId": "Spaces-1"
     }
@@ -3198,8 +3198,8 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
 ```json
 {
   "Id": "string",
-  "IsPermissionsComplete": true,
-  "IsTeamsComplete": true,
+  "IsPermissionsComplete": false,
+  "IsTeamsComplete": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -5998,7 +5998,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/users/{id}/permissions/configur
         {}
       ],
       "Id": "string",
-      "IsDirectlyAssigned": true,
+      "IsDirectlyAssigned": false,
       "Name": "string",
       "SpaceId": "Spaces-1"
     }

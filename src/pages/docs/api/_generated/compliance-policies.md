@@ -55,7 +55,7 @@ title: Compliance Policies
     "GitCommit": "string",
     "GitRef": "string",
     "Id": "string",
-    "IsActive": true,
+    "IsActive": false,
     "Name": "string",
     "PublishedDate": "2020-01-01T00:00:00.000Z",
     "RegoConditions": "string",
@@ -127,7 +127,7 @@ title: Compliance Policies
       "GitCommit": "string",
       "GitRef": "string",
       "Id": "string",
-      "IsActive": true,
+      "IsActive": false,
       "Name": "string",
       "PublishedDate": "2020-01-01T00:00:00.000Z",
       "RegoConditions": "string",
@@ -166,7 +166,7 @@ title: Compliance Policies
 :::api-example{label="Request"}
 ```json
 {
-  "IsActive": true,
+  "IsActive": false,
   "Slug": "string",
   "Version": "string"
 }
@@ -207,7 +207,7 @@ title: Compliance Policies
   "GitCommit": "string",
   "GitRef": "string",
   "Id": "string",
-  "IsActive": true,
+  "IsActive": false,
   "Name": "string",
   "PublishedDate": "2020-01-01T00:00:00.000Z",
   "RegoConditions": "string",
@@ -536,7 +536,7 @@ title: Compliance Policies
   "GitCommit": "string",
   "GitRef": "string",
   "Id": "string",
-  "IsActive": true,
+  "IsActive": false,
   "Name": "string",
   "PublishedDate": "2020-01-01T00:00:00.000Z",
   "RegoConditions": "string",

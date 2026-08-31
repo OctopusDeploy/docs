@@ -98,7 +98,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
         "WebhookURI": "https://example.com"
       },
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -229,9 +229,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -245,7 +245,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "WebhookTimeout": "string",
     "WebhookURI": "https://example.com"
   },
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "SpaceId": "Spaces-1"
 }
@@ -354,9 +354,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "SlackFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -371,7 +371,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
     "WebhookURI": "https://example.com"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -502,7 +502,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
       "SlackFrequencyPeriod": "string",
       "WebhookHeaderKey": "string",
       "WebhookHeaderValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -515,7 +515,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
       "WebhookURI": "https://example.com"
     },
     "Id": "string",
-    "IsDisabled": true,
+    "IsDisabled": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -646,9 +646,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -663,7 +663,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "WebhookURI": "https://example.com"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -787,9 +787,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -804,7 +804,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "WebhookURI": "https://example.com"
   },
   "Id": "Subscriptions-1",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "SpaceId": "Spaces-1",
   "Type": "Event"
@@ -914,9 +914,9 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "SlackFrequencyPeriod": "string",
     "WebhookHeaderKey": "string",
     "WebhookHeaderValue": {
-      "IsSensitive": true,
+      "IsSensitive": false,
       "SensitiveValue": {
-        "HasValue": true,
+        "HasValue": false,
         "Hint": "string",
         "NewValue": "string"
       },
@@ -931,7 +931,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
     "WebhookURI": "https://example.com"
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

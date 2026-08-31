@@ -36,7 +36,7 @@ title: Smtp
   "Details": {
     "CredentialType": "string"
   },
-  "EnableSsl": true,
+  "EnableSsl": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -74,7 +74,7 @@ title: Smtp
   "Details": {
     "CredentialType": "string"
   },
-  "EnableSsl": true,
+  "EnableSsl": false,
   "SendEmailFrom": "string",
   "SmtpHost": "string",
   "SmtpPort": 0,
@@ -110,7 +110,7 @@ title: Smtp
   "Details": {
     "CredentialType": "string"
   },
-  "EnableSsl": true,
+  "EnableSsl": false,
   "Id": "string",
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
@@ -149,7 +149,7 @@ title: Smtp
 ```json
 {
   "Id": "string",
-  "IsConfigured": true,
+  "IsConfigured": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -185,7 +185,7 @@ title: Smtp
 {
   "SmtpIsConfigured": {
     "Id": "string",
-    "IsConfigured": true,
+    "IsConfigured": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -230,7 +230,7 @@ title: Smtp
     "Details": {
       "CredentialType": "string"
     },
-    "EnableSsl": true,
+    "EnableSsl": false,
     "Id": "string",
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",

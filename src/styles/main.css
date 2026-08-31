@@ -1617,6 +1617,16 @@ a[data-youtube] {
   padding-block-start: var(--space32);
 }
 
+.page-content:has(> :is(a, button, h1, h2, h3, h4, h5, h6):first-child),
+.page-content:has(
+  > .api-hub > :is(a, button, h1, h2, h3, h4, h5, h6):first-child
+) {
+  /* The API hub page's content nests inside .api-hub (see api.css) rather
+     than sitting directly in .page-content, so its own first child needs
+     checking too. */
+  padding-block-start: var(--space0);
+}
+
 /* Paging */
 
 .post-paging {

@@ -94,7 +94,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
         "Links": {}
       },
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -196,7 +196,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
       "additionalProp3": "string"
     }
   },
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
@@ -271,7 +271,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -368,7 +368,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -464,7 +464,7 @@ Updates an existing project trigger
     }
   },
   "Id": "ProjectTriggers-1",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
@@ -539,7 +539,7 @@ Updates an existing project trigger
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -658,7 +658,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
         "Links": {}
       },
       "Id": "string",
-      "IsDisabled": true,
+      "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -758,7 +758,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
       "additionalProp3": "string"
     }
   },
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
@@ -833,7 +833,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -928,7 +928,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1022,7 +1022,7 @@ Updates an existing project trigger
     }
   },
   "Id": "ProjectTriggers-1",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "Name": "string",
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
@@ -1097,7 +1097,7 @@ Updates an existing project trigger
     }
   },
   "Id": "string",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

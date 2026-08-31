@@ -85,7 +85,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
     {
       "Description": "string",
       "Id": "string",
-      "IsSystem": true,
+      "IsSystem": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -224,7 +224,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
 {
   "Description": "string",
   "Id": "string",
-  "IsSystem": true,
+  "IsSystem": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -313,7 +313,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
   {
     "Description": "string",
     "Id": "string",
-    "IsSystem": true,
+    "IsSystem": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -426,7 +426,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 {
   "Description": "string",
   "Id": "string",
-  "IsSystem": true,
+  "IsSystem": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -564,7 +564,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
 {
   "Description": "string",
   "Id": "string",
-  "IsSystem": true,
+  "IsSystem": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

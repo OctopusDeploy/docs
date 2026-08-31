@@ -94,20 +94,20 @@ title: Telemetry
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "CanRerun": true,
+  "CanRerun": false,
   "Completed": "string",
   "CompletedTime": "2020-01-01T00:00:00.000Z",
   "Description": "string",
   "Duration": "string",
   "ErrorMessage": "string",
   "EstimatedRemainingQueueDurationSeconds": 0,
-  "FinishedSuccessfully": true,
-  "HasBeenPickedUpByProcessor": true,
-  "HasPendingInterruptions": true,
-  "HasPendingPreconditions": true,
-  "HasWarningsOrErrors": true,
+  "FinishedSuccessfully": false,
+  "HasBeenPickedUpByProcessor": false,
+  "HasPendingInterruptions": false,
+  "HasPendingPreconditions": false,
+  "HasWarningsOrErrors": false,
   "Id": "string",
-  "IsCompleted": true,
+  "IsCompleted": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUpdatedTime": "2020-01-01T00:00:00.000Z",
@@ -158,9 +158,9 @@ title: Telemetry
 :::api-example{label="Response"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "Id": "string",
-  "IsTelemetryEnforced": true,
+  "IsTelemetryEnforced": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -195,9 +195,9 @@ title: Telemetry
 :::api-example{label="Request"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "Id": "string",
-  "IsTelemetryEnforced": true,
+  "IsTelemetryEnforced": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -230,9 +230,9 @@ title: Telemetry
 :::api-example{label="Response"}
 ```json
 {
-  "Enabled": true,
+  "Enabled": false,
   "Id": "string",
-  "IsTelemetryEnforced": true,
+  "IsTelemetryEnforced": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

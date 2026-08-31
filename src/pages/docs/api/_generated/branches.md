@@ -68,7 +68,7 @@ Also reachable at `/api/projects/{projectId}/git/branches`, `/api/spaces/{spaceI
     {
       "CanonicalName": "string",
       "Id": "string",
-      "IsProtected": true,
+      "IsProtected": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -149,7 +149,7 @@ Also reachable at `/api/projects/{projectId}/git/branches/v2`, `/api/spaces/{spa
 {
   "CanonicalName": "string",
   "Id": "string",
-  "IsProtected": true,
+  "IsProtected": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -202,7 +202,7 @@ Gets a named version control branch for a project.
 {
   "CanonicalName": "string",
   "Id": "string",
-  "IsProtected": true,
+  "IsProtected": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -306,7 +306,7 @@ Gets a named version control reference for a project.
 {
   "CanonicalName": "string",
   "Id": "string",
-  "IsProtected": true,
+  "IsProtected": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

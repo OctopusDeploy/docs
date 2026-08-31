@@ -32,9 +32,9 @@ title: Upgrade
 :::api-example{label="Response"}
 ```json
 {
-  "AllowChecking": true,
+  "AllowChecking": false,
   "Id": "string",
-  "IncludeStatistics": true,
+  "IncludeStatistics": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -64,8 +64,8 @@ title: Upgrade
 :::api-example{label="Request"}
 ```json
 {
-  "AllowChecking": true,
-  "IncludeStatistics": true,
+  "AllowChecking": false,
+  "IncludeStatistics": false,
   "NotificationMode": "AlwaysShow"
 }
 ```
@@ -94,9 +94,9 @@ title: Upgrade
 :::api-example{label="Response"}
 ```json
 {
-  "AllowChecking": true,
+  "AllowChecking": false,
   "Id": "string",
-  "IncludeStatistics": true,
+  "IncludeStatistics": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {

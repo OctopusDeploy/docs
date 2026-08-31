@@ -96,7 +96,7 @@ Releases will be ordered from most recent to least recent,
         "additionalProp3": "string"
       },
       "Id": "Releases-1",
-      "IgnoreChannelRules": true,
+      "IgnoreChannelRules": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LibraryVariableSetSnapshotIds": [
@@ -233,7 +233,7 @@ Releases will be ordered from most recent to least recent,
         "additionalProp3": "string"
       },
       "Id": "Releases-1",
-      "IgnoreChannelRules": true,
+      "IgnoreChannelRules": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LibraryVariableSetSnapshotIds": [
@@ -368,7 +368,7 @@ Releases will be ordered from most recent to least recent
         "additionalProp3": "string"
       },
       "Id": "Releases-1",
-      "IgnoreChannelRules": true,
+      "IgnoreChannelRules": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LibraryVariableSetSnapshotIds": [
@@ -523,8 +523,8 @@ Also reachable at `/api/projects/{projectId}/releases/{id}/variables`, `/api/spa
       {
         "Description": "string",
         "Id": "string",
-        "IsEditable": true,
-        "IsSensitive": true,
+        "IsEditable": false,
+        "IsSensitive": false,
         "Name": "string",
         "Prompt": {},
         "Scope": {},
@@ -642,7 +642,7 @@ Also reachable at `/api/projects/{projectId}/releases/{version}`, `/api/spaces/{
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [
@@ -772,7 +772,7 @@ Lists all of the Releases in the supplied Octopus Deploy Space, from all project
         "additionalProp3": "string"
       },
       "Id": "Releases-1",
-      "IgnoreChannelRules": true,
+      "IgnoreChannelRules": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LibraryVariableSetSnapshotIds": [
@@ -866,7 +866,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "ProjectId": "Projects-1",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -987,7 +987,7 @@ Also reachable at `/api/releases`, `/api/spaces/{spaceIdentifier}/releases`.
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [
@@ -1087,8 +1087,8 @@ Also reachable at `/api/releases/create/v1`, `/api/spaces/{spaceIdentifier}/rele
   "GitResources": [
     "string"
   ],
-  "IgnoreChannelRules": true,
-  "IgnoreIfAlreadyExists": true,
+  "IgnoreChannelRules": false,
+  "IgnoreIfAlreadyExists": false,
   "PackagePrerelease": "string",
   "PackageVersion": "string",
   "Packages": [
@@ -1222,7 +1222,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [
@@ -1313,7 +1313,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "ProjectId": "Projects-1",
   "ReleaseNotes": "string",
   "SelectedGitResources": [
@@ -1429,7 +1429,7 @@ Also reachable at `/api/releases/{id}`, `/api/spaces/{spaceIdentifier}/releases/
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [
@@ -1542,10 +1542,10 @@ Also reachable at `/api/releases/{id}/deployments/template`, `/api/spaces/{space
 {
   "DeploymentNotes": "string",
   "Id": "string",
-  "IsDeploymentProcessModified": true,
-  "IsGitResourceModified": true,
-  "IsLibraryVariableSetModified": true,
-  "IsVariableSetModified": true,
+  "IsDeploymentProcessModified": false,
+  "IsGitResourceModified": false,
+  "IsLibraryVariableSetModified": false,
+  "IsVariableSetModified": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1905,10 +1905,10 @@ Deployments will be ordered from most recent to least recent.
           {}
         ]
       },
-      "FailTargetDiscovery": true,
-      "FailureEncountered": true,
-      "ForcePackageDownload": true,
-      "ForcePackageRedeployment": true,
+      "FailTargetDiscovery": false,
+      "FailureEncountered": false,
+      "ForcePackageDownload": false,
+      "ForcePackageRedeployment": false,
       "FormValues": {
         "additionalProp1": "string",
         "additionalProp2": "string",
@@ -1943,11 +1943,11 @@ Deployments will be ordered from most recent to least recent.
       "TenantId": "Tenants-1",
       "TentacleRetentionPeriod": {
         "QuantityToKeep": 0,
-        "ShouldKeepForever": true,
+        "ShouldKeepForever": false,
         "Strategy": "string",
         "Unit": "Days"
       },
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -2051,7 +2051,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
     "Elements": [
       {
         "Control": {},
-        "IsValueRequired": true,
+        "IsValueRequired": false,
         "Name": "string"
       }
     ],
@@ -2077,12 +2077,12 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
       "AvailableTagSets": [
         {}
       ],
-      "CanBeSkipped": true,
+      "CanBeSkipped": false,
       "ExcludedMachines": [
         {}
       ],
-      "HasNoApplicableMachines": true,
-      "IsDisabled": true,
+      "HasNoApplicableMachines": false,
+      "IsDisabled": false,
       "MachineNames": [
         "string"
       ],
@@ -2097,7 +2097,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/preview/{environmentId}
       ]
     }
   ],
-  "UseGuidedFailureModeByDefault": true
+  "UseGuidedFailureModeByDefault": false
 }
 ```
 :::
@@ -2137,7 +2137,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
       "TenantId": "Tenants-1"
     }
   ],
-  "IncludeDisabledSteps": true,
+  "IncludeDisabledSteps": false,
   "ReleaseId": "Releases-1",
   "SpaceId": "Spaces-1"
 }
@@ -2231,12 +2231,12 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
         "AvailableTagSets": [
           {}
         ],
-        "CanBeSkipped": true,
+        "CanBeSkipped": false,
         "ExcludedMachines": [
           {}
         ],
-        "HasNoApplicableMachines": true,
-        "IsDisabled": true,
+        "HasNoApplicableMachines": false,
+        "IsDisabled": false,
         "MachineNames": [
           "string"
         ],
@@ -2251,7 +2251,7 @@ Also reachable at `/api/releases/{releaseId}/deployments/previews`, `/api/spaces
         ]
       }
     ],
-    "UseGuidedFailureModeByDefault": true
+    "UseGuidedFailureModeByDefault": false
   }
 ]
 ```
@@ -2353,13 +2353,13 @@ Also reachable at `/api/releases/{releaseId}/progression`, `/api/spaces/{spaceId
         "Environments-1",
         "..."
       ],
-      "Blocked": true,
+      "Blocked": false,
       "Deployments": [
         {}
       ],
       "Id": "string",
-      "IsOptionalPhase": true,
-      "IsPriorityPhase": true,
+      "IsOptionalPhase": false,
+      "IsPriorityPhase": false,
       "MinimumEnvironmentsBeforePromotion": 0,
       "Name": "string",
       "OptionalDeploymentTargets": [
@@ -2496,7 +2496,7 @@ Only the release notes are changed and everything else about the Release is left
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [
@@ -2658,7 +2658,7 @@ Also reachable at `/api/releases/{releaseId}/snapshot-variables`, `/api/spaces/{
     "additionalProp3": "string"
   },
   "Id": "Releases-1",
-  "IgnoreChannelRules": true,
+  "IgnoreChannelRules": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LibraryVariableSetSnapshotIds": [

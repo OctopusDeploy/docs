@@ -103,11 +103,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {}
       },
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -121,7 +121,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       "OperatingSystemVersion": "string",
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",
@@ -200,10 +200,10 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       "additionalProp3": "string"
     }
   },
-  "IsDisabled": true,
+  "IsDisabled": false,
   "MachinePolicyId": "MachinePolicies-1",
   "Name": "string",
-  "SkipInitialHealthCheck": true,
+  "SkipInitialHealthCheck": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "WorkerPoolIds": [
@@ -273,11 +273,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
       "additionalProp3": "string"
     }
   },
-  "HasLatestCalamari": true,
+  "HasLatestCalamari": false,
   "HealthStatus": "Healthy",
   "Id": "string",
-  "IsDisabled": true,
-  "IsInProcess": true,
+  "IsDisabled": false,
+  "IsInProcess": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -291,7 +291,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
   "OperatingSystemVersion": "string",
   "ShellName": "string",
   "ShellVersion": "string",
-  "SkipInitialHealthCheck": true,
+  "SkipInitialHealthCheck": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "StatusSummary": "string",
@@ -385,11 +385,11 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
         "additionalProp3": "string"
       }
     },
-    "HasLatestCalamari": true,
+    "HasLatestCalamari": false,
     "HealthStatus": "Healthy",
     "Id": "string",
-    "IsDisabled": true,
-    "IsInProcess": true,
+    "IsDisabled": false,
+    "IsInProcess": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -403,7 +403,7 @@ Lists all of the Workers in the supplied Space. The results will be sorted alpha
     "OperatingSystemVersion": "string",
     "ShellName": "string",
     "ShellVersion": "string",
-    "SkipInitialHealthCheck": true,
+    "SkipInitialHealthCheck": false,
     "Slug": "string",
     "SpaceId": "Spaces-1",
     "StatusSummary": "string",
@@ -500,11 +500,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
       "additionalProp3": "string"
     }
   },
-  "HasLatestCalamari": true,
+  "HasLatestCalamari": false,
   "HealthStatus": "Healthy",
   "Id": "string",
-  "IsDisabled": true,
-  "IsInProcess": true,
+  "IsDisabled": false,
+  "IsInProcess": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -518,7 +518,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/discover`, `/api/worker
   "OperatingSystemVersion": "string",
   "ShellName": "string",
   "ShellVersion": "string",
-  "SkipInitialHealthCheck": true,
+  "SkipInitialHealthCheck": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "StatusSummary": "string",
@@ -638,11 +638,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
       {
         "Architecture": "string",
         "Endpoint": {},
-        "HasLatestCalamari": true,
+        "HasLatestCalamari": false,
         "HealthStatus": "Healthy",
         "Id": "string",
-        "IsDisabled": true,
-        "IsInProcess": true,
+        "IsDisabled": false,
+        "IsInProcess": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "Links": {},
@@ -652,7 +652,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
         "OperatingSystemVersion": "string",
         "ShellName": "string",
         "ShellVersion": "string",
-        "SkipInitialHealthCheck": true,
+        "SkipInitialHealthCheck": false,
         "Slug": "string",
         "SpaceId": "Spaces-1",
         "StatusSummary": "string",
@@ -745,11 +745,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
       "additionalProp3": "string"
     }
   },
-  "HasLatestCalamari": true,
+  "HasLatestCalamari": false,
   "HealthStatus": "Healthy",
   "Id": "string",
-  "IsDisabled": true,
-  "IsInProcess": true,
+  "IsDisabled": false,
+  "IsInProcess": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -763,7 +763,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "OperatingSystemVersion": "string",
   "ShellName": "string",
   "ShellVersion": "string",
-  "SkipInitialHealthCheck": true,
+  "SkipInitialHealthCheck": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "StatusSummary": "string",
@@ -833,7 +833,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
     }
   },
   "Id": "Machines-1",
-  "IsDisabled": true,
+  "IsDisabled": false,
   "MachinePolicyId": "MachinePolicies-1",
   "Name": "string",
   "Slug": "string",
@@ -905,11 +905,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
       "additionalProp3": "string"
     }
   },
-  "HasLatestCalamari": true,
+  "HasLatestCalamari": false,
   "HealthStatus": "Healthy",
   "Id": "string",
-  "IsDisabled": true,
-  "IsInProcess": true,
+  "IsDisabled": false,
+  "IsInProcess": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -923,7 +923,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/{id}`, `/api/workers/{i
   "OperatingSystemVersion": "string",
   "ShellName": "string",
   "ShellVersion": "string",
-  "SkipInitialHealthCheck": true,
+  "SkipInitialHealthCheck": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "StatusSummary": "string",

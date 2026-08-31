@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-01-01
+modDate: 2026-08-20
 title: Polling Tentacles with HA
 description: With Octopus High Availability, Polling Tentacles must poll all Octopus Server nodes in your configuration.
 navOrder: 50
@@ -68,21 +68,29 @@ The important thing to remember is that each node should be using the **same add
 
 ## Registering Polling Tentacles
 
-There are two options to add Octopus Servers to a Polling Tentacle, via the command-line or via editing the Tentacle.config file directly.
+There are two options to add Octopus Servers to a Polling Tentacle: the command line, or editing the Tentacle.config file directly.
+
+Both methods need the Tentacle service restarted afterwards. A running Tentacle doesn't pick up a new server address until it restarts.
 
 **Command line:**
 
-Configuring a Polling Tentacle via the command-line is the preferred option with the command executed once per server; an example command using the default instance can be seen below:
+The command line is the preferred option. Run the command once per server; an example command using the default instance can be seen below:
 
 ```text
 C:\Program Files\Octopus Deploy\Tentacle>Tentacle poll-server --server=https://your-octopus-url --apikey=API-YOUR-KEY
 ```
 
-For more information on this command please refer to the [Tentacle Poll Server command line options](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server).
+Once you've added every node in your cluster, restart the Tentacle service:
+
+```text
+C:\Program Files\Octopus Deploy\Tentacle>Tentacle service --restart
+```
+
+For more information on these commands, see the [Tentacle poll-server](/docs/octopus-rest-api/tentacle.exe-command-line/poll-server) and [Tentacle service](/docs/octopus-rest-api/tentacle.exe-command-line/service) command line options.
 
 **Tentacle.config:**
 
-Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method is not recommended as the Tentacle service for each server will need to be restarted to accept incoming connections via this method.
+Alternatively you can edit Tentacle.config directly to add each Octopus Server (this is interpreted as a JSON array of servers). This method isn't recommended, as editing the JSON array by hand is error-prone. Restart the Tentacle service after you've saved your changes.
 
 ```xml
 <set key="Tentacle.Communication.TrustedOctopusServers">

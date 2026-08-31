@@ -104,26 +104,26 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "ItemType": "string",
   "Items": [
     {
-      "AllowIgnoreChannelRules": true,
-      "AutoCreateRelease": true,
+      "AllowIgnoreChannelRules": false,
+      "AutoCreateRelease": false,
       "AutoDeployReleaseOverrides": [
         {}
       ],
       "ClonedFromProjectId": "Projects-1",
-      "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+      "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
       "DefaultGuidedFailureMode": "EnvironmentDefault",
       "DefaultPowerShellEdition": "string",
-      "DefaultToSkipIfAlreadyInstalled": true,
+      "DefaultToSkipIfAlreadyInstalled": false,
       "DeploymentChangesTemplate": "string",
       "DeploymentProcessId": "string",
       "DeprovisioningRunbookId": "Runbooks-1",
       "Description": "string",
-      "DiscreteChannelRelease": true,
-      "ExecuteDeploymentsOnEventBasedPipeline": true,
+      "DiscreteChannelRelease": false,
+      "ExecuteDeploymentsOnEventBasedPipeline": false,
       "ExtensionSettings": [
         {}
       ],
-      "ForcePackageDownload": true,
+      "ForcePackageDownload": false,
       "Icon": {
         "Color": "string",
         "Id": "string"
@@ -132,9 +132,9 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
       "IncludedLibraryVariableSetIds": [
         "string"
       ],
-      "IsBadgesEnabled": true,
-      "IsDisabled": true,
-      "IsVersionControlled": true,
+      "IsBadgesEnabled": false,
+      "IsDisabled": false,
+      "IsVersionControlled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
@@ -148,8 +148,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
         "Type": "Database"
       },
       "ProjectConnectivityPolicy": {
-        "AllowDeploymentsToNoTargets": true,
-        "ExcludeUnhealthyTargets": true,
+        "AllowDeploymentsToNoTargets": false,
+        "ExcludeUnhealthyTargets": false,
         "SkipMachineBehavior": "None",
         "TargetRoles": [
           "string"
@@ -160,7 +160,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
         "string"
       ],
       "ProjectTemplateDetails": {
-        "IsShared": true,
+        "IsShared": false,
         "Slug": "string",
         "VersionMask": "string"
       },
@@ -274,8 +274,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 :::api-example{label="Request"}
 ```json
 {
-  "AllowIgnoreChannelRules": true,
-  "AutoCreateRelease": true,
+  "AllowIgnoreChannelRules": false,
+  "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
       "EnvironmentId": "string",
@@ -284,32 +284,32 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     }
   ],
   "Clone": "Projects-1",
-  "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+  "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
   "Description": "string",
-  "DiscreteChannelRelease": true,
-  "ExecuteDeploymentsOnEventBasedPipeline": true,
+  "DiscreteChannelRelease": false,
+  "ExecuteDeploymentsOnEventBasedPipeline": false,
   "ExtensionSettings": [
     {
       "ExtensionId": "string",
       "Values": "string"
     }
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "IncludedLibraryVariableSetIds": [
     "string"
   ],
-  "IsDisabled": true,
+  "IsDisabled": false,
   "LifecycleId": "Lifecycles-1",
   "Name": "string",
   "PersistenceSettings": {
     "Type": "Database"
   },
   "ProjectConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -327,13 +327,13 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     }
   },
   "ReleaseNotesTemplate": "string",
-  "RetainTenantConnections": true,
+  "RetainTenantConnections": false,
   "Slug": "string",
   "SpaceId": "Spaces-1",
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -448,8 +448,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 :::api-example{label="Response"}
 ```json
 {
-  "AllowIgnoreChannelRules": true,
-  "AutoCreateRelease": true,
+  "AllowIgnoreChannelRules": false,
+  "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
       "EnvironmentId": "string",
@@ -458,23 +458,23 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     }
   ],
   "ClonedFromProjectId": "Projects-1",
-  "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+  "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
-  "DiscreteChannelRelease": true,
-  "ExecuteDeploymentsOnEventBasedPipeline": true,
+  "DiscreteChannelRelease": false,
+  "ExecuteDeploymentsOnEventBasedPipeline": false,
   "ExtensionSettings": [
     {
       "ExtensionId": "string",
       "Values": "string"
     }
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "Icon": {
     "Color": "string",
     "Id": "string"
@@ -483,9 +483,9 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "IncludedLibraryVariableSetIds": [
     "string"
   ],
-  "IsBadgesEnabled": true,
-  "IsDisabled": true,
-  "IsVersionControlled": true,
+  "IsBadgesEnabled": false,
+  "IsDisabled": false,
+  "IsVersionControlled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -499,8 +499,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     "Type": "Database"
   },
   "ProjectConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -511,7 +511,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
     "string"
   ],
   "ProjectTemplateDetails": {
-    "IsShared": true,
+    "IsShared": false,
     "Slug": "string",
     "VersionMask": "string"
   },
@@ -529,7 +529,7 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -662,8 +662,8 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
 ```json
 [
   {
-    "AllowIgnoreChannelRules": true,
-    "AutoCreateRelease": true,
+    "AllowIgnoreChannelRules": false,
+    "AutoCreateRelease": false,
     "AutoDeployReleaseOverrides": [
       {
         "EnvironmentId": "string",
@@ -672,23 +672,23 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
       }
     ],
     "ClonedFromProjectId": "Projects-1",
-    "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+    "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
     "DefaultGuidedFailureMode": "EnvironmentDefault",
     "DefaultPowerShellEdition": "string",
-    "DefaultToSkipIfAlreadyInstalled": true,
+    "DefaultToSkipIfAlreadyInstalled": false,
     "DeploymentChangesTemplate": "string",
     "DeploymentProcessId": "string",
     "DeprovisioningRunbookId": "Runbooks-1",
     "Description": "string",
-    "DiscreteChannelRelease": true,
-    "ExecuteDeploymentsOnEventBasedPipeline": true,
+    "DiscreteChannelRelease": false,
+    "ExecuteDeploymentsOnEventBasedPipeline": false,
     "ExtensionSettings": [
       {
         "ExtensionId": "string",
         "Values": "string"
       }
     ],
-    "ForcePackageDownload": true,
+    "ForcePackageDownload": false,
     "Icon": {
       "Color": "string",
       "Id": "string"
@@ -697,9 +697,9 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
     "IncludedLibraryVariableSetIds": [
       "string"
     ],
-    "IsBadgesEnabled": true,
-    "IsDisabled": true,
-    "IsVersionControlled": true,
+    "IsBadgesEnabled": false,
+    "IsDisabled": false,
+    "IsVersionControlled": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LifecycleId": "string",
@@ -713,8 +713,8 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
       "Type": "Database"
     },
     "ProjectConnectivityPolicy": {
-      "AllowDeploymentsToNoTargets": true,
-      "ExcludeUnhealthyTargets": true,
+      "AllowDeploymentsToNoTargets": false,
+      "ExcludeUnhealthyTargets": false,
       "SkipMachineBehavior": "None",
       "TargetRoles": [
         "string"
@@ -725,7 +725,7 @@ Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/a
       "string"
     ],
     "ProjectTemplateDetails": {
-      "IsShared": true,
+      "IsShared": false,
       "Slug": "string",
       "VersionMask": "string"
     },
@@ -887,8 +887,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
 :::api-example{label="Response"}
 ```json
 {
-  "AllowIgnoreChannelRules": true,
-  "AutoCreateRelease": true,
+  "AllowIgnoreChannelRules": false,
+  "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
       "EnvironmentId": "string",
@@ -897,23 +897,23 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     }
   ],
   "ClonedFromProjectId": "Projects-1",
-  "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+  "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
-  "DiscreteChannelRelease": true,
-  "ExecuteDeploymentsOnEventBasedPipeline": true,
+  "DiscreteChannelRelease": false,
+  "ExecuteDeploymentsOnEventBasedPipeline": false,
   "ExtensionSettings": [
     {
       "ExtensionId": "string",
       "Values": "string"
     }
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "Icon": {
     "Color": "string",
     "Id": "string"
@@ -922,9 +922,9 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   "IncludedLibraryVariableSetIds": [
     "string"
   ],
-  "IsBadgesEnabled": true,
-  "IsDisabled": true,
-  "IsVersionControlled": true,
+  "IsBadgesEnabled": false,
+  "IsDisabled": false,
+  "IsVersionControlled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -938,8 +938,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     "Type": "Database"
   },
   "ProjectConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -950,7 +950,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
     "string"
   ],
   "ProjectTemplateDetails": {
-    "IsShared": true,
+    "IsShared": false,
     "Slug": "string",
     "VersionMask": "string"
   },
@@ -968,7 +968,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/projects/{projectId}/{unuse
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -1082,8 +1082,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 :::api-example{label="Request"}
 ```json
 {
-  "AllowIgnoreChannelRules": true,
-  "AutoCreateRelease": true,
+  "AllowIgnoreChannelRules": false,
+  "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
       "EnvironmentId": "string",
@@ -1093,35 +1093,35 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   ],
   "ChangeDescription": "string",
   "ClonedFromProjectId": "Projects-1",
-  "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+  "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
-  "DiscreteChannelRelease": true,
-  "ExecuteDeploymentsOnEventBasedPipeline": true,
+  "DiscreteChannelRelease": false,
+  "ExecuteDeploymentsOnEventBasedPipeline": false,
   "ExtensionSettings": [
     {
       "ExtensionId": "string",
       "Values": "string"
     }
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "IncludedLibraryVariableSetIds": [
     "string"
   ],
-  "IsBadgesEnabled": true,
-  "IsDisabled": true,
+  "IsBadgesEnabled": false,
+  "IsDisabled": false,
   "LifecycleId": "Lifecycles-1",
   "Name": "string",
   "PersistenceSettings": {
     "Type": "Database"
   },
   "ProjectConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -1146,7 +1146,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -1261,8 +1261,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
 :::api-example{label="Response"}
 ```json
 {
-  "AllowIgnoreChannelRules": true,
-  "AutoCreateRelease": true,
+  "AllowIgnoreChannelRules": false,
+  "AutoCreateRelease": false,
   "AutoDeployReleaseOverrides": [
     {
       "EnvironmentId": "string",
@@ -1271,23 +1271,23 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     }
   ],
   "ClonedFromProjectId": "Projects-1",
-  "CombineHealthAndSyncStatusInDashboardLiveStatus": true,
+  "CombineHealthAndSyncStatusInDashboardLiveStatus": false,
   "DefaultGuidedFailureMode": "EnvironmentDefault",
   "DefaultPowerShellEdition": "string",
-  "DefaultToSkipIfAlreadyInstalled": true,
+  "DefaultToSkipIfAlreadyInstalled": false,
   "DeploymentChangesTemplate": "string",
   "DeploymentProcessId": "string",
   "DeprovisioningRunbookId": "Runbooks-1",
   "Description": "string",
-  "DiscreteChannelRelease": true,
-  "ExecuteDeploymentsOnEventBasedPipeline": true,
+  "DiscreteChannelRelease": false,
+  "ExecuteDeploymentsOnEventBasedPipeline": false,
   "ExtensionSettings": [
     {
       "ExtensionId": "string",
       "Values": "string"
     }
   ],
-  "ForcePackageDownload": true,
+  "ForcePackageDownload": false,
   "Icon": {
     "Color": "string",
     "Id": "string"
@@ -1296,9 +1296,9 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "IncludedLibraryVariableSetIds": [
     "string"
   ],
-  "IsBadgesEnabled": true,
-  "IsDisabled": true,
-  "IsVersionControlled": true,
+  "IsBadgesEnabled": false,
+  "IsDisabled": false,
+  "IsVersionControlled": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
@@ -1312,8 +1312,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     "Type": "Database"
   },
   "ProjectConnectivityPolicy": {
-    "AllowDeploymentsToNoTargets": true,
-    "ExcludeUnhealthyTargets": true,
+    "AllowDeploymentsToNoTargets": false,
+    "ExcludeUnhealthyTargets": false,
     "SkipMachineBehavior": "None",
     "TargetRoles": [
       "string"
@@ -1324,7 +1324,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
     "string"
   ],
   "ProjectTemplateDetails": {
-    "IsShared": true,
+    "IsShared": false,
     "Slug": "string",
     "VersionMask": "string"
   },
@@ -1342,7 +1342,7 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   "Templates": [
     {
       "DefaultValue": {
-        "IsSensitive": true,
+        "IsSensitive": false,
         "SensitiveValue": {},
         "Value": "string"
       },
@@ -1494,8 +1494,8 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
   "VersionControlSettings": {
     "BasePath": "string",
     "ConversionState": {
-      "RunbooksAreInGit": true,
-      "VariablesAreInGit": true
+      "RunbooksAreInGit": false,
+      "VariablesAreInGit": false
     },
     "Credentials": {
       "Type": "Anonymous"
@@ -1504,7 +1504,7 @@ Also reachable at `/api/projects/{projectId}/git/convert`, `/api/spaces/{spaceId
     "ProtectedBranchNamePatterns": [
       "string"
     ],
-    "ProtectedDefaultBranch": true,
+    "ProtectedDefaultBranch": false,
     "SerializationFormat": "Ocl",
     "Type": "Database",
     "Url": "string"
@@ -1551,7 +1551,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrat
 {
   "Branch": "string",
   "CommitMessage": "string",
-  "CreateBranch": true,
+  "CreateBranch": false,
   "ProjectId": "Projects-1",
   "SpaceId": "Spaces-1"
 }
@@ -1698,9 +1698,9 @@ Also reachable at `/api/projects/{projectId}/summary`, `/api/spaces/{spaceIdenti
 :::api-example{label="Response"}
 ```json
 {
-  "HasBeenSuccessfullyDeployed": true,
-  "HasDeploymentProcess": true,
-  "HasRunbooks": true
+  "HasBeenSuccessfullyDeployed": false,
+  "HasDeploymentProcess": false,
+  "HasRunbooks": false
 }
 ```
 :::
@@ -1729,9 +1729,9 @@ Also reachable at `/api/projects/{projectId}/summary/v1`, `/api/spaces/{spaceIde
 :::api-example{label="Response"}
 ```json
 {
-  "HasBeenSuccessfullyDeployed": true,
-  "HasDeploymentProcess": true,
-  "HasRunbooks": true
+  "HasBeenSuccessfullyDeployed": false,
+  "HasDeploymentProcess": false,
+  "HasRunbooks": false
 }
 ```
 :::
@@ -1761,9 +1761,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary`, `/api/spaces/{sp
 :::api-example{label="Response"}
 ```json
 {
-  "HasBeenSuccessfullyDeployed": true,
-  "HasDeploymentProcess": true,
-  "HasRunbooks": true
+  "HasBeenSuccessfullyDeployed": false,
+  "HasDeploymentProcess": false,
+  "HasRunbooks": false
 }
 ```
 :::
@@ -1793,9 +1793,9 @@ Also reachable at `/api/projects/{projectId}/{gitRef}/summary/v1`, `/api/spaces/
 :::api-example{label="Response"}
 ```json
 {
-  "HasBeenSuccessfullyDeployed": true,
-  "HasDeploymentProcess": true,
-  "HasRunbooks": true
+  "HasBeenSuccessfullyDeployed": false,
+  "HasDeploymentProcess": false,
+  "HasRunbooks": false
 }
 ```
 :::

@@ -561,10 +561,10 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
         {}
       ]
     },
-    "FailTargetDiscovery": true,
-    "FailureEncountered": true,
-    "ForcePackageDownload": true,
-    "ForcePackageRedeployment": true,
+    "FailTargetDiscovery": false,
+    "FailureEncountered": false,
+    "ForcePackageDownload": false,
+    "ForcePackageRedeployment": false,
     "FormValues": {
       "additionalProp1": "string",
       "additionalProp2": "string",
@@ -599,11 +599,11 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     "TenantId": "Tenants-1",
     "TentacleRetentionPeriod": {
       "QuantityToKeep": 0,
-      "ShouldKeepForever": true,
+      "ShouldKeepForever": false,
       "Strategy": "string",
       "Unit": "Days"
     },
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   },
   "FreezeIds": [
     "string"
@@ -718,10 +718,10 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
         {}
       ]
     },
-    "FailTargetDiscovery": true,
-    "FailureEncountered": true,
-    "ForcePackageDownload": true,
-    "ForcePackageRedeployment": true,
+    "FailTargetDiscovery": false,
+    "FailureEncountered": false,
+    "ForcePackageDownload": false,
+    "ForcePackageRedeployment": false,
     "FormValues": {
       "additionalProp1": "string",
       "additionalProp2": "string",
@@ -756,11 +756,11 @@ Also reachable at `/api/deployments/override`, `/api/spaces/{spaceIdentifier}/de
     "TenantId": "Tenants-1",
     "TentacleRetentionPeriod": {
       "QuantityToKeep": 0,
-      "ShouldKeepForever": true,
+      "ShouldKeepForever": false,
       "Strategy": "string",
       "Unit": "Days"
     },
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 }
 ```

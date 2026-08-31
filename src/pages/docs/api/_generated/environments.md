@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-08-27
 title: Environments
 ---
 
@@ -80,7 +80,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
   "ItemType": "string",
   "Items": [
     {
-      "AllowDynamicInfrastructure": true,
+      "AllowDynamicInfrastructure": false,
       "Description": "string",
       "EnvironmentTags": [
         "string"
@@ -100,7 +100,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
       "Slug": "string",
       "SortOrder": 0,
       "SpaceId": "Spaces-1",
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ],
   "ItemsPerPage": 0,
@@ -146,7 +146,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 :::api-example{label="Request"}
 ```json
 {
-  "AllowDynamicInfrastructure": true,
+  "AllowDynamicInfrastructure": false,
   "Description": "string",
   "EnvironmentTags": [
     "string"
@@ -161,7 +161,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -199,7 +199,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
 :::api-example{label="Response"}
 ```json
 {
-  "AllowDynamicInfrastructure": true,
+  "AllowDynamicInfrastructure": false,
   "Description": "string",
   "EnvironmentTags": [
     "string"
@@ -222,7 +222,7 @@ Also reachable at `/api/environments`, `/api/spaces/{spaceIdentifier}/environmen
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -283,7 +283,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 ```json
 [
   {
-    "AllowDynamicInfrastructure": true,
+    "AllowDynamicInfrastructure": false,
     "Description": "string",
     "EnvironmentTags": [
       "string"
@@ -306,7 +306,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
     "Slug": "string",
     "SortOrder": 0,
     "SpaceId": "Spaces-1",
-    "UseGuidedFailure": true
+    "UseGuidedFailure": false
   }
 ]
 ```
@@ -368,7 +368,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 {
   "Environments": [
     {
-      "AllowDynamicInfrastructure": true,
+      "AllowDynamicInfrastructure": false,
       "Description": "string",
       "EnvironmentTags": [
         "string"
@@ -388,7 +388,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
       "Slug": "string",
       "SortOrder": 0,
       "SpaceId": "Spaces-1",
-      "UseGuidedFailure": true
+      "UseGuidedFailure": false
     }
   ]
 }
@@ -493,7 +493,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "additionalProp3": 0
       },
       "Environment": {
-        "AllowDynamicInfrastructure": true,
+        "AllowDynamicInfrastructure": false,
         "Description": "string",
         "EnvironmentTags": [
           "string"
@@ -509,7 +509,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "Slug": "string",
         "SortOrder": 0,
         "SpaceId": "Spaces-1",
-        "UseGuidedFailure": true
+        "UseGuidedFailure": false
       },
       "MachineEndpointSummaries": {
         "additionalProp1": 0,
@@ -537,7 +537,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
         "additionalProp2": 0,
         "additionalProp3": 0
       },
-      "TentacleUpgradesRequired": true,
+      "TentacleUpgradesRequired": false,
       "TotalDisabledMachines": 0,
       "TotalMachines": 0
     }
@@ -568,7 +568,7 @@ Also reachable at `/api/environments/summary`, `/api/spaces/{spaceIdentifier}/en
     "additionalProp2": 0,
     "additionalProp3": 0
   },
-  "TentacleUpgradesRequired": true,
+  "TentacleUpgradesRequired": false,
   "TotalDisabledMachines": 0,
   "TotalMachines": 0
 }
@@ -682,7 +682,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
         "additionalProp2": 0,
         "additionalProp3": 0
       },
-      "TentacleUpgradesRequired": true,
+      "TentacleUpgradesRequired": false,
       "TotalDisabledMachines": 0,
       "TotalMachines": 0
     }
@@ -710,7 +710,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/environments/summary/v2`.
     "additionalProp2": 0,
     "additionalProp3": 0
   },
-  "TentacleUpgradesRequired": true,
+  "TentacleUpgradesRequired": false,
   "TotalDisabledMachines": 0,
   "TotalMachines": 0
 }
@@ -771,7 +771,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
     "ItemType": "string",
     "Items": [
       {
-        "AllowDynamicInfrastructure": true,
+        "AllowDynamicInfrastructure": false,
         "Description": "string",
         "EnvironmentTags": [
           "string"
@@ -787,7 +787,7 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
         "Slug": "string",
         "SortOrder": 0,
         "SpaceId": "Spaces-1",
-        "UseGuidedFailure": true
+        "UseGuidedFailure": false
       }
     ],
     "ItemsPerPage": 0,
@@ -909,7 +909,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 :::api-example{label="Request"}
 ```json
 {
-  "AllowDynamicInfrastructure": true,
+  "AllowDynamicInfrastructure": false,
   "Description": "string",
   "EnvironmentId": "Environments-1",
   "EnvironmentTags": [
@@ -925,7 +925,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -963,7 +963,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
 :::api-example{label="Response"}
 ```json
 {
-  "AllowDynamicInfrastructure": true,
+  "AllowDynamicInfrastructure": false,
   "Description": "string",
   "EnvironmentTags": [
     "string"
@@ -986,7 +986,7 @@ Also reachable at `/api/environments/{environmentId}`, `/api/spaces/{spaceIdenti
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1051,8 +1051,8 @@ Also reachable at `/api/environments/{environmentId}/singlyScopedVariableDetails
 :::api-example{label="Response"}
 ```json
 {
-  "HasUnauthorizedLibraryVariableSetVariables": true,
-  "HasUnauthorizedProjectVariables": true,
+  "HasUnauthorizedLibraryVariableSetVariables": false,
+  "HasUnauthorizedProjectVariables": false,
   "VariableMap": {
     "additionalProp1": {
       "additionalProp1": 0,
@@ -1119,7 +1119,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
 :::api-example{label="Response"}
 ```json
 {
-  "AllowDynamicInfrastructure": true,
+  "AllowDynamicInfrastructure": false,
   "Description": "string",
   "EnvironmentTags": [
     "string"
@@ -1142,7 +1142,7 @@ Also reachable at `/api/environments/{id}`, `/api/spaces/{spaceIdentifier}/envir
   "Slug": "string",
   "SortOrder": 0,
   "SpaceId": "Spaces-1",
-  "UseGuidedFailure": true
+  "UseGuidedFailure": false
 }
 ```
 :::
@@ -1265,11 +1265,11 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
         "Environments-1",
         "..."
       ],
-      "HasLatestCalamari": true,
+      "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
       "Id": "string",
-      "IsDisabled": true,
-      "IsInProcess": true,
+      "IsDisabled": false,
+      "IsInProcess": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1286,7 +1286,7 @@ Also reachable at `/api/environments/{id}/machines`, `/api/spaces/{spaceIdentifi
       ],
       "ShellName": "string",
       "ShellVersion": "string",
-      "SkipInitialHealthCheck": true,
+      "SkipInitialHealthCheck": false,
       "Slug": "string",
       "SpaceId": "Spaces-1",
       "StatusSummary": "string",
@@ -1430,5 +1430,63 @@ Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environmen
   "NumberOfPages": 0,
   "TotalResults": 0
 }
+```
+:::
+
+## Delete the environment state entry with the given key for a project/environment (and optionally tenant)
+
+:endpoint{method="DELETE" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/tenants/\{tenantId\}/states/\{key\}"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/tenants/{tenantId}/states/{key}`, `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}`, `/api/{spaceId}/projects/{projectId}/environments/{environmentId}/untenanted/states/{key}`.
+
+**Path Parameters**
+
+- **`environmentId`** :span[string]{.type-label} *(required)*  
+  The ID of the environment the environment state entry belongs to.
+- **`key`** :span[string]{.type-label} *(required)*  
+  The key of the environment state entry to delete.
+- **`projectId`** :span[string]{.type-label} *(required)*  
+  The ID of the project the environment state entry belongs to.
+- **`spaceId`** :span[string]{.type-label} *(required)*  
+  The ID of the space containing the environment state entry.
+- **`tenantId`** :span[string]{.type-label} *(required)*  
+  An ID for a Tenant. If supplied, the entry deleted is the one published for the Tenant identified by the ID. If not supplied, the untenanted entry is deleted.
+
+**Response**
+
+`200` — Success
+
+## Gets the set of URLs published for a project/environment (and optionally tenant)
+
+:endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/environments/\{environmentId\}/urls"}
+
+Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/environments/{environmentId}/urls`.
+
+**Path Parameters**
+
+- **`environmentId`** :span[string]{.type-label} *(required)*
+- **`projectId`** :span[string]{.type-label} *(required)*
+- **`spaceId`** :span[string]{.type-label} *(required)*
+
+**Query Parameters**
+
+- **`tenantId`** :span[string]{.type-label}  
+  An ID for a Tenant. If supplied, will limit the result to URLs published for the Tenant identified by the ID. If not supplied, only untenanted URLs are returned.
+
+**Response**
+
+`200` — The requested set of environment URLs
+
+- **`Name`** :span[string]{.type-label}
+- **`Url`** :span[string]{.type-label}
+
+:::api-example{label="Response"}
+```json
+[
+  {
+    "Name": "string",
+    "Url": "string"
+  }
+]
 ```
 :::

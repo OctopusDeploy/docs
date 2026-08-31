@@ -81,7 +81,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
         "AllowedRepositories": [
           "string"
         ],
-        "Enabled": true
+        "Enabled": false
       },
       "SpaceId": "Spaces-1"
     }
@@ -133,7 +133,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -144,7 +144,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -278,7 +278,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -289,7 +289,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v1`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -375,7 +375,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
         "AllowedRepositories": [
           "string"
         ],
-        "Enabled": true
+        "Enabled": false
       },
       "SpaceId": "Spaces-1"
     }
@@ -425,7 +425,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/v2`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -501,7 +501,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -542,7 +542,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -554,7 +554,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -731,7 +731,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
       "AllowedRepositories": [
         "string"
       ],
-      "Enabled": true
+      "Enabled": false
     },
     "SpaceId": "Spaces-1"
   }
@@ -773,7 +773,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
   "Description": "string",
   "Details": {
     "Password": {
-      "HasValue": true,
+      "HasValue": false,
       "Hint": "string",
       "NewValue": "string"
     },
@@ -785,7 +785,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v1`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -870,7 +870,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
       "AllowedRepositories": [
         "string"
       ],
-      "Enabled": true
+      "Enabled": false
     },
     "SpaceId": "Spaces-1"
   }
@@ -918,7 +918,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/git-credentials/{id}/v2`.
     "AllowedRepositories": [
       "string"
     ],
-    "Enabled": true
+    "Enabled": false
   },
   "SpaceId": "Spaces-1"
 }
@@ -1067,8 +1067,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
         "Id": "string"
       },
       "Id": "string",
-      "IsDefault": true,
-      "IsPrivate": true,
+      "IsDefault": false,
+      "IsPrivate": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
@@ -1085,7 +1085,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
       "SpaceManagersTeams": [
         "string"
       ],
-      "TaskQueueStopped": true
+      "TaskQueueStopped": false
     }
   ],
   "ItemsPerPage": 0,
@@ -1123,7 +1123,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
 ```json
 {
   "Description": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
@@ -1133,7 +1133,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1182,8 +1182,8 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
     "Id": "string"
   },
   "Id": "string",
-  "IsDefault": true,
-  "IsPrivate": true,
+  "IsDefault": false,
+  "IsPrivate": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1200,7 +1200,7 @@ Lists all of the Spaces in the supplied Octopus Deploy Space. The results will b
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1261,8 +1261,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
       "Id": "string"
     },
     "Id": "string",
-    "IsDefault": true,
-    "IsPrivate": true,
+    "IsDefault": false,
+    "IsPrivate": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -1279,7 +1279,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "SpaceManagersTeams": [
       "string"
     ],
-    "TaskQueueStopped": true
+    "TaskQueueStopped": false
   }
 ]
 ```
@@ -1305,7 +1305,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 ```json
 {
   "Description": "string",
-  "IsDefault": true,
+  "IsDefault": false,
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
@@ -1315,7 +1315,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1360,8 +1360,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
       "Id": "string"
     },
     "Id": "string",
-    "IsDefault": true,
-    "IsPrivate": true,
+    "IsDefault": false,
+    "IsPrivate": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -1378,7 +1378,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "SpaceManagersTeams": [
       "string"
     ],
-    "TaskQueueStopped": true
+    "TaskQueueStopped": false
   }
 }
 ```
@@ -1437,8 +1437,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "Id": "string"
   },
   "Id": "string",
-  "IsDefault": true,
-  "IsPrivate": true,
+  "IsDefault": false,
+  "IsPrivate": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1455,7 +1455,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1486,7 +1486,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
 {
   "Description": "string",
   "Id": "Spaces-1",
-  "IsDefault": true,
+  "IsDefault": false,
   "Name": "string",
   "Slug": "string",
   "SpaceManagersTeamMembers": [
@@ -1496,7 +1496,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1545,8 +1545,8 @@ Lists all Spaces. The results will be sorted alphabetically by name.
     "Id": "string"
   },
   "Id": "string",
-  "IsDefault": true,
-  "IsPrivate": true,
+  "IsDefault": false,
+  "IsPrivate": false,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
@@ -1563,7 +1563,7 @@ Lists all Spaces. The results will be sorted alphabetically by name.
   "SpaceManagersTeams": [
     "string"
   ],
-  "TaskQueueStopped": true
+  "TaskQueueStopped": false
 }
 ```
 :::
@@ -1754,8 +1754,8 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
       "Id": "string"
     },
     "Id": "string",
-    "IsDefault": true,
-    "IsPrivate": true,
+    "IsDefault": false,
+    "IsPrivate": false,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
@@ -1772,7 +1772,7 @@ Also reachable at `/api/spaces/{id}/search`, `/api/spaces/{spaceIdentifier}/spac
     "SpaceManagersTeams": [
       "string"
     ],
-    "TaskQueueStopped": true
+    "TaskQueueStopped": false
   }
 ]
 ```
