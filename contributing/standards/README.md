@@ -81,5 +81,3 @@ Cross-cutting:
 ## Using these with Claude Code
 
 You don't have to apply these standards by hand. The `octopus-docs-standards` skill reads them for you and applies them as you draft or review, and `octopus-writing-guide` covers voice and style alongside it. See [CONTRIBUTING.md](../../CONTRIBUTING.md) for how to get set up and how to work with the agent.
-
-This page stays the source of truth either way — the skill routes from these files rather than carrying its own copy of them.
