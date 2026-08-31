@@ -36,3 +36,16 @@ const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
     <ApiNavigation lang={lang} headings={headings} apiMethods={apiMethods} />
   )
 }
+
+{
+  /* Ensure the active element is always visible when the page loads in the area navigation */
+}
+<script is:inline>
+  (() => {
+    const active = document
+      .querySelector('[data-site-nav-scroll]')
+      ?.querySelector('[aria-current="page"]');
+
+    active?.scrollIntoView({ block: 'center' });
+  })();
+</script>
