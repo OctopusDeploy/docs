@@ -1,8 +1,8 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/
-pubDate: 2024-04-10
+redirect: https://octopus.com/docs/api/octopus.client
+pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false
 navSitemap: false
