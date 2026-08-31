@@ -74,19 +74,12 @@ export const FACETS: Facet[] = [
   { key: 'integrations', label: 'Integrations' },
 ];
 
-// Longest-match-first: every CLI page also sits under the REST API tree, so the
-// CLI prefixes have to be tested before the API one they are nested in.
 const SECTIONS: {
   facet: string;
   kind: SearchResult['kind'];
   prefix: RegExp;
 }[] = [
-  {
-    facet: 'cli',
-    kind: 'command',
-    prefix:
-      /^\/docs\/octopus-rest-api\/(cli|octopus-cli|[a-z.]+-command-line)(\/|$)/,
-  },
+  { facet: 'cli', kind: 'command', prefix: /^\/docs\/cli(\/|$)/ },
   { facet: 'api', kind: 'command', prefix: /^\/docs\/octopus-rest-api(\/|$)/ },
   {
     facet: 'integrations',
