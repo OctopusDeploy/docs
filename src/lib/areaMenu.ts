@@ -2,27 +2,28 @@ import type { MarkdownInstance } from 'astro-accelerator-utils/types/Astro';
 import { PostFiltering } from 'astro-accelerator-utils';
 import { SITE } from '@config';
 import { accelerator } from './accelerator';
-import { AREAS, pageArea } from './areas';
-import { isGeneratedApiPath } from './generatedApiPaths';
+import { AREAS, pageArea, type Area } from './areas';
+import { isGeneratedPath } from './generatedPaths';
 
-// The API reference carries its own left nav, built here from the pages in the
-// API area (see lib/areas.ts — the section they live in, not the layout they
-// render with). Those same pages are pruned out of the main site nav in
-// navigationTree.ts, so the two trees never overlap.
+// An area with a nav of its own — the API reference, the CLI reference — builds
+// it here from the pages in that area (see lib/areas.ts — the section they live
+// in, not the layout they render with). Those same pages are pruned out of the
+// main site nav in navigationTree.ts, so the two trees never overlap.
 //
 // The tree follows the folders the pages live in, the same way the docs nav
 // does: /docs/api/octopus.client/using-resources sits under Octopus.Client
-// rather than beside it. Under the page the reader is on there is one more
-// level the docs nav has no equivalent of — an entry per endpoint. Those come
-// from the layout's own headings rather than from here: Posts.all() reads the
-// page set back from a JSON cache, which leaves the frontmatter intact but
+// rather than beside it. Under the page the reader is on the API nav shows one
+// more level the docs nav has no equivalent of — an entry per endpoint. Those
+// come from the layout's own headings rather than from here: Posts.all() reads
+// the page set back from a JSON cache, which leaves the frontmatter intact but
 // drops getHeadings().
 //
-// The menu comes back in two halves. The hand-written pages are one, the ~100
-// generated ones under _generated are the other, and ApiNavigation.astro draws
-// a rule between them.
+// The menu comes back in two halves. The hand-written pages are one, the
+// generated ones under _generated are the other, and the area's nav component
+// draws a rule between them. For the CLI that reads as the overview and the
+// deprecated Octo CLI above the rule, and the ~185 `octopus` commands below it.
 
-export type ApiNavPage = {
+export type AreaNavPage = {
   /** The row's label. */
   title: string;
   /** null for a folder that has no page of its own, so the row is not a link. */
@@ -31,31 +32,27 @@ export type ApiNavPage = {
       page still has: it is what decides whether the branch is open. */
   path: string;
   order: number;
-  children: ApiNavPage[];
+  children: AreaNavPage[];
 };
 
-export type ApiMenu = {
-  /** The pages under /docs/api that somebody wrote. */
-  authored: ApiNavPage[];
-  /** The pages generated into /docs/api/_generated. */
-  generated: ApiNavPage[];
+export type AreaMenu = {
+  /** The pages in the area that somebody wrote. */
+  authored: AreaNavPage[];
+  /** The pages generated into the area's _generated folder. */
+  generated: AreaNavPage[];
 };
-
-export function isApiPage(post: MarkdownInstance): boolean {
-  return pageArea(post) === 'api';
-}
-
-// Where the area's tree is rooted. The pages hang off this, and the segments
-// below it are the folders the tree is built out of.
-const API_ROOT = SITE.subfolder + (AREAS.api.path ?? '');
 
 const trimSlash = (path: string) => path.replace(/\/$/, '');
 
+// Where an area's tree is rooted. The pages hang off this, and the segments
+// below it are the folders the tree is built out of.
+const areaRoot = (area: Area) => SITE.subfolder + (AREAS[area].path ?? '');
+
 // A generated page is one whose source file sits under _generated. The url does
-// not say so — [...generatedFileName].astro serves them from /docs/api as if
-// the folder were not there — so the file is what has to be asked.
+// not say so — [...generatedFileName].astro serves them from the folder above
+// as if it were not there — so the file is what has to be asked.
 function isGenerated(post: MarkdownInstance): boolean {
-  return isGeneratedApiPath(post.file ?? '');
+  return isGeneratedPath(post.file ?? '');
 }
 
 // A folder with no index page of its own still needs a label. "openid-connect"
@@ -82,13 +79,17 @@ function newNode(segment: string, path: string): TreeNode {
   return { segment, path, post: null, children: new Map() };
 }
 
-function insert(root: TreeNode, post: MarkdownInstance): void {
+function insert(
+  root: TreeNode,
+  post: MarkdownInstance,
+  rootPath: string
+): void {
   const path = trimSlash(post.url ?? '');
-  const rest = path.slice(API_ROOT.length).replace(/^\//, '');
+  const rest = path.slice(rootPath.length).replace(/^\//, '');
   const segments = rest === '' ? [] : rest.split('/');
 
   let node = root;
-  let walked = API_ROOT;
+  let walked = rootPath;
   for (const segment of segments) {
     walked += '/' + segment;
     let child = node.children.get(segment);
@@ -111,10 +112,10 @@ const branchTitle = (post: MarkdownInstance) =>
 const navOrder = (post: MarkdownInstance) =>
   post.frontmatter.navOrder ?? Number.MAX_SAFE_INTEGER;
 
-const byOrderThenTitle = (a: ApiNavPage, b: ApiNavPage) =>
+const byOrderThenTitle = (a: AreaNavPage, b: AreaNavPage) =>
   a.order - b.order || a.title.localeCompare(b.title);
 
-function toNavPage(node: TreeNode): ApiNavPage {
+function toNavPage(node: TreeNode): AreaNavPage {
   const url = node.post
     ? accelerator.urlFormatter.addSlashToAddress(node.post.url ?? '/')
     : null;
@@ -155,19 +156,19 @@ function toNavPage(node: TreeNode): ApiNavPage {
   };
 }
 
-function buildTree(posts: MarkdownInstance[]): ApiNavPage[] {
-  const root = newNode('', API_ROOT);
-  for (const post of posts) insert(root, post);
+function buildTree(posts: MarkdownInstance[], rootPath: string): AreaNavPage[] {
+  const root = newNode('', rootPath);
+  for (const post of posts) insert(root, post, rootPath);
 
   const pages = [...root.children.values()].map(toNavPage);
 
-  // /docs/api itself is a page, and a sibling of the sections rather than a
+  // The area's own landing page is a sibling of the sections rather than a
   // branch over them: the tree is already rooted there.
   if (root.post) {
     pages.push({
       title: rowTitle(root.post),
       url: accelerator.urlFormatter.addSlashToAddress(root.post.url ?? '/'),
-      path: API_ROOT,
+      path: rootPath,
       order: navOrder(root.post),
       children: [],
     });
@@ -176,30 +177,38 @@ function buildTree(posts: MarkdownInstance[]): ApiNavPage[] {
   return pages.sort(byOrderThenTitle);
 }
 
-// Same deal as menuTemplate(): the menu is identical for every page in the
-// section, so it is built once and read by all of them.
-let menu: ApiMenu | null = null;
+// Same deal as menuTemplate(): an area's menu is identical for every page in
+// it, so it is built once and read by all of them.
+const menus = new Map<Area, AreaMenu>();
 
-export function apiMenu(): ApiMenu {
+export function areaMenu(area: Area): AreaMenu {
   // Builds only. In dev, rebuild every time so a new or edited page shows up
   // in the nav without restarting the server.
-  if (menu !== null && import.meta.env.PROD) return menu;
+  const cached = menus.get(area);
+  if (cached !== undefined && import.meta.env.PROD) return cached;
 
   // navMenu: false keeps a page out of the nav, and the redirect stubs left
   // behind by moved pages all carry it. Without this they arrive as rows
   // titled "Redirect", each one a section of its own.
   const pages = accelerator.posts
     .all()
-    .filter(isApiPage)
+    .filter((post) => pageArea(post) === area)
     .filter(PostFiltering.showInMenu);
 
-  const built: ApiMenu = {
-    authored: buildTree(pages.filter((post) => !isGenerated(post))),
-    // The generated pages carry no navOrder — there is nobody to write one —
-    // so they fall back to the alphabetical order the index page lists them in.
-    generated: buildTree(pages.filter(isGenerated)),
+  const rootPath = areaRoot(area);
+  const built: AreaMenu = {
+    authored: buildTree(
+      pages.filter((post) => !isGenerated(post)),
+      rootPath
+    ),
+    // What orders this half is up to whatever generated it. The API pages carry
+    // no navOrder at all and fall back to sorting by title; the CLI pages each
+    // carry their position in the command tree, written by gen-docs as it walks
+    // it, so they sort in that order. The two agree today — cobra hands out its
+    // commands alphabetically — and byOrderThenTitle covers either.
+    generated: buildTree(pages.filter(isGenerated), rootPath),
   };
 
-  if (import.meta.env.PROD) menu = built;
+  if (import.meta.env.PROD) menus.set(area, built);
   return built;
 }

@@ -1,0 +1,185 @@
+- **[octopus](/docs/cli/octopus)**:  Octopus Deploy CLI.
+- **[octopus account](/docs/cli/octopus-account)**:  Manage accounts.
+- **[octopus account aws](/docs/cli/octopus-account-aws)**:  Manage AWS accounts.
+- **[octopus account aws create](/docs/cli/octopus-account-aws-create)**:  Create an AWS account.
+- **[octopus account aws list](/docs/cli/octopus-account-aws-list)**:  List AWS accounts.
+- **[octopus account azure](/docs/cli/octopus-account-azure)**:  Manage Azure subscription accounts.
+- **[octopus account azure create](/docs/cli/octopus-account-azure-create)**:  Create an Azure subscription account.
+- **[octopus account azure list](/docs/cli/octopus-account-azure-list)**:  List Azure subscription accounts.
+- **[octopus account azure-oidc](/docs/cli/octopus-account-azure-oidc)**:  Manage Azure OpenID Connect accounts.
+- **[octopus account azure-oidc create](/docs/cli/octopus-account-azure-oidc-create)**:  Create an Azure OpenID Connect account.
+- **[octopus account azure-oidc list](/docs/cli/octopus-account-azure-oidc-list)**:  List Azure OpenID Connect accounts.
+- **[octopus account create](/docs/cli/octopus-account-create)**:  Create an account.
+- **[octopus account delete](/docs/cli/octopus-account-delete)**:  Delete an account.
+- **[octopus account gcp](/docs/cli/octopus-account-gcp)**:  Manage Google Cloud accounts.
+- **[octopus account gcp create](/docs/cli/octopus-account-gcp-create)**:  Create a Google Cloud account.
+- **[octopus account gcp list](/docs/cli/octopus-account-gcp-list)**:  List Google Cloud accounts.
+- **[octopus account generic-oidc](/docs/cli/octopus-account-generic-oidc)**:  Manage Generic OpenID Connect accounts.
+- **[octopus account generic-oidc create](/docs/cli/octopus-account-generic-oidc-create)**:  Create an Generic OpenID Connect account.
+- **[octopus account generic-oidc list](/docs/cli/octopus-account-generic-oidc-list)**:  List Generic OpenID Connect accounts.
+- **[octopus account list](/docs/cli/octopus-account-list)**:  List accounts.
+- **[octopus account ssh](/docs/cli/octopus-account-ssh)**:  Manage SSH Key Pair accounts.
+- **[octopus account ssh create](/docs/cli/octopus-account-ssh-create)**:  Create a SSH Key Pair account.
+- **[octopus account ssh list](/docs/cli/octopus-account-ssh-list)**:  List SSH Key Pair accounts.
+- **[octopus account token](/docs/cli/octopus-account-token)**:  Manage Token accounts.
+- **[octopus account token create](/docs/cli/octopus-account-token-create)**:  Create a Token account.
+- **[octopus account token list](/docs/cli/octopus-account-token-list)**:  List Token accounts.
+- **[octopus account username](/docs/cli/octopus-account-username)**:  Manage Username/Password accounts.
+- **[octopus account username create](/docs/cli/octopus-account-username-create)**:  Create a Username/Password account.
+- **[octopus account username list](/docs/cli/octopus-account-username-list)**:  List Username/Password accounts.
+- **[octopus api](/docs/cli/octopus-api)**:  Execute a raw API GET request.
+- **[octopus build-information](/docs/cli/octopus-build-information)**:  Manage build information.
+- **[octopus build-information bulk-delete](/docs/cli/octopus-build-information-bulk-delete)**:  Bulk delete build information.
+- **[octopus build-information delete](/docs/cli/octopus-build-information-delete)**:  Delete a build information.
+- **[octopus build-information list](/docs/cli/octopus-build-information-list)**:  List build information.
+- **[octopus build-information upload](/docs/cli/octopus-build-information-upload)**:  upload build information for one or more packages to Octopus Deploy.
+- **[octopus build-information view](/docs/cli/octopus-build-information-view)**:  View a build information.
+- **[octopus channel](/docs/cli/octopus-channel)**:  Manage channels.
+- **[octopus channel create](/docs/cli/octopus-channel-create)**:  Create a channel.
+- **[octopus channel delete](/docs/cli/octopus-channel-delete)**:  Delete a channel.
+- **[octopus channel list](/docs/cli/octopus-channel-list)**:  List channels.
+- **[octopus channel view](/docs/cli/octopus-channel-view)**:  View a channel.
+- **[octopus config](/docs/cli/octopus-config)**:  Manage CLI configuration.
+- **[octopus config get](/docs/cli/octopus-config-get)**:  Gets the value of config key for Octopus CLI.
+- **[octopus config list](/docs/cli/octopus-config-list)**:  List values from config file.
+- **[octopus config set](/docs/cli/octopus-config-set)**:  Set will write the value for given key to Octopus CLI config file.
+- **[octopus deployment-target](/docs/cli/octopus-deployment-target)**:  Manage deployment targets.
+- **[octopus deployment-target azure-web-app](/docs/cli/octopus-deployment-target-azure-web-app)**:  Manage Azure Web App deployment targets.
+- **[octopus deployment-target azure-web-app create](/docs/cli/octopus-deployment-target-azure-web-app-create)**:  Create an Azure Web App deployment target.
+- **[octopus deployment-target azure-web-app list](/docs/cli/octopus-deployment-target-azure-web-app-list)**:  List Azure Web App deployment targets.
+- **[octopus deployment-target azure-web-app view](/docs/cli/octopus-deployment-target-azure-web-app-view)**:  View an Azure Web App deployment target.
+- **[octopus deployment-target cloud-region](/docs/cli/octopus-deployment-target-cloud-region)**:  Manage Cloud Region deployment targets.
+- **[octopus deployment-target cloud-region create](/docs/cli/octopus-deployment-target-cloud-region-create)**:  Create a Cloud Region deployment target.
+- **[octopus deployment-target cloud-region list](/docs/cli/octopus-deployment-target-cloud-region-list)**:  List Cloud Region deployment targets.
+- **[octopus deployment-target cloud-region view](/docs/cli/octopus-deployment-target-cloud-region-view)**:  View a Cloud Region deployment target.
+- **[octopus deployment-target delete](/docs/cli/octopus-deployment-target-delete)**:  Delete a deployment target.
+- **[octopus deployment-target kubernetes](/docs/cli/octopus-deployment-target-kubernetes)**:  Manage Kubernetes deployment targets.
+- **[octopus deployment-target kubernetes create](/docs/cli/octopus-deployment-target-kubernetes-create)**:  Create a Kubernetes deployment target.
+- **[octopus deployment-target kubernetes list](/docs/cli/octopus-deployment-target-kubernetes-list)**:  List Kubernetes deployment targets.
+- **[octopus deployment-target kubernetes view](/docs/cli/octopus-deployment-target-kubernetes-view)**:  View a Kubernetes deployment target.
+- **[octopus deployment-target list](/docs/cli/octopus-deployment-target-list)**:  List deployment targets.
+- **[octopus deployment-target listening-tentacle](/docs/cli/octopus-deployment-target-listening-tentacle)**:  Manage Listening Tentacle deployment targets.
+- **[octopus deployment-target listening-tentacle create](/docs/cli/octopus-deployment-target-listening-tentacle-create)**:  Create a Listening Tentacle deployment target.
+- **[octopus deployment-target listening-tentacle list](/docs/cli/octopus-deployment-target-listening-tentacle-list)**:  List Listening Tentacle deployment targets.
+- **[octopus deployment-target listening-tentacle view](/docs/cli/octopus-deployment-target-listening-tentacle-view)**:  View a Listening Tentacle deployment target.
+- **[octopus deployment-target polling-tentacle](/docs/cli/octopus-deployment-target-polling-tentacle)**:  Manage Polling Tentacle deployment targets.
+- **[octopus deployment-target polling-tentacle list](/docs/cli/octopus-deployment-target-polling-tentacle-list)**:  List Polling Tentacle deployment targets.
+- **[octopus deployment-target polling-tentacle view](/docs/cli/octopus-deployment-target-polling-tentacle-view)**:  View a Polling Tentacle deployment target.
+- **[octopus deployment-target ssh](/docs/cli/octopus-deployment-target-ssh)**:  Manage SSH deployment targets.
+- **[octopus deployment-target ssh create](/docs/cli/octopus-deployment-target-ssh-create)**:  Create a SSH deployment target.
+- **[octopus deployment-target ssh list](/docs/cli/octopus-deployment-target-ssh-list)**:  List SSH deployment targets.
+- **[octopus deployment-target ssh view](/docs/cli/octopus-deployment-target-ssh-view)**:  View a SSH deployment target.
+- **[octopus deployment-target view](/docs/cli/octopus-deployment-target-view)**:  View a deployment target.
+- **[octopus environment](/docs/cli/octopus-environment)**:  Manage environments.
+- **[octopus environment create](/docs/cli/octopus-environment-create)**:  Create an environment.
+- **[octopus environment delete](/docs/cli/octopus-environment-delete)**:  Delete an environment.
+- **[octopus environment list](/docs/cli/octopus-environment-list)**:  List environments.
+- **[octopus environment tag](/docs/cli/octopus-environment-tag)**:  Override tags for an environment.
+- **[octopus ephemeral-environment](/docs/cli/octopus-ephemeral-environment)**:  Manage ephemeral environments.
+- **[octopus ephemeral-environment create](/docs/cli/octopus-ephemeral-environment-create)**:  Create an ephemeral environment.
+- **[octopus ephemeral-environment deprovision-environment](/docs/cli/octopus-ephemeral-environment-deprovision-environment)**:  Deprovision an environment.
+- **[octopus ephemeral-environment deprovision-project](/docs/cli/octopus-ephemeral-environment-deprovision-project)**:  Deprovision an ephemeral environment for a project.
+- **[octopus login](/docs/cli/octopus-login)**:  Login to Octopus.
+- **[octopus logout](/docs/cli/octopus-logout)**:  Logout of Octopus.
+- **[octopus package](/docs/cli/octopus-package)**:  Manage packages.
+- **[octopus package delete](/docs/cli/octopus-package-delete)**:  Delete a package.
+- **[octopus package list](/docs/cli/octopus-package-list)**:  List packages.
+- **[octopus package nuget](/docs/cli/octopus-package-nuget)**:  Package as NuPkg.
+- **[octopus package nuget create](/docs/cli/octopus-package-nuget-create)**:  Create nuget.
+- **[octopus package upload](/docs/cli/octopus-package-upload)**:  Upload one or more packages to Octopus Deploy.
+- **[octopus package versions](/docs/cli/octopus-package-versions)**:  List versions of a package.
+- **[octopus package zip](/docs/cli/octopus-package-zip)**:  Package as zip.
+- **[octopus package zip create](/docs/cli/octopus-package-zip-create)**:  Create zip.
+- **[octopus project](/docs/cli/octopus-project)**:  Manage projects.
+- **[octopus project branch](/docs/cli/octopus-project-branch)**:  Manage project branches.
+- **[octopus project branch create](/docs/cli/octopus-project-branch-create)**:  Create a Git branch for a project.
+- **[octopus project branch list](/docs/cli/octopus-project-branch-list)**:  List project branches.
+- **[octopus project clone](/docs/cli/octopus-project-clone)**:  Clone a project.
+- **[octopus project connect](/docs/cli/octopus-project-connect)**:  Connect a tenant to a project.
+- **[octopus project convert](/docs/cli/octopus-project-convert)**:  Convert a project to use Config As Code.
+- **[octopus project create](/docs/cli/octopus-project-create)**:  Create a project.
+- **[octopus project delete](/docs/cli/octopus-project-delete)**:  Delete a project.
+- **[octopus project disable](/docs/cli/octopus-project-disable)**:  Disable a project.
+- **[octopus project disconnect](/docs/cli/octopus-project-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus project enable](/docs/cli/octopus-project-enable)**:  Enable a project.
+- **[octopus project list](/docs/cli/octopus-project-list)**:  List projects.
+- **[octopus project tag](/docs/cli/octopus-project-tag)**:  Override tags for a project.
+- **[octopus project variables](/docs/cli/octopus-project-variables)**:  Manage project variables.
+- **[octopus project variables create](/docs/cli/octopus-project-variables-create)**:  Create a variable for a project.
+- **[octopus project variables delete](/docs/cli/octopus-project-variables-delete)**:  Delete a project variable.
+- **[octopus project variables exclude](/docs/cli/octopus-project-variables-exclude)**:  Exclude a variable set from a project.
+- **[octopus project variables include](/docs/cli/octopus-project-variables-include)**:  Include a variable set in a project.
+- **[octopus project variables list](/docs/cli/octopus-project-variables-list)**:  List project variables.
+- **[octopus project variables update](/docs/cli/octopus-project-variables-update)**:  Update the value of a project variable.
+- **[octopus project variables view](/docs/cli/octopus-project-variables-view)**:  View all values of a project variable.
+- **[octopus project view](/docs/cli/octopus-project-view)**:  View a project.
+- **[octopus project-group](/docs/cli/octopus-project-group)**:  Manage project groups.
+- **[octopus project-group create](/docs/cli/octopus-project-group-create)**:  Create a project group.
+- **[octopus project-group delete](/docs/cli/octopus-project-group-delete)**:  Delete a project group.
+- **[octopus project-group list](/docs/cli/octopus-project-group-list)**:  List project groups.
+- **[octopus project-group view](/docs/cli/octopus-project-group-view)**:  View a project group.
+- **[octopus release](/docs/cli/octopus-release)**:  Manage releases.
+- **[octopus release create](/docs/cli/octopus-release-create)**:  Create a release.
+- **[octopus release delete](/docs/cli/octopus-release-delete)**:  Delete a release.
+- **[octopus release deploy](/docs/cli/octopus-release-deploy)**:  Deploy releases.
+- **[octopus release list](/docs/cli/octopus-release-list)**:  List releases.
+- **[octopus release progression](/docs/cli/octopus-release-progression)**:  Manage progression of a release.
+- **[octopus release progression allow](/docs/cli/octopus-release-progression-allow)**:  Allows a release to progress to the next phase..
+- **[octopus release progression prevent](/docs/cli/octopus-release-progression-prevent)**:  Prevents a release from progression to the next phase.
+- **[octopus runbook](/docs/cli/octopus-runbook)**:  Manage runbooks.
+- **[octopus runbook delete](/docs/cli/octopus-runbook-delete)**:  Delete a runbook.
+- **[octopus runbook list](/docs/cli/octopus-runbook-list)**:  List runbooks.
+- **[octopus runbook run](/docs/cli/octopus-runbook-run)**:  Run runbooks in Octopus Deploy.
+- **[octopus runbook snapshot](/docs/cli/octopus-runbook-snapshot)**:  Manage runbook snapshots.
+- **[octopus runbook snapshot create](/docs/cli/octopus-runbook-snapshot-create)**:  Create a runbook snapshot.
+- **[octopus runbook snapshot list](/docs/cli/octopus-runbook-snapshot-list)**:  List runbook snapshots.
+- **[octopus runbook snapshot publish](/docs/cli/octopus-runbook-snapshot-publish)**:  Publish a runbook snapshot.
+- **[octopus space](/docs/cli/octopus-space)**:  Manage spaces.
+- **[octopus space create](/docs/cli/octopus-space-create)**:  Create a space.
+- **[octopus space delete](/docs/cli/octopus-space-delete)**:  Delete a space.
+- **[octopus space list](/docs/cli/octopus-space-list)**:  List spaces.
+- **[octopus space view](/docs/cli/octopus-space-view)**:  View a space.
+- **[octopus task](/docs/cli/octopus-task)**:  Manage tasks.
+- **[octopus task wait](/docs/cli/octopus-task-wait)**:  Wait for task(s) to finish.
+- **[octopus tenant](/docs/cli/octopus-tenant)**:  Manage tenants.
+- **[octopus tenant clone](/docs/cli/octopus-tenant-clone)**:  Clone a tenant.
+- **[octopus tenant connect](/docs/cli/octopus-tenant-connect)**:  Connect a tenant to a project.
+- **[octopus tenant create](/docs/cli/octopus-tenant-create)**:  Create a tenant.
+- **[octopus tenant delete](/docs/cli/octopus-tenant-delete)**:  Delete a tenant.
+- **[octopus tenant disable](/docs/cli/octopus-tenant-disable)**:  Disable a tenant.
+- **[octopus tenant disconnect](/docs/cli/octopus-tenant-disconnect)**:  Disconnect a tenant from a project.
+- **[octopus tenant enable](/docs/cli/octopus-tenant-enable)**:  Enable a tenant.
+- **[octopus tenant list](/docs/cli/octopus-tenant-list)**:  List tenants.
+- **[octopus tenant tag](/docs/cli/octopus-tenant-tag)**:  Override tags for a tenant.
+- **[octopus tenant variables](/docs/cli/octopus-tenant-variables)**:  Manage tenant variables.
+- **[octopus tenant variables list](/docs/cli/octopus-tenant-variables-list)**:  List tenant variables.
+- **[octopus tenant variables update](/docs/cli/octopus-tenant-variables-update)**:  Update the value of a tenant variable.
+- **[octopus tenant view](/docs/cli/octopus-tenant-view)**:  View a tenant.
+- **[octopus user](/docs/cli/octopus-user)**:  Manage users.
+- **[octopus user delete](/docs/cli/octopus-user-delete)**:  Delete a user.
+- **[octopus user list](/docs/cli/octopus-user-list)**:  List users.
+- **[octopus worker](/docs/cli/octopus-worker)**:  Manage workers.
+- **[octopus worker delete](/docs/cli/octopus-worker-delete)**:  Delete a worker.
+- **[octopus worker list](/docs/cli/octopus-worker-list)**:  List workers.
+- **[octopus worker listening-tentacle](/docs/cli/octopus-worker-listening-tentacle)**:  Manage Listening Tentacle workers.
+- **[octopus worker listening-tentacle create](/docs/cli/octopus-worker-listening-tentacle-create)**:  Create a listening tentacle worker.
+- **[octopus worker listening-tentacle list](/docs/cli/octopus-worker-listening-tentacle-list)**:  List Listening Tentacle workers.
+- **[octopus worker listening-tentacle view](/docs/cli/octopus-worker-listening-tentacle-view)**:  View a Listening Tentacle worker.
+- **[octopus worker polling-tentacle](/docs/cli/octopus-worker-polling-tentacle)**:  Manage Polling Tentacle workers.
+- **[octopus worker polling-tentacle list](/docs/cli/octopus-worker-polling-tentacle-list)**:  List Polling Tentacle workers.
+- **[octopus worker polling-tentacle view](/docs/cli/octopus-worker-polling-tentacle-view)**:  View a Polling Tentacle worker.
+- **[octopus worker ssh](/docs/cli/octopus-worker-ssh)**:  Manage SSH workers.
+- **[octopus worker ssh create](/docs/cli/octopus-worker-ssh-create)**:  Create a SSH worker.
+- **[octopus worker ssh list](/docs/cli/octopus-worker-ssh-list)**:  List SSH workers.
+- **[octopus worker ssh view](/docs/cli/octopus-worker-ssh-view)**:  View a SSH worker.
+- **[octopus worker view](/docs/cli/octopus-worker-view)**:  View a worker.
+- **[octopus worker-pool](/docs/cli/octopus-worker-pool)**:  Manage worker pools.
+- **[octopus worker-pool delete](/docs/cli/octopus-worker-pool-delete)**:  Delete a worker pool.
+- **[octopus worker-pool dynamic](/docs/cli/octopus-worker-pool-dynamic)**:  Manage dynamic worker pools.
+- **[octopus worker-pool dynamic create](/docs/cli/octopus-worker-pool-dynamic-create)**:  Create a dynamic worker pool.
+- **[octopus worker-pool dynamic view](/docs/cli/octopus-worker-pool-dynamic-view)**:  View a dynamic worker pool.
+- **[octopus worker-pool list](/docs/cli/octopus-worker-pool-list)**:  List worker pools.
+- **[octopus worker-pool static](/docs/cli/octopus-worker-pool-static)**:  Manage static worker pools.
+- **[octopus worker-pool static create](/docs/cli/octopus-worker-pool-static-create)**:  Create a static worker pool.
+- **[octopus worker-pool static view](/docs/cli/octopus-worker-pool-static-view)**:  View a static worker pool.
+- **[octopus worker-pool view](/docs/cli/octopus-worker-pool-view)**:  View a worker pool.

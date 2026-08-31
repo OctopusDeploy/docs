@@ -15,11 +15,11 @@ Alternative features to flow artifacts from your CI system into Octopus are; [ex
 If you are an Atlassian Data Center user and Octopus customer and need help reach out to [Octopus Support](https://octopus.com/support).
 :::
 
-The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
+The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/cli/octopus-cli).
 
 ## Getting started
 
-The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
+The plugin relies on a local copy of the [Octopus CLI](/docs/cli/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
 Note that while the command line tool package is largely self-contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
@@ -97,7 +97,7 @@ Selecting the `Overwrite existing package` option means that any existing local 
 
 Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the paths to the packages to be pushed and forcing package uploads.
 
-This step runs the [push command](/docs/octopus-rest-api/octopus-cli/push) on the command line tool.
+This step runs the [push command](/docs/cli/octopus-cli/push) on the command line tool.
 
 ### Package paths
 
@@ -119,7 +119,7 @@ The `Overwrite mode` option can be used to control what should happen if the pac
 
 Creating a release is done with the `Octopus Deploy: Create Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to create the release for and the version number of the release.
 
-This steps runs the [create-release command](/docs/octopus-rest-api/octopus-cli/create-release) on the command line tool.
+This steps runs the [create-release command](/docs/cli/octopus-cli/create-release) on the command line tool.
 
 ### Project
 
@@ -151,7 +151,7 @@ Tick this option, as it allows builds to be rebuilt. Otherwise, rebuilds will at
 
 Releases can be deployed with the `Octopus Deploy: Deploy Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environments to deploy to, and the release number to deploy.
 
-This steps runs the [deploy-release command](/docs/octopus-rest-api/octopus-cli/deploy-release) on the command line tool.
+This steps runs the [deploy-release command](/docs/cli/octopus-cli/deploy-release) on the command line tool.
 
 ### Project
 
@@ -173,7 +173,7 @@ The `Release Number` field defines the release version number to deploy. This sh
 
 Releases can be promoted to new environments with the `Octopus Deploy: Promote Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environment to promote from, and the environment to promote to.
 
-This steps runs the [promote-release command](/docs/octopus-rest-api/octopus-cli/promote-release) on the command line tool.
+This steps runs the [promote-release command](/docs/cli/octopus-cli/promote-release) on the command line tool.
 
 :::div{.warning}
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.
@@ -223,7 +223,7 @@ The `Enable debug logging` option is used to enable detailed logging from the co
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
 You can find more information on the arguments accepted by the command line tool on the
-[Octopus CLI](/docs/octopus-rest-api/octopus-cli) page.
+[Octopus CLI](/docs/cli/octopus-cli) page.
 
 ## Using Bamboo deployment plans
 

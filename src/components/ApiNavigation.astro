@@ -1,8 +1,8 @@
 ---
 import { accelerator } from '@lib/accelerator';
 import { Translations, Lang } from '@util/Languages';
-import { apiMenu } from '@lib/apiNavigation';
-import ApiNavigationItem from './ApiNavigationItem.astro';
+import { areaMenu } from '@lib/areaMenu';
+import AreaNavigationItem from './AreaNavigationItem.astro';
 
 const stats = new accelerator.statistics('components/ApiNavigation.astro');
 stats.start();
@@ -70,7 +70,7 @@ const endpoints = (headings ?? [])
 
 // The hand-written pages first, then the generated reference, with a rule
 // between them.
-const { authored, generated } = apiMenu();
+const { authored, generated } = areaMenu('api');
 
 stats.stop();
 ---
@@ -84,7 +84,7 @@ stats.stop();
   <ul class="site-nav__list">
     {
       authored.map((page) => (
-        <ApiNavigationItem
+        <AreaNavigationItem
           page={page}
           currentPath={currentPath}
           endpoints={endpoints}
@@ -103,7 +103,7 @@ stats.stop();
     }
     {
       generated.map((page) => (
-        <ApiNavigationItem
+        <AreaNavigationItem
           page={page}
           currentPath={currentPath}
           endpoints={endpoints}

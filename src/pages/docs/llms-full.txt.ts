@@ -1,6 +1,6 @@
 import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
-import { flattenGeneratedApiPath } from '@lib/generatedApiPaths';
+import { flattenGeneratedPath } from '@lib/generatedPaths';
 import {
   compareForLlmSurfaces,
   eligibleForMarkdown,
@@ -39,7 +39,7 @@ async function getData() {
     if (!verdict.eligible) continue;
 
     const url = accelerator.urlFormatter.formatAddress(
-      flattenGeneratedApiPath(article.url ?? '')
+      flattenGeneratedPath(article.url ?? '')
     );
     if (!url.startsWith(subfolderPrefix)) continue;
     if (url.endsWith('/')) continue;

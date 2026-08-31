@@ -5,6 +5,8 @@ import type { Area } from '@lib/areas';
 import Navigation from '@components/Navigation.astro';
 // The nav for the API reference
 import ApiNavigation from './ApiNavigation.astro';
+// The nav for the CLI reference
+import CliNavigation from './CliNavigation.astro';
 
 // The area's nav, picked by area rather than by layout, so a page can be laid
 // out one way and navigated another. Every layout renders this and none of them
@@ -36,3 +38,4 @@ const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
     <ApiNavigation lang={lang} headings={headings} apiMethods={apiMethods} />
   )
 }
+{area === 'cli' && <CliNavigation lang={lang} />}

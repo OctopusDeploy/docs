@@ -78,7 +78,8 @@
           "type": "choice",
           "choices": [
             "docs",
-            "api"
+            "api",
+            "cli"
           ],
           "required": false
         }

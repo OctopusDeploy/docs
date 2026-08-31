@@ -110,7 +110,7 @@ The usage will be:
 
 ## Automatic trigger of rollbacks
 
-Using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
+Using the [Octopus CLI](/docs/cli/octopus-cli/deploy-release), or [one of our step templates](https://library.octopus.com/step-templates/0dac2fe6-91d5-4c05-bdfb-1b97adf1e12e/actiontemplate-deploy-child-octopus-deploy-project) it is possible to automatically trigger a rollback process.  
 
 While it is possible to automatically trigger a rollback, this is not something we recommend unless you have a robust testing suite and you've tested your rollback process multiple times.  We recommend first manually triggering the rollback.  Once you are confident in your rollback process, look into updating your process to be automatically triggered.
 

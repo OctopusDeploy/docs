@@ -44,7 +44,7 @@ Deployments scheduled for the future can be viewed under the Project Overview pa
 
 ### Schedule deployments with the Octopus CLI
 
-For everyone using the [Octopus CLI](/docs/octopus-rest-api/cli), you can use the following option:
+For everyone using the [Octopus CLI](/docs/cli), you can use the following option:
 
 ```powershell
 octopus release deploy --deploy-at "2014-07-12 17:54:00 +11:00" --project HelloWorld -- version 1.0.0 --environment Production

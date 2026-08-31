@@ -80,7 +80,7 @@ You often want to define different variable values for each tenant, like databas
 
 ### Tenant-provided variables are not snapshotted
 
-When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) in Octopus Deploy, we take a snapshot of the deployment process and the current state of the [project variables](https://octopus.com/docs/projects/variables). However, we do not take a snapshot of tenant variables. This lets you add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant variables take immediate effect.
+When you [create a release](/docs/cli/octopus-cli/create-release/) in Octopus Deploy, we take a snapshot of the deployment process and the current state of the [project variables](https://octopus.com/docs/projects/variables). However, we do not take a snapshot of tenant variables. This lets you add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant variables take immediate effect.
 
 Learn more about [tenant variables](/docs/tenants/tenant-variables) in our documentation.
 

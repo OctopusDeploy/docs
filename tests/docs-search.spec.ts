@@ -551,7 +551,7 @@ test('a command wins when the query asks for one', async ({ page }) => {
   });
   await expect(site.locator('[role="option"]').first()).toHaveAttribute(
     'href',
-    '/docs/octopus-rest-api/cli/octopus-release-create/'
+    '/docs/cli/octopus-release-create/'
   );
 });
 

@@ -84,7 +84,7 @@ For example:
 
 You can use canonical names when:
 
-- Deploying releases using [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/).
+- Deploying releases using [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/cli/octopus-cli/).
 - Scoping variables to tags.
 - Automating Octopus via the [Octopus REST API](/docs/octopus-rest-api).
 

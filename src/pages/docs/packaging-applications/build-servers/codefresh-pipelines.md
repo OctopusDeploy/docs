@@ -13,7 +13,7 @@ Codefresh is a docker-native CI/CD platform
 
 ## Integrating with Codefresh Pipelines
 
-Codefresh pipelines allow you to customize steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) inside a Docker container.
+Codefresh pipelines allow you to customize steps to create, deploy and promote releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The steps do this by running the [Octopus CLI](/docs/cli/octopus-cli) inside a Docker container.
 
 Octopus Deploy has several custom pipeline steps available:
 
