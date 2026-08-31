@@ -1,6 +1,6 @@
 # Documentation content standards
 
-This folder is the source of truth for how Octopus documentation is structured. The `octopus-docs-standards` Claude Code skill and the internal Confluence guidance both point back to these files.
+This folder is the source of truth for how Octopus documentation is structured. For internal contributors, this is also the source of truth for our internal `octopus-docs-standards` Claude Code skill.
 
 The standards define a typed content model: small typed *topics* compose into typed *page deliverables*. Structure is specified rather than left to each author's judgment, and that specification is what keeps the docs set consistent and findable. So don't write a page from intuition about what a good docs page looks like. Work out which type you're writing, then follow the standards for that type.
 
