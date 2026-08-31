@@ -13,24 +13,7 @@ See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/ov
 
 ## How to contribute a change to the docs
 
-- The `main` branch has the latest version of the docs
-- Fork this repo and create a branch for your changes
-- Make the changes you'd like to contribute
-- Submit a pull request (PR) to master with your changes and include a comment explaining the changes
-- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
-- We'll review your PR and accept it or suggest changes
-
-### Default values
-
-When you need to use an example value in docs, please use the below:
-
-- Octopus URL: `https://your-octopus-url`
-- Octopus API key: `API-YOUR-KEY`
-- Snapshot name: `Snapshot XXXXX`
-- SubscriptionId: `g3662re9njtelsyfhm7t`
-- Fake password: `your-secret-password`
-
-In general, try to use "your" rather than "my". For example, `your-value`.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose a change, whether you're an Octopus staff member using the standards-driven workflow or contributing from outside Octopus.
 
 ## Required checks
 
@@ -280,6 +263,8 @@ the article column above it.
 
 ## Docs page layout guidelines
 
+Page structure, frontmatter, and where version-specific notes belong are governed by the `octopus-docs-standards` skill in Octopus Deploy's built-in Claude Code plugins — see [CONTRIBUTING.md](CONTRIBUTING.md). If you don't use Claude Code (which we recommend), you can find guidance in Octopus's internal Confluence instance. Search for "Documentation standards, guidelines, and templates". The guidance below covers page elements the content standards don't.
+
 ### Product screenshots
 
 Product screenshots used in Docs should reflect the UI in the latest version of Octopus. The `figure` component will automatically add a curved border and outline to your image:
@@ -291,11 +276,3 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 ```
 
 Images should be uploaded to the folder that relates to the position of the page in the Docs hierarchy. In the example above, where the image is destined for the Octopus Cloud overview page, the image has been uploaded to the Docs > Octopus Cloud > Images folder. If a folder has not been created for the page you are uploading an image to, create a new folder or use the Docs > Images folder as a backup.
-
-### Move version notes for older versions of Octopus to the bottom of Docs pages
-
-Do not use call out / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
-
-```markdown
-In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
-```
