@@ -38,7 +38,7 @@ Navigate to **Deploy ➜ Manage ➜ Approvals ➜ Manage** and select **Add Appr
   Octopus can optionally block the deployment creator from approving their own change request. Enable **Block approvals by the deployment creator** to enforce this separation of duties.
 
 - **Minimum approvers required**: The number of approvals Octopus requires before allowing execution to proceed. If any approver rejects the change request before this threshold is reached, Octopus immediately terminates the task.
-- **Multi-tenant Approvals**: Choose whether one change request handles covers all tenants or each tenant has separate change requests.
+- **Multi-tenant Approvals**: Choose whether one change request covers all tenants or each tenant has separate change requests.
 
 ## How it works
 
@@ -61,7 +61,7 @@ Octopus supports change windows. Change windows are scheduled time periods durin
 
 #### Change window creation
 
-To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment.  The `Later` option allows users to define when the deployment start date/time and a duration.  Octopus evaluates the approval rule when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
+To create a change window in Octopus select the `Later` option in the `When` section of scheduling a Release for deployment. The `Later` option allows users to define when the deployment start date/time and a duration. Octopus evaluates the approval rule when the deployment is scheduled (queued), so approvers can approve or reject a deployment before it executes. This differs from the [Manual Intervention](https://octopus.com/docs/projects/built-in-step-templates/manual-intervention-and-approvals) step that triggers only after the deployment starts.
 
 ### Rejection
 
