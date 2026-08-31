@@ -15,6 +15,10 @@ See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/ov
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose a change, whether you're an Octopus staff member using the standards-driven workflow or contributing from outside Octopus.
 
+## Documentation standards
+
+The content standards that govern how docs pages are structured — page types, topic types, frontmatter, and version notes — live in [contributing/standards](contributing/standards). That folder is the source of truth: the `octopus-docs-standards` Claude Code skill and the internal Confluence guidance both point back to it.
+
 ## Required checks
 
 When you raise a pull request, the following checks will take place:
@@ -263,7 +267,7 @@ the article column above it.
 
 ## Docs page layout guidelines
 
-Page structure, frontmatter, and where version-specific notes belong are governed by the `octopus-docs-standards` skill in Octopus Deploy's built-in Claude Code plugins — see [CONTRIBUTING.md](CONTRIBUTING.md). If you don't use Claude Code (which we recommend), you can find guidance in Octopus's internal Confluence instance. Search for "Documentation standards, guidelines, and templates". The guidance below covers page elements the content standards don't.
+Page structure, frontmatter, and where version-specific notes belong are governed by the content standards in [contributing/standards](contributing/standards). The `octopus-docs-standards` skill in Octopus Deploy's built-in Claude Code plugins applies those standards for you — see [CONTRIBUTING.md](CONTRIBUTING.md). The guidance below covers page elements the content standards don't.
 
 ### Product screenshots
 

@@ -1,12 +1,25 @@
 # Contributing to the Octopus docs
 
-Contributions to help improve this documentation are welcome. How you contribute depends on whether you're an Octopus staff member or contributing from outside Octopus.
+Contributions to help improve this documentation are welcome. How you contribute depends on whether you're contributing from outside Octopus or you're an Octopus staff member.
+
+Before you submit, check your change against the [documentation content standards](contributing/standards).
+
+## External contributors
+
+- The `main` branch has the latest version of the docs.
+- Fork this repo and create a branch for your changes.
+- Make the changes you'd like to contribute.
+- Submit a pull request (PR) to `main` with your changes and include a comment explaining the changes.
+- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs).
+- We'll review your PR and accept it or suggest changes.
+
+See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/overview-VLYeW2mi-VLYeW2mi) for voice, grammar, and formatting conventions.
 
 ## Octopus staff
 
 Anyone at Octopus can improve the documentation, whether you're fixing a page you found confusing or writing something new.
 
-This section covers the essentials for working directly in this repository. For the complete guide — including a path for drafting content without touching git, current reviewer logistics, and where to get help — see the [Documentation contribution and review guide](INSERT-LINK-HERE).
+This section covers the essentials for working directly in this repository. For the complete guide — including a path for drafting content without touching git, current reviewer logistics, and where to get help — search Octopus's internal Confluence instance for "Documentation contribution and review guide".
 
 You don't need to know the content standards yourself. The `octopus-docs-standards` and `octopus-writing-guide` skills in Claude Code apply them for you.
 
@@ -48,7 +61,7 @@ Never invent specifics. If a fact isn't confirmed — a version number, an error
 
 Put your change on a new branch and open a pull request. Carry your plan into the description so a reviewer can check intent against result.
 
-Review confirms the structure matches the agreed page type, the frontmatter is complete, and no facts were invented or markers left behind — often with the agent's help. The one thing no tool can check is accuracy, so make sure your reviewer has subject-matter expertise for the area you changed. See the [Documentation contribution and review guide](INSERT-LINK-HERE) for who's reviewing during the current documentation uplift.
+Review confirms the structure matches the agreed page type, the frontmatter is complete, and no facts were invented or markers left behind — often with the agent's help. The one thing no tool can check is accuracy, so make sure your reviewer has subject-matter expertise for the area you changed. The contribution and review guide in Confluence lists who's reviewing during the current documentation uplift.
 
 ### Writing conventions
 
@@ -61,14 +74,3 @@ When you need an example value in docs, use the following:
 - Fake password: `your-secret-password`
 
 In general, prefer "your" over "my". For example, `your-value`.
-
-## External contributors
-
-- The `main` branch has the latest version of the docs.
-- Fork this repo and create a branch for your changes.
-- Make the changes you'd like to contribute.
-- Submit a pull request (PR) to `main` with your changes and include a comment explaining the changes.
-- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs).
-- We'll review your PR and accept it or suggest changes.
-
-See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/overview-VLYeW2mi-VLYeW2mi) for voice, grammar, and formatting conventions.
