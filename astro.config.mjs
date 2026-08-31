@@ -73,23 +73,6 @@ export default defineConfig({
             ],
         }),
     },
-    // Where the CLI reference used to be served from. A page of its own for each
-    // of these would be ~350 files of frontmatter carrying no content, so the
-    // ones that map cleanly are a pattern here instead. Astro emits the same
-    // meta refresh it does for src/layouts/Redirect.astro.
-    //
-    // The destination has to be a route that exists, and a dynamic one has to
-    // use the parameter name that route declares - `[...generatedFileName]`,
-    // not `[...slug]`, or the build fails with InvalidRedirectDestination.
-    //
-    // The deprecated Octo CLI pages under octopus-cli/ are hand-written rather
-    // than a dynamic route, so only their index is here and the pages below it
-    // are gone.
-    redirects: {
-        '/docs/octopus-rest-api/cli': '/docs/cli',
-        '/docs/octopus-rest-api/cli/[...generatedFileName]': '/docs/cli/[...generatedFileName]',
-        '/docs/octopus-rest-api/octopus-cli': '/docs/cli/octopus-cli',
-    },
     server: {
         port: 3000
     },
