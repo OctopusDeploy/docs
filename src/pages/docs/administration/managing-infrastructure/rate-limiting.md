@@ -38,9 +38,8 @@ The rate limit applies per user, counted separately from non-AI requests.
 
 ### Webhook Trigger Requests
 
-This policy applies to any HTTP requests made to the [webhook runbook trigger](/docs/runbooks/webhook-runbook-trigger) endpoint.
-The rate limit applies per instance, shared across all webhook triggers.
-This policy is always enabled, and its rate and burst limit cannot be changed.
+HTTP requests made to the [webhook runbook trigger](/docs/runbooks/webhook-runbook-trigger) endpoint have a builtin rate limit policy which is always enabled.
+It is not shown in the configuration interface and cannot be changed or disabled.
 
 ## Configuring the Rate limiter
 
