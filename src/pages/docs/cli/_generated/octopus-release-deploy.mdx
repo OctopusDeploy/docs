@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Cli.astro
 pubDate: 2023-01-01
-modDate: 2026-08-25
+modDate: 2026-09-01
 title: octopus release deploy
 description: Deploy releases
 navOrder: 123
@@ -30,6 +30,8 @@ Flags:
       --force-package-download                     Force re-download of packages
       --deployment-target stringArray              Deploy to this target (can be specified multiple times)
       --exclude-deployment-target stringArray      Deploy to targets except for this (can be specified multiple times)
+      --specific-target-tag stringArray            Deploy to targets matching this tag (can be specified multiple times)
+      --excluded-target-tag stringArray            Deploy to targets except for those matching this tag (can be specified multiple times)
       --deployment-freeze-name stringArray         Override this deployment freeze (can be specified multiple times)
       --deployment-freeze-override-reason string   Reason for overriding a deployment freeze
 
