@@ -709,7 +709,7 @@ if ($answer.ToLower() -ne "y")
 Import-AzurePowerShellModules
 
 $OctopusURL = Get-ParameterValue -originalParameterValue $OctopusURL -parameterName "the URL of your Octopus Deploy Instance, example: https://samples.octopus.com"
-$OctopusApiKey = Get-ParameterValue -originalParameterValue $OctopusApiKey -parameterName "the API Key of your Octopus Deploy User.  See https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key for a guide on how to create one"
+$OctopusApiKey = Get-ParameterValue -originalParameterValue $OctopusApiKey -parameterName "the API Key of your Octopus Deploy User.  See https://octopus.com/docs/api/authentication/create-an-api-key for a guide on how to create one"
 $OctopusSpaceName = Get-ParameterValueWithDefault -originalParameterValue $OctopusSpaceName -parameterName "the name of the space in Octopus Deploy.  If left empty it will default to 'Default'" -defaultValue "Default"
 $OctopusAccountName = Get-ParameterValueWithDefault -originalParameterValue $OctopusAccountName -parameterName "the name of the account you wish to create in Octopus Deploy.  If left empty it will default to 'Bootstrap Azure Account'" -defaultValue "Bootstrap Azure Account"
 

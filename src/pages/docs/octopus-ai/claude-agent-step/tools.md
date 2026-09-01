@@ -31,7 +31,7 @@ To connect the agent to your Octopus instance:
 
 1. Create a dedicated [agent service account](/docs/security/users-and-teams/service-accounts#agent-service-accounts). This gives the agent its own identity, keeps its activity identifiable in the audit log, and lets you revoke it on its own.
 2. Grant the account the least privilege the task needs. For investigation and reporting, read-only access is usually enough, and it's what we recommend for a first run.
-3. Generate an [agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) under the account.
+3. Generate an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) under the account.
 4. Store the key as a **sensitive variable** (for example, `octopus-api-key`), so the key is kept out of the task log and execution context.
 5. On the step, expand **Agent Capabilities (optional)** > **Octopus MCP Server** and set **Octopus API key** to a reference to your variable, for example `#{octopus-api-key}`.
 6. In **Tools**, list which of the server's tools the agent may call, one per line without the `mcp__octopus__` prefix, or leave the default `*` to allow every tool the server offers. A blank field disallows any tool the MCP server exposes.

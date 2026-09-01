@@ -203,7 +203,7 @@ The `Octopus URL` field defines the URL of the Octopus Server that the package w
 
 ### API key
 
-The `API key` field defines the API key that is used to authenticate with the Octopus Server. See [How to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) for more information.
+The `API key` field defines the API key that is used to authenticate with the Octopus Server. See [How to create an API key](/docs/api/authentication/create-an-api-key) for more information.
 
 ### Octopus CLI
 

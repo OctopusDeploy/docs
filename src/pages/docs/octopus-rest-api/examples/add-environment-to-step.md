@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/examples/add-environment-to-step
+redirect: https://octopus.com/docs/api/examples/deployment-process/add-environment-to-step
 pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false

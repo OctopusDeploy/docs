@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/examples/change-machine-machinepolicy
+redirect: https://octopus.com/docs/api/examples/deployment-targets/change-target-machinepolicy
 pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/examples/add-a-space-with-environments
+redirect: https://octopus.com/docs/api/examples/spaces/add-a-space-with-environments
 pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false

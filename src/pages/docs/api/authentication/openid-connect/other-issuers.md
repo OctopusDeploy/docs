@@ -12,7 +12,7 @@ hideInThisSection: true
 Octopus supports using OpenID Connect for any external system that can issue a signed OIDC token which can be validated anonymously via an HTTPS endpoint.
 
 :::div{.hint}
-Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/api/authentication/create-an-api-key).
 :::
 
 ## Configuring an OIDC identity

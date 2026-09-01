@@ -12,7 +12,7 @@ hideInThisSection: true
 Octopus has first-class support for using OpenID Connect (OIDC) within GitHub Actions when using the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action.
 
 :::div{.hint}
-Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/api/authentication/create-an-api-key).
 :::
 
 For more information on OIDC in GitHub Actions see [Security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).

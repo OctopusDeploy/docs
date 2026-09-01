@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/examples/users
+redirect: https://octopus.com/docs/api/examples/users-and-teams
 pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false

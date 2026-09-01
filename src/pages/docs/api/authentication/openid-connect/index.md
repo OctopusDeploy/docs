@@ -31,14 +31,14 @@ Some of the benefits of using OIDC in Octopus include:
 - Access tokens are only issued for requests from trusted external systems, allowing for controlled access to service accounts and promoting using the principle of least access.
 
 :::div{.hint}
-Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Using OIDC to access the Octopus API is only supported for service accounts, to access the API for a user account please use [an API key](/docs/api/authentication/create-an-api-key).
 :::
 
 Any issuer that can generate signed OIDC tokens which can be validated anonymously is supported, however first-class support for GitHub Actions is provided with the [`OctopusDeploy/login`](https://github.com/OctopusDeploy/login) action.
 
 ## Getting started with GitHub Actions
 
-Follow the guide below to get started using OIDC with GitHub Actions. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Octopus and GitHub Actions](/docs/octopus-rest-api/openid-connect/github-actions).
+Follow the guide below to get started using OIDC with GitHub Actions. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Octopus and GitHub Actions](/docs/api/openid-connect/github-actions).
 
 ### Create an OIDC identity for a service account
 
@@ -114,7 +114,7 @@ jobs:
 
 ## Getting started with other issuers
 
-Follow the guide below to get started using OIDC with other issuers. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Other Issuers](/docs/octopus-rest-api/openid-connect/other-issuers).
+Follow the guide below to get started using OIDC with other issuers. For more complex scenarios, or for a full list of available options, see [Using OpenID Connect with Other Issuers](/docs/api/openid-connect/other-issuers).
 
 ### Create an OIDC identity for a service account
 
@@ -150,7 +150,7 @@ A Service Account Id will be shown, this will be a GUID which must be supplied a
 
 1. Obtain an OIDC token from the issuer, the `aud` claim must be the Service Account Id. The process for obtaining the OIDC token from the issuer will differ by issuer, please consult your OIDC issuers documentation.
 2. Get the token exchange endpoint for your Octopus server from the `token_endpoint` property of the OpenID Connect Discovery endpoint `https://my-octopus-server.com/.well-known/openid-configuration`.
-3. Exchange the OIDC token for an Octopus access token, setting `audience` property to the Service Account Id from above. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more details on the token exchange request.
+3. Exchange the OIDC token for an Octopus access token, setting `audience` property to the Service Account Id from above. See [Exchanging an OIDC token for an Octopus access token](/docs/api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more details on the token exchange request.
 4. Get the `access_token` from the token exchange response.
 
 ### Using the access token to access the Octopus API
@@ -191,7 +191,7 @@ If you are encountering issues using OIDC validating identity tokens from your O
   - The audience must be the id of the service account and will be a GUID.
   - The issuer must be a URL using the HTTPS scheme.
   - The subject must match the configured subject on the OIDC identity and is *case-sensitive*. Support is available to include wildcard characters in the subject using `*` and `?` for multiple and single character matches respectively.
-- If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/octopus-rest-api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/octopus-rest-api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
+- If you are making the token exchange request manually (e.g. using an [issuer other than GitHub Actions](/docs/api/openid-connect/other-issuers)), check that the required fields are set correctly. See [Exchanging an OIDC token for an Octopus access token](/docs/api/openid-connect/other-issuers#OidcOtherIssuers-TokenExchange) for more information on the request format.
 - Check that the token has not expired (`exp`). Often identity tokens created by OIDC providers will have a short lifetime.
 - Check that the token is signed by a valid key from the issuer. Signing keys may be invalidated by providers under some circumstances.
 - Check that the public key used to sign the token are available using [OpenID discovery](https://openid.net/specs/openid-connect-discovery-1_0.html).

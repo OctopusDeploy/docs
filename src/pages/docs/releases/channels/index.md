@@ -301,7 +301,7 @@ The package list allows you to select the version of each package involved in th
 
 ### Using build server extensions or the Octopus CLI
 
-When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/cli/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct channel for your release (this is the default behavior), or choose a specific channel yourself.
+When using one of the [build server extensions](/docs/api/) or the [Octopus CLI](/docs/cli/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct channel for your release (this is the default behavior), or choose a specific channel yourself.
 
 ### Built-in package repository triggers
 

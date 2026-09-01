@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/api/examples/tenants/bulk-add-projects-to-tenants
+redirect: https://octopus.com/docs/api/examples/bulk-operations/bulk-add-projects-to-tenants
 pubDate: 2023-01-01
 modDate: 2026-09-01
 navSearch: false

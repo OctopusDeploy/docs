@@ -75,7 +75,7 @@ octopus release deploy --project "My Project" --version "1.0.1" --tenant-tag "Re
 
 You can use tenant tags when:
 
-- Deploying releases using [build server integrations](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/cli/octopus-cli/deploy-release).
+- Deploying releases using [build server integrations](/docs/api/) or the [Octopus CLI](/docs/cli/octopus-cli/deploy-release).
 - Scoping a deployment target to one or more tenants when registering a new Tentacle - read more in our [tenant infrastructure](/docs/tenants/tenant-infrastructure) section.
 - Automating Octopus via the [Octopus REST API](/docs/octopus-rest-api).
 

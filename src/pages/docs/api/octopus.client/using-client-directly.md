@@ -7,7 +7,7 @@ description: How to use the IOctopusClient type in the Octopus.Client library.
 navOrder: 30
 ---
 
-For some operations not available through [repositories](/docs/octopus-rest-api/octopus.client/using-resources), it will be necessary to use the `IOctopusClient` type:
+For some operations not available through [repositories](/docs/api/octopus.client/using-resources), it will be necessary to use the `IOctopusClient` type:
 
 <details data-group="using-client-directly">
 <summary>PowerShell</summary>

@@ -7,7 +7,7 @@ description: Using the Octopus CLI (octopus) command line tool to create package
 navOrder: 30
 ---
 <!-- spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder -->
-The Octopus CLI (`octopus`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes packaging commands to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+The Octopus CLI (`octopus`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/api/) and includes packaging commands to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 

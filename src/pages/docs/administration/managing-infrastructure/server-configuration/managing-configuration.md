@@ -20,7 +20,7 @@ In the Octopus Web Portal, you can access configuration by navigating to **Confi
 
 ## Octopus.Client
 
-Using [Octopus.Client](/docs/octopus-rest-api/octopus.client), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
+Using [Octopus.Client](/docs/api/octopus.client), each of the configuration types can be managed programmatically, reading from and writing back to the Octopus Deploy database.
 
 :::div{.hint}
 This requires version 15.2.0 or later of the client library.
@@ -67,4 +67,4 @@ $guestConfig.IsEnabled = $true;
 $guestConfig = $modifyMethod.Invoke($repo.Configuration, $guestConfig)
 ```
 
-For more information on using the Octopus.Client library see [Octopus.Client](/docs/octopus-rest-api/octopus.client).
+For more information on using the Octopus.Client library see [Octopus.Client](/docs/api/octopus.client).

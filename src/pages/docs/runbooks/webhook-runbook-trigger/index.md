@@ -67,7 +67,7 @@ Runbook runs created this way are not attributed to an Octopus user, so no permi
 
 ### Octopus API key
 
-With **Octopus API key**, callers authenticate as an Octopus user by sending an [API key](/docs/octopus-rest-api/how-to-create-an-api-key) in the `X-Octopus-ApiKey` header:
+With **Octopus API key**, callers authenticate as an Octopus user by sending an [API key](/docs/api/authentication/create-an-api-key) in the `X-Octopus-ApiKey` header:
 
 ```bash
 curl -X POST https://your-octopus-url/api/Spaces-1/webhook/00000000-0000-0000-0000-000000000000 \
