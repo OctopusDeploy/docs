@@ -33,7 +33,7 @@ The rate limit applies per user.
 
 ### Authenticated AI Agent Requests
 
-This policy applies to any HTTP requests associated with an authenticated user which authenticate using an [agent API key](/docs/api/create-an-api-key#creating-an-agent-api-key).
+This policy applies to any HTTP requests associated with an authenticated user which authenticate using an [agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key).
 The rate limit applies per user, counted separately from non-AI requests.
 
 ### Webhook Trigger Requests

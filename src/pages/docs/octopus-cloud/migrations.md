@@ -292,6 +292,6 @@ In our experience, most people turn off their Octopus Server in about three to s
 
 ## No longer offered or supported
 
-Please note that our existing [Migration API](https://octopus.com/docs/api/migration-api) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
+Please note that our existing [Migration API](/docs/api/migrations) is **not supported** for migrations to cloud instances due to configuration differences between self-hosted and cloud installations.
 
 The legacy [Data Migration](https://octopus.com/docs/administration/data/data-migration) included with Octopus Deploy is **not supported** for migrations to cloud instances. That tool is a Windows command-line application that must be run directly on the server hosting Octopus Deploy via an RDP session. Octopus Cloud runs on our Linux Container image on a Kubernetes Cluster and therefore access to the Container is not permitted for security reasons.

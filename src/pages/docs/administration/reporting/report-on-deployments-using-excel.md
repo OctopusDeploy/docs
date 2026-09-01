@@ -24,7 +24,7 @@ At a high-level, the steps are:
 
 Before we can report on the data using Excel, we need to export it in a format that Excel can import. The easiest way to do this is using an XML file.
 
-Octopus exposes data on deployments through the `/api/reporting/deployments/xml` endpoint. You can use our [Octopus API clients](docs/api/#api-clients) to download the XML file.
+Octopus exposes data on deployments through the `/api/reporting/deployments/xml` endpoint. You can use our [Octopus API clients](/docs/api/#api-clients) to download the XML file.
 
 <details data-group="administration-reporting-report-on-deployments-using-excel-client">
 <summary>PowerShell</summary>

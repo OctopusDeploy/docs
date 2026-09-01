@@ -18,7 +18,7 @@ It is best to create **Service accounts** for this purpose to provide each servi
 :::div{.hint}
 **Service accounts** are **API-only accounts** that can be assigned permissions in the same way you do for normal accounts, but are prevented from using the Octopus Web Portal.
 
-Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/api/openid-connect) or an [Octopus API Key](/docs/api/authentication/create-an-api-key). For dedicated agent service accounts, see [Agent service accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts).
+Service accounts authenticate with the Octopus API using [OpenID Connect](/docs/api/authentication/openid-connect) or an [Octopus API Key](/docs/api/authentication/create-an-api-key). For dedicated agent service accounts, see [Agent service accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts).
 :::
 
 ## Creating a service account {#ServiceAccounts-CreatingAServiceAccount}
@@ -37,12 +37,12 @@ Creating a new Service account is very similar to creating a new User account:
 :::
 
 :::div{.hint}
-This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [OpenID Connect Identities](/docs/api/openid-connect) or [Octopus API keys](/docs/api/authentication/create-an-api-key) associated with it.
+This Service account is not very useful until it [belongs to one or more teams](/docs/security/users-and-teams/), and has one or more [OpenID Connect Identities](/docs/api/authentication/openid-connect) or [Octopus API keys](/docs/api/authentication/create-an-api-key) associated with it.
 :::
 
 ## OpenID Connect (OIDC)
 
-You can use [OpenID Connect (OIDC)](/docs/api/openid-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the service which allows it to connect to Octopus securely. The service then exchanges an ID token with Octopus for a short-lived access token which it can then use for API requests.
+You can use [OpenID Connect (OIDC)](/docs/api/authentication/openid-connect) to automate Octopus with another service without needing to provision or manage API Keys. To do this you configure a specific *OIDC Identity* for the service which allows it to connect to Octopus securely. The service then exchanges an ID token with Octopus for a short-lived access token which it can then use for API requests.
 
 ## API Keys
 

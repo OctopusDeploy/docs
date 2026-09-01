@@ -47,8 +47,7 @@ export function searchIndexAttributes(
   pathname: string,
   frontmatter: Frontmatter
 ): IndexAttributes {
-  const indexable =
-    frontmatter.navSearch !== false;
+  const indexable = frontmatter.navSearch !== false;
 
   // `all` rather than the default `index`: a bare ignore still lets Pagefind
   // read a title or metadata out of the block.
