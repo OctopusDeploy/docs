@@ -61,7 +61,9 @@ Each policy has the following settings you can modify:
 The [Webhook Trigger Requests](#webhook-trigger-requests) policy is an exception; its settings cannot be modified.
 :::
 
-Rate limiting policies can also be enabled and configured using the Octopus.Server command line's `rate-limiting-policy` command.
+Rate limiting policies can also be configured using the Octopus.Server command line's `rate-limiting-policy` command.
+
+Rate limiting policies can also be [configured using the API.](/docs/api/rate-limiting)
 
 ### Default Enabled State
 
@@ -105,8 +107,44 @@ The **Rate** value specifies the steady state, in requests per minute, at which 
 
 When the rate limiter rejects a request, the client will receive an [HTTP 429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429) error response. The request will not be processed by the server, and any action the request is intended to perform will not occur.
 
-The response may include a `Retry-After` header, with a value specifying the number of seconds to wait before trying again.  
-**Note:** The `Retry-After` header is a suggestion; a client is not guaranteed to succeed if it waits that long and tries again, and it may succeed even if it doesn't wait for the specified period.
+### Retry-After response header
+
+An HTTP 429 error response may include a `Retry-After` header, with a value specifying the number of seconds to wait before trying again.  
+
+:::div{.hint}
+The `Retry-After` header is a suggestion; a client is not guaranteed to succeed if it waits that long and tries again, and it may succeed even if it doesn't wait for the specified period.
+:::
+
+### Advisory response headers
+
+When the rate limiter is enabled, Octopus Server adds two additional headers `Octopus-RateLimit-Policy` and `Octopus-RateLimit` to all requests that are subject to rate-limiting, whether they succeed or fail.
+
+Clients can use these headers to throttle their requests _before_ hitting the rate limit, avoiding errors from the server and delays associated with retries.
+
+**Example:**
+
+```
+Octopus-RateLimit-Policy: l=200;rpm=600
+Octopus-RateLimit: r=7;t=18
+```
+
+* `l=200` tells the client that the policy's Burst limit is 200
+* `rpm=600` tells the client that the policy's Requests per minute is 600
+* `r=7` tells the client that there are 7 tokens remaining in its bucket
+* `t-18` tells the client that the bucket will fully refill in 18 seconds (assuming no other requests occur)
+
+The Octopus Web Portal uses these headers automatically.
+
+The Octopus C# Client gains support for these headers in [Release 22.10.2889](https://github.com/OctopusDeploy/OctopusClients/releases/tag/22.10.2889), however support is disabled by default. To have the client adapt to these headers, [set `UseRateLimitHeaders` property to `true` on the `OctopusClientOptions` object](https://github.com/OctopusDeploy/OctopusClients/blob/f1b23b3a1d43ddeb4bb9df852881e9e00dd9e7b8/source/Octopus.Server.Client/OctopusClientOptions.cs#L73) you supply when creating the client.
+
+:::div{.hint}
+[draft-ietf-httpapi-ratelimit-headers-11](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) proposes the `RateLimit-Policy` and `RateLimit` headers.
+
+The Octopus implementation is heavily inspired by this RFC, however we chose not to adopt the standard as it is still unstable. In future if the RFC becomes accepted and stable it is likely that we will adopt it. 
+
+Defining our own `Octopus-` headers allows us to transition gracefully way and maintain support for customers on timeframes within our control.
+:::
+
 
 ## Audit Events
 
@@ -125,6 +163,11 @@ If a policy has the Audit Mode setting enabled, the rate limiting policy remains
 - When a client reaches the limit, their requests are not rejected; they act as though the policy is not enabled.
 - An audit event indicating that the rate limit was exceeded is still generated.
 - The audit event interval is decreased. If a client continues to exceed the rate limit, an audit event is generated every 5 minutes, rather than every 15.
+
+:::div{.hint}
+[Advisory response headers](#advisory-response-headers) are sent in audit mode. Clients which use them will slow down before they hit the rate limit, even though it is not technically enforced.
+:::
+
 
 ## High Availability
 
