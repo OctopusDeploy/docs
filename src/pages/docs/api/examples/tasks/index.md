@@ -10,5 +10,5 @@ hideInThisSectionHeader: true
 ---
 You can use the REST API to create and manage Server tasks in Octopus. Typical tasks might include:
 
-- [Reprioritize Tasks](/docs/octopus-rest-api/examples/tasks/reprioritize-tasks)
-- [Run a health check](/docs/octopus-rest-api/examples/tasks/run-healthcheck)
+- [Reprioritize Tasks](/docs/api/examples/tasks/reprioritize-tasks)
+- [Run a health check](/docs/api/examples/tasks/run-healthcheck)

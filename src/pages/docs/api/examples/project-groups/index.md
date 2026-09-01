@@ -10,4 +10,4 @@ hideInThisSectionHeader: true
 
 You can use the REST API to create and manage [project groups](/docs/projects/#project-group) in Octopus. Typical tasks can include:
 
-- [Create a project group](/docs/octopus-rest-api/examples/project-groups/create-projectgroup)
+- [Create a project group](/docs/api/examples/project-groups/create-projectgroup)

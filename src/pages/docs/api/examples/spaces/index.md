@@ -9,5 +9,5 @@ hideInThisSectionHeader: true
 ---
 You can use the REST API to create and manage your Octopus [Spaces](/docs/administration/spaces). Typical tasks can include:
 
-- [Add a Space with environments](/docs/octopus-rest-api/examples/spaces/add-a-space-with-environments)
-- [Delete a Space](/docs/octopus-rest-api/examples/spaces/delete-a-space)
+- [Add a Space with environments](/docs/api/examples/spaces/add-a-space-with-environments)
+- [Delete a Space](/docs/api/examples/spaces/delete-a-space)

@@ -98,5 +98,5 @@ You can use canonical names when:
 
 ## Learn more
 
-- [Create a tag set via the REST API](/docs/octopus-rest-api/examples/tagsets/create-tagset)
+- [Create a tag set via the REST API](/docs/api/examples/tagsets/create-tagset)
 - [Deployment patterns blog posts](https://octopus.com/blog/tag/Deployment%20Patterns)

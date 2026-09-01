@@ -10,10 +10,10 @@ hideInThisSectionHeader: true
 
 You can use the REST API to create and manage your [package repositories](/docs/packaging-applications/package-repositories) in Octopus. Typical tasks might include:
 
-- [Change feed](/docs/octopus-rest-api/examples/feeds/change-feed)
-- [Create a feed](/docs/octopus-rest-api/examples/feeds/create-feed)
-- [Delete a feed](/docs/octopus-rest-api/examples/feeds/delete-feed)
-- [Download package from built-in feed](/docs/octopus-rest-api/examples/feeds/download-package-from-builtin-feed)
-- [Push package to built-in feed](/docs/octopus-rest-api/examples/feeds/push-package-to-builtin-feed)
-- [Retrieve all feeds](/docs/octopus-rest-api/examples/feeds/retrieve-feeds)
-- [Synchronize packages](/docs/octopus-rest-api/examples/feeds/synchronize-packages)
+- [Change feed](/docs/api/examples/feeds/change-feed)
+- [Create a feed](/docs/api/examples/feeds/create-feed)
+- [Delete a feed](/docs/api/examples/feeds/delete-feed)
+- [Download package from built-in feed](/docs/api/examples/feeds/download-package-from-builtin-feed)
+- [Push package to built-in feed](/docs/api/examples/feeds/push-package-to-builtin-feed)
+- [Retrieve all feeds](/docs/api/examples/feeds/retrieve-feeds)
+- [Synchronize packages](/docs/api/examples/feeds/synchronize-packages)

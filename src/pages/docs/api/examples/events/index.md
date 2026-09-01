@@ -10,4 +10,4 @@ hideInThisSectionHeader: true
 
 You can use the REST API to review events on Octopus Deploy. Typical tasks might include:
 
-- [Find events by date](/docs/octopus-rest-api/examples/events/find-events-by-date)
+- [Find events by date](/docs/api/examples/events/find-events-by-date)

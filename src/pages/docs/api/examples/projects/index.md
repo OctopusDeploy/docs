@@ -10,12 +10,12 @@ hideInThisSectionHeader: true
 
 You can use the REST API to create and manage your Octopus [projects](/docs/projects). Typical tasks can include:
 
-- [Coordinating multiple projects](/docs/octopus-rest-api/examples/projects/coordinating-multiple-projects)
-- [Create a project](/docs/octopus-rest-api/examples/projects/create-project)
-- [Delete a project](/docs/octopus-rest-api/examples/projects/delete-project)
-- [Delete projects with no process](/docs/octopus-rest-api/examples/projects/delete-projects-with-empty-processes)
-- [Disable project triggers](/docs/octopus-rest-api/examples/projects/disable-project-triggers)
-- [Enable/disable project](/docs/octopus-rest-api/examples/projects/enable-disable-project)
-- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects)
-- [Find unused projects](/docs/octopus-rest-api/examples/projects/find-unused-projects)
-- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects)
+- [Coordinating multiple projects](/docs/api/examples/projects/coordinating-multiple-projects)
+- [Create a project](/docs/api/examples/projects/create-project)
+- [Delete a project](/docs/api/examples/projects/delete-project)
+- [Delete projects with no process](/docs/api/examples/projects/delete-projects-with-empty-processes)
+- [Disable project triggers](/docs/api/examples/projects/disable-project-triggers)
+- [Enable/disable project](/docs/api/examples/projects/enable-disable-project)
+- [Export projects](/docs/api/examples/projects/export-projects)
+- [Find unused projects](/docs/api/examples/projects/find-unused-projects)
+- [Import projects](/docs/api/examples/projects/import-projects)

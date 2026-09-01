@@ -18,5 +18,5 @@ All the scripts in this section will include:
 
 Provided sample bulk operations are:
 
-- [Bulk add a project to a list of tenants](/docs/octopus-rest-api/examples/bulk-operations/bulk-add-projects-to-tenants)
-- [Rerun all canceled deployments and runbook runs after node shutdown](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown)
+- [Bulk add a project to a list of tenants](/docs/api/examples/bulk-operations/bulk-add-projects-to-tenants)
+- [Rerun all canceled deployments and runbook runs after node shutdown](/docs/api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown)

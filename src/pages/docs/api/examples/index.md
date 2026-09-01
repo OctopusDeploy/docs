@@ -57,36 +57,36 @@ The TypeScript examples are written using the [TypeScript API Client for Octopus
 
 Sometimes you want to perform an action on a resource in Octopus multiple times. For example, connecting a tenant to all of your projects. Having to run a script that performs an operation once, repeatedly, can become tedious.
 
-To help with this, we've included examples of [bulk operations](/docs/octopus-rest-api/examples/bulk-operations) using the Octopus REST API.
+To help with this, we've included examples of [bulk operations](/docs/api/examples/bulk-operations) using the Octopus REST API.
 
 ## Explore examples
 
 Explore the REST API examples further in this section:
 
-- [Accounts](/docs/octopus-rest-api/examples/accounts)
-- [Artifacts](/docs/octopus-rest-api/examples/artifacts)
-- [Certificates](/docs/octopus-rest-api/examples/certificates)
-- [Channels](/docs/octopus-rest-api/examples/channels)
-- [Deployment process](/docs/octopus-rest-api/examples/deployment-process)
-- [Deployment targets](/docs/octopus-rest-api/examples/deployment-targets)
-- [Deployments](/docs/octopus-rest-api/examples/deployments)
-- [Environments](/docs/octopus-rest-api/examples/environments)
-- [Events](/docs/octopus-rest-api/examples/events)
-- [Feeds](/docs/octopus-rest-api/examples/feeds)
-- [Lifecycles](/docs/octopus-rest-api/examples/lifecycles)
-- [Project Groups](/docs/octopus-rest-api/examples/project-groups)
-- [Projects](/docs/octopus-rest-api/examples/projects)
-- [Releases](/docs/octopus-rest-api/examples/releases)
-- [Reports](/docs/octopus-rest-api/examples/reports)
-- [Runbooks](/docs/octopus-rest-api/examples/runbooks)
-- [Spaces](/docs/octopus-rest-api/examples/spaces)
-- [Step Templates](/docs/octopus-rest-api/examples/step-templates)
-- [Tag sets](/docs/octopus-rest-api/examples/tagsets)
-- [Tasks](/docs/octopus-rest-api/examples/tasks)
-- [Tenants](/docs/octopus-rest-api/examples/tenants)
-- [Users and Teams](/docs/octopus-rest-api/examples/users-and-teams)
-- [Variables](/docs/octopus-rest-api/examples/variables)
-- [Bulk Operations](/docs/octopus-rest-api/examples/bulk-operations)
+- [Accounts](/docs/api/examples/accounts)
+- [Artifacts](/docs/api/examples/artifacts)
+- [Certificates](/docs/api/examples/certificates)
+- [Channels](/docs/api/examples/channels)
+- [Deployment process](/docs/api/examples/deployment-process)
+- [Deployment targets](/docs/api/examples/deployment-targets)
+- [Deployments](/docs/api/examples/deployments)
+- [Environments](/docs/api/examples/environments)
+- [Events](/docs/api/examples/events)
+- [Feeds](/docs/api/examples/feeds)
+- [Lifecycles](/docs/api/examples/lifecycles)
+- [Project Groups](/docs/api/examples/project-groups)
+- [Projects](/docs/api/examples/projects)
+- [Releases](/docs/api/examples/releases)
+- [Reports](/docs/api/examples/reports)
+- [Runbooks](/docs/api/examples/runbooks)
+- [Spaces](/docs/api/examples/spaces)
+- [Step Templates](/docs/api/examples/step-templates)
+- [Tag sets](/docs/api/examples/tagsets)
+- [Tasks](/docs/api/examples/tasks)
+- [Tenants](/docs/api/examples/tenants)
+- [Users and Teams](/docs/api/examples/users-and-teams)
+- [Variables](/docs/api/examples/variables)
+- [Bulk Operations](/docs/api/examples/bulk-operations)
 
 ## Get help from the community
 

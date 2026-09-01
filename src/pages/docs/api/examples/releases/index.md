@@ -9,7 +9,7 @@ hideInThisSectionHeader: true
 ---
 You can use the REST API to create and manage your Octopus [releases](/docs/releases). Typical tasks can include:
 
-- [Create a release with specific version](/docs/octopus-rest-api/examples/releases/create-release-with-specific-version)
-- [Delete project releases](/docs/octopus-rest-api/examples/releases/delete-project-releases)
-- [Promote a release not in the destination](/docs/octopus-rest-api/examples/releases/promote-release-not-in-destination)
-- [Update release variable snapshot](/docs/octopus-rest-api/examples/releases/update-release-variable-snapshot)
+- [Create a release with specific version](/docs/api/examples/releases/create-release-with-specific-version)
+- [Delete project releases](/docs/api/examples/releases/delete-project-releases)
+- [Promote a release not in the destination](/docs/api/examples/releases/promote-release-not-in-destination)
+- [Update release variable snapshot](/docs/api/examples/releases/update-release-variable-snapshot)
