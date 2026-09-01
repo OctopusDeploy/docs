@@ -4,7 +4,6 @@
 import { accelerator } from '@lib/accelerator';
 import { SITE } from '@config';
 import { PostFiltering } from 'astro-accelerator-utils';
-import { isUnderConstruction } from '@lib/underConstruction';
 import { flattenGeneratedPath } from '@lib/generatedPaths';
 
 async function getData() {
@@ -14,11 +13,6 @@ async function getData() {
   let pages = [];
 
   for (const path in allPages) {
-    // Temporary - see src/lib/underConstruction.ts.
-    if (isUnderConstruction(path)) {
-      continue;
-    }
-
     const article: any = await allPages[path]();
     const addToSitemap = PostFiltering.showInSitemap(article);
 

@@ -5,7 +5,6 @@
 
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
 import { classify } from '../scripts/search-engine';
-import { isUnderConstructionUrl } from './underConstruction';
 
 type ArticleAttributes = {
   'data-pagefind-ignore'?: string;
@@ -49,7 +48,7 @@ export function searchIndexAttributes(
   frontmatter: Frontmatter
 ): IndexAttributes {
   const indexable =
-    frontmatter.navSearch !== false && !isUnderConstructionUrl(pathname);
+    frontmatter.navSearch !== false;
 
   // `all` rather than the default `index`: a bare ignore still lets Pagefind
   // read a title or metadata out of the block.
