@@ -119,19 +119,19 @@ The `Retry-After` header is a suggestion; a client is not guaranteed to succeed 
 
 When the rate limiter is enabled, Octopus Server adds two additional headers `Octopus-RateLimit-Policy` and `Octopus-RateLimit` to all requests that are subject to rate-limiting, whether they succeed or fail.
 
-Clients can use these headers to throttle their requests _before_ hitting the rate limit, avoiding errors from the server and delays associated with retries.
+Clients can use these headers to throttle their requests *before* hitting the rate limit, avoiding errors from the server and delays associated with retries.
 
 **Example:**
 
-```
+```text
 Octopus-RateLimit-Policy: l=200;rpm=600
 Octopus-RateLimit: r=7;t=18
 ```
 
-* `l=200` tells the client that the policy's Burst limit is 200
-* `rpm=600` tells the client that the policy's Requests per minute is 600
-* `r=7` tells the client that there are 7 tokens remaining in its bucket
-* `t-18` tells the client that the bucket will fully refill in 18 seconds (assuming no other requests occur)
+- `l=200` tells the client that the policy's Burst limit is 200
+- `rpm=600` tells the client that the policy's Requests per minute is 600
+- `r=7` tells the client that there are 7 tokens remaining in its bucket
+- `t-18` tells the client that the bucket will fully refill in 18 seconds (assuming no other requests occur)
 
 The Octopus Web Portal uses these headers automatically.
 
@@ -140,11 +140,10 @@ The Octopus C# Client gains support for these headers in [Release 22.10.2889](ht
 :::div{.hint}
 [draft-ietf-httpapi-ratelimit-headers-11](https://datatracker.ietf.org/doc/draft-ietf-httpapi-ratelimit-headers/) proposes the `RateLimit-Policy` and `RateLimit` headers.
 
-The Octopus implementation is heavily inspired by this RFC, however we chose not to adopt the standard as it is still unstable. In future if the RFC becomes accepted and stable it is likely that we will adopt it. 
+The Octopus implementation is heavily inspired by this RFC, however we chose not to adopt the standard as it is still unstable. In future if the RFC becomes accepted and stable it is likely that we will adopt it.
 
 Defining our own `Octopus-` headers allows us to transition gracefully way and maintain support for customers on timeframes within our control.
 :::
-
 
 ## Audit Events
 
@@ -167,7 +166,6 @@ If a policy has the Audit Mode setting enabled, the rate limiting policy remains
 :::div{.hint}
 [Advisory response headers](#advisory-response-headers) are sent in audit mode. Clients which use them will slow down before they hit the rate limit, even though it is not technically enforced.
 :::
-
 
 ## High Availability
 
