@@ -29,14 +29,15 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
-## Azure Web App Step {#azure-web-app-deprecate}
-The `Deploy an Azure Web App (Web Deploy)` step depends on Microsoft's [Web Deploy tooling](https://www.nuget.org/packages/Microsoft.Web.Deployment) which only run on Windows and have not been updated for several years. 
+## Azure Web App (Web Deploy) step {#azure-web-app-deprecate}
 
-Although Azure Web Apps are still a service provided by Azure, most deployment processes now rely on the `az webapp deployment` cli tooling. Unfortunately this new approach does not have feature parity with the older MSDeploy capabilities and so a simple automated port by Octopus from old to new is not viable.
+The `Deploy an Azure Web App (Web Deploy)` step depends on Microsoft's [Web Deploy tooling](https://www.nuget.org/packages/Microsoft.Web.Deployment) which only runs on Windows and has not been updated for several years. 
 
-From **2026.3** Octopus Server will no longer support adding new `Azure Web App (Web Deploy)` steps. We reccommend users migrate towards the use of the `Azure App Service` step, or use the `Azure Script` step to perform the required deployment process.
+Although Azure Web Apps are still a service provided by Azure, most deployment processes now rely on the `az webapp deployment` CLI tooling. Unfortunately this new approach does not have feature parity with the older MSDeploy capabilities and so a simple automated port by Octopus from old to new is not viable.
 
-In the **2027.1** release we will convert remaining `Azure Web App (Web Deploy)` steps to an `Azure Script` step, ensuring like-for-like invocation of the old MSDeploy tools for legacy usage.
+From **2026.3** Octopus Server will no longer support adding new `Azure Web App (Web Deploy)` steps. We recommend users migrate towards the use of the `Azure App Service` step, or use the `Run an Azure Script` step to perform the required deployment process.
+
+Pending feedback, in a later release we will convert remaining `Azure Web App (Web Deploy)` steps to an `Run an Azure Script` step, ensuring like-for-like invocation of the old MSDeploy tools for legacy usage.
 
 ## VHD Deployments {#vhd-deprecation}
 
