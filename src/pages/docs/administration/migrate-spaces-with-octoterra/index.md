@@ -93,8 +93,8 @@ These are the prerequisites for migrating an Octopus space with the Octoterra Wi
 - [Backup](https://octopus.com/docs/administration/data/backup-and-restore) your Octopus instance again before the migration.
 - Download the Octoterra Wizard from [GitHub](https://github.com/OctopusSolutionsEngineering/OctoterraWizard).
 - Install [Terraform](https://developer.hashicorp.com/terraform/install) on your local workstation.
-- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the source Octopus instance.
-- [Create an API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key) for the destination Octopus instance.
+- [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) for the source Octopus instance.
+- [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) for the destination Octopus instance.
 - Create a remote [Terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) to maintain the state of the Terraform resources. [AWS S3](https://developer.hashicorp.com/terraform/language/settings/backends/s3) and [Azure Storage Accounts](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm) are supported.
 - Install any required local tools. See the "Local Tools vs Container Images" section for more details.
 
@@ -336,7 +336,7 @@ Any firewall rules relating to the Octopus server must be updated to reflect the
 
 ### Regenerate API keys
 
-Any external scripts and platforms to connect to the destination Octopus server must make use of a new [API key](https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key).
+Any external scripts and platforms to connect to the destination Octopus server must make use of a new [API key](https://octopus.com/docs/api/authentication/create-an-api-key).
 
 ### Reconfigure polling tentacles
 

@@ -225,7 +225,7 @@ Octopus provides a [built-in package repository](/docs/packaging-applications/pa
 To push your packages to the Octopus built-in repository use the following settings:
 
 - `/p:OctoPackPublishPackageToHttp=http://your.octopusserver.com/nuget/packages`: this is the URL to your Octopus Server noting the `/nuget/packages` path.
-- `/p:OctoPackPublishApiKey=API-YOUR-KEY`: the [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations).
+- `/p:OctoPackPublishApiKey=API-YOUR-KEY`: the [Octopus API key](/docs/api/authentication/create-an-api-key) you want to use for pushing packages noting [these security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations).
 
 ## Push a NuGet package that already exists
 

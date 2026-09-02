@@ -32,7 +32,7 @@ Find the following values and replace them in the Helm command below
 |              |                                                 Value                                                  | Example                 |
 | :----------- | :----------------------------------------------------------------------------------------------------: | :---------------------- |
 | INSTANCE_URL |              The URL you access your instance with, without https:// or a trailing slash               | my-instance.octopus.app |
-| API_KEY      | An [API key](/docs/octopus-rest-api/how-to-create-an-api-key) for your user, created from your profile | API-MYKEY               |
+| API_KEY      |      An [API key](/docs/api/authentication/create-an-api-key) for your user, created from your profile | API-MYKEY               |
 | SPACE_ID     |              The ID of the space your agent is installed in, find this in any Octopus url              | Spaces-1                |
 | AGENT_NAME   |                                    The name of the Kubernetes agent                                    | My Agent                |
 | HELM_RELEASE |                   The name of the Helm release used to install the Kubernetes agent                    | myagent                 |

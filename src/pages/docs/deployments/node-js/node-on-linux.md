@@ -133,7 +133,7 @@ npm install
 npm install --save-dev gulp-bump @octopusdeploy/gulp-octo
 ```
 
-Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Modify the **gulpfile.js** file to add the following gulp tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/api/authentication/create-an-api-key).
 
 ```js
 var bump = require('gulp-bump');
@@ -181,7 +181,7 @@ npm install
 npm install --save-dev grunt-bump grunt-contrib-clean @octopusdeploy/grunt-octo
 ```
 
-Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Modify the **gruntfile.js** file to add the following grunt tasks. Substitute the correct **host** address for your Octopus Server and an **apiKey**. See [how to create an API Key](/docs/api/authentication/create-an-api-key).
 
 ```js
 grunt.initConfig({

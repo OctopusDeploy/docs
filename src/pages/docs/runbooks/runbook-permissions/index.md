@@ -42,7 +42,7 @@ Octopus Deploy is built API-first, which means everything you can do through the
 - RunbookSnapshots *(a runbook can have many snapshots, each with a unique name. Creating a snapshot needs RunbookSnapshotCreate, and publishing or deleting one needs RunbookEdit.)*
 - RunbookRuns *(a runbook snapshot will then be run/executed against an environment, with RunbookRunCreate permissions.)*
 
-We have provided lots of helpful functions for building your runbook process in the [.NET SDK](/docs/octopus-rest-api/octopus.client), or you can use the raw HTTP API if that suits your needs better.
+We have provided lots of helpful functions for building your runbook process in the [.NET SDK](/docs/api/octopus.client), or you can use the raw HTTP API if that suits your needs better.
 
 Learn about using the [Octopus REST API](/docs/octopus-rest-api).
 

@@ -70,4 +70,4 @@ Example prompts:
 
 - [Octopus Remote MCP](/docs/octopus-ai/mcp/remote)
 - [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts)
-- [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key)
+- [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key)

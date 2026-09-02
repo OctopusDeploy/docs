@@ -80,7 +80,7 @@ const SECTIONS: {
   prefix: RegExp;
 }[] = [
   { facet: 'cli', kind: 'command', prefix: /^\/docs\/cli(\/|$)/ },
-  { facet: 'api', kind: 'command', prefix: /^\/docs\/octopus-rest-api(\/|$)/ },
+  { facet: 'api', kind: 'command', prefix: /^\/docs\/api(\/|$)/ },
   {
     facet: 'integrations',
     kind: 'page',

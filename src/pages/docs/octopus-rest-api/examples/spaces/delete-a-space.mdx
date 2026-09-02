@@ -1,26 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/spaces/delete-a-space
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Delete a Space
-description: An example script to delete a space.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import DeleteASpaceScripts from 'src/shared-content/scripts/delete-a-space-scripts.include.md';
-
-This script deletes a [Space](/docs/administration/spaces) from your Octopus instance.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Space Name to delete the space with the given name.
-
-:::div{.warning}
-**Be very careful when deleting a Space. This operation is destructive and cannot be undone.**
-:::
-
-## Script
-
-<DeleteASpaceScripts />

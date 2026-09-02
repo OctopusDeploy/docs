@@ -1,25 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/deployments/deploy-release
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Deploy existing release
-description: An example script to deploy an existing release.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import DeployReleaseScripts from 'src/shared-content/scripts/deploy-release-scripts.include.md';
-
-This script demonstrates how to programmatically deploy an existing release.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Space Name
-- Project Name
-- Environment Name
-- Release Version
-
-## Script
-
-<DeployReleaseScripts />

@@ -1,24 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/users-and-teams/remove-project-from-team
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Remove a project from team
-description: An example script that removes a project from a team.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import RemoveProjectFromTeamScripts from 'src/shared-content/scripts/remove-project-from-team-scripts.include.md';
-
-This script demonstrates how to programmatically remove a project from a team.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to work with
-- Name of the team
-- Name of the project
-
-## Script
-
-<RemoveProjectFromTeamScripts />

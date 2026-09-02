@@ -41,7 +41,7 @@ Octopus Remote MCP initially supports a selected set of core Octopus features. W
 ### Requirements
 
 - An Octopus Deploy instance that can be accessed over HTTPS
-- An Octopus Deploy API key. We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
+- An Octopus Deploy API key. We recommend creating a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and generating an [Agent API key](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) for it. This gives the MCP server its own identity, limits its permissions, and identifies its activity in the audit log and on the API Keys page.
 
 Set the `OCTOPUS_API_KEY` environment variable to your Agent API key, then run:
 
@@ -75,7 +75,7 @@ The Octopus MCP server operates within the same security boundary as our Rest AP
 
 ## Governance
 
-Use dedicated [Agent API keys](/docs/octopus-rest-api/how-to-create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
+Use dedicated [Agent API keys](/docs/api/authentication/create-an-api-key#creating-an-agent-api-key) and [Agent Service Accounts](/docs/security/users-and-teams/service-accounts#agent-service-accounts) for agents connecting to your Octopus instance. These make agent actions identifiable and filterable in the audit log.
 
 ## Configuration
 

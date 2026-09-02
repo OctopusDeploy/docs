@@ -1,25 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/releases/create-release-with-specific-version
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Create a release with specific version
-description: An example script that creates a release with a specific version number.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import CreateReleaseWithVersionScripts from 'src/shared-content/scripts/create-release-with-version-scripts.include.md';
-
-This script demonstrates how to programmatically create a release with a specified version number.
-
-## Usage
-
-Provide values for the following:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to use
-- Name of the project
-- Name of the channel
-- Version number of the release to create
-
-## Script
-
-<CreateReleaseWithVersionScripts />

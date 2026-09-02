@@ -325,51 +325,27 @@
 
 # updates to the octopus rest api overview page are reviewed by team-marketing
 
-/docs/octopus-rest-api/index.mdx @OctopusDeploy/team-marketing
+/docs/api/index.mdx @OctopusDeploy/team-marketing
 
 # updates to the how to create an api key page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/how-to-create-an-api-key.md @OctopusDeploy/team-backend-foundations
+/docs/api/authentication/create-an-api-key.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus client page are reviewed by team-backend-foundations
 
-/docs/octopus-rest-api/octopus.client/index.md @OctopusDeploy/team-backend-foundations
+/docs/api/octopus.client/index.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus command line sections are reviewed by team-modern-deployments
 
-/docs/octopus-rest-api/octopus-cli/ @OctopusDeploy/team-modern-deployments
-
-# updates to the API examples page are reviewed by team-backend-foundations
-
-/docs/octopus-rest-api/examples/index.md @OctopusDeploy/team-backend-foundations
-
-# updates to the octopus server command line page are reviewed by team-backend-foundations
-
-/docs/octopus-rest-api/octopus.server.exe-command-line/index.md @OctopusDeploy/team-backend-foundations
-
-# updates to the octopus rest api tentacle exe command line page are reviewed by team-executions-foundations
-
-/docs/octopus-rest-api/tentacle.exe-command-line/index.md @OctopusDeploy/team-executions-foundations
-
-# updates to the calamari page are reviewed by team-modern-deployments
-
-/docs/octopus-rest-api/calamari.md @OctopusDeploy/team-modern-deployments
-
-# updates to the octopus migrator command line page are reviewed by team-backend-foundations
-
-/docs/octopus-rest-api/octopus.migrator.exe-command-line/index.md @OctopusDeploy/team-backend-foundations
-
-# updates to the migration api page are reviewed by team-backend-foundations
-
-/docs/octopus-rest-api/migration-api/index.md @OctopusDeploy/team-backend-foundations
+/docs/cli/octopus-cli/ @OctopusDeploy/team-modern-deployments
 
 # updates to the octopus CLI sections are reviewed by team-modern-deployments
 
-/docs/octopus-rest-api/cli/ @OctopusDeploy/team-modern-deployments
+/docs/cli/ @OctopusDeploy/team-modern-deployments
 
 # updates to the openid connect page are reviewed by team-devex
 
-/docs/octopus-rest-api/openid-connect/ @OctopusDeploy/team-devex
+/docs/api/authentication/openid-connect/ @OctopusDeploy/team-devex
 
 # updates to the administration section are reviewed by team-backend-foundations
 
