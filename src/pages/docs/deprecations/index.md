@@ -29,9 +29,18 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Planned Deprecations
 
+## Azure Web App Step {#azure-web-app-deprecate}
+The `Deploy an Azure Web App (Web Deploy)` step depends on Microsoft's [Web Deploy tooling](https://www.nuget.org/packages/Microsoft.Web.Deployment) which only run on Windows and have not been updated for several years. 
+
+Although Azure Web Apps are still a service provided by Azure, most deployment processes now rely on the `az webapp deployment` cli tooling. Unfortunately this new approach does not have feature parity with the older MSDeploy capabilities and so a simple automated port by Octopus from old to new is not viable.
+
+From **2026.3** Octopus Server will no longer support adding new `Azure Web App (Web Deploy)` steps. We reccommend users migrate towards the use of the `Azure App Service` step, or use the `Azure Script` step to perform the required deployment process.
+
+In the **2027.1** release we will convert remaining `Azure Web App (Web Deploy)` steps to an `Azure Script` step, ensuring like-for-like invocation of the old MSDeploy tools for legacy usage.
+
 ## VHD Deployments {#vhd-deprecation}
 
-The Deploy a VHD step allows for deployment of VHD/VHDX files to Hyper-V. This step has extremely low usage and will be disabled by default in `2026.4` and removed in `2027.1`.
+The `Deploy a VHD` step allows for deployment of VHD/VHDX files to Hyper-V. This step has extremely low usage and will be disabled by default in `2026.4` and removed in `2027.1`.
 
 ## Step Package Framework (SPF) deprecation {#step-package-framework-spf-deprecation}
 
