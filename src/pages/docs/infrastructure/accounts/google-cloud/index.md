@@ -8,7 +8,7 @@ navOrder: 30
 ---
 
 :::div{.hint}
-Google Cloud Accounts were added in Octopus **2021.2**, Generic OpenId Connect Accounts were added in **2025.1**, and the OpenID Connect authentication method for Google Cloud Accounts was added in **{RELEASE_VERSION}**
+Google Cloud Accounts were added in Octopus **2021.2**, Generic OpenId Connect Accounts were added in **2025.1**, and the OpenID Connect authentication method for Google Cloud Accounts was added in **2026.3.5893**
 :::
 
 To deploy infrastructure to Google Cloud Platform, you can define a Google Cloud account or a Generic OpenId Connect account in Octopus.
