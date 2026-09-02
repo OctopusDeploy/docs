@@ -329,7 +329,7 @@
 
 # updates to the how to create an api key page are reviewed by team-backend-foundations
 
-/docs/api/how-to-create-an-api-key.md @OctopusDeploy/team-backend-foundations
+/docs/api/authentication/create-an-api-key.md @OctopusDeploy/team-backend-foundations
 
 # updates to the octopus client page are reviewed by team-backend-foundations
 
@@ -337,7 +337,7 @@
 
 # updates to the octopus command line sections are reviewed by team-modern-deployments
 
-/docs/api/octopus-cli/ @OctopusDeploy/team-modern-deployments
+/docs/cli/octopus-cli/ @OctopusDeploy/team-modern-deployments
 
 # updates to the octopus CLI sections are reviewed by team-modern-deployments
 
@@ -345,7 +345,7 @@
 
 # updates to the openid connect page are reviewed by team-devex
 
-/docs/api/openid-connect/ @OctopusDeploy/team-devex
+/docs/api/authentication/openid-connect/ @OctopusDeploy/team-devex
 
 # updates to the administration section are reviewed by team-backend-foundations
 
