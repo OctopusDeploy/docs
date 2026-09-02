@@ -90,7 +90,7 @@ hr {
 }
 
 .page-content :where(a:hover, a:focus) {
-  color: var(--body-link-color);
+  color: var(--colorScalesBlue600);
 }
 
 /* The tinted card is the callout's shape. Almost every `>` in the docs holds
