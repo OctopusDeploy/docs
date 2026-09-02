@@ -31,7 +31,7 @@ If you have questions or need help assessing the impact of a deprecation on your
 
 ## Azure Web App (Web Deploy) step {#azure-web-app-deprecate}
 
-The `Deploy an Azure Web App (Web Deploy)` step depends on Microsoft's [Web Deploy tooling](https://www.nuget.org/packages/Microsoft.Web.Deployment) which only runs on Windows and has not been updated for several years. 
+The `Deploy an Azure Web App (Web Deploy)` step depends on Microsoft's [Web Deploy tooling](https://www.nuget.org/packages/Microsoft.Web.Deployment) which only runs on Windows and has not been updated for several years.
 
 Although Azure Web Apps are still a service provided by Azure, most deployment processes now rely on the `az webapp deployment` CLI tooling. Unfortunately this new approach does not have feature parity with the older MSDeploy capabilities and so a simple automated port by Octopus from old to new is not viable.
 
