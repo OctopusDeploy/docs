@@ -20,7 +20,7 @@ To create a runbook to restart Tomcat:
 1. Give the step a name.
 1. Fill in the parameters of the step:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | Tomcat Manage URL | URL of the Tomcat Manager | `http://localhost:8080/manager` |
 | Management user | Name of the management account | `tomcat` |

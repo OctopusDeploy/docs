@@ -15,7 +15,7 @@ We use GitHub as our source control solution.  The repositories are split across
 
 ## Octopus Deploy organization
 
-The Octopus Deploy GitHub organization houses the repositories required to run Octopus Deploy.  It includes of a variety of repos, from the Octopus Deploy product itself to a variety of support applications, such as Calamari, Sashimi, Halibut, and other repos such as Blog, Docs, and People.    
+The Octopus Deploy GitHub organization houses the repositories required to run Octopus Deploy.  It includes of a variety of repos, from the Octopus Deploy product itself to a variety of support applications, such as Calamari, Sashimi, Halibut, and other repos such as Blog, Docs, and People.
 
 ### License
 

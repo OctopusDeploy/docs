@@ -105,7 +105,7 @@ $repository.machines.create($tentacle)
 ```
 
 :::div{.hint}
-Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
+Want to register your Tentacles another way? Take a look at our [examples](/docs/api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
 :::
 
 ## Example: Polling Tentacle \{#AutomatingTentacleinstallation-Example-PollingTentacle}
@@ -127,8 +127,10 @@ Tentacle.exe service --instance "Tentacle" --install --start --console
 
 :::div{.hint}
 **Tips:**
+
 - If you are running this from a PowerShell remote session, make sure to add `--console` at the end of each command to force Tentacle.exe not to run as a service.
-- Want to register your Tentacles another way? Take a look at our [examples](/docs/octopus-rest-api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
+- Want to register your Tentacles another way? Take a look at our [examples](/docs/api/examples/deployment-targets/) for ways to register Tentacles using the [Octopus REST API](/docs/octopus-rest-api).
+
 :::
 
 ## Obtaining the Tentacle thumbprint \{#AutomatingTentacleinstallation-tentaclethumbprintObtainingtheTentacleThumbprint}
@@ -223,10 +225,10 @@ Start-DscConfiguration .\SampleConfig -Verbose -wait
 # Test the configuration ran successfully
 Test-DscConfiguration
 ```
+
 ### Settings and properties
 
 To review the latest available settings and properties, refer to the [OctopusDSC Tentacle readme.md](https://github.com/OctopusDeploy/OctopusDSC/blob/master/README-cTentacleAgent.md) in the GitHub repository.
-
 
 DSC can be applied in various ways, such as [Group Policy](https://sdmsoftware.com/group-policy-blog/desired-state-configuration/desired-state-configuration-and-group-policy-come-together/), a [DSC Pull Server](https://docs.microsoft.com/en-us/powershell/scripting/dsc/pull-server/pullserver), [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), or even via configuration management tools such as [Chef](https://docs.chef.io/resources/dsc_resource/) or [Puppet](https://github.com/puppetlabs/puppetlabs-dsc). A good resource to learn more about DSC is the [Channel 9 Getting Started with DSC series](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-DSC).
 

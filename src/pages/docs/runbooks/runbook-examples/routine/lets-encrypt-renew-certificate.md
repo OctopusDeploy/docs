@@ -26,9 +26,9 @@ To create a runbook to renew your Let's Encrypt certificate:
 1. Choose the **Execution Location** on which to run this step.
 1. Fill out all the parameters in the step. It is best practice to use [variables](/docs/projects/variables) rather than entering the values directly in the step parameters:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
-| Certificate Domain | Domain (TLD, CNAME or Wildcard) to create a certificate for. | `*.example.com`|
+| Certificate Domain | Domain (TLD, CNAME or Wildcard) to create a certificate for. | `*.example.com` |
 | PFX Password | Password to use when converting to / from PFX. | `your-secret-password` |
 | Replace expiring certificate before N days | Replace the certificate if it expiries within N days. | `30` |
 | Azure account | An [Azure Account variable](/docs/projects/variables/azure-account-variables) that has API access to make DNS changes. | `#{Project.Azure.Account}` |

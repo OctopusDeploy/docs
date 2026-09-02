@@ -46,13 +46,12 @@ When adding an environment to a phase, you can choose whether you want deploymen
 
 1. If tenanted deployments are allowed, attempt to enqueue a new deployment for each tenant connected to the automatic-environment(s), taking the following into consideration:
    1. Filter the tenants by any Tenant filter defined on the Channel for the Release being considered for deployment.
-   2. Further, filter the tenants based on promotion rules (e.g. deploy to UAT before Production for this tenant)
+   2. Further, filter the tenants based on promotion rules (e.g. deploy to UAT before production for this tenant)
 2. If untenanted deployments are allowed, attempt to enqueue the untenanted deployment to the automatic-environment(s).
-
 
 ### Phases without environments
 
-When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been *explicitly added* to the lifecycle in previous phases. 
+When a phase is defined without any environments added to it, this phase of the lifecycle will deploy to all the environments that haven't been *explicitly added* to the lifecycle in previous phases.
 
 :::div{.hint}
 Any future environments you define will also be deployed to as part of this phase of the Lifecycle.
@@ -88,7 +87,7 @@ From version `2025.2.7584`, **Priority Lifecycle Phase** and **Deployment with P
 
    - **All must complete**.
    - **A minimum of x must complete**. If you choose this option, and, for example, have 5 environments in the phase and choose **2**, then 2 of the 5 environments must be deployed to before the next phase can be activated.
-   - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to _any_ in the optional phase. The standard Lifecycle progression rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
+   - **Optional**. This lets you skip a phase when it is reached in the Lifecycle. This allows you to release to environments in the next phase without being required to deploy to *any* in the optional phase. The standard Lifecycle progression rules apply that determine when an optional phase is deployable. Optional phases may be useful for scenarios such as the provision of a `Testing` phase that can optionally be deployed to, but isn't crucial to progressing on to `Production`.
 
      :::div{.warning}
      **Automatic deployments not evaluated for Optional phases**
@@ -106,7 +105,7 @@ From version `2025.2.7584`, **Priority Lifecycle Phase** and **Deployment with P
 After you have defined your lifecycles, they become available to your projects. Projects can be deployed to any environment in their lifecycle.
 
 :::figure
-![](/docs/img/releases/lifecycles/images/lifecycle-deployment-process.png)
+![A project's deployment progressing through the environments in its lifecycle](/docs/img/releases/lifecycles/images/lifecycle-deployment-process.png)
 :::
 
 ## Default lifecycle \{#default-lifecycle}
@@ -151,7 +150,7 @@ This phase has the default option to manually deploy to the environment set. The
 Phase names usually match the environment it contains. While this is a good practice, it's not a rule.
 :::
 
-You can repeat this process to create extra phases. In this example, we are creating a phase for Testing, Staging, and Production.
+You can repeat this process to create extra phases. In this example, we are creating a phase for testing, staging, and production.
 
 :::figure
 ![Default lifecycle phases added](/docs/img/releases/lifecycles/images/default-lifecycle-phases-added.png)
@@ -163,15 +162,18 @@ This allows you to explicitly configure the default lifecycle for deploying your
 
 In this section, we cover some lifecycle examples and their included phases.
 
-### Hotfix lifecycle
+### Default and release lifecycle
 
-A hotfix lifecycle is useful when you have a critical bug-fix that needs to be deployed quickly. In this scenario, lower environments such as Development and Testing are skipped.
+By default, Octopus Deploy will include all environments in the default lifecycle, for example, development &rarr; test &rarr; staging &rarr; production.  That only works if all changes are made directly on the main or primary branch and there are no other branches.
 
-It's recommended to follow good deployment practices and validate any changes before pushing them to production. To match this, a hotfix lifecycle usually has just two phases, Staging and Production. Software with the bug fix is validated in Staging and then promoted to Production. Your lifecycle may be different to reflect how you decide to handle hotfixes.
+However, most developers do their work in a branch and then merge those changes in via a pull request.  For that workflow, create two [lifecycles](/docs/releases/lifecycles/):
 
-:::figure
-![Hotfix lifecycle](/docs/img/releases/lifecycles/images/hotfix-lifecycle.png)
-:::
+- **Default:** development only
+- **Release:** test &rarr; staging &rarr; production
+
+**Disclaimer:** Include all static testing environments in the Release lifecycle required to reach production.  If only test &rarr; production are required, then only include two environments.  Never include the development environment.  Development is for testing changes from branches.
+
+The **Default** lifecycle represents unfinished work in a branch.  The **Release** lifecycle represents the main or primary branch.  Unfinished work should never have a path to production.  For more information please see [branching in Octopus Deploy](/docs/deployments/patterns/branching).
 
 ### Maintenance lifecycle
 
@@ -181,7 +183,7 @@ It's recommended to follow good deployment practices and validate any changes be
 
 A Maintenance lifecycle can be used for projects that run maintenance tasks such as backups or software upgrades. This lifecycle can be used for any tasks that you want to run regularly with the same benefits that Octopus provides for your application deployments.
 
-It typically consists of just one phase and one environment, also called Maintenance. You can include this environment in all deployment targets you want to run these tasks against. You can also split them up into the Development, Testing, Staging, and Production environments if you want to run the tasks for targets in those environments at different times.
+It typically consists of just one phase and one environment, also called Maintenance. You can include this environment in all deployment targets you want to run these tasks against. You can also split them up into the development, testing, staging, and production environments if you want to run the tasks for targets in those environments at different times.
 
 :::figure
 ![Maintenance lifecycle](/docs/img/releases/lifecycles/images/maintenance-lifecycle.png)
@@ -189,7 +191,7 @@ It typically consists of just one phase and one environment, also called Mainten
 
 ## Removing lifecycles
 
-For projects using Config as Code, it's up to you to take care to avoid deleting any lifecycles required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information. 
+For projects using Config as Code, it's up to you to take care to avoid deleting any lifecycles required by your deployments. See our [core design decisions](/docs/projects/version-control/unsupported-config-as-code-scenarios#core-design-decision) for more information.
 
 ## Recommendations \{#lifecycle-recommendations}
 

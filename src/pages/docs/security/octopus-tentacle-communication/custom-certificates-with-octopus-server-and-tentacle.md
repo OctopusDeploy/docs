@@ -28,9 +28,9 @@ This assumes you have already installed Octopus on the target server.
 1. Stop the OctopusDeploy service on the target Octopus Server you wish to update.
 2. Optionally export the current certificate as a backup, by executing the following statement at a command line on the same server.
 
-```batch
-Octopus.Server.exe export-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
-```
+    ```batch
+    Octopus.Server.exe export-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
+    ```
 
 3. Execute the following statement at a command line on the same server.  Note that the password is optional.
 
@@ -78,57 +78,57 @@ Then import the new certificate (see step 2 above).
 Tentacle.exe configure --trust NewOctopusServerCertificateThumbprint --console
 ```
 
-## Configuring Tentacle to use custom certificates 
+## Configuring Tentacle to use custom certificates
 
 This assumes you have already installed a Tentacle on the target server.
 
 1. Stop the Tentacle service on the target server you wish to update.
 2. Execute the following statement at a command line on the same server.
 
-```batch
-tentacle.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
-```
+    ```batch
+    tentacle.exe import-certificate --from-file="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
+    ```
 
-This should display something like the following.
+    This should display something like the following.
 
-```batch
-Octopus Deploy: Tentacle version 3.14.x
-Importing the certificate stored in PFX file in C:\PathToCertificate\cert.pfx using the provided password...
-Certificate with thumbprint DE010ABF6FF8ED1B7895A31F005B8D88A3329867 imported successfully.
-```
+    ```batch
+    Octopus Deploy: Tentacle version 3.14.x
+    Importing the certificate stored in PFX file in C:\PathToCertificate\cert.pfx using the provided password...
+    Certificate with thumbprint DE010ABF6FF8ED1B7895A31F005B8D88A3329867 imported successfully.
+    ```
 
-:::div{.hint}
-**Letting the Tentacle regenerate its own certificate**
-If you have come from an earlier version of Octopus with a shorter security key, or just want the Tentacle to use a new certificate without having to generate one yourself, you can follow these steps in this section but substitute the command in step 2, with the following
+    :::div{.hint}
+    **Letting the Tentacle regenerate its own certificate**
+    If you have come from an earlier version of Octopus with a shorter security key, or just want the Tentacle to use a new certificate without having to generate one yourself, you can follow these steps in this section but substitute the command in step 2, with the following
 
-```batch
-tentacle.exe new-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
-```
+    ```batch
+    tentacle.exe new-certificate --export-pfx="C:\PathToCertificate\cert.pfx" --pfx-password="Password" --console
+    ```
 
-The command will then return
+    The command will then return
 
-```batch
-Octopus Deploy: Tentacle version 3.2.x
-A new certificate has been generated and written to C:\PathToCertificate\cert.pfx. Thumbprint:
-DE010ABF6FF8ED1B7895A31F005B8D88A3329867
-```
+    ```batch
+    Octopus Deploy: Tentacle version 3.2.x
+    A new certificate has been generated and written to C:\PathToCertificate\cert.pfx. Thumbprint:
+    DE010ABF6FF8ED1B7895A31F005B8D88A3329867
+    ```
 
-Import the new certificate as above.
-:::
+    Import the new certificate as above.
+    :::
 
 3. Restart the Tentacle service.
 4. Execute the following command to display the updated thumbprint.
 
-```batch
-Tentacle.exe show-thumbprint
-```
+    ```batch
+    Tentacle.exe show-thumbprint
+    ```
 
-This should display something like the following.
+    This should display something like the following.
 
-```batch
-Octopus Deploy: Tentacle version 3.12.x
-The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
-```
+    ```batch
+    Octopus Deploy: Tentacle version 3.12.x
+    The thumbprint of this Tentacle is: DE010ABF6FF8ED1B7895A31F005B8D88A3329867
+    ```
 
 5. Open the Octopus Web Portal and select to the Tentacle on the Environments Page.
 6. Update the Tentacle thumbprint to use the value from Step 4 above and click the save button.

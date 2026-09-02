@@ -14,13 +14,13 @@ Octopus can integrate with [Let's Encrypt](https://oc.to/LetsEncryptOrg) to setu
 Let's Encrypt integration can be found under **Configuration ➜ Let's Encrypt**.
 
 :::figure
-![](/docs/img/security/exposing-octopus/images/letsencrypt.png)
+![The Let's Encrypt page under Configuration](/docs/img/security/exposing-octopus/images/letsencrypt.png)
 :::
 
 To enable, click the `Configure` button.
 
 :::figure
-![](/docs/img/security/exposing-octopus/images/letsencryptconfig.png)
+![The Let's Encrypt configuration dialog](/docs/img/security/exposing-octopus/images/letsencryptconfig.png)
 :::
 
 Enter the DNS name that you want to have on the new SSL certificate. Do not enter a prefix such as `http://` or `https://`.
@@ -51,7 +51,7 @@ The integration for Let's Encrypt was designed for self-hosted Octopus Server in
 
 In **Octopus 2020.5** and earlier, when attempting to configure the Let's Encrypt integration on an Octopus Server Linux container, it would fail with a message similar to `We received an error 'Unix LocalMachine X509Stores are read-only for all users`.
 
-From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt integration will no longer be available in the Octopus Portal or via the API. 
+From **Octopus 2020.6**, when running Octopus in a container, the Let's Encrypt integration will no longer be available in the Octopus Portal or via the API.
 
 Customers running Octopus in a container that wish to secure the Octopus Portal to be accessible over HTTPS can do so in a number of standard ways, which are discussed in more detail here.
 

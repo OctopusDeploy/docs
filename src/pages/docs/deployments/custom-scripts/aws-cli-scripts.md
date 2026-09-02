@@ -4,7 +4,7 @@ pubDate: 2023-01-01
 modDate: 2025-03-04
 title: AWS CLI and PowerShell scripts
 description: AWS CLI and PowerShell Scripts allow you to manage your AWS resources as part of your deployment process.
-icon: fa-regular fa-file-code
+icon: fa-solid fa-file-code
 navOrder: 90
 ---
 

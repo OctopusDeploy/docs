@@ -9,7 +9,7 @@ navOrder: 80
 
 Making your build server work with your deployment server is a key aspect of any successful Continuous Integration (CI) story. For this reason, at Octopus we put a lot of effort in supporting integrations with pretty much any build server technology in the market.
 
-A key player in this story is our command line tool [Octopus CLI](/docs/octopus-rest-api/octopus-cli). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
+A key player in this story is our command line tool [Octopus CLI](/docs/cli/octopus-cli). This tool exposes some of the most important functionalities of Octopus through easy commands that can be included in pretty much any process. It was built using `.NET core` so it can be used in Windows, Linux and Mac environments.
 
 If you are reading this doc, odds are you already tried to run an Octopus-related step in your build process and something didn't work the way you expected it. The goal of this document is to explain how all our integration steps work on the background so anyone can troubleshoot them on their own.
 
@@ -22,13 +22,13 @@ The Octopus Deploy team supports many of the most popular integration plugins/ex
 Let's take for example this TeamCity **Octopus Deploy: Create Release** step:
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/images/5672462.png)
+![A TeamCity Octopus Deploy: Create Release step with its fields marked](/docs/img/packaging-applications/build-servers/images/5672462.png)
 :::
 
 Each of the values marked on the fields above can be seen in the `octo` call made by the build server later on:
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/images/5672463.png)
+![A TeamCity log fragment showing the resulting octo call](/docs/img/packaging-applications/build-servers/images/5672463.png)
 :::
 
 *This is a screenshot of a TeamCity log fragment edited for visual purposes.*
@@ -36,25 +36,24 @@ Each of the values marked on the fields above can be seen in the `octo` call mad
 The same holds true for this **Package Application** step in Azure DevOps and its log output:
 
 :::figure
-![](/docs/img/packaging-applications/build-servers/images/5672464.png)
+![A Package Application step in Azure DevOps](/docs/img/packaging-applications/build-servers/images/5672464.png)
 :::
 
+![The Azure DevOps log output for the Package Application step](/docs/img/packaging-applications/build-servers/images/5672465.png)
 
-![](/docs/img/packaging-applications/build-servers/images/5672465.png)
-
-The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/octopus-rest-api/octopus-cli).
+The bottom line is that every step will in the end call an Octopus CLI command. For the full list of commands [check our documentation](/docs/cli/octopus-cli).
 
 ### Troubleshooting the error {#Octopus-Steps-Troubleshooting-the-error}
 
 As shown in the above screenshots, the exact `octo` command that was executed (and failed) will be printed in the logs. So the best way to troubleshoot that error would be to copy the full command, and try to run it yourself by [downloading the Octopus CLI to your local machine](https://octopus.com/downloads). A few tips and gotchas for this:
 
-- If you are not familiar with the Octopus CLI, then [read our documentation about it](/docs/octopus-rest-api/octopus-cli). Understanding how the command you are troubleshooting works will be critical for your success.
+- If you are not familiar with the Octopus CLI, then [read our documentation about it](/docs/cli/octopus-cli). Understanding how the command you are troubleshooting works will be critical for your success.
 
 - Your build server will most likely execute the `octo` command from a build agent machine, which won't be identical to your workstation (mostly network-wise). Keep this in mind when troubleshooting your `octo` command, and if possible always try to run it from the same machine that your build server is using as build agent.
 
 - Each version of our extension/plugin will ship with the latest version of the Octopus CLI at the moment it was created. Perhaps the version of the Octopus CLI used by your current extension version is not the latest, in which case the recommended thing to do would be to upgrade your extension to the latest version available. You can tell which version of the Octopus CLI you are using from the initial line that gets printed by the command:
 
-```
+```text
 10:38:52     Running command:   octo.exe create-release --server https://demo.octopus.app --apikey SECRET --project OctoFX --enableservicemessages --version 3.3.379 --deployto Dev --progress --packageversion 3.3.379 --releasenotes Release created automatically via TeamCity
 10:38:52     Creating Octopus Deploy release
 10:38:52     Octopus Deploy Command Line Tool, version 7.4.3264
@@ -65,6 +64,7 @@ As shown in the above screenshots, the exact `octo` command that was executed (a
 10:38:52     Handshake successful. Octopus version: 2021.2.7660; API version: 3.0.0
 
 ```
+
 *In this case we are using `octo` version `7.4.3264` against an Octopus Server version `2021.2.7660`*
 
 - If the version of the Octopus CLI that your build server is using is out of date, and you downloaded that same version and you were able to reproduce the error, try downloading the latest version available of the Octopus CLI and see if you can still reproduce it. You can [download the latest version from the downloads page](https://octopus.com/downloads). It's possible that the bug was already fixed and we only need to ship a new version of the plugin/extension with the fixed Octopus CLI. If that's the case, then [log an issue with our support team](https://octopus.com/support) so we can take care of it.
@@ -83,7 +83,6 @@ The Octopus support team will always be there to give you a hand. But do know th
 **Keep sensitive info safe!**
 Make sure to set the ticket as **private** before attaching any kind of log, as it might contain sensitive info. If you don't know how to set it to **private**, log the ticket without that log and ask us to do it. Once it's done we'll ask you to attach the log.
 :::
-
 
 ## Troubleshooting build steps created by non-Octopus-team-members {#Custom-Steps}
 

@@ -12,18 +12,19 @@ Octopus Deploy provides the most value when it is used by your whole team. Devel
 [Getting Started - Users, Roles & Teams](https://www.youtube.com/watch?v=f_JPU7sAE8M)
 
 You can manage users and teams in the Octopus Web Portal:
+
 - For users, navigate to **Configuration ➜ Users**.
 - For teams, navigate to **Configuration ➜ Teams**.
 
 :::figure
-![](/docs/img/security/users-and-teams/images/teams.png)
+![The Teams page under Configuration](/docs/img/security/users-and-teams/images/teams.png)
 :::
 
 ## User and service accounts
 
-**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+**User accounts** are allowed to use both the Octopus Web Portal and the Octopus API, and can authenticate with a username and password, [Active Directory credentials](/docs/security/authentication/active-directory/), or an [Octopus API key](/docs/api/authentication/create-an-api-key).
 
-[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
+[Service accounts](/docs/security/users-and-teams/service-accounts/) are **API-only accounts** that should be used for automated services that integrate with Octopus Deploy, and can only authenticate with an [Octopus API key](/docs/api/authentication/create-an-api-key/). For more information refer to [Service accounts](/docs/security/users-and-teams/service-accounts).
 
 :::div{.success}
 You should create a different User account for each person that will use Octopus Deploy. You should create a different [Service account](/docs/security/users-and-teams/service-accounts) for each service that will integrate with Octopus Deploy.
@@ -39,13 +40,14 @@ There are some things to be aware of when deleting or disabling an Octopus User:
 - A disabled user's API keys will not function. Any attempt to use them will throw a `401 unauthorized error` and require the User to be re-enabled.
 
 ## Inviting users {#inviting-users}
+
 :::div{.warning}
 This feature is being deprecated for Cloud users. You can follow these instructions to invite users to your [Octopus Cloud instance](/docs/getting-started/managing-octopus-subscriptions/#user-access).
 :::
 To streamline the process of adding multiple users you can use the **User invites** feature to generate one or more unique registration codes bound to one or more existing teams. These links can then be issued to users so that they can register their own details and be given automatic permissions for the team(s) the codes are bound to.
 
 :::figure
-![](/docs/img/security/users-and-teams/images/user-invites.png)
+![The User invites feature](/docs/img/security/users-and-teams/images/user-invites.png)
 :::
 
 :::div{.hint}
@@ -67,7 +69,7 @@ For example, we can create a team that gives Anne and Bob access to view project
 We limit which projects and environments these permissions apply to by adding specific projects and environments to the team.
 
 :::figure
-![](/docs/img/security/users-and-teams/images/devdeployerteam.png)
+![A team scoped to specific projects and environments](/docs/img/security/users-and-teams/images/devdeployerteam.png)
 :::
 
 ### Restricting project and project group access
@@ -81,13 +83,13 @@ When specifying both `Project Groups` and `Projects`  filters please be aware th
 
 The following table illustrates the combination of possible permissions when specifying both `Project Groups` and `Projects` filters:
 
-| `Project Groups` | `Projects` | Result                                   |
-| ---------------- | ---------- | ---------------------------------------- |
+| `Project Groups` | `Projects` | Result                                              |
+| ---------------- | ---------- | --------------------------------------------------- |
 | `Empty`          | `Empty`    | Project1, Project2, Project3, Project4 and Project5 |
-| `Empty`          | Project1   | Project1                                 |
-| GroupB           | `Empty`    | Project4 and Project5                    |
-| GroupA           | Project5   | Project1, Project2, Project3 and Project5 |
-| GroupB           | Project4   | Project4 and Project5                    |
+| `Empty`          | Project1   | Project1                                            |
+| GroupB           | `Empty`    | Project4 and Project5                               |
+| GroupA           | Project5   | Project1, Project2, Project3 and Project5           |
+| GroupB           | Project4   | Project4 and Project5                               |
 
 ## Roles
 
@@ -97,7 +99,7 @@ Team members can be assigned the following roles:
   Project viewers have read-only access to a project. They can see the project in their dashboard, view releases and deployments.
 - **Project contributor**:
   Project viewer, plus: editing and viewing variables and deployment steps.
-- **Project lead**: 
+- **Project lead**:
   Project contributor, plus: create releases (but not deploy them).
 - **Project deployer**:
   Project contributor, plus: deploying releases (but not creating releases).

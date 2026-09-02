@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-08-06
+modDate: 2026-08-11
 title: Logging messages from scripts
 description: When your scripts emit messages Octopus will display the messages in the Task Logs at the most appropriate level for the message.
 icon: fa-solid fa-clock-rotate-left
@@ -54,19 +54,6 @@ echoerror "You can even define your own function to echo an error!"
 
 </details>
 <details data-group="logging-messages-in-scripts">
-<summary>F#</summary>
-
-```fsharp
-printfn "This will be logged as Information"
-writeVerbose "Verbose!!"
-writeHighlight "This is a highlight"
-writeWait "Deployment is waiting on something"
-writeWarning "Warning"
-eprintfn "This will be logged as Error"
-```
-
-</details>
-<details data-group="logging-messages-in-scripts">
 <summary>Python3</summary>
 
 ```python
@@ -111,7 +98,7 @@ Progress messages will display and update a progress bar on your deployment task
 <details data-group="deployments-custom-scripts-logging-messages">
 <summary>PowerShell</summary>
 
-```ps PowerShell
+```ps
 Update-Progress 10
 Update-Progress 50 "We're halfway there!"
 ```
@@ -132,15 +119,6 @@ UpdateProgress(50, "We're halfway there!");
 ```bash
 update_progress 10
 update_progress 50 "We're halfway there!"
-```
-
-</details>
-<details data-group="deployments-custom-scripts-logging-messages">
-<summary>F#</summary>
-
-```fsharp
-Octopus.updateProgress 10
-Octopus.updateProgress 50 "We're halfway there!"
 ```
 
 </details>
@@ -171,20 +149,6 @@ Console.WriteLine("##octopus[progress percentage='{0}' message='{1}']", EncodeSe
 
 </details>
 <details data-group="deployments-custom-scripts-progress-service-message">
-<summary>F#</summary>
-
-```fsharp
-let private encode (value:string) = System.Text.Encoding.UTF8.GetBytes(value) |> Convert.ToBase64String
-let private writeServiceMessage name content =  printfn "##octopus[%s %s]" name content
-let updateProgress (percentage: int) message =
-    let encodedMessage = message |> encode
-    let encodedPercentage = percentage.ToString() |> encode
-    let content = sprintf "percentage='%s' message='%s'" encodedPercentage encodedMessage
-    writeServiceMessage "progress" content
-```
-
-</details>
-<details data-group="deployments-custom-scripts-progress-service-message">
 <summary>Python3</summary>
 
 ```python
@@ -205,7 +169,7 @@ def updateprogress(progress, message=None):
 ```bash
 function encode_service_message_value
 {
-	echo -n "$1" | openssl enc -base64 -A
+ echo -n "$1" | openssl enc -base64 -A
 }
 
 echo "##octopus[progress percentage='$(encode_service_message_value "$1")' message='$(encode_service_message_value "$2")']"
@@ -216,7 +180,8 @@ echo "##octopus[progress percentage='$(encode_service_message_value "$1")' messa
 ## Service message
 
 The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard output will be treated with the relevant log level.
-```
+
+```text Set the standard output log level
 ##octopus[stdout-ignore]
 ##octopus[stdout-error]
 ##octopus[stdout-warning]
@@ -226,23 +191,25 @@ The following service messages can be written directly to standard output which 
 ```
 
 To return to the default standard output log level, write the following message:
-```
+
+```text Return to the default standard output log level
 ##octopus[stdout-default]
 ```
 
+The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level.
 
-The following service messages can be written directly to standard output which will be parsed by the server and the subsequent log lines written to standard error will be treated with the relevant log level. 
-```
+```text Set the standard error log level
 ##octopus[stderr-ignore]
 ##octopus[stderr-error]
 ##octopus[stderr-progress]
 ##octopus[stderr-output]
 ```
 
-- `stderr-progress` will cause error log lines to be written as `verbose` log lines. 
-- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`. 
+- `stderr-progress` will cause error log lines to be written as `verbose` log lines.
+- `stderr-output` will cause error log lines to be written as `info` log lines (standard output). Requires version `2025.3`.
 
 To return to the default standard error log level, write the following message:
-```
+
+```text Return to the default standard error log level
 ##octopus[stderr-default]
 ```

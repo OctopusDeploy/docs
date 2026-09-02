@@ -49,9 +49,9 @@ On the other hand, the [NGINX Ingress Controller resource installation procedure
 
 Each of these different implementations is configured through the Ingress resource annotations. Annotations are key value pairs, and the values assigned to them depend on the Ingress resource that is being configured. The list below links to the documentation that describes the supported annotations.
 
-* [NGINX](https://oc.to/NginxIngressControllerAnnotations)
-* [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
-* [AWS](https://oc.to/AwsAlbAnnotations)
+- [NGINX](https://oc.to/NginxIngressControllerAnnotations)
+- [Google Cloud](https://oc.to/GoogleCloudIngressControllerGithub)
+- [AWS](https://oc.to/AwsAlbAnnotations)
 
 A new annotation is defined by clicking the `Add Annotation` button.
 
@@ -83,4 +83,5 @@ When there are no matching ingress rules, traffic can be sent to the service con
 **2024.1:**
 
 - `Deploy Kubernetes ingress resource` was renamed to `Configure and apply a Kubernetes Ingress`.
+
 :::

@@ -18,14 +18,14 @@ Consequently, this information is provided as guidance information only and does
 
 ### Customer instances
 
-| Level of Disaster                              | Impact                     | Data Redundancy                        | Data durability | RTO | RPO | Parties involved             |
-|------------------------------------------------|----------------------------|----------------------------------------|-----------------|-------------------------------|----------------------------------------------------|------------------------------|
-| Failure of a Node                              | Minor service interruption | Local copies plus geo-redundant backup | 16 9's          | 30s                           | 5s                                                 | Microsoft                    |
-| Individual customer breach / data corruption   | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 1 hr                          | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
-| Data Center failure (single Availability zone) | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 12 hrs                        | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
-| Region failure | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 24 hrs **                      | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
+| Level of Disaster                              | Impact                     | Data Redundancy                        | Data durability | RTO       | RPO                                                | Parties involved             |
+| ---------------------------------------------- | -------------------------- | -------------------------------------- | --------------- | --------- | -------------------------------------------------- | ---------------------------- |
+| Failure of a Node                              | Minor service interruption | Local copies plus geo-redundant backup | 16 9's          | 30s       | 5s                                                 | Microsoft                    |
+| Individual customer breach / data corruption   | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 1 hr      | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
+| Data Center failure (single Availability zone) | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 12 hrs    | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
+| Region failure                                 | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 24 hrs ** | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
 
-** _Region failure is a special case where the best path to recovery may vary. Learn more below in the Azure Region Failure section._
+** *Region failure is a special case where the best path to recovery may vary. Learn more below in the Azure Region Failure section.*
 
 For further information, customers should refer to [Microsoft's disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
 
@@ -35,14 +35,14 @@ The Octopus Cloud administration portal is used to manage customer instances.
 
 Note: The portal is hosted in a separate Azure region from customer instances and is not required to be online for continuity of service to customers. The disaster recovery measures taken, as detailed below, will allow the portal to be restored according to the following table:
 
-| Level of Disaster                              | Impact                                 | Data Redundancy                        | Data durability | RTO | RPO | Parties involved             |
-|------------------------------------------------|----------------------------------------|----------------------------------------|-----------------|-------------------------------|---------------------------------------------|------------------------------|
-| Failure of a Node                              | No customer impact                     | Local copies plus geo-redundant backup | 16 9's          | 30s                           | 5s                                          | Microsoft                    |
-| Portal data corruption or compromise           | No customer impact, portal unavailable | Restore from a geo-redundant backup    | 12 9's          | 1 hr                          | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
-| Data Center failure (single Availability zone) | No customer impact, portal unavailable | Restore from a geo-redundant backup    | 12 9's          | 12 hrs                        | 1 hour or to the appropriate restore point. | Microsoft and Octopus Deploy |
-| Region failure | Service interruption       | Restore from a geo-redundant backup    | 12 9's          | 24 hrs **                      | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
+| Level of Disaster                              | Impact                                 | Data Redundancy                        | Data durability | RTO       | RPO                                                | Parties involved             |
+| ---------------------------------------------- | -------------------------------------- | -------------------------------------- | --------------- | --------- | -------------------------------------------------- | ---------------------------- |
+| Failure of a Node                              | No customer impact                     | Local copies plus geo-redundant backup | 16 9's          | 30s       | 5s                                                 | Microsoft                    |
+| Portal data corruption or compromise           | No customer impact, portal unavailable | Restore from a geo-redundant backup    | 12 9's          | 1 hr      | 1 hour or to the appropriate restore point.        | Microsoft and Octopus Deploy |
+| Data Center failure (single Availability zone) | No customer impact, portal unavailable | Restore from a geo-redundant backup    | 12 9's          | 12 hrs    | 1 hour or to the appropriate restore point.        | Microsoft and Octopus Deploy |
+| Region failure                                 | Service interruption                   | Restore from a geo-redundant backup    | 12 9's          | 24 hrs ** | 1 hour or to the customer specified restore point. | Microsoft and Octopus Deploy |
 
-** _Region failure is a special case where the best path to recovery may vary. Learn more below in the Azure Region Failure section._
+** *Region failure is a special case where the best path to recovery may vary. Learn more below in the Azure Region Failure section.*
 
 For further information, customers should refer to [Microsoft's disaster recovery](https://docs.microsoft.com/en-us/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql#recover-a-database-to-the-existing-server) documentation.
 
@@ -53,7 +53,7 @@ In the case of an Azure region wide disaster the time to restore services will v
 ### Definitions
 
 | Term                                                 | Explanation                                                                                                                                                        | Reference                                                                                                                                  |
-|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Node                                                 | A single copy of the data within the same data center                                                                                                              | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)                                      |
 | Availability Zone                                    | A single zone with 3 local copies of data                                                                                                                          | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)                                      |
 | ZRS (Zone redundant storage)                         | Zone Redundant storage – Three Availability zones in data centers that are self-contained in the same region.                                                      | [Microsoft Data Redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)                                      |
@@ -66,4 +66,4 @@ In the case of an Azure region wide disaster the time to restore services will v
 
 ### Importing data
 
-Due to some key differences between the self-hosted and cloud configurations, it **is not possible** to use the existing [Migration API](/docs/octopus-rest-api/migration-api/) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations).
+Due to some key differences between the self-hosted and cloud configurations, it **is not possible** to use the existing [Migration API](/docs/api/migrations) to import data. If you are migrating from an existing self-hosted instance please see [migrating from self-hosted to Octopus Cloud](/docs/octopus-cloud/migrations).

@@ -15,6 +15,10 @@ The Claude Agent Step runs [Claude Code](https://code.claude.com/docs/en/overvie
 The Claude Agent Step is an **alpha** release. The configuration and behavior may change between releases, and we're actively looking for feedback on how you use it. Don't build critical, unattended automation on it yet.
 :::
 
+:::div{.hint}
+[Easy Mode - Claude Agent Step](https://octopus.com/blog/octo-easy-mode-17-claude) provides a practical example of using the Claude Agent Step you can apply to your own Octopus instance.
+:::
+
 ## The Claude Agent Step
 
 The Claude Agent Step runs an AI agent on a worker or deployment target, with access to your deployment's context. Understanding what the step provides, and what it deliberately leaves to you, helps you decide which jobs to hand the agent and how much access to grant it.

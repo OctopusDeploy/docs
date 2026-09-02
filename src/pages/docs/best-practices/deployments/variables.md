@@ -12,11 +12,11 @@ hideInThisSection: true
 
 There are multiple levels of variables in Octopus Deploy:
 
-1.  Project 
-2.  Tenant 
-3.  Step Templates
-4.  Variable Set
-5.  System Variables
+1. Project
+2. Tenant
+3. Step Templates
+4. Variable Set
+5. System Variables
 
 Project, Tenant, and Step Template variables are associated with their specific item and cannot be shared.  Variable Sets can be shared between 1 to N Projects and Tenants.  System variables are variables provided by Octopus Deploy you can use during deployments.
 
@@ -30,8 +30,8 @@ Octopus Deploy provides the ability to replace values in your configuration file
 
 In addition to having the above levels of variables, there are also two categories of variables.
 
-1.  Variables used in configuration file replacement (connection strings, version number, etc.)
-2.  Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
+1. Variables used in configuration file replacement (connection strings, version number, etc.)
+2. Variables specific to the deployment or runbook run (output variables, messages, accounts, etc.)
 
 ## Variable naming
 
@@ -50,10 +50,10 @@ These naming conventions only apply to variables used for a deployment or runboo
 
 One of Octopus Deploy's most used features is environmental variable scoping.  And with good reason, having the same process, only needing a specific value such as a connection string or domain name changed, ensures consistency during deployment.
 
-However, that has led some customers to attempt to make Octopus Deploy something other than what it is.  Octopus Deploy is not a configuration management tool, secret store, or feature flag provider.  Store the variables required for Octopus Deploy to successfully deploy your application, along with a minimum amount of configuration variables.  
+However, that has led some customers to attempt to make Octopus Deploy something other than what it is.  Octopus Deploy is not a configuration management tool, secret store, or feature flag provider.  Store the variables required for Octopus Deploy to successfully deploy your application, along with a minimum amount of configuration variables.
 
 :::div{.hint}
-Changing a feature flag or secret stored in Octopus Deploy requires you to deploy or run a runbook to update the file manually.  Leverage best-in-breed tools for storing secrets or feature flags that were designed with that use case in mind.  Octopus Deploy should store the necessary connection information to those platforms as sensitive variables.  It should update the appropriate configuration file entries or set environmental variables to connect successfully to those tools.  
+Changing a feature flag or secret stored in Octopus Deploy requires you to deploy or run a runbook to update the file manually.  Leverage best-in-breed tools for storing secrets or feature flags that were designed with that use case in mind.  Octopus Deploy should store the necessary connection information to those platforms as sensitive variables.  It should update the appropriate configuration file entries or set environmental variables to connect successfully to those tools.
 :::
 
 Some examples of configuration variables include:
@@ -64,7 +64,7 @@ Some examples of configuration variables include:
 - Server ports
 - Service URLs
 
-There are also variables only Octopus Deploy knows about.  These include the release version number, environment name, and deployment date. 
+There are also variables only Octopus Deploy knows about.  These include the release version number, environment name, and deployment date.
 
 For configurations that differ per environment, our recommendation is to use a combination of Octopus Deploy and configuration files stored in source control.  You'd have three levels of configuration files:
 
@@ -87,10 +87,11 @@ Octopus Deploy can set an environment variable or configuration value during dep
 A common scenario we've talked to customers about is restricting variable edit access to specific environments.  For example, a developer can edit any variables scoped to **development** and **test** environments, but not **staging** or **production** environments.  On paper this makes sense, in practice this causes messy handovers and claims of "it worked on my machine."  The developers working on the application know all the various settings and variables required for their application to work.
 
 Our recommendations for variable edit permissions are:
-- Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead developers, DB developers, etc.) along with operations (DBAs, web admins, sysadmins) who can create and update service accounts and passwords.  
+
+- Variable edit permissions should be all or nothing, either a person can edit variables, or they cannot.  Don't scope permissions to environments.  Anyone responsible for the application should have permission to update variables (developers, lead developers, DB developers, etc.) along with operations (DBAs, web admins, sysadmins) who can create and update service accounts and passwords.
 - Variable Sets can be shared across multiple projects.  Limit who can edit variable set variables to more experienced Octopus Deploy users, or people who understand "with great power comes great responsibility."  Typically, we see senior or lead developers along with operations people who have these permissions.  If you want to isolate an application, consider using [spaces](/docs/administration/spaces).
-- Leverage [sensitive variables](/docs/projects/variables/sensitive-variables) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.  
-- Use [composite variables](/docs/projects/variables/variable-substitutions/#binding-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables. 
+- Leverage [sensitive variables](/docs/projects/variables/sensitive-variables) to encrypt and hide sensitive values such as usernames and passwords.  Sensitive variables are write-only in the Octopus UI and Octopus API.
+- Use [composite variables](/docs/projects/variables/variable-substitutions/#composite-variables) to combine sensitive and non-sensitive values.  A typical use case is database connection strings.  Each language has a specific syntax.  In the screenshot below `Project.Database.ConnectionString` is the composite variable, with the username and password referenced by the composite variable, but they are separate sensitive variables.
 
 :::figure
 ![composite variables](/docs/img/getting-started/best-practices/images/composite-variables.png)

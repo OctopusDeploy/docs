@@ -4,19 +4,60 @@ pubDate: 2024-05-21
 modDate: 2024-05-21
 title: Component Usage Guide
 subtitle: Detailed guide on the new interactive components for documentation articles
-icon: fa-solid fa-code
 description: This guide provides detailed instructions on how to use the newly introduced components in your documentation articles.
 navSearch: false
 navSitemap: false
 navMenu: false
 robots: noindex, follow
+listable: false # stop the oldest-content report from listing this page
 ---
+
+import Avatar from 'src/components/Avatar.astro';
 import Button from 'src/components/Button.astro';
 import Card from 'src/components/Card.astro';
-import IconTile from 'src/components/IconTile.astro';
 import Image from 'src/components/Image.astro';
 import Link from 'src/components/Link.astro';
-import Separator from 'src/components/Separator.astro';
+import DocsSearch from 'src/components/DocsSearch.astro';
+import SplitButton from 'src/components/SplitButton.astro';
+import sparklesIcon from 'src/assets/icons/sparkles.svg';
+import helmIcon from 'src/assets/icons/helm.svg';
+
+export const searchDemoResults = [
+  {
+    url: '/docs/deployments/packages/feeds',
+    title: 'External feeds and the built-in repository',
+    excerpt:
+      'Configure external package <mark>feeds</mark> for Octopus to consume for use in deployments and runbooks.',
+    breadcrumb: ['Deployments', 'Packages'],
+    kind: 'page',
+    facet: 'docs',
+  },
+  {
+    url: '/docs/deployments/packages/feeds/maven-feeds',
+    title: 'Maven feeds',
+    excerpt: 'Configure Maven repositories as external <mark>feeds</mark> in Octopus.',
+    breadcrumb: ['Deployments', 'Packages', 'Feeds'],
+    kind: 'page',
+    facet: 'docs',
+  },
+  {
+    url: '/docs/api/feeds/modify-a-feed',
+    title: 'Modify a feed',
+    excerpt:
+      'Updates the specified <mark>feed</mark> by setting the values of the parameters passed.',
+    breadcrumb: ['Feeds'],
+    kind: 'command',
+    facet: 'api',
+  },
+  {
+    url: '/docs/cli/feed-list',
+    title: 'octopus feed list',
+    excerpt: 'Lists the <mark>feeds</mark> configured on the Octopus instance.',
+    breadcrumb: ['CLI'],
+    kind: 'command',
+    facet: 'cli',
+  },
+];
 
 ## Component Usage Guide
 
@@ -30,26 +71,31 @@ To use Astro components like `Card` and `Separator` in your articles, you will n
 
 2. **Import Components**: At the beginning of your `.mdx` file, import each component you plan to use. Here is an example of how to import components:
 
-```
+```javascript
 import Card from 'src/components/Card.astro';
-import Separator from 'src/components/Separator.astro';
+import Link from 'src/components/Link.astro';
 ```
 
 ## Components usage
 
 ### Button
 
-The Button component renders an HTML `<button>`.
+The Button component renders an HTML `<button>`, or an `<a>` when given an `href`.
 
 1. **label**: Optional text label. Omit for an icon-only button.
-2. **icon** / **iconEnd**: Optional leading and/or trailing icon. Accepts a FontAwesome class (e.g. `iconEnd="fa-solid fa-caret-down"` for a dropdown button) or a URL to an SVG.
+2. **icon** / **iconEnd**: Optional leading and/or trailing icon. Accepts a class name (e.g. `iconEnd="fa-solid fa-caret-down"` for a dropdown button) or a URL to an SVG.
 3. **size**: Optional: `medium` (default), `small`, or `xSmall`.
-4. **disabled**: Optional `true`/`false`
-5. **type**: Optional: `button` (default), `submit`, or `reset`.
+4. **importance**: Optional: `default` or `loud`
+5. **disabled**: Optional `true`/`false`
+6. **href**: Optional. When set, the button renders as a link rather than a `<button>`.
+7. **type**: Optional: `button` (default), `submit`, or `reset`. Ignored when `href` is set.
+8. **as**: Optional: `button` (default) or `summary`. Use `summary` for a button that opens a `<details>` disclosure. Ignored when `href` is set.
 
 An icon-only button has no visible text, so include an `aria-label` to give it an accessible name.
 
-<div class="docs-home simple-grid">
+Any other attribute is passed through to the rendered element, so a `class` of your own reaches the button and you can position or reshape it from the parent component. Astro scopes each component's `<style>` to its own markup, so a rule aimed at that class needs `:global()` to cross into Button — keep it behind a scoped ancestor (e.g. `.my-toolbar :global(.my-toolbar__action) { ... }`) so it stays contained. Never copy the `btn` classes into your own markup: the styles are scoped to Button and will not apply.
+
+<div class="docs-home col-2">
   <div class="btn-row">
     <Button label="Label" />
     <Button label="Label" size="small" />
@@ -66,23 +112,37 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
 
 #### Button with icons
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div>
     <div class="btn-row">
       <Button label="Copy" icon="fa-solid fa-copy" />
-      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" />
+      <Button
+        label="Label"
+        icon="fa-solid fa-copy"
+        iconEnd="fa-solid fa-caret-down"
+      />
       <Button label="Actions" iconEnd="fa-solid fa-caret-down" />
       <Button icon="fa-solid fa-gear" aria-label="Settings" />
     </div>
     <div class="btn-row">
       <Button label="Copy" icon="fa-solid fa-copy" size="small" />
-      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" size="small" />
+      <Button
+        label="Label"
+        icon="fa-solid fa-copy"
+        iconEnd="fa-solid fa-caret-down"
+        size="small"
+      />
       <Button label="Actions" iconEnd="fa-solid fa-caret-down" size="small" />
       <Button icon="fa-solid fa-gear" aria-label="Settings" size="small" />
     </div>
     <div class="btn-row">
       <Button label="Copy" icon="fa-solid fa-copy" size="xSmall" />
-      <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" size="xSmall" />
+      <Button
+        label="Label"
+        icon="fa-solid fa-copy"
+        iconEnd="fa-solid fa-caret-down"
+        size="xSmall"
+      />
       <Button label="Actions" iconEnd="fa-solid fa-caret-down" size="xSmall" />
       <Button icon="fa-solid fa-gear" aria-label="Settings" size="xSmall" />
     </div>
@@ -101,11 +161,35 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
   </div>
 </div>
 
+#### Links
+
+<div class="docs-home col-2">
+  <div class="btn-row">
+    <Button label="Docs" href="/docs" />
+    <Button label="Docs" href="/docs" disabled={true} />
+    <Button label="Next" href="/docs" iconEnd="fa-solid fa-arrow-right" />
+    <Button label="Start" href="/docs" importance="loud" />
+  </div>
+  <div>
+    ```
+    <Button label="Docs" href="/docs" />
+    <Button label="Docs" href="/docs" disabled={true} />
+    <Button label="Next" href="/docs" iconEnd="fa-solid fa-arrow-right" />
+    <Button label="Start" href="/docs" importance="loud" />
+    ```
+  </div>
+</div>
+
 #### Disabled
 
-<div class="docs-home simple-grid">
+<div class="docs-home col-2">
   <div class="btn-row">
-    <Button label="Label" icon="fa-solid fa-copy" iconEnd="fa-solid fa-caret-down" disabled={true} />
+    <Button
+      label="Label"
+      icon="fa-solid fa-copy"
+      iconEnd="fa-solid fa-caret-down"
+      disabled={true}
+    />
     <Button label="Label" size="small" disabled={true} />
     <Button label="Label" size="xSmall" disabled={true} />
   </div>
@@ -123,182 +207,447 @@ An icon-only button has no visible text, so include an `aria-label` to give it a
   </div>
 </div>
 
-### Card
+### SplitButton
 
-The Card component displays content in a card format, suitable for highlights, features, or related topics.
+A Button with a second, narrower half that opens a menu of related actions. It has the same anatomy and tokens as Button, so it takes the same `icon`, `size` and `importance`, and adds the menu.
+
+1. **label** / **href** / **icon**: The primary action, passed straight to Button. The primary is always a link.
+2. **items**: The menu, as an array of `{ label, href, icon?, iconEnd? }`. Icons take the same values Button's do: a class name or a URL to an SVG.
+3. **menuLabel**: Required. The caret half has no text, so this gives it an accessible name.
+4. **size** / **importance**: Optional, applied to both halves so they stay the same height.
+5. **target** / **rel**: Optional, applied to the primary and every menu item.
+
+The menu closes on Escape or a click outside, and opens towards whichever side has room, so it does not need positioning from the parent. Convention is to repeat the primary action as the first menu item, as a split button's two halves should never offer a different set of actions.
+
+Give it a `class` of your own to style what you passed in: the icons land on elements SplitButton renders, so a rule aimed at them needs `:global()` behind that class.
+
+Reach for a class name rather than a URL when the icon is one of the design system's. Those assets are drawn in `currentColor`, and an `<img>` gives them nothing to take a color from, so they come out black in both themes. A class whose rule masks the asset and sets `background-color: currentColor` picks up the color the button gives its icon box instead.
+
+Two of them sit side by side below, each with its own menu, so it is clear that a menu belongs to the control it hangs from.
+
+<div class="docs-home col-2">
+  <div class="btn-row">
+    <SplitButton
+      label="Open in Claude"
+      href="#split-button-example"
+      icon="showcase-icon showcase-icon--claude"
+      menuLabel="Open in another assistant"
+      items={[
+        { label: 'Open in Claude', href: '#split-button-example', icon: 'showcase-icon showcase-icon--claude', iconEnd: 'showcase-icon showcase-icon--external' },
+        { label: 'Open in ChatGPT', href: '#split-button-example', icon: 'showcase-icon showcase-icon--chatgpt', iconEnd: 'showcase-icon showcase-icon--external' },
+      ]}
+    />
+    <SplitButton
+      label="Copy"
+      href="#split-button-example"
+      icon="showcase-icon showcase-icon--copy"
+      size="small"
+      menuLabel="More copy actions"
+      items={[
+        { label: 'Copy page', href: '#split-button-example', icon: 'showcase-icon showcase-icon--copy' },
+        { label: 'Copy link', href: '#split-button-example', icon: 'showcase-icon showcase-icon--link' },
+      ]}
+    />
+  </div>
+  <div>
+    ```
+    <SplitButton
+      label="Open in Claude"
+      href="/some/url"
+      icon="my-icon my-icon--claude"
+      menuLabel="Open in another assistant"
+      items={[
+        { label: 'Open in Claude', href: '/some/url', icon: 'my-icon my-icon--claude', iconEnd: 'my-icon my-icon--external' },
+        { label: 'Open in ChatGPT', href: '/another/url', icon: 'my-icon my-icon--chatgpt', iconEnd: 'my-icon my-icon--external' },
+      ]}
+    />
+    ```
+  </div>
+</div>
+
+### Avatar
+
+<div class="docs-home col-2">
+  <div class="btn-row">
+    <Avatar size="small" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="large" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/octopus-deploy-logo.png" alt="">JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/docs/img/does-not-exist.png" alt="">JD</Avatar>
+  </div>
+  <div>
+    ```
+    <Avatar size="medium" shape="circle">JD</Avatar>
+    <Avatar size="medium" shape="rounded">JD</Avatar>
+    <Avatar size="medium" shape="circle" isMuted={true}>JD</Avatar>
+    <Avatar size="medium" shape="circle" src="/path/to/image.png" alt="">JD</Avatar>
+    ```
+  </div>
+</div>
+
+### API method badge
+
+A badge marks a piece of documentation with the HTTP method it describes. Each
+method carries its own icon and colour, in both light and dark themes.
+
+There is no component to import. The styles live in `src/styles/api.css`, which
+every page loads, so this works in `.md` as well as `.mdx`.
+
+One class does the work: `api-get`, `api-post`, `api-delete` or `api-put`. It
+carries the colours and draws the icon from a `::before`, so the only thing to
+write is the label.
 
 <div class="docs-home simple-grid">
+  <div class="btn-row">
+    <span class="api-get">Get</span>
+    <span class="api-post">Post</span>
+    <span class="api-delete">Delete</span>
+    <span class="api-put">Put</span>
+  </div>
+  <div>
+    ```html
+    <span class="api-get">Get</span>
+    <span class="api-post">Post</span>
+    <span class="api-delete">Delete</span>
+    <span class="api-put">Put</span>
+    ```
+  </div>
+</div>
+
+#### Icon only
+
+Add `api-icon-only` for the icon on its own. There is no text left to read, so
+name it with `role="img"` and an `aria-label`.
+
+<div class="docs-home simple-grid">
+  <div class="btn-row">
+    <span class="api-get api-icon-only" role="img" aria-label="Get"></span>
+    <span class="api-post api-icon-only" role="img" aria-label="Post"></span>
+    <span class="api-delete api-icon-only" role="img" aria-label="Delete"></span>
+    <span class="api-put api-icon-only" role="img" aria-label="Put"></span>
+  </div>
+  <div>
+    ```html
+    <span class="api-get api-icon-only" role="img" aria-label="Get"></span>
+    <span class="api-post api-icon-only" role="img" aria-label="Post"></span>
+    <span class="api-delete api-icon-only" role="img" aria-label="Delete"></span>
+    <span class="api-put api-icon-only" role="img" aria-label="Put"></span>
+    ```
+  </div>
+</div>
+
+The badge is `inline-flex`, so it sits inside a heading or a paragraph as well
+as it does on its own.
+
+### DocsSearch
+
+The site search overlay. One instance serves the whole page: any element carrying
+`data-docs-search-trigger` opens it, which is how both the new top nav and the old
+header share a single result list. The layout already renders one, so a page never
+needs its own.
+
+1. **placeholder**: Optional. The input's placeholder and its accessible name.
+2. **facets**: Optional. The tab strip, as `{ key, label }` pairs. Defaults to the
+   four sections in `src/scripts/search-engine.ts`. A tab with no results under it
+   hides itself.
+3. **demoResults**: Optional. A fixed list of results. Given these, the overlay
+   never fetches an index — this is what the example below and the Playwright specs
+   run against.
+
+Results come from a `SearchEngine` (`src/scripts/search-engine.ts`), which is the
+seam the index sits behind. Production uses `pagefindEngine`, over the Pagefind
+index built from the site's own HTML at the end of the build.
+
+Focus stays in the input the whole time it is open and `aria-activedescendant`
+moves down the list, so you can keep refining a query without tabbing out of the
+results. <kbd>↑</kbd> and <kbd>↓</kbd> move, <kbd>Enter</kbd> opens the highlighted
+result, <kbd>Esc</kbd> closes, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>K</kbd>
+opens it from anywhere.
+
+<div class="docs-home simple-grid">
+  <div>
+    <Button label="Open the demo overlay" data-docs-search-trigger="demo" />
+    <DocsSearch name="demo" demoResults={searchDemoResults} />
+  </div>
+  <div>
+    ```
+    <Button label="Search" data-docs-search-trigger="demo" />
+    <DocsSearch name="demo" demoResults={results} />
+    ```
+  </div>
+</div>
+
+### Card
+
+A clickable container for a title, an optional description, and an optional image or icon, all linked to a single destination.
+
+1. **title**: Required. Shown as the card's heading, and also builds the accessible name for the link (`Open {title}`) since the whole card is one link, not just the title text.
+2. **description**: Optional supporting text shown under the title.
+3. **link**: Required. Where the card goes — clicking anywhere on the card follows it, not just the title or image.
+4. **icon** / **imgSrc** + **imgAlt**: Optional, and mutually exclusive — pass one or the other, or neither. **icon** takes an icon asset; **imgSrc** takes a URL, with **imgAlt** for its alt text.
+5. **iconColor**: Optional, only relevant alongside **icon**: `themed` (default) masks the icon with the surrounding theme color; `branded` renders it as-is, keeping whatever color is baked into the source file (e.g. a brand logo that shouldn't be flattened to the theme's icon color).
+6. **`featured` variant**: only used on the home page to feature content.
+
+If **imgSrc** fails to load, the image falls back to a default placeholder logo automatically, so a broken URL does not leave the card with a blank gap where the image should be.
+
+<details data-group="card-variant">
+<summary>Default</summary>
+
+#### Default: No image or icon
+
+<div class="col-2">
 
 <Card
   title="Example Title"
-  description="Example description of the feature."
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  link="/docs/deployments/kubernetes"
+/>
+
+<div>
+  ```
+  <Card
+    title="Example Title"
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    link="/docs/deployments/kubernetes"
+  />
+  ```
+</div>
+
+</div>
+
+#### Default: With image
+
+<div class="col-2">
+
+<Card
+  title="Example Title"
+  description="Keep the description brief, up to two sentences and maximum four lines."
   imgSrc="/docs/img/octopus-deploy-logo.png"
   imgAlt="Example Alt Text"
   link="/docs/deployments/kubernetes"
 />
 
 <div>
-	```
-	<Card
-		title="Example Title"
-		description="Example description of the feature."
-		imgSrc="/docs/img/octopus-deploy-logo.png"
-		imgAlt="Example Alt Text"
-		link="/docs/deployments/kubernetes"
-	/>
-	```
+  ```
+  <Card
+    title="Example Title"
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    imgSrc="/docs/img/octopus-deploy-logo.png"
+    imgAlt="Example Alt Text"
+    link="/docs/deployments/kubernetes"
+  />
+  ```
 </div>
 
 </div>
 
-#### Card related topics
+#### Default: With icon
 
-<div class="docs-home simple-grid">
-	<Card
-		imgAlt="Example Alt Text"
-		imgSrc="/docs/img/octopus-deploy-logo.png"
-		link="https://www.youtube.com/watch?v=example"
-		title="Watch Our Tutorial"
-		variant="related-topics"
-	/>
-	<div>
-		```
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="https://www.youtube.com/watch?v=example"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-		```
-	</div>
-	<Card
-		imgAlt="Example Alt Text"
-		imgSrc="/docs/img/octopus-deploy-logo.png"
-		link="/docs/deployments/kubernetes"
-		title="Watch Our Tutorial"
-		variant="related-topics"
-	/>
-	<div>
-		```
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="/docs/deployments/kubernetes"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-		```
-	</div>
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={sparklesIcon.src}
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={sparklesIcon.src}
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+  />
+  ```
 </div>
 
-#### Card padded
-
-<div class="docs-home simple-grid">
-	<Card
-		description="Example description with added padding for emphasis."
-		imgAlt="Example Alt Text"
-		imgSrc="/docs/img/octopus-deploy-logo.png"
-		link="/docs/deployments/kubernetes"
-		title="Padded Example Title"
-		variant="padded"
-	/>
-	<div>
-		```
-		<Card
-			description="Example description with added padding for emphasis."
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="/docs/deployments/kubernetes"
-			title="Padded Example Title"
-			variant="padded"
-		/>
-		```
-	</div>
 </div>
 
-### IconTile
+#### Default: With colored icon
 
-The IconTile component is used for creating clickable tiles with an icon, a title, and a description.
-
-1. **iconAlt**: Alternative text for the icon (not required with font awesome icon)
-
-2. **title**: Keep it short for this component
-
-3. **description**: Keep it short for this component
-
-
-<div class="docs-home simple-grid">
-	<IconTile
-		description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-		iconSrc="/docs/img/octopus.svg"
-		iconAlt="Example Alt Text"
-		link="/docs/deployments/kubernetes"
-		title="Kubernetes Deployment"
-	/>
-	<div>
-		```
-		<IconTile
-			description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Kubernetes Deployment"
-		/>
-		```
-	</div>
-	<IconTile
-		iconSrc="/docs/img/octopus.svg"
-		iconAlt="Example Alt Text"
-		link="/docs/deployments/kubernetes"
-		title="Kubernetes Deployment"
-	/>
-	<div>
-		```
-		<IconTile
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Kubernetes Deployment"
-		/>
-		```
-	</div>
+<div class="hint">
+Use `iconColor="branded"` for a brand logo whose color shouldn't shift with the theme.
 </div>
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={helmIcon.src}
+  iconColor="branded"
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={helmIcon.src}
+    iconColor="branded"
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+  />
+  ```
+</div>
+
+</div>
+
+</details>
+<details data-group="card-variant">
+<summary>Featured</summary>
+
+<div class="hint">
+The `featured` variant should **only** be used on the home page to feature content.
+</div>
+
+#### Featured: No image or icon
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+
+</div>
+
+#### Featured: With image
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  imgAlt="Example Alt Text"
+  imgSrc="/docs/img/octopus-deploy-logo.png"
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    imgAlt="Example Alt Text"
+    imgSrc="/docs/img/octopus-deploy-logo.png"
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+
+</div>
+
+#### Featured: With icon
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={sparklesIcon.src}
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+  variant="featured"
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={sparklesIcon.src}
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+
+</div>
+
+#### Featured: With colored icon
+
+<div class="hint">
+Use `iconColor="branded"` for a brand logo whose color shouldn't shift with the theme.
+</div>
+
+<div class="col-2">
+
+<Card
+  description="Keep the description brief, up to two sentences and maximum four lines."
+  icon={helmIcon.src}
+  iconColor="branded"
+  link="/docs/deployments/kubernetes"
+  title="Example Title"
+  variant="featured"
+
+/>
+
+<div>
+  ```
+  <Card
+    description="Keep the description brief, up to two sentences and maximum four lines."
+    icon={helmIcon.src}
+    iconColor="branded"
+    link="/docs/deployments/kubernetes"
+    title="Example Title"
+    variant="featured"
+  />
+  ```
+</div>
+</div>
+
+</details>
 
 ### Image
 
-<div class="docs-home simple-grid">
-	<Image
-		src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
-		alt="Example Alt Text"
-	/>
-	<div>
-		```
-		<Image
-			src="/docs/img/octopus.svg"
-			alt="Example Alt Text"
-		/>
-		```
-	</div>
+<div class="docs-home col-2">
+  <Image
+    src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
+    alt="Example Alt Text"
+  />
+  <div>
+    ```
+    <Image src="/docs/img/octopus.svg" alt="Example Alt Text" />
+    ```
+  </div>
 </div>
 
 #### Image with caption
 
-<div class="docs-home simple-grid">
-	<Image
-		src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
-		alt="Example Alt Text"
-		caption="Example caption"
-	/>
-	<div>
-		```
-		<Image
-			src="/docs/img/octopus.svg"
-			alt="Example Alt Text"
-			caption="Example caption"
-		/>
-		```
-	</div>
+<div class="docs-home col-2">
+  <Image
+    src="/docs/img/deployments/kubernetes/kustomize/referenced-packages.png"
+    alt="Example Alt Text"
+    caption="Example caption"
+  />
+  <div>
+    ```
+    <Image
+      src="/docs/img/octopus.svg"
+      alt="Example Alt Text"
+      caption="Example caption"
+    />
+    ```
+  </div>
 </div>
 
 ### Link
@@ -311,131 +660,226 @@ The Link component is designed to provide a standardized way to display links wi
 
 3. **newTab**: Optional;; Accepts `true/false` values. If `true`, the link opens in a new tab `target="_blank"`.
 
-<div class="docs-home simple-grid">
-	<Link
-		link="/docs/deployments/kubernetes"
-		text="Link with Icon Example"
-		icon="/docs/img/octopus.svg"
-		iconAlt="Example Icon Description"
-	/>
-	<div>
-		```
-		<Link
-			link="/docs/deployments/kubernetes"
-			text="Link with Icon Example"
-			icon="/docs/img/icon-example.svg"
-			iconAlt="Example Icon Description"
-		/>
-		```
-	</div>
+<div class="docs-home col-2">
+  <Link
+    link="/docs/deployments/kubernetes"
+    text="Link with Icon Example"
+    icon="/docs/img/octopus.svg"
+    iconAlt="Example Icon Description"
+  />
+  <div>
+    ```
+    <Link
+      link="/docs/deployments/kubernetes"
+      text="Link with Icon Example"
+      icon="/docs/img/icon-example.svg"
+      iconAlt="Example Icon Description"
+    />
+    ```
+  </div>
 </div>
 
-### Separator
+### Code block
 
-<div class="docs-home simple-grid">
-	<Separator />
-	<div>
-		```
-		<Separator />
-		```
-	</div>
-</div>
+Every fenced code block is given a header carrying its language and a copy
+button. There is no component to import, so this works in `.md` as well as
+`.mdx`.
 
+#### Label
 
+Text after the language on the opening fence becomes the block's label. Write
+one that says what the code does; the language is already shown on the right.
+
+````text
+```powershell Write a release marker into the repository
+Write-Host "Hello, World!"
+```
+````
+
+```powershell Write a release marker into the repository
+Write-Host "Hello, World!"
+```
+
+Without a label, the header carries the language and the copy button alone.
+
+```powershell
+Write-Host "Hello, World!"
+```
+
+#### Several languages
+
+Wrap one fence per language in `<details>` elements sharing a `data-group`. Each
+`<summary>` names its language, and the header offers them in a menu.
+
+````text
+<details data-group="components-code-block">
+<summary>PowerShell</summary>
+
+```powershell Rename a deployment target
+$machine = $repository.Machines.Get("machines-1");
+```
+
+</details>
+<details data-group="components-code-block">
+<summary>C#</summary>
+
+```csharp Rename a deployment target
+var machine = repository.Machines.Get("machines-1");
+```
+
+</details>
+````
+
+<details data-group="components-code-block">
+<summary>PowerShell</summary>
+
+```powershell Rename a deployment target
+$machine = $repository.Machines.Get("machines-1");
+$machine.Name = "Test Server 1";
+$repository.Machines.Modify($machine);
+```
+
+</details>
+<details data-group="components-code-block">
+<summary>C#</summary>
+
+```csharp Rename a deployment target
+var machine = repository.Machines.Get("machines-1");
+machine.Name = "Test Server 1";
+repository.Machines.Modify(machine);
+```
+
+</details>
+
+A group whose panels hold anything besides a single code block stays a tab list.
+
+#### Long blocks
+
+A block over 500px tall collapses, fading out at the cut. Clicking the code
+expands it, and clicking away collapses it again.
+
+```yaml A deployment process with every step spelled out
+steps:
+  - name: Approve the release
+    action: manual-intervention
+    instructions: Check the release notes before approving.
+  - name: Deploy to the cluster
+    action: kubernetes-deploy-raw-yaml
+    package: octopus/hello-world
+    namespace: production
+  - name: Smoke test
+    action: run-a-script
+    script: |
+      $response = Invoke-WebRequest -Uri "https://example.com/health"
+      if ($response.StatusCode -ne 200) { throw "Unhealthy" }
+  - name: Notify the team
+    action: send-email
+    to: releases@example.com
+    subject: Deployed #{Octopus.Release.Number}
+  - name: Tag the release
+    action: run-a-script
+    script: |
+      git tag "release/#{Octopus.Release.Number}"
+      git push origin --tags
+  - name: Update the changelog
+    action: run-a-script
+    script: |
+      Add-Content CHANGELOG.md "#{Octopus.Release.Number}"
+  - name: Close the change request
+    action: run-a-script
+    script: |
+      Invoke-RestMethod -Method Post -Uri "https://example.com/changes/close"
+```
 
 ## Layout
+
 ### Grid
+
 #### 2 columns
 
 <div>
-	<div class="docs-home simple-grid">
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="https://www.youtube.com/watch?v=example"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-		<Card
-			imgAlt="Example Alt Text"
-			imgSrc="/docs/img/octopus-deploy-logo.png"
-			link="https://www.youtube.com/watch?v=example"
-			title="Watch Our Tutorial"
-			variant="related-topics"
-		/>
-	</div>
-	<div>
-		```
-		<div class="docs-home simple-grid">
-			<Card
-				imgAlt="Example Alt Text"
-				imgSrc="/docs/img/octopus-deploy-logo.png"
-				link="https://www.youtube.com/watch?v=example"
-				title="Watch Our Tutorial"
-				variant="related-topics"
-			/>
-			<Card
-				imgAlt="Example Alt Text"
-				imgSrc="/docs/img/octopus-deploy-logo.png"
-				link="https://www.youtube.com/watch?v=example"
-				title="Watch Our Tutorial"
-				variant="related-topics"
-			/>
-		</div>
-		```
-	</div>
+  <div class="docs-home col-2">
+    <Card
+      imgAlt="Example Alt Text"
+      imgSrc="/docs/img/octopus-deploy-logo.png"
+      link="https://www.youtube.com/watch?v=example"
+      title="Watch Our Tutorial"
+      variant="related-topics"
+    />
+    <Card
+      imgAlt="Example Alt Text"
+      imgSrc="/docs/img/octopus-deploy-logo.png"
+      link="https://www.youtube.com/watch?v=example"
+      title="Watch Our Tutorial"
+      variant="related-topics"
+    />
+  </div>
+  <div>
+    ```
+    <div class="docs-home col-2">
+      <Card
+        imgAlt="Example Alt Text"
+        imgSrc="/docs/img/octopus-deploy-logo.png"
+        link="https://www.youtube.com/watch?v=example"
+        title="Watch Our Tutorial"
+        variant="related-topics"
+      />
+      <Card
+        imgAlt="Example Alt Text"
+        imgSrc="/docs/img/octopus-deploy-logo.png"
+        link="https://www.youtube.com/watch?v=example"
+        title="Watch Our Tutorial"
+        variant="related-topics"
+      />
+    </div>
+    ```
+  </div>
 </div>
 #### 3 columns
 
 <div>
-	<div class="docs-home simple-grid-3">
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-		<IconTile
-			description="Learn more about deploying"
-			iconSrc="/docs/img/octopus.svg"
-			iconAlt="Example Alt Text"
-			link="/docs/deployments/kubernetes"
-			title="Deployments"
-		/>
-	</div>
-	<div>
-		```
-		<div class="docs-home simple-grid-3">
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-			<IconTile
-				description="Learn more about deploying applications with Kubernetes using Octopus Deploy."
-				iconSrc="/docs/img/octopus.svg"
-				iconAlt="Example Alt Text"
-				link="/docs/deployments/kubernetes"
-				title="Kubernetes Deployment"
-			/>
-		</div>
-		```
-	</div>
+  <div class="docs-home col-3">
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+  </div>
+  <div>
+    ```
+    <div class="docs-home col-3">
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+      <Card
+          description="Example description with an icon instead of an image."
+          icon={sparklesIcon.src}
+          link="/docs/deployments/kubernetes"
+          title="Icon Example Title"
+      />
+  </div>
+    ```
+  </div>
 </div>

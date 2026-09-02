@@ -21,13 +21,13 @@ When deploying straight from Visual Studio, the profile and parameters files are
 
 There are a couple of options available to bring all required files together for the package. Illustrated below are two possible options. Both options are based off a build process that starts with the following MSBuild call (assumed to be executed from the solution's folder).
 
-```
+```text
 msbuild -t:Package MyFabricApplication\MyFabricApplication.sfproj
 ```
 
 ### Build step
 
-The first option is to simply add another build step, using your build tool of choice, to copy the required PublishProfiles and ApplicationParameters files from the Service Fabric application folder to the _same_ folder that the above step outputs the package to.
+The first option is to simply add another build step, using your build tool of choice, to copy the required PublishProfiles and ApplicationParameters files from the Service Fabric application folder to the *same* folder that the above step outputs the package to.
 
 ```bash
 xcopy /I MyFabricApplication\PublishProfiles\*.xml MyFabricApplication\pkg\Release\PublishProfiles
@@ -40,28 +40,28 @@ Alternatively you could create a custom MSBuild targets file that does the file 
 
 ```xml
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<PackageDependsOn>
-			$(PackageDependsOn);
-			OctoSFPackage
-		</PackageDependsOn>
-	</PropertyGroup>  
-	<PropertyGroup>
-		<RunOctoSFPackage Condition="'$(RunOctoSFPackage)'==''">false</RunOctoSFPackage>
-	</PropertyGroup>
+ <PropertyGroup>
+  <PackageDependsOn>
+   $(PackageDependsOn);
+   OctoSFPackage
+  </PackageDependsOn>
+ </PropertyGroup>  
+ <PropertyGroup>
+  <RunOctoSFPackage Condition="'$(RunOctoSFPackage)'==''">false</RunOctoSFPackage>
+ </PropertyGroup>
 
-	<Target Name="OctoSFPackage">
-		<Message Text="Customizing package for octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />
-		<ItemGroup>  
-			<ApplicationParametersFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\ApplicationParameters\*.xml"/>  
-			<PublishProfilesFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\PublishProfiles\*.xml"/>  
-		</ItemGroup>
+ <Target Name="OctoSFPackage">
+  <Message Text="Customizing package for octo packing => $([System.IO.Path]::GetFullPath($(PackageLocation)))" />
+  <ItemGroup>  
+   <ApplicationParametersFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\ApplicationParameters\*.xml"/>  
+   <PublishProfilesFiles Include="$([System.IO.Path]::GetFullPath($(PackageLocation)))\..\..\PublishProfiles\*.xml"/>  
+  </ItemGroup>
 
-		<Copy SourceFiles="@(PublishProfilesFiles)"
-			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\PublishProfiles" />  
-		<Copy SourceFiles="@(ApplicationParametersFiles)"
-			DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\ApplicationParameters" />  
-	</Target>
+  <Copy SourceFiles="@(PublishProfilesFiles)"
+   DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\PublishProfiles" />  
+  <Copy SourceFiles="@(ApplicationParametersFiles)"
+   DestinationFolder="$([System.IO.Path]::GetFullPath($(PackageLocation)))\ApplicationParameters" />  
+ </Target>
 </Project>
 ```
 
@@ -100,7 +100,7 @@ VERSION and OUTPUT are parameters provided by your build tool of choice, the exa
 
 Once you have finished packaging, the package structure should look similar to the following, including an `ApplicationManifest.xml` file at the root, `ApplicationParameters` and `PublishProfiles` folders, plus folders for your services:
 
-```
+```text
 /ApplicationParameters/
 /PublishProfiles/
 /YourService1/
@@ -108,4 +108,4 @@ Once you have finished packaging, the package structure should look similar to t
 /ApplicationManifest.xml
 ```
 
-This structure includes the standard package output from Visual Studio (from a _Right-click > Publish_) plus the `ApplicationParameters` and `PublishProfiles` folders taken from the Service Fabric project.
+This structure includes the standard package output from Visual Studio (from a *Right-click > Publish*) plus the `ApplicationParameters` and `PublishProfiles` folders taken from the Service Fabric project.

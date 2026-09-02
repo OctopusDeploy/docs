@@ -56,9 +56,9 @@ To use OpenID Connect to authenticate with Microsoft Entra ID, you will need to 
 
 #### Octopus Server configuration
 
-To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). 
+To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration).
 
-#### Microsoft Entra ID Service Principal configuration 
+#### Microsoft Entra ID Service Principal configuration
 
 To manually create a Federated Credential follow the [Add a federated credential](https://oc.to/create-azure-federated-credentials) section in the Microsoft Entra ID documentation, or create it with a [script](#create-federated-credential-via-script). For more information on configuring external identity providers see [Configure an app to trust an external identity provider](https://oc.to/configure-azure-identity-providers).
 
@@ -74,7 +74,7 @@ To support OpenID Connect authentication, you will need to ensure it is supporte
 
 - az CLI requires 2.30+
 - az PowerShell modules requires 7.0+
-- AzureRM terraform provider required 3.22+ 
+- AzureRM terraform provider required 3.22+
 
 ## Resource permissions {#resource-permissions}
 
@@ -97,7 +97,7 @@ In the PowerShell and Permissions example above the service principal is assigne
 
 Firstly, you might want to constrain the service principal to a single resource group, in which case, you just need to assign it the **Contributor** role on the resource group.
 
-Next, if you want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. _In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself_.
+Next, if you want to get even more granular you can constrain the service principal to a single resource, e.g. a Web App. *In this case, you have to assign the **Contributor** role on the Web App and explicitly assign the **Reader** role on the subscription itself*.
 
 The reason behind this has to do with the way Octopus queries for the web app resources in Azure. In order to handle scenarios where [ASEs](/docs/deployments/azure/ase/#resource_groups) are being used, Octopus first queries the resource groups and then queries for the web apps within each resource group. When the service principal is assigned **Contributor** on a resource group it seems to implicitly get **Reader** on the subscription, but this doesn't seem to be the case when **Contributor** is assigned directly to a web app, so you have to assign **Reader** explicitly.
 
@@ -123,6 +123,7 @@ az account set --subscription $subscription
 az ad app create --display-name "$appName" -o table --query "{Id:id,Name:displayName,ClientId:appId}"
 az account show  --query "{Name:name,SubscriptionId:id,TenantId:tenantId}" -o table
 ```
+
 </details>
 
 <details data-group="infrastructure-accounts-azure">
@@ -174,6 +175,7 @@ Write-Host "    2) The Microsoft Azure Subscription Id: $($azureSubscription.Sub
 Write-Host "    3) The Microsoft Entra ID Application Id: $(AzureApplication.AppId)"
 
 ```
+
 </details>
 
 ### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
@@ -183,7 +185,6 @@ This step shows you how to create a Service Principal Client Secret with the scr
 :::div{.hint}
 During the script, you will be prompted to authenticate with Microsoft Azure. The authenticated user must have administrator permissions in the directory in which the Service Principal is being created.
 :::
-
 
 <details data-group="infrastructure-accounts-azure-powershell">
 <summary>Az CLI</summary>
@@ -198,6 +199,7 @@ az login
 az account set --subscription $subscription
 az ad app credential reset --append --id $appId --years $expiryYears
 ```
+
 </details>
 
 <details data-group="infrastructure-accounts-azure-powershell">
@@ -249,6 +251,7 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
+
 </details>
 
 - **Subscription ID**: The ID of the Azure subscription the account will interact with.
@@ -265,15 +268,13 @@ You can specify the expiry date by adding the *-EndDate* parameter to the *New-A
 
 Now, you can [add the Service Principal Account in Octopus](#add-service-principal-account). Consider reading our [note on least privilege first](#note_on_least_privilege).
 
+### Create a Federated Credential with PowerShell {#create-federated-credential-via-script}
 
-### Create a Service Principal Client Secret with PowerShell {#create-a-client-secret-via-script}
-
-This step shows you how to create a Service Principal Client Secret with the script below.
+This step shows you how to create a Federated Credential with the script below.
 
 :::div{.hint}
 During the script, you will be prompted to authenticate with Microsoft Azure. The authenticated user must have administrator permissions in the directory in which the Service Principal is being created.
 :::
-
 
 <details data-group="infrastructure-service-principal-powershell">
 <summary>Az CLI</summary>
@@ -297,6 +298,7 @@ az login
 az account set --subscription "$subscription"
 az ad app federated-credential create --id $appId --parameters "$credential"
 ```
+
 </details>
 
 <details data-group="infrastructure-service-principal-powershell">
@@ -348,6 +350,7 @@ if ($null -eq $ExistingApplication) {
     Write-Host "    4) The new password is: $($newCredential.SecretText) - this is the only time you'll see this password, please store it in a safe location."
 }
 ```
+
 </details>
 
 - **Subscription ID**: The ID of the Microsoft Azure subscription the account will interact with.
@@ -394,7 +397,7 @@ Azure Management Certificate Accounts work with the **Azure Service Management A
 The Azure Service Management APIs are being deprecated by Microsoft.  See [this blog post](https://octopus.com/blog/azure-management-certs).  The instructions below only exist for legacy purposes.
 :::
 
-To create an Azure Management Certificate account as part of adding an [Azure subscription](#adding-azure-subscription), select Management Certificate as the Authentication Method.
+To create an Azure Management Certificate account as part of adding an [Azure subscription](#CreatingAnAzureAccount-AuthenticationMethod), select Management Certificate as the Authentication Method.
 
 ### Step 1: Management Certificate {#CreatingAnAzureManagementCertificateAccount-Step2-ManagementCertificate}
 
@@ -706,7 +709,7 @@ if ($answer.ToLower() -ne "y")
 Import-AzurePowerShellModules
 
 $OctopusURL = Get-ParameterValue -originalParameterValue $OctopusURL -parameterName "the URL of your Octopus Deploy Instance, example: https://samples.octopus.com"
-$OctopusApiKey = Get-ParameterValue -originalParameterValue $OctopusApiKey -parameterName "the API Key of your Octopus Deploy User.  See https://octopus.com/docs/octopus-rest-api/how-to-create-an-api-key for a guide on how to create one"
+$OctopusApiKey = Get-ParameterValue -originalParameterValue $OctopusApiKey -parameterName "the API Key of your Octopus Deploy User.  See https://octopus.com/docs/api/authentication/create-an-api-key for a guide on how to create one"
 $OctopusSpaceName = Get-ParameterValueWithDefault -originalParameterValue $OctopusSpaceName -parameterName "the name of the space in Octopus Deploy.  If left empty it will default to 'Default'" -defaultValue "Default"
 $OctopusAccountName = Get-ParameterValueWithDefault -originalParameterValue $OctopusAccountName -parameterName "the name of the account you wish to create in Octopus Deploy.  If left empty it will default to 'Bootstrap Azure Account'" -defaultValue "Bootstrap Azure Account"
 

@@ -39,7 +39,7 @@ Save and test your registry to ensure that the connection is authorized successf
 
 ## Adding an Azure Container Registry with OpenID Connect as an Octopus External Feed
 
-Octopus Server `2025.2` adds support for OpenID Connect to ACR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration). 
+Octopus Server `2025.2` adds support for OpenID Connect to ACR feeds. To use OpenID Connect authentication you have to follow the [required minimum configuration](/docs/infrastructure/accounts/openid-connect#configuration).
 
 Before creating an OpenID Connect Azure Container Registry feed, you will need an Microsoft Entra ID App Registration and a Federated Credential.
 

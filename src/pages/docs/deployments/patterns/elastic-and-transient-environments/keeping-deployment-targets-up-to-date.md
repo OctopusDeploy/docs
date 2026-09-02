@@ -18,9 +18,9 @@ Triggers are per-project settings that execute an action in response to an event
 1. Navigate to the project *Triggers* page.
 2. Create a new trigger by selecting **Create trigger**:
 
-:::figure
-![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
-:::
+    :::figure
+    ![The Create trigger button](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865570.png)
+    :::
 
 3. Add events to the trigger.
 
@@ -31,7 +31,7 @@ Triggers are per-project settings that execute an action in response to an event
 5. Select the deployment target tags (**TradingWebServer**) that this trigger applies to.
 
 :::figure
-![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
+![The TradingWebServer target tag selected on the trigger](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865705.png)
 :::
 
 Once the trigger has been created, it will ensure that any deployment targets matching the trigger criteria will be kept up to date with the latest release of the project.
@@ -42,25 +42,25 @@ To test the trigger, we will disable a deployment target, deploy to that target'
 
 1. Disable a target with the target tag **TradingWebServer** in the **Test A** environment:
 
-:::figure
-![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
-:::
+    :::figure
+    ![A disabled target with the TradingWebServer tag in the Test A environment](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865573.png)
+    :::
 
 2. Create a new release of OctoFX and deploy it to the **Test A** environment. It will skip the steps that have been scoped to the **TradingWebServer** target tag because no deployment targets are associated with that tag:
 
-:::figure
-![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
-:::
+    :::figure
+    ![A deployment skipping steps scoped to the TradingWebServer tag](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865574.png)
+    :::
 
 3. Enable the deployment target **TAWeb01.** Octopus will automatically determine that it is missing the release we just deployed. The deployment is re-queued and will run only for the **TAWeb01** target, creating a new log section below the original deployment log:
 
 :::figure
-![](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
+![A re-queued deployment running only for the TAWeb01 target](/docs/img/deployments/patterns/elastic-and-transient-environments/images/5865575.png)
 :::
 
 ## Overriding the release used for automatic deployments {#override-release-for-automatic-deployments}
 
-Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard). In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere). It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/) or through [Octopus.Client](/docs/octopus-rest-api/octopus.client). Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure). For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
+Automatic deployments attempts to calculate the release to use for a project and environment (using the *current* and *successful* release that has been deployed, as shown in your Project Overview dashboard). In some cases the calculated release may not be the release that should be automatically deployed, or Octopus may not be able to find a deployment for an environment (maybe you have a release, but have not yet deployed it anywhere). It is possible to explicitly set the release that should be automatically deployed by overriding the automatic-deployment-release. Overrides can be configured using the [Octopus CLI](/docs/cli/octopus-cli/) or through [Octopus.Client](/docs/api/octopus.client). Overrides define a release for a project when deploying to an environment (this can, for example, be useful for cloud-testing-automation when standing up new cloud infrastructure). For multi-tenanted deployments, overrides may be configured for each environment/tenant combination.
 
 **Octopus.Client**
 

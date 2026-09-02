@@ -61,7 +61,7 @@ Below is an example of creating an AWS ECS Cluster target with [account credenti
 <details data-group="account-credentials">
 <summary>PowerShell</summary>
 
-```powershell PowerShell
+```powershell
 $inputs = @"
 {
     "clusterName": "$($OctopusParameters["clusterName"])",
@@ -137,7 +137,7 @@ New-OctopusTarget -Name "$($OctopusParameters["target_name"])" -TargetId "aws-ec
 <details data-group="worker-credentials">
 <summary>Bash</summary>
 
-```bash Bash
+```bash
 read -r -d '' INPUTS <<EOT
 {
     "clusterName": "$(get_octopusvariable "clusterName")",

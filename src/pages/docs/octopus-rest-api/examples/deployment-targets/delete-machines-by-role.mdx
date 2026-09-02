@@ -1,25 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/deployment-targets/delete-machines-by-role
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Delete targets by role
-description: An example script to delete targets by role.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import DeleteTargetsByRoleScripts from 'src/shared-content/scripts/delete-targets-by-role-scripts.include.md';
-
-This script demonstrates how to programmatically delete deployment targets with the specified role from the Octopus Server.
-
-## Usage
-Provide values for the following:
-- Octopus URL
-- Octopus API Key
-- Name of the space you want to use
-- Name of the role to use
-
-:::div{.warning}
-**This script will delete deployment targets matching the specified role. This operation is destructive and cannot be undone.**
-:::
-
-## Script
-
-<DeleteTargetsByRoleScripts />

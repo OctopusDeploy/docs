@@ -16,7 +16,7 @@ Generate a concise overview of all operational runbooks in the system to identif
 
 ## 📝 Prompt
 
-```
+```text
 Summarize all operational runbooks by frequency and ownership
 ```
 

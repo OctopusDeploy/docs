@@ -1,23 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/lifecycles/create-lifecycle
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Create a lifecycle
-description: An example script that creates a lifecycle.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import CreateALifecycleScripts from 'src/shared-content/scripts/create-a-lifecycle-scripts.include.md';
-
-This script demonstrates how to programmatically create a lifecycle in Octopus Deploy.
-
-## Usage
-
-Provide values for:
-
-- Octopus URL
-- Octopus API Key
-- Space ID of the space to use
-- Name of the lifecycle to create
-
-## Script
-
-<CreateALifecycleScripts />

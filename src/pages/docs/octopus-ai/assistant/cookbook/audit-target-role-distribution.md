@@ -16,7 +16,7 @@ Check for balanced distribution of deployment target roles to avoid single point
 
 ## 📝 Prompt
 
-```
+```text
 Summarize deployment target counts by role
 ```
 

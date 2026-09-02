@@ -7,6 +7,8 @@ description: With Octopus Deploy you can manually failover DNS with a Runbook.
 navOrder: 10
 ---
 
+<!-- cspell:ignore octopussamples -->
+
 Power outages, natural disasters, or fiber lines being cut in construction projects are just a few things that can cause outages.  One of the most common Disaster Recovery (DR) methods is to have a secondary site where you can update the Domain Name System (DNS) record and be back online.
 
 :::div{.info}
@@ -18,7 +20,7 @@ Updating the IP address of a DNS entry is quick and easy, but you are at the mer
 
 Popular IaaS providers such as Azure, AWS, or GCP provide a CLI to make it easy update your DNS record to point to another site with just a couple of commands.
 
-The following example uses the Azure CLI to update the DNS record for www.octopussamples.com
+The following example uses the Azure CLI to update the DNS record for [www.octopussamples.com](https://www.octopussamples.com)
 
 ## Create the runbook
 

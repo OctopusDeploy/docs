@@ -27,7 +27,7 @@ The Octopus TeamCity plugin comes with these custom build runners:
 6. **Octopus Deploy: Promote Release**
     Promotes an *existing* release from one environment to another.
 
-The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octopus-cli), the Octopus command line tool for creating and deploying releases.
+The plugin is simply a wrapper for the [Octopus CLI](/docs/cli/octopus-cli), the Octopus command line tool for creating and deploying releases.
 
 <TeamCityInstall />
 
@@ -37,7 +37,7 @@ The plugin is simply a wrapper for the [Octopus CLI](/docs/octopus-rest-api/octo
 
 Octopus can be used as a [NuGet package repository](/docs/packaging-applications/package-repositories/built-in-repository), or it can be configured to use an external feed (such as retrieving them from TeamCity).
 
-To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/octopus-rest-api/how-to-create-an-api-key) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **Deploy ➜ Manage ➜ Packages** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
+To push packages to Octopus during the OctoPack phase, enter the NuGet endpoint URL into the **Publish packages to http** field, and [an API key](/docs/api/authentication/create-an-api-key) in the **Publish API Key** field.  OctoPack will then push the packages when the solution is built.  You'll find the URL to your repository on the **Deploy ➜ Manage ➜ Packages** tab in Octopus.  Simply click the `Show examples` link to see options to upload packages including the repository URL.
 
 ## Consuming the TeamCity NuGet feed in Octopus \{#TeamCity-ConsumeNuGetFeedInOctopusConsumingTheTeamCityNuGetFeedInOctopus}
 
@@ -76,7 +76,7 @@ Support for pushing information (metadata) to Octopus about the build has been a
 
 :::div{.hint}
 A **Branch specification** is required on the TeamCity VCS configuration to populate the `Branch` field for Build Information in Octopus Deploy.  For example, `+:*`
-![](/docs/img/packaging-applications/build-servers/images/teamcity-branch-specification.png)
+![A branch specification on the TeamCity VCS configuration](/docs/img/packaging-applications/build-servers/images/teamcity-branch-specification.png)
 
 The part of the branch name matched by the asterisk (`*`) wildcard becomes the short branch name to be displayed in the TeamCity user-level interface. This is also known as the **logical branch name** and it's this value that is passed to Octopus Deploy by the TeamCity Plugin.
 

@@ -24,7 +24,7 @@ Want to tune your deployments for optimum performance? Read our [detailed guide 
 
 ## Database
 
-[SQL Server](/docs/installation/sql-server-database) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish. 
+[SQL Server](/docs/installation/sql-server-database) is the data persistence backbone of Octopus. Performance problems with your SQL Server will make Octopus run and feel slow and sluggish.
 
 ### Infrastructure
 
@@ -60,7 +60,7 @@ As an example, many customers have reported speed improvements of 50-90% for the
 
 Octopus are generally hygienic creatures, cleaning up after themselves, and your Octopus is no different. Configuration documents, like [projects](/docs/projects/) and [environments](/docs/infrastructure/environments/), are stored until you delete them, unlike historical documents like [releases](/docs/releases/). These will be cleaned up according to the [retention policies](/docs/administration/retention-policies) you configure.
 
-_The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing) of every significant event in your Octopus._
+*The one exception to this is the `Events` table which records an [audit trail](/docs/security/users-and-teams/auditing) of every significant event in your Octopus.*
 
 A tighter retention policy means your Octopus Server will run faster across the board.
 
@@ -148,7 +148,7 @@ The built-in package feed has its own [retention policy](/docs/administration/re
 The package retention policy only deletes packages not referenced by a release or runbook.  Setting the retention policy to 1 day means the package will be deleted 1 day after the release is deleted.
 :::
 
-## File storage 
+## File storage
 
 Octopus Deploy stores BLOB data (task logs, packages, project images, etc.) on the file system.
 
@@ -158,7 +158,7 @@ Larger task logs put the entire Octopus pipeline under more pressure.  The task 
 
 ### Image size
 
-While it is fun to have gifs and fancy images for your projects consider the size of each image.  Keep them under 100x100 pixels.  This will reduce the amount of data you have to download from the Octopus Server. 
+While it is fun to have gifs and fancy images for your projects consider the size of each image.  Keep them under 100x100 pixels.  This will reduce the amount of data you have to download from the Octopus Server.
 
 ## Deployment parallelism
 
@@ -179,6 +179,7 @@ The best place to start troubleshooting your Octopus Server is to inspect the [O
 When HTTP requests take a long time to be fulfilled you'll see a message similar to: `Request took 5123ms: GET {correlation-id}`: The timer is started when the request is first received, ending when the response is sent.
 
 Actions to take when you see messages similar to this in your log:
+
 - Look for trends as to which requests are taking a really long time.
 - Look to see if the performance problem occurs, and goes away, on a regular basis. This can indicate another process hogging resources periodically.
 
@@ -193,6 +194,7 @@ You can use the **CONFIGURE** button on the dashboard to limit the projects and/
 If a particular database operation takes a long time you'll see a message similar to: `{Insert/Delete/Update/Reader} took 8123ms in transaction '{transaction-name}'`. The timer is started when the operation starts, ending when the operation is completed (including any retries for transient failure recovery).
 
 Actions to take when you see messages similar to this in your log:
+
 - If you are seeing these operations take a long time it indicates your SQL Server is struggling under load, or your network connection from Octopus to SQL Server is saturated.
 - Check the maintenance plan for your SQL Server. See [tips above](#sql-maintenance).
 - Test an extremely simple query like `SELECT * FROM OctopusServerNode`. If this query is slow it indicates a problem with your SQL Server.
@@ -206,6 +208,7 @@ When the Task Logs are taking a long time to load, or your deployments are takin
 ### High resource usage during deployments
 
 When you experience overly high CPU or memory usage during deployments which may be causing your deployments to become unreliable:
+
 - Try reducing your Task Cap back towards the default of `5` and then increase progressively until your server is reliable again.
 - Look for potential [performance problems in your deployment processes](/docs/projects/deployment-process/performance), especially:
     - Consider how you [transfer your packages](#package-transfer).
@@ -233,14 +236,14 @@ If none of the above troubleshooting steps work, please get in contact with our 
 1. A high level overview of your Octopus Deploy instance:
     - Version of Octopus Deploy installed
     - How many nodes your Octopus Deploy instance has
-    - The server specs for each node (CPU/Memory)       
+    - The server specs for each node (CPU/Memory)
 1. Database details
     - What version of SQL Server
-    - Where the SQL Server is hosted what are the DTUs or hardware specs (CPU/Memory)    
+    - Where the SQL Server is hosted what are the DTUs or hardware specs (CPU/Memory)
     - Overall database size
     - Number of rows per table (see query below)
     - Last time indexes were rebuilt and stats were regenerated
-1. Utilization during of resources (CPU/Disk/Memory %) used during peak times vs. non-peak
+1. Usage of resources (CPU/Disk/Memory %) during peak times vs. non-peak
 
 This query will return all the rows in all the tables in the Octopus Deploy database.
 
@@ -264,6 +267,6 @@ In addition to providing the above information, gathering logs and traces will h
 1. [Record and attach the performance problem occurring in your web browser](/docs/support/record-a-problem-with-your-browser) (if applicable).
 1. Attach the [Octopus Server logs](/docs/support/log-files).
 1. Attach the [raw task logs](/docs/support/get-the-raw-output-from-a-task) for any tasks exhibiting the performance problem, or that may have been running at the same time as the performance problem.
-1. If the performance problem is causing high CPU utilization on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace).
-1. If the performance problem is causing high memory utilization on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace).
+1. If the performance problem is causing high CPU usage on the Octopus Server, please [record and attach a performance trace](/docs/administration/managing-infrastructure/performance/record-a-performance-trace).
+1. If the performance problem is causing high memory usage on the Octopus Server, please [record and attach a memory trace](/docs/administration/managing-infrastructure/performance/record-a-memory-trace).
 1. We might ask for a sanitized database backup to do our own testing against.  Please [follow these instructions](/docs/administration/managing-infrastructure/performance/create-sanitized-database-backup).

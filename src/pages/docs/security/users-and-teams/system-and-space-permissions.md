@@ -13,11 +13,11 @@ This introduces some complexity that can be useful to understand when things don
 
 ## Levels of permission
 
-While designing this feature, we needed to reason about which API resources needed to be configured _outside_ of a space and which resources should _only_ be configured _within_ a space.
+While designing this feature, we needed to reason about which API resources needed to be configured *outside* of a space and which resources should *only* be configured *within* a space.
 
 That means that when considering permissions, we need to think in terms of the two administrative use cases of an Octopus Deploy instance - administering the system itself, and administering a space. Since these are very different things, permissions need to be considered as applying at these two 'levels': the **System** and **Space** levels.  
 
-These levels are in fact attached to the nature of the API resources themselves, if a resource is considered _space only_ then permissions required to access that resource are considered to be space level permissions.
+These levels are in fact attached to the nature of the API resources themselves, if a resource is considered *space only* then permissions required to access that resource are considered to be space level permissions.
 
 When you design or inspect your own custom **user roles**, we present this information to help you reason about the types of permissions you are granting that role, so that you can appropriately restrict access to the various resources that you care about.
 
@@ -47,7 +47,7 @@ When you're including a user role in a team, that role will apply at either the 
 
 #### Roles with system level permissions only
 
-If the role only contains system level permissions, then the role will be automatically applied at the system level. In addition, roles of this nature can only be used for _system only_ teams. Applying a set of system permissions to a _space team_ is not permitted.
+If the role only contains system level permissions, then the role will be automatically applied at the system level. In addition, roles of this nature can only be used for *system only* teams. Applying a set of system permissions to a *space team* is not permitted.
 
 #### Roles with a combination of system and space level permissions
 

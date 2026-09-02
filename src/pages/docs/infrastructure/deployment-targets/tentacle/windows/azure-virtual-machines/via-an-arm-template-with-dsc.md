@@ -53,15 +53,15 @@ configuration OctopusTentacle
 }
 ```
 
-3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up. 
+3. Create a new zip file containing both the `OctopusDSC` folder and the `OctopusTentacle.ps1` file. Below is an example of what your folder should look like before you zip it up.
 
-:::div{.hint}
-If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
-:::
+    :::div{.hint}
+    If you build the ZIP file incorrectly the provisioning of the DSC extension and Tentacle application install is likely to fail.
+    :::
 
-:::figure
-![A brief description of the image](/docs/img/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
-:::
+    :::figure
+    ![A brief description of the image](/docs/img/infrastructure/deployment-targets/tentacle/windows/azure-virtual-machines/images/dsc-folder-structure-example.png)
+    :::
 
 4. Upload the zip file to a location accessible during VM provisioning. You can either use a public location, or a private location protected with a [SAS token](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 5. Create an ARM template (eg `arm-template.json`) that creates your virtual machine as normal. eg:
@@ -497,11 +497,11 @@ az deployment group create \
     --parameters "@arm-template.properties.json"
 ```
 
-## Troubleshooting 
+## Troubleshooting
 
 To troubleshoot the installation, you can use [`Start-Transcript`](https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1) to write the PowerShell session to a file.
 
 If you have remote access to the machine you are troubleshooting the installation for, these two commands may offer diagnostic information about the state of DSC:
 
-* The [`Test-DscConfiguration`](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine. 
-* The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.
+- The [`Test-DscConfiguration`](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/test-dscconfiguration?view=powershell-5.1) command will show details of whether the desired state matches that on the machine.
+- The [`(Get-DscConfiguration).ResourcesNotInDesiredState`](https://docs.microsoft.com/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration?view=powershell-5.1) command will show resources that are not in the desired state.

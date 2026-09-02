@@ -17,7 +17,7 @@ It is possible to manually upload a package file from your local machine via the
 
 However, we recommend using a [build server](/docs/packaging-applications/build-servers) to build, test, package and automatically upload your release packages into the Octopus Deploy built-in repository.
 
-In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
+In most cases you simply provide the build server with the URL to your Octopus Server and an [Octopus API key](/docs/api/authentication/create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 In addition to manually uploading packages or using your build server, you can add, upload packages to the built-in feed in the following ways:
 
@@ -30,7 +30,7 @@ In addition to manually uploading packages or using your build server, you can a
 To push packages using these methods, you will need:
 
 1. The URL to your Octopus Server.
-2. An [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
+2. An [Octopus API key](/docs/api/authentication/create-an-api-key) with the required permissions (see [security considerations](/docs/packaging-applications/package-repositories/built-in-repository/#security-considerations)).
 
 ## Using the Octopus CLI {#UsingOctopusCli}
 
@@ -48,7 +48,7 @@ C:\> octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Da
 <summary>Bash</summary>
 
 ```bash
-$ octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
+octopus package upload --package MyApp.Website.1.1.0.zip --package MyApp.Database.1.1.0.zip --overwrite-mode overwrite
 ```
 
 </details>
@@ -62,14 +62,14 @@ You can upload a package via the [Octopus Deploy API](/docs/octopus-rest-api) - 
 
 ## Using NuGet.exe push {#UsingNuGetExePush}
 
-To push a package using `NuGet.exe` you'll need the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Deploy ➜ Manage ➜ Packages** tab of the Octopus Web Portal.  The Help sidebar has options and examples of how to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+To push a package using `NuGet.exe` you'll need the URL for the Octopus NuGet feed to use with your build server or `NuGet.exe`. To find this, open the **Deploy ➜ Manage ➜ Packages** tab of the Octopus Web Portal.  The Help sidebar has options and examples of how to upload packages. The screen shows an example command-line that can be used to push packages to the feed using [NuGet.exe](http://docs.nuget.org/docs/start-here/installing-nuget). You'll need to supply the NuGet package file (`.nupkg`) and an [Octopus API key](/docs/api/authentication/create-an-api-key).
 
 :::figure
 ![The Built-in Package Repository](/docs/img/packaging-applications/package-repositories/built-in-repository/built-in-package-repository.png)
 :::
 
 :::div{.success}
-If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/octopus-rest-api/how-to-create-an-api-key) when prompted for the feed details.
+If you're using a continuous integration server like TeamCity to produce packages you can use their built-in NuGet Push step. Supply the Octopus NuGet feed URL shown above and an [Octopus API key](/docs/api/authentication/create-an-api-key) when prompted for the feed details.
 :::
 
 If a package with the same version exists, and you want to force the Octopus Server to replace it, you can modify the URL to include a `?replace=true` parameter:
@@ -125,4 +125,3 @@ Note that packages uploaded via the [recommended methods](/docs/packaging-applic
 ## Learn more
 
 - Generate an Octopus guide for [the Octopus built-in repository and the rest of your CI/CD pipeline](https://octopus.com/docs/guides).
-

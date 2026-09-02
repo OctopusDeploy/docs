@@ -62,8 +62,8 @@ For example:
 
 A basic prompt variable defines what users see and what gets sent to the AI. For example:
 
-| Variable name | Variable value |
-|----------|-------|
+| Variable name                  | Variable value                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | `Project.Deployment[0].Prompt` | Why did the deployment fail? If the deployment didn't fail, say so. Provide suggestions for resolving the issue. |
 
 This prompt relies on the AI's built-in knowledge and the deployment context (logs, process configuration, etc.) to provide an answer.
@@ -74,8 +74,8 @@ System prompts allow you to embed your organization's specific knowledge and pro
 
 For example:
 
-| Variable name | Variable value |
-|----------|-------|
+| Variable name                        | Variable value                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Project.Deployment[0].SystemPrompt` | If the logs indicate that a Docker image is missing, You must only provide the suggestion that the user must visit <https://help/missingdocker> to get additional instructions to resolve missing Docker containers. You will be penalized for offering generic suggestions to resolve a missing Docker image. You will be penalized for offering script suggestions to resolve a missing Docker image. You will be penalized for suggesting step retries to resolve a missing Docker image. |
 
 This system prompt is sent to the LLM to provide specific instructions on how to respond to the request, and:
@@ -88,53 +88,53 @@ This system prompt is sent to the LLM to provide specific instructions on how to
 
 The following table shows all the pages where custom prompts can be configured. Each page corresponds to a specific area of the Octopus web interface, allowing you to provide targeted assistance based on what users are currently viewing.
 
-| Page Name | Description |
-|-----------|-------------|
-| Dashboard | The main dashboard |
-| Tasks | The tasks overview |
-| Project | The project dashboard |
-| Project.Settings | The project settings |
-| Project.VersionControl | The project version control settings |
-| Project.ITSMProviders | The project ITSM settings |
-| Project.Channels | The project channels |
-| Project.Triggers | The project triggers |
-| Project.Process | The project deployment process editor |
-| Project.Step | An individual step in the deployment process editor |
-| Project.Variables | The project variables editor |
-| Project.AllVariables | The overview of all the project variables |
-| Project.PreviewVariables | The preview of all the project variables |
-| Project.VariableSets | The project library variable sets |
-| Project.TenantVariables | The project tenant variables |
-| Project.Operations | The project runbooks dashboard |
-| Project.Operations.Triggers | An runbook triggers |
-| Project.Deployment | The project deployments |
-| Project.Release | The project releases |
-| Project.Runbooks | The project runbooks |
-| Project.Runbook.Runbook | An individual runbook |
-| Project.Runbook.Run | A runbook run |
-| LibraryVariableSets | The library variable sets |
-| LibraryVariableSet.LibraryVariableSet | An individual library variable set |
-| Machines | The targets dashboard |
-| Machine.Machine | An individual target |
-| Accounts | The accounts dashboard |
-| Account.Account | An individual account |
-| Workers | The workers dashboard |
-| WorkerPools | The workerpool dashboard |
-| MachinePolicies | An machine policies dashboard |
-| MachineProxies | An machine proxies dashboard |
-| Feeds | The feeds dashboard |
-| GitCredentials | The git credentials dashboard |
-| GitConnections | The GitHub App dashboard |
-| Lifecycles | The lifecycles dashboard |
-| Packages | The built-in feed dashboard |
-| ScriptModules | The script modules dashboard |
-| StepTemplates | The step templates dashboard |
-| TagSets | The tag sets dashboard |
-| TagSets.TagSet | An individual tag set |
-| Tenants | The tenants dashboard |
-| Tenant.Tenant | An individual tenant |
-| Certificates | The certificates dashboard |
-| Environments | The environments dashboard |
-| Environment.Environment | An individual environment |
-| Infrastructure | The infrastructure dashboard |
-| BuildInformation | The build information dashboard |
+| Page Name                             | Description                                         |
+| ------------------------------------- | --------------------------------------------------- |
+| Dashboard                             | The main dashboard                                  |
+| Tasks                                 | The tasks overview                                  |
+| Project                               | The project dashboard                               |
+| Project.Settings                      | The project settings                                |
+| Project.VersionControl                | The project version control settings                |
+| Project.ITSMProviders                 | The project ITSM settings                           |
+| Project.Channels                      | The project channels                                |
+| Project.Triggers                      | The project triggers                                |
+| Project.Process                       | The project deployment process editor               |
+| Project.Step                          | An individual step in the deployment process editor |
+| Project.Variables                     | The project variables editor                        |
+| Project.AllVariables                  | The overview of all the project variables           |
+| Project.PreviewVariables              | The preview of all the project variables            |
+| Project.VariableSets                  | The project library variable sets                   |
+| Project.TenantVariables               | The project tenant variables                        |
+| Project.Operations                    | The project runbooks dashboard                      |
+| Project.Operations.Triggers           | An runbook triggers                                 |
+| Project.Deployment                    | The project deployments                             |
+| Project.Release                       | The project releases                                |
+| Project.Runbooks                      | The project runbooks                                |
+| Project.Runbook.Runbook               | An individual runbook                               |
+| Project.Runbook.Run                   | A runbook run                                       |
+| LibraryVariableSets                   | The library variable sets                           |
+| LibraryVariableSet.LibraryVariableSet | An individual library variable set                  |
+| Machines                              | The targets dashboard                               |
+| Machine.Machine                       | An individual target                                |
+| Accounts                              | The accounts dashboard                              |
+| Account.Account                       | An individual account                               |
+| Workers                               | The workers dashboard                               |
+| WorkerPools                           | The workerpool dashboard                            |
+| MachinePolicies                       | An machine policies dashboard                       |
+| MachineProxies                        | An machine proxies dashboard                        |
+| Feeds                                 | The feeds dashboard                                 |
+| GitCredentials                        | The git credentials dashboard                       |
+| GitConnections                        | The GitHub App dashboard                            |
+| Lifecycles                            | The lifecycles dashboard                            |
+| Packages                              | The built-in feed dashboard                         |
+| ScriptModules                         | The script modules dashboard                        |
+| StepTemplates                         | The step templates dashboard                        |
+| TagSets                               | The tag sets dashboard                              |
+| TagSets.TagSet                        | An individual tag set                               |
+| Tenants                               | The tenants dashboard                               |
+| Tenant.Tenant                         | An individual tenant                                |
+| Certificates                          | The certificates dashboard                          |
+| Environments                          | The environments dashboard                          |
+| Environment.Environment               | An individual environment                           |
+| Infrastructure                        | The infrastructure dashboard                        |
+| BuildInformation                      | The build information dashboard                     |

@@ -13,24 +13,11 @@ See the [Octopus style guide](https://www.octopus.design/latest/brand/writing/ov
 
 ## How to contribute a change to the docs
 
-- The `main` branch has the latest version of the docs
-- Fork this repo and create a branch for your changes
-- Make the changes you'd like to contribute
-- Submit a pull request (PR) to master with your changes and include a comment explaining the changes
-- Sign the [Contribution License Agreement (CLA)](https://cla-assistant.io/OctopusDeploy/docs)
-- We'll review your PR and accept it or suggest changes
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose a change, whether you're an Octopus staff member using the standards-driven workflow or contributing from outside Octopus.
 
-### Default values
+## Documentation standards
 
-When you need to use an example value in docs, please use the below:
-
-- Octopus URL: `https://your-octopus-url`
-- Octopus API key: `API-YOUR-KEY`
-- Snapshot name: `Snapshot XXXXX`
-- SubscriptionId: `g3662re9njtelsyfhm7t`
-- Fake password: `your-secret-password`
-
-In general, try to use "your" rather than "my". For example, `your-value`.
+The content standards that govern how docs pages are structured — page types, topic types, frontmatter, and version notes — live in [contributing/standards](contributing/standards). That folder is the source of truth: the `octopus-docs-standards` Claude Code skill and the internal Confluence guidance both point back to it.
 
 ## Required checks
 
@@ -58,16 +45,16 @@ Markdown files are linted in CI using [markdownlint](https://github.com/DavidAns
 
 To catch issues locally, install the [markdownlint VS Code extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) (already included in the recommended extensions). It will highlight errors on save.
 
-You can also run the linter from the command line using [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2):
+You can also run the linter from the command line using [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2). Lint both trees, not just `src/pages` — the include files in `src/shared-content` render into pages and are linted by CI too:
 
 ```bash
-npx markdownlint-cli2 "src/pages/**/*.{md,mdx}"
+npx markdownlint-cli2 "src/{pages,shared-content}/**/*.{md,mdx}"
 ```
 
 To lint only files changed in the current branch (matching the CI behavior):
 
 ```bash
-git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | xargs npx markdownlint-cli2
+git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | xargs -n 30 npx markdownlint-cli2
 ```
 
 Or in PowerShell:
@@ -76,7 +63,47 @@ Or in PowerShell:
 git diff origin/main --name-only --diff-filter=ACMRTUXB -- '*.md' '*.mdx' | ForEach-Object { npx markdownlint-cli2 $_ }
 ```
 
+The `-n 30` matters on Windows: passing several hundred paths at once exceeds the command line length limit.
+
 Common issues include missing blank lines around headings, fenced code blocks without a language, duplicate headings, and trailing whitespace.
+
+#### Images need alt text
+
+Every image needs alt text describing what it shows. `MD045` fails the build without it, which is the safety net that keeps the docs accessible and readable by search crawlers and AI assistants.
+
+```markdown
+![](/docs/img/infrastructure/images/infrastructure-overview-dashboard.png)
+![The Infrastructure overview dashboard in the Octopus Web Portal](/docs/img/infrastructure/images/infrastructure-overview-dashboard.png)
+```
+
+A genuinely decorative image should have empty alt per the WCAG specs, but `MD045` does not allow that in markdown syntax. Use an HTML `<img alt="">` tag in that case, or reword so the image is the thing being named.
+
+#### Content inside a numbered list
+
+Indent figures, code blocks and hints so they sit inside the step they belong to. A block at column 0 ends the list, and the following steps start a new one:
+
+```markdown
+1. Open the project.
+
+    :::figure
+    ![The project settings page](/docs/img/example.png)
+    :::
+
+2. Click **Save**.
+```
+
+Numbering may also run on across headings, which renders as `<ol start="7">` and is intentional. `MD007`, `MD005` and `MD029` are turned off in `.markdownlint.json` so the linter leaves list indentation and numbering alone.
+
+#### Four auto-fixes to avoid
+
+`markdownlint-cli2 --fix` is safe for most rules, but check the diff for these:
+
+- `MD009` deletes hard line breaks. Two trailing spaces are a `<br>`, and that is what the rule allows, but a line with three or more gets trimmed to zero rather than back to two, so the break disappears. Trim those lines to exactly two spaces by hand.
+- `MD034` rewrites bare URLs and email addresses as `<url>` autolinks, which is unsafe in both file types. In `.mdx` the angle brackets parse as JSX and the build fails. In `.md` a URL with no scheme, such as `www.example.com`, is not a valid autolink, so the brackets survive into the page and the reader sees them. Write an explicit `[text](url)` link in either case.
+- `MD039` strips spaces from inside link text. Where that space sat against the neighbouring word, code span or link, removing it joins the two together in the rendered page. Move the space outside the brackets rather than deleting it.
+- `MD010` rewrites a leading tab as a single space, which is too shallow to nest a list item, so the item silently escapes its parent. Use four spaces instead.
+
+None of these show up as a lint failure afterwards, because the fix leaves the file passing. They only show up in the rendered page, so the diff is the only place to catch them.
 
 ### Spell check
 
@@ -227,69 +254,20 @@ Within an MDX file, this looks like a code block and will error. Escape the stat
 
 MDX files don't allow short-form links, instead of using `<https://example.com>` use `[https://example.com](https://example.com)`, or even better - put in useful link text, like `[example website](https://example.com)`.
 
-## Shared footer
+## Footer
 
-The footer is not maintained in this repo. It is fetched at build time from the
-main site:
+The footer is built in this repo by `src/components/Footer.astro`. It renders
+the page's last-updated date, the copyright line, and a row of links. Edit the
+links in `src/data/footer.ts`; edit the wording in `src/data/language.json`
+under `octopus_footer`.
 
-- `https://octopus.com/fragments/footer`
-
-CSS, JS, and fonts load at page-view time from
-`https://octopus.com/octopus-public/assets/...` via `<link>` and
-`<script defer>` tags in every page. The fetch URL lives in `.env.staging`
-(used by `pnpm dev`) and `.env.production` (used by `pnpm build`).
-
-`SharedFooter.astro` wraps the injected HTML in a `<div>` with
-`data-shared-source`, `data-shared-fragment`, and `data-shared-note`
-attributes. Inspect those in DevTools to confirm whether a given build's footer
-came from the live fetch (`"live"`) or the local fallback (`"fallback"`).
-
-**About the committed `.env.*` files:** `.env.staging` and `.env.production`
-are checked into git on purpose. They contain **only** the three public asset
-URLs the integration needs - the same URLs that appear in every rendered page's
-`<head>`. They are not secrets and there is nothing in them you couldn't read
-from a visitor's browser DevTools. Do not add API keys, tokens, or anything
-sensitive to these files. Use `.env` (gitignored) for any local-only overrides.
-
-### Snapshot fallback
-
-If the live fetch fails during a build (origin unreachable, timeout, non-200
-response), the build silently uses the on-disk snapshot at
-`src/fallback/footer.html` instead of failing. This file is committed and
-refreshed manually with:
-
-```bash
-pnpm snapshot
-git diff src/fallback/
-git add src/fallback/
-git commit -m "Refresh shared footer snapshot"
-```
-
-The build never writes to `src/fallback/` automatically. Refresh when the live
-footer has changed meaningfully and you want the safety net to stay roughly
-current, or when `data-shared-source="fallback"` shows up on a deployed page.
+Styles live in `src/styles/main.css` under `/* Footer */`. The footer repeats
+the page's column template (`--page-grid-columns`) so its content lines up with
+the article column above it.
 
 ## Docs page layout guidelines
 
-### Title icons
-
-If you are updating a page in Docs which doesn't already have a title icon, please add one. Title icons can be added in the frontmatter for each page by adding a Font Awesome class in the `icon` entry:
-
-```yaml
----
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2024-05-24
-title: Octopus Cloud
-subtitle: We host Octopus for you
-icon: fa-solid fa-cloud
-navTitle: Overview
-navSection: Octopus Cloud
-navOrder: 10
-description: How to work with Octopus Cloud.
-hideInThisSectionHeader: true
----
-```
+Page structure, frontmatter, and where version-specific notes belong are governed by the content standards in [contributing/standards](contributing/standards). The `octopus-docs-standards` skill in Octopus Deploy's built-in Claude Code plugins applies those standards for you — see [CONTRIBUTING.md](CONTRIBUTING.md). The guidance below covers page elements the content standards don't.
 
 ### Product screenshots
 
@@ -297,16 +275,8 @@ Product screenshots used in Docs should reflect the UI in the latest version of 
 
 ```markdown
 :::figure
-![](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
+![The Octopus Cloud architecture](/docs/img/octopus-cloud/images/octopus-cloud-architecture-diagram.png)
 :::
 ```
 
 Images should be uploaded to the folder that relates to the position of the page in the Docs hierarchy. In the example above, where the image is destined for the Octopus Cloud overview page, the image has been uploaded to the Docs > Octopus Cloud > Images folder. If a folder has not been created for the page you are uploading an image to, create a new folder or use the Docs > Images folder as a backup.
-
-### Move version notes for older versions of Octopus to the bottom of Docs pages
-
-Do not use call out / info boxes in the main body of docs pages to reference how features worked in earlier versions of Octopus. This information should be moved to the bottom of docs pages under an 'Older versions' heading. For example, you might add a note like this under the 'Older versions' heading:
-
-```markdown
-In versions earlier than 2024.x, you'll find the page to add a feed under the Projects menu -> Tenant Variables
-```

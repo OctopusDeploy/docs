@@ -17,6 +17,7 @@ Keep in mind when using the results of Octopus Deploy's automatic inspection tha
 
 1. If your container immediately exits then some information such as the IP address used may be out of date.
 2. If your container state changes *after* this point in time, such as a new network or volume is attached, then the information may be out of date.
+
 :::
 
 :::div{.success}
@@ -35,7 +36,7 @@ A typical project may involve one step that first creates a network, and then cr
 ```
 
 :::figure
-![](/docs/img/deployments/docker/images/5865817.png)
+![Container network details shown in the deployment log](/docs/img/deployments/docker/images/5865817.png)
 :::
 
 ### Obtain container IP address inside custom network
@@ -57,6 +58,7 @@ For instance, in the examples outlined above, the network name was needed severa
 ```powershell
 #{Octopus.Action[Create Network Step Name].Output.Docker.Inspect.Name}
 ```
+
 :::
 
 ## Sample inspection output

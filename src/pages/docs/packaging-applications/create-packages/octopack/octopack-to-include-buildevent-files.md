@@ -26,7 +26,7 @@ However, when I use OctoPack to package my solution on build my moved files are 
 This is resolved by creating a NuSpec file, and creating a files tag to tell OctoPack to take my moved files, and put them inside a folder called `bin\test` in the package:
 
 :::figure
-![](/docs/img/packaging-applications/create-packages/octopack/images/nuspec-file.png)
+![A NuSpec file with a files tag listing the files to include](/docs/img/packaging-applications/create-packages/octopack/images/nuspec-file.png)
 :::
 
 It is important to note here that for OctoPack to find and use a NuSpec file, it must be named the same as your project as seen above. For instance, in our example, the project is called `OctoFX.TradingWebsite` so our NuSpec file must be called `OctoFx.TradingWebsite.nuspec`.

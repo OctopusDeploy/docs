@@ -7,7 +7,7 @@ description: Using the Octopus CLI (octopus) command line tool to create package
 navOrder: 30
 ---
 <!-- spell-checker:ignore Myatt's, PKWARE, Packagingyourapplicationfromafolder -->
-The Octopus CLI (`octopus`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/octopus-rest-api/) and includes packaging commands to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
+The Octopus CLI (`octopus`) is a command line tool that interacts with the [Octopus Deploy REST API](/docs/api/) and includes packaging commands to create packages either as [Zip](#create-zip-packages) or [NuGet](#create-nuget-packages) packages for deployment with Octopus.
 
 ## Installation
 
@@ -15,13 +15,13 @@ The [Octopus CLI downloads page](https://github.com/OctopusDeploy/cli/blob/main/
 
 After installation, you can run the following to verify the version of the Octopus CLI that was installed (if you're using Windows, remember to open a new command prompt):
 
-```
+```bash
 octopus --version
 ```
 
-For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/octopus-rest-api/cli).
+For more installation details, options, and update instructions, see [The Octopus CLI Global Tool](/docs/cli).
 
-For a full list of the `package` command options see [Octopus CLI - Package](/docs/octopus-rest-api/cli/octopus-package) or run the following command:
+For a full list of the `package` command options see [Octopus CLI - Package](/docs/cli/octopus-package) or run the following command:
 
 ```powershell
 octopus package --help
@@ -44,6 +44,7 @@ Both NuGet and ZIP packaging commands support the following configuration option
 - **--overwrite**: Allow an existing package file of the same ID/version to be overwritten
 
 Additional NuGet-specific options:
+
 - **--author**: Add author/s to the package metadata
 - **--title**: The title of the package
 - **--description**: A description of the package, defaults to "A deployment package created from files on disk."
@@ -90,7 +91,7 @@ octopus package zip create --id="SomeLibrary" --version="1.0.0" --base-path="./d
 
 There are usually some extra steps required to get the resulting application built and deployable. Full framework web applications are a good example of this, where simply building the application will not give you the desired output. We still recommend [Octopack](/docs/packaging-applications/create-packages/octopack) for these cases. However, you may be able to achieve this using msbuild parameters such as:
 
-```
+```bash
 msbuild ./OctoWeb.csproj /p:DeployDefaultTarget=WebPublish /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /p:publishUrl=dist
 octopus package zip create --id="OctoWeb" --version="1.0.0-alpha0001" --base-path="./dist"
 ```

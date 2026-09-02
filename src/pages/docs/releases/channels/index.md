@@ -25,6 +25,10 @@ When you are implementing a deployment process that uses channels you can scope 
 
 You can also define rules per channel to ensure that only package versions and Git resources which meet specific criteria are deployed to specific channels.
 
+:::div{.hint}
+[Easy Mode - Channels](https://octopus.com/blog/octo-easy-mode-12-channels) provides a practical example of channels you can apply to your own Octopus instance.
+:::
+
 ## Managing channels
 
 Every [project](/docs/projects) has a default channel.
@@ -297,7 +301,7 @@ The package list allows you to select the version of each package involved in th
 
 ### Using build server extensions or the Octopus CLI
 
-When using one of the [build server extensions](/docs/octopus-rest-api/) or the [Octopus CLI](/docs/octopus-rest-api/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct channel for your release (this is the default behavior), or choose a specific channel yourself.
+When using one of the [build server extensions](/docs/api/) or the [Octopus CLI](/docs/cli/octopus-cli/create-release) to create releases, you can either let Octopus automatically choose the correct channel for your release (this is the default behavior), or choose a specific channel yourself.
 
 ### Built-in package repository triggers
 

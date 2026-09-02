@@ -1,7 +1,24 @@
 {
     "MD013": false,
     "MD041": false,
-    "emphasis": { "style": "asterisk" },
+    "MD024": {
+        "siblings_only": true
+    },
+    "MD051": {
+        "ignored_pattern": "^[a-z0-9-]*[A-Z]"
+    },
+    "emphasis": {
+        "style": "asterisk"
+    },
     "no-inline-html": false,
-    "ul-style": { "style": "dash" }
+    "ul-style": {
+        "style": "dash"
+    },
+    "MD010": {
+        "code_blocks": false
+    },
+    "MD007": false,
+    "MD005": false,
+    "MD029": false,
+    "MD036": false
 }

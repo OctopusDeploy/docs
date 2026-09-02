@@ -66,7 +66,7 @@ The `KeyStore alias` field defines a custom alias under which the certificate an
 
 ## Deploying a certificate to a domain
 
-Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefor a two-step process:
+Domains can be used to distribute the configuration required to access a KeyStore, but can not be used to distribute the KeyStore files themselves. Since each slave in the domain needs to have access to the KeyStore file, configuring certificates is therefore a two-step process:
 
 1. Deploying a KeyStore file to all slave instances.
 2. Configuring the profiles managed by the domain controller to reference the KeyStore files.
@@ -82,7 +82,6 @@ The location of the new KeyStore file must be defined in the `KeyStore filename`
 The `Private key password` field defines a custom password for the new KeyStore file. If this field is left blank, the KeyStore will be configured with the default password of `changeit`.
 
 The `KeyStore alias` field defines a custom alias under which the certificate and private key are stored. If left blank, the default alias of `Octopus` will be used.
-
 
 :::div{.hint}
 It is highly recommended that the KeyStore file be saved in the `domain/configuration` directory. This allows the KeyStore file to be referenced using a relative path against the base path identified by `jboss.domain.config.dir`.

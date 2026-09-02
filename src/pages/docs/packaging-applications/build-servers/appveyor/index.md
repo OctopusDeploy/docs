@@ -31,15 +31,15 @@ In the **Before build script** section add `nuget restore` as AppVeyor will not 
 
 The following environment variables are available and can be configured on the **Environment** page of your project's settings.
 
-| Variable name       | Description|
+| Variable name | Description |
 | ------------- | ------- |
-| OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version)|
+| OCTOPUS_PACKAGE_VERSION | Overrides the version in the package name. (default AppVeyor build version) |
 | OCTOPUS_PACKAGE_NUGET | Overrides the package type. (default nupkg) |
 | OCTOPUS_PACKAGE_ADVANCED | [Additional arguments](/docs/packaging-applications/create-packages/octopus-cli) to pass to `octo pack` |
 
 ### Non-MSbuild projects
 
-AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is _not_ using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **Build ➜ Script** and adding you command to the build script section. For instance:
+AppVeyor have included the Octopus CLI (`octo`) into the base Windows build VM and is available via the command line. If you're running a project that is *not* using msbuild, you can manually invoke the `octo pack` command during the build phase, by navigating to **Build ➜ Script** and adding you command to the build script section. For instance:
 
 ```bash
 npm Build
@@ -62,7 +62,7 @@ You can use a wildcard to pick up the dynamically generated package.
 
 Next, go to the **Deployment** page in your project's settings and click **Add deployment** and from the **Deployment providers** select **Octopus Deploy**.
 
-Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/octopus-rest-api/how-to-create-an-api-key).
+Enter the URL where the Octopus Server can be reached, and add an [API key](/docs/api/authentication/create-an-api-key).
 
 :::figure
 ![AppVeyor Deploy](/docs/img/packaging-applications/build-servers/appveyor/images/appveyor_deploy.png)
@@ -75,6 +75,7 @@ If your Octopus Deploy project doesn't make use of [release creation triggers](/
 Unless overridden, the AppVeyor project name will be used in place of the Octopus project name when creating a release.
 
 ## Build configuration in code
+
 AppVeyor provides another mechanism for providing the above configuration information and this is via an [appveyor.yml](https://www.appveyor.com/docs/appveyor-yml/) file contained in the repository source code. For the above configuration the YAML file is as simple as
 
 ```yaml

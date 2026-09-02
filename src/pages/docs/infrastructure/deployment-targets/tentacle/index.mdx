@@ -10,12 +10,11 @@ import TentacleDownloads from 'src/shared-content/tentacle/tentacle-downloads.in
 
 When you deploy software to your servers, you'll typically need to install Tentacle, a lightweight agent service so they can communicate securely with the Octopus Server.
 
-
 :::div{.info}
 See a [comparison of agent-based vs agentless communications](/docs/infrastructure/deployment-targets/tentacle/agent-vs-agentless).
 :::
 
-Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux). 
+Tentacle can be installed on either [Windows](/docs/infrastructure/deployment-targets/tentacle/windows/) or [Linux](/docs/infrastructure/deployment-targets/tentacle/linux).
 
 When installed, Tentacles can:
 
@@ -69,7 +68,7 @@ To allow Tentacle to connect to your Octopus Server, you'll need to allow access
 If your network rules only allow port **80** and **443** to the Octopus Server, you can either:
 
 - Change the server bindings to either HTTP or HTTPS and use the remaining port for polling Tentacle connections.
-  - The listening port Octopus Server uses can be [changed from the command line](/docs/octopus-rest-api/octopus.server.exe-command-line/configure) using the `--commsListenPort` option.
+  - The listening port Octopus Server uses can be [changed from the command line](/docs/administration/octopus.server.exe-command-line/configure) using the `--commsListenPort` option.
 Even if you do use port **80** for Polling Tentacles, the communication is still secure.
 - Use a reverse proxy to redirect incoming connections to the Tentacle listening port on Octopus Server by differentiating the connection based on Hostname (TLS SNI) or IP Address
   - The polling endpoint Tentacle uses can be [changed from the command line](/docs/infrastructure/deployment-targets/tentacle/polling-tentacles-over-port-443/#self-hosted) using the `--server-comms-address` option.

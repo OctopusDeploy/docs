@@ -16,7 +16,7 @@ Diagnose delays or timeouts in rolling deployments, often caused by unhealthy ta
 
 ## 📝 Prompt
 
-```
+```text
 Analyze and resolve timeouts in a rolling deployment
 ```
 

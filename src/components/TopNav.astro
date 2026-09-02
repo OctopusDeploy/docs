@@ -1,0 +1,412 @@
+---
+import Logo from '../assets/octopus-logo-v2.svg';
+import Button from './Button.astro';
+import Menu, { type MenuItem } from './Menu.astro';
+import ProfileMenu from './ProfileMenu.astro';
+import TopNavSearch from './TopNavSearch.astro';
+import { SITE } from '../config';
+
+type Props = {
+  lang?: string;
+  showSearch?: boolean;
+  links?: { label: string; href: string }[];
+};
+
+const {
+  lang,
+  showSearch = true,
+  links = [
+    { label: 'Docs', href: '/docs' },
+    // TODO: { label: 'Learn', href: '/docs/?' },
+    { label: 'API', href: '/docs/api' },
+    { label: 'CLI', href: '/docs/cli' },
+  ],
+} = Astro.props satisfies Props;
+
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const currentLabel = links
+  .filter(({ href }) => pathname === href || pathname.startsWith(`${href}/`))
+  .sort((a, b) => b.href.length - a.href.length)[0]?.label;
+
+const signInHref = `${SITE.url}/signin?ReturnUrl=${encodeURIComponent(Astro.url.pathname)}`;
+const startForFreeHref = 'https://octopus.com/free-signup';
+
+// When the page is narrow the links in the bar collapse into a menu; these are the menu items
+const sectionItems: MenuItem[] = links.map(({ label, href }) => ({
+  label,
+  href,
+  ...(label === currentLabel
+    ? {
+        iconEnd: 'top-nav__check-icon',
+        data: { 'aria-current': 'page' },
+      }
+    : {}),
+}));
+---
+
+<header class="top-nav">
+  <div class="top-nav__leading">
+    <a
+      class="top-nav__logo"
+      href="https://octopus.com"
+      aria-label="Octopus Deploy"
+    >
+      <Logo class="top-nav__logo-mark" aria-hidden="true" />
+    </a>
+    <nav class="top-nav__links" aria-label="Sections">
+      {
+        links.map(({ label, href }) => (
+          <a
+            class:list={[
+              'top-nav__link',
+              label === currentLabel && 'top-nav__link--active',
+            ]}
+            href={href}
+            aria-current={label === currentLabel ? 'page' : undefined}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="top-nav__sections">
+      <Menu label="Sections" items={sectionItems}>
+        <Button
+          slot="trigger"
+          as="summary"
+          label={currentLabel ?? links[0].label}
+          iconEnd="fa-solid fa-caret-down"
+          aria-haspopup="menu"
+        />
+      </Menu>
+    </div>
+  </div>
+
+  <div class="top-nav__panel" id="top-nav-panel" data-top-nav-panel>
+    {showSearch && <TopNavSearch lang={lang} />}
+
+    {
+      // top-nav-drawer.ts moves the site nav tree in here when the page is narrow
+    }
+    <div class="top-nav__drawer-nav" data-top-nav-nav-slot></div>
+
+    <div class="top-nav__drawer-footer">
+      <div class="top-nav__drawer-actions" data-signed-out-only>
+        <Button
+          label="Start for free"
+          href={startForFreeHref}
+          importance="loud"
+        />
+        <Button label="Sign in" href={signInHref} />
+      </div>
+      <div class="top-nav__drawer-theme">
+        <span class="top-nav__drawer-theme-label">Theme</span>
+        <Button
+          icon="top-nav__theme-icon"
+          aria-label="Toggle theme"
+          data-theme-toggle-button
+        />
+      </div>
+      <div class="top-nav__drawer-profile" data-signed-in-only>
+        <ProfileMenu inline />
+      </div>
+    </div>
+  </div>
+
+  <div class="top-nav__trailing">
+    <Button
+      icon="top-nav__theme-icon"
+      aria-label="Toggle theme"
+      data-tooltip="Toggle theme"
+      data-tooltip-position="bottom"
+      data-theme-toggle-button
+    />
+    <Button label="Sign in" href={signInHref} data-signed-out-only />
+    <Button
+      label="Start for free"
+      href={startForFreeHref}
+      importance="loud"
+      data-signed-out-only
+    />
+    <ProfileMenu data-signed-in-only />
+    <Button
+      class="top-nav__drawer-toggle"
+      icon="top-nav__bars-icon"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="top-nav-panel"
+      data-top-nav-toggle
+    />
+  </div>
+</header>
+
+<script>
+  import '../scripts/signed-in-user';
+  import '../scripts/theme-switcher';
+  import '../scripts/top-nav-drawer';
+</script>
+
+<style>
+  .top-nav {
+    /* Align the search bar with the content if possible */
+    --top-nav-content-start: calc(
+      var(--navigation-width) +
+        max(
+          var(--grid-gap-main),
+          (
+              100% -
+                (
+                  var(--navigation-width) + var(--content-width-article) +
+                    var(--toc-offset) + var(--toc-width) + var(--space16)
+                )
+            ) /
+            2
+        )
+    );
+    --top-nav-content-width: min(
+      var(--content-width-article),
+      100% - var(--top-nav-content-start) - var(--toc-offset) -
+        var(--toc-width) - var(--space16)
+    );
+
+    box-sizing: border-box;
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 11;
+    display: grid;
+    grid-template-columns:
+      minmax(max-content, var(--top-nav-content-start))
+      minmax(0, var(--top-nav-content-width))
+      minmax(max-content, 1fr);
+    align-items: center;
+    column-gap: 0;
+    padding: var(--space16) 0 calc(var(--space16) - var(--borderWidth1));
+    border-block-end: var(--borderWidth1) solid var(--colorBorderPrimary);
+    background: var(--colorBackgroundPrimaryDefault);
+    transition-property: background-color, border-color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
+  }
+
+  .top-nav__panel {
+    display: contents;
+  }
+
+  .top-nav__leading {
+    display: flex;
+    align-items: center;
+    gap: var(--space64);
+    padding-inline: var(--space24);
+  }
+
+  .top-nav__logo {
+    display: flex;
+  }
+
+  .top-nav__logo-mark {
+    display: block;
+    height: 2rem;
+    width: auto;
+    color: var(--colorTextPrimary);
+    transition: color var(--theme-transition-duration) ease-in-out;
+  }
+
+  .top-nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space2);
+  }
+
+  .top-nav__trailing {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: var(--space12);
+    padding-inline: var(--space24);
+  }
+
+  a.top-nav__link {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space8) var(--space12);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorNavBackgroundRest);
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    text-align: center;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
+  }
+
+  a.top-nav__link:hover:not(.top-nav__link--active),
+  a.top-nav__link:focus:not(.top-nav__link--active) {
+    background: var(--colorNavBackgroundHover);
+  }
+
+  a.top-nav__link:focus-visible {
+    outline: var(--borderWidth2) solid var(--colorBorderSelected);
+    outline-offset: var(--borderWidth1);
+  }
+
+  a.top-nav__link--active {
+    background: var(--colorNavBackgroundActive);
+    color: var(--colorTextSelected);
+    font: var(--textBodyBoldMedium);
+  }
+
+  .top-nav__sections :global(.top-nav__check-icon) {
+    margin-inline-start: auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconSelected);
+    mask: url('../assets/icons/check.svg') center / contain no-repeat;
+  }
+
+  /* Hide things that are only displayed when the page is narrow by default */
+  .top-nav__sections,
+  .top-nav__drawer-nav,
+  .top-nav__drawer-footer,
+  .top-nav__drawer-toggle {
+    display: none;
+  }
+
+  @media (max-width: 1130px) {
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space16);
+    }
+
+    .top-nav__leading {
+      gap: var(--space24);
+      min-width: 0;
+      padding-inline: var(--space16);
+    }
+
+    .top-nav__logo-mark {
+      height: 1.75rem;
+    }
+
+    .top-nav__links {
+      display: none;
+    }
+
+    .top-nav__sections {
+      display: block;
+    }
+
+    .top-nav__trailing {
+      gap: var(--space8);
+      padding-inline: var(--space16);
+    }
+
+    .top-nav__trailing > :not(.top-nav__drawer-toggle),
+    .top-nav__trailing :global(.profile-menu) {
+      display: none;
+    }
+
+    .top-nav__drawer-toggle {
+      display: inline-flex;
+    }
+
+    /* The sections menu is the width of the page rather than hanging off the button that opens it */
+    .top-nav__sections :global(.menu__list) {
+      position: fixed;
+      position-area: none;
+      inset-block-start: calc(var(--header-height) - var(--space12));
+      margin-block-start: 0;
+      inset-inline: var(--space16);
+      inset-block-end: auto;
+      width: auto;
+      min-width: 0;
+      max-width: none;
+    }
+
+    .top-nav__panel {
+      position: fixed;
+      inset-block-start: var(--header-height);
+      inset-inline: 0;
+      inset-block-end: 0;
+      z-index: 9;
+      display: none;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      background: var(--colorBackgroundPrimaryDefault);
+    }
+
+    .top-nav__panel[data-open] {
+      display: grid;
+    }
+
+    .top-nav__drawer-nav {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .top-nav__drawer-nav :global(.site-nav) {
+      position: static;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr);
+      align-self: stretch;
+      min-height: 0;
+      height: auto;
+      padding: 0;
+      border-inline-end: 0;
+    }
+
+    .top-nav__drawer-nav :global(.site-nav > .site-nav__list) {
+      align-self: stretch;
+      min-height: 0;
+      height: auto;
+      padding-block: var(--space8) var(--space16);
+      padding-inline: var(--space16);
+    }
+
+    .top-nav__drawer-footer {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space12);
+      padding: var(--space16);
+      border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
+    }
+
+    .top-nav__drawer-actions {
+      display: flex;
+      gap: var(--space12);
+    }
+
+    .top-nav__drawer-actions :global(.btn) {
+      flex: 1 1 0;
+      max-width: none;
+    }
+
+    .top-nav__drawer-theme {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space12);
+      padding-block: var(--space6);
+    }
+
+    .top-nav__drawer-theme-label {
+      color: var(--colorTextPrimary);
+      font: var(--textBodyRegularLarge);
+    }
+
+    .top-nav__drawer-profile {
+      padding-block-start: var(--space12);
+      border-block-start: var(--borderWidth1) solid var(--colorBorderPrimary);
+    }
+
+    .top-nav__drawer-profile[hidden] {
+      display: none;
+    }
+  }
+</style>

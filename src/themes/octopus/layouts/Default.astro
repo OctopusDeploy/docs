@@ -1,12 +1,11 @@
 ---
 import { accelerator } from '@lib/accelerator';
 import type { Frontmatter } from 'astro-accelerator-utils/types/Frontmatter';
-import { getImageInfo } from '@util/custom-markdown.mjs';
+import { buildCrumbs, type Crumb } from '@util/breadcrumbs';
 import { SITE } from '@config';
 import Head from '@components/HtmlHead.astro';
 import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import Copyright from '@components/Copyright.astro';
+import Footer from 'src/components/Footer.astro';
 import SkipLinks from '@components/SkipLinks.astro';
 import Breadcrumbs from '@components/Breadcrumbs.astro';
 import Navigation from '@components/Navigation.astro';
@@ -21,18 +20,16 @@ stats.start();
 type Props = {
   frontmatter: Frontmatter;
   headings: { depth: number; slug: string; text: string }[];
-  breadcrumbs?: { url: string; title: string; ariaCurrent?: string }[] | null;
+  breadcrumbs?: Crumb[] | null;
 };
 const { frontmatter, headings, breadcrumbs } = Astro.props satisfies Props;
+
+const crumbs = buildCrumbs(Astro.url, breadcrumbs);
 
 const lang = frontmatter.lang ?? SITE.default.lang;
 const textDirection = frontmatter.dir ?? SITE.default.dir;
 
 // Logic
-const metaImage = frontmatter.bannerImage
-  ? getImageInfo(frontmatter.bannerImage.src, '', SITE.images.contentSize)
-  : null;
-
 const title = await accelerator.markdown.getInlineHtmlFrom(
   frontmatter.title ?? SITE.title
 );
@@ -47,21 +44,21 @@ stats.stop();
 ---
 
 <html dir={textDirection} lang={lang} class="initial">
-  <Head frontmatter={frontmatter} headings={headings} lang={lang} />
+  <Head
+    frontmatter={frontmatter}
+    headings={headings}
+    lang={lang}
+    crumbs={crumbs}
+  />
   <body>
     <SkipLinks frontmatter={frontmatter} headings={headings} lang={lang} />
     <Header frontmatter={frontmatter} headings={headings} lang={lang} />
-    <Breadcrumbs
-      frontmatter={frontmatter}
-      headings={headings}
-      lang={lang}
-      breadcrumbs={breadcrumbs}
-    />
+    <Breadcrumbs lang={lang} crumbs={crumbs} />
     <div class="content-group">
       <main id="site-main">
-        <article itemscope itemtype="https://schema.org/Article">
+        <article>
           <header>
-            <h1 itemprop="name headline"><Fragment set:html={title} /></h1>
+            <h1><Fragment set:html={title} /></h1>
             {
               subtitle && (
                 <p>
@@ -70,7 +67,7 @@ stats.stop();
               )
             }
           </header>
-          <div class="page-content anim-show-parent" itemprop="articleBody">
+          <div class="page-content anim-show-parent">
             <TableOfContents
               frontmatter={frontmatter}
               headings={headings}
@@ -84,19 +81,21 @@ stats.stop();
               headings={headings}
               lang={lang}
             />
-            {metaImage && <meta itemprop="image" content={metaImage.src} />}
           </div>
         </article>
       </main>
       <Navigation lang={lang} />
     </div>
-    <Footer frontmatter={frontmatter} headings={headings} lang={lang}>
-      <Copyright frontmatter={frontmatter} headings={headings} lang={lang} />
-    </Footer>
+    <Footer
+      lang={lang}
+      lastUpdated={frontmatter.modDate ?? frontmatter.pubDate}
+    />
     <script define:vars={{ site_url, site_features }}>
       window.site_url = site_url;
       window.site_features = site_features;
     </script>
-    <script src={SITE.subfolder + '/js/main.js'} type="module" async></script>
+    <script>
+      import '../../../scripts/main.js';
+    </script>
   </body>
 </html>

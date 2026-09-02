@@ -13,7 +13,6 @@ Both Nexus OSS and Nexus Pro offer three types of Maven repository, Hosted, Grou
 This guide was written using Nexus OSS version 3.37.0-01
 :::
 
-
 ## Configuring a Hosted Maven repository
 
 From the Nexus web portal, click on the **gear icon** to get to the **Administration** screen.
@@ -61,7 +60,8 @@ Copy the URL property, that is what you will use when adding it as an external f
 Optionally upload a package to the repository so you can verify search functionality when added as an external feed.
 
 ## Adding a Nexus Maven repository as an Octopus External Feed
-Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type. 
+
+Create a new Octopus Feed by navigating to **Deploy ➜ Manage ➜ External Feeds** and select the `Maven Feed` Feed type.
 
 Give the feed a name and in the URL field, paste the URL you copied earlier.  It should look similar to this format:
 

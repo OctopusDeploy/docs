@@ -5,17 +5,21 @@ import {
   THEME_CHANGE_EVENT,
   THEME_PREFERENCE_ATTRIBUTE,
   THEME_STORAGE_KEY,
+  THEME_TRANSITION_ATTRIBUTE,
   type Theme,
   type ThemePreference,
 } from '../lib/theme';
 
-const CHECKBOX_SELECTOR = '[data-theme-toggle-checkbox]';
+// Matches --duration-default in vars.css.
+const TRANSITION_MS = 300;
+
+const BUTTON_SELECTOR = '[data-theme-toggle-button]';
 
 const root = document.documentElement;
 const darkQuery = window.matchMedia(COLOR_SCHEME_QUERY);
 
-function checkboxes() {
-  return document.querySelectorAll<HTMLInputElement>(CHECKBOX_SELECTOR);
+function buttons() {
+  return document.querySelectorAll<HTMLButtonElement>(BUTTON_SELECTOR);
 }
 
 // localStorage throws in Safari private mode and in cookie-blocked iframes.
@@ -50,17 +54,22 @@ function currentTheme(): Theme {
   return root.getAttribute(THEME_ATTRIBUTE) === 'dark' ? 'dark' : 'light';
 }
 
-function syncControls(theme: Theme) {
-  checkboxes().forEach((box) => {
-    box.checked = theme === 'dark';
-  });
+let transitionTimer: ReturnType<typeof setTimeout> | undefined;
+
+function markTransition() {
+  root.setAttribute(THEME_TRANSITION_ATTRIBUTE, '');
+  clearTimeout(transitionTimer);
+  transitionTimer = setTimeout(() => {
+    root.removeAttribute(THEME_TRANSITION_ATTRIBUTE);
+    transitionTimer = undefined;
+  }, TRANSITION_MS);
 }
 
 function apply(preference: ThemePreference) {
   const theme = resolve(preference);
+  if (theme !== currentTheme()) markTransition();
   root.setAttribute(THEME_ATTRIBUTE, theme);
   root.setAttribute(THEME_PREFERENCE_ATTRIBUTE, preference);
-  syncControls(theme);
   root.dispatchEvent(
     new CustomEvent(THEME_CHANGE_EVENT, { detail: { theme, preference } })
   );
@@ -77,27 +86,13 @@ export function getTheme(): Theme {
 }
 
 function bind() {
-  // The inline head script already set the attribute; mirror it onto every
-  // control rather than re-deriving it, so all switchers agree from paint one.
-  syncControls(currentTheme());
+  buttons().forEach((button) => {
+    if (button.dataset.themeBound) return;
+    button.dataset.themeBound = 'true';
 
-  checkboxes().forEach((box) => {
-    if (box.dataset.themeBound) return;
-    box.dataset.themeBound = 'true';
-
-    // Covers mouse, touch, label clicks and Space.
-    box.addEventListener('change', () =>
-      setTheme(box.checked ? 'dark' : 'light')
+    button.addEventListener('click', () =>
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark')
     );
-
-    // A checkbox ignores Enter. The switch role treats it as an optional
-    // second activation key, and this control supported it before. Routed
-    // through click() so the change handler stays the only writer of state.
-    box.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter') return;
-      event.preventDefault();
-      box.click();
-    });
   });
 }
 

@@ -25,7 +25,7 @@ No. A tenant is treated like a smaller slice of an environment. Octopus creates 
 
 ## Can I deploy to multiple tenants at the same time?
 
-Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/octopus-rest-api/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
+Yes! You can create multiple tenanted deployments at the same time very easily by using the Octopus UI, The Octopus CLI or any of the build server extensions. You can choose multiple tenants using [tenant tags](/docs/tenants/tenant-tags/) or all tenants in an environment. For more information refer to [deploying releases with the Octopus CLI](/docs/cli/octopus-cli/deploy-release) and [deploying to multiple tenants using tags](/docs/tenants/tenant-tags/#deploying-to-multiple-tenants-tags).
 
 ## Can I control the order in which tenanted deployments execute?
 
@@ -67,14 +67,14 @@ No. Each tenanted deployment is independent. There is no built-in way to perform
 - I want to send an email once release **1.2.6** has been successfully deployed to all of my tenants in production.
 - I want to upgrade a batch of tenants and, if one fails, I want them all to roll-back to the last known good version.
 
-You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/octopus-rest-api/) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
+You can achieve these behaviors using a custom script/application which leverages the [Octopus REST API](/docs/api/) and taking advantage of [Subscriptions](/docs/administration/managing-infrastructure/subscriptions). This way you can use the information provided by Octopus to perform a complex deployment orchestration with any custom logic that suits your scenario perfectly. For example, you could write a script/application which starts a batch of tenanted deployments using a specific tag, then monitor the progress of those deployments, and finally take any action based on the results.
 
 ## Can I have a combination of tenanted and untenanted projects?
 
 Yes! Each project can control its interaction with tenants. By default, the multi-tenant deployment features are disabled. You can allow deployments with/without a tenant, which is a hybrid mode that is useful when you are transitioning to a fully multi-tenant project. There is also a mode where you can require a tenant for all deployments, which disables untenanted deployments for that project.
 
 :::figure
-![](/docs/img/tenants/images/multi-tenant-project-settings.png)
+![The multi-tenant deployment options in a project's settings](/docs/img/tenants/images/multi-tenant-project-settings.png)
 :::
 
 ## What is an "untenanted deployment"? Don't I have to choose a tenant when deploying my project?

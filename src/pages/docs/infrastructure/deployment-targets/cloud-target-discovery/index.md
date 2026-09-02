@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2024-06-27
+modDate: 2026-08-27
 title: Cloud Target Discovery
 description: Cloud resources can be discovered and registered as deployment targets by Octopus
 navOrder: 90
@@ -37,9 +37,11 @@ The variables used are different for each supported cloud provider.
 
 To discover Azure cloud resources, Octopus uses the following variables:
 
-| Name                    | Required | Description                                                                                                   |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| Name                    | Required | Description                                                                                                |
+| ----------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | `Octopus.Azure.Account` | Y        | An [Azure account](/docs/projects/variables/azure-account-variables) to use when discovering cloud targets |
+
+The account you set here is also saved on each target discovery creates, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
 
 From **Octopus 2022.3**, Azure steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet.
 
@@ -65,19 +67,25 @@ To switch off cloud target discovery for Azure:
 
 Once the variable is removed, cloud target discovery will be switched off for Azure resources in this project. The **Azure** tile in the **Cloud Connections** section of your Azure deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
 
+:::div{.warning}
+Switching off discovery does not change the targets it has already discovered. Each one keeps the account it was discovered with. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
+:::
+
 ### AWS
 
 To discover AWS cloud resources, Octopus uses the following variables:
 
-| Name                                      | Required | Description                                                                                                                                                                                                                                                  |
-| ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                                                                        |
+| Name                                      | Required | Description                                                                                                                                                                                                                                               |
+| ----------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Octopus.Aws.Regions`                     | Y        | A comma separated list of AWS regions to perform target discovery in.                                                                                                                                                                                     |
 | `Octopus.Aws.Account`                     | N        | An [AWS account](/docs/projects/variables/aws-account-variables) account to use when discovering cloud targets. If this is not set then credentials from the worker on which the step is run will be used.                                                |
 | `Octopus.Aws.WorkerPool`                  | N        | A [worker pool](/docs/projects/variables/worker-pool-variables) to use when discovering cloud targets. If this is not set then the worker pool from the step will be used. If this is set any discovered targets will have this set as their worker pool. |
-| `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles.                                                |
-| `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                            |
-| `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                             |
-| `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external ID to use if assuming a role during discovery. See the AWS documentation for more information on the use of external IDs.                                                                                                                        |
+| `Octopus.Aws.AssumedRole.Arn`             | N        | The ARN of an IAM role to assume during the discovery of targets. See [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) for more information on using and assuming roles.                                             |
+| `Octopus.Aws.AssumedRole.SessionName`     | N        | The name of the session to use if assuming a role during discovery. If not set then an automatically generated name provided by AWS will be used.                                                                                                         |
+| `Octopus.Aws.AssumedRole.SessionDuration` | N        | The maximum duration the session will be available for if assuming a role during discovery. If not set then the default duration from the IAM role will be used.                                                                                          |
+| `Octopus.Aws.AssumedRole.ExternalId`      | N        | An external ID to use if assuming a role during discovery. See the AWS documentation for more information on the use of external IDs.                                                                                                                     |
+
+If you set `Octopus.Aws.Account`, that account is also saved on each target discovery creates, and is the account Octopus uses to deploy to that target and to run its health checks. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
 
 From **Octopus 2022.3**, AWS steps that support target discovery will allow you to configure the variables above from within the step configuration if they have not been configured within your project yet:
 
@@ -107,6 +115,10 @@ To switch off cloud target discovery for AWS:
 
 Once the variables are removed, cloud target discovery will be switched off for AWS resources in this project. The **Amazon Web Services** tile in the **Cloud Connections** section of your AWS deployment steps will show **Configure** again, indicating that cloud target discovery is no longer active.
 
+:::div{.warning}
+Switching off discovery does not change the targets it has already discovered. Each one keeps the account it was discovered with. See [changing or removing the discovery account](#changing-or-removing-the-discovery-account).
+:::
+
 ## Tag cloud resources
 
 Octopus looks for tags applied to cloud resources to discover and create deployment targets for you.
@@ -114,7 +126,7 @@ Octopus looks for tags applied to cloud resources to discover and create deploym
 Tags in cloud resource templates are in the format `octopus-{scope}` and support the following for discovery. Note that only a single value is supported in tags at the moment.
 
 | Tag                              | Required | Description                                                                                                                                                                                        | Example                                     |
-|----------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+| -------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `octopus-environment`            | Yes      | The name of the [environment](/docs/infrastructure/environments) the target can be used in during deployments. Only deployments matching the environment will discover the target.                 | `octopus-environment = Development`         |
 | `octopus-role`                   | Yes      | The [target tag](/docs/infrastructure/deployment-targets/target-tags) that should be applied to the target. Only deployments with a step that matches the target tag will discover the target.     | `octopus-role = PetShotFrontEnd`            |
 | `octopus-space`                  | No       | The name of the [space](/docs/administration/spaces) the target can be used in. If present only deployments within the matching space can discover the target.                                     | `octopus-space = PetShopTeam`               |
@@ -169,7 +181,7 @@ Cloud Target Discovery will often discover resources which already have targets 
 
 ### Previously discovered targets
 
-If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. Existing targets are matched by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
+If a target has been created via Cloud Target Discovery, the next time the same cloud resource is discovered, the target will simply be updated. The update replaces the target's connection details, including its account, with the values from the new discovery run. Existing targets are matched by target name, which is formatted depending on the discovered resource. The names are chosen to be unique but as readable as possible.
 
 - Azure Web App: `azure-web-app/{resource-group}/{web-app-name}`
 - ECS Cluster: `{ecs-cluster-arn}`
@@ -177,10 +189,22 @@ If a target has been created via Cloud Target Discovery, the next time the same 
 - EKS Cluster: `{eks-cluster-arn}`
 
 :::div{.warning}
-Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets]) but in some cases the old target may still be healthy. In these cases, it must be removed manually.
+Renaming or moving cloud resources can cause target discovery to create duplicate targets. In most cases the old target will become unhealthy and be removed automatically by Octopus (see [Cleaning up unhealthy targets](#cleaning-up-unhealthy-targets)) but in some cases the old target may still be healthy. In these cases, it must be removed manually. Automatic removal only happens when a target fails its health checks; it is not triggered by a discovery run that no longer reports the resource.
 
 **Example:** If you move an AKS Cluster to a different subscription and then update your Account in Octopus to use the new subscription ID, the old target will still pass its health-check. When discovery occurs a new target will be created (with the new Subscription ID in the target name) and the old target will need to be removed manually.
 :::
+
+### Changing or removing the discovery account
+
+The account used for discovery is saved on every target it discovers. That account is what Octopus uses to deploy to the target and to run its health checks, so it stays on the target until another discovery run replaces it.
+
+This has a few consequences:
+
+- Changing the discovery account and deploying again will update the targets that discovery finds on that run, because the account is not part of the target name.
+- Removing the discovery account switches discovery off, so nothing updates the existing targets. They keep the old account until you change them yourself.
+- A target that references an account appears on that account's **Usage** tab, and will prevent that account from being deleted.
+
+To move a target off an account, go to **Infrastructure ➜ Deployment Targets**, edit the target and select a different account. You can also delete the target, which is safe if discovery will run again and recreate it.
 
 ### Overwriting manually added targets
 
@@ -202,7 +226,7 @@ Octopus will not remove unhealthy targets immediately. Once a target is found to
 
 ### Azure Web App
 
-Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Azure Web App in a _Development_ environment using the target tag _PetShopFrontEnd_ and this web app is dynamically created as part of the deployment using an ARM template.
+Let's say you have a project in Octopus called *Pet Shop* that deploys an application to an Azure Web App in a *Development* environment using the target tag *PetShopFrontEnd* and this web app is dynamically created as part of the deployment using an ARM template.
 
 To use this web app previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/azure-web-app-target/) with custom code to try and find and create the web app target. In addition, previously when this web app was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget) or manually remove the target in Octopus.
 
@@ -227,7 +251,7 @@ Octopus will now discover the web app as a target before deploying to it, matchi
 
 ### Amazon ECS
 
-Let's say you have a project in Octopus called _Pet Shop_ that deploys an application to an Amazon ECS Cluster in a _Development_ environment using a target tag of _PetShopFrontEnd_ and the cluster is dynamically created as part of the deployment using a CloudFormation template.
+Let's say you have a project in Octopus called *Pet Shop* that deploys an application to an Amazon ECS Cluster in a *Development* environment using a target tag of *PetShopFrontEnd* and the cluster is dynamically created as part of the deployment using a CloudFormation template.
 
 To use this cluster previously in Octopus you might have either registered the target manually, or used a [script step](/docs/infrastructure/deployment-targets/dynamic-infrastructure/new-octopustarget/) with custom code to try and find and create the cluster target. In addition, previously when this cluster was no longer needed you might have needed to either [run a script](/docs/infrastructure/deployment-targets/dynamic-infrastructure/remove-octopustarget) or manually remove the target in Octopus.
 

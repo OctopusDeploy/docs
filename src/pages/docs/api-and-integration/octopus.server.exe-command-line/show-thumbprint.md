@@ -1,7 +1,7 @@
 ﻿---
 layout: src/layouts/Redirect.astro
 title: Redirect
-redirect: https://octopus.com/docs/octopus-rest-api/octopus.server.exe-command-line/show-thumbprint
+redirect: https://octopus.com/docs/administration/octopus.server.exe-command-line/show-thumbprint
 pubDate:  2023-01-01
 navSearch: false
 navSitemap: false

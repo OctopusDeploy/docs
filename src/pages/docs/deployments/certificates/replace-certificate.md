@@ -17,5 +17,5 @@ The previous certificate will be [archived](/docs/deployments/certificates/archi
 To replace a certificate, navigate to the certificate details page and click 'Replace':
 
 :::figure
-![](/docs/img/deployments/certificates/images/replace-certificate-btn.png)
+![The Replace button on the certificate details page](/docs/img/deployments/certificates/images/replace-certificate-btn.png)
 :::

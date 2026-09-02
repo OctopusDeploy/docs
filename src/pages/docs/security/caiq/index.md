@@ -261,7 +261,6 @@ CAIQ ID: **HRS-02.1**
 
 Yes.
 
-
 ### Employment Agreements
 
 CAIQ ID: **HRS-03.1**
@@ -269,7 +268,6 @@ CAIQ ID: **HRS-03.1**
 > Do your employment agreements incorporate provisions and/or terms in adherence to established information governance and security policies?
 
 Yes
-
 
 ### Employment Termination
 

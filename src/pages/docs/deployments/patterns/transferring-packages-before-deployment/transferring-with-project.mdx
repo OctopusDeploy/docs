@@ -16,7 +16,7 @@ In this example, I've configured a separate project named `OctoFX Package Transf
 It follows the same lifecycle as the project that configures the app, but you could also limit it to just the environments that need the packages beforehand.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/project-group.png)
+![A project group containing the package transfer project](/docs/img/deployments/patterns/transferring-packages-before-deployment/project-group.png)
 :::
 
 ## Package transfer process
@@ -26,7 +26,7 @@ The deployment process for the package transfer project contains the steps to [t
 You can add in any other checks or steps that you would also like to perform (compliance, verification, notifications, etc).
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/transfer-project-process.png)
+![The deployment process for the package transfer project](/docs/img/deployments/patterns/transferring-packages-before-deployment/transfer-project-process.png)
 :::
 
 ## Acquisition logs from transfer project
@@ -34,7 +34,7 @@ You can add in any other checks or steps that you would also like to perform (co
 We can see that the packages were uploaded to the targets when deploying the release in the transfer project.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-project.png)
+![Acquisition logs showing packages uploaded by the transfer project](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-transfer-project.png)
 :::
 
 ## Acquisition logs from main project
@@ -42,7 +42,7 @@ We can see that the packages were uploaded to the targets when deploying the rel
 We can see that the packages were found in the cache and not uploaded when deploying the release in the main project.
 
 :::figure
-![](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-main-project.png)
+![Acquisition logs showing packages found in the cache in the main project](/docs/img/deployments/patterns/transferring-packages-before-deployment/acquisition-logs-from-main-project.png)
 :::
 
 ## Benefits of this approach

@@ -26,15 +26,17 @@ When defining a prompted variable, you can provide a friendly name and descripti
 You can identify prompted variables by looking for the icon next to the value:
 
 :::figure
-![](/docs/img/projects/variables/images/prompted-variable-icon.png)
+![The icon shown next to a prompted variable's value](/docs/img/projects/variables/images/prompted-variable-icon.png)
 :::
 
 :::div{.hint}
 You can select one of several different data types. This controls the user interface provided to collect the variable value, and determines how the variable value is interpreted. Note the variable values will be stored and interpreted as text. Control type options are:
+
 - Single-line text box
 - Multi-line text box
 - Drop-down
 - Checkbox
+
 :::
 
 ## Providing a value for the variable {#providing-value-for-variable}
@@ -47,9 +49,9 @@ When deploying (not creating a release), you'll be prompted to provide a value f
 
 These variables will be ordered alphabetically by label (or name, if the variable label is not provided).
 
-A value can also be passed to a prompted variable when using the Octopus CLI through the `--variable` parameter of the [octopus release deploy](/docs/octopus-rest-api/cli/octopus-release-deploy) command.
+A value can also be passed to a prompted variable when using the Octopus CLI through the `--variable` parameter of the [octopus release deploy](/docs/cli/octopus-release-deploy) command.
 
-```bash;
+```bash
 octopus release deploy ... --variable "Missile launch code:LAUNCH123" --variable "Variable 2:Some value"
 ```
 
@@ -68,7 +70,7 @@ Prompted variables can be [scoped to specific processes](/docs/runbooks/runbook-
 When Octopus renders prompted variables for a deployment or runbook, they are sorted alphabetically by the prompted variable label. If you want to customize the order in which the variables appear, one option is to include a numerical prefix in the label:
 
 :::figure
-![](/docs/img/projects/variables/images/prompted-variable-custom-sort.png)
+![Prompted variables ordered using a numeric prefix in the label](/docs/img/projects/variables/images/prompted-variable-custom-sort.png)
 :::
 
 ## Learn more

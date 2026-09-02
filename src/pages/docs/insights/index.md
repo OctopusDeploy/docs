@@ -28,17 +28,17 @@ Two levels are available for DevOps Insights:
 
 DORA recommends an approach to measuring software delivery that relies on five metrics:
 
-_Throughput_
+*Throughput*
 
 - Lead time for changes (LT)
 - Deployment frequency (DF)
 
-_Stability_
+*Stability*
 
 - Change failure rate (CFR)
 - Mean time to recovery (MTTR)
 
-_Operations_
+*Operations*
 
 - Reliability
 
@@ -107,4 +107,5 @@ Users who have view permissions to Space-level Insights reports will see sanitiz
 Space level DevOps insights are available to customers with an [enterprise subscription](https://octopus.com/pricing).
 
 ## Older versions
+
 Project and space level insights are available from Octopus **2022.3** onwards.

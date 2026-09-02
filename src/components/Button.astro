@@ -1,48 +1,86 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-// Extend the native button attributes
-type Props = HTMLAttributes<'button'> & {
+type SharedProps = {
   label?: string;
-  icon?: string; // URL to an SVG or a FontAwesome class
-  iconEnd?: string; // URL to an SVG or a FontAwesome class
+  icon?: string; // URL to an SVG, or a class name e.g. a FontAwesome icon class name
+  iconEnd?: string; // URL to an SVG, or a class name
   size?: 'xSmall' | 'small' | 'medium';
+  importance?: 'default' | 'loud';
+  disabled?: boolean;
 };
+
+// Extend the native button attributes, the anchor ones when an href is given,
+// or the summary ones when the button is a `<details>` disclosure trigger
+type Props =
+  | (HTMLAttributes<'button'> & SharedProps & { href?: never; as?: 'button' })
+  | (HTMLAttributes<'a'> & SharedProps & { href: string | URL; as?: never })
+  | (HTMLAttributes<'summary'> & SharedProps & { href?: never; as: 'summary' });
 
 const {
   label,
   icon,
   iconEnd,
   size = 'medium',
+  importance = 'default',
   disabled = false,
+  href,
+  as = 'button',
   type = 'button',
   class: className,
   ...rest
 } = Astro.props satisfies Props;
 
-if (!label && !rest['aria-label'] && !rest['aria-labelledby']) {
+// A slotted label counts: a button whose label changes as you use it supplies
+// its own markup rather than a single `label` string.
+if (
+  !label &&
+  !Astro.slots.has('default') &&
+  !rest['aria-label'] &&
+  !rest['aria-labelledby']
+) {
   throw new Error('An icon-only button needs an aria-label for screen readers');
 }
 
-const classes = `btn btn--${size.toLowerCase()}${className ? ` ${className}` : ''}`;
+const classes = `btn btn--${size.toLowerCase()}${importance === 'loud' ? ' btn--loud' : ''}${className ? ` ${className}` : ''}`;
+
+const tagSpecificProps = href
+  ? {
+      href: disabled ? undefined : href,
+      role: disabled ? 'link' : undefined,
+      'aria-disabled': disabled ? 'true' : undefined,
+      tabindex: disabled ? -1 : undefined,
+    }
+  : as === 'summary'
+    ? { 'aria-disabled': disabled ? 'true' : undefined }
+    : { type, disabled };
+
+// An asset import carries a query in dev (`...svg?origWidth=16`) and none in a
+// build, so the extension is matched where it sits rather than at the end.
+const isSvgUrl = (name: string) => /\.svg(\?|#|$)/.test(name);
+
+const iconDetails = (name: string | undefined) => {
+  if (!name) return null;
+  return isSvgUrl(name)
+    ? { tag: 'img' as const, props: { src: name, alt: '', class: 'btn__icon' } }
+    : { tag: 'span' as const, props: { class: `${name} btn__icon` } };
+};
+
+const startIcon = iconDetails(icon);
+const endIcon = iconDetails(iconEnd);
+const StartIconTag = startIcon?.tag;
+const EndIconTag = endIcon?.tag;
+
+const Tag = href ? 'a' : as;
 ---
 
-<button class={classes} type={type} disabled={disabled} {...rest}>
-  {
-    icon &&
-      (icon.startsWith('fa-') ? (
-        <i class={`${icon} btn__icon`} aria-hidden="true" />
-      ) : (
-        <img src={icon} alt="" class="btn__icon" aria-hidden="true" />
-      ))
-  }
+<Tag class={classes} {...tagSpecificProps} {...rest}>
+  {StartIconTag && <StartIconTag {...startIcon!.props} aria-hidden="true" />}
   {label && <span class="btn__label">{label}</span>}
-  {
-    iconEnd &&
-      (iconEnd.startsWith('fa-') ? (
-        <i class={`${iconEnd} btn__icon`} aria-hidden="true" />
-      ) : (
-        <img src={iconEnd} alt="" class="btn__icon" aria-hidden="true" />
-      ))
-  }
-</button>
+  <slot />
+  {EndIconTag && <EndIconTag {...endIcon!.props} aria-hidden="true" />}
+</Tag>
+
+<style>
+  @import '../styles/button.css';
+</style>

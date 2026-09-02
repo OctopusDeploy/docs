@@ -10,14 +10,14 @@ navOrder: 50
 Cloud providers, such as AWS and Azure, provide the ability to scale out and scale in virtual machines automatically.  It's possible to leverage that technology to automatically add and remove nodes from your Octopus High Availability cluster, but there are a few pitfalls to note.
 
 :::div{.warning}
-At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll _all_ the nodes of your High Availability cluster.  That requires [additional configuration](/docs/administration/high-availability/polling-tentacles-with-ha).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
+At this time, we don't recommend auto-scaling if you are using polling tentacles.  Polling tentacles must poll *all* the nodes of your High Availability cluster.  That requires [additional configuration](/docs/administration/high-availability/polling-tentacles-with-ha).  Attempting to perform that additional configuration using auto-scaling can result in frustration and errors.
 :::
 
 ## Adding new nodes with Scale-out events
 
 A scale-out event is when auto-scaling technology decides it is time to create a new virtual machine via a schedule or a metric-based trigger.  Octopus High Availability is designed for new nodes to come online at random intervals.  When you create a new node, an entry is added to the `OctopusServerNodes` table with a default task cap of `5`.  That node will start picking up tasks to process within 60 seconds.  A scale-out event is treated no differently than a person manually creating a VM and configuring as a new node via the UI.
 
-The sections below will walk you through _how_ to automate adding new nodes via a script.
+The sections below will walk you through *how* to automate adding new nodes via a script.
 
 ### Downloading Octopus Deploy
 
@@ -214,7 +214,7 @@ A task node is a node where the task cap is greater than 0.  By default, all nod
 
 While High Availability was designed to add nodes quickly, it was not designed to delete nodes quickly.  The assumption was made when a node went offline; it was for a server restart.  It was not designed to handle scale-in events from an auto-scaling technology automatically.
 
-Auto-scaling technologies don't let you run scripts directly on virtual machines as they are being deleted.  They will typically publish a message you can process.  Because of that, you'll need to leverage the [Octopus Deploy REST API](/docs/octopus-rest-api) to do the following:
+Auto-scaling technologies don't let you run scripts directly on virtual machines as they are being deleted.  They will typically publish a message you can process.  Because of that, you'll need to leverage the [Octopus Deploy REST API](/docs/api) to do the following:
 
 - Enable drain mode on the node.  While that is enabled, it will prevent the node from picking up new tasks and will attempt to finish in-process tasks.
 - Wait until either the node is marked offline or all tasks have finished processing.

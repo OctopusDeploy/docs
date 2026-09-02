@@ -112,11 +112,11 @@ If your projects use the [default lifecycle](/docs/releases/lifecycles/#default-
 **Listening Tentacles** must be configured to trust the certificate of the Octopus Server. If you are importing your project into a different Octopus instance, for the new instance to be able to communicate with existing listening Tentacles, the following must be true:
 
 - The Tentacles are accessible by the new Octopus instance (i.e. networking and firewalls must be correctly configured)
-- The Tentacles are configured to trust the certificate of the new instance. This can be done using the Tentacle [configure](/docs/octopus-rest-api/tentacle.exe-command-line/configure) command.  
+- The Tentacles are configured to trust the certificate of the new instance. This can be done using the Tentacle [configure](/docs/administration/tentacle.exe-command-line/configure) command.  
 
 An alternative is to create a new Tentacle on the same machine.  This gives the option to switch to a polling Tentacle (which may be preferable when migrating a project to Octopus Cloud), and allows having both the original and cloned project deployable for a period of time.
 
-**Polling Tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/octopus-rest-api/tentacle.exe-command-line/register-with) command.  
+**Polling Tentacles** can be configured to poll multiple Octopus servers using the [register-with](/docs/administration/tentacle.exe-command-line/register-with) command.  
 
 ### Packages \{#packages}
 
@@ -249,8 +249,8 @@ You can use the [Octopus REST API](/docs/octopus-rest-api) to export or import O
 
 To find out more take a look at our examples:
 
-- [Export projects](/docs/octopus-rest-api/examples/projects/export-projects)
-- [Import projects](/docs/octopus-rest-api/examples/projects/import-projects)
+- [Export projects](/docs/api/examples/projects/export-projects)
+- [Import projects](/docs/api/examples/projects/import-projects)
 
 ## Older versions
 

@@ -48,26 +48,26 @@ Once you have an App Service configured within your Azure subscription, you are 
 To create an Azure Web App target within Octopus:
 
 - Navigate to **Deploy ➜ Infrastructure ➜ Deployment Targets ➜ Add Deployment Target**.
-- Select **Azure tab** and then select **Azure Web App** from the list of available targets and click _Next_.
+- Select **Azure tab** and then select **Azure Web App** from the list of available targets and click *Next*.
 - Fill out the necessary fields, being sure to provide a unique target tag (formerly target role) that clearly identifies your Azure Web App target.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png)
+![Creating an Azure Web App target](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/create-azure-web-app-target.png)
 :::
 
 :::div{.info}
 
 If you are using a **Standard** or **Premium** Azure Service Plan, you can also select a specific slot as your target.
-The _Azure Web App Slot_ field will allow you to select one of the slots available on the Web App. If there are no slots, this will be empty.
+The *Azure Web App Slot* field will allow you to select one of the slots available on the Web App. If there are no slots, this will be empty.
 
 You can also leave the slot selection blank and specify the slot, by name, on the step too. The slot selected on the step will take precedence over a slot defined on the deployment target.
 :::
 
-- After clicking _Save_, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
-- If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of _Healthy_.
+- After clicking *Save*, your deployment target will be added and go through a health check to ensure Octopus can connect to it.
+- If all goes well, you should see your newly created target in your **Deployment Targets** list, with a status of *Healthy*.
 
 :::figure
-![](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/deployment-targets-web-app-healthy.png)
+![A healthy Azure Web App target in the Deployment Targets list](/docs/img/infrastructure/deployment-targets/azure/web-app-targets/deployment-targets-web-app-healthy.png)
 :::
 
 ### Creating Web App targets by scripts
@@ -78,7 +78,7 @@ See [Managing Resources by script](/docs/infrastructure/deployment-targets/dynam
 
 ## Troubleshooting
 
-If your Azure Web App target does not successfully complete a health check, you may need to check that your Octopus Server can communicate with Azure. It may be worth checking that your Azure Account is able to complete a _Save and Test_ to ensure Octopus can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it can communicate with Azure.
+If your Azure Web App target does not successfully complete a health check, you may need to check that your Octopus Server can communicate with Azure. It may be worth checking that your Azure Account is able to complete a *Save and Test* to ensure Octopus can communicate with Azure. If your Octopus Server is behind a proxy or firewall, you will need to consult with your Systems Administrator to ensure it can communicate with Azure.
 
 ## Deploying to Web App targets
 

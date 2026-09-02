@@ -52,13 +52,13 @@ Run condition lets you specify that a step should run:
 
 You can use the following expression to run a step only when the deployment is successful and when a variable evaluates to true:
 
-```
+```text
 #{unless Octopus.Deployment.Error}#{Variable}#{/unless}
 ```
 
 You can achieve the opposite effect by swapping `unless` with `if`:
 
-```
+```text
 #{if Octopus.Deployment.Error}#{Variable}#{/if}
 ```
 
@@ -70,7 +70,7 @@ You can use a step's machine-level output variables to achieve machine-level var
 
 For example, assuming you're setting an output variable in a script step (Step01) that runs on several machines (Web01 and Web02) as follows:
 
-```
+```powershell
 # Step01
 $machineToSucceed = "Web01"
 $shouldCurrentMachineSucceed = $OctopusParameters["Octopus.Machine.Name"] -eq $machineToSucceed
@@ -79,13 +79,13 @@ Set-OctopusVariable -name "ShouldRun" -value "$shouldCurrentMachineSucceed"
 
 That can be used in a variable expression on a subsequent step:
 
-```
+```text
 #{if Octopus.Action[Step01].Output[Web01].ShouldRun == "True"}True#{/if}
 ```
 
 The currently-running machine could be substituted in this expression:
 
-```
+```text
 #{if Octopus.Action[Step01].Output[#{Octopus.Machine.Name}].ShouldRun == "True"}True#{/if}
 ```
 
@@ -108,10 +108,9 @@ When you review a process with two steps that run in parallel, you'll notice two
 
 ### Maximum parallelism
 
-There is no limitation on the number of steps that can run in parallel. 
+There is no limitation on the number of steps that can run in parallel.
 
 The `Octopus.Action.MaxParallelism` variable allows for specifying the number of machines on which the action will concurrently execute which is the same variable used for [Rolling Deployments](https://octopus.com/docs/deployments/patterns/rolling-deployments-with-octopus).
-
 
 ### Steps in parallel on the same deployment target
 
@@ -159,6 +158,7 @@ This functionality is available on all other steps.
 :::
 
 ### Retries
+
 Enabling Retries gives you the ability to automatically retry a step if it fails, with up to three attempts. This feature is particularly useful when dealing with steps that commonly fail due to temporary or transient errors during deployment.
 
 When a step fails the server will wait for a "backoff interval" to pass before trying again. By default, the backoff interval is 15 seconds, however this value can be adjusted by updating the value in the Backoff Interval field. This field accepts a wait time in seconds.
@@ -166,7 +166,8 @@ When a step fails the server will wait for a "backoff interval" to pass before t
  You can also [recover from communication errors with a tentacle](/docs/infrastructure/deployment-targets/machine-policies/#recover-from-communication-errors) to reduce deployment failures that occur when Tentacle is on an unstable network connection.
 
 ### Timeouts
-When the configured Execution Timeout period has lapsed, the action will be cancelled.    
+
+When the configured Execution Timeout period has lapsed, the action will be cancelled.  
 It’s important to note that Execution Timeouts encompass all processes involved in step execution. This includes connecting to a target, bootstrapper scripts, execution container start-up, and package cache clean-ups. We recommend setting a slightly longer timeout than expected, in most cases, an additional minute should account for this.
 
 We recommend using both features on steps that are likely to experience transient errors to increase your chances of a successful deployment.

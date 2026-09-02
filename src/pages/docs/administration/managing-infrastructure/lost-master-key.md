@@ -7,9 +7,9 @@ description: A guide to recovering if the machine hosting Octopus Server dies ir
 navOrder: 40
 ---
 
-Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you've discovered you don't have your Master Key! Whilst you cannot recover the data encrypted with your missing Master Key, this guide will help you get back up and running again.
+Sometimes the worst possible thing happens. The machine hosting Octopus Server dies irrecoverably, and you've discovered you don't have your Master Key! While you cannot recover the data encrypted with your missing Master Key, this guide will help you get back up and running again.
 
-If you are reading this page: [**please back up your Master Key**](/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key)
+If you are reading this page: [**please back up your Master Key**](/docs/administration/octopus.server.exe-command-line/show-master-key)
 
 ## Recover the Master Key
 
@@ -52,7 +52,7 @@ You will need to sign in to all the machines running Tentacle and run a command 
 
 Run this script on each machine running Tentacle:
 
-```
+```text
 Tentacle.exe service --stop
 Tentacle.exe configure --reset-trust --trust="YOUR-NEW-OCTOPUS-SERVER-THUMBPRINT"
 Tentacle.exe service --start

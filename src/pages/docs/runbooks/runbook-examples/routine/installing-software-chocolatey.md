@@ -120,14 +120,15 @@ Chocolatey can also be used to install Windows features by leveraging [DISM, or 
 :::div{.hint}
 To find out what features are available to install on the machine, you can run the command:
 
-```
+```powershell
 Dism /online /Get-Features
 ```
+
 :::
 
 The command to install DISM features through Chocolatey is:
 
-```
+```powershell
 choco install [Feature Name] /y /source windowsfeatures
 ```
 

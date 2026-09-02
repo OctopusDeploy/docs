@@ -19,7 +19,7 @@ The Car Rental company uses Azure to host the application for its stores. To min
 
 The following resources have been pre-configured in Octopus:
 
-* Four environments: Development, Test, Staging and Production.
+- Four environments: Development, Test, Staging and Production.
 
 ## Creating tenant tags
 
@@ -62,12 +62,12 @@ The Car Rental applications consist of a PHP web UI and a MySQL database backend
 After you've added each deployment target, ensure the target is associated with its respective tenant and tags by updating the **Tenanted Deployments** and **Associated Tenants** sections. For example, to configure the target which will deploy the Alpha version of the application to Des Moines, use the following associations:
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
+![A deployment target configured with the Des Moines tenant and its region tag](/docs/img/tenants/guides/multi-tenant-region/images/tenant-demoines-tenanted-alpha-tag.png)
 :::
 
 ### Example automation script
 
-Car Rental has plans on expanding in the future. Rather than having to run through the above steps to configure a tenanted target, they've automated the creation of region infrastructure using the [Octopus REST API](/docs/octopus-rest-api). This script automates the above procedure of configuring the target as tenanted and assigning it to the appropriate tenant. 
+Car Rental has plans on expanding in the future. Rather than having to run through the above steps to configure a tenanted target, they've automated the creation of region infrastructure using the [Octopus REST API](/docs/octopus-rest-api). This script automates the above procedure of configuring the target as tenanted and assigning it to the appropriate tenant.
 
 :::div{.success}
 The entire runbook process can be found on our [Octopus samples instance](https://samples.octopus.app/app#/Spaces-682/projects/car-rental/operations/runbooks/Runbooks-1361/overview)
@@ -90,7 +90,7 @@ $machinePolicy = (Invoke-RestMethod -Method Get -Uri "$baseUrl/api/$spaceId/mach
 
 # Build JSON payload
 $jsonPayload = @{
-	Id = $null
+ Id = $null
     MachinePolicyId = $machinePolicy.Id
     Name = $name
     IsDisabled = $false
@@ -99,7 +99,7 @@ $jsonPayload = @{
     StatusSummary = $null
     IsInProcess = $true
     EndPoint = @{
-    	Id = $null
+     Id = $null
         CommunicationStyle = "AzureWebApp"
         Links = $null
         AccountId = $azureAccount
@@ -109,10 +109,10 @@ $jsonPayload = @{
     Links = $null
     TenantedDeploymentParticipation = "Tenanted"
     Roles = @(
-    	"CarRental-Web"
+     "CarRental-Web"
     )
     EnvironmentIds = @(
-    	$environmentId
+     $environmentId
     )
     TenantIds = @("$($OctopusParameters['Octopus.Deployment.Tenant.Id'])")
     TenantTags = @()
@@ -149,7 +149,7 @@ Region-specific worker pools are only half of the equation; the deployment still
 The *MySQL - Create Database If Not Exists* step of the Car Rental deployment process is configured to run on a worker and use the `Project.Worker.Pool` variable
 
 :::figure
-![](/docs/img/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
+![The MySQL - Create Database If Not Exists step configured to run on a worker using the Project.Worker.Pool variable](/docs/img/tenants/guides/multi-tenant-region/images/car-rental-mysql-step.png)
 :::
 
 Because the tenants for the Car Rental application have been assigned their appropriate Azure Region tag, Octopus Deploy will automatically select the correct worker when performing a deployment to the tenant.

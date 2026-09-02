@@ -1,5 +1,6 @@
 import { Accelerator } from 'astro-accelerator-utils';
 import { SITE } from '@config';
+import { flattenGeneratedPath, isGeneratedPath } from '@lib/generatedPaths';
 
 // Shared, memoized Accelerator for the whole build process.
 //
@@ -32,13 +33,58 @@ const posts = accelerator.posts;
 // 1.1 MB of JSON is ~18 ms.
 // Builds only. In dev the page set changes under you, so keep reading through.
 const readAll = posts.all.bind(posts);
+
+// Posts.all() globs every markdown file under src/pages, including the ones
+// Astro does not route: anything with an underscore-prefixed path segment. Those
+// are not pages, so they have no business in the nav, the breadcrumb trail, the
+// taxonomy, or the /report pages - each of which would link to a URL that 404s.
+// Astro's own routing rule is the filter, with one exception: the _generated
+// folders under /docs/api and /docs/cli hold the generated API and CLI docs, each
+// published from the folder above it by [...generatedFileName].astro.
+const PAGES_ROOT = '/src/pages/';
+
+// `file` is an absolute path. We only care about the part below `src/pages`.
+const routePathOf = (post: { file?: string }) => {
+  const file = post.file ?? '';
+  const index = file.lastIndexOf(PAGES_ROOT);
+  return index === -1
+    ? file.slice(file.lastIndexOf('/') + 1)
+    : file.slice(index + PAGES_ROOT.length);
+};
+
+const isRouted = (post: { file?: string }) =>
+  !routePathOf(post)
+    .split('/')
+    .some((part) => part.startsWith('_'));
+
+// The API reference is .md and the CLI reference is .mdx, so both extensions
+// come off: a url ending in .mdx would 404 against the route serving the page.
+const withGeneratedUrl = <T extends { file?: string; url?: string }>(
+  post: T
+): T => {
+  const routePath = routePathOf(post);
+  if (!isGeneratedPath(routePath)) return post;
+
+  return {
+    ...post,
+    url: '/' + flattenGeneratedPath(routePath).replace(/\.mdx?$/, ''),
+  };
+};
+
+const readRouted = () =>
+  readAll()
+    .map(withGeneratedUrl)
+    .filter((post) => isRouted(post) || isGeneratedPath(routePathOf(post)));
+
 let allPosts: ReturnType<typeof readAll> | null = null;
 
 if (import.meta.env.PROD) {
   posts.all = () => {
-    if (allPosts === null) allPosts = readAll();
+    if (allPosts === null) allPosts = readRouted();
     return allPosts.slice();
   };
+} else {
+  posts.all = readRouted;
 }
 
 const shadow = (key: string, value: unknown) =>

@@ -16,7 +16,7 @@ Pinpoint variable resolution issues that often cause failed steps or missing val
 
 ## 📝 Prompt
 
-```
+```text
 Identify and correct variable binding errors in the last deployment log
 ```
 

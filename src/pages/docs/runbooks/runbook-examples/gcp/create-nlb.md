@@ -33,7 +33,7 @@ This example assumes you have either the gcloud CLI installed on the machine whe
 
 The gcloud CLI needs to be authorized to access and manage resources in Google Cloud.
 
-This example assumes that you already have a Google Cloud [service account](https://cloud.google.com/docs/authentication#service_accounts) that can be used, as the commands used here make use of the gcloud CLI, which must be authorized before it can be used. 
+This example assumes that you already have a Google Cloud [service account](https://cloud.google.com/docs/authentication#service_accounts) that can be used, as the commands used here make use of the gcloud CLI, which must be authorized before it can be used.
 
 For further information on gcloud authorization, please refer to the [gcloud documentation](https://cloud.google.com/sdk/docs/authorizing).
 
@@ -125,10 +125,10 @@ Test-LastExit "gcloud compute addresses list"
 
 if( -not ([string]::IsNullOrEmpty($ipAddress))) 
 {
-	Write-Highlight "Found $loadBalancerIPName of: $ipAddress"
+ Write-Highlight "Found $loadBalancerIPName of: $ipAddress"
 }
 else {
-	Write-Highlight "Found no compute addresses matching: $loadBalancerIPName"
+ Write-Highlight "Found no compute addresses matching: $loadBalancerIPName"
     $ipAddress=(& gcloud compute addresses create $loadBalancerIPName --project=$projectName --network-tier=$networkTier --region=$region --format="get(address)" --quiet)
     Test-LastExit "gcloud compute addresses create"
     
@@ -137,16 +137,17 @@ else {
         Write-Highlight "Created new ip address of: $ipAddress for $loadBalancerIPName"
     }
     else {
-    	Write-Error "IP address could not be determined from attempted create!"
+     Write-Error "IP address could not be determined from attempted create!"
     }
 }
 ```
+
 This script will check to see if an IP address matching the name specified in the variable `Project.GCP.LoadBalancer.ExternalIP.Name` already exists. If it does, it will complete as an IP address is present. If it doesn't exist, it will create a static IP address using the `compute addresses create` command.
 
 There are a number of variables used in the script:
 
-| Variable name  | Description | Example |
-| -------------  | ------------- | ------------- |
+| Variable name | Description | Example |
+| ------------- | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Region | The region to create the IP address in. | europe-west1 |
 | Project.GCP.LoadBalancer.ExternalIP.Name | The name of the IP address. | my-project-nlb-ip |
@@ -174,20 +175,20 @@ $testHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Test.HealthC
 $productionHealthCheckName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.HealthCheckName"]
 
 function CreateHealthCheckIfNotExists([string]$healthCheckName, [string] $healthCheckPort) {
-	Write-Host "Getting compute http-health check matching name: $healthCheckName"
+ Write-Host "Getting compute http-health check matching name: $healthCheckName"
     Write-Host "##octopus[stderr-progress]"
     $listedPort=(& gcloud compute http-health-checks list --project=$projectName --filter="name=($healthCheckName)" --format="get(port)" --quiet)
-	Test-LastExit "gcloud compute http-health-checks list"
+ Test-LastExit "gcloud compute http-health-checks list"
     
     if( -not ([string]::IsNullOrEmpty($listedPort))) 
     {
         Write-Highlight "Found existing http-health check named: $healthCheckName probing port: $listedPort"
         if($listedPort -ne $healthCheckPort) {
-        	Write-Warning "Existing http-health check port: $listedPort doesn't match expected port: $healthCheckPort"
+         Write-Warning "Existing http-health check port: $listedPort doesn't match expected port: $healthCheckPort"
         }
     }
     else {
-    	Write-Highlight "Found no http-health check named: $healthCheckName"
+     Write-Highlight "Found no http-health check named: $healthCheckName"
         
         $listedPort=(& gcloud compute http-health-checks create $healthCheckName --port=$healthCheckPort --project=$projectName --format="get(port)" --quiet)
         Test-LastExit "gcloud compute http-health-checks create"
@@ -207,8 +208,8 @@ This script will check to see if the health checks exist for both test and produ
 
 There are a number of variables used in the script:
 
-| Variable name  | Description | Example |
-| -------------  | ------------- | ------------- |
+| Variable name | Description | Example |
+| ------------- | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lb-health-http-8080 |
 | Project.GCP.LoadBalancer.Prod.HealthCheckName | The name of the prod environment health check. | my-project-lb-health-http-80 |
@@ -239,17 +240,17 @@ $testTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Test.TargetPo
 $productionTargetPoolName = $OctopusParameters["Project.GCP.LoadBalancer.Prod.TargetPoolName"]
 
 function CreateLoadBalancerTargetPoolIfNotExists([string]$targetPoolName, [string] $healthCheckName) {
-	Write-Host "Getting compute target-pools matching name: $targetPoolName"
+ Write-Host "Getting compute target-pools matching name: $targetPoolName"
     Write-Host "##octopus[stderr-progress]"
     $listedPoolName=(& gcloud compute target-pools list --project=$projectName --filter="region:($region) AND name=($targetPoolName)" --format="get(name)" --quiet)
-	Test-LastExit "gcloud compute target-pools list"
+ Test-LastExit "gcloud compute target-pools list"
     
     if( -not ([string]::IsNullOrEmpty($listedPoolName))) 
     {
         Write-Highlight "Found existing target pool named: $listedPoolName"
     }
     else {
-    	Write-Highlight "Creating new target pool named: $targetPoolName as no existing match."
+     Write-Highlight "Creating new target pool named: $targetPoolName as no existing match."
         
         $listedPoolName=(& gcloud compute target-pools create $targetPoolName --region=$region --http-health-check=$healthCheckName --project=$projectName --format="get(name)" --quiet)
         Test-LastExit "gcloud compute target-pools create"
@@ -269,8 +270,8 @@ This script will check to see if the target pools exist for both Test and Produc
 
 There are a number of variables used in the script:
 
-| Variable name  | Description | Example |
-| -------------  | ------------- | ------------- |
+| Variable name | Description | Example |
+| ------------- | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Region | The region to create the target pools in. | europe-west1 |
 | Project.GCP.LoadBalancer.Test.HealthCheckName | The name of the test environment health check. | my-project-lb-health-http-8080 |
@@ -305,10 +306,10 @@ $productionForwardingRuleName = $OctopusParameters["Project.GCP.LoadBalancer.Pro
 $networkTier = $OctopusParameters["Project.GCP.LoadBalancer.NetworkTier"]
 
 function CreateForwardingRulesForTargetPoolIfNotExists([string] $forwardingRuleName, [string] $targetPoolName, [string] $port) {
-	Write-Host "Getting compute forwarding-rules matching name: $forwardingRuleName"
+ Write-Host "Getting compute forwarding-rules matching name: $forwardingRuleName"
     Write-Host "##octopus[stderr-progress]"
     $listedPortRange=(& gcloud compute forwarding-rules list --project=$projectName --filter="region:($region) AND name=($forwardingRuleName)" --format="get(portRange)" --quiet)
-	Test-LastExit "gcloud compute forwarding-rules list"
+ Test-LastExit "gcloud compute forwarding-rules list"
     
     if( -not ([string]::IsNullOrEmpty($listedPortRange))) 
     {
@@ -316,7 +317,7 @@ function CreateForwardingRulesForTargetPoolIfNotExists([string] $forwardingRuleN
     }
     else {
     
-    	Write-Highlight "Creating new forwarding-rule named: $forwardingRuleName for port: $port as no existing match"
+     Write-Highlight "Creating new forwarding-rule named: $forwardingRuleName for port: $port as no existing match"
         
         $listedPortRange=(& gcloud compute forwarding-rules create $forwardingRuleName --region=$region --ports=$port --address=$loadBalancerIPName --target-pool=$targetPoolName --project=$projectName --network-tier=$networkTier --format="get(portRange)" --quiet)
         Test-LastExit "gcloud compute forwarding-rules create"
@@ -336,8 +337,8 @@ This script will check to see if the forwarding rules exist for both test and pr
 
 There are a number of variables used in the script:
 
-| Variable name  | Description | Example |
-| -------------  | ------------- | ------------- |
+| Variable name | Description | Example |
+| ------------- | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Region | The region to create the rules in. | europe-west1 |
 | Project.GCP.LoadBalancer.ExternalIP.Name | The name of the IP address. | my-project-nlb-ip |
@@ -376,7 +377,7 @@ $instanceNumberRequired = [int]$OctopusParameters["Project.GCP.Targets.NumberReq
 
 $instances=@()
 For($i=1; $i -le $instanceNumberRequired; $i++) {
-	$instances += "$targetMachineName-$i"
+ $instances += "$targetMachineName-$i"
 }
 
 $instanceCount = $instances.Length
@@ -395,20 +396,20 @@ This script will generate a list of machine names, and then add them to a target
 
 There are a number of variables used in the script:
 
-| Variable name  | Description | Example |
-| -------------  | ------------- | ------------- |
+| Variable name | Description | Example |
+| ------------- | ------------- | ------------- |
 | Project.GCP.ProjectName | Project in Google Cloud. | my-project |
 | GCP.Zone | The zone where the machines are located. | europe-west1 |
 | Project.GCP.Targets.LoadBalancer.Pool | The name of the target pool to add machines to. | my-project-test-pool |
-| Project.GCP.Targets.VM.Name | The base name of the machine in GCP. Used with Project.GCP.Targets.NumberRequired to add multiple machines.  | my-project-vm-name |
+| Project.GCP.Targets.VM.Name | The base name of the machine in GCP. Used with Project.GCP.Targets.NumberRequired to add multiple machines. | my-project-vm-name |
 | Project.GCP.Targets.NumberRequired | The number of machines to add to the pool. | my-project-vm-name |
 
 And that's it! In a few steps, you have a network load balancer set up in Google Cloud routing traffic to both test and production machines.
 
 ## Samples
 
-We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus. 
+We have a [Pattern - Rolling](https://oc.to/PatternRollingSamplesSpace) Space on our Samples instance of Octopus.
 You can sign in as `Guest` to take a look at these runbook steps in the `PetClinic Infrastructure` project:
 
-- The runbook named `Configure GCP NLB Target Pools` includes all steps to create the network load balancer. 
+- The runbook named `Configure GCP NLB Target Pools` includes all steps to create the network load balancer.
 - The step to add machines to a target pool is included in the runbook named `Spin up GCP PetClinic Project Infrastructure`.

@@ -90,6 +90,7 @@ robocopy C:\Octopus\EventExports \\your-file-share\OctopusHA\EventExports /mir /
 Octopus Deploy must sit behind a load balancer when configured in HA mode.  We recommend creating a new URL for your Octopus HA cluster.  For example, if the current URL for your Octopus Instance is `octopus.your-domain.local`, the load-balanced URL could be `octopus-ha.your-domain.local`.  
 
 The advantage of a new URL is:
+
 1. You can still access each server directly (if need be).
 1. The process of redirecting users and applications to the new URL should only need to be done once.
 1. You can configure and test it before the outage window, along with working through any connection issues.
@@ -140,6 +141,7 @@ Your version might not have all the above paths.  Remove them from the script if
 - `Imports` was added in 2021.1
 - `Telemetry` was added in 2020.x
 - `ClusterShared` was added in 2020.x
+
 :::
 
 ### After moving database and file storage

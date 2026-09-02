@@ -21,7 +21,7 @@ You can dynamically select a Package Feed and/or the Package ID at deployment ti
 :::
 
 :::figure
-![](/docs/img/deployments/packages/images/deploy-package-step.png)
+![The Deploy a Package step](/docs/img/deployments/packages/images/deploy-package-step.png)
 :::
 
 :::div{.hint}

@@ -96,4 +96,3 @@ To prioritize a lifecycle phase:
 :::figure
 ![Lifecycle configuration page showing the selected 'Prioritize this phase' checkbox.](/docs/img/tasks/images/lifecycle-priority.png)
 :::
-

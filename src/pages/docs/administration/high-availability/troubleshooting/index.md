@@ -24,7 +24,7 @@ This may unintentionally occur if you have copied or moved your Octopus folders 
 If you go to your nodes screen **Configuration ➜ Nodes**, you can delete the node(s) that are no longer applicable using the Delete option in the node's ... overflow menu.
 
 :::figure
-![](/docs/img/administration/high-availability/troubleshooting/images/deleting-nodes.png)
+![The Delete option in a node's overflow menu on the Nodes screen](/docs/img/administration/high-availability/troubleshooting/images/deleting-nodes.png)
 :::
 
 ## Octopus Server starts and stops again
@@ -33,7 +33,7 @@ Something has gone wrong and the Octopus Server has crashed. Look at the Octopus
 
 You may see a message in the Octopus Server logs like this:
 
-```
+```text
 Could not find a part of the path 'Z:\Octopus\TaskLogs'
 ```
 
@@ -41,7 +41,7 @@ This usually means the drive `Z:\` has not been mapped for the user account runn
 
 You may see a message in the Octopus Server logs like this:
 
-```
+```text
 Access to the path 'Z:\Octopus\TaskLogs' is denied
 ```
 
@@ -67,4 +67,3 @@ This has the same root cause as missing task logs - see above.
 ## Packages in the built-in repository are not available for some deployments
 
 This has the same root cause as missing task logs - see above.
-

@@ -17,7 +17,7 @@ TL;DR; For stateful components, we recommend rolling forward and/or making any c
 
 ## Database rollback pitfalls
 
-Your application's users are why rollbacks are high risk. Typically, applications aren't designed with a *read-only* or *maintenance mode* that is turned on during deployments. It is common to have users attempting to use the application during a deployment or verification. *Off-Hours* deployments are done as a way to reduce the chance that will happen. 
+Your application's users are why rollbacks are high risk. Typically, applications aren't designed with a *read-only* or *maintenance mode* that is turned on during deployments. It is common to have users attempting to use the application during a deployment or verification. *Off-Hours* deployments are done as a way to reduce the chance that will happen.
 
 There are major pitfalls with rolling back databases:
 
@@ -29,7 +29,7 @@ There are major pitfalls with rolling back databases:
 A database backup has a very limited useful rollback lifespan.
 :::
 
-Rolling back changed data will require extensive analysis and testing. As such, there cannot be an automated rollback process. There are too many what-if scenarios, and risk exponentially increases as more records are changed. As long as the application continues to run, the data will continue to change. Any rollback scripts to move data around will have to keep hitting a moving target. 
+Rolling back changed data will require extensive analysis and testing. As such, there cannot be an automated rollback process. There are too many what-if scenarios, and risk exponentially increases as more records are changed. As long as the application continues to run, the data will continue to change. Any rollback scripts to move data around will have to keep hitting a moving target.
 
 :::div{.hint}
 Prior to upgrading the Octopus Server we recommend putting your server into [maintenance mode](/docs/administration/managing-infrastructure/maintenance-mode). When in maintenance mode, only Octopus Administrators can kick off deployments. This allows Octopus Administrators to test the upgrade without users changing data. If anything goes wrong, a rollback can happen as the data changed was only test data.
@@ -64,7 +64,7 @@ As you can see, making database changes backward compatible involves a disciplin
 
 ## Database backup use cases
 
-As stated earlier, most, if not all, rollback decisions occur _after_ the database changes have been deployed. Database tooling wraps changes in transactions that are rolled back automatically on failure. This meaning all changes are deployed or none of the changes are deployed.
+As stated earlier, most, if not all, rollback decisions occur *after* the database changes have been deployed. Database tooling wraps changes in transactions that are rolled back automatically on failure. This meaning all changes are deployed or none of the changes are deployed.
 
 Although database backups have a limited lifespan for rollbacks, they can still be useful in other use cases:
 

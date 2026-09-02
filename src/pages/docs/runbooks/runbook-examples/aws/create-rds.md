@@ -32,7 +32,7 @@ $vpcList = $(aws ec2 describe-vpcs --filter Name=tag:Name,Values=#{AWS.CloudForm
 # Check to see if anything was returned
 if (($null -eq $vpcList))
 {
-	Write-Error "Failed retrieving vpc list." 
+ Write-Error "Failed retrieving vpc list." 
 }
 
 # Get VPC Id
@@ -63,23 +63,26 @@ Set-OctopusVariable -name "AWS.Subnet1.Id" -value $subnet1Id
 Set-OctopusVariable -name "AWS.Subnet2.Id" -value $subnet2Id
 Set-OctopusVariable -name "AWS.SecurityGroup.Id" -value $securityGroupId
 ```
+
 6. Add a **Deploy an AWS CloudFormation template** step.
 7. Fill in the parameters for the step:
 
-| Parameter  | Description | Example |
-| ------------- | ------------- | ------------- |
-| AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
-| Region | The region your resources will be located in | us-west-1 |
-| CloudFormation stack name | Name of the stack you're creating | MySuperStack |
-| Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
-| Select IAM Capability | Capability of IAM | Use dropdown to select capability |
-| Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
+    | Parameter | Description | Example |
+    | ------------- | ------------- | ------------- |
+    | AWS Account | The AWS account to use | This will be a variable defined in either Project variables or a Variable Set |
+    | Region | The region your resources will be located in | us-west-1 |
+    | CloudFormation stack name | Name of the stack you're creating | MySuperStack |
+    | Role ARN | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing any operations. This role will be used for any future operations on the stack. | MyARN |
+    | Select IAM Capability | Capability of IAM | Use dropdown to select capability |
+    | Disable rollback | Whether or not you want to automatically rollback if the create failed | Checked |
 
 8. Paste in the following template code:
+
 :::div{.info}
 
 Note the use of Octostache variables, you will need to make sure you create these for this example to work.  You will also see use of the output variables created in the previous step.
 :::
+
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09
 Resources:

@@ -26,7 +26,7 @@ The proceeding instructions can be followed to configure the Delete an AWS Cloud
 
 5. Fill in the parameters for the step:
 
-| Parameter  | Description | Example |
+| Parameter | Description | Example |
 | ------------- | ------------- | ------------- |
 | Region | The region your resources are located | us-west-1 |
 | CloudFormation stack name | Name of existing stack | MySuperStack |

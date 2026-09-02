@@ -20,13 +20,13 @@ Given that you can't access the app, or its management endpoint (Kudu), from the
 1. Octopus Server creates a deployment task.
 2. Task scheduler picks up the task and hands the work over to Calamari.
 3. Calamari picks up all the information about the deployment and connects to Azure.
-4. Calamari locates the resource group that's being deployed to (there's a reason we do it this way, see [below](#resource_groups)).
+4. Calamari locates the resource group that's being deployed to (there's a reason we do it this way, see [below](#resource-groups)).
 5. Calamari locates the web app within the resource group and requests its publish profile from Azure.
 6. Calamari then hands over to the [DeploymentManager](https://msdn.microsoft.com/en-us/library/microsoft.web.deployment.deploymentmanager(v=vs.90).aspx).[SyncTo](https://msdn.microsoft.com/en-us/library/dd543271(v=vs.90).aspx) method to actually do the deployment.
 
 Contained in the publish profile is the URI of the deployment endpoint (Kudu) for the web app. This is the critical piece here.
 
-For an external ASE that URI will be publicly accessible (e.g. https://your-app.scm.aseName.p.azurewebsites.net).
+For an external ASE that URI will be publicly accessible (e.g. <https://your-app.scm.aseName.p.azurewebsites.net>).
 
 For an internal ASE the URI will not be publicly accessible, it will be something like `https://your-app.scm.your-domain`  This is where the deployments will fail, they will be able to see all other Urls required but when they get to step 6 Octopus won't be able to resolve the address for the URI.
 
@@ -47,4 +47,3 @@ This is also why using a [principal of least privilege on a Service Principal](/
 ## Learn more
 
 - Generate an Octopus guide for [Azure and the rest of your CI/CD pipeline](https://octopus.com/docs/guides?destination=Azure%20websites).
-

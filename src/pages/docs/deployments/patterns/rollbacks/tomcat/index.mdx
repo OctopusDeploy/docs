@@ -30,14 +30,14 @@ The rollback strategy described in this guide will not work if the [undeployOldV
 
 For this guide, we'll start with an existing deployment process for deploying the PetClinic application:
 
-1.  Create Database If Not Exists
-1.  Deploy Database Changes
-1.  Deploy PetClinic Web App
-1.  Verify Deployment
-1.  Notify Stakeholders
+1. Create Database If Not Exists
+1. Deploy Database Changes
+1. Deploy PetClinic Web App
+1. Verify Deployment
+1. Notify Stakeholders
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-original-deployment-process.png)
+![The original Tomcat deployment process](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-original-deployment-process.png)
 :::
 
 :::div{.success}
@@ -63,7 +63,7 @@ The updated deployment process for a simple rollback would look like this:
 1. Block Release Progression
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-simple-rollback-process.png)
+![The simple Tomcat rollback process](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-simple-rollback-process.png)
 :::
 
 :::div{.success}
@@ -78,14 +78,14 @@ View the deployment process on our [samples instance](https://samples.octopus.ap
 
 The two database steps, `Create Database If Not Exists` and `Deploy Database Changes` should be skipped for a rollback scenario.  Rolling back database changes could result in data loss or interrupt testing operations.  To skip these steps, we'll use one of the Variable Run Condition output variables from Calculate Deployment Mode step:
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeploy}
 ```
 
 When looking at the deployment process from the Process tab, there isn't a quick way to determine under which conditions a step will be executed.  Using the `Notes` field for a step is an easy way to provide users information at a glance.
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-step-notes.png)
+![Step notes describing the conditions under which each step runs](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-step-notes.png)
 :::
 
 ### Block release progression
@@ -110,7 +110,7 @@ The new deployment process would look like this:
 1. Block Release Progression (only during rollback)
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-complex-rollback-process.png)
+![The complex Tomcat rollback process](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-complex-rollback-process.png)
 :::
 
 :::div{.success}
@@ -127,19 +127,19 @@ The Rollback Reason is a [Manual Intervention](/docs/projects/built-in-step-temp
 
 Before we deploy a new version of our application, we first must stop the existing one.  The Advanced Options section of the `Start/Stop App in Tomcat` step is where we specify which version of the application we're going to stop.  For this guide, the version is identified as the previous release number, which is represented by the following variable.
 
-```
+```text
 #{Octopus.Release.CurrentForEnvironment.Number}
 ```
 
 We also need to choose the option to **Stop the application**.
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-stop-application.png)
+![The Stop the application option on the Tomcat step](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-stop-application.png)
 :::
 
 This step will fail if there isn't a previous release to stop, so we'll need to add a run condition only to run when a previous release exists.  That can be represented by using the following run condition:
 
-```
+```text
 #{if Octopus.Release.CurrentForEnvironment.Number}True#{/if}
 ```
 
@@ -148,19 +148,19 @@ This step will fail if there isn't a previous release to stop, so we'll need to 
 To configure our deployment to work with the parallel deployment feature, we need to set the deployment version of our application.  This is done in the **Advanced Options** section of the **Deploy to Tomcat Via Manager*8 step.  In the following screenshot, you will see the Octopus variable of `#{Octopus.Release.Number}` being used for the version number.
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-tomcat-advanced.png)
+![The Advanced Options section setting the Tomcat deployment version](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-tomcat-advanced.png)
 :::
 
 The radio button at the bottom gives you the option to have this deployment be in a `Running` state or a `Stopped` state; the default is `Running`.
 
 For this guide, we only want the Deploy step to occur on a Deployment or a Redeployment.  The Calculate Deployment Mode step provides us with an output variable called `RunOnDeployOrRedeploy` that contains the correct statement for a variable run condition for this step.  Add the following as the value for the Variable Run Condition on this step.
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnDeployOrRedeploy}
 ```
 
 :::figure
-![](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-deploy-tomcat-run-condition.png)
+![The run condition on the Deploy to Tomcat step](/docs/img/deployments/patterns/rollbacks/tomcat/octopus-deploy-tomcat-run-condition.png)
 :::
 
 ### Start app in Tomcat
@@ -169,7 +169,7 @@ When executing the rollback, we'll need to start the previous version.
 
 This step is only required during a rollback scenario, so you'll need to add the following to the Variable Run Condition.
 
-```
+```text
 #{Octopus.Action[Calculate Deployment Mode].Output.RunOnRollback}
 ```
 
@@ -177,7 +177,7 @@ This step is only required during a rollback scenario, so you'll need to add the
 
 The `Rollback Reason` step captures the reason for the rollback.  We can pass the text entered in this step to the `Reason` field of this step by using the following output variable.
 
-```
+```text
 #{Octopus.Action[Rollback reason].Output.Manual.Notes}
 ```
 

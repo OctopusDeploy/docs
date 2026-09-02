@@ -141,7 +141,7 @@ Process templates can be created and managed through our [public API](/docs/octo
 We do not currently support creating or managing process templates through the CLI or the Terraform provider.
 :::
 
-See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/octopus-rest-api/octopus.client).
+See [CreateProcessTemplateUsageStep](https://github.com/OctopusDeploy/OctopusDeploy-Api/blob/master/Octopus.Client/Csharp/DeploymentProcesses/CreateProcessTemplateUsageStep.cs) for an example of how to configure a process template on a deployment process using [Octopus.Client](/docs/api/octopus.client).
 
 ### GitHub Connections
 
@@ -187,7 +187,7 @@ Octopus.ProcessTemplate[ProcessTemplateUsageStepName].Action[StepName].Output.Pr
 
 Consider a process template named **Build and Create Web App** containing a step that runs a script and publishes an output variable `FilePath`:
 
-```hcl
+```ocl
 name = "Build and Create Web App"
 description = ""
 
@@ -212,7 +212,7 @@ Octopus.ProcessTemplate.Action[Collect Details].Output.FilePath
 
 When this process template is used in a project with a process template usage step named **Create Web App**:
 
-```hcl
+```ocl
 process_template "run-a-process-template" {
     name = "Create Web App"
     process_template_slug = "build-and-create-web-app"

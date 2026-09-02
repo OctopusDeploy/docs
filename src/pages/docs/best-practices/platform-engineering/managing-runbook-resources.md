@@ -42,12 +42,12 @@ Octopus includes a number of steps to help you serialize a runbook with octoterr
 The steps documented below are best run on the `Hosted Ubuntu` worker pools for Octopus Cloud customers.
 :::
 
-1. Create a project with a runbook called `__ Serialize Runbook`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
+1. Create a project with a runbook called `__ Serialize Runbook`. Runbooks with the prefix `__` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add the `Octopus - Serialize Runbook to Terraform` step from the [community step template library](/docs/projects/community-step-templates).
     1. Tick the `Ignore All Changes` option to instruct Terraform to ignore any changes made to a project through the UI using the [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle). Enabling this option allows the runbook to be edited via the UI once it is deployed and Terraform will not overwrite those changes when reapplying the module. Leave the option disabled to have Terraform overwrite any changes to the downstream runbook when the module is reapplied.
     2. Set the `Terraform Backend` field to the [backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration) configured in the exported module. The step defaults to `s3`, which uses an S3 bucket to store Terraform state. However, any backend provider can be defined here.
     3. Set the `Octopus Server URL` field to the URL of the Octopus server to export a space from. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
-    4. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used to access the instance defined in the `Octopus Server URL` field.
+    4. Set the `Octopus API Key` field to the [API key](/docs/api/authentication/create-an-api-key) used to access the instance defined in the `Octopus Server URL` field.
     5. Set the `Octopus Space ID` field to the ID of the space to be exported. The default value of `#{Octopus.Space.Id}` references the current space.
     6. Set the `Octopus Project Name` field to the name of the project that contains the runbook to be exported. The default value of `#{Octopus.Project.Name}` references the current project.
     7. Set the `Octopus Runbook Name` field to the name of the runbook to serialize.
@@ -75,13 +75,13 @@ Any project level variables required by the runbook can be defined as Terraform 
 
 The following steps create a runbook in an existing project with the Terraform module exported using the instructions from the previous step:
 
-1. Create a project with a runbook called `__ Deploy Runbook`. Runbooks with the prefix `__ ` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
+1. Create a project with a runbook called `__ Deploy Runbook`. Runbooks with the prefix `__` (two underscores and a space) are automatically excluded when exporting projects, so this is a pattern we use to indicate runbooks that are involved in serializing Octopus resources but are not to be included in the exported module.
 2. Add one of the steps called `Octopus - Add Runbook to Project` from the [community step template library](/docs/projects/community-step-templates). Each step indicates the Terraform backend it supports. For example, the `Octopus - Add Runbook to Project (S3 Backend)` step configures a S3 Terraform backend.
     1. Configure the step to run on a worker with a recent version of Terraform installed, or use the `octopuslabs/terraform-workertools` container image.
     2. Set the `Terraform Workspace` field to a [workspace](https://developer.hashicorp.com/terraform/language/state/workspaces) that maintains the state of Octopus resources created by Terraform. The default value of `#{OctoterraApply.Octopus.SpaceID}_#{OctoterraApply.Octopus.Project | Replace "[^A-Za-z0-9]" "_"}` uses a workspace based on the ID of the space and the name of the project that is being populated. Leave the default value unless you have a specific reason to change it.
     3. Select the package created by the export process in the previous section in the `Terraform Module Package` field. The package name is the same as the exported runbook name, with all non-alphanumeric characters replaced with an underscore.
     4. Set the `Octopus Server URL` field to the URL of the Octopus server to create the new project in. The default value of `#{Octopus.Web.ServerUri}` references the URL of the current Octopus instance.
-    5. Set the `Octopus API Key` field to the [API key](/docs/octopus-rest-api/how-to-create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
+    5. Set the `Octopus API Key` field to the [API key](/docs/api/authentication/create-an-api-key) used when accessing the instance defined in the `Octopus Server URL` field.
     6. Set the `Octopus Space ID` field to the ID of an existing space where the project will be created.
     7. Set the `Octopus Project Name` field to the name of the project to deploy the runbook into.
     8. Set the `Terraform Additional Apply Params` field to a list of additional arguments to pass to the `terraform apply` command. This field is typically used to override the name of the runbook e.g. `"-var=runbook_eks_octopub_audits____describe_pods_name=The New Runbook Name"`. Leave this field blank if you do not wish to customize the deployed runbook.

@@ -1,0 +1,138 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Button from './Button.astro';
+import Menu from './Menu.astro';
+
+export type SplitButtonItem = {
+  label: string;
+  href: string | URL;
+  icon?: string; // URL to an SVG, or a class name, as Button takes
+  iconEnd?: string;
+};
+
+type Props = HTMLAttributes<'div'> & {
+  label: string;
+  // Omitted when the primary acts on the page rather than navigating away
+  href?: string | URL;
+  icon?: string;
+  size?: 'xSmall' | 'small' | 'medium';
+  importance?: 'default' | 'loud';
+  items: SplitButtonItem[];
+  menuLabel: string; // accessible name for the caret, which has no text
+  target?: string;
+  rel?: string;
+};
+
+const {
+  label,
+  href,
+  icon,
+  size = 'medium',
+  importance = 'default',
+  items,
+  menuLabel,
+  target,
+  rel,
+  class: className,
+  ...rest
+} = Astro.props satisfies Props;
+
+if (items.length === 0) {
+  throw new Error('A SplitButton with no menu items should just be a Button');
+}
+
+// Button types the two halves of its own union separately - an anchor needs an
+// `href`, a plain button forbids one - so the link attributes are handed over as
+// a set rather than as three possibly-undefined props. `target` and `rel` say
+// where a link opens, and mean nothing on a button.
+const primaryLink = href ? { href, target, rel } : {};
+
+const menuItems = items.map((item) => ({
+  ...item,
+  kind: 'link' as const,
+  target,
+  rel,
+}));
+---
+
+<div class:list={['split-btn', className]} {...rest}>
+  <Button
+    class="split-btn__primary"
+    {...primaryLink}
+    icon={icon}
+    label={label}
+    size={size}
+    importance={importance}
+  >
+    <slot />
+  </Button>
+  <Menu
+    class="split-btn__menu"
+    label={menuLabel}
+    items={menuItems}
+    density="compact"
+  >
+    <Button
+      slot="trigger"
+      as="summary"
+      class="split-btn__toggle"
+      icon="split-btn__caret"
+      size={size}
+      importance={importance}
+      aria-label={menuLabel}
+      aria-haspopup="menu"
+    />
+  </Menu>
+</div>
+
+<style>
+  .split-btn {
+    display: inline-flex;
+    align-items: stretch;
+    /* A flex or grid parent turns `inline-flex` into a block-level box, which
+       would then stretch to fill it. Same guard `.btn` uses. */
+    max-width: fit-content;
+  }
+
+  /* Both halves keep the border `.btn` gives them so nothing clips their focus
+     rings; the negative margin collapses the touching pair into the single
+     divider the design asks for. */
+  .split-btn :global(.split-btn__menu) {
+    margin-inline-start: calc(var(--borderWidth1) * -1);
+  }
+
+  .split-btn :global(.split-btn__primary) {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  .split-btn :global(.split-btn__toggle) {
+    height: 100%;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+
+  /* The design names the design system's CaretDownIcon here. Masked rather than
+     given to an `<img>` so it takes the icon color token through the themes,
+     and drawn at the 24px the design sets, which is wider than the 20px box
+     `.btn__icon` gives it; the glyph itself only fills the middle half of the
+     icon set's 40 x 40 box, so it stays inside the button. */
+  .split-btn :global(.split-btn__caret) {
+    background: var(--colorIconPrimary);
+    mask: url('../assets/icons/caret-down.svg') center / 1.5rem no-repeat;
+  }
+
+  /* Raise whichever half is interactive so its border and outline sit above the
+     half they overlap. */
+  .split-btn :global(.split-btn__primary:hover),
+  .split-btn :global(.split-btn__primary:focus-visible),
+  .split-btn :global(.split-btn__menu:has(:hover)),
+  .split-btn :global(.split-btn__menu:has(:focus-visible)),
+  .split-btn :global(.split-btn__menu[open]) {
+    z-index: 1;
+  }
+
+  .split-btn :global(.split-btn__menu[open] > .split-btn__toggle) {
+    background: var(--colorBackgroundPrimaryPressed);
+  }
+</style>

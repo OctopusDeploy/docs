@@ -1,6 +1,6 @@
 [Getting Started - Add Projects And Project Groups](https://www.youtube.com/watch?v=gfaRUIlQybA)
 
-Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project. 
+Projects are used to collect all the assets that make up your deployment processes. To deploy our simple hello world script, we first need a project.
 
 :::figure
 ![The projects page in the Octopus Web Portal](/docs/img/shared-content/concepts/images/projects.png)

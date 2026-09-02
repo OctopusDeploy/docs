@@ -31,6 +31,7 @@ function buildSharedContentLookup(): SharedContentLookup {
   const files = globSync('**/*.{md,mdx}', {
     cwd: SHARED_CONTENT_ROOT,
     nodir: true,
+    posix: true,
   });
   for (const f of files) {
     const abs = path.join(SHARED_CONTENT_ROOT, f);
@@ -66,6 +67,7 @@ export default function llmMdEmitter(): AstroIntegration {
         const files = globSync('**/*.{md,mdx}', {
           cwd: PAGES_ROOT,
           nodir: true,
+          posix: true,
         });
 
         const seenSlugs = new Map<string, string>();

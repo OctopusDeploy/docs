@@ -1,0 +1,317 @@
+/* Recommended Tools
+    Check accessibility for color combinations
+    https://toolness.github.io/accessible-color-matrix/
+*/
+
+@font-face {
+  font-family: 'fa-solid';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src:
+    url('/docs/css/fa/webfonts/fa-solid-900.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fa-brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:
+    url('/docs/css/fa/webfonts/fa-brands-400.woff2') format('woff2'),
+    url('/docs/css/fa/webfonts/fa-brands-400.ttf') format('truetype');
+}
+
+:root {
+  --page-inline-margin: 2rem;
+
+  /* Theme colors
+     The palette entries below map 1:1 onto the design system's color scales
+     from @octopusdeploy/design-system-tokens. Scales are theme-invariant, so
+     these values are the same in light and dark; the semantic variables
+     further down are what differ between themes. */
+  --black: var(--colorScalesBlack);
+  --white: var(--colorScalesWhite);
+
+  --navy-700: var(--colorScalesNavy700);
+  --navy-400: var(--colorScalesNavy400);
+  --navy-300: var(--colorScalesNavy300);
+  --navy-200: var(--colorScalesNavy200);
+  --navy-100: var(--colorScalesNavy100);
+
+  --blue-500: var(--colorScalesBlue500);
+
+  /* TODO: remove green-400 as it's being used in one place only */
+  --green-400: var(--colorScalesGreen400);
+  --green-500: var(--colorScalesGreen500);
+  /* Brand greens, no scale equivalent */
+  --green: #00e693ff;
+  --light-green: #00ffa3ff;
+
+  --red-500: var(--colorScalesRed500);
+
+  --orange-400: var(--colorScalesOrange400);
+  --orange-500: var(--colorScalesOrange500);
+
+  --blue-midnight-dark: #070e14ff;
+  --blue-midnight-darker: #0a202fff;
+  --blue-midnight-lighter: #22425cff;
+
+  --blue-grey-dark: #152b3dff;
+  --blue-gray-darker: #1f2f3cff;
+  --blue-grey-medium: var(--brandGrey);
+  --blue-grey: var(--navy-700);
+  --blue-grey-light: #274b66ff;
+  /* This is navy 500 in the design system's scale */
+  --blue-grey-lighter: var(--colorScalesNavy500);
+  --blue-grey-smoke: #c5e6ff66;
+
+  --grey: #555555ff;
+  /* #777777 is low contrast (WCAG) */
+  --grey-500: var(--colorScalesGrey500);
+  /* #777777 is low contrast (WCAG) */
+  --grey-light: #eef0f2ff;
+  --grey-lighter: var(--navy-100);
+
+  --color-base-primary: var(--colorBackgroundPrimaryDefault);
+
+  --color-text: var(--colorTextPrimary);
+  --color-heading: var(--colorTextPrimary);
+  --color-text-secondary: var(--colorTextSecondary);
+  --color-text-tertiary: var(--colorTextTertiary);
+
+  --color-subtitle: var(--colorTextSecondary);
+
+  --border-color-header: var(--colorBorderPrimary);
+
+  --color-menu-link: var(--colorTextSecondary);
+  --color-menu-link-active: var(--colorTextPrimary);
+  --color-menu-link-alt: var(--colorTextLinkDefault);
+  --color-menu-marker: var(--navy-300);
+  --bg-color-menu: var(--colorBackgroundSecondaryDefault);
+  --bg-color-menu-open: rgba(13, 128, 216, 0.1);
+  --border-color-menu-open: var(--colorBorderPrimary);
+  --gap-menu: 0.6em;
+
+  --navigation-width: 20rem;
+
+  --bg-color-tab: var(--colorBackgroundTertiary);
+  --border-color-tab: var(--colorBorderPrimary);
+  --border-color-tab-active: var(--colorBorderSelected);
+
+  --color-callout-body: var(--colorCalloutTextBody);
+
+  --color-hint: var(--colorCalloutTextInfo);
+  --bg-color-hint: var(--colorCalloutBackgroundInfoDefault);
+  --icon-color-hint: var(--colorCalloutIconInfo);
+
+  --color-info: var(--colorCalloutTextInfo);
+  --bg-color-info: var(--colorCalloutBackgroundInfoDefault);
+  --icon-color-info: var(--colorCalloutIconInfo);
+
+  --color-success: var(--colorCalloutTextSuccess);
+  --bg-color-success: var(--colorCalloutBackgroundSuccessDefault);
+  --icon-color-success: var(--colorCalloutIconSuccess);
+
+  --color-warning: var(--colorCalloutTextWarning);
+  --bg-color-warning: var(--colorCalloutBackgroundWarningDefault);
+  --icon-color-warning: var(--colorCalloutIconWarning);
+
+  --color-problem: var(--colorCalloutTextDanger);
+  --bg-color-problem: var(--colorCalloutBackgroundDangerDefault);
+  --icon-color-problem: var(--colorCalloutIconDanger);
+
+  --duration-default: 300ms;
+  --theme-transition-duration: 0s;
+
+  /* Backgrounds */
+  --background-light: var(--colorBackgroundSecondaryDefault);
+  --background-default: var(--colorBackgroundPrimaryDefault);
+
+  /* Borders */
+  --border-default-color: var(--colorBorderPrimary);
+
+  /* Separator */
+  --separator-color: var(--colorBorderPrimary);
+
+  /* Scrollbar */
+  --scrollbar-color: var(--colorScrollbarHandle);
+
+  /* Icon Tile */
+  --icon-tile-border: var(--border-default-color);
+  --icon-tile-border-hover: var(--colorBorderSelected);
+  --icon-tile-background: var(--background-light);
+  --icon-tile-background-hover: var(--background-default);
+
+  /* Article header */
+  --header-separator-color: var(--colorBorderPrimary);
+
+  /* Button */
+  --button-primary: var(--green);
+  --button-primary-focus: var(--light-green);
+  --button-primary-text: var(--blue-grey-medium);
+  --button-ring-color: rgba(0, 255, 163, 0.5);
+
+  /* Search variables */
+  --search-height: 3rem;
+  --search-border-radius: calc(var(--search-height) / 2);
+  --search-results-padding: 1rem;
+  --search-border: 0.0625rem solid #76a1c2;
+  --search-dropdown-height: 60vh;
+  --search-dropdown-duration: var(--duration-default);
+  --search-placeholder-color: #173b56;
+  --search-remove-icon-color: #355670;
+  --search-overlay: rgba(12, 26, 36, 0.3);
+
+  --hamburger-lines-color: var(--colorIconPrimary);
+
+  /* Card */
+  --card-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+  --card-related-topics-shadow: 0px 10px 35px 0px rgba(133, 152, 165, 0.1);
+  --card-related-topics-hover-shadow: 0px 10px 35px 0px
+    rgba(133, 152, 165, 0.25);
+
+  /* To be checked and cleaned */
+
+  --octo-blue: var(--colorTextLinkDefault);
+  --octo-blue-lighter: #2f95e3ff;
+  --octo-blue-lightest: #1fc0ffff;
+
+  --header-link-color: var(--octo-blue);
+
+  --content-bg: var(--white);
+
+  --body-link-color: var(--octo-blue);
+  --body-link-alt: var(--blue-grey-light);
+  --menu-link-bg: var(--blue-grey-smoke);
+
+  --icon-stroke: var(--white);
+  --icon-fill: var(--colorIconSecondary);
+
+  --octopus-logo-text-color: #0f2535;
+
+  --block-gap: 2rem;
+
+  --header-pin: 0;
+  --header-height: 68px;
+  --scroll-pad: 140px;
+
+  --box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
+  --octo-shadow-standard-box: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  --octo-shadow-standard-box-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+
+  --content-width: 78vw;
+  --content-width-article: 800px;
+  --content-width-mobile: calc(100vw - 4rem);
+  --toc-width: 250px;
+  /* Space between the article and the toc beside it. */
+  --toc-offset: 80px;
+  /* The two columns of an API reference page: the endpoint and the request and
+     response examples beside it. Each takes its full width wherever there is
+     room, and the pair compress together down to their minimums before the
+     examples drop below the endpoint instead. */
+  --api-content-width: 680px;
+  --api-content-min-width: 420px;
+  --api-examples-width: 640px;
+  --api-examples-min-width: 400px;
+  --api-columns-gap: var(--space32);
+  /* The pair together, which is what the article is centred on. */
+  --api-columns-width: calc(
+    var(--api-content-width) + var(--api-columns-gap) +
+      var(--api-examples-width)
+  );
+  --api-columns-min-width: calc(
+    var(--api-content-min-width) + var(--api-columns-gap) +
+      var(--api-examples-min-width)
+  );
+  --grid-max-width: 1250px;
+  --grid-gap: 1rem;
+  --grid-gap-main: 1rem;
+
+  --standard-radius: 0.5rem;
+
+  --colorNavBackgroundRest: rgb(from var(--colorScalesBlue500) r g b / 0);
+  --colorNavBackgroundHover: var(--colorScalesSlate100);
+  --colorNavBackgroundActive: rgb(from var(--colorScalesBlue500) r g b / 0.06);
+
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen100);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen200);
+  --colorApiBadgeIconGet: var(--colorScalesGreen600);
+  --colorApiBadgeTextGet: var(--colorScalesGreen600);
+
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue100);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue200);
+  --colorApiBadgeIconPost: var(--colorScalesBlue600);
+  --colorApiBadgeTextPost: var(--colorScalesBlue600);
+
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed100);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed200);
+  --colorApiBadgeIconDelete: var(--colorScalesRed600);
+  --colorApiBadgeTextDelete: var(--colorScalesRed600);
+
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow100);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow200);
+  --colorApiBadgeIconPut: var(--colorScalesYellow600);
+  --colorApiBadgeTextPut: var(--colorScalesYellow600);
+}
+
+:root[data-theme-transition] {
+  --theme-transition-duration: var(--duration-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme-transition] {
+    --theme-transition-duration: 0s;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --page-inline-margin: 1rem;
+  }
+}
+
+html[data-theme='dark'] {
+  /* The navigation matches the page in dark, unlike light */
+  --bg-color-menu: var(--colorBackgroundPrimaryDefault);
+  --bg-color-menu-open: var(--blue-grey-dark);
+  --body-link-alt: var(--white);
+  --search-placeholder-color: var(--navy-400);
+  --search-remove-icon-color: var(--white);
+  --grey-lighter: var(--blue-grey-dark);
+  /* TODO: --navy-200 is still hand-themed because main.css uses it directly on
+     code, .image, figure:has(p > img) p, .card and .site-search-results__item.
+     Point those at --border-default-color / --bg-color-tab and this can go. */
+  --navy-200: #314c62;
+  /* TODO: --blue-grey is hand-themed for .card__description, which is
+     secondary text, so --color-text-secondary already covers it. */
+  --blue-grey: #dae2e9ff;
+  --grey-light: var(--navy-700);
+  --octopus-logo-text-color: var(--white);
+  --search-overlay: rgba(12, 26, 36, 0.8);
+  /* Tiles sit one step above the page so hover has somewhere lighter to go */
+  --icon-tile-background-hover: var(--colorBackgroundTertiary);
+
+  --colorNavBackgroundHover: var(--colorScalesNavy800);
+
+  --colorApiBadgeBackgroundGet: var(--colorScalesGreen900);
+  --colorApiBadgeBorderGet: var(--colorScalesGreen700);
+  --colorApiBadgeIconGet: var(--colorScalesGreen300);
+  --colorApiBadgeTextGet: var(--colorScalesGreen300);
+
+  --colorApiBadgeBackgroundPost: var(--colorScalesBlue900);
+  --colorApiBadgeBorderPost: var(--colorScalesBlue700);
+  --colorApiBadgeIconPost: var(--colorScalesBlue300);
+  --colorApiBadgeTextPost: var(--colorScalesBlue300);
+
+  --colorApiBadgeBackgroundDelete: var(--colorScalesRed900);
+  --colorApiBadgeBorderDelete: var(--colorScalesRed700);
+  --colorApiBadgeIconDelete: var(--colorScalesRed300);
+  --colorApiBadgeTextDelete: var(--colorScalesRed300);
+
+  --colorApiBadgeBackgroundPut: var(--colorScalesYellow900);
+  --colorApiBadgeBorderPut: var(--colorScalesYellow700);
+  --colorApiBadgeIconPut: var(--colorScalesYellow300);
+  --colorApiBadgeTextPut: var(--colorScalesYellow300);
+}

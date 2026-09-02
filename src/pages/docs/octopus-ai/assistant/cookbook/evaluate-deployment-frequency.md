@@ -16,7 +16,7 @@ Measure how frequently deployments occur across environments to identify trends 
 
 ## 📝 Prompt
 
-```
+```text
 Generate a deployment frequency report by environment
 ```
 

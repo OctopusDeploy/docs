@@ -10,6 +10,7 @@ navOrder: 30
 import TenantsWhichVariableTemplatesApply from 'src/shared-content/tenants/tenants-which-variable-templates-apply.include.md';
 
 You often want to define variable values that are different for each tenant. For example:
+
 - A database server name or connection string
 - A tenant-specific URL
 - Contact details for a tenant
@@ -36,31 +37,31 @@ Project variables allow you to specify a variable that a tenant can change. A pe
 Project templates can be scoped to zero or more environments. When a project template is not scoped to any environments (unscoped), it applies to all available environments connected to the tenant. This behavior is consistent with how common tenant variables can be scoped.
 
 :::figure
-![](/docs/img/tenants/images/project-template-screen.png)
+![Project templates scoped to environments on the tenant variables screen](/docs/img/tenants/images/project-template-screen.png)
 :::
 
 You can specify the variable type for the project template, just like regular variables. You can also provide a default value which the tenant can overwrite.
 
 :::figure
-![](/docs/img/tenants/images/project-template-edit.png)
+![Editing a project template's variable type and default value](/docs/img/tenants/images/project-template-edit.png)
 :::
 
 You can view and edit values for project's tenants and environments on a single screen.
 
 :::figure
-![](/docs/img/tenants/images/project-template-screen-edit.png)
+![Editing project template values for every tenant and environment on one screen](/docs/img/tenants/images/project-template-screen-edit.png)
 :::
 
 You can also set values for these variables on the tenant variables screen.
 
 :::figure
-![](/docs/img/tenants/images/project-template-tenant-value.png)
+![Setting a project template value on the tenant variables screen](/docs/img/tenants/images/project-template-tenant-value.png)
 :::
 
 The great thing about project template variables is that they are treated like any other variable, and can be used in steps like regular project variables.
 
 :::figure
-![](/docs/img/tenants/images/project-template-variable-value-in-step.png)
+![A project template variable used in a deployment step](/docs/img/tenants/images/project-template-variable-value-in-step.png)
 :::
 
 ### Project variable scoping
@@ -87,7 +88,7 @@ Common variables are similar to project variables. The main difference between t
 For example, if we wanted to define an abbreviation for the tenant to use in a deployment or runbook, we can configure a variable template for the variable set.
 
 :::figure
-![](/docs/img/tenants/images/common-variable-template.png)
+![A variable template defined on a library variable set](/docs/img/tenants/images/common-variable-template.png)
 :::
 
 :::div{.success}
@@ -97,7 +98,7 @@ To include common variables for a tenant, you must add the variable set in the t
 Just like project variables, common variable values are supplied at the tenant level.
 
 :::figure
-![](/docs/img/tenants/images/common-variable-tenant-value.png)
+![Common variable values supplied at the tenant level](/docs/img/tenants/images/common-variable-tenant-value.png)
 :::
 
 ### Common variable scoping
@@ -107,36 +108,38 @@ Common variables can be scoped by environment to control which environments they
 - **Unscoped common variables**: When no environment scope is specified, the variable applies to all environments connected to the tenant
 - **Scoped common variables**: When one or more environments are specified in the scope, the variable only applies to those specific environments
 
-To assign a scope to your common variable, use the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. The common variable can then be used across all projects that have a connection to that environment. 
+To assign a scope to your common variable, use the **Tenant Variables** section of the project's page, or the **Tenant Variables** section of the tenant's page. The common variable can then be used across all projects that have a connection to that environment.
 
 For more information on assigning scopes, see [assigning scopes](/docs/projects/variables/getting-started/#using-multiple-scopes).
 
 ### Common variable permissions
 
-When editing common variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as **all projects** linked to the tenant. 
+When editing common variables for a tenant, a user requires variable editing permission (`VariableEdit`) for the tenant as well as **all projects** linked to the tenant.
 
 This can be achieved by scoping a user role to:
-- All projects individually 
-- The correct project groups 
+
+- All projects individually
+- The correct project groups
 - A combination of individual projects and project groups
 
 :::hint
 When using the scoped variables feature from octopus version 2025.2, a user will require variable editing permission for the tenant, all projects and all environments to edit common variables for a tenant. In addition to above, a user may also need the (`VariableEdit`) permission scoped to at least one of the following:
+
 - For scoped common variables, all environments in the variable's scope
 - For unscoped common variables, all environments connected to the tenant
 - Unrestricted `VariableEdit` access for environments
 
-To view a common variable, a user will require view permissions to at least one environment in the variable's scope. 
+To view a common variable, a user will require view permissions to at least one environment in the variable's scope.
 :::
 
 If you don't have the necessary permissions, you will receive an error like this:
 
 :::figure
-![](/docs/img/tenants/images/common-variable-permissions-error.png)
+![The error shown when you lack permission to edit common variables](/docs/img/tenants/images/common-variable-permissions-error.png)
 :::
 
 ## Snapshots \{#tenant-variables-and-snapshots}
 
-When you [create a release](/docs/octopus-rest-api/octopus-cli/create-release/) in Octopus we take a snapshot of the deployment process and the current state of the [project variables](/docs/projects/variables). 
+When you [create a release](/docs/cli/octopus-cli/create-release/) in Octopus we take a snapshot of the deployment process and the current state of the [project variables](/docs/projects/variables).
 
 However, we *don't* take a snapshot of tenant variables. This enables you to add new tenants at any time and deploy to them without creating a new release. This means any changes you make to tenant-variables will take immediate effect.

@@ -18,11 +18,12 @@ Creating a process dump will pause the process for anywhere between a few second
 to a few minutes, depending on the amount of memory in use and the disk speed.
 
 :::div{.hint}
-Due to the nature of data contained in a process dump, we take great care in handling these files and will provide a secure upload facility. 
+Due to the nature of data contained in a process dump, we take great care in handling these files and will provide a secure upload facility.
 We will also delete them as soon as they have been analyzed.
 :::
 
 ## Creating process dumps on Windows
+
 If you are capturing a process on your Octopus Server follow the below instructions:
 
 1. Right-click on the task bar and select **Task Manager**.
@@ -42,8 +43,8 @@ from Microsoft.
 1. Once installed you need to **run the program as an administrator** by right-clicking on the relevant procexp.exe file and selecting `Run as Administrator`.
 1. Once opened you need to make sure the process tree is shown by clicking on the `View` menu on the top navigation bar and selecting `Show Process Tree`.
 1. You will notice the program looks similar to task manager. Navigate to the **tentacle.exe** process in the list of tasks.
-1. Run the process that is causing the issue/fault in Octopus (ie run the deployment or task that is failing). 
-1. Once that task is running in Octopus go back to Process Explorer on the Tentacle and you will now see the tentacle.exe process can be expanded to show the Calamari process. This can be expanded further to see the powershell.exe processes associated with both the tentacle.exe and calamari.exe. 
+1. Run the process that is causing the issue/fault in Octopus (ie run the deployment or task that is failing).
+1. Once that task is running in Octopus go back to Process Explorer on the Tentacle and you will now see the tentacle.exe process can be expanded to show the Calamari process. This can be expanded further to see the powershell.exe processes associated with both the tentacle.exe and calamari.exe.
 1. To capture the dump file for calamari.exe make sure your tentacle.exe process is expanded in process explorer and find calamari.exe.
 1. Right-click on it and select `Create Dump` and then `Create Full Dump`.
 1. Note where the file is saved (generally in your temp folder).
@@ -57,11 +58,13 @@ Sometimes the deployment in Octopus can complete or error out too quickly, which
 :::
 
 ## Creating process dumps on Linux
+
 To aid in debugging, process dumps on Linux should be captured using `createdump` or the `dotnet-dump` tool. Debuggers such as `gcore` and `gdb` produce dumps that are not portable, leading to difficulties diagnosing issues.
 
 `createdump` is included with installations of the dotnet runtime. You will first need to install the dotnet runtime by [following the instructions on the dotnet download page](https://dotnet.microsoft.com/en-us/download).
 
 Here is an example of a manual installation:
+
 ```bash
 wget https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.15/dotnet-runtime-8.0.15-linux-x64.tar.gz
 DOTNET_FILE=dotnet-runtime-8.0.15-linux-x64.tar.gz
@@ -87,8 +90,6 @@ Microsoft.NETCore.App 8.0.15 [/home/ec2-user/.dotnet/shared/Microsoft.NETCore.Ap
 [createdump] Target process is alive
 [createdump] Dump successfully written in 6296ms
 ```
-
-
 
 ## Dump file analysis
 

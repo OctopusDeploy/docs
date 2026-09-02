@@ -1,37 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api
 pubDate: 2023-01-01
-modDate: 2024-05-24
-title: Octopus REST API
-subtitle: Octopus is built API-first
-icon: fa-solid fa-circle-nodes
-navTitle: Overview
-navSection: Octopus REST API
-description: Octopus integrates with build servers, scripts, external applications and anything else with its REST API.
-navOrder: 130
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-
-import RestApi from "src/shared-content/concepts/rest-api.include.md";
-
-The opinions and functionality in Octopus are designed to make you productive, but they might not work for everyone. So we've built plenty of escape hatches. You can change the default behaviors, run custom scripts in your deployment process,  or use a comprehensive API that does everything the UI can do.
-
-<RestApi />
-
-We designed the Octopus REST API to:
-
-1. Be friendly and easy to figure out.
-2. Be [hypermedia driven](http://en.wikipedia.org/wiki/HATEOAS), using links and the occasional [URI template](http://tools.ietf.org/html/rfc6570).
-3. Be comprehensive - 100% of the actions you perform via the Octopus UI, you can perform via the API.
-4. Provide a great developer experience through [API clients](#api-clients) and [detailed examples](/docs/octopus-rest-api/examples).
-
-## Octopus Command Line (CLI)
-
-The Octopus CLI is a command line tool that builds on top of the [Octopus Deploy REST API](https://octopus.com/docs/octopus-rest-api). With the Octopus CLI, you can push your application packages for deployment as either zip or NuGet packages, and manage your environments, deployments, projects, and workers.
-
-The Octopus CLI can be used on Windows, Mac, Linux, and Docker. For installation options and direct downloads, visit the [CLI Readme](https://github.com/OctopusDeploy/cli/blob/main/README.md).
-
-For more information see [Octopus Command Line (CLI)](https://octopus.com/docs/octopus-rest-api/cli).
-
-## Next steps
-
-Follow our [getting started with the Octopus REST API](/docs/octopus-rest-api/getting-started) guide or learn [how to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key).

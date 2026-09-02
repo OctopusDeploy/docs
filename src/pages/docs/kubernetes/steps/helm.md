@@ -70,7 +70,7 @@ If you are storing your project configuration directly in Octopus (i.e. not in a
 - URL
 - Credentials (either anonymous or selecting a Git credential from the Library)
 
-When creating a Release, you choose the tip of a branch for your Helm charts. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the _new_ tip of the branch.
+When creating a Release, you choose the tip of a branch for your Helm charts. The commit hash for this branch is saved to the Release. This means redeploying that release will only ever use that specific commit and not the *new* tip of the branch.
 
 #### Version-controlled projects
 
@@ -140,7 +140,6 @@ In the following figure, the **Key values** source value for the **drink** key w
 ![Ordering Template Values](/docs/img/deployments/kubernetes/helm-update/reorder-template-values.png)
 :::
 
-
 ## Separating image updates from Helm chart updates
 
 Application updates are often rolled up into full Helm chart version updates because that is the only mechanism provided. When deploying Helm charts with Octopus Deploy, a values file can be used for container image tags so that your Helm charts only get updated when your infrastructure definition changes.
@@ -170,7 +169,7 @@ Further to this, [lifecycles](/docs/releases/lifecycles) can be used to fully au
 :::div{.warning}
 Please note that [Cloud Dynamic Workers](/docs/infrastructure/workers/dynamic-worker-pools/#available-dynamic-worker-images) come with Helm 2.9.1 installed. This means that if you chose V3 on the Helm Step Template, it will fall back to V2 during execution. To get around this problem, use the [Execution Containers](/docs/projects/steps/execution-containers-for-workers) feature with the [worker tools image](https://hub.docker.com/r/octopusdeploy/worker-tools).  
 :::
-Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not _currently automatically_ perform validation checks during a deployment using these tools however this may change in the future.
+Helm provides [provenance](https://helm.sh/docs/topics/provenance/) tools that assist in verifying the integrity and origin of a package. Octopus does not *currently automatically* perform validation checks during a deployment using these tools however this may change in the future.
 
 Although the helm client tool can be overridden for use during the step execution as noted above, the acquisition process currently requires a version of the helm client locally to retrieve the chart. The version of helm available does not need to match the version of the tiller service.
 
@@ -201,4 +200,5 @@ To ensure a smooth deployment experience, we recommend setting a larger Octopus 
 **2023.3.4127**
 
 - Support was added for Helm repositories stored in OCI-based registries.
+
 :::

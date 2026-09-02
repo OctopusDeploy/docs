@@ -31,7 +31,7 @@ The Service Account will need to have a role so it can create resources on the c
 
 In this example, the Service Account `octopusdeploy` is granted the role `cluster-admin` for the currently logged in project:
 
-```
+```text
 C:\Users\Shawn.Sesna\.kube>oc.exe policy add-role-to-user cluster-admin -z octopusdeploy
 ```
 
@@ -54,7 +54,7 @@ Copy the Token value by clicking on the copy to clipboard icon on the right hand
 
 To add OpenShift as a deployment target, you need the URL to the cluster.  The `status` argument for the `oc.exe` command-line tool will display the URL of the OpenShift K8s cluster:
 
-```
+```text
 C:\Users\Shawn.Sesna\.kube>oc.exe status
 In project testproject on server https://api.crc.testing:6443
 ```

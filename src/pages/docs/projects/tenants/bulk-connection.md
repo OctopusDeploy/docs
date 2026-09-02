@@ -22,29 +22,33 @@ Using the bulk tenant connection feature, you can connect tens, hundreds or thou
 If some of your tenants should be connected to a different subset of environments, you can perform a bulk connection for each unique set of environments. For example, if majority of your tenants should be connected to the `Production` environment, but a small number of tenants should be connected to both `Test` and `Production`, you would perform two bulk connection operations.
 :::
 
-### Filtering during tenant selection
+## Filtering during tenant selection
+
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-filters.png)
+![The Name and Tenant Tag filters in the bulk connection wizard](/docs/img/projects/tenants/bulk-connection-filters.png)
 :::
 You can use the Name and Tenant Tag filters to find a specific tenant or set of tenants to connect to your project. Tenant Tag filters can be accessed by clicking **Expand Filters**.
 
 When filters are active, clicking **Select all \<N\> results** will add all tenants that match your filters to your selection. You can perform multiple rounds of filtering and selecting to select the exact set of Tenants you want to connect to the project.
 
-### During the connection operation
+## During the connection operation
+
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-in-progress.png)
+![A bulk tenant connection operation in progress](/docs/img/projects/tenants/bulk-connection-in-progress.png)
 :::
 
 A status indicator will show the progress of the operation, and the tenant list will be updated as tenants are connected. You can navigate away from the page at any time, and the operation will continue. All users with permission to view the project will be able to see the progress of the connection.
 
 Only one bulk connection may be performed at a time, per project. If there's a connection operation already in progress for this project, **CONNECT TENANTS** will be disabled until it finishes.
 
-### After the connection operation
+## After the connection operation
+
 :::figure
-![](/docs/img/projects/tenants/bulk-connection-completed.png)
+![The results of a completed bulk tenant connection operation](/docs/img/projects/tenants/bulk-connection-completed.png)
 :::
 
 The results of the most recent connection operation for a project will be shown for 24 hours after the operation completes.
 
 ## Older versions
+
 The project bulk tenant connection feature is available from Octopus Deploy **2023.3** onwards.

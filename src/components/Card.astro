@@ -1,62 +1,71 @@
 ---
-import Arrow from '../../public/docs/img/Arrow.astro';
-import List from '../../public/docs/img/List.astro';
-import Youtube from '../../public/docs/img/Youtube.astro';
-
 // Properties
+// `icon` and `imgSrc` are mutually exclusive: a card can have one, the other, or neither.
+// `icon` is the URL of an asset imported from src/assets/icons (e.g. `helmIcon.src`).
+// `iconColor` picks how it's rendered: 'themed' (default) masks it with currentColor so
+// it matches the surrounding theme, without duplicating SVG markup per card; 'branded'
+// renders it as a plain img, preserving whatever colors are baked into the source file.
 type Props = {
   description?: string;
-  imgAlt: string;
-  imgSrc: string;
   link: string;
   title: string;
-  variant?: 'padded' | 'related-topics';
-};
+  variant?: 'featured';
+} & (
+  | {
+      icon: string;
+      iconColor?: 'themed' | 'branded';
+      imgAlt?: never;
+      imgSrc?: never;
+    }
+  | { icon?: never; iconColor?: never; imgAlt?: string; imgSrc?: string }
+);
 
-const { description, imgAlt, imgSrc, link, title, variant } =
-  Astro.props satisfies Props;
+const {
+  description,
+  icon,
+  iconColor = 'themed',
+  imgAlt,
+  imgSrc,
+  link,
+  title,
+  variant,
+} = Astro.props satisfies Props;
 
 // Build class list based on the variant
-const classList = [
-  'card',
-  variant === 'padded' ? 'card--padded' : '',
-  variant === 'related-topics' ? 'card--related-topics' : '',
-]
+const classList = ['card', variant === 'featured' ? 'card--featured' : '']
   .join(' ')
   .trim();
-
-// Determine the icon type based on the link
-const isYouTubeLink = link.includes('youtube.com') || link.includes('youtu.be');
-const IconComponent = isYouTubeLink ? Youtube : List;
-
-// Bottom label for related topics variant
-const labelText = isYouTubeLink ? 'Watch Video' : 'Learn More';
 ---
 
 <article class={classList}>
   <a href={link} class="card__link" role="link" aria-label={`Open ${title}`}>
-    <div class="card__image-wrapper">
-      <img
-        src={imgSrc}
-        alt={imgAlt}
-        class="card__image"
-        onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
-        loading="lazy"
-      />
-    </div>
-    <div class="card__copy">
-      <p class="card__title">{title}</p>
-      {description && <p class="card__description">{description}</p>}
+    {
+      imgSrc && (
+        <div class="card__image-wrapper">
+          <img
+            src={imgSrc}
+            alt={imgAlt}
+            class="card__image"
+            onerror="this.src='https://i.octopus.com/library/step-templates/other.png';"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+    <div class="card__content">
       {
-        variant === 'related-topics' && (
-          <div class="card__bottom">
-            <span class="card__label">
-              {labelText} <Arrow />
-            </span>
-            <IconComponent />
+        icon && (
+          <div class="card__icon-wrapper">
+            {iconColor === 'branded' ? (
+              <img src={icon} alt="" class="card__icon" />
+            ) : (
+              <span class="card__icon" style={`--card-icon: url(${icon})`} />
+            )}
           </div>
         )
       }
+      <p class="card__title">{title}</p>
+      {description && <p class="card__description">{description}</p>}
     </div>
   </a>
 </article>

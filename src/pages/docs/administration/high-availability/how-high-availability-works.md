@@ -41,7 +41,7 @@ While it is possible to increase the task cap on a single node to 50, 75, or eve
 
 Every 20 seconds, each node in the HA cluster will check the task queue for pending tasks.  When pending tasks are found, the node will start processing them.
 
-Octopus will do its best to balance the load between all the nodes to ensure one node doesn't process all the tasks while the other nodes remain unused.  It does that by comparing the **current node workload ratio**  with the **prospective cluster workload ratio**. 
+Octopus will do its best to balance the load between all the nodes to ensure one node doesn't process all the tasks while the other nodes remain unused.  It does that by comparing the **current node workload ratio**  with the **prospective cluster workload ratio**.
 
 The **current node workload ratio** is defined as `(active tasks on node / node limit)`.   The **prospective cluster workload ratio** is defined as `(active cluster tasks + pending tasks / max cluster tasks)`.
 
@@ -81,7 +81,7 @@ For planned outages, the recommendation is to enable drain mode.  That will tell
 
 Once the outage is finished, repeat the same steps, but select **Disable Drain Node** instead.
 
-Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/octopus-rest-api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown) to re-run those canceled deployments and runbook runs.
+Not all outages can be planned.  The underlying hypervisor hosting VM the node is running on could crash.  A data center could go offline.  When that happens you can use this [API Script](/docs/api/examples/bulk-operations/rerun-deployments-and-runbooks-after-node-shutdown) to re-run those canceled deployments and runbook runs.
 
 ### Number of nodes
 

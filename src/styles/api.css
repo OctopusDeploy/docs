@@ -1,0 +1,266 @@
+/* ----- General styles for the API and CLI pages ----- */
+
+.type-label {
+  color: var(--colorTextInfo);
+}
+
+/* ----- The API docs have a different layout than the rest of the docs ----- */
+
+/*
+On API pages the top level of the body is the body column of an endpoint
+rather than .page-content itself, because satteri-api-examples.js wraps each
+section so its examples can sit beside it. */
+.api-section__body > *:not(:is(h2, h3, h4, h5, h6)),
+.api-section__body > blockquote > *:not(:last-child),
+.api-section__body > div.info > *:not(:last-child),
+.api-section__body > div.success > *:not(:last-child),
+.api-section__body > div.warning > *:not(:last-child),
+.api-section__body > div.problem > *:not(:last-child),
+.api-section__body > div.question > *:not(:last-child),
+.api-section__body > div.hint > *:not(:last-child) {
+  margin-block-end: var(--space16);
+}
+
+/* API reference
+   Pages on src/layouts/Api.astro: their own left nav, no table of contents,
+   and each endpoint split into a body and an examples column by
+   plugins/satteri-api-examples.js. */
+
+/* The article does not take the article/toc tracks the rest of the site is laid
+   out on, but it is centred the same way they are: a flexible gutter either
+   side of it, so the pair of columns sits in the middle of what the nav leaves,
+   never closer than space/16 to either end. */
+.content-group--api {
+  grid-template-columns:
+    var(--navigation-width)
+    minmax(var(--space16), 1fr)
+    minmax(var(--api-columns-min-width), var(--api-columns-width))
+    minmax(var(--space16), 1fr);
+  grid-template-areas:
+    'menu . content .'
+    'menu . footer  .';
+}
+
+/* Endpoints are the only thing on these pages, so the space between them is the
+   space an h2 would have carried, taken off the heading and put on the section.
+
+   The heading takes a row of its own, which is what starts an example level
+   with the bottom of the heading it belongs to rather than the top, and with
+   the first line of the endpoint beside it.
+
+   The pair is centred by the article's own gutters above, so the space between
+   the two columns is fixed and they compress together into whatever the article
+   is given. */
+.api-section {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--api-content-min-width), var(--api-content-width))
+    minmax(var(--api-examples-min-width), var(--api-examples-width));
+  grid-template-areas:
+    'heading .'
+    'body    examples';
+  column-gap: var(--api-columns-gap);
+  margin-block-start: var(--space56);
+}
+
+.api-section > h2 {
+  grid-area: heading;
+  margin-block-start: 0;
+}
+
+.api-section__body {
+  grid-area: body;
+}
+
+.api-section__examples {
+  grid-area: examples;
+}
+
+/* Anything outside an endpoint — the introduction on the index page — takes the
+   width of an endpoint rather than the width of the article, so the measure is
+   the same everywhere in the section. */
+.content-group--api .page-content > :not(.api-section) {
+  max-width: var(--api-content-width);
+}
+
+/* The heading above has already paid for the gap this would add. */
+.api-section__examples > .api-example:first-child .code-block {
+  margin-block-start: 0;
+}
+
+/* Side by side, the two columns need the nav plus a gutter, both minimums and
+   the space between them: 320 + 16 + 420 + 32 + 400 + 16 = 1204px. Below that
+   an example goes back to being part of the endpoint it documents, and the
+   article gives up its minimum width along with them. */
+@media (max-width: 1220px) {
+  .content-group--api {
+    grid-template-columns:
+      var(--navigation-width)
+      minmax(var(--space16), 1fr)
+      minmax(0, var(--api-columns-width))
+      minmax(var(--space16), 1fr);
+  }
+
+  .api-section {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'heading'
+      'body'
+      'examples';
+  }
+
+  .content-group--api .page-content > :not(.api-section) {
+    max-width: none;
+  }
+
+  .api-section__examples {
+    margin-block-start: var(--space24);
+  }
+}
+
+@media (max-width: 1130px) {
+  /* The same stack as every other page, one row shorter because there is no
+     toc. Restated here rather than beside the rest of the restack, because the
+     tracks it replaces are set at the same specificity further up. */
+  .content-group--api {
+    grid-template-columns: 1rem auto 1rem;
+    grid-template-areas:
+      'left top right'
+      'left content right'
+      'left menu right'
+      'left footer right';
+  }
+}
+
+/* The rule between the hand-written pages and the generated reference. It sits
+   in a row of its own, so it takes the space of one and carries the line
+   through the middle of it. */
+.site-nav__separator {
+  margin-block: var(--space8);
+  border: 0;
+  border-top: var(--borderWidth1) solid var(--colorBorderPrimary);
+}
+
+/* ----- Styles for API badges ----- */
+
+/* A deprecated endpoint keeps its badge and its row, and reads as secondary
+   until the reader opens it. The page itself carries the warning in full. */
+.site-nav__link--deprecated .site-nav__label {
+  color: var(--color-text-tertiary);
+  text-decoration: line-through;
+}
+
+/* A badge in the left nav labels the endpoint the row links to. The row starts
+   its items at the top, so the badge overrides that and centres on the title it
+   belongs to however many lines that title runs to. */
+.site-nav__link > :is(.api-get, .api-post, .api-delete, .api-put) {
+  flex: none;
+  align-self: center;
+}
+
+:is(.api-get, .api-post, .api-delete, .api-put) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space4);
+  padding-block: calc(var(--space2) - var(--borderWidth1));
+  padding-inline: calc(var(--space2) - var(--borderWidth1))
+    calc(var(--space4) - var(--borderWidth1));
+  border: var(--borderWidth1) solid;
+  border-radius: var(--borderRadiusSmall);
+  max-width: fit-content;
+  font-family: var(--fontFamilySystem-ui-monospace);
+  font-size: var(--fontSizeXSmall);
+  font-weight: 400;
+  line-height: var(--lineHeightXSmall);
+  letter-spacing: var(--letterSpacingNone);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+:is(.api-get, .api-post, .api-delete, .api-put)::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.api-icon-only {
+  padding-inline-end: calc(var(--space2) - var(--borderWidth1));
+}
+
+.api-get {
+  border-color: var(--colorApiBadgeBorderGet);
+  background: var(--colorApiBadgeBackgroundGet);
+  color: var(--colorApiBadgeTextGet);
+}
+
+.api-get::before {
+  background-color: var(--colorApiBadgeIconGet);
+  mask-image: url('../assets/icons/arrow-down-left.svg');
+  mask-size: 60%;
+}
+
+.api-post {
+  border-color: var(--colorApiBadgeBorderPost);
+  background: var(--colorApiBadgeBackgroundPost);
+  color: var(--colorApiBadgeTextPost);
+}
+
+.api-post::before {
+  background-color: var(--colorApiBadgeIconPost);
+  mask-image: url('../assets/icons/arrow-up-right.svg');
+  mask-size: 60%;
+}
+
+.api-delete {
+  border-color: var(--colorApiBadgeBorderDelete);
+  background: var(--colorApiBadgeBackgroundDelete);
+  color: var(--colorApiBadgeTextDelete);
+}
+
+.api-delete::before {
+  background-color: var(--colorApiBadgeIconDelete);
+  mask-image: url('../assets/icons/xmark.svg');
+  mask-size: 50%;
+}
+
+.api-put {
+  border-color: var(--colorApiBadgeBorderPut);
+  background: var(--colorApiBadgeBackgroundPut);
+  color: var(--colorApiBadgeTextPut);
+}
+
+.api-put::before {
+  background-color: var(--colorApiBadgeIconPut);
+  mask-image: url('../assets/icons/pen-line.svg');
+  mask-size: 90% 80%;
+}
+
+/* ----- The API hub page (/docs/api) ----- */
+
+/* The hub is a landing page, not an endpoint reference: its content nests
+   inside .api-hub rather than sitting at the top level of .page-content,
+   which keeps plugins/satteri-api-examples.js from regrouping its headings
+   into the two-column endpoint layout above (that plugin only touches
+   headings that are direct children of the document root). It gets the
+   design's own width instead of the endpoint body measure. */
+.content-group--api .page-content > .api-hub {
+  max-width: 1140px;
+}
+
+/* h2's own margin-block-start (56px, set in main.css) plus this padding gives
+   each hub section an 80px gap from the one before it. */
+.api-hub h2 {
+  padding-block-start: var(--space24);
+}
+
+/* The header (title + subtitle) sits outside .page-content, so it needs its
+   own rule to match the same width. */
+.article--api-hub .header {
+  max-width: 1140px;
+}

@@ -1,10 +1,9 @@
+﻿---
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/administration/octopus.server.exe-command-line/metrics
+pubDate:  2023-01-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-layout: src/layouts/Default.astro
-pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Metrics
-description: Configure metrics logging
-navOrder: 130
----
-
-The `metrics` command was removed in **Octopus 2020.5.0**.

@@ -1,0 +1,162 @@
+---
+import { SITE } from '@config';
+
+type Props = {
+  lang?: string;
+};
+
+// Kept so the nav can keep passing `lang` through; the field itself has no
+// translated copy left now that the results live in the overlay.
+const {} = Astro.props satisfies Props;
+
+const siteUrl = Astro.site ? Astro.site.href : '';
+---
+
+<div class="site-search__wrapper top-nav-search" data-top-nav-search>
+  <!-- Still a form that GETs a web search: with scripting off this is the whole
+       search experience, and it is what the overlay progressively enhances. -->
+  <form
+    method="GET"
+    action={SITE.search.fallbackUrl ?? 'https://www.google.com/search'}
+    role="search"
+    class="site-search top-nav-search__field"
+    autocomplete="off"
+  >
+    <fieldset class="top-nav-search__fieldset">
+      <input
+        type="hidden"
+        name={SITE.search.fallbackSite ?? 'q'}
+        value={'site:' + siteUrl}
+      />
+      <span class="top-nav-search__icon" aria-hidden="true"></span>
+      <input
+        type="text"
+        name={SITE.search.fallbackSite ?? 'q'}
+        class="site-search-query top-nav-search__input"
+        placeholder="Search the docs…"
+        aria-label="Search the docs"
+        spellcheck="true"
+        autocomplete="off"
+        data-docs-search-trigger
+      />
+      <kbd class="top-nav-search__shortcut" aria-hidden="true">Ctrl+K</kbd>
+    </fieldset>
+  </form>
+</div>
+
+<script is:inline>
+  {
+    // The chord itself is bound in docs-search.ts; this only labels the key cap
+    // for the platform, and has to run before paint to avoid showing `^K` to a
+    // Mac user first.
+    const shortcut = document.querySelector('.top-nav-search__shortcut');
+    const isApple = navigator.userAgentData
+      ? navigator.userAgentData.platform === 'macOS'
+      : (navigator.platform || navigator.userAgent).includes('Mac');
+    if (shortcut && isApple) shortcut.textContent = '⌘K';
+  }
+</script>
+
+<style>
+  .top-nav-search.site-search__wrapper {
+    grid-column: 2;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .top-nav-search__field.site-search {
+    box-sizing: border-box;
+    height: auto;
+    overflow: hidden;
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundPrimaryDefault);
+    transition-property: background-color, border-color;
+    transition-duration: var(--theme-transition-duration);
+    transition-timing-function: ease-in-out;
+  }
+
+  .top-nav-search__field.site-search:focus-within {
+    border-color: var(--colorBorderSelected);
+    outline: var(--borderWidth1) solid var(--colorBorderSelected);
+  }
+
+  .top-nav-search__fieldset {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space6);
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: calc(var(--space8) - var(--borderWidth1));
+    border: 0;
+  }
+
+  .top-nav-search__icon {
+    flex-shrink: 0;
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--colorIconSecondary);
+    mask: url('../assets/icons/magnifying-glass.svg') center / contain no-repeat;
+    transition: background-color var(--theme-transition-duration) ease-in-out;
+  }
+
+  .top-nav-search__input.site-search-query {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--colorTextPrimary);
+    font: var(--textBodyRegularMedium);
+    text-overflow: ellipsis;
+  }
+
+  .top-nav-search__input.site-search-query:focus-visible {
+    outline: none;
+  }
+
+  .top-nav-search__input.site-search-query::placeholder {
+    color: var(--colorTextTertiary);
+    opacity: 1;
+  }
+
+  .top-nav-search__shortcut {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 1.25rem;
+    padding-inline: var(--space4);
+    border: var(--borderWidth1) solid var(--colorBorderPrimary);
+    border-radius: var(--borderRadiusSmall);
+    background: var(--colorBackgroundSecondaryDefault);
+    color: var(--colorTextPrimary);
+    font: var(--textCodeRegularMedium);
+    white-space: nowrap;
+  }
+
+  /* The field opens the overlay rather than accepting text, so it reads as the
+     control it is. The caret is suppressed for the same reason. */
+  .top-nav-search__input.site-search-query {
+    cursor: pointer;
+    caret-color: transparent;
+  }
+
+  @media (max-width: 1130px) {
+    .top-nav-search.site-search__wrapper {
+      grid-column: auto;
+      padding: var(--space16);
+    }
+
+    .top-nav-search__shortcut {
+      display: none;
+    }
+  }
+</style>

@@ -14,6 +14,7 @@ Sometimes OctoPack doesn't work the way you expected it to, or perhaps you are h
   ```powershell
   msbuild MySolution.sln /t:Build /p:Configuration=Release /p:RunOctoPack=true /fl
   ```
+
   The `/p:RunOctoPack=true` argument configures OctoPack to run as part of the build process
   The `/fl` argument configures `msbuild.exe` to write the output to a log file which will usually look like `msbuild.log`.   Refer to the [MSBuild documentation](https://msdn.microsoft.com/en-us/library/ms171470.aspx) for more details.
   Note: You may need to change some of these parameters to match the process you are using on your build server. Take a look   at the build server logs and try to emulate the process as closely as possible.
@@ -83,18 +84,19 @@ Task "Exec" skipped, due to false condition; ('$(OctoPackPublishPackageToHttp)' 
 Done building target "OctoPack" in project "MyApplication.Web.csproj".
 ```
 
- * If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
-   * Try completely uninstalling OctoPack and installing it again.
-   * Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
+ - If you cannot see any OctoPack-related log messages, perhaps OctoPack isn't installed into your project(s) correctly?
+   - Try completely uninstalling OctoPack and installing it again.
+   - Check inside your `.csproj` or `.vbproj` file for an include statement like the following example:
 
 ```powershell
 <Import Project="..\packages\OctoPack.3.0.42\tools\OctoPack.targets" Condition="Exists('..\packages\OctoPack.3.0.42\tools\OctoPack.targets')" />
 ```
- * If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
-   * Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
-   * For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
-   * If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
+
+ - If OctoPack is running but your files are not being packed correctly, see if the file is mentioned in the build log.
+   - Files that are copied to the build output directory will be included in the package. Take a look at the contents of your build output directory and compare that with the messages in the build log.
+   - For web applications, files that are configured with the Visual Studio property **Build Action: Content** will be included in the package.
+   - If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to add the `/p:OctoPackEnforceAddingFiles=true` MSBuild argument as discussed above?
+   - If you have specified the `<files>` element in a custom `.nuspec` file, perhaps you need to experiment with some different combinations of include and exclude?
 
 ## Next
 

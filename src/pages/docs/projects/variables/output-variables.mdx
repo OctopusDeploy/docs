@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2025-05-19
+modDate: 2026-08-11
 title: Output variables
 icon: fa-solid fa-diagram-next
 description: Output variables allow you to set dynamic variables in one step that can be used in subsequent steps.
@@ -40,14 +40,6 @@ SetVariable("TestResult", "Passed");
 
 ```bash
 set_octopusvariable "TestResult" "Passed"
-```
-
-</details>
-<details data-group="output-variables">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setVariable "TestResult" "Passed"
 ```
 
 </details>
@@ -93,14 +85,6 @@ testResult=$(get_octopusvariable "Octopus.Action[StepA].Output.TestResult")
 
 </details>
 <details data-group="output-variables-use-in-other-steps">
-<summary>F#</summary>
-
-```fsharp
-let testResult = Octopus.findVariable "Octopus.Action[StepA].Output.TestResult"
-```
-
-</details>
-<details data-group="output-variables-use-in-other-steps">
 <summary>Python3</summary>
 
 ```python
@@ -114,7 +98,7 @@ testResult = get_octopusvariable("Octopus.Action[StepA].Output.TestResult")
 <details data-group="sensitive-output-variables">
 <summary>PowerShell</summary>
 
-```powershell PowerShell
+```powershell
 Set-OctopusVariable -name "Password" -value "correct horse battery staple" -sensitive
 ```
 
@@ -132,14 +116,6 @@ SetVariable("Password", "correct horse battery staple", true);
 
 ```bash
 set_octopusvariable "Password" "correct horse battery staple" -sensitive
-```
-
-</details>
-<details data-group="sensitive-output-variables">
-<summary>F#</summary>
-
-```fsharp
-Octopus.setSensitiveVariable "Password" "correct horse battery staple"
 ```
 
 </details>
@@ -173,14 +149,14 @@ Imagine that an output variable was set by a script which ran on two deployment 
 
 In this scenario, the following output variables would be captured:
 
-| Name                                     | Value    | Scope          |
+| Name | Value | Scope |
 | ---------------------------------------- | -------- | -------------- |
-| `Octopus.Action[StepA].Output[Web01].TestResult` | `Passed` |                |
-| `Octopus.Action[StepA].Output[Web02].TestResult` | `Failed` |                |
+| `Octopus.Action[StepA].Output[Web01].TestResult` | `Passed` | |
+| `Octopus.Action[StepA].Output[Web02].TestResult` | `Failed` | |
 | `Octopus.Action[StepA].Output.TestResult` | `Passed` | Deployment Target: Web01 |
 | `Octopus.Action[StepA].Output.TestResult` | `Failed` | Deployment Target: Web02 |
-| `Octopus.Action[StepA].Output.TestResult` | `Passed` |                |
-| `Octopus.Action[StepA].Output.TestResult` | `Failed` |                |
+| `Octopus.Action[StepA].Output.TestResult` | `Passed` | |
+| `Octopus.Action[StepA].Output.TestResult` | `Failed` | |
 
 Note that for each output variable/deployment target combination:
 
@@ -195,9 +171,9 @@ For some practical examples of using output variables, and how scoping rules are
 
 ## Output from a Deploy a Release step \{#deploy-release-output}
 
-Output variables from deployments triggered by a _Deploy a Release_ step are captured and exposed as output variables on the _Deploy a Release_ step.
+Output variables from deployments triggered by a *Deploy a Release* step are captured and exposed as output variables on the *Deploy a Release* step.
 
-To get the value of an output variable from a _Deploy a Release_ step, use the `Output.Deployment` variable on the _Deploy a Release_ step. For example, if your _Deploy a Release_ step is named "Deploy Web Project", the target step in the child project is named "Update IP Address", and the variable name is "IPAddress", you would use the following variable to access it in the parent project: `Octopus.Action[Deploy Web Project].Output.Deployment[Update IP Address].IPAddress`.
+To get the value of an output variable from a *Deploy a Release* step, use the `Output.Deployment` variable on the *Deploy a Release* step. For example, if your *Deploy a Release* step is named "Deploy Web Project", the target step in the child project is named "Update IP Address", and the variable name is "IPAddress", you would use the following variable to access it in the parent project: `Octopus.Action[Deploy Web Project].Output.Deployment[Update IP Address].IPAddress`.
 
 ## Setting output variables using scripts \{#output-variables-in-scripts}
 
@@ -214,9 +190,7 @@ From a PowerShell script, you can use the PowerShell CmdLet `Set-OctopusVariable
 
 For example:
 
-**PowerShell**
-
-```powershell
+```powershell Set an output variable
 Set-OctopusVariable -name "TestResult" -value "Passed"
 ```
 
@@ -228,9 +202,7 @@ Set-OctopusVariable -name "TestResult" -value "Passed"
 
 From a C# script, you can use the `public static void SetVariable(string name, string value)` method to set the name and value of an output variable.
 
-**C#**
-
-```csharp
+```csharp Set an output variable
 SetVariable("TestResult", "Passed");
 ```
 
@@ -240,41 +212,31 @@ SetVariable("TestResult", "Passed");
 
 In a Bash script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
-**Bash**
-
-```bash
+```bash Set an output variable
 set_octopusvariable "TestResult" "Passed"
 ```
 
-### F# \{#fsharp}
+### Python \{#python}
 
-[FSharp Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/main/source/Calamari.Common/Features/Scripting/FSharp)
+[Python Bootstrapping](https://github.com/OctopusDeploy/Calamari/tree/main/source/Calamari.Common/Features/Scripting/Python)
 
-From a F# script, you can use the `setVariable : name:string -> value:string -> unit` function to collect artifacts. The function takes two parameters with the same purpose as the PowerShell CmdLet.
+In a Python script you can use the `set_octopusvariable` function to set the name and value of an output variable. This function takes two positional parameters with the same purpose as the PowerShell CmdLet.
 
-**F#**
-
-```fsharp
-Octopus.setVariable "TestResult" "Passed"
-```
-
-**Python3**
-
-```python Python3
+```python Set an output variable
 set_octopusvariable("TestResult", "Passed")
 ```
 
 ## Best practice
 
-If you have multiple steps which depend on an output variable created by a previous step in your deployment process, it can be cumbersome to need to use the full variable name everywhere, e.g. `Octopus.Action[StepA].Output.TestResult`. 
+If you have multiple steps which depend on an output variable created by a previous step in your deployment process, it can be cumbersome to need to use the full variable name everywhere, e.g. `Octopus.Action[StepA].Output.TestResult`.
 
 A useful pattern is to create a project variable which evaluates to the output variable, e.g.
 
-| Variable name                                     | Value    |
+| Variable name | Value |
 | ---------------------------------------- | -------- |
 | `TestResult` | `#{Octopus.Action[StepA].Output.TestResult}` |
 
-This allows using `TestResult` as the variable name in dependent steps, rather than the full output variable name.  In the case of the step name changing (e.g. `StepA` -> `StepX`), this also reduces the amount of places the step name in the output variable expression needs to be changed. 
+This allows using `TestResult` as the variable name in dependent steps, rather than the full output variable name.  In the case of the step name changing (e.g. `StepA` -> `StepX`), this also reduces the amount of places the step name in the output variable expression needs to be changed.
 
 ## Learn more
 

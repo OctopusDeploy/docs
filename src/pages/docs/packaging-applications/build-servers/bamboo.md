@@ -15,11 +15,11 @@ Alternative features to flow artifacts from your CI system into Octopus are; [ex
 If you are an Atlassian Data Center user and Octopus customer and need help reach out to [Octopus Support](https://octopus.com/support).
 :::
 
-The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/octopus-rest-api/octopus-cli).
+The Octopus Deploy add-on for Bamboo allowed packages to be uploaded to an Octopus Server, as well as creating, deploying and promoting releases to your Octopus Deploy [environments](/docs/infrastructure/environments/). The add-on does this by running the [Octopus CLI](/docs/cli/octopus-cli).
 
 ## Getting started
 
-The plugin relies on a local copy of the [Octopus CLI](/docs/octopus-rest-api/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
+The plugin relies on a local copy of the [Octopus CLI](/docs/cli/octopus-cli) being available to the build agent. The command line tool can be downloaded from the [Octopus Deploy Download page](https://octopus.com/downloads).
 
 Note that while the command line tool package is largely self-contained, some Linux distributions require additional libraries to be installed before .NET Core applications will run. These packages are documented at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
@@ -40,9 +40,11 @@ There are a number of typical steps that are required to push a package to Octop
 5. Deploy a release with Octopus Deploy.
 
 ## 1. Build the application
+
 We'll assume that there is already a Bamboo build plan in place that successfully builds an application.
 
 ## 2. Create the package
+
 With the application built, we need to add it to an archive that complies with the Octopus Deploy [versioning requirements](/docs/packaging-applications/create-packages/versioning). In this example we will stick to a simple `AppName.Major.Minor.Patch` SemVer format.
 
 Creating the package is done with the `Octopus Deploy: Pack Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the name of the package, the type of package to create, the version number of the package, the base folder containing the files to be packaged, paths to be included in the package, and enabling any existing package files to be overwritten.
@@ -54,6 +56,7 @@ If you are building .NET applications on an instance of Bamboo hosted on Windows
 :::
 
 ### Package ID
+
 The `Package ID` field defines the name or ID of the package to be created. In this example we will use the ID `myapplication`.
 
 ### Version number
@@ -94,7 +97,7 @@ Selecting the `Overwrite existing package` option means that any existing local 
 
 Pushing the package to Octopus Deploy is done with the `Octopus Deploy: Push Packages` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the paths to the packages to be pushed and forcing package uploads.
 
-This step runs the [push command](/docs/octopus-rest-api/octopus-cli/push) on the command line tool.
+This step runs the [push command](/docs/cli/octopus-cli/push) on the command line tool.
 
 ### Package paths
 
@@ -116,7 +119,7 @@ The `Overwrite mode` option can be used to control what should happen if the pac
 
 Creating a release is done with the `Octopus Deploy: Create Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to create the release for and the version number of the release.
 
-This steps runs the [create-release command](/docs/octopus-rest-api/octopus-cli/create-release) on the command line tool.
+This steps runs the [create-release command](/docs/cli/octopus-cli/create-release) on the command line tool.
 
 ### Project
 
@@ -148,7 +151,7 @@ Tick this option, as it allows builds to be rebuilt. Otherwise, rebuilds will at
 
 Releases can be deployed with the `Octopus Deploy: Deploy Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environments to deploy to, and the release number to deploy.
 
-This steps runs the [deploy-release command](/docs/octopus-rest-api/octopus-cli/deploy-release) on the command line tool.
+This steps runs the [deploy-release command](/docs/cli/octopus-cli/deploy-release) on the command line tool.
 
 ### Project
 
@@ -166,11 +169,11 @@ The `Release Number` field defines the release version number to deploy. This sh
 ![Deploy release](/docs/img/packaging-applications/build-servers/images/deploy-release.png)
 :::
 
-## Promote a release (optional, and not recommended) 
+## Promote a release (optional, and not recommended)
 
 Releases can be promoted to new environments with the `Octopus Deploy: Promote Release` task. In addition to the [common configuration fields](#commonConfiguration), this task requires the Octopus Deploy project to deploy, the environment to promote from, and the environment to promote to.
 
-This steps runs the [promote-release command](/docs/octopus-rest-api/octopus-cli/promote-release) on the command line tool.
+This steps runs the [promote-release command](/docs/cli/octopus-cli/promote-release) on the command line tool.
 
 :::div{.warning}
 Because the promotion from one environment to another is not tied to any particular release number, adding this task to a Bamboo build plan means every time the plan is run (or more importantly rerun), releases will be promoted between environments. This is almost certainly not the desired result, and so it is not recommended that promotions be done as part of a Bamboo build plan.
@@ -200,9 +203,10 @@ The `Octopus URL` field defines the URL of the Octopus Server that the package w
 
 ### API key
 
-The `API key` field defines the API key that is used to authenticate with the Octopus Server. See [How to create an API key](/docs/octopus-rest-api/how-to-create-an-api-key) for more information.
+The `API key` field defines the API key that is used to authenticate with the Octopus Server. See [How to create an API key](/docs/api/authentication/create-an-api-key) for more information.
 
 ### Octopus CLI
+
 The `Octopus CLI` field references a [Bamboo capability](https://confluence.atlassian.com/bamboo/capability-289277445.html) that defines the path to the Octopus Deploy Command Line tool.
 
 Click the `Add new executable` link to specify the location of the command line tool. The `Executable label` can be anything you want, and the `Path` is the full path to the command line tool executable file.
@@ -219,7 +223,7 @@ The `Enable debug logging` option is used to enable detailed logging from the co
 
 The `Additional command line arguments` field is used to specify additional arguments to pass to the command line tool.
 You can find more information on the arguments accepted by the command line tool on the
-[Octopus CLI](/docs/octopus-rest-api/octopus-cli) page.
+[Octopus CLI](/docs/cli/octopus-cli) page.
 
 ## Using Bamboo deployment plans
 
@@ -228,6 +232,7 @@ The Octopus Deploy add-on tasks can be used either in Bamboo build or deployment
 If you already have a number of environments set up in Bamboo, it may make sense to create and deploy Octopus Deploy releases from the Bamboo deployment plan. Doing so allows you to retain the familiar Bamboo build and deployment workflow, while having Octopus Deploy do the actual deployment.
 
 The recommended task sequence for a deployment project in Bamboo is this:
+
 1. A `Octopus Deploy: Push Packages` task in the Bamboo build plan with a package version number linked to the Bamboo build number and the `Force overwrite existing packages` selected.
 1. A `Octopus Deploy: Create Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number, the `Ignore existing releases` option selected, and no `Environments(s)` set to deploy to.
 2. A `Octopus Deploy: Deploy Release` task in the Bamboo deployment plan with a `Release number` linked to the Bamboo build number.
@@ -237,9 +242,11 @@ These steps will allow packages to be pushed and re-pushed, and new releases to 
 ## Troubleshooting
 
 ### Unexpected behavior in deployment plans
+
 There are some issues to keep in mind when using the Octopus Deploy add-on tasks from a Bamboo deployment project.
 
 The first issue is that the `Octopus Deploy: Create Release` task is only suitable for creating and optionally deploying new releases, not rolling back to previous releases. Consider these following scenarios:
+
 1. The create release task is defined with no release number. Each time it is run, or rerun via a rollback initiated via the Bamboo deployment project, this task will create a new release in Octopus Deploy. This is not appropriate behavior for a Bamboo deployment project.
 2. The create release task is defined with a fixed release number related to the Bamboo build. To allow this task to be rerun without error, the `Ignore existing releases` option needs to be selected. When `Ignore existing releases` is selected, the create release task is essentially skipped during a rerun, meaning no deployment is done. This is not the expected behavior of a rollback initiated via the Bamboo deployment project.
 
@@ -253,14 +260,14 @@ The Octopus Command Line tool packages for Linux are relatively self-contained, 
 
 For example, in Centos 7 you might see this error:
 
-```
+```text
 Failed to load /tmp/libcoreclr.so, error: libunwind.so.8: cannot open shared object file: No such file or directory
 Failed to bind to CoreCLR at '/tmp/libcoreclr.so'
 ```
 
 The solution is to install the packages detailed at the [Get started with .NET Core](https://www.microsoft.com/net/core) website.
 
-```
+```bash
 sudo yum install libunwind libicu
 ```
 
@@ -268,7 +275,7 @@ sudo yum install libunwind libicu
 
 The Bamboo build logs show how the command line tool is run. Look for log messages like this:
 
-```
+```text
 running command line: \n/opt/octocli/Octo push --server http://localhost --apiKey API-....................XXXXXX --replace-existing --debug --package /opt/atlassian-bamboo-6.0.0/xml-data/build-dir/BPT-TBD-JOB1/myapplication.0.0.5.tar.gz
 ```
 
@@ -286,7 +293,7 @@ You can find a list of variables exposed by Bamboo at the [Bamboo Variables](htt
 Error conditions encountered by the add-on have unique error codes, which are listed here.
 
 | Error Code | Description |
-|------------|-------------|
+| ------------ | ------------- |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0001 | No matching files could be found to push to Octopus Deploy. Check that the file pattern matches a file in the Bamboo working directory. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0002 | A required field was empty. |
 | OCTOPUS-BAMBOO-INPUT-ERROR-0003 | The server capability that defines the path to the Octopus CLI has an incorrect path. Make sure The path you assigned to the Octopus CLI is correct. |

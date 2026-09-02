@@ -7,6 +7,8 @@ description: Managing Octopus steps in a Jenkins pipeline project.
 navOrder: 20
 ---
 
+<!-- cspell:ignore Linkback -->
+
 This page lists the arguments you can supply to the Octopus Jenkins Pipelines commands to run against your Octopus Deploy server.
 
 The Jenkins Pipeline support requires plugin version 3.0.0 or later and Jenkins version 2.190.1 or later.
@@ -18,24 +20,25 @@ The `serverId` parameter refers to the **Server ID** of the OctopusDeploy Plugin
 
 ## Pack {#pack}
 
-Step name: **_octopusPack_**
+Step name: ***octopusPack***
 
-_**octopusPack** allows you to create a package from files on disk during your pipeline execution_.
+***octopusPack** allows you to create a package from files on disk during your pipeline execution*.
 
-| Parameters      | Required | Description |
-|-----------------|----------|-------------|
+| Parameters | Required | Description |
+| ----------------- | ---------- | ------------- |
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `packageId` | Yes | The ID of the package. |
 | `packageFormat` | Yes | The format of the package, `zip` or `nupkg`. |
-| `sourcePath` | Yes      | Path containing files and directories to include in package. |
-| `overwriteExisting` | No | Overwrite an existing package with the same name and version. Valid values are `true` or `false`. Defaults to `false`.|
+| `sourcePath` | Yes | Path containing files and directories to include in package. |
+| `overwriteExisting` | No | Overwrite an existing package with the same name and version. Valid values are `true` or `false`. Defaults to `false`. |
 | `includePaths` | No | New-line separated paths to include files. |
 | `outputPath` | No | Path to write final package. Defaults to `.`. |
 | `packageVersion` | No | Package version, defaults to a timestamp-based version. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [pack](/docs/octopus-rest-api/octopus-cli/pack) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [pack](/docs/cli/octopus-cli/pack) command. |
 
 Example:
+
 ```powershell
 octopusPack \
   additionalArgs: '-author "My Company"', \
@@ -51,21 +54,22 @@ octopusPack \
 
 ## Push {#push}
 
-Step name: **_octopusPushPackage_**
+Step name: ***octopusPushPackage***
 
-_**octopusPushPackage** allows you to push packages to the package repository in an Octopus Server_.
+***octopusPushPackage** allows you to push packages to the package repository in an Octopus Server*.
 
-| Parameters      | Required | Description |
-|-----------------|----------|-------------|
+| Parameters | Required | Description |
+| ----------------- | ---------- | ------------- |
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `serverId` | Yes | The configured Server ID of the target server to push the package. |
 | `spaceId` | Yes | The ID of the Space on the server to push the package. |
 | `packagePaths` | Yes | The path to the package. |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [push](/docs/octopus-rest-api/octopus-cli/push) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [push](/docs/cli/octopus-cli/push) command. |
 
 Example:
+
 ```powershell
 octopusPushPackage \
   overwriteMode: 'FailIfExists', \
@@ -77,49 +81,54 @@ octopusPushPackage \
 
 Examples for the `packagePaths` parameter:
 
-### Absolute path 
+### Absolute path
 
 The path to the package can be provided as an absolute path on the Jenkins server or Agent. `${WORKSPACE}` is the directory which the job runs within.
+
  - `packagePaths: "${WORKSPACE}/artifacts/Package.0.0.${BUILD_NUMBER}.zip"`.
  - `packagePaths: "/home/jenkins/workspace/artifacts/Package.0.0.${BUILD_NUMBER}.zip"`.
 
 ### Relative path
 
 The path is a relative path from the `WORKSPACE` directory.
+
  - `packagePaths: "artifacts/Package.0.0.${BUILD_NUMBER}.zip"`
 
 ### Glob Patterns
 
 The package selection can also be done using ANT glob patterns.
+
  - `packagePaths: "artifacts/**/*.0.0.${BUILD_NUMBER}.zip"`.
    - This will pick up all the packages, in all folders under the `artifacts` directory with a name matching the `0.0` version and current build number.
 
 ### Multiple paths
 
 The `packagePaths` parameter also supports multiple values from the above options separated by a `\n` character.
+
  - `packagePaths: "artifacts/package1/Package1.0.0.${BUILD_NUMBER}.zip\nartifacts/package2/Package2.0.0.${BUILD_NUMBER}.zip"`
 
 ## Push package info {#build-information}
 
-Step: **_octopusPushBuildInformation_**
+Step: ***octopusPushBuildInformation***
 
-_**octopusPushBuildInformation** allows you to push package information to an Octopus Server_.
+***octopusPushBuildInformation** allows you to push package information to an Octopus Server*.
 
-| Parameters      | Required | Description |
-|-----------------|----------|-------------|
+| Parameters | Required | Description |
+| ----------------- | ---------- | ------------- |
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `serverId` | Yes | The configured Server ID of the target server to push the build information. |
 | `spaceId` | Yes | The ID of the Space on the server to push the build information. |
 | `packageId` | Yes | The ID of the packages to push the version information, multiple values can be provided separated by `\n`. |
-| `commentParser` | Yes | Valid values are `GitHub` and `Jira`.  |
+| `commentParser` | Yes | Valid values are `GitHub` and `Jira`. |
 | `overwriteMode` | Yes | Valid values are `FailIfExists`, `OverwriteExisting` or `IgnoreIfExists`. |
 | `gitUrl` | No | The URL of the repository for the package(s). |
 | `gitBranch` | No | The branch that was checked out in the repository. Available via `git checkout`. |
 | `gitCommit` | No | The commit ID of the most recent commit on the branch. Available via `git checkout`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/octopus-rest-api/octopus-cli/build-information) command.|
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [build-information](/docs/cli/octopus-cli/build-information) command. |
 
 Example:
+
 ```powershell
 octopusPushBuildInformation \
   toolId: 'octocli', \
@@ -136,7 +145,7 @@ octopusPushBuildInformation \
   gitCommit: '${GIT_COMMIT}'
 ```
 
-Due to _limitations in Jenkins Pipelines_, you will need to pass the *Git URL*, *Git Branch* and *Git Commit* values to the `octopusPushBuildInformation`. 
+Due to *limitations in Jenkins Pipelines*, you will need to pass the *Git URL*, *Git Branch* and *Git Commit* values to the `octopusPushBuildInformation`.
 Including these values will allow the build information to provide correct URL links to the source.
 
 For a pipeline source from SCM, set the parameters to `gitUrl: '${GIT_URL}' gitBranch: '${GIT_BRANCH}' gitCommit: '${GIT_COMMIT}'`, the `checkoutVars` script will not be required.
@@ -156,12 +165,12 @@ steps {
 
 ## Create release {#create-release}
 
-Step: **_octopusCreateRelease_**
+Step: ***octopusCreateRelease***
 
-_**octopusCreateRelease** allows you to push packages to the package repository in an Octopus Server_.
+***octopusCreateRelease** allows you to push packages to the package repository in an Octopus Server*.
 
-| Parameters           | Required | Description |
-|----------------------|----------|-------------|
+| Parameters | Required | Description |
+| ---------------------- | ---------- | ------------- |
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `serverId` | Yes | The configured Server ID of the target server to create the release in. |
 | `spaceId` | Yes | The ID of the space on the server to create the release in. |
@@ -180,11 +189,12 @@ _**octopusCreateRelease** allows you to push packages to the package repository 
 | `jenkinsUrlLinkback` | No | Include link to the Jenkins build that created the release. Valid values are `true` or `false`. Default is `false`. |
 | `releaseNotes` | No | Include release notes in release. Valid values are `true` or `false`. Default is `false`. |
 | `releaseNotesSource` | No | Valid values are `file` or `scm`. |
-| `releaseNotesFile` | Conditional | The file path for release notes, required if `releaseNotesSource` is `file`.  |
+| `releaseNotesFile` | Conditional | The file path for release notes, required if `releaseNotesSource` is `file`. |
 | `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [create-release](/docs/octopus-rest-api/octopus-cli/create-release) command. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [create-release](/docs/cli/octopus-cli/create-release) command. |
 
 Example:
+
 ```powershell
 octopusCreateRelease \
   serverId: 'octopus-server', \
@@ -206,28 +216,29 @@ octopusCreateRelease \
 
 ## Deploy release {#deploy-release}
 
-Step: **_octopusDeployRelease_**
+Step: ***octopusDeployRelease***
 
-_**octopusDeployRelease** allows you to push packages to the package repository in an Octopus Server_.
+***octopusDeployRelease** allows you to push packages to the package repository in an Octopus Server*.
 
-| Parameters           | Required | Description |
-|----------------------|----------|-------------|
+| Parameters | Required | Description |
+| ---------------------- | ---------- | ------------- |
 | `toolId` | Yes | The configured Octopus CLI tool to use. |
 | `serverId` | Yes | The configured Server ID of the target server to deploy the release. |
 | `spaceId` | Yes | The ID of the Space on the server to deploy the release. |
 | `project` | Yes | The ID of the project to deploy the release. |
 | `environment` | Yes | Environment to deploy release. |
 | `releaseVersion` | Yes | The version number for the release. |
-| `cancelOnTimeout` | No | Cancel the deployment after the `waitForDeployment` time. Valid values are `true` or `false`. Defaults to `false`.  |
+| `cancelOnTimeout` | No | Cancel the deployment after the `waitForDeployment` time. Valid values are `true` or `false`. Defaults to `false`. |
 | `tenant` | No | The tenant to deploy the release to. |
 | `tenantTag` | No | The tenant tag to deploy the release to. |
 | `waitForDeployment` | No | Wait for deployment to complete before continuing. Valid values are `true` or `false`. |
 | `deploymentTimeout` | No | How long to wait for deployment. Format is `HH:mm:ss`. Default is `00:10:00`. |
 | `variables` | No | Set prompted variable values. Format is `key1=value1\nkey2=value2`. |
-| `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`.|
-| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [deploy-release](/docs/octopus-rest-api/octopus-cli/deploy-release) command.|
+| `verboseLogging` | No | Turn on verbose logging. Valid values are `true` or `false`. |
+| `additionalArgs` | No | Additional arguments to pass to the Octopus CLI [deploy-release](/docs/cli/octopus-cli/deploy-release) command. |
 
 Example:
+
 ```powershell
 octopusDeployRelease \
   toolId: 'octocli', \

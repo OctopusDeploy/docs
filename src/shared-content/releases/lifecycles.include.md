@@ -1,5 +1,9 @@
 [Getting Started - Lifecycles](https://www.youtube.com/watch?v=ofc-u61ukRA)
 
+:::div{.hint}
+[Easy Mode - Lifecycles](https://octopus.com/blog/octo-easy-mode-13-lifecycles) provides a practical example of lifecycles you can apply to your own Octopus instance.
+:::
+
 Lifecycles give you control over the way releases of your software are promoted between your environments. You can also use them to automate deployments and set retention policies.
 
 Lifecycles are managed from the library page by navigating to **Deploy ➜ Lifecycles**:

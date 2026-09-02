@@ -1,0 +1,45 @@
+---
+layout: src/layouts/Cli.astro
+pubDate: 2023-01-01
+modDate: 2026-08-20
+title: octopus tenant view
+description: View a tenant
+navOrder: 156
+---
+import SamplesInstance from 'src/shared-content/samples/samples-instance.include.md';
+
+View a tenant in Octopus Deploy
+
+```text
+Usage:
+  octopus tenant view [<name> | <id>] [flags]
+
+Flags:
+  -t, --tenant string   The tenant
+  -w, --web             Open in web browser
+
+
+Global Flags:
+  -h, --help                   Show help for a command
+      --no-prompt              Disable prompting in interactive mode
+  -f, --output-format string   Specify the output format for a command ("json", "table", or "basic") (default "table")
+  -s, --space string           Specify the space for operations
+
+```
+
+## Examples
+
+<SamplesInstance />
+
+```bash
+octopus tenant view Tenants-1
+octopus tenant view 'Tenant'
+octopus tenant view --tenant 'Tenant'
+
+
+```
+
+## Learn more
+
+- [Octopus CLI](/docs/cli)
+- [Creating API keys](/docs/octopus-rest-api/how-to-create-an-api-key)

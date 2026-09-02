@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2023-10-04
+modDate: 2026-08-17
 title: Users, Roles, and Teams
 description: Guidelines and recommendations for managing RBAC in Octopus Deploy.
 navOrder: 80
@@ -13,6 +13,7 @@ A [user](/docs/security/users-and-teams/) is an entity that performs an action i
 A user can be directly or indirectly associated with a team.  You can explicitly assign a user to a team.  Or you can assign teams from [external auth providers](/docs/security/authentication) to Octopus Deploy teams.
 
 There are two kinds of users in Octopus Deploy:
+
 - User Account: allowed to log in to both the Octopus Web Portal and Octopus API.  Can be authenticated with external auth providers, username and password, or an Octopus API Key.
 - [Service Accounts](/docs/security/users-and-teams/service-accounts) are API-only accounts used for automated services that integrate with Octopus Deploy.  It can only be authenticated with an Octopus API Key.
 
@@ -31,11 +32,12 @@ We also recommend creating a unique service account per integration.  For exampl
 
 ## API keys
 
-[API Keys](/docs/octopus-rest-api/how-to-create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
+[API Keys](/docs/api/authentication/create-an-api-key/) allow you, or the service account, to access the [Octopus Deploy REST API](/docs/octopus-rest-api).  API keys for users should be kept to a minimum, if a key was ever shared, then anyone can impersonate that user.  Only use API keys for service accounts for any external integrations.  
 
 **Octopus Deploy 2020.6** introduced the concept of expiring API keys.  Our recommendation is to set up a periodic rotation of API keys following your companies policy on key expiration.  
 
 If your company doesn't already have a policy, then our recommendation is:
+
 - 90 days for service accounts.  In other words, rotate the service account keys once a quarter.
 - 10-30 days for users.  User account API keys should be used temporarily when writing an API script or testing an integration.  
 
@@ -43,32 +45,33 @@ If your company doesn't already have a policy, then our recommendation is:
 
 Octopus Deploy includes several built-in roles:
 
-| User role            | Description                              |
-| -------------------- | ---------------------------------------- |
-| Build Server         | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. |
-| Certificate Manager  | Certificate managers can edit certificates and export private-keys |
-| Deployment Creator   | Deployment creators can create new deployments and runbook runs. |
-| <span class="nowrap">Environment Manager</span>  | Environment managers can view and edit environments and their machines. |
-| Environment Viewer   | Environment viewers can view environments and their machines, but not edit them. |
-| Package Publisher    | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
-| Project Viewer       | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
-| Project Contributor  | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
-| Project Initiator    | All project viewer permissions, plus: create new projects. |
-| Project Deployer     | All project contributor permissions, plus: deploying releases, but not creating them. |
-| Project Lead         | All project contributor permissions, plus: creating releases, but not deploying them. |
-| Release Creator      | Release creators can create new releases and runbook snapshots. |
-| Runbook Consumer     | Runbook consumers can view and execute runbooks. |
-| Runbook Producer     | Runbook producers can edit and execute runbooks. |
-| Space Managers       | Space managers can do everything within the context of the space they own. |
-| System Administrator | System administrators can do everything at the system level.  |
-| System Manager       | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
-| Tenant Manager       | Tenant managers can edit tenants and their tags |
+| User role | Description |
+| --- | --- |
+| Build Server | Build servers can publish packages, and create releases, deployments, runbook snapshots and runbook runs. They can't edit a runbook's steps or publish its snapshots. |
+| Certificate Manager | Certificate managers can edit certificates and export private-keys |
+| Deployment Creator | Deployment creators can create new deployments and runbook runs. |
+| <span class="nowrap">Environment Manager</span> | Environment managers can view and edit environments and their machines. |
+| Environment Viewer | Environment viewers can view environments and their machines, but not edit them. |
+| Package Publisher | Permits packages to be pushed to the Octopus Server's built-in NuGet feed. |
+| Project Viewer | Project viewers have read-only access to a project. They can see a project in their dashboard, view releases and deployments. Restrict this role by project to limit it to a subset of projects, and restrict it by environment to limit which environments they can view deployments to. |
+| Project Contributor | All project viewer permissions, plus: editing and viewing variables, editing the deployment steps. Project contributors can't create or deploy releases. |
+| Project Initiator | All project viewer permissions, plus: create new projects. |
+| Project Deployer | All project contributor permissions, plus: deploying releases, but not creating them. |
+| Project Lead | All project contributor permissions, plus: creating releases, but not deploying them. |
+| Release Creator | Release creators can create new releases and runbook snapshots. |
+| Runbook Consumer | Runbook consumers can view and execute runbooks. |
+| Runbook Producer | Runbook producers can edit and execute runbooks. |
+| Space Managers | Space managers can do everything within the context of the space they own. |
+| System Administrator | System administrators can do everything at the system level. |
+| System Manager | System managers can do everything at the system level except certain system-level functions reserved for system administrators. |
+| Tenant Manager | Tenant managers can edit tenants and their tags |
 
 We recommend using the built-in roles as much as possible.  When we write migration scripts or upgrade scripts that add additional permissions, we will ensure we update those built-in roles.  Custom roles will be skipped, so we don't accidentally grant permissions.
 
 ## Teams
 
 Octopus Deploy includes four built-in teams:
+
 - Everyone
 - Octopus Administrators
 - Octopus Managers
@@ -83,20 +86,20 @@ Teams can either be a system team, meaning it can be used across all spaces, or 
 Here are some of the more common scenarios we get asked about, along with the associated user roles and scope.  For this example, our instance has four environments, **development**, **test**, **staging**, and **production**.  
 
 - Developers have permissions to deploy to modify the deployment process and variables.  Can deploy to the **development** and **test** environments.
-    - Add `Project Contributor` role to the Developers team, no scoping on environments or projects.
-    - Add `Release Creator` role to the Developers team, no scoping on environments or projects.
-    - Add `Environment Viewer` role to the Developers team, no scoping on environments or projects.
-    - Add `Deployment Creator` role to the Developers team, scope to **development** and **test** environments.
+  - Add `Project Contributor` role to the Developers team, no scoping on environments or projects.
+  - Add `Release Creator` role to the Developers team, no scoping on environments or projects.
+  - Add `Environment Viewer` role to the Developers team, no scoping on environments or projects.
+  - Add `Deployment Creator` role to the Developers team, scope to **development** and **test** environments.
 - QA has permissions to deploy to **test** and **staging**, cannot modify anything in the project.
-    - Add `Deployment Creator` role to the QA team, scope to **test**, and **staging**.
-    - Add `Project Viewer` role to the QA team, no scoping on environment or projects.
+  - Add `Deployment Creator` role to the QA team, scope to **test**, and **staging**.
+  - Add `Project Viewer` role to the QA team, no scoping on environment or projects.
 - Operations has permissions to deploy to **staging** and **production**, cannot modify the deployment process.  They can add accounts, workers, and deployment targets.
-    - Add `Deployment Creator` role to the Operations team, scope to **test**, and **staging**.
-    - Add `Project Viewer` role to the Operations team, no scoping on environment or projects.
-    - Add `Environment Manager` role to the Operations team, no scoping on environment or projects.
+  - Add `Deployment Creator` role to the Operations team, scope to **test**, and **staging**.
+  - Add `Project Viewer` role to the Operations team, no scoping on environment or projects.
+  - Add `Environment Manager` role to the Operations team, no scoping on environment or projects.
 - Project Owners can only approve deployments; they cannot modify or deploy them.
-    - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
-    - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
+  - Add `Project Viewer` role to the Project Owners team, no scoping on environment or projects.
+  - Add `Environment Viewer` role to the Project Owners team, no scoping on environment or projects.
 
 ## Further reading
 

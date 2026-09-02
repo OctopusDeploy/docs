@@ -1,25 +1,10 @@
 ---
-layout: src/layouts/Default.astro
+layout: src/layouts/Redirect.astro
+title: Redirect
+redirect: https://octopus.com/docs/api/examples/releases/promote-release-not-in-destination
 pubDate: 2023-01-01
-modDate: 2023-01-01
-title: Promote a release not in the destination
-description: An example script that will promote a release if it is not in the destination.
+modDate: 2026-09-01
+navSearch: false
+navSitemap: false
+navMenu: false
 ---
-import PromoteReleasesNotInDestination from 'src/shared-content/scripts/promote-releases-not-in-destination.include.md';
-
-This script demonstrates how to programmatically find the latest deployment in each environment and compare releases.  If they don't match then promote the release to the next environment.
-
-## Usage
-
-Provide values for the following:
-
-- Octopus URL
-- Octopus API Key
-- Name of the space to use
-- Comma separated list of projects
-- Source Environment Name
-- Destination Environment Name
-
-## Script
-
-<PromoteReleasesNotInDestination />

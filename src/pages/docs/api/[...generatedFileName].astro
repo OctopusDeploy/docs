@@ -1,0 +1,30 @@
+---
+// [...name].astro allows an astro file to sub in for any subpath of this folder. We use this to
+// route /docs/api/something.md to /docs/api/_generated/something.md so we can keep generated API
+// docs separate from handwritten ones on disk, but have them side-by-side in the built website.
+//
+// Note: handwritten paths win over generated ones. If this becomes a problem in practice we could
+// check for this scenario in getStaticPaths and throw.
+
+import type { MarkdownInstance } from 'astro';
+
+export function getStaticPaths() {
+  const root = '/src/pages/docs/api/_generated/';
+  const pages = import.meta.glob<MarkdownInstance<Record<string, any>>>(
+    '/src/pages/docs/api/_generated/**/*.md',
+    { eager: true }
+  );
+
+  return Object.entries(pages).map(([path, page]) => ({
+    params: { generatedFileName: path.slice(root.length).replace(/\.md$/, '') },
+    props: { page },
+  }));
+}
+
+type Props = { page: MarkdownInstance<Record<string, any>> };
+
+const { page } = Astro.props satisfies Props;
+const { Content } = page;
+---
+
+<Content />

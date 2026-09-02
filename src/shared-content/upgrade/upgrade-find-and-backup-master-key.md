@@ -4,11 +4,10 @@ When connecting an existing Octopus database to a "new" Octopus instance, either
 
 To obtain your existing Master Key from your source Octopus instance, you can simply open Octopus Manager then select "View master key" as shown below:
 
-
 :::figure
-![](/docs/img/upgrade/images/view-master-key.png)
+![The View master key option in the Octopus Manager](/docs/img/upgrade/images/view-master-key.png)
 :::
 
-Alternatively, you may also use the `show-master-key` command via the `Octopus.Server.exe` command-line tool. [You can find more information on this here](https://octopus.com/docs/octopus-rest-api/octopus.server.exe-command-line/show-master-key).
+Alternatively, you may also use the `show-master-key` command via the `Octopus.Server.exe` command-line tool. [You can find more information on this here](https://octopus.com/docs/administration/octopus.server.exe-command-line/show-master-key).
 
 For Octopus Server instances hosted in Linux containers, you may use the `container exec` command [per the instructions here](https://octopus.com/docs/installation/octopus-server-linux-container#upgrading).

@@ -41,12 +41,11 @@ Learn more about [common patterns](/docs/deployments/databases/common-patterns).
 
 ## Databases servers
 
-Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose. 
+Octopus Deploy is database server agnostics; it calls the command-line interface (CLI) of the tool of your choice. The database server you use (SQL Server, Oracle, MySQL, PostgreSQL, etc.), will determine which tool you can choose.
 
 ### SQL Server
 
 If you are deploying to SQL Server, see the [SQL Server section](/docs/deployments/databases/sql-server).
-
 
 ### Oracle
 
@@ -70,7 +69,7 @@ Automating database deployments is often the final piece of a fully automated CI
 - [Automated blue/green database deployments](https://octopus.com/blog/databases-with-blue-green-deployments)
 - [Using ad-hoc scripts in your database deployment automation pipeline](https://octopus.com/blog/database-deployment-automation-adhoc-scripts)
 
-## Learn more 
+## Learn more
 
 - [Manage database maintenance with runbooks](/docs/runbooks/runbook-examples/databases)
 - [Database blog posts](https://octopus.com/blog/tag/database-deployments/1)

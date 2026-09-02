@@ -1,0 +1,53 @@
+---
+import type { Area } from '@lib/areas';
+
+// The nav for the docs area
+import Navigation from '@components/Navigation.astro';
+// The nav for the API reference
+import ApiNavigation from './ApiNavigation.astro';
+// The nav for the CLI reference
+import CliNavigation from './CliNavigation.astro';
+
+// The area's nav, picked by area rather than by layout, so a page can be laid
+// out one way and navigated another. Every layout renders this and none of them
+// names a nav component.
+//
+// Adding an area means adding a line at the bottom of this file, and the rest
+// of the checklist is in lib/areas.ts - this is step 3 of four.
+type Props = {
+  area: Area;
+  lang: string;
+  // The API nav lists the current page's endpoints under it, and reads both of
+  // these to do it. A layout that shows this page's headings elsewhere — the
+  // table of contents in the side column — leaves them off, and the nav is
+  // then the flat page list on its own.
+  headings?: { depth: number; slug: string; text: string }[];
+  apiMethods?: { text: string; method: string | null }[] | null;
+};
+const { area, lang, headings, apiMethods } = Astro.props satisfies Props;
+---
+
+{
+  /* One line per area, each handed only the props its own nav takes. An area
+  with no line here renders no nav at all, which is louder than quietly showing
+  it the wrong one. */
+}
+{area === 'docs' && <Navigation lang={lang} />}
+{
+  area === 'api' && (
+    <ApiNavigation lang={lang} headings={headings} apiMethods={apiMethods} />
+  )
+}
+{area === 'cli' && <CliNavigation lang={lang} />}
+{
+  /* Ensure the active element is always visible when the page loads in the area navigation */
+}
+<script is:inline>
+  (() => {
+    const active = document
+      .querySelector('[data-site-nav-scroll]')
+      ?.querySelector('[aria-current="page"]');
+
+    active?.scrollIntoView({ block: 'center' });
+  })();
+</script>
