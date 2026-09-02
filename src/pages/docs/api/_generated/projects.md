@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-02
 title: Projects
 ---
 
@@ -234,7 +234,8 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 - **`IncludedLibraryVariableSetIds`** :span[array of string]{.type-label}  
   Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
 - **`IsDisabled`** :span[boolean]{.type-label}
-- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`LifecycleId`** :span[string]{.type-label}  
+  Required for non-templated projects. Templated projects source their lifecycle from the project template.
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`PersistenceSettings`** :span[object]{.type-label}
@@ -1040,7 +1041,8 @@ Also reachable at `/api/projects/{projectId}`, `/api/spaces/{spaceIdentifier}/pr
   Library variable sets included in the project. Sets are listed in order of precedence, with earlier items in the list overriding any variables with the same name and scope definition appearing later in the list.
 - **`IsBadgesEnabled`** :span[boolean]{.type-label}
 - **`IsDisabled`** :span[boolean]{.type-label}
-- **`LifecycleId`** :span[string]{.type-label} *(required)*
+- **`LifecycleId`** :span[string]{.type-label}  
+  Required for non-templated projects. Templated projects source their lifecycle from the project template.
 - **`Name`** :span[string]{.type-label} *(required)*  
   Minimum length 1.
 - **`PersistenceSettings`** :span[object]{.type-label}
