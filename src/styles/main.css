@@ -84,7 +84,9 @@ hr {
 }
 
 .page-content :where(a) {
-  color: var(--octo-blue);
+  color: var(--colorScalesBlue500);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .page-content :where(a:hover, a:focus) {
