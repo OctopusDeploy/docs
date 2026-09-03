@@ -109,9 +109,6 @@ blockquote cite {
 }
 
 code {
-  border-radius: var(--borderRadiusSmall);
-  border: var(--borderWidth1) solid var(--colorBorderPrimary);
-  background: var(--colorBackgroundSecondaryDefault);
   white-space: pre-wrap;
   overflow-wrap: break-word;
   padding: 0 var(--space4);
