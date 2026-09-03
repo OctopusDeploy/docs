@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-05-21
-modDate: 2026-07-20
+modDate: 2026-09-02
 title: Connection Agent
 navOrder: 67
 description: How to set up and manage a Connection Agent to connect your Octopus Cloud instance to privately hosted internal applications
@@ -64,7 +64,7 @@ By default, you can register up to 5 Connection Agents per instance. [Contact ou
     **IMPORTANT - Protect your Private Key:** The generated `.pem` file is your private key and must be kept secret. It lets Connection Agent authenticate and proxy requests from Octopus Cloud. If the private key is compromised, immediately [rotate your private key](#rotate-the-agents-key).
     :::
 
-1. [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) with a short expiry date on your Octopus Cloud instance. This API key will only be used to register the Connection Agent.
+1. [Create an API key](https://octopus.com/docs/api/authentication/create-an-api-key) with a short expiry date on your Octopus Cloud instance. This API key will only be used to register the Connection Agent, and must have `ConfigureServer` permission (the same permission required for all Connection Agent actions - see [Prerequisites](#prerequisites)).
 
 1. Register the Connection Agent with your Octopus Cloud instance. This command doesn't need to be run on the same infrastructure you intend to run the Connection Agent on.
   
