@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Build Information
 ---
 
-## Retrieve a list of build information records describing the vcs information for a given package
+## List build information for a package
 
 :endpoint{method="GET" path="/api/\{spaceId\}/build-information"}
 
 Also reachable at `/api/build-information`, `/api/spaces/{spaceIdentifier}/build-information`.
+
+Retrieve a list of build information records describing the vcs information for a given package
 
 **Path Parameters**
 

@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Lifecycles
 ---
 
-## List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name
+## List Lifecycles
 
 :endpoint{method="GET" path="/api/\{spaceId\}/lifecycles"}
 
 Also reachable at `/api/lifecycles`, `/api/spaces/{spaceIdentifier}/lifecycles`.
+
+List the Lifecycles in the supplied Octopus Deploy Space in pages. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 

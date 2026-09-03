@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Tasks
 ---
 
@@ -358,11 +358,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks`, `/api/tasks`.
 ```
 :::
 
-## Create a new task and execute it, using a given task as the input. Note that deployment tasks cannot be re-run
+## Create a new task and execute it, using a given task as the input
 
 :endpoint{method="POST" path="/api/\{spaceId\}/tasks/rerun/\{id\}"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/rerun/{id}`, `/api/tasks/rerun/{id}`.
+
+Note that deployment tasks cannot be re-run.
 
 **Path Parameters**
 
@@ -1130,11 +1132,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/queued-behind`, `/ap
 ```
 :::
 
-## Get the full task log of a given resource as plain text. Useful when the log needs to be rendered to a console or sent as an email attachment
+## Get the full task log of a given resource as plain text
 
 :endpoint{method="GET" path="/api/\{spaceId\}/tasks/\{id\}/raw"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/tasks/{id}/raw`, `/api/tasks/{id}/raw`.
+
+Useful when the log needs to be rendered to a console or sent as an email attachment
 
 **Path Parameters**
 

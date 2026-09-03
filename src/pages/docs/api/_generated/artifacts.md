@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Artifacts
 ---
 
-## List all of the artifacts in the supplied Octopus Deploy Space, from all releases. The results will be sorted by date from most recently to least recently created
+## List artifacts
 
 :endpoint{method="GET" path="/api/\{spaceId\}/artifacts"}
 
 Also reachable at `/api/artifacts`, `/api/spaces/{spaceIdentifier}/artifacts`.
+
+Lists all of the artifacts in the supplied Octopus Deploy Space, from all releases. The results will be sorted by date from most recently to least recently created.
 
 **Path Parameters**
 
@@ -323,11 +325,13 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
 
 `200` — Success
 
-## Get the content associated with an artifact
+## Download artifact content
 
 :endpoint{method="GET" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 
 Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/artifacts/{id}/content`.
+
+Get the content associated with an artifact
 
 **Path Parameters**
 
@@ -346,7 +350,7 @@ Also reachable at `/api/artifacts/{id}/content`, `/api/spaces/{spaceIdentifier}/
 ```
 :::
 
-## PUT /api/{spaceId}/artifacts/{id}/content
+## Upload artifact content
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/artifacts/\{id\}/content"}
 
