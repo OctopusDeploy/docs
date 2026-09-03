@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Action Templates
 ---
 
@@ -660,13 +660,13 @@ Also reachable at `/api/actiontemplates/categories`, `/api/spaces/{spaceIdentifi
 ```
 :::
 
-## List all available action templates including built-in, custom and community contributed step templates
+## List all available action templates
 
 :endpoint{method="GET" path="/api/\{spaceId\}/actiontemplates/search"}
 
 Also reachable at `/api/actiontemplates/search`, `/api/spaces/{spaceIdentifier}/actiontemplates/search`.
 
-Lists all of the Action Templates in the supplied Octopus Deploy Space that fit the search criteria.
+Lists all the Action Templates in the supplied Octopus Deploy Space that fit the search criteria. Includes built-in, custom and community contributed step templates.
 
 **Path Parameters**
 
@@ -1593,12 +1593,14 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="POST" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifier}/actiontemplates/{id}/logo`.
 
+Updates the logo associated with the latest version of the action template.
+
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
@@ -1616,10 +1618,12 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/actiontemplates/\{id\}/logo"}
 
+Updates the logo associated with the latest version of the action template.
+
 **Path Parameters**
 
 - **`id`** :span[string]{.type-label} *(required)*  
@@ -1637,11 +1641,13 @@ Also reachable at `/api/actiontemplates/{id}/logo`, `/api/spaces/{spaceIdentifie
 ```
 :::
 
-## Update the logo associated with the latest version of the action template
+## Update the action template logo
 
 :endpoint{method="PUT" path="/api/spaces/\{spaceIdentifier\}/actiontemplates/\{id\}/logo"}
 
 Also reachable at `/api/actiontemplates/{id}/logo`.
+
+Updates the logo associated with the latest version of the action template.
 
 **Path Parameters**
 

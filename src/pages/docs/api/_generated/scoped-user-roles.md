@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Scoped User Roles
 ---
 
-## List the name and ID of all of the scoped user roles in the supplied Octopus Deploy Space. The results will be sorted by name
+## List Scoped User Roles
 
 :endpoint{method="GET" path="/api/\{spaceId\}/scopeduserroles"}
 
 Also reachable at `/api/scopeduserroles`, `/api/spaces/{spaceIdentifier}/scopeduserroles`.
+
+List the name and ID of all of the scoped user roles in the supplied Octopus Deploy Space. The results will be sorted by name.
 
 **Path Parameters**
 

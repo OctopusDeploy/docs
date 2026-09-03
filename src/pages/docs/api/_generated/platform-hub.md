@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-27
+modDate: 2026-09-03
 title: Platform Hub
 ---
 
@@ -2686,9 +2686,11 @@ Gets a set of GitHub App connections for the Platform Hub.
 ```
 :::
 
-## Get a list of GitHub organisations accessible to the current GitHub OAuth user. Request will fail if the user does not have a valid GitHub OAuth token
+## Get a list of GitHub organisations accessible to the current GitHub OAuth user
 
 :endpoint{method="GET" path="/api/platformhub/github/installations"}
+
+Request will fail if the user does not have a valid GitHub OAuth token.
 
 **Query Parameters**
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Interruptions
 ---
 
@@ -283,11 +283,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 
 `200` — OK
 
-## Allow the current user to take responsibility for this interruption. Only users in one of the responsible teams on this interruption can take responsibility for it
+## Allow the current user to take responsibility for this interruption
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/interruptions/\{id\}/responsible"}
 
 Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/responsible`.
+
+Only users in one of the responsible teams on this interruption can take responsibility for it.
 
 **Path Parameters**
 
@@ -363,11 +365,13 @@ Also reachable at `/api/interruptions/{id}/responsible`, `/api/spaces/{spaceIden
 ```
 :::
 
-## Submit a dictionary of form values for the interruption. Only the user with responsibility for this interruption can submit this form
+## Submit a dictionary of form values for the interruption
 
 :endpoint{method="POST" path="/api/\{spaceId\}/interruptions/\{id\}/submit"}
 
 Also reachable at `/api/interruptions/{id}/submit`, `/api/spaces/{spaceIdentifier}/interruptions/{id}/submit`.
+
+Only the user with responsibility for this interruption can submit this form.
 
 **Path Parameters**
 

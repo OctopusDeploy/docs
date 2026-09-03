@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Library Variable Sets
 ---
 
-## List all of the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Library Variable Sets
 
 :endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets"}
 
 Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/libraryvariablesets`.
+
+List all the library variable sets in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -240,7 +242,7 @@ Also reachable at `/api/libraryvariablesets`, `/api/spaces/{spaceIdentifier}/lib
 ```
 :::
 
-## Get a list of Library Variable Sets
+## Get a list of Library Variable Sets (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/all"}
 
@@ -326,7 +328,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 ```
 :::
 
-## Get a list of Library Variable Sets
+## Get a list of Library Variable Sets (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/libraryvariablesets/all/v1"}
 
@@ -402,7 +404,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 ```
 :::
 
-## Get a list of Library Variable Sets
+## Get a list of Library Variable Sets (unpaginated)
 
 :endpoint{method="POST" path="/api/\{spaceId\}/libraryvariablesets/all/v1"}
 
@@ -476,7 +478,7 @@ Lists all the Library Variable Sets in the supplied Space. The results will be s
 ```
 :::
 
-## Get a list of Library Variable Sets
+## Get a list of Library Variable Sets (unpaginated)
 
 :endpoint{method="POST" path="/api/spaces/\{spaceIdentifier\}/libraryvariablesets/all/v1"}
 

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-27
+modDate: 2026-09-03
 title: Environments
 ---
 
@@ -395,7 +395,7 @@ Lists the name and ID of all of the environments in the supplied Space. The resu
 ```
 :::
 
-## PUT /api/{spaceId}/environments/sortorder
+## Set Environment sort order
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/environments/sortorder"}
 
@@ -806,11 +806,13 @@ Lists all of the environments in the supplied Octopus Deploy Space. The results 
 ```
 :::
 
-## List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments)
+## List environments including Ephemeral
 
 :endpoint{method="GET" path="/api/\{spaceId\}/environments/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/environments/v2`.
+
+List Static, Parent and Ephemeral Environments in the supplied Octopus Deploy Space. The results will be sorted by the `SortOrder` field on each environment (which is set to a MaxValue integer for Ephemeral Environments).
 
 **Path Parameters**
 

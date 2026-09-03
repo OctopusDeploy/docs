@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Tag Sets
 ---
 
@@ -343,7 +343,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
 ```
 :::
 
-## PUT /api/{spaceId}/tagsets/sortorder
+## Set TagSet sort order
 
 :endpoint{method="PUT" path="/api/\{spaceId\}/tagsets/sortorder"}
 

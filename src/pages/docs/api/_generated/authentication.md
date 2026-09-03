@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Authentication
 ---
 
@@ -81,9 +81,11 @@ Provides the details of the enabled authentication providers.
 ```
 :::
 
-## Determine whether an external server (.e.g Okta) has initiated login from a URL query string and, if so, get the provider's name
+## Check if an external server has initiated login
 
 :endpoint{method="POST" path="/api/authentication/checklogininitiated"}
+
+Determine whether an external server (.e.g Okta) has initiated login from a URL query string and, if so, get the provider's name
 
 **Request Body**
 

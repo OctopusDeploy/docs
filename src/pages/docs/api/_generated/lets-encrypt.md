@@ -1,9 +1,11 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Lets Encrypt
 ---
+
+To configure the Let's Encrypt integration, see https://octopus.com/docs/security/exposing-octopus/lets-encrypt-integration
 
 ## Request the current Let's Encrypt configuration
 
@@ -56,9 +58,11 @@ title: Lets Encrypt
 ```
 :::
 
-## Allow you to disable the Let's Encrypt configuration for this Octopus Server
+## Disable Let's Encrypt
 
 :endpoint{method="PUT" path="/api/letsencryptconfiguration"}
+
+To re-enable Let's Encrypt you must go through the configuration process again. If the integration is enabled, set `Enabled: false` to disable it. If you set `Enabled: true` when it is already enabled, or `Enabled: false` when it is already disabled, no changes occur. If you set `Enabled: true` when the integration is disabled, an error is returned.
 
 **Request Body**
 

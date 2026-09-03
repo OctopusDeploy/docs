@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Workers
 ---
 
-## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Workers
 
 :endpoint{method="GET" path="/api/\{spaceId\}/workers"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers`, `/api/workers`.
+
+List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -576,11 +578,13 @@ Also reachable at `/api/spaces/{spaceIdentifier}/workers/operatingsystem/shells/
 ```
 :::
 
-## List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Workers
 
 :endpoint{method="GET" path="/api/\{spaceId\}/workers/v2"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/workers/v2`, `/api/workers/v2`.
+
+List all of the registered worker machines in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 

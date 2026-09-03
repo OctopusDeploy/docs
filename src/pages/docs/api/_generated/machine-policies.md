@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-20
+modDate: 2026-09-03
 title: Machine Policies
 ---
 
-## Get a paginated list of the Machine Policies in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Machine Policies
 
 :endpoint{method="GET" path="/api/\{spaceId\}/machinepolicies"}
 
 Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machinepolicies`.
+
+Get a paginated list of the Machine Policies in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 

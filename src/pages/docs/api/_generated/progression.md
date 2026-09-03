@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Progression
 ---
 
-## Return a list of runbook dashboard items, filtered by various criteria including projectIds, environmentIds, tenantIds, tenantTags, runbookIds, runbookTags, taskIds
+## List Runbook Dashboard Items
 
 :endpoint{method="GET" path="/api/\{spaceId\}/progression/runbooks/taskRuns"}
 
 Also reachable at `/api/progression/runbooks/taskRuns`, `/api/spaces/{spaceIdentifier}/progression/runbooks/taskRuns`.
+
+Return a list of runbook dashboard items, filtered by various criteria including projectIds, environmentIds, tenantIds, tenantTags, runbookIds, runbookTags, taskIds
 
 **Path Parameters**
 
