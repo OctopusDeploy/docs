@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Project Groups
 ---
 
-## Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Project Groups
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projectgroups"}
 
 Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgroups`.
+
+Get a paginated list of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -182,11 +184,13 @@ Also reachable at `/api/projectgroups`, `/api/spaces/{spaceIdentifier}/projectgr
 ```
 :::
 
-## List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name
+## List Project Groups (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projectgroups/all"}
 
 Also reachable at `/api/projectgroups/all`, `/api/spaces/{spaceIdentifier}/projectgroups/all`.
+
+List the name and ID of all of the Project Groups in the supplied Octopus Deploy Space. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 

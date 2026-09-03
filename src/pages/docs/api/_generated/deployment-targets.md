@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Deployment Targets
 ---
 
-## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results will be sorted alphabetically by name
+## List machines
 
 :endpoint{method="GET" path="/api/\{spaceId\}/machines"}
 
 Also reachable at `/api/machines`, `/api/spaces/{spaceIdentifier}/machines`.
+
+List all the registered machines in the supplied Octopus Deploy Space, from all environments. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -756,11 +758,13 @@ Also reachable at `/api/machines/operatingsystem/shells/all`, `/api/spaces/{spac
 ```
 :::
 
-## List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name
+## List machines sorted by health status
 
 :endpoint{method="GET" path="/api/\{spaceId\}/machines/v2"}
 
 Also reachable at `/api/machines/v2`, `/api/spaces/{spaceIdentifier}/machines/v2`.
+
+List all of the registered machines in the supplied Octopus Deploy Space, from all environments. The results are sorted by health status, healthiest first, then alphabetically by name.
 
 **Path Parameters**
 

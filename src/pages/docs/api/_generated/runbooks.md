@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Runbooks
 ---
 
-## Retrieve a list of Runbooks that will be converted to Git, along with how many RunbookRun History records will be updated
+## List Runbooks that will be converted to Git
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projects/\{projectId\}/git/migrate-runbooks"}
 
 Also reachable at `/api/spaces/{spaceIdentifier}/projects/{projectId}/git/migrate-runbooks`.
+
+Retrieve a list of Runbooks that will be converted to Git, along with how many RunbookRun History records will be updated.
 
 **Path Parameters**
 

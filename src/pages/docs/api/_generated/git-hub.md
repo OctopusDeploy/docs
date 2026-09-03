@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Git Hub
 ---
 
@@ -492,9 +492,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 
 `200` — OK
 
-## Get the GitHub repositories for an installation visible to the current user https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
+## Get the GitHub repositories for an installation visible to the current user
 
 :endpoint{method="GET" path="/api/github/installations/\{installationId\}/repositories"}
+
+https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-user-access-token
 
 **Path Parameters**
 
@@ -550,9 +552,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 ```
 :::
 
-## Reset the GitHub app registration for this Octopus instance. This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub
+## Reset the GitHub app registration for this Octopus instance
 
 :endpoint{method="POST" path="/api/github/reset-registration"}
+
+This is a destructive command and will break all existing GitHub app connections across the instance. This should only be used as a last resort to recover connectivity with GitHub.
 
 **Response**
 
@@ -564,9 +568,11 @@ Also reachable at `/api/spaces/{spaceIdentifier}/github/installations`.
 ```
 :::
 
-## Search for GitHub repositories for an account visible to the current user https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
+## Search for GitHub repositories for an account visible to the current user
 
 :endpoint{method="GET" path="/api/github/search/\{accountName\}/repositories"}
+
+https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
 
 **Path Parameters**
 

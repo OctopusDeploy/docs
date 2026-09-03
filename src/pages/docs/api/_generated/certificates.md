@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Certificates
 ---
 
@@ -384,7 +384,7 @@ Adds a new certificate
 ```
 :::
 
-## Get a list of Certificates
+## List all Certificates (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/all"}
 
@@ -869,13 +869,13 @@ Also reachable at `/api/certificates/generate`, `/api/spaces/{spaceIdentifier}/c
 ```
 :::
 
-## List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived
+## List Certificates
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/v2"}
 
 Also reachable at `/api/certificates/v2`, `/api/spaces/{spaceIdentifier}/certificates/v2`.
 
-Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
+List the X.509 certificates in the supplied Octopus Deploy Space in pages. Current certificates are sorted by soonest expiry first unless OrderBy says otherwise; archived certificates are always sorted by most recently archived. Skip and Take are required. TotalResults is always the real count of matching certificates, including when Tenant or FirstResult is supplied. Certificate data and passwords are never returned by this endpoint.
 
 **Path Parameters**
 
@@ -1681,13 +1681,11 @@ Also reachable at `/api/certificates/{id}/unarchive/v1`, `/api/spaces/{spaceIden
 ```
 :::
 
-## GET /api/{spaceId}/certificates/{id}/usages
+## Get the usages of a certificate
 
 :endpoint{method="GET" path="/api/\{spaceId\}/certificates/\{id\}/usages"}
 
 Also reachable at `/api/certificates/{id}/usages`, `/api/spaces/{spaceIdentifier}/certificates/{id}/usages`.
-
-Get the usages of a certificate
 
 **Path Parameters**
 

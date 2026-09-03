@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Users
 ---
 
@@ -615,9 +615,11 @@ Logs out the current user.
 ```
 :::
 
-## Register a new user and responds with an authentication cookie. Unless the first administrator user is being registered, an invitation code must be provided
+## Register a new user and responds with an authentication cookie
 
 :endpoint{method="POST" path="/api/users/register"}
+
+Unless the first administrator user is being registered, an invitation code must be provided.
 
 **Request Body**
 

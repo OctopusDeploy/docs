@@ -1,15 +1,17 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-02
+modDate: 2026-09-03
 title: Projects
 ---
 
-## List all of the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name
+## List Projects
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projects"}
 
 Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
+
+List all the projects in the supplied Octopus Deploy Space, from all project groups. The results will be sorted alphabetically by name.
 
 **Path Parameters**
 
@@ -558,11 +560,13 @@ Also reachable at `/api/projects`, `/api/spaces/{spaceIdentifier}/projects`.
 ```
 :::
 
-## List all of the projects in the supplied Octopus Deploy Space
+## List Projects (unpaginated)
 
 :endpoint{method="GET" path="/api/\{spaceId\}/projects/all"}
 
 Also reachable at `/api/projects/all`, `/api/spaces/{spaceIdentifier}/projects/all`.
+
+List all of the projects in the supplied Octopus Deploy Space.
 
 **Path Parameters**
 

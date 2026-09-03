@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-03
 title: Insights
 ---
 
@@ -462,7 +462,7 @@ Creates a new Insights Report.
 ```
 :::
 
-## GET /api/{spaceId}/insights/reports/{id}
+## Get an Insights Report by ID
 
 :endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{id\}"}
 
@@ -749,7 +749,7 @@ Deletes an existing Insights Report.
 
 `200` — Success
 
-## GET /api/{spaceId}/insights/reports/{id}/v1
+## Get an Insights Report by ID
 
 :endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{id\}/v1"}
 
@@ -1095,7 +1095,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/insights/reports/{reportId}/dep
 ```
 :::
 
-## GET /api/{spaceId}/insights/reports/{reportId}/logo
+## Get the logo for an Insights Report
 
 :endpoint{method="GET" path="/api/\{spaceId\}/insights/reports/\{reportId\}/logo"}
 
