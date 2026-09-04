@@ -1,10 +1,10 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-17
-modDate: 2026-08-17
+modDate: 2026-09-04
 title: Octopus Remote MCP use cases
 navTitle: Use cases
-description: Explore how Octopus Remote MCP helps teams track releases, diagnose failures, automate deployments, audit changes, and manage tenants.
+description: Explore how Octopus Remote MCP helps teams track releases, diagnose failures, automate deployments, source packages, audit changes, and manage tenants.
 navOrder: 2
 ---
 
@@ -44,6 +44,17 @@ Example prompts:
 - "Run the Restart payment workers runbook in Production."
 
 Operations that make changes run with the permissions of the API key used to connect the assistant. Use a dedicated [Agent Service Account](/docs/security/users-and-teams/service-accounts#agent-service-accounts) and grant it only the permissions it needs.
+
+## Package sourcing
+
+Package sourcing reveals how a feed is configured, including the registry or source it points at, and which versions of a package are available. Your assistant can confirm where a package comes from and pick a version a channel's rules will accept, without opening each feed by hand.
+
+Example prompts:
+
+- "Which registry does the worker-tools feed point at? I need Renovate to compare container versions against the right source."
+- "How is the Docker Hub feed configured, and what registry path does it use?"
+- "List the available versions of the Payments API package in the Releases feed."
+- "What's the latest version of the Payments API package the 2.x channel will accept?"
 
 ## Operational oversight
 
