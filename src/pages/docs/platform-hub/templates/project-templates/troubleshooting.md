@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-03-05
-modDate: 2026-05-28
+modDate: 2026-09-03
 title: Troubleshooting
 subtitle: Known issues and limitations for project templates
 icon: fa-solid fa-layer-group
@@ -62,7 +62,7 @@ You can't clone a project template through the Octopus UI. To clone a template:
 
 ## Public API
 
-The Alpha release doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
+The Public Preview doesn't support creating and managing project templates through the REST API. We're planning REST API support for a future release.
 
 ## Losing access to an Octopus Enterprise license
 
