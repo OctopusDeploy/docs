@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Machine Policies
 ---
 
@@ -35,7 +35,8 @@ Get a paginated list of the Machine Policies in the supplied Octopus Deploy Spac
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ConnectionConnectTimeout`** :span[string]{.type-label}  
     Format `date-span`.
@@ -79,7 +80,7 @@ Get a paginated list of the Machine Policies in the supplied Octopus Deploy Spac
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "MachinePolicy",
   "Items": [
     {
       "ConnectionConnectTimeout": "string",
@@ -92,9 +93,7 @@ Get a paginated list of the Machine Policies in the supplied Octopus Deploy Spac
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachineCleanupPolicy": {
         "DeleteMachinesBehavior": "DoNotDelete",
@@ -134,17 +133,15 @@ Get a paginated list of the Machine Policies in the supplied Octopus Deploy Spac
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -350,9 +347,7 @@ Also reachable at `/api/machinepolicies`, `/api/spaces/{spaceIdentifier}/machine
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
@@ -490,9 +485,7 @@ Also reachable at `/api/machinepolicies/all`, `/api/spaces/{spaceIdentifier}/mac
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "MachineCleanupPolicy": {
       "DeleteMachinesBehavior": "DoNotDelete",
@@ -630,9 +623,7 @@ Also reachable at `/api/machinepolicies/template`, `/api/spaces/{spaceIdentifier
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
@@ -772,9 +763,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
@@ -1030,9 +1019,7 @@ Also reachable at `/api/machinepolicies/{id}`, `/api/spaces/{spaceIdentifier}/ma
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "MachineCleanupPolicy": {
     "DeleteMachinesBehavior": "DoNotDelete",
@@ -1123,7 +1110,8 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -1173,7 +1161,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Machine",
   "Items": [
     {
       "Architecture": "string",
@@ -1182,7 +1170,9 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "EnvironmentIds": [
         "Environments-1",
@@ -1196,9 +1186,7 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -1225,17 +1213,15 @@ Also reachable at `/api/machinepolicies/{id}/machines`, `/api/spaces/{spaceIdent
       "Uri": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1289,7 +1275,8 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Architecture`** :span[string]{.type-label}
   - **`Endpoint`** :span[object]{.type-label}
@@ -1334,7 +1321,7 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Worker",
   "Items": [
     {
       "Architecture": "string",
@@ -1343,7 +1330,9 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "HasLatestCalamari": false,
       "HealthStatus": "Healthy",
@@ -1353,9 +1342,7 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "MachinePolicyId": "string",
       "Name": "string",
@@ -1375,17 +1362,15 @@ Also reachable at `/api/machinepolicies/{id}/workers`, `/api/spaces/{spaceIdenti
       ]
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

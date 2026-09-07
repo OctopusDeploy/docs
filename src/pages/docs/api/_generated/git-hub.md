@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Git Hub
 ---
 
@@ -513,7 +513,8 @@ https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-re
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`DefaultBranch`** :span[string]{.type-label}
   - **`GitUrl`** :span[string]{.type-label}
@@ -531,7 +532,7 @@ https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-re
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitHubRepositoryResponse",
   "Items": [
     {
       "DefaultBranch": "string",
@@ -544,10 +545,10 @@ https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-re
       "Visibility": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -590,7 +591,8 @@ https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repos
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`DefaultBranch`** :span[string]{.type-label}
   - **`GitUrl`** :span[string]{.type-label}
@@ -608,7 +610,7 @@ https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repos
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "GitHubRepositoryResponse",
   "Items": [
     {
       "DefaultBranch": "string",
@@ -621,10 +623,10 @@ https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repos
       "Visibility": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

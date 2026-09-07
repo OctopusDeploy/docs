@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Artifacts
 ---
 
@@ -39,7 +39,8 @@ Lists all of the artifacts in the supplied Octopus Deploy Space, from all releas
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Created`** :span[string]{.type-label}  
     Gets or sets the time at which the artifact was created. Format `date-time`.
@@ -75,7 +76,7 @@ Lists all of the artifacts in the supplied Octopus Deploy Space, from all releas
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Artifact",
   "Items": [
     {
       "Created": "2020-01-01T00:00:00.000Z",
@@ -84,9 +85,7 @@ Lists all of the artifacts in the supplied Octopus Deploy Space, from all releas
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
       "ServerTaskId": "string",
@@ -94,17 +93,15 @@ Lists all of the artifacts in the supplied Octopus Deploy Space, from all releas
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -180,9 +177,7 @@ Creates a new artifact.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
@@ -238,9 +233,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",
@@ -296,9 +289,7 @@ Also reachable at `/api/artifacts/{id}`, `/api/spaces/{spaceIdentifier}/artifact
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "LogCorrelationId": "0c5a872485ac4b10857939a92d082e67",
   "ServerTaskId": "string",

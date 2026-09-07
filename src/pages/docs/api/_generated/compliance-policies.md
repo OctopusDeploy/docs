@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Compliance Policies
 ---
 
@@ -88,7 +88,8 @@ title: Compliance Policies
 
 `200` — Success
 
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}
   - **`GitCommit`** :span[string]{.type-label}
@@ -120,7 +121,7 @@ title: Compliance Policies
 :::api-example{label="Response"}
 ```json
 {
-  "ItemType": "string",
+  "ItemType": "CompliancePolicyVersion",
   "Items": [
     {
       "Description": "string",
@@ -138,10 +139,10 @@ title: Compliance Policies
       "ViolationReason": "string"
     }
   ],
-  "ItemsPerPage": 0,
-  "LastPageNumber": 0,
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "ItemsPerPage": 30,
+  "LastPageNumber": 1,
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::

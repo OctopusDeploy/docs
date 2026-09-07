@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Api Keys
 ---
 
@@ -33,7 +33,8 @@ Lists all API keys for a user, returning the most recent results first.
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AccessLevel`** :span[enum]{.type-label}  
     The access level this API key grants.  
@@ -75,7 +76,7 @@ Lists all API keys for a user, returning the most recent results first.
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ApiKey",
   "Items": [
     {
       "AccessLevel": "FullAccess",
@@ -93,25 +94,21 @@ Lists all API keys for a user, returning the most recent results first.
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LastUsedTimeStamp": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Purpose": "string",
       "UserId": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -190,9 +187,7 @@ The API Key returned in the result must be saved by the caller, as it cannot be 
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUsedTimeStamp": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Purpose": "string",
   "UserId": "string"
@@ -229,7 +224,8 @@ Lists all API keys for a user, returning the most recent results first.
 - **`ApiKeys`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
     Gets or sets a unique identifier for this resource.
-  - **`ItemType`** :span[string]{.type-label}
+  - **`ItemType`** :span[string]{.type-label}  
+    The type of item in this list.
   - **`Items`** :span[array of object]{.type-label}
   - **`ItemsPerPage`** :span[integer]{.type-label}
   - **`LastModifiedBy`** :span[string]{.type-label}  
@@ -247,7 +243,7 @@ Lists all API keys for a user, returning the most recent results first.
 {
   "ApiKeys": {
     "Id": "string",
-    "ItemType": "string",
+    "ItemType": "ApiKey",
     "Items": [
       {
         "AccessLevel": "FullAccess",
@@ -260,22 +256,22 @@ Lists all API keys for a user, returning the most recent results first.
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LastUsedTimeStamp": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Purpose": "string",
         "UserId": "string"
       }
     ],
-    "ItemsPerPage": 0,
+    "ItemsPerPage": 30,
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-    "LastPageNumber": 0,
+    "LastPageNumber": 1,
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
-    "NumberOfPages": 0,
-    "TotalResults": 0
+    "NumberOfPages": 2,
+    "TotalResults": 42
   }
 }
 ```
@@ -343,9 +339,7 @@ Lists all API keys for a user, returning the most recent results first.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LastUsedTimeStamp": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Purpose": "string",
   "UserId": "string"

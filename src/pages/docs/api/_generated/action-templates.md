@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Action Templates
 ---
 
@@ -77,7 +77,8 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`ActionType`** :span[string]{.type-label}  
     Minimum length 1.
@@ -114,7 +115,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ActionTemplate",
   "Items": [
     {
       "ActionType": "string",
@@ -127,9 +128,7 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Packages": [
@@ -147,17 +146,15 @@ Lists all of the Action Templates in the supplied Octopus Deploy Space. The resu
       "Version": 0
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -404,9 +401,7 @@ Also reachable at `/api/actiontemplates`, `/api/spaces/{spaceIdentifier}/actiont
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -572,9 +567,7 @@ Lists the all of the action templates in the supplied Octopus Deploy Space. The 
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -828,9 +821,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -1136,9 +1127,7 @@ Also reachable at `/api/actiontemplates/{id}`, `/api/spaces/{spaceIdentifier}/ac
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
@@ -1745,9 +1734,7 @@ Gets a list of all steps/deployment processes that use a given action template.
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "ProcessId": "string",
     "ProcessType": "Deployment",
@@ -1829,9 +1816,7 @@ Also reachable at `/api/actiontemplates/{id}/v1`, `/api/spaces/{spaceIdentifier}
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -1974,9 +1959,7 @@ Also reachable at `/api/actiontemplates/{id}/versions`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Packages": [
@@ -2120,9 +2103,7 @@ Also reachable at `/api/actiontemplates/{id}/versions/{version}`, `/api/spaces/{
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Packages": [
