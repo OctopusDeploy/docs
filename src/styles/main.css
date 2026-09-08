@@ -84,11 +84,13 @@ hr {
 }
 
 .page-content :where(a) {
-  color: var(--octo-blue);
+  color: var(--colorScalesBlue500);
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .page-content :where(a:hover, a:focus) {
-  color: var(--body-link-color);
+  color: var(--colorScalesBlue600);
 }
 
 /* The tinted card is the callout's shape. Almost every `>` in the docs holds
