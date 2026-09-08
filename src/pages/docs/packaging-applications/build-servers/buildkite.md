@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2026-08-29
-modDate: 2026-08-29
+modDate: 2026-09-08
 title: Buildkite
 description: Buildkite pipelines can create releases in Octopus Deploy, authenticating with OpenID Connect so no API key is stored in the pipeline.
 navOrder: 45
@@ -40,7 +40,7 @@ Anything that sets these before your Octopus steps run will work, whether that i
 
 ### OpenID Connect
 
-Using [OpenID Connect](/docs/octopus-rest-api/openid-connect) means no Octopus API key is stored in Buildkite. Buildkite issues a signed token describing the running job, Octopus validates it, and returns an access token that is valid for one hour.
+Using [OpenID Connect](/docs/api/authentication/openid-connect) means no Octopus API key is stored in Buildkite. Buildkite issues a signed token describing the running job, Octopus validates it, and returns an access token that is valid for one hour.
 
 :::div{.hint}
 OpenID Connect can only be used with [service accounts](/docs/security/users-and-teams/service-accounts), not user accounts.
@@ -154,6 +154,6 @@ There is no Buildkite plugin for pushing [build information](/docs/packaging-app
 ## Learn more
 
 - [Octopus CLI](/docs/octopus-rest-api/cli)
-- [Using OpenID Connect with the Octopus API](/docs/octopus-rest-api/openid-connect)
-- [Using OpenID Connect with other issuers](/docs/octopus-rest-api/openid-connect/other-issuers)
+- [Using OpenID Connect with the Octopus API](/docs/api/authentication/openid-connect)
+- [Using OpenID Connect with other issuers](/docs/api/authentication/openid-connect/other-issuers)
 - [Create Release Buildkite plugin](https://github.com/OctopusDeploy/create-release-buildkite-plugin)
