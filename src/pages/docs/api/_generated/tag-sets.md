@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Tag Sets
 ---
 
@@ -40,7 +40,8 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Description`** :span[string]{.type-label}  
     Gets or sets the description of this tag set.
@@ -80,7 +81,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "TagSet",
   "Items": [
     {
       "Description": "string",
@@ -89,9 +90,7 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "Scopes": [
@@ -105,17 +104,15 @@ Lists all of the Tag Sets in the supplied Octopus Deploy Space. The results will
       "Type": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -228,9 +225,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets`, `/api/tagsets`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Scopes": [
@@ -317,9 +312,7 @@ Lists the details of all of the Tag Sets in the supplied Octopus Deploy Space. T
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "Scopes": [
@@ -430,9 +423,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Scopes": [
@@ -481,7 +472,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   Sets the sort order of this tag set.
 - **`SpaceId`** :span[string]{.type-label} *(required)*
 - **`Tags`** :span[array of object]{.type-label}  
-  The complete list of tags for the tag set; existing tags omitted here are deleted (rejected if still in use). Each tag is an object with a 'Name', an optional 'Description', a 'Color' hex code (e.g. '#3156B3'), a 'SortOrder', and — for existing tags — the 'Id' from get_tag_set, which must be kept to update or rename a tag rather than replace it.
+  The complete list of tags for the tag set; existing tags omitted here are deleted (rejected if still in use). Each tag is an object with a 'Name', an optional 'Description', a 'Color' hex code (e.g. '#3156B3'), a 'SortOrder', and — for existing tags — the 'Id' from the existing tag set, which must be kept to update or rename a tag rather than replace it.
   - **`CanonicalTagName`** :span[string]{.type-label}  
     This is the canonical name for the Tag formed as {TagSetName}/{TagName} which is easier to work with than the ID in certain scenarios.
   - **`Color`** :span[string]{.type-label}  
@@ -568,9 +559,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/tagsets/{id}`, `/api/tagsets/{i
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "Scopes": [

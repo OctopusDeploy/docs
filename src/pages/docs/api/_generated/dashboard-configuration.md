@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Dashboard Configuration
 ---
 
@@ -73,9 +73,7 @@ Gets the dashboard configuration of the authenticated user for the current space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectLimit": 0,
   "SpaceId": "Spaces-1"
@@ -208,9 +206,7 @@ Modifies the dashboard configuration for the current user per space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "ProjectLimit": 0,
   "SpaceId": "Spaces-1"

@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Project Triggers
 ---
 
@@ -43,7 +43,8 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Action`** :span[object]{.type-label}
   - **`Description`** :span[string]{.type-label}
@@ -75,7 +76,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ProjectTrigger",
   "Items": [
     {
       "Action": {
@@ -83,7 +84,9 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "Description": "string",
       "Filter": {
@@ -91,33 +94,31 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "Id": "string",
       "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectId": "string",
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -179,9 +180,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -191,9 +190,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "IsDisabled": false,
@@ -253,9 +250,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -265,9 +260,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -275,9 +268,7 @@ Also reachable at `/api/projects/{projectId}/triggers`, `/api/spaces/{spaceIdent
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",
@@ -350,9 +341,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -362,9 +351,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -372,9 +359,7 @@ Also reachable at `/api/projects/{projectId}/triggers/{id}`, `/api/spaces/{space
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",
@@ -446,9 +431,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -458,9 +441,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "ProjectTriggers-1",
@@ -521,9 +502,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -533,9 +512,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -543,9 +520,7 @@ Updates an existing project trigger
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",
@@ -607,7 +582,8 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`Action`** :span[object]{.type-label}
   - **`Description`** :span[string]{.type-label}
@@ -639,7 +615,7 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "ProjectTrigger",
   "Items": [
     {
       "Action": {
@@ -647,7 +623,9 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "Description": "string",
       "Filter": {
@@ -655,33 +633,31 @@ Gets all the Project Triggers in the supplied Octopus Deploy Space, sorted by Id
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {}
+        "Links": {
+          "Self": "/api/..."
+        }
       },
       "Id": "string",
       "IsDisabled": false,
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ProjectId": "string",
       "SpaceId": "Spaces-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -741,9 +717,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -753,9 +727,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "IsDisabled": false,
@@ -815,9 +787,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -827,9 +797,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -837,9 +805,7 @@ Also reachable at `/api/projecttriggers`, `/api/spaces/{spaceIdentifier}/project
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",
@@ -910,9 +876,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -922,9 +886,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -932,9 +894,7 @@ Also reachable at `/api/projecttriggers/{id}`, `/api/spaces/{spaceIdentifier}/pr
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",
@@ -1004,9 +964,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -1016,9 +974,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "ProjectTriggers-1",
@@ -1079,9 +1035,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Description": "string",
@@ -1091,9 +1045,7 @@ Updates an existing project trigger
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     }
   },
   "Id": "string",
@@ -1101,9 +1053,7 @@ Updates an existing project trigger
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ProjectId": "string",

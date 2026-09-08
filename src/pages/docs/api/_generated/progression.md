@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Progression
 ---
 
@@ -38,7 +38,8 @@ Return a list of runbook dashboard items, filtered by various criteria including
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CompletedTime`** :span[string]{.type-label}  
     Format `date-time`.
@@ -93,7 +94,7 @@ Return a list of runbook dashboard items, filtered by various criteria including
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "RunbooksDashboardItem",
   "Items": [
     {
       "CompletedTime": "2020-01-01T00:00:00.000Z",
@@ -113,9 +114,7 @@ Return a list of runbook dashboard items, filtered by various criteria including
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "PendingInterruptionTypes": [
         "ManualIntervention"
@@ -137,17 +136,15 @@ Return a list of runbook dashboard items, filtered by various criteria including
       "TenantId": "Tenants-1"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -195,9 +192,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "RunbookRuns": {
     "additionalProp1": [
@@ -215,7 +210,9 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "PendingInterruptionTypes": [
           "ManualIntervention"
         ],
@@ -251,7 +248,9 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "PendingInterruptionTypes": [
           "ManualIntervention"
         ],
@@ -287,7 +286,9 @@ Also reachable at `/api/progression/runbooks/{runbookId}`, `/api/spaces/{spaceId
         "IsCompleted": false,
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "PendingInterruptionTypes": [
           "ManualIntervention"
         ],
@@ -356,9 +357,7 @@ Also reachable at `/api/progression/runbooks/{runbookId}/v1`, `/api/spaces/{spac
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "RunbookRuns": {
       "additionalProp1": [
@@ -473,9 +472,7 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
     ]
   },
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Releases": [
     {
@@ -497,7 +494,9 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
         "LifecycleId": "string",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Name": "string",
         "ParentEnvironmentId": "Environments-1",
         "ProjectId": "Projects-1",
@@ -541,7 +540,9 @@ Also reachable at `/api/progression/{projectId}`, `/api/projects/{projectId}/pro
         "LibraryVariableSetSnapshotIds": [
           "string"
         ],
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "ProjectDeploymentProcessSnapshotId": "string",
         "ProjectId": "Projects-1",
         "ProjectVariableSetSnapshotId": "string",
@@ -647,9 +648,7 @@ Also reachable at `/api/projects/{projectId}/progression/v1`, `/api/spaces/{spac
       ]
     },
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Releases": [
       {

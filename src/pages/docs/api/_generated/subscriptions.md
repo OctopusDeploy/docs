@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Subscriptions
 ---
 
@@ -34,7 +34,8 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`EventNotificationSubscription`** :span[object]{.type-label}
   - **`Id`** :span[string]{.type-label}  
@@ -65,7 +66,7 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Subscription",
   "Items": [
     {
       "EventNotificationSubscription": {
@@ -102,26 +103,22 @@ Lists all of the Subscriptions in the supplied Octopus Deploy Space. The results
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "SpaceId": "Spaces-1",
       "Type": "Event"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -375,9 +372,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions`, `/api/subscript
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -519,9 +514,7 @@ Lists all the Subscriptions in the supplied Octopus Deploy Space
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "SpaceId": "Spaces-1",
@@ -667,9 +660,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",
@@ -935,9 +926,7 @@ Also reachable at `/api/spaces/{spaceIdentifier}/subscriptions/{id}`, `/api/subs
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "SpaceId": "Spaces-1",

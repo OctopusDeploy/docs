@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-08-11
+modDate: 2026-09-04
 title: Channels
 ---
 
@@ -101,9 +101,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -201,9 +199,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -217,9 +213,7 @@ Also reachable at `/api/channels`, `/api/spaces/{spaceIdentifier}/channels`.
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -335,9 +329,7 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "LifecycleId": "string",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Name": "string",
     "ParentEnvironmentId": "Environments-1",
@@ -350,7 +342,9 @@ Lists all of the channels in the supplied Octopus Deploy Space. The results will
         "Id": "string",
         "LastModifiedBy": "string",
         "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-        "Links": {},
+        "Links": {
+          "Self": "/api/..."
+        },
         "Tag": "string",
         "VersionRange": "string",
         "VersionTagRegex": "string",
@@ -747,9 +741,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -846,9 +838,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -862,9 +852,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -930,7 +918,8 @@ Lists all the channels for the given project
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AutomaticEphemeralEnvironmentDeployments`** :span[boolean]{.type-label}
   - **`CustomFieldDefinitions`** :span[array of object]{.type-label}
@@ -972,7 +961,7 @@ Lists all the channels for the given project
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Channel",
   "Items": [
     {
       "AutomaticEphemeralEnvironmentDeployments": false,
@@ -993,9 +982,7 @@ Lists all the channels for the given project
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ParentEnvironmentId": "Environments-1",
@@ -1011,17 +998,15 @@ Lists all the channels for the given project
       "Type": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1123,9 +1108,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -1223,9 +1206,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1239,9 +1220,7 @@ Also reachable at `/api/projects/{projectId}/channels`, `/api/spaces/{spaceIdent
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -1423,9 +1402,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1439,9 +1416,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -1560,9 +1535,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -1659,9 +1632,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1675,9 +1646,7 @@ Also reachable at `/api/projects/{projectId}/channels/{id}`, `/api/spaces/{space
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",
@@ -1776,7 +1745,8 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`AutomaticEphemeralEnvironmentDeployments`** :span[boolean]{.type-label}
   - **`CustomFieldDefinitions`** :span[array of object]{.type-label}
@@ -1818,7 +1788,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "Channel",
   "Items": [
     {
       "AutomaticEphemeralEnvironmentDeployments": false,
@@ -1839,9 +1809,7 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "LifecycleId": "string",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Name": "string",
       "ParentEnvironmentId": "Environments-1",
@@ -1857,17 +1825,15 @@ Lists all of the Channels in the supplied Octopus Deploy Space, from all project
       "Type": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -1968,9 +1934,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "LifecycleId": "string",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Name": "string",
   "ParentEnvironmentId": "Environments-1",
@@ -1984,9 +1948,7 @@ Also reachable at `/api/channels/{id}`, `/api/spaces/{spaceIdentifier}/channels/
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Tag": "string",
       "VersionRange": "string",

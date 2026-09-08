@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Api.astro
 pubDate: 2026-08-11
-modDate: 2026-09-03
+modDate: 2026-09-04
 title: Users
 ---
 
@@ -33,7 +33,8 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 
 - **`Id`** :span[string]{.type-label}  
   Gets or sets a unique identifier for this resource.
-- **`ItemType`** :span[string]{.type-label}
+- **`ItemType`** :span[string]{.type-label}  
+  The type of item in this list.
 - **`Items`** :span[array of object]{.type-label}
   - **`CanPasswordBeEdited`** :span[boolean]{.type-label}
   - **`Created`** :span[string]{.type-label}  
@@ -75,7 +76,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
 ```json
 {
   "Id": "string",
-  "ItemType": "string",
+  "ItemType": "User",
   "Items": [
     {
       "CanPasswordBeEdited": false,
@@ -92,26 +93,22 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
       "LastModifiedBy": "string",
       "LastModifiedOn": "2020-01-01T00:00:00.000Z",
       "Links": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+        "Self": "/api/..."
       },
       "Password": "string",
       "ServiceAccountType": "Standard",
       "Username": "string"
     }
   ],
-  "ItemsPerPage": 0,
+  "ItemsPerPage": 30,
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
-  "LastPageNumber": 0,
+  "LastPageNumber": 1,
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
-  "NumberOfPages": 0,
-  "TotalResults": 0
+  "NumberOfPages": 2,
+  "TotalResults": 42
 }
 ```
 :::
@@ -216,9 +213,7 @@ Lists all of the Users in the current Octopus Deploy instance, from all Teams. T
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -286,9 +281,7 @@ Lists all the Users in the System. The results will be sorted alphabetically by 
     "LastModifiedBy": "string",
     "LastModifiedOn": "2020-01-01T00:00:00.000Z",
     "Links": {
-      "additionalProp1": "string",
-      "additionalProp2": "string",
-      "additionalProp3": "string"
+      "Self": "/api/..."
     },
     "Password": "string",
     "ServiceAccountType": "Standard",
@@ -523,9 +516,7 @@ Also reachable at `/api/users/authentication`.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -604,9 +595,7 @@ Logs out the current user.
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -714,9 +703,7 @@ Unless the first administrator user is being registered, an invitation code must
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -790,9 +777,7 @@ Unless the first administrator user is being registered, an invitation code must
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
@@ -902,9 +887,7 @@ Unless the first administrator user is being registered, an invitation code must
   "LastModifiedBy": "string",
   "LastModifiedOn": "2020-01-01T00:00:00.000Z",
   "Links": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
+    "Self": "/api/..."
   },
   "Password": "string",
   "ServiceAccountType": "Standard",
