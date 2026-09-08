@@ -1,7 +1,7 @@
 ---
 layout: src/layouts/Default.astro
 pubDate: 2023-01-01
-modDate: 2026-08-17
+modDate: 2026-09-08
 title: User roles
 description: User roles are a critical part of the Octopus security model whereby they are assigned to Teams and they dictate what the members of those teams can do in Octopus.
 ---
@@ -49,6 +49,14 @@ For more information regarding the *system or space level*, please see [system a
 :::
 
 ## Creating user roles {#UserRoles-CreatingUserRoles}
+
+:::div{.warning}
+**`UserInvite` is a highly privileged permission.** Of the built-in roles, only **System Administrator** and **System Manager** include it, and that is deliberate.
+
+Inviting a user requires `UserInvite` together with `TeamEdit`, and that combination lets you add someone to a team granting more access than you hold yourself. The only exception is that you cannot invite anyone into a team with the `AdministerSystem` permission unless you have it too.
+
+Grant `UserInvite` only to people you trust to administer the whole Octopus installation.
+:::
 
 A custom User Role can be created with any combination of permissions. To create a custom user role:
 
