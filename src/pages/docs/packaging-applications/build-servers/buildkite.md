@@ -155,5 +155,5 @@ There is no Buildkite plugin for pushing [build information](/docs/packaging-app
 
 - [Octopus CLI](/docs/octopus-rest-api/cli)
 - [Using OpenID Connect with the Octopus API](/docs/octopus-rest-api/openid-connect)
-- [Using OpenID Connect with other issuers](/docs/octopus-rest-api/openid-connect/other-issuers)
+- [Using OpenID Connect with other issuers](/docs/api/authentication/openid-connect/other-issuers)
 - [Create Release Buildkite plugin](https://github.com/OctopusDeploy/create-release-buildkite-plugin)
